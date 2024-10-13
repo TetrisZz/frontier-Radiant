@@ -268,7 +268,6 @@
     - CrateVendingMachineRestockRoboticsFilled
     - CrateVendingMachineRestockAstroVendFilled
     - CrateVendingMachineRestockTankDispenserFilled
-    # - CrateVendingMachineRestockFlatpackVendFilled
     # Mats
     - CrateMaterialGlass
     - CrateMaterialSteel
@@ -356,8 +355,7 @@
     - CrateVendingMachineRestockVendomatFilled
     - CrateVendingMachineRestockRoboticsFilled
     - CrateVendingMachineRestockAstroVendFilled
-    - CrateVendingMachineRestockTankDispenserFilled
-    # - CrateVendingMachineRestockFlatpackVendFilled
+    # - CrateVendingMachineRestockTankDispenserFilled
     chance: 1.0
     offset: 0.0
 
@@ -392,7 +390,7 @@
     chance: 1
     offset: 0.0
     rarePrototypes:
-    - TilePrinterNF
+    - CutterMachine
     - AutolatheHyperConvection
     - ProtolatheHyperConvection
     rareChance: 0.01
@@ -437,7 +435,7 @@
     layers:
       - state: green
         scale: 0.7, 0.7
-      - sprite: Objects/Misc/stock_parts.rsi
+      - sprite: _NF/Objects/Misc/stock_parts.rsi
         state: bluespace_matter_bin
       - sprite: _NF/Markers/general.rsi
         state: questionmark
@@ -529,7 +527,7 @@
     - ProtolatheMachineCircuitboard
     - AutolatheMachineCircuitboard
     - FlatpackerMachineCircuitboard
-    - TilePrinterNFMachineCircuitboard
+    - CutterMachineCircuitboard
     # Machines
     - ShredderMachineCircuitboard
     - SpaceHeaterMachineCircuitBoard
@@ -579,7 +577,7 @@
     - CircuitImprinterFlatpack
     - EngineeringTechFabFlatpack
     - MaterialReclaimerFlatpack
-    - TilePrinterNFFlatpack
+    - CutterMachineFlatpack
     - PowerCellRechargerFlatpack
     - WeaponCapacitorRechargerFlatpack
     - BorgChargerFlatpack

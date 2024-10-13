@@ -152,13 +152,25 @@
       - state: warden
 
 - type: entity
-  id: SpawnPointDetectiveNF
+  id: NFSpawnPointDetective
   parent: SpawnPointDetective
-  name: detective nf
+  name: detective
   components:
   - type: SpawnPoint
-    job_id: DetectiveNF
+    job_id: NFDetective
   - type: Sprite
     layers:
       - state: green
       - state: detective
+
+- type: entity
+  id: SpawnPointPublicAffairsLiaison
+  parent: SpawnPointJobBase
+  name: public affairs liaison
+  components:
+  - type: SpawnPoint
+    job_id: PublicAffairsLiaison
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lawyer
