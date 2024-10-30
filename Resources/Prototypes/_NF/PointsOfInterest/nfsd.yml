@@ -49,7 +49,7 @@
             Brigmedic: [ 0, 0 ]
             NFDetective: [ 0, 0 ]
             Deputy: [ 3, 3 ]
-            Cadet: [ 0, 0 ]
+            Cadet: [ 1, 1 ]
             # Others:
             PublicAffairsLiaison: [ 1, 1 ]
         - type: StationDeadDropReporting

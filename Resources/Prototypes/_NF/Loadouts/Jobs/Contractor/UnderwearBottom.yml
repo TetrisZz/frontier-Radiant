@@ -1,0 +1,159 @@
+#T0
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersWhite
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 0
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersWhite
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersSpaceNinja
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersSpaceNinja
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersCap
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersCap
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersCE
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersCE
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersCMO
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersCMO
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersHOP
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersHOP
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersHOS
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersHOS
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersQM
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersQM
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersRD
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersRD
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesWhite
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 0
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesWhite
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesThong
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesThong
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesNeko
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesNeko
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesLace
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesLace
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesSpaceNinja
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesSpaceNinja
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesCap
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesCap
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesCE
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesCE
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesCMO
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesCMO
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesHOP
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesHOP
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesHOS
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesHOS
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesQM
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesQM
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesRD
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesRD

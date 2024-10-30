@@ -625,6 +625,8 @@
   - ContractorClothingNeckMantleCE
   - ContractorClothingNeckCloakVoid
   - ContractorClothingNeckBling
+  - ContractorClothingNeckChokerSpike
+  - ContractorClothingNeckChokerHeart
 
 - type: loadoutGroup
   id: ContractorPDA
@@ -875,3 +877,69 @@
   - ContractorRubberStampTrader
   - ContractorRubberStampClown
   - ContractorRubberStampMime
+
+- type: loadoutGroup
+  id: ContractorUnderwearBottom
+  name: loadout-group-contractor-underwearbottom
+  minLimit: 1
+  loadouts:
+  - ContractorClothingUnderwearBottomBoxersWhite
+  - ContractorClothingUnderwearBottomBoxersSpaceNinja
+  - ContractorClothingUnderwearBottomBoxersCap
+  - ContractorClothingUnderwearBottomBoxersCE
+  - ContractorClothingUnderwearBottomBoxersCMO
+  - ContractorClothingUnderwearBottomBoxersHOP
+  - ContractorClothingUnderwearBottomBoxersHOS
+  - ContractorClothingUnderwearBottomBoxersQM
+  - ContractorClothingUnderwearBottomBoxersRD
+  - ContractorClothingUnderwearBottomPantiesWhite
+  - ContractorClothingUnderwearBottomPantiesThong
+  - ContractorClothingUnderwearBottomPantiesNeko
+  - ContractorClothingUnderwearBottomPantiesLace
+  - ContractorClothingUnderwearBottomPantiesSpaceNinja
+  - ContractorClothingUnderwearBottomPantiesCap
+  - ContractorClothingUnderwearBottomPantiesCE
+  - ContractorClothingUnderwearBottomPantiesCMO
+  - ContractorClothingUnderwearBottomPantiesHOP
+  - ContractorClothingUnderwearBottomPantiesHOS
+  - ContractorClothingUnderwearBottomPantiesQM
+  - ContractorClothingUnderwearBottomPantiesRD
+  fallbacks:
+  - ContractorClothingUnderwearBottomBoxersWhite
+  - ContractorClothingUnderwearBottomPantiesWhite
+  
+- type: loadoutGroup
+  id: ContractorUnderwearSocks
+  name: loadout-group-contractor-underwearsocks
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ContractorClothingUnderwearSocksHigh
+  - ContractorClothingUnderwearSocksNormal
+  - ContractorClothingUnderwearSocksShort
+  - ContractorClothingUnderwearSocksThigh
+  - ContractorClothingUnderwearSocksFishnettights
+  - ContractorClothingUnderwearSocksPantyhose
+  - ContractorClothingUnderwearSocksGarters
+  - ContractorClothingUnderwearSocksRich
+  
+- type: loadoutGroup
+  id: ContractorUnderwearTop
+  name: loadout-group-contractor-underweartop
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ContractorClothingUnderwearTopBraWhite
+  - ContractorClothingUnderwearTopBraSports
+  - ContractorClothingUnderwearTopBraSportsAlternative
+  - ContractorClothingUnderwearTopNekoBra
+  - ContractorClothingUnderwearToplaceBra
+  - ContractorClothingUnderwearTopSpaceNinja
+  - ContractorClothingUnderwearTopBraCap
+  - ContractorClothingUnderwearTopBraCE
+  - ContractorClothingUnderwearTopBraCMO
+  - ContractorClothingUnderwearTopBraHOP
+  - ContractorClothingUnderwearTopBraHOS
+  - ContractorClothingUnderwearTopBraQM
+  - ContractorClothingUnderwearTopBraRD
+  

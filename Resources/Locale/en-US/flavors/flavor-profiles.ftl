@@ -20,7 +20,6 @@ flavor-base-fishy = fishy
 flavor-base-crabby = crabby
 flavor-base-cheesy = cheesy
 flavor-base-funny = funny
-flavor-base-strange = strange
 flavor-base-tingly = tingly
 flavor-base-acid = acidic
 flavor-base-leafy = leafy
@@ -51,7 +50,6 @@ flavor-base-horrible = horrible
 # lmao
 flavor-base-terrible = terrible
 flavor-base-mindful = mindful
-flavor-base-chewy = chewy
 
 # Complex flavors. Put a flavor here when you want something that's more
 # specific.
@@ -127,7 +125,6 @@ flavor-complex-meatballs = like meatballs
 flavor-complex-nettles = like nettles
 flavor-complex-jungle = like jungle
 flavor-complex-vegetables = like vegetables
-flavor-complex-cherry = like cherries
 # use it when there multiple types of veggies
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
@@ -172,16 +169,10 @@ flavor-complex-lost-friendship = like lost friendship
 flavor-complex-light = like a light gone out
 flavor-complex-profits = like profits
 flavor-complex-fishops = like the dreaded fishops
-flavor-complex-blue-pumpkin = like a mouthful of pool water
 flavor-complex-violets = like violets
 flavor-complex-pyrotton = like a burning mouth
 flavor-complex-mothballs = like mothballs
 flavor-complex-paint-thinner = like paint thinner
-flavor-complex-numbing-tranquility = like numbing tranquility
-flavor-complex-true-nature = like the true nature of reality
-flavor-complex-false-meat = not entirely unlike meat
-flavor-complex-paper = like mushy pulp
-flavor-complex-compressed-meat = like compressed meat
 
 # Drink-specific flavors.
 

@@ -11,7 +11,6 @@ ion-storm-clowns = CLOWNS
 # Frontier: heads of staff < sector command
 ion-storm-heads = SECTOR COMMAND
 ion-storm-crew = CREW
-ion-storm-people = PEOPLE
 
 ion-storm-adjective-things = {$adjective} THINGS
 ion-storm-x-and-y = {$x} AND {$y}

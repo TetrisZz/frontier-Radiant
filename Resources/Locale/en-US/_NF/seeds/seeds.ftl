@@ -1,10 +1,10 @@
 seeds-noun-nothing = {""}
 
 # Seeds
-seeds-spesos-name = speso
-seeds-spesos-display-name = speso trees
+seeds-spesos-name = spesos
+seeds-spesos-display-name = spesos
 seeds-pear-name = pear
-seeds-pear-display-name = pear trees
+seeds-pear-display-name = pear
 seeds-coffee-name = coffee
 seeds-coffee-display-name = coffee plants
 seeds-avocado-name = avocado

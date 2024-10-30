@@ -1,4 +1,5 @@
 <Document>
+<<<<<<< HEAD
   #Frontier Station Rules, v5
 
   ##Recent Changes
@@ -48,4 +49,27 @@
   - [textlink="12. Security and Station staff must act with integrity." link="FrontierRule12"]
   - [textlink="13. Command staff must act with integrity." link="FrontierRule13"]
 
+=======
+  # Добро пожаловать на Radiant Sector☄️
+
+Правила сервера Radiant Sector
+
+Вкратце, эти правила следующие. Щелкните на любое правило для получения дополнительной информации.
+
+Незнание правил не освобождает вас от ответственности. Чтобы узнать о изменение правил, следите за каналом новости в нашем дискорд сервере
+
+  - [textlink="Режим Фронтира совершенно отличается от режима станции" link="FrontierRule0"]
+  - [textlink="0. Не будь мудаком" link="FrontierRule1"]
+  - [textlink="1. Нечестная игра" link="FrontierRule2"]
+  - [textlink="2. Ценность жизни" link="FrontierRule3"]
+  - [textlink="3. Метагейм" link="FrontierRule4"]
+  - [textlink="4. РП-отыгрыш" link="FrontierRule5"]
+  - [textlink="5. Убийство, косвенное убийство, RDM." link="FrontierRule6"]
+  - [textlink="6. Неприемлемое поведение для занимаемой должности" link="FrontierRule7"]
+  - [textlink="7. Мародерство" link="FrontierRule8"]
+  - [textlink="8. Самоантагонизм" link="FrontierRule9"]
+  - [textlink="9. Игра за пиратов." link="FrontierRule10"]
+  - [textlink="10. Кража имущества" link="FrontierRule11"]
+  - [textlink="11. Злоупотребление АХелпом / Cпам" link="FrontierRule12"]
+>>>>>>> 156e9704b9 (underwear_localization_texture)
 </Document>

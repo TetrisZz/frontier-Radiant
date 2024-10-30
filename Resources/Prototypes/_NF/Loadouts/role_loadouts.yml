@@ -22,6 +22,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 # Pilot
 - type: roleLoadout
@@ -47,6 +50,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 # Mercenary
 - type: roleLoadout
@@ -72,6 +78,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 # Frontier
 - type: roleLoadout
@@ -93,6 +102,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobNFJanitor
@@ -131,6 +143,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobStationTrafficController
@@ -152,6 +167,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobStationRepresentative
@@ -174,6 +192,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobSecurityGuard
@@ -195,6 +216,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 # Nfsd
 - type: roleLoadout
@@ -217,6 +241,9 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobDeputy
@@ -238,7 +265,10 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
-
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  
 - type: roleLoadout
   id: JobBrigmedic
   groups:
@@ -260,6 +290,9 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobNFDetective
@@ -281,6 +314,9 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobPublicAffairsLiaison
@@ -302,6 +338,9 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 # - type: roleLoadout # Fix when this is actully used
   # id: JobPrisonGuard
@@ -343,6 +382,9 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobSeniorOfficer
@@ -364,6 +406,9 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobSheriff
@@ -385,6 +430,9 @@
   - ContractorImplanter
   - ContractorFun
   - ContractorTrinkets
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 # Pirate
 
@@ -401,6 +449,9 @@
   - PirateFace
   - PiratePDA
   - ContractorBoxSurvival
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobPirateFirstMate
@@ -415,6 +466,9 @@
   - PirateFace
   - PirateFirstMatePDA
   - ContractorBoxSurvival
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobPirateCaptain
@@ -430,6 +484,9 @@
   - PirateFace
   - PirateCaptainPDA
   - ContractorBoxSurvival
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 # Prisoner
 
@@ -446,3 +503,6 @@
   - PrisonerFace
   - PrisonerPDA
   - PrisonerSurvival
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop

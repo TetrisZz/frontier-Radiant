@@ -25,7 +25,6 @@ materials-meat = meat
 materials-web = silk
 materials-bones = bone
 materials-coal = coal
-materials-diamond = diamond
 materials-gunpowder = gunpowder
 
 # Ores
@@ -37,4 +36,6 @@ materials-raw-plasma = raw plasma
 materials-raw-uranium = raw uranium
 materials-raw-bananium = raw bananium
 materials-raw-salt = raw salt
-materials-raw-diamond = raw diamond
+
+# Material Reclaimer
+material-reclaimer-upgrade-process-rate = process rate

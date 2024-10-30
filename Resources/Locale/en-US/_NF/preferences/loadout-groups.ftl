@@ -2,7 +2,6 @@
 
 loadout-group-contractor-gloves = gloves
 loadout-group-contractor-head = head
-loadout-group-contractor-ears = ears
 loadout-group-contractor-jumpsuit = jumpsuit
 loadout-group-contractor-outerclothing = outer clothing
 loadout-group-contractor-belt = belt
