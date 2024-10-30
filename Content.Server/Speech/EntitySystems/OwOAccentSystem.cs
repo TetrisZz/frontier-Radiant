@@ -18,6 +18,7 @@ namespace Content.Server.Speech.EntitySystems
 			{ "Ты", "Ти" },
 			{ "ага", "мяфк" },
 			{ "Ага", "Мяфк" },
+			{ "ага", "мяфк" },
         };
 
         public override void Initialize()

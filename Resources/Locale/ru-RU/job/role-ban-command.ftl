@@ -1,4 +1,4 @@
-﻿### Localization for role ban command
+### Localization for role ban command
 
 cmd-roleban-desc = Запрещает пользователю играть на роли
 cmd-roleban-help = Использование: roleban <name or user ID> <job> <reason> [продолжительность в минутах, не указывать или 0 для навсегда]
@@ -17,7 +17,6 @@ cmd-roleban-hint-duration-4 = 1 неделя
 cmd-roleban-hint-duration-5 = 2 недели
 cmd-roleban-hint-duration-6 = 1 месяц
 
-
 ### Localization for role unban command
 
 cmd-roleunban-desc = Возвращает пользователю возможность играть на роли
@@ -25,7 +24,6 @@ cmd-roleunban-help = Использование: roleunban <role ban id>
 
 ## Completion result hints
 cmd-roleunban-hint-1 = <role ban id>
-
 
 ### Localization for roleban list command
 
@@ -35,7 +33,6 @@ cmd-rolebanlist-help = Использование: <name or user ID> [include un
 ## Completion result hints
 cmd-rolebanlist-hint-1 = <name or user ID>
 cmd-rolebanlist-hint-2 = [include unbanned]
-
 
 cmd-roleban-minutes-parse = { $time } - недопустимое количество минут.\n{ $help }
 cmd-roleban-severity-parse = ${ severity } is not a valid severity\n{ $help }.
