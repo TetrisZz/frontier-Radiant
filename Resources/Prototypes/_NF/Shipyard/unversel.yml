@@ -1,0 +1,45 @@
+# Author Info
+# GitHub: Tych0theSynth
+# Discord: Tych0
+
+# Maintainer Info
+# GitHub: Tych0theSynth
+# Discord: Tych0
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: unversel
+  name: HOM Анвёрсел
+  description: Универсальный шаттл, оборудованный под различные цели с баром, кухней, гидропоникой, медбеем и производственным цехом. 
+  price: 78000 #Appraises at 53341. Markup is 5% - TODO: fix this value, getting tests to pass - Whatstone
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_NF/Shuttles/unversel.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  - Salvage
+  - Civilian
+  - Botany
+  - Kitchen
+
+- type: gameMap
+  id: unversel
+  mapName: 'HOM Анвёрсел'
+  mapPath: /Maps/_NF/Shuttles/unversel.yml
+  minPlayers: 0
+  stations:
+    unversel:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Анвёрсел {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

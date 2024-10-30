@@ -2,6 +2,9 @@
 - type: roleLoadout
   id: JobCaptain
   groups:
+  - CaptainUnderwearTop
+  - CaptainUnderwearBottom
+  - BasicUnderwearSocks
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
@@ -14,6 +17,9 @@
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
+  - HoPUnderwearTop
+  - HoPUnderwearBottom
+  - BasicUnderwearSocks
   - GroupTankHarness
   - HoPHead
   - HoPNeck
@@ -34,6 +40,9 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
@@ -50,6 +59,9 @@
 - type: roleLoadout
   id: JobBartender
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
@@ -63,6 +75,9 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
@@ -74,6 +89,9 @@
 - type: roleLoadout
   id: JobChef
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ChefHead
   - ChefMask
@@ -88,6 +106,9 @@
 - type: roleLoadout
   id: JobLibrarian
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
@@ -99,6 +120,9 @@
 - type: roleLoadout
   id: JobLawyer
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - LawyerNFNeck # Frontier
   - LawyerNFJumpsuit # Frontier
@@ -115,6 +139,9 @@
 - type: roleLoadout
   id: JobChaplain
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ChaplainHead
   - ChaplainMask
@@ -130,6 +157,9 @@
 - type: roleLoadout
   id: JobJanitor
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - JanitorNFHead # Frontier
   - JanitorNFJumpsuit # Frontier
@@ -150,6 +180,9 @@
 - type: roleLoadout
   id: JobBotanist
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
@@ -163,6 +196,9 @@
 - type: roleLoadout
   id: JobClown
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ClownHead
   - ClownJumpsuit
@@ -176,6 +212,9 @@
 - type: roleLoadout
   id: JobMime
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - MimeHead
   - MimeMask
@@ -190,6 +229,9 @@
 - type: roleLoadout
   id: JobMusician
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
@@ -204,6 +246,9 @@
 - type: roleLoadout
   id: JobQuartermaster
   groups:
+  - QMUnderwearTop
+  - QMUnderwearBottom
+  - BasicUnderwearSocks
   - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
@@ -219,6 +264,9 @@
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
@@ -233,6 +281,9 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
@@ -246,6 +297,9 @@
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
+  - CEUnderwearTop
+  - CEUnderwearBottom
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
@@ -260,6 +314,9 @@
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
@@ -270,6 +327,9 @@
 - type: roleLoadout
   id: JobStationEngineer
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - StationEngineerHead
   - StationEngineerJumpsuit
@@ -284,6 +344,9 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
@@ -297,6 +360,9 @@
 - type: roleLoadout
   id: JobResearchDirector
   groups:
+  - RDUnderwearTop
+  - RDUnderwearBottom
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
@@ -313,6 +379,9 @@
 - type: roleLoadout
   id: JobScientist
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ScientistHead
   - ScientistNeck
@@ -330,6 +399,9 @@
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
@@ -342,6 +414,9 @@
 - type: roleLoadout
   id: JobHeadOfSecurity
   groups:
+  - HOSUnderwearTop
+  - HOSUnderwearBottom
+  - BasicUnderwearSocks
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -357,6 +432,9 @@
 - type: roleLoadout
   id: JobWarden
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
@@ -371,6 +449,9 @@
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
@@ -386,6 +467,9 @@
 - type: roleLoadout
   id: JobDetective
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - DetectiveHead
   - DetectiveNeck
@@ -401,6 +485,9 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
@@ -411,6 +498,9 @@
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
+  - CMOUnderwearTop
+  - CMOUnderwearBottom
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
@@ -428,6 +518,9 @@
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
@@ -445,6 +538,9 @@
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
@@ -456,6 +552,9 @@
 - type: roleLoadout
   id: JobChemist
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - MedicalMask
   - ChemistJumpsuit
@@ -470,6 +569,9 @@
 - type: roleLoadout
   id: JobParamedic
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ParamedicHead
   - MedicalMask
@@ -487,6 +589,9 @@
 - type: roleLoadout
   id: JobZookeeper
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - CommonBackpack
   - Glasses
@@ -497,6 +602,9 @@
 - type: roleLoadout
   id: JobReporter
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - ReporterJumpsuit
   - CommonBackpack
@@ -508,6 +616,9 @@
 - type: roleLoadout
   id: JobPsychologist
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
@@ -519,6 +630,9 @@
 - type: roleLoadout
   id: JobBoxer
   groups:
+  - BasicUnderwearBottom
+  - BasicUnderwearTop
+  - BasicUnderwearSocks
   - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves

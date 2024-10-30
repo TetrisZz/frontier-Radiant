@@ -1,0 +1,9 @@
+job-supervisors-sr = представителю станции
+job-supervisors-sheriff = шерифу
+job-supervisors-bailiff = бейлифу
+job-supervisors-sergeant = сержанту
+job-supervisors-cadet = всему вышестоящему персоналу ДШНФ
+job-supervisors-prisoner = всему персоналу ДШНФ
+job-supervisors-nfsd = шерифу, бейлифу и сержанту
+job-supervisors-pirate = боцману и капитану
+job-supervisors-nobody = никому

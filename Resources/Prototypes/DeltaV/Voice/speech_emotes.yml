@@ -1,7 +1,7 @@
 # Harpy
 - type: emote
   id: Ring
-  name: Ring
+  name: Звенеть
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -11,16 +11,17 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["rings."]
+  chatMessages: ["звенит."]
   chatTriggers:
     - ring
     - rings
     - ringing
     - ringed
+    - звенит
 
 - type: emote
   id: Pew
-  name: Pew
+  name: Бзз
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -30,7 +31,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["pews."]
+  chatMessages: ["пиу."]
   chatTriggers:
     - pew
     - pews
@@ -39,7 +40,7 @@
 
 - type: emote
   id: Bang
-  name: Bang
+  name: Подражать выстрел
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -49,16 +50,18 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["bangs."]
+  chatMessages: ["Бах."]
   chatTriggers:
     - bang
     - bangs
     - banging
     - banged
+    - стреляет
+    - бах
 
 - type: emote
   id: Rev
-  name: Rev
+  name: Звук бензопилы
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -87,17 +90,18 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["caws."]
+  chatMessages: ["Рррв."]
   chatTriggers:
     - caws
     - caw
     - cawing
     - cawed
+    - Рррв
 
 #Vulpkanin
 - type: emote
   id: Bark
-  name: Bark
+  name: Гавкнуть
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -107,16 +111,20 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["barks."]
+  chatMessages: ["гавкает."]
   chatTriggers:
     - bark
     - barks
     - barked
     - barking
+    - гавкает
+    - гавкает.
+    - тявкает
+    - тявкает.
 
 - type: emote
   id: Snarl
-  name: Snarl
+  name: Рычать
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -126,16 +134,19 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["snarls."]
+  chatMessages: ["рычит."]
   chatTriggers:
     - snarl
     - snarls
     - snarled
     - snarling
+    - рычит
+    - рычит.
+    - рав
 
 - type: emote
   id: Whine
-  name: Whine
+  name: Скулить
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -145,16 +156,18 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["whines."]
+  chatMessages: ["скулит."]
   chatTriggers:
     - whine
     - whines
     - whined
     - whining
+    - скулит
+    - скулит.
 
 - type: emote
   id: Howl
-  name: Howl
+  name: Выть
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -164,16 +177,28 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["howls."]
+  chatMessages: ["воет."]
   chatTriggers:
     - howl
     - howls
     - howling
     - howled
+    - воет
+    - ау
+    - ауу
+    - аууу
+    - ауууу
+    - аууууу
+    - ауууууу
+    - аууууууу
+    - ау!
+    - ауу!
+    - аууу!
+    - ауууу!
 
 - type: emote
   id: Awoo
-  name: Awoo
+  name: Увууу
   category: Vocal
   icon: Interface/Actions/scream.png
   available: false
@@ -183,9 +208,14 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["awoos."]
+  chatMessages: ["Аууууу."]
   chatTriggers:
     - awoo
     - awoos
     - awooing
     - awooed
+    - воет.
+    - ау.
+    - ауу.
+    - аууу.
+    - ауууу.

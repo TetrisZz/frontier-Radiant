@@ -1,0 +1,99 @@
+#T0
+- type: loadout
+  id: ContractorClothingUnderwearTopBraWhite
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 0
+  equipment:
+    underweart: ClothingUnderwearTopBraWhite
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraSports
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopBraSports
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraSportsAlternative
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopBraSportsAlternative
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopNekoBra
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopNekoBra
+    
+- type: loadout
+  id: ContractorClothingUnderwearToplaceBra
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearToplaceBra
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopSpaceNinja
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopSpaceNinja
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraCap
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underweart: ClothingUnderwearTopBraCap
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraCE
+  price: 200
+  equipment:
+    underweart: ClothingUnderwearTopBraCE
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraCMO
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underweart: ClothingUnderwearTopBraCMO
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraHOP
+  price: 200
+  equipment:
+    underweart: ClothingUnderwearTopBraHOP
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraHOS
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underweart: ClothingUnderwearTopBraHOS
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraQM
+  price: 200
+  equipment:
+    underweart: ClothingUnderwearTopBraQM
+    
+- type: loadout
+  id: ContractorClothingUnderwearTopBraRD
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: PantsCapableNF
+  price: 200
+  equipment:
+    underweart: ClothingUnderwearTopBraRD

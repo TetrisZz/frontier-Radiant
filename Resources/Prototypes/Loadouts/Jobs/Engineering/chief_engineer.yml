@@ -69,3 +69,22 @@
   id: BrownShoes
   equipment:
     shoes: ClothingShoesColorBrown
+    
+# Panties
+
+- type: loadout
+  id: CEBoxers
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersCE
+
+- type: loadout
+  id: CEPanties
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesCE
+
+# Bra
+
+- type: loadout
+  id: CEBra
+  equipment:
+    underweart: ClothingUnderwearTopBraCE

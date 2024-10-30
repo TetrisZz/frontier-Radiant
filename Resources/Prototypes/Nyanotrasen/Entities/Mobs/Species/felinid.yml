@@ -67,6 +67,7 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: Felinid
+  - type: OwOAccent
   - type: NpcFactionMember
     factions:
     - NanoTrasen
