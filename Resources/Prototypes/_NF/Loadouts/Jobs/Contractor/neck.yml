@@ -97,6 +97,24 @@
   price: 500
   equipment:
     neck: ClothingNeckBellCollar
+    
+- type: loadout
+  id: ContractorClothingNeckChokerSpike # Radiant_sector[
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckChokerSpike # Radiant_sector]
+    
+- type: loadout
+  id: ContractorClothingNeckChokerHeart # Radiant_sector[
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckChokerHeart # Radiant_sector]
 
 - type: loadout
   id: ContractorClothingNeckStethoscope

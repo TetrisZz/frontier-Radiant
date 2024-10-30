@@ -1,5 +1,4 @@
-research-technology-advanced-food-service = Advanced Food Service
-research-technology-advanced-personal-propulsion = Advanced Personal Propulsion
+research-techology-advanced-personal-propulsion = Advanced Personal Propulsion
 research-technology-rapid-construction = Rapid Construction
 research-technology-hardsuits-basic = Basic Hardsuits
 research-technology-hardsuits-specialized = Specialized Hardsuits
@@ -11,6 +10,6 @@ research-technology-hardsuits-experimental-rd = Experimental Research Hardsuit
 research-technology-construction-bags = Construction Bags
 research-technology-bounty-hunting = Bounty Hunting
 research-technology-arsenal-style = Punk Gear
-research-technology-industrial-medicine = Industrial Medicine
+research-techology-advanced-topicals = Advanced Topicals
 research-technology-magnets-tech-advanced = Advanced Localized Magnetism
 research-technology-magnets-tech-combat = Localized Magnetism Combat Application

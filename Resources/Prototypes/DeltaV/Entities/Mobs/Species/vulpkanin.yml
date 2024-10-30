@@ -45,6 +45,9 @@
         sprite: DeltaV/Mobs/Customization/Vulpkanin/masking_helpers.rsi
         state: female_full
         visible: false
+      - map: [ "underwearb" ]
+      - map: [ "underweart" ]
+      - map: [ "socks" ]
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
@@ -97,7 +100,7 @@
       Male: MaleVulpkanin
       Female: FemaleVulpkanin
       Unsexed: MaleVulpkanin
-  - type: DogVision
+  - type: BarkAccent
   - type: InteractionPopup # Frontier
     successChance: 1
     interactSuccessString: pat-success-generic

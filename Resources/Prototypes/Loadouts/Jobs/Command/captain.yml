@@ -90,3 +90,23 @@
   id: CaptainWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCap
+
+# Panties
+
+- type: loadout
+  id: CaptainBoxers
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersCap
+
+- type: loadout
+  id: CaptainPanties
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesCap
+
+# Bra
+
+- type: loadout
+  id: CaptainBra
+  equipment:
+    underweart: ClothingUnderwearTopBraCap
+    

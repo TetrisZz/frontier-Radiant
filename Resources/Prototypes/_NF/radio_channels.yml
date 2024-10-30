@@ -1,14 +1,14 @@
 - type: radioChannel
   id: Traffic
-  name: chat-radio-traffic
-  keycode: 'd'
+  name: chat-radio-traffic # Radiant_sector-Localization
+  keycode: 'в'
   frequency: 1022
   color: "#CC6633"
 
 - type: radioChannel
   id: Nfsd
-  name: chat-radio-nfsd
-  keycode: 's'
+  name: chat-radio-nfsd # Radiant_sector-Localization
+  keycode: 'ф'
   frequency: 1023
   color: "#7eac69" 
 

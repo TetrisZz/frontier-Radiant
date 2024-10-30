@@ -1,0 +1,10 @@
+﻿department-Cargo = `
+department-Civilian = Гражданские
+department-Command = Командование фронтиром
+department-CentralCommand = Центральное командование
+department-Engineering = `
+department-Medical = `
+department-Security = Департамент Шерифа Нового Фронтира
+department-Science = `
+department-Silicon = `
+department-Specific = `

@@ -68,3 +68,22 @@
   id: HoPWintercoat
   equipment:
     outerClothing: ClothingOuterWinterHoP
+
+# Panties
+
+- type: loadout
+  id: HOPBoxers
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersHOP
+
+- type: loadout
+  id: HOPPanties
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesHOP
+
+# Bra
+
+- type: loadout
+  id: HOPBra
+  equipment:
+    underweart: ClothingUnderwearTopBraHOP
