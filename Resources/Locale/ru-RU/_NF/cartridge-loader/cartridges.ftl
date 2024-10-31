@@ -1,4 +1,4 @@
 # Appraisal cartridge
-appraisal-program-name = Appraisal App Plus
-appraisal-label-name = Item
-appraisal-label-price = Appraised Price
+appraisal-program-name = Оцениватель Плюс
+appraisal-label-name = Предмет
+appraisal-label-price = Оценочная цена
