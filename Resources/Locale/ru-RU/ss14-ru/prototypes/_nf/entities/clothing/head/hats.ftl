@@ -1,4 +1,4 @@
-ent-ClothingHeadHatBH = шляпа охотника за контрактами
+ent-ClothingHeadHatBH = шляпа охотника за наживой
     .desc = Для тех, кому недостаточно одного контракта.
 ent-ClothingHeadHatPilgrim = шляпа пилигрима
     .desc = Для тех, кто не оставит ни одну индейку живой.

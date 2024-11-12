@@ -15,7 +15,9 @@ namespace Content.Server.Speech.EntitySystems
         {
             { "you", "wu" },
 			{ "ты", "ти" }, // Corvax-Localization
+			{ "Ты", "Ти" },
 			{ "ага", "мяфк" },
+			{ "Ага", "Мяфк" },
         };
 
         public override void Initialize()

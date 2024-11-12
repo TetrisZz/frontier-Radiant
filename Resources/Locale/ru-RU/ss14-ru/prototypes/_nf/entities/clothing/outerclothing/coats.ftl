@@ -1,4 +1,4 @@
-ent-ClothingOuterCoatBHTrench = тренч охотника за контрактами
+ent-ClothingOuterCoatBHTrench = тренч охотника за наживой
     .desc = Плащ из специального сплава, обеспечивающий дополнительную защиту и стиль для людей, обладающих харизмой.
 ent-ClothingOuterCoatBishop = мантия епископа
     .desc = Золотые линии на самом деле сделаны не из золота. Бвух.
@@ -8,7 +8,7 @@ ent-ClothingOuterCoatCardinal = плащ кардинала
     .desc = Никто не ожидал испанской инквизиции!
 ent-ClothingOuterCoatNfsdBomber = бомбер ДШНФ
     .desc = Классно выглядишь.
-ent-ClothingOuterCoatNfsdBomberBrigmed = бомбер коронера ДШНФ
+ent-ClothingOuterCoatNfsdBomberBrigmed = бомбер медика ДШНФ
     .desc = Не позволяет пятнам крови быть заметными.
 ent-ClothingOuterCoatNfsdFormal = торжественный плащ ДШНФ
     .desc = Ш-ш-ш-шикарно.
