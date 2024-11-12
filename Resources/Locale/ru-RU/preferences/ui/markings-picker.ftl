@@ -5,16 +5,16 @@ markings-remove = Убрать черту
 markings-rank-up = Вверх
 markings-rank-down = Вниз
 markings-search = Поиск
-marking-points-remaining = Черт осталось: { $points }
-marking-used = { $marking-name }
-marking-used-forced = { $marking-name } (Принудительно)
+marking-points-remaining = Черт осталось: {$points}
+marking-used = {$marking-name}
+marking-used-forced = {$marking-name} (Принудительно)
 marking-slot-add = Добавить
 marking-slot-remove = Удалить
-marking-slot = Слот { $number }
+marking-slot = Черт {$number}
 
 # Categories
 
-markings-category-Special = Специальное
+markings-category-Special = Специальные
 markings-category-Hair = Причёска
 markings-category-FacialHair = Лицевая растительность
 markings-category-Head = Голова

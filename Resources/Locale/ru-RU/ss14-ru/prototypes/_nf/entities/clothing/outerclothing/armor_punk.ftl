@@ -1,5 +1,5 @@
 ent-ClothingOuterArmorPunkGreen = панковская броня
-    .desc = { ent-ClothingOuterVestWebMercenary.desc }
+    .desc = { ent-ClothingOuterVestWebMerc.desc }
 ent-ClothingOuterArmorPunkOrange = панковская броня
     .desc = { ent-ClothingOuterArmorPunkGreen.desc }
 ent-ClothingOuterArmorPunkRed = панковская броня

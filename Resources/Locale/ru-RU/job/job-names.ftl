@@ -97,7 +97,7 @@ JobMime = мим
 JobMusician = музыкант
 JobParamedic = парамедик
 # Frontier: пассажир<Contractor
-JobPassenger = Авантюрист
+JobPassenger = авантюрист
 JobPsychologist = психолог
 JobQuartermaster = квартирмейстер
 JobReporter = репортёр
@@ -115,5 +115,5 @@ JobStationEngineer = инженер
 JobTechnicalAssistant = технический ассистент
 JobVisitor = посетитель
 # Frontier: смотритель<Bailiff
-JobWarden = бейлиф
+JobWarden = заместитель шерифа
 JobZookeeper = зоотехник

@@ -1,5 +1,5 @@
-reagent-name-rock-dust = rock dust
-reagent-desc-rock-dust = A blend of finely pulverized rock minerals suspended in water, presents a murky, earth-toned liquid.
+reagent-name-rock-dust = каменная пыль
+reagent-desc-rock-dust = Смесь измельченных горных пород, размешанных в воде, представляет собой мутную жидкость землистого оттенка.
 
-reagent-name-shroom-mix = shroom mix
-reagent-desc-shroom-mix = A blend of cut, chewed and ground partially dried shrooms, suspended in mopwata.
+reagent-name-shroom-mix = грибная смесь
+reagent-desc-shroom-mix = Смесь измельченных, пережеванных и частично высушенных грибов, взвешенных в мопвате.

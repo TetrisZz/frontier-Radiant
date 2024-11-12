@@ -1,14 +1,8 @@
-department-Cargo-description = Перемещайте грузы, зарабатывайте спесы и заказывайте полезные припасы для экипажа.
-# Frontier
-department-Civilian-description = Объединяйтесь в команды и отправляйтесь на поиски приключений!
-# Frontier
-department-Command-description = Управляйте сектором, поддерживайте эффективную работу.
-# Frontier: 
-department-CentralCommand-description = Возьмите сектор под контроль, держите командование в тонусе.
-department-Engineering-description = Поддерживайте питание и работоспособность корабля.
-department-Medical-description = Поддерживайте здоровье экипажа.
-# Frontier
-department-Security-description = Охраняйте мир в секторе.
-department-Science-description = Исследуйте артефакты и аномалии, чтобы изобрести новое оборудование для вашей команды.
-department-Silicon-description = Соблюдайте свои законы и служите экипажу.
-department-Specific-description = Работы, которые есть не на всех станциях.
+﻿department-Cargo-description = Move cargo, earn Spessos, and order useful supplies for the crew.
+department-Civilian-description = Perform small helpful tasks to keep the ship sane and well catered.
+department-Command-description = Manage the crew and keep them working efficiently.
+department-Engineering-description = Keep the power on and the ship operational.
+department-Medical-description = Keep the crew healthy.
+department-Security-description = Keep the peace around the sector.
+department-Science-description = Research new technologies and dangerous artifacts and anomalies.
+department-Specific-description = Jobs that not all stations have.

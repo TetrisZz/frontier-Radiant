@@ -1,5 +1,5 @@
 # Frontier
-job-name-bailiff = Бейлиф
+job-name-bailiff = Заместитель Шерифа
 job-name-brigmedic = Медик ДШНФ
 job-name-cadet-nf = Кадет ДШНФ
 job-name-contractor = Авантюрист
@@ -15,7 +15,7 @@ job-name-security-guard = Охранник Аванпоста
 job-name-sheriff = Шериф
 job-name-stc = Диспетчер трафика
 job-name-sr = Представитель станции
-job-name-pal = Специалист по связям с общественностью
+job-name-pal = Специалист ПСсО
 
 # Role timers - Make these alphabetical or I cut you
 JobERTMailCarrier = ОБР почтальон

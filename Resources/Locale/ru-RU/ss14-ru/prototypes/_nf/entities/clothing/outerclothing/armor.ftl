@@ -5,5 +5,5 @@ ent-ClothingOuterBioArmoredSyndicate = биозащитный костюм
     .suffix = Синдикат
 ent-ClothingOuterArmorNfsd = бронежилет ДШНФ
     .desc = Позволяет выжить получив пулю. Возможно.
-ent-ClothingOuterVestWebMercenaryBlack = { ent-ClothingOuterVestWebMercenary }
-    .desc = { ent-ClothingOuterVestWebMercenary.desc }
+ent-ClothingOuterVestWebMercenaryBlack = { ent-ClothingOuterVestWebMerc }
+    .desc = { ent-ClothingOuterVestWebMerc.desc }
