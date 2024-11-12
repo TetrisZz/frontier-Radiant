@@ -101,6 +101,7 @@
       Female: FemaleVulpkanin
       Unsexed: MaleVulpkanin
   - type: BarkAccent
+  - type: DogVision
   - type: InteractionPopup # Frontier
     successChance: 1
     interactSuccessString: pat-success-generic

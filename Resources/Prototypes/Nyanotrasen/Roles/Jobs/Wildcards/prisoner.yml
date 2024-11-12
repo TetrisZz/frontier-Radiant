@@ -9,7 +9,7 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 10800 # 3 hrs
-  whitelisted: true
+  whitelisted: false
   startingGear: PrisonerGear
   alwaysUseSpawner: true
   canBeAntag: false

@@ -11,6 +11,9 @@
     removes:
     - type: LizardAccent
     - type: MothAccent
+    - type: BarkAccent
+    - type: OwOAccent
+    - type: GoblinAccent
     - type: ReplacementAccent
       accent: dwarf
 
