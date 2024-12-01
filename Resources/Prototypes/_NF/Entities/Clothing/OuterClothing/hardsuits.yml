@@ -1,6 +1,6 @@
 #Mercenary Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBaseNF
+  parent: [ ClothingOuterHardsuitBaseNF, BaseC3CultContrabandNoValueRadiant ]
   id: ClothingOuterHardsuitMercenary # stats are of luxury mining hardsuit
   name: mercenary hardsuit
   description: A special suit that protects from the danger of space, employed by mercenary forces. Not certified to be blunderbuss proof.
@@ -314,7 +314,7 @@
 
 # SCAF hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseC3CultContrabandNoValueRadiant ]
   id: ClothingOuterHardsuitScaf
   name: scaf hardsuit
   description: A green and brown combat hardsuit. Old yet sturdy nonetheless.

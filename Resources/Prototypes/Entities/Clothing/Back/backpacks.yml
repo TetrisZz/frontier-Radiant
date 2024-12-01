@@ -271,7 +271,7 @@
 
 #Syndicate
 - type: entity
-  parent: [NFClothingBackpack, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, ClothingBackpack<NFClothingBackpack
+  parent: [NFClothingBackpack, BaseC3SyndicateContrabandRadiant] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, ClothingBackpack<NFClothingBackpack
   id: ClothingBackpackSyndicate
   name: syndicate backpack
   description:

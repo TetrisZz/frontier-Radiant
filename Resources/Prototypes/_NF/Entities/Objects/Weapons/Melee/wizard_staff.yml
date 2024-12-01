@@ -2,7 +2,7 @@
   name: wizard staff
   parent:
   - Shovel
-  - BaseC3WizardContraband
+  - BaseC3SyndicateContrabandRadiant
   id: WizardStaffMeleeBase
   description: Symbol of wizard's mastery of arcane arts.
   components:
@@ -59,7 +59,7 @@
   id: WizardStaffMeleeBlood
   name: inert cultist staff
   parent:
-  - BaseC3CultContraband
+  - BaseC3SyndicateContrabandRadiant
   - WizardStaffMeleeRed
   components:
   - type: Sharp
@@ -77,7 +77,7 @@
   id: WizardStaffDarkBolt
   name: cultist staff
   parent:
-  - BaseC3CultContraband
+  - BaseC3SyndicateContrabandRadiant
   - WizardStaffMeleeBlood
   suffix: "Dark bolt"
   components:

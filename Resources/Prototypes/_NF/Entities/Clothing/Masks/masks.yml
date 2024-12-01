@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingMaskArcadia
   name: arcadia battle mask
-  parent: [ ClothingMaskGasExplorer, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: ClothingMaskGasExplorer
   description: A close-fitting high tech mask designed by Arcadia Industries for space faring battlers.
   components:
   - type: Sprite
@@ -64,7 +64,7 @@
     sprite: _NF/Clothing/Mask/nfsd_sheriff.rsi
 
 - type: entity
-  parent: [ BaseC3CultContrabandUnredeemable, ContrabandClothing, ClothingMaskGasExplorer ]
+  parent: [ BaseC3SyndicateContrabandRadiant, ContrabandClothing, ClothingMaskGasExplorer ]
   id: ClothingMaskCultJanitor
   name: cult janitor mask
   description: A close-fitting imposing breathing mask designed for acursed custodians who value style.

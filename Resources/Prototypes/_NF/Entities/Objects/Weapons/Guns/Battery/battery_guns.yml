@@ -131,7 +131,7 @@
 
 - type: entity
   id: NFWeaponHoloflareGun
-  parent: [ BaseC1Contraband, BaseWeaponBatterySmall ]
+  parent: BaseWeaponBatterySmall
   name: holoflare pistol
   suffix: Frontier
   description: A modification of a civilian-grade laser pistol that can project holoflares onto surfaces.

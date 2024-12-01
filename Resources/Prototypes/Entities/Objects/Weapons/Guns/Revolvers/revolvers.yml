@@ -81,7 +81,7 @@
 
 - type: entity
   name: Inspector
-  parent: [BaseWeaponRevolver, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponRevolver, BaseC3CultContrabandNoValueRadiant] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo. On the handle is a label that says 'for authorized use only.'
   components:
@@ -96,7 +96,7 @@
 
 - type: entity
   name: Mateba
-  parent: [BaseWeaponRevolver, BaseC2ContrabandUnredeemable] # Frontier: BaseMajorContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponRevolver, BaseC3CultContrabandNoValueRadiant] # Frontier: BaseMajorContraband<BaseC2ContrabandUnredeemable
   id: WeaponRevolverMateba
   description: The iconic sidearm of the dreaded death squads. Uses .45 magnum ammo. On the handle is a label that says 'for authorized use only.'
   components:
@@ -111,7 +111,7 @@
 
 - type: entity
   name: Python
-  parent: [BaseWeaponRevolver, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: [BaseWeaponRevolver, BaseC3SyndicateContrabandRadiant] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: WeaponRevolverPython
   description: An illegal revolver favoured by Syndicate agents. Uses .45 magnum ammo. # Frontier
   components:
@@ -146,7 +146,7 @@
 
 - type: entity
   name: pirate revolver
-  parent: [BaseWeaponRevolver, BaseC3PirateContraband] # Frontier: BaseMinorContraband<BaseC3PirateContraband
+  parent: [BaseWeaponRevolver, BaseC3SyndicateContrabandRadiant] # Frontier: BaseMinorContraband<BaseC3PirateContraband
   id: WeaponRevolverPirate
   description: An odd, illegal, old-looking revolver, favoured by pirate crews. Uses .45 magnum ammo. # Frontier
   components:

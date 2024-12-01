@@ -1,8 +1,7 @@
 - type: entity
   parent:
-  - BaseC3CultContrabandUnredeemable
+  - BaseC3SyndicateContrabandRadiant
   - ClothingHeadHelmetBasic
-  - BaseC3CultContraband
   - ContrabandClothing
   id: ClothingHeadHelmetCultJanitor
   name: cult janitor helmet
@@ -17,9 +16,8 @@
 
 - type: entity
   parent:
-  - BaseC3CultContrabandUnredeemable
+  - BaseC3SyndicateContrabandRadiant
   - ClothingHeadBase
-  - BaseC3CultContraband
   - ContrabandClothing
   id: ClothingHeadHatHoodBloodCulthood
   name: cult hood

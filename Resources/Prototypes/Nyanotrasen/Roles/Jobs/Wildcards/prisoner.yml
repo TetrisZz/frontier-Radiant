@@ -5,10 +5,7 @@
   playTimeTracker: JobPrisoner
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 86400 # 24 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10800 # 3 hrs
+      time: 300 # 3 hours
   whitelisted: false
   startingGear: PrisonerGear
   alwaysUseSpawner: true

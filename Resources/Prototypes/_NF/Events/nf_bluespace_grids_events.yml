@@ -8,13 +8,13 @@
       path: /Audio/Announcements/attention.ogg
     warningAnnouncement: station-event-bluespace-cache-warning-announcement
     endAnnouncement: station-event-bluespace-cache-end-announcement
-    earliestStart: 100
+    earliestStart: 120
     weight: 5
     duration: 1350
     maxDuration: 1560
-    reoccurrenceDelay: 480 # 8 hours
+    reoccurrenceDelay: 300 # 5 hours Radiant_Sector
     requiredJobs:
-      Sheriff: 1
+      Sheriff: 0
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -45,13 +45,13 @@
       path: /Audio/Announcements/attention.ogg
     warningAnnouncement: station-event-bluespace-vault-warning-announcement
     endAnnouncement: station-event-bluespace-vault-end-announcement
-    earliestStart: 100
+    earliestStart: 120
     weight: 5
     duration: 1020
     maxDuration: 1350
-    reoccurrenceDelay: 480 # 8 hours
+    reoccurrenceDelay: 240 # 4 hours Radiant_Sector
     requiredJobs:
-      Sheriff: 1
+      Sheriff: 0
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -82,14 +82,14 @@
       path: /Audio/Announcements/attention.ogg
     warningAnnouncement: station-event-bluespace-vault-warning-announcement
     endAnnouncement: station-event-bluespace-vault-end-announcement
-    earliestStart: 100
+    earliestStart: 60
     maximumPlayers: 30
     weight: 5
     duration: 590
     maxDuration: 780
-    reoccurrenceDelay: 480 # 8 hours
+    reoccurrenceDelay: 180 # 3 hours Radiant_Sector
     requiredJobs:
-      Sheriff: 1
+      Sheriff: 0
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -108,20 +108,20 @@
           linearDamping: 999999
         paths:
         - /Maps/_NF/Bluespace/vaultsmall.yml
-    nfsdRewardFactor: 1
+    nfsdRewardFactor: 0
 
 - type: entity
   id: BluespaceSyndicateFTLInterception
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
+    startAnnouncement: station-event-bluespace-syndicate-ftl-interception-start-announcement
     startAudio:
       path: /Audio/Misc/notice1.ogg
-    warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
-    endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
-    earliestStart: 80
-    minimumPlayers: 15
+    warningAnnouncement: station-event-bluespace-syndicate-ftl-interception-warning-announcement
+    endAnnouncement: station-event-bluespace-syndicate-ftl-interception-end-announcement
+    earliestStart: 240
+    minimumPlayers: 5
     weight: 1
     duration: 1800
     maxDuration: 2400
@@ -150,17 +150,17 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
+    startAnnouncement: station-event-bluespace-wizardfederation-scout-start-announcement
     startAudio:
       path: /Audio/Misc/notice1.ogg
-    warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
-    endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
+    warningAnnouncement: station-event-bluespace-wizardfederation-scout-warning-announcement
+    endAnnouncement: station-event-bluespace-wizardfederation-scout-end-announcement
     earliestStart: 100
-    minimumPlayers: 15
+    minimumPlayers: 5
     weight: 1
     duration: 900
     maxDuration: 1200
-    reoccurrenceDelay: 480 # 8 hours
+    reoccurrenceDelay: 180 # 3 hours Radiant_Sector
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -185,17 +185,17 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
+    startAnnouncement: station-event-bluespace-bloodmoon-start-announcement
     startAudio:
       path: /Audio/Misc/notice1.ogg
-    warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
-    endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
+    warningAnnouncement: station-event-bluespace-bloodmoon-warning-announcement
+    endAnnouncement: station-event-bluespace-bloodmoon-end-announcement
     earliestStart: 80
-    minimumPlayers: 15
+    minimumPlayers: 1
     weight: 1
     duration: 1800
     maxDuration: 2400
-    reoccurrenceDelay: 480 # 8 hours
+    reoccurrenceDelay: 240 # 4 hours Radiant_Sector
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -229,7 +229,7 @@
     weight: 1
     duration: 1800
     maxDuration: 2400
-    maxOccurrences: 1
+    maxOccurrences: 2
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup

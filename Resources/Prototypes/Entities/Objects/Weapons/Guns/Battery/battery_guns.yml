@@ -175,7 +175,7 @@
 
 - type: entity
   name: tesla gun
-  parent: [BaseWeaponBattery, BaseC3Contraband] # Frontier: added BaseC3Contraband
+  parent: [BaseWeaponBattery, BaseC3SyndicateContrabandRadiant] # Frontier: added BaseC3Contraband
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands. An experimental and illegal weapon.
   components:
@@ -242,7 +242,7 @@
 
 - type: entity
   name: pulse pistol
-  parent: [BaseWeaponBatterySmall, BaseC2ContrabandUnredeemable] # Frontier: added BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponBatterySmall, BaseC2ExpeditionContrabandRadiant] # Frontier: added BaseC2ContrabandUnredeemable
   id: WeaponPulsePistol
   description: A state of the art energy pistol favoured as a sidearm by the NT operatives. On the handle is a label that says 'for authorized use only.'
   components:
@@ -271,7 +271,7 @@
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC2ContrabandUnredeemable] # Frontier: added BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC2ExpeditionContrabandRadiant] # Frontier: added BaseC2ContrabandUnredeemable
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives. On the handle is a label that says 'for authorized use only.'
   components:
@@ -302,7 +302,7 @@
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC2ContrabandUnredeemable] # Frontier: added BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC2ExpeditionContrabandRadiant] # Frontier: added BaseC2ContrabandUnredeemable
   id: WeaponPulseRifle
   description: A weapon that is almost as infamous as its users. On the handle is a label that says 'for authorized use only.'
   components:
@@ -329,7 +329,7 @@
 
 - type: entity
   name: laser cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC3CultContrabandNoValueRadiant] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: WeaponLaserCannon
   description: A heavy duty, high powered laser weapon. On the handle is a label that says 'for authorized use only.' # Frontier: added label sentence
   components:
@@ -357,7 +357,7 @@
 
 - type: entity
   name: portable particle decelerator
-  parent: [BaseWeaponBattery, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponBattery, BaseC3CultContrabandNoValueRadiant] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: WeaponParticleDecelerator
   description: A portable particle decelerator capable of decomposing a tesla or singularity. On the handle is a label that says 'for authorized use only.' # Frontier: added label sentence
   components:
@@ -388,7 +388,7 @@
 
 - type: entity
   name: x-ray cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC3Contraband] # Frontier: added BaseC3Contraband
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC3SyndicateContrabandRadiant] # Frontier: added BaseC3Contraband
   id: WeaponXrayCannon
   description: An illegal and experimental weapon that uses concentrated x-ray energy against its target.
   components:
@@ -485,7 +485,7 @@
 
 - type: entity
   name: disabler SMG
-  parent: [ BaseWeaponBattery, BaseC2ContrabandUnredeemable ] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  parent: [ BaseWeaponBattery, BaseC3CultContrabandNoValueRadiant ] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse. On the handle is a label that says 'for authorized use only.'
   components:
@@ -522,7 +522,7 @@
 
 - type: entity
   name: taser
-  parent: [ BaseWeaponBatterySmall, BaseC2ContrabandUnredeemable ] # Frontier: BaseGrandTheftContraband<BaseC2ContrabandUnredeemable
+  parent: [ BaseWeaponBatterySmall, BaseC3Contraband ] # Frontier: BaseGrandTheftContraband<BaseC2ContrabandUnredeemable
   id: WeaponTaser
   description: A low-capacity, energy-based stun gun used by security teams to subdue targets at range. On the handle is a label that says 'for authorized use only.'
   components:
@@ -702,7 +702,7 @@
 
 - type: entity
   name: eye of a behonker
-  parent: [BaseWeaponBatterySmall, BaseC3Contraband] # Frontier: added BaseC3Contraband
+  parent: [BaseWeaponBatterySmall, BaseC3SyndicateContrabandRadiant] # Frontier: added BaseC3Contraband
   id: WeaponBehonkerLaser
   description: The eye of a behonker, it fires a laser when squeezed. An illegal weapon often used by the cult of the Honkmother.
   components:

@@ -146,7 +146,7 @@
 
 - type: entity
   name: Lecter
-  parent: [BaseWeaponRifle, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponRifle, BaseC2ExpeditionContrabandRadiant] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: WeaponRifleLecter
   description: A high end military grade assault rifle. Uses .20 rifle ammo. On the receiver is a label that says 'for authorized use only.'
   components:
