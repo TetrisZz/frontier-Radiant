@@ -2,7 +2,7 @@
   id: CourserX
   name: NT Courser-X
   description: A medium sized multi-role long haul conversion of the long time popular Courser model.
-  price: 68650
+  price: 85800
   category: Medium
   group: Expedition
   shuttlePath: /Maps/_NF/Shuttles/Expedition/courserx.yml
