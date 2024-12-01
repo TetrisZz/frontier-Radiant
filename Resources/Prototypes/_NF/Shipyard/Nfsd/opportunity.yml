@@ -5,7 +5,7 @@
   id: Opportunity
   name: NSF Opportunity
   description: A medium expeditionary prison vessel capable of incarcerating up to 4 criminals. The ship is capable of planetfall and mining operations. Find a reliable crew of prison guards to help you keep your prisoners in line.
-  price: 70000
+  price: 84000
   category: Medium
   group: Security
   access: Security
@@ -33,4 +33,4 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Prisoner: [ 0, 0 ]
+            Prisoner: [ 2, 2 ]
