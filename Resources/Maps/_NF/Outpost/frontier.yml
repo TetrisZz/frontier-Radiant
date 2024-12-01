@@ -42,7 +42,7 @@ entities:
       name: Frontier Outpost
     - type: Transform
       pos: 0.70833397,-0.875
-      parent: 25
+      parent
     - type: MapGrid
       chunks:
         0,0:
@@ -27709,6 +27709,7 @@ entities:
   - uid: 1451
     components:
     - type: Transform
+
       pos: 22.5,-18.5
       parent: 1
   - uid: 1452
