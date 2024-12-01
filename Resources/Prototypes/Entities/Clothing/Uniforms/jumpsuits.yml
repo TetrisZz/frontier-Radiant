@@ -113,7 +113,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/ce_turtle.rsi
 
 - type: entity
-  parent: [ ChaplainClothes, ClothingUniformBase ] # Frontier: added ChaplainClothes
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitChaplain
   name: chaplain's jumpsuit
   description: It's a black jumpsuit, often worn by religious folk.
@@ -408,7 +408,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hydro.rsi
 
 - type: entity
-  parent: [ JanitorClothes, ClothingUniformBase ] # Frontier: added JanitorClothes
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJanitor
   name: janitor jumpsuit
   description: The jumpsuit for the poor sop with a mop.
@@ -757,7 +757,7 @@
       sprite: Clothing/Uniforms/Jumpsuit/lawyergood.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [UnsensoredClothingUniformBase, BaseC3SyndicateContrabandRadiant, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingUniformJumpsuitPyjamaSyndicateBlack
   name: black syndicate pyjamas
   description: For those long nights in perma.
@@ -768,7 +768,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicateblack.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [UnsensoredClothingUniformBase, BaseC3SyndicateContrabandRadiant, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingUniformJumpsuitPyjamaSyndicatePink
   name: pink syndicate pyjamas
   description: For those long nights in perma.
@@ -779,7 +779,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatepink.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [UnsensoredClothingUniformBase, BaseC3SyndicateContrabandRadiant, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingUniformJumpsuitPyjamaSyndicateRed
   name: red syndicate pyjamas
   description: For those long nights in perma.
@@ -834,7 +834,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformBase, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [UnsensoredClothingUniformBase, BaseC3SyndicateContrabandRadiant, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingUniformJumpsuitOperative
   name: operative jumpsuit
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
@@ -1142,7 +1142,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as a parent
+  parent: [ClothingUniformBase, BaseC3SyndicateContrabandRadiant, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as a parent
   id: ClothingUniformJumpsuitSyndieFormal
   name: syndicate formal suit
   description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."

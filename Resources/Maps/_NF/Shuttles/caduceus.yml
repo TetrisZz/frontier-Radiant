@@ -756,9 +756,11 @@ entities:
             0: 65535
           3,-3:
             1: 16
-            0: 14
+            2: 2
+            0: 12
           3,-5:
-            0: 63688
+            0: 55496
+            2: 8192
             1: 52
           4,-4:
             0: 4437
@@ -883,6 +885,21 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14996
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -1495,6 +1512,32 @@ entities:
     - type: Transform
       pos: 13.5,-16.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14923
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+- proto: BorgModuleAdvancedParamedic
+  entities:
+  - uid: 1151
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.437332,-16.43111
+      parent: 1
 - proto: BorgModuleDefibrillator
   entities:
   - uid: 1425
@@ -1502,13 +1545,22 @@ entities:
     - type: Transform
       pos: 16.515665,-11.488084
       parent: 1
-- proto: BorgModuleDiagnosis
+- proto: BorgModuleFireExtinguisher
   entities:
-  - uid: 1427
+  - uid: 528
     components:
     - type: Transform
-      pos: 16.528864,-11.765128
+      pos: 16.538473,-11.666565
       parent: 1
+- proto: BorgModuleTool
+  entities:
+  - uid: 698
+    components:
+    - type: Transform
+      parent: 636
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: BorgModuleTreatment
   entities:
   - uid: 1426
@@ -1528,7 +1580,7 @@ entities:
   - uid: 764
     components:
     - type: Transform
-      pos: -8.991088,-12.998157
+      pos: -6.566012,-16.343761
       parent: 1
 - proto: BoxFolderBase
   entities:
@@ -3637,12 +3689,6 @@ entities:
       parent: 1
 - proto: Chair
   entities:
-  - uid: 698
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-8.5
-      parent: 1
   - uid: 739
     components:
     - type: Transform
@@ -3752,6 +3798,13 @@ entities:
     - type: Transform
       pos: 3.5,-8.5
       parent: 1
+- proto: CloningPod
+  entities:
+  - uid: 634
+    components:
+    - type: Transform
+      pos: -4.5,-16.5
+      parent: 1
 - proto: ClosetL3VirologyFilled
   entities:
   - uid: 103
@@ -3778,6 +3831,35 @@ entities:
     - type: Transform
       pos: 13.5,-11.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14923
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 698
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: ClosetWallEmergencyFilledRandom
   entities:
   - uid: 1278
@@ -3885,6 +3967,14 @@ entities:
     components:
     - type: Transform
       pos: 2.5316,-1.4875672
+      parent: 1
+- proto: ComputerCloningConsole
+  entities:
+  - uid: 882
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-16.5
       parent: 1
 - proto: ComputerCrewMonitoring
   entities:
@@ -6592,10 +6682,10 @@ entities:
       parent: 1
 - proto: LockerParamedicFilled
   entities:
-  - uid: 634
+  - uid: 1121
     components:
     - type: Transform
-      pos: -3.5,-16.5
+      pos: -1.5,-12.5
       parent: 1
 - proto: LockerPilotFilled
   entities:
@@ -6626,6 +6716,14 @@ entities:
     - type: Transform
       pos: 6.5,-7.5
       parent: 1
+- proto: MaterialBiomass
+  entities:
+  - uid: 1148
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.4198713,-16.39812
+      parent: 1
 - proto: MedicalAssembler
   entities:
   - uid: 453
@@ -6655,6 +6753,13 @@ entities:
     - type: Transform
       pos: 4.5,1.5
       parent: 1
+- proto: MedicalScanner
+  entities:
+  - uid: 1126
+    components:
+    - type: Transform
+      pos: -2.5,-16.5
+      parent: 1
 - proto: MedicalTechFab
   entities:
   - uid: 1209
@@ -6668,6 +6773,13 @@ entities:
     components:
     - type: Transform
       pos: 2.5670705,2.4268012
+      parent: 1
+- proto: MMI
+  entities:
+  - uid: 1150
+    components:
+    - type: Transform
+      pos: 13.603447,-13.837998
       parent: 1
 - proto: Morgue
   entities:
@@ -6687,6 +6799,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -9.5,-15.5
+      parent: 1
+- proto: NetworkConfigurator
+  entities:
+  - uid: 804
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.8956604,-16.430737
       parent: 1
 - proto: NFSignDock
   entities:
@@ -7712,23 +7832,6 @@ entities:
     - type: Transform
       pos: -5.5,-6.5
       parent: 1
-- proto: SuitStorageParamedic
-  entities:
-  - uid: 528
-    components:
-    - type: Transform
-      pos: -4.5,-16.5
-      parent: 1
-  - uid: 803
-    components:
-    - type: Transform
-      pos: -2.5,-16.5
-      parent: 1
-  - uid: 882
-    components:
-    - type: Transform
-      pos: -6.5,-16.5
-      parent: 1
 - proto: TableGlass
   entities:
   - uid: 131
@@ -7942,6 +8045,18 @@ entities:
     - type: Transform
       pos: 6.5,-7.5
       parent: 1
+  - uid: 1128
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,-16.5
+      parent: 1
+  - uid: 1130
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,-16.5
+      parent: 1
 - proto: Thruster
   entities:
   - uid: 97
@@ -8154,6 +8269,11 @@ entities:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
+  - uid: 803
+    components:
+    - type: Transform
+      pos: -6.5,-12.5
+      parent: 1
 - proto: VendingMachineMediDrobe
   entities:
   - uid: 635
@@ -8161,19 +8281,17 @@ entities:
     - type: Transform
       pos: 4.5,-3.5
       parent: 1
+  - uid: 1125
+    components:
+    - type: Transform
+      pos: -1.5,-8.5
+      parent: 1
 - proto: VendingMachineSeeds
   entities:
   - uid: 795
     components:
     - type: Transform
       pos: -6.5,9.5
-      parent: 1
-- proto: VendingMachineTankDispenserEVA
-  entities:
-  - uid: 804
-    components:
-    - type: Transform
-      pos: -5.5,-16.5
       parent: 1
 - proto: WallShuttle
   entities:
@@ -9453,7 +9571,7 @@ entities:
     - type: Transform
       pos: 6.5,-16.5
       parent: 1
-- proto: WarpPointShip
+- proto: WarpPoint
   entities:
   - uid: 1277
     components:

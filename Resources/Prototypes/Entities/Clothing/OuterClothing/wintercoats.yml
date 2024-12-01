@@ -420,7 +420,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterHydro
 
 - type: entity
-  parent: [ JanitorClothes, ClothingOuterWinterCoatToggleable ] # Frontier: added JanitorClothes
+  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterJani
   name: janitorial winter coat
   components:
@@ -756,7 +756,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterWarden
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [ClothingOuterWinterCoatToggleable, BaseC3SyndicateContrabandRadiant, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingOuterWinterSyndieCap
   name: syndicate's winter coat
   description: "The syndicate's winter coat is made of durable fabric, with gilded patterns, and coarse wool."
@@ -781,7 +781,7 @@
 
 ##############################################################
 - type: entity
-  parent: [ClothingOuterWinterWarden, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [ClothingOuterWinterWarden, BaseC3SyndicateContrabandRadiant, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingOuterWinterSyndieCapArmored
   name: syndicate's armored winter coat
   description: "The syndicate's armored winter coat is made of durable fabric, with gilded patterns, and coarse wool."
@@ -795,7 +795,7 @@
 ##############################################################
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [ClothingOuterWinterCoatToggleable, BaseC3SyndicateContrabandRadiant, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingOuterWinterSyndie
   name: syndicate's winter coat
   description: Insulated winter coat, looks like a merch from "Syndieland".

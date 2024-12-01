@@ -19,7 +19,7 @@
     damageCoefficient: 0.80
 
 - type: entity
-  parent: [ ChaplainClothes, ClothingOuterStorageBase ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatBishop
   name: bishop's robes
   description: Golden threads aren't actually made of gold. Bummer.
@@ -30,7 +30,7 @@
     sprite: _NF/Clothing/OuterClothing/Misc/bishop_robe.rsi
 
 - type: entity
-  parent:  [ ChaplainClothes, ClothingOuterBaseToggleable ]
+  parent:  ClothingOuterBaseToggleable
   id: ClothingOuterCoatWitchHunter
   name: witch hunter's coat
   description: Looks even better under constant rain with storm wind.
@@ -43,7 +43,7 @@
     clothingPrototype: ClothingHeadHatHoodChaplainHood
 
 - type: entity
-  parent:  [ ChaplainClothes, ClothingOuterBaseToggleable ]
+  parent:  ClothingOuterBaseToggleable
   id: ClothingOuterCoatCardinal
   name: cardinal's coat
   description: Nobody expects the Spanish Inquisition!
@@ -127,7 +127,7 @@
       - state: equipped-OUTERCLOTHING
 
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseC3PirateContrabandNoValue ]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatPirateCaptain
   name: pirate captain's coat
   description: Y'arrgh har fiddle di dee.
@@ -138,7 +138,7 @@
     sprite: _NF/Clothing/OuterClothing/Misc/pirate_captain.rsi
 
 - type: entity
-  parent: [ ClothingOuterStorageFoldableBase, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatArcadiaTrench
   name: arcadia flak trenchcoat
   description: A flak trenchcoat produced by Arcadia Industries, enhanced with a bulletproof alloy for some extra protection.

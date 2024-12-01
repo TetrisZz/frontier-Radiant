@@ -55,3 +55,7 @@
 - type: contrabandSeverity
   id: PirateTarget
   examineText: contraband-examine-text-PirateTarget
+
+- type: contrabandSeverity
+  id: Class2Radiant
+  examineText: contraband-examine-text-Class2

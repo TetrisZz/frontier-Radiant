@@ -227,3 +227,33 @@
       Doubloon: 1
     hideCarryStatus: true
 # endregion
+
+# Radiant Sector
+
+- type: entity
+  id: BaseC3SyndicateContrabandRadiant # Radiant Sector
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Class1
+    allowedDepartments: [ Civilian, Security, Command, Frontier ]
+    turnInValues: *oneFUC
+
+
+- type: entity
+  id: BaseC3CultContrabandNoValueRadiant # Radiant Sector
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Class1
+    allowedDepartments: [ Civilian, Security, Command, Frontier ]
+    turnInValues: *noFUCs
+
+- type: entity
+  id: BaseC2ExpeditionContrabandRadiant # Radiant Sector
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Class2Radiant
+    allowedDepartments: [ Security, Command ]
+    turnInValues: *noFUCs

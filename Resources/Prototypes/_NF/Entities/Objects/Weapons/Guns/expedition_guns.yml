@@ -4,7 +4,7 @@
 # Pistols
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponPistolMk58
   categories: [ HideSpawnMenu ]
   id: WeaponPistolMk58Expedition
@@ -12,28 +12,28 @@
 # Revolvers
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponRevolverArgenti
   categories: [ HideSpawnMenu ]
   id: WeaponRevolverArgentiExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponRevolverDeckard
   categories: [ HideSpawnMenu ]
   id: WeaponRevolverDeckardExpedition
 
 - type: entity
   parent:
-  - BaseC3ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponRevolverMateba
   categories: [ HideSpawnMenu ]
   id: WeaponRevolverMatebaExpedition
 
 - type: entity
   parent:
-  - BaseC3ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponRevolverPirate
   categories: [ HideSpawnMenu ]
   id: WeaponRevolverPirateExpedition
@@ -41,35 +41,35 @@
 # Shotguns
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponShotgunDoubleBarreled
   categories: [ HideSpawnMenu ]
   id: WeaponShotgunDoubleBarreledExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponShotgunSawn
   categories: [ HideSpawnMenu ]
   id: WeaponShotgunSawnExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponShotgunHandmade
   categories: [ HideSpawnMenu ]
   id: WeaponShotgunHandmadeExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponShotgunKammerer
   categories: [ HideSpawnMenu ]
   id: WeaponShotgunKammererExpedition
 
 - type: entity
   parent:
-  - BaseC3ExpeditionContraband
+  - BaseC2ExpeditionContraband
   - WeaponShotgunEnforcer
   categories: [ HideSpawnMenu ]
   id: WeaponShotgunEnforcerExpedition
@@ -77,14 +77,14 @@
 # Rifles
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponRifleGestio
   categories: [ HideSpawnMenu ]
   id: WeaponRifleGestioExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponRifleNovaliteC1
   categories: [ HideSpawnMenu ]
   id: WeaponRifleNovaliteC1Expedition
@@ -92,7 +92,7 @@
 # SMGs
 - type: entity
   parent:
-  - BaseC3ExpeditionContraband
+  - BaseC2ExpeditionContraband
   - WeaponSubMachineGunWt550
   categories: [ HideSpawnMenu ]
   id: WeaponSubMachineGunWt550Expedition
@@ -106,7 +106,7 @@
 
 - type: entity
   parent:
-  - BaseC3ExpeditionContraband
+  - BaseC2ExpeditionContraband
   - WeaponSubMachineGunDrozd
   categories: [ HideSpawnMenu ]
   id: WeaponSubMachineGunDrozdExpedition
@@ -114,21 +114,21 @@
 # Energy
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponLaserPistolNF
   categories: [ HideSpawnMenu ]
   id: WeaponLaserGunExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponLaserSvalinn
   categories: [ HideSpawnMenu ]
   id: WeaponLaserSvalinnExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponEnergyGun
   categories: [ HideSpawnMenu ]
   id: WeaponEnergyGunExpedition
@@ -136,28 +136,28 @@
 - type: entity
   name: laser carbine
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponLaserCarbine
   categories: [ HideSpawnMenu ]
   id: WeaponLaserCarbineExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponAdvancedLaser
   categories: [ HideSpawnMenu ]
   id: WeaponAdvancedLaserExpedition
 
 - type: entity
   parent:
-  - BaseC3ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponLaserCannon
   categories: [ HideSpawnMenu ]
   id: WeaponLaserCannonExpedition
 
 - type: entity
   parent:
-  - BaseC3ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponXrayCannon
   categories: [ HideSpawnMenu ]
   id: WeaponXrayCannonExpedition
@@ -165,21 +165,21 @@
 # Sniper
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponSniperMosin
   categories: [ HideSpawnMenu ]
   id: WeaponSniperMosinExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - WeaponSniperRepeater
   categories: [ HideSpawnMenu ]
   id: WeaponSniperRepeaterExpedition
 
 - type: entity
   parent:
-  - BaseC2ExpeditionContraband
+  - BaseC3SyndicateContrabandRadiant
   - Musket
   categories: [ HideSpawnMenu ]
   id: WeaponMusketExpedition

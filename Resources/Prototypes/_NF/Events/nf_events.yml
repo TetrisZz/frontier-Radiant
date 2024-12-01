@@ -51,7 +51,7 @@
     duration: 35
     earliestStart: 90
     minimumPlayers: 20
-    reoccurrenceDelay: 480 # 8 hours
+    reoccurrenceDelay: 360 # 6 hours Radiant_Sector
   - type: BluespaceCargoRule
     spawnerPrototype: CrateSyndicateLightSurplusBundle
     maximumSpawns: 2
