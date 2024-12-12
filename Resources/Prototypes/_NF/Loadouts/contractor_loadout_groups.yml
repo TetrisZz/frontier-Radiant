@@ -783,6 +783,8 @@
   - ContractorDrinkVacuumFlask
   - ContractorFlashlightLantern
   - ContractorCardBoxBlack
+  - ContractorWristwatch
+  - ContractorWristwatchGold
   - ContractorBasketball
   - ContractorFootball
   - ContractorBeachBall
@@ -794,6 +796,7 @@
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
   - ClothingNeckBisexualPin
+  - ClothingNeckGayPin
   - ClothingNeckIntersexPin
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
