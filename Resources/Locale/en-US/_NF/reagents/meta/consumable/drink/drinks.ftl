@@ -23,4 +23,11 @@ reagent-name-honey = honey
 reagent-desc-honey = Thick, golden and sticky, the original sweetener.
 
 reagent-name-honey-iced-tea = honey iced tea
+<<<<<<< HEAD
 reagent-desc-honey-iced-tea = Tea with a splash of honey.
+=======
+reagent-desc-honey-iced-tea = Tea with a splash of honey.
+
+reagent-name-wassail = wassail
+reagent-desc-wassail = Hot mulled ale.
+>>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58

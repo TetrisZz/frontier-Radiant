@@ -7,7 +7,13 @@ health-analyzer-window-entity-bleeding-text = Patient is bleeding!
 health-analyzer-window-entity-damage-total-text = Total Damage: {$amount}
 health-analyzer-window-damage-group-text = {$damageGroup}: {$amount}
 health-analyzer-window-damage-type-text = {$damageType}: {$amount}
+<<<<<<< HEAD
 health-analyzer-window-damage-type-duplicate-text = {$damageType}: {$amount} (duplicate)
+=======
+
+health-analyzer-window-entity-unrevivable-text = [color=red]Unique body composition detected! Patient can not be resuscitated by normal means![/color]
+health-analyzer-window-entity-bleeding-text = [color=red]Patient is bleeding![/color]
+>>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
 
 health-analyzer-window-scan-mode-text = Scan Mode:
 health-analyzer-window-scan-mode-active = ACTIVE
