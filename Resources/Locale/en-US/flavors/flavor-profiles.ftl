@@ -112,14 +112,11 @@ flavor-complex-corn = like corn
 flavor-complex-banana = like bananas
 flavor-complex-apple = like apples
 flavor-complex-pear = like pears
-<<<<<<< HEAD
-flavor-complex-cotton = like cottons
-flavor-complex-bungo = like bungo
-=======
+
 # Frontier: cottons<cotton
 flavor-complex-cotton = like cotton
 flavor-complex-bungo = like tropical sweetness
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
+
 flavor-complex-raisins = like dried grapes
 flavor-complex-orange = like oranges
 flavor-complex-watermelon = like watermelon

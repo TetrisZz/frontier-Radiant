@@ -2,8 +2,6 @@ salvage-expedition-window-finish = Finish expedition
 salvage-expedition-announcement-early-finish = The expedition was completed ahead of schedule. Shuttle will depart in {$departTime} seconds.
 salvage-expedition-shuttle-not-found = Cannot locate shuttle.
 salvage-expedition-not-everyone-aboard = Not all crew aboard! {CAPITALIZE(THE($target))} is still out there!
-<<<<<<< HEAD
-=======
 
 # Salvage mods
 salvage-time-mod-standard-time = Normal Duration
@@ -40,4 +38,3 @@ salvage-air-mod-16 = 34 CO2, 34 NH3, 34 N2O
 salvage-air-mod-17 = 34 H2O, 34 NH3, 34 N2O
 salvage-air-mod-18 = 34 H2O, 34 N2O, 17 NH3, 17 CO2
 salvage-air-mod-unknown = Unknown atmosphere
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58

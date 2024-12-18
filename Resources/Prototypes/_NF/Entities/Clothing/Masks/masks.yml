@@ -1,13 +1,8 @@
 - type: entity
   id: ClothingMaskArcadia
   name: arcadia battle mask
-<<<<<<< HEAD
   parent: ClothingMaskGasExplorer
-  description: A close-fitting high tech mask designed by Arcadia Industries for space faring battlers.
-=======
-  parent: [ ClothingMaskGasExplorer, BaseC3ContrabandNoValue, ContrabandClothing ]
   description: A close-fitting high tech mask designed by Arcadia Industries for spacefaring operators.
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
   components:
   - type: Sprite
     sprite: _NF/Clothing/Mask/arcadia.rsi

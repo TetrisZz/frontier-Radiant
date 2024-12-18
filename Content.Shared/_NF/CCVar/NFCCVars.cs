@@ -126,11 +126,7 @@ public sealed class NFCCVars
     /// Cooldown for failed missions.
     /// </summary>
     public static readonly CVarDef<float> SalvageExpeditionFailedCooldown =
-<<<<<<< HEAD
         CVarDef.Create("salvage.expedition_failed_cooldown", 900f, CVar.REPLICATED);
-=======
-        CVarDef.Create("salvage.expedition_failed_cooldown", 1200f, CVar.REPLICATED);
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
 
     /*
      * Smuggling

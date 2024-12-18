@@ -90,7 +90,6 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         { "(':", "chatsan-tearfully-smiles" },
         { "[':", "chatsan-tearfully-smiles" },
         { "('=", "chatsan-tearfully-smiles" },
-<<<<<<< HEAD
         { "['=", "chatsan-tearfully-smiles" },
 		// Corvax-Localization-Start
         { "хд", "chatsan-laughs" },
@@ -127,9 +126,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
 		{ "]=)", "chatsan-smiles" },
 		{ "--", "кажется не впечатлённым" },
         // Corvax-Localization-End
-=======
         { "['=", "chatsan-tearfully-smiles" }
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
     };
 
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;

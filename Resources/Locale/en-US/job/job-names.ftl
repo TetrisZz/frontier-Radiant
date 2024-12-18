@@ -46,8 +46,6 @@ job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
 
-<<<<<<< HEAD
-=======
 # unused jobs
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
@@ -65,7 +63,6 @@ job-title-visitor = Visitor
 job-title-cluwne = Cluwne
 job-title-universal = Universal
 
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician
 JobBartender = Bartender

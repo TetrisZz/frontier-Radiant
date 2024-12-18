@@ -40,11 +40,7 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(culture, "LOC", FormatLoc);
             _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
             _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
-<<<<<<< HEAD
-			_loc.AddFunction(culture, "MANY", FormatMany); // Corvax-Localization
-=======
             _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
 
 
             /*

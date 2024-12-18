@@ -40,7 +40,4 @@ station-event-random-sentience-flavor-corgi = corgi
 station-event-random-sentience-flavor-primate = primate
 station-event-random-sentience-flavor-kobold = kobold
 station-event-random-sentience-flavor-slime = slime
-<<<<<<< HEAD
-=======
 station-event-random-sentience-flavor-inanimate = inanimate
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58

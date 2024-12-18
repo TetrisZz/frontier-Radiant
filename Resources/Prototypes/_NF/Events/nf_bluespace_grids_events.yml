@@ -110,12 +110,8 @@
           linearDamping: 999999
         paths:
         - /Maps/_NF/Bluespace/vaultsmall.yml
-<<<<<<< HEAD
-    nfsdRewardFactor: 0
-=======
     rewardAccounts:
       Nfsd: 1.0
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
 
 - type: entity
   id: BluespaceSyndicateFTLInterception

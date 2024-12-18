@@ -435,9 +435,7 @@ uplink-barber-scissors-name = Barber Scissors
 uplink-barber-scissors-desc = A good tool to give your fellow agent a nice haircut, unless you want to give it to yourself.
 
 uplink-backpack-syndicate-name = Syndicate backpack
-<<<<<<< HEAD
-uplink-backpack-syndicate-desc = Lightweight explosion-proof а backpack for holding various traitor goods
-=======
+
 uplink-backpack-syndicate-desc = A lightweight explosion-proof backpack for holding various traitor goods
 
 uplink-cameraBug-name = Camera bug
@@ -448,4 +446,3 @@ uplink-combat-bakery-desc = A kit of clandestine baked weapons. Contains a bague
 
 uplink-business-card-name = Syndicate Business Card
 uplink-business-card-desc = A business card that you can give to someone to demonstrate your involvement in the syndicate or leave at the crime scene in order to make fun of the detective. You can buy no more than three of them.
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58

@@ -7,10 +7,6 @@ comp-secret-stash-action-hide-item-too-big = { THE($item) } is too big to fit in
 comp-secret-stash-action-get-item-found-something = There was something inside {$stash}!
 comp-secret-stash-on-examine-found-hidden-item = There is something hidden inside.
 
-<<<<<<< HEAD
-secret-stash-part-plant = the plant
-secret-stash-part-toilet = the toilet cistern
-=======
 ### Verbs
 comp-secret-stash-verb-insert-into-stash = Stash item
 comp-secret-stash-verb-insert-message-item-already-inside = There is already an item inside the {$stashname}.
@@ -27,4 +23,3 @@ comp-secret-stash-verb-open = Open
 secret-stash-plant = plant
 secret-stash-toilet = toilet cistern
 secret-stash-plushie = plushie
->>>>>>> a4c77463c93c1afdf7bdf9757b0a4e4bccab3a58
