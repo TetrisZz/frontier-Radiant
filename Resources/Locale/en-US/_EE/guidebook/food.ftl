@@ -12,8 +12,6 @@ guidebook-food-processing-butchering = Butcher
 guidebook-food-processing-slicing = Slice
 # Frontier: Microwave<Cook (multiple machine types)
 guidebook-food-processing-cooking = {CAPITALIZE($processingTypes)} for {$time}s
-# Frontier: deep fryer cook type
-guidebook-food-processing-deep-fry = {CAPITALIZE($processingTypes)} for {$time} cycles
 guidebook-food-processing-reaction = Mix
 
 guidebook-food-processing-recipe = {$ingredients}
@@ -28,5 +26,4 @@ guidebook-food-processing-type-oven = bake
 guidebook-food-processing-type-assembler = assemble
 guidebook-food-processing-type-medical-assembler = assemble
 guidebook-food-processing-type-medical-generic = cook
-guidebook-food-processing-type-deepfryer = deep fry
 # End Frontier: processing types

@@ -72,5 +72,5 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Docking
-    name: dock-label-drive-thru
+    name: McDrive Thru
 # endregion

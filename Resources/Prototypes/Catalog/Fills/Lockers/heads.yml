@@ -17,7 +17,6 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampQm
-#    - id: AstroNavCartridge # Frontier
     - id: ClothingBeltUtilityEngineering # Frontier
 
 - type: entity
@@ -273,7 +272,6 @@
   id: LockerFillResearchDirectorNoHardsuit
   table: !type:AllSelector
     children:
-#    - id: Intellicard # Frontier
 #    - id: BoxEncryptionKeyScience # Frontier
 #    - id: CircuitImprinterMachineCircuitboard # Frontier
     - id: ClothingBeltUtilityEngineering # Frontier: ClothingBeltUtilityFilled<ClothingBeltUtilityEngineering

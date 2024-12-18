@@ -2,20 +2,22 @@
   id: ActionEatMouse
   name: action-name-eat-mouse
   description: action-description-eat-mouse
-  categories: [ HideSpawnMenu ] # Frontier
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    itemIconStyle: NoItem
     icon: Nyanotrasen/Icons/verbiconfangs.png
     event: !type:EatMouseActionEvent
+    useDelay: 0.5
 
 - type: entity
   id: ActionHairball
   name: action-name-hairball
   description: action-description-hairball
-  categories: [ HideSpawnMenu ] # Frontier
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    charges: 1
-    icon: { sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi, state: icon }
-    useDelay: 30
+    itemIconStyle: NoItem
+    icon: Nyanotrasen/Icons/verbiconfangs.png
     event: !type:HairballActionEvent
+    useDelay: 30

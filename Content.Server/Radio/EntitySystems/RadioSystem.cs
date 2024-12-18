@@ -3,11 +3,12 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Radio.Components;
+using Content.Server.VoiceMask;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
-using Robust.Server.GameObjects; // Frontier
+using Robust.Server.GameObjects;
 using Content.Shared.Speech;
 using Content.Shared.Ghost; // Nuclear-14
 using Robust.Shared.Map;
@@ -17,6 +18,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared.IdentityManagement; // Frontier
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -92,22 +94,45 @@ public sealed class RadioSystem : EntitySystem
         if (!_messages.Add(message))
             return;
 
-        var evt = new TransformSpeakerNameEvent(messageSource, MetaData(messageSource).EntityName);
-        RaiseLocalEvent(messageSource, evt);
+        var name = MetaData(messageSource).EntityName; // Frontier - code block to allow multi masks.
+        var mode = "Unknown";
+
+        if (TryComp(messageSource, out VoiceMaskComponent? mask) && mask.Enabled)
+        {
+            switch (mask.Mode)
+            {
+                case Mode.Real:
+                    mode = Identity.Name(messageSource, EntityManager);
+                    break;
+                case Mode.Fake:
+                    mode = mask.VoiceName;
+                    break;
+                case Mode.Unknown:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException($"No implemented mask radio behavior for {mask.Mode}!");
+            }
+            name = mode;
+        } // Frontier - code block to allow multi masks.
 
         // Frontier: add name transform event
-        var transformEv = new RadioTransformMessageEvent(channel, radioSource, evt.VoiceName, message, messageSource);
+        var transformEv = new RadioTransformMessageEvent(channel, radioSource, name, message, messageSource);
         RaiseLocalEvent(radioSource, ref transformEv);
+        name = transformEv.Name;
         message = transformEv.Message;
         messageSource = transformEv.MessageSource;
         // End Frontier
 
-        var name = transformEv.Name; // Frontier: evt.VoiceName<transformEv.Name
         name = FormattedMessage.EscapeText(name);
 
         SpeechVerbPrototype speech;
-        if (evt.SpeechVerb != null && _prototype.TryIndex(evt.SpeechVerb, out var evntProto))
-            speech = evntProto;
+        if (mask != null
+            && mask.Enabled
+            && mask.SpeechVerb != null
+            && _prototype.TryIndex<SpeechVerbPrototype>(mask.SpeechVerb, out var proto))
+        {
+            speech = proto;
+        }
         else
             speech = _chat.GetSpeechVerb(messageSource, message);
 

@@ -2804,6 +2804,25 @@ entities:
     - type: Transform
       pos: 29.5,25.5
       parent: 1
+- proto: BluespaceBeaker
+  entities:
+  - uid: 202
+    components:
+    - type: Transform
+      parent: 201
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          temperature: 293.15
+          canReact: True
+          maxVol: 300
+          name: null
+          reagents:
+          - data: null
+            ReagentId: Cryoxadone
+            Quantity: 300
+    - type: Physics
+      canCollide: False
 - proto: BookAtmosWaste
   entities:
   - uid: 136
@@ -7794,6 +7813,24 @@ entities:
     - type: Transform
       pos: -28.5,32.5
       parent: 1
+    - type: ContainerContainer
+      containers:
+        scanner-body: !type:ContainerSlot
+          showEnts: True
+          occludes: True
+          ent: null
+        beakerSlot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 202
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: DefibrillatorCabinet
   entities:
   - uid: 1249

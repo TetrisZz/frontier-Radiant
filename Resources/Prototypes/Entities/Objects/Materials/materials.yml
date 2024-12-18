@@ -385,8 +385,6 @@
   - type: PhysicalComposition
     materialComposition:
       Diamond: 100
-  - type: PirateBountyItem # Frontier
-    id: MaterialDiamond # Frontier
 
 - type: entity
   parent: MaterialDiamond

@@ -1,4 +1,3 @@
-# Frontier: all entries capitalized, remove mention of "colour"
 marking-FelinidFluffyTail-Felinid_fluffy_tail_full = Fluffy Tail
 marking-FelinidFluffyTailRings-Felinid_fluffy_tail_full = Fluffy Tail
 marking-FelinidFluffyTailRings-felinid_fluffy_tail_rings = Fluffy Tail Rings

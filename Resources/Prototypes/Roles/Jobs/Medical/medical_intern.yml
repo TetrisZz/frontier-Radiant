@@ -14,12 +14,11 @@
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
   canBeAntag: false
-  # access: # Frontier
-  # - Medical # Frontier
-  # - Maintenance # Frontier
+  access:
+  - Medical
+  - Maintenance
+  - External # Frontier
   setPreference: false # Frontier
-  accessGroups: # Frontier
-  - GeneralAccess # Frontier
 
 - type: startingGear
   id: MedicalInternGear

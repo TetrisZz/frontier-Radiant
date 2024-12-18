@@ -1,4 +1,3 @@
-# Frontier: all entries capitalized
 # head markings
 
 ## patterns
@@ -17,33 +16,33 @@ marking-RodentiaHeadTopEarBat = Ears - Bat
 marking-RodentiaHeadTopEarBat-bat = Outer ear
 
 marking-RodentiaHeadTopEarBatLarge = Ears - Bat (Large)
-marking-RodentiaHeadTopEarBatLarge-bat_large = Outer Ear
+marking-RodentiaHeadTopEarBatLarge-bat_large = Outer ear
 
 marking-RodentiaHeadTopEarHamster = Ears - Hamster
-marking-RodentiaHeadTopEarHamster-hamster = Outer Ear
-marking-RodentiaHeadTopEarHamster-hamster_overlay = Inner Ear
+marking-RodentiaHeadTopEarHamster-hamster = Outer ear
+marking-RodentiaHeadTopEarHamster-hamster_overlay = Inner ear
 
 marking-RodentiaHeadTopEarLong = Ears - Long
-marking-RodentiaHeadTopEarLong-long = Outer Ear
-marking-RodentiaHeadTopEarLong-long_overlay = Inner Ear
+marking-RodentiaHeadTopEarLong-long = Outer ear
+marking-RodentiaHeadTopEarLong-long_overlay = Inner ear
 
 marking-RodentiaHeadTopEarMouse = Ears - Mouse
-marking-RodentiaHeadTopEarMouse-mouse = Outer Ear
-marking-RodentiaHeadTopEarMouse-mouse_overlay = Inner Ear
+marking-RodentiaHeadTopEarMouse-mouse = Outer ear
+marking-RodentiaHeadTopEarMouse-mouse_overlay = Inner ear
 
 marking-RodentiaHeadTopEarMouseLarge = Ears - Mouse (Large)
-marking-RodentiaHeadTopEarMouseLarge-mouse_large = Outer
-marking-RodentiaHeadTopEarMouseLarge-mouse_large_overlay = Inner Ear
+marking-RodentiaHeadTopEarMouseLarge-mouse_large = Outer 
+marking-RodentiaHeadTopEarMouseLarge-mouse_large_overlay = Inner ear
 
 marking-RodentiaHeadTopEarNone = Ears - Hidden
 marking-RodentiaHeadTopEarNone-none = None
 
 marking-RodentiaHeadTopEarPointy = Ears - Pointy
-marking-RodentiaHeadTopEarPointy-pointy = Outer Ear
+marking-RodentiaHeadTopEarPointy-pointy = Outer ear
 
 marking-RodentiaHeadTopEarRabbit = Ears - Rabbit
-marking-RodentiaHeadTopEarRabbit-rabbit = Outer Ear
-marking-RodentiaHeadTopEarRabbit-rabbit_overlay = Inner Ear
+marking-RodentiaHeadTopEarRabbit-rabbit = Outer ear
+marking-RodentiaHeadTopEarRabbit-rabbit_overlay = Inner ear
 
 marking-RodentiaHeadTopEarSmall = Ears - Small
 marking-RodentiaHeadTopEarSmall-small = Outer Ear

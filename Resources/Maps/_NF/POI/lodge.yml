@@ -3123,7 +3123,7 @@ entities:
       pos: 0.5,-3.5
       parent: 1
     - type: Docking
-      name: dock-label-bus
+      name: Bus Dock
   - uid: 171
     components:
     - type: Transform
@@ -3156,7 +3156,7 @@ entities:
       pos: 31.5,-3.5
       parent: 1
     - type: Docking
-      name: dock-label-station-four-c
+      name: 4C
   - uid: 153
     components:
     - type: Transform
@@ -3175,7 +3175,7 @@ entities:
       pos: 35.5,0.5
       parent: 1
     - type: Docking
-      name: dock-label-station-four-b
+      name: 4B
   - uid: 156
     components:
     - type: Transform
@@ -3195,7 +3195,7 @@ entities:
       pos: 31.5,4.5
       parent: 1
     - type: Docking
-      name: dock-label-station-four-a
+      name: 4A
   - uid: 159
     components:
     - type: Transform
@@ -3213,7 +3213,7 @@ entities:
       pos: -30.5,-3.5
       parent: 1
     - type: Docking
-      name: dock-label-station-six-b
+      name: 6B
   - uid: 162
     components:
     - type: Transform
@@ -3232,7 +3232,7 @@ entities:
       pos: -34.5,0.5
       parent: 1
     - type: Docking
-      name: dock-label-station-six-c
+      name: 6C
   - uid: 165
     components:
     - type: Transform
@@ -3252,7 +3252,7 @@ entities:
       pos: -30.5,4.5
       parent: 1
     - type: Docking
-      name: dock-label-station-six-a
+      name: 6A
   - uid: 168
     components:
     - type: Transform
@@ -3278,7 +3278,7 @@ entities:
       pos: -24.5,22.5
       parent: 1
     - type: Docking
-      name: dock-label-station-one-a
+      name: 1A
   - uid: 376
     components:
     - type: Transform
@@ -3304,7 +3304,7 @@ entities:
       pos: 25.5,22.5
       parent: 1
     - type: Docking
-      name: dock-label-station-three-b
+      name: 3B
   - uid: 380
     components:
     - type: Transform
@@ -3318,7 +3318,7 @@ entities:
       pos: -20.5,26.5
       parent: 1
     - type: Docking
-      name: dock-label-station-one-b
+      name: 1B
   - uid: 401
     components:
     - type: Transform
@@ -3338,7 +3338,7 @@ entities:
       pos: 0.5,26.5
       parent: 1
     - type: Docking
-      name: dock-label-station-two-a
+      name: 2A
   - uid: 503
     components:
     - type: Transform
@@ -3352,7 +3352,7 @@ entities:
       pos: 21.5,26.5
       parent: 1
     - type: Docking
-      name: dock-label-station-three-a
+      name: 3A
   - uid: 911
     components:
     - type: Transform

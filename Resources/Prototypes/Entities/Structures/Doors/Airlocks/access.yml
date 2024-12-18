@@ -65,7 +65,7 @@
       board: [ DoorElectronicsBar ]
 
 - type: entity
-  parent: AirlockHydroponics
+  parent: AirlockServiceLocked
   id: AirlockHydroponicsLocked
   suffix: Hydroponics, Locked
   components:
@@ -531,7 +531,7 @@
       board: [ DoorElectronicsJanitor ]
 
 - type: entity
-  parent: AirlockHydroponicsGlass
+  parent: AirlockServiceGlassLocked
   id: AirlockHydroGlassLocked
   suffix: Hydroponics, Locked
   components:

@@ -70,7 +70,6 @@
 - type: entity
   id: BaseAdvancedPen
   parent: [PenEmbeddable, BaseC3SyndicateContraband] # Frontier: add BaseC3SyndicateContraband
-  abstract: true
   components:
   - type: Tag
     tags:

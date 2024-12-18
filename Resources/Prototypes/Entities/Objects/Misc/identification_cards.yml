@@ -447,7 +447,7 @@
     - state: default
     - state: idvisitor
   - type: IdCard
-    jobTitle: job-title-visitor
+    jobTitle: Visitor
     jobIcon: JobIconVisitor
   - type: PresetIdCard
     job: Visitor
@@ -751,7 +751,7 @@
     - state: default
     - state: idcluwne
   - type: IdCard
-    jobTitle: job-title-cluwne
+    jobTitle: Cluwne
   - type: Unremoveable
 
 - type: entity
@@ -813,7 +813,7 @@
   - type: Item
     heldPrefix: green
   - type: IdCard
-    jobTitle: job-title-universal
+    jobTitle: Universal
     jobIcon: JobIconAdmin
   - type: Access
     groups:

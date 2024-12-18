@@ -52,7 +52,7 @@ public sealed partial class DrainComponent : Component
     /// drain puddles from.
     /// </summary>
     [DataField]
-    public float Range = 2.5f;
+    public float Range = 2f;
 
     /// <summary>
     /// How often in seconds the drain checks for puddles around it.
