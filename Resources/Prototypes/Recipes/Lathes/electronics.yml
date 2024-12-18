@@ -99,11 +99,6 @@
   result: DoorElectronics
 
 - type: latheRecipe
-  parent: BaseCheapElectronicsRecipe
-  id: FreezerElectronics
-  result: FreezerElectronics
-
-- type: latheRecipe
   parent: BaseElectronicsRecipe
   id: AirAlarmElectronics
   result: AirAlarmElectronics

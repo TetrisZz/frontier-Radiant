@@ -234,7 +234,6 @@
         - ReagentId: Radium
           Quantity: 2
         canReact: false
-  - type: UraniumMaterials # Frontier
 
 - type: entity
   parent: SheetUranium

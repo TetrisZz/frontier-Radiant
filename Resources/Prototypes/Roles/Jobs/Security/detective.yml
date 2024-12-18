@@ -11,22 +11,18 @@
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  ## Frontier: commented stuff out below
-  # access:
-  # - Security
-  # - Brig
-  # - Maintenance
-  # - Service
-  # - Detective
-  # - Cryogenics
-  # - External
-  # special:
-  # - !type:AddImplantSpecial
-  #   implants: [ MindShieldImplant ]
-  ## Frontier: commented stuff out above
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - Detective
+  - Cryogenics
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
   setPreference: false # Frontier
-  accessGroups: # Frontier
-  - GeneralAccess # Frontier
 
 - type: startingGear
   id: DetectiveGear

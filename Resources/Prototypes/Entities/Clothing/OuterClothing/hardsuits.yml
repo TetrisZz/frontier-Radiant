@@ -412,8 +412,6 @@
     price: 750
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
-  - type: PirateBountyItem # Frontier
-    id: ClothingOuterHardsuitRd # Frontier
 
 #Head of Security's Hardsuit
 - type: entity

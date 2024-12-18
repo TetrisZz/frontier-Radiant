@@ -11,17 +11,11 @@
 # - type: pointOfInterest
   # id: Edison
   # name: 'Edison Power Plant'
-  # minimumDistance: 3650
-  # maximumDistance: 6400
+  # rangeMin: 3650
+  # rangeMax: 6400
+  # IFFColor: "#3737C8" #blue the color of NT
   # spawnGroup: Required
   # gridPath: /Maps/_NF/POI/edison.yml 
-  # addComponents:
-  # - type: IFF
-    # color: "#3737C8"
-    # readOnly: true
-  # - type: Shuttle
-    # angularDamping: 999999
-    # linearDamping: 999999
 
 # - type: gameMap
   # id: Edison

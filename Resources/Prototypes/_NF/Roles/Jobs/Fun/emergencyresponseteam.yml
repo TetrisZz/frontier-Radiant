@@ -31,8 +31,9 @@
     pocket2: DoubleEmergencyAirTankFilled
   storage:
     back:
-#    - SecBreachingHammer
-#    - WeaponMailLake
+    - SecBreachingHammer
+    - WeaponMailLake
+    - BoxSurvivalEngineering
     - RubberStampCentcom
     - BoxFolderCentCom
 
@@ -52,7 +53,8 @@
     pocket2: DoubleEmergencyAirTankFilled
   storage:
     back:
-#    - SecBreachingHammer
-#    - WeaponMailLake
+    - SecBreachingHammer
+    - WeaponMailLake
+    - BoxSurvivalEngineering
     - RubberStampCentcom
     - BoxFolderCentCom

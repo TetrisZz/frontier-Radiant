@@ -10,6 +10,7 @@
     - 0,0,1,1
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: box
     layers:
     - state: black_box
     - state: black_box_open
@@ -87,6 +88,7 @@
     size: Small
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    state: box
     layers:
     - state: black_box
     - state: black_box_open
@@ -783,4 +785,4 @@
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: black_joker
 
-# endregion Black Cards
+# endregion Black Deck

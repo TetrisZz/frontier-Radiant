@@ -185,11 +185,11 @@
       - Bucket
       - MopItem
       - SprayBottle
-      - HydroponicsToolMiniHoe
+      - MiniHoe
       - HydroponicsToolScythe
       - HydroponicsToolHatchet
-      - HydroponicsToolSpade
-      - HydroponicsToolClippers
+      - Spade
+      - Clippers
       - ServiceSelectiveDropper
       - PlantBag
       - Beaker
@@ -202,7 +202,6 @@
       - Mousetrap
       - Holoprojector
       - Shovel
-      - FreezerElectronics
     ## Kitchen
       - DrinkMug
       - DrinkMugMetal
@@ -213,12 +212,11 @@
       - ServiceSpoon
       - ServiceFork
       - ServicePairedChopsticks
-      - FoodBowlBig
-      - FoodPlate
-      - FoodPlateSmall
-      - FoodPlateMuffinTin
-      - FoodPlateTin
-      - FoodKebabSkewer
+      - ServiceFoodBowlBig
+      - ServiceFoodPlate
+      - ServiceFoodPlateSmall
+      - ServiceFoodPlateTin
+      - ServiceFoodKebabSkewer
       - DrinkShotGlass
       - DrinkGlassCoupeShaped
       - CustomDrinkJug
@@ -552,7 +550,7 @@
 
 - type: entity
   id: NfsdTechFab
-  parent: [ BlueprintReceiverBase, SecurityTechFab ]
+  parent: [ SecurityTechFab, BlueprintReceiverBase ]
   name: nfsd techfab
   description: Prints equipment for use by nfsd.
   components:
@@ -1014,7 +1012,6 @@
       - PlushieBeeRecipe
       - PlushieLizardRecipe
       - PlushieSpaceLizardRecipe
-      - NFPlushieSharkMinnowRecipe
       - PlushieVoxRecipe
       - PlushieMoffRecipe
       - PlushieMoffsicianRecipe
@@ -1093,9 +1090,6 @@
       - PlushieCatWhiteRecipe
   - type: EmagLatheRecipes
     emagStaticRecipes:
-      - NFPlushieBotanistRecipe
-      - NFPlushieCmoRecipe
-      - NFPlushieEngineerRecipe      
       - PlushieJesterRecipe
       - PlushieJanitorRecipe
       - PlushieNukeRecipe
@@ -1175,60 +1169,3 @@
     - NFBlueprintPortableRecharger
     - BlueprintClothingOuterHardsuitScaf
   - type: RequireProjectileTarget
-
-- type: entity
-  id: ScrapProcessor
-  parent: BaseLatheLube
-  name: scrap processor
-  description: It produces sheets and ingots using scrap.
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Machines/scrap_processor.rsi
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: unshaded
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: NFScrapProcessorCircuitboard
-  - type: MaterialStorage
-    whitelist:
-      tags:
-      - Ore
-  - type: Lathe
-    idleState: icon
-    runningState: building
-    unlitIdleState: unshaded
-    unlitRunningState: building-unshaded
-    defaultProductionAmount: 10
-    staticRecipes:
-    - SmeltScrap
-    - ScrapPartRodMetal1
-    - ScrapSheetSteel1
-    - ScrapSheetGlass1
-    - ScrapSheetBrass1
-    - ScrapSheetRGlass1
-    - ScrapSheetPlasteel1
-    - ScrapSheetPlastic1
-    - ScrapSheetPlasma1
-    - ScrapSheetUranium1
-    - ScrapIngotSilver1
-    - ScrapIngotGold1
-    - ScrapMaterialBananium1
-    - ScrapMaterialCloth1
-    - ScrapMaterialDurathread1
-    - ScrapSheetUGlass1
-    - ScrapSheetPGlass1
-    - ScrapSheetRUGlass1
-    - ScrapSheetRPGlass1
-    - ScrapSheetClockworkGlass1
-    - ScrapMaterialBluespace1
-    - ScrapMaterialDiamond1
-    - ScrapCableHVStack1
-    - ScrapCableMVStack1
-    - ScrapCableApcStack1

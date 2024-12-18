@@ -21,8 +21,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
-using Robust.Shared.Audio;
-using Robust.Shared.GameObjects;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -30,12 +28,12 @@ namespace Content.Server.Silicons.Laws;
 public sealed class SiliconLawSystem : SharedSiliconLawSystem
 {
     [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private readonly SharedRoleSystem _roles = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -115,7 +113,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             component.Lawset = args.Lawset;
 
             // gotta tell player to check their laws
-            NotifyLawsChanged(uid, component.LawUploadSound);
+            NotifyLawsChanged(uid);
 
             // new laws may allow antagonist behaviour so make it clear for admins
             if (TryComp<EmagSiliconLawComponent>(uid, out var emag))
@@ -151,11 +149,14 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             return;
 
         base.OnGotEmagged(uid, component, ref args);
-        NotifyLawsChanged(uid, component.EmaggedSound);
+        NotifyLawsChanged(uid);
         EnsureEmaggedRole(uid, component);
 
         _stunSystem.TryParalyze(uid, component.StunTime, true);
 
+        if (!_mind.TryGetMind(uid, out var mindId, out _))
+            return;
+        _roles.MindPlaySound(mindId, component.EmaggedSound);
     }
 
     private void OnEmagMindAdded(EntityUid uid, EmagSiliconLawComponent component, MindAddedMessage args)
@@ -177,8 +178,10 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (component.AntagonistRole == null || !_mind.TryGetMind(uid, out var mindId, out _))
             return;
 
-        if (!_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
-            _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon");
+        if (_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
+            return;
+
+        _roles.MindAddRole(mindId, new SubvertedSiliconRoleComponent { PrototypeId = component.AntagonistRole });
     }
 
     public SiliconLawset GetLaws(EntityUid uid, SiliconLawBoundComponent? component = null)
@@ -236,7 +239,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         return ev.Laws;
     }
 
-    public void NotifyLawsChanged(EntityUid uid, SoundSpecifier? cue = null)
+    public void NotifyLawsChanged(EntityUid uid)
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
@@ -244,9 +247,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         var msg = Loc.GetString("laws-update-notify");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
         _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Red);
-
-        if (cue != null && _mind.TryGetMind(uid, out var mindId, out _))
-            _roles.MindPlaySound(mindId, cue);
     }
 
     /// <summary>
@@ -271,7 +271,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     /// <summary>
     /// Set the laws of a silicon entity while notifying the player.
     /// </summary>
-    public void SetLaws(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null)
+    public void SetLaws(List<SiliconLaw> newLaws, EntityUid target)
     {
         if (!TryComp<SiliconLawProviderComponent>(target, out var component))
             return;
@@ -280,7 +280,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             component.Lawset = new SiliconLawset();
 
         component.Lawset.Laws = newLaws;
-        NotifyLawsChanged(target, cue);
+        NotifyLawsChanged(target);
     }
 
     protected override void OnUpdaterInsert(Entity<SiliconLawUpdaterComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -294,7 +294,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
-            SetLaws(lawset, update, provider.LawUploadSound);
+            SetLaws(lawset, update);
         }
     }
 }

@@ -120,14 +120,13 @@
   targetDepth: 0
   effectHint: artifact-effect-hint-creation
   components:
-  # - type: SpawnArtifact
-    # maxSpawns: 20
-    # spawns:
-    # - id: FoodBanana
-      # amount: 3
-      # maxAmount: 6
+  - type: SpawnArtifact
+    maxSpawns: 20
+    spawns:
+    - id: FoodBanana
+      amount: 2 # Frontier 3<2
+      maxAmount: 4 # Frontier 6<4
   - type: ChemicalPuddleArtifact
-    maximumVolume: 200 # Frontier
     chemicalSolution:
       maxVol: 100
       canReact: false
@@ -157,9 +156,8 @@
   effectHint: artifact-effect-hint-biochemical
   components:
   - type: ChemicalPuddleArtifact
-    maximumVolume: 600 # Frontier
     chemicalSolution:
-      maxVol: 300 # Frontier: 500<300
+      maxVol: 500
       canReact: false
     possibleChemicals:
     - Aluminium
@@ -491,9 +489,8 @@
   effectHint: artifact-effect-hint-biochemical
   components:
   - type: ChemicalPuddleArtifact
-    maximumVolume: 600 # Frontier
     chemicalSolution:
-      maxVol: 300 # Frontier: 500<300
+      maxVol: 500
       canReact: false
     possibleChemicals:
     - Dermaline
@@ -594,6 +591,24 @@
     - shuffle-artifact-popup
 
 - type: artifactEffect
+  id: EffectT4PartsSpawn
+  targetDepth: 3
+  effectHint: artifact-effect-hint-creation
+  components:
+  - type: SpawnArtifact
+    maxSpawns: 10
+    spawns:
+    - id: QuadraticCapacitorStockPart
+      prob: 0.5
+      maxAmount: 3
+    - id: FemtoManipulatorStockPart
+      prob: 0.5
+      maxAmount: 3
+    - id: BluespaceMatterBinStockPart
+      prob: 0.5
+      maxAmount: 3
+
+- type: artifactEffect
   id: EffectFoamDangerous
   targetDepth: 3
   effectHint: artifact-effect-hint-biochemical
@@ -659,14 +674,14 @@
     maxIntensity: 50
     canCreateVacuum: false
 
-# - type: artifactEffect
-  # id: EffectPortal
-  # targetDepth: 3
-  # effectHint: artifact-effect-hint-displacement
-  # components:
-  # - type: PortalArtifact
+#- type: artifactEffect # Frontier
+#  id: EffectPortal
+#  targetDepth: 3
+#  effectHint: artifact-effect-hint-displacement
+#  components:
+#  - type: PortalArtifact
 
-# - type: artifactEffect
+# - type: artifactEffect # Frontier
   # id: EffectSingulo
   # targetDepth: 10
   # effectHint: artifact-effect-hint-destruction
@@ -675,13 +690,3 @@
     # maxSpawns: 1
     # spawns:
     # - id: Singularity
-
-# - type: artifactEffect
-  # id: EffectTesla
-  # targetDepth: 10
-  # effectHint: artifact-effect-hint-destruction
-  # components:
-  # - type: SpawnArtifact
-    # maxSpawns: 1
-    # spawns:
-    # - id: TeslaEnergyBall

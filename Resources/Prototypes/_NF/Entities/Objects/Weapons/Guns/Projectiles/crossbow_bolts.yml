@@ -121,7 +121,8 @@
   id: BaseCrossbowBoltTrigger
   abstract: true
   components:
-  - type: TriggerOnProjectileHit
+  - type: TriggerOnCollide
+    fixtureID: projectile
 
 # Lathe-printable variations
 - type: entity
@@ -190,7 +191,6 @@
     damage:
       types:
         Piercing: 20
-    deleteOnCollide: true
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -211,6 +211,10 @@
     maxTransferAmount: 5
     transferAmount: 5
     toggleState: Draw
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 30 # Should prevent re-using
 
 # Craftable variations
 - type: Tag
@@ -338,10 +342,13 @@
     damage:
       types:
         Piercing: 15
-    deleteOnCollide: true
   - type: Construction
     graph: CraftCrossbowBoltSyringe
     node: CraftCrossbowBoltSyringe
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 30 # Should prevent re-using
 
 - type: Tag
   id: CrossbowBoltPlasteel
@@ -404,7 +411,6 @@
     damage:
       types:
         Piercing: 15
-    deleteOnCollide: true
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -454,7 +460,6 @@
       types:
         Shock: 5
         Blunt: 10
-    deleteOnCollide: true
   - type: StaminaDamageOnCollide
     damage: 20
   - type: EmpOnTrigger
@@ -468,12 +473,16 @@
   - type: Construction
     graph: CraftCrossbowBoltEMP
     node: CraftCrossbowBoltEMP
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 30 # Should prevent re-using
 
 - type: Tag
   id: CrossbowBoltIncendiary
 
 - type: entity
-  parent: [ BaseC3ContrabandNoValue, BaseCrossbowBolt ]
+  parent: [ BaseC3ContrabandNoValue, BaseCrossbowBoltTrigger ]
   id: CrossbowBoltIncendiary
   name: incendiary bolt
   description: A bolt with a flare attached to it.
@@ -502,8 +511,7 @@
     damage:
       types:
         Piercing: 15
-    deleteOnCollide: true
-  - type: IgniteOnProjectileHit
+  - type: IgniteOnCollide
     fireStacks: 0.5
   - type: PointLight
     enabled: true
@@ -513,55 +521,10 @@
   - type: Construction
     graph: CraftCrossbowBoltIncendiary
     node: CraftCrossbowBoltIncendiary
-
-- type: Tag
-  id: CrossbowBoltShrapnel
-
-- type: entity
-  parent: BaseCrossbowBoltTrigger
-  id: CrossbowBoltShrapnel
-  name: shrapnel bolt
-  description: A bolt with a buckshot shotgun shell attached to it.
-  components:
-  - type: Tag
-    tags:
-    - CrossbowBoltShrapnel
-  - type: Sprite
-    layers:
-    - state: tail
-      color: "#9b0048"
-    - state: rod
-      color: "#767676"
-    - state: charge
-      color: "#801000"
-    - state: tip
-    - state: solution1
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: false
-  - type: Projectile
+  - type: DamageOnLand
     damage:
       types:
-        Blunt: 5
-    deleteOnCollide: true
-  - type: SpawnOnTrigger
-    proto: CrossbowBoltShrapnelSpread
-  - type: Construction
-    graph: CraftCrossbowBoltShrapnel
-    node: CraftCrossbowBoltShrapnel
-
-- type: entity
-  id: CrossbowBoltShrapnelSpread
-  categories: [ HideSpawnMenu, Spawner ] # Spawner category - this is intended to create other entities
-  components:
-  - type: ClusterGrenade
-    fillPrototype: PelletShotgun
-    maxGrenadesCount: 6
-    grenadeType: enum.GrenadeType.Shoot
-    baseTriggerDelay: 0
-  - type: TriggerOnSpawn
-  - type: ContainerContainer
-    containers:
-      cluster-payload: !type:Container
+        Blunt: 30 # Should prevent re-using
 
 # Blood cult
 - type: entity

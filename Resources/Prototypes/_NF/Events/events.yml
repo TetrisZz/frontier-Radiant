@@ -41,7 +41,6 @@
     # - id: RevenantSpawn # Frontier: empty list
     # - id: SleeperAgents # Frontier: empty list
     # - id: ZombieOutbreak # Frontier: empty list
-    # - id: LoneOpsSpawn # Frontier: empty list
 
 - type: entity
   id: BaseStationEvent
@@ -185,8 +184,9 @@
 #       min: 1
 #       max: 1
 #       pickPlayer: false
-#       mindRoles:
-#       - MindRoleDragon
+#       mindComponents:
+#       - type: DragonRole
+#         prototype: Dragon
 
 # - type: entity
 #   parent: BaseGameRule
@@ -234,8 +234,9 @@
 #         nameSegments:
 #         - names_ninja_title
 #         - names_ninja
-#       mindRoles:
-#       - MindRoleNinja
+#       mindComponents:
+#       - type: NinjaRole
+#         prototype: SpaceNinja
 
 # - type: entity
 #   parent: BaseGameRule
@@ -454,8 +455,9 @@
 #       - type: ZombifyOnDeath
 #       - type: IncurableZombie
 #       - type: InitialInfected
-#       mindRoles:
-#       - MindRoleInitialInfected
+#       mindComponents:
+#       - type: InitialInfectedRole
+#         prototype: InitialInfected
 
 # - type: entity
 #   parent: BaseNukeopsRule
@@ -468,7 +470,7 @@
 #     duration: 1
 #   - type: RuleGrids
 #   - type: LoadMapRule
-#     mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+#     preloadedGrid: ShuttleStriker
 #   - type: NukeopsRule
 #     roundEndBehavior: Nothing
 #   - type: AntagSelection
@@ -480,6 +482,7 @@
 #       startingGear: SyndicateLoneOperativeGearFull
 #       roleLoadout:
 #       - RoleSurvivalNukie
+
 #       components:
 #       - type: NukeOperative
 #       - type: RandomMetadata
@@ -489,8 +492,9 @@
 #       - type: NpcFactionMember
 #         factions:
 #         - Syndicate
-#       mindRoles:
-#       - MindRoleNukeops
+#       mindComponents:
+#       - type: NukeopsRole
+#         prototype: Nukeops
 
 # - type: entity
 #   parent: BaseTraitorRule
@@ -517,8 +521,9 @@
 #       blacklist:
 #         components:
 #         - AntagImmune
-#       mindRoles:
-#       - MindRoleTraitorSleeper
+#       mindComponents:
+#       - type: TraitorRole
+#         prototype: TraitorSleeper
 
 - type: entity
   id: MassHallucinations

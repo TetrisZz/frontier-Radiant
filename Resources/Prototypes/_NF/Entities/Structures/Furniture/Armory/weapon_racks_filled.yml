@@ -20,8 +20,10 @@
   - type: ContainerFill
     containers:
       weapon1:
-      - WeaponCrusher
+      - WeaponCrusherGlaive
       weapon2:
+      - WeaponCrusher
+      weapon3:
       - Pickaxe
 
 ## Pirates/Freelancers

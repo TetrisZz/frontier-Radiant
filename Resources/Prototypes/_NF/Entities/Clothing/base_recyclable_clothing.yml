@@ -1,11 +1,11 @@
 # Clothes
-- type: entity # Gloves, boots, hats
+- type: entity # Gloves, boots
   id: RecyclableItemClothSmall
   abstract: true
   components:
   - type: PhysicalComposition
     materialComposition:
-      Cloth: 50
+      Cloth: 100
   - type: Butcherable # Yields ~30% more if it rounds to whole up
     butcheringType: Knife
     spawned:
@@ -19,10 +19,13 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+      Glass: 100
   - type: Butcherable # Yields ~30% more if it rounds to whole up
     butcheringType: Knife # Would rather use screwdriver, but looks like butcheringType has hardcoded list of types
     spawned:
     - id: SheetSteel1
+      amount: 1
+    - id: SheetGlass1
       amount: 1
 
 - type: entity # Jumpsuits, backpacks, belts etc.
@@ -31,12 +34,12 @@
   components:
   - type: PhysicalComposition
     materialComposition:
-      Cloth: 150
-  - type: Butcherable # Yields more if it rounds to whole up
+      Cloth: 200
+  - type: Butcherable # Yields ~30% more if it rounds to whole up
     butcheringType: Knife
     spawned:
     - id: MaterialCloth1
-      amount: 2
+      amount: 3
 
 - type: entity # Coats and jackets
   id: RecyclableItemClothDurable
@@ -60,18 +63,18 @@
   components:
   - type: PhysicalComposition
     materialComposition:
-      Durathread: 300
+      Durathread: 500
       Plasteel: 200
-      Steel: 100
-  - type: Butcherable
+      Steel: 200
+  - type: Butcherable # Yields ~30% more if it rounds to whole up
     butcheringType: Knife
     spawned:
     - id: MaterialDurathread1
-      amount: 3
+      amount: 7
     - id: SheetSteel1
-      amount: 2
+      amount: 3
     - id: SheetPlasteel1
-      amount: 1
+      amount: 3
 
 - type: entity
   id: RecyclableItemClothHardsuit

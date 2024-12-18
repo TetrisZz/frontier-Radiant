@@ -136,7 +136,6 @@ public sealed class GhostTests
     /// 2. Assert is ghost
     /// </summary>
     [Test]
-    [Ignore("TODO: Figure out what's going on here.")] // Frontier
     public async Task TestGridGhostOnQueueDelete()
     {
         var data = await SetupData();

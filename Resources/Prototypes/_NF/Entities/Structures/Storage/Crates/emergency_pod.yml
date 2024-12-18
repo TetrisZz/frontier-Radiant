@@ -100,5 +100,3 @@
   - type: Construction
     graph: MedicalPod
     node: medicalpod
-    containers:
-    - entity_storage

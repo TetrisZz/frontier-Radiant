@@ -202,7 +202,7 @@ namespace Content.Server.PDA
                 {
                     ActualOwnerName = pda.OwnerName,
                     IdOwner = id?.FullName,
-                    JobTitle = id?.LocalizedJobTitle,
+                    JobTitle = id?.JobTitle,
                     StationAlertLevel = pda.StationAlertLevel,
                     StationAlertColor = pda.StationAlertColor
                 },

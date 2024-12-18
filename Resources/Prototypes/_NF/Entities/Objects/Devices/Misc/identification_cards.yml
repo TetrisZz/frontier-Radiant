@@ -169,7 +169,7 @@
   name: ERT mail carrier ID card
   components:
   - type: IdCard
-    jobTitle: job-title-ert-mail-carrier
+    jobTitle: ERT Mail Carrier
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:

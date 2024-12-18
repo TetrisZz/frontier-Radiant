@@ -14,12 +14,11 @@
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
   canBeAntag: false
-  # access: # Frontier
-  # - Research # Frontier
-  # - Maintenance # Frontier
+  access:
+  - Research
+  - Maintenance
+  - External # Frontier
   setPreference: false # Frontier
-  accessGroups: # Frontier
-  - GeneralAccess # Frontier
 
 - type: startingGear
   id: ResearchAssistantGear
