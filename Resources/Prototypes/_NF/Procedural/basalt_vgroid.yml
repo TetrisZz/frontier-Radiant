@@ -14,8 +14,8 @@
       proto: NFVGRoidBlobBasalt
     - !type:PrototypeDunGen
       proto: NFVGRoidExteriorBasalt
-    - !type:PrototypeDunGen
-      proto: NFVGRoidSmallerBasalt
+#    - !type:PrototypeDunGen
+#      proto: NFVGRoidSmallerBasalt
     - !type:PrototypeDunGen
       proto: NFVGRoidSmallPathsBasalt
     - !type:EntityTableDunGen
@@ -205,7 +205,7 @@
   maxCount: 3
   layers:
   - !type:ExteriorDunGen
-    proto: LavaMercenary
+    proto: NFLavaMercenary
   - !type:EntityTableDunGen
     minCount: 25
     maxCount: 40
