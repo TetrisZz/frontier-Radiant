@@ -6,7 +6,6 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Content.Shared._NF.Kitchen.Components;
 
 namespace Content.Client.Chemistry.EntitySystems;
 
@@ -154,32 +153,6 @@ public sealed partial class FoodRecipeData : FoodSourceData
         Result = proto.Result;
         _outputCount = proto.ResultCount; // Frontier
         SourceType = FoodSourceType.Recipe; // Frontier
-    }
-
-    public override bool IsSourceOf(EntProtoId food) => food == Result;
-}
-
-[Serializable, NetSerializable]
-public sealed partial class DeepFryerRecipeData : FoodSourceData
-{
-    [DataField]
-    public EntProtoId StartingEntity;
-
-    [DataField]
-    public EntProtoId Result;
-
-    [DataField]
-    public int Cycles;
-
-    public override int OutputCount => 1;
-
-    public DeepFryerRecipeData(EntityPrototype source, DeepFrySpawnComponent component)
-    {
-        Identitier = source.Name;
-        StartingEntity = source.ID;
-        Cycles = component.Cycles;
-        Result = component.Output;
-        SourceType = FoodSourceType.Recipe;
     }
 
     public override bool IsSourceOf(EntProtoId food) => food == Result;

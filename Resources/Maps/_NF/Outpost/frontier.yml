@@ -42,7 +42,7 @@ entities:
       name: Frontier Outpost
     - type: Transform
       pos: 0.70833397,-0.875
-      parent: 25
+      parent
     - type: MapGrid
       chunks:
         0,0:
@@ -10589,7 +10589,7 @@ entities:
     - type: Transform
       pos: -4.5,-20.5
       parent: 1
-- proto: ComputerTabletopStationAdminBankATMFrontier
+- proto: ComputerTabletopStationAdminBankATM
   entities:
   - uid: 627
     components:
@@ -23799,7 +23799,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -12.5,1.5
       parent: 1
-- proto: NFTelecomServerFilled
+- proto: TelecomServerFilled
   entities:
   - uid: 2887
     components:
@@ -27709,6 +27709,7 @@ entities:
   - uid: 1451
     components:
     - type: Transform
+
       pos: 22.5,-18.5
       parent: 1
   - uid: 1452

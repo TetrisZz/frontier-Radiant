@@ -443,7 +443,7 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
 
                 container.AddChild(new Label()
                 {
-                    Text = dock.LabelName ?? dock.Name, // Frontier: add dock.LabelName
+                    Text = dock.Name,
                     HorizontalAlignment = HAlignment.Center,
                 });
 

@@ -875,6 +875,8 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
+    Medicine:
+      effects:
       - !type:HealthChange
         damage:
           groups:

@@ -39,10 +39,6 @@ public abstract class SharedLatheSystem : EntitySystem
 
         if (ent.Comp.ReagentOutputSlotId != null)
             args.PushMarkup(Loc.GetString("lathe-menu-reagent-slot-examine"));
-
-        if (ent.Comp.ProductValueModifier != null) // Frontier
-            args.PushMarkup(Loc.GetString($"lathe-product-value-modifier", ("modifier", ent.Comp.ProductValueModifier))); // Frontier
-
     }
 
     [PublicAPI]

@@ -34,6 +34,10 @@ public sealed partial class DungeonJob
             {
                 if (!gen.TileMask.Contains(((ContentTileDefinition) _tileDefManager[tileRef.Value.Tile.TypeId]).ID))
                     continue;
+
+                //If entity mask null - we ignore the tiles that have anything on them.
+                if (gen.EntityMask is null && !_anchorable.TileFree(_grid, tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
+                    continue;
             }
 
             //Entity mask filtering
@@ -56,12 +60,6 @@ public sealed partial class DungeonJob
                 }
 
                 if (!found)
-                    continue;
-            }
-            else
-            {
-                //If entity mask null - we ignore the tiles that have anything on them.
-                if (!_anchorable.TileFree(_grid, tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
                     continue;
             }
 

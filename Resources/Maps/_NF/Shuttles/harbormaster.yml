@@ -373,7 +373,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Harbormaster
+      id: harbormaster
 - proto: AirAlarm
   entities:
   - uid: 250

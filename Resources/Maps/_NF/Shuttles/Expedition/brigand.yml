@@ -735,7 +735,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Brigand
+      id: brigand
 - proto: AirAlarm
   entities:
   - uid: 436

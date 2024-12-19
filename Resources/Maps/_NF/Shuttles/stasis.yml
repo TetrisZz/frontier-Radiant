@@ -867,7 +867,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Stasis
+      id: stasis
     - type: NavMap
 - proto: AirAlarm
   entities:

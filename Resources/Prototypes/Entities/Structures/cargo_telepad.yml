@@ -1,8 +1,8 @@
 ﻿- type: entity
   id: CargoTelepad
-  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ConstructibleMachine, BaseMachinePowered] # Frontier
+  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseMachinePowered] # Frontier
   name: cargo telepad
-  description: Beam in the cargo. # Frontier: What pizza?
+  description: Beam in the pizzas and dig in.
   components:
   - type: InteractionOutline
   - type: Physics
@@ -35,8 +35,8 @@
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
-#  - type: WirelessNetworkConnection # Frontier
-#    range: 200 # Frontier
+#  - type: WirelessNetworkConnection
+#    range: 200
   - type: DeviceLinkSink
     ports:
       - OrderReceiver
@@ -47,5 +47,3 @@
     board: CargoTelepadMachineCircuitboard
   - type: Appearance
   - type: CollideOnAnchor
-#  - type: NameIdentifier # Frontier
-#    group: CargoTelepads # Frontier

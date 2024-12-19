@@ -8,7 +8,6 @@ namespace Content.IntegrationTests.Tests.Minds;
 public sealed partial class MindTests
 {
     [Test]
-    [Ignore("TODO: Figure out what's going on here.")] // Frontier
     public async Task DeleteAllThenGhost()
     {
         var settings = new PoolSettings

@@ -12,9 +12,8 @@ using Robust.Shared.Configuration; // Frontier
 using Content.Server.CryoSleep; // Frontier
 using Robust.Shared.Player; // Frontier
 using Content.Shared.Ghost; // Frontier
-using Content.Server.Administration.Managers; // Frontier
+using Content.Server.Administration.Managers;
 using Content.Server.Administration; // Frontier
-using Content.Shared.GameTicking; // Frontier
 
 namespace Content.Server.Corvax.Respawn;
 
@@ -45,7 +44,6 @@ public sealed class RespawnSystem : EntitySystem
         SubscribeLocalEvent<MindContainerComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<MindContainerComponent, CryosleepBeforeMindRemovedEvent>(OnCryoBeforeMindRemoved);
         SubscribeLocalEvent<MindContainerComponent, CryosleepWakeUpEvent>(OnCryoWakeUp);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart); // Frontier
 
         _admin.OnPermsChanged += OnAdminPermsChanged; // Frontier
         _player.PlayerStatusChanged += PlayerStatusChanged; // Frontier
@@ -117,7 +115,7 @@ public sealed class RespawnSystem : EntitySystem
         }
     }
 
-    // Frontier: respawn handler: adjusts respawn and cryo timers.
+    // Frontier: respawn handler: adjusts 
     public void Respawn(ICommonSession session)
     {
         var respawnData = GetRespawnData(session.UserId);
@@ -188,12 +186,6 @@ public sealed class RespawnSystem : EntitySystem
         {
             RaiseNetworkEvent(new RespawnResetEvent(_respawnInfo[session.UserId].RespawnTime), session);
         }
-    }
-
-    // Frontier: reset game state, we have a new round.
-    private void OnRoundRestart(RoundRestartCleanupEvent ev)
-    {
-        _respawnInfo.Clear();
     }
     // End Frontier
 }

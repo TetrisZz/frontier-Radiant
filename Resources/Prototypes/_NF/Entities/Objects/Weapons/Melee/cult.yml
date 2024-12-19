@@ -1,0 +1,98 @@
+- type: entity
+  id: RitualDaggerPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - RitualDagger
+  suffix: Printed
+
+- type: entity
+  id: EldritchBladePrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - EldritchBlade
+  suffix: Printed
+
+- type: entity
+  id: UnholyHalberdPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - UnholyHalberd
+  suffix: Printed
+
+- type: entity
+  id: WizardStaffMeleeBloodPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - WizardStaffMeleeBlood
+  suffix: Printed
+
+# TODO: migrate these out of weapons
+- type: entity
+  id: ClothingHeadHelmetCultJanitorPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingHeadHelmetCultJanitor
+  suffix: Printed
+
+- type: entity
+  id: ClothingMaskCultJanitorPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingMaskCultJanitor
+  suffix: Printed
+
+- type: entity
+  id: ClothingOuterCoatCultJanitorPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingOuterCoatCultJanitor
+  suffix: Printed
+
+- type: entity
+  id: ClothingHeadHelmetCultPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingHeadHelmetCult
+  suffix: Printed
+
+- type: entity
+  id: ClothingOuterArmorCultPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingOuterArmorCult
+  suffix: Printed
+
+- type: entity
+  id: ClothingShoesCultPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingShoesCult
+  suffix: Printed
+
+- type: entity
+  id: ClothingOuterCoatBloodCultRobesPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingOuterCoatBloodCultRobes
+  suffix: Printed
+
+- type: entity
+  id: ClothingHeadHelmetBonePrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingHeadHelmetBone
+  suffix: Printed
+
+- type: entity
+  id: ClothingOuterArmorBonePrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingOuterArmorBone
+  suffix: Printed
+
+- type: entity
+  id: ClothingBackpackMessengerBloodCultPrinted
+  parent:
+  - BaseC3CultContrabandNoValueRadiant
+  - ClothingBackpackMessengerBloodCult
+  suffix: Printed

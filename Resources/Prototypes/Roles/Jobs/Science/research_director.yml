@@ -7,28 +7,22 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
-  supervisors: job-supervisors-captain
-  canBeAntag: false
-  ## Frontier: commented stuff below out
-  # access:
-  # - Research
-  # - Command
-  # - Maintenance
-  # - ResearchDirector
-  # - Brig
-  # - Cryogenics
-  # special:
-  # - !type:AddImplantSpecial
-  #   implants: [ MindShieldImplant ]
-  # - !type:AddComponentSpecial
-  #   components:
-  #     - type: CommandStaff
-  ## End Frontier: commented stuff above out
+#  requireAdminNotify: true
+  supervisors: job-supervisors-hire # Frontier
+#  canBeAntag: false
   accessGroups: # Frontier
   - GeneralAccess # Frontier
+#  special:
+#  - !type:AddImplantSpecial
+#    implants: [ MindShieldImplant ]
+#  - !type:AddComponentSpecial
+#    components:
+#      - type: CommandStaff
 
 - type: startingGear
   id: ResearchDirectorGear

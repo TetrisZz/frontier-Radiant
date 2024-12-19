@@ -45,19 +45,17 @@
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
 
-# Frontier: no tech disks
-# - type: technology
-#   id: AlternativeResearch
-#   name: research-technology-alternative-research
-#   icon:
-#     sprite: Structures/Machines/tech_disk_printer.rsi
-#     state: display
-#   discipline: Experimental
-#   tier: 1
-#   cost: 5000
-#   recipeUnlocks:
-#   - TechDiskComputerCircuitboard
-# End Frontier: no tech disks
+- type: technology
+  id: AlternativeResearch
+  name: research-technology-alternative-research
+  icon:
+    sprite: Structures/Machines/tech_disk_printer.rsi
+    state: display
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - TechDiskComputerCircuitboard
 
 - type: technology
   id: MagnetsTech
@@ -116,30 +114,30 @@
   id: AdvancedAnomalyResearch
   name: research-technology-advanced-anomaly-research
   icon:
-    sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
+    sprite: Structures/Machines/anomaly_sync.rsi
     state: base
   discipline: Experimental
   tier: 2
   cost: 10000
   recipeUnlocks:
   - WeaponPistolCHIMP
-  # - AnomalySynchronizerCircuitboard # Frontier: doesn't make sense for Frontier
+  - AnomalySynchronizerCircuitboard
   - AnomalyVesselExperimentalCircuitboard
   technologyPrerequisites:
   - BasicAnomalousResearch
 
-- type: technology
-  id: DeterrenceTechnologies
-  name: research-technology-deterrence
-  icon:
-    sprite: Objects/Devices/Holoprojectors/field.rsi # Frontier particle_decelerator.rsi<field.rsi
-    state: icon # Frontier base<icon
-  discipline: Experimental
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  # - WeaponParticleDecelerator # Frontier - Cancer gun that skip walls
-  - HoloprojectorField
+# - type: technology
+  # id: DeterrenceTechnologies
+  # name: research-technology-deterrence
+  # icon:
+    # sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+    # state: base
+  # discipline: Experimental
+  # tier: 2
+  # cost: 7500
+  # recipeUnlocks:
+  # - WeaponParticleDecelerator
+  # - HoloprojectorField
 
 # Tier 3
 

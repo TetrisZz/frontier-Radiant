@@ -9,7 +9,7 @@
     handheld: true
 
 - type: entity
-  parent: [MusicBasePDA, AdminPDA]
+  parent: [MusicBasePDA, CentcomPDA]
   id: NFAdminPDA
   components:
   - type: CartridgeLoader
@@ -18,9 +18,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - BountyContractsCartridge
-      - AstroNavCartridge
       - WantedListCartridge
-      - LedgerCartridge
       - LogProbeCartridge
       - MailMetricsCartridge
       - AppraisalCartridge
@@ -172,15 +170,6 @@
   - type: Icon
     sprite: _NF/Objects/Devices/pda.rsi
     state: pda-sheriff
-  - type: CartridgeLoader # Extended with the ledger
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - BountyContractsCartridge
-    - AstroNavCartridge
-    - WantedListCartridge
-    - LedgerCartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -465,15 +454,6 @@
   - type: Icon
     sprite: _NF/Objects/Devices/pda.rsi
     state: pda-sr
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - BountyContractsCartridge
-    - AstroNavCartridge
-    - LedgerCartridge
-    - MailMetricsCartridge
 
 - type: entity
   parent: PiratePDA

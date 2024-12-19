@@ -1,10 +1,9 @@
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared.CCVar;
 using Content.Shared.Ghost.Roles; // Frontier: Ghost Role handling
-using Content.Shared.Players; // DeltaV
 using Content.Shared.Players.JobWhitelist;
 using Content.Shared.Players.PlayTimeTracking; // Frontier: Global whitelist handling
 using Content.Shared.Roles;
@@ -80,10 +79,6 @@ public sealed class JobWhitelistManager : IPostInjectInit
         {
             return true;
         }
-
-        // DeltaV: Blanket player whitelist allows all roles
-        if (session.ContentData()?.Whitelisted ?? false)
-            return true;
 
         return IsWhitelisted(session.UserId, job);
     }

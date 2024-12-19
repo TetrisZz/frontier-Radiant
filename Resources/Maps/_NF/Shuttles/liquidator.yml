@@ -424,7 +424,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Liquidator
+      id: liquidator
 - proto: AirAlarm
   entities:
   - uid: 396

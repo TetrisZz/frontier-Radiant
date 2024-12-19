@@ -30,14 +30,7 @@
     containers:
       body_container: !type:ContainerSlot
 
-# If cryopods get deleted, this one is considered as a safe fallback.
-- type: entity
-  id: MachineCryoSleepPodFallback
-  parent: MachineCryoSleepPod
-  suffix: Fallback
-  components:
-  - type: CryoSleepFallback
-
+# WIP for a medical bounty reclaimer machine
 - type: entity
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseMachinePowered]
   id: MachineMedicalBountyRedemption

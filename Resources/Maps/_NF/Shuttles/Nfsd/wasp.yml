@@ -29,8 +29,6 @@ entities:
     components:
     - type: MetaData
       name: Wasp
-    - type: BecomesStation
-      id: Wasp
     - type: Transform
       pos: 0.22101265,1.687084
       parent: invalid
@@ -10239,7 +10237,7 @@ entities:
     - type: Transform
       pos: 5.5,-16.5
       parent: 1
-- proto: TelecomServerFilledNfsd
+- proto: TelecomServerFilledSecurity
   entities:
   - uid: 1504
     components:

@@ -99,11 +99,6 @@
   result: DoorElectronics
 
 - type: latheRecipe
-  parent: BaseCheapElectronicsRecipe
-  id: FreezerElectronics
-  result: FreezerElectronics
-
-- type: latheRecipe
   parent: BaseElectronicsRecipe
   id: AirAlarmElectronics
   result: AirAlarmElectronics
@@ -268,12 +263,10 @@
   id: AnomalyVesselExperimentalCircuitboard
   result: AnomalyVesselExperimentalCircuitboard
 
-# Frontier: no recipes for the anomaly synchronizer
-# - type: latheRecipe
-#   parent: BaseSilverCircuitboardRecipe
-#   id: AnomalySynchronizerCircuitboard
-#   result: AnomalySynchronizerCircuitboard
-# End Frontier
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: AnomalySynchronizerCircuitboard
+  result: AnomalySynchronizerCircuitboard
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
@@ -295,12 +288,10 @@
   id: AnalysisComputerCircuitboard
   result: AnalysisComputerCircuitboard
 
-# Frontier: no tech disk recipes
-# - type: latheRecipe
-#   parent: BaseGoldCircuitboardRecipe
-#   id: TechDiskComputerCircuitboard
-#   result: TechDiskComputerCircuitboard
-# End Frontier
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: TechDiskComputerCircuitboard
+  result: TechDiskComputerCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe

@@ -1290,8 +1290,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-    - type: BecomesStation 
-      id: Gourd
+    - type: BecomesStation
+      id: gourd
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1932

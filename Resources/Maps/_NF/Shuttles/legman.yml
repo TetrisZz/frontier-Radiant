@@ -254,7 +254,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Legman
+      id: legman
 - proto: AirlockGlassShuttle
   entities:
   - uid: 4

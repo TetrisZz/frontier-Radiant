@@ -69,7 +69,6 @@
     - id: SheetSteel
     - id: SheetGlass
     - id: SheetPlastic
-    - id: MaterialWoodPlank
 
 - type: entity # Stacks of 10
   abstract: true
@@ -80,4 +79,3 @@
     - id: SheetSteel10
     - id: SheetGlass10
     - id: SheetPlastic10
-    - id: MaterialWoodPlank10

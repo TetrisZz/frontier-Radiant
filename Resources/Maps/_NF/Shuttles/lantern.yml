@@ -423,7 +423,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Lantern
+      id: lantern
 - proto: AirAlarm
   entities:
   - uid: 295

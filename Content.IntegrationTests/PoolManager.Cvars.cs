@@ -36,10 +36,7 @@ public static partial class PoolManager
         (CCVars.ConfigPresetDevelopment.Name, "false"),
         (CCVars.AdminLogsEnabled.Name, "false"),
         (CCVars.AutosaveEnabled.Name, "false"),
-        (CVars.NetBufferSize.Name, "0"),
-        (CCVars.InteractionRateLimitCount.Name, "9999999"),
-        (CCVars.InteractionRateLimitPeriod.Name, "0.1"),
-        (CCVars.GameLobbyDefaultPreset.Name, "secret")// Frontier: Adventure takes ages, default to secret
+        (CVars.NetBufferSize.Name, "0")
     };
 
     public static async Task SetupCVars(RobustIntegrationTest.IntegrationInstance instance, PoolSettings settings)
@@ -64,9 +61,6 @@ public static partial class PoolManager
 
             if (cfg.IsCVarRegistered(CVars.NetInterp.Name))
                 cfg.SetCVar(CVars.NetInterp, !settings.DisableInterpolate);
-
-            if (cfg.IsCVarRegistered(CCVars.GameLobbyDefaultPreset.Name) && !string.IsNullOrEmpty(settings.GameLobbyDefaultPreset)) // Frontier
-                cfg.SetCVar(CCVars.GameLobbyDefaultPreset, settings.GameLobbyDefaultPreset); // Frontier
         });
     }
 

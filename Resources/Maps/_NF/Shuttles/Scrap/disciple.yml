@@ -15,8 +15,6 @@ entities:
     components:
     - type: MetaData
       name: Disciple
-    - type: BecomesStation
-      id: Disciple
     - type: Transform
       pos: -0.47058776,-0.52941173
       parent: invalid
@@ -1496,6 +1494,8 @@ entities:
     - type: Transform
       pos: 2.5,1.5
       parent: 1
+    - type: BecomesStation
+      id: disciple
 - proto: Window
   entities:
   - uid: 18

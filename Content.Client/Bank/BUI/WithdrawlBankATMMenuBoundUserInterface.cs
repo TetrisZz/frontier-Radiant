@@ -1,6 +1,7 @@
 using Content.Client.Bank.UI;
 using Content.Shared.Bank.BUI;
 using Content.Shared.Bank.Events;
+using Robust.Client.GameObjects;
 
 namespace Content.Client.Cargo.BUI;
 

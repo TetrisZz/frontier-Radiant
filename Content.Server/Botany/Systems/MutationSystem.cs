@@ -27,7 +27,7 @@ public sealed class MutationSystem : EntitySystem
     {
         foreach (var mutation in _randomMutations.mutations)
         {
-            if (Random(Math.Min(mutation.BaseOdds * severity, 1.0f)))
+            if (Random(mutation.BaseOdds * severity))
             {
                 if (mutation.AppliesToPlant)
                 {

@@ -158,11 +158,8 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 300
-  - type: StackPrice # Frontier: Static<Stack
+  - type: StaticPrice
     price: 75
-  - type: Stack # Frontier
-    stackType: TreasureCoinIron # Frontier
-    count: 1 # Frontier
 
 - type: entity
   parent: TreasureCoinIron
@@ -174,11 +171,8 @@
     materialComposition:
       Steel: 100 # coins are fake on the inside
       Silver: 200
-  - type: StackPrice # Frontier: Static<Stack
+  - type: StaticPrice
     price: 135
-  - type: Stack # Frontier
-    stackType: TreasureCoinSilver # Frontier
-    count: 1 # Frontier
 
 - type: entity
   parent: TreasureCoinIron
@@ -190,11 +184,8 @@
     materialComposition:
       Steel: 100
       Gold: 200
-  - type: StackPrice # Frontier: Static<Stack
+  - type: StaticPrice
     price: 175
-  - type: Stack # Frontier
-    stackType: TreasureCoinGold # Frontier
-    count: 1 # Frontier
 
 - type: entity
   parent: TreasureCoinIron
@@ -206,11 +197,8 @@
     materialComposition:
       Steel: 400
       Diamond: 5
-  - type: StackPrice # Frontier: Static<Stack
+  - type: StaticPrice
     price: 250
-  - type: Stack # Frontier
-    stackType: TreasureCoinAdamantine # Frontier
-    count: 1 # Frontier
 
 - type: entity
   parent: TreasureCoinIron
@@ -222,9 +210,6 @@
     materialComposition:
       Steel: 300
       Diamond: 15
-  - type: StackPrice # Frontier: Static<Stack
+  - type: StaticPrice
     price: 500
-  - type: Stack # Frontier
-    stackType: TreasureCoinDiamond # Frontier
-    count: 1 # Frontier
 

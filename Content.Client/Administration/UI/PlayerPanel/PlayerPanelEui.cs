@@ -38,7 +38,6 @@ public sealed class PlayerPanelEui : BaseEui
         PlayerPanel.OnLogs += () => SendMessage(new PlayerPanelLogsMessage());
         PlayerPanel.OnRejuvenate += () => SendMessage(new PlayerPanelRejuvenationMessage());
         PlayerPanel.OnDelete+= () => SendMessage(new PlayerPanelDeleteMessage());
-        PlayerPanel.OnOpenJobWhitelists += id => _console.ExecuteCommand($"jobwhitelists \"{id}\""); // DeltaV
 
         PlayerPanel.OnClose += () => SendMessage(new CloseEuiMessage());
     }

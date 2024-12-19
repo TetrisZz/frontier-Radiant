@@ -19,8 +19,6 @@ entities:
     components:
     - type: MetaData
       name: Wendigo
-    - type: BecomesStation
-      id: Wendigo
     - type: Transform
       parent: invalid
     - type: MapGrid

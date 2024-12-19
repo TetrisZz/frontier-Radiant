@@ -135,12 +135,3 @@
   - type: GuideHelp
     guides:
     - ShipyardSearchlight
-
-- type: entity
-  parent: ShipyardInfoBase
-  id: ShipyardCharonInfo
-  name: Charon user manual
-  components:
-  - type: GuideHelp
-    guides:
-    - ShipyardCharon

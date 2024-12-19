@@ -86,8 +86,8 @@
 
 - type: latheRecipe
   id: ShipyardRCD
-  parent: NFBaseToolsRecipe
   result: ShipyardRCDEmpty
+  parent: NFBaseToolsRecipe
   completetime: 4
   materials:
     Steel: 1000
@@ -95,8 +95,8 @@
 
 - type: latheRecipe
   id: ShipyardRCDAmmo
-  parent: NFBaseToolsRecipe
   result: ShipyardRCDAmmo
+  parent: NFBaseToolsRecipe
   completetime: 2.4
   materials:
     Steel: 500

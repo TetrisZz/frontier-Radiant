@@ -67,7 +67,7 @@
   components:
   - type: PhysicalComposition
     materialComposition:
-      Steel: 150
+      Steel: 200
 
 # Plastic
 ## Tiny

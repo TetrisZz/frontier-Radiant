@@ -131,8 +131,7 @@
   - type: ShipyardConsole
     shipyardChannel: Syndicate
     secretShipyardChannel: Nfsd
-    taxAccounts:
-      Frontier: 0.3 # The scandal!
+    salesTax: 0.3
     canTransferDeed: false
 
 - type: entity
@@ -161,8 +160,7 @@
   - type: ShipyardConsole
     shipyardChannel: Freelance
     secretShipyardChannel: Nfsd
-    taxAccounts:
-      Frontier: 0.3 # The scandal!
+    salesTax: 0.3
     canTransferDeed: false
 
 - type: entity

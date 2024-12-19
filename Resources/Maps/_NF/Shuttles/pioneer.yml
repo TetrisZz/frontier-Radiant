@@ -222,7 +222,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Pioneer
+      id: pioneer
 - proto: AirAlarm
   entities:
   - uid: 49
