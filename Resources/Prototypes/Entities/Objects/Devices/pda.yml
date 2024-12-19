@@ -126,8 +126,6 @@
   - type: StaticPrice # Frontier
     price: 20 # Frontier: The card need to cost less then the PDA that comes with a card and a pen in it.
   - type: CargoSellBlacklist # Frontier: Liltenhead moment
-  - type: PirateBountyItem
-    id: Pda
 
 - type: entity
   parent: BasePDA
@@ -135,6 +133,7 @@
   abstract: true
   components:
   - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
     preinstalled:
     - CrewManifestCartridge
     - NotekeeperCartridge
@@ -421,15 +420,13 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-miner
-  # Frontier: cartridges moved to loadouts
-  # - type: CartridgeLoader
-  #   uiKey: enum.PdaUiKey.Key
-    # preinstalled:
-    #   - CrewManifestCartridge
-    #   - NotekeeperCartridge
-    #   - NewsReaderCartridge
-    #   - AstroNavCartridge
-  # End Frontier
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - AstroNavCartridge
 
 - type: entity
   parent: BasePDA
@@ -519,7 +516,7 @@
     state: pda-janitor
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSecurityPDA
   id: CaptainPDA
   name: captain PDA
   description: Surprisingly no different from your PDA.
@@ -707,13 +704,6 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - WantedListCartridge
-    - LogProbeCartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -762,23 +752,12 @@
     borderColor: "#00842e"
   - type: Icon
     state: pda-centcom
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - WantedListCartridge
-      - LogProbeCartridge
-      - AstroNavCartridge
 
 - type: entity
   parent: CentcomPDA
   id: AdminPDA
   name: Admin PDA
   suffix: Admin
-  categories: [ HideSpawnMenu ] # Frontier: use NF variant
   description: If you are not an admin please return this PDA to the nearest admin.
   components:
   - type: Pda
@@ -795,8 +774,6 @@
       - NewsReaderCartridge
       - LogProbeCartridge
       - WantedListCartridge
-      - MedTekCartridge
-      - AstroNavCartridge
 
 - type: entity
   parent: CentcomPDA
@@ -889,6 +866,14 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+    cartridgeSlot:
+      priority: -1
+      name: Cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+          - Cartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -906,17 +891,6 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-ert
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - WantedListCartridge
-      - LogProbeCartridge
-      - AstroNavCartridge
-      - MailMetricsCartridge # Frontier
 
 - type: entity
   parent: ERTLeaderPDA
@@ -957,6 +931,14 @@
   components:
   - type: Pda
     id: ERTMedicIDCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1059,13 +1041,6 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - WantedListCartridge
-    - LogProbeCartridge
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1082,13 +1057,6 @@
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - WantedListCartridge
-    - MedTekCartridge
 
 - type: entity
   parent: ClownPDA
@@ -1206,3 +1174,11 @@
     preinstalled:
       - NotekeeperCartridge
       - MedTekCartridge
+    cartridgeSlot:
+      priority: -1
+      name: Cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+          - Cartridge

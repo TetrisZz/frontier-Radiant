@@ -21,10 +21,6 @@
       visible: false
   - type: MixableSolution
     solution: food
-  - type: Drink
-    solution: food
-    useSound:
-      path: /Audio/Items/drink.ogg
   - type: DamageOnLand
     damage:
       types:
@@ -63,8 +59,8 @@
   - type: Tag
     tags:
     - Trash
-  - type: StaticPrice # Frontier
-    price: 4 # Frontier
+  - type: StaticPrice
+    price: 1
 
 - type: entity
   name: broken bowl
@@ -83,7 +79,7 @@
       Glass: 50
   - type: SpaceGarbage
   - type: StaticPrice
-    price: 4 # Frontier 0<4 4 needed for arbitrage
+    price: 4 # Frontier: 1<4, it's BIG, mkay
 
 - type: entity
   name: bowl
@@ -98,5 +94,5 @@
     - map: ["enum.SolutionContainerLayers.Fill"]
       state: fill-1
       visible: false
-  - type: StaticPrice # Frontier
-    price: 5 # Frontier
+  - type: StaticPrice
+    price: 3

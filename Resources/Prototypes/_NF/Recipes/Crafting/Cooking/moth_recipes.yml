@@ -1,14 +1,12 @@
 - type: microwaveMealRecipe
   id: RecipeFoodMothPizzaCotton
-  name: cheese cotton pizza recipe # Frontier: add "cheese"
+  name: cotton pizza recipe
   result: FoodMothPizzaCotton
   time: 30
   solids:
-    FoodDoughCottonFlat: 1 # Frontier: FoodDoughFlat<FoodDoughCottonFlat
+    FoodDoughFlat: 1
     FoodCheeseSlice: 1
-    CottonBol: 3 # Frontier: MaterialCotton1<CottonBol
-  recipeType: # Frontier
-  - Oven # Frontier
+    MaterialCotton1: 3
 
 - type: microwaveMealRecipe
   id: RecipeMothMothmallow
@@ -21,8 +19,6 @@
     MilkSoy: 5
   solids:
     FoodSoybeans: 1
-  recipeType: # Frontier
-  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMothMoffin
@@ -35,8 +31,6 @@
     Egg: 5
   solids:
     MaterialCloth1: 1
-  recipeType: # Frontier
-  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMothCottonSoup
@@ -50,6 +44,4 @@
     FoodEggplant: 1
     FoodOnion: 1
     FoodCarrot: 1
-    CottonBol: 1 # Frontier: MaterialCotton1<CottonBol
-  recipeType: # Frontier
-  - Oven # Frontier
+    MaterialCotton1: 1

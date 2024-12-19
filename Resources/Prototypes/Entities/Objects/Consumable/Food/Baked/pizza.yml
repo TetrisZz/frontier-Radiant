@@ -671,7 +671,6 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 10
-  - type: MothFood # Frontier
 
 - type: entity
   name: slice of cotton pizza
@@ -691,8 +690,6 @@
     - ClothMade
     - Pizza
     - Slice
-  - type: Food # Frontier
-    requiresSpecialDigestion: true # Frontier
   - type: SolutionContainerManager
     solutions:
       food:
@@ -704,4 +701,3 @@
           Quantity: 0.8
         - ReagentId: Fiber
           Quantity: 1.5
-  - type: MothFood # Frontier

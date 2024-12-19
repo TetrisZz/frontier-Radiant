@@ -33,8 +33,7 @@
           linearDamping: 999999
         paths:
         - /Maps/_NF/Bluespace/cache.yml
-    rewardAccounts:
-      Nfsd: 1.0
+    nfsdRewardFactor: 1
 
 - type: entity
   id: BluespaceVaultError
@@ -71,8 +70,7 @@
           linearDamping: 999999
         paths:
         - /Maps/_NF/Bluespace/vault.yml
-    rewardAccounts:
-      Nfsd: 1.0
+    nfsdRewardFactor: 1
 
 - type: entity
   id: BluespaceVaultSmallError
@@ -110,8 +108,7 @@
           linearDamping: 999999
         paths:
         - /Maps/_NF/Bluespace/vaultsmall.yml
-    rewardAccounts:
-      Nfsd: 1.0
+    nfsdRewardFactor: 0
 
 - type: entity
   id: BluespaceSyndicateFTLInterception

@@ -36,7 +36,7 @@ public sealed class SpawnPointSystem : EntitySystem
             if (args.DesiredSpawnPointType != SpawnPointType.Unset)
             {
                 var isMatchingJob = spawnPoint.SpawnType == SpawnPointType.Job &&
-                    (args.Job == null || spawnPoint.Job == args.Job);
+                    (args.Job == null || spawnPoint.Job == args.Job.Prototype);
 
                 switch (args.DesiredSpawnPointType)
                 {
@@ -57,7 +57,7 @@ public sealed class SpawnPointSystem : EntitySystem
 
             if (_gameTicker.RunLevel != GameRunLevel.InRound &&
                 spawnPoint.SpawnType == SpawnPointType.Job &&
-                (args.Job == null || spawnPoint.Job == args.Job))
+                (args.Job == null || spawnPoint.Job == args.Job.Prototype))
             {
                 possiblePositions.Add(xform.Coordinates);
             }

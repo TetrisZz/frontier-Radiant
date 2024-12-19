@@ -2,7 +2,7 @@
 - type: latheRecipe
   id: RitualDagger
   parent: BaseWeaponRecipe
-  result: RitualDagger
+  result: RitualDaggerPrinted
   materials:
     Bones: 100
     Steel: 500
@@ -10,7 +10,7 @@
 - type: latheRecipe
   id: EldritchBlade
   parent: BaseWeaponRecipeLong
-  result: EldritchBlade
+  result: EldritchBladePrinted
   materials:
     Bones: 200
     Steel: 700
@@ -19,7 +19,7 @@
 - type: latheRecipe
   id: UnholyHalberd
   parent: BaseWeaponRecipeLong
-  result: UnholyHalberd
+  result: UnholyHalberdPrinted
   materials:
     Bones: 1000
     Steel: 1000
@@ -28,7 +28,7 @@
 - type: latheRecipe
   id: WizardStaffMeleeBlood
   parent: BaseWeaponRecipeLong
-  result: WizardStaffMeleeBlood
+  result: WizardStaffMeleeBloodPrinted
   materials:
     Bones: 500
     Plasteel: 500
@@ -46,7 +46,7 @@
 - type: latheRecipe
   id: ClothingHeadHelmetCultJanitor
   parent: NFBaseArmorRecipe
-  result: ClothingHeadHelmetCultJanitor
+  result: ClothingHeadHelmetCultJanitorPrinted
   materials:
     Bones: 200
     Cloth: 100
@@ -57,7 +57,7 @@
 - type: latheRecipe
   id: ClothingMaskCultJanitor
   parent: NFBaseArmorRecipe
-  result: ClothingMaskCultJanitor
+  result: ClothingMaskCultJanitorPrinted
   materials:
     Bones: 200
     Cloth: 100
@@ -68,10 +68,10 @@
 - type: latheRecipe
   id: ClothingOuterCoatCultJanitor
   parent: NFBaseArmorRecipe
-  result: ClothingOuterCoatCultJanitor
+  result: ClothingOuterCoatCultJanitorPrinted
   materials:
     Bones: 1000
-    Cloth: 600
+    Cloth: 300
     Durathread: 300
     Steel: 1500
     Plasteel: 1500
@@ -79,7 +79,7 @@
 - type: latheRecipe
   id: ClothingHeadHelmetCult
   parent: NFBaseArmorRecipe
-  result: ClothingHeadHelmetCult
+  result: ClothingHeadHelmetCultPrinted
   materials:
     Bones: 200
     Cloth: 100
@@ -90,10 +90,10 @@
 - type: latheRecipe
   id: ClothingOuterArmorCult
   parent: NFBaseArmorRecipe
-  result: ClothingOuterArmorCult
+  result: ClothingOuterArmorCultPrinted
   materials:
     Bones: 1000
-    Cloth: 550
+    Cloth: 300
     Durathread: 300
     Steel: 1500
     Plasteel: 1500
@@ -101,7 +101,7 @@
 - type: latheRecipe
   id: ClothingShoesCult
   parent: NFBaseArmorRecipe
-  result: ClothingShoesCult
+  result: ClothingShoesCultPrinted
   materials:
     Bones: 200
     Cloth: 100
@@ -112,7 +112,7 @@
 - type: latheRecipe
   id: ClothingOuterCoatBloodCultRobes
   parent: NFBaseArmorRecipe
-  result: ClothingOuterCoatBloodCultRobes
+  result: ClothingOuterCoatBloodCultRobesPrinted
   materials:
     Bones: 200
     Cloth: 600
@@ -122,21 +122,21 @@
 - type: latheRecipe
   id: ClothingHeadHelmetBone
   parent: NFBaseArmorRecipe
-  result: ClothingHeadHelmetBone
+  result: ClothingHeadHelmetBonePrinted
   materials:
     Bones: 400
 
 - type: latheRecipe
   id: ClothingOuterArmorBone
   parent: NFBaseArmorRecipe
-  result: ClothingOuterArmorBone
+  result: ClothingOuterArmorBonePrinted
   materials:
     Bones: 600
 
 - type: latheRecipe
   id: ClothingBackpackMessengerBloodCult
   parent: NFBaseArmorRecipe
-  result: ClothingBackpackMessengerBloodCult
+  result: ClothingBackpackMessengerBloodCultPrinted
   materials:
     Cloth: 400
 

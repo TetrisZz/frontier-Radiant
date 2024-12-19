@@ -3,13 +3,11 @@ station-event-ion-storm-start-announcement = Ion storm detected near the station
 ion-storm-law-scrambled-number = [font="Monospace"][scramble rate=250 length={$length} chars="@@###$$&%!01"/][/font]
 
 ion-storm-you = YOU
-# Frontier: the station < the sector
-ion-storm-the-station = THE SECTOR
+ion-storm-the-station = THE STATION
 ion-storm-the-crew = THE CREW
 ion-storm-the-job = THE {$job}
 ion-storm-clowns = CLOWNS
-# Frontier: heads of staff < sector command
-ion-storm-heads = SECTOR COMMAND
+ion-storm-heads = HEADS OF STAFF
 ion-storm-crew = CREW
 
 ion-storm-adjective-things = {$adjective} THINGS
@@ -18,8 +16,7 @@ ion-storm-x-and-y = {$x} AND {$y}
 # joined is short for {$number} {$adjective}
 # subjects can generally be threats or jobs or objects
 # thing is specified above it
-# Frontier: "on the station" < "in the sector"
-ion-storm-law-on-station = THERE ARE {$joined} {$subjects} IN THE SECTOR
+ion-storm-law-on-station = THERE ARE {$joined} {$subjects} ON THE STATION
 ion-storm-law-no-shuttle = THE SHIFT END CANNOT BE CALLED BECAUSE OF {$joined} {$subjects} ON FRONTIER
 ion-storm-law-crew-are = THE {$who} ARE NOW {$joined} {$subjects}
 

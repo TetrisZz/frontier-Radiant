@@ -250,8 +250,7 @@
       - Ingot
   - type: Lathe
     idleState: icon
-    runningState: icon
-    unlitRunningState: unlit-building
+    runningState: building
     staticRecipes:
     - RitualDagger
     - EldritchBlade

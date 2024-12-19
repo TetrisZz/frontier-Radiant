@@ -36,7 +36,6 @@ public enum AnomalySecretData : byte
     Severity,
     Stability,
     OutputPoint,
-    PointsEarned, // Frontier
     ParticleDanger,
     ParticleUnstable,
     ParticleContainment,

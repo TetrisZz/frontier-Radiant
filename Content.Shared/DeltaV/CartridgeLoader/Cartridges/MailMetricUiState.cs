@@ -1,3 +1,4 @@
+using Content.Shared.Security;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.CartridgeLoader.Cartridges;

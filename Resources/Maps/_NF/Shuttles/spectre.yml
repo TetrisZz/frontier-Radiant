@@ -7222,6 +7222,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -8.5,4.5
       parent: 3
+    - type: Thruster
+      enabled: False
   - uid: 217
     components:
     - type: Transform
@@ -8919,7 +8921,7 @@ entities:
     - type: Transform
       pos: 5.5,12.5
       parent: 3
-- proto: WarpPoint
+- proto: WarpPointShip
   entities:
   - uid: 1203
     components:

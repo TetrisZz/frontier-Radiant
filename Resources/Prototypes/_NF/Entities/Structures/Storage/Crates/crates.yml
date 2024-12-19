@@ -109,8 +109,6 @@
     allowedShipyardTypes:
     - Syndicate
     - BlackMarket
-  - type: PirateBountyItem
-    id: ContrabandCrate
 
 - type: entity
   parent: CrateTradeBaseSecureContraband

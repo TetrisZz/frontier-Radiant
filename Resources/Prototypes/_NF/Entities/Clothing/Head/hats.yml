@@ -197,8 +197,6 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
-  - type: PirateBountyItem
-    id: CampaignHat
 
 - type: entity
   parent: ClothingHeadHatNfsdCampaign
@@ -224,8 +222,6 @@
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/nfsd_campaign_small.rsi
   - type: CatWearable
-  - type: PirateBountyItem
-    id: CampaignHat
 
 - type: entity
   parent: ClothingHeadHatHopcap

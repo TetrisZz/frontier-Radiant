@@ -10,7 +10,6 @@ using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
-using Content.Server._NF.SectorServices; // Frontier
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -26,9 +25,8 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
 {
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
-    // [Dependency] private readonly StationSystem _station = default!; // Frontier
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
-    [Dependency] private readonly SectorServiceSystem _sectorService = default!; // Frontier
 
     public override void Initialize()
     {
@@ -166,13 +164,8 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
 
     private void UpdateReaderUi(Entity<WantedListCartridgeComponent> ent, EntityUid loaderUid)
     {
-        // Frontier: sector-wide records
-        // if (_station.GetOwningStation(ent) is not { } station)
-        //     return;
-        var station = _sectorService.GetServiceEntity();
-        if (!station.IsValid())
+        if (_station.GetOwningStation(ent) is not { } station)
             return;
-        // End Frontier
 
         var records = _records.GetRecordsOfType<CriminalRecord>(station)
             .Where(cr => cr.Item2.Status is not SecurityStatus.None || cr.Item2.History.Count > 0)

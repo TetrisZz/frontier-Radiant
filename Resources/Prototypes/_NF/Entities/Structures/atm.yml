@@ -137,9 +137,6 @@
     interfaces:
       enum.BankATMMenuUiKey.BlackMarket:
         type: BankATMMenuBoundUserInterface
-  - type: BankATM
-    taxAccounts:
-      Frontier: 0.3 # The scandal!
 
 - type: entity
   suffix: Wallmount, BlackMarket
@@ -161,16 +158,12 @@
     interfaces:
       enum.BankATMMenuUiKey.BlackMarket:
         type: BankATMMenuBoundUserInterface
-  - type: BankATM
-    taxAccounts:
-      Frontier: 0.3 # The scandal!
 
 - type: entity
   name: station administration console
-  parent: [BaseStructureDisableScrewing, BaseStructureDisablePrying, BaseStructureIndestructible, BaseStructureAccessReaderImmuneToEmag, ComputerBankATMBase]
-  id: BaseStationAdminBankATM
-  abstract: true
-  description: Used to transfer funds to and from the station's bank account.
+  parent: [BaseStructureDisableScrewing, BaseStructureIndestructible, BaseStructureAccessReaderImmuneToEmag, ComputerBankATMBase]
+  id: StationAdminBankATM
+  description: Used to pay out from the station's bank account
   components:
   - type: Sprite
     netsync: false
@@ -181,8 +174,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      sprite: _NF/Structures/Machines/computers.rsi
-      state: station_atm
+      state: id
     - map: ["computerLayerKeys"]
       state: id_key
   - type: StationBankATM
@@ -201,8 +193,6 @@
     interfaces:
       enum.BankATMMenuUiKey.ATM:
         type: StationBankATMMenuBoundUserInterface
-  - type: ActivatableUIRequiresAccess
-  - type: ActivatableUIRequiresPower
   - type: ItemSlots
   - type: ContainerContainer
     containers:
@@ -210,19 +200,3 @@
       station-bank-ATM-cashSlot: !type:ContainerSlot
   - type: AccessReader
     access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
-
-- type: entity
-  parent: BaseStationAdminBankATM
-  id: StationAdminBankATMFrontier
-  description: Used to transfer funds to and from Frontier Outpost's bank account.
-  components:
-  - type: StationBankATM
-    account: Frontier
-
-- type: entity
-  parent: BaseStationAdminBankATM
-  id: StationAdminBankATMNfsd
-  description: Used to transfer funds to and from NFSD's bank account.
-  components:
-  - type: StationBankATM
-    account: Nfsd

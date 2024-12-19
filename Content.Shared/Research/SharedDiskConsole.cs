@@ -12,17 +12,17 @@ public enum DiskConsoleUiKey : byte
 public sealed class DiskConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
     public bool CanPrint;
-    public bool CanPrintRare; // Frontier
+    public bool CanPrintRare;
     public int PointCost;
-    public int PointCostRare; // Frontier
+    public int PointCostRare;
     public int ServerPoints;
 
-    public DiskConsoleBoundUserInterfaceState(int serverPoints, int pointCost, int pointCostRare, bool canPrint, bool canPrintRare) // Frontier: add pointCostRare, canPrintRare
+    public DiskConsoleBoundUserInterfaceState(int serverPoints, int pointCost, int pointCostRare, bool canPrint, bool canPrintRare)
     {
         CanPrint = canPrint;
-        CanPrintRare = canPrintRare; // Frontier
+        CanPrintRare = canPrintRare;
         PointCost = pointCost;
-        PointCostRare = pointCostRare; // Frontier
+        PointCostRare = pointCostRare;
         ServerPoints = serverPoints;
     }
 }
@@ -33,7 +33,7 @@ public sealed class DiskConsolePrintDiskMessage : BoundUserInterfaceMessage
 
 }
 
-[Serializable, NetSerializable] // Frontier
+[Serializable, NetSerializable]
 public sealed class DiskConsolePrintRareDiskMessage : BoundUserInterfaceMessage
 {
 

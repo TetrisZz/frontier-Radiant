@@ -117,7 +117,6 @@ public abstract class SharedIdCardSystem : EntitySystem
     /// </summary>
     /// <remarks>
     /// If provided with a player's EntityUid to the player parameter, adds the change to the admin logs.
-    /// Actually works with the LocalizedJobTitle DataField and not with JobTitle.
     /// </remarks>
     public bool TryChangeJobTitle(EntityUid uid, string? jobTitle, IdCardComponent? id = null, EntityUid? player = null)
     {
@@ -136,9 +135,9 @@ public abstract class SharedIdCardSystem : EntitySystem
             jobTitle = null;
         }
 
-        if (id.LocalizedJobTitle == jobTitle)
+        if (id.JobTitle == jobTitle)
             return true;
-        id.LocalizedJobTitle = jobTitle;
+        id.JobTitle = jobTitle;
         Dirty(uid, id);
         UpdateEntityName(uid, id);
 
@@ -240,7 +239,7 @@ public abstract class SharedIdCardSystem : EntitySystem
         if (!Resolve(uid, ref id))
             return;
 
-        var jobSuffix = string.IsNullOrWhiteSpace(id.LocalizedJobTitle) ? string.Empty : $" ({id.LocalizedJobTitle})";
+        var jobSuffix = string.IsNullOrWhiteSpace(id.JobTitle) ? string.Empty : $" ({id.JobTitle})";
 
         var val = string.IsNullOrWhiteSpace(id.FullName)
             ? Loc.GetString(id.NameLocId,
@@ -253,7 +252,7 @@ public abstract class SharedIdCardSystem : EntitySystem
     
     private static string ExtractFullTitle(IdCardComponent idCardComponent)
     {
-        return $"{idCardComponent.FullName} ({CultureInfo.CurrentCulture.TextInfo.ToTitleCase(idCardComponent.LocalizedJobTitle ?? string.Empty)})"
+        return $"{idCardComponent.FullName} ({CultureInfo.CurrentCulture.TextInfo.ToTitleCase(idCardComponent.JobTitle ?? string.Empty)})"
             .Trim();
     }
 

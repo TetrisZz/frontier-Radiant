@@ -7,9 +7,6 @@ namespace Content.Shared.EntityTable.ValueSelector;
 /// <summary>
 /// Gives a value between the two numbers specified, inclusive.
 /// </summary>
-/// <remarks>
-/// Frontier: output must be floored to have this behaviour
-/// </remarks>
 public sealed partial class RangeNumberSelector : NumberSelector
 {
     [DataField]

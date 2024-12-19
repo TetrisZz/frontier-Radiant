@@ -48,7 +48,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     /// <summary>
     /// Ensures all prototypes exist and effects can be applied.
     /// </summary>
-    public void EnsureValid(HumanoidCharacterProfile profile, ICommonSession? session, IDependencyCollection collection) // Frontier: nullable session
+    public void EnsureValid(HumanoidCharacterProfile profile, ICommonSession session, IDependencyCollection collection)
     {
         var groupRemove = new ValueList<string>();
         var protoManager = collection.Resolve<IPrototypeManager>();

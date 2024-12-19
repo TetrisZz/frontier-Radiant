@@ -1017,7 +1017,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Gasbender
+      id: gasbender
 - proto: AirAlarm
   entities:
   - uid: 214

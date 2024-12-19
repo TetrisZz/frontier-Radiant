@@ -284,8 +284,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-    - type: BecomesStation
-      id: PTS
 - proto: AirlockCommandGlass
   entities:
   - uid: 150

@@ -475,7 +475,7 @@ public sealed class DeadDropSystem : EntitySystem
         var meta = EnsureComp<MetaDataComponent>(gridUids[0]);
         _meta.SetEntityName(gridUids[0], stationName, meta);
 
-        _stationRenameWarps.SyncWarpPointsToGrids(gridUids, forceAdminOnly: true);
+        _stationRenameWarps.SyncWarpPointsToGrids(gridUids);
 
         // Get sector info (with sane defaults if it doesn't exist)
         int maxSimultaneousPods = 5;

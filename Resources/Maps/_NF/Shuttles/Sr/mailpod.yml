@@ -14,8 +14,6 @@ entities:
     components:
     - type: MetaData
       name: MailPod
-    - type: BecomesStation
-      id: MailPod
     - type: Transform
       pos: -0.48958334,-0.5208333
       parent: invalid

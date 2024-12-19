@@ -153,8 +153,7 @@ namespace Content.Server.Power.EntitySystems
 
             var old = battery.CurrentCharge;
             battery.CurrentCharge = MathHelper.Clamp(value, 0, battery.MaxCharge);
-            if (MathHelper.CloseTo(battery.CurrentCharge, old) &&
-                !(old != battery.CurrentCharge && battery.CurrentCharge == battery.MaxCharge))
+            if (MathHelper.CloseTo(battery.CurrentCharge, old))
                 return;
 
             var ev = new ChargeChangedEvent(battery.CurrentCharge, battery.MaxCharge);

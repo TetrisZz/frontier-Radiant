@@ -1,4 +1,4 @@
-namespace Content.Shared.Administration
+﻿namespace Content.Shared.Administration
 {
     /// <summary>
     ///     Permissions that admins can have.
@@ -123,11 +123,6 @@ namespace Content.Shared.Administration
         ///     Lets you set the color of your OOC name.
         /// </summary>
         NameColor = 1 << 21,
-
-        /// <summary>
-        ///     DeltaV - The ability to whitelist people. Either this permission or +BAN is required for remove.
-        /// </summary>
-        Whitelist = 1 << 25,
 
         /// <summary>
         ///     Dangerous host permissions like scsi.

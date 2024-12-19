@@ -14,8 +14,8 @@
       proto: NFVGRoidBlobSnow
     - !type:PrototypeDunGen
       proto: NFVGRoidExteriorSnow
-#    - !type:PrototypeDunGen
-#      proto: NFVGRoidSmallerSnow
+    - !type:PrototypeDunGen
+      proto: NFVGRoidSmallerSnow
     - !type:PrototypeDunGen
       proto: NFVGRoidSmallPathsSnow
     - !type:EntityTableDunGen
@@ -219,7 +219,7 @@
   maxCount: 3
   layers:
   - !type:ExteriorDunGen
-    proto: NFSnowyLabs
+    proto: SnowyLabs
   - !type:EntityTableDunGen
     minCount: 25
     maxCount: 40

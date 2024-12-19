@@ -1025,7 +1025,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Phoenix
+      id: phoenix
 - proto: AirAlarm
   entities:
   - uid: 879

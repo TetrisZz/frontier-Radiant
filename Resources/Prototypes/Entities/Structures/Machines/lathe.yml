@@ -170,7 +170,6 @@
       - FoodPlateSmallPlastic
       - FoodBowlBig
       - FoodPlateTin
-      - FoodPlateMuffinTin
       - FoodKebabSkewer
       - SprayBottle
       - MopItem
@@ -208,12 +207,12 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - Flare
-      - FreezerElectronics
       - BoxDispenserFlare # Frontier
       - Durathread # Frontier
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
+      - BoxShotgunFlare
       - BoxShotgunSlug
       - CombatKnife
       - MagazineBoxLightRifle
@@ -250,8 +249,6 @@
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
-  - type: PirateBountyItem # Frontier
-    id: Autolathe # Frontier
 
 - type: entity
   id: AutolatheHyperConvection
@@ -360,7 +357,6 @@
       - HolofanProjector
       - BluespaceBeaker
       - SyringeBluespace
-      - JugBluespace # Frontier
       - VialBluespace # Frontier
       - Jug
       - WeaponCrusher
@@ -449,10 +445,6 @@
       - WeaponXrayCannon
       - SpeedLoaderRifleHeavyIncendiary # Frontier
       - SpeedLoaderRifleHeavyUranium # Frontier
-      # Begin DeltaV additions
-      - LauncherSyringe
-      - MiniSyringe
-      # End DeltaV additions
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -501,7 +493,6 @@
     - UniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
-    - FloorRedCircuit
     - MicrowaveMachineCircuitboard
     - ReagentGrinderMachineCircuitboard
     - ElectricGrillMachineCircuitboard
@@ -512,7 +503,6 @@
     - StationAnchorCircuitboard
     # - SalvageMagnetMachineCircuitboard # Frontier
     - SalvageTechFabCircuitboardNF # Frontier
-    - NFScrapProcessorCircuitboard # Frontier
     - BlueprintLithographMachineCircuitboard # Frontier
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
@@ -551,7 +541,7 @@
       - SheetifierMachineCircuitboard
       - ShuttleConsoleCircuitboard
       - RadarConsoleCircuitboard
-      # - TechDiskComputerCircuitboard # Frontier: no tech disks
+      - TechDiskComputerCircuitboard
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
@@ -580,7 +570,7 @@
       - ExosuitFabricatorMachineCircuitboard
       - AnomalyVesselCircuitboard
       - AnomalyVesselExperimentalCircuitboard
-      # - AnomalySynchronizerCircuitboard # Frontier: doesn't make sense for Frontier gameplay
+      - AnomalySynchronizerCircuitboard
       - APECircuitboard
       - ArtifactAnalyzerMachineCircuitboard
       - ArtifactCrusherMachineCircuitboard
@@ -796,8 +786,8 @@
   id: SecurityTechFab
   parent: BaseLatheLube
   name: security techfab
-  description: Prints equipment for use by security crew.
   categories: [ HideSpawnMenu ] # Frontier
+  description: Prints equipment for use by security crew.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -819,6 +809,7 @@
     runningState: icon
     staticRecipes:
       - BoxLethalshot
+      - BoxShotgunFlare
       - BoxShotgunPractice
       - BoxShotgunSlug
       - ClothingEyesHudSecurity
@@ -850,14 +841,17 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - SpeedLoaderRifleHeavy # Frontier
+      - SpeedLoaderRifleHeavyEmpty # Frontier
       - Stunbaton
       - TargetClown
       - TargetHuman
       - TargetSyndicate
       - WeaponDisablerPractice
-      - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
+      - ThrusterSecurityMachineCircuitboard # Frontier
+      - ClothingOuterHardsuitEVAPrisoner # Frontier
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -909,6 +903,13 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - ContrabandAppraisalTool # Frontier
+      - SpeedLoaderRifleHeavyIncendiary # Frontier
+      - SpeedLoaderRifleHeavyUranium # Frontier
+      - MagazineBoxLightRifleRubber # Frontier
+      - MagazineBoxMagnumRubber # Frontier
+      - MagazineBoxPistolRubber # Frontier
+      - MagazineBoxRifleRubber # Frontier
   - type: MaterialStorage
     whitelist:
       tags:
@@ -942,6 +943,7 @@
       runningState: icon
       staticRecipes:
         - BoxLethalshot
+        - BoxShotgunFlare
         - BoxShotgunSlug
         - BoxShellTranquilizer
         - MagazineBoxLightRifle
@@ -1030,25 +1032,19 @@
       - Hemostat
       - ClothingEyesGlassesChemical
       - WhiteCane
-      - ClothingOuterEVASuitMedic #Frontier
       - BaseChemistryEmptyVial # Frontier
       - PowerCellSmall # Frontier
       - BlankMediPen # Frontier
       - MedicalAppraisalTool # Frontier
     dynamicRecipes:
+      - VialBluespace # Frontier
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
-      - JugBluespace # Frontier
       - SyringeBluespace
       - Jug
       - SyringeCryostasis
-      - VialBluespace # Frontier
       - ClothingOuterHardsuitMedical # Frontier
-      # Begin DeltaV additions
-      - LauncherSyringe
-      - MiniSyringe
-      # End DeltaV additions
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1235,8 +1231,8 @@
       - FloorTileItemArcadeBlue # Frontier
       - FloorTileItemArcadeBlue2 # Frontier
       - FloorTileItemArcadeRed # Frontier
-  - type: EmagLatheRecipes
-    emagStaticRecipes:
+#  - type: EmagLatheRecipes # Frontier
+#    emagStaticRecipes: # Frontier
 #      - ClothingHeadHatCentcomcap # Frontier
 #      - ClothingHeadHatCentcom # Frontier
 #      - ClothingUniformJumpsuitCentcomAgent # Frontier
@@ -1244,21 +1240,21 @@
 #      - ClothingUniformJumpskirtCentcomFormalDress # Frontier
 #      - ClothingUniformJumpsuitCentcomOfficer # Frontier
 #      - ClothingUniformJumpsuitCentcomOfficial # Frontier
-      - ClothingHeadHatSyndieMAA
-      - ClothingHeadHatSyndie
-      - ClothingUniformJumpsuitOperative
-      - ClothingUniformJumpskirtOperative
-      - ClothingUniformJumpsuitSyndieFormal
-      - ClothingUniformJumpskirtSyndieFormalDress
-      - ClothingHeadPyjamaSyndicateBlack
-      - ClothingUniformJumpsuitPyjamaSyndicateBlack
-      - ClothingHeadPyjamaSyndicatePink
-      - ClothingUniformJumpsuitPyjamaSyndicatePink
-      - ClothingHeadPyjamaSyndicateRed
-      - ClothingUniformJumpsuitPyjamaSyndicateRed
+#      - ClothingHeadHatSyndieMAA # Frontier
+#      - ClothingHeadHatSyndie # Frontier
+#      - ClothingUniformJumpsuitOperative # Frontier
+#      - ClothingUniformJumpskirtOperative # Frontier
+#      - ClothingUniformJumpsuitSyndieFormal # Frontier
+#      - ClothingUniformJumpskirtSyndieFormalDress # Frontier
+#      - ClothingHeadPyjamaSyndicateBlack # Frontier
+#      - ClothingUniformJumpsuitPyjamaSyndicateBlack # Frontier
+#      - ClothingHeadPyjamaSyndicatePink # Frontier
+#      - ClothingUniformJumpsuitPyjamaSyndicatePink # Frontier
+#      - ClothingHeadPyjamaSyndicateRed # Frontier
+#      - ClothingUniformJumpsuitPyjamaSyndicateRed # Frontier
 #      - ClothingOuterWinterCentcom # Frontier
-      - ClothingOuterWinterSyndie
-      - ClothingOuterWinterSyndieCap
+#      - ClothingOuterWinterSyndie # Frontier
+#      - ClothingOuterWinterSyndieCap # Frontier
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1288,6 +1284,8 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
+    insertOnInteract: false
+    canEjectStoredMaterials: false
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:
@@ -1385,7 +1383,6 @@
       idleState: icon
       runningState: building
       defaultProductionAmount: 10
-      productValueModifier: null # Frontier
       staticRecipes:
         - SheetSteel
         - SheetGlass1
@@ -1536,7 +1533,6 @@
       - FloorTileItemShowroom # Frontier
       - FloorTileItemGCircuit # Frontier
       - FloorTileItemBCircuit # Frontier
-      - FloorTileItemRCircuit # Frontier
       - FloorTileItemGold # Frontier
       - FloorTileItemSilver # Frontier
       - FloorTileItemMono # Frontier

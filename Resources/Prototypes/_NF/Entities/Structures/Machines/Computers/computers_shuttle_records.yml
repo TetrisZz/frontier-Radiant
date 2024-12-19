@@ -13,7 +13,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: shuttle_records
+      state: shipyard
     - map: ["computerLayerKeys"]
       state: telesci_key
   - type: ShuttleRecordsConsole
@@ -36,8 +36,6 @@
   - type: ItemSlots
   - type: ContainerContainer
     containers:
-      board: !type:Container
-        ents: []
       ShuttleRecordsConsole-targetId: !type:ContainerSlot {}
   - type: AccessReader
     access: [[ "HeadOfPersonnel" ]]
@@ -48,4 +46,3 @@
   id: ComputerShuttleRecords
   components:
   - type: ShuttleRecordsConsole
-    account: Frontier

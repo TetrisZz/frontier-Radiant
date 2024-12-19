@@ -1,7 +1,7 @@
 - type: department
   id: Frontier
   name: department-Frontier
-  description: department-NF-description
+  description: department-Frontier-description
   color: "#334E6D"
   weight: 1 # accounted for in jobs
   roles:
@@ -15,7 +15,7 @@
 - type: department
   id: Antag
   name: department-Antag
-  description: department-NFAntag-description
+  description: department-Antag-description
   color: "#DE3A3A"
   weight: -1 # accounted for in jobs
   roles:

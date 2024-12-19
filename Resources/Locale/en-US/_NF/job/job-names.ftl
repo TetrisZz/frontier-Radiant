@@ -16,9 +16,6 @@ job-name-sheriff = Sheriff
 job-name-stc = Station Traffic Controller
 job-name-sr = Station Representative
 
-# Job titles
-job-title-ert-mail-carrier = ERT Mail Carrier
-
 # Role timers - Make these alphabetical or I cut you
 JobERTMailCarrier = ERT Mail Carrier
 JobMercenary = Mercenary

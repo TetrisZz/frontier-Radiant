@@ -22,8 +22,6 @@ entities:
     components:
     - type: MetaData
       name: Bookworm
-    - type: BecomesStation
-      id: Bookworm
     - type: Transform
       pos: -0.53125,-0.55733174
       parent: invalid

@@ -10,14 +10,14 @@ using Content.Shared.Coordinates;
 using Content.Shared.Stacks;
 using Content.Server.Station.Systems;
 using Content.Server.Cargo.Systems;
+using Content.Server.Cargo.Components;
 using Content.Shared.Bank.BUI;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Robust.Shared.Containers;
 using System.Linq;
-using Content.Shared._NF.Bank.BUI;
 
-namespace Content.Server._NF.Bank;
+namespace Content.Server.Bank;
 
 public sealed partial class BankSystem
 {
@@ -40,11 +40,15 @@ public sealed partial class BankSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
+        // to keep the window stateful
+        var station = _station.GetOwningStation(uid);
+        // check for a bank account
+
         GetInsertedCashAmount(component, out var deposit);
 
-        if (!TryGetBalance(component.Account, out var stationBank))
+        if (!TryComp<StationBankAccountComponent>(station, out var stationBank))
         {
-            _log.Info($"entity {uid} cannot read account {component.Account}. Is the bank service running?");
+            _log.Info($"station {station} has no bank account");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
@@ -52,14 +56,13 @@ public sealed partial class BankSystem
             return;
         }
 
-        var hasAccess = _access.IsAllowed(player, uid);
-        if (!hasAccess)
+        if (!_access.IsAllowed(player, uid))
         {
-            _log.Info($"{player} tried to access station bank account");
+            _log.Info($"{player} tried to access stationo bank account");
             ConsolePopup(args.Actor, Loc.GetString("station-bank-unauthorized"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank.Balance, false, deposit));
             return;
         }
 
@@ -68,41 +71,32 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("station-bank-requires-reason"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank.Balance, _access.IsAllowed(player, uid), deposit));
             return;
         }
 
         // check for sufficient funds
-        if (stationBank < args.Amount || args.Amount < 0)
+        if (stationBank.Balance < args.Amount || args.Amount < 0)
         {
             ConsolePopup(args.Actor, Loc.GetString("bank-insufficient-funds"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank.Balance, _access.IsAllowed(player, uid), deposit));
             return;
         }
 
-        var enumVal = ParseLedgerType($"StationWithdrawal{args.Reason}", false);
-        if (!TrySectorWithdraw(component.Account, args.Amount, enumVal))
-        {
-            ConsolePopup(args.Actor, Loc.GetString("bank-withdraw-failed"));
-            PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
-            return;
-        }
-
+        _cargo.DeductFunds(stationBank, args.Amount);
         ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-withdraw-successful"));
         PlayConfirmSound(uid, component);
         _log.Info($"{args.Actor} withdrew {args.Amount}, '{args.Reason}': {args.Description}");
 
-        _adminLogger.Add(LogType.ATMUsage, LogImpact.Low, $"{ToPrettyString(player):actor} withdrew {args.Amount} from {component.Account} station bank account. '{args.Reason}': {args.Description}");
+        _adminLogger.Add(LogType.ATMUsage, LogImpact.Low, $"{ToPrettyString(player):actor} withdrew {args.Amount} from station bank account. '{args.Reason}': {args.Description}");
         //spawn the cash stack of whatever cash type the ATM is configured to.
         var stackPrototype = _prototypeManager.Index<StackPrototype>(component.CashType);
         _stackSystem.Spawn(args.Amount, stackPrototype, uid.ToCoordinates());
 
         _uiSystem.SetUiState(uid, args.UiKey,
-            new StationBankATMMenuInterfaceState(stationBank - args.Amount, hasAccess, deposit));
+            new StationBankATMMenuInterfaceState(stationBank.Balance, _access.IsAllowed(player, uid), deposit));
     }
 
     private void OnDeposit(EntityUid uid, StationBankATMComponent component, StationBankDepositMessage args)
@@ -110,13 +104,17 @@ public sealed partial class BankSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
+        // to keep the window stateful
+        var station = _station.GetOwningStation(uid);
+        // check for a bank account
+
         // gets the money inside a cashslot of an ATM.
         // Dynamically knows what kind of cash to look for according to BankATMComponent
         GetInsertedCashAmount(component, out var deposit);
 
-        if (!TryGetBalance(component.Account, out var stationBank))
+        if (!TryComp<StationBankAccountComponent>(station, out var stationBank))
         {
-            _log.Info($"entity {uid} cannot read account {component.Account}. Is the bank service running?");
+            _log.Info($"station {station} has no bank account");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
@@ -131,18 +129,17 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, false, deposit));
+                new StationBankATMMenuInterfaceState(0, false, deposit));
             return;
         }
 
-        var hasAccess = _access.IsAllowed(player, uid);
-        if (!hasAccess)
+        if (!_access.IsAllowed(player, uid))
         {
-            _log.Info($"{player} tried to access station bank account");
+            _log.Info($"{player} tried to access stationo bank account");
             ConsolePopup(args.Actor, Loc.GetString("station-bank-unauthorized"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank.Balance, false, deposit));
             return;
         }
 
@@ -151,7 +148,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("station-bank-requires-reason"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank.Balance, _access.IsAllowed(player, uid), deposit));
             return;
         }
 
@@ -163,7 +160,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(0, false, deposit));
             return;
         }
 
@@ -174,7 +171,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(0, false, deposit));
             return;
         }
 
@@ -184,79 +181,52 @@ public sealed partial class BankSystem
             _log.Info($"{args.Amount} is invalid");
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
             return;
         }
 
         if (deposit < args.Amount)
         {
-            _log.Debug($"Deposit: {args.Amount} is more than {deposit}, depositing all inserted cash");
-            args.Amount = deposit;
-        }
-
-        var enumVal = ParseLedgerType($"StationDeposit{args.Reason}", true);
-        if (!TrySectorDeposit(component.Account, args.Amount, enumVal))
-        {
-            ConsolePopup(args.Actor, Loc.GetString("bank-withdraw-failed"));
+            _log.Info($"{args.Amount} is more then {deposit}");
+            ConsolePopup(args.Actor, Loc.GetString("bank-insufficient-funds"));
             PlayDenySound(uid, component);
-            _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
             return;
         }
 
+        _cargo.DeductFunds(stationBank, -args.Amount);
         ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-deposit-successful"));
         PlayConfirmSound(uid, component);
         _log.Info($"{args.Actor} deposited {args.Amount}, '{args.Reason}': {args.Description}");
 
-        _adminLogger.Add(LogType.ATMUsage, LogImpact.Low, $"{ToPrettyString(player):actor} deposited {args.Amount} to {component.Account} station bank account. '{args.Reason}': {args.Description}");
+        _adminLogger.Add(LogType.ATMUsage, LogImpact.Low, $"{ToPrettyString(player):actor} deposited {args.Amount} to station bank account. '{args.Reason}': {args.Description}");
 
         SetInsertedCashAmount(component, args.Amount, out int leftAmount, out bool empty);
 
-        // yeet and delete the stack in the cash slot after success if it's worth 0
+        // yeet and delete the stack in the cash slot after success if its worth 0
         if (empty)
             _containerSystem.CleanContainer(cashSlot);
 
         _uiSystem.SetUiState(uid, args.UiKey,
-            new StationBankATMMenuInterfaceState(stationBank + args.Amount, hasAccess, leftAmount));
-    }
-
-    private LedgerEntryType ParseLedgerType(string name, bool isDeposit)
-    {
-        if (Enum.TryParse(typeof(LedgerEntryType), name, true, out var result))
-            return (LedgerEntryType)result;
-
-        // Unknown value, return default enum value.
-        return isDeposit ? LedgerEntryType.StationDepositOther : LedgerEntryType.StationWithdrawalOther;
+            new StationBankATMMenuInterfaceState(stationBank.Balance, _access.IsAllowed(player, uid), leftAmount));
     }
 
     private void OnCashSlotChanged(EntityUid uid, StationBankATMComponent component, ContainerModifiedMessage args)
     {
         GetInsertedCashAmount(component, out var deposit);
+        var station = _station.GetOwningStation(uid);
 
-        if (!TryGetBalance(component.Account, out var stationBank))
+        if (!TryComp<StationBankAccountComponent>(station, out var bank))
         {
-            _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-                new StationBankATMMenuInterfaceState(stationBank, false, deposit));
             return;
         }
 
-        // Get whether our actor has access or not.
-        TryComp(uid, out UserInterfaceComponent? ui);
-        var actorSet = _uiSystem.GetActors((uid, ui), BankATMMenuUiKey.ATM);
-        // Nobody accessing UI
-        if (actorSet.Count() <= 0)
-            return;
-        var hasAccess = _access.IsAllowed(actorSet.First(), uid);
-
-        if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid: true })
+        if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid: true } cash)
         {
             _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, 0));
+                new StationBankATMMenuInterfaceState(bank.Balance, true, 0));
         }
 
         _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-            new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+            new StationBankATMMenuInterfaceState(bank.Balance, true, deposit));
     }
 
     private void OnATMUIOpen(EntityUid uid, StationBankATMComponent component, BoundUIOpenedEvent args)
@@ -265,16 +235,18 @@ public sealed partial class BankSystem
             return;
 
         GetInsertedCashAmount(component, out var deposit);
+        var station = _station.GetOwningStation(uid);
 
-        if (!TryGetBalance(component.Account, out var stationBank))
+        if (!TryComp<StationBankAccountComponent>(station, out var stationBank))
         {
+            _log.Info($"{station} has no bank account");
             _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-                new StationBankATMMenuInterfaceState(stationBank, false, deposit));
+                new StationBankATMMenuInterfaceState(0, false, deposit));
             return;
         }
 
         _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-            new StationBankATMMenuInterfaceState(stationBank, _access.IsAllowed(player, uid), deposit));
+            new StationBankATMMenuInterfaceState(stationBank.Balance, _access.IsAllowed(player, uid), deposit));
     }
 
     private void GetInsertedCashAmount(StationBankATMComponent component, out int amount)

@@ -1,6 +1,8 @@
 using Content.Client.Bank.UI;
 using Content.Shared.Bank.BUI;
 using Content.Shared.Bank.Events;
+using Robust.Client.GameObjects;
+using Content.Shared.Access.Systems;
 
 namespace Content.Client.Cargo.BUI;
 
@@ -33,18 +35,18 @@ public sealed class StationBankATMMenuBoundUserInterface : BoundUserInterface
 
     private void OnWithdraw()
     {
-        if (_menu?.WithdrawalAmount is not int amount)
+        if (_menu?.Amount is not int amount)
             return;
 
-        SendMessage(new StationBankWithdrawMessage(amount, _menu.WithdrawalReason, _menu.WithdrawalDescription));
+        SendMessage(new StationBankWithdrawMessage(amount, _menu.Reason, _menu.Description));
     }
 
     private void OnDeposit()
     {
-        if (_menu?.DepositAmount is not int amount)
+        if (_menu?.Amount is not int amount)
             return;
 
-        SendMessage(new StationBankDepositMessage(amount, _menu.DepositReason, _menu.DepositDescription));
+        SendMessage(new StationBankDepositMessage(amount, _menu.Reason, _menu.Description));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

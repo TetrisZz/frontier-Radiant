@@ -52,9 +52,20 @@
   id: PetsNT
   hostile:
   - Mouse
-  # - SimpleHostile # Frontier
-  # - Zombie # Frontier
-  # - Xeno # Frontier
+  - SimpleHostile
+  - Zombie
+  - Xeno
+  - WizFedFaction # Frontier
+  - BloodCultNF # Frontier
+  - PirateNF # Frontier
+  - ExplorersExpeditionNF # Frontier
+  - ArtifactConstruct # Frontier
+  - StreetGangNF # Frontier
+  - DinosaursNF # Frontier
+  - MercenariesExpeditionNF # Frontier
+  - SiliconsExpeditionNF # Frontier
+  - AberrantFleshExpeditionNF # Frontier
+  - ContrabandClothing # Frontier
 
 - type: npcFaction
   id: SimpleHostile

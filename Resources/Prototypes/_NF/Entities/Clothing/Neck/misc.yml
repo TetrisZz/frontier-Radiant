@@ -63,8 +63,6 @@
   - type: Tag
     tags:
     - ObjectOfSpiritualSignificance
-  - type: PirateBountyItem
-    id: ClothingNeckAmuletBloodCult
 
 - type: entity
   parent: ClothingNeckBase

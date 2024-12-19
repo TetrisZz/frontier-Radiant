@@ -914,7 +914,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Caduceus
+      id: caduceus
 - proto: AirAlarm
   entities:
   - uid: 1169

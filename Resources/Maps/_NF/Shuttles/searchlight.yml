@@ -450,7 +450,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Searchlight
+      id: searchlight
 - proto: AirAlarm
   entities:
   - uid: 34

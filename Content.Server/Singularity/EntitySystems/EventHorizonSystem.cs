@@ -32,7 +32,6 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     #endregion Dependencies
 
@@ -255,7 +254,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
 
         var ev = new TilesConsumedByEventHorizonEvent(tiles, gridId, grid, hungry, eventHorizon);
         RaiseLocalEvent(hungry, ref ev);
-        _mapSystem.SetTiles(gridId, grid, tiles);
+        grid.SetTiles(tiles);
     }
 
     /// <summary>
