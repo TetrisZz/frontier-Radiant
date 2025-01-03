@@ -2,6 +2,12 @@
 
 - type: randomHumanoidSettings
   id: EventHumanoid
+  # start-backmen: species
+  speciesBlacklist:
+  - Resomi # Corvax-Next-Resomi
+  - Monkey
+  - Kobold
+  # end-backmen: species
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -26,8 +32,8 @@
       state: icon
     - type: RandomMetadata
       nameSegments:
-        - NamesMilitaryFirstLeader
-        - NamesMilitaryLast
+        - NamesFirstMilitaryLeader
+        - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: DeathSquad
 
@@ -35,6 +41,7 @@
   id: DeathSquad
   parent: EventHumanoidMindShielded
   randomizeName: false
+  speciesBlacklist: ['Diona'] # Corvax-MRP
   components:
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -42,15 +49,13 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
-      mindRoles:
-      - MindRoleGhostRoleFamiliar
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: RandomMetadata
       nameSegments:
-        - NamesMilitaryFirstLeader
-        - NamesMilitaryLast
+        - NamesFirstMilitaryLeader
+        - NamesLastMilitary
 
 
 ## ERT Leader
@@ -65,8 +70,8 @@
       state: ertleader
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirstLeader
-      - NamesMilitaryLast
+      - NamesFirstMilitaryLeader
+      - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: ERTLeader
 
@@ -87,8 +92,8 @@
       roleLoadout: [ RoleSurvivalExtended ]
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirstLeader
-      - NamesMilitaryLast
+      - NamesFirstMilitaryLeader
+      - NamesLastMilitary
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
@@ -153,8 +158,8 @@
       state: chaplain #needs an ERT variant once a good suit it made.
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: ERTChaplain
 
@@ -172,8 +177,8 @@
       job: ERTChaplain
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTChaplainGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -219,8 +224,8 @@
       state: ertjanitor
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: ERTJanitor
 
@@ -237,8 +242,8 @@
       job: ERTJanitor
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -283,8 +288,8 @@
       state: ertengineer
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: ERTEngineer
 
@@ -301,8 +306,8 @@
       job: ERTEngineer
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTEngineerGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -347,13 +352,15 @@
       state: ertsecurity
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: ERTSecurity
 
 - type: randomHumanoidSettings
   id: ERTSecurity
+  speciesBlacklist: # Corvax-MRP
+    - Diona
   parent: ERTLeader
   components:
     - type: GhostRole
@@ -365,8 +372,8 @@
       job: ERTSecurity
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -434,8 +441,8 @@
       state: ertmedical
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: ERTMedical
 
@@ -452,8 +459,8 @@
       job: ERTMedical
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -499,6 +506,8 @@
       settings: CBURNAgent
 
 - type: randomHumanoidSettings
+  speciesBlacklist: # Corvax-MRP
+    - Diona
   id: CBURNAgent
   parent: EventHumanoidMindShielded
   components:
@@ -513,8 +522,8 @@
         settings: short
     - type: RandomMetadata
       nameSegments:
-      - NamesMilitaryFirst
-      - NamesMilitaryLast
+      - NamesFirstMilitary
+      - NamesLastMilitary
 
 ## Central Command
 
@@ -552,7 +561,7 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ NamesDeathCommando ]
+      nameSegments: [ corvax_names_death_commando ] # Corvax-Localization
     - type: RandomHumanoidSpawner
       settings: SyndicateAgent
 
@@ -594,8 +603,8 @@
       settings: Cluwne
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 - type: randomHumanoidSettings
   id: Cluwne
