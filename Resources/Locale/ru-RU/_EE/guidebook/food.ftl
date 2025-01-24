@@ -6,15 +6,15 @@ guidebook-food-recipes-ent-wrapper = [bold]{$name}[/bold] \[{$amount}\]
 guidebook-food-sources-header = Источники
 guidebook-food-sources-ent-wrapper = [bold]{$name}[/bold] \[1\]
 # Frontier: Chemical composition<Nutritional Value
-guidebook-food-reagents-header = Nutritional Value
+guidebook-food-reagents-header = Пищевая ценность
 
-guidebook-food-processing-butchering = Butcher
-guidebook-food-processing-slicing = Slice
+guidebook-food-processing-butchering = Разделка мяса
+guidebook-food-processing-slicing = Нарезка
 # Frontier: Microwave<Cook (multiple machine types)
-guidebook-food-processing-cooking = {CAPITALIZE($processingTypes)} for {$time}s
+guidebook-food-processing-cooking = {CAPITALIZE($processingTypes)} на {$time}с
 # Frontier: deep fryer cook type
-guidebook-food-processing-deep-fry = {CAPITALIZE($processingTypes)} for {$time} cycles
-guidebook-food-processing-reaction = Mix
+guidebook-food-processing-deep-fry = {CAPITALIZE($processingTypes)} на {$time} циклов
+guidebook-food-processing-reaction = Смешивание
 
 guidebook-food-processing-recipe = {$ingredients}
 guidebook-food-ingredient-solid = [bold]{$name}[/bold] \[{$amount}\]
@@ -23,10 +23,10 @@ guidebook-food-ingredient-liquid = [bold]{$name}[/bold] \[{$amount}u\]
 guidebook-food-output = [bold]{$name}[/bold] \[{$number}\]
 
 # Frontier: processing types
-guidebook-food-processing-type-microwave = microwave
-guidebook-food-processing-type-oven = bake
-guidebook-food-processing-type-assembler = assemble
-guidebook-food-processing-type-medical-assembler = assemble
-guidebook-food-processing-type-medical-generic = cook
-guidebook-food-processing-type-deepfryer = deep fry
+guidebook-food-processing-type-microwave = разогреть в микроволновке
+guidebook-food-processing-type-oven = запекать
+guidebook-food-processing-type-assembler = собрать
+guidebook-food-processing-type-medical-assembler = собрать
+guidebook-food-processing-type-medical-generic = готовить
+guidebook-food-processing-type-deepfryer = жарить во фритюре
 # End Frontier: processing types
