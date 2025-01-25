@@ -1,10 +1,10 @@
-advertisement-valetdrobe-1 = Be right back? We've got a sign for that!
-advertisement-valetdrobe-2 = Wear the hat! It's corporate policy!
-advertisement-valetdrobe-3 = Dress in red, they'll see you coming!
-advertisement-valetdrobe-4 = Good shift so far? Brighten up someone else's!
-advertisement-valetdrobe-5 = Got a spare pair of white gloves?
+advertisement-valetdrobe-1 = Скоро вернетесь? У нас есть знак для этого!
+advertisement-valetdrobe-2 = Наденьте шляпу! Это корпоративная политика!
+advertisement-valetdrobe-3 = Оденьтесь в красное, и они увидят вас!
+advertisement-valetdrobe-4 = Хорошая смена? Сделайте ярче чью-то другую!
+advertisement-valetdrobe-5 = У вас есть запасная пара белых перчаток?
 
-goodbye-valetdrobe-1 = Be sure and do your best out there.
-goodbye-valetdrobe-2 = Remember to check in with the boss!
-goodbye-valetdrobe-3 = Make 'em smile!
-goodbye-valetdrobe-4 = Remember, be attentive!
+goodbye-valetdrobe-1 = Будьте уверены и старайтесь изо всех сил.
+goodbye-valetdrobe-2 = Не забудьте отметиться у босса!
+goodbye-valetdrobe-3 = Заставьте их улыбнуться!
+goodbye-valetdrobe-4 = Помните, будьте внимательны!

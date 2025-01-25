@@ -1,12 +1,12 @@
 # Toolboxes
-lathe-recipe-ToolboxArtisticNF-name = toolbox (artistic, empty)
-lathe-recipe-ToolboxElectricalNF-name = toolbox (electrical, empty)
-lathe-recipe-ToolboxMechanicalNF-name = toolbox (mechanical, empty)
-lathe-recipe-ToolboxEmergencyNF-name = toolbox (emergency, empty)
+lathe-recipe-ToolboxArtisticNF-name = ящик для инструментов (художественный, пустой)
+lathe-recipe-ToolboxElectricalNF-name = ящик для инструментов (электрический, пустой)
+lathe-recipe-ToolboxMechanicalNF-name = ящик для инструментов (механический, пустой)
+lathe-recipe-ToolboxEmergencyNF-name = ящик для инструментов (аварийный, пустой)
 
 # Weapon cases
-lathe-recipe-WeaponCaseShort-name = weapon case (small, empty)
-lathe-recipe-WeaponCaseLong-name = weapon case (empty)
-lathe-recipe-WeaponCaseHeavy-name = weapon case (heavy, empty)
-lathe-recipe-WeaponCaseShortAmmo-name = ammo case (small, empty)
-lathe-recipe-WeaponCaseShortExplosives-name = explosives case (small, empty)
+lathe-recipe-WeaponCaseShort-name = оружейный кейс (маленький, пустой)
+lathe-recipe-WeaponCaseLong-name = оружейный кейс (пустой)
+lathe-recipe-WeaponCaseHeavy-name = оружейный кейс (тяжелый, пустой)
+lathe-recipe-WeaponCaseShortAmmo-name = ящик патронов (маленький, пустой)
+lathe-recipe-WeaponCaseShortExplosives-name = кейс для взрывчатки (маленький, пустой)
