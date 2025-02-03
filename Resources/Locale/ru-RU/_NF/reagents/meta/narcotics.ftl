@@ -3,3 +3,5 @@ reagent-desc-rock-dust = Смесь измельченных горных пор
 
 reagent-name-shroom-mix = грибная смесь
 reagent-desc-shroom-mix = Смесь измельченных, пережеванных и частично высушенных грибов, взвешенных в мопвате.
+
+reagent-name-hyperzine = гиперзин

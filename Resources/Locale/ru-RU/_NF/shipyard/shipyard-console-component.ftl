@@ -29,6 +29,7 @@ shipyard-console-dangerous-materials = На борту корабля обнар
 
 shipyard-console-menu-size-label = Размер:{" "}
 shipyard-console-menu-class-label = Тип:{" "}
+shipyard-console-menu-engine-label = Топливо:{" "}
 
 shipyard-console-purchase-available = Купить
 shipyard-console-guidebook = Руководство
@@ -40,23 +41,40 @@ shipyard-console-category-Small = Маленькие
 shipyard-console-category-Medium = Средние
 shipyard-console-category-Large = Большие
 
-shipyard-console-class-All = Все
+shipyard-console-class-All = All
 shipyard-console-class-Expedition = Экспедиционные
-shipyard-console-class-Scrapyard = Со свалки
+shipyard-console-class-Scrapyard = Заброшенные
 shipyard-console-class-Salvage = Шахтерские
 shipyard-console-class-Science = Научные
-shipyard-console-class-Cargo = Перевозчики
+shipyard-console-class-Cargo = Грузовые
 shipyard-console-class-Chemistry = Химические
 shipyard-console-class-Botany = Ботанические
 shipyard-console-class-Engineering = Инженерные
-shipyard-console-class-Atmospherics = Атмос-технические
+shipyard-console-class-Atmospherics = Газодобывающие
 shipyard-console-class-Medical = Медицинские
 shipyard-console-class-Civilian = Гражданские
-shipyard-console-class-Kitchen = Кухонные
-shipyard-console-class-Syndicate = Синдиката
-shipyard-console-class-Pirate = Пиратский
-shipyard-console-class-Detainment = Автозак
-shipyard-console-class-Detective = Детективные
-shipyard-console-class-Fighter = Боевые
-shipyard-console-class-Stealth = Стелс
+shipyard-console-class-Kitchen = Рестораны
+# Antag
+shipyard-console-class-Syndicate = Синдикатовские
+shipyard-console-class-Pirate = Пиратские
+# NFSD
 shipyard-console-class-Capital = Капитал
+shipyard-console-class-Detainment = Перевозка
+shipyard-console-class-Detective = Детектив
+shipyard-console-class-Fighter = Истребитель
+shipyard-console-class-Patrol = Патрулирование
+shipyard-console-class-Pursuit = Преследование
+
+shipyard-console-engine-All = Все
+shipyard-console-engine-AME = ДАМ
+shipyard-console-engine-TEG = ТЭГ
+shipyard-console-engine-Supermatter = Суперматерия
+shipyard-console-engine-Tesla = Тесла
+shipyard-console-engine-Singularity = Сингулярность
+shipyard-console-engine-Solar = Солнечные панели
+shipyard-console-engine-RTG = РИТЭГИ
+shipyard-console-engine-APU = APU
+shipyard-console-engine-Welding = Сварочное топливо
+shipyard-console-engine-Plasma = Плазма
+shipyard-console-engine-Uranium = Уран
+shipyard-console-engine-Bananium = Бананиум
