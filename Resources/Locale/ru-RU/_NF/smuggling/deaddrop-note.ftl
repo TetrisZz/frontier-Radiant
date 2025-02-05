@@ -1,23 +1,23 @@
-dead-drop-hint-note = Not much time.
-    Spinward Syndicate needs help.
-    Known drops:
+dead-drop-hint-note = Времени мало.
+    Синдикату нужна помощь.
+    Известные координаты:
 
     {$drops}
 
-    Check these to lend a hand.
-    For a better tomorrow.
+    Проверьте их, чтобы оказать помощь.
+    Ради лучшего завтра.
 
-dead-drop-time-known = next drop around {$time}
-dead-drop-time-unknown = next drop placed when we can
+dead-drop-time-known = следуещее крушение {$time}
+dead-drop-time-unknown = следующие координа разместим когда сможем
 dead-drop-hint-line = - {CAPITALIZE(INDEFINITE($object))} {$object} at {$poi} ({$time})
 
-dead-drop-hint-generic = object
-dead-drop-hint-poster = poster
-dead-drop-hint-table = table
-dead-drop-hint-vendor = vending machine
-dead-drop-hint-bench = bench
-dead-drop-hint-chair = chair
-dead-drop-hint-stool = stool
-dead-drop-hint-disposals = disposals bin
+dead-drop-hint-generic = объект
+dead-drop-hint-poster = постер
+dead-drop-hint-table = стол
+dead-drop-hint-vendor = торговый автомат
+dead-drop-hint-bench = скамья
+dead-drop-hint-chair = стул
+dead-drop-hint-stool = табурет
+dead-drop-hint-disposals = мусорный контейнер
 
-dead-drop-station-hint-generic = a random location
+dead-drop-station-hint-generic = случайное место

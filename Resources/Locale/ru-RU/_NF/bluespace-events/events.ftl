@@ -39,8 +39,8 @@ station-event-bluespace-generic-ftl-start-announcement = Внимание все
 station-event-bluespace-generic-ftl-warning-announcement = Инициализированы процедуры дистанционного управления блюспейс-передвижением, осталось пять минут до исчезновения неидентифицированного шаттла.
 station-event-bluespace-generic-ftl-end-announcement = В соответствии с протоколами блюспейс-передвижений NanoTrasen, неидентифицированный шаттл был уничтожен для избежания столкновения.
 
-station-event-bluespace-name-BrokenMcDelivery = McDelivery
-station-event-bluespace-name-Cave = Cave
-station-event-bluespace-name-UnidentifiedVessel = Unidentified Vessel
-station-event-bluespace-name-SecureNTVault = Secure NT Vault
-station-event-bluespace-name-SyndicateWeaponsCache = Syndicate Weapons Cache
+station-event-bluespace-name-BrokenMcDelivery = МакДеливери
+station-event-bluespace-name-Cave = Пещера
+station-event-bluespace-name-UnidentifiedVessel = Неопознанный шаттл
+station-event-bluespace-name-SecureNTVault = Хранилище NanoTrasen
+station-event-bluespace-name-SyndicateWeaponsCache = Тайник Синдиката

@@ -1,3 +1,4 @@
+dungeon-boss-grid-warning = Мегафауна вернулась.
 
 salvage-faction-syndicate = Синдикат
 salvage-faction-cultists = Культисты

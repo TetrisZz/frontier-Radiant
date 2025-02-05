@@ -1,5 +1,5 @@
 # Frontier: edits to title and messages
-no-eorg-popup-title = Frontier Station
+no-eorg-popup-title = Аванпост Фронтира
 no-eorg-popup-label = Добро пожаловать в конец раунда!
 no-eorg-popup-message = [bold]Гриферство в конце раунда (РДМ)[/bold] [color=#DD0000]не допускается[/color]. Пожалуйста, оставайтесь в роли, пока не появится экран лобби, чтобы поддерживать захватывающую атмосферу для всех. Спасибо за соблюдение правил сообщества!
 no-eorg-popup-rule = [bold][color=#a4885c]Значительное неадекватное поведение в конце раунда не допускается.[/color][/bold]

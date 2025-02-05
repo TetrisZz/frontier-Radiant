@@ -22,3 +22,14 @@ accent-words-mistake-cat-4 = Т' ахор х' мггока'ай.
 accent-words-mistake-cat-5 = Т' кант ах'эхье баг.
 accent-words-mistake-cat-6 = ли х' нилгх'ри нгахнах.
 accent-words-mistake-cat-7 = ймг' мгеп л' ах'н'гха да.
+
+# Fox
+accent-words-fox-1 = Йип!
+accent-words-fox-2 = Йап!
+accent-words-fox-3 = Руфф!
+accent-words-fox-4 = Аааргх!
+accent-words-fox-5 = Aааагх!
+accent-words-fox-6 = Скриии!
+
+# Accent Toggle
+accent-clothing-component-toggle = Переключить акцент

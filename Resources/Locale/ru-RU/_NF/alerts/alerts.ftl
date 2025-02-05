@@ -1,2 +1,2 @@
-alerts-pacified-zone-name = [color=royalblue]Pacified Zone[/color]
-alerts-pacified-zone-desc = You're in a pacified zone, you need to leave before harming living things.
+alerts-pacified-zone-name = [color=royalblue]Безопасная Зона[/color]
+alerts-pacified-zone-desc = Вы находитесь в безопасной зоне, вам нужно уйти, прежде чем причинять вред живым существам.
