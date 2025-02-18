@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: Bahama
   parent: BasePOI
-  name: "Bahama Mama's"
+  name: "Ресторан На Багамах"
   minimumDistance: 1200
   maximumDistance: 2900
   spawnGamePreset: [ NFAdventure, NFPirate ]
@@ -33,4 +33,4 @@
       stationProto: DeadDropFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Bahama Mama's"
+          mapNameTemplate: "Ресторан На Багамах"

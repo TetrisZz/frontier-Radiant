@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: Courthouse
   parent: BasePOI
-  name: "Courthouse"
+  name: "Суд"
   minimumDistance: 1150
   maximumDistance: 2050
   spawnGroup: Required
@@ -30,5 +30,5 @@
       stationProto: StandardFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Courthouse"
+          mapNameTemplate: "Суд"
         - type: StationDeadDropHintExempt

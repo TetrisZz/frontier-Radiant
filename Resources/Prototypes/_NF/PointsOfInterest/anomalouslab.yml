@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: AnomalousLab
   parent: BasePOI
-  name: 'Anomalous Lab'
+  name: 'Лаборатория Аномалий'
   minimumDistance: 2100
   maximumDistance: 3800
   spawnGroup: ScienceLab
@@ -31,7 +31,7 @@
       stationProto: StandardFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Anomalous Lab'
+          mapNameTemplate: 'Лаборатория Аномалий'
         - type: StationJobs
           availableJobs: {}
         - type: StationDeadDropHintExempt
