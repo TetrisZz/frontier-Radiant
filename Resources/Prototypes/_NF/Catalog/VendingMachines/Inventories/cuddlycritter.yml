@@ -55,6 +55,7 @@
     DiceBag: 6
     PrizeBall: 10
     MysterySpaceBladeBox: 10
+    PlushieHomka: 4294967295 #radiant_sector
   contrabandInventory:
     PlushieLamp: 3
     CrazyGlue: 1

@@ -1,0 +1,61 @@
+#T0
+- type: loadout
+  id: ACORPClothingUnderwearSocksAcorpStriped
+  equipment:
+    socks: ClothingUnderwearSocksAcorpStriped
+    
+- type: loadout
+  id: ACORPClothingUnderwearSocksRich
+  equipment:
+    socks: ClothingUnderwearSocksRich
+    
+- type: loadout
+  id: ACORPClothingUnderwearSocksRadiantBlackPolosatie
+  equipment:
+    socks: ClothingUnderwearSocksRadiantBlackPolosatie
+    
+- type: loadout
+  id: ACORPClothingUnderwearSocksRadiantBlack
+  equipment:
+    socks: ClothingUnderwearSocksRadiantBlack
+    
+- type: loadout
+  id: ACORPClothingUnderwearSocksGarters
+  equipment:
+    socks: ClothingUnderwearSocksGarters
+    
+- type: loadout
+  id: ACORPClothingUnderwearSocksHigh
+  equipment:
+    socks: ClothingUnderwearSocksHigh
+    
+- type: loadout
+  id: ACORPClothingUnderwearSocksRadiantThighblue
+  equipment:
+    socks: ClothingUnderwearSocksRadiantThighblue
+    
+- type: loadout
+  id: ACORPClothingUnderwearSocksRadiantSocksBlack
+  equipment:
+    socks: ClothingUnderwearSocksRadiantSocksBlack
+
+- type: loadout
+  id: ACORPClothingUnderwearSocksRadiantStriped
+  equipment:
+    socks: ClothingUnderwearSocksRadiantStriped
+
+- type: loadout
+  id: ACORPClothingUnderwearSocksShort
+  equipment:
+    socks: ClothingUnderwearSocksShort
+
+- type: loadout
+  id: ACORPClothingUnderwearSocksRadiantPink
+  equipment:
+    socks: ClothingUnderwearSocksRadiantPink
+
+- type: loadout
+  id: ACORPClothingUnderwearSocksRadiantMeee
+  equipment:
+    socks: ClothingUnderwearSocksRadiantMeee
+

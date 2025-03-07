@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "license": "CC0-1.0",
+  "license": "CC-BY-SA-3.0",
   "copyright": "Original work by TJohnson.",
   "size": {
     "x": 32,
@@ -13,14 +13,6 @@
     {
       "name": "e_cutlass"
     },
-    {
-      "name": "inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "inhand-right",
-      "directions": 4
-    },
 	{
       "name": "e_cutlass_blade",
       "delays": [
@@ -29,55 +21,6 @@
           0.1
         ]
       ]
-    },
-    {
-            "name": "inhand-left-blade",
-            "directions": 4,
-            "delays": [
-                [
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1
-                ]
-            ]
-        },
-    {
-            "name": "inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "inhand-right-blade",
-            "directions": 4,
-            "delays": [
-                [
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1
-                ],
-                [
-                    0.1,
-                    0.1
-                ]
-            ]
-        }
-    ]
+    }
+  ]
 }
-

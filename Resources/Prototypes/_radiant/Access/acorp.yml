@@ -1,0 +1,18 @@
+- type: accessLevel
+  id: Acorp
+  name: id-card-access-level-acorp
+  
+- type: accessLevel
+  id: AcorpCommand
+  name: id-card-access-level-acorp-command
+
+- type: accessLevel
+  id: AcorpSecurity
+  name: id-card-access-level-acorp-security
+
+- type: accessGroup
+  id: AcorpGroup
+  tags:
+  - Acorp
+  - AcorpSecurity
+  - AcorpCommand

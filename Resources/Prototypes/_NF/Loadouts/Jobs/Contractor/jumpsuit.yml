@@ -220,6 +220,36 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorPink
 
+- type: loadout
+  id: ContractorClothingUniformJumpskirtPinkDress
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPinkDress
+
+- type: loadout
+  id: ContractorClothingUniformJumpskirtBlackDress
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlackDress
+
+- type: loadout
+  id: ContractorClothingUniformJumpskirtDressClassic
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtDressClassic
+
+- type: loadout
+  id: ContractorClothingUniformJumpsuitGreenLok
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGreenLok
+
+- type: loadout
+  id: ContractorClothingUniformJumpsuitRedLok
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRedLok
+
 #T1
 - type: loadout
   id: ContractorClothingUniformJumpsuitColorDarkBlue

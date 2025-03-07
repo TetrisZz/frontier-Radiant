@@ -1,0 +1,47 @@
+- type: loadoutGroup
+  id: SCIPDA
+  name: loadout-group-science-id
+  hidden: true
+  loadouts:
+  - SCIAcorpSciencePDA
+  fallbacks:
+  - SCIAcorpSciencePDA
+
+- type: loadoutGroup
+  id: SCIJumpsuit
+  name: loadout-group-science-jumpsuit
+  loadouts:
+  - SCIClothingUniformJumpsuitAcorp
+  - SCIClothingUniformJumpskirtAcorp
+  fallbacks:
+  - SCIClothingUniformJumpsuitAcorp
+  - SCIClothingUniformJumpskirtAcorp
+
+- type: loadoutGroup
+  id: SCIOuterClothing
+  name: loadout-group-science-outerclothing
+  minLimit: 0
+  loadouts:
+  - SCIClothingOuterCoatRndAcorp
+
+- type: loadoutGroup
+  id: SCIUnderwearBottom
+  name: loadout-group-science-underwearbottom
+  loadouts: 
+  - ACORPClothingUnderwearBottomPantiesAcorpRnd
+  subgroups:
+  - ASSUnderwearBottom
+  fallbacks:
+  - ACORPClothingUnderwearBottomBoxersAcorp
+  - ACORPClothingUnderwearBottomPantiesAcorp
+
+- type: loadoutGroup
+  id: SCIUnderwearTop
+  name: loadout-group-science-underweartop
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ACORPClothingUnderwearTopBraAcorpScience
+  - ACORPClothingUnderwearTopBraAcorpScience2
+  subgroups:
+  - ASSUnderwearTop

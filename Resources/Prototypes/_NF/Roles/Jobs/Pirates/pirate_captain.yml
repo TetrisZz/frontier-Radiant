@@ -9,10 +9,7 @@
     - !type:RoleTimeRequirement
       role: JobSeniorOfficer
       time: 10800 # 3 hours
-    - !type:DepartmentTimeRequirement
-      department: Antag
-      time: 21600 # 6 hours Radiant_Sector
-  whitelisted: true
+  whitelisted: false
   startingGear: PirateCaptainNFGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true

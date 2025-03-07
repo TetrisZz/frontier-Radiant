@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttleAcorp
-  name: syndicate shuttle console
-  description: Used to pilot a syndicate shuttle.
+  name: консоль управления 
+  description: Массивная консоль управления кораблем, изготовленная чтобы управляться с действительно большими кораблями.
   components:
   - type: SpriteFade
   - type: Sprite

@@ -1,0 +1,134 @@
+# Empty mags
+- type: entity
+  id: BaseMagazineHigh2Rifle
+  name: "magazine (.6,8-мм SPC)"
+  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseRestrictedContraband<BaseC1Contraband added RecyclableItemSteelTiny
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineHigh2Rifle
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeHigh2Rifle
+    proto: CartridgeHigh2Rifle
+    capacity: 30
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/tw.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+# Magazines
+- type: entity
+  id: MagazineHigh2Rifle
+  name: "magazine (.6,8-мм SPC)"
+  parent: BaseMagazineHigh2Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2Rifle
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineHigh2RifleEmpty
+  name: "magazine (.6,8-мм SPC any)"
+  suffix: empty
+  parent: MagazineHigh2Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1 # Frontier
+      map: ["enum.GunVisualLayers.Mag"] # Frontier
+
+- type: entity
+  id: MagazineHigh2RiflePractice
+  name: "magazine (.6,8-мм SPC practice)"
+  parent: BaseMagazineHigh2Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RiflePractice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineHigh2RifleUranium
+  name: "magazine (.6,8-мм SPC uranium)"
+  parent: BaseMagazineHigh2Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RifleUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineHigh2RifleIncendiary
+  name: "magazine (.6,8-мм SPC incendiary)"
+  parent: MagazineHigh2Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RifleIncendiary
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineHigh2RifleRubber
+  name: "magazine (.30 rifle rubber)"
+  parent: BaseMagazineHigh2Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RifleRubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineHigh2RifleIce
+  name: "magazine (.6,8-мм SPC ice)"
+  parent: BaseMagazineHigh2Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RifleIce
+  - type: Sprite
+    layers:
+    - state: ice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

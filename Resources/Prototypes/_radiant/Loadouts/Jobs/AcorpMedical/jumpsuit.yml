@@ -1,0 +1,9 @@
+- type: loadout
+  id: MEDClothingUniformJumpsuitMedicalAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalAcorp
+
+- type: loadout
+  id: MEDClothingUniformJumpskirtMedicalAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalAcorp

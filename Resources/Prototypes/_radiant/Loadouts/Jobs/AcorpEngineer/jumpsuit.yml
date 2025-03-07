@@ -1,0 +1,9 @@
+- type: loadout
+  id: ENGClothingUniformJumpsuitEngineeringAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringAcorp
+
+- type: loadout
+  id: ENGClothingUniformJumpskirtEngineeringAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtEngineeringAcorp

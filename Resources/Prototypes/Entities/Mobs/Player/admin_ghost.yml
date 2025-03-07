@@ -35,6 +35,7 @@
     - SyndicateAgent
     - CentralCommand
     - Pirate # Frontier
+    - AcorpCommand #Radiant_sector
   - type: UserInterface
     interfaces:
       enum.SolarControlConsoleUiKey.Key:

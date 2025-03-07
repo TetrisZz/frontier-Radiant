@@ -1,0 +1,15 @@
+- type: loadout
+  id: SECClothingHeadHatBeretAcorp
+  equipment:
+    head: ClothingHeadHatBeretAcorp
+
+- type: loadout
+  id: SECClothingHeadHatAcorp
+  equipment:
+    head: ClothingHeadHatAcorp
+
+- type: loadout
+  id: SECClothingHeadHelmetAcorp
+  equipment:
+    head: ClothingHeadHelmetAcorp
+

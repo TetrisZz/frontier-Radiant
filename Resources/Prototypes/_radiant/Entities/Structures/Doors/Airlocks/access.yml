@@ -1,0 +1,237 @@
+- type: entity
+  parent: AirlockAcorpBasic
+  id: AirlockAcorpBasicLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpEngineering
+  id: AirlockAcorpEngineeringLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpAtmospherics
+  id: AirlockAcorpAtmosphericsLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpCargo
+  id: AirlockAcorpCargoLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpHydroponics
+  id: AirlockAcorpHydroponicsLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpMedical
+  id: AirlockAcorpMedicalLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpVirology
+  id: AirlockAcorpVirologyLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpChemistry
+  id: AirlockAcorpChemistryLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpScience
+  id: AirlockAcorpScienceLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpEngineeringGlass
+  id: AirlockAcorpEngineeringGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpAtmosphericsGlass
+  id: AirlockAcorpAtmosphericsGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpCargoGlass
+  id: AirlockAcorpCargoGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpHydroponicsGlass
+  id: AirlockAcorpHydroponicsGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpMedicalGlass
+  id: AirlockAcorpMedicalGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpChemistryGlass
+  id: AirlockAcorpChemistryGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpVirologyGlass
+  id: AirlockAcorpVirologyGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpScienceGlass
+  id: AirlockAcorpScienceGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpRoboticistGlass
+  id: AirlockAcorpRoboticistGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpBasicBlack
+  id: AirlockAcorpBasicBlackLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+- type: entity
+  parent: AirlockAcorpBasicBlackGlass
+  id: AirlockAcorpBasicBlackGlassLocked
+  suffix: Acorp, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorp ]
+
+#security
+
+- type: entity
+  parent: AirlockAcorpSecurity
+  id: AirlockAcorpSecurityLocked
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpSecurity ]
+
+- type: entity
+  parent: AirlockAcorpSecurityGlass
+  id: AirlockAcorpSecurityGlassLocked
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpSecurity ]
+
+- type: entity
+  parent: AirlockAcorpSecurityBlue
+  id: AirlockAcorpSecurityBlueLocked
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpSecurity ]
+
+- type: entity
+  parent: AirlockAcorpSecurityBlueGlass
+  id: AirlockAcorpSecurityBlueGlassLocked
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpSecurity ]
+
+#command
+
+- type: entity
+  parent: AirlockAcorpCommandBlack
+  id: AirlockAcorpCommandBlackLocked
+  suffix: AcorpCommand, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpCommand ]
+
+- type: entity
+  parent: AirlockAcorpCommandBlackGlass
+  id: AirlockAcorpCommandBlackGlassLocked
+  suffix: AcorpCommand, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpCommand ]

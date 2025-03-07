@@ -1,8 +1,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitAcorp
-  name: "Anatomy of a spessman"
-  description: "A poster showing the bits and bobs that makes you... you!"
+  name: постер акорп
+  description: Акорп - знания без границ, наука без ограничений!
   components:
   - type: Sprite
     sprite: _radiant/Structures/Wallmounts/posters.rsi

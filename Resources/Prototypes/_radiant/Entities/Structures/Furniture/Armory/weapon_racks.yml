@@ -1,0 +1,19 @@
+- type: entity
+  id: StructureGunRackAcorp
+  parent: StructureGunRack
+  suffix: Acorp, Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/Armory/weapon_rack.rsi
+    layers:
+    - state: base-gun
+
+- type: entity
+  id: StructureGunRackAcorpSecurity
+  parent: StructureGunRack
+  suffix: AcorpSec, Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/Armory/weapon_rack2.rsi
+    layers:
+    - state: base-gun

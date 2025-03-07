@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckCloakAcorpAdmin
-  name: captain's cloak
-  description: A pompous and comfy blue cloak with a nice gold trim, while not particularly valuable as your other possessions, it sure is fancy.
+  name: темный плащ
+  description: Темный плащ, выглядит дорого. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Cloak/admin.rsi
@@ -10,8 +10,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckCloakAcorpAdmin2
-  name: captain's cloak
-  description: A pompous and comfy blue cloak with a nice gold trim, while not particularly valuable as your other possessions, it sure is fancy.
+  name: плащ акорп
+  description: Тёмный плащ с золотыми вставками, был сшит спеиально по заказу для Коменданта Экспедиций.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Cloak/admin_alt.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckCloakAcorpGrey
-  name: captain's cloak
-  description: A pompous and comfy blue cloak with a nice gold trim, while not particularly valuable as your other possessions, it sure is fancy.
+  name: черный плащ
+  description: Чёрный плащ с белыми вставками. Можно заметить этикетку - Произведено Аколит Корпорейшн.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Cloak/greycloak.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckMantleAcorpGrey
-  name: captain's cloak
-  description: A pompous and comfy blue cloak with a nice gold trim, while not particularly valuable as your other possessions, it sure is fancy.
+  name: черная накидка
+  description: Чёрно-белая накидка. Можно заметить этикетку - Произведено Аколит Корпорейшн. Выглядитстильно.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Cloak/greymantle.rsi

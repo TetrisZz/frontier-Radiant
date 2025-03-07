@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorp
-  name: бра
-  description: Только наши лифчики Nanotrasen могут легко сниматься и надеваться.
+  name: бра акорп
+  description: Лифчик акорп, зачем корпорации уникальное бельё?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/acorp.rsi
@@ -10,8 +10,45 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorp2
-  name: бра
-  description: Только наши лифчики Nanotrasen могут легко сниматься и надеваться.
+  name: бра акорп
+  description: Лифчик акорп, зачем корпорации уникальное бельё?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/acorp1.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraAcorpScience
+  name: бра учёного акорп
+  description: Лифчик акорп но для учёных или учёниц.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/brarnd.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraAcorpScience2
+  name: бра учёного акорп
+  description: Этот лифчик может носить только очень смелая сотрудница акорп, что справилась не с одним артефактом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/brasexsirnd.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraAcorpSecurity
+  name: бра акорп секьюрити
+  description: Лифчик для бравых защитниц исследований.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/brasec.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraAcorpSecurity2
+  name: бра акорп секьюрити
+  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/кbraacorp.rsi
+

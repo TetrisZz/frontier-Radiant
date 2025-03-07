@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsAcorp
-  name: workboots
-  description: Engineering lace-up work boots for the especially blue-collar.
+  name: элегантные ботинки
+  description: Элегантные ботинки чёрного цвета, хорошо сочетаются с розовыми чулками.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Boots/acorp_boots.rsi
@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsAcorpArm
-  name: workboots
-  description: Engineering lace-up work boots for the especially blue-collar.
+  name: ботинки
+  description: Стандартные ботинки, которые изготавливались мастерами специально для Аколит Корпорейшн. Чёрно-белого цвета, как и вся униформа корпорации.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Boots/acorp_arm_boots.rsi
@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsAcorpWorkBoots
-  name: workboots
-  description: Engineering lace-up work boots for the especially blue-collar.
+  name: рабочие ботинки
+  description: Стандартные рабочие ботинки представителя Аколит Корпорейшн.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Boots/workboots.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsAcorpWorkBoots2
-  name: workboots
-  description: Engineering lace-up work boots for the especially blue-collar.
+  name: рабочие ботинки инженера
+  description: Стандартные рабочие ботинки инженера Аколит Корпорейшн.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Boots/workbootseng.rsi

@@ -1,0 +1,14 @@
+- type: loadout
+  id: COMClothingBackpackAcorp
+  equipment:
+    back: ClothingBackpackAcorp
+
+- type: loadout
+  id: COMClothingBackpackSatchelAcorp
+  equipment:
+    back: ClothingBackpackSatchelAcorp
+
+- type: loadout
+  id: COMClothingBackpackDuffelAcorp
+  equipment:
+    back: ClothingBackpackDuffelAcorp

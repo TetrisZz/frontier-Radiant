@@ -41,6 +41,11 @@
   - ContractorClothingUniformJumpskirtColorPurple
   - ContractorClothingUniformJumpsuitColorPink
   - ContractorClothingUniformJumpskirtColorPink
+  - ContractorClothingUniformJumpskirtPinkDress
+  - ContractorClothingUniformJumpskirtBlackDress
+  - ContractorClothingUniformJumpskirtDressClassic
+  - ContractorClothingUniformJumpsuitGreenLok
+  - ContractorClothingUniformJumpsuitRedLok
   - ContractorClothingUniformJumpsuitColorDarkBlue
   - ContractorClothingUniformJumpskirtColorDarkBlue
   - ContractorClothingUniformJumpsuitColorDarkGreen
@@ -909,27 +914,24 @@
   id: ContractorUnderwearBottom
   name: loadout-group-contractor-underwearbottom
   minLimit: 1
+  maxLimit: 1
   loadouts:
   - ContractorClothingUnderwearBottomBoxersWhite
   - ContractorClothingUnderwearBottomBoxersSpaceNinja
   - ContractorClothingUnderwearBottomBoxersCap
-  - ContractorClothingUnderwearBottomBoxersCE
-  - ContractorClothingUnderwearBottomBoxersCMO
-  - ContractorClothingUnderwearBottomBoxersHOP
-  - ContractorClothingUnderwearBottomBoxersHOS
-  - ContractorClothingUnderwearBottomBoxersQM
+  - ContractorClothingUnderwearBottomRadiantBoxersNFSD
+  - ContractorClothingUnderwearBottomRadiantBoxersBlack
   - ContractorClothingUnderwearBottomBoxersRD
   - ContractorClothingUnderwearBottomPantiesWhite
-  - ContractorClothingUnderwearBottomPantiesThong
   - ContractorClothingUnderwearBottomPantiesNeko
   - ContractorClothingUnderwearBottomPantiesLace
   - ContractorClothingUnderwearBottomPantiesSpaceNinja
   - ContractorClothingUnderwearBottomPantiesCap
-  - ContractorClothingUnderwearBottomPantiesCE
-  - ContractorClothingUnderwearBottomPantiesCMO
+  - ContractorClothingUnderwearBottomRadiantPantiesTrusikiblack
+  - ContractorClothingUnderwearBottomRadiantPantiesRed
   - ContractorClothingUnderwearBottomPantiesHOP
-  - ContractorClothingUnderwearBottomPantiesHOS
-  - ContractorClothingUnderwearBottomPantiesQM
+  - ContractorClothingUnderwearBottomRadiantPantiesNFSD
+  - ContractorClothingUnderwearBottomRadiantPantiesPink
   - ContractorClothingUnderwearBottomPantiesRD
   fallbacks:
   - ContractorClothingUnderwearBottomBoxersWhite
@@ -948,6 +950,15 @@
   - ContractorClothingUnderwearSocksFishnettights
   - ContractorClothingUnderwearSocksPantyhose
   - ContractorClothingUnderwearSocksGarters
+  - ContractorClothingUnderwearSocksRadiantThighblue
+  - ContractorClothingUnderwearSocksRadiantPink
+  - ContractorClothingUnderwearSocksRadiantRed
+  - ContractorClothingUnderwearSocksRadiantStriped
+  - ContractorClothingUnderwearSocksRadiantSocksBlack
+  - ContractorClothingUnderwearSocksRadiantBlack
+  - ContractorClothingUnderwearSocksRadiantBlackPolosatie
+  - ContractorClothingUnderwearSocksRadiantMeee
+  - ContractorClothingUnderwearSocksAcorpStriped
   - ContractorClothingUnderwearSocksRich
   
 - type: loadoutGroup
@@ -960,13 +971,14 @@
   - ContractorClothingUnderwearTopBraSports
   - ContractorClothingUnderwearTopBraSportsAlternative
   - ContractorClothingUnderwearTopNekoBra
+  - ContractorClothingUnderwearTopRadiantRed
   - ContractorClothingUnderwearToplaceBra
   - ContractorClothingUnderwearTopSpaceNinja
   - ContractorClothingUnderwearTopBraCap
-  - ContractorClothingUnderwearTopBraCE
-  - ContractorClothingUnderwearTopBraCMO
+  - ContractorClothingUnderwearTopRadiantBlack
+  - ContractorClothingUnderwearTopRadiantNeeeekoUwU
   - ContractorClothingUnderwearTopBraHOP
-  - ContractorClothingUnderwearTopBraHOS
-  - ContractorClothingUnderwearTopBraQM
+  - ContractorClothingUnderwearTopRadiantPink
+  - ContractorClothingUnderwearTopRadiantSeeeexsi
   - ContractorClothingUnderwearTopBraRD
   

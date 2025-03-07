@@ -1,0 +1,53 @@
+- type: entity
+  id: BaseCartridgeMagnum500
+  name: cartridge (.500 magnum)
+  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseRestrictedContraband<BaseC1Contraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeMagnum500
+  - type: CartridgeAmmo
+    proto: BulletMagnum500
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: CartridgeMagnum500
+  name: cartridge (.500 magnum)
+  parent: BaseCartridgeMagnum500
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnum500
+
+- type: entity
+  id: CartridgeMagnum500Ice
+  name: cartridge (.500 magnum ice)
+  parent: BaseCartridgeMagnum500
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnum500Ice
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#57d2d9"
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Cryoladinne
+          Quantity: 10
+  - type: SolutionTransfer
+    maxTransferAmount: 10

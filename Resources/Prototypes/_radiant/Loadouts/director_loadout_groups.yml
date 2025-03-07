@@ -1,0 +1,33 @@
+- type: loadoutGroup
+  id: DIRPDA
+  name: loadout-group-director-id
+  hidden: true
+  loadouts:
+  - DIRAcorpDirectorPDA
+  fallbacks:
+  - DIRAcorpDirectorPDA
+
+- type: loadoutGroup
+  id: DIRJumpsuit
+  name: loadout-group-director-jumpsuit
+  loadouts:
+  - DIRClothingUniformJumpsuitRDAcorp
+  - DIRClothingUniformJumpskirtRDAcorp
+  fallbacks:
+  - DIRClothingUniformJumpsuitRDAcorp
+  - DIRClothingUniformJumpskirtRDAcorp
+
+- type: loadoutGroup
+  id: DIROuterClothing
+  name: loadout-group-director-outerclothing
+  minLimit: 0
+  loadouts:
+  - DIRClothingOuterCoatRDAcorp
+
+- type: loadoutGroup
+  id: DIRFace
+  name: loadout-group-director-face
+  loadouts:
+  - DIRClothingMaskBreathAcorp
+  fallbacks:
+  - DIRClothingMaskBreathAcorp

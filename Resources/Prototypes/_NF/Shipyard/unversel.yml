@@ -32,7 +32,7 @@
   minPlayers: 0
   stations:
     unversel:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Анвёрсел {1}'

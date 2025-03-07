@@ -1,0 +1,10 @@
+#T0
+- type: loadout
+  id: ACORPClothingUnderwearBottomBoxersAcorpSecuriry
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersAcorpSecuriry
+
+- type: loadout
+  id: ACORPClothingUnderwearBottomPantiesAcorpSecurity
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesAcorpSecurity

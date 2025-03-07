@@ -1,0 +1,88 @@
+- type: loadoutGroup
+  id: COMPDA
+  name: loadout-group-commandant-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - COMAcorpCommandPDA
+  fallbacks:
+  - COMAcorpCommandPDA
+
+- type: loadoutGroup
+  id: COMNeck
+  name: loadout-group-commandant-neck
+  minLimit: 0
+  loadouts:
+  - COMClothingNeckCloakAcorpAdmin2
+  - COMClothingNeckCloakAcorpAdmin
+  - COMClothingNeckMantleAcorpGrey
+
+- type: loadoutGroup
+  id: COMJumpsuit
+  name: loadout-group-commandant-jumpsuit
+  loadouts:
+  - COMClothingUniformJumpsuitCaptainAcorp
+  - COMClothingUniformJumpskirtCaptainAcorp
+  fallbacks:
+  - COMClothingUniformJumpsuitCaptainAcorp
+  - COMClothingUniformJumpskirtCaptainAcorp
+
+- type: loadoutGroup
+  id: COMOuterClothing
+  name: loadout-group-commandant-outerclothing
+  minLimit: 0
+  loadouts:
+  - COMClothingOuterCoatGreyAcorp
+  - COMClothingOuterCoatAcorp
+
+- type: loadoutGroup
+  id: COMHead
+  name: loadout-group-commandant-head
+  minLimit: 0
+  loadouts:
+  - COMClothingHeadHatBeretAcorp
+
+- type: loadoutGroup
+  id: COMBackpack
+  name: loadout-group-commandant-backpack
+  minLimit: 1
+  loadouts:
+  - COMClothingBackpackAcorp
+  - COMClothingBackpackSatchelAcorp
+  - COMClothingBackpackDuffelAcorp
+  fallbacks:
+  - COMClothingBackpackAcorp
+
+- type: loadoutGroup
+  id: COMShoes
+  name: loadout-group-commandant-shoes
+  hidden: true
+  loadouts:
+  - COMClothingShoesBootsAcorpArm
+  fallbacks:
+  - COMClothingShoesBootsAcorpArm
+
+- type: loadoutGroup
+  id: COMFace
+  name: loadout-group-commandant-face
+  loadouts:
+  - COMClothingMaskBreath2Acorp
+  fallbacks:
+  - COMClothingMaskBreath2Acorp
+
+- type: loadoutGroup
+  id: COMGlasses
+  name: loadout-group-commandant-glasses
+  hidden: true
+  loadouts:
+  - COMClothingEyesGlassesCommand
+  fallbacks:
+  - COMClothingEyesGlassesCommand
+
+- type: loadoutGroup
+  id: COMEars
+  name: loadout-group-commandant-ears
+  hidden: true
+  loadouts:
+  - COMClothingHeadsetAltAcorp
+  fallbacks:
+  - COMClothingHeadsetAltAcorp

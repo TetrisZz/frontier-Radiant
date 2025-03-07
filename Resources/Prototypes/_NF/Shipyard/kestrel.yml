@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Kestrel:
-      stationProto: StandardFrontierExpeditionVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Kestrel {1}'

@@ -1,0 +1,21 @@
+- type: job
+  id: AcorpAssistant
+  name: job-name-acorp-assistant
+  description: job-description-acorp-assistant
+  playTimeTracker: JobAcorpAssistant
+  startingGear: AcorpAssistantGear
+  icon: "JobIconAcorpAssistant" 
+  supervisors: job-supervisors-hire
+  weight: 1 # Prioritize station & department jobs
+  displayWeight: 10 # Second from the top
+  access:
+  - Acorp
+  accessGroups: # Frontier
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: AcorpAssistantGear

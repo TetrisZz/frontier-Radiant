@@ -1,0 +1,9 @@
+- type: loadout
+  id: ASSClothingUniformJumpsuitExploratorAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitExploratorAcorp
+
+- type: loadout
+  id: ASSClothingUniformJumpskirtExploratorAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtExploratorAcorp

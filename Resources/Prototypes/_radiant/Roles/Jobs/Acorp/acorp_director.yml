@@ -1,0 +1,27 @@
+- type: job
+  id: AcorpDirector
+  name: job-name-acorp-director
+  description: job-description-acorp-director
+  playTimeTracker: JobAcorpDirector
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 21600
+  startingGear: AcorpDirectorGear
+  icon: "JobIconAcorpDirector" 
+  supervisors: job-supervisors-hire
+  weight: 2 # Prioritize station & department jobs
+  displayWeight: 35 # Second from the top
+  access:
+  - Acorp
+  - AcorpCommand
+  accessGroups: # Frontier
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: AcorpDirectorGear
+  equipment:
+    belt: BoxFolderClipboard

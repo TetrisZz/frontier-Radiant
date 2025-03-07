@@ -502,6 +502,9 @@
       - !type:AdjustReagent
         reagent: Fresium
         amount: -5
+      - !type:AdjustReagent
+        reagent: Cryoladinne
+        amount: -5
 
 - type: reagent
   id: Barozine

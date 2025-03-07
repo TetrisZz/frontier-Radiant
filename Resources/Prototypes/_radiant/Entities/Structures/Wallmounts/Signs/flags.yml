@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseFlag
   id: AcorpFlag
-  name: pirate flag
-  description: Raise the jolly roger, scallywags!
+  name: флаг акорп
+  description: Акорп - знания без границ, наука без ограничений!
   components:
   - type: Sprite
     sprite: _radiant/Structures/Wallmounts/flags.rsi

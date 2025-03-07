@@ -212,8 +212,8 @@
 - type: entity #radiant_sector start
   parent: BasePlushie
   id: PlushieHomka
-  name: hampter plushie
-  description: A cute stuffed toy that resembles a hamster. Its face looks squished.
+  name: плюшевая хомка
+  description: Хомка, только плюшевая
   components:
   - type: Sprite
     state: plushie_homka

@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksAcorpStriped
+  name: носки
+  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/acorp-polos.rsi

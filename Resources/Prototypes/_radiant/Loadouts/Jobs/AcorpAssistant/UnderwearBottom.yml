@@ -1,0 +1,46 @@
+#T0
+- type: loadout
+  id: ACORPClothingUnderwearBottomBoxersAcorp2
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersAcorp2
+
+- type: loadout
+  id: ACORPClothingUnderwearBottomBoxersAcorp
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersAcorp
+    
+- type: loadout
+  id: ACORPClothingUnderwearBottomPantiesAcorp
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesAcorp
+    
+- type: loadout
+  id: ACORPClothingUnderwearBottomRadiantBoxersBlack
+  equipment:
+    underwearb: ClothingUnderwearBottomRadiantBoxersBlack
+        
+- type: loadout
+  id: ACORPClothingUnderwearBottomRadiantPantiesTrusikiblack
+  equipment:
+    underwearb: ClothingUnderwearBottomRadiantPantiesTrusikiblack
+    
+- type: loadout
+  id: ACORPClothingUnderwearBottomRadiantPantiesRed
+  equipment:
+    underwearb: ClothingUnderwearBottomRadiantPantiesRed
+    
+- type: loadout
+  id: ACORPClothingUnderwearBottomRadiantPantiesPink
+  equipment:
+    underwearb: ClothingUnderwearBottomRadiantPantiesPink
+    
+- type: loadout
+  id: ACORPClothingUnderwearBottomPantiesWhite
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesWhite
+    
+- type: loadout
+  id: ACORPClothingUnderwearBottomPantiesNeko
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesNeko
+    

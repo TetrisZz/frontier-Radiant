@@ -1,11 +1,17 @@
 <Document>
-  # Dwarves
+  # Дворфы
 
   <Box>
     <GuideEntityEmbed Entity="MobDwarf" Caption=""/>
   </Box>
+ Дворфы — трудолюбивый народ, во многом схожий с людьми, но лучше переносящий алкоголь и исцеляющийся с его помощью.
 
-  Dwarves are similar to humans in most respect, but tolerate alcohol better and are healed by it.
+  <Box>
+    <GuideEntityEmbed Entity="WallRockChromiteDiamond" Caption=""/>
+    <GuideEntityEmbed Entity="WallRockBasaltBananium" Caption=""/>
+    <GuideEntityEmbed Entity="WallRockBluespace" Caption=""/>
+  </Box>
 
+  Дворф инстинктивно знает, где находятся богатые рудные жилы, и может почувствовать присутствие руды на расстоянии до 5 метров.
 
 </Document>

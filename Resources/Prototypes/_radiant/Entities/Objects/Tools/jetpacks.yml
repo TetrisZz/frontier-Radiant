@@ -1,0 +1,34 @@
+#Empty black
+- type: entity
+  id: JetpackAcorp
+  parent: [BaseJetpack, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  name: jetpack
+  suffix: Empty
+  components:
+  - type: Item
+    sprite: _radiant/Objects/Tanks/Jetpacks/acorp.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+  - type: Sprite
+    sprite: _radiant/Objects/Tanks/Jetpacks/acorp.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+  - type: Clothing
+    sprite: _radiant/Objects/Tanks/Jetpacks/acorp.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+    # DeltaV modifications - Covered by modifications on parent
+    #slots:
+    #  - Back
+    # End DeltaV modifications
+
+# Filled black
+- type: entity
+  id: JetpackAcorpFilled
+  parent: JetpackAcorp
+  name: jetpack
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 13 minutes of thrust
+      volume: 5
+      temperature: 293.15
+      moles:
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen

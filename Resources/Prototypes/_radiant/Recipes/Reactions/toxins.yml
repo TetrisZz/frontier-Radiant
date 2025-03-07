@@ -1,0 +1,9 @@
+- type: reaction
+  id: Cryoladinne
+  reactants:
+    Cryoxadone:
+      amount: 2
+    Mercury:
+      amount: 5
+  products:
+    Cryoladinne: 1

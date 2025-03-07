@@ -1,6 +1,6 @@
 {
     "license": "CC-BY-NC-SA-4.0",
-    "copyright": "Content created by Bing Guss for Frontier Server",
+    "copyright": "Made by Homka for the Radiant sector - Frontier",
     "size": {
         "x": 32,
         "y": 32
@@ -21,10 +21,6 @@
             "directions": 4
         },
         {
-            "name": "off-equipped-HELMET-reptilian",
-            "directions": 4
-        },
-        {
             "name": "off-inhand-left",
             "directions": 4
         },
@@ -38,10 +34,6 @@
         },
         {
             "name": "on-equipped-HELMET-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-reptilian",
             "directions": 4
         },
         {

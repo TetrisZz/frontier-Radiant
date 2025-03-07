@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Bookworm:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Bookworm {1}'

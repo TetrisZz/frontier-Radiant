@@ -335,6 +335,14 @@
     sprite: _radiant/Structures/Doors/Airlocks/Standard/command-black.rsi
 
 - type: entity
+  parent: Airlock
+  id: AirlockAcorpSecurityBlue
+  suffix: Command
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Doors/Airlocks/Standard/sec.rsi
+
+- type: entity
   parent: AirlockGlass
   id: AirlockAcorpBasicBlackGlass
   suffix: Dorm
@@ -349,3 +357,11 @@
   components:
   - type: Sprite
     sprite: _radiant/Structures/Doors/Airlocks/Glass/command-black.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockAcorpSecurityBlueGlass
+  suffix: Command
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Doors/Airlocks/Glass/sec.rsi

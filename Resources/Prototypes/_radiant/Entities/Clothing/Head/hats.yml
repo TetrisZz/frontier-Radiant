@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretAcorp
-  name: beret
-  description: A beret, an artists favorite headwear.
+  name: берет акорп
+  description: Элегантный берет сотруднка акорп. Под ним можно спрятать трусики коменданта экспедиций.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/acorp_beret.rsi
@@ -17,8 +17,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAcorp
-  name: warden's cap
-  description: A police officer's Hat. This hat emphasizes that you are THE LAW
+  name: кепка акорп
+  description: Обычная тёмная кепка с биркой Акорп.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/acorp_kepka_gandonka.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingHeadHelmetAcorp
-  name: helmet
-  description: Standard security gear. Protects the head from impacts.
+  name: шлем акорп
+  description: Защитный шлем акорп, выглядит стильно!
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Helmets/security.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRadioAcorp
-  name: warden's cap
-  description: A police officer's Hat. This hat emphasizes that you are THE LAW
+  name: шапка-ушанка
+  description: Шапка-ушанка, которая была произведена специально для сотрудников акорп.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/radio-hat.rsi

@@ -1,0 +1,15 @@
+- type: department
+  id: Acorp
+  name: department-acorp
+  description: department-acorp-description
+  color: "#e8e8e8"
+  weight: 26 # accounted for in jobs
+  roles:
+  - AcorpСommandant
+  - AcorpDirector
+  - AcorpSecurity
+  - AcorpScience
+  - AcorpEngineer
+  - AcorpMedical
+  - AcorpService
+  - AcorpAssistant

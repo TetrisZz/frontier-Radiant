@@ -1,8 +1,8 @@
 - type: entity
   id: BannerAcorp
   parent: BannerBase
-  name: nanotrasen banner
-  description: A banner displaying the Nanotrasen logo. It looks rather cheap.
+  name: знамя акорп
+  description: Знамя, на которым чётко видна символика Аколит Корпорейшн
   components:
   - type: Sprite
     sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites

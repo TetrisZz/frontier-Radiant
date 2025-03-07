@@ -1,0 +1,7 @@
+- type: material
+  id: BarCryoladinne
+  stackEntity: SheetBarCryoladinne1
+  name: materials-barcryoladinne
+  icon: { sprite: _radiant/Objects/Materials/Sheets/ingots.rsi, state: hydrogen }
+  color: "#57d2d9"
+  price: 0.2

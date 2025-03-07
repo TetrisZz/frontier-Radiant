@@ -1,8 +1,8 @@
 - type: entity
-  name: Enforcer
+  name: Адъютант
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: WeaponShotgunAdjutant
-  description: A premium combat shotgun based on the Kammerer design, featuring an upgraded clip capacity. .50 shotgun shells. On the receiver is a label that says 'for authorized use only.'
+  description: Лёгкое и эргономичное оружие, предназначенное для быстрой стрельбы. Корпус часто из лёгких материалов с удобной рукояткой и цевьём, обеспечивающими контроль и комфорт.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/Adjutant.rsi

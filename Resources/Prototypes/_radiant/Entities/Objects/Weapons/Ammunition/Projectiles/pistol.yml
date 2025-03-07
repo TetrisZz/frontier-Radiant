@@ -1,0 +1,11 @@
+- type: entity
+  id: BulletPistolIce
+  parent: BaseBulletIce
+  name: bullet (.35 auto ice)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Cold: 4
+        Piercing: 8

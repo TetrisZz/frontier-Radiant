@@ -57,7 +57,7 @@
 - type: entity
   parent: ShuttleWindow
   id: ShuttleWindowRadiant
-  name: shuttle window
+  name: окно шаттла
   suffix: Radiant
   components:
   - type: Sprite
@@ -69,7 +69,7 @@
 - type: entity
   parent: ShuttleWindowDiagonal
   id: ShuttleWindowDiagonalRadiant
-  name: shuttle window
+  name: окно шаттла
   suffix: diagonal, radiant
   components:
   - type: Sprite
@@ -83,7 +83,7 @@
 - type: entity
   parent: ReinforcedPlasmaWindow
   id: ReinforcedPlasmaWindowRadiant
-  name: reinforced plasma window
+  name: укрепленное плазменное окно
   suffix: Radiant
   components:
   - type: Sprite
@@ -95,7 +95,7 @@
 - type: entity
   parent: ReinforcedPlasmaWindowDiagonal
   id: ReinforcedPlasmaWindowDiagonalRadiant
-  name: reinforced plasma window
+  name: укрепленное плазменное окно
   suffix: diagonal, radiant
   components:
   - type: Sprite
@@ -109,7 +109,7 @@
 - type: entity
   parent: ReinforcedWindow
   id: ReinforcedWindowRadiant
-  name: reinforced window
+  name: укрепленное окно
   suffix: Radiant
   components:
   - type: Sprite
@@ -121,7 +121,7 @@
 - type: entity
   parent: ReinforcedWindowDiagonal
   id: ReinforcedWindowDiagonalRadiant
-  name: reinforced window
+  name: укрепленное окно
   suffix: diagonal, radiant
   components:
   - type: Sprite
@@ -135,7 +135,7 @@
 - type: entity
   parent: TintedWindow
   id: TintedWindowRadiant
-  name: tinted window
+  name: тонированное окно
   suffix: Radiant
   components:
   - type: Sprite
@@ -147,7 +147,7 @@
 - type: entity
   parent: Window
   id: WindowRadiant
-  name: window
+  name: окно
   suffix: Radiant
   components:
   - type: Sprite
@@ -159,7 +159,7 @@
 - type: entity
   parent: WindowDiagonal
   id: WindowDiagonalRadiant
-  name: window
+  name: окно
   suffix: diagonal, radiant
   components:
   - type: Sprite

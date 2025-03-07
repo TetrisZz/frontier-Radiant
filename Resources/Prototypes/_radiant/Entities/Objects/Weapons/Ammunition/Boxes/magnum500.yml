@@ -1,0 +1,59 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
+  id: BaseMagazineBoxMagnum500
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeMagnum500
+    proto: CartridgeMagnum500
+    capacity: 30
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/magnum500.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBoxMagnum500
+  id: MagazineBoxMagnum500
+  name: ammunition box (.500 magnum)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnum500
+  - type: Icon # Frontier
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi # Frontier
+    state: display # Frontier
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxMagnum500
+  id: MagazineBoxMagnum500Ice
+  name: ammunition box (.500 magnum)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnum500Ice
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
+    state: icedisplay
+  - type: Sprite
+    layers:
+    - state: capbase
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

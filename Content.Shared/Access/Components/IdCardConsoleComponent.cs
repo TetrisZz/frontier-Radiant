@@ -81,6 +81,9 @@ public sealed partial class IdCardConsoleComponent : Component
         "Service",
         "StationTrafficController", // Frontier
         //"Theatre",
+		"Acorp", //Radiant_sector
+		"AcorpSecurity", //Radiant_sector
+		"AcorpCommand", //Radiant_sector
     };
 
     [Serializable, NetSerializable]

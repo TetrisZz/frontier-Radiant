@@ -1,0 +1,108 @@
+- type: jukebox
+  id: AceofSpades
+  name: Ace of Spades Motorhead
+  path:
+    path: /Audio/_radiant/Jukebox/Ace_of_Spades-Motorhead.ogg
+
+- type: jukebox
+  id: Bismarck
+  name: Bismarck Sabaton
+  path:
+    path: /Audio/_radiant/Jukebox/Bismarck-Sabaton.ogg
+
+- type: jukebox
+  id: Buckshot
+  name: Buckshot Roulette General Release Mike Klubnika
+  path:
+    path: /Audio/_radiant/Jukebox/Buckshot_Roulette_General_Release-Mike_Klubnika.ogg
+
+- type: jukebox
+  id: DANCETillWeDie
+  name: DANCE! Till We Die 6arelyhuman
+  path:
+    path: /Audio/_radiant/Jukebox/DANCE!_Till_We_Die-6arelyhuman.ogg
+
+- type: jukebox
+  id: DeathOdyssey
+  name: Death Odyssey Heaven Pierce Her
+  path:
+    path: /Audio/_radiant/Jukebox/Death_Odyssey-Heaven_Pierce_Her.ogg
+
+- type: jukebox
+  id: DirtyHarry
+  name: Dirty Harry Gorillaz
+  path:
+    path: /Audio/_radiant/Jukebox/Dirty_Harry-Gorillaz.ogg
+
+- type: jukebox
+  id: FeelGoodInc
+  name: Feel Good Inc Gorillaz
+  path:
+    path: /Audio/_radiant/Jukebox/Feel_Good_Inc-Gorillaz.ogg
+
+- type: jukebox
+  id: Heartbeat
+  name: Heartbeat Enquirer edit DMC5
+  path:
+    path: /Audio/_radiant/Jukebox/Heartbeat-Enquirer_edit_DMC5.ogg
+
+- type: jukebox
+  id: Hydrogen
+  name: Hydrogen Hotline Miami
+  path:
+    path: /Audio/_radiant/Jukebox/Hydrogen-Hotline_Miami.ogg
+
+- type: jukebox
+  id: INVISIBLE
+  name: INVISIBLE Duran Duran
+  path:
+    path: /Audio/_radiant/Jukebox/INVISIBLE-Duran-Duran.ogg
+
+- type: jukebox
+  id: KickBack
+  name: Kick Back Kenshi Yonezu
+  path:
+    path: /Audio/_radiant/Jukebox/Kick_Back-Kenshi_Yonezu.ogg
+
+- type: jukebox
+  id: KillAllXenos
+  name: Kill All Xenos Space Cadets
+  path:
+    path: /Audio/_radiant/Jukebox/Kill_All_Xenos-Space_Cadets.ogg
+
+- type: jukebox
+  id: Panzermensch
+  name: Panzermensch And One
+  path:
+    path: /Audio/_radiant/Jukebox/Panzermensch-And_One.ogg
+
+- type: jukebox
+  id: RunwayWalk
+  name: Runway Walk Demrick feat Brevi
+  path:
+    path: /Audio/_radiant/Jukebox/Runway_Walk-Demrick_feat_Brevi.ogg
+
+- type: jukebox
+  id: ThroughMyBlood
+  name: Through My Blood Koutetsujou no Kabaneri
+  path:
+    path: /Audio/_radiant/Jukebox/Through_My_Blood-Koutetsujou_no_Kabaneri.ogg
+
+- type: jukebox
+  id: LastBreath
+  name: Undertale Last Breath Undertale
+  path:
+    path: /Audio/_radiant/Jukebox/Undertale_Last_Breath-Undertale.ogg
+
+- type: jukebox
+  id: ARSTOTZKA
+  name: WHO'S READY FOR ARSTOTZKA zloboxlav
+  path:
+    path: /Audio/_radiant/Jukebox/WHO'S_READY_FOR_ARSTOTZKA-zloboxlav.ogg
+
+- type: jukebox
+  id: pornofilms
+  name: Я так соскучился Порнофильмы
+  path:
+    path: /Audio/_radiant/Jukebox/ya_tak_sosckychilsa_pornofilms.ogg
+

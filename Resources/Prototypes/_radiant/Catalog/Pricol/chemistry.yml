@@ -1,0 +1,1584 @@
+- type: entity
+  parent: EnergyTazer
+  id: EnergyTazerBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterHardsuitAcorpEngineer
+  id: ClothingOuterHardsuitAcorpEngineerBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterHardsuitAcorpBasic
+  id: ClothingOuterHardsuitAcorpBasicBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterHardsuitAcorpSalvage
+  id: ClothingOuterHardsuitAcorpSalvageBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterHardsuitAcorpRnd
+  id: ClothingOuterHardsuitAcorpRndBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: JetpackAcorp
+  id: JetpackAcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxHigh2Rifle
+  id: MagazineBoxHigh2RifleBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineHigh2RifleEmptyAK
+  id: MagazineHigh2RifleEmptyAKBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineHigh2RifleEmpty
+  id: MagazineHigh2RifleEmptyBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineHigh2RifleAK
+  id: MagazineHigh2RifleAKBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineHigh2Rifle
+  id: MagazineHigh2RifleBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxCaselessRifle
+  id: MagazineBoxCaselessRifleBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineCaselessRifleShort
+  id: MagazineCaselessRifleShortBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazinePistolCaselessRifle
+  id: MagazinePistolCaselessRifleBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: BorgModuleMartyrAcorp
+  id: BorgModuleMartyrAcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: BorgModuleSyndicateWeaponAcorp
+  id: BorgModuleSyndicateWeaponAcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: WeaponRifleTW44Acorp
+  id: WeaponRifleTW44AcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: WeaponRifleSentinel9Acorp
+  id: WeaponRifleSentinel9AcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: WeaponShotgunAdjutant
+  id: WeaponShotgunAdjutantBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterHardsuitAcorpHardEVA
+  id: ClothingOuterHardsuitAcorpHardEVABABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterHardsuitAcorpHeva
+  id: ClothingOuterHardsuitAcorpHevaBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: WeaponLaserCarbineAcorp
+  id: WeaponLaserCarbineAcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: WeaponEnergyGunMiniAcorp
+  id: WeaponEnergyGunMiniAcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: WeaponEnergyShotgun
+  id: WeaponEnergyShotgunBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxRifleIce
+  id: MagazineBoxRifleIceBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxLightRifleIce
+  id: MagazineBoxLightRifleIceBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxPistolIce
+  id: MagazineBoxPistolIceBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxMagnumIce
+  id: MagazineBoxMagnumIceBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxMagnum500Ice
+  id: MagazineBoxMagnum500IceBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxHigh2RifleIce
+  id: MagazineBoxHigh2RifleIceBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineHigh2RifleIce
+  id: MagazineHigh2RifleIceBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineHigh2RifleIceAK
+  id: MagazineHigh2RifleIceAKBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterArmorBulletproofAcorp
+  id: ClothingOuterArmorBulletproofAcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterArmorPlatecarrierfAcorp
+  id: ClothingOuterArmorPlatecarrierfAcorpBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterArmorRiot
+  id: ClothingOuterArmorRiotBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: EnergySwordRadiant
+  id: EnergySwordRadiantBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: EnergySwordDoubleRadiant
+  id: EnergySwordDoubleRadiantBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxAntiMateriel
+  id: MagazineBoxAntiMaterielBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineBoxAntiMaterielBig
+  id: MagazineBoxAntiMaterielBigBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: GrenadeFrag
+  id: GrenadeFragBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: MagazineGrenadeEmpty
+  id: MagazineGrenadeEmptyBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterHardsuitAcorpSecurity
+  id: ClothingOuterHardsuitAcorpSecurityBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: ClothingOuterHardsuitScaf
+  id: ClothingOuterHardsuitScafBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+
+- type: entity
+  parent: BoxShotgunIncendiary
+  id: BoxShotgunIncendiaryBABAX
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: beaker
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 150
+        - ReagentId: Potassium
+          Quantity: 150
+

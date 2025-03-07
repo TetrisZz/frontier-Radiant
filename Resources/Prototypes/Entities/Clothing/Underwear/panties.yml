@@ -112,8 +112,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomRadiantPantiesNFSD
-  name: трусики ДШ
-  description: На самом деле это просто трусики зеленого цвета. Произведено на Аванпосте ДШ.
+  name: зеленые трусики
+  description: Вам может показаться что это бельё ДШ, но на самом деле это просто трусики зеленого цвета.
   components:
   - type: Sprite
     sprite: Clothing/Underwear/Bottom/NFSDw.rsi

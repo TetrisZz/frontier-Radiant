@@ -1,0 +1,9 @@
+- type: loadout
+  id: SCIClothingUniformJumpsuitAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAcorp
+
+- type: loadout
+  id: SCIClothingUniformJumpskirtAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtAcorp

@@ -1,0 +1,30 @@
+- type: entity
+  name: Маурин
+  parent: [BaseWeaponRevolver, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: WeaponRevolverMaurineAcorp
+  description: Крепкий револьвер футуристического дизайна с массивным стволом и усиленным неподвижным барабаном. Его прочный металлический корпус и эргономическая рукоять делают его неплохим оружием даже для ближнего боя. Выглядит так, словно способен пробивать любую броню и наносить сокрушительный урон одним выстрелом. Использует патроны калибра .500 Magnum.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Revolvers/acorprevol.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Revolvers/acorprevol.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 0.9
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/vystrel_maurine.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeMagnum500
+    mayTransfer: true # Frontier
+    proto: CartridgeMagnum500
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg

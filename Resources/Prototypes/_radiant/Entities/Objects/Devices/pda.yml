@@ -1,0 +1,168 @@
+- type: entity
+  parent: BasePDA
+  id: AcorpPDA
+  name: КПК акорп
+  description: Необычный КПК экипажа Акорп.
+  components:
+  - type: Pda
+    id: AcorpIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda
+  - type: PdaBorderColor
+    borderColor: "#282828"
+    accentHColor: "#d7d7d0"
+    accentVColor: "#282828"
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+
+- type: entity
+  parent: AcorpPDA
+  id: AcorpCommandPDA
+  name: КПК коменданта
+  description: Стильный и крутой.
+  components:
+  - type: Pda
+    id: AcorpCommandIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-command
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#282828"
+    accentVColor: "#282828"
+  - type: Icon
+    state: pda-command
+
+- type: entity
+  parent: AcorpPDA
+  id: AcorpEngineerPDA
+  name: КПК инженера
+  description: Выглядит так, как будто его пересобирали несколько раз...несксолько десятков...
+  components:
+  - type: Pda
+    id: AcorpEngineerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-engineer
+  - type: PdaBorderColor
+    borderColor: "#862510"
+    accentHColor: "#282828"
+    accentVColor: "#862510"
+  - type: Icon
+    state: pda-engineer
+
+- type: entity
+  parent: AcorpPDA
+  id: AcorpMedicalPDA
+  name: КПК медика
+  description: Пахнет спиртом.
+  components:
+  - type: Pda
+    id: AcorpMedicalIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-medical
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#3a6b78"
+    accentVColor: "#3a6b78"
+  - type: Icon
+    state: pda-medical
+
+- type: entity
+  parent: AcorpPDA
+  id: AcorpSciencePDA
+  name: КПК ученого
+  description: Покрыт какой-то неизвестной жидкостью.
+  components:
+  - type: Pda
+    id: AcorpScienceIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-science
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#8900c9"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-science
+
+- type: entity
+  parent: AcorpPDA
+  id: AcorpSecurityPDA
+  name: КПК секьюрити
+  description: Кпк легенды, которую ещё не повысили.
+  components:
+  - type: Pda
+    id: AcorpSecurityIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-security
+  - type: PdaBorderColor
+    borderColor: "#282828"
+    accentHColor: "#22375b"
+    accentVColor: "#22375b"
+  - type: Icon
+    state: pda-security
+
+- type: entity
+  parent: AcorpPDA
+  id: AcorpServicePDA
+  name: КПК сервиса
+  description: Не бьётся.
+  components:
+  - type: Pda
+    id: AcorpServiceIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda
+  - type: PdaBorderColor
+    borderColor: "#282828"
+    accentHColor: "#d7d7d0"
+    accentVColor: "#282828"
+
+- type: entity
+  parent: AcorpPDA
+  id: AcorpDirectorPDA
+  name: КПК ДИ
+  description: Сколько в него поместится ядер аномалий?
+  components:
+  - type: Pda
+    id: AcorpDirectorIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-director
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#8900c9"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-director

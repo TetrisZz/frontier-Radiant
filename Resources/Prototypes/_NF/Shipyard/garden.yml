@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Garden:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Garden {1}'

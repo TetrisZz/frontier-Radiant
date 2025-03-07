@@ -29,7 +29,7 @@
   minPlayers: 0
   stations:
     stellarhaven:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Звёздная Гавань {1}'

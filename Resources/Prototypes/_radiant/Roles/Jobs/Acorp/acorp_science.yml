@@ -1,0 +1,24 @@
+- type: job
+  id: AcorpScience
+  name: job-name-acorp-science
+  description: job-description-acorp-science
+  playTimeTracker: JobAcorpScience
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 1000
+  startingGear: AcorpScienceGear
+  icon: "JobIconAcorpScience" 
+  supervisors: job-supervisors-hire
+  weight: 2 # Prioritize station & department jobs
+  displayWeight: 30 # Second from the top
+  access:
+  - Acorp
+  accessGroups: # Frontier
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: AcorpScienceGear

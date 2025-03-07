@@ -40,7 +40,61 @@
   price: 100
   equipment:
     socks: ClothingUnderwearSocksGarters
-    
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantThighblue
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantThighblue
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantPink
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantPink
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantRed
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantRed
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantStriped
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantStriped
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantSocksBlack
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantSocksBlack
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantBlack
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantBlack
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantBlackPolosatie
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantBlackPolosatie
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantMeee
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantMeee
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksAcorpStriped
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksAcorpStriped
+
 - type: loadout
   id: ContractorClothingUnderwearSocksRich
   price: 5000

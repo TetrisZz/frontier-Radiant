@@ -16,13 +16,37 @@
   price: 100
   equipment:
     underweart: ClothingUnderwearTopBraSportsAlternative
-    
+
 - type: loadout
-  id: ContractorClothingUnderwearTopNekoBra
+  id: ContractorClothingUnderwearTopRadiantBlack
   price: 100
   equipment:
-    underweart: ClothingUnderwearTopNekoBra
+    underweart: ClothingUnderwearTopRadiantBlack
+
+- type: loadout
+  id: ContractorClothingUnderwearTopRadiantNeeeekoUwU
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopRadiantNeeeekoUwU
+
+- type: loadout
+  id: ContractorClothingUnderwearTopRadiantPink
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopRadiantPink
+
+- type: loadout
+  id: ContractorClothingUnderwearTopRadiantSeeeexsi
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopRadiantSeeeexsi
     
+- type: loadout
+  id: ContractorClothingUnderwearTopRadiantRed
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopRadiantRed
+
 - type: loadout
   id: ContractorClothingUnderwearToplaceBra
   price: 100
@@ -37,42 +61,18 @@
     
 - type: loadout
   id: ContractorClothingUnderwearTopBraCap
-  price: 200
+  price: 100
   equipment:
     underweart: ClothingUnderwearTopBraCap
     
 - type: loadout
-  id: ContractorClothingUnderwearTopBraCE
-  price: 200
-  equipment:
-    underweart: ClothingUnderwearTopBraCE
-    
-- type: loadout
-  id: ContractorClothingUnderwearTopBraCMO
-  price: 200
-  equipment:
-    underweart: ClothingUnderwearTopBraCMO
-    
-- type: loadout
   id: ContractorClothingUnderwearTopBraHOP
-  price: 200
+  price: 100
   equipment:
     underweart: ClothingUnderwearTopBraHOP
     
 - type: loadout
-  id: ContractorClothingUnderwearTopBraHOS
-  price: 200
-  equipment:
-    underweart: ClothingUnderwearTopBraHOS
-    
-- type: loadout
-  id: ContractorClothingUnderwearTopBraQM
-  price: 200
-  equipment:
-    underweart: ClothingUnderwearTopBraQM
-    
-- type: loadout
   id: ContractorClothingUnderwearTopBraRD
-  price: 200
+  price: 100
   equipment:
     underweart: ClothingUnderwearTopBraRD

@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Kilderkin:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Kilderkin {1}'

@@ -1,0 +1,134 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
+  id: BaseMagazineBoxHigh2Rifle
+  name: ammunition box (.6,8-мм SPC)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeHigh2Rifle
+    proto: CartridgeHigh2Rifle
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+
+# Boxes
+
+- type: entity
+  parent: BaseMagazineBoxHigh2Rifle
+  id: MagazineBoxHigh2Rifle
+  name: ammunition box (.6,8-мм SPC)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2Rifle
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
+    state: display
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxHigh2Rifle
+  id: MagazineBoxHigh2RiflePractice
+  name: ammunition box (.6,8-мм SPC practice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RiflePractice
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
+    state: practicedisplay
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  id: MagazineBoxHigh2RifleIncendiary
+  parent: BaseMagazineBoxHigh2Rifle
+  name: ammunition box (.6,8-мм SPC incendiary)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RifleIncendiary
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
+    state: incendiarydisplay
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+- type: entity
+  parent: BaseMagazineBoxHigh2Rifle
+  id: MagazineBoxHigh2RifleUranium
+  name: ammunition box (.6,8-мм SPC uranium)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RifleUranium
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
+    state: uraniumdisplay
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+- type: entity
+  parent: BaseMagazineBoxHigh2Rifle
+  id: MagazineBoxHigh2RifleIce
+  name: ammunition box (.6,8-мм SPC ice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RifleIce
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
+    state: icedisplay
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: ice
+
+- type: entity
+  parent: BaseMagazineBoxHigh2Rifle
+  id: MagazineBoxHigh2Rubber
+  name: ammunition box (.6,8-мм SPC rubber)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHigh2RifleRubber
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
+    state: rubberdisplay
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: rubber

@@ -1,0 +1,11 @@
+# TODO remove these with parameterized prototypes/whatever we end up doing
+# Windoors (alphabetical)
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureAcorpSecurityLocked
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpSecurity ]

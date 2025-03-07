@@ -1,0 +1,399 @@
+# Base prototypes
+
+#- type: latheRecipe
+#  abstract: true
+#  id: BaseWeaponRecipe
+#  category: Weapons
+#  completetime: 2
+#  materials:
+#    Steel: 300
+#    Plastic: 300
+
+#- type: latheRecipe
+#  abstract: true
+#  parent: BaseWeaponRecipe
+#  id: BaseWeaponRecipeLong
+#  completetime: 5
+
+#- type: latheRecipe
+#  abstract: true
+#  id: BaseAmmoRecipe
+#  category: Ammo
+#  completetime: 5
+
+#- type: latheRecipe
+#  abstract: true
+#  parent: BaseAmmoRecipe
+#  id: BaseEmptyAmmoRecipe
+#  completetime: 1
+
+# Recipes
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: EnergyTazer
+  result: EnergyTazer
+  materials:
+    Steel: 2000
+    Glass: 800
+    Plastic: 500
+
+- type: latheRecipe
+  id: JetpackAcorp
+  parent: NFBaseHardSuitRecipe
+  result: JetpackAcorp
+  materials:
+    Steel: 1000
+    Plastic: 1200
+    Plasteel: 1200
+
+#hardsuits
+
+- type: latheRecipe
+  id: ClothingOuterArmorBulletproofAcorp
+  parent: NFBaseHardSuitRecipe
+  result: ClothingOuterArmorBulletproofAcorp
+  materials:
+    Steel: 2000
+    Cloth: 1500
+    Durathread: 1500
+
+- type: latheRecipe
+  id: ClothingOuterArmorPlatecarrierfAcorp
+  parent: NFBaseHardSuitRecipe
+  result: ClothingOuterArmorPlatecarrierfAcorp
+  materials:
+    Steel: 2000
+    Cloth: 1500
+    Durathread: 1500
+
+- type: latheRecipe
+  id: ClothingOuterArmorRiot
+  parent: NFBaseHardSuitRecipe
+  result: ClothingOuterArmorRiot
+  materials:
+    Steel: 2000
+    Cloth: 1500
+    Durathread: 1500
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitAcorpBasic
+  parent: NFBaseHardSuitRecipe
+  result: ClothingOuterHardsuitAcorpBasic
+  materials:
+    Glass: 300
+    Steel: 2000
+    Cloth: 300
+    Durathread: 1500
+    Silver: 1000
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitAcorpEngineer
+  parent: NFBaseHardSuitRecipe
+  result: ClothingOuterHardsuitAcorpEngineer
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitAcorpSalvage
+  parent: NFBaseHardSuitRecipe
+  result: ClothingOuterHardsuitAcorpSalvage
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitAcorpRnd
+  parent: NFBaseHardSuitRecipe
+  result: ClothingOuterHardsuitAcorpRnd
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitAcorpHardEVA
+  parent: NFBaseHardSuitArmoredRecipe
+  result: ClothingOuterHardsuitAcorpHardEVA
+  materials:
+    Glass: 500
+    Plastic: 2000
+    Steel: 1000
+    Plasteel: 1000
+    Cloth: 2000
+    Silver: 1500
+    Gold: 1000
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitAcorpHeva
+  parent: NFBaseHardSuitArmoredRecipe
+  result: ClothingOuterHardsuitAcorpHeva
+  materials:
+    Glass: 500
+    Plastic: 2000
+    Steel: 1000
+    Durathread: 2000
+    Silver: 1500
+    Gold: 1000
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitAcorpSecurity
+  parent: NFBaseHardSuitArmoredRecipe
+  result: ClothingOuterHardsuitAcorpSecurity
+
+#ammunition
+
+- type: latheRecipe
+  id: MagazineBoxHigh2Rifle
+  parent: BaseAmmoRecipe
+  result: MagazineBoxHigh2Rifle
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: MagazineHigh2RifleEmptyAK
+  parent: BaseEmptyAmmoRecipe
+  result: MagazineHigh2RifleEmptyAK
+  materials:
+    Steel: 30
+
+- type: latheRecipe
+  id: MagazineHigh2RifleEmpty
+  parent: BaseEmptyAmmoRecipe
+  result: MagazineHigh2RifleEmpty
+  materials:
+    Steel: 30
+
+- type: latheRecipe
+  id: MagazineHigh2RifleAK
+  parent: BaseAmmoRecipe
+  result: MagazineHigh2RifleAK
+  materials:
+    Steel: 260
+
+- type: latheRecipe
+  id: MagazineHigh2Rifle
+  parent: BaseAmmoRecipe
+  result: MagazineHigh2Rifle
+  materials:
+    Steel: 270
+
+- type: latheRecipe
+  id: MagazineBoxCaselessRifle
+  parent: BaseAmmoRecipe
+  result: MagazineBoxCaselessRifle
+  materials:
+    Steel: 400
+
+- type: latheRecipe
+  id: MagazineCaselessRifleShort
+  parent: BaseAmmoRecipe
+  result: MagazineCaselessRifleShort
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: MagazinePistolCaselessRifle
+  parent: BaseAmmoRecipe
+  result: MagazinePistolCaselessRifle
+  materials:
+    Steel: 130
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolIce
+  result: MagazineBoxPistolIce
+  materials:
+    Plastic: 300
+    BarCryoladinne: 80
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxMagnumIce
+  result: MagazineBoxMagnumIce
+  materials:
+    Plastic: 240
+    BarCryoladinne: 150
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxLightRifleIce
+  result: MagazineBoxLightRifleIce
+  materials:
+    Plastic: 600
+    BarCryoladinne: 130
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxRifleIce
+  result: MagazineBoxRifleIce
+  materials:
+    Plastic: 500
+    BarCryoladinne: 120
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxHigh2RifleIce
+  result: MagazineBoxHigh2RifleIce
+  materials:
+    Plastic: 700
+    BarCryoladinne: 140
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxMagnum500Ice
+  result: MagazineBoxMagnum500Ice
+  materials:
+    Plastic: 1000
+    BarCryoladinne: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineHigh2RifleIce
+  result: MagazineHigh2RifleIce
+  materials:
+    Steel: 25
+    Plastic: 300
+    BarCryoladinne: 70
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineHigh2RifleIceAK
+  result: MagazineHigh2RifleIceAK
+  materials:
+    Steel: 25
+    Plastic: 300
+    BarCryoladinne: 70
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxAntiMateriel
+  result: MagazineBoxAntiMateriel
+  materials:
+    Steel: 1000
+    Plastic: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxAntiMaterielBig
+  result: MagazineBoxAntiMaterielBig
+  materials:
+    Steel: 3000
+    Plastic: 600
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: GrenadeFrag
+  result: GrenadeFrag
+  materials:
+    Steel: 500
+    Plastic: 100
+    Plasteel: 100
+    Silver: 200
+
+
+#Borg
+
+- type: latheRecipe
+  id: BorgModuleMartyrAcorp
+  result: BorgModuleMartyrAcorp
+  parent: BaseBorgModuleRecipe
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+
+- type: latheRecipe
+  id: BorgModuleSyndicateWeaponAcorp
+  result: BorgModuleSyndicateWeaponAcorp
+  parent: BaseBorgModuleRecipe
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Gold: 50
+    Plasteel: 250
+
+#weapons
+
+- type: latheRecipe
+  id: WeaponRifleSentinel9Acorp
+  parent: BaseWeaponRecipeLong
+  result: WeaponRifleSentinel9Acorp
+  materials:
+    Steel: 2500
+    Plasteel: 1200
+    Plastic: 1500
+    Silver: 800
+
+- type: latheRecipe
+  id: WeaponRifleTW44Acorp
+  parent: BaseWeaponRecipeLong
+  result: WeaponRifleTW44Acorp
+  materials:
+    Steel: 2500
+    Plasteel: 1200
+    Plastic: 1500
+    Silver: 800
+
+- type: latheRecipe
+  id: WeaponShotgunAdjutant
+  parent: BaseWeaponRecipeLong
+  result: WeaponShotgunAdjutant
+  materials:
+    Steel: 500
+    Plasteel: 1500
+    Silver: 800
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLaserCarbineAcorp
+  result: WeaponLaserCarbineAcorp
+  materials:
+    Steel: 1500
+    Glass: 500
+    Plastic: 250
+    Gold: 2000
+    Silver: 800
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyGunMiniAcorp
+  result: WeaponEnergyGunMiniAcorp
+  materials:
+    Steel: 1500
+    Glass: 1000
+    Gold: 850
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyShotgun
+  result: WeaponEnergyShotgun
+  materials:
+    Steel: 1500
+    Glass: 500
+    Plastic: 250
+    Plasteel: 1500
+    Gold: 400
+    Silver: 800
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: EnergySwordRadiant
+  result: EnergySwordRadiant
+  materials:
+    Steel: 1500
+    Glass: 500
+    Plastic: 250
+    Plasteel: 1500
+    Gold: 400
+    Silver: 800
+    Bluespace: 1500
+    Diamond: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: EnergySwordDoubleRadiant
+  result: EnergySwordDoubleRadiant
+  materials:
+    Steel: 1500
+    Glass: 500
+    Plastic: 250
+    Plasteel: 1500
+    Gold: 400
+    Silver: 800
+    Bluespace: 1500
+    Diamond: 1000
