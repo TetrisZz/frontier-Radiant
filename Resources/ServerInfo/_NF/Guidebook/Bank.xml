@@ -1,27 +1,27 @@
 <Document>
-  # NT Galactic Bank
+  # Галактический банк NT
 
-As a contractor with Nanotrasen, you have a persistent bank account.
-Money that you [bold]deposit[/bold] at an [color=#44cc00]ATM[/color] on Frontier Outpost or Tinnia's rest will be stored in your account.
+Как работник  Nanotrasen, вы имеете постоянный банковский счёт.
+Деньги, которые вы [bold]вкладываете[/bold] в [color=#44cc00]банкомат[/color] на аванпосте Фронтира или в Тинни, будут храниться на вашем счёте.
 
-## ATMs
+## Банкоматы
   <Box>
     <GuideEntityEmbed Entity="ComputerBankATM"/>
     <GuideEntityEmbed Entity="SpaceCash1000"/>
   </Box>
-  You can access your personal bank account at any time to withdraw your hard-earned [color=#44cc00]Spesos[/color] at any [color=#44cc00]Galactic Bank ATM[/color].
+  Вы можете в любое время получить доступ к своему личному банковскому счёту, чтобы снять заработанные тяжким трудом  [color=#44cc00]спесо[/color]в любом [color=#44cc00]банкомате Галактического банка[/color].
 
-Only ATMs on Frontier Outpost and Tinnia's Rest allow you to deposit money.
-Make sure you deposit your cash and sell off your ship before ending your shift!
+Только банкоматы в аванпосте Фронтир и Тиннии» позволяют вносить деньги.
+Убедитесь, что вы внесли деньги и продали свой корабль до конца смены!
 
-## Account Access
+## Доступ к счету
   <Box>
     <GuideEntityEmbed Entity="VendingMachineAstroVend"/>
     <GuideEntityEmbed Entity="ComputerCargoOrders"/>
     <GuideEntityEmbed Entity="VendingMachineAmmo"/>
   </Box>
-  Your bank account can be used through [color=#44cc00]Galactic Bank ATMs[/color], [color=#44cc00]cargo computers[/color], and [color=#44cc00]vending machines[/color].
+  Вашим банковским счётом можно пользоваться через [color=#44cc00]банкоматы Галактического банка[/color], [color=#44cc00]грузовые компьютеры[/color] и [color=#44cc00]торговые автоматы[/color].
 
-When trading with other people, you'll usually deal in stacks of [color=#44cc00]Spesos[/color].
-Be sure to deposit these at an [color=#44cc00]ATM[/color] before ending your shift.
+При торговле с другими людьми вы обычно имеете дело с пачками [color=#44cc00]спесо[/color].
+Не забудьте положить их в [color=#44cc00]банкомат[/color] перед окончанием смены.
 </Document>

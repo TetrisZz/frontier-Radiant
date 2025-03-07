@@ -1,46 +1,46 @@
 <Document>
 
-  # Smuggling Prevention
+  # Предотвращение контрабанды
 
-  As an officer in the NFSD, part of your job is to prevent smuggling.
+  В обязанности сотрудника ДШНФ входит предотвращение контрабанды.
 
-  Smugglers use [color=#9ef5ff]dead drops[/color], objects where the Syndicate leaves notes with clues to the location of [color=#c4261d]drop pods[/color] filled with contraband.
+  Контрабандисты используют [color=#9ef5ff]тайники[/color], в которых Синдикат оставляет записки с подсказками о местонахождении [color=#c4261d]тайников[/color], наполненных контрабандой.
   
-  Remember: 
-  - These are spread across the seedier points of interest across the sector.
-  - Use any clue you might find lying around.
-  - Ask around to see if the public's seen suspicious activity.
-  - Be on the lookout for strange traffic patterns.
+   Помните: 
+  - Они разбросаны по самым злачным местам сектора.
+  - Используйте любую подсказку, которую найдёте.
+  - Расспросите людей, не видели ли они подозрительной активности.
+  - Обращайте внимание на странные транспортные потоки.
 
-  As NFSD officers, part of your job is to prevent smuggling, and to catch smugglers in the act.
+  Как сотрудники  ДШНФ, вы должны предотвращать контрабанду и ловить контрабандистов с поличным
   
-  Keep Nanotrasen's monopoly on commerce in the sector strong, for a secure future.
+  Поддерживайте монополию Nanotrasen на торговлю в секторе, чтобы обеспечить безопасное будущее.
 
   <Box>
     <GuideEntityEmbed Entity="CrateTradeContrabandSecure1" Caption="contraband crate"/>
   </Box>
 
-  ## Notifications
+  ## Уведомления
 
-  When a note is taken from a [color=#9ef5ff]dead drop[/color], a [color=#c4261d]drop pod[/color] is teleported into the sector. This [color=#c4261d]drop pod[/color] contains cargo, some of it contraband, and these illicit goods tend to be sold for profit.
+    Когда из [color=#9ef5ff]тайника[/color] записка, в сектор телепортируется [color=#c4261d]капсула с  грузом[/color]. Эта  [color=#c4261d]капсула с  грузом[/color] одержит груз, часть которого является контрабандой, и эти запрещённые товары, как правило, продаются с целью получения прибыли.
 
-  With cutting-edge Nanotrasen bluespace technology, [bold]we can get signatures when these notes are taken[/bold], and, with some delay, get [bold]the approximate location of a [color=#c4261d]drop pod[/color][/bold].
+  С помощью передовой технологии Nanotrasen блюспейс, [bold]мы можем получать сигналы, когда эти записи делаются[/bold], и с некоторой задержкой получать [bold]риблизительное местоположение [color=#c4261d]капсулы[/color][/bold].
 
-  Due to the nature of bluespace, [bold]these notifications are not completely reliable[/bold], but that is no excuse for laziness. Remain vigilant.
+   Из-за особенностей блюспейс, [bold]эти уведомления не всегда надёжны[/bold], но это не повод лениться. Сохраняйте бдительность.
 
-  ## Forensics
+  ##Криминалистическая экспертиза
 
-  As an incentive to prevent smuggling and catch active smugglers, a [color=#5d8c45]contraband forensics module[/color] comes standard in a Detective's gear. [bold]Using these rewards your department for good field work[/bold].
+  В качестве стимула для предотвращения контрабанды и поимки активных контрабандистов в стандартную комплектацию снаряжения детектива входит[color=#5d8c45]модуль криминалистической экспертизы контрабанды[/color]. [bold]Использование этого модуля поощряет ваш отдел за хорошую работу на местах[/bold].
 
-  [color=#5d8c45]Scanning[/color] active or previously used [color=#9ef5ff]dead drops[/color], and Syndicate [color=#c4261d]drop pods[/color] credits the NFSD's bank with spesos and FUCs. FUCs will be paid out to the scanning officer when enough have been collected.
+  [color=#5d8c45]Сканирование[/color] активных или ранее использовавшихся [color=#9ef5ff]дропов[/color], а также [color=#c4261d]дропов Синдиката[/color] пополняет банк ДШНФ спесос будут выплачены сотруднику, выполняющему сканирование, когда будет собрано достаточное количество.
 
-  [bold]You get bigger rewards by being the first to a [color=#9ef5ff]dead drop[/color], so get moving![/bold]
+  [bold]Вы получите более щедрое вознаграждение, если первым доберётесь до[color=#9ef5ff]дропов[/color],так что вперёд![/bold]
 
   <Box>
     <GuideEntityEmbed Entity="ContrabandForensicsModule" Caption="forensics module"/>
     <GuideEntityEmbed Entity="FrontierUplinkCoin"/>
   </Box>
 
-  [bold]Remember to use any DNA you find to track down and prosecute the smugglers.[/bold] It is one of your duties as an NFSD officer to keep sector commerce legal.
+  [bold]Не забудьте использовать любую найденную вами ДНК, чтобы выследить контрабандистов и привлечь их к ответственности.[/bold] Одна из ваших обязанностей как сотрудника ДШНФ — следить за соблюдением законности в сфере торговли.
 
 </Document>
