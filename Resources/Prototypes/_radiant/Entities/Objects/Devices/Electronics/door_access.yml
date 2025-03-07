@@ -1,0 +1,23 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsAcorp
+  suffix: Acorp, Locked
+  components:
+  - type: AccessReader
+    access: [["Acorp"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsAcorpSecurity
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: AccessReader
+    access: [["AcorpSecurity"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsAcorpCommand
+  suffix: AcorpCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["AcorpCommand"]]

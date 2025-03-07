@@ -1,0 +1,9 @@
+- type: loadout
+  id: SECClothingUniformJumpsuitSecurityAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecurityAcorp
+
+- type: loadout
+  id: SECClothingUniformJumpskirtSecurityAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSecurityAcorp

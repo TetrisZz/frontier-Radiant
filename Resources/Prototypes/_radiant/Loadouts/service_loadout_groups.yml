@@ -1,0 +1,28 @@
+- type: loadoutGroup
+  id: SERPDA
+  name: loadout-group-service-id
+  hidden: true
+  loadouts:
+  - SERAcorpServicePDA
+  fallbacks:
+  - SERAcorpServicePDA
+
+- type: loadoutGroup
+  id: SERJumpsuit
+  name: loadout-group-service-jumpsuit
+  loadouts:
+  - SERClothingUniformJumpsuitServiceAcorp
+  - SERClothingUniformJumpskirtSeviceAcorp
+  fallbacks:
+  - SERClothingUniformJumpsuitServiceAcorp
+  - SERClothingUniformJumpskirtSeviceAcorp
+
+- type: loadoutGroup
+  id: SEROuterClothing
+  name: loadout-group-service-outerclothing
+  minLimit: 0
+  hidden: true
+  loadouts:
+  - SERClothingOuterApronChefAcorp
+  fallbacks:
+  - SERClothingOuterApronChefAcorp

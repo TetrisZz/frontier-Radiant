@@ -1,0 +1,4 @@
+- type: loadout
+  id: ACORPClothingHeadsetAcorp
+  equipment:
+    ears: ClothingHeadsetAcorp

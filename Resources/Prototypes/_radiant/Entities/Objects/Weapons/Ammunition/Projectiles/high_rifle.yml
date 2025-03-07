@@ -1,0 +1,68 @@
+- type: entity
+  id: BulletHigh2Rifle
+  name: bullet (.6,8-мм SPC)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+
+- type: entity
+  id: BulletHigh2RiflePractice
+  name: bullet (.6,8-мм SPC practice)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 2
+
+- type: entity
+  id: BulletHigh2RifleRubber
+  name: bullet (.6,8-мм SPC rubber)
+  parent: BaseBulletRubber
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+
+- type: entity
+  id: BulletHigh2RifleIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (.6,8-мм SPC incendiary)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+        Heat: 17
+
+- type: entity
+  id: BulletHigh2RifleUranium
+  parent: BaseBulletUranium
+  name: bullet (.6,8-мм SPC uranium)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 10
+        Piercing: 10
+
+- type: entity
+  id: BulletHigh2RifleIce
+  parent: BaseBulletIce
+  name: bullet (.6,8-мм SPC uranium)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Cold: 5
+        Piercing: 10

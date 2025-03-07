@@ -1,0 +1,6 @@
+- type: radioChannel
+  id: Acorp
+  name: chat-radio-acorp
+  keycode: 'ч'
+  frequency: 8974
+  color: "#ffffff"

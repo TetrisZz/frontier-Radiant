@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Spectre:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Spectre {1}'

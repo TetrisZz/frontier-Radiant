@@ -1,0 +1,51 @@
+- type: reagent
+  id: Cryoladinne
+  name: reagent-name-cryoladinne
+  group: Toxins
+  desc: reagent-desc-cryoladinne
+  flavor: cold
+  color: "#57d2d9"
+  physicalDesc: reagent-physical-desc-opaque
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustHealth
+    amount: -5
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 0.4
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Cryoladinne
+          max: 50
+        type: Local
+        visualType: LargeCaution
+        messages: [ "fresium-effect-freeze-insides" ]
+        probability: 0.05
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Cryoladinne
+          max: 50
+        type: Local
+        visualType: LargeCaution
+        messages: [ "fresium-effect-slow" ]
+        probability: 0.2
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 210
+        amount: -5000
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Cryoladinne
+          min: 5
+        walkSpeedModifier: 0.6
+        sprintSpeedModifier: 0.6

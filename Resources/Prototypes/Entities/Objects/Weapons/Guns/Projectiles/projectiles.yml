@@ -1225,3 +1225,38 @@
         Heat: 20 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun
     soundHit:
       collection: MeatLaserImpact
+
+# Radiant_sector projectiles (Это говно съело у меня несколько часов жизни)
+
+# Radiant_sector projectiles
+
+# Radiant_sector projectiles
+
+# Shock projectiles
+- type: entity
+  id: BaseBulletIce
+  name: base bullet ice
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    layers:
+    - state: omnilaser
+  - type: Projectile
+    damage:
+      types:
+        Cold: 5
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 20
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 20
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo

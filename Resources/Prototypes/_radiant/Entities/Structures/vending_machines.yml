@@ -23,3 +23,10 @@
     radius: 1.5
     energy: 1.6
     color: "#48CF48"
+
+- type: entity
+  parent: VendingMachineSec
+  id: VendingMachineSecAcorp
+  components:
+  - type: AccessReader
+    access: [["AcorpSecurity"]]

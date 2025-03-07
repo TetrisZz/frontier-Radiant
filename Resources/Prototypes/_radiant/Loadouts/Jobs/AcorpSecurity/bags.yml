@@ -1,0 +1,14 @@
+- type: loadout
+  id: SECClothingBackpackAcorpSecurity
+  equipment:
+    back: ClothingBackpackAcorpSecurity
+
+- type: loadout
+  id: SECClothingBackpackSatchelAcorp
+  equipment:
+    back: ClothingBackpackSatchelAcorpSecurity
+
+- type: loadout
+  id: SECClothingBackpackDuffelAcorpSecurity
+  equipment:
+    back: ClothingBackpackDuffelAcorpSecurity

@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatDemonic
-  name: bunny ears
-  description: Cute bunny ears.
+  name: демонические рожки
+  description: Демонические рожки, подойдут для твоего маленького суккуба.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/demonichorns.rsi

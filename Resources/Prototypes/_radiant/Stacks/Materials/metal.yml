@@ -1,0 +1,6 @@
+- type: stack
+  id: BarCryoladinne
+  name: Bar Cryoladinne
+  icon: { sprite: /Textures/_radiant/Objects/Materials/Sheets/ingots.rsi, state: hydrogen }
+  spawn: SheetBarCryoladinne1
+  maxCount: 30

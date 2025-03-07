@@ -1,0 +1,203 @@
+- type: entity
+  name: электрошокер
+  id: EnergyTazer
+  parent: BaseItem
+  description: Одноразовый электрошокер, очень хрупкий, при активации подаёт ток.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
+    layers:
+    - state: stunbaton_off
+      map: ["enum.ToggleVisuals.Layer"]
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_radiant/Weapons/on_tazer.ogg
+    soundDeactivate:
+      path: /Audio/_radiant/Weapons/on_tazer.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_radiant/Weapons/enabled_tazer.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/_radiant/Weapons/hit_tazer.ogg
+      params:
+        variation: 0.250
+    activatedDamage:
+      types:
+        Blunt: 0
+  - type: ComponentToggler
+    components:
+    - type: MeleeChemicalInjector
+      transferAmount: 999
+      solution: chemicals
+    - type: DamageOnHit
+      damage:
+        types:
+          Blunt: 20
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_radiant/Weapons/break_tazer.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          EnergyTazerUsed:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      chemicals:
+        maxVol: 20
+        reagents:
+        - ReagentId: Licoxide
+          Quantity: 10
+        - ReagentId: Tazinide
+          Quantity: 1
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: on-inhand-left
+        shader: unshaded
+      right:
+      - state: on-inhand-right
+        shader: unshaded
+  - type: Item
+    size: Normal
+    heldPrefix: off
+  - type: Appearance
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: stunbaton_on}
+          False: {state: stunbaton_off}
+
+- type: entity
+  name: электрошокер
+  id: EnergyTazerUsed
+  parent: BaseItem
+  description: Одноразовый электрошокер, очень хрупкий, при активации подаёт ток. 
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
+    state: stunbaton_off
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - Trash
+
+#- type: entity
+#  name: taser baton
+#  parent: [BaseItem, BaseC2ContrabandUnredeemable]
+#  id: Tazer
+#  description: A one-use taser baton that delivers a short stun and injects chemicals into the target. Useless when its charge is depleted.
+#  components:
+#  - type: Sprite
+#    sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
+#    layers:
+#    - state: stunbaton_off
+#      map: ["enum.ToggleVisuals.Layer"]
+#    - state: stunbaton_on
+#      map: ["enum.FlashVisuals.LightLayer"]
+#      visible: false
+#      shader: unshaded
+#  - type: ItemToggle
+#    predictable: false
+#    soundActivate:
+#      collection: sparks
+#      params:
+#        variation: 0.250
+#    soundDeactivate:
+#      collection: sparks
+#      params:
+#        variation: 0.250
+#    soundFailToActivate:
+#      path: /Audio/Machines/button.ogg
+#      params:
+#        variation: 0.250
+#  - type: ItemToggleMeleeWeapon
+#    activatedDamage:
+#      types:
+#        Blunt: 0
+#  - type: MeleeWeapon
+#    wideAnimationRotation: -135
+#    damage:
+#      types:
+#        Blunt: 0
+#    angle: 60
+#    animation: WeaponArcSlash
+#    attackRate: 1.0
+#  - type: Stunbaton
+#    energyPerUse: 50
+#    stunDuration: 1
+#    soundHit: /Audio/Weapons/egloves.ogg
+#  - type: LimitedCharges
+#    maxCharges: 1
+#    charges: 1
+#  - type: Battery
+#    maxCharge: 50
+#    startingCharge: 50
+#  - type: Item
+#    heldPrefix: off
+#    size: Normal
+#  - type: Clothing
+#    sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
+#    quickEquip: false
+#    slots:
+#    - Belt
+#  - type: DisarmMalus
+#    malus: 0.225
+#  - type: Appearance
+#  - type: GenericVisualizer
+#    visuals:
+#      enum.ToggleVisuals.Toggled:
+#        enum.ToggleVisuals.Layer:
+#          True: {state: stunbaton_on}
+#          False: {state: stunbaton_off}
+#      enum.LimitedChargesVisuals.Charges:
+#        enum.FlashVisuals.LightLayer:
+#          True: {visible: true}
+#          False: {visible: false}
+#  - type: StaticPrice
+#    price: 80
+#  - type: Riggable
+#  - type: MeleeChemicalInjector
+#    transferAmount: 8
+#    solution: melee
+#  - type: SolutionContainerManager
+#    solutions:
+#      melee:
+#        maxVol: 10
+#        reagents:
+#        - ReagentId: Toxin
+#          Quantity: 5
+#        - ReagentId: Lexorin
+#          Quantity: 3
+#  - type: PhysicalComposition
+#    materialComposition:
+#      Steel: 100
+#      Plastic: 100
+#  - type: GuideHelp
+#    guides:
+#    - Security

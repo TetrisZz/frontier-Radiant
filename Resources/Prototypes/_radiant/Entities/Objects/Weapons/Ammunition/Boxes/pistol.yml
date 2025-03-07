@@ -1,0 +1,18 @@
+- type: entity
+  id: MagazineBoxPistolIce
+  parent: BaseMagazineBoxPistol
+  name: ammunition box (.35 auto ice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolIce
+  - type: Icon # Frontier
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi # Frontier
+    state: uraniumdisplay # Frontier
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: ice

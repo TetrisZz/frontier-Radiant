@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitExploratorAcorp
-  name: senior researcher jumpsuit
-  description: A sign of skill and prestige within the science department.
+  name: комбинезон полевого персонала
+  description: Стандартный комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/explorator.rsi
@@ -85,3 +85,25 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/rnd.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/rnd.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalAcorp
+  name: комбинезон медика
+  description: Стандартный комбинезон медика акорп.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/med.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/med.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitServiceAcorp
+  name: комбинезон сервисного работника.
+  description: Стандартный комбинезон для сервиса акорп.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/service.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/service.rsi

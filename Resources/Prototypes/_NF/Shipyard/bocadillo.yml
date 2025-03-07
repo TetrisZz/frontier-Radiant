@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Bocadillo:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Bocadillo {1}'

@@ -1,0 +1,9 @@
+- type: loadout
+  id: COMClothingOuterCoatGreyAcorp
+  equipment:
+    outerClothing: ClothingOuterCoatGreyAcorp
+
+- type: loadout
+  id: COMClothingOuterCoatAcorp
+  equipment:
+    outerClothing: ClothingOuterCoatAcorp

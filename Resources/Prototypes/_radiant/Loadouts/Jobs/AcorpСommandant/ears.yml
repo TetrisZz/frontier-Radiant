@@ -1,0 +1,4 @@
+- type: loadout
+  id: COMClothingHeadsetAltAcorp
+  equipment:
+    ears: ClothingHeadsetAltAcorp

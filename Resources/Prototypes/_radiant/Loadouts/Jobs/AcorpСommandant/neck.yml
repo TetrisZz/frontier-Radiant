@@ -1,0 +1,15 @@
+#T0
+- type: loadout
+  id: COMClothingNeckCloakAcorpAdmin2
+  equipment:
+    neck: ClothingNeckCloakAcorpAdmin2
+
+- type: loadout
+  id: COMClothingNeckCloakAcorpAdmin
+  equipment:
+    neck: ClothingNeckCloakAcorpAdmin
+
+- type: loadout
+  id: COMClothingNeckMantleAcorpGrey
+  equipment:
+    neck: ClothingNeckMantleAcorpGrey

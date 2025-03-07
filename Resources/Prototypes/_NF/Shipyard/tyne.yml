@@ -29,7 +29,7 @@
   minPlayers: 0
   stations:
     Tyne:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Tyne {1}'

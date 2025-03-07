@@ -1,0 +1,7 @@
+- type: loadout
+  id: COMClothingShoesBootsAcorpArm
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesBootsAcorpArm

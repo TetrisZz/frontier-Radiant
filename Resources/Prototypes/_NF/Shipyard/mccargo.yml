@@ -27,7 +27,7 @@
   minPlayers: 0
   stations:
     McCargo:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'McCargo {1}'

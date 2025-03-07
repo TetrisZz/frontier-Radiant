@@ -27,7 +27,7 @@
   minPlayers: 0
   stations:
     McDelivery:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'McDelivery {1}'

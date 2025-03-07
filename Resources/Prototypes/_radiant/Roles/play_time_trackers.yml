@@ -1,0 +1,23 @@
+- type: playTimeTracker
+  id: JobAcorpСommandant
+
+- type: playTimeTracker
+  id: JobAcorpDirector
+
+- type: playTimeTracker
+  id: JobAcorpSecurity
+
+- type: playTimeTracker
+  id: JobAcorpScience
+
+- type: playTimeTracker
+  id: JobAcorpEngineer
+
+- type: playTimeTracker
+  id: JobAcorpMedical
+
+- type: playTimeTracker
+  id: JobAcorpService
+
+- type: playTimeTracker
+  id: JobAcorpAssistant

@@ -1,0 +1,125 @@
+- type: entity
+  id: ProtolatheAcorp
+  parent: BaseLatheLube
+  name: принтер акорп
+  description: Очень важная и ценная технология, которая принадлежит и была разработана Аколит Корпорейшн. Без него ваша работа - не имеет смысла.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/protolathe_acor.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ProtolatheMachineCircuitboardAcorp
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticRecipes:
+    - LargeBeaker
+    - Dropper
+    - ClothingEyesGlassesChemical
+    dynamicRecipes:
+      - EnergyTazer
+      - ClothingOuterHardsuitAcorpEngineer
+      - ClothingOuterHardsuitAcorpBasic
+      - ClothingOuterHardsuitAcorpSalvage
+      - ClothingOuterHardsuitAcorpRnd
+      - JetpackAcorp
+      - MagazineBoxHigh2Rifle
+      - MagazineHigh2RifleEmptyAK
+      - MagazineHigh2RifleEmpty
+      - MagazineHigh2RifleAK
+      - MagazineHigh2Rifle
+      - MagazineBoxCaselessRifle
+      - MagazineCaselessRifleShort
+      - MagazinePistolCaselessRifle
+      - BorgModuleMartyrAcorp
+      - BorgModuleSyndicateWeaponAcorp
+      - WeaponRifleTW44Acorp
+      - WeaponRifleSentinel9Acorp
+      - WeaponShotgunAdjutant
+      - ClothingOuterHardsuitAcorpHardEVA
+      - ClothingOuterHardsuitAcorpHeva
+      - WeaponLaserCarbineAcorp
+      - WeaponEnergyGunMiniAcorp
+      - WeaponEnergyShotgun
+      - MagazineBoxRifleIce
+      - MagazineBoxLightRifleIce
+      - MagazineBoxPistolIce
+      - MagazineBoxMagnumIce
+      - MagazineBoxMagnum500Ice
+      - MagazineBoxHigh2RifleIce
+      - MagazineHigh2RifleIce
+      - MagazineHigh2RifleIceAK
+      - ClothingOuterArmorBulletproofAcorp
+      - ClothingOuterArmorPlatecarrierfAcorp
+      - ClothingOuterArmorRiot
+      - EnergySwordRadiant
+      - EnergySwordDoubleRadiant
+      - MagazineBoxAntiMateriel
+      - MagazineBoxAntiMaterielBig
+      - GrenadeFrag
+      - MagazineGrenadeEmpty
+      - ClothingOuterHardsuitAcorpSecurity
+      - ClothingOuterHardsuitScaf
+      - BoxShotgunIncendiary
+      - BoxShotgunUranium
+      - BoxLethalshot
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+      - EnergyTazerBABAX
+      - ClothingOuterHardsuitAcorpEngineerBABAX
+      - ClothingOuterHardsuitAcorpBasicBABAX
+      - ClothingOuterHardsuitAcorpSalvageBABAX
+      - ClothingOuterHardsuitAcorpRndBABAX
+      - JetpackAcorpBABAX
+      - MagazineBoxHigh2RifleBABAX
+      - MagazineHigh2RifleEmptyAKBABAX
+      - MagazineHigh2RifleEmptyBABAX
+      - MagazineHigh2RifleAKBABAX
+      - MagazineHigh2RifleBABAX
+      - MagazineBoxCaselessRifleBABAX
+      - MagazineCaselessRifleShortBABAX
+      - MagazinePistolCaselessRifleBABAX
+      - BorgModuleMartyrAcorpBABAX
+      - BorgModuleSyndicateWeaponAcorpBABAX
+      - WeaponRifleTW44AcorpBABAX
+      - WeaponRifleSentinel9AcorpBABAX
+      - WeaponShotgunAdjutantBABAX
+      - ClothingOuterHardsuitAcorpHardEVABABAX
+      - ClothingOuterHardsuitAcorpHevaBABAX
+      - WeaponLaserCarbineAcorpBABAX
+      - WeaponEnergyGunMiniAcorpBABAX
+      - WeaponEnergyShotgunBABAX
+      - MagazineBoxRifleIceBABAX
+      - MagazineBoxLightRifleIceBABAX
+      - MagazineBoxPistolIceBABAX
+      - MagazineBoxMagnumIceBABAX
+      - MagazineBoxMagnum500IceBABAX
+      - MagazineBoxHigh2RifleIceBABAX
+      - MagazineHigh2RifleIceBABAX
+      - MagazineHigh2RifleIceAKBABAX
+      - ClothingOuterArmorRiotBABAX
+      - EnergySwordRadiantBABAX
+      - EnergySwordDoubleRadiantBABAX
+      - MagazineBoxAntiMaterielBABAX
+      - MagazineBoxAntiMaterielBigBABAX
+      - ClothingOuterHardsuitAcorpSecurityBABAX
+      - ClothingOuterHardsuitScafBABAX
+      - BoxShotgunIncendiaryBABAX

@@ -43,8 +43,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomRadiantBoxersNFSD
-  name: боксеры ДШ
-  description: На самом деле это просто боксеры зеленого цвета. Произведено на Аванпосте ДШ.
+  name: зеленые боксеры
+  description: Вам может показаться что это бельё ДШ, но на самом деле это просто боксеры зеленого цвета.
   components:
   - type: Sprite
     sprite: Clothing/Underwear/Bottom/NFSD.rsi

@@ -1,0 +1,104 @@
+- type: entity
+  id: SpawnPointAcorpSecurity
+  parent: SpawnPointJobBase
+  name: AcorpSecurity
+  components:
+  - type: SpawnPoint
+    job_id: AcorpSecurity
+  - type: Sprite
+    sprite: _radiant/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: sec
+
+- type: entity
+  id: SpawnPointAcorpAssistant
+  parent: SpawnPointJobBase
+  name: AcorpAssistant
+  components:
+  - type: SpawnPoint
+    job_id: AcorpAssistant
+  - type: Sprite
+    sprite: _radiant/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: passenge
+
+- type: entity
+  id: SpawnPointAcorpService
+  parent: SpawnPointJobBase
+  name: AcorpService
+  components:
+  - type: SpawnPoint
+    job_id: AcorpService
+  - type: Sprite
+    sprite: _radiant/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: service
+
+- type: entity
+  id: SpawnPointAcorpScience
+  parent: SpawnPointJobBase
+  name: AcorpScience
+  components:
+  - type: SpawnPoint
+    job_id: AcorpScience
+  - type: Sprite
+    sprite: _radiant/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: rnd
+
+- type: entity
+  id: SpawnPointAcorpMedical
+  parent: SpawnPointJobBase
+  name: AcorpMedical
+  components:
+  - type: SpawnPoint
+    job_id: AcorpMedical
+  - type: Sprite
+    sprite: _radiant/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: medic
+
+- type: entity
+  id: SpawnPointAcorpEngineer
+  parent: SpawnPointJobBase
+  name: AcorpEngineer
+  components:
+  - type: SpawnPoint
+    job_id: AcorpEngineer
+  - type: Sprite
+    sprite: _radiant/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: engener
+
+- type: entity
+  id: SpawnPointAcorpСommandant
+  parent: SpawnPointJobBase
+  name: AcorpСommandant
+  components:
+  - type: SpawnPoint
+    job_id: AcorpСommandant
+  - type: Sprite
+    sprite: _radiant/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: comendant
+
+- type: entity
+  id: SpawnPointAcorpDirector
+  parent: SpawnPointJobBase
+  name: AcorpDirector
+  components:
+  - type: SpawnPoint
+    job_id: AcorpDirector
+  - type: Sprite
+    sprite: _radiant/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: director
+

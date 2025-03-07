@@ -20,7 +20,7 @@
   minPlayers: 0
   stations:
     Construct:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Construct {1}'

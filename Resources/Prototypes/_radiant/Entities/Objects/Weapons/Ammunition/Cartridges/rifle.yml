@@ -1,0 +1,23 @@
+- type: entity
+  id: CartridgeRifleIce
+  name: cartridge (.20 rifle ice)
+  parent: BaseCartridgeRifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletRifleIce
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#57d2d9"
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Cryoladinne
+          Quantity: 3
+  - type: SolutionTransfer
+    maxTransferAmount: 3

@@ -1,21 +1,21 @@
 <Document>
-  # Hiring Crew
+  # Наемный экипаж
   <Box>
     <GuideEntityEmbed Entity="ComputerStationRecords"/>
     <GuideEntityEmbed Entity="ClothingHeadsetGrey" Caption="headset"/>
     <GuideEntityEmbed Entity="IntercomCommon"/>
   </Box>
-  As the Captain of a Nanotrasen vessel, you have the authority to hire and fire crew members, and to delegate work.
-There are two ways to hire crew:
-- Use the [color=#a4885c]station records computer[/color] on your ship to open crew slots. Players that join later can spawn in on your ship.
-- Invite other players to join your crew through in-game communications.
+  Как капитан судна Nanotrasen, вы имеете право нанимать и увольнять членов экипажа, а также делегировать работу.
+Нанять экипаж можно двумя способами:
+- С помощью [color=#a4885c]компьютера записей станции[/color] на вашем корабле можно открыть места в экипаже. Игроки, которые присоединятся к команде позже, смогут заселиться на ваш корабль.
+- Приглашайте других игроков в свой экипаж через внутриигровую связь.
 
-Crew membership is informal - you don't need to sign any forms, but feel free to roleplay!
-It's a good idea to make sure your crew understand:
-- What you expect of them (What tasks should they do? Who do they report to or work with?)
-- What they can expect from you (An hourly wage? A split of rewards? The promise of adventure?).
+Членство в экипаже неформальное - вам не нужно подписывать никаких форм, но не стесняйтесь играть!
+Неплохо бы убедиться, что члены вашего экипажа понимают:
+- Что вы от них ожидаете (Какие задания они должны выполнять? Кому они должны подчиняться или с кем работать?)
+- Что они могут от вас ожидать (Почасовая оплата? Разделение вознаграждений? Обещание приключений?).
 
-As a Captain, remember:
-- You're responsible for the well-being of your crew.
-- A Captain's only as good as their word!
+Будучи капитаном, помните:
+- Вы отвечаете за благополучие своей команды.
+- Капитан хорош только на слово!
 </Document>

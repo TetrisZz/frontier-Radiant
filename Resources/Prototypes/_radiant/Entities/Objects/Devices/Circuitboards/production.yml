@@ -1,0 +1,14 @@
+- type: entity
+  id: ProtolatheMachineCircuitboardAcorp
+  parent: BaseMachineCircuitboard
+  name: принтер акорп (машинная плата)
+  description: Печатная плата для принтера акорп
+  components:
+    - type: MachineBoard
+      prototype: ProtolatheAcorp
+      requirements: # Frontier
+        Manipulator: 10 # Frontier stackRequirements<requirements
+      tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker

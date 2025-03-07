@@ -1,0 +1,87 @@
+- type: loadoutGroup
+  id: SECPDA
+  name: loadout-group-acorpsecurity-id
+  hidden: true
+  loadouts:
+  - SECAcorpSecurityPDA
+  fallbacks:
+  - SECAcorpSecurityPDA
+
+- type: loadoutGroup
+  id: SECJumpsuit
+  name: loadout-group-acorpsecurity-jumpsuit
+  loadouts:
+  - SECClothingUniformJumpsuitSecurityAcorp
+  - SECClothingUniformJumpskirtSecurityAcorp
+  fallbacks:
+  - SECClothingUniformJumpsuitSecurityAcorp
+  - SECClothingUniformJumpskirtSecurityAcorp
+
+- type: loadoutGroup
+  id: SECOuterClothing
+  name: loadout-group-acorpsecurity-outerclothing
+  minLimit: 0
+  loadouts:
+  - SECClothingOuterArmorBasicAcorp
+  - SECClothingOuterArmorCommandAcorp
+
+- type: loadoutGroup
+  id: SECBackpack
+  name: loadout-group-acorpsecurity-backpack
+  minLimit: 1
+  loadouts:
+  - SECClothingBackpackAcorpSecurity
+  - SECClothingBackpackSatchelAcorp
+  - SECClothingBackpackDuffelAcorpSecurity
+  fallbacks:
+  - COMClothingBackpackAcorp
+
+- type: loadoutGroup
+  id: SECShoes
+  name: loadout-group-acorpsecurity-shoes
+  loadouts:
+  - SECClothingShoesBootsAcorpWorkBoots
+  - MEDClothingShoesBootsAcorp
+  fallbacks:
+  - SECClothingShoesBootsAcorpWorkBoots
+
+- type: loadoutGroup
+  id: SECEars
+  name: loadout-group-acorpsecurity-ears
+  hidden: true
+  loadouts:
+  - ACORPClothingHeadsetAcorp
+  fallbacks:
+  - ACORPClothingHeadsetAcorp
+
+- type: loadoutGroup
+  id: SECHead
+  name: loadout-group-acorpsecurity-head
+  minLimit: 0
+  loadouts:
+  - SECClothingHeadHatBeretAcorp
+  - SECClothingHeadHatAcorp
+  - SECClothingHeadHelmetAcorp
+
+- type: loadoutGroup
+  id: SECUnderwearBottom
+  name: loadout-group-acorpsecurity-underwearbottom
+  loadouts: 
+  - ACORPClothingUnderwearBottomBoxersAcorpSecuriry
+  - ACORPClothingUnderwearBottomPantiesAcorpSecurity
+  subgroups:
+  - ASSUnderwearBottom
+  fallbacks:
+  - ACORPClothingUnderwearBottomBoxersAcorpSecuriry
+  - ACORPClothingUnderwearBottomPantiesAcorpSecurity
+
+- type: loadoutGroup
+  id: SECUnderwearTop
+  name: loadout-group-acorpsecurity-underweartop
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ACORPClothingUnderwearTopBraAcorpSecurity
+  - ACORPClothingUnderwearTopBraAcorpSecurity2
+  subgroups:
+  - ASSUnderwearTop

@@ -1,0 +1,31 @@
+- type: entity
+  id: MachineAnomalyGeneratorAcorp
+  parent: MachineAnomalyGenerator
+  name: генератор аномалий акорп
+  description: Вершина псевдонаучных технологий.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/Anomaly/anomaly_generator.rsi
+    offset: 0,1
+    drawdepth: Mobs
+    layers:
+    - state: base
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+    - state: unshaded
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      visible: false
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: generating
+      visible: false
+      shader: unshaded
+      map: ["enum.AnomalyGeneratorVisualLayers.Base"]
+  - type: AnomalyGenerator
+    scienceChannel: Acorp
+    materialPerAnomaly: 4500
+    cooldownLength: 900
+  - type: AccessReader
+    access: [["Acorp"]]

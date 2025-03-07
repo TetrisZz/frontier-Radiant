@@ -1,0 +1,63 @@
+- type: entity
+  parent: SheetMetalBase
+  id: SheetBarCryoladinne
+  name: Слитки Криоладина
+  description: Холодные на ощупь слитки, если долго держать без перчаток то вы почувствуете как они тают и обжигают холодом кожу.
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      BarCryoladinne: 100
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Stack
+    stackType: BarCryoladinne
+    baseLayer: base
+    layerStates:
+    - hydrogen
+    - hydrogen_2
+    - hydrogen_3
+  - type: Sprite
+    sprite: _radiant/Objects/Materials/Sheets/ingots.rsi
+    state: hydrogen_3
+    layers:
+    - state: hydrogen_3
+      map: ["base"]
+  - type: Item
+    sprite: _radiant/Objects/Materials/Sheets/ingots.rsi
+    heldPrefix: barcryoladinne
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: barcryoladinne
+  - type: SolutionContainerManager
+    solutions:
+      barcryoladinne:
+        reagents:
+        - ReagentId: Cryoladinne
+          Quantity: 5
+
+- type: entity
+  parent: SheetBarCryoladinne
+  id: SheetBarCryoladinne10
+  name: Слитки Криоладина
+  suffix: 10
+  components:
+  - type: Sprite
+    state: hydrogen
+  - type: Stack
+    stackType: BarCryoladinne
+    count: 10
+
+- type: entity
+  parent: SheetBarCryoladinne
+  id: SheetBarCryoladinne1
+  name: Слиток Криоладина
+  suffix: Single
+  components:
+  - type: Sprite
+    state: hydrogen
+  - type: Stack
+    stackType: BarCryoladinne
+    count: 1

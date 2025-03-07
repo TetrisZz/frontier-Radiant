@@ -1,0 +1,34 @@
+- type: entity
+  id: BorgModuleMartyrAcorp
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  name: martyr cyborg module
+  description: "A module that comes with an explosive you probably don't want to handle yourself."
+  components:
+    - type: Sprite
+      sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
+      layers:
+        - state: acorp
+        - state: icon-acorp
+    - type: ItemBorgModule
+      items:
+        - SelfDestructSeq
+    - type: BorgModuleIcon
+      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
+
+#syndicate modules
+- type: entity
+  id: BorgModuleSyndicateWeaponAcorp
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  name: weapon cyborg module
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+        - state: acorp
+        - state: icon-acorp
+  - type: ItemBorgModule
+    items:
+    - WeaponPistolEchis
+    - EnergyDaggerLoud
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }

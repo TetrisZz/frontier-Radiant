@@ -1,0 +1,1 @@
+department-acorp-description = Наука превыше всего.

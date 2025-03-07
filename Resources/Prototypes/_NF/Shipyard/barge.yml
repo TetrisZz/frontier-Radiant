@@ -32,7 +32,7 @@
   minPlayers: 0
   stations:
     Barge:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Barge {1}'

@@ -1,0 +1,11 @@
+- type: entity
+  id: BulletMagnumIce
+  name: bullet (.45 magnum ice)
+  parent: BaseBulletIce
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Cold: 8
+        Piercing: 20

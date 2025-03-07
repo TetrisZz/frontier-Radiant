@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingMaskGas # Frontier: removed BaseCargoContraband
   id: ClothingMaskGasAcorpExplorer
-  name: explorer gas mask
-  description: A military-grade gas mask that can be connected to an air supply.
+  name: противогаз акорп
+  description: Противогаз, изготовленный для сотрудников акорп, он не только стильно выглядит, но и хорошо защищает.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Mask/gasexplorer.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: ClothingMaskGas # Frontier: removed BaseCargoContraband
   id: ClothingMaskBreathAcorp
-  name: explorer gas mask
-  description: A military-grade gas mask that can be connected to an air supply.
+  name: маска акорп
+  description: Маска, изготовленная в техах научной базы. Выглядит стильно.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Mask/breath.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingMaskGas # Frontier: removed BaseCargoContraband
   id: ClothingMaskBreath2Acorp
-  name: explorer gas mask
-  description: A military-grade gas mask that can be connected to an air supply.
+  name: маска секьюрити
+  description: Маска, предназначенная для сотрудников акорп секьюрити, выглядит стильно, немного пахнет порохом.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Mask/breath2.rsi

@@ -1,0 +1,9 @@
+- type: loadout
+  id: DIRClothingUniformJumpsuitRDAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRDAcorp
+
+- type: loadout
+  id: DIRClothingUniformJumpskirtRDAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRDAcorp

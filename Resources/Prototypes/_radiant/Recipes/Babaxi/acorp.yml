@@ -1,0 +1,200 @@
+- type: latheRecipe
+  parent: EnergyTazer
+  id: EnergyTazerBABAX
+  result: EnergyTazerBABAX
+
+- type: latheRecipe
+  parent: ClothingOuterHardsuitAcorpEngineer
+  id: ClothingOuterHardsuitAcorpEngineerBABAX
+  result: ClothingOuterHardsuitAcorpEngineerBABAX
+
+- type: latheRecipe
+  parent: ClothingOuterHardsuitAcorpBasic
+  id: ClothingOuterHardsuitAcorpBasicBABAX
+  result: ClothingOuterHardsuitAcorpBasicBABAX
+
+- type: latheRecipe
+  parent: ClothingOuterHardsuitAcorpSalvage
+  id: ClothingOuterHardsuitAcorpSalvageBABAX
+  result: ClothingOuterHardsuitAcorpSalvageBABAX
+
+- type: latheRecipe
+  parent: ClothingOuterHardsuitAcorpRnd
+  id: ClothingOuterHardsuitAcorpRndBABAX
+  result: ClothingOuterHardsuitAcorpRndBABAX
+
+- type: latheRecipe
+  parent: JetpackAcorp
+  id: JetpackAcorpBABAX
+  result: JetpackAcorpBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxHigh2Rifle
+  id: MagazineBoxHigh2RifleBABAX
+  result: MagazineBoxHigh2RifleBABAX
+
+- type: latheRecipe
+  parent: MagazineHigh2RifleEmpty
+  id: MagazineHigh2RifleEmptyAKBABAX
+  result: MagazineHigh2RifleEmptyAKBABAX
+
+- type: latheRecipe
+  parent: MagazineHigh2RifleEmpty
+  id: MagazineHigh2RifleEmptyBABAX
+  result: MagazineHigh2RifleEmptyBABAX
+
+- type: latheRecipe
+  parent: MagazineHigh2RifleAK
+  id: MagazineHigh2RifleAKBABAX
+  result: MagazineHigh2RifleAKBABAX
+
+- type: latheRecipe
+  parent: MagazineHigh2Rifle
+  id: MagazineHigh2RifleBABAX
+  result: MagazineHigh2RifleBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxCaselessRifle
+  id: MagazineBoxCaselessRifleBABAX
+  result: MagazineBoxCaselessRifleBABAX
+
+- type: latheRecipe
+  parent: MagazineCaselessRifleShort
+  id: MagazineCaselessRifleShortBABAX
+  result: MagazineCaselessRifleShortBABAX
+
+- type: latheRecipe
+  parent: MagazinePistolCaselessRifle
+  id: MagazinePistolCaselessRifleBABAX
+  result: MagazinePistolCaselessRifleBABAX
+
+- type: latheRecipe
+  parent: BorgModuleMartyrAcorp
+  id: BorgModuleMartyrAcorpBABAX
+  result: BorgModuleMartyrAcorpBABAX
+
+- type: latheRecipe
+  parent: BorgModuleSyndicateWeaponAcorp
+  id: BorgModuleSyndicateWeaponAcorpBABAX
+  result: BorgModuleSyndicateWeaponAcorpBABAX
+
+- type: latheRecipe
+  parent: WeaponRifleTW44Acorp
+  id: WeaponRifleTW44AcorpBABAX
+  result: WeaponRifleTW44AcorpBABAX
+
+- type: latheRecipe
+  parent: WeaponRifleSentinel9Acorp
+  id: WeaponRifleSentinel9AcorpBABAX
+  result: WeaponRifleSentinel9AcorpBABAX
+
+- type: latheRecipe
+  parent: WeaponShotgunAdjutant
+  id: WeaponShotgunAdjutantBABAX
+  result: WeaponShotgunAdjutantBABAX
+
+- type: latheRecipe
+  parent: ClothingOuterHardsuitAcorpHardEVA
+  id: ClothingOuterHardsuitAcorpHardEVABABAX
+  result: ClothingOuterHardsuitAcorpHardEVABABAX
+
+- type: latheRecipe
+  parent: ClothingOuterHardsuitAcorpHeva
+  id: ClothingOuterHardsuitAcorpHevaBABAX
+  result: ClothingOuterHardsuitAcorpHevaBABAX
+
+- type: latheRecipe
+  parent: WeaponLaserCarbineAcorp
+  id: WeaponLaserCarbineAcorpBABAX
+  result: WeaponLaserCarbineAcorpBABAX
+
+- type: latheRecipe
+  parent: WeaponEnergyGunMiniAcorp
+  id: WeaponEnergyGunMiniAcorpBABAX
+  result: WeaponEnergyGunMiniAcorpBABAX
+
+- type: latheRecipe
+  parent: WeaponEnergyShotgun
+  id: WeaponEnergyShotgunBABAX
+  result: WeaponEnergyShotgunBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxRifleIce
+  id: MagazineBoxRifleIceBABAX
+  result: MagazineBoxRifleIceBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxLightRifleIce
+  id: MagazineBoxLightRifleIceBABAX
+  result: MagazineBoxLightRifleIceBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxPistolIce
+  id: MagazineBoxPistolIceBABAX
+  result: MagazineBoxPistolIceBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxMagnumIce
+  id: MagazineBoxMagnumIceBABAX
+  result: MagazineBoxMagnumIceBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxMagnum500Ice
+  id: MagazineBoxMagnum500IceBABAX
+  result: MagazineBoxMagnum500IceBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxHigh2RifleIce
+  id: MagazineBoxHigh2RifleIceBABAX
+  result: MagazineBoxHigh2RifleIceBABAX
+
+- type: latheRecipe
+  parent: MagazineHigh2RifleIce
+  id: MagazineHigh2RifleIceBABAX
+  result: MagazineHigh2RifleIceBABAX
+
+- type: latheRecipe
+  parent: MagazineHigh2RifleIceAK
+  id: MagazineHigh2RifleIceAKBABAX
+  result: MagazineHigh2RifleIceAKBABAX
+
+- type: latheRecipe
+  parent: ClothingOuterArmorRiot
+  id: ClothingOuterArmorRiotBABAX
+  result: ClothingOuterArmorRiotBABAX
+
+- type: latheRecipe
+  parent: EnergySwordRadiant
+  id: EnergySwordRadiantBABAX
+  result: EnergySwordRadiantBABAX
+
+- type: latheRecipe
+  parent: EnergySwordDoubleRadiant
+  id: EnergySwordDoubleRadiantBABAX
+  result: EnergySwordDoubleRadiantBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxAntiMateriel
+  id: MagazineBoxAntiMaterielBABAX
+  result: MagazineBoxAntiMaterielBABAX
+
+- type: latheRecipe
+  parent: MagazineBoxAntiMaterielBig
+  id: MagazineBoxAntiMaterielBigBABAX
+  result: MagazineBoxAntiMaterielBigBABAX
+
+- type: latheRecipe
+  parent: ClothingOuterHardsuitAcorpSecurity
+  id: ClothingOuterHardsuitAcorpSecurityBABAX
+  result: ClothingOuterHardsuitAcorpSecurityBABAX
+
+- type: latheRecipe
+  parent: ClothingOuterHardsuitScaf
+  id: ClothingOuterHardsuitScafBABAX
+  result: ClothingOuterHardsuitScafBABAX
+
+- type: latheRecipe
+  parent: BoxShotgunIncendiary
+  id: BoxShotgunIncendiaryBABAX
+  result: BoxShotgunIncendiaryBABAX
+

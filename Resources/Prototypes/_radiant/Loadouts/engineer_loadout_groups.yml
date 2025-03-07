@@ -1,0 +1,51 @@
+- type: loadoutGroup
+  id: ENGPDA
+  name: loadout-group-engineer-id
+  hidden: true
+  loadouts:
+  - EGIAcorpEngineerPDA
+  fallbacks:
+  - EGIAcorpEngineerPDA
+
+- type: loadoutGroup
+  id: ENGJumpsuit
+  name: loadout-group-engineer-jumpsuit
+  loadouts:
+  - ENGClothingUniformJumpsuitEngineeringAcorp
+  - ENGClothingUniformJumpskirtEngineeringAcorp
+  fallbacks:
+  - ENGClothingUniformJumpsuitEngineeringAcorp
+  - ENGClothingUniformJumpskirtEngineeringAcorp
+
+- type: loadoutGroup
+  id: ENGShoes
+  name: loadout-group-engineer-shoes
+  hidden: true
+  loadouts:
+  - ENGClothingShoesBootsAcorpWorkBoots2
+  fallbacks:
+  - ENGClothingShoesBootsAcorpWorkBoots2
+
+- type: loadoutGroup
+  id: ENGHead
+  name: loadout-group-engineer-head
+  minLimit: 0
+  loadouts:
+  - ENGClothingHeadHatRadioAcorp
+  - SECClothingHeadHatAcorp
+
+- type: loadoutGroup
+  id: ENGBelt
+  name: loadout-group-engineer-belt
+  hidden: true
+  loadouts:
+  - ContractorClothingBeltUtilityFilled
+  fallbacks:
+  - ContractorClothingBeltUtilityFilled
+
+- type: loadoutGroup
+  id: ENGGlasses
+  name: loadout-group-engineer-glasses
+  hidden: true
+  loadouts:
+  - ContractorClothingEyesGlassesMeson

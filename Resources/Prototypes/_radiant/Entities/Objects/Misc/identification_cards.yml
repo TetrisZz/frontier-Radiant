@@ -1,0 +1,96 @@
+- type: entity
+  parent: PassengerIDCard
+  id: AcorpIDCard
+  name: обычная ID карта
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: idpassenger
+  - type: PresetIdCard
+    job: AcorpAssistant
+
+- type: entity
+  parent: AcorpIDCard
+  id: AcorpCommandIDCard
+  name: ID карта коменданта
+  components:
+  - type: PresetIdCard
+    job: AcorpСommandant
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idcom
+
+- type: entity
+  parent: AcorpIDCard
+  id: AcorpEngineerIDCard
+  name: ID-карта инженера
+  components:
+  - type: PresetIdCard
+    job: AcorpEngineer
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idengineer
+
+- type: entity
+  parent: AcorpIDCard
+  id: AcorpMedicalIDCard
+  name: ID-карта медика
+  components:
+  - type: PresetIdCard
+    job: AcorpMedical
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idmed
+
+- type: entity
+  parent: AcorpIDCard
+  id: AcorpScienceIDCard
+  name: ID-карта ученого
+  components:
+  - type: PresetIdCard
+    job: AcorpScience
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idscience
+
+- type: entity
+  parent: AcorpIDCard
+  id: AcorpSecurityIDCard
+  name: ID-карта секьюрити
+  components:
+  - type: PresetIdCard
+    job: AcorpSecurity
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idsecurity
+
+- type: entity
+  parent: AcorpIDCard
+  id: AcorpServiceIDCard
+  name: ID-карта сервиса
+  components:
+  - type: PresetIdCard
+    job: AcorpService
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idservice
+
+- type: entity
+  parent: AcorpIDCard
+  id: AcorpDirectorIDCard
+  name: ID-карта ДИ
+  components:
+  - type: PresetIdCard
+    job: AcorpDirector
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: iddirector

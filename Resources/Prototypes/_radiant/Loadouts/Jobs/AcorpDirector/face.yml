@@ -1,0 +1,5 @@
+- type: loadout
+  id: DIRClothingMaskBreathAcorp
+  storage:
+    back:
+    - ClothingMaskBreathAcorp

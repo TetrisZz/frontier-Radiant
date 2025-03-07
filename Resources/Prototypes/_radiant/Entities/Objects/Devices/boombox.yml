@@ -1,0 +1,51 @@
+- type: entity
+  parent: BaseItem
+  id: BoomBox
+  name: бумбокс
+  description: Повидал не одну качалку.
+  components:
+  - type: StationAiWhitelist
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/Boombox/boomboxblack.rsi
+    layers:
+    - state: "off"
+      map: ["enum.JukeboxVisualLayers.Base"]
+  - type: Jukebox
+    onState: on
+    offState: off
+    selectState: select
+  - type: Item
+    size: Normal
+  - type: Appearance
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.JukeboxUiKey.Key:
+          type: JukeboxBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+
+- type: entity
+  parent: BoomBox
+  id: BoomBoxPink
+  name: бумбокс
+  description: Розовый цвет для настоящий мужчин.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/Boombox/boomboxpink.rsi
+    layers:
+    - state: "off"
+      map: ["enum.JukeboxVisualLayers.Base"]
+
+- type: entity
+  parent: BoomBox
+  id: BoomBoxBlue
+  name: бумбокс
+  description: Повидал не одну качалку.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/Boombox/boomboxini.rsi
+    layers:
+    - state: "off"
+      map: ["enum.JukeboxVisualLayers.Base"]

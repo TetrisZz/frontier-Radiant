@@ -1,0 +1,27 @@
+- type: job
+  id: AcorpSecurity
+  name: job-name-acorp-security
+  description: job-description-acorp-security
+  playTimeTracker: JobAcorpSecurity
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 10800
+  startingGear: AcorpSecurityGear
+  icon: "JobIconAcorpSecurity" 
+  supervisors: job-supervisors-hire
+  weight: 2 # Prioritize station & department jobs
+  displayWeight: 35 # Second from the top
+  access:
+  - Acorp
+  - AcorpSecurity
+  accessGroups: # Frontier
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: AcorpSecurityGear
+  equipment:
+    belt: EnergyTazer

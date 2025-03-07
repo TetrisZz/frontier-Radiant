@@ -1,0 +1,43 @@
+- type: entity
+  id: SuitStorageAcorpSecurity
+  parent: SuitStorageBase
+  suffix: Acorp Security
+  components:
+  - type: StorageFill
+    contents:
+        - id: AirTankFilled
+        - id: ClothingOuterHardsuitAcorpSecurity
+        - id: ClothingMaskBreath2Acorp 
+        - id: JetpackMiniFilled
+        - id: ClothingShoesBootsMagCombatFilled
+  - type: AccessReader
+    access: [["AcorpSecurity"]]
+
+- type: entity
+  id: SuitStorageAcorpSalvage
+  parent: SuitStorageBase
+  suffix: Acorp Salvage
+  components:
+  - type: StorageFill
+    contents:
+        - id: AirTankFilled
+        - id: ClothingOuterHardsuitAcorpSalvage
+        - id: ClothingMaskGasAcorpExplorer 
+        - id: JetpackMiniFilled
+        - id: ClothingShoesBootsMag
+  - type: AccessReader
+    access: [["Acorp"]]
+
+- type: entity
+  id: SuitStorageAcorpEngineer
+  parent: SuitStorageBase
+  suffix: Acorp Engineer
+  components:
+  - type: StorageFill
+    contents:
+        - id: AirTankFilled
+        - id: ClothingOuterHardsuitAcorpEngineer
+        - id: ClothingMaskBreathAcorp 
+        - id: ClothingShoesBootsMag
+  - type: AccessReader
+    access: [["Acorp"]]

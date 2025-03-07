@@ -1,5 +1,5 @@
 <Document>
-  # CERES-CLASS SERVICE SHUTTLE
+  # ШАТТЛ КЛАССА CERES
   <Box>
   <GuideEntityEmbed Entity="KitchenKnife"/>
   <GuideEntityEmbed Entity="KitchenMicrowave"/>
@@ -8,50 +8,50 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapCeres" Caption=""/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Medium
+  [color=#a4885c]Размер корабля:[/color] Средний
 
-  [color=#a4885c]Recommended Crew:[/color] 2-4
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 2-4
 
-  [color=#a4885c]Power Gen Type:[/color] Uranium
+  [color=#a4885c]Тип электрогенератора:[/color] Урановый
 
-  [color=#a4885c]Expeditions:[/color] None
+  [color=#a4885c]Экспедиции:[/color] Нет
 
-  [color=#a4885c]IFF Console:[/color] None
+  [color=#a4885c]IFF Console:[/color] Нет
 
-  "A medium-size, high-class restaurant ship with ample seating, integrated botany and a dining room for VIP guests."
+  "Среднеразмерный корабль-ресторан высокого класса с большим количеством посадочных мест, интегрированной ботаникой и обеденным залом для VIP-гостей."
 
-  [italic]Brought to you by BlueBird Starship Design & Construction.[/italic]
+  [italic]Предоставлено компанией BlueBird Starship Design & Construction.[/italic]
 
-  # PREFLIGHT CHECKLIST
+  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
 
-  ## 1. Power supply
+  ## 1. Электропитание
 
-  ## 1.1. Battery units
+  ## 1.1. Аккумуляторные блоки
   <Box>
   <GuideEntityEmbed Entity="SMESBasic"/>
   <GuideEntityEmbed Entity="SubstationWallBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  - Check that the SMES unit is anchored to the floor.
-  - Check that the APC units' Main Breakers are toggled on.
-  - Check the APC units' current Load (W).
+  - Убедитесь, что блок подстанции закреплен на стене.
+  - Убедитесь, что главный выключатель блока APC включен.
+  - Проверьте текущую нагрузку блока APC (Вт)..
 
-  ## 1.2. S.U.P.E.R.P.A.C.M.A.N. generator unit
+  ## 1.2. Генераторный блок S.U.P.E.R.P.A.C.M.A.N.
   <Box>
   <GuideEntityEmbed Entity="PortableGeneratorSuperPacmanShuttle"/>
   <GuideEntityEmbed Entity="SheetUranium"/>
   </Box>
 
-  - Check that S.U.P.E.R.P.A.C.M.A.N. generator unit is anchored to the floor.
-  - Check that S.U.P.E.R.P.A.C.M.A.N. generator unit is fueled. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation.
-  - Check that S.U.P.E.R.P.A.C.M.A.N. generator unit is set to HV output.
-  - Set Target Power to 24 [bold]kW[/bold] on the generator unit.
-  - Start S.U.P.E.R.P.A.C.M.A.N. generator unit.
+  - Убедитесь, что генераторный блок S.U.P.E.R.P.A.C.M.A.N. закреплен на полу.
+  - Убедитесь, что генераторный блок S.U.P.E.R.P.A.C.M.A.N. заправлен топливом. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки электроэнергии.
+  - Убедитесь, что генераторный блок S.U.P.E.R.P.A.C.M.A.N. настроен на выход HV.
+  - Установите на генераторном блоке целевую мощность 24 [bold]кВт[/bold].
+  - Запустите генераторный блок S.U.P.E.R.P.A.C.M.A.N.
 
-  ## 2. Atmospherics
+  ## 2. Атмосфера
 
-  ## 2.1. Distribution Loop
+  ## 2.1. Схема дистрибуции
   <Box>
   <GuideEntityEmbed Entity="OxygenCanister"/>
   <GuideEntityEmbed Entity="NitrogenCanister"/>
@@ -59,32 +59,32 @@
   <GuideEntityEmbed Entity="GasMixer"/>
   </Box>
 
-  - Check that the oxygen and nitrogen canisters are anchored to the connector port.
-  - Check that the distribution mixer is set to 101kPa.
-  - Enable the distribution mixer.
+  - Убедитесь, что баллоны с кислородом и азотом закреплены на соединительном порту.
+  - Убедитесь, что распределительный смеситель настроен на 101 кПа.
+  - Включите распределительный смеситель.
 
-  ## 2.2. Waste Loop
+  ## 2.2. Петля для отходовСредний
   <Box>
   <GuideEntityEmbed Entity="AirAlarm"/>
   </Box>
 
-  - Enable waste loop pump.
-  - Disable Auto Mode on the Air Alarm in the Engine Room.
-  - Set the Air Alarm in the Engine Room to Filtering (Wide).
+  - Включите насос отработанного контура.
+  - Отключите автоматический режим на сигнализаторе воздуха в машинном отделении.
+  - Установите для воздушной сигнализации в машинном отделении режим фильтрации (широкий).
 
-  ## 3. Other checks
+  ## 3. Другие проверки
   <Box>
   <GuideEntityEmbed Entity="Gyroscope"/>
   <GuideEntityEmbed Entity="GravityGeneratorMini"/>
   </Box>
 
-  - Check that the gyroscope is anchored, powered, and enabled.
-  - Check that the mini gravity generator is anchored, powered, and enabled.
+  - Проверьте, что гироскоп закреплен, питается и включен.
+  - Убедитесь, что мини-генератор гравитации закреплен, питается и включен.
 
-  # GETTING THE MOST OUT OF THE CERES
+  # ПОЛУЧЕНИЕ МАКСИМАЛЬНОЙ ОТДАЧИ ОТ CERES
 
-  - The Ceres is designed for multi-person crews. Consider having a dedicated botanist to grow quality produce.
-  - Though unorthodox, the mailing units are designed to safely and efficiently transport produce from botany to kitchen. Make use of them!
-  - Don't be afraid to adjust the table and seating layout to suit your needs.
-  - For serving food to a larger party, the food carts in the freezer may simplify transportation.
+  - Корабль Ceres рассчитан на экипаж из нескольких человек. Подумайте о том, чтобы иметь специального ботаника для выращивания качественных продуктов.
+  - Почтовые блоки, хотя и нестандартные, предназначены для безопасной и эффективной транспортировки продуктов от ботаника до кухни. Воспользуйтесь ими!
+  - Не бойтесь менять расстановку столов и сидений в соответствии с вашими потребностями.
+  - При подаче блюд на большую вечеринку тележки для продуктов в морозильной камере могут упростить транспортировку.
 </Document>

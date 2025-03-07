@@ -20,7 +20,7 @@
   minPlayers: 0
   stations:
     Beaker:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Beaker {1}'

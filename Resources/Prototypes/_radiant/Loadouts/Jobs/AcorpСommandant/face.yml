@@ -1,0 +1,5 @@
+- type: loadout
+  id: COMClothingMaskBreath2Acorp
+  storage:
+    back:
+    - ClothingMaskBreath2Acorp

@@ -1,0 +1,31 @@
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetAcorp
+  name: гарнитура акорп
+  description: По ней вы сможете связаться со своими колегами.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyAcorp
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _radiant/Clothing/Ears/Headsets/acorp.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Ears/Headsets/acorp.rsi
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltAcorp
+  name: полноразмерная гарнитура акорп
+  description: По ней вы можете рассказывать анекдоты со своими колегами.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyAcorp
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _radiant/Clothing/Ears/Headsets/acorp.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Ears/Headsets/acorp.rsi

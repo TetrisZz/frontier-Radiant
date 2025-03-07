@@ -182,6 +182,19 @@
     Dylovene: 5
   recipeType: MedicalAssembler
 
+#Radiant_sector
+
+- type: microwaveMealRecipe
+  id: RecipeSheetBarCryoladinne1
+  name: Bar Cryoladinne
+  result: SheetBarCryoladinne1
+  time: 5
+  solids:
+    SheetPlasma1: 1
+  reagents:
+    Cryoladinne: 5
+  recipeType: MedicalAssembler
+
 # Microwave meal recipes for making real people.
 # It's so wrong, yet so right.
 

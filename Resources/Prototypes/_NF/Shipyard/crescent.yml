@@ -32,7 +32,7 @@
   minPlayers: 0
   stations:
     Crescent:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Crescent {1}'

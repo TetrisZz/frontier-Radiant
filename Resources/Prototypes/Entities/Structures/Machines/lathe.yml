@@ -414,6 +414,7 @@
       - ServiceSelectiveDropper # Frontier
       - PlantAnalyzer # Frontier
       - JanicartFlatpack # Frontier
+      - PowerCageHigh # #Radiant_sector
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -614,12 +615,13 @@
       - BoozeDispenserMachineCircuitboard # Frontier
       - SodaDispenserMachineCircuitboard # Frontier
       - MiniStationAnchorCircuitboard # Frontier
+      - ShuttleGunPerforatorCircuitboard #Radiant_sector
+      - ShuttleGunSvalinnMachineGunCircuitboard #Radiant_sector
+      - ShuttleGunKineticCircuitboard
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       # - ShuttleGunDusterCircuitboard # Frontier
       # - ShuttleGunFriendshipCircuitboard # Frontier
-      # - ShuttleGunPerforatorCircuitboard # Frontier
-      # - ShuttleGunSvalinnMachineGunCircuitboard # Frontier
       - ShuttleGunKineticCircuitboard # Frontier
   - type: MaterialStorage
     whitelist:
@@ -1090,18 +1092,18 @@
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
-#      - ClothingHeadHatBeretHoS # Frontier
-#      - ClothingHeadHatHoshat # Frontier
-#      - ClothingUniformJumpsuitHoS # Frontier
-#      - ClothingUniformJumpskirtHoS # Frontier
-#      - ClothingUniformJumpsuitHosFormal # Frontier
-#      - ClothingUniformJumpskirtHosFormal # Frontier
-#      - ClothingUniformJumpsuitHoSAlt # Frontier
-#      - ClothingUniformJumpskirtHoSAlt # Frontier
-#      - ClothingUniformJumpsuitHoSBlue # Frontier
-#      - ClothingUniformJumpsuitHoSGrey # Frontier
-#      - ClothingUniformJumpsuitHoSParadeMale # Frontier
-#      - ClothingUniformJumpskirtHoSParadeMale # Frontier
+      - ClothingHeadHatBeretHoS # Radiant_sector
+      - ClothingHeadHatHoshat # Radiant_sector
+      - ClothingUniformJumpsuitHoS # Radiant_sector
+      - ClothingUniformJumpskirtHoS # Radiant_sector
+      - ClothingUniformJumpsuitHosFormal # Radiant_sector
+      - ClothingUniformJumpskirtHosFormal # Radiant_sector
+      - ClothingUniformJumpsuitHoSAlt # Radiant_sector
+      - ClothingUniformJumpskirtHoSAlt # Radiant_sector
+      - ClothingUniformJumpsuitHoSBlue # Radiant_sector
+      - ClothingUniformJumpsuitHoSGrey # Radiant_sector
+      - ClothingUniformJumpsuitHoSParadeMale # Radiant_sector
+      - ClothingUniformJumpskirtHoSParadeMale # Radiant_sector
       - ClothingUniformJumpsuitHydroponics
       - ClothingUniformJumpskirtHydroponics
       - ClothingUniformJumpsuitJanitor
@@ -1139,16 +1141,16 @@
       - ClothingUniformJumpskirtScientist
       - ClothingUniformJumpsuitSeniorResearcher
       - ClothingUniformJumpskirtSeniorResearcher
-#      - ClothingHeadHatBeretSecurity # Frontier
-#      - ClothingUniformJumpsuitSec # Frontier
-#      - ClothingUniformJumpskirtSec # Frontier
-#      - ClothingHeadHatBeretBrigmedic # Frontier
-#      - ClothingUniformJumpsuitBrigmedic # Frontier
-#      - ClothingUniformJumpskirtBrigmedic # Frontier
-#      - ClothingHeadHatBeretWarden # Frontier
-#      - ClothingHeadHatWarden # Frontier
-#      - ClothingUniformJumpsuitWarden # Frontier
-#      - ClothingUniformJumpskirtWarden # Frontier
+      - ClothingHeadHatBeretSecurity # Radiant_sector
+      - ClothingUniformJumpsuitSec # Radiant_sector
+      - ClothingUniformJumpskirtSec # Radiant_sector
+      - ClothingHeadHatBeretBrigmedic # Radiant_sector
+      - ClothingUniformJumpsuitBrigmedic # Radiant_sector
+      - ClothingUniformJumpskirtBrigmedic # Radiant_sector
+      - ClothingHeadHatBeretWarden # Radiant_sector
+      - ClothingHeadHatWarden # Radiant_sector
+      - ClothingUniformJumpsuitWarden # Radiant_sector
+      - ClothingUniformJumpskirtWarden # Radiant_sector
       - ClothingUniformJumpsuitPrivateSec # Frontier
       - ClothingUniformJumpskirtPrivateSec # Frontier
       # Winter outfits
@@ -1156,8 +1158,8 @@
       - ClothingOuterWinterCE
       - ClothingOuterWinterCMO
       - ClothingOuterWinterHoP
-#      - ClothingOuterWinterHoSUnarmored # Frontier
-#      - ClothingOuterWinterWardenUnarmored # Frontier
+      - ClothingOuterWinterHoSUnarmored # Radiant_sector
+      - ClothingOuterWinterWardenUnarmored # Radiant_sector
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
       - ClothingOuterWinterMusician
@@ -1179,7 +1181,7 @@
       - ClothingOuterWinterViro
       - ClothingOuterWinterSci
       - ClothingOuterWinterRobo
-#      - ClothingOuterWinterSec # Frontier
+      - ClothingOuterWinterSec # Radiant_sector
       - ClothingOuterWinterCoatMail # Frontier
       # Ties
       - ClothingNeckTieRed

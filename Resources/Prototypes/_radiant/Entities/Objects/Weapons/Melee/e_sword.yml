@@ -1,8 +1,8 @@
 - type: entity
-  name: energy sword
+  name: энегетический меч
   parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: EnergySwordRadiant
-  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
+  description: Энегетический меч Фантом. Компактное холодное оружие, использующее концентрированное энергетическое лезвие. В обычном состоянии выглядит как небольшая рукоять, но при активации высвобождает полупрозрачное и колеблющееся лезвие.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Melee/e_cutlass.rsi
@@ -14,13 +14,13 @@
       shader: unshaded
       map: [ "blade" ]
   - type: Item
-    sprite: _radiant/Objects/Weapons/Melee/e_cutlass.rsi
+    sprite: _radiant/Objects/Weapons/Melee/e_cutlass-inhands.rsi
 
 - type: entity
-  name: double-bladed energy sword
+  name: электрический посох
   parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: EnergySwordDoubleRadiant
-  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
+  description: Электрический посох, изготовленная опытными бойцами Аколит Корпорейшн. Электрическая глефа, часто используется стражами влиятельных императоров и их окружения в монархических мирах.
   components:
   - type: ItemToggle
     onUse: false # wielding events control it instead
@@ -41,9 +41,11 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 12
-            Heat: 12
-            Structural: 15
+            Blunt: 5
+            Heat: 5
+            Shock: 5
+  - type: StaminaDamageOnHit
+    damage: 20
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -78,5 +80,5 @@
     size: Small
     sprite: _radiant/Objects/Weapons/Melee/glefa.rsi
   - type: Reflect
-    reflectProb: .75
-    spread: 75
+    reflectProb: .50
+    spread: 60

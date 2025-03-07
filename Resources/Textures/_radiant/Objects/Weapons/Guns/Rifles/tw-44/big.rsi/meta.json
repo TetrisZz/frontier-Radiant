@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Homka for the Radiant sector - Frontier",
+    "size": {
+        "x": 64,
+        "y": 32
+    },
+    "states": [
+	{
+		"name": "icon"
+	},
+	{
+		"name": "bolt-open"
+	},
+	{
+		"name": "base"
+	},
+	{
+            "name": "mag-0"
+        },
+        {
+            "name": "mag-1"
+        },
+        {
+            "name": "mag-2"
+        },
+        {
+            "name": "mag-3"
+        },
+        {
+            "name": "mag-4"
+        }
+    ]
+}

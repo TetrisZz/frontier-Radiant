@@ -11,7 +11,7 @@
   cost: 5000
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
-#  - ShuttleGunKineticCircuitboard # Frontier - Hold on there pardner
+  - ShuttleGunKineticCircuitboard # Frontier - Hold on there pardner
   # These are roundstart but not replenishable for salvage
   - WeaponCrusher
   - WeaponCrusherDagger
@@ -182,8 +182,9 @@
   - GrenadeBlast
   - GrenadeEMP #Frontier
   - PowerCageHigh #frontier
-#  - ShuttleGunSvalinnMachineGunCircuitboard # Frontier
-#  - ShuttleGunPerforatorCircuitboard # Frontier
+  - ShuttleGunSvalinnMachineGunCircuitboard # Frontier
+  - PowerCageHigh
+  - ShuttleGunPerforatorCircuitboard # Frontier
 #  - ShuttleGunFriendshipCircuitboard # Frontier
   technologyPrerequisites:
   - SalvageWeapons

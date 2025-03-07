@@ -1,0 +1,31 @@
+- type: job
+  id: AcorpСommandant
+  name: job-name-acorp-commandant
+  description: job-description-acorp-commandant
+  playTimeTracker: JobAcorpСommandant
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 21600
+  startingGear: AcorpСommandantGear
+  icon: "JobIconAcorpСommandant" 
+  supervisors: job-supervisors-hire
+  weight: 3 # Prioritize station & department jobs
+  displayWeight: 40 # Second from the top
+  access:
+  - Acorp
+  - AcorpSecurity
+  - AcorpCommand
+  accessGroups: # Frontier
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: AcorpСommandantGear
+  equipment:
+    belt: WeaponRevolverMaurineAcorp
+  storage:
+    back:
+    - MagazineBoxMagnum500

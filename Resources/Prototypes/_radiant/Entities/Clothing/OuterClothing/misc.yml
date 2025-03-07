@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterApronChefAcorp
+  name: фартук
+  description: Короткий фартук для работников сервисного отдела Аколит Корпорейшн. Подойдёт и кошко-горничным.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Misc/apronchef.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Misc/apronchef.rsi

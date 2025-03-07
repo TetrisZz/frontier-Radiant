@@ -1,0 +1,9 @@
+- type: loadout
+  id: COMClothingUniformJumpsuitCaptainAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptainAcorp
+
+- type: loadout
+  id: COMClothingUniformJumpskirtCaptainAcorp
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCaptainAcorp

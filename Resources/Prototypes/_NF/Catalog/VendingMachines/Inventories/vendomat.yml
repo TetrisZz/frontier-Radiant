@@ -12,3 +12,6 @@
     MicroManipulatorStockPart: 4294967295 # Frontier: 10<Infinite
     Beaker: 4294967295 # Frontier: Infinite, beakers are required for some machines
     AirFreshener: 4294967295 # Frontier: 10<Infinite
+    BoomBox: 4294967295 # Frontier: 10<Infinite
+    BoomBoxPink: 4294967295 # Frontier: 10<Infinite
+    BoomBoxBlue: 4294967295 # Frontier: 10<Infinite

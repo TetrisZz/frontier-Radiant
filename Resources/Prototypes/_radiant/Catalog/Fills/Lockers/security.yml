@@ -1,0 +1,58 @@
+- type: entity
+  id: LockerAcorpCaptainFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerAcorpCaptain
+  components:
+  - type: StorageFill
+    contents:
+      - id: EnergyTazer
+      - id: WeaponDisabler
+      - id: EncryptionKeyAcorp
+        amount: 4
+      - id: Flash
+      - id: ClothingOuterCoatAcorp
+      - id: JetpackAcorpFilled
+      - id: ClothingOuterHardsuitAcorpHeadSecurity
+      - id: ClothingNeckCloakAcorpGrey
+      - id: AirTankFilled
+      - id: ClothingHandsGlovesCombat
+      - id: ProtolatheMachineCircuitboardAcorp
+
+- type: entity
+  id: LockerAcorpCaptainFilledRD
+  suffix: Filled, RD
+  parent: LockerAcorpCaptain
+  components:
+  - type: StorageFill
+    contents:
+      - id: Flash
+      - id: ClothingOuterHardsuitAcorpRnd
+      - id: AirTankFilled
+      - id: NFBlueprintVialBluespace
+
+- type: entity
+  id: LockerAcorpSecurityFilled
+  suffix: Filled
+  parent: LockerAcorpSecurity
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingBeltSecurityFilled
+      - id: FlashlightSeclite
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingHeadHelmetAcorp
+      - id: WeaponMeleeNeedle
+        prob: 0.1
+
+- type: entity
+  id: LockerAcorpScienceFilled
+  suffix: Filled
+  parent: LockerAcorpScience
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterCoatRndAcorp
+      - id: AnomalyScanner
+      - id: NodeScanner
+      - id: ClothingOuterSuitRad
+        prob: 0.4

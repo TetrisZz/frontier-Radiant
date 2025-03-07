@@ -1,6 +1,6 @@
 - type: entity
-  parent: [NFClothingBackpack, BaseC2Contraband ] # Frontier: BaseRestrictedContraband<BaseC2Contraband, ClothingBackpack<NFClothingBackpack
-  id: ClothingBackpackAcorpSecurity
+  parent: [NFClothingBackpack, BaseC2Contraband ]
+  id: ClothingBackpackAcorp
   name: черно-белый рюкзак
   description: Чёрно-белый рюкзак, который предназначен для сотрудников акорп, в него поместится всё необходимое для вашей работы.
   components:
@@ -8,8 +8,8 @@
     sprite: _radiant/Clothing/Back/Backpacks/acorp.rsi
 
 - type: entity
-  parent: NFClothingBackpack # Frontier: ClothingBackpack<NFClothingBackpack
-  id: ClothingBackpackAcorp
+  parent: NFClothingBackpack
+  id: ClothingBackpackAcorpSecurity
   name: рюкзак секьюрити
   description: Рюкзак, который предназначен для акорп секьюрити, в него поместится всё необходимое для вашей работы.
   components:

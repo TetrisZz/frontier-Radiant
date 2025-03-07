@@ -1,0 +1,11 @@
+#T0
+- type: loadout
+  id: ACORPClothingUnderwearTopBraAcorpScience2
+  equipment:
+    underweart: ClothingUnderwearTopBraAcorpScience2
+    
+- type: loadout
+  id: ACORPClothingUnderwearTopBraAcorpScience
+  equipment:
+    underweart: ClothingUnderwearTopBraAcorpScience
+    

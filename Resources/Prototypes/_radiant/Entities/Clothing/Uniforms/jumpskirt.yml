@@ -22,6 +22,17 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressClassic
+  name: черное классическое платье
+  description: Для любителей классики и чёрного цвета.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/plat.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/plat.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCaptainAcorp
   name: юбка-комбинезон коменданта
   description: Стандартная юбка-комбинезон с серебристыми вставками подчеркивающие должность коменданта Аколит Корпорейшн.
@@ -63,3 +74,47 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/engineer.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/engineer.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtAcorp
+  name: юбка-комбинезон коменданта
+  description: Стандартная юбка-комбинезон с серебристыми вставками подчеркивающие должность коменданта Аколит Корпорейшн.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/acorp_jumpskirt.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/acorp_jumpskirt.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMedicalAcorp
+  name: юбка-комбинезон медика
+  description: Стандартная юбка-комбинезон для медика акорп.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/med.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/med.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSeviceAcorp
+  name: юбка-комбинезон сервисного работника
+  description: Стандартная юбка-комбинезон для сервиса акорп.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/service.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/service.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtExploratorAcorp
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/explorator.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/explorator.rsi

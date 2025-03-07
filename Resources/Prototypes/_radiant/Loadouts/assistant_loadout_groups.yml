@@ -1,0 +1,87 @@
+- type: loadoutGroup
+  id: ASSPDA
+  name: loadout-group-assistant-id
+  hidden: true
+  loadouts:
+  - ASSAcorpPDA
+  fallbacks:
+  - ASSAcorpPDA
+
+- type: loadoutGroup
+  id: ASSJumpsuit
+  name: loadout-group-assistant-jumpsuit
+  loadouts:
+  - ASSClothingUniformJumpsuitExploratorAcorp
+  - ASSClothingUniformJumpskirtExploratorAcorp
+  fallbacks:
+  - ASSClothingUniformJumpsuitExploratorAcorp
+  - ASSClothingUniformJumpskirtExploratorAcorp
+
+- type: loadoutGroup
+  id: ASSOuterClothing
+  name: loadout-group-assistant-outerclothing
+  minLimit: 0
+  loadouts:
+  - ASSClothingOuterCoatLongAcorp
+
+- type: loadoutGroup
+  id: ASSFace
+  name: loadout-group-assistant-face
+  loadouts:
+  - ASSClothingMaskGasAcorpExplorer
+  fallbacks:
+  - ASSClothingMaskGasAcorpExplorer
+
+- type: loadoutGroup
+  id: ASSUnderwearBottom
+  name: loadout-group-assistant-underwearbottom
+  minLimit: 1
+  loadouts:
+  - ACORPClothingUnderwearBottomBoxersAcorp
+  - ACORPClothingUnderwearBottomBoxersAcorp2
+  - ACORPClothingUnderwearBottomRadiantBoxersBlack
+  - ACORPClothingUnderwearBottomPantiesAcorp
+  - ACORPClothingUnderwearBottomRadiantPantiesTrusikiblack
+  - ACORPClothingUnderwearBottomRadiantPantiesRed
+  - ACORPClothingUnderwearBottomRadiantPantiesPink
+  - ACORPClothingUnderwearBottomPantiesWhite
+  - ACORPClothingUnderwearBottomPantiesNeko
+  fallbacks:
+  - ACORPClothingUnderwearBottomBoxersAcorp
+  - ACORPClothingUnderwearBottomPantiesAcorp
+
+- type: loadoutGroup
+  id: ASSUnderwearSocks
+  name: loadout-group-assistant-underwearsocks
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ACORPClothingUnderwearSocksAcorpStriped
+  - ACORPClothingUnderwearSocksRich
+  - ACORPClothingUnderwearSocksRadiantBlackPolosatie
+  - ACORPClothingUnderwearSocksRadiantBlack
+  - ACORPClothingUnderwearSocksGarters
+  - ACORPClothingUnderwearSocksHigh
+  - ACORPClothingUnderwearSocksRadiantThighblue
+  - ACORPClothingUnderwearSocksRadiantSocksBlack
+  - ACORPClothingUnderwearSocksRadiantStriped
+  - ACORPClothingUnderwearSocksShort
+  - ACORPClothingUnderwearSocksRadiantPink
+  - ACORPClothingUnderwearSocksRadiantMeee
+
+- type: loadoutGroup
+  id: ASSUnderwearTop
+  name: loadout-group-assistant-underweartop
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ACORPClothingUnderwearTopBraAcorp
+  - ACORPClothingUnderwearTopBraAcorp2
+  - ACORPClothingUnderwearTopRadiantPink
+  - ACORPClothingUnderwearTopRadiantRed
+  - ACORPClothingUnderwearTopRadiantBlack
+  - ACORPClothingUnderwearTopNekoBra
+  - ACORPClothingUnderwearTopRadiantSeeeexsi
+  - ACORPClothingUnderwearTopRadiantNeeeekoUwU
+  - ACORPClothingUnderwearTopBraWhite
+  

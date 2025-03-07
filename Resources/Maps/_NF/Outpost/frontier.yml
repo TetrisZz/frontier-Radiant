@@ -3313,7 +3313,7 @@ entities:
       pos: 28.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5372.017
+      secondsUntilStateChange: -11403.676
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3324,7 +3324,7 @@ entities:
       pos: 29.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5371.584
+      secondsUntilStateChange: -11403.243
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3903,6 +3903,18 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 4419
+- proto: AlwaysPoweredStrobeLight
+  entities:
+  - uid: 3304
+    components:
+    - type: Transform
+      pos: 32.5,-14.5
+      parent: 2
+  - uid: 3604
+    components:
+    - type: Transform
+      pos: 28.5,-14.5
+      parent: 2
 - proto: AntiAnomalyZone200
   entities:
   - uid: 191
@@ -11315,7 +11327,7 @@ entities:
       pos: 0.5,1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12482.997
+      secondsUntilStateChange: -18514.656
       state: Closing
   - uid: 1578
     components:
@@ -21108,6 +21120,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: Joint
+  entities:
+  - uid: 924
+    components:
+    - type: Transform
+      pos: 29.903856,-15.251617
+      parent: 2
 - proto: Jukebox
   entities:
   - uid: 2893
@@ -21723,12 +21742,12 @@ entities:
     - type: Transform
       pos: 27.5,-40.5
       parent: 2
-- proto: PlushieHampter
+- proto: PlushieHomka
   entities:
-  - uid: 2991
+  - uid: 821
     components:
     - type: Transform
-      pos: 30.413813,-15.508778
+      pos: 30.435106,-15.470367
       parent: 2
 - proto: PlushieJanitor
   entities:
@@ -24308,6 +24327,28 @@ entities:
     components:
     - type: Transform
       pos: -11.5,1.5
+      parent: 2
+- proto: SpaceCashCounterfeit
+  entities:
+  - uid: 1612
+    components:
+    - type: Transform
+      pos: 29.731981,-15.782867
+      parent: 2
+  - uid: 2958
+    components:
+    - type: Transform
+      pos: 30.966356,-15.704742
+      parent: 2
+  - uid: 2959
+    components:
+    - type: Transform
+      pos: 31.138231,-15.251617
+      parent: 2
+  - uid: 2991
+    components:
+    - type: Transform
+      pos: 29.950731,-15.079742
       parent: 2
 - proto: SpawnMobCatClippy
   entities:

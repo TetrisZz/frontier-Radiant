@@ -1,0 +1,34 @@
+- type: loadoutGroup
+  id: MEDPDA
+  name: loadout-group-medical-id
+  hidden: true
+  loadouts:
+  - MEDAcorpMedicalPDA
+  fallbacks:
+  - MEDAcorpMedicalPDA
+
+- type: loadoutGroup
+  id: MEDJumpsuit
+  name: loadout-group-medical-jumpsuit
+  loadouts:
+  - MEDClothingUniformJumpsuitMedicalAcorp
+  - MEDClothingUniformJumpskirtMedicalAcorp
+  fallbacks:
+  - MEDClothingUniformJumpsuitMedicalAcorp
+  - MEDClothingUniformJumpskirtMedicalAcorp
+
+- type: loadoutGroup
+  id: MEDOuterClothing
+  name: loadout-group-medical-outerclothing
+  minLimit: 0
+  loadouts:
+  - MEDClothingOuterCoatLabAcorp
+
+- type: loadoutGroup
+  id: MEDShoes
+  name: loadout-group-medical-shoes
+  hidden: true
+  loadouts:
+  - MEDClothingShoesBootsAcorp
+  fallbacks:
+  - MEDClothingShoesBootsAcorp

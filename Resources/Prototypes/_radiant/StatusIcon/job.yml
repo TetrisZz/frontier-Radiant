@@ -1,0 +1,64 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcorpСommandant
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: command
+  jobName: job-name-acorp-commandant
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcorpSecurity
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: sec
+  jobName: job-name-acorp-security
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcorpScience
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: scientist
+  jobName: job-name-acorp-science
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcorpEngineer
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: engineer
+  jobName: job-name-acorp-engineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcorpMedical
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: med
+  jobName: job-name-acorp-medical
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcorpService
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: service
+  jobName: job-name-acorp-service
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcorpAssistant
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: passenger
+  jobName: job-name-acorp-assistant
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcorpDirector
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: command
+  jobName: job-name-acorp-director
+

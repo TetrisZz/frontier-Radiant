@@ -20,7 +20,7 @@
   minPlayers: 0
   stations:
     Stellaris:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Stellaris {1}'

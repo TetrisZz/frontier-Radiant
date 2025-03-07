@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Loader:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Loader {1}'

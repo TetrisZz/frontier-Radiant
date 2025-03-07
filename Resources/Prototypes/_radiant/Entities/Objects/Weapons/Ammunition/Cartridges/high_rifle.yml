@@ -1,0 +1,113 @@
+- type: entity
+  id: BaseCartridgeHigh2Rifle
+  name: cartridge (.6,8-мм SPC)
+  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseRestrictedContraband<BaseC1Contraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeHigh2Rifle
+  - type: CartridgeAmmo
+    proto: BulletHigh2Rifle
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: CartridgeHigh2Rifle
+  name: cartridge (.6,8-мм SPC)
+  parent: BaseCartridgeHigh2Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHigh2Rifle
+
+- type: entity
+  id: CartridgeHigh2RiflePractice
+  name: cartridge (.6,8-мм SPC practice)
+  parent: BaseCartridgeHigh2Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHigh2RiflePractice
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#dbdbdb"
+
+- type: entity
+  id: CartridgeHigh2RifleIncendiary
+  name: cartridge (.6,8-мм SPC incendiary)
+  parent: BaseCartridgeHigh2Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHigh2RifleIncendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ff6e52"
+
+- type: entity
+  id: CartridgeHigh2RifleUranium
+  name: cartridge (.6,8-мм SPC uranium)
+  parent: BaseCartridgeHigh2Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHigh2RifleUranium
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#65fe08"
+
+- type: entity
+  id: CartridgeHigh2RifleRubber
+  name: cartridge (.6,8-мм SPC rubber)
+  parent: BaseCartridgeHigh2Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHigh2RifleRubber
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#43c4f7"
+
+- type: entity
+  id: CartridgeHigh2RifleIce
+  name: cartridge (.30 rifle ice)
+  parent: BaseCartridgeHigh2Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHigh2RifleIce
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#57d2d9"
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Cryoladinne
+          Quantity: 4
+  - type: SolutionTransfer
+    maxTransferAmount: 4
