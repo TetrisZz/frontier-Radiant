@@ -196,7 +196,7 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorFun
-  - ContractorTrinkets
+  - StationRepTrinkets
   - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
@@ -425,7 +425,6 @@
   - ContractorImplanter
   - ContractorEncryptionKey
   - ContractorFun
-  - ContractorTrinkets
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
@@ -451,7 +450,6 @@
   - ContractorImplanter
   - ContractorEncryptionKey
   - ContractorFun
-  - ContractorTrinkets
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
@@ -500,6 +498,7 @@
   - ContractorUnderwearTop
   - PiratePDA
   - NFSpeciesSpecific
+  - PirateTrinkets
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
@@ -519,6 +518,7 @@
   - ContractorUnderwearTop
   - PirateFirstMatePDA
   - NFSpeciesSpecific
+  - PirateTrinkets
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
@@ -538,6 +538,7 @@
   - ContractorUnderwearTop
   - PirateCaptainPDA
   - NFSpeciesSpecific
+  - PirateCaptainTrinkets
   canCustomizeName: true # pseudonym?
 
 # Prisoner
