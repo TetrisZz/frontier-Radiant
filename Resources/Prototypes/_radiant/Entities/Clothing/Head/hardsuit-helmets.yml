@@ -170,7 +170,7 @@
 
 #Engineering Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitAcorpSecurityHead
   name: engineering hardsuit helmet
   description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.

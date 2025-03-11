@@ -500,6 +500,7 @@
   - ContractorUnderwearTop
   - PiratePDA
   - NFSpeciesSpecific
+  canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
   id: JobPirateFirstMate
@@ -518,6 +519,7 @@
   - ContractorUnderwearTop
   - PirateFirstMatePDA
   - NFSpeciesSpecific
+  canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
   id: JobPirateCaptain
@@ -536,6 +538,7 @@
   - ContractorUnderwearTop
   - PirateCaptainPDA
   - NFSpeciesSpecific
+  canCustomizeName: true # pseudonym?
 
 # Prisoner
 

@@ -215,6 +215,7 @@
     LeftFootHuman: 1
     RightFootHuman: 1
   recipeType: MedicalAssembler
+  hideInGuidebook: true
 
 - type: microwaveMealRecipe
   id: NFRecipeBuildABuddyGoblin
@@ -233,6 +234,7 @@
     LeftFootGoblin: 1
     RightFootGoblin: 1
   recipeType: MedicalAssembler
+  hideInGuidebook: true
 
 - type: microwaveMealRecipe
   id: NFRecipeBuildABuddyReptilian
@@ -251,6 +253,7 @@
     LeftFootReptilian: 1
     RightFootReptilian: 1
   recipeType: MedicalAssembler
+  hideInGuidebook: true
 
 - type: microwaveMealRecipe
   id: NFRecipeBuildABuddySlime
@@ -269,6 +272,7 @@
     LeftFootSlime: 1
     RightFootSlime: 1
   recipeType: MedicalAssembler
+  hideInGuidebook: true
 
 - type: microwaveMealRecipe
   id: NFRecipeBuildABuddyVulpkanin
@@ -287,3 +291,4 @@
     LeftFootVulpkanin: 1
     RightFootVulpkanin: 1
   recipeType: MedicalAssembler
+  hideInGuidebook: true
