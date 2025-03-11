@@ -10,10 +10,12 @@
         - state: acorp
         - state: icon-acorp
     - type: ItemBorgModule
+      moduleId: Martyr # Frontier
       items:
         - SelfDestructSeq
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
+
 
 #syndicate modules
 - type: entity
@@ -24,9 +26,10 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
     layers:
-        - state: acorp
-        - state: icon-acorp
+      - state: acorp
+      - state: icon-acorp
   - type: ItemBorgModule
+    moduleId: Weapons # Frontier
     items:
     - WeaponPistolEchis
     - EnergyDaggerLoud
