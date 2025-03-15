@@ -16,15 +16,14 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - ContractorPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorUtility
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 # Pilot
@@ -45,15 +44,14 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - PilotPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorUtility
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 # Mercenary
@@ -74,15 +72,14 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MercenaryPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorUtility
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 # Frontier
@@ -100,14 +97,14 @@
   - ContractorEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -123,10 +120,11 @@
   - ContractorEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorFun
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -142,14 +140,14 @@
   - ContractorEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
+  - MailCarrierWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -167,14 +165,14 @@
   - ContractorBelt
   - StcEars
   - ContractorBoxSurvival
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -193,14 +191,14 @@
   - StationRepEars
   - ContractorBoxSurvival
   - StationRepPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorFun
-  - StationRepTrinkets
-  - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - StationRepBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -217,15 +215,15 @@
   - SecurityGuardEars
   - NfsdBoxSurvival
   - SecurityGuardPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -244,12 +242,12 @@
   - DocEars
   - ContractorBoxSurvival
   - DocPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
-  - ContractorBureaucracy
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
 
 # Nfsd
@@ -269,14 +267,15 @@
   - NfsdEarsBrown
   - NfsdBoxSurvival
   - CadetPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -295,14 +294,15 @@
   - NfsdEarsBrown
   - NfsdBoxSurvival
   - DeputyPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -321,14 +321,15 @@
   - NfsdEarsCream
   - NfsdBoxSurvival
   - BrigmedicPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -347,14 +348,15 @@
   - NfsdEarsCream
   - NfsdBoxSurvival
   - NFDetectivePDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -372,14 +374,15 @@
   - NfsdEarsBrown
   - NfsdBoxSurvival
   - PalPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
-  - ContractorTrinkets
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - ContractorBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific # Explicitly civilian variant
 
 # - type: roleLoadout # Fix when this is actully used
@@ -398,11 +401,12 @@
   # - NfsdEarsGreen
   # - NfsdBoxSurvival
   # - PrisonGuardPDA
+  # - ContractorWallet
   # - ContractorCartridge
   # - ContractorImplanter
   # - ContractorEncryptionKey
-  # - ContractorFun
-  # - ContractorTrinkets
+  # - ContractorBackpackItems
+  # - ContractorHandItems
   # - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -421,13 +425,15 @@
   - NfsdEarsAltGreen
   - NfsdBoxSurvival
   - BailiffPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - SeniorOfficerBackpackItems
+  - ContractorHandItems
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -446,13 +452,15 @@
   - NfsdEarsAltBrown
   - NfsdBoxSurvival
   - SeniorOfficerPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorFun
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - SeniorOfficerBackpackItems
+  - ContractorHandItems
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -471,13 +479,14 @@
   - SheriffEars
   - NfsdBoxSurvival
   - SheriffPDA
+  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorFun
-  - ContractorTrinkets
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
+  - SeniorOfficerBackpackItems
+  - ContractorHandItems
   - NfsdSpeciesSpecific
 
 # Pirate
@@ -497,8 +506,10 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - PiratePDA
+  - ContractorWallet
+  - PirateBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
-  - PirateTrinkets
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
@@ -517,8 +528,10 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - PirateFirstMatePDA
+  - ContractorWallet
+  - PirateBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
-  - PirateTrinkets
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
@@ -537,8 +550,10 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - PirateCaptainPDA
+  - PirateCaptainWallet
+  - PirateCaptainBackpackItems
+  - ContractorHandItems
   - NFSpeciesSpecific
-  - PirateCaptainTrinkets
   canCustomizeName: true # pseudonym?
 
 # Prisoner
