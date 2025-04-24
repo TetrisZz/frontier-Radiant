@@ -1,0 +1,37 @@
+# Author Info
+# GitHub: 
+# Discord: 
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Notes:
+# Down at your local saloon
+- type: pointOfInterest
+  id: Beach
+  parent: BasePOI
+  name: "Космический Пляж"
+  minimumDistance: 2000
+  maximumDistance: 3000
+  spawnGroup: Required
+  gridPath: /Maps/_radiant/POI/Beach.yml
+  addComponents:
+  - type: StationTransit
+  - type: IFF
+    color: "#00b7eb"
+  - type: SolarPoweredGrid
+    trackOnInit: true
+    doNotCull: true
+
+- type: gameMap
+  id: Beach
+  mapName: "Космический Пляж"
+  mapPath: /Maps/_radiant/POI/Beach.yml
+  minPlayers: 0
+  stations:
+    Beach:
+      stationProto: DeadDropFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Космический Пляж"

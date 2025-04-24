@@ -41,6 +41,7 @@
       - id: FlashlightSeclite
       - id: ClothingHandsGlovesCombat
       - id: ClothingHeadHelmetAcorp
+      - id: ClothingBeltCombatWebbingAcorp
       - id: WeaponMeleeNeedle
         prob: 0.1
 
@@ -51,7 +52,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterCoatRndAcorp
+      - id: ClothingOuterCoatLabAcorp1
       - id: AnomalyScanner
       - id: NodeScanner
       - id: ClothingOuterSuitRad

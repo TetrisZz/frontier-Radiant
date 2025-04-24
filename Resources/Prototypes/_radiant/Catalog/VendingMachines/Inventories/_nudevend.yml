@@ -34,6 +34,9 @@
     ClothingUnderwearTopRadiantNeeeekoUwU: 4294967295 # Infinite
     ClothingUnderwearTopBraCap: 4294967295 # Infinite
     ClothingUnderwearTopRadiantRed: 4294967295 # Infinite
+    ClothingUnderwearTopRadiantBlack: 4294967295 # Infinite
+    ClothingUnderwearTopRadiantPink: 4294967295 # Infinite
+    ClothingUnderwearTopRadiantSeeeexsi: 4294967295 # Infinite
 # Socks
     ClothingUnderwearSocksHigh: 4294967295 # Infinite
     ClothingUnderwearSocksPantyhose: 4294967295 # Infinite
@@ -49,11 +52,16 @@
     ClothingUnderwearSocksThigh: 4294967295 # Infinite
     ClothingUnderwearSocksFishnettights: 4294967295 # Infinite
     ClothingUnderwearSocksGarters: 4294967295 # Infinite
+    ClothingUnderwearSocksRadiantPink: 4294967295 # Infinite
 # Special
     ClothingUnderwearTopSpaceNinja: 3
     ClothingUnderwearBottomBoxersSpaceNinja: 3
     ClothingUnderwearBottomPantiesSpaceNinja: 3
+    ClothingHeadHatDemonic: 4294967295 # Infinite
     ClothingOuterShibari: 5
+    ClothingUniformJumpskirtJanimaidmini: 4294967295 # Infinite
+    ClothingUniformSpecialBunny: 4294967295 # Infinite
+    ClothingUniformSpecialMaidRadiant: 4294967295 # Infinite
     ClothingNeckChokerBlack: 4294967295 # Infinite
     ClothingNeckChokerBlack2: 4294967295 # Infinite
     ClothingNeckChokerBlackShaped: 4294967295 # Infinite

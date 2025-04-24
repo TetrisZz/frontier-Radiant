@@ -1,0 +1,140 @@
+# ERT
+- type: startingGear
+  id: ERTEngineerHardsuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTEngineer
+    shoes: ClothingShoesBootsWork
+    eyes: ClothingEyesGlassesMeson
+    gloves: ClothingHandsGlovesCombat
+    belt: ClothingBeltUtilityFilled
+    outerClothing: ClothingOuterHardsuitERTEngineer
+    pocket1: WeaponDisabler
+
+- type: startingGear
+  id: ERTLeaderHardsuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    shoes: ClothingShoesSwat
+    head: ClothingHeadHatBeretHoS
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterHardsuitERTLeader
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    pocket1: FlashlightSeclite
+    pocket2: WeaponPistolMk58
+
+- type: startingGear
+  id: ERTMedicalHardsuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTMedic
+    shoes: ClothingShoesSwat
+    belt: ClothingBeltMedicalFilled
+    outerClothing: ClothingOuterHardsuitERTMedical
+    eyes: ClothingEyesHudMedical
+    gloves: ClothingHandsGlovesNitrile
+    pocket1: HandheldHealthAnalyzerUnpowered
+
+- type: startingGear
+  id: ERTSecurityHardsuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    shoes: ClothingShoesSwat
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterHardsuitERTSecurity
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    pocket1: FlashlightSeclite
+    pocket2: WeaponEnergyGunMiniAcorp
+
+- type: startingGear
+  id: ERTChaplainHardsuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTChaplain
+    shoes: ClothingShoesSwat
+    belt: ClothingBeltStorageWaistbag
+    outerClothing: ClothingOuterHardsuitERTChaplain
+    neck: ClothingNeckStoleChaplain
+    eyes: ClothingEyesGlasses
+    gloves: ClothingHandsGlovesCombat
+    pocket1: Bible
+
+- type: startingGear
+  id: ERTJanitorHardsuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTJanitor
+    shoes: ClothingShoesBootsMagGaloshes
+    belt: ClothingBeltJanitorFilled
+    outerClothing: ClothingOuterHardsuitERTJanitor
+    gloves: ClothingHandsGlovesColorPurple
+
+- type: startingGear
+  id: ERTMailCarrierHardsuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTMailCarrier
+    shoes: ClothingShoesSwat
+    belt: MailBagCapsulePrimed
+    outerClothing: ClothingOuterHardsuitERTMailCarrier
+    gloves: ClothingHandsGlovesCombat
+
+- type: startingGear
+  id: ERTRXBSSHardsuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    shoes: ClothingShoesBootsCombatFilled
+    belt: ClothingBeltBandolier
+    outerClothing: ClothingOuterHardsuitCBURN
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    pocket1: WeaponLaserPistolNF
+    pocket2: RadioHandheldNF
+
+#CC
+
+- type: startingGear
+  id: СС0SuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatCentcom
+    outerClothing: ClothingOuterArmorBasic
+    gloves: ClothingHandsGlovesColorBlack
+    pocket1: BoxFolderBlack
+
+- type: startingGear
+  id: СС1SuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatCentcom
+    gloves: ClothingHandsGlovesColorBlack
+    pocket1: BoxFolderBlack
+
+- type: startingGear
+  id: СС2SuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomFormal
+    shoes: ClothingShoesBootsLaceup
+
+- type: startingGear
+  id: СС3SuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    shoes: ClothingShoesBootsJack
+    outerClothing: ClothingOuterWinterCentcom
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: startingGear
+  id: СС4SuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatCentcomcap
+
+- type: startingGear
+  id: СС5SuitRadiant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    shoes: ClothingShoesLeather
+    neck: ClothingNeckScarfStripedCentcom
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack

@@ -1,0 +1,25 @@
+- type: entity
+  name: Спавнер трупа обр
+  id: RandomERTCorpseSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomERTCorpse
+
+- type: entity
+  name: Спавнер трупа цк
+  id: RandomCCCorpseSpawner
+  parent: SalvageHumanCorpseSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: botanist
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomCCCorpse

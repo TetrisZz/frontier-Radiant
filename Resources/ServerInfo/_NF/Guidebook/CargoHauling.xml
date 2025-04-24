@@ -8,18 +8,18 @@
     <GuideEntityEmbed Entity="CrateTradeContrabandSecure1"/>
   </Box>
 
-You can find these by:
-  - Buying them at [color=peru]cargo request computers[/color] at the [color=forestgreen]Trade Outpost[/color]
-  - Salvaging them from [color=#88b0d1]space wrecks[/color]
-  - Finding [color=#c83737]contraband crates[/color] to be smuggled (ask around to find out how)
+Вы можете найти их, если:
+  - Покупая их на [color=peru]консолях запроса груза[/color] в [color=forestgreen]Торговом Аванпосте[/color]
+  - Находя их на [color=#88b0d1]космических обломков[/color]
+  - Поиск [color=#c83737]контрабандных ящиков[/color] для её сдачи (поспрашивайте, чтобы узнать, как это сделать)
 
-Each trading crate starts with a [bold]label[/bold] saying [bold]where the create is headed[/bold], and will have a [bold][color=orange]destination symbol[/color][/bold] on the right side of the crate. Examining the crate ([color=yellow]Shift+Click[/color]) shows the name of the station it should be delivered to.
+Каждый торговый ящик начинается с [bold]метки[/bold], на которой написано [bold]куда направляется создание[/bold], и имеет [bold][color=orange]символ назначения[/color][/bold] на правой стороне ящика. Осмотр ящика ([color=yellow]Shift+Click[/color]) показывает название станции, на которую он должен быть доставлен.
 
-[bold]Selling a crate at its destination[/bold] station will result in receiving [bold][color=lightgreen]more money[/color][/bold] than the crate is worth, while [bold]selling it at other stations[/bold] will result in [bold][color=lightpink]less money[/color][/bold].
+[bold]Продав ящик на станции назначения, вы получите [bold][color=lightgreen]больше денег[/color][/bold], чем стоит ящик, а [bold]продав его на других станциях[/bold], вы получите [bold][color=lightpink]меньше денег[/color][/bold].
 
 ## Экспресс-доставка
 
-Some crates are labelled as [color=yellow]express deliveries[/color]. These provide a bonus if delivered [bolditalic]to the destination[/bolditalic] on time.
+Некоторые ящики помечены как [color=yellow]экспресс-доставка[/color]. Они дают бонус, если доставлены [bolditalic]в пункт назначения[/bolditalic] вовремя.
 
   <Box>
     <GuideEntityEmbed Entity="CrateTradeSecureHigh"/>
@@ -30,9 +30,9 @@ Some crates are labelled as [color=yellow]express deliveries[/color]. These prov
 
 Помните, что больше рук делают легкую работу, поэтому собирайте команду, чтобы доставка прошла гладко!
 
-## Cargo Storage
+## Хранение грузов
 
-One of the ways to store more trading crates on a ship at one time is by using [color=dodgerblue]crate storage racks[/color]. These racks take up only one tile, but can hold up to [bold][color=forestgreen]four[/color] trading crates at a time[/bold]!
+Один из способов одновременно хранить на корабле больше торговых ящиков - использовать [color=dodgerblue]стойки для хранения ящиков[/color]. Эти стеллажи занимают всего одну плитку, но могут вмещать до [bold][color=forestgreen]четырех[/color] торговых ящиков одновременно[/bold]!
 
   <Box>
     <GuideEntityEmbed Entity="CrateStorageRackBase" Caption=""/>
@@ -41,27 +41,27 @@ One of the ways to store more trading crates on a ship at one time is by using [
     <GuideEntityEmbed Entity="CrateStorageRack" Caption=""/>
   </Box>
 
-If your ship doesn't come with any, you can [bold][color=dodgerblue]construct these yourself![/color][/bold] You'll need a welder, a welding mask, some steel and some metal rods. All in all, each rack takes [bold]7 sheets of steel[/bold] to construct.
+Если на вашем корабле их нет, вы можете [bold][color=dodgerblue]изготовить их самостоятельно![/color][/bold] Вам понадобится сварочный аппарат, сварочная маска, немного стали и металлических прутьев. Всего на изготовление каждого стеллажа уходит [bold]7 листов стали[/bold].
 
-In order to insert or remove trading crates to a [color=dodgerblue]crate storage rack[/color], a [color=yellow]mech[/color] with a [color=yellow]power fork[/color] module [bolditalic]must be used[/bolditalic] with the rack.
+Чтобы установить или снять торговые ящики на [color=dodgerblue]стеллаж для хранения ящиков[/color], со стеллажом должен использоваться [color=yellow]мех[/color] с [color=yellow]модулем [bolditalic]силовых вил[/bolditalic].
 
-Each power fork can hold up to four crates at a time. When picking crates up off the ground, a fork picks up one crate at a time. When inserting or removing crates from a [color=dodgerblue]crate storage rack[/color], the fork can completely fill or empty a rack if there's space.
+Каждая силовая вилка может удерживать до четырех ящиков одновременно. Поднимая ящики с земли, вилы поднимают по одному ящику за раз. Вставляя или вынимая ящики из [color=dodgerblue]стеллажа для хранения ящиков[/color], вилка может полностью заполнить или опустошить стеллаж, если там есть свободное место.
 
-### Cargo Mechs
+### Погрузчик
 
-To acquire a cargo mech:
-- Buy a [color=yellow]Ripley[/color] from a scientist, ask them to put one or two power fork modules in it. Make sure to get a large battery!
-- Buy an [color=orange]Emu[/color] from the cargo request consoles on the Trade Outpost for $10,000.
+Чтобы получить Погрузчик:
+- Купите [color=yellow]Рипли[/color] у ученого, попросите его установить в него один или два модуля силовой вилки. Обязательно возьмите большую батарею!
+- Купите [color=orange]Emu[/color] в консоли запроса груза на Торговом Аванпосте за $10 000.
 
   <Box>
     <GuideEntityEmbed Entity="MechRipley"/>
     <GuideEntityEmbed Entity="MechEmu"/>
   </Box>
 
-The [color=orange]Emu[/color] is [bold]fast[/bold], but has [bold]only one power fork[/bold].
+[color=orange]Emu[/color] - [bold]быстрый[/bold], но имеет [bold]только одну силовую вилку[/bold].
 
-The [color=yellow]Ripley[/color] is [bold]slower, upgradeable,[/bold] and has [bold]two slots for power forks[/bold].
+[color=yellow]Рипли[/color] - [bold]более медленный, модернизируемый[/bold] и имеет [bold]два слота для силовых вил[/bold].
 
-Use this knowledge to help move freight faster. Good luck out there.
+Используйте эти знания, чтобы быстрее перевозить грузы. Удачи вам.
 
 </Document>

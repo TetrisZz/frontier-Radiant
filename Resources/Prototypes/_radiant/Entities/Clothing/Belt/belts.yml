@@ -8,3 +8,14 @@
     sprite: _radiant/Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Belt/salvagewebbing.rsi
+
+- type: entity
+  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase
+  id: ClothingBeltCombatWebbingAcorp
+  name: боевая разгрузка акорп
+  description: Разгрузка для ваших больших магазинов.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/CASWebbing.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/CASWebbing.rsi

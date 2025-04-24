@@ -17,3 +17,5 @@ ent-ClothingHeadsetNfsdCream = { ent-ClothingHeadsetNfsdBrown }
     .desc = { ent-ClothingHeadsetNfsdBrown.desc }
 ent-ClothingHeadsetNfsdCreamMed = { ent-ClothingHeadsetNfsdCream }
     .desc = { ent-ClothingHeadsetNfsdCream.desc }
+ent-ClothingHeadsetDoc = гарнитура СМО
+    .desc = Сообщает СМО о происходящем. Получает ключи шифрования.

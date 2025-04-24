@@ -1,0 +1,46 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Vera
+  parent: BaseVessel
+  name: HOM Вера
+  description: Экспедиционное судно, оснащенное всем необходимым для покорения просторов космоса и добычи ресурсов.
+  price: 86200
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_radiant/Shuttles/Vera.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Chemistry
+  - Expedition
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Vera
+  mapName: 'HOM Вера'
+  mapPath: /Maps/_radiant/Shuttles/Vera.yml
+  minPlayers: 0
+  stations:
+    Vera:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Вера {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

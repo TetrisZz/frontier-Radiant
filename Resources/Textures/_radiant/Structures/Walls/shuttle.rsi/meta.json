@@ -11,54 +11,36 @@
             "name": "full"
         },
         {
-            "name": "state0",
+            "name": "riveted0",
             "directions": 4
         },
         {
-            "name": "state1",
+            "name": "riveted1",
             "directions": 4
         },
         {
-            "name": "state2",
+            "name": "riveted2",
             "directions": 4
         },
         {
-            "name": "state3",
+            "name": "riveted3",
             "directions": 4
         },
         {
-            "name": "state4",
+            "name": "riveted4",
             "directions": 4
         },
         {
-            "name": "state5",
+            "name": "riveted5",
             "directions": 4
         },
         {
-            "name": "state6",
+            "name": "riveted6",
             "directions": 4
         },
         {
-            "name": "state7",
+            "name": "riveted7",
             "directions": 4
-        },
-        {
-            "name": "shuttle_construct-0"
-        },
-        {
-            "name": "shuttle_construct-1"
-        },
-        {
-            "name": "shuttle_construct-2"
-        },
-        {
-            "name": "shuttle_construct-3"
-        },
-        {
-            "name": "shuttle_construct-4"
-        },
-        {
-            "name": "shuttle_construct-5"
         }
     ]
 }

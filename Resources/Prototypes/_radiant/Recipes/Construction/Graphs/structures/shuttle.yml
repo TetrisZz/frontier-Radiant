@@ -1,0 +1,39 @@
+- type: constructionGraph
+  id: AtmosDeviceFanDirectional
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: AtmosDeviceFanDirectional
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Silver
+              amount: 20
+              doAfter: 1
+            - material: Plasteel
+              amount: 10
+              doAfter: 1
+            - material: Steel
+              amount: 30
+              doAfter: 4            
+            
+    - node: AtmosDeviceFanDirectional
+      entity: AtmosDeviceFanDirectional
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 30
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 10
+            - !type:SpawnPrototype
+              prototype: IngotSilver1
+              amount: 20
+          steps:
+            - tool: Screwing
+              doAfter: 1

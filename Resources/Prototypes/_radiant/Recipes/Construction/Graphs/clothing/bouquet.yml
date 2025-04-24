@@ -1,0 +1,87 @@
+- type: constructionGraph
+  id: MulticolouredBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: MulticolouredBouquet
+          steps:
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - material: Paper
+              amount: 2
+              doAfter: 10
+    - node: MulticolouredBouquet
+      entity: MulticolouredBouquet
+
+- type: constructionGraph
+  id: BlueBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: BlueBouquet
+          steps:
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: AmbrosiaDeus
+              name: ambrosia deus
+              icon:
+                sprite: Objects/Specific/Hydroponics/ambrosia_deus.rsi
+                state: produce
+            - material: Paper
+              amount: 2
+              doAfter: 10
+    - node: BlueBouquet
+      entity: BlueBouquet
+
+- type: constructionGraph
+  id: BlackBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: BlackBouquet
+          steps:
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: flower
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Pyrotton
+              name: pyrotton
+              icon:
+                sprite: Objects/Specific/Hydroponics/pyrotton.rsi
+                state: produce
+            - material: Paper
+              amount: 2
+              doAfter: 10
+    - node: BlackBouquet
+      entity: BlackBouquet
+

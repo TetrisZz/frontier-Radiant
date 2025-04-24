@@ -1,0 +1,46 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Sukkub
+  parent: BaseVessel
+  name: SAT Суккуб
+  description: Шаттл среднего размера, оснащён практически всем спектром устройств для оперативного медицинского вмешательства и зоной отдыха.
+  price: 85000
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_radiant/Shuttles/Sukkub.yml
+  guidebookPage: Null
+  class:
+  - Kitchen
+  - Civilian
+  - Botany
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Sukkub
+  mapName: 'HOM Суккуб'
+  mapPath: /Maps/_radiant/Shuttles/Sukkub.yml
+  minPlayers: 0
+  stations:
+    Sukkub:
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Суккуб {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]  

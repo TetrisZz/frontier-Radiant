@@ -1,0 +1,48 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Goliath
+  parent: BaseVessel
+  name: HOM Голиаф
+  description: Крупное экспедиционное судно, вместимостью от 5 человек, на нем есть все необходимое для далеких путешествий.
+  price: 150000
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_radiant/Shuttles/Goliath.yml
+  guidebookPage: Null
+  class:
+  - Kitchen
+  - Chemistry
+  - Salvage
+  - Science
+  - Expedition
+  engine:
+  - AME
+
+- type: gameMap
+  id: Goliath
+  mapName: 'HOM Голиаф'
+  mapPath: /Maps/_radiant/Shuttles/Goliath.yml
+  minPlayers: 0
+  stations:
+    Goliath:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Голиаф {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

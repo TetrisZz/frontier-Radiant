@@ -31,7 +31,7 @@ namespace Content.Shared.Preferences
 
         public const int MaxNameLength = 32;
         public const int MaxLoadoutNameLength = 32;
-        public const int MaxDescLength = 512;
+        public const int MaxDescLength = 1024;
 
         public const int DefaultBalance = 30000;
 

@@ -13,6 +13,8 @@
   loadouts:
   - SCIClothingUniformJumpsuitAcorp
   - SCIClothingUniformJumpskirtAcorp
+  - SCIClothingUniformJumpsuitAcorp1
+  - SCIClothingUniformJumpskirtAcorp1
   fallbacks:
   - SCIClothingUniformJumpsuitAcorp
   - SCIClothingUniformJumpskirtAcorp

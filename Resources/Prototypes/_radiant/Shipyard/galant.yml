@@ -1,0 +1,32 @@
+- type: vessel
+  id: Galant
+  parent: BaseVessel
+  name: NSF Галант
+  description: A medium-sized patrol craft, the Prowler class is a dedicated deep space pursuit vessel with an advanced sensor suite. 
+  price: 74500
+  category: Medium
+  group: Security
+  access: Sergeant
+  shuttlePath: /Maps/_radiant/Shuttles/Galant.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Galant
+  mapName: 'NSF Галант'
+  mapPath: /Maps/_radiant/Shuttles/Galant.yml
+  minPlayers: 0
+  stations:
+    Galant:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Галант {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

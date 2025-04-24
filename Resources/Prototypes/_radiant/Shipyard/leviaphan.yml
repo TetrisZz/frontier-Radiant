@@ -1,0 +1,46 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Leviaphan
+  parent: BaseVessel
+  name: HOM Левиафан
+  description: Крупногабаритное экспедиционное судно для большой команды, на нем имеется все необходимое для уютного полета.
+  price: 99000
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_radiant/Shuttles/Leviaphan.yml
+  guidebookPage: Null
+  class:
+  - Kitchen
+  - Chemistry
+  - Expedition
+  engine:
+  - AME
+
+- type: gameMap
+  id: Leviaphan
+  mapName: 'HOM Левиафан'
+  mapPath: /Maps/_radiant/Shuttles/Leviaphan.yml
+  minPlayers: 0
+  stations:
+    Leviaphan:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Левиафан {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

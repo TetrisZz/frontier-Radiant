@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/18/2025 19:45:12
+  entityCount: 932
+maps: []
+grids:
+- 2
+orphans:
+- 2
+nullspace: []
 tilemap:
   0: Space
   32: FloorDarkMono
@@ -786,8 +797,6 @@ entities:
     - type: Transform
       pos: 1.5,-12.5
       parent: 2
-    - type: Apc
-      hasAccess: True
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 5
@@ -1095,6 +1104,15 @@ entities:
     - type: Transform
       pos: 0.5,-1.5
       parent: 2
+- proto: BoxBeanbag
+  entities:
+  - uid: 214
+    components:
+    - type: Transform
+      parent: 268
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: BoxBodyBag
   entities:
   - uid: 929
@@ -1116,13 +1134,6 @@ entities:
 - proto: BoxShellTranquilizer
   entities:
   - uid: 213
-    components:
-    - type: Transform
-      parent: 268
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 214
     components:
     - type: Transform
       parent: 268
@@ -1664,6 +1675,11 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-15.5
+      parent: 2
+  - uid: 843
+    components:
+    - type: Transform
+      pos: -0.5,-14.5
       parent: 2
   - uid: 869
     components:
@@ -2390,6 +2406,35 @@ entities:
     components:
     - type: Transform
       parent: 268
+    - type: GroupExamine
+      group:
+      - hoverMessage: ""
+        contextText: verb-examine-group-other
+        icon: /Textures/Interface/examine-star.png
+        components:
+        - Armor
+        - ClothingSpeedModifier
+        entries:
+        - message: Понижает вашу скорость на [color=yellow]10%[/color].
+          priority: 0
+          component: ClothingSpeedModifier
+        - message: >-
+            Обеспечивает следующую защиту:
+
+            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]60%[/color].
+
+            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]60%[/color].
+
+            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]30%[/color].
+
+            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]10%[/color].
+
+            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]10%[/color].
+
+            - [color=orange]Взрывной[/color] урон снижается на [color=lightblue]10%[/color].
+          priority: 0
+          component: Armor
+        title: null
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -4254,9 +4299,9 @@ entities:
     - type: Transform
       pos: -3.5,-11.5
       parent: 2
-- proto: LockerWallMaterialsFuelUraniumFilled
+- proto: LockerWallMaterialsFuelUraniumFilled2
   entities:
-  - uid: 405
+  - uid: 227
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -4268,6 +4313,13 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-8.5
+      parent: 2
+- proto: NFHolopadShip
+  entities:
+  - uid: 842
+    components:
+    - type: Transform
+      pos: -2.5,-6.5
       parent: 2
 - proto: NFSignShield
   entities:
@@ -4312,10 +4364,10 @@ entities:
       bodyType: Static
 - proto: OreProcessor
   entities:
-  - uid: 879
+  - uid: 844
     components:
     - type: Transform
-      pos: 1.5,-14.5
+      pos: 3.5,-11.5
       parent: 2
 - proto: PlastitaniumWindow
   entities:
@@ -4600,6 +4652,15 @@ entities:
     - type: Transform
       pos: -0.5,-15.5
       parent: 2
+    - type: FuelGenerator
+      targetPower: 20000
+  - uid: 405
+    components:
+    - type: Transform
+      pos: -0.5,-14.5
+      parent: 2
+    - type: FuelGenerator
+      targetPower: 20000
 - proto: PosterLegitNanotrasenLogo
   entities:
   - uid: 263
@@ -4627,7 +4688,19 @@ entities:
     - type: Transform
       pos: -2.5,-4.5
       parent: 2
-- proto: PoweredlightColoredRed
+- proto: PoweredlightLED
+  entities:
+  - uid: 763
+    components:
+    - type: Transform
+      pos: -9.5,-2.5
+      parent: 2
+  - uid: 765
+    components:
+    - type: Transform
+      pos: 10.5,-2.5
+      parent: 2
+- proto: PoweredlightRed
   entities:
   - uid: 609
     components:
@@ -4680,18 +4753,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-9.5
-      parent: 2
-- proto: PoweredlightLED
-  entities:
-  - uid: 763
-    components:
-    - type: Transform
-      pos: -9.5,-2.5
-      parent: 2
-  - uid: 765
-    components:
-    - type: Transform
-      pos: 10.5,-2.5
       parent: 2
 - proto: PoweredlightSodium
   entities:
@@ -5211,6 +5272,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-6.5
       parent: 2
+- proto: SpawnPointPrisoner
+  entities:
+  - uid: 841
+    components:
+    - type: Transform
+      pos: 0.5,8.5
+      parent: 2
 - proto: SteelBench
   entities:
   - uid: 636
@@ -5372,12 +5440,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,10.5
       parent: 2
-- proto: TelecomServerFilledSecurity
+- proto: TelecomServerFilledNfsd
   entities:
-  - uid: 227
+  - uid: 845
     components:
     - type: Transform
-      pos: -0.5,-14.5
+      pos: 1.5,-14.5
       parent: 2
 - proto: ThrusterNfsd
   entities:
@@ -6396,7 +6464,7 @@ entities:
     - type: Transform
       pos: 4.5,3.5
       parent: 2
-- proto: WarpPointShip
+- proto: WarpPoint
   entities:
   - uid: 886
     components:

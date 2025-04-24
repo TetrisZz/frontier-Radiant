@@ -6,6 +6,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 21600
+  whitelisted: true
   startingGear: AcorpСommandantGear
   icon: "JobIconAcorpСommandant" 
   supervisors: job-supervisors-hire

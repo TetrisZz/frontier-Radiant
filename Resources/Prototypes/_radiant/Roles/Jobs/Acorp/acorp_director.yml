@@ -5,7 +5,16 @@
   playTimeTracker: JobAcorpDirector
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 21600
+      time: 72000 # 20 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Acorp
+      time: 36000 # 10 hours Radiant_Sector
+    - !type:RoleTimeRequirement
+      role: JobAcorpScience
+      time: 21600 # 6 hours Radiant_Sector
+    - !type:RoleTimeRequirement
+      role: JobAcorpSecurity
+      time: 21600 # 6 hours Radiant_Sector
   startingGear: AcorpDirectorGear
   icon: "JobIconAcorpDirector" 
   supervisors: job-supervisors-hire

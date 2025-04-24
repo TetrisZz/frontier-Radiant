@@ -1,0 +1,47 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Onix
+  parent: BaseVessel
+  name: HOM Оникс
+  description: Экспедиционное судно с ксеноархелогией.
+  price: 90000
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_radiant/Shuttles/Onix.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Chemistry
+  - Science
+  - Expedition
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Onix
+  mapName: 'HOM Оникс'
+  mapPath: /Maps/_radiant/Shuttles/Onix.yml
+  minPlayers: 0
+  stations:
+    Onix:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Оникс {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

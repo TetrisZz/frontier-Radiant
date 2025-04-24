@@ -1,5 +1,5 @@
 <Document>
-  # TIDE-CLASS GENERAL SHUTTLE
+  # ШАТТЛ ОБЩЕГО НАЗНАЧЕНИЯ КЛАССА TIDE
   <Box>
   <GuideEntityEmbed Entity="ToolboxMechanical"/>
   <GuideEntityEmbed Entity="Crowbar"/>
@@ -7,67 +7,67 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapTide" Caption="A small map of the Tide Shuttle"/>
   </Box>
-    [color=#a4885c]Ship Size:[/color] Small
+    [color=#a4885c]Размер корабля:[/color] Маленький
 	
-	[color=#a4885c]Recommended Crew:[/color] 1-3
+	[color=#a4885c]Рекомендуемый экипаж:[/color] 1-3
 	
-	[color=#a4885c]Power Gen Type:[/color] Plasma
+	[color=#a4885c]Тип электрогенератора:[/color] Плазма
 	
-	[color=#a4885c]Expeditions:[/color] None
+	[color=#a4885c]Экспедиции:[/color] Нет
 	
-	[color=#a4885c]IFF Console:[/color] None
+	[color=#a4885c]Консоль опознавания:[/color] Нет
 	
-  "A flying pile of scrap for the seasoned assistant."
+  "Летающая куча металлолома для опытного помощника."
   
-  # PREFLIGHT CHECKLIST
+  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
   
-  ## 1. Power supply
+  ## 1. Электропитание
   
-  ## 1.1. Battery units
+  ## 1.1. Аккумуляторные блоки
   <Box>
   <GuideEntityEmbed Entity="SubstationBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  - Check to see if the substation is working.
-  - Check that the APC unit's Main Breaker is toggled on.
-  - Check the APC unit's current Load* (W).
+  - Убедитесь, что подстанция закреплена на полу.
+  - Убедитесь, что ЛКП включена.
+  - Проверьте текущую нагрузку ЛКП* (Вт).
   
-  ## 1.2. P.A.C.M.A.N. generator unit
+  ## 1.2. Генератор P.A.C.M.A.N. 
   <Box>
   <GuideEntityEmbed Entity="PortableGeneratorPacmanShuttle"/>
   <GuideEntityEmbed Entity="SheetPlasma"/>
   </Box>
   
-  - Check that the P.A.C.M.A.N. generator unit is anchored, fueled, and on top of Heavy Voltage cable.
+  - Убедитесь, что генератор P.A.C.M.A.N. закреплен, заправлен и находится на кабеле высокого напряжения..
   
-  ## 2. Atmospherics
+  ## 2. Атмосфера
   
-  ## 2.1. Distribution Loop
+  ## 2.1. Распределительная петля
   <Box>
   <GuideEntityEmbed Entity="AirCanister"/>
   <GuideEntityEmbed Entity="GasPort"/>
   <GuideEntityEmbed Entity="GasPressurePump"/>
   </Box>
   
-  - Acquire an air canister if wanted.
-  - After acquiring an air canister, attach it to the connector.
-  - Check that the pipeline is intact.
+  - При необходимости приобретите воздушный баллон.
+  - После приобретения воздушного баллона присоедините его к разъему.
+  - Убедитесь, что трубопровод не поврежден.
   
-  ## 3. Other checks
+  ## 3. Другие проверки
   <Box>
   <GuideEntityEmbed Entity="Gyroscope"/>
   
   </Box>
   
-  - Check that the gyroscope is anchored, powered, and enabled.
-  - Ensure the wiring is in order.
+  - Убедитесь, что гироскоп закреплен, питается и включен.
+  - Убедитесь, что проводка в порядке.
   
-  ## Sidenotes
+  ## Примечания
   
-  * - The Tide requires around 8 kilowatts of power to be in working order.
-  
-  ** - The Tide has no tiny fans, in return, there are pumps in the airlocks so you may vent the gases into the air pipes.
-  
-  *** - There is no gravity generator, and there is minor damage to the interior and exterior.
+  ** - Для работы TIDE требуется около 8 киловатт энергии.
+
+  ** - У TIDE нет крошечных вентиляторов, зато в шлюзах есть насосы, чтобы вы могли выпускать газы в вентиляционные трубы.
+
+  *** - Генератор гравитации отсутствует, а интерьер и экстерьер имеют незначительные повреждения.
 </Document>

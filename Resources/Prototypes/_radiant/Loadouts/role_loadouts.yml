@@ -16,7 +16,8 @@
   - COMPDA
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - SECUnderwearBottom
   - ASSUnderwearSocks
   - SECUnderwearTop
@@ -39,7 +40,8 @@
   - DIRPDA
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - SCIUnderwearBottom
   - ASSUnderwearSocks
   - SCIUnderwearTop
@@ -62,7 +64,8 @@
   - SECPDA
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - SECUnderwearBottom
   - ASSUnderwearSocks
   - SECUnderwearTop
@@ -83,7 +86,8 @@
   - SCIPDA
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - SCIUnderwearBottom
   - ASSUnderwearSocks
   - SCIUnderwearTop
@@ -96,6 +100,7 @@
   - ENGJumpsuit
   - ContractorGloves
   - COMBackpack
+  - ASSOuterClothing
   - ENGBelt
   - ENGShoes
   - DIRFace
@@ -106,7 +111,8 @@
   - ENGPDA
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - ASSUnderwearBottom
   - ASSUnderwearSocks
   - ASSUnderwearTop
@@ -126,7 +132,8 @@
   - MEDPDA
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - ASSUnderwearBottom
   - ASSUnderwearSocks
   - ASSUnderwearTop
@@ -146,7 +153,8 @@
   - SERPDA
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - ASSUnderwearBottom
   - ASSUnderwearSocks
   - ASSUnderwearTop
@@ -166,7 +174,8 @@
   - ASSPDA
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorTrinkets
+  - ContractorBackpackItems
+  - ContractorHandItems
   - ASSUnderwearBottom
   - ASSUnderwearSocks
   - ASSUnderwearTop

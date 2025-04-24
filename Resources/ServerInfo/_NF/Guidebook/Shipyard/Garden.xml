@@ -8,63 +8,64 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapGarden" Caption=""/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Small
+  [color=#a4885c]Размер корабля:[/color] Маленький
 
-  [color=#a4885c]Recommended Crew:[/color] 1-2
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 1-2
 
-  [color=#a4885c]Power Gen Type:[/color] Plasma
+  [color=#a4885c]Тип электрогенератора:[/color] Плазма
 
-  [color=#a4885c]Expeditions:[/color] None
+  [color=#a4885c]Экспедиции:[/color] None
 
-  [color=#a4885c]IFF Console:[/color] None
+  [color=#a4885c]Консоль опознавания:[/color] Нет
 
   "A small botany vessel dedicated to horticultural experimentation."
 
-  # PREFLIGHT CHECKLIST
+  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
   
-  ## 1. Power supply
+  ## 1. Электропитание
   
-  ## 1.1. Battery units
+  ## 1.1. Аккумуляторные блоки
   <Box>
   <GuideEntityEmbed Entity="SubstationWallBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
   
-  - Check that the substation unit is anchored to the floor.
-  - Check that the APC unit's Main Breaker is toggled on.
-  - Check the APC units current Load* (W).
-  
+  - Убедитесь, что подстанция закреплена на полу.
+  - Убедитесь, что ЛКП включена.
+  - Проверьте текущую нагрузку ЛКП* (Вт).
+   
   ## 1.2. P.A.C.M.A.N. generator unit
   <Box>
   <GuideEntityEmbed Entity="PortableGeneratorPacmanShuttle"/>
   <GuideEntityEmbed Entity="SheetPlasma"/>
   </Box>
   
-  - Check that the P.A.C.M.A.N. generator unit is anchored to the floor.
-  - Check that the P.A.C.M.A.N. generator unit has fuel. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation during flight.
-  - Check that the P.A.C.M.A.N. generator unit is set to HV output.
-  - Set Target Power to 11-12** [bold]kW[/bold].
-  - Start the P.A.C.M.A.N. generator unit.
+  - Проверьте, закреплен ли генератор P.A.C.M.A.N. на полу.
+  - Проверьте, есть ли в генераторе P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки энергии во время полета.
+  - Проверьте, установлен ли генератор P.A.C.M.A.N. на выход HV.
+  - Установите целевую мощность на 11-12** [bold]k[/bold]Вт.
+  - Запустите генератор P.A.C.M.A.N.
   
-  ## 2. Atmospherics
+  ## 2. Атмосфера
   
-  ## 2.1. Distribution Loop
+  ## 2.1. Распределительная петля
   <Box>
   <GuideEntityEmbed Entity="AirCanister"/>
   <GuideEntityEmbed Entity="GasPort"/>
   </Box>
   
-  - Check that the air canister is anchored to connector port.
+  - Проверьте, закреплен ли воздушный баллон на соединительном порту.
+
   
-  ## 2.2. Waste Loop
+  ## 2.2. Схема отходов
   <Box>
   <GuideEntityEmbed Entity="GasPressurePump"/>
   <GuideEntityEmbed Entity="AirAlarm"/>
   </Box>
     
-  - Enable waste loop pump.
-  - Disable Auto Mode on the Air Alarm in the Engine Room.
-  - Set the Air Alarm in the Engine Room to Filtering (Wide).
+  - Включите насос.
+  - Отключите автоматический режим на воздушной сигнализации.
+  - Установите для воздушной сигнализации режим фильтрации (широкий).
   
   ## 3. Other checks
   <Box>

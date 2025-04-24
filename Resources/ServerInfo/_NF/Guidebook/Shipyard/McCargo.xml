@@ -1,38 +1,38 @@
 <Document>
-  # MCCARGO FRANCHISE SHUTTLE
+  # ШАТТЛ КЛАССА MCCARGO
   <Box>
   <GuideEntityEmbed Entity="ClothingHeadHatMcCrown"/>
   <GuideEntityEmbed Entity="HappyHonkMcCargo"/>
   <GuideEntityEmbed Entity="CrateFoodMcCargo"/>
   <GuideEntityEmbed Entity="KitchenDeepFryer"/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Medium
+  [color=#a4885c]Размер корабля:[/color] Средний
 
-  [color=#a4885c]Recommended Crew:[/color] 1-4
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 1-4
 
-  [color=#a4885c]Power Gen Type:[/color] Plasma
+  [color=#a4885c]Тип электрогенератора:[/color] Плазма
 
-  [color=#a4885c]Expeditions:[/color] None
+  [color=#a4885c]Экспедиции:[/color] При покупке консоли - да
 
-  [color=#a4885c]IFF Console:[/color] None
+  [color=#a4885c]Консоль опознавания:[/color] Нет
 
-  "Your very own McCargo™ Franchise"
+  "Ваша собственная франшиза McCargo"
 
-  # PREFLIGHT CHECKLIST
+  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
   
-  ## 1. Power supply
+  ## 1. Электропитание
   
-  ## 1.1. Battery units
+  ## 1.1. Аккумуляторные блоки
   <Box>
   <GuideEntityEmbed Entity="SubstationWallBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
   
-  - Check that the substation unit is anchored to the floor.
-  - Check that the APC unit's Main Breaker is toggled on.
-  - Check the APC units current Load* (W).
+  - Убедитесь, что подстанция закреплена на полу.
+  - Убедитесь, что ЛКП включена.
+  - Проверьте текущую нагрузку ЛКП* (Вт).
   
-  ## 1.2. P.A.C.M.A.N. generator unit
+  ## 1.2. Генератор P.A.C.M.A.N.
   <Box>
   <GuideEntityEmbed Entity="PortableGeneratorPacmanShuttle"/>
   <GuideEntityEmbed Entity="SheetPlasma"/>
@@ -43,9 +43,9 @@
   - Check that the P.A.C.M.A.N. generators units are set to HV output.
   - Start the P.A.C.M.A.N. generators units.
   
-  ## 2. Atmospherics
+  ## 2. Атмосфера
   
-  ## 2.1. Distribution Loop
+  ## 2.1. Распределительная петля
   <Box>
   <GuideEntityEmbed Entity="AirCanister"/>
   <GuideEntityEmbed Entity="GasPort"/>
@@ -53,7 +53,7 @@
   
   - Check that the canisters is anchored to connector port.
   
-  ## 2.2. Waste Loop
+  ## 2.2. Схема отходов
   <Box>
   <GuideEntityEmbed Entity="GasPressurePump"/>
   <GuideEntityEmbed Entity="AirAlarm"/>
@@ -61,13 +61,13 @@
     
   - Ensure that the waste loop pump is enabled.
   
-  ## 3. Other checks
+  ## 3. Другие проверки
   <Box>
   <GuideEntityEmbed Entity="SmallGyroscope"/>
   <GuideEntityEmbed Entity="GravityGeneratorMini"/>
   </Box>
   
-  - Check that the gyroscope is anchored, powered, and enabled.
-  - Check that the mini gravity generator is anchored, powered, and enabled.
+  - Проверьте, закреплен ли гироскоп, подано ли на него питание и включен ли он.
+  - Проверьте, закреплен ли, питается ли и включен ли мини-генератор гравитации.
 
 </Document>
