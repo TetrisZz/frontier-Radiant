@@ -1,5 +1,5 @@
 <Document>
-  # KESTREL-CLASS SALVAGE SHUTTLE
+  # УТИЛИЗАЦИОННЫЙ ШАТТЛ КЛАССА KESTREL 
   <Box>
   <GuideEntityEmbed Entity="MiningDrill"/>
   <GuideEntityEmbed Entity="OreBag"/>
@@ -9,50 +9,51 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapKestrel" Caption=""/>
   </Box>
-    [color=#a4885c]Ship Size:[/color] Small
+    [color=#a4885c]Размер корабля:[/color] Маленький
 	
-	[color=#a4885c]Recommended Crew:[/color] 2-4
+	[color=#a4885c]Рекомендуемый экипаж:[/color] 2-4
 	
-	[color=#a4885c]Power Gen Type:[/color] Uranium
+	[color=#a4885c]Тип электрогенератора:[/color] Урановый
 	
-	[color=#a4885c]Expeditions:[/color] None
+	[color=#a4885c]Экспедиции:[/color] При покупке консоли - да
 	
-	[color=#a4885c]IFF Console:[/color] None
+	[color=#a4885c]Консоль опознавания:[/color] Нет
 	
-  "Once a local shipping lane freighter, this model has been converted for use in debris field mining and salvage operations."
+  "Когда-то это был грузовой корабль для местных перевозок, но теперь эта модель была переоборудована для использования в операциях по добыче и утилизации мусора."
     
-  # PREFLIGHT CHECKLIST
+  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
   
-  ## 1. Power supply
+  ## 1. Электропитание
   
-  ## 1.1. Battery units
+  ## 1.1. Аккумуляторные блоки
   <Box>
   <GuideEntityEmbed Entity="SMESBasic"/>
   <GuideEntityEmbed Entity="SubstationBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
   
-  - Check that the SMES unit is anchored to the floor.
-  - Check that the substation unit is anchored to the floor.
-  - Check that the APC unit's Main Breaker is toggled on.
-  - Check the APC unit's current Load* (W).
+  - Убедитесь, что СМЭС закреплен на полу.
+  - Убедитесь, что подстанция закреплена на полу.
+  - Убедитесь, что ЛКП включена.
+  - Проверьте текущую нагрузку ЛКП* (Вт).
   
-  ## 1.2. S.U.P.E.R.P.A.C.M.A.N. generator unit
+  ## 1.2. Генератор S.U.P.E.R.P.A.C.M.A.N. 
   <Box>
   <GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
   <GuideEntityEmbed Entity="SheetUranium"/>
   <GuideEntityEmbed Entity="SignRadiationMed"/>
   </Box>
   
-  - Check that the S.U.P.E.R.P.A.C.M.A.N. generator unit is anchored to the floor.
-  - Check that the S.U.P.E.R.P.A.C.M.A.N. generator unit has fuel. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation during flight.
-  - Check that the S.U.P.E.R.P.A.C.M.A.N. generator unit is set to HV output.
-  - Set Target Power for 29-30** [bold]kW[/bold].
-  - Start the S.U.P.E.R.P.A.C.M.A.N. generator unit.
+  - Проверьте, закреплен ли генератор S.U.P.E.R.P.A.C.M.A.N. на полу.
+  - Проверьте, есть ли в генераторе S.U.P.E.R.P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас есть достаточный запас топлива для длительной выработки энергии во время полета.
+  - Проверьте, настроен ли генератор S.U.P.E.R.P.A.C.M.A.N. на выход HV.
+  - Установите целевую мощность на 29-30 [bold]к[/bold]Вт.
+  - Запустите генератор S.U.P.E.R.P.A.C.M.A.N.
+  - Закройте радиационную защиту.
   
-  ## 2. Atmospherics
+  ## 2. Атмосфера
   
-  ## 2.1. Distribution Loop
+  ## 2.1. Распределительная петля 
   <Box>
   <GuideEntityEmbed Entity="GasPort"/>
   <GuideEntityEmbed Entity="OxygenCanister"/>
@@ -61,43 +62,43 @@
   <GuideEntityEmbed Entity="GasPressurePump"/>
   </Box>
   
-  - Check that the O2 canister is anchored to connector port.
-  - Check that the N2 canister is anchored to connector port.
-  - Check that the gas mixer is set to the correct mixing ratio (21% Oxygen, 79% Nitrogen).
-  - Check that the gas mixer is set to 101kPa.
-  - Enable gas mixer.
+  - Убедитесь, что баллон O2 закреплен на соединительном порту.
+  - Убедитесь, что баллон с N2 закреплен на соединительном порту.
+  - Убедитесь, что газовый смеситель настроен на правильное соотношение смешивания (21% кислорода, 79% азота).
+  - Убедитесь, что газовый смеситель настроен на 101 кПа.
+  - Убедитесь, что газовый смеситель включен.
   
-  ## 2.2. Waste Loop
+  ## 2.2. Схема отходов
   <Box>
   <GuideEntityEmbed Entity="GasPressurePump"/>
   <GuideEntityEmbed Entity="AirAlarm"/>
   </Box>
     
-  - Enable waste loop pump.
+  - Включить насос отвода отходов.
   
-  ## 3. Other checks
+  ## 3. Другие проверки
   <Box>
   <GuideEntityEmbed Entity="Gyroscope"/>
   <GuideEntityEmbed Entity="GravityGeneratorMini"/>
   <GuideEntityEmbed Entity="BlastDoor"/>
   </Box>
   
-  - Check that the gyroscope is anchored, powered, and enabled.
-  - Check that the mini gravity generator is anchored, powered, and enabled.
-  - Check that the blast doors are closed.
+  - Проверьте, что гироскоп закреплен, питается и включен.
+  - Убедитесь, что мини-генератор гравитации закреплен, питается и включен.
+  - Убедитесь, что гермозатворы закрыты.
   
-  ## Sidenotes
+  ## Примечания
   
-  * - Kestrel-class salvage ships are equipped with five APC units that can be used to appraise the ship's total power consumption. Unmodified Kestrel-class ship requires 28.6 kW of power to remain operational.
-  
-  ** - Kestrel-class salvage ships have higher power demand than a standard P.A.C.M.A.N. can provide at optimal settings, and come equipped with a S.U.P.E.R.P.A.C.M.A.N. instead. Please note that the recommended Target Power value to avoid blackouts during Gravity Generator charging sequence is 30 kW.
-  
+  * - Спасательные корабли класса KESTREL оснащены пятью блоками ЛКП, которые можно использовать для оценки общего энергопотребления корабля. Немодифицированный корабль класса KESTREL требует 28,6 кВт энергии для поддержания работоспособности.
+
+  ** - Спасательные корабли класса KESTREL потребляют больше энергии, чем может обеспечить стандартный P.A.C.M.A.N. при оптимальных настройках, поэтому вместо него устанавливается S.U.P.E.R.P.A.C.M.A.N. Обратите внимание, что рекомендуемое значение целевой мощности во избежание отключения электричества во время зарядки гравитационного генератора составляет 30 кВт.
+
   <Box>
   <GuideEntityEmbed Entity="SignRadiationMed"/>
   <GuideEntityEmbed Entity="ClothingOuterSuitRad"/>
   <GuideEntityEmbed Entity="GeigerCounter"/>
   <GuideEntityEmbed Entity="ShuttersRadiation"/>
   </Box>
-  Note: Be sure to take all necessary protective measures when working with radioactive materials: use a radiation suit, engage internals, make sure to enable Geiger's counter, wash your hands after, and keep radiation shutters closed at all times.
+  Примечание: При работе с радиоактивными материалами обязательно принимайте все необходимые меры защиты: используйте радиационный костюм, задействуйте внутренние устройства, обязательно включите счетчик Гейгера, мойте руки после работы и постоянно держите радиационные заслонки закрытыми.
 
 </Document>

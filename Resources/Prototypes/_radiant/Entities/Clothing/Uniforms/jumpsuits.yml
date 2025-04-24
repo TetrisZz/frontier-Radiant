@@ -11,6 +11,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAcorp1
+  name: комбинезон акорп
+  description: Белый комбинезон формы Аколит Корпорейшн.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASSECJumpsuit.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASSECJumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitExploratorAcorp
   name: комбинезон полевого персонала
   description: Стандартный комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
@@ -55,6 +66,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCaptainAcorp1
+  name: водолазка коменданта
+  description: Водолазка коменданта Аколит Корпорейшн, для тех кому холодно или одиноко во время своей смены.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASHosAlt.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASHosAlt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGreenLok
   name: зеленый свитер
   description: Свитер зеленого цвета, наверное очень теплый.
@@ -96,6 +118,17 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/med.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/med.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalAcorp1
+  name: комбинезон медика
+  description: Стандартный комбинезон медика акорп.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASmedical.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASmedical.rsi
 
 - type: entity
   parent: ClothingUniformBase

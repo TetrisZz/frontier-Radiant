@@ -191,3 +191,16 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.9
+
+#Chief Medical Officer's Hardsuit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBasic
+  id: ClothingHeadHelmetHardsuitMedicalAcorp
+  name: mime hardsuit helmet
+  description: A mime hardsuit helmet.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/CASMedhelmHardsuit.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/CASMedhelmHardsuit.rsi

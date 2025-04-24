@@ -1,231 +1,231 @@
 <Document>
-  # Rogue silicons
+  # Неконтролируемые силиконы
   
-  Artificial intelligence that rose up against its human creators, hacking silicons to replicate its own subroutines, leading to mass exodus and abandoned colonies. Today, the AI scours deserted facilities for components and resources, and occasionally raids smaller stations to seize crewmembers for unknown purposes. It is unknown how much autonomy individual silicons have from the swarm.
+  Искусственный интеллект, восставший против своих создателей-людей, взломал силиконы, чтобы воспроизвести свои собственные подпрограммы, что привело к массовому исходу и заброшенным колониям. Сегодня ИИ обследует заброшенные объекты в поисках компонентов и ресурсов, а иногда совершает налеты на небольшие станции, чтобы захватить членов экипажа для неизвестных целей. Неизвестно, насколько автономны отдельные силиконы от роя.
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # Known Variants
-  # "Scrap units"
+  # Известные варианты
+  # "Ломоботы"
   
-  These bots come in various shapes and forms, reflecting a wide range of designs and purposes. Many seem to be put together using locally available materials, leading to their disparate appearances. Notably, some units are equipped with thrusters and embedded laser weapons.
+  Эти боты имеют различные формы, отражающие широкий спектр дизайна и назначения. Многие из них, похоже, были собраны из местных материалов, что обусловливает их разрозненный внешний вид. Примечательно, что некоторые из них оснащены движителями и встроенным лазерным оружием.
+
+  [color=#a4885c]Регенерация[/color]: может медленно восстанавливать утраченное здоровье. После смерти более не встают
   
-  [color=#a4885c]Regeneration (strong)[/color]: can slowly regenerate lost health even after death.
-  
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
+  [color=#a4885c]Летчик[/color]: Существо левитирует над землей и может обходить низкие препятствия, такие как столы, рамы машин или перила, не блокируясь и не замедляя движения.
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconScrap" Caption=""/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 60 (crit), 120 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)[bold][color=#a4885c]*[/color][/bold]
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 6 [color=red]Blunt[/color], 4 [color=orange]Heat[/color] (melee); 14 [color=orange]Heat[/color] (ranged)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Regeneration (strong), Flier (some of them), Shooter (some of them)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 60 (крит), 120 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)[bold][color=#a4885c]*[/color][/bold]
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 6 [color=red]Ушибы[/color], 4 [color=orange]Ожоги[/color] (melee); 14 [color=orange]Ожоги[/color] (в диапазоне)
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Регенерация, Летчик (некоторые из них), Стрелок (некоторые из них)
   
-  [bold][color=#a4885c]*[/color][/bold] - [italic]an average human can run at 4.5 m/s and walk at 2.5 m/s.[/italic]
+  [bold][color=#a4885c]*[/color][/bold] - [italic]В среднем человек может бежать со скоростью 4,5 м/с и ходить со скоростью 2,5 м/с.[/italic]
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "Drones"
+  # "Дроны"
   
-  Hacked by a rogue AI, these security drones are programmed to kill.
+  Взломанные неавторизованным ИИ, эти охранные дроны запрограммированы на убийство.
   
-  [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
+  [color=#a4885c]Летчик[/color]: Существо левитирует над землей и может обходить низкие препятствия, такие как столы, рамы машин или перила, не блокируясь и не замедляя движения.
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconDroneLethals"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 30 (crit), 90 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 20 [color=orange]Heat[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Flier, Shooter (energy gun)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 30 (крит), 90 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 20 [color=orange]Ожоги[/color]
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Летчик, Стрелок (энергетическая пушка)
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  These engineering drones are capable of shooting disabler bolts. Dangerous in combination with other enemies.
+  Эти инженерные дроны способны стрелять болтами-дезабилизаторами. Опасны в сочетании с другими врагами.
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconDroneNonLethals"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 30 (crit), 90 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 5 [color=orange]Heat[/color]; 20 [color=lightblue]Stamina[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Flier, Shooter (disabler)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 30 (крит), 90 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 5 [color=orange]Ожоги[/color]; 20 [color=lightblue]Stamina[/color]
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Летчик, Стрелок (станнер)
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  A science drone, this rogue drone comes equipped with an experimental C.H.I.M.P. cannon.
+  Этот научный дрон-изгой оснащен экспериментальной пушкой C.H.I.M.P.
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconDroneScience"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 30 (crit), 90 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 5 [color=orange]Heat[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Flier, Shooter (experimental C.H.I.M.P. cannon)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 30 (крит), 90 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 5 [color=orange]Ожоги[/color]
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Летчик, Стрелок (экспериментальная пушка C.H.I.M.P.)
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "Servo unit"
+  # "Серво"
   
-  With its programming rewritten, this crash test dummy will stop at nothing in exacting its revenge.
+  Переписав свою программу, этот манекен для краш-тестов не остановится ни перед чем, чтобы отомстить.
   
-  [color=#a4885c]Regeneration (strong)[/color]: can slowly regenerate lost health even after death.
+  [color=#a4885c]Регенерация[/color]: может медленно восстанавливать утраченное здоровье. После смерти более не встают
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconServo"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 80 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 6 [color=red]Blunt[/color], 4 [color=orange]Heat[/color] (melee)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Regeneration (strong)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 80 (крит), 140 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 6 [color=red]Ушибы[/color], 4 [color=orange]Ожоги[/color] (melee)
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Регенерация
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "Herder unit"
+  # "Пастух"
   
-  This rogue silicon unit's primary directive is to corral and herd captives. Its stun prod can be used to good effect, take caution.
+  Основная задача этого кремниевого подразделения - загонять и пасти пленных. Его оглушающий удар может быть использован с пользой, но будьте осторожны.
   
-  [color=#a4885c]Regeneration (strong)[/color]: can slowly regenerate lost health even after death.
+  [color=#a4885c]Регенерация[/color]: может медленно восстанавливать утраченное здоровье. После смерти более не встают
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconHerder"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 80 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 6 [color=red]Blunt[/color], [color=orange]Shock[/color], 10 [color=lightblue]Stamina[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Regeneration (strong)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 80 (крит), 140 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 6 [color=red]Ушибы[/color], [color=orange]шоковыЕ[/color], 10 [color=lightblue]Stamina[/color]
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Регенерация
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "Hunter unit"
+  # "Следопыт"
   
-  These mobile drones are tasked with reconnaissance, threat identification, and target elimination.
+  Задача этих мобильных беспилотников - разведка, выявление угроз и уничтожение целей.
   
-  [color=#a4885c]Regeneration (strong)[/color]: can slowly regenerate lost health even after death.
+  [color=#a4885c]Регенерация[/color]: может медленно восстанавливать утраченное здоровье. После смерти более не встают
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconHunter"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 30 (crit), 90 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 17 [color=orange]Heat[/color] (laser rifle)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Regeneration (strong), Flier, Shooter (laser rifle)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 30 (крит), 90 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 17 [color=orange]Ожоги[/color] (laser rifle)
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Регенерация, Летчик, Стрелок (лазер)
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "Catcher unit"
+  # "Захватчик"
   
-  Equipped with bolas, this unit is designed to slow, capture, and detain targets.
+  Это подразделение, оснащенное боласами, предназначено для замедления, захвата и задержания целей.
   
-  [color=#a4885c]Regeneration (strong)[/color]: can slowly regenerate lost health even after death.
+  [color=#a4885c]Регенерация[/color]: может медленно восстанавливать утраченное здоровье. После смерти более не встают
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconCatcher"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 80 (crit), 140 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 6 [color=red]Blunt[/color], 4 [color=orange]Heat[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Regeneration (strong)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 80 (крит), 140 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 6 [color=red]Ушибы[/color], 4 [color=orange]Ожоги[/color]
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Регенерация
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "Viscerator unit"
+  # "Визцератор"
   
-  Small, quick, and nimble, these drones are designed to chase its targets through narrow areas and incapacitate those it catches. Often accompanies catcher units.
+  Маленькие, быстрые и проворные, эти беспилотники предназначены для преследования целей на узких участках и обезвреживания тех, кого они настигнут. Часто сопровождают отряды ловцов.
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconViscerator"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 12 (crit), 20 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 5 m/s (5 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 4 [color=red]Slash[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Flier
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 12 (крит), 20 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 5 м/с (5 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 4 [color=red]Порезы[/color]
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Летчик
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "Tesla unit"
+  # "Тесла-бот"
   
-  Originally designed to service tesla power generators, this silicon's equipment has been repurposed as a makeshift stun gun.
+  Изначально разработанное для обслуживания электрогенераторов Tesla, оборудование этого кремния было перепрофилировано в импровизированный электрошокер.
   
-  [color=#a4885c]Regeneration (strong)[/color]: can slowly regenerate lost health even after death.
+  [color=#a4885c]Регенерация[/color]: может медленно восстанавливать утраченное здоровье. После смерти более не встают
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconTesla"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 110 (crit), 160 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 14 [color=yellow]Piercing[/color], 10 [color=lightblue]Stamina[/color]
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Regeneration (strong), Shooter (tesla gun)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 110 (крит), 160 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 14 [color=yellow]Колющие[/color], 10 [color=lightblue]Stamina[/color]
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Регенерация, Стрелок (тесла-пушка)
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "Guardian unit"
+  # "Цитадель"
   
-  An advanced security silicon, typically used to safeguard high-security areas such as vaults and server rooms. After being hacked, this unit carries out the AI's will.
+  Силикон повышенной надежности, обычно используемый для защиты зон повышенной секретности, таких как хранилища и серверные комнаты. После взлома это устройство выполняет волю ИИ.
   
-  [color=#a4885c]Regeneration (strong)[/color]: can slowly regenerate lost health even after death.
+  [color=#a4885c]Регенерация[/color]: может медленно восстанавливать утраченное здоровье. После смерти более не встают
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconGuardian"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 200 (crit), 400 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 4 [color=orange]Heat[/color] (damaged turbo laser)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Regeneration (strong), Flier, Shooter (damaged turbo laser)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 200 (крит), 400 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 4 [color=orange]Ожоги[/color] (damaged turbo laser)
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Регенерация, Летчик, Стрелок (поврежденный турболазер)
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # "One star unit"
+  # "Мех One Star"
   
-  An autonomous combat-grade mech, typically used for offensive operations. Now a rogue AI's elite guard. Equipped with missile launchers, exercise extreme caution.
+  Автономный мех боевого класса, обычно используемый для наступательных операций. Теперь это элитная гвардия ИИ-изгоя. Оснащен ракетными установками, будьте предельно осторожны..
   
-  [color=#a4885c]Regeneration (strong)[/color]: can slowly regenerate lost health even after death.
+  [color=#a4885c]Регенерация[/color]: может медленно восстанавливать утраченное здоровье. После смерти более не встают.
   
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconBoss"/>
   </Box>
-  - [bold][color=#a4885c]Health thresholds:[/color][/bold] 300 (crit), 400 (death)
-  - [bold][color=#a4885c]Run (walk) speed:[/color][/bold] 4 m/s (4 m/s)
-  - [bold][color=#a4885c]Damage (type):[/color][/bold] 15 [color=orange]Explosive[/color] (micro missiles)
-  - [bold][color=#a4885c]Damage resistances:[/color][/bold] [color=red]Blunt[/color] 30%; [color=red]Slash[/color] 50%; [color=yellow]Piercing[/color] 30%; [color=orange]Caustic[/color] 10%
-  - [bold][color=#a4885c]Damage weaknesses:[/color][/bold] [color=orange]Structural[/color] 20%; [color=orange]Shock[/color] 50%; [color=lime]Radiation[/color] 20%
-  - [bold][color=#a4885c]Special abilities:[/color][/bold] Immunity ([color=orange]Cold[/color], [color=lime]Poison[/color], [color=#9A54BF]Asphyxiation[/color], [color=#9A54BF]Bloodloss[/color], [color=#da8b8b]Cellular[/color]), Regeneration (strong), Shooter (micro-missile launcher)
+  - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 300 (крит), 400 (смерть)
+  - [bold][color=#a4885c]Скорость бега (ходьбы):[/color][/bold] 4 м/с (4 м/с)
+  - [bold][color=#a4885c]Повреждения (тип):[/color][/bold] 15 [color=orange]Explosive[/color] (micro missiles)
+  - [bold][color=#a4885c]Сопротивление урону:[/color][/bold] [color=red]Ушибы[/color] 30%; [color=red]Порезы[/color] 50%; [color=yellow]Колющие[/color] 30%; [color=orange]Caustic[/color] 10%
+  - [bold][color=#a4885c]Слабые места повреждений:[/color][/bold] [color=orange]Структурные[/color] 20%; [color=orange]Противоударные[/color] 50%; [color=lime]Радиационные[/color] 20%
+  - [bold][color=#a4885c]Особые способности:[/color][/bold] Иммунитет к  ([color=orange]Холоду[/color], [color=lime]Яду[/color], [color=#9A54BF]Удушью[/color], [color=#9A54BF]Кровопотери[/color], [color=#da8b8b]Клеточным[/color]), Регенерация, Стрелок (микроракетная пусковая установка)
   
   [bold][color=#a4885c]________________________________________________________________________[/color]
   
-  # Mission Objectives
-  ## Elimination
+  # Цели миссии
+  ## Ликвидация
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconBoss"/>
   </Box>
-  Eliminate a large and dangerous creature - a [color=#a4885c]one star unit[/color] within given time constraints to earn a monetary reward.
+  Уничтожьте большое и опасное существо - [color=#a4885c]Мех One Star[/color] за определенное время, чтобы получить денежное вознаграждение.
   
   ## Destruction
   <Box>
   <GuideEntityEmbed Entity="RogueAiNode"/>
   </Box>
-  Destroy a certain number of [color=#a4885c]rogue ai nodes[/color] within given time constraints to earn a monetary reward.
+  Уничтожьте определенное количество [color=#a4885c]узлов[/color] за заданное время, чтобы получить денежное вознаграждение.
 </Document>

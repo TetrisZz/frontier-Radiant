@@ -4059,7 +4059,7 @@ entities:
     - type: Transform
       pos: 8.5,10.5
       parent: 1
-- proto: SuitStorageParamedic
+- proto: SuitStorageAcorpMedical
   entities:
   - uid: 57
     components:

@@ -72,7 +72,7 @@
     sprite: _radiant/Clothing/OuterClothing/redcoat.rsi
 
 - type: entity
-  parent: ClothingOuterStorageFoldableBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLongAcorp
   name: плащ акорп
   description: Длинный и плотный плащ акорп с отличительными светоотражающими знаками.
@@ -101,3 +101,23 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRDAcorp]
   id: ClothingOuterCoatRDAcorpOpened
   name: лабораторный халат директора исследования
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabAcorp1
+  name: лабораторный халат акорп
+  description: Стандартный халат для работников в чьи задачи входит работать головой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/CASLabcoat.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/CASLabcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRDAcorp]
+  id: ClothingOuterCoatLabAcorp1Opened
+  name: лабораторный халат акорп

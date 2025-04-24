@@ -6,7 +6,7 @@
 
 Изучая уникальные возможности каждого артефакта, вы получаете очки исследований, повышаете его стоимость при продаже и, возможно, открываете одну или две полезные способности!
 
-## Artifact Nodes
+## Узлы артефактов
 <Box>
 <GuideEntityEmbed Entity="ComplexXenoArtifact" Caption=""/>
 <GuideEntityEmbed Entity="SimpleXenoArtifactItem" Caption=""/>

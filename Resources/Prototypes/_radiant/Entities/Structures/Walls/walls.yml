@@ -1,70 +1,16 @@
 - type: entity
-  parent: BaseWall
+  parent: WallRiveted
   id: RadiantWallShuttle
   name: стена шаттла
-  suffix: Reinforced, Exterior
+  suffix: ОченьПрочная
   components:
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: StaticPrice
-    price: 150 # Frontier: 250<150 - makes some shuttles way more expensive otherwise
-  - type: RadiationBlocker
-    resistance: 5
   - type: Sprite
     sprite: _radiant/Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: _radiant/Structures/Walls/shuttle.rsi
-    state: full
-  - type: Construction
-    graph: Girder
-    node: shuttleWall
-  - type: IconSmooth
-    key: walls
-    base: state
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ShuttleWallVisuals.DeconstructionStage:
-        ShuttleWallVisualLayers.Deconstruction:
-          -1: { visible: false }
-          0: { state: shuttle_construct-0, visible: true}
-          1: { state: shuttle_construct-1, visible: true}
-          2: { state: shuttle_construct-2, visible: true}
-          3: { state: shuttle_construct-3, visible: true}
-          4: { state: shuttle_construct-4, visible: true}
-          5: { state: shuttle_construct-5, visible: true}
-  - type: RCDDeconstructable #Frontier
-    cost: 6 #Frontier
-    delay: 8 #Frontier
-    fx: EffectRCDDeconstruct8 #Frontier
-#  - type: Reflect # Frontier
-#    reflectProb: 1 # Frontier
 
 - type: entity
-  parent: RadiantWallShuttleInterior
+  parent: WallReinforced
   id: RadiantWallShuttlePlastitanium
   name: стена шаттла
   suffix: Plastitanium
@@ -73,9 +19,14 @@
     sprite: _radiant/Structures/Walls/shuttle_plastic.rsi
   - type: Icon
     sprite: _radiant/Structures/Walls/shuttle_plastic.rsi
+  - type: StaticPrice
+    price: 100 # radiant 115<100
+  - type: IconSmooth
+    key: walls
+    base: state
 
 - type: entity
-  parent: RadiantWallShuttleInterior
+  parent: RadiantWallShuttlePlastitanium
   id: RadiantWallShuttleGomer
   name: стена шаттла
   suffix: Gomer
@@ -84,21 +35,27 @@
     sprite: _radiant/Structures/Walls/shuttle_gomer.rsi
   - type: Icon
     sprite: _radiant/Structures/Walls/shuttle_gomer.rsi
+  - type: StaticPrice
+    price: 110 # radiant 85<110
 
 - type: entity
-  parent: RadiantWallShuttleInterior
+  parent: WallShuttle
   id: RadiantWallPlastitanium
   name: пластитановая стена
+  suffix: Внешняя
   components:
   - type: Sprite
     sprite: _radiant/Structures/Walls/plastic.rsi
   - type: Icon
     sprite: _radiant/Structures/Walls/plastic.rsi
+  - type: StaticPrice
+    price: 140 # radiant: 150<140
 
 - type: entity
-  parent: RadiantWallShuttleInterior
+  parent: WallShuttleInterior
   id: RadiantWallPlastitanium2
   name: пластитановая стена
+  suffix: Внутренняя
   components:
   - type: Sprite
     sprite: _radiant/Structures/Walls/plastic2.rsi
@@ -106,7 +63,7 @@
     sprite: _radiant/Structures/Walls/plastic2.rsi
 
 - type: entity
-  parent: RadiantWallShuttleInterior
+  parent: RadiantWallPlastitanium
   id: RadiantWallPlastitaniumRust
   name: пластитановая стена
   suffix: Rust
@@ -117,7 +74,7 @@
     sprite: _radiant/Structures/Walls/rust.rsi
 
 - type: entity
-  parent: RadiantWallShuttleInterior
+  parent: RadiantWallPlastitanium2
   id: RadiantWallPlastitaniumRust2
   name: пластитановая стена
   suffix: Rust
@@ -127,96 +84,16 @@
   - type: Icon
     sprite: _radiant/Structures/Walls/rust2.rsi
 
-#- type: entity
-#  parent: BaseWall
-#  id: RadiantWallShuttlePlastitanium
-#  name: shuttle wall
-#  suffix: Plastitanium
-#  components:
-#  - type: RCDDeconstructable
-#    cost: 6
-#    delay: 8
-#    fx: EffectRCDDeconstruct8
-#  - type: Destructible
-#    thresholds:
-#    - trigger:
-#        !type:DamageTrigger
-#        damage: 400
-#      behaviors:
-#      - !type:DoActsBehavior
-#        acts: ["Destruction"]
-#      - !type:PlaySoundBehavior
-#        sound:
-#          collection: MetalSlam
-#    - trigger:
-#        !type:DamageTrigger
-#        damage: 200
-#      behaviors:
-#      - !type:PlaySoundBehavior
-#        sound:
-#          collection: MetalSlam
-#      - !type:ChangeConstructionNodeBehavior
-#        node: girder
-#      - !type:DoActsBehavior
-#        acts: ["Destruction"]
-#  - type: Sprite
-#    sprite: _radiant/Structures/Walls/shuttle_plastic.rsi
-#  - type: Icon
-#    sprite: _radiant/Structures/Walls/shuttle_plastic.rsi
-#  - type: Construction
-#    graph: Girder
-#    node: shuttleInteriorWall
-#  - type: IconSmooth
-#    key: walls
-#    base: state
-
-#  - type: Reflect # Frontier
-#    reflectProb: 1 # Frontier
-
 - type: entity
-  parent: BaseWall
+  parent: WallShuttleInterior
   id: RadiantWallShuttleInterior
   name: стена шаттла
   suffix: Interior
   components:
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Sprite
     sprite: _radiant/Structures/Walls/shuttleinterior.rsi
   - type: Icon
     sprite: _radiant/Structures/Walls/shuttleinterior.rsi
-  - type: Construction
-    graph: Girder
-    node: shuttleInteriorWall
-  - type: IconSmooth
-    key: walls
-    base: state
-#  - type: Reflect # Frontier
-#    reflectProb: 1 # Frontier
 
 - type: entity
   id: RadiantWallShuttleDiagonal

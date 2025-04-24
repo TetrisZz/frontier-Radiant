@@ -1,0 +1,25 @@
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSpecialBunny
+  name: костюм зайчика
+  description: Довольно милый костюм, который отлично сочетается с кроличьими ушками. Хвостик сделан из настоящего меха.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Special/bunny.rsi
+  - type: StaticPrice # Frontier
+    vendPrice: 1000 # Frontier
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Special/bunny.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSpecialMaidRadiant
+  name: платье горничной
+  description: Милое платье, которое хорошо подчеркивает вашу грацию. По ощущениям очень мягкое.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Special/gorichnaya.rsi
+  - type: StaticPrice # Frontier
+    vendPrice: 1000 # Frontier
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Special/gorichnaya.rsi

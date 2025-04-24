@@ -39,6 +39,16 @@ station-event-bluespace-generic-ftl-start-announcement = Внимание все
 station-event-bluespace-generic-ftl-warning-announcement = Инициализированы процедуры дистанционного управления блюспейс-передвижением, осталось пять минут до исчезновения неидентифицированного шаттла.
 station-event-bluespace-generic-ftl-end-announcement = В соответствии с протоколами блюспейс-передвижений NanoTrasen, неидентифицированный шаттл был уничтожен для избежания столкновения.
 
+station-event-bluespace-generic-train-start-announcement = Внимание персоналу фронтира! Командование NanoTrasen потеряло связь с транспортом высокопоставленных лиц, он был выведен из блюспейс передвижения для расследования произошедшего. весь персонал обязан оказывать посильную помощь всем членам цк, персонал транспорта или их тела должны быть переданы официальной власти.
+station-event-bluespace-generic-train-warning-announcement = Инициализированы процедуры дистанционного управления блюспейс-передвижением транспорта цк, осталось пять минут до его перемещения его в безопасный сектор.
+station-event-bluespace-generic-train-end-announcement = Транспорт ЦК был перемещен в безопасный сектор для расследования случившегося.
+
+station-event-bluespace-generic-lambda-start-announcement = Внимание всему персоналу сектора! Центральное командование зафиксировало высокую радиоволновую активность частот синдиката, похоже один из их объектов вступил на орбиту сектора, остерегайтесь любых подозрительных объектов и докладывайте о них офицальным властям.
+station-event-bluespace-generic-lambda-warning-announcement = Инициализированы процедуры дистанционного перехвата блюспейс-артиллерией, осталось пять минут до уничтожения базы синдиката.
+station-event-bluespace-generic-lambda-end-announcement = База синдиката была навсегда уничтожена силами НТ.
+
+station-event-bluespace-name-Lambda = Диверсионная база Лямбда
+station-event-bluespace-name-train = Транспорт ЦК
 station-event-bluespace-name-BrokenMcDelivery = McDelivery
 station-event-bluespace-name-Cave = Cave
 station-event-bluespace-name-UnidentifiedVessel = Unidentified Vessel

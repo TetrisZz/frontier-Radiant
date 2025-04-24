@@ -22,6 +22,8 @@
   loadouts:
   - COMClothingUniformJumpsuitCaptainAcorp
   - COMClothingUniformJumpskirtCaptainAcorp
+  - COMClothingUniformJumpsuitCaptainAcorp1
+  - COMClothingUniformJumpskirtCaptainAcorp1
   fallbacks:
   - COMClothingUniformJumpsuitCaptainAcorp
   - COMClothingUniformJumpskirtCaptainAcorp

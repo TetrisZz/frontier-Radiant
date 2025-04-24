@@ -2,3 +2,8 @@
   id: ASSClothingOuterCoatLongAcorp
   equipment:
     outerClothing: ClothingOuterCoatLongAcorp
+
+- type: loadout
+  id: ASSClothingOuterWinterAcorp
+  equipment:
+    outerClothing: ClothingOuterWinterAcorp

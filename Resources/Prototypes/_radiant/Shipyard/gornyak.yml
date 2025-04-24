@@ -1,0 +1,44 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Gornyak
+  parent: BaseVessel
+  name: HOM Горняк
+  description: Стильное шахтерское судно со всем необходимым для добычи ресурсов.
+  price: 52000
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_radiant/Shuttles/Gornyak.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Gornyak
+  mapName: 'HOM Горняк'
+  mapPath: /Maps/_radiant/Shuttles/Gornyak.yml
+  minPlayers: 0
+  stations:
+    Gornyak:
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Горняк {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]  

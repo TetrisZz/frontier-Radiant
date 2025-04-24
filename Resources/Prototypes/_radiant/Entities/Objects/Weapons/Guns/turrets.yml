@@ -1,0 +1,111 @@
+# laser
+- type: entity
+  id: WeaponTurretRadiationSyndicateRadiant
+  name: лазерная турель
+  suffix: Radiant, Syndicate
+  parent:
+  - BaseC3SyndicateContraband
+  - BaseTurretSearchBeam
+  - BaseWeaponTurretEnergyNF
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        variation: 0.125
+  - type: HitscanBatteryAmmoProvider
+    proto: XrayLaser
+    fireCost: 10
+  - type: NpcFactionMember
+    factions:
+    - SyndicateNF
+
+- type: entity
+  id: WeaponTurretHeavyLaserSyndicateRadiant
+  name: лазерная турель
+  suffix: Radiant, Syndicate
+  parent:
+  - BaseC3SyndicateContraband
+  - BaseTurretSearchBeam
+  - BaseWeaponTurretEnergyNF
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        variation: 0.125
+  - type: HitscanBatteryAmmoProvider
+    proto: RedHeavyLaser
+    fireCost: 10
+  - type: NpcFactionMember
+    factions:
+    - SyndicateNF
+
+- type: entity
+  id: WeaponTurretRedShuttleLaserSyndicateRadiant
+  name: лазерная турель
+  suffix: Radiant, Syndicate
+  parent:
+  - BaseC3SyndicateContraband
+  - BaseTurretSearchBeam
+  - BaseWeaponTurretEnergyNF
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+      params:
+        variation: 0.125
+  - type: HitscanBatteryAmmoProvider
+    proto: RedShuttleLaser
+    fireCost: 10
+  - type: NpcFactionMember
+    factions:
+    - SyndicateNF
+
+#balistic_laser
+
+- type: entity
+  parent: [BaseWeaponBallisticTurret, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  id: WeaponTurretSyndicateLaserSpreadRadiant
+  suffix: Syndicate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 3
+    selectedMode: FullAuto
+  - type: BallisticAmmoProvider
+    proto: BulletLaserSpread
+    capacity: 500
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+#balistic_BABAX
+
+- type: entity
+  parent: [BaseWeaponBallisticTurret, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  id: WeaponTurretSyndicateCannonBallRadiant
+  suffix: Syndicate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+  - type: BallisticAmmoProvider
+    proto: CannonBall
+    capacity: 500
+  - type: NpcFactionMember
+    factions:
+    - Syndicate

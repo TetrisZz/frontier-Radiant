@@ -11,6 +11,7 @@
     - BasicStationEventScheduler
     - BluespaceEventScheduler
     - BluespaceDungeonEventScheduler
+    - BluespaceLambdaRoundstart
     - BluespaceSalvageEventScheduler
     - SmugglingEventScheduler
     - FrontierRoundstartVariation
@@ -28,6 +29,7 @@
     - BasicStationEventScheduler
     - BluespaceEventScheduler
     - BluespaceDungeonEventScheduler
+    - BluespaceLambdaRoundstart
     - BluespaceSalvageEventScheduler
     - SmugglingEventScheduler
     - FrontierRoundstartVariation

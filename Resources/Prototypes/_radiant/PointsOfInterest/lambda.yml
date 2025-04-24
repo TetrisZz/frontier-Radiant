@@ -1,0 +1,39 @@
+# Author Info
+# GitHub:
+# Discord: 
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Notes:
+# Byarr
+#- type: pointOfInterest
+#  id: Lambda
+#  parent: BasePOI
+#  name: Диверсионная база Лямбда
+#  minimumDistance: 2850
+#  maximumDistance: 3850
+#  spawnGroup: Required
+#  gridPath: /Maps/_radiant/POI/Lambda.yml
+#  addComponents:
+#  - type: IFF
+#    color: "#C83737"
+#    flags: [HideLabel]
+#    readOnly: false
+#
+#- type: gameMap
+#  id: Lambda
+#  mapName: 'Диверсионная база синдиката Лямбда'
+#  mapPath: /Maps/_radiant/POI/Lambda.yml
+#  minPlayers: 0
+#  stations:
+#    Lambda:
+#      # FIXME: no records despite shipyard console, could currently be gamed
+#      stationProto: StandardFrontierOutpost
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: 'Диверсионная база синдиката Лямбда'
+#        - type: StationJobs
+#          availableJobs: {}
+#        - type: StationDeadDropHintExempt

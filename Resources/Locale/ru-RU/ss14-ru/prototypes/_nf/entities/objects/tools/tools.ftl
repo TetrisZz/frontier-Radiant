@@ -5,3 +5,5 @@ ent-ShipyardRCDEmpty = { ent-ShipyardRCD }
     .desc = { ent-ShipyardRCD.desc }
 ent-MaintenanceJack = домкрат для технического обслуживания
     .desc = Домкрат для технического обслуживания, предназначенный для снятия напольного покрытия.
+ent-MedicalAppraisalTool = медицинский сканер
+    .desc = Проверяет тела на наличие открытых медицинских контрактов.

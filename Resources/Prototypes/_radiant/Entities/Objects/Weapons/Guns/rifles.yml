@@ -6,7 +6,6 @@
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Guns/Rifles/tw-44/big.rsi
-    offset: 0.50,0
     scale: 0.70, 0.70
     layers:
       - state: base
@@ -90,6 +89,8 @@
     fireRate: 5
     soundGunshot:
       path: /Audio/_radiant/Weapons/vyistrelAK.ogg
+      params:
+        volume: -5
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/_radiant/Weapons/peredergivanie.ogg

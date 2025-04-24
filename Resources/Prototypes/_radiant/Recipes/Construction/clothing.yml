@@ -1,0 +1,33 @@
+- type: construction
+  name: Multicoloured Bouquet
+  id: MulticolouredBouquet
+  graph: MulticolouredBouquet
+  startNode: start
+  targetNode: MulticolouredBouquet
+  category: construction-category-clothing
+  description: Букет из разных цветов, вкусно пахнет.
+  icon: { sprite: _radiant/Objects/Decoration/bouquets/multicoloured-bouquet.rsi, state: item }
+  objectType: Item
+
+- type: construction
+  name: Blue Bouquet
+  id: BlueBouquet
+  graph: BlueBouquet
+  startNode: start
+  targetNode: BlueBouquet
+  category: construction-category-clothing
+  description: Букет из синих цветов, пахнет цветами и медицинским отсеком.
+  icon: { sprite: _radiant/Objects/Decoration/bouquets/blue-bouquet.rsi, state: item }
+  objectType: Item
+
+- type: construction
+  name: Black Bouquet
+  id: BlackBouquet
+  graph: BlackBouquet
+  startNode: start
+  targetNode: BlackBouquet
+  category: construction-category-clothing
+  description: Букет чёрных цветов, пахнет цветами и кажется дымом.
+  icon: { sprite: _radiant/Objects/Decoration/bouquets/black-bouquet.rsi, state: item }
+  objectType: Item
+

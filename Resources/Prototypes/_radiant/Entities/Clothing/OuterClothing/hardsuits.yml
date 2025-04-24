@@ -324,3 +324,28 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAcorpSecurityHead
+
+#Chief Medical Officer's Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase # Removed BaseCommandContraband
+  id: ClothingOuterHardsuitMedicalAcorp
+  name: скафандр медика акорп
+  description: Скафандр защитника жизни Аколит Корпорейшн.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hardsuits/CASMedHardsuit.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hardsuits/CASMedHardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitMedicalAcorp

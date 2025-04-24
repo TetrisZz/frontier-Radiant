@@ -51,6 +51,9 @@
     airBlockedDirection:
       - South
   - type: Clickable
+  - type: Construction
+    graph: AtmosDeviceFanDirectional
+    node: AtmosDeviceFanDirectional
   - type: Tag
     tags:
       - SpreaderIgnore

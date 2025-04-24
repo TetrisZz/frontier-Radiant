@@ -1616,6 +1616,7 @@
   - type: Tag
     tags:
     - Ambrosia
+    - AmbrosiaDeus
   - type: FoodSequenceElement
     entries:
       Taco: AmbrosiaDeus
@@ -2498,6 +2499,7 @@
     tags:
     - ClothMade
     - CottonBoll
+    - Pyrotton # Radiant_sector
   - type: Extractable
     grindableSolutionName: food
   - type: MothFood # Frontier

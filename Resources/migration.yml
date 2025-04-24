@@ -549,8 +549,8 @@ ClothingMaskSexyMime: ClothingMaskBlushingMime
 FoodCondimentPacketFrostoil: FoodCondimentPacketColdsauce
 
 #2025-02-05
-WeaponSubMachineGunVector: null
-WeaponSubMachineGunVectorRubber: null
+#WeaponSubMachineGunVector: null #Radiant_sector
+#WeaponSubMachineGunVectorRubber: null #Radiant_sector
 
 # 2025-02-20
 # MagazineBoxAntiMaterielBig: null # Frontier

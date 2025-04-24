@@ -1,0 +1,29 @@
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomERTCorpse
+  suffix: Мёртвый, ОБР
+  components:
+  - type: Loadout
+    prototypes:
+      - ERTEngineerHardsuitRadiant
+      - ERTLeaderHardsuitRadiant
+      - ERTMedicalHardsuitRadiant
+      - ERTSecurityHardsuitRadiant
+      - ERTChaplainHardsuitRadiant
+      - ERTJanitorHardsuitRadiant
+      - ERTMailCarrierHardsuitRadiant
+      - ERTRXBSSHardsuitRadiant
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomCCCorpse
+  suffix: Мёртвый, ЦК
+  components:
+  - type: Loadout
+    prototypes:
+      - СС0SuitRadiant
+      - СС1SuitRadiant
+      - СС2SuitRadiant
+      - СС3SuitRadiant
+      - СС4SuitRadiant
+      - СС5SuitRadiant

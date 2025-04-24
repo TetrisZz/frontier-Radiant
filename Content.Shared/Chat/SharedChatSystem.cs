@@ -17,7 +17,7 @@ public abstract class SharedChatSystem : EntitySystem
     public const char ConsolePrefix = '/';
     public const char DeadPrefix = '\\';
     public const char LOOCPrefix = '(';
-    public const char OOCPrefix = '[';
+    public const char OOCPrefix = '=';
     public const char EmotesPrefix = '@';
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';

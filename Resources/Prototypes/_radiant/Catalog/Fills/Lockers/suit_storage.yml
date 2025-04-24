@@ -43,6 +43,21 @@
     access: [["Acorp"]]
 
 - type: entity
+  id: SuitStorageAcorpMedical
+  parent: SuitStorageBase
+  suffix: Acorp Medical
+  components:
+  - type: StorageFill
+    contents:
+        - id: AirTankFilled
+        - id: ClothingOuterHardsuitMedicalAcorp
+        - id: ClothingMaskBreathMedical 
+        - id: FlashlightLantern
+        - id: JetpackMiniFilled
+  - type: AccessReader
+    access: [["Acorp"]]
+
+- type: entity
   id: SuitStorageAcorpBasic
   parent: SuitStorageBase
   suffix: Acorp Basic

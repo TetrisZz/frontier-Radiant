@@ -1,0 +1,46 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Iris
+  parent: BaseVessel
+  name: HOM Ирис
+  description: Экспедиционное судно, на нем имеется все по минимуму - оружейная, мини-кухня, мед с химией.
+  price: 56900
+  category: Medium
+  group: Expedition
+  shuttlePath: /Maps/_radiant/Shuttles/Iris.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Chemistry
+  - Expedition
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Iris
+  mapName: 'HOM Ирис'
+  mapPath: /Maps/_radiant/Shuttles/Iris.yml
+  minPlayers: 0
+  stations:
+    Iris:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Ирис {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

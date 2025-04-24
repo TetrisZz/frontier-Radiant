@@ -1,0 +1,48 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Zasluga
+  parent: BaseVessel
+  name: HOM Заслуга
+  description: Судно большого размера, предназначенное для около 10 и более членов экипажа. На нем есть все, о чем можно мечтать.
+  price: 174500
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_radiant/Shuttles/Zasluga.yml
+  guidebookPage: Null
+  class:
+  - Kitchen
+  - Medical
+  - Chemistry
+  - Science
+  - Expedition
+  engine:
+  - AME
+
+- type: gameMap
+  id: Zasluga
+  mapName: 'HOM Заслуга'
+  mapPath: /Maps/_radiant/Shuttles/Zasluga.yml
+  minPlayers: 0
+  stations:
+    Zasluga:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Заслуга {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

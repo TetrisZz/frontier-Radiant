@@ -1,0 +1,75 @@
+# Hostile
+- type: entity
+  id: SpawnMobWeaponTurretRadiationSyndicateRadiant
+  parent: MarkerBase
+  name: syndicate laser turret spawner
+  suffix: Hostile, xrey
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+      state: base
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretRadiationSyndicateRadiant
+
+- type: entity
+  id: SpawnMobWeaponTurretHeavyLaserSyndicateRadiant
+  parent: MarkerBase
+  name: syndicate ballistic turret spawner
+  suffix: Hostile, HeavyLaser
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretHeavyLaserSyndicateRadiant
+
+- type: entity
+  id: SpawnMobWeaponTurretRedShuttleLaserSyndicateRadiant
+  parent: MarkerBase
+  name: syndicate ballistic turret spawner
+  suffix: Hostile, ShuttleLaser
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretRedShuttleLaserSyndicateRadiant
+
+- type: entity
+  id: SpawnMobWeaponTurretSyndicateLaserSpreadRadiant
+  parent: MarkerBase
+  name: syndicate ballistic turret spawner
+  suffix: Hostile, LaserShotgun
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretSyndicateLaserSpreadRadiant
+
+- type: entity
+  id: SpawnMobWeaponTurretSyndicateCannonBallRadiant
+  parent: MarkerBase
+  name: syndicate ballistic turret spawner
+  suffix: Hostile, CannonBall
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretSyndicateCannonBallRadiant

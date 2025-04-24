@@ -8,3 +8,6 @@ ent-ClothingBeltNfsd = пояс ДШНФ
     .desc = Пояс для тактических операций.
 ent-ClothingBeltNfsdWebbing = РПС ДШНФ
     .desc = Тактический боевой разгрузочный жилет.
+ent-ClothingBeltSheathFilledHilt = { ent-ClothingBeltSheathFilled }
+    .suffix = заполненный, обрезанный
+    .desc = { ent-ClothingBeltSheathFilled.desc }

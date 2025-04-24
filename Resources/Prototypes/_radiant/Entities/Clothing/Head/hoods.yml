@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterAcorp
+  categories: [ HideSpawnMenu ]
+  name: security coat hood
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/CASCoatSecHood.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/CASCoatSecHood.rsi

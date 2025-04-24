@@ -7,3 +7,13 @@
   id: COMClothingUniformJumpskirtCaptainAcorp
   equipment:
     jumpsuit: ClothingUniformJumpskirtCaptainAcorp
+
+- type: loadout
+  id: COMClothingUniformJumpsuitCaptainAcorp1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptainAcorp1
+
+- type: loadout
+  id: COMClothingUniformJumpskirtCaptainAcorp1
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCaptainAcorp1

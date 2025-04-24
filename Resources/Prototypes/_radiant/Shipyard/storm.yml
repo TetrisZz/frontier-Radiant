@@ -1,0 +1,31 @@
+- type: vessel
+  id: Storm
+  parent: BaseVesselAntag
+  name: Шторм
+  description: Устаревший корабль ядерных оперативников
+  price: 60000
+  category: Medium
+  group: Syndicate
+  shuttlePath: /Maps/_radiant/Shuttles/Storm.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Storm
+  mapName: 'Шторм'
+  mapPath: /Maps/_radiant/Shuttles/Storm.yml
+  minPlayers: 0
+  stations:
+    Storm:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Шторм {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

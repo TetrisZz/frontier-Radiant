@@ -10,3 +10,5 @@ ent-ClothingBackpackNfsdBrown = рюкзак ДШНФ
     .desc = { ent-ClothingBackpackSecurity.desc }
 ent-ClothingBackpackNfsdCream = { ent-ClothingBackpackNfsdBrown }
     .desc = { ent-ClothingBackpackNfsdBrown.desc }
+ent-ClothingBackpackMercenary = рюкзак наемника
+    .desc = Рюкзак, который побывал во многих опасных местах, надежный боевой рюкзак.

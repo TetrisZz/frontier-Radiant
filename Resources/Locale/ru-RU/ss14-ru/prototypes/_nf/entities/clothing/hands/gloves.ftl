@@ -15,3 +15,5 @@ ent-ClothingHandsGlovesColorBlackSMG = боевые перчатки
 ent-ClothingHandsGlovesForensicNF = { ent-ClothingHandsGlovesForensic }
     .suffix = Изолированные
     .desc = { ent-ClothingHandsGlovesForensic.desc }
+ent-ClothingHandsMercenaryGlovesCombat = боевые перчатки наемника
+    .desc = Высококачественные боевые перчатки для защиты рук от механических повреждений во время боя.
