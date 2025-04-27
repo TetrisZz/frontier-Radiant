@@ -41,10 +41,17 @@
           stationDescription: 'frontier-lobby-pirate-description'
         - type: StationJobs
           availableJobs:
+<<<<<<< HEAD
             PirateCaptain: [ 0, 0 ]
             PirateFirstMate: [ 0, 0 ]
             Pirate: [ 0, 0 ]
+=======
+            NFPirateCaptain: [ 1, 1 ]
+            NFPirateFirstMate: [ 1, 1 ]
+            NFPirate: [ 0, 0 ]
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt
         - type: TradeCrateWildcardDestination
+        - type: BindToStationVariationPassExemption

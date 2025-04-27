@@ -12,7 +12,13 @@
     weight: 5
     duration: 1350
     maxDuration: 1560
+<<<<<<< HEAD
     reoccurrenceDelay: 360 # 6 hours Radiant_Sector
+=======
+    reoccurrenceDelay: 360 # 6 hours
+    requiredJobs:
+      Sheriff: 1
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -51,7 +57,13 @@
     weight: 5
     duration: 1020
     maxDuration: 1350
+<<<<<<< HEAD
     reoccurrenceDelay: 300 # 5 hours Radiant_Sector
+=======
+    reoccurrenceDelay: 360 # 6 hours
+    requiredJobs:
+      Sheriff: 1
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -90,7 +102,13 @@
     weight: 5
     duration: 590
     maxDuration: 780
+<<<<<<< HEAD
     reoccurrenceDelay: 360 # 6 hours Radiant_Sector
+=======
+    reoccurrenceDelay: 360 # 6 hours
+    requiredJobs:
+      Sheriff: 1
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -129,7 +147,7 @@
     weight: 1
     duration: 1800
     maxDuration: 2400
-    reoccurrenceDelay: 480 # Only once per shift possible
+    reoccurrenceDelay: 360 # 6 hours
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -166,7 +184,11 @@
     weight: 1
     duration: 900
     maxDuration: 1200
+<<<<<<< HEAD
     reoccurrenceDelay: 360 # 6 hours Radiant_Sector
+=======
+    reoccurrenceDelay: 360 # 6 hours
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -203,7 +225,11 @@
     weight: 1
     duration: 1800
     maxDuration: 2400
+<<<<<<< HEAD
     reoccurrenceDelay: 360 # 6 hours Radiant_Sector
+=======
+    reoccurrenceDelay: 360 # 6 hours
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
@@ -261,7 +287,7 @@
         - /Maps/_NF/Bluespace/cave.yml
 
 - type: entity
-  id: BluespaceBrokenMcDelivery
+  id: NFBluespaceBrokenMcDelivery
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent

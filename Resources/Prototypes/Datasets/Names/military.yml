@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - type: dataset
   id: NamesFirstMilitaryLeader
   values:
@@ -15,10 +16,18 @@
   - Сержант
   - Капрал
   - Ефрейтор
-
-- type: dataset
-  id: NamesLastMilitary
+=======
+﻿- type: localizedDataset
+  id: NamesMilitaryFirstLeader
   values:
+    prefix: names-military-leader-first-dataset-
+    count: 4
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
+
+- type: localizedDataset
+  id: NamesMilitaryFirst
+  values:
+<<<<<<< HEAD
   - Антарес
   - Андромеда
   - Бейд
@@ -63,3 +72,13 @@
   - Шаула
   - Электра
   
+=======
+    prefix: names-military-first-dataset-
+    count: 3
+
+- type: localizedDataset
+  id: NamesMilitaryLast
+  values:
+    prefix: names-military-last-dataset-
+    count: 42
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

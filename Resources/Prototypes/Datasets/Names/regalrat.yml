@@ -1,6 +1,7 @@
-- type: dataset
-  id: RegalRatNameKingdom
+- type: localizedDataset
+  id: NamesRegalratKingdom
   values:
+<<<<<<< HEAD
   - Чумной
   - Миазмовый
   - Туннельный
@@ -17,10 +18,15 @@
   - Сервисный
   - Конкретный
   - Из нержавеющей стали
+=======
+    prefix: names-regal-rat-kingdom-dataset-
+    count: 15
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 
-- type: dataset
-  id: RegalRatNameTitle
+- type: localizedDataset
+  id: NamesRegalratTitle
   values:
+<<<<<<< HEAD
   - Король
   - Лорд
   - Принц
@@ -38,3 +44,7 @@
   - Босс
   - Пророк
   - Сыр
+=======
+    prefix: names-regal-rat-title-dataset-
+    count: 17
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

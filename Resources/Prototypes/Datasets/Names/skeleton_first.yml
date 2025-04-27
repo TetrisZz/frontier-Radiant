@@ -1,6 +1,7 @@
-- type: dataset
-  id: skeletonNamesFirst
+- type: localizedDataset
+  id: NamesSkeletonFirst
   values:
+<<<<<<< HEAD
   - Стернум
   - Рибс
   - Вертебрей
@@ -28,3 +29,7 @@
   - Тарсус
   - Лакрмаль
   - Бон
+=======
+    prefix: names-skeleton-first-dataset-
+    count: 27
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

@@ -20,7 +20,7 @@
   minPlayers: 0
   stations:
     Schooner:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierAntagVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Schooner {1}'
@@ -28,4 +28,9 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
+<<<<<<< HEAD
           availableJobs: {}
+=======
+          availableJobs:
+            NFPirate: [ 0, 0 ]
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

@@ -25,7 +25,7 @@
   minPlayers: 0
   stations:
     Barnacle:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierAntagVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Prospector {1}' # Fake name eh?
@@ -33,4 +33,9 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
+<<<<<<< HEAD
           availableJobs: {}
+=======
+          availableJobs: 
+            NFPirate: [ 0, 0 ]
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

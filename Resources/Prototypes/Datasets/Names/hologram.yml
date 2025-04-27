@@ -1,6 +1,7 @@
-﻿- type: dataset
-  id: names_hologram
+﻿- type: localizedDataset
+  id: NamesHologram
   values:
+<<<<<<< HEAD
   - Аполлон
   - Дата
   - ГЛИММЕР
@@ -15,3 +16,7 @@
   - Процессор
   - Прометей
   - Тесей
+=======
+    prefix: names-hologram-dataset-
+    count: 14
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

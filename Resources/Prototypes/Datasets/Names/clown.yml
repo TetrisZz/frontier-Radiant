@@ -1,6 +1,7 @@
-﻿- type: dataset
-  id: names_clown
+﻿- type: localizedDataset
+  id: NamesClown
   values:
+<<<<<<< HEAD
   - Смешкитон
   - Хонкел III
   - Гусь МакСанни
@@ -77,3 +78,7 @@
   - Стинко
   - Вонючка
   
+=======
+    prefix: names-clown-dataset-
+    count: 52
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

@@ -9,9 +9,13 @@
   <Box>
     <GuideEntityEmbed Entity="WallRockChromiteDiamond" Caption=""/>
     <GuideEntityEmbed Entity="WallRockBasaltBananium" Caption=""/>
-    <GuideEntityEmbed Entity="WallRockBluespace" Caption=""/>
+    <GuideEntityEmbed Entity="NFWallRockBluespace" Caption=""/>
   </Box>
 
+<<<<<<< HEAD
   Дворф инстинктивно знает, где находятся богатые рудные жилы, и может почувствовать присутствие руды на расстоянии до 5 метров.
+=======
+  A dwarf instinctively knows where the choice ore veins are on any rock, and can sense the presence of ore up to 5 meters away.
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 
 </Document>

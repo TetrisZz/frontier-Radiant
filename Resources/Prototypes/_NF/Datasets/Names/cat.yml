@@ -1,78 +1,51 @@
-- type: dataset
-  id: names_cat_cappy
+# Unique pets
+- type: localizedDataset
+  id: NamesCatClarpy
   values:
-  - Cappy
+    prefix: names-cat-clarpy-dataset-
+    count: 4
 
-- type: dataset
-  id: names_cat_elcapo
+- type: localizedDataset
+  id: NamesCatMistake
   values:
-  - El Capo
+    prefix: names-cat-mistake-dataset-
+    count: 3
 
-- type: dataset
-  id: names_cat_clugg
+# Other pets
+- type: localizedDataset
+  id: NamesCatCult
   values:
-  - Clugg
+    prefix: names-cat-cult-dataset-
+    count: 31
 
-- type: dataset
-  id: names_cat_clippy
+- type: localizedDataset
+  id: NamesCatSpace
   values:
-  - Clippy
+    prefix: names-cat-space-dataset-
+    count: 43
 
-- type: dataset
-  id: names_cat_clarpy
+- type: localizedDataset
+  id: NamesCatCaracal
   values:
-  - Clarrrpy
-  - Clarrrrpy
-  - Clarrrrrpy
+    prefix: names-cat-caracal-dataset-
+    count: 43
 
-- type: dataset
-  id: names_cat_mistake
+- type: localizedDataset
+  id: NamesCatBingus
   values:
-#  - SCP-PY-106
-  - ????
-  - ?????
-  - ??????
+    prefix: names-cat-bingus-dataset-
+    count: 59
 
-- type: dataset # Mostly names of towns that held witch trials
-  id: names_cat_cult
+- type: localizedDataset
+  id: NamesCatCalico
   values:
-  # Towns
-  - Salem
-  - Valais
-  - Trier
-  - Fulda
-  - Berwick
-  - Pendle
-  - Würzburg
-  - Bamberg
-  - Torsåker
-  - Danube
-  - Montpezat
-  - Nördlingen
-  - Kirkwall
-  - Denbigh
-  - Tyburn
-  - Bamberg
-  - Beaumaris
-  - Braunschweig
-  - Carrickfergus
-  - Belvoir
-  # Witches
-  - Glamis
-  - Soulmother
-  - Leatherlips
-  - Kolgrim
-  - Dacal
-  - Koldings
-  - Balfour
-  - Burroughs
-  - Wardwell
-  - Guilladot
-  - Saenger von Mossau
+    prefix: names-cat-calico-dataset-
+    count: 60
 
-- type: dataset
-  id: names_cat_space
+- type: localizedDataset
+  id: NamesCat
   values:
+<<<<<<< HEAD
   - Cosmo
   - Starlight
   - Gravity
@@ -350,3 +323,7 @@
   - Джерри
   - Зекинс
   - Пупсик
+=======
+    prefix: names-cat-dataset-
+    count: 59
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

@@ -1,0 +1,51 @@
+- type: job
+  id: NFPirateFirstMate
+  name: job-name-nf-pirate-first-mate
+  description: job-description-nf-pirate-first-mate
+  playTimeTracker: JobPirateFirstMate
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 43200 # 12 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Security
+<<<<<<< HEAD:Resources/Prototypes/_NF/Roles/Jobs/Pirates/pirate_first_mate.yml
+      time: 3600 # 1 hours Radiant_Sector
+  startingGear: PirateFirstMateNFGear
+=======
+      time: 10800 # 3 hours
+  whitelisted: true
+  startingGear: NFPirateFirstMateGear
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c:Resources/Prototypes/_NF/Roles/Jobs/Pirates/nfpirate_first_mate.yml
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  canBeAntag: true
+  icon: "JobIconNFPirateFirstMate"
+  supervisors: job-supervisors-captain
+  weight: 30
+  displayWeight: 30
+  setPreference: true
+  access:
+  - Pirate
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: AutoPirate
+    - type: SpecialSectorStationRecord # must be given on spawn
+      recordGeneration: FalseRecord
+  - !type:AddImplantSpecial
+    implants: [ FreelanceTrackingImplant ]
+  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: NFPirateFirstMateGear
+  equipment:
+    ears: ClothingHeadsetAltFreelancer
+    belt: ClothingBeltUtility
+    pocket1: BasePirateUplinkPirateCrew
+  storage:
+    back:
+    - AppraisalTool

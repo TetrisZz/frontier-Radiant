@@ -1,6 +1,7 @@
-- type: dataset
-  id: names_chicken
+- type: localizedDataset
+  id: NamesChicken
   values:
+<<<<<<< HEAD
   - Кудахтунчик
   - Генриетта
   - Нагетсик
@@ -61,3 +62,7 @@
   - Одуванчик
   - Семячко
   - Перышко
+=======
+    prefix: names-chicken-dataset-
+    count: 59
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

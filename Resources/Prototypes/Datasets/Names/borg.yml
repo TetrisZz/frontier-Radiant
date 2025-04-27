@@ -1,7 +1,8 @@
 # only used roundstart, names can be changed after
-- type: dataset
-  id: names_borg
+- type: localizedDataset
+  id: NamesBorg
   values:
+<<<<<<< HEAD
   - Боб
   - Джо
   - Бип
@@ -45,3 +46,7 @@
   - Это-робот
   - Девятый из семи
   - Сыробот
+=======
+    prefix: names-borg-dataset-
+    count: 43
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

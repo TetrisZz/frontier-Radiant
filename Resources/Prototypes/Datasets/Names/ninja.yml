@@ -1,6 +1,7 @@
-﻿- type: dataset
-  id: names_ninja
+﻿- type: localizedDataset
+  id: NamesNinja
   values:
+<<<<<<< HEAD
   - Тень
   - Сарутоби
   - Смоук
@@ -40,3 +41,13 @@
   - Пожиратель
   - Рю
   - Райден
+=======
+    prefix: names-ninja-dataset-
+    count: 39
+
+- type: localizedDataset
+  id: NamesNinjaTitle
+  values:
+    prefix: names-ninja-title-dataset-
+    count: 46
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

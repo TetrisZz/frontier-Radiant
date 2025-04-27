@@ -1,6 +1,7 @@
-- type: dataset
-  id: DionaFirst
+- type: localizedDataset
+  id: NamesDionaFirst
   values:
+<<<<<<< HEAD
   - Мох
   - Гриб
   - Трава
@@ -50,10 +51,15 @@
   - Цветение
   - Ветер
   - Заросли
+=======
+    prefix: names-diona-first-dataset-
+    count: 89
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 
-- type: dataset
-  id: DionaLast
+- type: localizedDataset
+  id: NamesDionaLast
   values:
+<<<<<<< HEAD
 # Positive
   - Мира
   - Гармонии
@@ -163,3 +169,7 @@
   - Безумия
   - Хаоса
   - Страха
+=======
+    prefix: names-diona-last-dataset-
+    count: 122
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

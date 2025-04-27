@@ -11,6 +11,7 @@
 Злоупотребление возможностью суицида или его совершение без веских причин запрещено.
 Под злоупотреблением подразумевается: суицид без причины, суицид при задержании, суицид во время казни, суицид при раскрытии вас, как антагониста.
 
+<<<<<<< HEAD
 ## 2.2 Убийство, косвенное убийство, RDM.
 Ваш персонаж живёт в игровом мире, имеет свою работу, амбиции. Он не хочет быть уволенным, или получить негативную заметку от работодателя, ведь как он будет дальше устраивать свою жизнь?
 Совершаемые им действия должны быть логичны и иметь IC причину. Они должны поддаваться логике и причинно-следственным связям.
@@ -21,4 +22,14 @@
 Самооборона разрешена по мере того, пока вы защищаете свою жизнь.
 Доводить человека до критического состояния можно, только если он пытался убить или серьезно вас покалечить.
 Преднамеренная нейтрализация кого-либо, использование силы несоразмерной опасности нападавшего или добивание кого-то, когда он уже на земле не считаются самообороной.
+=======
+    - Antagonistic ghost roles and pest ghost roles like mice are always fair game for attack.
+    - As a non-antagonist, don't attack Nanotrasen-aligned ghost roles like familiars, drones, or pets without provocation.
+    - Do not attack another player without a legitimate, explainable roleplay reason that could be applied in a similar, real-life scenario.
+    - When confronted with a potentially violent situation, all parties must Talk/Warn/Threaten about their intentions. All parties should be clear that they may use violence before any combat takes place, regardless of the kind of weapon or ammo.
+    - If a fight results in someone being critically injured or killed, seek medical help for them.
+    - If a fight ends and both parties leave the area, you cannot skip escalation and plunge back into a fight. What's done is done.
+    - A 15 minute non-aggression period is required after respawning, so you can't immediately get in a ship and try to go kill whoever killed you.
+    - NFSD and command roles must resolve situations with non-lethal force and de-escalate IC confrontation except in cases where there is a reasonable chance of harm/death.
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 </Document>

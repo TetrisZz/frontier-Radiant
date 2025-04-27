@@ -1,6 +1,7 @@
-- type: dataset
-  id: names_dog
+- type: localizedDataset
+  id: NamesDog
   values:
+<<<<<<< HEAD
   - Абаил
   - Абрикос
   - Август
@@ -119,43 +120,19 @@
   - Шарик
   - Юнга
   - Янтарь
+=======
+    prefix: names-dog-dataset-
+    count: 52
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 
-- type: dataset
-  id: names_dog_pug
+- type: localizedDataset
+  id: NamesDogPug
   values:
-  - Bella
-  - Lola
-  - Luna
-  - Daisy
-  - Max
-  - Milo
-  - Lily
-  - Winston
-  - Frank
-  - Otis
-  - Louie
-  - Buddy
-  - Roxy
-  - Gus
-  - Rocky
-  - Roswell
-  - Rosie
-  - Maggie
-  - Oscar
-  - Ruby
-  - Mitten
-  - Prince
-  - Princess
-  - Lulu
-  - Hank
-  - Tank
-  - Buster
-  - Rocco
-  - Bear
-  - Ellie
-  - Penny
-  - Peanut
-  - Cookie
-  - Rex
-  - Pugsly
-  - Pugsworth
+    prefix: names-dog-pug-dataset-
+    count: 36
+
+- type: localizedDataset
+  id: NamesDogPitbull
+  values:
+    prefix: names-dog-pitbull-dataset-
+    count: 32

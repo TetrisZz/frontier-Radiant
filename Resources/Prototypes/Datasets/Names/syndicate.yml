@@ -1,6 +1,7 @@
-- type: dataset
-  id: SyndicateNamesNormal
+- type: localizedDataset
+  id: NamesSyndicateNormal
   values:
+<<<<<<< HEAD
   - Альфа
   - Браво
   - Чарли
@@ -26,10 +27,15 @@
   - Виски
   - Иксрей
   - Зулу
+=======
+    prefix: names-syndicate-normal-dataset-
+    count: 25
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 
-- type: dataset
-  id: SyndicateNamesElite
+- type: localizedDataset
+  id: NamesSyndicateElite
   values:
+<<<<<<< HEAD
   - Альфа
   - Бета
   - Гамма
@@ -53,9 +59,18 @@
   - Хи
   - Пси
   - Омега
+=======
+    prefix: names-syndicate-elite-dataset-
+    count: 23
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 
-- type: dataset
-  id: SyndicateNamesPrefix
+- type: localizedDataset
+  id: NamesSyndicatePrefix
   values:
+<<<<<<< HEAD
   - Оперативник
   - Агент
+=======
+    prefix: names-syndicate-prefix-dataset-
+    count: 2
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c

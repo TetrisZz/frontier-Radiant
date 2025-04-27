@@ -1,6 +1,7 @@
-- type: dataset
-  id: names_reptilian_female
+- type: localizedDataset
+  id: NamesReptilianFemale
   values:
+<<<<<<< HEAD
   - Адзи
   - Ах
   - Ахахт
@@ -164,3 +165,7 @@
   - Ксил
   - Заш
   - Золласа
+=======
+    prefix: names-reptilian-female-dataset-
+    count: 163
+>>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
