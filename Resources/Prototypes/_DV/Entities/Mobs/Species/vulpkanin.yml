@@ -49,14 +49,11 @@
         sprite: _DV/Mobs/Customization/Vulpkanin/masking_helpers.rsi
         state: female_full
         visible: false
-<<<<<<< HEAD
       - map: [ "underwearb" ]
       - map: [ "underweart" ]
       - map: [ "socks" ]
-=======
       - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
       - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]

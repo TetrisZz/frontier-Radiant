@@ -8,14 +8,9 @@
       time: 43200 # 12 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
       department: Security
-<<<<<<< HEAD:Resources/Prototypes/_NF/Roles/Jobs/Pirates/pirate_first_mate.yml
-      time: 3600 # 1 hours Radiant_Sector
-  startingGear: PirateFirstMateNFGear
-=======
       time: 10800 # 3 hours
-  whitelisted: true
+  whitelisted: false # radiant_sector
   startingGear: NFPirateFirstMateGear
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c:Resources/Prototypes/_NF/Roles/Jobs/Pirates/nfpirate_first_mate.yml
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true

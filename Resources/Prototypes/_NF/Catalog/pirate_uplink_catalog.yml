@@ -31,12 +31,8 @@
           - PirateUplink
     - !type:BuyerJobCondition
       whitelist:
-<<<<<<< HEAD
-        - PirateCaptain
-        - PirateFirstMate
-=======
         - NFPirateCaptain
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
+        - NFPirateFirstMate
 
 - type: listing
   id: UplinkPirateHardsuitElite
@@ -141,12 +137,8 @@
           - PirateUplink
     - !type:BuyerJobCondition
       whitelist:
-<<<<<<< HEAD
-        - PirateCaptain
-        - PirateFirstMate
-=======
         - NFPirateCaptain
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
+        - NFPirateFirstMate
 
 - type: listing
   id: UplinkPirateBlunderbuss
@@ -216,12 +208,8 @@
           - PirateUplink
     - !type:BuyerJobCondition
       whitelist:
-<<<<<<< HEAD
-        - PirateCaptain
-        - PirateFirstMate
-=======
         - NFPirateCaptain
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
+        - NFPirateFirstMate
 
 - type: listing
   id: UplinkPirateAnchor

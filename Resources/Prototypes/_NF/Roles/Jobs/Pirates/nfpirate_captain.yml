@@ -9,13 +9,8 @@
     - !type:RoleTimeRequirement
       role: JobSeniorOfficer
       time: 10800 # 3 hours
-<<<<<<< HEAD:Resources/Prototypes/_NF/Roles/Jobs/Pirates/pirate_captain.yml
-  whitelisted: false
-  startingGear: PirateCaptainNFGear
-=======
-  whitelisted: true
+  whitelisted: false # radiant_sector
   startingGear: NFPirateCaptainGear
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c:Resources/Prototypes/_NF/Roles/Jobs/Pirates/nfpirate_captain.yml
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true

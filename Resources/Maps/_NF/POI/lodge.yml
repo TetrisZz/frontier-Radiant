@@ -5350,38 +5350,6 @@ entities:
     - type: Transform
       pos: -6.632983,17.52343
       parent: 1
-- proto: BusSchedule
-  entities:
-  - uid: 602
-    components:
-    - type: Transform
-      pos: -22.5,-1.5
-      parent: 1
-  - uid: 603
-    components:
-    - type: Transform
-      pos: 4.5,-1.5
-      parent: 1
-  - uid: 604
-    components:
-    - type: Transform
-      pos: 23.5,-1.5
-      parent: 1
-  - uid: 627
-    components:
-    - type: Transform
-      pos: 18.5,18.5
-      parent: 1
-  - uid: 2577
-    components:
-    - type: Transform
-      pos: -17.5,18.5
-      parent: 1
-  - uid: 2578
-    components:
-    - type: Transform
-      pos: 3.5,19.5
-      parent: 1
 - proto: CableApcExtension
   entities:
   - uid: 641

@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
-  "copyright": "Sprited by discord:@mishutka09",
-=======
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/5a73e8f825ff279e82949b9329783a9e3070e2da. Equipped-EYES-arachnid and equipped-EYES-moth motified from equipped-EYES, inhand-left and inhand-right modified from inhand-left and inhand-right from the glasses folder by HTMLSystem",
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
   "size": {
     "x": 32,
     "y": 32
@@ -19,8 +15,6 @@
       "directions": 4
     },
     {
-<<<<<<< HEAD
-=======
       "name": "equipped-EYES-arachnid",
       "directions": 4
     },
@@ -29,7 +23,6 @@
       "directions": 4
     },
     {
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
       "name": "inhand-left",
       "directions": 4
     },

@@ -5,16 +5,11 @@
   playTimeTracker: JobPirate
   requirements:
     - !type:OverallPlaytimeRequirement
-<<<<<<< HEAD:Resources/Prototypes/_NF/Roles/Jobs/Pirates/pirate.yml
-      time: 21600 # 6 hours Radiant_Sector
-  startingGear: PirateNFGear
-=======
       time: 86400 # 24 hours
     - !type:DepartmentTimeRequirement
       department: Security
       time: 10800 # 3 hrs
   startingGear: NFPirateGear
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c:Resources/Prototypes/_NF/Roles/Jobs/Pirates/nfpirate.yml
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true

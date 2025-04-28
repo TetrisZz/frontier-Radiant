@@ -1,76 +1,17 @@
 - type: localizedDataset
   id: NamesSyndicateNormal
   values:
-<<<<<<< HEAD
-  - Альфа
-  - Браво
-  - Чарли
-  - Дельта
-  - Эхо
-  - Фокстрот
-  - Гольф
-  - Хоутел
-  - Индиа
-  - Джулиет
-  - Кило
-  - Лима
-  - Майк
-  - Новэмбэр
-  - Оскар
-  - Папа
-  - Квебек
-  - Ромео
-  - Сьера
-  - Танго
-  - Юниформ
-  - Виктор
-  - Виски
-  - Иксрей
-  - Зулу
-=======
     prefix: names-syndicate-normal-dataset-
     count: 25
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 
 - type: localizedDataset
   id: NamesSyndicateElite
   values:
-<<<<<<< HEAD
-  - Альфа
-  - Бета
-  - Гамма
-  - Дельта
-  - Эпсилон
-  - Дзета
-  - Эта
-  - Фита
-  - Йота
-  - Лямбда
-  - Мю
-  - Ню
-  - Кси
-  - Омикрон
-  - Пи
-  - Ро
-  - Сигма
-  - Тау
-  - Ипсилон
-  - Фи
-  - Хи
-  - Пси
-  - Омега
-=======
     prefix: names-syndicate-elite-dataset-
     count: 23
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
 
 - type: localizedDataset
   id: NamesSyndicatePrefix
   values:
-<<<<<<< HEAD
-  - Оперативник
-  - Агент
-=======
     prefix: names-syndicate-prefix-dataset-
     count: 2
->>>>>>> e34b3e1152646f307fa2d9b3b5f6fa6500e14f7c
