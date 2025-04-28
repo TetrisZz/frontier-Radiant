@@ -83,12 +83,14 @@
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       - map: [ "underwearb" ]
       - map: [ "underweart" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
       - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
@@ -118,6 +120,7 @@
         visible: false
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid
   - type: Carriable # Frontier: Carrying system from nyanotrasen.
 
 
@@ -128,5 +131,7 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
+  - type: Inventory
+    speciesId: arachnid 
 
 #>88w88<

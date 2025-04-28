@@ -121,7 +121,7 @@
   [color=#a4885c]Летчик[/color]: существо левитирует над поверхностью и может обходить низкие препятствия, такие как столы, рамы машин или перила, не блокируясь и не замедляясь.
   
   <Box>
-  <GuideEntityEmbed Entity="MobDragon"/>
+  <GuideEntityEmbed Entity="NFMobDragonDungeon"/>
   </Box>
   - [bold][color=#a4885c]Пороговые значения здоровья:[/color][/bold] 200 (смерть)
   - [bold][color=#a4885c]Скорость бега:[/color][/bold] 5 м/с
@@ -134,7 +134,7 @@
   # Цели миссии
   ## Ликвидация
   <Box>
-  <GuideEntityEmbed Entity="MobDragon"/>
+  <GuideEntityEmbed Entity="NFMobDragonDungeon"/>
   </Box>
   Уничтожьте большое и опасное существо - [color=#a4885c]космического дракона[/color] за отведенное время, чтобы получить денежное вознаграждение.
   

@@ -106,9 +106,11 @@
   - ContractorClothingUniformJumpskirtLawyerGood
   - ContractorClothingUniformRandomPunkCroptop # Punkish (Randomized visuals)
   - ContractorClothingUniformRandomPunkTanktop # Punkish (Randomized visuals)
-  - ContractorClothingUniformRandomArmlessNoSkirt # Punkish (Randomized visuals)
   - ContractorClothingUniformRandomPunkCroptopShorts # Punkish (Randomized visuals)
   - ContractorClothingUniformRandomPunkTanktopShorts # Punkish (Randomized visuals)
+  - ContractorClothingUniformRandomPunkPantsOnly # Punkish (Randomized visuals)
+  - ContractorClothingUniformRandomPunkShortsOnly # Punkish (Randomized visuals)
+  - ContractorClothingUniformRandomArmlessNoSkirt # Punkish (Randomized visuals)
   - ContractorClothingUniformRandomArmless
   - ContractorClothingUniformRandomStandard
   - ContractorClothingUniformRandomShorts
@@ -245,6 +247,7 @@
   - ContractorClothingBackpackMessengerScience
   - ContractorClothingBackpackMedical
   - ContractorClothingBackpackDuffelMedical
+  - ContractorClothingBackpackDuffelTrauma
   - ContractorClothingBackpackSatchelMedical
   - ContractorClothingBackpackMessengerMedical
   - ContractorClothingBackpackChemistry
@@ -268,7 +271,18 @@
   - ContractorClothingBackpackDuffelAtmospherics
   - ContractorClothingBackpackSatchelAtmospherics
   - ContractorClothingBackpackMessengerAtmospherics
+  - ContractorNFClothingBackpackDuffelChaplain
   - ContractorClothingBackpackMessengerChaplain
+  - ContractorNFClothingBackpackDuffelColorBlack
+  - ContractorNFClothingBackpackDuffelColorWhite
+  - ContractorNFClothingBackpackDuffelColorBlue
+  - ContractorNFClothingBackpackDuffelColorGreen
+  - ContractorNFClothingBackpackDuffelColorOrange
+  - ContractorNFClothingBackpackDuffelColorRed
+  - ContractorNFClothingBackpackDuffelColorPurple
+  - ContractorNFClothingBackpackDuffelColorBrownLight
+  - ContractorNFClothingBackpackDuffelColorBrown
+  - ContractorNFClothingBackpackDuffelColorRandom
   - ContractorClothingBackpackMessengerColorBlack
   - ContractorClothingBackpackMessengerColorWhite
   - ContractorClothingBackpackMessengerColorBlue
@@ -278,6 +292,7 @@
   - ContractorClothingBackpackMessengerColorPurple
   - ContractorClothingBackpackMessengerColorBrownLight
   - ContractorClothingBackpackMessengerColorBrown
+  - ContractorClothingBackpackMessengerColorRandom
   - ContractorClothingBackpackClown
   - ContractorClothingBackpackDuffelClown
   - ContractorClothingBackpackSatchelClown
@@ -631,6 +646,7 @@
   - ContractorClothingNeckCloakTrans
   - ContractorClothingNeckCloakAro
   - ContractorClothingNeckCloakAce
+  - ContractorClothingNeckCloakAroace
   - ContractorClothingNeckCloakBi
   - ContractorClothingNeckCloakIntersex
   - ContractorClothingNeckCloakEnby
@@ -641,6 +657,7 @@
   - ClothingNeckLGBTPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
+  - ClothingNeckAroacePin
   - ClothingNeckBisexualPin
   - ClothingNeckGayPin
   - ClothingNeckIntersexPin
@@ -747,6 +764,7 @@
   - ContractorCigPackGreen
   - ContractorCigarCase
   - ContractorNFAshtray
+  - ContractorTapeRecorder
   - ContractorSmokingPipeFilledTobacco
   - ContractorTobaccoPouchBrownFilled
   - ContractorTobaccoPouchBlueFilled
