@@ -1,10 +1,7 @@
 <Document>
   # СЕРВИСНЫЙ ШАТТЛ КЛАССА KILDERKIN
   <Box>
-  <GuideEntityEmbed Entity="BoozeDispenser"/>
-  <GuideEntityEmbed Entity="SodaDispenser"/>
-  <GuideEntityEmbed Entity="VendingMachineBooze"/>
-  <GuideEntityEmbed Entity="DrinkKegWood"/>
+  <GuideEntityEmbed Entity="NFPosterContrabandLvhiShuttle" Caption=""/>
   </Box>
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapKilderkin" Caption=""/>
@@ -21,70 +18,8 @@
 	
   "Просторный бар среднего размера. В дополнение к бару оборудована гидропоника. Произведено компанией Langstad-Voigt Heavy Industries."
   
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
+  # Tips on running LVHI Legman shuttles
+  - Optimal Target Power (kW) for S.U.P.E.R.P.A.C.M.A.N. generator unit is 26 [bold]kW[/bold]. If you've added additional machines, check both APC units to see shuttle's power draw and adjust generator Target Power accordingly. For more general info on power grid see guidebook article [textlink="Power" link="Power"].
+  - For basics of shuttle piloting see [textlink="Piloting" link="Piloting"].
   
-  ## 1. Электропитание
-  
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SMESBasic"/>
-  <GuideEntityEmbed Entity="SubstationBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-  
-  - Убедитесь, что СМЭС закреплен на полу.
-  - Убедитесь, что подстанция закреплена на полу.
-  - Убедитесь, что ЛКП включена.
-  - Проверьте текущую нагрузку ЛКП* (Вт).
-  
-  ## 1.2. Генератор P.A.C.M.A.N.
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorPacmanShuttle"/>
-  <GuideEntityEmbed Entity="SheetPlasma"/>
-  </Box>
-  
-  - Проверьте, закреплен ли генератор P.A.C.M.A.N. на полу.
-  - Проверьте, есть ли в генераторе P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки энергии во время полета.
-  - Проверьте, установлен ли генератор P.A.C.M.A.N. на выход HV.
-  - Установите целевую мощность на 13** [bold]k[/bold]Вт.
-  - Запустите генератор P.A.C.M.A.N.
-  
-  ## 2. Атмосфера
-  
-  ## 2.1. Распределительная петля
-  <Box>
-  <GuideEntityEmbed Entity="AirCanister"/>
-  <GuideEntityEmbed Entity="GasPort"/>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  </Box>
-  
-  - Проверьте, закреплен ли воздушный баллон на соединительном порту.
-  - Проверьте, настроен ли распределительный насос на нормальное давление (101 кПа).
-  - Включите распределительный насос.
-  
-  ## 2.2. Схема отходов
-  <Box>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
-    
-  - Включите насос.
-  - Отключите автоматический режим на воздушной сигнализации.
-  - Установите для воздушной сигнализации режим фильтрации (широкий).
-  
-  ## 3. Другие проверки
-  <Box>
-  <GuideEntityEmbed Entity="Gyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  </Box>
-  
-  - Проверьте, закреплен ли гироскоп, подано ли на него питание и включен ли он.
-  - Проверьте, закреплен ли, питается ли и включен ли мини-генератор гравитации.
-  
-  ## Примечания
-  
-  * - Сервисные корабли класса KILDERKIN оснащены двумя блоками ЛКП, которые можно использовать для оценки общего энергопотребления корабля. Немодифицированный корабль класса KILDERKIN требует 24,2 кВт энергии для поддержания работоспособности.
-
-  ** - Потребность в энергии у кораблей класса KILDERKIN выше, чем может обеспечить один стандартный генератор P.A.C.M.A.N. при оптимальных настройках, однако корабль оснащен двумя генераторами P.A.C.M.A.N., рекомендуемая целевая мощность для каждого генератора P.A.C.M.A.N. составляет 13 кВт.
-
 </Document>
