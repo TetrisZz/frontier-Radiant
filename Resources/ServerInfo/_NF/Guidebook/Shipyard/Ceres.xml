@@ -5,10 +5,7 @@
   <GuideEntityEmbed Entity="KitchenMicrowave"/>
   <GuideEntityEmbed Entity="KitchenElectricGrill"/>
   </Box>
-  <Box>
-  <GuideEntityEmbed Entity="ShuttleMapCeres" Caption=""/>
-  </Box>
-  [color=#a4885c]Размер корабля:[/color] Средний
+  [color=#a4885c]Ship Size:[/color] Medium
 
   [color=#a4885c]Рекомендуемый экипаж:[/color] 2-4
 
@@ -22,69 +19,11 @@
 
   [italic]Предоставлено компанией BlueBird Starship Design & Construction.[/italic]
 
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
+  # GETTING THE MOST OUT OF THE CERES
 
-  ## 1. Электропитание
-
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SMESBasic"/>
-  <GuideEntityEmbed Entity="SubstationWallBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-
-  - Убедитесь, что блок подстанции закреплен на стене.
-  - Убедитесь, что главный выключатель блока APC включен.
-  - Проверьте текущую нагрузку блока APC (Вт)..
-
-  ## 1.2. Генераторный блок S.U.P.E.R.P.A.C.M.A.N.
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorSuperPacmanShuttle"/>
-  <GuideEntityEmbed Entity="SheetUranium"/>
-  </Box>
-
-  - Убедитесь, что генераторный блок S.U.P.E.R.P.A.C.M.A.N. закреплен на полу.
-  - Убедитесь, что генераторный блок S.U.P.E.R.P.A.C.M.A.N. заправлен топливом. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки электроэнергии.
-  - Убедитесь, что генераторный блок S.U.P.E.R.P.A.C.M.A.N. настроен на выход HV.
-  - Установите на генераторном блоке целевую мощность 24 [bold]кВт[/bold].
-  - Запустите генераторный блок S.U.P.E.R.P.A.C.M.A.N.
-
-  ## 2. Атмосфера
-
-  ## 2.1. Схема дистрибуции
-  <Box>
-  <GuideEntityEmbed Entity="OxygenCanister"/>
-  <GuideEntityEmbed Entity="NitrogenCanister"/>
-  <GuideEntityEmbed Entity="GasPort"/>
-  <GuideEntityEmbed Entity="GasMixer"/>
-  </Box>
-
-  - Убедитесь, что баллоны с кислородом и азотом закреплены на соединительном порту.
-  - Убедитесь, что распределительный смеситель настроен на 101 кПа.
-  - Включите распределительный смеситель.
-
-  ## 2.2. Петля для отходовСредний
-  <Box>
-  <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
-
-  - Включите насос отработанного контура.
-  - Отключите автоматический режим на сигнализаторе воздуха в машинном отделении.
-  - Установите для воздушной сигнализации в машинном отделении режим фильтрации (широкий).
-
-  ## 3. Другие проверки
-  <Box>
-  <GuideEntityEmbed Entity="Gyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  </Box>
-
-  - Проверьте, что гироскоп закреплен, питается и включен.
-  - Убедитесь, что мини-генератор гравитации закреплен, питается и включен.
-
-  # ПОЛУЧЕНИЕ МАКСИМАЛЬНОЙ ОТДАЧИ ОТ CERES
-
-  - Корабль Ceres рассчитан на экипаж из нескольких человек. Подумайте о том, чтобы иметь специального ботаника для выращивания качественных продуктов.
-  - Почтовые блоки, хотя и нестандартные, предназначены для безопасной и эффективной транспортировки продуктов от ботаника до кухни. Воспользуйтесь ими!
-  - Не бойтесь менять расстановку столов и сидений в соответствии с вашими потребностями.
-  - При подаче блюд на большую вечеринку тележки для продуктов в морозильной камере могут упростить транспортировку.
+  - The Ceres is designed for multi-person crews. Consider having a dedicated botanist to grow quality produce.
+  - Though unorthodox, the mailing units are designed to safely and efficiently transport produce from botany to kitchen. Make use of them!
+  - Don't be afraid to adjust the table and seating layout to suit your needs.
+  - For serving food to a larger party, the food carts in the service area may simplify transportation.
+  - When parked, you can use the button on the bridge to turn off thrusters and significantly reduce power use.
 </Document>
