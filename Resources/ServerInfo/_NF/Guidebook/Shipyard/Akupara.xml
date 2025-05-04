@@ -48,11 +48,11 @@
     <GuideEntityEmbed Entity="SignRadiationMed"/>
   </Box>
 
-  - Проверьте, надежно ли закреплен генератор S.U.P.E.R.P.A.C.M.A.N. на полу.
-  - Проверьте, есть ли топливо в генераторе S.U.P.E.R.P.A.C.M.A.N. Для длительных полетов убедитесь, что у вас достаточно топлива для поддержания длительной выработки электроэнергии во время полета.
-  - Проверьте, настроен ли генератор S.U.P.E.R.P.A.C.M.A.N. на выходное напряжение HV.
-  - Установите целевую мощность 32 [bold]k[/bold]Вт.
-  - Запустите генератор S.U.P.E.R.P.A.C.M.A.N.
+  - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit is anchored to the floor.
+  - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit has fuel. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation during flight.
+  - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit is set to HV output.
+  - Set Target Power for 29 [bold]k[/bold]W.
+  - Start the S.U.P.E.R.P.A.C.M.A.N. generator unit.
 
   ## 2. Атмосфера
   
@@ -65,12 +65,12 @@
   <GuideEntityEmbed Entity="GasMixer"/>
   </Box>
 
-  - Проверьте, закреплены ли баллон O2 и баллон N2 на своих соединительных отверстиях.
-  - При необходимости проверьте порт подключения воздушного баллона**.
-  - Проверьте, правильно ли установлены коэффициент смешивания и выходное давление в газовом смесителе с надписью «Air».
-  - Найдите газовый фильтр с надписью «Азот» и настройте его на фильтрацию азота.
-  - Найдите газовый фильтр с надписью «Oxygen» и установите его на фильтрацию кислорода.
-  - Включите газовый смеситель с надписью «Воздух».
+  - Check if the O2 canister and N2 canister are anchored to their connector ports.
+  - Check the air canister connection port, if required.**
+  - Check if the gas mixer has its mixing ratio and output pressure set correctly.
+  - Find the filter leading into the nitrogen canister and set it to filter nitrogen.
+  - Find the filter leading into the oxygen canister and set it to filter oxygen.
+  - Enable the gas mixer.
 
   ## 2.2. Шлейф отходов
   <Box>
@@ -86,15 +86,15 @@
   - Убедитесь, что вы включили распределительный контур, так как он является неотъемлемой частью отработанного контура.***
   - Установите все воздушные сигнализаторы в режим фильтрации (широкий).
 
-  Для очистки отходящих газов без их сбора:
-  - Откройте ручной клапан с надписью «Waste».
+  To purge waste gases without collecting them:
+  - Open the manual valve leading to the waste vent.
 
-  Для сбора отработанных газов:
-  - Держите ручной клапан с надписью «Waste» закрытым.
-  - Убедитесь, что к порту разъема для сбора подключен накопительный баллон.
-  - Установите газовый фильтр с надписью «Waste» на отработанный газ, который вы хотите хранить.
-  - Включите объемный газовый насос с надписью «Waste».
-  - Следите за содержимым канистры. При необходимости замените баллон.
+  To collect waste gases:
+  - Keep the waste vent manual valve closed.
+  - Ensure a storage canister is connected into the collection connector port.
+  - Set the auxiliary network Gas Filter to the waste gas you wish to store.
+  - Enable the volumetric gas pump leading into the collection port.
+  - Monitor contents of storage canister. Replace storage canister as necessary.
   
    Для коррекции избыточного давления O2-N2 в кабине:
    - Убедитесь в том, что баллоны с O2 и N2 имеют достаточную емкость.
@@ -112,6 +112,7 @@
 
   ## Примечания
 
+  * - Akupara-class vessels are equipped with three APC units that can be used to appraise the ship's total power consumption. Unmodified Akupara-class vessels require 29 kW of power to remain operational.
 
   * - Корабли класса «Акупара» оснащены тремя блоками APC, которые можно использовать для оценки общего энергопотребления корабля. Для поддержания работоспособности немодифицированным судам класса «Акупара» требуется 32 кВт мощности.
 
