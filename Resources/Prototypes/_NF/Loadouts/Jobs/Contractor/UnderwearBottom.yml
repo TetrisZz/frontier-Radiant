@@ -83,16 +83,26 @@
   equipment:
     underwearb: ClothingUnderwearBottomPantiesCap
 
-    
 - type: loadout
   id: ContractorClothingUnderwearBottomPantiesHOP
   price: 100
   equipment:
     underwearb: ClothingUnderwearBottomPantiesHOP
     
-    
 - type: loadout
   id: ContractorClothingUnderwearBottomPantiesRD
   price: 100
   equipment:
     underwearb: ClothingUnderwearBottomPantiesRD
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersCap
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersCap
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesLace
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesLace
