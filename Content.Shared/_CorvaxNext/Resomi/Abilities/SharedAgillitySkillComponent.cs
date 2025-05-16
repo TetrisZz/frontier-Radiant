@@ -37,10 +37,10 @@ public sealed partial class AgillitySkillComponent : Component
     /// how much stamina will be passive spent while abilitty is activated
     /// </summary>
     [DataField("staminaDamagePassive")]
-    public float StaminaDamagePassive = 3f;
+    public float StaminaDamagePassive = 2f;
 
     [DataField("sprintSpeedModifier")]
-    public float SprintSpeedModifier = 0.1f; //+10%
+    public float SprintSpeedModifier = 0.2f; //+20%
     public float SprintSpeedCurrent = 1f;
 
     /// <summary>

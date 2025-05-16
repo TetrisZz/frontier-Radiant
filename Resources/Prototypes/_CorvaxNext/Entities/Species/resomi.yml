@@ -7,10 +7,10 @@
   components:
   - type: WeaponsUseInability
   - type: AgillitySkill
-  - type: ListenUpSkill
   - type: FlashModifier
     modifier: 2
   - type: ResomiAccent
+  - type: Carriable # Frontier: Carrying system from nyanotrasen.
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
