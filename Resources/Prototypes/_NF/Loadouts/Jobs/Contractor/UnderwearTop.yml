@@ -76,3 +76,9 @@
   price: 100
   equipment:
     underweart: ClothingUnderwearTopBraRD
+
+- type: loadout
+  id: ContractorClothingUnderwearTopNekoBra
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopNekoBra

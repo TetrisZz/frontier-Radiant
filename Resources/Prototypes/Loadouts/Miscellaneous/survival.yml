@@ -18,6 +18,7 @@
     - Human
     - Moth
     - Reptilian
+    - Resomi #Corvax-Resomi
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox

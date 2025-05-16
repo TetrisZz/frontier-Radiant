@@ -2,6 +2,7 @@
 
 - type: randomHumanoidSettings
   id: EventHumanoid
+  speciesBlacklist: ['Resomi'] # Corvax-Next
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
