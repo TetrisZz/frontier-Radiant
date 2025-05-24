@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss13 shiptest https://github.com/shiptest-ss13/Shiptest",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "techfloororange_edges_1"
+      },
+      {
+        "name": "techfloororange_edges_2"
+      },
+      {
+        "name": "techfloororange_edges_3"
+      },
+      {
+        "name": "techfloororange_edges_4"
+      },
+      {
+        "name": "techfloororange_edges_5"
+      },
+      {
+        "name": "techfloororange_edges_6"
+      },
+      {
+        "name": "techfloororange_edges_7"
+      },
+      {
+        "name": "techfloororange_edges_8"
+      }
+    ]
+  }
+  

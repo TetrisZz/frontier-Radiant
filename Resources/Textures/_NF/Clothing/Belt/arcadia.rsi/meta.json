@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original sprite taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e | modified by AjexRose for NewFrontier",
+  "copyright": "Original sprite taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e | modified by AjexRose for NewFrontier. Homka was made for rezomi, for the Radiant Sector",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,10 @@
     },
     {
       "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BELT-resomi",
       "directions": 4
     },
     {

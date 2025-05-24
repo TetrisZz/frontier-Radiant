@@ -1,0 +1,111 @@
+- type: decal
+  id: corner_techfloor_grid_1
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_1
+
+- type: decal
+  id: corner_techfloor_grid_2
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_2
+
+- type: decal
+  id: corner_techfloor_grid_3
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_3
+
+- type: decal
+  id: corner_techfloor_grid_4
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_4
+
+- type: decal
+  id: corner_techfloor_grid_5
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_5
+
+- type: decal
+  id: corner_techfloor_grid_6
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_6
+
+- type: decal
+  id: corner_techfloor_grid_7
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_7
+
+- type: decal
+  id: corner_techfloor_grid_8
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_8
+
+- type: decal
+  id: corner_techfloor_grid_diagonal_1
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_diagonal_1
+
+- type: decal
+  id: corner_techfloor_grid_diagonal_2
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_diagonal_2
+
+- type: decal
+  id: corner_techfloor_grid_diagonal_3
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_diagonal_3
+
+- type: decal
+  id: corner_techfloor_grid_diagonal_4
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_diagonal_4
+
+- type: decal
+  id: corner_techfloor_grid_full_1
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_full_1
+
+- type: decal
+  id: corner_techfloor_grid_full_2
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_full_2
+
+- type: decal
+  id: corner_techfloor_grid_full_3
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_full_3
+
+- type: decal
+  id: corner_techfloor_grid_full_4
+  tags: ["corner_techfloor_grid"]
+  sprite:
+    sprite: _radiant/Decals/corner_techfloor_grid.rsi
+    state: corner_techfloor_grid_full_4

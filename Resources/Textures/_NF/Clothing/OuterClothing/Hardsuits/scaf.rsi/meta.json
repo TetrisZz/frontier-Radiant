@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Artist`s : maksgab, finalized TetrisZz",
+  "copyright": "Artist`s : maksgab, finalized TetrisZz. Homka was made for rezomi, for the Radiant Sector",
   "size": {
     "x": 32,
     "y": 32
@@ -18,7 +18,15 @@
       "directions": 4
     },
     {
+      "name": "on-equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
       "name": "off-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-OUTERCLOTHING-resomi",
       "directions": 4
     },
     {

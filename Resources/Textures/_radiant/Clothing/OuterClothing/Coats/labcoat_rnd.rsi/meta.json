@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by Aserovich",
+  "copyright": "Created by Aserovich. Homka was made for rezomi, for the Radiant Sector",
   "size": {
     "x": 32,
     "y": 32
@@ -18,7 +18,15 @@
       "directions": 4
     },
     {
+      "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
       "name": "open-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING-resomi",
       "directions": 4
     },
     {

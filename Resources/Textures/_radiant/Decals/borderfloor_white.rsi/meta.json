@@ -1,0 +1,72 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss13 shiptest https://github.com/shiptest-ss13/Shiptest",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "borderfloor_white_1"
+      },
+      {
+        "name": "borderfloor_white_2"
+      },
+      {
+        "name": "borderfloor_white_3"
+      },
+      {
+        "name": "borderfloor_white_4"
+      },
+	  {
+        "name": "borderfloor_white_5"
+      },
+      {
+        "name": "borderfloor_white_6"
+      },
+      {
+        "name": "borderfloor_white_7"
+      },
+      {
+        "name": "borderfloor_white_8"
+      },
+	  {
+        "name": "borderfloorcorner_white_1"
+      },
+      {
+        "name": "borderfloorcorner_white_2"
+      },
+      {
+        "name": "borderfloorcorner_white_3"
+      },
+      {
+        "name": "borderfloorcorner_white_4"
+      },
+	  {
+        "name": "borderfloorcorner2_white_1"
+      },
+      {
+        "name": "borderfloorcorner2_white_2"
+      },
+      {
+        "name": "borderfloorcorner2_white_3"
+      },
+      {
+        "name": "borderfloorcorner2_white_4"
+      },
+	  {
+        "name": "borderfloorcorner2_white_5"
+      },
+      {
+        "name": "borderfloorcorner2_white_6"
+      },
+      {
+        "name": "borderfloorcorner2_white_7"
+      },
+      {
+        "name": "borderfloorcorner2_white_8"
+      }
+    ]
+  }
+  
