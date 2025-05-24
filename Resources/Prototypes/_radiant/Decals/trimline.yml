@@ -1,0 +1,118 @@
+- type: decal
+  id: trimline_1
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_1
+
+- type: decal
+  id: trimline_2
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_2
+
+- type: decal
+  id: trimline_3
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_3
+
+- type: decal
+  id: trimline_4
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_4
+
+- type: decal
+  id: trimline_5
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_5
+
+- type: decal
+  id: trimline_6
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_6
+
+- type: decal
+  id: trimline_7
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_7
+
+- type: decal
+  id: trimline_8
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_8
+
+- type: decal
+  id: trimline_box
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_box
+
+- type: decal
+  id: trimline_corner_1
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_corner_1
+
+- type: decal
+  id: trimline_corner_2
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_corner_2
+
+- type: decal
+  id: trimline_corner_3
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_corner_3
+
+- type: decal
+  id: trimline_corner_4
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_corner_4
+
+- type: decal
+  id: trimline_end_1
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_end_1
+
+- type: decal
+  id: trimline_end_2
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_end_2
+
+- type: decal
+  id: trimline_end_3
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_end_3
+
+- type: decal
+  id: trimline_end_4
+  tags: ["trimline"]
+  sprite:
+    sprite: _radiant/Decals/trimline.rsi
+    state: trimline_end_4

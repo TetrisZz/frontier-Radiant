@@ -1,0 +1,60 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss13 shiptest https://github.com/shiptest-ss13/Shiptest",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "siding_wideplating_corner_1"
+      },
+      {
+        "name": "siding_wideplating_corner_2"
+      },
+      {
+        "name": "siding_wideplating_corner_3"
+      },
+      {
+        "name": "siding_wideplating_corner_4"
+      },
+	  {
+        "name": "siding_wideplating_end_1"
+      },
+      {
+        "name": "siding_wideplating_end_2"
+      },
+      {
+        "name": "siding_wideplating_end_3"
+      },
+      {
+        "name": "siding_wideplating_end_4"
+      },
+	  {
+        "name": "siding_wideplating_line_1"
+      },
+      {
+        "name": "siding_wideplating_line_2"
+      },
+      {
+        "name": "siding_wideplating_line_3"
+      },
+      {
+        "name": "siding_wideplating_line_4"
+      },
+	  {
+        "name": "siding_wideplating_line_5"
+      },
+      {
+        "name": "siding_wideplating_line_6"
+      },
+      {
+        "name": "siding_wideplating_line_7"
+      },
+      {
+        "name": "siding_wideplating_line_8"
+      }
+    ]
+  }
+  

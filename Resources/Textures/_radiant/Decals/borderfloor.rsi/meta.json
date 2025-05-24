@@ -1,0 +1,72 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss13 shiptest https://github.com/shiptest-ss13/Shiptest",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "borderfloor_1"
+      },
+      {
+        "name": "borderfloor_2"
+      },
+      {
+        "name": "borderfloor_3"
+      },
+      {
+        "name": "borderfloor_4"
+      },
+	  {
+        "name": "borderfloor_5"
+      },
+      {
+        "name": "borderfloor_6"
+      },
+      {
+        "name": "borderfloor_7"
+      },
+      {
+        "name": "borderfloor_8"
+      },
+	  {
+        "name": "borderfloorcorner_1"
+      },
+      {
+        "name": "borderfloorcorner_2"
+      },
+      {
+        "name": "borderfloorcorner_3"
+      },
+      {
+        "name": "borderfloorcorner_4"
+      },
+	  {
+        "name": "borderfloorcorner2_1"
+      },
+      {
+        "name": "borderfloorcorner2_2"
+      },
+      {
+        "name": "borderfloorcorner2_3"
+      },
+      {
+        "name": "borderfloorcorner2_4"
+      },
+	  {
+        "name": "borderfloorcorner2_5"
+      },
+      {
+        "name": "borderfloorcorner2_6"
+      },
+      {
+        "name": "borderfloorcorner2_7"
+      },
+      {
+        "name": "borderfloorcorner2_8"
+      }
+    ]
+  }
+  

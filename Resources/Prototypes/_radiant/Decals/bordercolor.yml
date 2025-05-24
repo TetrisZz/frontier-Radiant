@@ -1,0 +1,34 @@
+- type: decal
+  id: bordercolorhalf_1
+  tags: ["bordercolor"]
+  sprite:
+    sprite: _radiant/Decals/bordercolor.rsi
+    state: bordercolorhalf_1
+
+- type: decal
+  id: bordercolorhalf_2
+  tags: ["bordercolor"]
+  sprite:
+    sprite: _radiant/Decals/bordercolor.rsi
+    state: bordercolorhalf_2
+
+- type: decal
+  id: bordercolorhalf_3
+  tags: ["bordercolor"]
+  sprite:
+    sprite: _radiant/Decals/bordercolor.rsi
+    state: bordercolorhalf_3
+
+- type: decal
+  id: bordercolorhalf_4
+  tags: ["bordercolor"]
+  sprite:
+    sprite: _radiant/Decals/bordercolor.rsi
+    state: bordercolorhalf_4
+
+- type: decal
+  id: bordercolormonofull
+  tags: ["bordercolor"]
+  sprite:
+    sprite: _radiant/Decals/bordercolor.rsi
+    state: bordercolormonofull

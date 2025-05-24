@@ -1,0 +1,90 @@
+- type: decal
+  id: spline_plain_1
+  tags: ["spline"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_1
+
+- type: decal
+  id: spline_plain_2
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_2
+
+- type: decal
+  id: spline_plain_3
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_3
+
+- type: decal
+  id: spline_plain_4
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_4
+
+- type: decal
+  id: spline_plain_5
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_5
+
+- type: decal
+  id: spline_plain_6
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_6
+
+- type: decal
+  id: spline_plain_7
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_7
+
+- type: decal
+  id: spline_plain_8
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_8
+
+- type: decal
+  id: spline_plain_cee_1
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_cee_1
+
+- type: decal
+  id: spline_plain_cee_2
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_cee_2
+
+- type: decal
+  id: spline_plain_cee_3
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_cee_3
+
+- type: decal
+  id: spline_plain_cee_4
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_cee_4
+
+- type: decal
+  id: spline_plain_full
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/spline_plain.rsi
+    state: spline_plain_full

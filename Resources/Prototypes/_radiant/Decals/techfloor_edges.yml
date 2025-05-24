@@ -1,0 +1,83 @@
+- type: decal
+  id: techfloor_edges_1
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_edges.rsi
+    state: techfloor_edges_1
+
+- type: decal
+  id: techfloor_edges_2
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_edges.rsi
+    state: techfloor_edges_2
+
+- type: decal
+  id: techfloor_edges_3
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_edges.rsi
+    state: techfloor_edges_3
+
+- type: decal
+  id: techfloor_edges_4
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_edges.rsi
+    state: techfloor_edges_4
+
+- type: decal
+  id: techfloor_edges_5
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_edges.rsi
+    state: techfloor_edges_5
+
+- type: decal
+  id: techfloor_edges_6
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_edges.rsi
+    state: techfloor_edges_6
+
+- type: decal
+  id: techfloor_edges_7
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_edges.rsi
+    state: techfloor_edges_7
+
+- type: decal
+  id: techfloor_edges_8
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_edges.rsi
+    state: techfloor_edges_8
+
+- type: decal
+  id: techfloor_corners_1
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_corners.rsi
+    state: techfloor_corners_1
+
+- type: decal
+  id: techfloor_corners_2
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_corners.rsi
+    state: techfloor_corners_2
+
+- type: decal
+  id: techfloor_corners_3
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_corners.rsi
+    state: techfloor_corners_3
+
+- type: decal
+  id: techfloor_corners_4
+  tags: ["techfloor"]
+  sprite:
+    sprite: _radiant/Decals/techfloor_corners.rsi
+    state: techfloor_corners_4

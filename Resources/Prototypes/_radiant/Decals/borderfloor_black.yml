@@ -1,0 +1,139 @@
+- type: decal
+  id: borderfloor_black_1
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloor_black_1
+
+- type: decal
+  id: borderfloor_black_2
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloor_black_2
+
+- type: decal
+  id: borderfloor_black_3
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloor_black_3
+
+- type: decal
+  id: borderfloor_black_4
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloor_black_4
+
+- type: decal
+  id: borderfloor_black_5
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloor_black_5
+
+- type: decal
+  id: borderfloor_black_6
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloor_black_6
+
+- type: decal
+  id: borderfloor_black_7
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloor_black_7
+
+- type: decal
+  id: borderfloor_black_8
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloor_black_8
+
+- type: decal
+  id: borderfloorcorner_black_1
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner_black_1
+
+- type: decal
+  id: borderfloorcorner_black_2
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner_black_2
+
+- type: decal
+  id: borderfloorcorner_black_3
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner_black_3
+
+- type: decal
+  id: borderfloorcorner_black_4
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner_black_4
+
+- type: decal
+  id: borderfloorcorner2_black_1
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner2_black_1
+
+- type: decal
+  id: borderfloorcorner2_black_2
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner2_black_2
+
+- type: decal
+  id: borderfloorcorner2_black_3
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner2_black_3
+
+- type: decal
+  id: borderfloorcorner2_black_4
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner2_black_4
+
+- type: decal
+  id: borderfloorcorner2_black_5
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner2_black_5
+
+- type: decal
+  id: borderfloorcorner2_black_6
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner2_black_6
+
+- type: decal
+  id: borderfloorcorner2_black_7
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner2_black_7
+
+- type: decal
+  id: borderfloorcorner2_black_8
+  tags: ["borderfloor_black"]
+  sprite:
+    sprite: _radiant/Decals/borderfloor_black.rsi
+    state: borderfloorcorner2_black_8

@@ -1,0 +1,63 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss13 shiptest https://github.com/shiptest-ss13/Shiptest",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "trimline_1"
+      },
+      {
+        "name": "trimline_2"
+      },
+      {
+        "name": "trimline_3"
+      },
+      {
+        "name": "trimline_4"
+      },
+      {
+        "name": "trimline_5"
+      },
+      {
+        "name": "trimline_6"
+      },
+      {
+        "name": "trimline_7"
+      },
+      {
+        "name": "trimline_8"
+      },
+      {
+        "name": "trimline_box"
+      },
+      {
+        "name": "trimline_corner_1"
+      },
+      {
+        "name": "trimline_corner_2"
+      },
+      {
+        "name": "trimline_corner_3"
+      },
+      {
+        "name": "trimline_corner_4"
+      },
+      {
+        "name": "trimline_end_1"
+      },
+      {
+        "name": "trimline_end_2"
+      },
+      {
+        "name": "trimline_end_3"
+      },
+      {
+        "name": "trimline_end_4"
+      }
+    ]
+  }
+  

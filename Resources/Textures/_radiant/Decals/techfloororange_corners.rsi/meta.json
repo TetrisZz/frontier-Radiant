@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss13 shiptest https://github.com/shiptest-ss13/Shiptest",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "techfloororange_corners_1"
+      },
+      {
+        "name": "techfloororange_corners_2"
+      },
+      {
+        "name": "techfloororange_corners_3"
+      },
+      {
+        "name": "techfloororange_corners_4"
+      }
+    ]
+  }
+  

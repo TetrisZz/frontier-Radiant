@@ -1,0 +1,111 @@
+- type: decal
+  id: siding_wideplating_corner_1
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_corner_1
+
+- type: decal
+  id: siding_wideplating_corner_2
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_corner_2
+
+- type: decal
+  id: siding_wideplating_corner_3
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_corner_3
+
+- type: decal
+  id: siding_wideplating_corner_4
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_corner_4
+
+- type: decal
+  id: siding_wideplating_end_1
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_end_1
+
+- type: decal
+  id: siding_wideplating_end_2
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_end_2
+
+- type: decal
+  id: siding_wideplating_end_3
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_end_3
+
+- type: decal
+  id: siding_wideplating_end_4
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_end_4
+
+- type: decal
+  id: siding_wideplating_line_1
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_line_1
+
+- type: decal
+  id: siding_wideplating_line_2
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_line_2
+
+- type: decal
+  id: siding_wideplating_line_3
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_line_3
+
+- type: decal
+  id: siding_wideplating_line_4
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_line_4
+
+- type: decal
+  id: siding_wideplating_line_5
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_line_5
+
+- type: decal
+  id: siding_wideplating_line_6
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_line_6
+
+- type: decal
+  id: siding_wideplating_line_7
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_line_7
+
+- type: decal
+  id: siding_wideplating_line_8
+  tags: ["siding_wideplating"]
+  sprite:
+    sprite: _radiant/Decals/siding_wideplating.rsi
+    state: siding_wideplating_line_8

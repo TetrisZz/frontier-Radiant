@@ -1,0 +1,51 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from ss13 shiptest https://github.com/shiptest-ss13/Shiptest",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "spline_plain_1"
+      },
+      {
+        "name": "spline_plain_2"
+      },
+      {
+        "name": "spline_plain_3"
+      },
+      {
+        "name": "spline_plain_4"
+      },
+	  {
+        "name": "spline_plain_5"
+      },
+      {
+        "name": "spline_plain_6"
+      },
+      {
+        "name": "spline_plain_7"
+      },
+      {
+        "name": "spline_plain_8"
+      },
+	  {
+        "name": "spline_plain_cee_1"
+      },
+      {
+        "name": "spline_plain_cee_2"
+      },
+      {
+        "name": "spline_plain_cee_3"
+      },
+      {
+        "name": "spline_plain_cee_4"
+      },
+	  {
+        "name": "spline_plain_full"
+      }
+    ]
+  }
+  
