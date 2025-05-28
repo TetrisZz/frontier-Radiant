@@ -14,6 +14,9 @@ public struct WebhookEmbed
     [JsonPropertyName("color")]
     public int Color { get; set; } = 0;
 
+    [JsonPropertyName("timestamp")]
+    public DateTime? Timestamp { get; set; }
+
     [JsonPropertyName("footer")]
     public WebhookEmbedFooter? Footer { get; set; } = null;
 
