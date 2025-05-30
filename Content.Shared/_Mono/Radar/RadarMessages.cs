@@ -13,8 +13,7 @@ public enum RadarBlipShape
     Star,
     Diamond,
     Hexagon,
-    Arrow,
-    Ring
+    Arrow
 }
 
 [Serializable, NetSerializable]
