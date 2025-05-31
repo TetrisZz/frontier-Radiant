@@ -42,7 +42,7 @@ namespace Content.Client.Shuttles.UI
             }
             else
             {
-                InFtl =
+                InFtl = false;
             }
 
             ServiceFlags = state.ServiceFlags;

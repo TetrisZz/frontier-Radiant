@@ -36,6 +36,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
 
     private EntityUid? _activeConsole;
     private FireControllableEntry[]? _controllables;
+    private HashSet<NetEntity> _selectedWeapons = new();
 
     private List<Entity<MapGridComponent>> _grids = new();
 
@@ -314,7 +315,8 @@ public sealed class FireControlNavControl : BaseShuttleControl
                 var isFireControllable = _controllables.Any(c => {
                     var coords = EntManager.GetCoordinates(c.Coordinates);
                     var entityMapPos = _transform.ToMapCoordinates(coords);
-                    return Vector2.Distance(entityMapPos.Position, worldPos) < 0.1f;
+                    return Vector2.Distance(entityMapPos.Position, worldPos) < 0.1f &&
+                           _selectedWeapons.Contains(c.NetEntity);
                 });
 
                 if (isFireControllable)
@@ -445,5 +447,10 @@ public sealed class FireControlNavControl : BaseShuttleControl
         };
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, points, color);
+    }
+
+    public void UpdateSelectedWeapons(HashSet<NetEntity> selectedWeapons)
+    {
+        _selectedWeapons = selectedWeapons;
     }
 }
