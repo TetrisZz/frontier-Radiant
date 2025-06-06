@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Goobstation.Vehicles;
 using Content.Shared._Mono.Radar;
 using Content.Shared.Projectiles;
 using Content.Shared.Shuttles.Components;
@@ -122,5 +123,25 @@ public sealed partial class RadarBlipSystem : EntitySystem
         }
 
         return blips;
+    }
+
+    /// <summary>
+    /// Configures the radar blip for a jetpack or vehicle entity.
+    /// </summary>
+    private void SetupRadarBlip(EntityUid uid, Color color, float scale, bool visibleFromOtherGrids = true, bool requireNoGrid = false)
+    {
+        var blip = EnsureComp<RadarBlipComponent>(uid);
+        blip.RadarColor = color;
+        blip.Scale = scale;
+        blip.VisibleFromOtherGrids = visibleFromOtherGrids;
+        blip.RequireNoGrid = requireNoGrid;
+    }
+
+    /// <summary>
+    /// Configures the radar blip for a vehicle entity.
+    /// </summary>
+    public void SetupVehicleRadarBlip(Entity<VehicleComponent> uid)
+    {
+        SetupRadarBlip(uid, Color.Cyan, 1f, true, true);
     }
 }
