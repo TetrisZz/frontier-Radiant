@@ -52,6 +52,7 @@ public sealed class PublicTransitSystem : EntitySystem
     [Dependency] private readonly StationRenameWarpsSystems _renameWarps = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly DockingSystem _dockSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
     [Dependency] private readonly SectorServiceSystem _sectorService = default!;
@@ -452,7 +453,11 @@ public sealed class PublicTransitSystem : EntitySystem
 
             // FTL to next station if it exists.  Do this before the print.
             var hyperspaceTime = MathF.Max(0.0f, (float)route.Prototype.TravelTime.TotalSeconds - _shuttles.DefaultStartupTime);
-            _shuttles.FTLToDock(uid, shuttle, nextGrid.Value, startupTime: _shuttles.DefaultStartupTime, hyperspaceTime: hyperspaceTime, priorityTag: comp.DockTag); // TODO: Unhard code the priorityTag as it should be added from the system.
+            {
+                // Ensure the shuttle is undocked before initiating FTL travel
+                _dockSystem.UndockDocks(uid);
+                _shuttles.FTLToDock(uid, shuttle, nextGrid.Value, startupTime: _shuttles.DefaultStartupTime, hyperspaceTime: hyperspaceTime, priorityTag: comp.DockTag);
+            }
             comp.CurrentGrid = nextGrid.Value;
 
             if (!TryComp(nextGrid, out MetaDataComponent? metadata))
@@ -619,7 +624,10 @@ public sealed class PublicTransitSystem : EntitySystem
 
                 // We set up a default in case the second time we call it fails for some reason
                 var nextGrid = route.GridStops.GetValueAtIndex((int)relativeIndex);
-                _shuttles.FTLToDock(shuttleEnt, shuttleComp, nextGrid, hyperspaceTime: (float)initialHyperspaceTime.TotalSeconds, priorityTag: transitComp.DockTag);
+                
+                // Ensure the shuttle is undocked before initiating FTL travel
+                _dockSystem.UndockDocks(shuttleEnt);
+				_shuttles.FTLToDock(shuttleEnt, shuttleComp, nextGrid, hyperspaceTime: (float)initialHyperspaceTime.TotalSeconds, priorityTag: transitComp.DockTag);
                 transitComp.CurrentGrid = nextGrid;
                 transitComp.NextTransfer = _timing.CurTime + route.Prototype.WaitTime + extraTime + initialHyperspaceTime;
 

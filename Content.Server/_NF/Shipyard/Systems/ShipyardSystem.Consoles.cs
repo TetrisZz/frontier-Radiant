@@ -4,6 +4,7 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server._NF.Bank;
 using Content.Server._NF.Shipyard.Components;
 using Content.Server._NF.ShuttleRecords;
+using Content.Server._NF.Smuggling.Components;
 using Content.Shared._NF.Bank.Components;
 using Content.Shared._NF.Shipyard;
 using Content.Shared._NF.Shipyard.Events;
@@ -40,8 +41,13 @@ using Content.Shared.Access;
 using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.ShuttleRecords;
 using Content.Server.StationEvents.Components;
+using Content.Server.Forensics;
 using Content.Shared.Forensics.Components;
+using Robust.Server.Player;
+using Robust.Shared.Player;
 using Content.Shared.Shuttles.Components;
+using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Systems;
 using Robust.Shared.Log;
 
 namespace Content.Server._NF.Shipyard.Systems;
@@ -207,6 +213,15 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             name = Name(shuttleStation.Value);
         }
 
+        // Add FTLLockComponent to the shuttle with Enabled set to true
+        // We need to use the ShuttleConsoleSystem to properly set the Enabled property
+        var ftlLock = EnsureComp<FTLLockComponent>(shuttleUid);
+
+        // Get the ShuttleConsoleSystem which has proper access to modify FTLLockComponent.Enabled
+        var shuttleConsoleSystem = Get<ShuttleConsoleSystem>();
+        var dockedEntities = new List<NetEntity>();
+        shuttleConsoleSystem.ToggleFTLLock(shuttleUid, dockedEntities, true);
+
         if (TryComp<AccessComponent>(targetId, out var newCap))
         {
             var newAccess = newCap.Tags.ToList();
@@ -223,7 +238,6 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         var deedShuttle = EnsureComp<ShuttleDeedComponent>(shuttleUid);
         AssignShuttleDeedProperties(deedShuttle, shuttleUid, name, shuttleOwner, voucherUsed, voucherUsed ? targetId.ToString() : null);
 
-        if (!voucherUsed && component.NewJobTitle != null)
 
         // Lock all shuttle consoles on the ship to this deed
         var shuttleConsoleQuery = EntityQueryEnumerator<ShuttleConsoleComponent, TransformComponent>();
@@ -245,7 +259,12 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         // We need to get the player's session from their entity
         if (TryComp<ActorComponent>(player, out var actorComp) && actorComp.PlayerSession != null)
         {
-            _idSystem.TryChangeJobTitle(targetId, Loc.GetString(component.NewJobTitle), idCard, player);
+            _shipOwnership.RegisterShipOwnership(shuttleUid, actorComp.PlayerSession);
+        }
+        if (!voucherUsed)
+        {
+            if (!string.IsNullOrEmpty(component.NewJobTitle))
+                _idSystem.TryChangeJobTitle(targetId, component.NewJobTitle, idCard, player);
         }
 
         // The following block of code is entirely to do with trying to sanely handle moving records from station to station.
@@ -286,6 +305,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         _records.Synchronize(station);
 
         EntityManager.AddComponents(shuttleUid, vessel.AddComponents);
+
 
         // Ensure cleanup on ship sale
         EnsureComp<LinkedLifecycleGridParentComponent>(shuttleUid);
