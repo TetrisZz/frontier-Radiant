@@ -22,15 +22,15 @@
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 90
+    lifetime: 9
   - type: PointLight
     color: "#19AFFF"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBomb
-    totalIntensity: 2500.0
+    totalIntensity: 2250
     intensitySlope: 3
-    maxIntensity: 400
+    maxIntensity: 500
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -46,9 +46,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 7750
-        Blunt: 15000
-        Ion: 22500
+        Structural: 5812
+        Blunt: 11250
+        Ion: 16875
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
@@ -62,15 +62,15 @@
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 25
+    lifetime: 8.75
   - type: PointLight
     color: "#FCBA03"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBomb
-    totalIntensity: 550
+    totalIntensity: 412
     intensitySlope: 5
-    maxIntensity: 1150
+    maxIntensity: 862
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
