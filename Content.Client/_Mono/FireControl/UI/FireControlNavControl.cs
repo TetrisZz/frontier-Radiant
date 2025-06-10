@@ -314,7 +314,17 @@ public sealed class FireControlNavControl : BaseShuttleControl
         foreach (var blip in blips)
         {
             var blipPos = Vector2.Transform(blip.Item1, worldToShuttle * shuttleToView);
-            DrawBlipShape(handle, blipPos, blip.Item2 * 3f, blip.Item3.WithAlpha(0.8f), blip.Item4);
+
+			if (blip.Item4 == RadarBlipShape.Ring)
+            {
+                // For Ring shapes, use the real radius but with a dedicated drawing method
+                DrawShieldRing(handle, blipPos, blip.Item2 * MinimapScale, blip.Item3.WithAlpha(0.8f));
+            }
+            else
+            {
+                // For other shapes, use the regular drawing method
+                DrawBlipShape(handle, blipPos, blip.Item2 * 3f, blip.Item3.WithAlpha(0.8f), blip.Item4);
+            }
 
             if (_isMouseInside && _controllables != null)
             {
@@ -405,6 +415,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
             case RadarBlipShape.Arrow:
                 DrawArrow(handle, position, size, color);
                 break;
+            // Ring shapes are handled by DrawShieldRing for constant thickness
         }
     }
 
@@ -454,6 +465,21 @@ public sealed class FireControlNavControl : BaseShuttleControl
         };
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, points, color);
+    }
+
+    /// <summary>
+    /// Draws a shield ring with constant thickness regardless of zoom level.
+    /// </summary>
+    private void DrawShieldRing(DrawingHandleScreen handle, Vector2 position, float radius, Color color)
+    {
+        // Draw the shield outline as a ring with constant thickness
+        const float ringThickness = 2.0f; // Fixed thickness in pixels
+
+        // Draw multiple circles with slightly different radii to create a solid ring effect
+        for (float offset = 0; offset <= ringThickness; offset += 0.5f)
+        {
+            handle.DrawCircle(position, radius + offset, color.WithAlpha(0.5f), false);
+        }
     }
 
     public void UpdateSelectedWeapons(HashSet<NetEntity> selectedWeapons)
