@@ -42,7 +42,7 @@
     isInCombatMode: true
   - type: Airtight
   - type: ProjectileBatteryAmmoProvider
-    proto: 20mmBulletArmorPiercing
+    proto: 57mmBulletArmorPiercing
     fireCost: 15
   - type: RadiationBlocker
     resistance: 8
