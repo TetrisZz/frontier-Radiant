@@ -3,9 +3,9 @@
 // See AGPLv3.txt for details.
 using Content.Shared._NF.Shuttles.Events;
 using Content.Shared.Shuttles.BUIStates;
+using Content.Shared.Shuttles.Components;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
-using Content.Shared.Shuttles.Components;
 using Robust.Client.Graphics;
 using Robust.Shared.Collections;
 
@@ -14,7 +14,14 @@ namespace Content.Client.Shuttles.UI
     public sealed partial class ShuttleNavControl
     {
         public InertiaDampeningMode DampeningMode { get; set; }
+
         public ServiceFlags ServiceFlags { get; set; } = ServiceFlags.None; // Frontier
+        
+        /// <summary>
+        /// Whether the shuttle is currently in FTL. This is used to disable the Park button
+        /// while in FTL to prevent parking while traveling.
+        /// </summary>
+        public bool InFtl { get; set; }
 
         private void NfUpdateState(NavInterfaceState state)
         {
@@ -28,6 +35,16 @@ namespace Content.Client.Shuttles.UI
 
             DampeningMode = state.DampeningMode;
             ServiceFlags = state.ServiceFlags;
+            
+            // Check if the entity has an FTLComponent which indicates it's in FTL
+            if (transform.GridUid != null)
+            {
+                InFtl = EntManager.HasComponent<FTLComponent>(transform.GridUid);
+            }
+            else
+            {
+                InFtl = false;
+            }
         }
 
         // New Frontiers - Maximum IFF Distance - checks distance to object, draws if closer than max range

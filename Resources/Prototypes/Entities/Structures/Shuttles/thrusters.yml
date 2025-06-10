@@ -103,6 +103,10 @@
     - Toggle
   - type: PirateBountyItem
     id: Thruster
+  - type: RadarBlip # Mono
+    radarColor: "#99FF99"
+    scale: 1
+    shape: diamond
   # End Frontier
 
 - type: entity
