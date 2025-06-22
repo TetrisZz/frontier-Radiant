@@ -51,6 +51,14 @@ public sealed partial class JukeboxComponent : Component
     [ViewVariables]
     public float SelectAccumulator;
 
+    [ViewVariables, AutoNetworkedField]
+    public float Volume = 50f;
+
+    public float MinVolume = -30f;
+    public float MaxVolume = 0f;
+    public float MinSlider = 0f;
+    public float MaxSlider = 100f;
+
     // Frontier: wallmount jukebox
     [DataField]
     public Vector2 AudioOffset = Vector2.Zero;
@@ -93,6 +101,12 @@ public enum JukeboxPlaybackMode : byte
     Repeat,
 }
 // End Frontier: Shuffle & Repeat
+
+[Serializable, NetSerializable]
+public sealed class JukeboxSetVolumeMessage(float volume) : BoundUserInterfaceMessage
+{
+    public float Volume { get; } = volume;
+}
 
 [Serializable, NetSerializable]
 public enum JukeboxVisuals : byte
