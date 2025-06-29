@@ -1,0 +1,29 @@
+- type: entity
+  id: BaseCartridgePistol25ACP
+  name: cartridge (.25 ACP)
+  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgePistol25ACP
+  - type: CartridgeAmmo
+    proto: BulletPistol25ACP
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: CartridgePistol25ACP
+  name: cartridge (.25 ACP)
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistol25ACP

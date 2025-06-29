@@ -21,3 +21,14 @@
       - state: equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterAcorp
+
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
+  id: ClothingOuterWinterSeparatist
+  name: тренч коменданта экспедиции
+  description: Шинель, усиленная специальным сплавом чтобы обеспечивать дополнительную защиту и стиль для тех, кто обладает внушительной внешностью.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/WinterCoats/Justjacket.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/WinterCoats/Justjacket.rsi

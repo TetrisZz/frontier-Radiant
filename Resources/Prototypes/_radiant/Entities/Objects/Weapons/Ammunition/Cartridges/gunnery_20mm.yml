@@ -1,0 +1,29 @@
+- type: entity
+  id: BaseCartridgeGunnery20mm
+  name: cartridge (20mm)
+  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseRestrictedContraband<BaseC1Contraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeGunnery20mm
+  - type: CartridgeAmmo
+    proto: 57mmBulletArmorPiercing
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: CartridgeGunnery20mm
+  name: cartridge (20mm)
+  parent: BaseCartridgeGunnery20mm
+  components:
+  - type: CartridgeAmmo
+    proto: 57mmBulletArmorPiercing

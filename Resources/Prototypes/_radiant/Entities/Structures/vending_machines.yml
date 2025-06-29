@@ -22,7 +22,7 @@
   - type: PointLight
     radius: 1.5
     energy: 1.6
-    color: "#48CF48"
+    color: "#ce89d6"
 
 - type: entity
   parent: VendingMachineSec
@@ -30,3 +30,81 @@
   components:
   - type: AccessReader
     access: [["AcorpSecurity"]]
+
+- type: entity
+  parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
+  id: VendingMachineAcorp
+  name: НюдоМат
+  description: Специальный автомат для простого и интимного белья
+  components:
+  - type: VendingMachine
+    pack: NudeVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/VendingMachines/acorp_magaz.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#c7c5c7"
+
+- type: entity
+  parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
+  id: VendingMachineNavy
+  name: НюдоМат
+  description: Специальный автомат для простого и интимного белья
+  components:
+  - type: VendingMachine
+    pack: NudeVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/VendingMachines/flot.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#9589d6"
+
+- type: entity
+  parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
+  id: VendingMachineHomka
+  name: НюдоМат
+  description: Специальный автомат для простого и интимного белья
+  components:
+  - type: VendingMachine
+    pack: NudeVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/VendingMachines/homkomat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#7fad72"

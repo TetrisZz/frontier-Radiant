@@ -15,3 +15,12 @@
   components:
     - type: Sprite
       sprite: _radiant/Clothing/Back/Duffels/acorp.rsi
+
+- type: entity
+  parent: NFClothingDuffel # Frontier: ClothingBackpackDuffelNFClothingDuffel
+  id: ClothingBackpackDuffelNavy
+  name: черно-белый вещмешок
+  description: Чёрно-белый вещмешок для сотрудников акорп, вы можете поместить в него фелинида с другим вещмешком!
+  components:
+    - type: Sprite
+      sprite: _radiant/Clothing/Back/Duffels/flot.rsi

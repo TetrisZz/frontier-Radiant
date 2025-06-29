@@ -1995,13 +1995,6 @@ entities:
     - type: Transform
       pos: -7.378233,5.680663
       parent: 1
-- proto: BoxSurvivalNFOxygen
-  entities:
-  - uid: 130
-    components:
-    - type: Transform
-      pos: -11.866924,6.5662932
-      parent: 1
 - proto: ButtonFrameExit
   entities:
   - uid: 131

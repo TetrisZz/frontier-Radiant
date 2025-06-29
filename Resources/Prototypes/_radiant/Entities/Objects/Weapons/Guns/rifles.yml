@@ -1,6 +1,6 @@
 - type: entity
   name: TW-44
-  parent: [BaseWeaponRifle, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponRifle, BaseC2ContrabandUnredeemable]
   id: WeaponRifleTW44Acorp
   description: Стандартная винтовка использующаяся Аколит Корпорейшн и её подразделениями, для тех случаев когда энергетическое оружие не может справиться с угрозой. Использует патроны калибра .6,8-мм SPC.
   components:
@@ -19,10 +19,10 @@
   - type: Gun
     fireRate: 3.5
     projectileSpeed: 40
-    angleDecay: 4 #in testing 3 was more balanced
+    angleDecay: 4
     angleIncrease: 6
-    minAngle: 21 #generally meant to be 1 when used properly
-    maxAngle: 30 #generally meant to be 5 when used properly
+    minAngle: 21
+    maxAngle: 30
     selectedMode: Burst
     availableModes:
       - Burst
@@ -33,7 +33,7 @@
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -25
-    angleDecay: 4 #in testing 3 was more balanced
+    angleDecay: 4
     angleIncrease: -5.5
   - type: ChamberMagazineAmmoProvider
     soundRack:
@@ -69,7 +69,7 @@
 
 - type: entity
   name: сентинал-9
-  parent: [BaseWeaponRifle, BaseC3SyndicateContraband] # Frontier: BaseRestrictedContraband<BaseC3SyndicateContraband
+  parent: [BaseWeaponRifle, BaseC3SyndicateContraband]
   id: WeaponRifleSentinel9Acorp
   description: Модернизированная акорп штурмовая винтовка для ведения полномаштабных боевых действий, по этой же причине редко используется. Использует патроны калибра .6,8-мм SPC.
   components:
@@ -113,6 +113,121 @@
         whitelist:
           tags:
             - CartridgeHigh2Rifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: Рейнджер
+  parent: [BaseWeaponRifle, BaseC2ContrabandUnredeemable]
+  id: WeaponRifleRanger
+  description: Модернизированная винтовка с богатой историей, обеспечивает хороший баланс огневой мощи и точности даже спустя века. Использует .20 винтовочные патроны.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/m.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/m.rsi
+  - type: Gun
+    fireRate: 4.5
+    minAngle: 20
+    maxAngle: 30
+    angleIncrease: 1
+    angleDecay: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -25
+    angleDecay: 1.5
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: KX2801
+  parent: [BaseWeaponRifle, BaseC3SyndicateContraband]
+  id: WeaponRifleKX2801
+  description: An iconic weapon of war. Uses .30 rifle ammo. An illegal firearm often used by Syndicate agents.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/heckler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 6.5
+    projectileSpeed: 25
+    angleDecay: 5
+    angleIncrease: 10
+    minAngle: 26
+    maxAngle: 45
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -25
+    angleDecay: 5
+    angleIncrease: -8
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

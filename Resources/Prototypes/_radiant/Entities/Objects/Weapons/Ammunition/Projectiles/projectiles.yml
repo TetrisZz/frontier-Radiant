@@ -1,0 +1,37 @@
+# This is supposed to spawn shrapnel and stuff so uhh... TODO?
+- type: entity
+  id: BulletGrenadeFragM203
+  name: frag grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 175 # about a ~6 tile radius
+    intensitySlope: 1
+    maxIntensity: 10
+
+- type: entity
+  id: BulletGrenadeSmokeM203
+  name: EMP rocket
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frag
+  - type: SmokeOnTrigger
+    duration: 30
+    spreadAmount: 50
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 50
+  - type: Ammo
+    muzzleFlash: null

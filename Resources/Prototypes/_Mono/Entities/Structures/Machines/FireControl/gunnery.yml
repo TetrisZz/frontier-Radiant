@@ -5,7 +5,7 @@
   description: Manages the remote operation of ship weapons.
   components:
   - type: Sprite
-    sprite: Structures/Machines/telecomms.rsi
+    sprite: _radiant/Structures/Machines/telecomms.rsi
     snapCardinals: true
     layers:
     - state: icon
@@ -36,6 +36,19 @@
   name: gunnery control console
   description: Interfaces with the gunnery control server to operate ship weapons.
   components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_turrel
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: station_turrel
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: FireControlConsole
   - type: ActivatableUI
     key: enum.FireControlConsoleUiKey.Key

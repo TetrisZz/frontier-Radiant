@@ -15,3 +15,21 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Satchels/acorp.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelNavy
+  name: черно-белая сумка
+  description: Чёрно-белая сумка для элегантных сотрудников акорп, в неё вы можете спрятать трусики директора исследований. 
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Satchels/flot.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelNavyGold
+  name: черно-белая сумка
+  description: Чёрно-белая сумка для элегантных сотрудников акорп, в неё вы можете спрятать трусики директора исследований. 
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Satchels/flot1.rsi

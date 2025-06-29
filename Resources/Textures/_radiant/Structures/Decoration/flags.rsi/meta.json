@@ -9,6 +9,16 @@
   "states": [
        {
       "name": "acorp_flag"
+    },
+    {
+      "name": "flot"
+    },
+    {
+      "name": "flotgold"
+    },
+    {
+      "name": "flotptr"
     }
+
       ]
 }

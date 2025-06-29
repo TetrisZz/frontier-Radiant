@@ -53,6 +53,42 @@
       "name": "welded"
     },
     {
+      "name": "cadet"
+    },
+    {
+      "name": "cadet_open"
+    },
+    {
+      "name": "cadet_door"
+    },
+    {
+      "name": "commandor"
+    },
+    {
+      "name": "commandor_open"
+    },
+    {
+      "name": "commandor_door"
+    },
+    {
+      "name": "capitan"
+    },
+    {
+      "name": "capitan_open"
+    },
+    {
+      "name": "capitan_door"
+    },
+    {
+      "name": "officer"
+    },
+    {
+      "name": "officer_open"
+    },
+    {
+      "name": "officer_door"
+    },
+    {
       "name": "wooden_cabinet_icon"
     },
     {

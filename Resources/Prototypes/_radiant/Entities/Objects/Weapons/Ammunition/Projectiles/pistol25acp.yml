@@ -1,0 +1,10 @@
+- type: entity
+  id: BulletPistol25ACP
+  name: bullet (.25 ACP)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 12

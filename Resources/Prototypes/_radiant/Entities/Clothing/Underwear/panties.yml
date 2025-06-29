@@ -24,3 +24,39 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/rndacorp.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesBlack
+  name: трусики ученого акорп
+  description: Стандартное нижнее бельё для учёновиц акорп
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/blackpanties.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesBlackFlur
+  name: трусики ученого акорп
+  description: Стандартное нижнее бельё для учёновиц акорп
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/blaclaceunderpants.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesRed
+  name: трусики ученого акорп
+  description: Стандартное нижнее бельё для учёновиц акорп
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/redthong.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesWhiteFlur
+  name: трусики ученого акорп
+  description: Стандартное нижнее бельё для учёновиц акорп
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/whiteunderpantssss.rsi

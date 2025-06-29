@@ -1,0 +1,67 @@
+- type: entity
+  parent: ClothingWalletLeatherBrown
+  id: ClothingWalletLeatherSeparatist
+  description: There's an old picture of a cat with a beard inside.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Wallet/leather.rsi
+    layers:
+    - state: closed-sep
+      map: ["closeLayer"]
+    - state: open-sep
+      map: ["openLayer"]
+      visible: false
+    - state: closed-paper
+      map: ["closed-paper"]
+      visible: false
+    - state: closed-cash
+      map: ["closed-cash"]
+      visible: false
+    - state: closed-coin
+      map: ["closed-coin"]
+      visible: false
+
+- type: entity
+  parent: ClothingWalletLeatherBrown
+  id: ClothingWalletLeatherNavy
+  description: On the inside is an embroidered picture of a cat, a heart, and the word "CLIPPY".
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Wallet/leather.rsi
+    layers:
+    - state: closed-flot
+      map: ["closeLayer"]
+    - state: open-flot
+      map: ["openLayer"]
+      visible: false
+    - state: closed-paper
+      map: ["closed-paper"]
+      visible: false
+    - state: closed-cash
+      map: ["closed-cash"]
+      visible: false
+    - state: closed-coin
+      map: ["closed-coin"]
+      visible: false
+
+- type: entity
+  parent: ClothingWalletLeatherBrown
+  id: ClothingWalletLeatherAcorp
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Wallet/leather.rsi
+    layers:
+    - state: closed-acorp
+      map: ["closeLayer"]
+    - state: open-acorp
+      map: ["openLayer"]
+      visible: false
+    - state: closed-paper
+      map: ["closed-paper"]
+      visible: false
+    - state: closed-cash
+      map: ["closed-cash"]
+      visible: false
+    - state: closed-coin
+      map: ["closed-coin"]
+      visible: false

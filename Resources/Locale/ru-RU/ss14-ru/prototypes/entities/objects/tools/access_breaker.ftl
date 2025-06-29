@@ -4,3 +4,6 @@ ent-AccessBreakerUnlimited = разрушитель аутентификации
 ent-AccessBreaker = { ent-AccessBreakerUnlimited }
     .suffix = Ограниченный
     .desc = { ent-AccessBreakerUnlimited.desc }
+ent-AccessConfiguratorAntag = { ent-AccessBreakerUnlimited }
+    .suffix = Антаг
+    .desc = { ent-AccessBreakerUnlimited.desc }

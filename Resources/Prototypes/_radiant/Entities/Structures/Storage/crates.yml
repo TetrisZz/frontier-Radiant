@@ -1,0 +1,23 @@
+- type: entity
+  parent: [ CrateBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  id: CrateSecureNavy
+  name: secgear crate
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/Crates/flot.rsi
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/flot.rsi
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  parent: [ CrateBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  id: CrateSecureNavy2
+  name: secgear crate
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/Crates/flot2.rsi
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/flot2.rsi
+  - type: AccessReader
+    access: [["Security"]]

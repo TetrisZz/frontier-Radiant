@@ -7,3 +7,33 @@
   - type: Sprite
     sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
     state: acorp_flag
+
+- type: entity
+  id: BannerNavy
+  parent: BannerBase
+  name: знамя конфедеративного флота
+  description: Знамя, представляющее силу и свободу
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
+    state: flot
+
+- type: entity
+  id: BannerNavyGold
+  parent: BannerBase
+  name: знамя конфедеративного флота
+  description: Знамя, представляющее силу и свободу
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
+    state: flotgold
+
+- type: entity
+  id: BannerNavySilver
+  parent: BannerBase
+  name: знамя конфедеративного флота
+  description: Знамя, представляющее силу и свободу
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
+    state: flotptr

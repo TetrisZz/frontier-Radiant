@@ -6,3 +6,66 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/acorp-polos.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksNavy
+  name: носки
+  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/flotik.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksRedStrip
+  name: носки
+  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/redsocks.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksThighRedStrip
+  name: носки
+  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/redstockings.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPinkStrip
+  name: носки
+  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/shortstripedsocks.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksGreenStrip
+  name: носки
+  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sockswithstripes.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksThighPinkStrip
+  name: носки
+  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/stockingssss.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksThighWhiteStrip
+  name: носки
+  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/stripedblondestockings.rsi

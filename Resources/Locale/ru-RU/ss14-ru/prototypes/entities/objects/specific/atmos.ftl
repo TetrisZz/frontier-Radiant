@@ -1,2 +1,13 @@
 ent-GasAnalyzer = газоанализатор
     .desc = Ручной сканер окружающей среды, который сообщает о текущих уровнях газа.
+ent-GasDepositLocatorEmpty = сканер газа
+    .desc = Сканер, который одновременно проверяет близлежащую территорию на наличие газовых залежей и оценивает их состав.
+    .suffix = пустой
+ent-GasDepositLocator = { ent-GasDepositLocatorEmpty }
+    .desc = { ent-GasDepositLocatorEmpty.desc }
+    .suffix = заряженный
+ent-GasDepositLocatorUnpowered = { ent-GasDepositLocator }
+    .desc = { ent-GasDepositLocator.desc }
+    .suffix = разряженный
+ent-GasMiningDrill = Газодобывающая буровая установка
+    .desc = Мощное передвижное буровое устройство для добычи газа на астероидах. Выводит газ через трубу.

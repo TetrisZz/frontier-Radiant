@@ -1,0 +1,53 @@
+- type: entity
+  id: MobCatBobik
+  parent: [NFMobPet, MobCatGhost]
+  name: Clippy
+  description: It looks like you’re writing a letter, would you like help?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _radiant/Mobs/Pets/dogsep.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: secdog
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: secdog
+        BaseUnshaded: mask_null
+      Critical:
+        Base: secdog_crit
+        BaseUnshaded: mask_null
+      Dead:
+        Base: secdog_dead
+        BaseUnshaded: mask_null
+  - type: GhostRole
+    name: ghost-role-information-clippy-name
+    description: ghost-role-information-clippy-description
+    rules: ghost-role-information-nonantagonist-rules
+    prototype: CatClippy
+    mindRoles: [ MindRoleGhostRoleNeutral ]
+  - type: Loadout
+    prototypes: [ MobClippyGear ]
+  - type: RandomMetadata
+    nameSegments: null
+  - type: AutoImplant
+    implants:
+    - MindShieldImplant
+    - MedicalTrackingImplant
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatCat
+      amount: 1
+#    - id: MaterialHideClippy
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Service
+  - type: NpcFactionMember
+    factions:
+      - Cat
+      - PetsNT
+  - type: ShowJobIcons

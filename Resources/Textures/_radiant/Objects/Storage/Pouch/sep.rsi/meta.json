@@ -1,0 +1,95 @@
+﻿{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Made by Homka for the Radiant sector - Frontier",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "closed"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "inside"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "fill-med-1"
+    },
+    {
+      "name": "fill-med-2"
+    },
+    {
+      "name": "fill-med-3"
+    },
+    {
+      "name": "fill-med-4"
+    },
+    {
+      "name": "fill-util1-1"
+    },
+    {
+      "name": "fill-util1-2"
+    },
+    {
+      "name": "fill-util1-3"
+    },
+    {
+      "name": "fill-util1-4"
+    },
+    {
+      "name": "fill-util2-1"
+    },
+    {
+      "name": "fill-util2-2"
+    },
+    {
+      "name": "fill-util2-3"
+    },
+    {
+      "name": "fill-util2-4"
+    },
+    {
+      "name": "fill-util3-1"
+    },
+    {
+      "name": "fill-util3-2"
+    },
+    {
+      "name": "fill-util3-3"
+    },
+    {
+      "name": "fill-util3-4"
+    },
+    {
+      "name": "fill-util4-1"
+    },
+    {
+      "name": "fill-util4-2"
+    },
+    {
+      "name": "fill-util4-3"
+    },
+    {
+      "name": "fill-util4-4"
+    }
+  ]
+}

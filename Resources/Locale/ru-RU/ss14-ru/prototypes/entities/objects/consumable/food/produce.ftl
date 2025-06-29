@@ -157,3 +157,20 @@ ent-TrashCherryPit = вишнёвая косточка
     .desc = { ent-FoodInjectableBase.desc }
 ent-FoodAnomalyBerry = аномальная ягода
     .desc = Странная синяя ягода. Что-то в ней не так.
+ent-FoodAvocado = авокадо
+    .desc = Как вкусная маслянистая трава.
+ent-FoodAvocadoSlice = слайс авокадо
+    .desc = { ent-FoodAvocado.desc }
+ent-FoodCucumber = огурец
+    .desc = Как свежая хрустящая вода.
+ent-FoodCucumberSlice = слайс огурца
+    .desc = { ent-FoodCucumber.desc }
+ent-FoodEveryspice = острый перец
+    .desc = Длинные, бледные стручки растения «мускатный орех». Измельчённые в порошок, они придают блюдам аромат.
+ent-FoodHoneyComb = соты
+    .desc = Хрустящие слоты с медом.
+ent-FoodEveryspiceRoasted = обжаренные стручки острого перца
+    .desc = { ent-FoodEveryspice.desc }
+
+
+

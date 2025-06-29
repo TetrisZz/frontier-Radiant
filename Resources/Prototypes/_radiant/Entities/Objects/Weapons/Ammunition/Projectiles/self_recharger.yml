@@ -1,0 +1,11 @@
+- type: entity
+  id: BulletPhX
+  name: bullet (Ph-X)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+        Structural: 15

@@ -1,0 +1,24 @@
+- type: entity
+  name: pirate repair kit
+  parent: BaseItem
+  id: BlueSpaceRepairKit
+  description: A collection of equipment needed to repair a pirate console.
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Toolboxes/super_toolbox.rsi
+    state: icon
+  - type: NFPirateToolbox
+  - type: StaticPrice
+    price: 0
+  # Lines below taken from ToolboxBase.
+  - type: Item
+    size: Ginormous
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"

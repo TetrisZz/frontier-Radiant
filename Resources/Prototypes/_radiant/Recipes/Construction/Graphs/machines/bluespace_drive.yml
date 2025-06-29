@@ -1,0 +1,31 @@
+- type: constructionGraph
+  id: ThrusterBigZetaFTL
+  start: start
+  graph:
+  - node: start
+    entity: ThrusterBigZetaFTLBroken
+    edges:
+    - to: repaired
+      steps: &pirateRepairToolboxSteps
+      - component: NFPirateToolbox
+        name: pirate repair toolbox
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "id_mod"
+        doAfter: 10.0
+
+  - node: repaired
+    entity: ThrusterBigZetaFTL
+
+- type: constructionGraph
+  id: ThrusterBigZetaFTLLong
+  start: start
+  graph:
+  - node: start
+    entity: ThrusterBigZetaFTLLongBroken
+    edges:
+    - to: repaired
+      steps: *pirateRepairToolboxSteps
+
+  - node: repaired
+    entity: ThrusterBigZetaFTLLong

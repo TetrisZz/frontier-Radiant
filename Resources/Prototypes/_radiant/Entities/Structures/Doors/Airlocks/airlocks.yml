@@ -365,3 +365,21 @@
   components:
   - type: Sprite
     sprite: _radiant/Structures/Doors/Airlocks/Glass/sec.rsi
+
+#Navy
+
+- type: entity
+  parent: Airlock
+  id: AirlockNavy
+  suffix: Hydroponics
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Doors/Airlocks/Standard/flot.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockNavyGlass
+  suffix: Флот
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Doors/Airlocks/Glass/flot.rsi
