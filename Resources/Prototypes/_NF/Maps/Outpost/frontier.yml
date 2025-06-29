@@ -1,7 +1,7 @@
 - type: gameMap
   id: Frontier
   mapName: 'Аванпост Фронтира'
-  mapPath: /Maps/_NF/Outpost/frontier.yml
+  mapPath: /Maps/_radiant/Outpost/frontier_radiant.yml
   minPlayers: 0
   maxPlayers: 100
   randomRotation: false

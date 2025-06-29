@@ -1,0 +1,45 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
+  id: BaseMagazineBoxPistol25ACP
+  name: ammunition box (.25 ACP)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol25ACP
+    proto: CartridgePistol25ACP
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/pistol25acp.rsi
+    scale: 0.65, 0.65
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+# Boxes
+
+- type: entity
+  parent: BaseMagazineBoxPistol25ACP
+  id: MagazineBoxPistol25ACP
+  name: ammunition box (.25 ACP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistol25ACP
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/pistol25acp.rsi
+    state: base
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]

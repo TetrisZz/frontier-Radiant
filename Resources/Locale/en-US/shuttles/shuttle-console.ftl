@@ -14,4 +14,4 @@ shuttle-console-verb-unlock = Unlock Console
 shuttle-console-verb-lock = Lock Console 
 
 ## Shuttle Console FTL
-shuttle-ftl-proximity = Unable to FTL while around other ships.
+## shuttle-ftl-proximity = Unable to FTL while around other ships.

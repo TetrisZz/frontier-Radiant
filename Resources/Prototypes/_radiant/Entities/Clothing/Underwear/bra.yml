@@ -52,3 +52,38 @@
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/кbraacorp.rsi
 
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraBlack
+  name: бра акорп секьюрити
+  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/blacklacebodice.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraCorset
+  name: бра акорп секьюрити
+  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/corset.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraRed
+  name: бра акорп секьюрити
+  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/redbodice.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraWhiteFur
+  name: бра акорп секьюрити
+  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/whitecorset.rsi

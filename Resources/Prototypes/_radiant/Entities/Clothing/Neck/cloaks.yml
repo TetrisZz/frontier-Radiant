@@ -33,3 +33,12 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Cloak/greymantle.rsi
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckCloakConfederation
+  name: черный плащ
+  description: Чёрный плащ с белыми вставками. Можно заметить этикетку - Произведено Аколит Корпорейшн.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/confederate_cloak.rsi

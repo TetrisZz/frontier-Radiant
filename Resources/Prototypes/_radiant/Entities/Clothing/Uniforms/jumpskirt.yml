@@ -140,3 +140,201 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/explorator.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/explorator.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyCaptain
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_captain.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_captain.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyCaptain1
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcaptain.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcaptain.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyCommander
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_commander.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_commander.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyCommander1
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_commander1.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_commander1.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyCommander2
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcommander.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcommander.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyMedic
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_medic.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_medic.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyOfficer
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_officer.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_officer.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyOfficer1
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetofficer.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetofficer.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNavyCadet
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcadet.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcadet.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSeparatist
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/cadet.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/cadet.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSeparatistOper
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/operative.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/operative.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSeparatistWarden
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/wardenn.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/wardenn.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSeparatistSlave
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/slave.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/slave.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSeparatistSlaveBlack
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/slaveblack.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/slaveblack.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSeparatistSlaveWhite
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/slavewhite.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/slavewhite.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSwimwearPink
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/pinkkypal.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/pinkkypal.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressBlack
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/platieblack.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/platieblack.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSwimwearRed
+  name: юбка-комбинезон полевого персонала
+  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/reskypal.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/reskypal.rsi

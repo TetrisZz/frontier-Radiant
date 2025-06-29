@@ -19,8 +19,8 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Heat: 0.6
         Piercing: 0.6
+        Heat: 0.6
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.75
@@ -315,8 +315,8 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Heat: 0.5
         Piercing: 0.5
+        Heat: 0.5
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.75
@@ -349,3 +349,154 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMedicalAcorp
+
+#Separatist Hardsuit
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingOuterHardsuitSeparatist
+  name: скафандр коменданта
+  description: Скафандр коменданта экспедиции, имеет хорошую броню, чтобы обладать им - вы должны проработать в Аколит Корпорейшн несколько лет, или снять его с мертвого коменданта, предназначен для избегания второго варианта.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hardsuits/easy.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hardsuits/easy.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Heat: 0.5
+        Piercing: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSeparatist
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingOuterHardsuitSeparatistElite
+  name: скафандр коменданта
+  description: Скафандр коменданта экспедиции, имеет хорошую броню, чтобы обладать им - вы должны проработать в Аколит Корпорейшн несколько лет, или снять его с мертвого коменданта, предназначен для избегания второго варианта.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hardsuits/elite.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hardsuits/elite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Heat: 0.5
+        Piercing: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSeparatistElite
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingOuterHardsuitSeparatistJuggernaut
+  name: скафандр коменданта
+  description: Скафандр коменданта экспедиции, имеет хорошую броню, чтобы обладать им - вы должны проработать в Аколит Корпорейшн несколько лет, или снять его с мертвого коменданта, предназначен для избегания второго варианта.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hardsuits/jagaga.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hardsuits/jagaga.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Heat: 0.5
+        Piercing: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSeparatistJuggernaut
+
+#Navy Hardsuit
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingOuterHardsuitNavyHeavy
+  name: скафандр акорп секьюрити
+  description: Специальный боевой скафандр для подразделения Аколит Корпорейшн - секьюрити.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hardsuits/navy_spacesu.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hardsuits/navy_spacesu.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitNavyHeavyHead
+
+# DVB
+
+- type: entity
+  parent: ClothingOuterHardsuitNfsdCombat
+  id: ClothingOuterHardsuitDvbCombat
+  name: скафандр акорп секьюрити
+  description: Специальный боевой скафандр для подразделения Аколит Корпорейшн - секьюрити.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hardsuits/navy_spacesuit2.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hardsuits/navy_spacesuit2.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitDvbCombat
+
+- type: entity
+  parent: ClothingOuterHardsuitNfsdCommand
+  id: ClothingOuterHardsuitDvbCommand
+  name: скафандр акорп секьюрити
+  description: Специальный боевой скафандр для подразделения Аколит Корпорейшн - секьюрити.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hardsuits/navy_spacesuit1.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hardsuits/navy_spacesuit1.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitDvbCommand
+

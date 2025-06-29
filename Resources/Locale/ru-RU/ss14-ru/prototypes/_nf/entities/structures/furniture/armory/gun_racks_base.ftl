@@ -1,5 +1,24 @@
-ent-WeaponRackBase = стойка для огнестрельного оружия
+ent-StructureGunRack = стойка для огнестрельного оружия
     .desc = Хранилище для ускоренных мер по умиротворению.
-ent-WeaponRackWallmountedBase = { ent-WeaponRackBase }
+ent-StructureGunRackWallmounted = { ent-StructureGunRack }
     .suffix = Настенное
-    .desc = { ent-WeaponRackBase.desc }
+    .desc = { ent-StructureGunRack.desc }
+ent-StructureGunRackMercenary = { ent-StructureGunRack }
+    .suffix = Наемник
+    .desc = { ent-StructureGunRack.desc }
+ent-StructureGunRackWallmountedMercenary = { ent-StructureGunRack }
+    .suffix = Настенное, Наемник
+    .desc = { ent-StructureGunRack.desc }
+ent-StructureGunRackNfsd = { ent-StructureGunRack }
+    .suffix = ДШ
+    .desc = { ent-StructureGunRack.desc }
+ent-StructureGunRackWallmountedNfsd = { ent-StructureGunRack }
+    .suffix = Настенное, ДШ
+    .desc = { ent-StructureGunRack.desc }
+ent-StructureGunRackSalvage = { ent-StructureGunRack }
+    .suffix = Утиль
+    .desc = { ent-StructureGunRack.desc }
+ent-StructureGunRackWallmountedSalvage = { ent-StructureGunRack }
+    .suffix = Настенное, Утиль
+    .desc = { ent-StructureGunRack.desc }
+

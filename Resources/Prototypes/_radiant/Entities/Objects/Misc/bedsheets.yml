@@ -1,0 +1,32 @@
+- type: entity
+  parent: BedsheetBase
+  id: BedsheetBaseRadiant
+  name: BedsheetBase
+  abstract: true
+  description: A surprisingly soft linen bedsheet.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/bedsheets.rsi
+    noRot: true
+
+- type: entity
+  id: BedsheetNavy
+  parent: BedsheetBaseRadiant
+  name: одеяло конфедеративного флота
+  description: Соткано из обломков альянсов и республик, насильно ставшими субьектами конфедерации.
+  components:
+  - type: Sprite
+    state: flot
+  - type: Clothing
+    sprite: Clothing/Neck/Bedsheets/captain.rsi
+
+- type: entity
+  id: BedsheetNavySilver
+  parent: BedsheetBaseRadiant
+  name: одеяло конфедеративного флота
+  description: Соткано из обломков альянсов и республик, насильно ставшими субьектами конфедерации.
+  components:
+  - type: Sprite
+    state: flotbel
+  - type: Clothing
+    sprite: Clothing/Neck/Bedsheets/captain.rsi

@@ -42,5 +42,5 @@ ent-ClothingHeadEVAHelmetMercenary = шлем скафандра EVA наёмн�
     .desc = { ent-ClothingHeadEVAHelmetBase.desc }
 ent-ClothingHeadEVAHelmetPrivateSec = шлем скафандра EVA телохранителя
     .desc = { ent-ClothingHeadEVAHelmetBase.desc }
-ent-ClothingHeadEVAHelmetNfsd = шлем скафандра EVA ДШНФ
+ent-ClothingHeadEVAHelmetNfsd = шлем скафандра EVA ДВБ
     .desc = { ent-ClothingHeadEVAHelmetBase.desc }

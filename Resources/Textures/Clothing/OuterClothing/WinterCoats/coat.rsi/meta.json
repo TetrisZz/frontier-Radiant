@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/46a92082e4dd599e233ebf280050fb5be0107da9. equipped-OUTERCLOTHING-vox state taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79 and repaletted to match by Flareguy, grayscale layering & armor by IProduceWidgets (Github)",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/46a92082e4dd599e233ebf280050fb5be0107da9. equipped-OUTERCLOTHING-vox state taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79 and repaletted to match by Flareguy, grayscale layering & armor by IProduceWidgets (Github).Homka ( DS hommkka) was made for rezomi, for the Radiant Sector",
   "size": {
     "x": 32,
     "y": 32
@@ -110,6 +110,10 @@
       "directions": 4
     },
     {
+      "name": "BAR-equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
       "name": "BAR-inhand-left",
       "directions": 4
     },
@@ -167,6 +171,10 @@
       "directions": 4
     },
     {
+      "name": "CARGO-equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
       "name": "CARGO-inhand-left",
       "directions": 4
     },
@@ -198,6 +206,10 @@
     },
     {
       "name": "CHEF-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "CHEF-equipped-OUTERCLOTHING-resomi",
       "directions": 4
     },
     {
@@ -235,6 +247,10 @@
       "directions": 4
     },
     {
+      "name": "ENGI-equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
       "name": "ENGI-inhand-left",
       "directions": 4
     },
@@ -251,6 +267,10 @@
     },
     {
       "name": "CAP-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "CAP-equipped-OUTERCLOTHING-resomi",
       "directions": 4
     },
     {
@@ -382,6 +402,10 @@
       "directions": 4
     },
     {
+      "name": "CMO-equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
       "name": "CMO-inhand-left",
       "directions": 4
     },
@@ -394,6 +418,10 @@
     },
     {
       "name": "CE-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "CE-equipped-OUTERCLOTHING-resomi",
       "directions": 4
     },
     {

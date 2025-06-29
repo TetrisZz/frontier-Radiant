@@ -29,3 +29,35 @@
     sprite: _radiant/Clothing/Ears/Headsets/acorp.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Ears/Headsets/acorp.rsi
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetNavy
+  name: NFSD headset
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyNfsd
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseC3PirateContraband, ContrabandClothing] # Frontier: add BaseC3PirateContraband, added ContrabandClothing as parent
+  id: ClothingHeadsetAltSeparatist
+  name: freelancer's over-ear headset
+  components:
+    - type: Headset
+    - type: EncryptionKeyHolder
+      keySlots: 5
+    - type: ContainerFill
+      containers:
+        key_slots:
+          - EncryptionKeyFreelance
+    - type: Sprite
+      sprite: _radiant/Clothing/Ears/Headsets/sep_headset.rsi
+    - type: Clothing
+      sprite: _radiant/Clothing/Ears/Headsets/sep_headset.rsi

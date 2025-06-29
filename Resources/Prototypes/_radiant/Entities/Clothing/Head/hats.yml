@@ -65,3 +65,133 @@
     sprite: _radiant/Clothing/Head/radio-hat.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Head/radio-hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSeparatist
+  name: кепка акорп
+  description: Обычная тёмная кепка с биркой Акорп.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/capochka.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/capochka.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatNavy
+  name: кепка акорп
+  description: Обычная тёмная кепка с биркой Акорп.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/fleetcap.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/fleetcap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretNavy
+  name: берет акорп
+  description: Элегантный берет сотруднка акорп. Под ним можно спрятать трусики коменданта экспедиций.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/flotselect.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/flotselect.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapNavy
+  name: берет акорп
+  description: Элегантный берет сотруднка акорп. Под ним можно спрятать трусики коменданта экспедиций.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/navycap.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/navycap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSeparatist
+  name: берет акорп
+  description: Элегантный берет сотруднка акорп. Под ним можно спрятать трусики коменданта экспедиций.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/takesg.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/takesg.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingHeadHelmetSeparatist
+  name: шлем
+  description: Шлем для защиты вашей самой важной части тела.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Helmets/anotherhelmet.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Helmets/anotherhelmet.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingHeadHelmetSeparatist1
+  name: шлем
+  description: Шлем для защиты вашей самой важной части тела.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Helmets/fullprotection.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Helmets/fullprotection.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingHeadHelmetSeparatist2
+  name: шлем
+  description: Шлем для защиты вашей самой важной части тела.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Helmets/goodprotection.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Helmets/goodprotection.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingHeadHelmetSeparatist3
+  name: шлем
+  description: Шлем для защиты вашей самой важной части тела.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Helmets/kaskazprotective.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Helmets/kaskazprotective.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet

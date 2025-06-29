@@ -107,97 +107,57 @@
     tags:
     - Trash
 
-#- type: entity
-#  name: taser baton
-#  parent: [BaseItem, BaseC2ContrabandUnredeemable]
-#  id: Tazer
-#  description: A one-use taser baton that delivers a short stun and injects chemicals into the target. Useless when its charge is depleted.
-#  components:
-#  - type: Sprite
-#    sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
-#    layers:
-#    - state: stunbaton_off
-#      map: ["enum.ToggleVisuals.Layer"]
-#    - state: stunbaton_on
-#      map: ["enum.FlashVisuals.LightLayer"]
-#      visible: false
-#      shader: unshaded
-#  - type: ItemToggle
-#    predictable: false
-#    soundActivate:
-#      collection: sparks
-#      params:
-#        variation: 0.250
-#    soundDeactivate:
-#      collection: sparks
-#      params:
-#        variation: 0.250
-#    soundFailToActivate:
-#      path: /Audio/Machines/button.ogg
-#      params:
-#        variation: 0.250
-#  - type: ItemToggleMeleeWeapon
-#    activatedDamage:
-#      types:
-#        Blunt: 0
-#  - type: MeleeWeapon
-#    wideAnimationRotation: -135
-#    damage:
-#      types:
-#        Blunt: 0
-#    angle: 60
-#    animation: WeaponArcSlash
-#    attackRate: 1.0
-#  - type: Stunbaton
-#    energyPerUse: 50
-#    stunDuration: 1
-#    soundHit: /Audio/Weapons/egloves.ogg
-#  - type: LimitedCharges
-#    maxCharges: 1
-#    charges: 1
-#  - type: Battery
-#    maxCharge: 50
-#    startingCharge: 50
-#  - type: Item
-#    heldPrefix: off
-#    size: Normal
-#  - type: Clothing
-#    sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
-#    quickEquip: false
-#    slots:
-#    - Belt
-#  - type: DisarmMalus
-#    malus: 0.225
-#  - type: Appearance
-#  - type: GenericVisualizer
-#    visuals:
-#      enum.ToggleVisuals.Toggled:
-#        enum.ToggleVisuals.Layer:
-#          True: {state: stunbaton_on}
-#          False: {state: stunbaton_off}
-#      enum.LimitedChargesVisuals.Charges:
-#        enum.FlashVisuals.LightLayer:
-#          True: {visible: true}
-#          False: {visible: false}
-#  - type: StaticPrice
-#    price: 80
-#  - type: Riggable
-#  - type: MeleeChemicalInjector
-#    transferAmount: 8
-#    solution: melee
-#  - type: SolutionContainerManager
-#    solutions:
-#      melee:
-#        maxVol: 10
-#        reagents:
-#        - ReagentId: Toxin
-#          Quantity: 5
-#        - ReagentId: Lexorin
-#          Quantity: 3
-#  - type: PhysicalComposition
-#    materialComposition:
-#      Steel: 100
-#      Plastic: 100
-#  - type: GuideHelp
-#    guides:
-#    - Security
+- type: entity
+  name: truncheon
+  parent: BaseItem
+  id: ErpToySpanker
+  description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/spanker.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 2
+    soundHit:
+      collection: MetalThud
+    bluntStaminaDamageFactor: 1.5
+  - type: Appearance
+  - type: StaticPrice
+    price: 80
+
+- type: entity
+  name: truncheon
+  parent: ErpToySpanker
+  id: ErpToySpankerRed
+  description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/spankerred.rsi
+    state: icon
+
+- type: entity
+  name: truncheon
+  parent: BaseItem
+  id: WhipRadiant
+  description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/whip.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+    bluntStaminaDamageFactor: 1.5
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: Appearance
+  - type: StaticPrice
+    price: 100

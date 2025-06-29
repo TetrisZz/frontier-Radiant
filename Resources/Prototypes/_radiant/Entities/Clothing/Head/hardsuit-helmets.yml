@@ -204,3 +204,143 @@
     sprite: _radiant/Clothing/Head/Hardsuits/CASMedhelmHardsuit.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Head/Hardsuits/CASMedhelmHardsuit.rsi
+
+#Separatist Hardsuit
+- type: entity
+  parent: NFClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSeparatist
+  name: engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/easy.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/easy.rsi
+  - type: PointLight
+    color: "#ffdbad"
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+- type: entity
+  parent: NFClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSeparatistElite
+  name: engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/elite.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/elite.rsi
+  - type: PointLight
+    color: "#ffdbad"
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+- type: entity
+  parent: NFClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSeparatistJuggernaut
+  name: engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/jagaga.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/jagaga.rsi
+  - type: PointLight
+    color: "#ffdbad"
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+#Navy Hardsuit
+- type: entity
+  parent: NFClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNavyHeavyHead
+  name: engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuithelmet.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuithelmet.rsi
+  - type: PointLight
+    color: "#ffdbad"
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+- type: entity
+  parent: NFClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitDvbCombat
+  name: engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuit2.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuit2.rsi
+  - type: PointLight
+    color: "#ffdbad"
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9
+
+- type: entity
+  parent: NFClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitDvbCommand
+  name: engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuit1.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuit1.rsi
+  - type: PointLight
+    color: "#ffdbad"
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9

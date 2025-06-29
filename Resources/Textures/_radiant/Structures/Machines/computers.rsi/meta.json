@@ -23,12 +23,46 @@
       "name": "generic_panel_open",
       "directions": 4
     },
-	{
+    {
       "name": "telesci_key",
       "directions": 4
     },
     {
+      "name": "computer_turrel",
+      "directions": 4
+    },
+    {
       "name": "shipyard",
+      "directions": 4,
+      "delays": [
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "station_turrel",
       "directions": 4,
       "delays": [
         [

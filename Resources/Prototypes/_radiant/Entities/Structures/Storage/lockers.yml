@@ -1,17 +1,17 @@
 # Basic
 - type: entity
-  id: LockerBaseSecureAcorp
+  id: LockerBaseSecureRadiant
   parent: LockerBaseSecure
   abstract: true
   components:
   - type: Sprite
     sprite: _radiant/Structures/Storage/closet.rsi
 
-# Basic end
+# Acorp
 
 - type: entity
   id: LockerAcorpCaptain
-  parent: LockerBaseSecureAcorp
+  parent: LockerBaseSecureRadiant
   name: шкаф командования
   components:
   - type: Appearance
@@ -24,7 +24,7 @@
 
 - type: entity
   id: LockerAcorpSecurity
-  parent: LockerBaseSecureAcorp
+  parent: LockerBaseSecureRadiant
   name: шкаф секьюрити
   components:
   - type: Appearance
@@ -37,7 +37,7 @@
 
 - type: entity
   id: LockerAcorpScience
-  parent: LockerBaseSecureAcorp
+  parent: LockerBaseSecureRadiant
   name: шкаф ученого
   components:
   - type: Appearance
@@ -47,3 +47,58 @@
     stateDoorClosed: science_door
   - type: AccessReader
     access: [["Acorp"]]
+
+# Navy
+
+
+- type: entity
+  id: LockerNavyCadet
+  parent: LockerBaseSecureRadiant
+  name: шкаф конфедеративного флота
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: cadet
+    stateDoorOpen: cadet_open
+    stateDoorClosed: cadet_door
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  id: LockerNavyOfficer
+  parent: LockerBaseSecureRadiant
+  name: шкаф конфедеративного флота
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: officer
+    stateDoorOpen: officer_open
+    stateDoorClosed: officer_door
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  id: LockerNavyCapitan
+  parent: LockerBaseSecureRadiant
+  name: шкаф конфедеративного флота
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: capitan
+    stateDoorOpen: capitan_open
+    stateDoorClosed: capitan_door
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  id: LockerNavyCommandor
+  parent: LockerBaseSecureRadiant
+  name: шкаф конфедеративного флота
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: commandor
+    stateDoorOpen: commandor_open
+    stateDoorClosed: commandor_door
+  - type: AccessReader
+    access: [["Security"]]

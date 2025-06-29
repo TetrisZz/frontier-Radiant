@@ -1,0 +1,54 @@
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckMantleNavy
+  name: captain's mantle
+  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Mantles/mantiaflooot.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Mantles/mantiaflooot.rsi
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckMantleNavyBlack
+  name: captain's mantle
+  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Mantles/mantle_black.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Mantles/mantle_black.rsi
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckMantleNavyWhite
+  name: captain's mantle
+  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Mantles/mantle_white.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Mantles/mantle_white.rsi
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckMantleSeparatist
+  name: captain's mantle
+  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Mantles/mantlehead.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Mantles/mantlehead.rsi
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckMantleDvb
+  name: captain's mantle
+  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Mantles/dvb.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Mantles/dvb.rsi

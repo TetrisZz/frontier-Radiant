@@ -15,3 +15,12 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Backpacks/sec.rsi
+
+- type: entity
+  parent: NFClothingBackpack
+  id: ClothingBackpackSeparatist
+  name: рюкзак секьюрити
+  description: Рюкзак, который предназначен для акорп секьюрити, в него поместится всё необходимое для вашей работы.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Backpacks/backpacksep.rsi

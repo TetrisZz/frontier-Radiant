@@ -1,0 +1,30 @@
+- type: entity
+  parent: ClothingHandsBase # remove BaseCommandContraband
+  id: ClothingHandsGlovesNavy
+  name: captain gloves
+  description: Regal blue gloves, with a nice gold trim. Swanky.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hands/flot.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hands/flot.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-durathread
+    fiberColor: fibers-regal-white
+  - type: FingerprintMask
+
+- type: entity
+  parent: [ ClothingHandsGlovesColorBlack, BaseC1Contraband ] # BaseSecurityEngineeringContraband<BaseC1Contraband
+  id: ClothingHandsGlovesCombatWhite
+  name: combat gloves
+  description: These tactical gloves are fireproof and shock resistant.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hands/white_combt_gloves.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hands/white_combt_gloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-regal-white

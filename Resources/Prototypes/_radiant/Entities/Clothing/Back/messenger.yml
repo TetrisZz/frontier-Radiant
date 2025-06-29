@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingBackpackMessenger
+  id: ClothingBackpackMessengerNavy
+  name: medical messenger bag
+  description: A sterile messenger bag used in medical departments.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Messenger/messengerflot.rsi
+
+- type: entity
+  parent: ClothingBackpackMessenger
+  id: ClothingBackpackMessengerSeparatist
+  name: medical messenger bag
+  description: A sterile messenger bag used in medical departments.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Messenger/messengersep.rsi

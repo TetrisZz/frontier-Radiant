@@ -17,3 +17,44 @@
     sprite: _radiant/Structures/Furniture/Armory/weapon_rack2.rsi
     layers:
     - state: base-gun
+
+- type: entity
+  id: StructureGunRackNavy
+  parent: StructureGunRack
+  suffix: Navy, Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/Armory/flot.rsi
+    layers:
+    - state: base-gun
+
+- type: entity
+  id: StructureGunRackNavyGold
+  parent: StructureGunRack
+  suffix: Navy, Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/Armory/flotgold.rsi
+    layers:
+    - state: base-gun
+
+- type: entity
+  id: StructureGunRackRadiantBlack
+  parent: StructureGunRack
+  suffix: Acorp, Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/Armory/prostoblack.rsi
+    layers:
+    - state: base-gun
+
+- type: entity
+  id: StructureGunRackRadiantRed
+  parent: StructureGunRack
+  suffix: AcorpSec, Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/Armory/red.rsi
+    layers:
+    - state: base-gun
+

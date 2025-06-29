@@ -1,0 +1,63 @@
+- type: entity
+  id: MagazinePistolSubMachineGun25ACP
+  name: магазин G-5 (.25 ACP)
+  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistolSubMachineGun25ACP
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: CartridgePistol25ACP
+    whitelist:
+      tags:
+      - CartridgePistol25ACP
+    capacity: 40
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/boxstore.rsi
+    scale: 0.65, 0.65
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-1
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+
+- type: entity
+  id: MagazinePistol25ACP
+  name: pistol magazine (.25 ACP)
+  parent: BaseMagazinePistol
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistol25ACP
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: CartridgePistol25ACP
+    whitelist:
+      tags:
+      - CartridgePistol25ACP
+    capacity: 15
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/magazACP.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazinePistol25ACPEmpty
+  name: pistol magazine (.25 ACP any)
+  suffix: empty
+  parent: MagazinePistol25ACP
+  components:
+  - type: BallisticAmmoProvider
+    proto: null

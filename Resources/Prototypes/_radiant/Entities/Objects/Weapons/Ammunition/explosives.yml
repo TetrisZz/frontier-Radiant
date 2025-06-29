@@ -1,0 +1,39 @@
+- type: entity
+  id: GrenadeFragM203
+  name: frag grenade
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - GrenadeM203
+  - type: CartridgeAmmo
+    proto: BulletGrenadeFragM203
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Explosives/fragmentationprojectile.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: base
+    suffix: false
+
+- type: entity
+  id: GrenadeSmokeM203
+  name: frag grenade
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - GrenadeM203
+  - type: CartridgeAmmo
+    proto: BulletGrenadeSmokeM203
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Explosives/smokeprojectile.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: base
+    suffix: false

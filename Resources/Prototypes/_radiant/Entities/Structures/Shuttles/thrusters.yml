@@ -9,6 +9,7 @@
   - type: Thruster
     baseThrust: 300
     thrust: 300
+    thrustPerPartLevel: [390, 510, 630, 750]
     damage:
       types:
         Heat: 40
@@ -75,6 +76,7 @@
   - type: Thruster
     baseThrust: 600
     thrust: 600
+    thrustPerPartLevel: [780, 1020, 1260, 1500]
     damage:
       types:
         Heat: 40
@@ -164,6 +166,8 @@
     requireSpace: false
     baseThrust: 6000
     thrust: 6000
+    machinePartThrust: Manipulator
+    thrustPerPartLevel: [6000, 7500, 9000, 10500] # Frontier: upgradable gyroscopes
   - type: ApcPowerReceiver
     powerLoad: 2000
   - type: Sprite
@@ -203,3 +207,123 @@
     price: 5000
   - type: Machine
     board: SmallGyroscopeMachineCircuitboard
+
+#bluespace
+
+- type: entity
+  id: ThrusterBigZetaFTL
+  parent: ThrusterBigZeta
+  name: двигатель
+  suffix: FTL 2.5
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/Thrusters/bluespace_engine.rsi
+  - type: FTLDrive
+    range: 2560
+  - type: Construction
+    graph: ThrusterBigZetaFTL
+    node: repaired
+  - type: Machine
+    board: Null
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: ThrusterBigZetaFTLLong
+  parent: ThrusterBigZeta
+  name: двигатель
+  suffix: FTL 5
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/Thrusters/bluespaceengine.rsi
+  - type: FTLDrive
+    range: 5120
+  - type: Construction
+    graph: ThrusterBigZetaFTLLong
+    node: repaired
+  - type: Machine
+    board: Null
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: ThrusterBigZetaFTLBroken
+  parent: [BaseStructureDisableAnchoring, BaseStructureIndestructible]
+  name: двигатель
+  suffix: FTL 2.5
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/Thrusters/bluespace_engine.rsi
+    state: broken
+    drawdepth: Mobs
+  - type: Machine
+    board: Null
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Construction
+    graph: ThrusterBigZetaFTL
+    node: start
+
+- type: entity
+  id: ThrusterBigZetaFTLLongBroken
+  parent: [BaseStructureDisableAnchoring, BaseStructureIndestructible]
+  name: двигатель
+  suffix: FTL 5
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/Thrusters/bluespaceengine.rsi
+    state: broken
+    drawdepth: Mobs
+  - type: Machine
+    board: Null
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Construction
+    graph: ThrusterBigZetaFTLLong
+    node: start

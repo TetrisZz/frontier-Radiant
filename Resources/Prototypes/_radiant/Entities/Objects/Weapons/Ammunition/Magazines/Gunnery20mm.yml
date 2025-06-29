@@ -1,0 +1,49 @@
+# Empty mags
+- type: entity
+  id: BaseMagazineGunnery20mm
+  name: "magazine (20mm)"
+  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseRestrictedContraband<BaseC1Contraband added RecyclableItemSteelTiny
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineGunnery20mm
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeGunnery20mm
+    proto: CartridgeGunnery20mm
+    capacity: 200
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/20mm.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false
+  - type: Appearance
+
+# Magazines
+- type: entity
+  id: MagazineGunnery20mm
+  name: "magazine (20mm)"
+  parent: BaseMagazineGunnery20mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeGunnery20mm
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

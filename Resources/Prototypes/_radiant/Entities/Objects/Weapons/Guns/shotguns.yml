@@ -14,3 +14,18 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: PirateBountyItem # Frontier
     id: Enforcer # Frontier
+
+- type: entity
+  name: Покровитель
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: WeaponShotgunPatron
+  description: Современная модификация устаревшего помпового ружья, старый но не бесполезный.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav.rsi
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav.rsi
+  - type: BallisticAmmoProvider
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
