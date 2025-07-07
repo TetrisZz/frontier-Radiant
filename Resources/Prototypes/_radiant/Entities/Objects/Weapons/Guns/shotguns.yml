@@ -29,3 +29,8 @@
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav.rsi
   - type: BallisticAmmoProvider
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 1.2
+    pump: true
+  - type: BallisticAmmoProvider
+    capacity: 6
