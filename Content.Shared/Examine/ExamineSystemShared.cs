@@ -13,6 +13,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Utility;
 using static Content.Shared.Interaction.SharedInteractionSystem;
+using Content.Shared.Radiant;
+using Content.Shared.Humanoid;
 
 namespace Content.Shared.Examine
 {
@@ -273,6 +275,16 @@ namespace Content.Shared.Examine
             {
                 message.AddText(metadata.EntityDescription);
                 hasDescription = true;
+            }
+
+            // EntityManager.GetComponent<TransformComponent>(examiner).MapID
+            if (HasComp<HumanoidAppearanceComponent>(entity)) {
+                var _DetailExamineComp = EntityManager.GetComponent<ExaminerComponent>(entity);
+
+                if (_DetailExamineComp.ERPStatus == EnumERPStatus.FULL) message.PushColor(Color.Green);
+                else if (_DetailExamineComp.ERPStatus == EnumERPStatus.HALF) message.PushColor(Color.Yellow);
+                else message.PushColor(Color.Red);
+                message.AddText(_DetailExamineComp.GetERPStatusName() + '\n');
             }
 
             message.PushColor(Color.DarkGray);

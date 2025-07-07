@@ -201,6 +201,12 @@
       Male: MaleHuman
       Female: FemaleHuman
       Unsexed: MaleHuman
+  - type: EmoteOnDamage
+    emoteChance: 0.5
+    withChat: true
+    hiddenFromChatWindow: true
+    emotes:
+      - Scream
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes

@@ -1,3 +1,5 @@
+using Content.Shared.Radiant;
+
 namespace Content.Shared.Examine
 {
     /// <summary>
@@ -13,5 +15,22 @@ namespace Content.Shared.Examine
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("checkInRangeUnOccluded")]
         public bool CheckInRangeUnOccluded = true;
+
+        [DataField("ERPStatus")]
+        [ViewVariables(VVAccess.ReadWrite)]
+        public EnumERPStatus ERPStatus = EnumERPStatus.NO;
+
+        public string GetERPStatusName()
+        {
+            switch (ERPStatus)
+            {
+                case EnumERPStatus.HALF:
+                    return Loc.GetString("humanoid-erp-status-half");
+                case EnumERPStatus.FULL:
+                    return Loc.GetString("humanoid-erp-status-full");
+                default:
+                    return Loc.GetString("humanoid-erp-status-no");
+            }
+        }
     }
 }
