@@ -7,6 +7,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.Radiant;
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
@@ -79,6 +80,9 @@ namespace Content.Shared.Preferences
         [DataField]
         public string FlavorText { get; set; } = string.Empty;
 
+        [DataField]
+        public EnumERPStatus ERPStatus { get; set; } = 0;
+
         /// <summary>
         /// Associated <see cref="SpeciesPrototype"/> for this profile.
         /// </summary>
@@ -139,6 +143,7 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
+            int erpStatus,
             string species,
             int age,
             Sex sex,
@@ -154,6 +159,7 @@ namespace Content.Shared.Preferences
         {
             Name = name;
             FlavorText = flavortext;
+            ERPStatus = (EnumERPStatus)erpStatus;
             Species = species;
             Age = age;
             Sex = sex;
@@ -175,7 +181,7 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts)
-            : this(other.Name, other.FlavorText, other.Species, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
+            : this(other.Name, other.FlavorText, (int)other.ERPStatus, other.Species, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
                 jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, loadouts)
         {
         }
@@ -184,6 +190,7 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile(HumanoidCharacterProfile other)
             : this(other.Name,
                 other.FlavorText,
+                (int)other.ERPStatus,
                 other.Species,
                 other.Age,
                 other.Sex,
@@ -281,6 +288,11 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithFlavorText(string flavorText)
         {
             return new(this) { FlavorText = flavorText };
+        }
+
+        public HumanoidCharacterProfile WithERPStatus(EnumERPStatus state)
+        {
+            return new(this) { ERPStatus = state };
         }
 
         public HumanoidCharacterProfile WithAge(int age)
@@ -505,6 +517,8 @@ namespace Content.Shared.Preferences
                 speciesPrototype = prototypeManager.Index(Species);
             }
 
+            var erpStatus = ERPStatus;
+
             var sex = Sex switch
             {
                 Sex.Male => Sex.Male,
@@ -675,6 +689,8 @@ namespace Content.Shared.Preferences
             {
                 _loadouts.Remove(value);
             }
+
+            ERPStatus = erpStatus;
         }
 
         /// <summary>

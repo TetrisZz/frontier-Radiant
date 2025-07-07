@@ -23,6 +23,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server._Corvax.Respawn; // Frontier
 using Content.Shared._NF.Roles.Components; // Frontier
+using Content.Shared.Examine;
 
 namespace Content.Server.GameTicking
 {
@@ -247,6 +248,11 @@ namespace Content.Server.GameTicking
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character, spawnPointType: spawnPointType, session: player); // Frontier: add session
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
+
+            if (TryComp<ExaminerComponent>(mob, out var examiner))
+            {
+                examiner.ERPStatus = character.ERPStatus;
+            }
 
             _mind.TransferTo(newMind, mob);
 
