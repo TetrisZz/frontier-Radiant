@@ -2,8 +2,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitAcorpSecurity
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitAcorpSalvage
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -48,8 +48,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitAcorpRnd
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -71,8 +71,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitAvianCommander
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -84,8 +84,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitAvian
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -97,8 +97,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitAcorpEngineer
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -113,8 +113,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitAcorpHeva
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -136,8 +136,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitHardEVA
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -159,8 +159,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitAcorpBasic
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -172,8 +172,8 @@
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitAcorpSecurityHead
-  name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hardsuits/acorpskaf.rsi
@@ -196,8 +196,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHardsuitMedicalAcorp
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: BreathMask
   - type: Sprite
@@ -209,8 +209,8 @@
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSeparatist
-  name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hardsuits/easy.rsi
@@ -232,8 +232,8 @@
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSeparatistElite
-  name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hardsuits/elite.rsi
@@ -255,8 +255,8 @@
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSeparatistJuggernaut
-  name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hardsuits/jagaga.rsi
@@ -279,8 +279,8 @@
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitNavyHeavyHead
-  name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuithelmet.rsi
@@ -302,8 +302,8 @@
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitDvbCombat
-  name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuit2.rsi
@@ -325,8 +325,8 @@
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitDvbCommand
-  name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  name: шлем от скафандра
+  description: Вы думали иначе?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hardsuits/navy_spacesuit1.rsi

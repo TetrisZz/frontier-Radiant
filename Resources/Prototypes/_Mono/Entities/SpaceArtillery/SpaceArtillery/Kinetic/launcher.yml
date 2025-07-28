@@ -1,10 +1,11 @@
 # 20mm
 
 - type: entity
-  id: WeaponTurretL85Autocannon
+  id: WeaponTurretL85AutocannonSelfReload
   name: L85 20mm autocannon
   parent: BallisticArtillery
   description: A cheap and light 20mm autocannon. Can be remotely activated, or linked up to a GCS.
+  suffix: SelfReload
   components:
   - type: StaticPrice
     price: 250
@@ -43,7 +44,7 @@
   - type: Airtight
   - type: ProjectileBatteryAmmoProvider
     proto: 57mmBulletArmorPiercing
-    fireCost: 15
+    fireCost: 3
   - type: RadiationBlocker
     resistance: 8
   - type: RadarBlip
@@ -55,10 +56,11 @@
 # 90mm
 
 - type: entity
-  id: WeaponTurretAK570
+  id: WeaponTurretAK570SelfReload
   name: AK570 90mm heavy autocannon
   parent: BallisticArtillery
   description: A dual barrel, heavy autocannon. Can be remotely activated, or linked up to a GCS.
+  suffix: SelfReload
   components:
   - type: StaticPrice
     price: 750
@@ -97,13 +99,14 @@
   - type: ShipGunType
     shipType: Ballistic
 
-# 90mm
+# 220mm
 
 - type: entity
-  id: WeaponTurretCyrexa
+  id: WeaponTurretCyrexaSelfReload
   name: CYREXA 220mm cannon
   parent: BallisticArtilleryUnanchorable
   description: A dual barrel, main-battery cannon. Can be remotely activated, or linked up to a GCS.
+  suffix: SelfReload
   components:
   - type: StaticPrice
     price: 5000
@@ -152,10 +155,11 @@
 # Railgun
 
 - type: entity
-  id: WeaponTurretCharon
+  id: WeaponTurretCharonSelfReload
   name: M381 CHARON mass driver
   parent: BallisticArtilleryUnanchorable
   description: A heavy linear accelerator, capable of devastating targets with kinetic energy. Can be remotely activated, or linked up to a GCS.
+  suffix: SelfReload
   components:
   - type: StaticPrice
     price: 15000

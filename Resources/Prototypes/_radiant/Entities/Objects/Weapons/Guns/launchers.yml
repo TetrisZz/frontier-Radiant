@@ -2,7 +2,7 @@
   name: M203
   parent: [BaseWeaponRifle, BaseC2ContrabandUnredeemable]
   id: WeaponLauncherM203
-  description: Стандартная винтовка использующаяся Аколит Корпорейшн и её подразделениями, для тех случаев когда энергетическое оружие не может справиться с угрозой. Использует патроны калибра .6,8-мм SPC.
+  description: Обновленный дизайн однозарядного гранатомета придуманного еще в 21 веке, теперь приклад из наноуглеродного сплава, а ствол выкован из титана.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Guns/Launchers/tost/big.rsi
@@ -20,6 +20,8 @@
       gun_chamber:
         name: Chamber
         startingItem: GrenadeSmokeM203
+        insertSound: /Audio/_radiant/Weapons/m203_foley_insert_shell.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         priority: 1
         whitelist:
           tags:
@@ -31,9 +33,15 @@
     autoCycle: false
     boltClosed: false
     canRack: false
-    soundBoltClosed: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
-    soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
-    soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundBoltClosed:
+      path: /Audio/_radiant/Weapons/m203_foley_close_barrel.ogg
+      params:
+          volume: -1
+    soundBoltOpened:
+      path: /Audio/_radiant/Weapons/m203_foley_open_barrel.ogg
+    soundRack: /Audio/_radiant/Weapons/m203_foley_fire_select.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
   - type: Appearance
   - type: Gun
     fireRate: 8
@@ -41,6 +49,10 @@
     availableModes:
       - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
+      path: /Audio/_radiant/Weapons/GrenadeLauncher.ogg
+      params:
+        volume: -3
+    soundEmpty:
+      path: /Audio/_radiant/Weapons/m203_foley_fire_select.ogg
   - type: StaticPrice # Frontier
     price: 300 # Frontier

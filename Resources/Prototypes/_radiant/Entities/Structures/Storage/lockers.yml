@@ -54,7 +54,7 @@
 - type: entity
   id: LockerNavyCadet
   parent: LockerBaseSecureRadiant
-  name: шкаф конфедеративного флота
+  name: шкаф кадета
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -67,7 +67,7 @@
 - type: entity
   id: LockerNavyOfficer
   parent: LockerBaseSecureRadiant
-  name: шкаф конфедеративного флота
+  name: шкаф офицера
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -80,7 +80,7 @@
 - type: entity
   id: LockerNavyCapitan
   parent: LockerBaseSecureRadiant
-  name: шкаф конфедеративного флота
+  name: шкаф капитана
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -93,7 +93,7 @@
 - type: entity
   id: LockerNavyCommandor
   parent: LockerBaseSecureRadiant
-  name: шкаф конфедеративного флота
+  name: шкаф командора
   components:
   - type: Appearance
   - type: EntityStorageVisuals

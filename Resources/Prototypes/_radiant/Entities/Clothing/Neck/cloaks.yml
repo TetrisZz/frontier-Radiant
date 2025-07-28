@@ -38,7 +38,16 @@
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckCloakConfederation
   name: черный плащ
-  description: Чёрный плащ с белыми вставками. Можно заметить этикетку - Произведено Аколит Корпорейшн.
+  description: Чёрный плащ с синими вставками. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Cloaks/confederate_cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckCloakConfederationSheriff
+  name: черный плащ
+  description: Чёрный плащ с синими вставками. 
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/sheriffcloak.rsi

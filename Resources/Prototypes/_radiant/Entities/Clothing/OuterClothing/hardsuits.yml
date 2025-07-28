@@ -354,8 +354,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterHardsuitSeparatist
-  name: скафандр коменданта
-  description: Скафандр коменданта экспедиции, имеет хорошую броню, чтобы обладать им - вы должны проработать в Аколит Корпорейшн несколько лет, или снять его с мертвого коменданта, предназначен для избегания второго варианта.
+  name: EVA сепаратистов
+  description: Старая модель скафанда EVA с дополнительной броней, использующаяся сепаратистами.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/easy.rsi
@@ -384,8 +384,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterHardsuitSeparatistElite
-  name: скафандр коменданта
-  description: Скафандр коменданта экспедиции, имеет хорошую броню, чтобы обладать им - вы должны проработать в Аколит Корпорейшн несколько лет, или снять его с мертвого коменданта, предназначен для избегания второго варианта.
+  name: элитный скафандр сепаратистов
+  description: Облегченая версия тяжелого скафандра, предназначеная для командиров подпольных групп.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/elite.rsi
@@ -414,8 +414,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterHardsuitSeparatistJuggernaut
-  name: скафандр коменданта
-  description: Скафандр коменданта экспедиции, имеет хорошую броню, чтобы обладать им - вы должны проработать в Аколит Корпорейшн несколько лет, или снять его с мертвого коменданта, предназначен для избегания второго варианта.
+  name: тяжелый скафандр сепаратистов
+  description: Крепкий скафандр, произведенный сепаратистами для открытой конфронтации с силовыми структурами.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/jagaga.rsi
@@ -445,8 +445,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterHardsuitNavyHeavy
-  name: скафандр акорп секьюрити
-  description: Специальный боевой скафандр для подразделения Аколит Корпорейшн - секьюрити.
+  name: скафандр КФ
+  description: Тяжелый боевой скафандр коалиции предназначенный для бойцов отдающих выбор защите, а не мобильности 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/navy_spacesu.rsi
@@ -477,8 +477,8 @@
 - type: entity
   parent: ClothingOuterHardsuitNfsdCombat
   id: ClothingOuterHardsuitDvbCombat
-  name: скафандр акорп секьюрити
-  description: Специальный боевой скафандр для подразделения Аколит Корпорейшн - секьюрити.
+  name: боевой скафандр ДВБ
+  description: Боевой скафандр ДВБ, предназначенный как для несения патрульной службы, так и для полномасштабных боевых действий.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/navy_spacesuit2.rsi
@@ -490,8 +490,8 @@
 - type: entity
   parent: ClothingOuterHardsuitNfsdCommand
   id: ClothingOuterHardsuitDvbCommand
-  name: скафандр акорп секьюрити
-  description: Специальный боевой скафандр для подразделения Аколит Корпорейшн - секьюрити.
+  name: командный скафандр ДВБ
+  description: Облегченная версия боевого скафандра для командного состава, за счет использования более прочных, но в тоже время легких материалов в бронировании, очень дорогой в производстве.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/navy_spacesuit1.rsi

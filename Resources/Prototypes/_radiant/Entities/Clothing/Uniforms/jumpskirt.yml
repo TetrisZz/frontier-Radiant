@@ -144,8 +144,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyCaptain
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: повседневная юбка-комбинезон капитана
+  description: Хоть это и повседневная одежда капитана, это не отменяет то, какая юбка удобная и дорогая. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_captain.rsi
@@ -155,8 +155,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyCaptain1
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: торжественная юбка-комбинезон капитана
+  description: Элегантно синий оттенок со вставками из настоящего серебра - отличный выбор на сегодняшний день!
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcaptain.rsi
@@ -166,8 +166,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyCommander
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: повседневная юбка-комбинезон командора
+  description: Хоть это и повседневная одежда командора, это не отменяет то, какая юбка удобная и дорогая. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_commander.rsi
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyCommander1
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: черная юбка-комбинезон командора
+  description: Дорогая и элитная юбка командора. Юбка сшита из роскошной ткани черного цвета, а на рубашке можно заменить вставки из настоящего золота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_commander1.rsi
@@ -188,8 +188,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyCommander2
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: синяя юбка-комбинезон командора
+  description: Дорогая и элитная юбка командора. Юбка сшита из роскошной ткани синего оттенка, а на рубашке можно заменить вставки из настоящего золота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcommander.rsi
@@ -199,8 +199,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyMedic
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: юбка-комбинезон медика флота
+  description: Стандартная юбка-комбинезон для медика.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_medic.rsi
@@ -210,8 +210,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyOfficer
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: юбка-комбинезон офицера флота
+  description: Стандартная форма офицера. Ничего особенного.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleet_officer.rsi
@@ -221,8 +221,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyOfficer1
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: торжественная юбка-комбинезон офицера флота
+  description: Форма сшита из дорогой ткани, а вставки сделаны из настоящего серебра.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetofficer.rsi
@@ -232,8 +232,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNavyCadet
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: юбка-комбинезон курсанта
+  description: Форма для робаста.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcadet.rsi
@@ -243,8 +243,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatist
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: юбка-комбинезон рекрута
+  description: Стандартная юбка-комбинезон рекрута.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/cadet.rsi
@@ -254,8 +254,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistOper
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: юбка-комбинезон оперативника
+  description: Подозрительная темная юбка. Как будто вы не были и без того достаточно подозрительными.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/operative.rsi
@@ -265,8 +265,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistWarden
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: юбка-комбинезон надзирателя
+  description: Форма, сшитая специально по заказу для вашего удобства. Хоть в чем-то оно у вас есть...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/wardenn.rsi
@@ -276,8 +276,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistSlave
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: юбка раба
+  description: Выглядит очень старой, можно заметить дыры и потёртости. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/slave.rsi
@@ -287,8 +287,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistSlaveBlack
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: темная форма личной рабыни
+  description: Если ты одета в это...боюсь тебя расстроить - ты вступила не на тот путь.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/slaveblack.rsi
@@ -298,8 +298,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistSlaveWhite
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: белая форма личной рабыни
+  description: Если ты одета в это...боюсь тебя расстроить - ты вступила не на тот путь.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/slavewhite.rsi
@@ -309,8 +309,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSwimwearPink
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: розовый купальник
+  description: Ухх...А как же он подчеркивает фигуру...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/pinkkypal.rsi
@@ -320,8 +320,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressBlack
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: темное платье
+  description: Ты точно хочешь это надеть?...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/platieblack.rsi
@@ -331,10 +331,43 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSwimwearRed
-  name: юбка-комбинезон полевого персонала
-  description: Стандартная юбка-комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
+  name: красный купальник
+  description: Ухх...А как же он подчеркивает фигуру...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/reskypal.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/reskypal.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressBlackTango
+  name: темное платье
+  description: Ты точно хочешь это надеть?...
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/tangodress_black.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/tangodress_black.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressRedTango
+  name: красное платье
+  description: Ты точно хочешь это надеть?...
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/tangodress_red.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/tangodress_red.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressTraditional
+  name: красное платье
+  description: Ты точно хочешь это надеть?...
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/dress_traditional.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/dress_traditional.rsi

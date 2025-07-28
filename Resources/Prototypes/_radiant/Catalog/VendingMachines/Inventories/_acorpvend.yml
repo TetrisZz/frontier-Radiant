@@ -1,0 +1,38 @@
+- type: vendingMachineInventory
+  id: AcorpVendInventory
+  startingInventory:
+# Acorp
+    ClothingMaskGasAcorpExplorer: 5
+    ClothingOuterWinterAcorp: 10
+    ClothingOuterCoatLabAcorp: 5
+    ClothingOuterCoatRndAcorp: 5
+    ClothingOuterCoatLongAcorp: 10
+    ClothingOuterCoatLabAcorp1: 5
+    NFPouchAcorp: 10
+    ClothingShoesBootsAcorpWorkBoots: 3
+    ClothingBeltSalvageWebbingAcorp: 5
+    ClothingHeadHatAcorp: 5
+    ClothingHeadHatBeretAcorp: 1
+    ClothingHeadHelmetAcorp1: 2
+    ClothingHeadHatRadioAcorp: 2
+    ClothingBackpackDuffelAcorp: 3
+    ClothingBackpackSatchelAcorp: 3
+    ClothingBackpackAcorp: 3
+    ClothingUniformJumpskirtExploratorAcorp: 4
+    ClothingUniformJumpsuitExploratorAcorp: 4
+    ClothingUniformJumpsuitMedicalAcorp: 2
+    ClothingUniformJumpsuitMedicalAcorp1: 2
+    ClothingUniformJumpskirtMedicalAcorp: 2
+    ClothingUniformJumpskirtAcorp1: 2
+    ClothingUniformJumpsuitAcorp1: 2
+    ClothingOuterApronChefAcorp: 4
+    ClothingUnderwearTopBraAcorp: 3
+    ClothingUnderwearTopBraAcorpScience2: 3
+    ClothingUnderwearBottomBoxersAcorp2: 3
+    ClothingUnderwearTopBraAcorpScience: 3
+    ClothingUnderwearTopBraAcorp2: 3
+    ClothingUnderwearSocksAcorpStriped: 3
+    ClothingUnderwearBottomPantiesAcorp: 3
+    ClothingUnderwearBottomBoxersAcorp: 3
+    ClothingUnderwearBottomPantiesAcorpRnd: 3
+    

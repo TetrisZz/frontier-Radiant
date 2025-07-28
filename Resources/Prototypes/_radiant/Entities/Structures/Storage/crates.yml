@@ -1,7 +1,7 @@
 - type: entity
   parent: [ CrateBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
   id: CrateSecureNavy
-  name: secgear crate
+  name: ящик конфедеративного флота
   components:
   - type: Icon
     sprite: _radiant/Structures/Storage/Crates/flot.rsi
@@ -13,7 +13,7 @@
 - type: entity
   parent: [ CrateBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
   id: CrateSecureNavy2
-  name: secgear crate
+  name: ящик конфедеративного флота
   components:
   - type: Icon
     sprite: _radiant/Structures/Storage/Crates/flot2.rsi

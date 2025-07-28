@@ -151,9 +151,9 @@
     - id: DrinkWhiskeyBottleFull
       prob: 0.15
       amount: 1
-    - id: WeaponCaseLongKammererExpedition
+    - id: WeaponShotgunPatron # Radiant_sector
       amount: 1
-      prob: 0.55
+      prob: 0.60 # Radiant_sector
     - id: SpawnDungeonLootPartsEngi
       amount: 3
       prob: 0.35

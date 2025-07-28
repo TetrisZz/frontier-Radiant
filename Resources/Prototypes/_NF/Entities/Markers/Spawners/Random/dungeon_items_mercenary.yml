@@ -195,6 +195,7 @@
     rarePrototypes:
     - SpawnDungeonLootMeleeT4
     - SpawnDungeonLootGunT4
+    - SpawnDungeonLootGunT4 # Radiant_sector
     - SpawnDungeonLootExplosivesT3
     rareChance: 0.1
 

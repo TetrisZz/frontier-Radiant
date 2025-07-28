@@ -1,0 +1,44 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
+  id: BaseMagazineBoxGunnery90mm
+  name: ammunition box (90mm)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeGunnery90mm
+    proto: CartridgeGunnery90mm
+    capacity: 30
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/box_90.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+# Boxes
+
+- type: entity
+  parent: BaseMagazineBoxGunnery90mm
+  id: MagazineBoxGunnery90mm
+  name: ammunition box (90mm)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeGunnery90mm
+  - type: Icon
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/box_90.rsi
+    state: base
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]

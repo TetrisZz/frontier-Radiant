@@ -49,8 +49,8 @@
 - type: entity
   parent: [ClothingShoesMilitaryBase, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
   id: ClothingShoesBootsCombatLong
-  name: combat boots
-  description: Robust combat boots for combat scenarios or combat situations. All combat, all the time.
+  name: боевые темные ботинки
+  description: Ботинки для настоящих робастов! Не думаю, что ты хочешь, чтобы твое лицо оказалось под ними...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Boots/longcombatboots.rsi
@@ -71,8 +71,8 @@
 - type: entity
   parent: [BaseC3PirateContraband, ClothingShoesBootsMagNfsd]
   id: ClothingShoesBootsMagSeparatist
-  name: pirate magboots
-  description: Pirate magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
+  name: магнитные ботинки сепаратиста
+  description: Как ты здесь оказался?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Boots/magboots.rsi

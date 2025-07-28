@@ -1,0 +1,29 @@
+- type: entity
+  id: BaseCartridgeGunnery220mm
+  name: cartridge (220mm)
+  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseRestrictedContraband<BaseC1Contraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeGunnery220mm
+  - type: CartridgeAmmo
+    proto: ShipCyrexaProjectile
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
+  id: CartridgeGunnery220mm
+  name: cartridge (220mm)
+  parent: BaseCartridgeGunnery220mm
+  components:
+  - type: CartridgeAmmo
+    proto: ShipCyrexaProjectile

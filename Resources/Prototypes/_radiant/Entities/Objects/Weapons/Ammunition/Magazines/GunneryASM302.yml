@@ -1,0 +1,63 @@
+# Empty mags
+- type: entity
+  id: BaseMagazineGunneryASM302
+  name: "magazine (ASM302)"
+  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseRestrictedContraband<BaseC1Contraband added RecyclableItemSteelTiny
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineGunneryASM302
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - RocketMissileGunneryASM302
+    proto: RocketMissileGunneryASM302
+    capacity: 8
+  - type: Item
+    size: Ginormous
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/patchhappiness.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineGunneryASM302Empty
+  name: "magazine (ASM302)"
+  parent: BaseMagazineGunneryASM302
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+# Magazines
+- type: entity
+  id: MagazineGunneryASM302
+  name: "magazine (ASM302)"
+  parent: BaseMagazineGunneryASM302
+  components:
+  - type: BallisticAmmoProvider
+    proto: RocketMissileGunneryASM302
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

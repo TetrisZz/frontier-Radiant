@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHandsBase # remove BaseCommandContraband
   id: ClothingHandsGlovesNavy
-  name: captain gloves
-  description: Regal blue gloves, with a nice gold trim. Swanky.
+  name: золотые боевые перчатки
+  description: Эти тактические перчатки огнеупорны и ударопрочны. Стоят дорого.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hands/flot.rsi
@@ -17,8 +17,8 @@
 - type: entity
   parent: [ ClothingHandsGlovesColorBlack, BaseC1Contraband ] # BaseSecurityEngineeringContraband<BaseC1Contraband
   id: ClothingHandsGlovesCombatWhite
-  name: combat gloves
-  description: These tactical gloves are fireproof and shock resistant.
+  name: белые боевые перчатки
+  description: Эти тактические перчатки огнеупорны и ударопрочны.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hands/white_combt_gloves.rsi

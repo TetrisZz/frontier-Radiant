@@ -50,3 +50,5 @@ ent-ClothingOuterEVASuitArcadia = скафандр EVA Аркадия
     .desc = Скафандр со встроенным шлемом, который обычно выдают сотрудникам Arcadia Industries.
 ent-ClothingOuterEVASuitLvhi = скафандр EVA LVHI
     .desc = Скафандр со встроенным шлемом, который обычно выдают сотрудникам Langstad-Voigt Heavy Industries (LVHI).
+ent-ClothingOuterEVASuitPrisoner = скафандр EVA заключенного
+    .desc = Скафандр EVA со встроенным шлемом, который обычно выдают заключённым.

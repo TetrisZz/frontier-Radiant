@@ -1,7 +1,7 @@
 - type: entity
   id: LockerAcorpCaptainFilledHardsuit
   suffix: Filled, Hardsuit
-  parent: LockerAcorpCaptain
+  parent: [BaseStructureIndestructible, BaseStructureLockImmuneToEmag, BaseStructureAccessReaderImmuneToEmag, LockerAcorpCaptain]
   components:
   - type: StorageFill
     contents:

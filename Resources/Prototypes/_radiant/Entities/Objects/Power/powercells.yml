@@ -1,0 +1,300 @@
+- type: entity
+  id: BasePowerCellRadiant
+  abstract: true
+  parent: [BaseItem, RecyclableItemDeviceSmall] # Frontier: added RecyclableItemDeviceSmall
+  components:
+  - type: Item
+    storedRotation: -90
+  - type: Battery
+    pricePerJoule: 0.15
+  - type: PowerCell
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 200
+    intensitySlope: 1.5
+  - type: Sprite
+    sprite: Objects/Power/power_cells.rsi
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Zinc
+          Quantity: 5
+  - type: Tag
+    tags:
+      - PowerCell
+  - type: Appearance
+  - type: PowerCellVisuals
+  - type: Riggable
+
+# MARAUDER-type plasma weapon
+
+- type: entity
+  id: BasePowerCageRadiant
+  abstract: true
+  parent: BasePowerCellRadiant
+  components:
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 15
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Zinc
+          Quantity: 15
+  - type: Tag
+    tags:
+      - PowerCage
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+
+- type: entity
+  id: BasePowerCageType35
+  abstract: true
+  parent: BasePowerCageRadiant
+  components:
+  - type: Tag
+    tags:
+      - PowerCageType35
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipMediumPlasmaProjectile
+    fireCost: 1000
+
+- type: entity
+  id: PowerCageSmallType35
+  parent: BasePowerCageType35
+  name: small-capacity plasma power cage
+  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/energy_cell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+
+- type: entity
+  id: PowerCageMediumType35
+  parent: BasePowerCageType35
+  name: medium-capacity plasma power cage
+  description: A rechargeable power cage for big devices. The gold standard of capacity and cost.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/energy_cell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: medium
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+
+- type: entity
+  id: PowerCageHighType35
+  parent: BasePowerCageType35
+  name: high-capacity plasma power cage
+  description: A rechargeable power cage for big devices. Increased capacity for increased power levels.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/energy_cell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: high
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+
+- type: entity
+  id: PowerCageSmallEmptyType35
+  parent: PowerCageSmallType35
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/energy_cell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 0
+
+- type: entity
+  id: PowerCageMediumEmptyType35
+  parent: PowerCageMediumType35
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/energy_cell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
+  - type: Battery
+    startingCharge: 0
+
+- type: entity
+  id: PowerCageHighEmptyType35
+  parent: PowerCageHighType35
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/energy_cell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
+  - type: Battery
+    startingCharge: 0
+
+#M220 RUBICON EMP launcher
+
+- type: entity
+  id: BasePowerCageM220
+  abstract: true
+  parent: BasePowerCageRadiant
+  components:
+  - type: Tag
+    tags:
+      - PowerCageM220
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipRubiconProjectile
+    fireCost: 250
+
+- type: entity
+  id: PowerCageSmallM220
+  parent: BasePowerCageM220
+  name: small-capacity EMP power cage
+  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/emp_energycell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+
+- type: entity
+  id: PowerCageMediumM220
+  parent: BasePowerCageM220
+  name: medium-capacity EMP power cage
+  description: A rechargeable power cage for big devices. The gold standard of capacity and cost.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/emp_energycell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: medium
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+
+- type: entity
+  id: PowerCageHighM220
+  parent: BasePowerCageM220
+  name: high-capacity EMP power cage
+  description: A rechargeable power cage for big devices. Increased capacity for increased power levels.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/emp_energycell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: high
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 6000
+    startingCharge: 6000
+
+- type: entity
+  id: PowerCageSmallEmptyM220
+  parent: PowerCageSmallM220
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/emp_energycell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 0
+
+- type: entity
+  id: PowerCageMediumEmptyM220
+  parent: PowerCageMediumM220
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/emp_energycell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
+  - type: Battery
+    startingCharge: 0
+
+- type: entity
+  id: PowerCageHighEmptyM220
+  parent: PowerCageHighM220
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Power/emp_energycell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      visible: false
+  - type: Battery
+    startingCharge: 0

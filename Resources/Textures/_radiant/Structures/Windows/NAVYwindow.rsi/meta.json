@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by какой-то чел(джовелин)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "full"
+    },
+    {
+      "name": "NAVYwindow0",
+      "directions": 4
+    },
+    {
+      "name": "NAVYwindow1",
+      "directions": 4
+    },
+    {
+      "name": "NAVYwindow2",
+      "directions": 4
+    },
+    {
+      "name": "NAVYwindow3",
+      "directions": 4
+    },
+    {
+      "name": "NAVYwindow4",
+      "directions": 4
+    },
+    {
+      "name": "NAVYwindow5",
+      "directions": 4
+    },
+    {
+      "name": "NAVYwindow6",
+      "directions": 4
+    },
+    {
+      "name": "NAVYwindow7",
+      "directions": 4
+    }
+  ]
+}

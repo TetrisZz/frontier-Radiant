@@ -139,7 +139,7 @@
 - type: entity
   parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingHeadHelmetSeparatist
-  name: шлем
+  name: шлемс епаратиста
   description: Шлем для защиты вашей самой важной части тела.
   components:
   - type: Sprite
@@ -154,7 +154,7 @@
 - type: entity
   parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingHeadHelmetSeparatist1
-  name: шлем
+  name: шлем сепаратиста
   description: Шлем для защиты вашей самой важной части тела.
   components:
   - type: Sprite
@@ -169,7 +169,7 @@
 - type: entity
   parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingHeadHelmetSeparatist2
-  name: шлем
+  name: шлем сепаратиста
   description: Шлем для защиты вашей самой важной части тела.
   components:
   - type: Sprite
@@ -184,8 +184,8 @@
 - type: entity
   parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingHeadHelmetSeparatist3
-  name: шлем
-  description: Шлем для защиты вашей самой важной части тела.
+  name: каска
+  description: Каска для защиты вашей самой важной части тела.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Helmets/kaskazprotective.rsi

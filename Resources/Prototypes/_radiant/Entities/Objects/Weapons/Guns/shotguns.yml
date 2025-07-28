@@ -12,8 +12,6 @@
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
   - type: BallisticAmmoProvider
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: PirateBountyItem # Frontier
-    id: Enforcer # Frontier
 
 - type: entity
   name: Покровитель
@@ -27,10 +25,25 @@
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav.rsi
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav.rsi
-  - type: BallisticAmmoProvider
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1.2
     pump: true
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/Fire-1.ogg
+      params:
+          volume: -7
   - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
     capacity: 6
+    proto: ShellShotgun
+    soundInsert:
+      path: /Audio/_radiant/Weapons/MagIn/Load-1.ogg
+      params:
+        volume: -1.5
+    soundRack:
+      path: /Audio/_radiant/Weapons/Cock/Pump.ogg
+      params:
+        volume: -2.5

@@ -144,8 +144,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyCadet
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон курсанта
+  description: Форма для робаста.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleetcadet.rsi
@@ -155,8 +155,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyOfficer
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: торжественный комбинезон офицера флота
+  description: Форма сшита из дорогой ткани, а вставки сделаны из настоящего серебра.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleetofficer.rsi
@@ -166,8 +166,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyOfficer1
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон офицера флота
+  description: Стандартная форма офицера. Ничего особенного.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleet_officer.rsi
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyMedic
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон медика флота
+  description: Стандартный комбинезон для медика.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleet_medic.rsi
@@ -188,8 +188,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyCaptain
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: повседневный комбинезон капитана
+  description: Хоть это и повседневная одежда капитана, это не отменяет то, какой комбенезон удобный и дорогой. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleet_captain.rsi
@@ -199,8 +199,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyCaptain1
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: торжественный комбинезон капитана
+  description: Элегантно синий оттенок со вставками из настоящего серебра - отличный выбор на сегодняшний день!
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleetcaptain.rsi
@@ -210,8 +210,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyCommander
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: повседневный комбинезон командора
+  description: Хоть это и повседневная одежда командора, это не отменяет то, какой комбенезон удобный и дорогой. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleet_commander.rsi
@@ -221,8 +221,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyCommander1
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон командора с черными брюками
+  description: Дорогой и элитный комбинезон командора. Штаны сшиты из роскошной ткани чёрного цвета, а на рубашке можно заменить вставки из настоящего золота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleet_commander1.rsi
@@ -232,8 +232,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyCommander2
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон командора с синими брюками
+  description: Дорогой и элитный комбинезон командора. Штаны сшиты из роскошной ткани синего оттенка, а на рубашке можно заменить вставки из настоящего золота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleetcommander.rsi
@@ -243,8 +243,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistCadet
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон рекрута
+  description: Стандартный комбинезон рекрута.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/cadet.rsi
@@ -254,8 +254,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistWarden
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон надзирателя
+  description: Форма, сшитая специально по заказу для вашего удобства. Хоть в чем-то оно у вас есть...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/wardenn.rsi
@@ -265,8 +265,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistOper
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон оперативника
+  description: Подозрительный тёмный комбинезон. Как будто вы не были и без того достаточно подозрительными.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/operative.rsi
@@ -276,8 +276,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistCommander
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: комбинезон командира
+  description: Выглядит элитно, сшито из бюджетной, но прочной ткани.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/chapter.rsi
@@ -287,10 +287,21 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistSlave
-  name: комбинезон сервисного работника.
-  description: Стандартный комбинезон для сервиса акорп.
+  name: форма раба
+  description: Выглядит очень старой, можно заметить дыры и потёртости. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/slave.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/slave.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDungeonMaster
+  name: форма неудачника
+  description: Что тут должно быть написано?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/gachimuchi.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/gachimuchi.rsi

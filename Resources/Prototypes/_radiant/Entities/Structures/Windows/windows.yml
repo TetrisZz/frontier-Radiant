@@ -113,3 +113,68 @@
   - type: Icon
     sprite: _radiant/Structures/Windows/window_diagonal.rsi
     state: state0
+
+- type: entity
+  id: PlastitaniumWindowNavyIndestructible
+  name: plastitanium window
+  parent: PlastitaniumWindowIndestructible
+  suffix: indestructible
+  description: Skub knows this window is too hard to destroy.
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _radiant/Structures/Windows/NAVYwindow.rsi
+  - type: Icon
+    sprite: _radiant/Structures/Windows/NAVYwindow.rsi
+    state: full
+  - type: IconSmooth
+    base: NAVYwindow
+
+- type: entity
+  id: PlastitaniumWindowNavy
+  name: plastitanium window
+  parent: PlastitaniumWindow
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _radiant/Structures/Windows/NAVYwindow.rsi
+  - type: Icon
+    sprite: _radiant/Structures/Windows/NAVYwindow.rsi
+    state: full
+  - type: IconSmooth
+    base: NAVYwindow
+
+- type: entity
+  id: PlastitaniumWindowNavyDiagonalIndestructible
+  name: plastitanium window
+  parent: PlastitaniumWindowDiagonalIndestructible
+  suffix: diagonal, indestructible
+  description: Skub knows this window is too hard to destroy.
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _radiant/Structures/Windows/NAVYwindowdiag.rsi
+    state: state0
+  - type: Tag
+    tags:
+    - Diagonal
+  - type: Icon
+    sprite: _radiant/Structures/Windows/NAVYwindowdiag.rsi
+    state: state0
+
+- type: entity
+  id: PlastitaniumWindowNavyDiagonal
+  name: plastitanium window
+  parent: PlastitaniumWindowDiagonal
+  suffix: diagonal
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _radiant/Structures/Windows/NAVYwindowdiag.rsi
+    state: state0
+  - type: Tag
+    tags:
+    - Diagonal
+  - type: Icon
+    sprite: _radiant/Structures/Windows/NAVYwindowdiag.rsi
+    state: state0

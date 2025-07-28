@@ -179,6 +179,8 @@
   components:
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/Back/Duffels/syndicate.rsi
 
 - type: entity
   parent: NFClothingDuffel # Frontier: ClothingBackpackDuffelNFClothingDuffelSyndicate
@@ -200,6 +202,8 @@
   components:
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/Back/Duffels/syndicate.rsi
 
 - type: entity
   parent: NFClothingDuffel # Frontier: ClothingBackpackDuffelNFClothingDuffelSyndicate
@@ -221,6 +225,8 @@
   components:
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/Back/Duffels/syndicate.rsi
 
 - type: entity
   parent: NFClothingDuffel # Frontier: ClothingBackpackDuffelNFClothingDuffel

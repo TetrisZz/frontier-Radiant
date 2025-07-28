@@ -170,3 +170,5 @@ ent-VendingMachineWallMedicalFlatpack = упакованный наномед
     .desc = Упаковка, при помощи которой можно создать наномед.
 ent-VendingMachineChemicalsFlatpack = упакованный химкомат
     .desc = Упаковка, при помощи которой можно создать ХимкоМат.
+ent-NFHolopadShipFlatpack = упакованный голопад
+    .desc = Упаковка, при помощи которой можно создать голопад.

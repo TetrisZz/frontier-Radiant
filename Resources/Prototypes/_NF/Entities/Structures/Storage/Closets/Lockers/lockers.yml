@@ -180,7 +180,7 @@
 # NFSD Sheriff
 - type: entity
   id: LockerNfsdSheriff
-  parent: [NFLockerBaseSecure, LockerHeadOfSecurity]
+  parent: [BaseStructureIndestructible, BaseStructureLockImmuneToEmag, BaseStructureAccessReaderImmuneToEmag, NFLockerBaseSecure, LockerHeadOfSecurity]
   name: NFSD locker
   suffix: Sheriff
   components:

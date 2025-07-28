@@ -1,10 +1,11 @@
 # MARAUDER
 
 - type: entity
-  id: WeaponTurretType35
+  id: WeaponTurretType35SelfReload
   name: MARAUDER-type plasma weapon
   parent: BallisticArtillery
   description: Launches magnetically contained balls of plasma at targets. Can be remotely activated, or linked up to a GCS.
+  suffix: SelfReload
   components:
   - type: StaticPrice
     price: 2500
@@ -63,10 +64,11 @@
 # RUBICON
 
 - type: entity
-  id: WeaponTurretM220
+  id: WeaponTurretM220SelfReload
   name: M220 RUBICON EMP launcher
   parent: BallisticArtillery
   description: Launches EMP projectiles at ships. Can be remotely activated, or linked up to a GCS.
+  suffix: SelfReload
   components:
   - type: StaticPrice
     price: 2500
