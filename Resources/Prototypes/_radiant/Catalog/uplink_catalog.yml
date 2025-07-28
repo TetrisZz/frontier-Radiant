@@ -1,0 +1,24 @@
+# For the Sindy weapon
+- type: listing
+  id: UplinkMagazineBoxCaselessRifle
+  name: коробка патронов (.25 безгильзовые)
+  description: Коробка с 60 патронами для вооружения синдиката.
+  productEntity: MagazineBoxCaselessRifle
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+# CAWS
+
+- type: listing
+  id: UplinkJackdawBundle
+  name: Набор "Пересмешник"
+  description: "Невероятно смертоносный: Содержит Булл-пап винтовку Пересмешник и два укороченых магазина к ней."
+  icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledRifle
+  discountCategory: veryRareDiscounts
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry

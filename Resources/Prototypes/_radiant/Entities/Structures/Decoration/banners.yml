@@ -12,7 +12,7 @@
   id: BannerNavy
   parent: BannerBase
   name: знамя конфедеративного флота
-  description: Знамя, представляющее силу и свободу
+  description: Знаме демонстрирующее свободу и справедливость, наверное.
   components:
   - type: Sprite
     sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
@@ -22,7 +22,7 @@
   id: BannerNavyGold
   parent: BannerBase
   name: знамя конфедеративного флота
-  description: Знамя, представляющее силу и свободу
+  description: Знаме демонстрирующее свободу и справедливость, наверное.
   components:
   - type: Sprite
     sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
@@ -32,8 +32,28 @@
   id: BannerNavySilver
   parent: BannerBase
   name: знамя конфедеративного флота
-  description: Знамя, представляющее силу и свободу
+  description: Знаме демонстрирующее свободу и справедливость, наверное.
   components:
   - type: Sprite
     sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
     state: flotptr
+
+- type: entity
+  id: BannerSeparatist
+  parent: BannerBase
+  name: знамя сепаратистов
+  description: "Из бездны — приходит порядок."
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
+    state: sep_1
+
+- type: entity
+  id: BannerSeparatistScull
+  parent: BannerBase
+  name: знамя сепаратистов
+  description: "Из бездны — приходит порядок."
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi # Frontier - unique sprites
+    state: sep_2

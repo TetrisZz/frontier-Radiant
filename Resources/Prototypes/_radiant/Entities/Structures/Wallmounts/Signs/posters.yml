@@ -7,3 +7,57 @@
   - type: Sprite
     sprite: _radiant/Structures/Wallmounts/posters.rsi
     state: acorp
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterLegitAcorp2
+  name: постер акорп
+  description: Акорп - знания без границ, наука без ограничений!
+  components:
+  - type: Sprite
+    state: poster3
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterLegitNavy
+  name: постер акорп
+  description: Акорп - знания без границ, наука без ограничений!
+  components:
+  - type: Sprite
+    state: poster2
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterLegitHOM
+  name: постер акорп
+  description: Акорп - знания без границ, наука без ограничений!
+  components:
+  - type: Sprite
+    state: poster1
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterLegitSeparatist
+  name: постер акорп
+  description: Акорп - знания без границ, наука без ограничений!
+  components:
+  - type: Sprite
+    state: poster4
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterLegitSeparatist2
+  name: постер акорп
+  description: Акорп - знания без границ, наука без ограничений!
+  components:
+  - type: Sprite
+    state: poster5
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterLegitSeparatist3
+  name: постер акорп
+  description: Акорп - знания без границ, наука без ограничений!
+  components:
+  - type: Sprite
+    state: poster6

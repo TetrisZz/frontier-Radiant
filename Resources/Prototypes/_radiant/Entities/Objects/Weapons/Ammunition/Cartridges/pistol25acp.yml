@@ -23,7 +23,7 @@
 - type: entity
   id: CartridgePistol25ACP
   name: cartridge (.25 ACP)
-  parent: BaseCartridgePistol
+  parent: BaseCartridgePistol25ACP
   components:
   - type: CartridgeAmmo
     proto: BulletPistol25ACP

@@ -15,6 +15,8 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/_radiant/Weapons/vystrel_maurine.ogg
+      params:
+        volume: -2.5
   - type: RevolverAmmoProvider
     whitelist:
       tags:
@@ -33,15 +35,19 @@
   name: Шкофилд
   parent: [BaseWeaponRevolver, BaseC3PirateContraband] # Frontier: BaseMinorContraband<BaseC3PirateContraband
   id: WeaponRevolverSchofield
-  description: Смит и Вессон - нестареющая классика даже спустя века. Благодаря удлиненному стволу разгоняет пулю быстрее чем другие револьверы. Использует патроны калибра .45 магнум.
+  description: Смит анд Вессон - нестареющая классика даже спустя века. Благодаря удлиненному стволу разгоняет пулю быстрее чем другие револьверы. Использует патроны калибра .45 магнум.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Guns/Revolvers/revolers.rsi
   - type: Clothing
     sprite: _radiant/Objects/Weapons/Guns/Revolvers/revolers.rsi
   - type: Gun
-    fireRate: 1.7
+    fireRate: 1.5
     projectileSpeed: 55
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/1858.ogg
+      params:
+        volume: -5
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
@@ -54,7 +60,7 @@
   name: М2-Набат
   parent: [BaseWeaponRevolver, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: WeaponRevolverNabat
-  description: An illegal revolver favoured by Syndicate agents. Uses .45 magnum ammo. # Frontier
+  description: Пистолет револьверного механизма, получивший дурную славу из за большого спроса на черном рынке. Использует патроны калибра .45 магнум.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Guns/Revolvers/bloody_leadr.rsi
@@ -66,8 +72,8 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+      path: /Audio/_radiant/Weapons/Gunshots/HuntingRevolver.ogg
       params:
-        volume: 2.25
+        volume: -8.5
   - type: StaticPrice
     price: 1

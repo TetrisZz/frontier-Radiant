@@ -2,7 +2,7 @@
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksAcorpStriped
   name: носки
-  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  description: Стандартные носки.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/acorp-polos.rsi
@@ -10,8 +10,8 @@
 - type: entity
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksNavy
-  name: носки
-  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  name: синие носки
+  description: Стандартные длиные носки.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/flotik.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksRedStrip
-  name: носки
-  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  name: красно-черные носки
+  description: Стандартные носки, окрашены в красно-черный цвет. Возможно, они из секонд-хенда Горлакса.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/redsocks.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksThighRedStrip
-  name: носки
-  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  name: полосатые чулки
+  description: Стандартные чулки, окрашены в красно-черный цвет. Возможно, они из секонд-хенда Горлакса.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/redstockings.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksPinkStrip
-  name: носки
-  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  name: полосатые носки
+  description: Стандартные носки в чёрно-розовом цвете. Подойдут для нсатоящих мужчин.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/shortstripedsocks.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksGreenStrip
-  name: носки
-  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  name: темные носки
+  description: Стандартные носки в чёрно-зеленом цвете.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/sockswithstripes.rsi
@@ -55,8 +55,8 @@
 - type: entity
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksThighPinkStrip
-  name: носки
-  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  name: полосатые чулки
+  description: Стандартные чулки в чёрно-розовом цвете. Подойдут для нсатоящих мужчин.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/stockingssss.rsi
@@ -64,8 +64,8 @@
 - type: entity
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksThighWhiteStrip
-  name: носки
-  description: Стандартные носки Nanotrasen для работников станции. Окрашены в белый цвет.
+  name: полосатые носки
+  description: Стандартные чулки в бело-розовом цвете. Подойдут для нсатоящих мужчин.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/stripedblondestockings.rsi

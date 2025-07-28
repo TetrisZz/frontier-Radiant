@@ -1,10 +1,11 @@
 # Vanyk
 
 - type: entity
-  id: WeaponTurretVanyk
+  id: WeaponTurretVanykSelfReload
   name: ASM-302 pod
   parent: BallisticArtillery
   description: A basic guided missile pod. Can be remotely activated, or linked up to a GCS.
+  suffix: SelfReload
   components:
   - type: StaticPrice
     price: 2250

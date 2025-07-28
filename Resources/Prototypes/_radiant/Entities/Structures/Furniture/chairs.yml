@@ -1,0 +1,38 @@
+- type: entity
+  name: white office chair
+  id: ChairOfficeGrey
+  parent: RollingOfficeChairBase # Goobstation - rolling chair, definition under _Goobstation
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/chairs.rsi
+    state: office-grey
+
+- type: entity
+  name: comfy chair
+  id: ComfyChairBrown
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/chairs.rsi
+    state: comfy-brown
+
+- type: entity
+  name: comfy chair
+  id: ComfyChairCarp
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/chairs.rsi
+    state: carp
+
+- type: entity
+  name: comfy chair
+  id: ComfyChairBarber
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/chairs.rsi
+    state: barber

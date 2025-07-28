@@ -55,8 +55,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraBlack
-  name: бра акорп секьюрити
-  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  name: кружевной лифчик
+  description: Ох-х...А какие кружева...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/blacklacebodice.rsi
@@ -64,8 +64,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraCorset
-  name: бра акорп секьюрити
-  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  name: черно-белый корсет
+  description: Корсет, который скроет недостатки и выделит ваши плюсы.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/corset.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraRed
-  name: бра акорп секьюрити
-  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  name: красный лифчик
+  description: Лифчик, что поможет тебе не замерзнуть холодными ночами.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/redbodice.rsi
@@ -82,8 +82,17 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraWhiteFur
-  name: бра акорп секьюрити
-  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  name: бело-черный корсет
+  description: Корсет, который скроет недостатки и выделит ваши плюсы.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/whitecorset.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraRedGarters
+  name: бело-черный корсет
+  description: Корсет, который скроет недостатки и выделит ваши плюсы.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/redgarters.rsi

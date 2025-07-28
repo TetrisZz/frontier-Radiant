@@ -1,8 +1,8 @@
 - type: entity
-  name: pirate repair kit
+  name: ремонтный набор
   parent: BaseItem
   id: BlueSpaceRepairKit
-  description: A collection of equipment needed to repair a pirate console.
+  description: Очень важный тулбокс в вашей жизни, ведь только он поможет восстановить бс двигатели.
   components:
   - type: EmitSoundOnLand
     sound:

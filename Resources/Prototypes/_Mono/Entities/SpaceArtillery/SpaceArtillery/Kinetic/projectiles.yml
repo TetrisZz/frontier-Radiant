@@ -11,9 +11,10 @@
         Blunt: 100
         Heat: 100
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Mono/Objects/SpaceArtillery/50_armorpiercing_machinegun_casing.rsi
     layers:
-    - state: omnilaser
+    - state: base-projectile
+    scale: 4, 4
   - type: Ammo
     muzzleFlash: null
   - type: ShipWeaponProjectile
@@ -23,8 +24,6 @@
     shape: triangle
   - type: TimedDespawn
     lifetime: 9
-  - type: PointLight
-    color: "#19AFFF"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBomb
@@ -48,12 +47,11 @@
       types:
         Structural: 5812
         Blunt: 11250
-        Ion: 16875
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
     - state: base-projectile
-    scale: 2, 2
+    scale: 3, 3
   - type: Ammo
     muzzleFlash: null
   - type: ShipWeaponProjectile

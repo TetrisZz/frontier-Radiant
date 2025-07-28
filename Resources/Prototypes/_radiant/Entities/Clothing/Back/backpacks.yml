@@ -19,8 +19,8 @@
 - type: entity
   parent: NFClothingBackpack
   id: ClothingBackpackSeparatist
-  name: рюкзак секьюрити
-  description: Рюкзак, который предназначен для акорп секьюрити, в него поместится всё необходимое для вашей работы.
+  name: рюкзак сепаратиста
+  description: Рюкзак, который изготовлен из дешёвой, но достаточно прочной ткани. Пахнет железом.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Backpacks/backpacksep.rsi

@@ -1,2 +1,2 @@
-ent-M_Emp = генератор Б_ЭМИ
+ent-MobileEmpGenerator = генератор Б_ЭМИ
     .desc = Мобильный ЭМИ генератор.

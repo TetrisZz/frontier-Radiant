@@ -16,8 +16,14 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistol25ACP
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        insertSound:
+          path: /Audio/_radiant/Weapons/WPN_GG_Reload_MagIn_2.ogg
+          params:
+            volume: -2.5
+        ejectSound:
+          path: /Audio/_radiant/Weapons/magout1.ogg
+          params:
+            volume: -2.5
         priority: 2
         whitelist:
           tags:
@@ -33,11 +39,13 @@
   - type: Clothing
     sprite: _radiant/Objects/Weapons/Guns/Pistols/muffler.rsi
   - type: Gun
-    fireRate: 20
+    fireRate: 15
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+      path: /Audio/_radiant/Weapons/Gunshots/FireSile.ogg
+      params:
+        volume: -5
 
 - type: entity
   name: Ph-X
@@ -69,7 +77,9 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+      path: /Audio/_radiant/Weapons/Gunshots/Phx.ogg
+      params:
+        volume: -5
   - type: AmmoCounter
   - type: Appearance
   - type: GenericVisualizer
@@ -82,7 +92,9 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 3
     rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+      path: /Audio/_radiant/Weapons/Cock/Reload_phx.ogg
+      params:
+        volume: -8
   - type: BasicEntityAmmoProvider
     proto: BulletPhX
     capacity: 5

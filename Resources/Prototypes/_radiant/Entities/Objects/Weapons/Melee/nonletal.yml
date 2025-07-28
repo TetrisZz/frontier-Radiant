@@ -108,10 +108,10 @@
     - Trash
 
 - type: entity
-  name: truncheon
+  name: черная хлопушка
   parent: BaseItem
   id: ErpToySpanker
-  description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
+  description: Твоей заднице будет больно...
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Melee/spanker.rsi
@@ -129,20 +129,20 @@
     price: 80
 
 - type: entity
-  name: truncheon
+  name: красная хлопушка
   parent: ErpToySpanker
   id: ErpToySpankerRed
-  description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
+  description: Твоей заднице будет больно...
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Melee/spankerred.rsi
     state: icon
 
 - type: entity
-  name: truncheon
+  name: плетка
   parent: BaseItem
   id: WhipRadiant
-  description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
+  description: Ухх-х! А какой звук!
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Melee/whip.rsi

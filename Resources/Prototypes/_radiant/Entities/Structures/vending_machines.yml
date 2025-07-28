@@ -34,11 +34,11 @@
 - type: entity
   parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
   id: VendingMachineAcorp
-  name: НюдоМат
-  description: Специальный автомат для простого и интимного белья
+  name: АкорпМат
+  description: Специальный автомат для сотрудников Акорп.
   components:
   - type: VendingMachine
-    pack: NudeVendInventory
+    pack: AcorpVendInventory
     offState: off
     brokenState: broken
     normalState: normal-unshaded
@@ -60,8 +60,8 @@
 - type: entity
   parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
   id: VendingMachineNavy
-  name: НюдоМат
-  description: Специальный автомат для простого и интимного белья
+  name: ОдеждоМат конфедеративного флота
+  description: Специальный автомат для сотрудников КФ.
   components:
   - type: VendingMachine
     pack: NudeVendInventory
@@ -86,8 +86,8 @@
 - type: entity
   parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
   id: VendingMachineHomka
-  name: НюдоМат
-  description: Специальный автомат для простого и интимного белья
+  name: ХомкоМат
+  description: Специальный автомат с инклюзивной одеждой. 
   components:
   - type: VendingMachine
     pack: NudeVendInventory

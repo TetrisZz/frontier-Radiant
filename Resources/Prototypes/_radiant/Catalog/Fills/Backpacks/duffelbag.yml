@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledRifle
+  name: чёрно-красный вещмешок
+  description: Вместительный и удобный вещмешок цвета эбонита и крови, в который влезут «игрушки» для любых возрастов.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleJackdaw
+      - id: MagazineCaselessRifleShort
+      - id: MagazineCaselessRifleShort

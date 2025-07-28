@@ -1,8 +1,8 @@
 - type: entity
   parent: OreProcessorFlatpack
   id: ComputerSalvageExpeditionFlatpack
-  name: упакованная консоль утитизаторских экспедиций
-  description: Упаковка, при помощи которой можно создать консоль утитизаторских экспедиций.
+  name: упакованная консоль утилизаторских экспедиций
+  description: Упаковка, при помощи которой можно создать консоль утилизаторских экспедиций.
   components:
   - type: StaticPrice
     vendPrice: 35000
@@ -12,8 +12,8 @@
 - type: entity
   parent: OreProcessorFlatpack
   id: ComputerTabletopSalvageExpeditionFlatpack
-  name: упакованная настольная консоль утитизаторских экспедиций
-  description: Упаковка, при помощи которой можно создать настольную консоль утитизаторских экспедиций.
+  name: упакованная настольная консоль утилизаторских экспедиций
+  description: Упаковка, при помощи которой можно создать настольную консоль утилизаторских экспедиций.
   components:
   - type: StaticPrice
     vendPrice: 35000

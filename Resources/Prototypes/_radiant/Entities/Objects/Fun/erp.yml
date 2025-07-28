@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseItem
   id: BaseErpToy
-  name: figurine
-  description: A small miniature.
+  name: анальные шарики
+  description: Выкинь.
   abstract: true
   components:
   - type: Sprite
@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseErpToy
   id: ErpToyBeads
-  name: ripley toy
-  description: Mini-Mecha action figure! 'Mecha No. 1/12' is written on the back.
+  name: анальные шарики
+  description: Выкинь
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/beads.rsi
@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseErpToy
   id: ErpToyDildo
-  name: ripley toy
-  description: Mini-Mecha action figure! 'Mecha No. 1/12' is written on the back.
+  name: черный фаллоимитатор
+  description: Явно длинее, чем у твоего парня.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/dildo.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: BaseErpToy
   id: ErpToyDildoPink
-  name: ripley toy
-  description: Mini-Mecha action figure! 'Mecha No. 1/12' is written on the back.
+  name: розовый фаллоимитатор
+  description: Явно длинее, чем у твоего парня.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/dildopink.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: BaseErpToy
   id: ErpToyDildoRed
-  name: ripley toy
-  description: Mini-Mecha action figure! 'Mecha No. 1/12' is written on the back.
+  name: красный фаллоимитатор
+  description: Явно длинее, чем у твоего парня.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/dildored.rsi
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseErpToy
   id: ErpToyVibratorBlack
-  name: ripley toy
-  description: Mini-Mecha action figure! 'Mecha No. 1/12' is written on the back.
+  name: черный вибратор
+  description: От него больше пользы, чем от твоего бывшего.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/vibratorblack.rsi
@@ -66,8 +66,8 @@
 - type: entity
   parent: BaseErpToy
   id: ErpToyVibratorRed
-  name: ripley toy
-  description: Mini-Mecha action figure! 'Mecha No. 1/12' is written on the back.
+  name: красный вибратор
+  description: От него больше пользы, чем от твоего бывшего.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/vibratorred.rsi
@@ -75,8 +75,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomErpToyFoxyTail
-  name: ЕБАНЫЙ ХВОСТ ДЛЯ ЖОПЫ
-  description: Стандартное нижнее бельё для учёновиц акорп
+  name: лисий хвостик
+  description: Уррурур-р.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/redtail.rsi
@@ -84,8 +84,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomErpToyFoxyTailRed
-  name: ЕБАНЫЙ ХВОСТ ДЛЯ ЖОПЫ
-  description: Стандартное нижнее бельё для учёновиц акорп
+  name: лисий хвостик
+  description: Уррурур-р.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/tailblack.rsi

@@ -1,14 +1,32 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Homka for the Radiant sector - Frontier",
+  "copyright": "made by d by hommkka (Discord) for the Radiant sector - Frontier",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
+      "name": "poster3"
+    },
+    {
+      "name": "poster2"
+    },
+    {
+      "name": "poster4"
+    },
+    {
+      "name": "poster5"
+    },
+    {
+      "name": "poster6"
+    },
+    {
       "name": "acorp"
+    },
+    {
+      "name": "poster1"
     }
-      ]
+  ]
 }

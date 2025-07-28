@@ -1,8 +1,8 @@
 - type: entity
   id: MobCatBobik
   parent: [NFMobPet, MobCatGhost]
-  name: Clippy
-  description: It looks like you’re writing a letter, would you like help?
+  name: Бомбик
+  description: Просить у него помощни точно не стоит. 
   components:
   - type: Sprite
     drawdepth: Mobs

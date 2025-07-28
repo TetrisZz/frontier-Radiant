@@ -1,0 +1,19 @@
+ent-GroundTobaccoShrooms = смесь "Грибковый запах"
+    .desc = Сушёные грибы мелкого помола. Просто идеально.
+ent-GroundTobaccoShrooms5 = { ent-BaseSmokable }
+    .suffix = 5
+    .desc = { ent-BaseSmokable.desc }
+ent-NFGroundTobacco5 = { ent-GroundTobacco }
+    .suffix = 5
+    .desc = { ent-GroundTobacco.desc }
+ent-GroundTobaccoStonecut = смесь "Вырезанный из камня лист"
+    .desc = Листья мелко нарезаны, идеально подходят для трубок.
+ent-GroundTobaccoStonecut5 = { ent-GroundTobaccoStonecut }
+    .suffix = 5
+    .desc = { ent-GroundTobaccoStonecut.desc }
+
+ent-GroundTobaccoDrowsy = смесь "Сладкие сны"
+    .desc = Смесь табачных лент. Липкие на ощупь, пахнут старым кожаным диваном.
+ent-GroundTobaccoDrowsy5 = { ent-GroundTobaccoDrowsy }
+    .suffix = 5
+    .desc = { ent-GroundTobaccoDrowsy.desc }

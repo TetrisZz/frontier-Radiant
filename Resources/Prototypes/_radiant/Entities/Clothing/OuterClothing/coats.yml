@@ -127,8 +127,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatNavy
-  name: пиджак коменданта
-  description: Пиджак коменданта экспедиции, выдаётся лишь избранным чтобы подчеркнуть их важность в управлении флотом.
+  name: пиджак конфедеративного флота
+  description: Пиджак конфедеративного флота, выдаётся лишь избранным чтобы подчеркнуть их важность в управлении флотом.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Coats/fleet_kyrtka.rsi
@@ -138,8 +138,8 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatNavyLong
-  name: тренч коменданта экспедиции
-  description: Шинель, усиленная специальным сплавом чтобы обеспечивать дополнительную защиту и стиль для тех, кто обладает внушительной внешностью.
+  name: плащ конфедеративного флота
+  description: Синий плащ со вставками из настоящего серебра.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Coats/greatcoat_artilleryman.rsi
@@ -149,8 +149,8 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatNavyGoldLong
-  name: тренч коменданта экспедиции
-  description: Шинель, усиленная специальным сплавом чтобы обеспечивать дополнительную защиту и стиль для тех, кто обладает внушительной внешностью.
+  name: торжественный плащ капитана
+  description: Синий плащ со вставками из настоящего золота. Предназначен для особых случаев, но капитаны носят его всегда. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Coats/greatcoat_capitan.rsi
@@ -160,8 +160,8 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatNavyGoldLong2
-  name: тренч коменданта экспедиции
-  description: Шинель, усиленная специальным сплавом чтобы обеспечивать дополнительную защиту и стиль для тех, кто обладает внушительной внешностью.
+  name: торжественный плащ командора
+  description: Синий плащ со вставками из настоящего золота. Предназначен для особых случаев, но командоры носят его всегда.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Coats/greatcoat_commandor.rsi
@@ -171,8 +171,8 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatNavySilverLong
-  name: тренч коменданта экспедиции
-  description: Шинель, усиленная специальным сплавом чтобы обеспечивать дополнительную защиту и стиль для тех, кто обладает внушительной внешностью.
+  name: плащ конфедеративного флота
+  description: Синий плащ со вставками из настоящего серебра.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Coats/greatcoatartilleryman.rsi
@@ -184,8 +184,8 @@
 - type: entity
   parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatSeparatist
-  name: warden's armored jacket
-  description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
+  name: бронекуртка надзирателя
+  description: Теплая. Хорошо защищает, возможно...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Coats/wardennn.rsi
@@ -195,8 +195,8 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatRadiant
-  name: тренч коменданта экспедиции
-  description: Шинель, усиленная специальным сплавом чтобы обеспечивать дополнительную защиту и стиль для тех, кто обладает внушительной внешностью.
+  name: модная куртка
+  description: Вас видят в ней и такие ЭЭЭЙ ЧУВАААК! ЧУВАААК!
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Coats/kyrkasinaa.rsi
@@ -206,8 +206,8 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatRadiantLong
-  name: тренч коменданта экспедиции
-  description: Шинель, усиленная специальным сплавом чтобы обеспечивать дополнительную защиту и стиль для тех, кто обладает внушительной внешностью.
+  name: синий плащ
+  description: Просто плащ.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Coats/plahprosto.rsi

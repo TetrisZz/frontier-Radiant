@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckMantleNavy
-  name: captain's mantle
-  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  name: мантия флота
+  description: Это настоящее золото?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Mantles/mantiaflooot.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckMantleNavyBlack
-  name: captain's mantle
-  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  name: черная мантия
+  description: Элегантная и дорогая мантия, которая отлично украсит ваше пустующее плечо и ваш образ.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Mantles/mantle_black.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckMantleNavyWhite
-  name: captain's mantle
-  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  name: белая мантия
+  description: Элегантная и дорогая мантия, которая отлично украсит ваше пустующее плечо и ваш образ.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Mantles/mantle_white.rsi
@@ -34,8 +34,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckMantleSeparatist
-  name: captain's mantle
-  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  name: мантия сепаратиста
+  description: Лучше не знать, из чего она сделана...Но выглядит довольно...Прочной?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Mantles/mantlehead.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckMantleDvb
-  name: captain's mantle
-  description: A comfortable and chique mantle befitting of only the most experienced captain.
+  name: черно-синяя мантия
+  description: Чешуйчатая мантия, которую можно обернуть вокруг верхней части тела. "Чешуя" символизирует сотрудников ДВБ и то, как вы несёте их на своих плечах.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Mantles/dvb.rsi

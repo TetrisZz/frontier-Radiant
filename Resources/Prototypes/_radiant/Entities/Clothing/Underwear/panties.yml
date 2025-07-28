@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesBlack
-  name: трусики ученого акорп
-  description: Стандартное нижнее бельё для учёновиц акорп
+  name: черные стринги
+  description: Стандартное нижнее бельё чёрного цвета.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/blackpanties.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesBlackFlur
-  name: трусики ученого акорп
-  description: Стандартное нижнее бельё для учёновиц акорп
+  name: черные кружевные трусики
+  description: Стандартное нижнее бельё чёрного цвета цвета.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/blaclaceunderpants.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesRed
-  name: трусики ученого акорп
-  description: Стандартное нижнее бельё для учёновиц акорп
+  name: красные стринги
+  description: Стандартное нижнее бельё красного цвета.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/redthong.rsi
@@ -55,8 +55,26 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesWhiteFlur
-  name: трусики ученого акорп
-  description: Стандартное нижнее бельё для учёновиц акорп
+  name: белые стринги
+  description: Стандартное нижнее бельё белого цвета.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/whiteunderpantssss.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesMaid
+  name: белые стринги
+  description: Стандартное нижнее бельё белого цвета.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/maidpanties.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesRedGarters
+  name: белые стринги
+  description: Стандартное нижнее бельё белого цвета.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/redgarters.rsi

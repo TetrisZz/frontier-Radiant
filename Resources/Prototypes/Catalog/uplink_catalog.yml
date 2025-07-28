@@ -216,18 +216,18 @@
 
 # Explosives
 
-# - type: listing # Frontier
-  # id: UplinkExplosiveGrenade
-  # name: uplink-explosive-grenade-name
-  # description: uplink-explosive-grenade-desc
-  # productEntity: ExGrenade
-  # discountCategory: usualDiscounts
-  # discountDownTo:
-    # Telecrystal: 2
-  # cost:
-    # Telecrystal: 4
-  # categories:
-  # - UplinkExplosives
+# Radiant_Sector
+- type: listing
+  id: UplinkExplosiveGrenade
+  name: uplink-explosive-grenade-name
+  description: uplink-explosive-grenade-desc
+  productEntity: ExGrenade
+  discountCategory: usualDiscounts
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkExplosives
+# Radiant_Sector
 
 - type: listing
   id: UplinkExplosiveGrenadeFlash
@@ -249,44 +249,44 @@
   categories:
   - UplinkExplosives
 
-# - type: listing # Frontier
-  # id: UplinkSyndieMiniBomb
-  # name: uplink-mini-bomb-name
-  # description: uplink-mini-bomb-desc
-  # productEntity: SyndieMiniBomb
-  # discountCategory: veryRareDiscounts
-  # discountDownTo:
-    # Telecrystal: 3
-  # cost:
-    # Telecrystal: 6
-  # categories:
-    # - UplinkExplosives
+# Radiant_Sector
+- type: listing
+  id: UplinkSyndieMiniBomb
+  name: uplink-mini-bomb-name
+  description: uplink-mini-bomb-desc
+  productEntity: SyndieMiniBomb
+  discountCategory: veryRareDiscounts
+  cost:
+    Telecrystal: 6
+  categories:
+    - UplinkExplosives
+# Radiant_Sector
 
-# - type: listing # Frontier
-#   id: UplinkSingularityGrenade
-#   name: uplink-singularity-grenade-name
-#   description: uplink-singularity-grenade-desc
-#   productEntity: SingularityGrenade
-#   discountCategory: usualDiscounts
-#   discountDownTo:
-#     Telecrystal: 1
-#   cost:
-#     Telecrystal: 2
-#   categories:
-#     - UplinkDisruption
+# Radiant_Sector
+- type: listing
+  id: UplinkSingularityGrenade
+  name: uplink-singularity-grenade-name
+  description: uplink-singularity-grenade-desc
+  productEntity: SingularityGrenade
+  discountCategory: usualDiscounts
+  cost:
+    Telecrystal: 2
+  categories:
+    - UplinkDisruption
+# Radiant_Sector
 
-# - type: listing # Frontier
-#   id: UplinkWhiteholeGrenade
-#   name: uplink-whitehole-grenade-name
-#   description: uplink-whitehole-grenade-desc
-#   productEntity: WhiteholeGrenade
-#   discountCategory: usualDiscounts
-#   discountDownTo:
-#     Telecrystal: 1
-#   cost:
-#     Telecrystal: 2
-#   categories:
-#     - UplinkDisruption
+# Radiant_Sector
+- type: listing # Frontier
+  id: UplinkWhiteholeGrenade
+  name: uplink-whitehole-grenade-name
+  description: uplink-whitehole-grenade-desc
+  productEntity: WhiteholeGrenade
+  discountCategory: usualDiscounts
+  cost:
+    Telecrystal: 2
+  categories:
+    - UplinkDisruption
+# Radiant_Sector
 
 # - type: listing # Frontier
   # id: UplinkGrenadePenguin
@@ -306,18 +306,18 @@
       # components:
       # - SurplusBundle
 
-# - type: listing # Frontier
-  # id: UplinkC4
-  # name: uplink-c4-name
-  # description: uplink-c4-desc
-  # productEntity: C4
-  # discountCategory: veryRareDiscounts
-  # discountDownTo:
-    # Telecrystal: 1
-  # cost:
-    # Telecrystal: 2
-  # categories:
-  # - UplinkExplosives
+# Radiant_Sector
+- type: listing
+  id: UplinkC4
+  name: uplink-c4-name
+  description: uplink-c4-desc
+  productEntity: C4
+  discountCategory: veryRareDiscounts
+  cost:
+    Telecrystal: 3 # 2>3 Radiant_Sector
+  categories:
+  - UplinkExplosives
+# Radiant_Sector
 
 # - type: listing # Frontier
   # id: UplinkGrenadierRig
@@ -505,7 +505,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 3
+    Telecrystal: 4 # 3>4 radiant_sector
   categories:
   - UplinkAmmo
 
@@ -545,10 +545,12 @@
       whitelist:
         tags:
           - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+#    - !type:BuyerWhitelistCondition 
+#      blacklist:
+#        components:
+#          - SurplusBundle
+#
+# Radiant_Sector
 
 #Chemicals
 
@@ -904,32 +906,32 @@
   categories:
   - UplinkDisruption
 
-# - type: listing # Frontier
-  # id: UplinkSyndicateWeaponModule
-  # name: uplink-syndicate-weapon-module-name
-  # description: uplink-syndicate-weapon-module-desc
-  # productEntity: BorgModuleSyndicateWeapon
-  # discountCategory: usualDiscounts
-  # discountDownTo:
-    # Telecrystal: 3
-  # cost:
-    # Telecrystal: 5
-  # categories:
-  # - UplinkDisruption
+# Radiant_Sector
+- type: listing # Frontier
+  id: UplinkSyndicateWeaponModule
+  name: uplink-syndicate-weapon-module-name
+  description: uplink-syndicate-weapon-module-desc
+  productEntity: BorgModuleSyndicateWeapon
+  discountCategory: usualDiscounts
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkDisruption
+# Radiant_Sector
 
-# - type: listing # Frontier
-  # id: UplinkSyndicateMartyrModule
-  # name: uplink-syndicate-martyr-module-name
-  # description: uplink-syndicate-martyr-module-desc
-  # productEntity: BorgModuleMartyr
-  # icon: { sprite: /Textures/Objects/Specific/Robotics/borgmodule.rsi, state: syndicateborgbomb }
-  # discountCategory: veryRareDiscounts
-  # discountDownTo:
-    # Telecrystal: 2
-  # cost:
-    # Telecrystal: 4
-  # categories:
-    # - UplinkDisruption
+# Radiant_Sector
+- type: listing # Frontier
+  id: UplinkSyndicateMartyrModule
+  name: uplink-syndicate-martyr-module-name
+  description: uplink-syndicate-martyr-module-desc
+  productEntity: BorgModuleMartyr
+  icon: { sprite: /Textures/Objects/Specific/Robotics/borgmodule.rsi, state: syndicateborgbomb }
+  discountCategory: veryRareDiscounts
+  cost:
+    Telecrystal: 4
+  categories:
+    - UplinkDisruption
+# Radiant_Sector
 
 - type: listing
   id: UplinkSoapSyndie
@@ -1628,14 +1630,16 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateRaidBundle
   cost:
-    Telecrystal: 8
+    Telecrystal: 10 #8>10 Radiant_Sector
   categories:
   - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+#
+# Radiant_Sector
 
 - type: listing
   id: UplinkHardsuitSyndieElite

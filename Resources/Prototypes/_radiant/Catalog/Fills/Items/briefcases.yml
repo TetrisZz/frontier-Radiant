@@ -1,0 +1,193 @@
+# Pistols
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortWhisper
+  suffix: Dungeon, Whisper
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolWhisper
+      amount: 1
+    - id: MagazinePistol25ACP
+      amount: 1
+    - id: MagazineBoxPistol25ACP
+      amount: 1
+
+# Revolvers
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortNabat
+  suffix: Dungeon, Nabat
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverNabat
+      amount: 1
+    - id: SpeedLoaderMagnum
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortSchofield
+  suffix: Dungeon, Schofield
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverSchofield
+      amount: 1
+    - id: SpeedLoaderMagnum
+      amount: 2
+
+# Shotguns
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongPatron
+  suffix: Dungeon, Patron
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunPatron
+      amount: 1
+    - id: BoxLethalshot
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongAdjutant
+  suffix: Dungeon, Adjutant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunAdjutant
+      amount: 1
+    - id: BoxLethalshot
+      amount: 2
+
+# SMGs
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongFighter
+  suffix: Dungeon, Fighter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunFighter
+      amount: 1
+    - id: MagazinePistolSubMachineGun25ACP
+      amount: 2
+    - id: MagazineBoxPistol25ACP
+      amount: 1
+
+# Rifles
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongKX2801
+  suffix: Dungeon, KX2801
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleKX2801
+      amount: 1
+    - id: MagazineLightRifle
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRanger
+  suffix: Dungeon, Ranger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleRanger
+      amount: 1
+    - id: MagazineRifle
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongTW44
+  suffix: Dungeon, TW44
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleTW44Acorp
+      amount: 1
+    - id: MagazineHigh2Rifle
+      amount: 1
+    - id: MagazineBoxHigh2Rifle
+      amount: 1
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongSentinel9
+  suffix: Dungeon, Sentinel9
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleSentinel9Acorp
+      amount: 1
+    - id: MagazineHigh2RifleAK
+      amount: 1
+    - id: MagazineBoxHigh2Rifle
+      amount: 2
+
+# Energy
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongLaserCarbineAcorp
+  suffix: Dungeon, LaserCarbineAcorp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLaserCarbineAcorp
+      amount: 1
+
+# Launchers
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongM203
+  suffix: Dungeon, M203
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherM203
+      amount: 1
+    - id: GrenadeSmokeM203
+      amount: 2
+    - id: GrenadeFragM203
+      amount: 2
+
+# Melee
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortEnergySwordRadiant
+  suffix: Dungeon, EnergySwordRadiant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: EnergySwordRadiant
+      amount: 1
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortEnergySwordDoubleRadiant
+  suffix: Dungeon, EnergySwordDoubleRadiant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: EnergySwordDoubleRadiant
+      amount: 1

@@ -2,7 +2,7 @@
   name: G-5 Боец
   parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunFighter
-  description: Компактное оружие, некомпактное пп с очень некомпактным магазином. Использует патроны .25 ACP.
+  description: Легкое ПП от концерна Browning, высокая скорострельность и большой объем магазина компенсируется крайне низким поражающим воздействием. Использует патроны .25 ACP.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Guns/SMGs/fighter.rsi
@@ -21,16 +21,26 @@
     angleDecay: 4
     selectedMode: FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      path: /Audio/_radiant/Weapons/KFirePlayer.ogg
+      params:
+        volume: -5
     availableModes:
     - FullAuto
+  - type: ChamberMagazineAmmoProvider
+    soundBoltOpened: /Audio/_radiant/Weapons/WPN_GG_Reload_BoltOpen_01.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
         startingItem: MagazinePistolSubMachineGun25ACP
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        insertSound:
+          path: /Audio/_radiant/Weapons/WPN_GG_Reload_MagIn_02.ogg
+          params:
+            volume: -1.5
+        ejectSound:
+          path: /Audio/_radiant/Weapons/magout3.ogg
+          params:
+            volume: -1.5
         priority: 2
         whitelist:
           tags:

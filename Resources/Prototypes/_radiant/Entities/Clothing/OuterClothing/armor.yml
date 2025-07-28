@@ -128,8 +128,8 @@
 - type: entity
   parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
   id: ClothingOuterArmorSeparatist
-  name: armor vest
-  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  name: бронежилет
+  description: Возможно, он поможет спасти жизнь. Но это не точно.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Armor/armorcadet.rsi
@@ -149,8 +149,8 @@
 - type: entity
   parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
   id: ClothingOuterArmorSeparatist2
-  name: armor vest
-  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  name: бронежилет
+  description: Возможно, он поможет спасти жизнь. Но это не точно.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Armor/armorglava.rsi
@@ -170,8 +170,8 @@
 - type: entity
   parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
   id: ClothingOuterArmorSeparatist3
-  name: armor vest
-  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  name: бронежилет
+  description: Возможно, он поможет спасти жизнь. Но это не точно.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Armor/armoroper.rsi
@@ -191,8 +191,8 @@
 - type: entity
   parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
   id: ClothingOuterArmorSeparatist4
-  name: armor vest
-  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  name: бронежилет
+  description: Возможно, он поможет спасти жизнь. Но это не точно. Выглядит так, словно он сделан из переработанного дерева и костей...
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Armor/armorrad.rsi
@@ -212,8 +212,8 @@
 - type: entity
   parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
   id: ClothingOuterArmorSeparatistHeavy
-  name: armor vest
-  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  name: бронекостюм
+  description: Он и правда такой тяжелый?
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Armor/heavyarmor.rsi
@@ -235,8 +235,8 @@
 - type: entity
   parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
   id: ClothingOuterArmorNavy
-  name: armor vest
-  description: A standard Type I armored vest that provides decent protection against most types of damage.
+  name: бронежелет конфедеративного флота
+  description: Возможно, он поможет спасти жизнь. Но это не точно.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/OuterClothing/Armor/cadetbody_armor.rsi

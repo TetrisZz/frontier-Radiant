@@ -1,0 +1,14 @@
+ent-NFBedroll = раскладушка
+    .desc = Когда больше негде спать, хочется взять с собой хотя бы что-то для комфорта. На бирке написано, что его нужно развернуть перед сном, но кому нужны правила, верно?
+ent-NFBedrollStained = { ent-NFBedroll }
+    .desc = { ent-NFBedroll.desc }
+    .suffix = с пятном
+ent-NFBedrollAlt = { ent-NFBedroll }
+    .desc = { ent-NFBedroll.desc }
+    .suffix =  альтернатива
+ent-NFBedrollFolded = { ent-NFBedroll }
+    .desc = { ent-NFBedroll.desc }
+    .suffix =  сложенная
+ent-NFBedrollAltFolded = { ent-NFBedroll }
+    .desc = { ent-NFBedroll.desc }
+    .suffix =  сложенная, альтернативная

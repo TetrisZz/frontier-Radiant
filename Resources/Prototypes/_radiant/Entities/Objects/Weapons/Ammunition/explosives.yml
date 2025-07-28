@@ -37,3 +37,25 @@
   - type: SpentAmmoVisuals
     state: base
     suffix: false
+
+- type: entity
+  id: RocketMissileGunneryASM302
+  name: frag grenade
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - RocketMissileGunneryASM302
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: ShipMissileASM302
+  - type: Item
+    size: Huge
+  - type: Sprite
+    noRot: false
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Explosives/happiness.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals

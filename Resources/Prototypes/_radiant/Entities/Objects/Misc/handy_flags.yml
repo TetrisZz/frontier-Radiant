@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseItem, RecyclableItemClothSmall] # Frontier: added RecyclableItemClothSmall
   id: ConfederationHandyFlag
-  name: blank handheld flag
-  description: "Some piece of white cloth wound on a stick."
+  name: флаг конфедеративного флота
+  description: "Конфедерация говорит через наш залп."
   components:
   - type: Sprite
     sprite: _radiant/Objects/Misc/Handy_Flags/flot.rsi
@@ -13,8 +13,8 @@
 - type: entity
   parent: [BaseItem, RecyclableItemClothSmall] # Frontier: added RecyclableItemClothSmall
   id: ConfederationHandyFlag2
-  name: Nanotrasen handheld flag
-  description: "Glory to NT! Wait, they really made a handheld flag for a corporation?"
+  name: флаг конфедеративного флота
+  description: "Мы не охраняем. Мы уничтожаем угрозу."
   components:
   - type: Sprite
     sprite: _radiant/Objects/Misc/Handy_Flags/flot1.rsi
