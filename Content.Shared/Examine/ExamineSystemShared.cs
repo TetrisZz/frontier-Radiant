@@ -275,6 +275,8 @@ namespace Content.Shared.Examine
                 hasDescription = true;
             }
 
+            // EntityManager.GetComponent<TransformComponent>(examiner).MapID
+
             message.PushColor(Color.DarkGray);
 
             // Raise the event and let things that subscribe to it change the message...
