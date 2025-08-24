@@ -31,8 +31,17 @@
       ballistic-ammo: !type:Container
 
 - type: entity
+  id: MagazinePistolSubMachineGun25ACPEmpty
+  name: магазин G-5 (.25 ACP any)
+  suffix: empty
+  parent: MagazinePistolSubMachineGun25ACP
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
   id: MagazinePistol25ACP
-  name: pistol magazine (.25 ACP)
+  name: магазин (.25 ACP)
   parent: BaseMagazinePistol
   components:
   - type: Tag
@@ -55,7 +64,7 @@
 
 - type: entity
   id: MagazinePistol25ACPEmpty
-  name: pistol magazine (.25 ACP any)
+  name: магазин (.25 ACP any)
   suffix: empty
   parent: MagazinePistol25ACP
   components:

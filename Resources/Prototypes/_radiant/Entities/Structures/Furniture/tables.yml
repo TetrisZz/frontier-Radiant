@@ -1,0 +1,14 @@
+- type: entity
+  id: TableReinforcedRadiantSpawner
+  parent: TableReinforced
+  name: укреплённый стол
+  description: Квадратный лист металла, стоящий на четырёх металлических ножках. Очень прочный.
+  suffix: СПАВНЕР ЖЕТОНОВ
+  components:
+  - type: TimedSpawner
+    prototypes:
+        - NavyToken1
+    chance: 1
+    intervalSeconds: 3600
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1

@@ -6,6 +6,8 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/acorp.rsi
+  - type: PirateBountyItem
+    id: UnderwearAcorp
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -15,6 +17,8 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/boxxacorp.rsi
+  - type: PirateBountyItem
+    id: UnderwearAcorp
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -24,3 +28,5 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/secacorp.rsi
+  - type: PirateBountyItem
+    id: UnderwearAcorp

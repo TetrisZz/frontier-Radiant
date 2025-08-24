@@ -1,0 +1,197 @@
+- type: entity
+  parent: Clothing
+  id: ClothingNeckShockCollar
+  name: электрический ошейник
+  suffix: SelfUnremovable
+  description: Электрический ошейник, который бьёт током по сигналу.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/shock_collar.rsi
+    scale: 0.6, 0.6
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/shock_collar.rsi
+    stripDelay: 10
+    equipDelay: 5
+    quickEquip: true
+    slots:
+    - neck
+  - type: AttachedClothing
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ShockOnTrigger
+    damage: 5
+    duration: 3
+    cooldown: 4
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Construction
+    graph: ShockCollarCrafting
+    node: start
+
+- type: entity
+  parent: Clothing
+  id: ClothingNeckBoomCollar
+  name: взрывной ошейник
+  suffix: SelfUnremovable
+  description: Электрический ошейник, который делает БУМ! по сигналу.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/collarsboom.rsi
+    scale: 0.6, 0.6
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/collarsboom.rsi
+    stripDelay: 10
+    equipDelay: 5
+    quickEquip: true
+    slots:
+    - neck
+  - type: AttachedClothing
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Radioactive
+    maxIntensity: 100
+    intensitySlope: 100
+    totalIntensity: 100
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Construction
+    graph: BoomCollarCrafting
+    node: start
+
+- type: entity
+  parent: Clothing
+  id: ClothingNeckShockCollarPrivateSlave
+  name: ошейник рабыни
+  suffix: SelfUnremovable
+  description: Электрический ошейник, который бьёт током по сигналу.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/shockcollar.rsi
+    scale: 0.6, 0.6
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/shockcollar.rsi
+    quickEquip: true
+    slots:
+    - neck
+  - type: Unremoveable
+  - type: ShockOnTrigger
+    damage: 5
+    duration: 3
+    cooldown: 4
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckShackles
+  name: кандалы на шею 
+  description: Используются сепаратистами для порабощения пленников.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/option1.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/option1.rsi
+    stripDelay: 50
+    equipDelay: 5
+  - type: StaticPrice
+    vendPrice: 500
+  - type: SelfUnremovableClothing
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.75
+  - type: Construction
+    graph: ShacklesCollarCrafting
+    node: start
+
+# Broken
+
+- type: entity
+  parent: Clothing
+  id: ClothingNeckShockCollarBroken
+  name: электрический ошейник
+  suffix: Broken
+  description: An electric collar that shocks on the signal.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/shock_collar.rsi
+    scale: 0.6, 0.6
+    state: broken
+  - type: Construction
+    graph: ShockCollarCrafting
+    node: brokenCollar
+
+- type: entity
+  parent: Clothing
+  id: ClothingNeckBoomCollarBroken
+  name: взрывной ошейник
+  suffix: Broken
+  description: An electric collar that shocks on the signal.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/collarsboom.rsi
+    scale: 0.6, 0.6
+    state: broken
+  - type: Construction
+    graph: BoomCollarCrafting
+    node: brokenCollar
+
+# Clone
+
+- type: entity
+  parent: ClothingNeckBoomCollar
+  id: ClothingNeckBoomCollarClone
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: BoomCollarCrafting
+    node: clone
+
+- type: entity
+  parent: ClothingNeckShockCollar
+  id: ClothingNeckShockCollarClone
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: ShockCollarCrafting
+    node: clone
+
+- type: entity
+  parent: ClothingNeckShackles
+  id: ClothingNeckShacklesClone
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: ShacklesCollarCrafting
+    node: clone

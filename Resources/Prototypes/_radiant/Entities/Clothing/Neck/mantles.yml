@@ -45,7 +45,7 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckMantleDvb
-  name: черно-синяя мантия
+  name: мантия ДВБ
   description: Чешуйчатая мантия, которую можно обернуть вокруг верхней части тела. "Чешуя" символизирует сотрудников ДВБ и то, как вы несёте их на своих плечах.
   components:
   - type: Sprite

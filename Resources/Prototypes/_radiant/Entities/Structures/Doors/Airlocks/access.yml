@@ -1,3 +1,5 @@
+# Acorp
+
 - type: entity
   parent: AirlockAcorpBasic
   id: AirlockAcorpBasicLocked
@@ -178,7 +180,7 @@
     containers:
       board: [ DoorElectronicsAcorp ]
 
-#security
+# AcorpSecurity
 
 - type: entity
   parent: AirlockAcorpSecurity
@@ -216,7 +218,7 @@
     containers:
       board: [ DoorElectronicsAcorpSecurity ]
 
-#command
+# AcorpCommand
 
 - type: entity
   parent: AirlockAcorpCommandBlack
@@ -235,3 +237,88 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsAcorpCommand ]
+
+# Separatists
+
+- type: entity
+  parent: AirlockAcorpMining
+  id: AirlockSeparatistsMiningLocked
+  suffix: Separatists, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeparatists ]
+
+- type: entity
+  parent: AirlockAcorpMiningGlass
+  id: AirlockSeparatistsMiningGlassLocked
+  suffix: Separatists, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeparatists ]
+
+- type: entity
+  parent: AirlockHatch
+  id: AirlockHatchSeparatistsLocked
+  suffix: Separatists, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeparatists ]
+
+- type: entity
+  parent: AirlockMining
+  id: AirlockMiningSeparatistsLocked
+  suffix: Separatists, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeparatists ]
+
+- type: entity
+  parent: AirlockMiningGlass
+  id: AirlockMiningSeparatistsGlassLocked
+  suffix: Separatists, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeparatists ]
+
+# Navy
+
+- type: entity
+  parent: AirlockNavyGlass
+  id: AAirlockNavyGlassLocked
+  suffix: Navy, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNavy ]
+
+- type: entity
+  parent: AirlockNavy
+  id: AirlockNavyLocked
+  suffix: Navy, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNavy ]
+
+- type: entity
+  parent: AirlockNavyGlass
+  id: AAirlockNavyGlassLockedBrig
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]
+
+- type: entity
+  parent: AirlockNavy
+  id: AirlockNavyLockedBrig
+  suffix: Brig, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrig ]

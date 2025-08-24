@@ -71,8 +71,8 @@
   id: UplinkSecurityCombatHardsuit
   name:  uplink-security-hardsuit-combat-name
   description: uplink-security-hardsuit-combat-desc
-  productEntity: ClothingOuterHardsuitNfsdCombat
-  icon: { sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_combat.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitDvbCombat #Radiant_sector
+  icon: { sprite: _radiant/Clothing/Hardsuits/navy_spacesuit2.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 10
   categories:
@@ -87,8 +87,8 @@
   id: UplinkSecurityCommandHardsuit
   name:  uplink-security-hardsuit-commmand-name
   description: uplink-security-hardsuit-commmand-desc
-  productEntity: ClothingOuterHardsuitNfsdCommand
-  icon: { sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_command.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitDvbCommand #Radiant_sector
+  icon: { sprite: _radiant/Clothing/Hardsuits/navy_spacesuit1.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 10
   categories:

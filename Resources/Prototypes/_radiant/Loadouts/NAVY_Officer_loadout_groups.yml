@@ -1,0 +1,58 @@
+- type: loadoutGroup
+  id: NAVYOfficerPDA
+  name: loadout-group-medical-id
+  hidden: true
+  loadouts:
+  - NAVYPDANavyOfficer
+  fallbacks:
+  - NAVYPDANavyOfficer
+
+- type: loadoutGroup
+  id: NAVYOfficerJumpsuit
+  name: loadout-group-medical-jumpsuit
+  minLimit: 1
+  loadouts:
+  - NAVYClothingUniformJumpsuitNavyOfficer
+  - NAVYClothingUniformJumpskirtNavyOfficer
+  - NAVYClothingUniformJumpsuitNavyOfficer1
+  - NAVYClothingUniformJumpskirtNavyOfficer1
+  fallbacks:
+  - NAVYClothingUniformJumpsuitNavyOfficer
+  - NAVYClothingUniformJumpskirtNavyOfficer
+
+- type: loadoutGroup
+  id: NAVYOfficerEars
+  name: loadout-group-commandant-ears
+  hidden: true
+  loadouts:
+  - NAVYClothingHeadsetNavy
+  fallbacks:
+  - NAVYClothingHeadsetNavy
+
+- type: loadoutGroup
+  id: NAVYOfficerHead
+  name: loadout-group-engineer-head
+  minLimit: 0
+  loadouts:
+  - NAVYClothingHeadHatNavy
+  - NAVYClothingHeadHatCapNavy
+
+- type: loadoutGroup
+  id: NAVYOfficerGloves
+  name: loadout-group-contractor-gloves
+  minLimit: 0
+  loadouts:
+  - NAVYClothingHandsGlovesCombatWhite
+  fallbacks:
+  - NAVYClothingHandsGlovesCombatWhite
+
+- type: loadoutGroup
+  id: NAVYOfficerOuterClothing
+  name: loadout-group-medical-outerclothing
+  minLimit: 0
+  loadouts:
+  - NAVYClothingOuterCoatNavy
+  - NAVYClothingOuterCoatNavySilverLong
+  - NAVYClothingOuterCoatNavyLong
+  fallbacks:
+  - NAVYClothingOuterCoatNavy

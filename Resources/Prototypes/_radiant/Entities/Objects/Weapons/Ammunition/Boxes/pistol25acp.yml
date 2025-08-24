@@ -2,7 +2,7 @@
   abstract: true
   parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
   id: BaseMagazineBoxPistol25ACP
-  name: ammunition box (.25 ACP)
+  name: коробка патронов (.25 ACP)
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -30,7 +30,7 @@
 - type: entity
   parent: BaseMagazineBoxPistol25ACP
   id: MagazineBoxPistol25ACP
-  name: ammunition box (.25 ACP)
+  name: коробка патронов (.25 ACP)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol25ACP

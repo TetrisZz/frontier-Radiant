@@ -1,0 +1,99 @@
+#Navy
+
+- type: entity
+  name: жетоны контроля КФ
+  parent: BaseItem
+  id: NavyToken
+  suffix: 20 BM
+  description: Жетоны контроля за сектор.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/tokens.rsi
+    state: token-navy
+  - type: Item
+    sprite: _radiant/Objects/Specific/tokens.rsi
+    size: Tiny
+  - type: Stack
+    count: 20
+    stackType: NavyToken
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      NavyToken: 1
+
+- type: entity
+  parent: NavyToken
+  id: NavyToken1
+  suffix: 1 BM
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: NavyToken
+  id: NavyToken2
+  suffix: 2 BM
+  components:
+  - type: Stack
+    count: 2
+
+- type: entity
+  parent: NavyToken
+  id: NavyToken5
+  suffix: 5 BM
+  components:
+  - type: Stack
+    count: 5
+
+#Separatist
+
+- type: entity
+  name: жетоны контроля сепаратистов
+  parent: BaseItem
+  id: SeparatistToken
+  suffix: 20 ЖКС
+  description: Жетоны контроля за сектор.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/tokens.rsi
+    state: token-sep
+  - type: Item
+    sprite: _radiant/Objects/Specific/tokens.rsi
+    size: Tiny
+  - type: Stack
+    count: 20
+    stackType: SeparatistToken
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      SeparatistToken: 1
+
+- type: entity
+  parent: SeparatistToken
+  id: SeparatistToken1
+  suffix: 1 ЖКС
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SeparatistToken
+  id: SeparatistToken2
+  suffix: 2 ЖКС
+  components:
+  - type: Stack
+    count: 2
+
+- type: entity
+  parent: SeparatistToken
+  id: SeparatistToken5
+  suffix: 5 ЖКС
+  components:
+  - type: Stack
+    count: 10

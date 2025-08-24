@@ -9,3 +9,21 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsAcorpSecurity ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureSeparatistsLocked
+  suffix: Separatists, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeparatists ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureNavyLocked
+  suffix: Separatists, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNavy ]

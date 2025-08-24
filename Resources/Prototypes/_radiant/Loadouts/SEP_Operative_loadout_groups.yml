@@ -1,0 +1,26 @@
+- type: loadoutGroup
+  id: SEPOperativePDA
+  name: loadout-group-assistant-id
+  hidden: true
+  loadouts:
+  - SEPPDASeparatistsOperative
+  fallbacks:
+  - SEPPDASeparatistsOperative
+
+- type: loadoutGroup
+  id: SEPOperativeJumpsuit
+  name: loadout-group-assistant-jumpsuit
+  loadouts:
+  - SEPClothingUniformJumpsuitSeparatistOper
+  - SEPClothingUniformJumpskirtSeparatistOper
+  fallbacks:
+  - SEPClothingUniformJumpsuitSeparatistOper
+  - SEPClothingUniformJumpskirtSeparatistOper
+
+- type: loadoutGroup
+  id: SEPOperativeOuterClothing
+  name: loadout-group-assistant-outerclothing
+  minLimit: 0
+  loadouts:
+  - SEPClothingOuterWinterSeparatist
+  - SEPClothingOuterArmorSeparatist3

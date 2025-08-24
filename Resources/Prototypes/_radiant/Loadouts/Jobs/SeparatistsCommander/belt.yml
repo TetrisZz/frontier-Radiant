@@ -1,0 +1,9 @@
+- type: loadout
+  id: SEPClothingBeltAssault
+  equipment:
+    belt: ClothingBeltAssault
+
+- type: loadout
+  id: SEPClothingBeltCombatWebbingSeparatist
+  equipment:
+    belt: ClothingBeltCombatWebbingSeparatist

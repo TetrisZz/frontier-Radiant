@@ -1,3 +1,5 @@
+# Acorp
+
 - type: entity
   parent: PassengerIDCard
   id: AcorpIDCard
@@ -94,3 +96,140 @@
     layers:
     - state: silver
     - state: iddirector
+
+# Separatists
+
+- type: entity
+  parent: PassengerIDCard
+  id: SeparatistsSlaveIDCard
+  name: ID-карта раба
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/id_cards.rsi
+    layers:
+    - state: brown
+    - state: idslave
+  - type: PresetIdCard
+    job: SeparatistsSlave
+
+- type: entity
+  parent: AcorpIDCard
+  id: SeparatistsRecruitIDCard
+  name: ID-карта рекрута
+  components:
+  - type: PresetIdCard
+    job: SeparatistsRecruit
+  - type: Sprite
+    layers:
+    - state: brown
+    - state: idoperative
+
+- type: entity
+  parent: AcorpIDCard
+  id: SeparatistsWardenIDCard
+  name: ID-карта надзирателя
+  components:
+  - type: PresetIdCard
+    job: SeparatistsWarden
+  - type: Sprite
+    layers:
+    - state: brown
+    - state: idwarden
+
+- type: entity
+  parent: AcorpIDCard
+  id: SeparatistsOperativeIDCard
+  name: ID-карта оперативника
+  components:
+  - type: PresetIdCard
+    job: SeparatistsOperative
+  - type: Sprite
+    layers:
+    - state: brown
+    - state: idoperative
+
+- type: entity
+  parent: AcorpIDCard
+  id: SeparatistsPrivateSlaveIDCard
+  name: ID-карта личной рабыни
+  components:
+  - type: PresetIdCard
+    job: SeparatistsPrivateSlave
+  - type: Sprite
+    layers:
+    - state: brown
+    - state: idpersonalslave
+
+- type: entity
+  parent: AcorpIDCard
+  id: SeparatistsCommanderIDCard
+  name: ID-карта главы
+  components:
+  - type: PresetIdCard
+    job: SeparatistsCommander
+  - type: Sprite
+    layers:
+    - state: brown
+    - state: idchapter
+
+# NAVY
+
+- type: entity
+  parent: AcorpIDCard
+  id: NavyCadetIDCard
+  name: ID-карта курсанта
+  components:
+  - type: PresetIdCard
+    job: NavyCadet
+  - type: Sprite
+    layers:
+    - state: white
+    - state: idcadetfleet
+
+- type: entity
+  parent: AcorpIDCard
+  id: NavyBrigmedicIDCard
+  name: ID-карта ОМС
+  components:
+  - type: PresetIdCard
+    job: NavyBrigmedic
+  - type: Sprite
+    layers:
+    - state: white
+    - state: iddoctorfleet
+
+- type: entity
+  parent: AcorpIDCard
+  id: NavyOfficerIDCard
+  name: ID-карта офицера
+  components:
+  - type: PresetIdCard
+    job: NavyOfficer
+  - type: Sprite
+    layers:
+    - state: white
+    - state: idfleetofficer
+
+- type: entity
+  parent: AcorpIDCard
+  id: NavyCaptainIDCard
+  name: ID-карта капитана
+  components:
+  - type: PresetIdCard
+    job: NavyCaptain
+  - type: Sprite
+    layers:
+    - state: white
+    - state: idcaptainfleet
+
+- type: entity
+  parent: AcorpIDCard
+  id: NavyKomandorIDCard
+  name: ID-карта коммандора
+  components:
+  - type: PresetIdCard
+    job: NavyKomandor
+  - type: Sprite
+    layers:
+    - state: white
+    - state: idcommander

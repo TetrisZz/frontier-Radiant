@@ -1,2 +1,2 @@
-﻿station-frontier-outpost = Frontier Outpost
-station-nsfd = NFSD Outpost
+﻿station-frontier-outpost = Аванпост Фронтира
+station-nsfd = Форпост ОСК

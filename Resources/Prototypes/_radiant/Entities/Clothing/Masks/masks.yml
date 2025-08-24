@@ -55,8 +55,8 @@
 - type: entity
   parent: [ClothingMaskGas, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingMaskGasSeparatist
-  name: syndicate gas mask
-  description: A close-fitting tactical mask that can be connected to an air supply.
+  name: противогаз сепаратиста
+  description: Плотно прилегающий тактическаий противогаз, который можно подключить к системе подачи воздуха.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Mask/mask_1.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: [ClothingMaskGas, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingMaskGasSeparatist2
-  name: syndicate gas mask
-  description: A close-fitting tactical mask that can be connected to an air supply.
+  name: противогаз сепаратиста
+  description: Плотно прилегающий тактическаий противогаз, который можно подключить к системе подачи воздуха.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Mask/mask_3.rsi
@@ -91,8 +91,8 @@
 - type: entity
   parent: ClothingMaskBandanaBase
   id: ClothingMaskBalaclavaSeparatist
-  name: black balaclava
-  description: A black balaclava to make you look menacing.
+  name: балаклава с черепом
+  description: Балаклава с черепом, чтобы выглядеть устрашающе.
   components:
   - type: FoldableClothing
     foldedSlots:

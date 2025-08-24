@@ -13,3 +13,30 @@
   - AcorpMedical
   - AcorpService
   - AcorpAssistant
+
+- type: department
+  id: Separatists
+  name: department-separatists
+  description: department-separatists-description
+  color: "#5A3D30"
+  weight: -20 # accounted for in jobs
+  roles:
+  - SeparatistsCommander
+  - SeparatistsPrivateSlave
+  - SeparatistsOperative
+  - SeparatistsWarden
+  - SeparatistsRecruit
+  - SeparatistsSlave
+
+- type: department
+  id: Navy
+  name: department-navy
+  description: department-navy-description
+  color: "#9589d6"
+  weight: 2
+  roles:
+  - NavyKomandor
+  - NavyCaptain
+  - NavyOfficer
+  - NavyBrigmedic
+  - NavyCadet

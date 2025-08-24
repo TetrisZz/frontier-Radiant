@@ -1,0 +1,30 @@
+- type: loadout
+  id: NAVYClothingUniformJumpsuitNavyCommander
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyCommander
+
+- type: loadout
+  id: NAVYClothingUniformJumpskirtNavyCommander
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtNavyCommander
+
+- type: loadout
+  id: NAVYClothingUniformJumpsuitNavyCommander1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyCommander1
+
+- type: loadout
+  id: NAVYClothingUniformJumpskirtNavyCommander1
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtNavyCommander1
+
+- type: loadout
+  id: NAVYClothingUniformJumpsuitNavyCommander2
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyCommander2
+
+- type: loadout
+  id: NAVYClothingUniformJumpskirtNavyCommander2
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtNavyCommander2
+

@@ -1,0 +1,44 @@
+- type: pointOfInterest
+  id: Separatists
+  parent: BasePOI
+  name: База сепаратистов
+  minimumDistance: 10000
+  maximumDistance: 15000
+  spawnGamePreset: [ NFPirate ]
+  spawnGroup: Required
+  gridPath: /Maps/_radiant/POI/Separatists.yml
+  hideWarp: true
+  addComponents:
+  - type: IFF
+    color: "#C83737"
+    flags: [HideLabel]
+    readOnly: false
+
+- type: gameMap
+  id: Separatists
+  mapName: 'База сепаратистов'
+  mapPath: /Maps/_radiant/POI/Separatists.yml
+  minPlayers: 0
+  stations:
+    Separatists:
+      stationProto: RecordsFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'База сепаратистов'
+        - type: ExtraStationInformation
+          iconPath: /Textures/_radiant/Structures/Wallmounts/posters.rsi/poster4.png
+          stationSubtext: 'frontier-lobby-separatists-subtext'
+          stationDescription: 'frontier-lobby-separatists-description'
+        - type: StationJobs
+          availableJobs:
+            SeparatistsCommander: [ 1, 1 ]
+            SeparatistsPrivateSlave: [ 1, 1 ]
+            SeparatistsOperative: [ 4, 4 ]
+            SeparatistsWarden: [ 2, 2 ]
+            SeparatistsRecruit: [ 3, 3 ]
+            SeparatistsSlave: [ 4, 4 ]
+        - type: StationDeadDropReporting
+          messageSet: Pirate
+        - type: StationDeadDropHintExempt
+        - type: TradeCrateWildcardDestination
+        - type: BindToStationVariationPassExemption

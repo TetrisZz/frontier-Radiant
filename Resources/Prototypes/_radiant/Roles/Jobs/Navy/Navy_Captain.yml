@@ -1,0 +1,44 @@
+- type: job
+  id: NavyCaptain
+  name: job-name-navy-captain
+  description: job-description-navy-captain
+  playTimeTracker: JobNavyCaptain
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 28800 # 8 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600 # 1 hour Radiant_Sector
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hours Radiant_Sector
+  startingGear: NavyCaptainGear
+  icon: "JobIconNavyCaptain" 
+  supervisors: job-supervisors-hire
+  weight: 154
+  displayWeight: 61
+  access:
+  - Armory
+  accessGroups:
+  - NavyOfficerAccess
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplantNavy ]
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: NavyCaptainGear
+  equipment:
+    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+    - MagazinePistolRubber
+    - BaseNavyUplinkRadioCaptain
+    - RubberStampBailiff
+    - NavyToken2
+    - NFPouchNavy

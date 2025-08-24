@@ -1,0 +1,32 @@
+- type: loadout
+  id: NAVYClothingShoesColorWhite
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesColorWhite
+
+- type: loadout
+  id: NAVYClothingShoesBootsNfsdCream
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesBootsNfsdCream
+
+- type: loadout
+  id: NAVYClothingShoesBootsLaceup
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: NAVYClothingShoesSwat
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesSwat
+

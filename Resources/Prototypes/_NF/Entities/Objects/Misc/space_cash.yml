@@ -94,6 +94,8 @@
         - ItemMask
   - type: Appearance
   - type: CargoSellBlacklist
+  - type: PirateBountyItem #radiant_sector
+    id: CashCounterfeit #radiant_sector
 
 - type: material
   id: CreditCounterfeit

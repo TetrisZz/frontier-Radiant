@@ -39,6 +39,7 @@
   - Chapel
   - Hydroponics
   - Atmospherics
-  - Acorp
-  - AcorpSecurity
-  - AcorpCommand
+  - Acorp #Radiant_sector
+  - AcorpSecurity #Radiant_sector
+  - AcorpCommand #Radiant_sector
+  - Navy #Radiant_sector

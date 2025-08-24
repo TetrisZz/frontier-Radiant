@@ -7,6 +7,7 @@ using Content.Server.Station.Events;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Humanoid; /// Radiant_sector
 using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -401,7 +402,8 @@ public sealed partial class StationJobsSystem
                 if (!(roleBans == null || !roleBans.Contains(jobId)))
                     continue;
 
-                availableJobs ??= new List<string>(profile.JobPriorities.Count);
+                if (job.AllowedSexes.Count > 0 && !job.AllowedSexes.Contains(profile.Sex)) continue; /// Radiant_sector
+				availableJobs ??= new List<string>(profile.JobPriorities.Count);
                 availableJobs.Add(jobId);
             }
 

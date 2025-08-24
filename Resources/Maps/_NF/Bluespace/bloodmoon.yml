@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 251.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 07/30/2025 11:08:40
+  entityCount: 1258
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
 tilemap:
   0: Space
   30: FloorDark
@@ -22,6 +33,7 @@ entities:
     components:
     - type: MetaData
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -1095,6 +1107,14 @@ entities:
     components:
     - type: Transform
       pos: 10.5,-7.5
+      parent: 1
+- proto: BetrayalKnife
+  entities:
+  - uid: 352
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.410461,7.4754586
       parent: 1
 - proto: BloodCollector
   entities:

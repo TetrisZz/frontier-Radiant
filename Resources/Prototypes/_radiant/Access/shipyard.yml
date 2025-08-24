@@ -1,0 +1,55 @@
+#Navy
+
+- type: accessLevel
+  id: Normandy
+  name: id-card-access-level-shipyard-normandy
+
+- type: accessLevel
+  id: Zenith
+  name: id-card-access-level-shipyard-zenith
+
+- type: accessLevel
+  id: Suveren
+  name: id-card-access-level-shipyard-suveren
+
+- type: accessLevel
+  id: Buran
+  name: id-card-access-level-shipyard-buran
+
+- type: accessLevel
+  id: Avangard
+  name: id-card-access-level-shipyard-avangard
+
+#Separatist
+
+- type: accessLevel
+  id: Karatel
+  name: id-card-access-level-shipyard-karatel
+
+- type: accessLevel
+  id: Brodyaga
+  name: id-card-access-level-shipyard-brodyaga
+
+- type: accessLevel
+  id: Prizrak
+  name: id-card-access-level-shipyard-prizrak
+
+- type: accessLevel
+  id: Pepel
+  name: id-card-access-level-shipyard-pepel
+
+- type: accessLevel
+  id: Klyk
+  name: id-card-access-level-shipyard-klyk
+
+- type: accessLevel
+  id: Kursor
+  name: id-card-access-level-shipyard-kursor
+
+- type: accessLevel
+  id: Grabitel
+  name: id-card-access-level-shipyard-grabitel
+
+- type: accessLevel
+  id: Strela
+  name: id-card-access-level-shipyard-strela

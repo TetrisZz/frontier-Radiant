@@ -1,0 +1,19 @@
+- type: loadout
+  id: NAVYClothingBackpackSatchelNavyGold
+  equipment:
+    back: ClothingBackpackSatchelNavyGold
+
+- type: loadout
+  id: NAVYClothingBackpackSatchelNavy
+  equipment:
+    back: ClothingBackpackSatchelNavy
+
+- type: loadout
+  id: NAVYClothingBackpackMessengerNavy
+  equipment:
+    back: ClothingBackpackMessengerNavy
+
+- type: loadout
+  id: NAVYClothingBackpackDuffelNavy
+  equipment:
+    back: ClothingBackpackDuffelNavy

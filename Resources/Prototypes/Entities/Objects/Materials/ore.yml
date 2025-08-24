@@ -155,6 +155,8 @@
   - type: Item
     heldPrefix: plasma
   - type: NFFuel # Frontier
+  - type: PirateBountyItem #radiant_sector
+    id: PlasmaOre #radiant_sector
 
 - type: entity
   parent: PlasmaOre

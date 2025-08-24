@@ -1,0 +1,43 @@
+﻿- type: constructionGraph
+  id: ShockCollarCrafting
+  start: start
+  graph:
+    - node: start
+      entity: ClothingNeckShockCollar
+      edges:
+        - to: brokenCollar
+          steps:
+            - tool: EMAG
+              doAfter: 3
+
+        - to: brokenCollar
+          steps:
+            - tag: SeparatistCollarKeyLimited
+              doAfter: 1
+
+        - to: clone
+          steps:
+            - tool: CollarUnlock
+              doAfter: 1
+
+    - node: brokenCollar
+      entity: ClothingNeckShockCollarBroken
+      edges: []
+
+    - node: clone
+      entity: ClothingNeckShockCollarClone
+      edges:
+        - to: brokenCollar
+          steps:
+            - tool: EMAG
+              doAfter: 3
+
+        - to: brokenCollar
+          steps:
+            - tag: SeparatistCollarKeyLimited
+              doAfter: 1
+
+        - to: start
+          steps:
+            - tool: CollarUnlock
+              doAfter: 1

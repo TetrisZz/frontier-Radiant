@@ -18,7 +18,6 @@ public abstract class SharedShuttleConsoleLockSystem : EntitySystem
 {
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
 
     /// <inheritdoc/>
@@ -36,14 +35,7 @@ public abstract class SharedShuttleConsoleLockSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, ShuttleConsoleLockComponent component, ExaminedEvent args)
     {
-        if (component.Locked)
-        {
-            args.PushMarkup(Loc.GetString("shuttle-console-locked-examine"));
-        }
-        else
-        {
-            args.PushMarkup(Loc.GetString("shuttle-console-unlocked-examine"));
-        }
+        args.PushMarkup(component.Locked ? Loc.GetString("shuttle-console-locked-examine") : Loc.GetString("shuttle-console-unlocked-examine"));
     }
 
     protected void UpdateAppearance(EntityUid uid, ShuttleConsoleLockComponent? component = null)
@@ -60,7 +52,7 @@ public abstract class SharedShuttleConsoleLockSystem : EntitySystem
     /// <summary>
     /// Attempts to unlock a console with the given ID card
     /// </summary>
-    public virtual bool TryUnlock(EntityUid console, EntityUid idCard, ShuttleConsoleLockComponent? lockComp = null, IdCardComponent? idComp = null)
+    public virtual bool TryUnlock(EntityUid console, EntityUid idCard, ShuttleConsoleLockComponent? lockComp = null, IdCardComponent? idComp = null, EntityUid? user = null)
     {
         // Implemented in client and server separately
         return false;

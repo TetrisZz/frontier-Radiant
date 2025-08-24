@@ -1,0 +1,26 @@
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: MachineFTLDriveCircuitboard
+  result: MachineFTLDriveCircuitboard
+  materials:
+    Steel: 100
+    Glass: 500
+    Silver: 200
+    Gold: 300
+    Plasma: 500
+    Uranium: 150
+    Bluespace: 400
+
+- type: latheRecipe
+  id: BlueSpaceRepairKit
+  result: BlueSpaceRepairKit
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 700
+    Plastic: 300
+    Glass: 500
+    Plasma: 500
+    Silver: 250
+    Bluespace: 50

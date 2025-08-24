@@ -1,0 +1,4 @@
+- type: loadout
+  id: NAVYPDANavyCadet
+  equipment:
+    id: PDANavyCadet

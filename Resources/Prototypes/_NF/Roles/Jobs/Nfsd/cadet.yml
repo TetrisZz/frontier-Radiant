@@ -5,7 +5,7 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 14400 # 4 hours Radiant_Sector
+      time: 10800 # 3 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
       department: Security
       time: 64800 # 18 hours

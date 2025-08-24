@@ -1,9 +1,9 @@
 # Frontier
-job-name-bailiff = Инспектор ДШ
+job-name-bailiff = Инспектор ДВБ
 job-name-brigmedic = Бригмедик
-job-name-cadet-nf = Кадет ДШ
+job-name-cadet-nf = Кадет ДВБ
 job-name-contractor = Авантюрист
-job-name-deputy = Патрульный ДШ
+job-name-deputy = Патрульный ДВБ
 job-name-nf-detective = Детектив
 job-name-ertmailcarrier = ОБР Почтальон
 job-name-mercenary = Наёмник

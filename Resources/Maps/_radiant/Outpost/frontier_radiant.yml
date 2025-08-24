@@ -99,7 +99,7 @@ entities:
     - type: MetaData
       name: Frontier Outpost
     - type: Transform
-      pos: -22.473633,-37.70508
+      pos: -22.52,-37.89
       parent: 1
     - type: MapGrid
       chunks:

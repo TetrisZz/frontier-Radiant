@@ -1,0 +1,41 @@
+- type: job
+  id: NavyOfficer
+  name: job-name-navy-officer
+  description: job-description-navy-officer
+  playTimeTracker: JobNavyOfficer
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 28800 # 8 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600 # 1 hour Radiant_Sector
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hours Radiant_Sector
+  startingGear: NavyOfficerGear
+  icon: "JobIconNavyOfficer" 
+  supervisors: job-supervisors-hire
+  weight: 139
+  displayWeight: 41
+  accessGroups:
+  - NavyOfficerAccess
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplantNavy ]
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: NavyOfficerGear
+  equipment:
+    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+    - MagazinePistolRubber
+    - FrontierUplinkCoin10
+    - NavyToken1
+    - NFPouchNavy

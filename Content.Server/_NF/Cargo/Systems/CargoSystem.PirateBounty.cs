@@ -487,7 +487,7 @@ public sealed partial class CargoSystem
 
         if (amount > 0)
         {
-            _stack.SpawnMultiple("Doubloon", amount, Transform(uid).Coordinates);
+            _stack.SpawnMultiple("BlackMoney", amount, Transform(uid).Coordinates);
             _audio.PlayPvs(component.AcceptSound, uid);
             _popup.PopupEntity(Loc.GetString("pirate-bounty-redemption-success", ("bounties", redeemedBounties), ("amount", amount)), args.Actor);
         }

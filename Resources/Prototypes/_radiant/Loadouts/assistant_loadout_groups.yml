@@ -34,6 +34,15 @@
   - ASSClothingMaskGasAcorpExplorer
 
 - type: loadoutGroup
+  id: ASSFaceWallet
+  name: loadout-group-contractor-wallet
+  hidden: true
+  loadouts:
+  - ASSClothingWalletLeatherAcorp
+  fallbacks:
+  - ASSClothingWalletLeatherAcorp
+
+- type: loadoutGroup
   id: ASSUnderwearBottom
   name: loadout-group-assistant-underwearbottom
   minLimit: 1

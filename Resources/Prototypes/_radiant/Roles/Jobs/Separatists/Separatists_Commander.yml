@@ -1,0 +1,45 @@
+- type: job
+  id: SeparatistsCommander
+  name: job-name-separatists-commander
+  description: job-description-separatists-commander
+  playTimeTracker: JobSeparatistsCommander
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 43200 # 12 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 43200 # 12 hours Radiant_Sector
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 21600 # 6 hours Radiant_Sector
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 360000 # 100 hours Radiant_Sector
+  startingGear: SeparatistsCommanderGear
+  icon: "JobIconSeparatistsCommander" 
+  supervisors: job-supervisors-hire
+  weight: 40
+  displayWeight: 40
+  access:
+  - Separatists
+  accessGroups: # Frontier
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SpecialSectorStationRecord # must be given on spawn
+      recordGeneration: FalseRecord
+  - !type:AddImplantSpecial
+    implants: [ SeparatistsTrackingImplant ]
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: SeparatistsCommanderGear
+  storage:
+    back:
+    - ClothingMaskGasSeparatist2
+    - BaseSeparatistUplinkRadioCaptain
+    - SeparatistToken2

@@ -1,3 +1,5 @@
+# Acorp
+
 - type: roleLoadout
   id: JobAcorpСommandant
   groups:
@@ -14,6 +16,7 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - COMPDA
+  - ASSFaceWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorBackpackItems
@@ -38,6 +41,7 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - DIRPDA
+  - ASSFaceWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorBackpackItems
@@ -62,6 +66,7 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - SECPDA
+  - ASSFaceWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorBackpackItems
@@ -84,6 +89,7 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - SCIPDA
+  - ASSFaceWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorBackpackItems
@@ -109,6 +115,7 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - ENGPDA
+  - ASSFaceWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorBackpackItems
@@ -130,6 +137,7 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MEDPDA
+  - ASSFaceWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorBackpackItems
@@ -151,6 +159,7 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - SERPDA
+  - ASSFaceWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorBackpackItems
@@ -172,6 +181,7 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - ASSPDA
+  - ASSFaceWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorBackpackItems
@@ -179,4 +189,265 @@
   - ASSUnderwearBottom
   - ASSUnderwearSocks
   - ASSUnderwearTop
+  - NFSpeciesSpecific
+
+# Separatists
+
+- type: roleLoadout
+  id: JobSeparatistsCommander
+  groups:
+  - SEPCommanderHead
+  - SEPCommanderNeck
+  - SEPCommanderJumpsuit
+  - SecurityGuardGloves
+  - SEPCommanderBackpack
+  - SERCommanderOuterClothing
+  - SEPCommanderBelt
+  - SEPCommanderShoes
+  - SEPCommanderFace
+  - SEPCommanderGlasses
+  - SEPCommanderEars
+  - ContractorBoxSurvival
+  - SEPCommanderPDA
+  - SEPRecruitWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobSeparatistsPrivateSlave
+  groups:
+  - SEPPrivateSlaveJumpskirt
+  - SEPPrivateSlaveGlasses
+  - SEPCommanderEars
+  - ContractorBoxSurvival
+  - SEPPrivateSlavePDA
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobSeparatistsOperative
+  groups:
+  - SEPCommanderHead
+  - SEPOperativeJumpsuit
+  - SecurityGuardGloves
+  - SEPCommanderBackpack
+  - SEPOperativeOuterClothing
+  - SEPCommanderBelt
+  - SEPCommanderShoes
+  - SEPCommanderFace
+  - SEPCommanderGlasses
+  - SEPCommanderEars
+  - ContractorBoxSurvival
+  - SEPOperativePDA
+  - SEPRecruitWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+
+- type: roleLoadout
+  id: JobSeparatistsWarden
+  groups:
+  - SEPCommanderHead
+  - SEPWardenJumpsuit
+  - SecurityGuardGloves
+  - SEPCommanderBackpack
+  - SEPWardenOuterClothing
+  - SEPCommanderBelt
+  - SEPCommanderShoes
+  - SEPCommanderFace
+  - SEPCommanderGlasses
+  - SEPCommanderEars
+  - ContractorBoxSurvival
+  - SEPWardenPDA
+  - SEPRecruitWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+
+- type: roleLoadout
+  id: JobSeparatistsRecruit
+  groups:
+  - SEPRecruitHead
+  - SEPRecruitJumpsuit
+  - SecurityGuardGloves
+  - SEPCommanderBackpack
+  - SEPRecruitOuterClothing
+  - SEPRecruitBelt
+  - SEPCommanderShoes
+  - SEPCommanderGlasses
+  - SEPCommanderEars
+  - ContractorBoxSurvival
+  - SEPRecruitPDA
+  - SEPRecruitWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobSeparatistsSlave
+  groups:
+  - SEPSlaveJumpsuit
+  - SEPSlaveShoes
+  - SEPSlavePDA
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+# NAVY
+
+- type: roleLoadout
+  id: JobNavyKomandor
+  groups:
+  - NAVYKomandorHead
+  - NAVYKomandorNeck
+  - NAVYKomandorJumpsuit
+  - NAVYKomandorGloves
+  - NAVYKomandorBackpack
+  - NAVYKomandorOuterClothing
+  - NAVYKomandorBelt
+  - NAVYKomandorShoes
+  - NAVYKomandorGlasses
+  - NAVYKomandorEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - NAVYKomandorPDA
+  - NAVYCadetWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobNavyCaptain
+  groups:
+  - NAVYKomandorHead
+  - NAVYCaptainNeck
+  - NAVYCaptainJumpsuit
+  - NAVYKomandorGloves
+  - NAVYKomandorBackpack
+  - NAVYCaptainOuterClothing
+  - NAVYCaptainBelt
+  - NAVYKomandorShoes
+  - NAVYKomandorGlasses
+  - NAVYCaptainEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - NAVYCaptainPDA
+  - NAVYCadetWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobNavyOfficer
+  groups:
+  - NAVYOfficerHead
+  - NAVYOfficerJumpsuit
+  - NAVYOfficerGloves
+  - NAVYKomandorBackpack
+  - NAVYOfficerOuterClothing
+  - NAVYCaptainBelt
+  - NAVYKomandorShoes
+  - NAVYKomandorGlasses
+  - NAVYOfficerEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - NAVYOfficerPDA
+  - NAVYCadetWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobNavyBrigmedic
+  groups:
+  - NAVYOfficerHead
+  - NAVYBrigmedicJumpskirt
+  - NAVYBrigmedicGloves
+  - NAVYKomandorBackpack
+  - NAVYBrigmedicOuterClothing
+  - NAVYBrigmedicBelt
+  - NAVYKomandorShoes
+  - NAVYKomandorGlasses
+  - NAVYOfficerEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - NAVYBrigmedicPDA
+  - NAVYCadetWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobNavyCadet
+  groups:
+  - NAVYOfficerHead
+  - NAVYCadetJumpsuit
+  - NAVYOfficerGloves
+  - NAVYKomandorBackpack
+  - NAVYCadetOuterClothing
+  - NAVYCaptainBelt
+  - NAVYKomandorShoes
+  - NAVYKomandorGlasses
+  - NAVYOfficerEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - NAVYCadetPDA
+  - NAVYCadetWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
   - NFSpeciesSpecific

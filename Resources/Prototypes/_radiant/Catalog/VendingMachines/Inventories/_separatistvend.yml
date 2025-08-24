@@ -1,0 +1,26 @@
+- type: vendingMachineInventory
+  id: SeparatistVendInventory
+  startingInventory:
+# Separatist
+    ClothingNeckShackles: 5
+    HandcuffsSeparatist: 10
+    ClothingMaskBalaclavaSeparatist: 5
+    ClothingMaskGasSeparatist2: 5
+    ClothingHeadHatSeparatist: 5
+    ClothingHeadHatBeretSeparatist: 3
+    ClothingOuterArmorSeparatist3: 2
+    ClothingOuterArmorSeparatist4: 2
+    ClothingOuterArmorSeparatist: 2
+    ClothingOuterWinterSeparatist: 5
+    NFPouchSeparatist: 5
+    ClothingBackpackSeparatist: 3
+    ClothingBackpackMessengerSeparatist: 3
+    ClothingHeadHelmetSeparatist: 3
+    ClothingHeadHelmetSeparatist2: 3
+    ClothingUniformJumpskirtSeparatist: 2
+    ClothingUniformJumpskirtSeparatistOper: 2
+    ClothingUniformJumpsuitSeparatistCadet: 2
+    ClothingUniformJumpsuitSeparatistOper: 2
+    ClothingBeltCombatWebbingSeparatist: 5
+    ClothingUniformJumpsuitSeparatistSlave: 10
+    ClothingUniformJumpskirtSeparatistSlave: 10

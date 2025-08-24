@@ -42,6 +42,8 @@
     node: BlackBouquet
   - type: Item
     sprite: _radiant/Objects/Decoration/bouquets/black-bouquet.rsi
+  - type: PirateBountyItem
+    id: Bouquet
 
 - type: entity
   name: синий букет
@@ -87,6 +89,8 @@
     node: BlueBouquet
   - type: Item
     sprite: _radiant/Objects/Decoration/bouquets/blue-bouquet.rsi
+  - type: PirateBountyItem
+    id: Bouquet
 
 - type: entity
   name: букет
@@ -132,3 +136,5 @@
     node: MulticolouredBouquet
   - type: Item
     sprite: _radiant/Objects/Decoration/bouquets/multicoloured-bouquet.rsi
+  - type: PirateBountyItem
+    id: Bouquet

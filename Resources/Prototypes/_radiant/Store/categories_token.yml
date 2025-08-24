@@ -1,0 +1,11 @@
+#Separatist
+
+- type: storeCategory
+  id: UplinkSeparatistShipyard
+  name: store-category-separatist-shipyard
+
+#Navy
+
+- type: storeCategory
+  id: UplinkNavyShipyard
+  name: store-category-navy-shipyard

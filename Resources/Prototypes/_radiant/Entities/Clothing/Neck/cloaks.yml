@@ -29,7 +29,7 @@
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckMantleAcorpGrey
   name: черная накидка
-  description: Чёрно-белая накидка. Можно заметить этикетку - Произведено Аколит Корпорейшн. Выглядитстильно.
+  description: Чёрно-белая накидка. Можно заметить этикетку - Произведено Аколит Корпорейшн. Выглядит стильно.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Cloak/greymantle.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
   id: ClothingNeckCloakConfederationSheriff
-  name: черный плащ
-  description: Чёрный плащ с синими вставками. 
+  name: темный плащ
+  description: Чёрный плащ с золотыми вставками. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Cloaks/sheriffcloak.rsi

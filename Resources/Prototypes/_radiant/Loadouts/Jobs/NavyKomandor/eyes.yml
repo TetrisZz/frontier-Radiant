@@ -1,0 +1,14 @@
+- type: loadout
+  id: NAVYClothingEyesHudNfsd
+  equipment:
+    eyes: ClothingEyesHudNfsd
+
+- type: loadout
+  id: NAVYClothingEyesGlassesNfsd
+  equipment:
+    eyes: ClothingEyesGlassesNfsd
+
+- type: loadout
+  id: NAVYClothingEyesHudNfsdPatch
+  equipment:
+    eyes: ClothingEyesHudNfsdPatch

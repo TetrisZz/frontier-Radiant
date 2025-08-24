@@ -1,0 +1,32 @@
+- type: vessel
+  id: Normandy
+  parent: BaseVesselNavy
+  name: COF Нормандия
+  description: Крейсер со средним вооружением.
+  price: 74500
+  category: Medium
+  group: Navy
+  access: Normandy
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Normandy.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Normandy
+  mapName: 'COF Нормандия'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Normandy.yml
+  minPlayers: 0
+  stations:
+    Normandy:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Нормандия {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

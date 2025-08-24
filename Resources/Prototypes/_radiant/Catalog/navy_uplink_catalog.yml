@@ -1,0 +1,439 @@
+# Weapons
+
+- type: listing
+  id: UplinkNavyAmmoPistol
+  name:  uplink-navy-ammopistol-name
+  description: uplink-navy-ammopistol-desc
+  productEntity: BoxMagazinePistol
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyMagazineMagnum
+  name:  uplink-navy-magazinemagnum-name
+  description: uplink-navy-magazinemagnum-desc
+  productEntity: MagazineMagnum
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyDisabler
+  name:  uplink-navy-disabler-name
+  description: uplink-navy-disabler-desc
+  productEntity: WeaponDisabler
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyDrozd
+  name:  uplink-navy-drozd-name
+  description: uplink-navy-drozd-desc
+  productEntity: WeaponSubMachineGunDrozd
+  icon: { sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 2
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyEnergyGunMini
+  name:  uplink-navy-energygunmini-name
+  description: uplink-navy-energygunmini-desc
+  productEntity: WeaponEnergyGunMiniAcorp
+  icon: { sprite: _radiant/Objects/Weapons/Laser/mini_energygun.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 2
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyN1984
+  name:  uplink-security-n1984-name
+  description: uplink-security-n1984-desc
+  productEntity: WeaponPistolN1984
+  icon: { sprite: Objects/Weapons/Guns/Pistols/N1984.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 3
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyAntique
+  name:  uplink-security-antique-name
+  description: uplink-security-antique-desc
+  productEntity: WeaponAntiqueLaser
+  icon: { sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 3
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+# Hardsuits
+
+- type: listing
+  id: UplinkNavyHardsuit
+  name:  uplink-navy-hardsuit-name
+  description: uplink-navy-hardsuit-desc
+  productEntity: ClothingOuterHardsuitNavyHeavy
+  icon: { sprite: _radiant/Clothing/Hardsuits/navy_spacesu.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 10
+  categories:
+    - UplinkNavyHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+# Utility
+
+- type: listing
+  id: UplinkNavyHypo
+  name:  uplink-navy-hypo-name
+  description: uplink-navy-hypo-desc
+  productEntity: HypoBrigmedic
+  icon: { sprite: _NF/Objects/Specific/Medical/hypobrigmedic.rsi, state: hypo }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyFlash
+  name:  uplink-navy-flash-name
+  description: uplink-navy-flash-desc
+  productEntity: BoxFlashBangGrenades
+  icon: { sprite: Objects/Weapons/Grenades/flashbang.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyCash1000
+  name:  uplink-navy-cash1000-name
+  description: uplink-navy-cash1000-desc
+  productEntity: SpaceCash1000
+  icon: { sprite: Objects/Economy/cash.rsi, state: cash_1000000 }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavySmoke
+  name:  uplink-navy-smoke-name
+  description: uplink-navy-smoke-desc
+  productEntity: BoxTeargasGrenades
+  icon: { sprite: Objects/Weapons/Grenades/flashbang.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyShield
+  name:  uplink-navy-shield-name
+  description: uplink-navy-shield-desc
+  productEntity: TelescopicShield
+  icon: { sprite: Objects/Weapons/Melee/teleriot_shield.rsi, state: teleriot-on }
+  cost:
+    FrontierUplinkCoin: 2
+  categories:
+    - UplinkNavyUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyMedkit
+  name:  uplink-navy-medkit-name
+  description: uplink-navy-medkit-desc
+  productEntity: MedkitCombatFilled
+  icon: { sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi, state: blackkit }
+  cost:
+    FrontierUplinkCoin: 3
+  categories:
+    - UplinkNavyUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyTechFab
+  name:  uplink-navy-techfab-name
+  description: uplink-navy-techfab-desc
+  productEntity: NfsdTechFabCircuitboard
+  icon: { sprite: _NF/Objects/Misc/module.rsi, state: nfsd }
+  cost:
+    FrontierUplinkCoin: 5
+  categories:
+    - UplinkNavyUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+# Shuttles
+
+- type: listing
+  id: UplinkNavyMagazine20mm
+  name:  uplink-navy-magazine20mm-name
+  description: uplink-navy-magazine20mm-desc
+  productEntity: MagazineGunnery20mm
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/20mm.rsi, state: base}
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyASM302Empty
+  name:  uplink-navy-asm302empty-name
+  description: uplink-navy-asm302empty-desc
+  productEntity: MagazineGunneryASM302Empty
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/patchhappiness.rsi, state: base}
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyASM302
+  name:  uplink-navy-asm302-name
+  description: uplink-navy-asm302-desc
+  productEntity: RocketMissileGunneryASM302
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Explosives/happiness.rsi, state: base}
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavySmallM220
+  name:  uplink-navy-smallm220-name
+  description: uplink-navy-smallm220-desc
+  productEntity: PowerCageSmallM220
+  icon: { sprite: _radiant/Objects/Power/emp_energycell.rsi, state: small}
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavySmallType35
+  name:  uplink-navy-smalltype35-name
+  description: uplink-navy-smalltype35-desc
+  productEntity: PowerCageSmallType35
+  icon: { sprite: _radiant/Objects/Power/energy_cell.rsi, state: small}
+  cost:
+    FrontierUplinkCoin: 2
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyMagazine90mm
+  name:  uplink-navy-magazine90mm-name
+  description: uplink-navy-magazine90mm-desc
+  productEntity: MagazineGunnery90mm
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/90mm.rsi, state: base}
+  cost:
+    FrontierUplinkCoin: 2
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyCageRecharger
+  name:  uplink-navy-cagerecharger-name
+  description: uplink-navy-cagerecharger-desc
+  productEntity: PowerCageRechargerCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: power_mod}
+  cost:
+    FrontierUplinkCoin: 3
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyMediumM220
+  name:  uplink-navy-mediumm220-name
+  description: uplink-navy-mediumm220-desc
+  productEntity: PowerCageMediumM220
+  icon: { sprite: _radiant/Objects/Power/emp_energycell.rsi, state: medium}
+  cost:
+    FrontierUplinkCoin: 3
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyThrusterKit
+  name:  uplink-navy-thrusterkit-name
+  description: uplink-navy-thrusterkit-desc
+  productEntity: BoxT3SuperCapacitor
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box}
+  cost:
+    FrontierUplinkCoin: 4
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyHighM220
+  name:  uplink-navy-highm220-name
+  description: uplink-navy-highm220-desc
+  productEntity: PowerCageHighM220
+  icon: { sprite: _radiant/Objects/Power/emp_energycell.rsi, state: high}
+  cost:
+    FrontierUplinkCoin: 5
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyMediumType35
+  name:  uplink-navy-mediumtype35-name
+  description: uplink-navy-mediumtype35-desc
+  productEntity: PowerCageMediumType35
+  icon: { sprite: _radiant/Objects/Power/energy_cell.rsi, state: medium}
+  cost:
+    FrontierUplinkCoin: 6
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyHighType35
+  name:  uplink-navy-hightype35-name
+  description: uplink-navy-hightype35-desc
+  productEntity: PowerCageHighType35
+  icon: { sprite: _radiant/Objects/Power/energy_cell.rsi, state: high}
+  cost:
+    FrontierUplinkCoin: 10
+  categories:
+    - UplinkNavyShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink

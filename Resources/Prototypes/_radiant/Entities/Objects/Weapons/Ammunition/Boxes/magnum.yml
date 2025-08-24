@@ -1,7 +1,7 @@
 - type: entity
   id: MagazineBoxMagnumIce
   parent: BaseMagazineBoxMagnum
-  name: ammunition box (.45 magnum ice)
+  name: коробка патронов (.45 магниум ледяные)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIce

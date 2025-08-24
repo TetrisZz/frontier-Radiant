@@ -1,0 +1,32 @@
+- type: vessel
+  id: Prizrak
+  parent: BaseVesselAntag
+  name: Призрак
+  description: Небольшой транспортный корабль сепаратистов, предназначенный для перевозки рабов и мелких грузов.
+  price: 60000
+  category: Medium
+  group: Separatist
+  access: Prizrak
+  shuttlePath: /Maps/_radiant/Shuttles/Separatist/Prizrak.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Prizrak
+  mapName: 'Призрак'
+  mapPath: /Maps/_radiant/Shuttles/Separatist/Prizrak.yml
+  minPlayers: 0
+  stations:
+    Prizrak:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Призрак {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

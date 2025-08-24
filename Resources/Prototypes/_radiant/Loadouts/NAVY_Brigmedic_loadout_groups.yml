@@ -1,0 +1,44 @@
+- type: loadoutGroup
+  id: NAVYBrigmedicPDA
+  name: loadout-group-director-id
+  hidden: true
+  loadouts:
+  - NAVYPDANavyBrigmedic
+  fallbacks:
+  - NAVYPDANavyBrigmedic
+
+- type: loadoutGroup
+  id: NAVYBrigmedicJumpskirt
+  name: ОМС, униформа
+  loadouts:
+  - NAVYClothingUniformJumpsuitNavyMedic
+  - NAVYClothingUniformJumpskirtNavyMedic
+  fallbacks:
+  - NAVYClothingUniformJumpsuitNavyMedic
+  - NAVYClothingUniformJumpskirtNavyMedic
+
+- type: loadoutGroup
+  id: NAVYBrigmedicOuterClothing
+  name: ОМС, верхняя одежда
+  minLimit: 0
+  loadouts:
+  - NAVYClothingOuterArmorNavy
+  - NAVYClothingOuterCoatNavy
+
+- type: loadoutGroup
+  id: NAVYBrigmedicBelt
+  name: ОМС, пояс
+  minLimit: 0
+  loadouts:
+  - NAVYClothingBeltMedicalFilled
+  - NAVYClothingBeltMedicalEMTFilled
+
+- type: loadoutGroup
+  id: NAVYBrigmedicGloves
+  name: ОМС, перчатки
+  minLimit: 0
+  loadouts:
+  - NAVYClothingHandsGlovesLatex
+  - NAVYClothingHandsGlovesNitrile
+  fallbacks:
+  - NAVYClothingHandsGlovesLatex

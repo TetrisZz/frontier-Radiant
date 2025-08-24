@@ -28,6 +28,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     [Dependency] private readonly IEntityManager _entManager = default!; // Frontier
     private readonly ShuttleSystem _shuttles;
     private readonly SharedTransformSystem _xformSystem;
+	private readonly List<(float Radius, Color Color)> _scannerZones = new(); // Radiant_sector
 
     protected override bool Draggable => true;
 
@@ -86,6 +87,12 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
         _physicsQuery = EntManager.GetEntityQuery<PhysicsComponent>();
 
         _font = new VectorFont(cache.GetResource<FontResource>("/EngineFonts/NotoSans/NotoSans-Regular.ttf"), 10);
+
+        // Radiant_sector start
+		_scannerZones.Add((300, Color.LimeGreen));
+        _scannerZones.Add((3500, Color.Gold));
+        _scannerZones.Add((15000, Color.Red));
+        // Radiant_sector end
     }
 
     public void SetMap(MapId mapId, Vector2 offset, bool recentering = false)
@@ -255,8 +262,28 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 
         DrawParallax(handle);
 
-        var viewedMapUid = _mapManager.GetMapEntityId(ViewingMap);
+// Radiant_sector start
         var matty = Matrix3Helpers.CreateInverseTransform(Offset, Angle.Zero);
+
+        // Draw scanner mass zones
+        if (_scannerZones.Count > 0)
+        {
+            var centerMapPos = Vector2.Zero;
+            var centerRelativePos = Vector2.Transform(centerMapPos, matty);
+            centerRelativePos = centerRelativePos with { Y = -centerRelativePos.Y };
+            var centerUiPos = ScalePosition(centerRelativePos);
+
+            foreach (var (radius, color) in _scannerZones)
+            {
+                var scaledRadius = radius * MinimapScale;
+                handle.DrawCircle(centerUiPos, scaledRadius, color.WithAlpha(0.02f));
+                handle.DrawCircle(centerUiPos, scaledRadius, color, filled: false);
+            }
+        }
+// Radiant_sector end
+
+        var viewedMapUid = _mapManager.GetMapEntityId(ViewingMap);
+//        var matty = Matrix3Helpers.CreateInverseTransform(Offset, Angle.Zero); Radiant_sector
         var realTime = _timing.RealTime;
         var viewBox = new Box2(Offset - WorldRangeVector, Offset + WorldRangeVector);
         var viewportObjects = GetViewportMapObjects(matty, mapObjects);

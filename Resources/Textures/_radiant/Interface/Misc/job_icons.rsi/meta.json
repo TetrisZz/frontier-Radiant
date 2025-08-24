@@ -27,6 +27,36 @@
             "name": "sec"
         },
         {
+            "name": "cadetfleet"
+        },
+        {
+            "name": "captainfleet"
+        },
+        {
+            "name": "commander"
+        },
+        {
+            "name": "doctorfleet"
+        },
+        {
+            "name": "fleetofficer"
+        }, 
+        {
+            "name": "operative"
+        },
+        {
+            "name": "personalslave"
+        },
+        {
+            "name": "slave"
+        },
+        {
+            "name": "warden"
+        },
+        {
+            "name": "chapter"
+        },
+        {
             "name": "service"
         }
     ]

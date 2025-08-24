@@ -1,0 +1,35 @@
+- type: job
+  id: SeparatistsOperative
+  name: job-name-separatists-operative
+  description: job-description-separatists-operative
+  playTimeTracker: JobSeparatistsOperative
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 28800 # 8 hours Radiant_Sector
+  startingGear: SeparatistsOperativeGear
+  icon: "JobIconSeparatistsOperative" 
+  supervisors: job-supervisors-hire
+  weight: 36
+  displayWeight: 36
+  access:
+  - Separatists
+  accessGroups: # Frontier
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SpecialSectorStationRecord # must be given on spawn
+      recordGeneration: FalseRecord
+  - !type:AddImplantSpecial
+    implants: [ SeparatistsTrackingImplant ]
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: SeparatistsOperativeGear
+  storage:
+    back:
+    - ClothingMaskGasSeparatist
+    - BaseSeparatistUplinkCrew
+    - SeparatistToken1

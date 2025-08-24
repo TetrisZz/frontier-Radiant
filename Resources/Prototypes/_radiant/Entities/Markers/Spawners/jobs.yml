@@ -1,3 +1,5 @@
+# Acorp
+
 - type: entity
   id: SpawnPointAcorpSecurity
   parent: SpawnPointJobBase
@@ -102,3 +104,138 @@
       - state: green
       - state: director
 
+# Separatist
+
+- type: entity
+  id: SpawnPointSeparatistsSlave
+  parent: SpawnPointJobBase
+  name: SeparatistsSlave
+  components:
+  - type: SpawnPoint
+    job_id: SeparatistsSlave
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: sep_1
+
+- type: entity
+  id: SpawnPointSeparatistsRecruit
+  parent: SpawnPointJobBase
+  name: SeparatistsRecruit
+  components:
+  - type: SpawnPoint
+    job_id: SeparatistsRecruit
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: sep_1
+
+- type: entity
+  id: SpawnPointSeparatistsWarden
+  parent: SpawnPointJobBase
+  name: SeparatistsWarden
+  components:
+  - type: SpawnPoint
+    job_id: SeparatistsWarden
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: sep_1
+
+- type: entity
+  id: SpawnPointSeparatistsOperative
+  parent: SpawnPointJobBase
+  name: SeparatistsOperative
+  components:
+  - type: SpawnPoint
+    job_id: SeparatistsOperative
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: sep_1
+
+- type: entity
+  id: SpawnPointSeparatistsPrivateSlave
+  parent: SpawnPointJobBase
+  name: SeparatistsPrivateSlave
+  components:
+  - type: SpawnPoint
+    job_id: SeparatistsPrivateSlave
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: sep_1
+
+- type: entity
+  id: SpawnPointSeparatistsCommander
+  parent: SpawnPointJobBase
+  name: SeparatistsCommander
+  components:
+  - type: SpawnPoint
+    job_id: SeparatistsCommander
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: sep_1
+
+# Navy
+
+- type: entity
+  id: SpawnPointNavyCadet
+  parent: SpawnPointJobBase
+  name: NavyCadet
+  components:
+  - type: SpawnPoint
+    job_id: NavyCadet
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: flotptr
+
+- type: entity
+  id: SpawnPointNavyBrigmedic
+  parent: SpawnPointJobBase
+  name: NavyBrigmedic
+  components:
+  - type: SpawnPoint
+    job_id: NavyBrigmedic
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: flotptr
+
+- type: entity
+  id: SpawnPointNavyOfficer
+  parent: SpawnPointJobBase
+  name: NavyOfficer
+  components:
+  - type: SpawnPoint
+    job_id: NavyOfficer
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: flotptr
+
+- type: entity
+  id: SpawnPointNavyCaptain
+  parent: SpawnPointJobBase
+  name: NavyCaptain
+  components:
+  - type: SpawnPoint
+    job_id: NavyCaptain
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: flotptr
+
+- type: entity
+  id: SpawnPointNavyKomandor
+  parent: SpawnPointJobBase
+  name: NavyKomandor
+  components:
+  - type: SpawnPoint
+    job_id: NavyKomandor
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/flags.rsi
+    layers:
+      - state: flotptr

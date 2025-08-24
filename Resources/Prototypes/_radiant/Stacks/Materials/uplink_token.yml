@@ -1,0 +1,17 @@
+- type: stack
+  id: BlackMoney
+  name: BlackMoney
+  icon: _radiant/Objects/Specific/Separatist/blackmarketcurrency.rsi
+  spawn: BlackMoney1
+
+- type: stack
+  id: NavyToken
+  name: NavyToken
+  icon: _radiant/Objects/Specific/tokens.rsi
+  spawn: NavyToken1
+
+- type: stack
+  id: SeparatistToken
+  name: SeparatistToken
+  icon: _radiant/Objects/Specific/tokens.rsi
+  spawn: SeparatistToken1

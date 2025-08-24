@@ -1,0 +1,29 @@
+﻿- type: constructionGraph
+  id: ShacklesCollarCrafting
+  start: start
+  graph:
+    - node: start
+      entity: ClothingNeckShackles
+      edges:
+        - to: clone
+          steps:
+            - tag: SeparatistCollarKeyLimited
+              doAfter: 1
+
+        - to: clone
+          steps:
+            - tool: CollarUnlock
+              doAfter: 1
+
+    - node: clone
+      entity: ClothingNeckShacklesClone
+      edges:
+        - to: start
+          steps:
+            - tag: SeparatistCollarKeyLimited
+              doAfter: 1
+
+        - to: start
+          steps:
+            - tool: CollarUnlock
+              doAfter: 1

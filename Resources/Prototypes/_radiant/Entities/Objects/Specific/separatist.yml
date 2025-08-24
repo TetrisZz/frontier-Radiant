@@ -1,0 +1,100 @@
+- type: entity
+  name: валюта черного рынка
+  parent: BaseItem
+  id: BlackMoney
+  suffix: 20 BM
+  description: Поношенные банкноты с грубой печатью и уникальной символикой подпольных групп. Высоко ценятся среди контрабандистов и сепаратистов. Сам факт наличия этих купюр в вашем кармане -  во многих системах будет грозить пожизненным сроком.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Separatist/blackmarketcurrency.rsi
+    state: cash
+  - type: Item
+    sprite: _radiant/Objects/Specific/Separatist/blackmarketcurrency.rsi
+    size: Tiny
+  - type: Stack
+    count: 20
+    stackType: BlackMoney
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      BlackMoney: 1
+
+- type: entity
+  parent: BlackMoney
+  id: BlackMoney1
+  suffix: 1 BM
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: BlackMoney
+  id: BlackMoney5
+  suffix: 5 BM
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: BlackMoney
+  id: BlackMoney10
+  suffix: 10 BM
+  components:
+  - type: Stack
+    count: 10
+
+# Uplinks
+- type: entity
+  parent: [ BaseItem, StorePresetSeparatistUplink ]
+  id: BaseSeparatistUplink
+  name: аплинк сепаратиста
+  description: Что в нём может быть интересного? О-о-о...это цепи?
+  suffix: Empty
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/sepuplink.rsi
+    layers:
+    - state: icon-on
+  - type: Item
+    sprite: _radiant/Objects/Devices/sepuplink.rsi
+    heldPrefix: icon-on
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - SeparatistUplink
+
+- type: entity
+  parent: BaseSeparatistUplink
+  id: BaseSeparatistUplinkRadioDebug
+  suffix: Separatist, DEBUG
+  components:
+  - type: Store
+    balance:
+      BlackMoney: 99999
+
+- type: entity
+  parent: BaseSeparatistUplink
+  id: BaseSeparatistUplinkRadioCaptain
+  suffix: Separatist. Captain 20
+  components:
+  - type: Store
+    balance:
+      BlackMoney: 15
+
+- type: entity
+  parent: BaseSeparatistUplink
+  id: BaseSeparatistUplinkCrew
+  suffix: Separatist 15
+  components:
+  - type: Store
+    balance:
+      BlackMoney: 10

@@ -1,0 +1,29 @@
+- type: loadout
+  id: SEPClothingBackpackSatchelLeather
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+- type: loadout
+  id: SEPClothingBackpackMessengerColorBlack
+  equipment:
+    back: ClothingBackpackMessengerColorBlack
+
+- type: loadout
+  id: SEPClothingBackpackMessengerColorBrownLight
+  equipment:
+    back: ClothingBackpackMessengerColorBrownLight
+
+- type: loadout
+  id: SEPClothingBackpackMessengerColorBrown
+  equipment:
+    back: ClothingBackpackMessengerColorBrown
+
+- type: loadout
+  id: SEPClothingBackpackSeparatist
+  equipment:
+    back: ClothingBackpackSeparatist
+
+- type: loadout
+  id: SEPClothingBackpackMessengerSeparatist
+  equipment:
+    back: ClothingBackpackMessengerSeparatist

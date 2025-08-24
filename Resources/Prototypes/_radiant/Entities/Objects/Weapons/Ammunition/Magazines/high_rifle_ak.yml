@@ -1,7 +1,7 @@
 # Empty mags
 - type: entity
   id: BaseMagazineHigh2RifleAK
-  name: "magazine (.6,8-мм SPC)"
+  name: "магазин (.6,8-мм SPC)"
   parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseRestrictedContraband<BaseC1Contraband added RecyclableItemSteelTiny
   abstract: true
   components:
@@ -36,7 +36,7 @@
 # Magazines
 - type: entity
   id: MagazineHigh2RifleAK
-  name: "magazine (.6,8-мм SPC)"
+  name: "магазин (.6,8-мм SPC)"
   parent: BaseMagazineHigh2RifleAK
   components:
   - type: BallisticAmmoProvider
@@ -50,7 +50,7 @@
 
 - type: entity
   id: MagazineHigh2RifleEmptyAK
-  name: "magazine (.6,8-мм SPC any)"
+  name: "магазин (.6,8-мм SPC пустой)"
   suffix: empty
   parent: BaseMagazineHigh2RifleAK
   components:
@@ -65,7 +65,7 @@
 
 - type: entity
   id: MagazineHigh2RiflePracticeAK
-  name: "magazine (.6,8-мм SPC practice)"
+  name: "магазин (.6,8-мм SPC учебные)"
   parent: BaseMagazineHigh2RifleAK
   components:
   - type: BallisticAmmoProvider
@@ -79,7 +79,7 @@
 
 - type: entity
   id: MagazineHigh2RifleUraniumAK
-  name: "magazine (.6,8-мм SPC uranium)"
+  name: "магазин (.6,8-мм SPC урановые)"
   parent: BaseMagazineHigh2RifleAK
   components:
   - type: BallisticAmmoProvider
@@ -93,7 +93,7 @@
 
 - type: entity
   id: MagazineHigh2RifleIncendiaryAK
-  name: "magazine (.6,8-мм SPC incendiary)"
+  name: "магазин (.6,8-мм SPC зажигательные)"
   parent: BaseMagazineHigh2RifleAK
   components:
   - type: BallisticAmmoProvider
@@ -107,7 +107,7 @@
 
 - type: entity
   id: MagazineHigh2RifleRubberAK
-  name: "magazine (.30 rifle rubber)"
+  name: "магазин (.30 rifle резиновые)"
   parent: BaseMagazineHigh2RifleAK
   components:
   - type: BallisticAmmoProvider
@@ -121,7 +121,7 @@
 
 - type: entity
   id: MagazineHigh2RifleIceAK
-  name: "magazine (.6,8-мм SPC ice)"
+  name: "магазин (.6,8-мм SPC ледяные)"
   parent: BaseMagazineHigh2RifleAK
   components:
   - type: BallisticAmmoProvider

@@ -8,7 +8,7 @@
   - type: Sprite
     sprite: _radiant/Structures/Storage/Crates/flot.rsi
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Navy"]]
 
 - type: entity
   parent: [ CrateBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
@@ -20,4 +20,125 @@
   - type: Sprite
     sprite: _radiant/Structures/Storage/Crates/flot2.rsi
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Navy"]]
+
+- type: entity
+  parent: [ CrateBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  id: CrateSecureSeparatist
+  name: ящик сепаратистов
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/Crates/sep_crate.rsi
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/sep_crate.rsi
+  - type: AccessReader
+    access: [["Separatists"]]
+  - type: PirateBountyLabel
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: CrateTradeBaseSecureSeparatist
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+  - type: Icon
+    sprite: Structures/Storage/Crates/secure.rsi
+    state: icon
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Storage/Crates/secure.rsi
+    layers:
+    - state: icon
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+    - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
+      state: cargo_other
+      offset: 0.275,-0.265
+      map: ["enum.TradeCrateVisualLayers.Icon"]
+      visible: false
+    - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
+      state: cargo_priority_inactive
+      offset: 0.025,-0.265
+      map: ["enum.TradeCrateVisualLayers.Priority"]
+      visible: false
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Reflect
+    reflects:
+    - Energy
+    reflectProb: 0.2
+    spread: 90
+  - type: StaticPrice
+    price: 0
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.01 # 100 trade crates = 1 animal
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask #this is so they can go under plastic flaps
+        layer:
+        - MachineLayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          Bounty: { state: bounty }
+          CaptainsPaper: { state: captains_paper }
+          Invoice: { state: invoice }
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: Attach Label
+      ejectVerbText: Remove Label
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
+  - type: ContainerContainer
+    containers:
+      paper_label: !type:ContainerSlot
+  - type: ItemSlots
+  - type: RequireProjectileTarget
+
+- type: entity
+  parent: CrateTradeBaseSecureSeparatist
+  id: CrateTradeContrabandSecureSeparatist
+  name: ящик контрабанды сепаратистов
+  description: Скорее всего внутри сильнодействующие наркотики.
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/Crates/contraband_crate.rsi
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/contraband_crate.rsi
+  - type: StaticPrice
+    price: 25000
+  - type: Contraband
+    turnInValues:
+      FrontierUplinkCoin: 3

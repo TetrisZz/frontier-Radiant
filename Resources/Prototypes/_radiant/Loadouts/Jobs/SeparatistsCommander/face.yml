@@ -1,0 +1,15 @@
+- type: loadout
+  id: SEPClothingMaskNeckGaiter
+  equipment:
+    mask: ClothingMaskNeckGaiter
+
+- type: loadout
+  id: SEPClothingMaskBalaclavaBlack
+  equipment:
+    mask: ClothingMaskBalaclavaBlack
+
+- type: loadout
+  id: SEPClothingMaskBandSkull
+  equipment:
+    mask: ClothingMaskBandSkull
+

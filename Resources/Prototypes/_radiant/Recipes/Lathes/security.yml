@@ -1,0 +1,68 @@
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: CartridgeMagnum
+  result: CartridgeMagnum
+  completetime: 1
+  materials:
+    Steel: 30
+
+- type: latheRecipe
+  id: GrenadeSmokeM203
+  result: GrenadeSmokeM203
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistol25ACP
+  result: MagazineBoxPistol25ACP
+  materials:
+    Steel: 450
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistol25ACP
+  result: MagazinePistol25ACP
+  materials:
+    Steel: 120
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistol25ACPEmpty
+  result: MagazinePistol25ACPEmpty
+  materials:
+    Steel: 20
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolSubMachineGun25ACP
+  result: MagazinePistolSubMachineGun25ACP
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolSubMachineGun25ACPEmpty
+  result: MagazinePistolSubMachineGun25ACPEmpty
+  materials:
+    Steel: 30
+
+- type: latheRecipe
+  id: MagazineGunnery20mm
+  result: MagazineGunnery20mm
+  completetime: 4
+  materials:
+    Steel: 900
+    Plastic: 300
+
+- type: latheRecipe
+  id: MagazineBoxGunnery90mm
+  result: MagazineBoxGunnery90mm
+  completetime: 5
+  materials:
+    Steel: 600
+    Plastic: 200
+    Gold: 150
+    Uranium: 200

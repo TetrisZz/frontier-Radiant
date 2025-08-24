@@ -102,9 +102,9 @@
   description: Lightly armored softsuit helmet for beat-cop needs.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_bronze.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_bronze.rsi
   - type: PointLight
     color: "#ffeead"
   - type: Armor
@@ -121,9 +121,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_silver.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_silver.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitNfsdBronze
@@ -131,9 +131,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_gold.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _NF/Clothing/Head/Hardsuits/nfsd_gold.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitNfsdBronze

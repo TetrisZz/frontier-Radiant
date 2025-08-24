@@ -44,10 +44,42 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-      - EncryptionKeyNfsd
+      - EncryptionKeyNavy
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseC3PirateContraband, ContrabandClothing] # Frontier: add BaseC3PirateContraband, added ContrabandClothing as parent
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetNavyCaptain
+  name: полноразмерная гарнитура капитана КФ 
+  description: По ней вы можете отдавать приказы и слушать тишину в ответ.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyNavy
+      - EncryptionKeyCommand
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetNavyCommander
+  name: полноразмерная гарнитура командора КФ
+  description: По вы можете услышать как ДВБ просит помощи.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyStationMaster
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseC3PirateContraband, ContrabandClothing]
   id: ClothingHeadsetAltSeparatist
   name: подозрительная полноразмерная гарнитура
   description: Она странная...
@@ -58,7 +90,8 @@
     - type: ContainerFill
       containers:
         key_slots:
-          - EncryptionKeyFreelance
+          - EncryptionKeyCommon
+          - EncryptionKeySeparatist
     - type: Sprite
       sprite: _radiant/Clothing/Ears/Headsets/sep_headset.rsi
     - type: Clothing

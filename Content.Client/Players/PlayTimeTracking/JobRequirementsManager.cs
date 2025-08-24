@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq; /// Radiant_sector
 using Content.Client.Lobby;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
@@ -6,6 +7,7 @@ using Content.Shared.Players.JobWhitelist;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Humanoid; /// Radiant_sector
 using Robust.Client;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
@@ -107,6 +109,16 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
         var player = _playerManager.LocalSession;
         if (player == null)
             return true;
+
+        /// Radiant_sector
+		if (profile != null && job.AllowedSexes.Count > 0 && !job.AllowedSexes.Contains(profile.Sex))
+        {
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("job-sex-requirement",
+                ("jobName", job.LocalizedName),
+                ("allowedSexes", string.Join(", ", job.AllowedSexes.Select(s => Loc.GetString($"humanoid-profile-editor-sex-{s.ToString().ToLower()}-text"))))));
+            return false;
+        }
+        /// Radiant_sector
 
         return CheckRoleRequirements(job, profile, out reason);
     }

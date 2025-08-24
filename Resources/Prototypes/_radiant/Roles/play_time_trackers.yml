@@ -1,3 +1,5 @@
+# Acorp
+
 - type: playTimeTracker
   id: JobAcorpСommandant
 
@@ -21,3 +23,37 @@
 
 - type: playTimeTracker
   id: JobAcorpAssistant
+
+# Separatists
+
+- type: playTimeTracker
+  id: JobSeparatistsSlave
+
+- type: playTimeTracker
+  id: JobSeparatistsRecruit
+
+- type: playTimeTracker
+  id: JobSeparatistsWarden
+
+- type: playTimeTracker
+  id: JobSeparatistsOperative
+
+- type: playTimeTracker
+  id: JobSeparatistsPrivateSlave
+
+- type: playTimeTracker
+  id: JobSeparatistsCommander
+
+# Navy
+
+- type: playTimeTracker
+  id: JobNavyCadet
+
+- type: playTimeTracker
+  id: JobNavyOfficer
+
+- type: playTimeTracker
+  id: JobNavyCaptain
+
+- type: playTimeTracker
+  id: JobNavyKomandor

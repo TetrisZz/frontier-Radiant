@@ -1,0 +1,5 @@
+- type: loadout
+  id: SEPClothingWalletLeatherSeparatist
+  price: 0
+  equipment:
+    wallet: ClothingWalletLeatherSeparatist

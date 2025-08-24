@@ -1,0 +1,32 @@
+- type: vessel
+  id: Buran
+  parent: BaseVesselNavy
+  name: COF Буран
+  description: Многоцелевой крейсер, оснащен всевозможным вооружением, способен к точечным задачам.
+  price: 74500
+  category: Medium
+  group: Navy
+  access: Buran
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Buran.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Buran
+  mapName: 'COF Буран'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Buran.yml
+  minPlayers: 0
+  stations:
+    Buran:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Буран {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

@@ -4,3 +4,18 @@
   keycode: 'ч'
   frequency: 8974
   color: "#ffffff"
+  longRange: true
+
+- type: radioChannel
+  id: Separatist
+  name: chat-radio-separatist
+  keycode: 'е'
+  frequency: 1285
+  color: "#79553D"
+
+- type: radioChannel
+  id: Navy
+  name: chat-radio-navy
+  keycode: 'ф'
+  frequency: 2974
+  color: "#9589d6"

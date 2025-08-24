@@ -1,0 +1,25 @@
+- type: loadoutGroup
+  id: SEPSlavePDA
+  name: loadout-group-medical-id
+  hidden: true
+  loadouts:
+  - SEPPDASeparatistsSlave
+  fallbacks:
+  - SEPPDASeparatistsSlave
+
+- type: loadoutGroup
+  id: SEPSlaveJumpsuit
+  name: loadout-group-medical-jumpsuit
+  loadouts:
+  - SEPClothingUniformJumpsuitSeparatistSlave
+  - SEPClothingUniformJumpskirtSeparatistSlave
+  fallbacks:
+  - SEPClothingUniformJumpsuitSeparatistSlave
+  - SEPClothingUniformJumpskirtSeparatistSlave
+
+- type: loadoutGroup
+  id: SEPSlaveShoes
+  name: loadout-group-medical-shoes
+  loadouts:
+  - SEPClothingShoesBootsSalvage
+  - SEPClothingShoesClothwrap

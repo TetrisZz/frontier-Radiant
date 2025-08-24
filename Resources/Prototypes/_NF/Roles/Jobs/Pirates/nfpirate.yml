@@ -17,7 +17,7 @@
   supervisors: job-supervisors-nf-pirate
   weight: 20
   displayWeight: 20
-  setPreference: true
+  setPreference: false
   access:
   - Pirate
   accessGroups:

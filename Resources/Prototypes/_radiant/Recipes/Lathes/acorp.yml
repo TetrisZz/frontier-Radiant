@@ -369,6 +369,7 @@
     Plasteel: 1500
     Gold: 400
     Silver: 800
+    Diamond: 200
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -381,8 +382,8 @@
     Plasteel: 1500
     Gold: 400
     Silver: 800
-    Bluespace: 1500
-    Diamond: 1000
+    Bluespace: 500
+    Diamond: 1500
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -395,5 +396,5 @@
     Plasteel: 1500
     Gold: 400
     Silver: 800
-    Bluespace: 1500
-    Diamond: 1000
+    Bluespace: 500
+    Diamond: 1500

@@ -1,0 +1,5 @@
+- type: loadout
+  id: NAVYClothingWalletLeatherNavy
+  price: 0
+  equipment:
+    wallet: ClothingWalletLeatherNavy

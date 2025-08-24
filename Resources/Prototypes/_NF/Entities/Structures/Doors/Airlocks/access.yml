@@ -250,7 +250,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsBrig ] #Radiant_Sector
 
 - type: entity
   parent: AirlockGlassShuttleNfsd
@@ -259,7 +259,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsBrig ] #Radiant_Sector
 
 - type: entity
   parent: AirlockGlass

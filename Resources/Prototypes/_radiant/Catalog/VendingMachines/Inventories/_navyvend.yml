@@ -1,0 +1,28 @@
+- type: vendingMachineInventory
+  id: NavyVendInventory
+  startingInventory:
+# Separatist
+    ClothingHeadHatCapNavy: 5
+    ClothingHeadHatBeretNavy: 5
+    ClothingHeadHatNavy: 5
+    ClothingOuterCoatNavyLong: 3
+    ClothingOuterCoatNavy: 3
+    ClothingOuterCoatNavySilverLong: 3
+    ClothingOuterArmorNavy 5: 10
+    ClothingBackpackDuffelNavy: 4
+    ClothingBackpackSatchelNavyGold: 4
+    ClothingBackpackSatchelNavy: 4
+    ClothingBackpackMessengerNavy: 4
+    ClothingHandsGlovesCombatWhite: 7
+    ClothingUniformJumpskirtNavyOfficer1: 3
+    ClothingUniformJumpsuitNavyOfficer: 3
+    ClothingUniformJumpsuitNavyOfficer1: 3
+    ClothingUniformJumpskirtNavyOfficer: 3
+    ClothingUniformJumpskirtNavyCadet: 2
+    ClothingUniformJumpsuitNavyCadet: 2
+    ClothingUniformJumpsuitNavyMedic: 2
+    ClothingUniformJumpskirtNavyMedic: 2
+    ClothingShoesBootsLaceup: 4
+    ClothingShoesBootsNfsdCream: 4
+    ClothingShoesColorWhite: 4
+    ClothingUnderwearSocksNavy: 10

@@ -1,6 +1,6 @@
 - type: entity
   id: CartridgeMagnumIce
-  name: cartridge (.45 magnum ice)
+  name: патрон (.45 магниум ледяной)
   parent: BaseCartridgeMagnum
   components:
   - type: CartridgeAmmo

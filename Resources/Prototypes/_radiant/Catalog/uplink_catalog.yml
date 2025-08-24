@@ -1,4 +1,4 @@
-# For the Sindy weapon
+# For the Syndi weapon
 - type: listing
   id: UplinkMagazineBoxCaselessRifle
   name: коробка патронов (.25 безгильзовые)
@@ -20,5 +20,29 @@
   discountCategory: veryRareDiscounts
   cost:
     Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+
+# Gunnery
+
+- type: listing
+  id: UplinkCrateTurret20mmBundle
+  name: Стационарные турели L85
+  description: "Содержит минимальный набор упаковок для использования стационарного вооружения: 2 турели L85 20mm, консоль контроля стационарного вооружения и сервер стационарного вооружения. Автовоспроизводство боеприпасов в комплект не входит"
+  icon: { sprite: /Textures/_radiant/Objects/ShuttleWeapons/50cal.rsi, state: space_artillery }
+  productEntity: CrateTurret20mmBundle
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkCrateTurret90mmBundle
+  name: Cтационарная турель AK570
+  description: "Содержит продвинутый набор упаковок для использования стационарного вооружения: турель AK570 90mm, консоль контроля стационарного вооружения и сервер стационарного вооружения. Автовоспроизводство боеприпасов в комплект не входит"
+  icon: { sprite: /Textures/_radiant/Objects/ShuttleWeapons/artillery.rsi, state: artillery }
+  productEntity: CrateTurret90mmBundle
+  cost:
+    Telecrystal: 8
   categories:
   - UplinkWeaponry

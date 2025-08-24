@@ -1,0 +1,37 @@
+- type: vessel
+  id: Kochevnik
+  parent: BaseVessel
+  name: HOM Кочевник
+  description: Большое многофункциональное судно, предназначенное для длительных миссий и автономной жизни экипажа.
+  price: 250000
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_radiant/Shuttles/Kochevnik.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Chemistry
+  - Science
+  - Expedition
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Kochevnik
+  mapName: 'HOM Кочевник'
+  mapPath: /Maps/_radiant/Shuttles/Kochevnik.yml
+  minPlayers: 0
+  stations:
+    Kochevnik:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Кочевник {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

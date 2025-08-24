@@ -1,0 +1,52 @@
+# Uplinks
+- type: entity
+  parent: [ BaseItem, StorePresetNavyUplink ]
+  id: BaseNavyUplinkRadio
+  name: аплинк КФ
+  description: Что в нём может быть интересного?
+  suffix: Empty
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/navyuplink.rsi
+    layers:
+    - state: icon-on
+  - type: Item
+    sprite: _radiant/Objects/Devices/navyuplink.rsi
+    heldPrefix: icon-on
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - NavyUplink
+
+- type: entity
+  parent: BaseNavyUplinkRadio
+  id: BaseNavyUplinkRadioDebug
+  suffix: Security, DEBUG
+  components:
+  - type: Store
+    balance:
+      FrontierUplinkCoin: 99999
+
+- type: entity
+  parent: BaseNavyUplinkRadio
+  id: BaseNavyUplinkRadioKomandor
+  suffix: Sheriff 20
+  components:
+  - type: Store
+    balance:
+      FrontierUplinkCoin: 20
+
+- type: entity
+  parent: BaseNavyUplinkRadio
+  id: BaseNavyUplinkRadioCaptain
+  suffix: Officer 15
+  components:
+  - type: Store
+    balance:
+      FrontierUplinkCoin: 15

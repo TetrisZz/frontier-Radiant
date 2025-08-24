@@ -81,6 +81,7 @@
     - Service
     - Supply
     - Traffic # Frontier
+    - Navy # Radiant_sector
     defaultChannel: Command
   - type: Sprite
     layers:
@@ -230,6 +231,8 @@
     layers:
     - state: crypt_red
     - state: synd_label
+  - type: PirateBountyItem #radiant_sector
+    id: EncryptionKeySyndie #radiant_sector
 
 - type: entity
   parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseSiliconScienceContraband

@@ -415,7 +415,7 @@ FoodMeatFiestaKebab: FoodKebabSkewer
 ClothingBeltSuspenders: ClothingBeltSuspendersRed
 
 # 2024-08-19
-ClothingNeckShockCollar: ClothingBackpackElectropack
+# ClothingNeckShockCollar: ClothingBackpackElectropack \Radiant_sector
 
 # 2024-08-22
 ComputerShuttleSalvage: null

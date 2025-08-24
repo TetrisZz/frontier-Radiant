@@ -1,3 +1,5 @@
+# Acorp
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsAcorp
@@ -21,3 +23,23 @@
   components:
   - type: AccessReader
     access: [["AcorpCommand"]]
+
+# Separatists
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSeparatists
+  suffix: Separatists, Locked
+  components:
+  - type: AccessReader
+    access: [["Separatists"]]
+
+# Navy
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsNavy
+  suffix: Navy, Locked
+  components:
+  - type: AccessReader
+    access: [["Navy"]]

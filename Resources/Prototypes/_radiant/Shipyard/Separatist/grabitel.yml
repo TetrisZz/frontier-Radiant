@@ -1,0 +1,32 @@
+- type: vessel
+  id: Grabitel
+  parent: BaseVesselAntag
+  name: Грабитель
+  description: Средний боевой корабль, спроектированный с формой, напоминающей открытые щипцы. Основная задача — захват и блокировка вражеских целей, удержание кораблей или объектов на время боя.
+  price: 60000
+  category: Medium
+  group: Separatist
+  access: Grabitel
+  shuttlePath: /Maps/_radiant/Shuttles/Separatist/Grabitel.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Grabitel
+  mapName: 'Грабитель'
+  mapPath: /Maps/_radiant/Shuttles/Separatist/Grabitel.yml
+  minPlayers: 0
+  stations:
+    Grabitel:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Грабитель {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

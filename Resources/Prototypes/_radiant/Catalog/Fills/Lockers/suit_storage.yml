@@ -70,3 +70,19 @@
         - id: ClothingShoesBootsMag
   - type: AccessReader
     access: [["Acorp"]]
+
+#Separatist hardsuit
+- type: entity
+  id: SuitStorageSeparatists
+  parent: SuitStorageBase
+  suffix: EVA Separatists
+  components:
+  - type: StorageFill
+    contents:
+        - id: AirTankFilled
+        - id: ClothingOuterHardsuitSeparatist
+        - id: ClothingMaskGasSeparatist 
+        - id: JetpackMiniFilled
+        - id: ClothingShoesBootsMagSeparatist
+  - type: AccessReader
+    access: [["Separatists"]]

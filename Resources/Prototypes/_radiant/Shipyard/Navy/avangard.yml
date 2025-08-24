@@ -1,0 +1,32 @@
+- type: vessel
+  id: Avangard
+  parent: BaseVesselNavy
+  name: COF Авангард
+  description: Cердце любого соединения флота. «Авангард» сочетает в себе функции командного центра, ударного корабля и мобильной крепости.
+  price: 74500
+  category: Medium
+  group: Navy
+  access: Avangard
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Avangard.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Avangard
+  mapName: 'COF Авангард'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Avangard.yml
+  minPlayers: 0
+  stations:
+    Avangard:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Авангард {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

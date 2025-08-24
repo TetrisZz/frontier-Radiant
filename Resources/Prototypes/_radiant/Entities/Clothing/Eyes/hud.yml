@@ -1,11 +1,12 @@
 - type: entity
   parent: [ClothingEyesBase, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
   id: ClothingEyesHudSeparatist
-  name: syndicate visor
-  description: The syndicate's professional head-up display, designed for better detection of humanoids and their subsequent elimination.
+  name: визор сепаратиста
+  description: Профессиональный проекционный визор, предназначенный для более эффективного обнаружения гуманоидов.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Eyes/m125.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Eyes/m125.rsi
   - type: ShowJobIcons
+  - type: FlashImmunity

@@ -36,3 +36,13 @@
   - type: Sprite
     sprite: _radiant/Structures/Furniture/chairs.rsi
     state: barber
+
+- type: entity
+  name: comfy chair
+  id: ArmChair
+  parent: ChairBase
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/armchair.rsi
+    state: armchair

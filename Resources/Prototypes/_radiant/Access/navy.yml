@@ -1,0 +1,38 @@
+- type: accessLevel
+  id: Navy
+  name: id-card-access-level-navy
+
+- type: accessGroup
+  id: NavyCadetAccess
+  tags:
+  - Maintenance
+  - External
+  - Navy
+  - Brig
+
+- type: accessGroup
+  id: NavyOfficerAccess
+  tags:
+  - Maintenance
+  - External
+  - Command
+  - Brig
+  - Navy
+  - Mercenary
+  - Captain
+
+- type: accessGroup
+  id: NavyKomandorAccess
+  tags:
+  - HeadOfSecurity
+  - Bailiff
+  - Sergeant
+  - Detective
+  - Brigmedic
+  - Security
+  - Armory
+  - Brig
+  # These two are kind of a meme
+  - Mercenary
+  - Captain
+  - Navy

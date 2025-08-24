@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: Nfsd
   parent: BasePOI
-  name: 'Форпост ДШ'
+  name: 'Форпост ОСК'
   minimumDistance: 750
   maximumDistance: 1000
   spawnGroup: Required
@@ -27,7 +27,7 @@
 
 - type: gameMap
   id: Nfsd
-  mapName: 'NFSD Outpost'
+  mapName: 'Форпост ОСК'
   mapPath: /Maps/_NF/POI/nfsd.yml
   minPlayers: 0
   stations:
@@ -35,7 +35,7 @@
       stationProto: SecurityFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Форпост ДШ'
+          mapNameTemplate: 'Форпост ОСК'
         - type: ExtraStationInformation
           iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
           stationSubtext: 'frontier-lobby-nfsd-subtext'
@@ -43,13 +43,18 @@
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:
+            NavyKomandor: [ 1, 1 ] #Radiant_sector
             Sheriff: [ 1, 1 ]
             Bailiff: [ 1, 1 ]
+            NavyCaptain: [ 1, 1 ] #Radiant_sector
             SeniorOfficer: [ 1, 1 ]
-            Brigmedic: [ 1, 1 ]
+#            Brigmedic: [ 1, 1 ] Radiant_sector
             NFDetective: [ 1, 1 ]
+            NavyOfficer: [ 1, 1 ] #Radiant_sector
             Deputy: [ 3, 3 ]
+            NavyBrigmedic: [ 2, 2 ] #Radiant_sector
             Cadet: [ 2, 2 ]
+            NavyCadet: [ 2, 2 ] #Radiant_sector
             # Others:
             PublicAffairsLiaison: [ 1, 1 ]
           tags:

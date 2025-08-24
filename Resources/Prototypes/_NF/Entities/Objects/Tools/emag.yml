@@ -13,6 +13,11 @@
     sprite: _NF/Objects/Tools/emagpass.rsi
     storedRotation: -90
     size: Tiny
+  - type: Tool # Radiant_sector
+    qualities: # Radiant_sector
+      - EMAG # Radiant_sector
+    useSound: # Radiant_sector
+      path: /Audio/Items/Culinary/chop.ogg # Radiant_sector
 
 - type: entity
   parent: [BaseItem, BaseCommandContraband]

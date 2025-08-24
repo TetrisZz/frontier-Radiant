@@ -1,6 +1,6 @@
 - type: entity
   id: CartridgeRifleIce
-  name: cartridge (.20 rifle ice)
+  name: патрон (.20 винтовочный ледяной)
   parent: BaseCartridgeRifle
   components:
   - type: CartridgeAmmo

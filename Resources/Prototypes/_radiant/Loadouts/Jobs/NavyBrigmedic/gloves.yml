@@ -1,0 +1,9 @@
+- type: loadout
+  id: NAVYClothingHandsGlovesNitrile
+  equipment:
+    gloves: ClothingHandsGlovesNitrile
+
+- type: loadout
+  id: NAVYClothingHandsGlovesLatex
+  equipment:
+    gloves: ClothingHandsGlovesLatex

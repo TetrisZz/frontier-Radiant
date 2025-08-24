@@ -28,6 +28,8 @@
     count: 5
   - type: Item
     size: Tiny
+  - type: PirateBountyItem #radiant_sector
+    id: Bluespace #radiant_sector
 
 - type: entity
   parent: MaterialBluespace

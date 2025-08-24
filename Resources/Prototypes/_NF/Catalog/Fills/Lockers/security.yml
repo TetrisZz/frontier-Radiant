@@ -60,7 +60,7 @@
     - id: WeaponCaseHeavyAsmgt
       amount: 1
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Armory"]] #Radiant_sector
 
 - type: entity
   parent: GunSafe

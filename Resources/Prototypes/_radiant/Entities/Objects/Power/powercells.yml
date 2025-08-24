@@ -71,13 +71,13 @@
       - PowerCageType35
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMediumPlasmaProjectile
-    fireCost: 1000
+    fireCost: 500
 
 - type: entity
   id: PowerCageSmallType35
   parent: BasePowerCageType35
-  name: small-capacity plasma power cage
-  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  name: малой емкости плазменная энергоячейка
+  description: Энергоячейка для зарядки корабельного плазменного оружия.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Power/energy_cell.rsi
@@ -94,8 +94,8 @@
 - type: entity
   id: PowerCageMediumType35
   parent: BasePowerCageType35
-  name: medium-capacity plasma power cage
-  description: A rechargeable power cage for big devices. The gold standard of capacity and cost.
+  name: средней емкости плазменная энергоячейка
+  description: Энергоячейка для зарядки корабельного плазменного оружия.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Power/energy_cell.rsi
@@ -112,8 +112,8 @@
 - type: entity
   id: PowerCageHighType35
   parent: BasePowerCageType35
-  name: high-capacity plasma power cage
-  description: A rechargeable power cage for big devices. Increased capacity for increased power levels.
+  name: высокой емкости плазменная энергоячейка
+  description: Энергоячейка для зарядки корабельного плазменного оружия.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Power/energy_cell.rsi
@@ -196,8 +196,8 @@
 - type: entity
   id: PowerCageSmallM220
   parent: BasePowerCageM220
-  name: small-capacity EMP power cage
-  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  name: малой емкости ЭМИ энергоячейка
+  description: Энергоячейка для зарядки корабельного ЭМИ оружия.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Power/emp_energycell.rsi
@@ -214,8 +214,8 @@
 - type: entity
   id: PowerCageMediumM220
   parent: BasePowerCageM220
-  name: medium-capacity EMP power cage
-  description: A rechargeable power cage for big devices. The gold standard of capacity and cost.
+  name: средней емкости ЭМИ энергоячейка
+  description: Энергоячейка для зарядки корабельного ЭМИ оружия.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Power/emp_energycell.rsi
@@ -232,8 +232,8 @@
 - type: entity
   id: PowerCageHighM220
   parent: BasePowerCageM220
-  name: high-capacity EMP power cage
-  description: A rechargeable power cage for big devices. Increased capacity for increased power levels.
+  name: высокой емкости ЭМИ энергоячейка
+  description: Энергоячейка для зарядки корабельного ЭМИ оружия.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Power/emp_energycell.rsi

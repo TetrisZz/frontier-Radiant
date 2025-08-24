@@ -1,0 +1,32 @@
+- type: vessel
+  id: Zenith
+  parent: BaseVesselNavy
+  name: COF Зенит
+  description: Патрульный ударный крейсер, имеющий мощное вооружение, делающее его важной частью в любой ударной стратегии.
+  price: 74500
+  category: Medium
+  group: Navy
+  access: Zenith
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Zenith.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Zenith
+  mapName: 'COF Зенит'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Zenith.yml
+  minPlayers: 0
+  stations:
+    Zenith:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Зенит {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

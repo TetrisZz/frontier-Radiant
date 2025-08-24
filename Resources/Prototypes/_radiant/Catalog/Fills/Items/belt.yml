@@ -1,0 +1,10 @@
+- type: entity
+  id: ClothingBeltNfsdFilledNavy
+  parent: ClothingBeltNfsd
+  suffix: Filled Navy
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponDisabler
+      - id: Handcuffs
+        amount: 2

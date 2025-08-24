@@ -6,6 +6,8 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/acorpw.rsi
+  - type: PirateBountyItem
+    id: UnderwearAcorp
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -15,6 +17,8 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/secacorpw.rsi
+  - type: PirateBountyItem
+    id: UnderwearAcorp
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -24,6 +28,8 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/rndacorp.rsi
+  - type: PirateBountyItem
+    id: UnderwearAcorp
 
 - type: entity
   parent: ClothingUnderwearBottomBase
@@ -73,8 +79,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesRedGarters
-  name: белые стринги
-  description: Стандартное нижнее бельё белого цвета.
+  name: красно-черные трусики
+  description: Стандартное нижнее бельё красно-черного цвета.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/redgarters.rsi

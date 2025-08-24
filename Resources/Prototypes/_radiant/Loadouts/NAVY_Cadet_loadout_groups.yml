@@ -1,0 +1,27 @@
+- type: loadoutGroup
+  id: NAVYCadetPDA
+  name: loadout-group-medical-id
+  hidden: true
+  loadouts:
+  - NAVYPDANavyCadet
+  fallbacks:
+  - NAVYPDANavyCadet
+
+- type: loadoutGroup
+  id: NAVYCadetJumpsuit
+  name: Курсант, униформа
+  loadouts:
+  - NAVYClothingUniformJumpsuitNavyCadet
+  - NAVYClothingUniformJumpskirtNavyCadet
+  fallbacks:
+  - NAVYClothingUniformJumpsuitNavyCadet
+  - NAVYClothingUniformJumpskirtNavyCadet
+
+- type: loadoutGroup
+  id: NAVYCadetWallet
+  name: loadout-group-medical-outerclothing
+  hidden: true
+  loadouts:
+  - NAVYClothingWalletLeatherNavy
+  fallbacks:
+  - NAVYClothingWalletLeatherNavy

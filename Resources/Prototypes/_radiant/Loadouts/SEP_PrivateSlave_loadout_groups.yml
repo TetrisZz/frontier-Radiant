@@ -1,0 +1,36 @@
+- type: loadoutGroup
+  id: SEPPrivateSlavePDA
+  name: loadout-group-director-id
+  hidden: true
+  loadouts:
+  - SEPPDASeparatistsPrivateSlave
+  fallbacks:
+  - SEPPDASeparatistsPrivateSlave
+
+- type: loadoutGroup
+  id: SEPPrivateSlaveJumpskirt
+  name: loadout-group-director-jumpsuit
+  loadouts:
+  - SEPClothingUniformJumpskirtSeparatistSlaveWhite
+  - SEPClothingUniformJumpskirtSeparatistSlaveBlack
+  fallbacks:
+  - SEPClothingUniformJumpskirtSeparatistSlaveWhite
+
+- type: loadoutGroup
+  id: SEPPrivateSlaveGlasses
+  name: loadout-group-commandant-glasses
+  minLimit: 0
+  loadouts:
+  - SEPClothingEyesHudSeparatist
+  - ContractorClothingEyesGlassesCheapSunglasses
+  - ContractorClothingEyesHudMedical
+
+- type: loadoutGroup
+  id: SEPPrivateSlaveShoes
+  name: loadout-group-acorpsecurity-shoes
+  minLimit: 0
+  loadouts:
+  - SEPClothingShoesBootsLaceup
+  - SEPClothingShoesClothwrap
+  - SEPClothingShoesDame
+  - SEPClothingShoesDameDane
