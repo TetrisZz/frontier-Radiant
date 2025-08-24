@@ -15,13 +15,13 @@ public sealed partial class ShuttleConsoleLockComponent : Component
     /// <summary>
     /// Whether the console is currently locked
     /// </summary>
-    [DataField("locked")]
+    [DataField]
     public bool Locked = true;
 
     /// <summary>
     /// The ID of the shuttle this console is locked to
     /// </summary>
-    [DataField("shuttleId")]
+    [DataField]
     public string? ShuttleId;
 }
 

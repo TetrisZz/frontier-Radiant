@@ -192,7 +192,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         // Check if console is locked
         if (TryComp<ShuttleConsoleLockComponent>(uid, out var lockComp) && lockComp.Locked)
         {
-            _popup.PopupEntity(Loc.GetString("shuttle-console-locked"), uid, user);
+            // _popup.PopupEntity(Loc.GetString("shuttle-console-locked"), uid, user); // Mono
             return false;
         }
 
