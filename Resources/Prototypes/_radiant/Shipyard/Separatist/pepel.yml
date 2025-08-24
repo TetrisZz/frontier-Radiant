@@ -1,0 +1,32 @@
+- type: vessel
+  id: Pepel
+  parent: BaseVesselAntag
+  name: Пепел
+  description: Не достроенное судно захваченное во время рейда, теперь же представляет из себя ударный крейсер и основной боевой костяк сил работорговцев.
+  price: 60000
+  category: Medium
+  group: Separatist
+  access: Pepel
+  shuttlePath: /Maps/_radiant/Shuttles/Separatist/Pepel.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Pepel
+  mapName: 'Пепел'
+  mapPath: /Maps/_radiant/Shuttles/Separatist/Pepel.yml
+  minPlayers: 0
+  stations:
+    Pepel:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Пепел {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

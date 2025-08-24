@@ -192,6 +192,8 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: PirateBountyItem #radiant_sector
+    id: Lecter #radiant_sector
 
 - type: entity
   name: Foam Force Astro Ace

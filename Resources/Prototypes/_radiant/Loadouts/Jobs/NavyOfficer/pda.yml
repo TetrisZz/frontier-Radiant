@@ -1,0 +1,4 @@
+- type: loadout
+  id: NAVYPDANavyOfficer
+  equipment:
+    id: PDANavyOfficer

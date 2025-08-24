@@ -241,7 +241,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleetcommander.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistCadet
   name: комбинезон рекрута
   description: Стандартный комбинезон рекрута.
@@ -252,7 +252,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/cadet.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistWarden
   name: комбинезон надзирателя
   description: Форма, сшитая специально по заказу для вашего удобства. Хоть в чем-то оно у вас есть...
@@ -263,7 +263,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/wardenn.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistOper
   name: комбинезон оперативника
   description: Подозрительный тёмный комбинезон. Как будто вы не были и без того достаточно подозрительными.
@@ -274,7 +274,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/operative.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistCommander
   name: комбинезон командира
   description: Выглядит элитно, сшито из бюджетной, но прочной ткани.
@@ -285,7 +285,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/chapter.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistSlave
   name: форма раба
   description: Выглядит очень старой, можно заметить дыры и потёртости. 

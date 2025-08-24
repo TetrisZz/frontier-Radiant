@@ -313,6 +313,8 @@
       - WhitelistChameleon
   - type: StaticPrice
     price: 1
+  - type: PirateBountyItem #radiant_sector
+    id: Water #radiant_sector
 
 - type: entity
   parent: ClothingHeadBase

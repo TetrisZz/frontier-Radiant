@@ -69,8 +69,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSeparatist
-  name: кепка акорп
-  description: Обычная тёмная кепка с биркой Акорп.
+  name: кепка сепаратиста
+  description: Обычная тёмная кепка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hats/capochka.rsi
@@ -80,8 +80,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatNavy
-  name: кепка акорп
-  description: Обычная тёмная кепка с биркой Акорп.
+  name: кепка КФ
+  description: Обычная тёмная кепка с биркой Конфедеративного Флота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hats/fleetcap.rsi
@@ -91,8 +91,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretNavy
-  name: берет акорп
-  description: Элегантный берет сотруднка акорп. Под ним можно спрятать трусики коменданта экспедиций.
+  name: берет КФ
+  description: Элегантный берет сотруднка Конфедеративного флота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hats/flotselect.rsi
@@ -107,8 +107,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCapNavy
-  name: берет акорп
-  description: Элегантный берет сотруднка акорп. Под ним можно спрятать трусики коменданта экспедиций.
+  name: берет КФ
+  description: Элегантный берет сотруднка Конфедеративного флота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hats/navycap.rsi
@@ -123,8 +123,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSeparatist
-  name: берет акорп
-  description: Элегантный берет сотруднка акорп. Под ним можно спрятать трусики коменданта экспедиций.
+  name: берет сепаратиста
+  description: Дерзкий берет сотруднка сепаратиста.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hats/takesg.rsi
@@ -139,7 +139,7 @@
 - type: entity
   parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingHeadHelmetSeparatist
-  name: шлемс епаратиста
+  name: шлем сепаратиста
   description: Шлем для защиты вашей самой важной части тела.
   components:
   - type: Sprite

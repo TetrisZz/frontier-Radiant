@@ -1,0 +1,19 @@
+- type: vendingMachineInventory
+  id: XomkaVendInventory
+  startingInventory:
+# Boxer
+    ClothingUniformJumpskirtDressRedTango: 4294967295 # Infinite
+    ClothingUniformJumpskirtBlackDress: 4294967295 # Infinite
+    ClothingUniformJumpskirtPinkDress: 4294967295 # Infinite
+    ClothingUniformJumpskirtSwimwearPink: 4294967295 # Infinite
+    ClothingUniformJumpskirtSwimwearRed: 4294967295 # Infinite
+    ClothingUniformJumpskirtDressBlackTango: 4294967295 # Infinite
+    ClothingUniformJumpsuitGreenLok: 4294967295 # Infinite
+    ClothingUniformJumpskirtDressBlack: 4294967295 # Infinite
+    ClothingUniformSpecialMaidRadiant: 4294967295 # Infinite
+    ClothingUniformJumpskirtDressTraditional: 4294967295 # Infinite
+    ClothingUniformJumpsuitRedLok: 4294967295 # Infinite
+    ClothingShoesDame: 4294967295 # Infinite
+    ClothingOuterCoatRadiant: 4294967295 # Infinite
+    ClothingOuterCoatRadiantLong: 4294967295 # Infinite
+    ClothingUniformJumpsuitDungeonMaster: 4294967295 # Infinite

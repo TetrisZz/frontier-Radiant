@@ -1,0 +1,25 @@
+- type: entity
+  name: box of stinger grenades
+  parent: Present
+  id: BoxSeparatistSlaveKit
+  description: A box full of stinger grenades.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PinpointerUniversal
+      - id: ClothingNeckShockCollar
+      - id: RemoteSignaller
+      - id: NetworkConfigurator
+
+- type: entity
+  name: box of stinger grenades
+  parent: Present
+  id: BoxSeparatistFlashKit
+  description: A box full of stinger grenades.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SciFlash
+        amount: 3
+      - id: FoodLollipop
+      - id: FoodBakedMuffinCherry

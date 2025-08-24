@@ -141,6 +141,8 @@
         whitelist:
           tags:
           - PowerCage
+          - PowerCageM220
+          - PowerCageType35
   - type: Machine
     board: PowerCageRechargerCircuitboard
   - type: StaticPrice

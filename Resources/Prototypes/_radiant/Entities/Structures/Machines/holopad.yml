@@ -1,0 +1,31 @@
+- type: entity
+  parent: NFHolopadPoiBase
+  id: NFHolopadAcolithBridge
+  suffix: МНБ Мостик, POI
+  components:
+  - type: Label
+    currentLabel: nf-holopad-general-acolith-bridge
+
+- type: entity
+  parent: NFHolopadPoiBase
+  id: NFHolopadAcolithCommandant
+  suffix: МНБ Коммендант, POI
+  components:
+  - type: Label
+    currentLabel: nf-holopad-general-acolith-commandant
+
+- type: entity
+  parent: NFHolopadPoiBase
+  id: NFHolopadAcolith
+  suffix: МНБ Лобби, POI
+  components:
+  - type: Label
+    currentLabel: nf-holopad-general-acolith
+
+- type: entity
+  parent: NFHolopadPoiBase
+  id: NFHolopadAcolithRND
+  suffix: МНБ Рнд, POI
+  components:
+  - type: Label
+    currentLabel: nf-holopad-general-acolith-rnd

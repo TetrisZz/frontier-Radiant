@@ -220,6 +220,9 @@
     sprite: _radiant/Structures/Machines/Thrusters/bluespace_engine.rsi
   - type: FTLDrive
     range: 2560
+    cooldown: 240
+    hyperSpaceTime: 20
+    startupTime: 5.5
   - type: Construction
     graph: ThrusterBigZetaFTL
     node: repaired
@@ -249,6 +252,9 @@
     sprite: _radiant/Structures/Machines/Thrusters/bluespaceengine.rsi
   - type: FTLDrive
     range: 5120
+    cooldown: 240
+    hyperSpaceTime: 20
+    startupTime: 5.5
   - type: Construction
     graph: ThrusterBigZetaFTLLong
     node: repaired
@@ -326,4 +332,66 @@
         - WallLayer
   - type: Construction
     graph: ThrusterBigZetaFTLLong
+    node: start
+
+- type: entity
+  id: ThrusterBigZetaFTLAcorp
+  parent: ThrusterBigZeta
+  name: двигатель
+  suffix: FTL Acorp
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/Thrusters/bluespace_acorp.rsi
+  - type: FTLDrive
+    range: 20480
+    cooldown: 900
+    hyperSpaceTime: 180
+    startupTime: 6
+  - type: Construction
+    graph: ThrusterBigZetaFTLAcorp
+    node: repaired
+  - type: Machine
+    board: Null
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: ThrusterBigZetaFTLAcorpBroken
+  parent: [BaseStructureDisableAnchoring, BaseStructureIndestructible]
+  name: двигатель
+  suffix: FTL Acorp
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/Thrusters/bluespace_acorp.rsi
+    state: broken
+    drawdepth: Mobs
+  - type: Machine
+    board: Null
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Construction
+    graph: ThrusterBigZetaFTLAcorp
     node: start

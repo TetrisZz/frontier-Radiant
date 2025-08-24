@@ -1,7 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
-using Content.Shared.Radiant;
+using Content.Shared._radiant;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.DetailExaminable;

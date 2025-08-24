@@ -10,7 +10,7 @@
 - type: entity
   parent: ClothingBackpackMessenger
   id: ClothingBackpackMessengerSeparatist
-  name: сепарастический мессенджер
+  name: мессенджер сепаратиста
   description: Модная сумка-мессенджер в стильной цветовой гамме. Пахнет железом.
   components:
   - type: Sprite

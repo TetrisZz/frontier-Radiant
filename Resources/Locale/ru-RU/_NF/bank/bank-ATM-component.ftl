@@ -1,5 +1,5 @@
 ## UI
-bank-atm-menu-title = Галактический Банк NT
+bank-atm-menu-title = Галактический Банк Конфедерации
 bank-atm-menu-balance-label = Баланс аккаунта:{" "}
 bank-atm-menu-no-bank = Нет аккаунта!
 bank-atm-menu-withdraw-button = Вывести

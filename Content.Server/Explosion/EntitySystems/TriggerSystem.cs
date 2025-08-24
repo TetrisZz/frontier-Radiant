@@ -37,6 +37,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Shared.Body.Components; // Frontier: Gib organs
+using Content.Shared.Damage; // Radiant_sector
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -143,23 +144,38 @@ namespace Content.Server.Explosion.EntitySystems
             }
         }
 
+        // Radiant_sector start
         private void HandleShockTrigger(Entity<ShockOnTriggerComponent> shockOnTrigger, ref TriggerEvent args)
         {
-            if (!_container.TryGetContainingContainer(shockOnTrigger.Owner, out var container))
-                return;
-
-            var containerEnt = container.Owner;
+            var uid = shockOnTrigger.Owner;
             var curTime = _timing.CurTime;
 
-            if (curTime < shockOnTrigger.Comp.NextTrigger)
+            // Radiant_sector Container
+            if (_container.TryGetContainingContainer(uid, out var container))
             {
-                // The trigger's on cooldown.
-                return;
+                var containerEnt = container.Owner;
+                if (curTime < shockOnTrigger.Comp.NextTrigger)
+                {
+                    // The trigger's on cooldown.
+                    return;
+                }
+                _electrocution.TryDoElectrocution(containerEnt, null, shockOnTrigger.Comp.Damage, shockOnTrigger.Comp.Duration, true);
+                shockOnTrigger.Comp.NextTrigger = curTime + shockOnTrigger.Comp.Cooldown;
             }
 
-            _electrocution.TryDoElectrocution(containerEnt, null, shockOnTrigger.Comp.Damage, shockOnTrigger.Comp.Duration, true);
-            shockOnTrigger.Comp.NextTrigger = curTime + shockOnTrigger.Comp.Cooldown;
+            // Radiant_sector entity if damageable
+            if (TryComp<DamageableComponent>(uid, out var damageable))
+            {
+                if (curTime < shockOnTrigger.Comp.NextTrigger)
+                {
+                    // The trigger's on cooldown.
+                    return;
+                }
+                _electrocution.TryDoElectrocution(uid, null, shockOnTrigger.Comp.Damage, shockOnTrigger.Comp.Duration, true);
+                shockOnTrigger.Comp.NextTrigger = curTime + shockOnTrigger.Comp.Cooldown;
+            }
         }
+        // Radiant_sector end
 
         private void OnAnchorTrigger(EntityUid uid, AnchorOnTriggerComponent component, TriggerEvent args)
         {

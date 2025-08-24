@@ -1,0 +1,5 @@
+- type: loadout
+  id: NAVYClothingOuterArmorNavy
+  equipment:
+    outerClothing: ClothingOuterArmorNavy
+

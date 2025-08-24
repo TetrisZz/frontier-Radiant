@@ -1,0 +1,4 @@
+- type: loadout
+  id: NAVYPDANavyKomandor
+  equipment:
+    id: PDANavyKomandor

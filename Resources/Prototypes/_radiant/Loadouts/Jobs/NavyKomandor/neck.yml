@@ -1,0 +1,9 @@
+- type: loadout
+  id: NAVYClothingNeckMantleNavyBlack
+  equipment:
+    neck: ClothingNeckMantleNavyBlack
+
+- type: loadout
+  id: NAVYClothingNeckMantleNavyWhite
+  equipment:
+    neck: ClothingNeckMantleNavyWhite

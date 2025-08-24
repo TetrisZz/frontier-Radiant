@@ -1,5 +1,5 @@
 ﻿using Robust.Shared.GameStates;
-using Content.Shared.Radiant;
+using Content.Shared._radiant;
 
 namespace Content.Shared.DetailExaminable;
 
@@ -9,9 +9,9 @@ public sealed partial class DetailExaminableComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public string Content = string.Empty;
 
-    [DataField("ERPStatus", required: true)]
+    [DataField("ERPStatus", required: true), AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public EnumERPStatus ERPStatus = EnumERPStatus.NO;
+    public EnumERPStatus ERPStatus = EnumERPStatus.HALF;
 
     public string GetERPStatusName()
     {

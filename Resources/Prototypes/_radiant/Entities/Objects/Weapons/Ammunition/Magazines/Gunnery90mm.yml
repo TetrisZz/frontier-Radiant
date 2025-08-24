@@ -1,7 +1,7 @@
 # Empty mags
 - type: entity
   id: BaseMagazineGunnery90mm
-  name: "magazine (90mm)"
+  name: "магазин (90mm)"
   parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseRestrictedContraband<BaseC1Contraband added RecyclableItemSteelTiny
   abstract: true
   components:
@@ -36,7 +36,7 @@
 # Magazines
 - type: entity
   id: MagazineGunnery90mm
-  name: "magazine (90mm)"
+  name: "магазин (90mm)"
   parent: BaseMagazineGunnery90mm
   components:
   - type: BallisticAmmoProvider

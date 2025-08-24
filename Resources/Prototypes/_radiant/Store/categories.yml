@@ -1,0 +1,47 @@
+#Separatist
+
+- type: storeCategory
+  id: UplinkSeparatistWeapons
+  name: store-category-separatist-weapons
+
+- type: storeCategory
+  id: UplinkSeparatistArmor
+  name: store-category-separatist-armor
+
+- type: storeCategory
+  id: UplinkSeparatistAmmo
+  name: store-category-separatist-ammo
+
+- type: storeCategory
+  id: UplinkSeparatistUtility
+  name: store-category-separatist-utility
+
+- type: storeCategory
+  id: UplinkSeparatistExplosives
+  name: store-category-separatist-explosives
+
+- type: storeCategory
+  id: UplinkSeparatistSlave
+  name: store-category-separatist-slaves
+
+- type: storeCategory
+  id: UplinkSeparatistShuttle
+  name: store-category-separatist-shuttle
+
+#Navy
+
+- type: storeCategory
+  id: UplinkNavyWeapons
+  name: store-category-navy-weapons
+
+- type: storeCategory
+  id: UplinkNavyHardsuits
+  name: store-category-navy-hardsuits
+
+- type: storeCategory
+  id: UplinkNavyUtility
+  name: store-category-navy-utility
+
+- type: storeCategory
+  id: UplinkNavyShuttle
+  name: store-category-navy-shuttle

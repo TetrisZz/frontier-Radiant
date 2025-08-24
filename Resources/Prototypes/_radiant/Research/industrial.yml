@@ -1,0 +1,12 @@
+- type: technology
+  id: FTLDrive
+  name: Двигатель БСС
+  icon:
+    sprite: _radiant/Objects/Tools/Toolboxes/super_toolbox.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+    - MachineFTLDriveCircuitboard
+    - BlueSpaceRepairKit

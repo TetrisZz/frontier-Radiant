@@ -22,3 +22,7 @@ barsign-prototype-description-the-rune = Сдвигающие реальност
 
 barsign-prototype-name-whiskey-echoes = Виски-Эхо
 barsign-prototype-description-whiskey-echoes = Э-хей, приятель! Садись и выпей! У нас здесь лозунг один: «Смерть трезвости!»
+
+## Wyvern Shipyards
+barsign-prototype-name-wyvern-shipyards = Верфи Виверн
+barsign-prototype-description-wyvern-shipyards = Присаживайтесь, расслабьтесь и не волнуйтесь, будущее не наступит быстрее!

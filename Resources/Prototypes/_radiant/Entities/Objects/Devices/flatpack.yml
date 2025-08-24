@@ -20,3 +20,51 @@
   - type: Flatpack
     entity: ComputerTabletopSalvageExpedition
 
+# Turret
+
+- type: entity
+  parent: ComputerIFFFlatpack
+  id: ComputerGunneryConsoleFlatpack
+  name: упакованная консоль контроля стационарного вооружения
+  description: Универсально-сборная упаковка, используемая для сборки консоли контроля стационарного вооружения.
+  components:
+  - type: Flatpack
+    entity: ComputerGunneryConsole
+
+- type: entity
+  parent: TelecomServerFlatpack
+  id: GunneryServerFlatpack
+  name: упаковка сервера стационарного вооружения
+  description: Универсально-сборная упаковка, используемая для сборки сервера стационарного вооружения.
+  components:
+  - type: Flatpack
+    entity: GunneryServer
+
+- type: entity
+  parent: BaseFlatpack
+  id: BaseRadiantFlatpack
+  components:
+  - type: StaticPrice
+    price: 150
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/flatpack.rsi
+    layers:
+    - state: gunnery
+
+- type: entity
+  parent: BaseRadiantFlatpack
+  id: WeaponTurretL85AutocannonFlatpack
+  name: упакованная турель L85 20mm
+  description: Универсально-сборная упаковка, используемая для сборки управляемой стационарной турели.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretL85Autocannon
+
+- type: entity
+  parent: BaseRadiantFlatpack
+  id: WeaponTurretAK570Flatpack
+  name: упакованная турель AK570 90mm
+  description: Универсально-сборная упаковка, используемая для сборки управляемой стационарной турели.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretAK570

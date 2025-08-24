@@ -1,0 +1,32 @@
+- type: vessel
+  id: Kursor
+  parent: BaseVesselAntag
+  name: Курсор
+  description: "Малый истребитель, созданный для точечных атак и быстрой манёвренности в ограниченном пространстве. Он буквально ведёт ударные группы через линии фронта, точно указывая цель."
+  price: 60000
+  category: Medium
+  group: Separatist
+  access: Kursor
+  shuttlePath: /Maps/_radiant/Shuttles/Separatist/Kursor.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Kursor
+  mapName: 'Курсор'
+  mapPath: /Maps/_radiant/Shuttles/Separatist/Kursor.yml
+  minPlayers: 0
+  stations:
+    Kursor:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Курсор {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

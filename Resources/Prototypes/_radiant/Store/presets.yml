@@ -1,0 +1,62 @@
+- type: entity
+  id: StorePresetSeparatistUplink
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-separatist-uplink
+    categories:
+    - UplinkSeparatistWeapons
+    - UplinkSeparatistArmor
+    - UplinkSeparatistAmmo
+    - UplinkSeparatistUtility
+    - UplinkSeparatistExplosives
+    - UplinkSeparatistSlave
+    - UplinkSeparatistShuttle
+    currencyWhitelist:
+    - BlackMoney
+    balance:
+      BlackMoney: 0
+
+- type: entity
+  id: StorePresetNavyUplink
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-navy-uplink
+    categories:
+    - UplinkNavyWeapons
+    - UplinkNavyHardsuits
+    - UplinkNavyUtility
+    - UplinkNavyShuttle
+    currencyWhitelist:
+    - FrontierUplinkCoin
+    balance:
+      FrontierUplinkCoin: 0
+
+# Shipyard
+
+- type: entity
+  id: StorePresetNavyShipyardUplink
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-navy-shipyard
+    categories:
+    - UplinkNavyShipyard
+    currencyWhitelist:
+    - NavyToken
+    balance:
+      NavyToken: 0
+
+- type: entity
+  id: StorePresetSeparatistShipyardUplink
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-separatist-shipyard
+    categories:
+    - UplinkSeparatistShipyard
+    currencyWhitelist:
+    - SeparatistToken
+    balance:
+      SeparatistToken: 0

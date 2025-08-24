@@ -6,7 +6,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 1000
-  startingGear: AcorpAcorpService
+  startingGear: AcorpServiceGear
   icon: "JobIconAcorpService" 
   supervisors: job-supervisors-hire
   weight: 2 # Prioritize station & department jobs

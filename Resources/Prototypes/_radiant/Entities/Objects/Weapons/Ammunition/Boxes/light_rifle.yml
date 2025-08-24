@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRifleIce
-  name: ammunition box (.30 rifle ice)
+  name: коробка патронов (.30 винтовочные ледяные)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIce

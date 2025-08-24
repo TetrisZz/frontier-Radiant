@@ -12,6 +12,20 @@
     color: '#FFFFFFFF'
     flags: [IsPlayerShuttle]
 
+#Radiant_sector
+- type: vessel
+  id: BaseVesselNavy
+  abstract: true
+  name: AAA Bikeshed
+  description: Questionably spaceworthy.
+  price: 50000
+  category: Medium
+  group: Shipyard
+  addComponents:
+  - type: IFF
+    color: '#3ca6fa'
+    flags: [IsPlayerShuttle]
+
 - type: vessel
   id: BaseVesselAntag
   abstract: true

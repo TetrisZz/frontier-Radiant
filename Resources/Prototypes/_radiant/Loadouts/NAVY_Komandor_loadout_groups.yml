@@ -1,0 +1,107 @@
+- type: loadoutGroup
+  id: NAVYKomandorPDA
+  name: loadout-group-service-id
+  hidden: true
+  loadouts:
+  - NAVYPDANavyKomandor
+  fallbacks:
+  - NAVYPDANavyKomandor
+
+- type: loadoutGroup
+  id: NAVYKomandorJumpsuit
+  name: loadout-group-service-jumpsuit
+  minLimit: 1
+  loadouts:
+  - NAVYClothingUniformJumpsuitNavyCommander
+  - NAVYClothingUniformJumpskirtNavyCommander
+  - NAVYClothingUniformJumpsuitNavyCommander1
+  - NAVYClothingUniformJumpskirtNavyCommander1
+  - NAVYClothingUniformJumpsuitNavyCommander2
+  - NAVYClothingUniformJumpskirtNavyCommander2
+  fallbacks:
+  - NAVYClothingUniformJumpsuitNavyCommander
+  - NAVYClothingUniformJumpskirtNavyCommander
+
+- type: loadoutGroup
+  id: NAVYKomandorGlasses
+  name: loadout-group-commandant-glasses
+  loadouts:
+  - NAVYClothingEyesGlassesNfsd
+  - NAVYClothingEyesHudNfsd
+  - NAVYClothingEyesHudNfsdPatch
+  fallbacks:
+  - NAVYClothingEyesGlassesNfsd
+
+- type: loadoutGroup
+  id: NAVYKomandorEars
+  name: loadout-group-commandant-ears
+  hidden: true
+  loadouts:
+  - NAVYClothingHeadsetNavyCommander
+  fallbacks:
+  - NAVYClothingHeadsetNavyCommander
+
+- type: loadoutGroup
+  id: NAVYKomandorHead
+  name: loadout-group-engineer-head
+  minLimit: 0
+  loadouts:
+  - NAVYClothingHeadHatBeretNavy
+  - NAVYClothingHeadHatNavy
+
+- type: loadoutGroup
+  id: NAVYKomandorGloves
+  name: loadout-group-contractor-gloves
+  minLimit: 0
+  loadouts:
+  - NAVYClothingHandsGlovesNavy
+  fallbacks:
+  - NAVYClothingHandsGlovesNavy
+
+- type: loadoutGroup
+  id: NAVYKomandorBelt
+  name: loadout-group-contractor-belt
+  hidden: true
+  loadouts:
+  - NAVYClothingBeltSheathFilled
+  fallbacks:
+  - NAVYClothingBeltSheathFilled
+
+- type: loadoutGroup
+  id: NAVYKomandorBackpack
+  name: loadout-group-acorpsecurity-backpack
+  minLimit: 1
+  loadouts:
+  - NAVYClothingBackpackSatchelNavyGold
+  - NAVYClothingBackpackSatchelNavy
+  - NAVYClothingBackpackMessengerNavy
+  - NAVYClothingBackpackDuffelNavy
+  fallbacks:
+  - NAVYClothingBackpackSatchelNavy
+
+- type: loadoutGroup
+  id: NAVYKomandorOuterClothing
+  name: loadout-group-service-outerclothing
+  hidden: true
+  loadouts:
+  - NAVYClothingOuterCoatNavyGoldLong2
+  fallbacks:
+  - NAVYClothingOuterCoatNavyGoldLong2
+
+- type: loadoutGroup
+  id: NAVYKomandorShoes
+  name: loadout-group-acorpsecurity-shoes
+  loadouts:
+  - NAVYClothingShoesColorWhite
+  - NAVYClothingShoesBootsNfsdCream
+  - NAVYClothingShoesBootsLaceup
+  - NAVYClothingShoesSwat
+  fallbacks:
+  - NAVYClothingShoesBootsLaceup
+
+- type: loadoutGroup
+  id: NAVYKomandorNeck
+  name: loadout-group-commandant-neck
+  loadouts:
+  - NAVYClothingNeckMantleNavyWhite
+  - NAVYClothingNeckMantleNavyBlack

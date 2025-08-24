@@ -1,7 +1,7 @@
 - type: entity
   id: MagazineBoxRifleIce
   parent: BaseMagazineBoxRifle
-  name: ammunition box (.20 rifle ice)
+  name: коробка патронов (.20 винтовочные ледяные)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIce

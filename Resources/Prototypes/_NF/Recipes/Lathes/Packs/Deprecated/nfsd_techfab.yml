@@ -77,6 +77,8 @@
   - MagazineNovaliteC1Empty
   - MagazineNovaliteC1
   - MagazineNovaliteC1Rubber
+  - MagazineGunnery20mm # Radiant_sector
+  - MagazineBoxGunnery90mm # Radiant_sector
 
 - type: latheRecipePack
   id: NFNfsdTechfabDeprecated

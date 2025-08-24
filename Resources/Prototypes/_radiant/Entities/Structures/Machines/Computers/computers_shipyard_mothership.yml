@@ -1,4 +1,3 @@
-# The empress console
 - type: entity
   id: MothershipComputerAcorp
   parent: BaseMothershipComputer

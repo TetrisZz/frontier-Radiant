@@ -1,0 +1,4 @@
+- type: loadout
+  id: NAVYClothingBeltAssault
+  equipment:
+    belt: ClothingBeltNfsdFilledNavy

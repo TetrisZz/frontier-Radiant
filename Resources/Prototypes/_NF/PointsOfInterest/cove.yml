@@ -39,11 +39,11 @@
           iconPath: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-pirate-subtext'
           stationDescription: 'frontier-lobby-pirate-description'
-        - type: StationJobs
-          availableJobs:
-            NFPirateCaptain: [ 0, 0 ]
-            NFPirateFirstMate: [ 0, 0 ]
-            NFPirate: [ 0, 0 ]
+#        - type: StationJobs
+#          availableJobs:
+#            NFPirateCaptain: [ 0, 0 ]
+#            NFPirateFirstMate: [ 0, 0 ]
+#            NFPirate: [ 0, 0 ]
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt

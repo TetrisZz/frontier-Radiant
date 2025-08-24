@@ -241,7 +241,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/fleetcadet.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: UnsensoredClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatist
   name: юбка-комбинезон рекрута
   description: Стандартная юбка-комбинезон рекрута.
@@ -252,7 +252,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/cadet.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: UnsensoredClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistOper
   name: юбка-комбинезон оперативника
   description: Подозрительная темная юбка. Как будто вы не были и без того достаточно подозрительными.
@@ -263,7 +263,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/operative.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: UnsensoredClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistWarden
   name: юбка-комбинезон надзирателя
   description: Форма, сшитая специально по заказу для вашего удобства. Хоть в чем-то оно у вас есть...
@@ -274,7 +274,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/wardenn.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: UnsensoredClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistSlave
   name: юбка раба
   description: Выглядит очень старой, можно заметить дыры и потёртости. 
@@ -285,7 +285,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/slave.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: UnsensoredClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistSlaveBlack
   name: темная форма личной рабыни
   description: Если ты одета в это...боюсь тебя расстроить - ты вступила не на тот путь.
@@ -296,7 +296,7 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/slaveblack.rsi
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: UnsensoredClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeparatistSlaveWhite
   name: белая форма личной рабыни
   description: Если ты одета в это...боюсь тебя расстроить - ты вступила не на тот путь.

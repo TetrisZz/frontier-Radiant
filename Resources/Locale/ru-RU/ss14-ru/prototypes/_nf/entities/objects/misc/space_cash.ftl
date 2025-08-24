@@ -4,5 +4,5 @@ ent-SpaceCash15000 = { ent-SpaceCash }
 ent-SpaceCash25000 = { ent-SpaceCash }
     .suffix = 25000
     .desc = { ent-SpaceCash.desc }
-ent-SpaceCashCounterfeit = кредиты
+ent-SpaceCashCounterfeit = cпесо
     .desc = Всем нужны деньги.

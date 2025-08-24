@@ -1,5 +1,6 @@
 using Content.Shared.Access;
 using Content.Shared.Guidebook;
+using Content.Shared.Humanoid; /// Radiant_sector
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
@@ -174,6 +175,12 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField]
         public List<ProtoId<GuideEntryPrototype>>? Guides;
+
+        /// Radiant_sector
+        [DataField("allowedSexes")]
+        public HashSet<Sex> AllowedSexes { get; private set; } = new();
+		/// Radiant_sector
+
     }
 
     /// <summary>

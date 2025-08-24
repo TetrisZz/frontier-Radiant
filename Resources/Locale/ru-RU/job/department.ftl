@@ -3,6 +3,6 @@ department-Civilian = Гражданские
 #department-Command = Командование фронтиром
 department-Engineering = `
 department-Medical = `
-#department-Security = Департамент Шерифа Нового Фронтира
+#department-Security = Департамент Внутренней Безопасности
 department-Science = `
 department-Specific = `

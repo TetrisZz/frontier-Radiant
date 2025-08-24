@@ -1,0 +1,32 @@
+- type: loadout
+  id: SEPClothingShoesBootsCombatFilled
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+
+- type: loadout
+  id: SEPClothingShoesBootsJackFilled
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesBootsJackFilled
+
+- type: loadout
+  id: SEPClothingShoesBootsPirate
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesBootsPirate
+
+- type: loadout
+  id: SEPClothingShoesBootsCombatLongFiled
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesBootsCombatLongFiled
+

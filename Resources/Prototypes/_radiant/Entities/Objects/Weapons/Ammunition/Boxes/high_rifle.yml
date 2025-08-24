@@ -2,7 +2,7 @@
   abstract: true
   parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
   id: BaseMagazineBoxHigh2Rifle
-  name: ammunition box (.6,8-мм SPC)
+  name: коробка патронов (.6,8-мм SPC)
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -29,7 +29,7 @@
 - type: entity
   parent: BaseMagazineBoxHigh2Rifle
   id: MagazineBoxHigh2Rifle
-  name: ammunition box (.6,8-мм SPC)
+  name: коробка патронов (.6,8-мм SPC)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeHigh2Rifle
@@ -46,7 +46,7 @@
 - type: entity
   parent: BaseMagazineBoxHigh2Rifle
   id: MagazineBoxHigh2RiflePractice
-  name: ammunition box (.6,8-мм SPC practice)
+  name: коробка патронов (.6,8-мм SPC учебные)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeHigh2RiflePractice
@@ -64,7 +64,7 @@
 - type: entity
   id: MagazineBoxHigh2RifleIncendiary
   parent: BaseMagazineBoxHigh2Rifle
-  name: ammunition box (.6,8-мм SPC incendiary)
+  name: коробка патронов (.6,8-мм SPC зажигательные)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeHigh2RifleIncendiary
@@ -82,7 +82,7 @@
 - type: entity
   parent: BaseMagazineBoxHigh2Rifle
   id: MagazineBoxHigh2RifleUranium
-  name: ammunition box (.6,8-мм SPC uranium)
+  name: коробка патронов (.6,8-мм SPC урановые)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeHigh2RifleUranium
@@ -100,7 +100,7 @@
 - type: entity
   parent: BaseMagazineBoxHigh2Rifle
   id: MagazineBoxHigh2RifleIce
-  name: ammunition box (.6,8-мм SPC ice)
+  name: коробка патронов (.6,8-мм SPC ледяные)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeHigh2RifleIce
@@ -118,7 +118,7 @@
 - type: entity
   parent: BaseMagazineBoxHigh2Rifle
   id: MagazineBoxHigh2Rubber
-  name: ammunition box (.6,8-мм SPC rubber)
+  name: коробка патронов (.6,8-мм SPC резиновые)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeHigh2RifleRubber

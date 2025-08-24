@@ -16,6 +16,7 @@
       - EncryptionKeyCommand
       - EncryptionKeyNfsd
       - EncryptionKeyTraffic
+      - EncryptionKeyNavy
 
 - type: entity
   parent: TelecomServer

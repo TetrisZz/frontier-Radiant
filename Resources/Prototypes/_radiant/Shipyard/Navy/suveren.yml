@@ -1,0 +1,32 @@
+- type: vessel
+  id: Suveren
+  parent: BaseVesselNavy
+  name: COF Суверен
+  description: Линкор Конфедеративного флота, оснащен мощным энергетическим вооружением, для нейтрализации и эми сдерживания.
+  price: 74500
+  category: Medium
+  group: Navy
+  access: Suveren
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Suveren.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Suveren
+  mapName: 'COF Суверен'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Suveren.yml
+  minPlayers: 0
+  stations:
+    Suveren:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Суверен {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

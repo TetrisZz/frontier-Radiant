@@ -295,10 +295,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             // if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             // {
                 // AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
-            var _DetailExamineComp = AddComp<DetailExaminableComponent>(entity.Value);
-            _DetailExamineComp.Content = profile.FlavorText;
-            _DetailExamineComp.ERPStatus = profile.ERPStatus;
-            // }
+            var detail = AddComp<DetailExaminableComponent>(entity.Value);
+            detail.Content = profile.FlavorText;
+            detail.ERPStatus = profile.ERPStatus;
+            Dirty(entity.Value, detail);
         }
 
         DoJobSpecials(job, entity.Value);

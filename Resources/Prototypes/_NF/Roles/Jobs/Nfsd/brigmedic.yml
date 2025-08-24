@@ -1,39 +1,42 @@
-- type: job
-  id: Brigmedic
-  name: job-name-brigmedic
-  description: job-description-brigmedic-nf
-  playTimeTracker: JobBrigmedic
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 14400 # 4 hours Radiant_Sector
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 3600 # 1 hours Radiant_Sector
-  startingGear: BrigmedicGear
-  icon: JobIconBrigmedicNF
-  supervisors: job-supervisors-bailiff
-  weight: 125
-  displayWeight: 35
-  canBeAntag: false
-  access:
-  - Brigmedic
-  accessGroups:
-  - GeneralNfsdAccess
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, TrackingImplant ]
-  - !type:GiveItemOnHolidaySpecial
-    holiday: FrontierBirthday
-    prototype: FrontierBirthdayGift
-
-- type: startingGear
-  id: BrigmedicGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
-  storage:
-    back:
-    - EncryptionKeyMedical
-    - Flash
-    - MagazinePistol
-    - MagazinePistolRubber
-    - FrontierUplinkCoin10
+#- type: job
+#  id: Brigmedic
+#  name: job-name-brigmedic
+#  description: job-description-brigmedic-nf
+#  playTimeTracker: JobBrigmedic
+#  requirements:
+#    - !type:OverallPlaytimeRequirement
+#      time: 14400 # 4 hours Radiant_Sector
+#    - !type:DepartmentTimeRequirement
+#      department: Security
+#      time: 3600 # 1 hours Radiant_Sector
+#  startingGear: BrigmedicGear
+#  icon: JobIconBrigmedicNF
+#  supervisors: job-supervisors-bailiff
+#  weight: 125
+#  displayWeight: 35
+#  canBeAntag: false
+#  setPreference: false
+#  access:
+#  - Brigmedic
+#  accessGroups:
+#  - GeneralNfsdAccess
+#  special:
+#  - !type:AddImplantSpecial
+#    implants: [ MindShieldImplant, TrackingImplant ]
+#  - !type:GiveItemOnHolidaySpecial
+#    holiday: FrontierBirthday
+#    prototype: FrontierBirthdayGift
+#
+#- type: startingGear
+#  id: BrigmedicGear
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#  storage:
+#    back:
+#    - EncryptionKeyMedical
+#    - Flash
+#    - MagazinePistol
+#    - MagazinePistolRubber
+#    - FrontierUplinkCoin10
+#
+# Closed by Radiant_Sector

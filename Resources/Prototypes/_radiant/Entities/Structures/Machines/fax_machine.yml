@@ -1,0 +1,15 @@
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineNFAcolithCommandant
+  suffix: POI, МНБ
+  components:
+  - type: FaxMachine
+    name: "МНБ Горизонт"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineNFAcolith
+  suffix: POI, МНБ Комендант
+  components:
+  - type: FaxMachine
+    name: "МНБ Горизонт - Комендант"

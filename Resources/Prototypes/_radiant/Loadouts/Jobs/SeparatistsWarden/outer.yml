@@ -1,0 +1,9 @@
+- type: loadout
+  id: SEPClothingOuterCoatSeparatist
+  equipment:
+    outerClothing: ClothingOuterCoatSeparatist
+
+- type: loadout
+  id: SEPClothingOuterArmorSeparatist
+  equipment:
+    outerClothing: ClothingOuterArmorSeparatist

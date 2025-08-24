@@ -91,39 +91,40 @@
   - WeaponPistolPollock
 ## Ammo boxes
   - BoxLethalshot
-  - MagazineBoxLightRifle
-  - MagazineBoxPistol
-  - MagazineBoxRifle
+#  - MagazineBoxLightRifle \Radiant_sector
+#  - MagazineBoxPistol \Radiant_sector
+#  - MagazineBoxRifle \Radiant_sector
   - CrossbowBolt
   - CrossbowBoltBroadhead
   - BoxBeanbag
-  - BoxShotgunSlug
-  - MagazineBoxLightRifleRubber
-  - MagazineBoxMagnumRubber
-  - MagazineBoxPistolRubber
-  - MagazineBoxRifleRubber
+#  - BoxShotgunSlug \Radiant_sector
+#  - MagazineBoxLightRifleRubber \Radiant_sector
+#  - MagazineBoxMagnumRubber \Radiant_sector
+  - CartridgeMagnum # Radiant_sector
+#  - MagazineBoxPistolRubber \Radiant_sector
+#  - MagazineBoxRifleRubber \Radiant_sector
 ## Mags / Speedloaders / Clips
   - MagazineNovaliteC1Empty
   - MagazineNovaliteC1
-  - MagazineNovaliteC1Rubber
+#  - MagazineNovaliteC1Rubber \Radiant_sector
   - MagazineLightRifleLowCapacityEmpty
   - MagazineLightRifleLowCapacity
-  - MagazineLightRifleLowCapacityRubber
-  - MagazineLightRifle
-  - MagazineLightRifleEmpty
-  - MagazineRifle
-  - MagazineRifleEmpty
+#  - MagazineLightRifleLowCapacityRubber \Radiant_sector
+#  - MagazineLightRifle \Radiant_sector
+#  - MagazineLightRifleEmpty \Radiant_sector
+#  - MagazineRifle \Radiant_sector
+#  - MagazineRifleEmpty \Radiant_sector
   - MagazinePistol
   - MagazinePistolEmpty
   - SpeedLoaderRifleHeavy
   - SpeedLoaderRifleHeavyEmpty
-  - SpeedLoaderRifleHeavyRubber
-  - SpeedLoaderMagnumRubber
-  - MagazineRifleRubber
+#  - SpeedLoaderRifleHeavyRubber \Radiant_sector
+#  - SpeedLoaderMagnumRubber \Radiant_sector
+#  - MagazineRifleRubber \Radiant_sector
   - MagazineShotgunSlug
-  - MagazinePistolRubber
-  - MagazineLightRifleRubber
-  - MagazineShotgunBeanbag
+#  - MagazinePistolRubber \Radiant_sector
+#  - MagazineLightRifleRubber \Radiant_sector
+#  - MagazineShotgunBeanbag \Radiant_sector
 
 - type: latheRecipePack
   id: NFMercenaryTechfabDeprecated
@@ -191,7 +192,7 @@
   - ExplosivePayload
   - FlashPayload
   - ChemicalPayload
-  - WeaponShotgunKammererNF
+  - WeaponShotgunPatron
   - WeaponAdvancedLaser # After the changes made to windows shouldn't be that much of an issue now if it's widely available
   - WeaponLaserCarbine
   - WeaponDisabler
@@ -201,34 +202,39 @@
 ## Ammo boxes
   - BoxBeanbag
   - BoxShellTranquilizer
-  - MagazineBoxLightRifleRubber
-  - MagazineBoxMagnumRubber
-  - MagazineBoxPistolRubber
-  - MagazineBoxRifleRubber
-  - MagazineShotgunBeanbag
+#  - MagazineBoxLightRifleRubber \Radiant_sector
+#  - MagazineBoxMagnumRubber \Radiant_sector
+#  - MagazineBoxPistolRubber \Radiant_sector
+#  - MagazineBoxRifleRubber \Radiant_sector
+#  - MagazineShotgunBeanbag \Radiant_sector
 
 - type: latheRecipePack
   id: NFMercenaryTechfabDeprecatedEmag
   recipes:
-  - BoxShotgunIncendiary
-  - BoxShotgunUranium
-  - MagazineBoxLightRifleIncendiary
-  - MagazineBoxLightRifleUranium
-  - MagazineBoxMagnumIncendiary
-  - MagazineBoxMagnumUranium
-  - MagazineBoxPistolIncendiary
-  - MagazineBoxPistolUranium
-  - MagazineBoxRifleIncendiary
-  - MagazineBoxRifleUranium
-  - MagazineGrenadeEmpty
-  - MagazineLightRifleIncendiary
-  - MagazineLightRifleUranium
-  - MagazinePistolIncendiary
-  - MagazinePistolUranium
-  - MagazineRifleIncendiary
-  - MagazineRifleUranium
-  - MagazineShotgunIncendiary
-  - SpeedLoaderMagnumIncendiary
-  - SpeedLoaderMagnumUranium
-  - SpeedLoaderRifleHeavyIncendiary
-  - SpeedLoaderRifleHeavyUranium
+  - MagazineBoxLightRifle # Radiant_sector
+  - MagazineBoxPistol # Radiant_sector
+  - MagazineBoxRifle # Radiant_sector
+  - BoxShotgunSlug # Radiant_sector
+  - MagazineBoxMagnum # Radiant_sector
+#  - BoxShotgunIncendiary \Radiant_sector
+#  - BoxShotgunUranium \Radiant_sector
+#  - MagazineBoxLightRifleIncendiary \Radiant_sector
+#  - MagazineBoxLightRifleUranium \Radiant_sector
+#  - MagazineBoxMagnumIncendiary \Radiant_sector
+#  - MagazineBoxMagnumUranium \Radiant_sector
+#  - MagazineBoxPistolIncendiary \Radiant_sector
+#  - MagazineBoxPistolUranium \Radiant_sector
+#  - MagazineBoxRifleIncendiary \Radiant_sector
+#  - MagazineBoxRifleUranium \Radiant_sector
+#  - MagazineGrenadeEmpty \Radiant_sector
+#  - MagazineLightRifleIncendiary \Radiant_sector
+#  - MagazineLightRifleUranium \Radiant_sector
+#  - MagazinePistolIncendiary \Radiant_sector
+#  - MagazinePistolUranium \Radiant_sector
+#  - MagazineRifleIncendiary \Radiant_sector
+#  - MagazineRifleUranium \Radiant_sector
+#  - MagazineShotgunIncendiary \Radiant_sector
+#  - SpeedLoaderMagnumIncendiary \Radiant_sector
+#  - SpeedLoaderMagnumUranium \Radiant_sector
+#  - SpeedLoaderRifleHeavyIncendiary \Radiant_sector
+#  - SpeedLoaderRifleHeavyUranium \Radiant_sector

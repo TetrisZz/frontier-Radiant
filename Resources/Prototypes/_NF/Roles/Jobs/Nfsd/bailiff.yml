@@ -29,7 +29,7 @@
   - Armory
   - Sergeant
   - Bailiff
-  - Brigmedic
+#  - Brigmedic Radiant_Sector
   accessGroups:
   - GeneralNfsdAccess
   special:

@@ -1,0 +1,51 @@
+- type: loadoutGroup
+  id: NAVYCaptainPDA
+  name: loadout-group-assistant-id
+  hidden: true
+  loadouts:
+  - NAVYPDANavyCaptain
+  fallbacks:
+  - NAVYPDANavyCaptain
+
+- type: loadoutGroup
+  id: NAVYCaptainJumpsuit
+  name: loadout-group-assistant-jumpsuit
+  loadouts:
+  - NAVYClothingUniformJumpsuitNavyCaptain
+  - NAVYClothingUniformJumpskirtNavyCaptain
+  - NAVYClothingUniformJumpsuitNavyCaptain1
+  - NAVYClothingUniformJumpskirtNavyCaptain1
+  fallbacks:
+  - NAVYClothingUniformJumpsuitNavyCaptain
+  - NAVYClothingUniformJumpskirtNavyCaptain
+
+- type: loadoutGroup
+  id: NAVYCaptainEars
+  name: loadout-group-commandant-ears
+  hidden: true
+  loadouts:
+  - NAVYClothingHeadsetNavyCaptain
+  fallbacks:
+  - NAVYClothingHeadsetNavyCaptain
+
+- type: loadoutGroup
+  id: NAVYCaptainOuterClothing
+  name: loadout-group-assistant-outerclothing
+  minLimit: 0
+  loadouts:
+  - NAVYClothingOuterCoatNavyGoldLong
+
+- type: loadoutGroup
+  id: NAVYCaptainBelt
+  name: loadout-group-contractor-belt
+  hidden: true
+  loadouts:
+  - NAVYClothingBeltAssault
+  fallbacks:
+  - NAVYClothingBeltAssault
+
+- type: loadoutGroup
+  id: NAVYCaptainNeck
+  name: loadout-group-commandant-neck
+  loadouts:
+  - NAVYClothingNeckMantleNavy

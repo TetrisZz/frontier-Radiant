@@ -12,3 +12,21 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
+
+- type: entity
+  id: MachineFTLDriveCircuitboard
+  parent: BaseMachineCircuitboard
+  name: плата двигателя БСС
+  description: Плата для двигателя блюспейс Скачка
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: MachineFTLDrive
+      componentRequirements:
+        AmeFuelContainer:
+          amount: 1
+          defaultPrototype: AmeJar
+      stackRequirements:
+        Glass: 10
+        Steel: 10

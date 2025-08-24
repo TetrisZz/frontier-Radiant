@@ -29,3 +29,16 @@
 
   - node: repaired
     entity: ThrusterBigZetaFTLLong
+
+- type: constructionGraph
+  id: ThrusterBigZetaFTLAcorp
+  start: start
+  graph:
+  - node: start
+    entity: ThrusterBigZetaFTLAcorpBroken
+    edges:
+    - to: repaired
+      steps: *pirateRepairToolboxSteps
+
+  - node: repaired
+    entity: ThrusterBigZetaFTLAcorp

@@ -17,3 +17,31 @@
   - type: Sprite
     sprite: _radiant/Clothing/shibari.rsi
     state: icon
+
+- type: entity
+  name: наручники
+  description: Обычные наручники, чем-то схожи с кандалами.
+  id: HandcuffsSeparatist
+  parent: Handcuffs
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Handcuff
+    cuffedRSI: _radiant/Clothing/option2.rsi
+    bodyIconState: body-overlay
+  - type: Sprite
+    sprite: _radiant/Clothing/option2.rsi
+    state: icon
+
+- type: entity
+  name: наручники рабыни
+  description: Наручники на прекрасные руки личной рабыни вашего главаря.
+  id: HandcuffsPrivateSlave
+  parent: Handcuffs
+  components:
+  - type: Handcuff
+    cuffedRSI: _radiant/Clothing/handcuffs.rsi
+    bodyIconState: body-overlay
+  - type: Sprite
+    sprite: _radiant/Clothing/handcuffs.rsi
+    state: handcuff

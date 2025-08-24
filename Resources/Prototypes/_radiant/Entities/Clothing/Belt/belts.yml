@@ -19,3 +19,14 @@
     sprite: _radiant/Clothing/Belt/CASWebbing.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Belt/CASWebbing.rsi
+
+- type: entity
+  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase
+  id: ClothingBeltCombatWebbingSeparatist
+  name: разгрузка сепаратиста
+  description: Разгрузка для ваших больших магазинов.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/rps.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/rps.rsi

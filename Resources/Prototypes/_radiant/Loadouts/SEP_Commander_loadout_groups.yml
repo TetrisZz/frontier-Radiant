@@ -1,0 +1,106 @@
+- type: loadoutGroup
+  id: SEPCommanderPDA
+  name: loadout-group-service-id
+  hidden: true
+  loadouts:
+  - SEPPDASeparatistsCommander
+  fallbacks:
+  - SEPPDASeparatistsCommander
+
+- type: loadoutGroup
+  id: SEPCommanderJumpsuit
+  name: loadout-group-service-jumpsuit
+  hidden: true
+  loadouts:
+  - SEPClothingUniformJumpsuitSeparatistCommander
+  fallbacks:
+  - SEPClothingUniformJumpsuitSeparatistCommander
+
+- type: loadoutGroup
+  id: SEPCommanderGlasses
+  name: loadout-group-commandant-glasses
+  hidden: true
+  loadouts:
+  - SEPClothingEyesHudSeparatist
+  fallbacks:
+  - SEPClothingEyesHudSeparatist
+
+- type: loadoutGroup
+  id: SEPCommanderEars
+  name: loadout-group-commandant-ears
+  hidden: true
+  loadouts:
+  - SEPClothingHeadsetAltSeparatist
+  fallbacks:
+  - SEPClothingHeadsetAltSeparatist
+
+- type: loadoutGroup
+  id: SEPCommanderFace
+  name: loadout-group-contractor-face
+  minLimit: 0
+  loadouts:
+  - SEPClothingMaskNeckGaiter
+  - SEPClothingMaskBalaclavaBlack
+  - SEPClothingMaskBandSkull
+
+- type: loadoutGroup
+  id: SEPCommanderHead
+  name: loadout-group-engineer-head
+  minLimit: 0
+  loadouts:
+  - SEPClothingHeadHatSeparatist
+  - SEPClothingHeadHatBeretSeparatist
+  - SEPClothingHeadHelmetSeparatist3
+  - SEPClothingHeadHelmetSeparatist
+  - SEPClothingHeadHelmetSeparatist2
+
+- type: loadoutGroup
+  id: SEPCommanderBelt
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  loadouts:
+  - SEPClothingBeltAssault
+  - SEPClothingBeltCombatWebbingSeparatist
+
+- type: loadoutGroup
+  id: SEPCommanderBackpack
+  name: loadout-group-acorpsecurity-backpack
+  minLimit: 1
+  loadouts:
+  - SEPClothingBackpackSatchelLeather
+  - SEPClothingBackpackMessengerColorBlack
+  - SEPClothingBackpackMessengerColorBrownLight
+  - SEPClothingBackpackMessengerColorBrown
+  - SEPClothingBackpackSeparatist
+  - SEPClothingBackpackMessengerSeparatist
+  fallbacks:
+  - SEPClothingBackpackMessengerSeparatist
+
+- type: loadoutGroup
+  id: SERCommanderOuterClothing
+  name: loadout-group-service-outerclothing
+  hidden: true
+  loadouts:
+  - SEPClothingOuterArmorSeparatist2
+  fallbacks:
+  - SEPClothingOuterArmorSeparatist2
+
+- type: loadoutGroup
+  id: SEPCommanderShoes
+  name: loadout-group-acorpsecurity-shoes
+  loadouts:
+  - SEPClothingShoesBootsCombatFilled
+  - SEPClothingShoesBootsJackFilled
+  - SEPClothingShoesBootsPirate
+  - SEPClothingShoesBootsCombatLongFiled
+  fallbacks:
+  - SEPClothingShoesBootsCombatLongFiled
+
+- type: loadoutGroup
+  id: SEPCommanderNeck
+  name: loadout-group-commandant-neck
+  hidden: true
+  loadouts:
+  - SEPClothingNeckMantleSeparatist
+  fallbacks:
+  - SEPClothingNeckMantleSeparatist

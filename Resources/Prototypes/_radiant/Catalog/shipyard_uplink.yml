@@ -1,0 +1,275 @@
+#Navy
+
+- type: listing
+  id: UplinkNavyShipyardM381
+  name:  uplink-navy-m381-name
+  description: uplink-navy-m381-desc
+  productEntity: CartridgeGunneryM381
+  icon: { sprite: _Mono/Objects/SpaceArtillery/50_armorpiercing_machinegun_casing.rsi, state: base }
+  cost:
+    NavyToken: 2
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+
+- type: listing
+  id: UplinkNavyShipyard220mm
+  name:  uplink-navy-220mm-name
+  description: uplink-navy-220mm-desc
+  productEntity: CartridgeGunnery220mm
+  icon: { sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi, state: base }
+  cost:
+    NavyToken: 2
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+
+- type: listing
+  id: UplinkNavyShipyardNormandy
+  name:  uplink-navy-normandy-name
+  description: uplink-navy-normandy-desc
+  productEntity: ShipVoucherNavyNormandy
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
+  cost:
+    NavyToken: 2
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+
+- type: listing
+  id: UplinkNavyShipyardSuveren
+  name:  uplink-navy-suveren-name
+  description: uplink-navy-suveren-desc
+  productEntity: ShipVoucherNavySuveren
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
+  cost:
+    NavyToken: 2
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+
+- type: listing
+  id: UplinkNavyShipyardZenith
+  name:  uplink-navy-zenith-name
+  description: uplink-navy-zenith-desc
+  productEntity: ShipVoucherNavyZenith
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
+  cost:
+    NavyToken: 2
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+
+- type: listing
+  id: UplinkNavyShipyardBuran
+  name:  uplink-navy-buran-name
+  description: uplink-navy-buran-desc
+  productEntity: ShipVoucherNavyBuran
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
+  cost:
+    NavyToken: 2
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+
+- type: listing
+  id: UplinkNavyShipyardAvangard
+  name:  uplink-navy-avangard-name
+  description: uplink-navy-avangard-desc
+  productEntity: ShipVoucherNavyAvangard
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
+  cost:
+    NavyToken: 4
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+
+#Separatist
+
+- type: listing
+  id: UplinkSeparatistShipyard220mm
+  name:  uplink-separatist-220mm-name
+  description: uplink-separatist-220mm-desc
+  productEntity: CartridgeGunnery220mm
+  icon: { sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi, state: base }
+  cost:
+    SeparatistToken: 2
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardASM302Empty
+  name:  uplink-separatist-asm302empty-name
+  description: uplink-separatist-asm302empty-desc
+  productEntity: MagazineGunneryASM302Empty
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/patchhappiness.rsi, state: base}
+  cost:
+    SeparatistToken: 1
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardKaratel
+  name:  uplink-separatist-karatel-name
+  description: uplink-separatist-karatel-desc
+  productEntity: ShipVoucherSeparatistKaratel
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: sep }
+  cost:
+    SeparatistToken: 2
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardPrizrak
+  name:  uplink-separatist-prizrak-name
+  description: uplink-separatist-prizrak-desc
+  productEntity: ShipVoucherSeparatistPrizrak
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: sep }
+  cost:
+    SeparatistToken: 1
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardBrodyaga
+  name:  uplink-separatist-brodyaga-name
+  description: uplink-separatist-brodyaga-desc
+  productEntity: ShipVoucherSeparatistBrodyaga
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: sep }
+  cost:
+    SeparatistToken: 1
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardPepel
+  name:  uplink-separatist-pepel-name
+  description: uplink-separatist-pepel-desc
+  productEntity: ShipVoucherSeparatistPepel
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: sep }
+  cost:
+    SeparatistToken: 2
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardKlyk
+  name:  uplink-separatist-klyk-name
+  description: uplink-separatist-klyk-desc
+  productEntity: ShipVoucherSeparatistKlyk
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: sep }
+  cost:
+    SeparatistToken: 1
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardKursor
+  name:  uplink-separatist-kursor-name
+  description: uplink-separatist-kursor-desc
+  productEntity: ShipVoucherSeparatistKursor
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: sep }
+  cost:
+    SeparatistToken: 1
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardGrabitel
+  name:  uplink-separatist-grabitel-name
+  description: uplink-separatist-grabitel-desc
+  productEntity: ShipVoucherSeparatistGrabitel
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: sep }
+  cost:
+    SeparatistToken: 2
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+
+- type: listing
+  id: UplinkSeparatistShipyardStrela
+  name:  uplink-separatist-strela-name
+  description: uplink-separatist-strela-desc
+  productEntity: ShipVoucherSeparatistStrela
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: sep }
+  cost:
+    SeparatistToken: 1
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard

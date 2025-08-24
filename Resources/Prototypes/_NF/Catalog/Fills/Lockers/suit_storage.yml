@@ -296,7 +296,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd # Frontier
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Brig"]] #Radiant_Sector
 
 #Deputy hardsuit
 - type: entity
@@ -312,7 +312,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd # Frontier
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Brig"]] #Radiant_Sector
 
 #Brigmed hardsuit
 - type: entity
@@ -344,7 +344,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd # Frontier
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Brig"]] #Radiant_Sector
 
 #Bailiff hardsuit
 - type: entity
@@ -360,7 +360,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd # Frontier
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Brig"]] #Radiant_Sector
 
 #Sheriff hardsuit
 - type: entity
@@ -376,7 +376,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd # Frontier
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Brig"]] #Radiant_Sector
 
 #Combat hardsuit
 - type: entity

@@ -1,0 +1,224 @@
+- type: pirateBounty
+  id: SeparatistBountyBouquet
+  reward: 5
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-bouquet
+    amount: 6
+    id: Bouquet
+
+- type: pirateBounty
+  id: SeparatistBountyAmbrosiaDeus
+  reward: 5
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-ambrosia-deus
+    amount: 30
+    id: AmbrosiaDeus
+
+- type: pirateBounty
+  id: SeparatistBountyWater
+  reward: 4
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-water
+    amount: 2
+    id: Water
+
+- type: pirateBounty
+  id: SeparatistBountyCashCounterfeit
+  reward: 6
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-cash-counterfeit
+    amount: 3000
+    id: CashCounterfeit
+
+- type: pirateBounty
+  id: SeparatistBountySyndiPDA
+  reward: 5
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-syndi-pda
+    amount: 1
+    id: SyndiPDA
+
+- type: pirateBounty
+  id: SeparatistBountyEncryptionKeySyndie
+  reward: 4
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-key-syndi
+    amount: 1
+    id: EncryptionKeySyndie
+
+- type: pirateBounty
+  id: SeparatistBountyLecter
+  reward: 5
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-lecter
+    amount: 1
+    id: Lecter
+
+- type: pirateBounty
+  id: SeparatistBountyWT550
+  reward: 5
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-wt550
+    amount: 1
+    id: WT550
+
+- type: pirateBounty
+  id: SeparatistBountyBluespace
+  reward: 7
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-bluespace
+    amount: 5
+    id: Bluespace
+
+- type: pirateBounty
+  id: SeparatistBountyPlasmaOre
+  reward: 7
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-plasma-ore
+    amount: 400
+    id: PlasmaOre
+
+- type: pirateBounty
+  id: SeparatistBountyUnderwearAcorp
+  reward: 6
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-underwear-acorp
+    amount: 1
+    id: UnderwearAcorp
+
+- type: pirateBounty
+  id: SeparatistBountyAltarBananium
+  reward: 5
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-altar-bananium
+    amount: 6
+    id: AltarBananium
+
+- type: pirateBounty
+  id: PirateBountyCultistNecklace
+  reward: 6
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-cultistNeck
+    amount: 1
+    id: ClothingNeckAmuletBloodCult
+
+- type: pirateBounty
+  id: PirateBountyScafSuit
+  reward: 6
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-scafsuit
+    amount: 1
+    id: ClothingOuterHardsuitScaf
+
+- type: pirateBounty
+  id: PirateBountyRTG
+  reward: 6
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-rtg
+    amount: 2
+    id: GeneratorRTG
+
+- type: pirateBounty
+  id: PirateBountyMK58
+  reward: 6
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-mk58
+    amount: 2
+    id: WeaponPistolMk58
+
+- type: pirateBounty
+  id: PirateBountyArtifactAnalyzer
+  reward: 6
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-artifactanalyzer
+    amount: 2
+    id: ArtifactAnalyzerMachineCircuitboard
+
+- type: pirateBounty
+  id: PirateBountyHotplate
+  reward: 5
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-hotplate
+    amount: 1
+    id: ChemistryHotplate
+
+- type: pirateBounty
+  id: PirateBountyMedicalFabBoard
+  reward: 5
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-medicalfabboard
+    amount: 1
+    id: MedicalTechFabCircuitboard
+
+- type: pirateBounty
+  id: PirateBountyDiamond
+  reward: 6
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-diamond
+    amount: 10
+    id: MaterialDiamond
+
+- type: pirateBounty
+  id: PirateBountyGold
+  reward: 6
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-gold
+    amount: 120
+    id: Gold
+
+- type: pirateBounty
+  id: PirateBountyPlasmaCanister
+  reward: 6
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-plasmacanister
+    amount: 4
+    id: PlasmaCanister
+
+- type: pirateBounty
+  id: PirateBountyContraCrate
+  reward: 9 # Bonus of 2 doubloons vs. individual turn-in.
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-contracrate
+    amount: 3
+    id: ContrabandCrate
+
+- type: pirateBounty
+  id: PirateBountyEnforcer
+  reward: 4
+  description: pirate-bounty-description-generic
+  spawnChest: false
+  entries:
+  - name: pirate-bounty-item-enforcer
+    amount: 1
+    id: Enforcer

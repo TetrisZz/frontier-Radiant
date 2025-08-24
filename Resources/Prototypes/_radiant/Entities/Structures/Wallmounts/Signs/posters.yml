@@ -12,16 +12,26 @@
   parent: PosterLegitAcorp
   id: PosterLegitAcorp2
   name: постер акорп
-  description: Акорп - знания без границ, наука без ограничений!
+  description: Наука превыше всего.
   components:
   - type: Sprite
     state: poster3
 
 - type: entity
   parent: PosterLegitAcorp
+  id: PosterLegitAcorp3
+  name: постер 
+  description: Не забывайте надевать скафандр перед выходом в ксомос
+  components:
+  - type: Sprite
+    scale: 0.9, 0.9
+    state: poster7
+
+- type: entity
+  parent: PosterLegitAcorp
   id: PosterLegitNavy
-  name: постер акорп
-  description: Акорп - знания без границ, наука без ограничений!
+  name: постер
+  description: Мы не охраняем. Мы уничтожаем угрозу
   components:
   - type: Sprite
     state: poster2
@@ -29,8 +39,8 @@
 - type: entity
   parent: PosterLegitAcorp
   id: PosterLegitHOM
-  name: постер акорп
-  description: Акорп - знания без границ, наука без ограничений!
+  name: лого НОМ 
+  description: Мы знаем чего стоит ваш комфорт.
   components:
   - type: Sprite
     state: poster1
@@ -38,26 +48,49 @@
 - type: entity
   parent: PosterLegitAcorp
   id: PosterLegitSeparatist
-  name: постер акорп
-  description: Акорп - знания без границ, наука без ограничений!
+  name: постер 
+  description: Сила — это закон
   components:
   - type: Sprite
+    scale: 0.9, 0.9
     state: poster4
 
 - type: entity
   parent: PosterLegitAcorp
   id: PosterLegitSeparatist2
-  name: постер акорп
-  description: Акорп - знания без границ, наука без ограничений!
+  name: постер 
+  description: Сила — это закон
   components:
   - type: Sprite
+    scale: 0.9, 0.9
     state: poster5
 
 - type: entity
   parent: PosterLegitAcorp
   id: PosterLegitSeparatist3
-  name: постер акорп
-  description: Акорп - знания без границ, наука без ограничений!
+  name: постер 
+  description: Свобода не даруется — она забирается!
   components:
   - type: Sprite
+    scale: 0.9, 0.9
     state: poster6
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterLegitSeparatist4
+  name: постер 
+  description: Сделай свой выбор!Они называют нас варварами — и умирают, как жалкие бюрократы
+  components:
+  - type: Sprite
+    scale: 0.9, 0.9
+    state: poster8
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterLegitSeparatist5
+  name: постер 
+  description: Жги их звёзды, рушь их станции, бери, что твоё!
+  components:
+  - type: Sprite
+    scale: 0.9, 0.9
+    state: poster9

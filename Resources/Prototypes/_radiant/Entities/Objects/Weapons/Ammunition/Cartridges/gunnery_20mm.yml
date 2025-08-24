@@ -1,6 +1,6 @@
 - type: entity
   id: BaseCartridgeGunnery20mm
-  name: cartridge (20mm)
+  name: патрон (20mm)
   parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseRestrictedContraband<BaseC1Contraband
   abstract: true
   components:
@@ -22,7 +22,7 @@
 
 - type: entity
   id: CartridgeGunnery20mm
-  name: cartridge (20mm)
+  name: патрон (20mm)
   parent: BaseCartridgeGunnery20mm
   components:
   - type: CartridgeAmmo

@@ -1,8 +1,8 @@
 - type: entity
   id: BorgModuleMartyrAcorp
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
-  name: martyr cyborg module
-  description: "A module that comes with an explosive you probably don't want to handle yourself."
+  name: модуль борга Мученик
+  description: Модуль, в котором есть взрывчатка, с которой вам, вероятно, не захочется иметь дело. Техническая деталь, дающая киборгам новые способности.
   components:
     - type: Sprite
       sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
@@ -21,7 +21,7 @@
 - type: entity
   id: BorgModuleSyndicateWeaponAcorp
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
-  name: weapon cyborg module
+  name: оружейный модуль борга
   components:
   - type: Sprite
     sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi

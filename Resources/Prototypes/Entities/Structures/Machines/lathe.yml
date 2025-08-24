@@ -460,7 +460,14 @@
       idleState: icon
       runningState: icon
       staticPacks:
-      - SecurityAmmoStatic
+      - SecurityAmmoStaticRadiant # Radiant_sector change
+      dynamicPacks:
+      - SecurityAmmoDynamicRadiant
+    - type: EmagLatheRecipes # Radiant_sector
+      emagStaticPacks: # Radiant_sector
+      - SecurityAmmoStaticEmagRadiant # Radiant_sector
+      emagDynamicPacks: # Radiant_sector
+      - SecurityAmmoDynamicEmagRadiant # Radiant_sector
     - type: MaterialStorage
       whitelist:
         tags:

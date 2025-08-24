@@ -1,0 +1,4 @@
+- type: loadout
+  id: SEPClothingEyesHudSeparatist
+  equipment:
+    eyes: ClothingEyesHudSeparatist

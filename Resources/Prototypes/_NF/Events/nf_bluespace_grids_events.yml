@@ -18,8 +18,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SyndicateWeaponsCache
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: Gravity
           enabled: true
@@ -57,8 +57,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SecureNTVault
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: Gravity
           enabled: true
@@ -96,8 +96,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SecureNTVault
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: Gravity
           enabled: true
@@ -135,8 +135,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-UnidentifiedVessel
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: Gravity
           enabled: true
@@ -172,8 +172,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-UnidentifiedVessel
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: Gravity
           enabled: true
@@ -209,8 +209,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-UnidentifiedVessel
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: Gravity
           enabled: true
@@ -245,8 +245,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-Cave
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: Gravity
           enabled: true
@@ -283,8 +283,8 @@
         - station-event-bluespace-name-BrokenMcDelivery
         minCount: 2
         maxCount: 3
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: IFF
         - type: LinkedLifecycleGridParent
@@ -317,8 +317,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-train
-        minimumDistance: 1500
-        maximumDistance: 2500
+        minimumDistance: 3000
+        maximumDistance: 4000
         addComponents:
         - type: Gravity
           enabled: true
@@ -354,8 +354,8 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-Lambda
-        minimumDistance: 2500
-        maximumDistance: 4500
+        minimumDistance: 3500
+        maximumDistance: 5000
         addComponents:
         - type: Gravity
           enabled: true

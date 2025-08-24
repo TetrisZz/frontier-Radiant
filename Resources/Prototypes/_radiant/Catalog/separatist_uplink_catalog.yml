@@ -1,0 +1,877 @@
+#Weapons
+
+- type: listing
+  id: UplinkSeparatistWhisper
+  name:  uplink-separatist-whisper-name
+  description: uplink-separatist-whisper-desc
+  productEntity: WeaponPistolWhisper
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/muffler.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistNabat
+  name:  uplink-separatist-nabat-name
+  description: uplink-separatist-nabat-desc
+  productEntity: WeaponRevolverNabat
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Revolvers/bloody_leadr.rsi, state: icon }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistKammerer
+  name:  uplink-separatist-kammerer-name
+  description: uplink-separatist-kammerer-desc
+  productEntity: WeaponShotgunKammerer
+  icon: { sprite: _NF/Objects/Weapons/Guns/Shotguns/pump.rsi, state: icon }
+  cost:
+    BlackMoney: 3
+  categories:
+    - UplinkSeparatistWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistRanger
+  name:  uplink-separatist-ranger-name
+  description: uplink-separatist-ranger-desc
+  productEntity: WeaponRifleRanger
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/m.rsi, state: icon }
+  cost:
+    BlackMoney: 4
+  categories:
+    - UplinkSeparatistWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistFighter
+  name:  uplink-separatist-fighter-name
+  description: uplink-separatist-fighter-desc
+  productEntity: WeaponSubMachineGunFighter
+  icon: { sprite: _radiant/Objects/Weapons/Guns/SMGs/fighter.rsi, state: icon }
+  cost:
+    BlackMoney: 4
+  categories:
+    - UplinkSeparatistWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistPhX
+  name:  uplink-separatist-phx-name
+  description: uplink-separatist-phx-desc
+  productEntity: PhX
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/self-loading.rsi, state: icon }
+  cost:
+    BlackMoney: 4
+  categories:
+    - UplinkSeparatistWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistM203
+  name:  uplink-separatist-m203-name
+  description: uplink-separatist-m203-desc
+  productEntity: WeaponCaseLongM203Separatist
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Launchers/tost/big.rsi, state: icon }
+  cost:
+    BlackMoney: 3
+  categories:
+    - UplinkSeparatistWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+#armor
+
+- type: listing
+  id: UplinkSeparatistArmor3
+  name:  uplink-separatist-armor3-name
+  description: uplink-separatist-armor3-desc
+  productEntity: ClothingOuterArmorSeparatist3
+  icon: { sprite: _radiant/Clothing/OuterClothing/Armor/armoroper.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistArmor
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistArmor2
+  name:  uplink-separatist-armor2-name
+  description: uplink-separatist-armor2-desc
+  productEntity: ClothingOuterArmorSeparatist2
+  icon: { sprite: _radiant/Clothing/OuterClothing/Armor/armorglava.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistArmor
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHardsuit
+  name:  uplink-separatist-hardsuit-name
+  description: uplink-separatist-hardsuit-desc
+  productEntity: ClothingOuterHardsuitSeparatist
+  icon: { sprite: _radiant/Clothing/Hardsuits/easy.rsi, state: icon }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistArmor
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHeavy
+  name:  uplink-separatist-heavy-name
+  description: uplink-separatist-heavy-desc
+  productEntity: ClothingOuterArmorSeparatistHeavy
+  icon: { sprite: _radiant/Clothing/OuterClothing/Armor/heavyarmor.rsi, state: icon }
+  cost:
+    BlackMoney: 7
+  categories:
+    - UplinkSeparatistArmor
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHardsuitElite
+  name:  uplink-separatist-elite-name
+  description: uplink-separatist-elite-desc
+  productEntity: ClothingOuterHardsuitSeparatistElite
+  icon: { sprite: _radiant/Clothing/Hardsuits/elite.rsi, state: icon }
+  cost:
+    BlackMoney: 8
+  categories:
+    - UplinkSeparatistArmor
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHardsuitJuggernaut
+  name:  uplink-separatist-juggernaut-name
+  description: uplink-separatist-juggernaut-desc
+  productEntity: ClothingOuterHardsuitSeparatistJuggernaut
+  icon: { sprite: _radiant/Clothing/Hardsuits/jagaga.rsi, state: icon }
+  cost:
+    BlackMoney: 15
+  categories:
+    - UplinkSeparatistArmor
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+#Ammo
+
+- type: listing
+  id: UplinkSeparatistMagazinePistol25ACP
+  name:  uplink-separatist-pistol25acp-name
+  description: uplink-separatist-pistol25acp-desc
+  productEntity: MagazinePistol25ACP
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/magazACP.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistMagazineSubMachineGun25ACP
+  name:  uplink-separatist-submachinegun25acp-name
+  description: uplink-separatist-submachinegun25acp-desc
+  productEntity: MagazinePistolSubMachineGun25ACP
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/boxstore.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistBox25ACP
+  name:  uplink-separatist-box25acp-name
+  description: uplink-separatist-box25acp-desc
+  productEntity: MagazineBoxPistol25ACP
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/pistol25acp.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistMagnumAmmo
+  name:  uplink-separatist-magnumammo-name
+  description: uplink-separatist-magnumammo-desc
+  productEntity: MagazineBoxMagnum
+  icon: { sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistShotgunAmmo
+  name:  uplink-separatist-shotgunammo-name
+  description: uplink-separatist-shotgunammo-desc
+  productEntity: BoxLethalshot
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistShotgunSlug
+  name:  uplink-separatist-shotgunslug-name
+  description: uplink-separatist-shotgunslug-desc
+  productEntity: BoxShotgunSlug
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: slug }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistMagazineRifle
+  name:  uplink-separatist-rifleammo-name
+  description: uplink-separatist-rifleammo-desc
+  productEntity: MagazineRifle
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistFragM203
+  name:  uplink-separatist-fragm203-name
+  description: uplink-separatist-fragm203-desc
+  productEntity: GrenadeFragM203
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Explosives/fragmentationprojectile.rsi, state: base }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistMagazineRifleRubber
+  name:  uplink-separatist-magazineriflerubber-name
+  description: uplink-separatist-magazineriflerubber-desc
+  productEntity: BoxMagazineRifleRubber
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: rubber }
+  cost:
+    BlackMoney: 5
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+#Utility
+
+- type: listing
+  id: UplinkSeparatistMagSeparatist
+  name:  uplink-separatist-magseparatist-name
+  description: uplink-separatist-magseparatist-desc
+  productEntity: ClothingShoesBootsMagSeparatist
+  icon: { sprite: _radiant/Clothing/Boots/magboots.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistGrappling
+  name:  uplink-separatist-grappling-name
+  description: uplink-separatist-grappling-desc
+  productEntity: WeaponGrapplingGun
+  icon: { sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistJetpack
+  name:  uplink-separatist-jetpack-name
+  description: uplink-separatist-jetpack-desc
+  productEntity: JetpackBlackFilled
+  icon: { sprite: _DV/Objects/Tanks/Jetpacks/black.rsi, state: icon }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHypo
+  name:  uplink-separatist-hypo-name
+  description: uplink-separatist-hypo-desc
+  productEntity: HypoBrigmedic
+  icon: { sprite: _NF/Objects/Specific/Medical/hypobrigmedic.rsi, state: hypo }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistBulletShield
+  name:  uplink-separatist-bulletshield-name
+  description: uplink-separatist-bulletshield-desc
+  productEntity: RiotBulletShield
+  icon: { sprite: Objects/Weapons/Melee/shields.rsi, state: riot_bullet-icon }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistMedkitCombat
+  name:  uplink-separatist-medkitcombat-name
+  description: uplink-separatist-medkitcombat-desc
+  productEntity: MedkitCombatFilled
+  icon: { sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi, state: blackkit }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistAxe
+  name:  uplink-separatist-axe-name
+  description: uplink-separatist-axe-desc
+  productEntity: FireAxeFlaming
+  icon: { sprite: Objects/Weapons/Melee/fireaxeflaming.rsi, state: icon }
+  cost:
+    BlackMoney: 3
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistCapsule
+  name:  uplink-separatist-capsule-name
+  description: uplink-separatist-capsule-desc
+  productEntity: SeparatistCapsuleCaller
+  icon: { sprite: _radiant/Objects/Devices/signaller.rsi, state: icon }
+  cost:
+    BlackMoney: 4
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHoverbike
+  name:  uplink-separatist-hoverbike-name
+  description: uplink-separatist-hoverbike-desc
+  productEntity: CrateFunHoverbikeNFPirate
+  icon: { sprite: _NF/Objects/Vehicles/hoverbike.rsi, state: vehicle }
+  cost:
+    BlackMoney: 5
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistAmmoTechFab
+  name:  uplink-separatist-ammotechfab-name
+  description: uplink-separatist-ammotechfab-desc
+  productEntity: AmmoTechFabFlatpack
+  icon: { sprite: _radiant/Structures/Machines/Ammo_techfab.rsi, state: icon }
+  cost:
+    BlackMoney: 6
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+#Explosives
+
+- type: listing
+  id: UplinkSeparatistFlashbang
+  name:  uplink-separatist-flashbang-name
+  description: uplink-separatist-flashbang-desc
+  productEntity: BoxFlashbang
+  icon: { sprite: Objects/Weapons/Grenades/flashbang.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistStinger
+  name:  uplink-separatist-stinger-name
+  description: uplink-separatist-stinger-desc
+  productEntity: BoxStingerGrenadesNfsd
+  icon: { sprite: Objects/Weapons/Grenades/stingergrenade.rsi, state: icon }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+# Slaves
+
+- type: listing
+  id: UplinkSeparatistKeyLimited
+  name:  uplink-separatist-keylimited-name
+  description: uplink-separatist-keylimited-desc
+  productEntity: SeparatistCollarKeyLimited
+  icon: { sprite: _radiant/Objects/Devices/collar_key_limited.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHandcuffs
+  name:  uplink-separatist-handcuffs-name
+  description: uplink-separatist-handcuffs-desc
+  productEntity: HandcuffsSeparatist
+  icon: { sprite: _radiant/Clothing/option2.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistFlashKit
+  name:  uplink-separatist-flashkit-name
+  description: uplink-separatist-flashkit-desc
+  productEntity: BoxSeparatistFlashKit
+  icon: { sprite: Objects/Weapons/Melee/flash.rsi, state: flash }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistWhip
+  name:  uplink-separatist-whip-name
+  description: uplink-separatist-whip-desc
+  productEntity: WhipRadiant
+  icon: { sprite: _radiant/Objects/Weapons/Melee/whip.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistShackles
+  name:  uplink-separatist-shackles-name
+  description: uplink-separatist-shackles-desc
+  productEntity: ClothingNeckShackles
+  icon: { sprite: _radiant/Clothing/Neck/option1.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistShockCollar
+  name:  uplink-separatist-shockcollar-name
+  description: uplink-separatist-shockcollar-desc
+  productEntity: ClothingNeckShockCollar
+  icon: { sprite: _radiant/Clothing/Neck/shock_collar.rsi, state: icon }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistKey
+  name:  uplink-separatist-key-name
+  description: uplink-separatist-key-desc
+  productEntity: SeparatistCollarKey
+  icon: { sprite: _radiant/Objects/Devices/collar_key.rsi, state: icon }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistSlaveKit
+  name:  uplink-separatist-slavekit-name
+  description: uplink-separatist-slavekit-desc
+  productEntity: BoxSeparatistSlaveKit
+  icon: { sprite: Objects/Devices/signaller.rsi, state: signaller }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistBoomCollar
+  name:  uplink-separatist-boomcollar-name
+  description: uplink-separatist-boomcollar-desc
+  productEntity: ClothingNeckBoomCollar
+  icon: { sprite: _radiant/Clothing/Neck/collarsboom.rsi, state: icon }
+  cost:
+    BlackMoney: 7
+  categories:
+    - UplinkSeparatistSlave
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+# Shuttles
+
+- type: listing
+  id: UplinkSeparatistASM302
+  name:  uplink-separatist-asm302-name
+  description: uplink-separatist-asm302-desc
+  productEntity: RocketMissileGunneryASM302
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Explosives/happiness.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistSmallM220
+  name:  uplink-separatist-smallm220-name
+  description: uplink-separatist-smallm220-desc
+  productEntity: PowerCageSmallM220
+  icon: { sprite: _radiant/Objects/Power/emp_energycell.rsi, state: small}
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistAmmoGunnery20mm
+  name:  uplink-separatist-ammogunnery20mm-name
+  description: uplink-separatist-ammogunnery20mm-desc
+  productEntity: MagazineGunnery20mm
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/20mm.rsi, state: base }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistAmmoBoxGunnery90mm
+  name:  uplink-separatist-ammoboxgunnery90mm-name
+  description: uplink-separatist-ammoboxgunnery90mm-desc
+  productEntity: MagazineBoxGunnery90mm
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/box_90.rsi, state: base }
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistSmallType35
+  name:  uplink-separatist-smalltype35-name
+  description: uplink-separatist-smalltype35-desc
+  productEntity: PowerCageSmallType35
+  icon: { sprite: _radiant/Objects/Power/energy_cell.rsi, state: small}
+  cost:
+    BlackMoney: 3
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistCageRecharger
+  name:  uplink-separatist-cagerecharger-name
+  description: uplink-separatist-cagerecharger-desc
+  productEntity: PowerCageRechargerCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: power_mod}
+  cost:
+    BlackMoney: 3
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistAmmoGunnery90mm
+  name:  uplink-separatist-ammogunnery90mm-name
+  description: uplink-separatist-ammogunnery90mm-desc
+  productEntity: MagazineGunnery90mm
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/90mm.rsi, state: base }
+  cost:
+    BlackMoney: 3
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistMediumM220
+  name:  uplink-separatist-mediumm220-name
+  description: uplink-separatist-mediumm220-desc
+  productEntity: PowerCageMediumM220
+  icon: { sprite: _radiant/Objects/Power/emp_energycell.rsi, state: medium}
+  cost:
+    BlackMoney: 4
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHighM220
+  name:  uplink-separatist-highm220-name
+  description: uplink-separatist-highm220-desc
+  productEntity: PowerCageHighM220
+  icon: { sprite: _radiant/Objects/Power/emp_energycell.rsi, state: high}
+  cost:
+    BlackMoney: 6
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistMediumType35
+  name:  uplink-separatist-mediumtype35-name
+  description: uplink-separatist-mediumtype35-desc
+  productEntity: PowerCageMediumType35
+  icon: { sprite: _radiant/Objects/Power/energy_cell.rsi, state: medium}
+  cost:
+    BlackMoney: 7
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistHighType35
+  name:  uplink-separatist-hightype35-name
+  description: uplink-separatist-hightype35-desc
+  productEntity: PowerCageHighType35
+  icon: { sprite: _radiant/Objects/Power/energy_cell.rsi, state: high}
+  cost:
+    BlackMoney: 11
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink

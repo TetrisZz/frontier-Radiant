@@ -18,7 +18,7 @@
   supervisors: job-supervisors-captain
   weight: 30
   displayWeight: 30
-  setPreference: true
+  setPreference: false
   access:
   - Pirate
   accessGroups:

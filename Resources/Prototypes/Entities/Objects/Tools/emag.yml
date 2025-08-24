@@ -20,3 +20,8 @@
   components:
   - type: LimitedCharges
   - type: AutoRecharge
+  - type: Tool # Radiant_sector
+    qualities: # Radiant_sector
+      - EMAG # Radiant_sector
+    useSound: # Radiant_sector
+      path: /Audio/Items/Culinary/chop.ogg # Radiant_sector

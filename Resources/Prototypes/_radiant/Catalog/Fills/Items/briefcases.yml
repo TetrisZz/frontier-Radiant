@@ -169,6 +169,19 @@
     - id: GrenadeFragM203
       amount: 2
 
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongM203Separatist
+  suffix: Separatist, M203
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherM203
+      amount: 1
+    - id: GrenadeSmokeM203
+      amount: 10
+
 # Melee
 - type: entity
   parent: WeaponCaseShort

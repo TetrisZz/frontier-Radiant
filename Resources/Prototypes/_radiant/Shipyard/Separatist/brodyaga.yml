@@ -1,0 +1,32 @@
+- type: vessel
+  id: Brodyaga
+  parent: BaseVesselAntag
+  name: Бродяга
+  description: Судно ранее бывшее круизным кораблем, имеет хорошую обзорную площадку, а теперь это модернизированный корвет работорговцев.
+  price: 60000
+  category: Medium
+  group: Separatist
+  access: Brodyaga
+  shuttlePath: /Maps/_radiant/Shuttles/Separatist/Brodyaga.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Brodyaga
+  mapName: 'Бродяга'
+  mapPath: /Maps/_radiant/Shuttles/Separatist/Brodyaga.yml
+  minPlayers: 0
+  stations:
+    Brodyaga:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Бродяга {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

@@ -1,6 +1,6 @@
 - type: entity
   id: CartridgePistolIce
-  name: cartridge (.35 auto ice)
+  name: патрон (.35 auto ice)
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo

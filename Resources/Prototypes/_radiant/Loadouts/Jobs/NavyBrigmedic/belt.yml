@@ -1,0 +1,9 @@
+- type: loadout
+  id: NAVYClothingBeltMedicalFilled
+  equipment:
+    belt: ClothingBeltMedicalFilled
+
+- type: loadout
+  id: NAVYClothingBeltMedicalEMTFilled
+  equipment:
+    belt: ClothingBeltMedicalEMTFilled

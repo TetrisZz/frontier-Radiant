@@ -1,0 +1,44 @@
+- type: job
+  id: SeparatistsPrivateSlave
+  name: job-name-separatists-private-slave
+  description: job-description-separatists-private-slave
+  playTimeTracker: JobSeparatistsPrivateSlave
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 21600 # 6 hours Radiant_Sector
+  allowedSexes:
+    - Female    
+  startingGear: SeparatistsPrivateSlaveGear
+  icon: "JobIconSeparatistsPrivateSlave" 
+  supervisors: job-supervisors-hire
+  weight: 38
+  displayWeight: 38
+  access:
+  - Separatists
+  accessGroups: # Frontier
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SpecialSectorStationRecord # must be given on spawn
+      recordGeneration: FalseRecord
+    - type: ShockOnTrigger
+      damage: 1
+      duration: 2
+      cooldown: 1
+    - type: TriggerOnSignal
+    - type: DeviceLinkSink
+      ports:
+        - Trigger
+  - !type:AddImplantSpecial
+    implants: [ SeparatistsTrackingImplant ]
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: SeparatistsPrivateSlaveGear
+  equipment:
+    neck: ClothingNeckShockCollarPrivateSlave
+    pocket1: HandcuffsPrivateSlave
+    pocket2: BlackMoney5

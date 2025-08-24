@@ -1,0 +1,51 @@
+- type: job
+  id: NavyKomandor
+  name: job-name-navy-komandor
+  description: job-description-navy-komandor
+  playTimeTracker: JobNavyKomandor
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 86400 # 24 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 64800 # 18 hours
+    - !type:RoleTimeRequirement
+      role: JobSeniorOfficer
+      time: 21600 # 6 hours
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 150 # 200 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 43200 # 12 hours
+  startingGear: NavyKomandorGear
+  icon: "JobIconNavyKomandor" 
+  supervisors: job-supervisors-hire
+  weight: 190
+  displayWeight: 75
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplantNavy ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: NavyKomandorGear
+  equipment:
+    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+  storage:
+    back:
+    - NfsdTechFabFlatpack
+    - Multitool
+    - DoorRemoteNfsd
+    - BaseNavyUplinkRadioKomandor
+    - RubberStampSheriff
+    - NavyToken2
+    - NFPouchNavy

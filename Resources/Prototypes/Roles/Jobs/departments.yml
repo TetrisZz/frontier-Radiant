@@ -113,7 +113,7 @@
 #  - SecurityOfficer # Frontier
 #  - Warden # Frontier
   - PrisonGuard ##nyano
-  - Brigmedic # Frontier
+#  - Brigmedic # Frontier / Deleted Radiant_Sector
 #  - SecurityGuard # Frontier
   - NFDetective # Frontier
   - Cadet # Frontier

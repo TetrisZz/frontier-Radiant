@@ -1,0 +1,8 @@
+- type: accessLevel
+  id: Separatists
+  name: id-card-access-level-separatists
+  
+- type: accessGroup
+  id: SeparatistsGroup
+  tags:
+  - Separatists

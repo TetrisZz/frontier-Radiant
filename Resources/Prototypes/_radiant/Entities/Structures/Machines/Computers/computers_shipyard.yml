@@ -1,0 +1,73 @@
+- type: entity
+  id: ComputerShipyardNavy
+  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyardBase]
+  name: NFSD shipyard console
+  description: Used to buy NFSD patrol vessels.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_nfsd
+    - map: ["computerLayerKeys"]
+      state: telesci_key
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Navy
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Navy:
+        type: ShipyardConsoleBoundUserInterface
+  - type: ShipyardConsole
+    shipyardChannel: Navy
+    newAccessLevels: [Captain, Navy, Brig]
+
+- type: entity
+  id: ComputerShipyardSeparatist
+  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
+  name: black market shipyard console
+  description: Used to buy ill-gotten vesssels for nefarious purposes.
+  components:
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Separatist
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Separatist:
+        type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_blackmarket
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_blackmarket
+    - map: ["computerLayerKeys"]
+      state: blackmarket_key
+  - type: ShipyardConsole
+    shipyardChannel: Separatist
+    secretShipyardChannel: Command
+    taxAccounts:
+      Invalid: 0.30
+    ignoreBaseSaleRate: true # Fixed 70% sale rate.
+    canTransferDeed: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: ComputerShipyardBlackMarket
+    node: repaired

@@ -1,7 +1,7 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyAcorp
-  name: freelancer encryption key
+  name: ключ акорп
   description: An encryption key used by freelancers, who may or may not have an affiliation. It looks like it's worn out.
   components:
   - type: EncryptionKey
@@ -15,3 +15,33 @@
     layers:
     - state: crypt_gray
     - state: acorp_label
+
+- type: entity
+  parent: EncryptionKeyAcorp
+  id: EncryptionKeySeparatist
+  name: ключ сепаратиста
+  description: An encryption key used by freelancers, who may or may not have an affiliation. It looks like it's worn out.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Separatist
+    defaultChannel: Separatist
+  - type: Sprite
+    layers:
+    - state: crypt_sep
+    - state: sep_label
+
+- type: entity
+  parent: EncryptionKeyAcorp
+  id: EncryptionKeyNavy
+  name: ключ конфедеративного флота
+  description: An encryption key used by freelancers, who may or may not have an affiliation. It looks like it's worn out.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Navy
+    defaultChannel: Navy
+  - type: Sprite
+    layers:
+    - state: crypt_navy
+    - state: navy_label

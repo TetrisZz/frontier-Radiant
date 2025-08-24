@@ -1,3 +1,5 @@
+# Acrop
+
 - type: entity
   parent: BasePDA
   id: AcorpPDA
@@ -53,7 +55,7 @@
   parent: AcorpPDA
   id: AcorpEngineerPDA
   name: КПК инженера
-  description: Выглядит так, как будто его пересобирали несколько раз...несксолько десятков...
+  description: Выглядит так, как будто его пересобирали несколько раз...несколько десятков...
   components:
   - type: Pda
     id: AcorpEngineerIDCard
@@ -166,3 +168,253 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-director
+
+# Separatists
+
+- type: entity
+  parent: BasePDA
+  id: PDASeparatistsCommander
+  name: КПК главы
+  description: Самый обычный КПК, который гласит о вашей власти и непобедимости. Среди рабов...?
+  components:
+  - type: Pda
+    id: SeparatistsCommanderIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-chapter
+  - type: PdaBorderColor
+    borderColor: "#282828"
+    accentHColor: "#d7d7d0"
+    accentVColor: "#282828"
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-chapter"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDASeparatistsPrivateSlave
+  name: КПК личной рабыни
+  description: Как это мило...как ты тут оказалась?
+  components:
+  - type: Pda
+    id: SeparatistsPrivateSlaveIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-personalslave
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#282828"
+    accentVColor: "#282828"
+  - type: Icon
+    state: pda-personalslave
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDASeparatistsOperative
+  name: КПК оперативника
+  description: Пахнет кровью рекрутов и порохом.
+  components:
+  - type: Pda
+    id: SeparatistsOperativeIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-operative
+  - type: PdaBorderColor
+    borderColor: "#862510"
+    accentHColor: "#282828"
+    accentVColor: "#862510"
+  - type: Icon
+    state: pda-operative
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDASeparatistsWarden
+  name: КПК надзирателя
+  description: Исполнит ли он роль хлыста?
+  components:
+  - type: Pda
+    id: SeparatistsWardenIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-warden
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#3a6b78"
+    accentVColor: "#3a6b78"
+  - type: Icon
+    state: pda-warden
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDASeparatistsRecruit
+  name: КПК рекрута
+  description: Стильный и крутой, но так только по началу.
+  components:
+  - type: Pda
+    id: SeparatistsRecruitIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-reserve
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#8900c9"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-reserve
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDASeparatistsSlave
+  name: КПК раба
+  description: Ну и чего ты добился?
+  components:
+  - type: Pda
+    id: SeparatistsSlaveIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-slave
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#8900c9"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-slave
+
+# NAVY
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDANavyCadet
+  name: КПК курсанта
+  description: Стильный и крутой, но так только по началу.
+  components:
+  - type: Pda
+    id: NavyCadetIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-cadetfleet
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#282828"
+    accentVColor: "#282828"
+  - type: Icon
+    state: pda-cadetfleet
+  - type: Contraband
+    turnInValues:
+      SeparatistToken: 1
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDANavyBrigmedic
+  name: КПК ОМС
+  description: Пахнет Инсузином, странно...
+  components:
+  - type: Pda
+    id: NavyBrigmedicIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-doctorfleet
+  - type: PdaBorderColor
+    borderColor: "#862510"
+    accentHColor: "#282828"
+    accentVColor: "#862510"
+  - type: Icon
+    state: pda-doctorfleet
+  - type: Contraband
+    turnInValues:
+      SeparatistToken: 1
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDANavyOfficer
+  name: КПК офицера
+  description: Пахнет кровью и порохом.
+  components:
+  - type: Pda
+    id: NavyOfficerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-fleetofficer
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#3a6b78"
+    accentVColor: "#3a6b78"
+  - type: Icon
+    state: pda-fleetofficer
+  - type: Contraband
+    turnInValues:
+      SeparatistToken: 1
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDANavyCaptain
+  name: КПК капитана 
+  description: Дорого ли он стоит? Хм...
+  components:
+  - type: Pda
+    id: NavyCaptainIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-captainfleet
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#8900c9"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-captainfleet
+  - type: Contraband
+    turnInValues:
+      SeparatistToken: 1
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDANavyKomandor
+  name: КПК коммандора
+  description: Так и гласит, что вы непобедимы.
+  components:
+  - type: Pda
+    id: NavyKomandorIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-commander
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#8900c9"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-commander
+  - type: Contraband
+    turnInValues:
+      SeparatistToken: 1

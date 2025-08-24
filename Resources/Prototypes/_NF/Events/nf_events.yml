@@ -50,7 +50,7 @@
     weight: 1
     duration: 35
     earliestStart: 90
-    minimumPlayers: 20
+    minimumPlayers: 10 #Radiant_sector
     reoccurrenceDelay: 480 # 8 hours
   - type: BluespaceCargoRule
     spawnerPrototype: CrateSyndicateSurplusBundle
@@ -64,7 +64,7 @@
     weight: 8 # Fairly common.
     duration: 35
     earliestStart: 50
-    minimumPlayers: 20
+    minimumPlayers: 10 #Radiant_sector
     reoccurrenceDelay: 50
   - type: RandomFaxRule
     minFaxes: 1

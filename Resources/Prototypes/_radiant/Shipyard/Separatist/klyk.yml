@@ -1,0 +1,32 @@
+- type: vessel
+  id: Klyk
+  parent: BaseVesselAntag
+  name: Клык
+  description: "Небольшое  судно сепаратистов, созданное для быстрых ударов и стремительных налётов. «Клык» отличается высокой манёвренностью."
+  price: 60000
+  category: Medium
+  group: Separatist
+  access: Klyk
+  shuttlePath: /Maps/_radiant/Shuttles/Separatist/Klyk.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Klyk
+  mapName: 'Клык'
+  mapPath: /Maps/_radiant/Shuttles/Separatist/Klyk.yml
+  minPlayers: 0
+  stations:
+    Klyk:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Клык {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

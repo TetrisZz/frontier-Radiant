@@ -1,0 +1,14 @@
+- type: loadout
+  id: NAVYClothingOuterCoatNavyLong
+  equipment:
+    outerClothing: ClothingOuterCoatNavyLong
+
+- type: loadout
+  id: NAVYClothingOuterCoatNavySilverLong
+  equipment:
+    outerClothing: ClothingOuterCoatNavySilverLong
+
+- type: loadout
+  id: NAVYClothingOuterCoatNavy
+  equipment:
+    outerClothing: ClothingOuterCoatNavy

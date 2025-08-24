@@ -1,0 +1,9 @@
+- type: entity
+  parent: TelecomServer
+  id: TelecomServerFilledSeparatist
+  suffix: Separatist
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySeparatist

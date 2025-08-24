@@ -1,0 +1,26 @@
+- type: loadoutGroup
+  id: SEPWardenPDA
+  name: loadout-group-medical-id
+  hidden: true
+  loadouts:
+  - SEPPDASeparatistsWarden
+  fallbacks:
+  - SEPPDASeparatistsWarden
+
+- type: loadoutGroup
+  id: SEPWardenJumpsuit
+  name: loadout-group-medical-jumpsuit
+  loadouts:
+  - SEPClothingUniformJumpsuitSeparatistWarden
+  - SEPClothingUniformJumpskirtSeparatistWarden
+  fallbacks:
+  - SEPClothingUniformJumpsuitSeparatistWarden
+  - SEPClothingUniformJumpskirtSeparatistWarden
+
+- type: loadoutGroup
+  id: SEPWardenOuterClothing
+  name: loadout-group-medical-outerclothing
+  minLimit: 0
+  loadouts:
+  - SEPClothingOuterCoatSeparatist
+  - SEPClothingOuterArmorSeparatist

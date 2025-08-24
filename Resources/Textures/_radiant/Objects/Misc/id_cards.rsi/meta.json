@@ -34,9 +34,44 @@
     {
       "name": "idscience"
     },
-
     {
       "name": "silver"
+    },
+    {
+      "name": "white"
+    },
+    {
+      "name": "idcadetfleet"
+    },
+    {
+      "name": "idcaptainfleet"
+    },
+    {
+      "name": "idcommander"
+    },
+    {
+      "name": "iddoctorfleet"
+    },
+    {
+      "name": "idfleetofficer"
+    },
+    {
+      "name": "brown"
+    },
+    {
+      "name": "idoperative"
+    },
+    {
+      "name": "idpersonalslave"
+    },
+    {
+      "name": "idslave"
+    },
+    {
+      "name": "idwarden"
+    },
+    {
+      "name": "idchapter"
     },
     {
       "name": "default-inhand-left",

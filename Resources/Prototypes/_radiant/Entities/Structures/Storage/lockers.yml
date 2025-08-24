@@ -62,7 +62,7 @@
     stateDoorOpen: cadet_open
     stateDoorClosed: cadet_door
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Navy"]]
 
 - type: entity
   id: LockerNavyOfficer
@@ -75,7 +75,7 @@
     stateDoorOpen: officer_open
     stateDoorClosed: officer_door
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Navy"]]
 
 - type: entity
   id: LockerNavyCapitan
@@ -88,7 +88,7 @@
     stateDoorOpen: capitan_open
     stateDoorClosed: capitan_door
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Navy"]]
 
 - type: entity
   id: LockerNavyCommandor
@@ -101,4 +101,4 @@
     stateDoorOpen: commandor_open
     stateDoorClosed: commandor_door
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Navy"]]

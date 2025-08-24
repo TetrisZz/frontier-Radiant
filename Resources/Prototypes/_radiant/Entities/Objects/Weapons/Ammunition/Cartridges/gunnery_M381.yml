@@ -1,6 +1,6 @@
 - type: entity
   id: BaseCartridgeGunneryM381
-  name: cartridge (M381)
+  name: снаряд (M381)
   parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseRestrictedContraband<BaseC1Contraband
   abstract: true
   components:
@@ -23,7 +23,7 @@
 
 - type: entity
   id: CartridgeGunneryM381
-  name: cartridge (M381)
+  name: снаряд (M381)
   parent: BaseCartridgeGunneryM381
   components:
   - type: CartridgeAmmo

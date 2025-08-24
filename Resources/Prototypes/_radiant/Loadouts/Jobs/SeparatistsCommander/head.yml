@@ -1,0 +1,25 @@
+- type: loadout
+  id: SEPClothingHeadHatSeparatist
+  equipment:
+    head: ClothingHeadHatSeparatist
+
+- type: loadout
+  id: SEPClothingHeadHatBeretSeparatist
+  equipment:
+    head: ClothingHeadHatBeretSeparatist
+
+- type: loadout
+  id: SEPClothingHeadHelmetSeparatist3
+  equipment:
+    head: ClothingHeadHelmetSeparatist3
+
+- type: loadout
+  id: SEPClothingHeadHelmetSeparatist
+  equipment:
+    head: ClothingHeadHelmetSeparatist
+
+- type: loadout
+  id: SEPClothingHeadHelmetSeparatist2
+  equipment:
+    head: ClothingHeadHelmetSeparatist2
+

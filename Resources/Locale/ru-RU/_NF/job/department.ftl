@@ -2,4 +2,4 @@
 department-Antag = Криминал
 department-Command = Командование Сектора
 department-Frontier = Фронтир
-department-Security = Департамент Шерифа Нового Фронтира
+department-Security = Департамент Внутренней Безопасности

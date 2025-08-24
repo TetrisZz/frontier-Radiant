@@ -8,6 +8,10 @@
   },
   "states": [
     {"name": "acorp_label"},
-    {"name": "crypt_gray"}
+    {"name": "crypt_gray"},
+    {"name": "sep_label"},
+    {"name": "crypt_sep"},
+    {"name": "navy_label"},
+    {"name": "crypt_navy"}
   ]
 }

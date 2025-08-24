@@ -1,0 +1,189 @@
+# Navy
+
+- type: entity
+  parent: BaseShipVoucher
+  id: ShipVoucherBaseNavyShipyard
+  name: ваучер на шаттл сепаратистов
+  description: Позволяет приобрести один корабль на верфи сепаратистов. Уничтожается после продажи.
+  components:
+  - type: Sprite
+    layers:
+    - state: nfsd
+    - state: vouchersergeant
+  - type: Item
+    heldPrefix: navy
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Navy
+
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavyNormandy
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Normandy
+
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavyZenith
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Zenith
+
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavySuveren
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Suveren
+
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavyBuran
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Buran
+
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavyAvangard
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Avangard
+
+# Separatist
+
+- type: entity
+  parent: BaseShipVoucher
+  id: ShipVoucherBaseSeparatistShipyard
+  components:
+  - type: Sprite
+    layers:
+    - state: nfsd
+    - state: vouchersergeant
+  - type: Item
+    heldPrefix: separatist
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Separatist
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistKaratel
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Karatel
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistBrodyaga
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Brodyaga
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistPrizrak
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Prizrak
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistPepel
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Pepel
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistKlyk
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Klyk
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistKursor
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Kursor
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistGrabitel
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Grabitel
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistStrela
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Strela

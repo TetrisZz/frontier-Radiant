@@ -2,7 +2,7 @@
   name: ремонтный набор
   parent: BaseItem
   id: BlueSpaceRepairKit
-  description: Очень важный тулбокс в вашей жизни, ведь только он поможет восстановить бс двигатели.
+  description: Очень важный тулбокс в вашей жизни, ведь только он поможет восстановить бсс двигатели.
   components:
   - type: EmitSoundOnLand
     sound:

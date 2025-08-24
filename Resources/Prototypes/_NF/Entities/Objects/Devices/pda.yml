@@ -158,6 +158,9 @@
     - AstroNavCartridge
     - WantedListCartridge
     - LedgerCartridge
+  - type: Contraband #Radiant_sector
+    turnInValues: #Radiant_sector
+      SeparatistToken: 1 #Radiant_sector
 
 - type: entity
   parent: BaseSecurityPDA
@@ -184,6 +187,9 @@
     accentHColor: "#896b49"
   - type: Icon
     state: pda-cadet
+  - type: Contraband #Radiant_sector
+    turnInValues: #Radiant_sector
+      SeparatistToken: 1 #Radiant_sector
 
 - type: entity
   parent: BaseSecurityPDA
@@ -210,6 +216,9 @@
     accentHColor: "#896b49"
   - type: Icon
     state: pda-deputy
+  - type: Contraband #Radiant_sector
+    turnInValues: #Radiant_sector
+      SeparatistToken: 1 #Radiant_sector
 
 - type: entity
   parent: BaseSecurityPDA
@@ -236,6 +245,9 @@
     accentHColor: "#896b49"
   - type: Icon
     state: pda-brigmed
+  - type: Contraband #Radiant_sector
+    turnInValues: #Radiant_sector
+      SeparatistToken: 1 #Radiant_sector
 
 - type: entity
   parent: BaseSecurityPDA
@@ -262,6 +274,9 @@
     accentHColor: "#896b49"
   - type: Icon
     state: pda-sergeant
+  - type: Contraband #Radiant_sector
+    turnInValues: #Radiant_sector
+      SeparatistToken: 1 #Radiant_sector
 
 - type: entity
   parent: BaseSecurityPDA
@@ -288,6 +303,9 @@
     accentHColor: "#896b49"
   - type: Icon
     state: pda-bailiff
+  - type: Contraband #Radiant_sector
+    turnInValues: #Radiant_sector
+      SeparatistToken: 1 #Radiant_sector
 
 - type: entity
   parent: BaseSecurityPDA
@@ -313,6 +331,9 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-nfdetective
+  - type: Contraband #Radiant_sector
+    turnInValues: #Radiant_sector
+      SeparatistToken: 1 #Radiant_sector
 
 - type: entity
   parent: BaseSecurityPDA
@@ -345,6 +366,9 @@
     accentHColor: "#896b49"
   - type: Icon
     state: pda-pal
+  - type: Contraband #Radiant_sector
+    turnInValues: #Radiant_sector
+      SeparatistToken: 1 #Radiant_sector
 
 - type: entity
   parent: [BaseSecurityPDA, BaseCommandContraband]

@@ -1,0 +1,33 @@
+- type: entity
+  parent: [BaseItem, BaseC3SyndicateContraband]
+  id: SeparatistCollarKey
+  name: многоразовый ключ
+  description: Ключ, с помощью которого можно открыть ошейник вашего раба...или что-то ещё? Не имеет гарантии, что ошейник остается целым.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/collar_key.rsi
+    state: icon
+  - type: Item
+    sprite: _radiant/Objects/Devices/collar_key.rsi
+    storedRotation: -90
+  - type: SmugglingCapsuleItem
+  - type: Tool
+    qualities:
+      - CollarUnlock
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+
+- type: entity
+  parent: [BaseItem, BaseC3SyndicateContraband]
+  id: SeparatistCollarKeyLimited
+  name: одноразовый ключ
+  description: Ключ, с помощью которого можно открыть ошейник вашего раба...или что-то ещё? Не имеет гарантии, что ошейник остается целым.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/collar_key_limited.rsi
+    state: icon
+  - type: Item
+    sprite: _radiant/Objects/Devices/collar_key_limited.rsi
+  - type: Tag
+    tags:
+    - SeparatistCollarKeyLimited

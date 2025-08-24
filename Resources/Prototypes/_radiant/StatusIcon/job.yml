@@ -1,3 +1,4 @@
+ #Acorp
 - type: jobIcon
   parent: JobIcon
   id: JobIconAcorpСommandant
@@ -62,3 +63,94 @@
     state: command
   jobName: job-name-acorp-director
 
+# Separatists
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSeparatistsSlave
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: slave
+  jobName: job-name-acorp-science
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSeparatistsRecruit
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: operative
+  jobName: job-name-acorp-engineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSeparatistsWarden
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: warden
+  jobName: job-name-separatists-warden
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSeparatistsOperative
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: operative
+  jobName: job-name-separatists-operative
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSeparatistsPrivateSlave
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: personalslave
+  jobName: job-name-separatists-private-slave
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSeparatistsCommander
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: chapter
+  jobName: job-name-separatists-сommander
+
+# Navy
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNavyCadet
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: cadetfleet
+  jobName: job-name-navy-cadet
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNavyBrigmedic
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: doctorfleet
+  jobName: job-name-navy-brigmedic
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNavyOfficer
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: fleetofficer
+  jobName: job-name-navy-officer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNavyCaptain
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: captainfleet
+  jobName: job-name-navy-captain
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNavyKomandor
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: commander
+  jobName: job-name-navy-komandor

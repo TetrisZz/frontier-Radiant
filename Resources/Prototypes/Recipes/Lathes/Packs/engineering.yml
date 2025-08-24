@@ -58,6 +58,7 @@
   - PowerDrill
   - WelderExperimental
   - JawsOfLife
+  - BlueSpaceRepairKit
   # - Fulton # Frontier
   # - FultonBeacon # Frontier
 
@@ -79,6 +80,7 @@
   id: EngineeringBoards
   recipes:
   - ThermomachineFreezerMachineCircuitBoard
+  - MachineFTLDriveCircuitboard #Radiant_sector
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - SolarControlComputerCircuitboard

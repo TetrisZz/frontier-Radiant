@@ -1,0 +1,241 @@
+# Filled Folder
+- type: entity
+  id: FillNavyForms
+  abstract: true
+  components:
+  - type: StorageFill
+    contents:
+    - id: PaperWrittenNavyWarrant
+    - id: PaperWrittenNavyReport
+    - id: PaperWrittenNavyArrestWarrant
+    - id: PaperWrittenNavyDutyLog
+    - id: PaperWrittenNavyContrabandPermit
+    - id: Paper
+      prob: 0.5
+    - id: Paper
+      prob: 0.5
+
+- type: entity
+  id: BoxFolderNavyForms
+  parent: [FillNavyForms, BoxFolderPalGreen]
+  name: NFSD form folder
+  description: A folder filled with NFSD paperwork templates.
+  suffix: Forms, Green
+
+- type: entity
+  id: BoxFolderNavyFormsBrown
+  parent: [FillNavyForms, BoxFolderPalBrown]
+  name: NFSD form folder
+  description: A folder filled with NFSD paperwork templates.
+  suffix: Forms, Brown
+
+# Forms
+- type: entity
+  id: PaperWrittenNavyWarrant
+  name: ордер на обыск
+  parent: Paper
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    content: |2
+      [color=#003153]████░░░░████                              ★★★[/color]
+      [color=#003153]████░░░████░[/color]      [head=3]Бланк документа[/head]
+      [color=#003153]████░░████░░[/color] 
+      [color=#003153]████░████░░░[/color]      [head=3]Форпост ОСК [/head]
+      [color=#003153]████░░████░░[/color]
+      [color=#003153]████░░░████░[/color]
+      [color=#003153]████░░░░████                             ★★★[/color]
+      [head=2]═════════════════════════════[/head]
+      [head=1]          Ордер на обыск[/head]
+      [head=2]═════════════════════════════[/head]
+
+      [head=3]Информация об ордере[/head]
+      [bold]Субъект (идентификационный номер лица/судна):[/bold] 
+      [bold]Причина запроса:[/bold] 
+      [bold]Время смены:[/bold]
+
+      [head=3]Информация о заявителе[/head]
+      [bold]Номер дела:[/bold] 
+      [bold]Время запроса:[/bold] 
+      [bold]Сотрудник, подавший запрос:[/bold] 
+      [bold]Звание сотрудника:[/bold] 
+
+      [head=2]Информация о заявителе[/head]
+      [bold]Заявитель:[/bold] 
+      [bold]Уполномоченный сотрудник:[/bold] 
+      [bold] Время выдачи разрешения:[/bold]  
+
+
+      [color=#AAAAAA]Этот ордер действителен только в том случае, если он запрошен сотрудником ДВБ либо КФ и одобрен, подписан и скреплен печатью отдельным (если это   возможно) должностным лицом, имеющим ранг Инспектора или выше, или Представителем Сектора.[/color]
+      [head=2]═════════════════════════════[/head]
+                                       [italic]Место для печатей[/italic]
+
+- type: entity
+  id: PaperWrittenNavyReport
+  name: отчет о принятых мерах
+  parent: Paper
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    content: |2
+      [color=#003153]████░░░░████                              ★★★[/color]
+      [color=#003153]████░░░████░[/color]      [head=3]Бланк документа[/head]
+      [color=#003153]████░░████░░[/color] 
+      [color=#003153]████░████░░░[/color]      [head=3]Форпост ОСК [/head]
+      [color=#003153]████░░████░░[/color]
+      [color=#003153]████░░░████░[/color]
+      [color=#003153]████░░░░████                             ★★★[/color]
+      [head=2]═════════════════════════════[/head]
+      [head=1]          Отчёт о принятых мерах[/head]
+      [head=2]═════════════════════════════[/head]
+
+      [bold]Дело №::[/bold] 
+      [bold]Судно-нарушитель:[/bold] 
+
+      [bold]Подозреваемый:[/bold] 
+      [bold]Обвинения (перечислите все случаи эскалации):[/bold] 
+
+      [bold]Подозреваемый:[/bold] 
+      [bold]Обвинения (перечислите все случаи эскалации):[/bold] 
+
+      [head=2]Судно, прибывшее на место[/head]
+      [bold]Время происшествия:[/bold] 
+      [bold]Сотрудники на борту:[/bold] 
+      [head=3] Собранные доказательства:[/head]
+      Перечислите все собранные доказательства и укажите, у кого они находятся.
+
+      [head=3] Краткое описание происшествия:[/head]
+      [head=3] Рекомендации:[/head]
+
+
+      [color=#AAAAAA]Я, [italic]Инспектор или Шериф[/italic] ПСсО, или агент, действующий от их имени, подтверждаю, что всё, написанное в этом отчёте, является верным и правдивым. Я осведомлён о последствиях, если что-либо в этом отчёте окажется неверным, сфальсифицированным или преувеличенным.[/color]
+      [head=2]═════════════════════════════[/head]
+                                       [italic]Место для печатей[/italic]
+
+- type: entity
+  id: PaperWrittenNavyArrestWarrant
+  name: ордер на арест
+  parent: Paper
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    content: |2
+      [color=#003153]████░░░░████                              ★★★[/color]
+      [color=#003153]████░░░████░[/color]      [head=3]Бланк документа[/head]
+      [color=#003153]████░░████░░[/color] 
+      [color=#003153]████░████░░░[/color]      [head=3]Форпост ОСК [/head]
+      [color=#003153]████░░████░░[/color]
+      [color=#003153]████░░░████░[/color]
+      [color=#003153]████░░░░████                             ★★★[/color]
+      [head=2]═════════════════════════════[/head]
+      [head=1]          Ордер на арест[/head]
+      [head=2]═════════════════════════════[/head]
+
+      [head=2]Обвиняемый(е)[/head]
+      [bold]Имя:[/bold] 
+      [bold]Описание:[/bold] 
+
+      [head=2]Сведения о правонарушении[/head]
+      [bold]Номер дела:[/bold] 
+      [bold]Приблизительное время совершения правонарушения:[/bold] 
+      [bold]Место совершения правонарушения:[/bold] 
+      [bold]Обвинения:[/bold] 
+
+      [head=2]Информация о заявителе[/head]
+      [bold]Заявитель:[/bold] 
+      [bold]Уполномоченный сотрудник:[/bold] 
+      [bold] Время выдачи разрешения:[/bold]  
+
+
+      [color=#AAAAAA]Этот ордер действителен только в том случае, если он запрошен сотрудником ДВБ либо КФ и одобрен, подписан и скреплен печатью отдельным (если это   возможно) должностным лицом, имеющим ранг Инспектора или выше, или Представителем Сектора.[/color]
+      [head=2]═════════════════════════════[/head]
+                                       [italic]Место для печатей[/italic]
+
+
+- type: entity
+  id: PaperWrittenNavyDutyLog
+  name: журнал дежурств
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+      [color=#003153]████░░░░████                              ★★★[/color]
+      [color=#003153]████░░░████░[/color]      [head=3]Бланк документа[/head]
+      [color=#003153]████░░████░░[/color] 
+      [color=#003153]████░████░░░[/color]      [head=3]Форпост ОСК [/head]
+      [color=#003153]████░░████░░[/color]
+      [color=#003153]████░░░████░[/color]
+      [color=#003153]████░░░░████                             ★★★[/color]
+      [head=2]═════════════════════════════[/head]
+      [head=1]         Журнал дежурств[/head]
+      [head=2]═════════════════════════════[/head]
+
+      [bold]Должность:[/bold] 
+      [bold]Имя:[/bold] 
+      [bold]Время начала службы:[/bold] 
+      [bold]Время ухода со службы :[/bold] 
+
+      [bold]Должность:[/bold] 
+      [bold]Имя:[/bold] 
+      [bold]Время начала службы:[/bold] 
+      [bold]Время ухода со службы :[/bold]
+
+      [bold]Должность:[/bold] 
+      bold]Имя:[/bold] 
+      [bold]Время начала службы:[/bold] 
+      [bold]Время ухода со службы :[/bold]
+
+      [bold]Должность:[/bold] 
+      [bold]Имя:[/bold] 
+      [bold]Время начала службы:[/bold] 
+      [bold]Время ухода со службы :[/bold]
+
+      [bold]Должность:[/bold] 
+      [bold]Имя:[/bold] 
+      [bold]Время начала службы:[/bold] 
+      [bold]Время ухода со службы :[/bold]
+
+      [bold]Должность:[/bold] 
+      [bold]Имя:[/bold] 
+      [bold]Время начала службы:[/bold] 
+      [bold]Время ухода со службы :[/bold]
+
+      [bold]Должность:[/bold] 
+      [bold]Имя:[/bold] 
+      [bold]Время начала службы:[/bold] 
+      [bold]Время ухода со службы :[/bold]
+
+      [bold]Должность:[/bold] 
+      [bold]Имя:[/bold] 
+      [bold]Время начала службы:[/bold] 
+      [bold]Время ухода со службы :[/bold]
+
+      [color=#AAAAAA] Эта форма содержит конфиденциальные данные, класс 2, и предназначена только для внутреннего использования КФ\ДВБ.[/color]
+
+- type: entity
+  id: PaperWrittenNavyContrabandPermit
+  name: лицензия наёмника
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+      [color=#003153]████░░░░████                              ★★★[/color]
+      [color=#003153]████░░░████░[/color]      [head=3]Бланк документа[/head]
+      [color=#003153]████░░████░░[/color] 
+      [color=#003153]████░████░░░[/color]      [head=3]Форпост ОСК [/head]
+      [color=#003153]████░░████░░[/color]
+      [color=#003153]████░░░████░[/color]
+      [color=#003153]████░░░░████                             ★★★[/color]
+      [head=2]═════════════════════════════[/head]
+      [head=1]          Лицензия наемника[/head]
+      [head=2]═════════════════════════════[/head]
+      [bold]Время:[/bold]
+      [bold]Время действия лицензии:[/bold]
+      [bold]Ф.И.О:[/bold]
+      [bold]Должность:[/bold] 
+      [bold]Причина получения:[/bold] 
+      [bold]Предметы, которыми вы будете пользоваться:[/bold]
+      [head=2]═════════════════════════════[/head]
+                                          [italic]Место для печатей[/italic]

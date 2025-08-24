@@ -1,0 +1,55 @@
+- type: loadoutGroup
+  id: SEPRecruitPDA
+  name: loadout-group-medical-id
+  hidden: true
+  loadouts:
+  - SEPPDASeparatistsRecruit
+  fallbacks:
+  - SEPPDASeparatistsRecruit
+
+- type: loadoutGroup
+  id: SEPRecruitJumpsuit
+  name: loadout-group-medical-jumpsuit
+  hidden: true
+  loadouts:
+  - SEPClothingUniformJumpsuitSeparatistCadet
+  fallbacks:
+  - SEPClothingUniformJumpsuitSeparatistCadet
+
+- type: loadoutGroup
+  id: SEPRecruitHead
+  name: loadout-group-engineer-head
+  minLimit: 0
+  loadouts:
+  - SEPClothingHeadHatSeparatist
+  - SEPClothingHeadHelmetSeparatist3
+  - SEPClothingHeadHelmetSeparatist
+  - SEPClothingHeadHelmetSeparatist2
+
+- type: loadoutGroup
+  id: SEPRecruitOuterClothing
+  name: loadout-group-medical-outerclothing
+  minLimit: 0
+  loadouts:
+  - SEPClothingOuterArmorSeparatist4
+  - SEPClothingOuterWinterSeparatist
+  fallbacks:
+  - SEPClothingOuterArmorSeparatist4
+
+- type: loadoutGroup
+  id: SEPRecruitBelt
+  name: loadout-group-contractor-belt
+  minLimit: 0
+  loadouts:
+  - SEPClothingBeltBandolier
+  fallbacks:
+  - SEPClothingBeltBandolier
+
+- type: loadoutGroup
+  id: SEPRecruitWallet
+  name: loadout-group-medical-outerclothing
+  hidden: true
+  loadouts:
+  - SEPClothingWalletLeatherSeparatist
+  fallbacks:
+  - SEPClothingWalletLeatherSeparatist

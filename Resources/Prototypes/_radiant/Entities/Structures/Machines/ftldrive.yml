@@ -1,0 +1,51 @@
+- type: entity
+  id: MachineFTLDrive
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: двигатель БСС
+  description: Позволяет совершить БСС небольшой дальности.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Sprite
+      sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+      snapCardinals: true
+      layers:
+      - state: control
+      - state: control_on
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+        visible: false
+        shader: unshaded
+        color: "#349BEB"
+    - type: FTLDrive
+      range: 1024
+      cooldown: 300
+      hyperSpaceTime: 20
+      startupTime: 5
+    - type: Machine
+      board: MachineFTLDriveCircuitboard
+    - type: ApcPowerReceiver
+      powerLoad: 2000
+    - type: PointLight
+      enabled: false
+      color: "#349BEB" # beb color
+      radius: 2.0
+      energy: 1.5
+    - type: LitOnPowered
+    - type: ExtensionCableReceiver
+    - type: Appearance
+    - type: AmbientOnPowered
+    - type: AmbientSound
+      volume: -9
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/anomaly_generator.ogg
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.PowerDeviceVisualLayers.Powered:
+            True: { visible: true }
+            False: { visible: false }

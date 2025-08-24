@@ -1,0 +1,12 @@
+- type: entity
+  parent: [BaseItem, BaseC3SyndicateContraband]
+  id: SeparatistCapsuleCaller
+  name: подозрительный пульт
+  description: Пульт который вызывает что-то, или кого-то.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/signaller.rsi
+    state: icon
+  - type: Item
+    sprite: _radiant/Objects/Devices/signaller.rsi
+  - type: SmugglingCapsuleItem

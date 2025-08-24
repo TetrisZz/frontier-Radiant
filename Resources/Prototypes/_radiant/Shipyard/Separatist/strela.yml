@@ -1,0 +1,32 @@
+- type: vessel
+  id: Strela
+  parent: BaseVesselAntag
+  name: Стрела
+  description: Лёгкое разведывательно-боевое судно, предназначенное для скрытного проникновения и быстрых атак
+  price: 60000
+  category: Medium
+  group: Separatist
+  access: Strela
+  shuttlePath: /Maps/_radiant/Shuttles/Separatist/Strela.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Strela
+  mapName: 'Стрела'
+  mapPath: /Maps/_radiant/Shuttles/Separatist/Strela.yml
+  minPlayers: 0
+  stations:
+    Strela:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Стрела {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

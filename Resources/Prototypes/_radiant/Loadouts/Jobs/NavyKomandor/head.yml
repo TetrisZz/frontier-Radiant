@@ -1,0 +1,10 @@
+- type: loadout
+  id: NAVYClothingHeadHatBeretNavy
+  equipment:
+    head: ClothingHeadHatBeretNavy
+
+- type: loadout
+  id: NAVYClothingHeadHatNavy
+  equipment:
+    head: ClothingHeadHatNavy
+

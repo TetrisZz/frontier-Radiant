@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Homka for the Radiant sector - Frontier",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "id_overlay"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "insert_overlay"
+    },
+    {
+      "name": "light_overlay"
+    },       
+    {
+      "name": "pda-operative",
+      "delays": [
+              [
+                 0.9,
+                 0.9,
+                 0.9,
+                 0.9
+             ]
+         ]
+    },
+    {
+      "name": "pda-chapter",
+      "delays": [
+              [
+                 0.9,
+                 0.9,
+                 0.9,
+                 0.9
+             ]
+         ]
+    },
+    {
+      "name": "pda-reserve",
+      "delays": [
+              [
+                 0.9,
+                 0.9,
+                 0.9,
+                 0.9
+             ]
+         ]
+    },
+    {
+      "name": "pda-slave",
+      "delays": [
+              [
+                 0.9,
+                 0.9,
+                 0.9,
+                 0.9
+             ]
+         ]
+    },
+    {
+      "name": "pda-warden",
+      "delays": [
+              [
+                 0.9,
+                 0.9,
+                 0.9,
+                 0.9
+             ]
+         ]
+    },
+    {
+      "name": "pda-personalslave",
+      "delays": [
+              [
+                 0.9,
+                 0.9,
+                 0.9,
+                 0.9
+             ]
+         ]
+    },
+    {
+      "name": "pda-cadetfleet",
+      "delays": [
+             [
+                1.2,
+                1.2,
+                1.2,
+                1.2
+             ]
+         ]
+    },
+    {
+      "name": "pda-captainfleet",
+      "delays": [
+           [
+                1.2,
+                1.2,
+                1.2,
+                1.2
+             ]
+         ]
+    },
+    {
+      "name": "pda-commander",
+      "delays": [
+            [
+                1.2,
+                1.2,
+                1.2,
+                1.2
+             ]
+         ]
+    },
+    {
+            "name": "pda-doctorfleet",
+            "delays": [
+                [
+                    1.2,
+                    1.2,
+                    1.2,
+                    1.2
+                ]
+            ]
+        },
+        {
+            "name": "pda-fleetofficer",
+            "delays": [
+                [
+                    1.2,
+                    1.2,
+                    1.2,
+                    1.2
+                ]
+            ]
+        },
+    {
+      "name": "equipped-IDCARD",
+      "directions": 4
+    }
+  ]
+}
