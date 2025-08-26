@@ -5,7 +5,10 @@
   playTimeTracker: JobSeparatistsWarden
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 28800 # 8 hours Radiant_Sector
+      time: 43200 # 12 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Separatists
+      time: 21600 # 6 hours Radiant_Sector
   startingGear: SeparatistsWardenGear
   icon: "JobIconSeparatistsWarden" 
   supervisors: job-supervisors-hire
@@ -28,8 +31,11 @@
 
 - type: startingGear
   id: SeparatistsWardenGear
+  equipment:
+    pocket1: WeaponPistolWhisper
   storage:
     back:
     - ClothingMaskGasSeparatist
+    - MagazinePistol25ACP
     - BaseSeparatistUplinkCrew
     - SeparatistToken1

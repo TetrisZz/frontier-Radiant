@@ -5,20 +5,13 @@
   playTimeTracker: JobNavyKomandor
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 86400 # 24 hours Radiant_Sector
+      time: 172800 # 48 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
-      department: Security
-      time: 64800 # 18 hours
+      department: Navy
+      time: 86400 # 24 hours
     - !type:RoleTimeRequirement
-      role: JobSeniorOfficer
+      role: JobNavyCaptain
       time: 21600 # 6 hours
-  alternateRequirementSets:
-    longerPlaytimeLessSec:
-    - !type:OverallPlaytimeRequirement
-      time: 150 # 200 hours Radiant_Sector
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 43200 # 12 hours
   startingGear: NavyKomandorGear
   icon: "JobIconNavyKomandor" 
   supervisors: job-supervisors-hire

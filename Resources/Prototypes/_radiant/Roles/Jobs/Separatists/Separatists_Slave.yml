@@ -26,3 +26,5 @@
 
 - type: startingGear
   id: SeparatistsSlaveGear
+  equipment:
+    neck: ClothingNeckShackles

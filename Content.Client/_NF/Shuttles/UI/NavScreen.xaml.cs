@@ -61,22 +61,7 @@ namespace Content.Client.Shuttles.UI
                 DampenerOn.Pressed = NavRadar.DampeningMode == InertiaDampeningMode.Dampen;
                 AnchorOn.Pressed = NavRadar.DampeningMode == InertiaDampeningMode.Anchor;
                 ToggleServiceFlags(NavRadar.ServiceFlags, updateButtonsOnly: true);
-                
-                // Disable the Park button (AnchorOn) while in FTL, but keep other dampener buttons enabled
-                if (NavRadar.InFtl)
-                {
-                    AnchorOn.Disabled = true;
-                    // If the AnchorOn button is pressed while it gets disabled, we need to switch to another mode
-                    if (AnchorOn.Pressed)
-                    {
-                        DampenerOn.Pressed = true;
-                        SetDampenerMode(InertiaDampeningMode.Dampen);
-                    }
-                }
-                else
-                {
-                    AnchorOn.Disabled = false;
-                }
+
             }
 
         }

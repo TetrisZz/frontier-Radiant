@@ -258,6 +258,22 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
+  id: MagazineBoxHigh2RifleIncendiary
+  result: MagazineBoxHigh2RifleIncendiary
+  materials:
+    Steel: 100
+    Plastic: 600
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxHigh2RifleUranium
+  result: MagazineBoxHigh2RifleUranium
+  materials:
+    Plastic: 700
+    Uranium: 700
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineBoxAntiMateriel
   result: MagazineBoxAntiMateriel
   materials:

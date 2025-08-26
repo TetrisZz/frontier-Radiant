@@ -2,6 +2,7 @@
   id: SeparatistVendInventory
   startingInventory:
 # Separatist
+    WhipRadiant: 5
     ClothingNeckShackles: 5
     HandcuffsSeparatist: 10
     ClothingMaskBalaclavaSeparatist: 5

@@ -229,6 +229,22 @@
           - SeparatistUplink
 
 - type: listing
+  id: UplinkSeparatistSpeedloader
+  name:  uplink-security-speedloader-name
+  description: uplink-security-speedloader-desc
+  productEntity: SpeedLoaderMagnum
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: base }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
   id: UplinkSeparatistMagazineSubMachineGun25ACP
   name:  uplink-separatist-submachinegun25acp-name
   description: uplink-separatist-submachinegun25acp-desc

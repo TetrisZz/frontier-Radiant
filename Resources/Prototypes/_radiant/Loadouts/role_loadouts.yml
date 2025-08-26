@@ -211,7 +211,6 @@
   - SEPCommanderPDA
   - SEPRecruitWallet
   - ContractorCartridge
-  - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
   - ContractorUnderwearBottom
@@ -228,7 +227,6 @@
   - ContractorBoxSurvival
   - SEPPrivateSlavePDA
   - ContractorCartridge
-  - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
   - ContractorUnderwearBottom
@@ -253,7 +251,6 @@
   - SEPOperativePDA
   - SEPRecruitWallet
   - ContractorCartridge
-  - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
   - ContractorUnderwearBottom
@@ -279,7 +276,6 @@
   - SEPWardenPDA
   - SEPRecruitWallet
   - ContractorCartridge
-  - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
   - ContractorUnderwearBottom
@@ -304,7 +300,6 @@
   - SEPRecruitPDA
   - SEPRecruitWallet
   - ContractorCartridge
-  - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
   - ContractorUnderwearBottom

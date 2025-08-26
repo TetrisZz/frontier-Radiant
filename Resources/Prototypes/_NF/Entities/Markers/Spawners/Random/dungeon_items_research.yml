@@ -215,12 +215,12 @@
     - ResearchDisk
     - ResearchDisk
     - ResearchDisk5000
-    chance: 0.95
+    chance: 0.7
     offset: 0.0
     rarePrototypes:
     - ResearchDisk10000
     - WeaponCaseShortDocumentsFilled
-    rareChance: 0.05
+    rareChance: 0.3
 
 - type: entity
   name: random machine board

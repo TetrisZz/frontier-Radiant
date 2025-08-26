@@ -4,18 +4,18 @@
   description: job-description-separatists-commander
   playTimeTracker: JobSeparatistsCommander
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 43200 # 12 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
-      department: Security
-      time: 43200 # 12 hours Radiant_Sector
+      department: Separatists
+      time: 54000 # 15 hours
     - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
+      role: JobSeparatistsOperative
       time: 21600 # 6 hours Radiant_Sector
-  alternateRequirementSets:
-    longerPlaytimeLessSec:
-    - !type:OverallPlaytimeRequirement
-      time: 360000 # 100 hours Radiant_Sector
+    - !type:DepartmentTimeRequirement
+      department: Navy
+      time: 21600 # 6 hours Radiant_Sector
+    - !type:RoleTimeRequirement
+      role: JobWarden
+      time: 21600 # 6 hours Radiant_Sector
   startingGear: SeparatistsCommanderGear
   icon: "JobIconSeparatistsCommander" 
   supervisors: job-supervisors-hire
@@ -38,6 +38,9 @@
 
 - type: startingGear
   id: SeparatistsCommanderGear
+  equipment:
+    pocket1: WeaponRevolverNabat
+    pocket2: MagazineBoxMagnumIncendiary
   storage:
     back:
     - ClothingMaskGasSeparatist2
