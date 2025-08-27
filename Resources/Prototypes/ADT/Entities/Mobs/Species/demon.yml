@@ -22,6 +22,7 @@
     requiredLegs: 2
   - type: Speech
     speechSounds: Lizard
+  - type: ArcanAccent
   - type: Vocal
     sounds:
       Male: MaleHuman
@@ -38,30 +39,60 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Piercing: 5
+        Slash: 2
+        Piercing: 3
   - type: Temperature
-    heatDamageThreshold: 400
-    coldDamageThreshold: 193  #starting temperature damage treshold
+    heatDamageThreshold: 363
+    coldDamageThreshold: 250  #starting temperature damage treshold
     currentTemperature: 310.15
     specificHeat: 46
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.2 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 0.3 #per second, scales with temperature & other constants
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4.5
-  - type: Perishable
+        Heat : 0.1 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      285: 0.8
+      248: 0.6
+      220: 0.4
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Demon/displacement.rsi
+            state: jumpsuit-female
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: Carriable # Carrying system from nyanotrasen.
+  - type: ShortWhitelist
+    scale: 0.92
+    density: 180
+    pseudoItem: true
+    cosmeticOnly: false
+  - type: TallWhitelist
+    density: 190
+    scale: 1.08
 
 - type: entity
   save: false
   name: Urist McHands
   parent: MobHumanDummy
   id: MobDemonDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy reptilian meant to be used in character setup.
   components:
   - type: HumanoidAppearance
     species: DemonSpecies
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: ADT/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit-female
