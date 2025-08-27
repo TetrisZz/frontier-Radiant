@@ -16,9 +16,9 @@
     - type: MothAccent
     - type: BarkAccent
     - type: OwOAccent
-    - type: GoblinAccent
     - type: ReplacementAccent
       accent: dwarf
+    - type: ArcanAccent # Radiant_sector
     - type: ResomiAccent # Corvax-Next-Resomi
 
 # 1 Cost

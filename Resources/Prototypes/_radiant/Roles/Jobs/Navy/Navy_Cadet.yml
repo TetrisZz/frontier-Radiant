@@ -7,7 +7,7 @@
     - !type:OverallPlaytimeRequirement
       time: 10800 # 3 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Navy
       time: 64800 # 18 hours
       inverted: true # Leave slots open for newer, less confident players.
   startingGear: NavyCadetGear

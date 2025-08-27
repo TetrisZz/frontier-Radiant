@@ -1,0 +1,25 @@
+
+# Ammo
+## Uranium
+
+- type: entity
+  parent: BaseBlueprintExpedition
+  id: NFBlueprintMagazineBoxHigh2RifleUranium
+  name: uranium .20 ammo blueprint
+  description: A blueprint with a schematic of an uranium .20 rifle ammo. It can be inserted into an autolathe or a techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - MagazineBoxHigh2RifleUranium
+
+## Incendiary
+
+- type: entity
+  parent: BaseBlueprintExpedition
+  id: NFBlueprintMagazineBoxHigh2RifleIncendiary
+  name: incendiary .20 ammo blueprint
+  description: A blueprint with a schematic of an incendiary .20 rifle ammo. It can be inserted into an autolathe or a techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - MagazineBoxHigh2RifleIncendiary

@@ -5,7 +5,7 @@
   playTimeTracker: JobSeparatistsRecruit
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 14400 # 4 hours Radiant_Sector
+      time: 21600 # 6 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
       department: Separatists
       time: 64800 # 18 hours
@@ -32,7 +32,10 @@
 
 - type: startingGear
   id: SeparatistsRecruitGear
+  equipment:
+    pocket1: WeaponPistolWhisper
   storage:
     back:
     - ClothingMaskGasSeparatist
+    - MagazinePistol25ACP
     - SeparatistToken1

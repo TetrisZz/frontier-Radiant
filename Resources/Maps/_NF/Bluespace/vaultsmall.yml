@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 251.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 08/24/2025 03:25:50
+  entityCount: 424
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
 tilemap:
   0: Space
   33: FloorDarkHerringbone
@@ -16,6 +27,7 @@ entities:
     components:
     - type: MetaData
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -1717,7 +1729,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,1.5
       parent: 1
-- proto: PoweredlightColoredRed
+- proto: PoweredlightRed
   entities:
   - uid: 342
     components:
@@ -1884,6 +1896,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,1.5
+      parent: 1
+- proto: SeparatistToken1
+  entities:
+  - uid: 224
+    components:
+    - type: Transform
+      pos: -0.5,2.4375
       parent: 1
 - proto: SheetUranium
   entities:

@@ -1,0 +1,32 @@
+- type: vessel
+  id: Piligrim
+  parent: BaseVesselNavy
+  name: COF Пилигрим
+  description: Легкое судно снабжения, предназначенное для переброски экипажа между судами и оказания ограниченной медицинской помощи.
+  price: 30000
+  category: Medium
+  group: Navy
+  access: Navy
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Piligrim.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Piligrim
+  mapName: 'COF Пилигрим'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Piligrim.yml
+  minPlayers: 0
+  stations:
+    Piligrim:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Пилигрим {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}
