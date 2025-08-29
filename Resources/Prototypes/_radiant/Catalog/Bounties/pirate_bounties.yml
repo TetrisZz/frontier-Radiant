@@ -1,4 +1,13 @@
 - type: pirateBounty
+  id: SeparatistBountySpesos
+  reward: 5
+  description: pirate-bounty-description-generic
+  entries:
+  - name: pirate-bounty-item-spesos
+    amount: 50000
+    id: Spesos
+
+- type: pirateBounty
   id: SeparatistBountyBouquet
   reward: 5
   description: pirate-bounty-description-generic
