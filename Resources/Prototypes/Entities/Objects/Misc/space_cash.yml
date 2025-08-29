@@ -64,6 +64,8 @@
   - type: CargoSellBlacklist
   - type: ShipyardSellCondition # Frontier: Teleport to shipyard console on sale
     preserveOnSale: true
+  - type: PirateBountyItem
+    id: Spesos
 
 - type: material
   id: Credit

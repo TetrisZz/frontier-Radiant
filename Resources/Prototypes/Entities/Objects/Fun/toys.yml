@@ -1242,6 +1242,7 @@
     tags:
     - Sidearm
     - ToySidearm
+    - Nonmetallic
   - type: Gun
     selectedMode: SemiAuto
     availableModes:

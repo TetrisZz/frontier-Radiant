@@ -1,0 +1,30 @@
+﻿- type: palette
+  id: Radiant
+  name: Radiant
+  colors:
+    Navy: "#373b76"
+    Navy2: "#ffce5b"
+    Navy3: "#a6781f"
+
+    mercenary: "#a39682"
+    mercenary2: "#84705c"
+    mercenary3: "#2c2c2c"
+    mercenary4: "#8b7560"
+
+    dvb: "#1a1c38"
+    dvb2: "#323669"
+
+    separatist: "#947e62"
+    separatist2: "#423930"
+    separatist3: "#241f1a"
+    separatist4: "#6a573f"
+    separatist5: "#443420"
+
+    acorp: "#fe7e00"
+    acorp2: "#963c00"
+    acorp3: "#161515"
+    acorp4: "#0e0e0e"
+    acorp5: "#213558"
+    acorp6: "#121a3f"
+    acorp7: "#5a3074"
+    acorp8: "#49265e"
