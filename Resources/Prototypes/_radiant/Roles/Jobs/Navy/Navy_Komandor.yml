@@ -32,7 +32,7 @@
 - type: startingGear
   id: NavyKomandorGear
   equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+    pocket1: NFWeaponPistolUniversalNfsd
   storage:
     back:
     - NfsdTechFabFlatpack

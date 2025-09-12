@@ -2,8 +2,8 @@ using Content.Shared.Access.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Access.Components;
@@ -38,6 +38,13 @@ public sealed partial class IdCardComponent : Component
     public ProtoId<JobIconPrototype> JobIcon = "JobIconUnknown";
 
     /// <summary>
+    /// Holds the job prototype when the ID card has no associated station record
+    /// </summary>
+    [DataField]
+    [AutoNetworkedField]
+    public ProtoId<JobPrototype>? JobPrototype; // Frontier: AccessLevelPrototype<JobPrototype
+
+    /// <summary>
     /// The proto IDs of the departments associated with the job
     /// </summary>
     [DataField]
@@ -59,18 +66,17 @@ public sealed partial class IdCardComponent : Component
     [DataField]
     public bool CanMicrowave = true;
 
-    // Frontier
-    [DataField("soundError")]
+    // Frontier: sounds for shipyard RCD, etc.
+    [DataField]
     public SoundSpecifier ErrorSound =
         new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 
-    // Frontier
-    [DataField("soundSwipe")]
+    [DataField]
     public SoundSpecifier SwipeSound =
         new SoundPathSpecifier("/Audio/Machines/id_swipe.ogg");
 
-    // Frontier
-    [DataField("soundInsert")]
+    [DataField]
     public SoundSpecifier InsertSound =
         new SoundPathSpecifier("/Audio/Machines/id_insert.ogg");
+    // End Frontier
 }

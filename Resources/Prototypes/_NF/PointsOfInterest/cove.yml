@@ -21,7 +21,7 @@
   addComponents:
   - type: IFF
     color: "#C83737"
-    flags: [HideLabel]
+    flags: [HideLabel, Hide]
     readOnly: false
 
 - type: gameMap
@@ -39,10 +39,11 @@
           iconPath: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-pirate-subtext'
           stationDescription: 'frontier-lobby-pirate-description'
+          lobbySortOrder: 6
 #        - type: StationJobs
 #          availableJobs:
-#            NFPirateCaptain: [ 0, 0 ]
-#            NFPirateFirstMate: [ 0, 0 ]
+#            NFPirateCaptain: [ 1, 1 ]
+#            NFPirateFirstMate: [ 1, 1 ]
 #            NFPirate: [ 0, 0 ]
         - type: StationDeadDropReporting
           messageSet: Pirate

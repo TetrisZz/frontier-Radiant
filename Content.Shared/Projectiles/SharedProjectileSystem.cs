@@ -4,6 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
@@ -19,6 +20,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared._Mono;
 
 namespace Content.Shared.Projectiles;
 
@@ -43,8 +45,30 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate);
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, ComponentShutdown>(OnEmbeddableCompShutdown);
 
         SubscribeLocalEvent<EmbeddedContainerComponent, EntityTerminatingEvent>(OnEmbeddableTermination);
+		// Subscribe to initialize the origin grid on ProjectileGridPhaseComponent
+        SubscribeLocalEvent<ProjectileGridPhaseComponent, ComponentStartup>(OnProjectileGridPhaseStartup);
+        // Subscribe to ensure MetaDataComponent on projectile entities for networking
+        SubscribeLocalEvent<ProjectileComponent, ComponentStartup>(OnProjectileMetaStartup);
+    }
+
+    /// <summary>
+    /// Initialize the origin grid for phasing projectiles.
+    /// </summary>
+    private void OnProjectileGridPhaseStartup(EntityUid uid, ProjectileGridPhaseComponent component, ComponentStartup args)
+    {
+        var xform = Transform(uid);
+        component.SourceGrid = xform.GridUid;
+    }
+
+    /// <summary>
+    /// Ensures that a MetaDataComponent exists on projectiles for network serialization.
+    /// </summary>
+    private void OnProjectileMetaStartup(EntityUid uid, ProjectileComponent component, ComponentStartup args)
+    {
+        EnsureComp<MetaDataComponent>(uid);
     }
 
     private void OnEmbedActivate(Entity<EmbeddableProjectileComponent> embeddable, ref ActivateInWorldEvent args)
@@ -69,14 +93,18 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnEmbedRemove(Entity<EmbeddableProjectileComponent> embeddable, ref RemoveEmbeddedProjectileEvent args)
     {
-        // Whacky prediction issues.
-        if (args.Cancelled || _net.IsClient)
+        if (args.Cancelled)
             return;
 
         EmbedDetach(embeddable, embeddable.Comp, args.User);
 
         // try place it in the user's hand
         _hands.TryPickupAnyHand(args.User, embeddable);
+    }
+
+    private void OnEmbeddableCompShutdown(Entity<EmbeddableProjectileComponent> embeddable, ref ComponentShutdown arg)
+    {
+        EmbedDetach(embeddable, embeddable.Comp);
     }
 
     private void OnEmbedThrowDoHit(Entity<EmbeddableProjectileComponent> embeddable, ref ThrowDoHitEvent args)
@@ -134,16 +162,21 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (component.DeleteOnRemove)
-        {
-            QueueDel(uid);
-            return;
-        }
-
         if (component.EmbeddedIntoUid is not null)
         {
             if (TryComp<EmbeddedContainerComponent>(component.EmbeddedIntoUid.Value, out var embeddedContainer))
+            {
                 embeddedContainer.EmbeddedObjects.Remove(uid);
+                Dirty(component.EmbeddedIntoUid.Value, embeddedContainer);
+                if (embeddedContainer.EmbeddedObjects.Count == 0)
+                    RemCompDeferred<EmbeddedContainerComponent>(component.EmbeddedIntoUid.Value);
+            }
+        }
+
+        if (component.DeleteOnRemove && _net.IsServer)
+        {
+            QueueDel(uid);
+            return;
         }
 
         var xform = Transform(uid);
@@ -199,9 +232,23 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
         }
 
-        // Check if target and projectile are on different maps/z-levels
+        // Get transforms once for subsequent checks to avoid repeated calls
         var projectileXform = Transform(uid);
         var targetXform = Transform(args.OtherEntity);
+
+        // Check for ProjectileGridPhaseComponent and origin-grid phasing
+        if (TryComp<ProjectileGridPhaseComponent>(uid, out var phaseComp))
+        {
+            if (phaseComp.SourceGrid.HasValue &&
+                targetXform.GridUid.HasValue &&
+                phaseComp.SourceGrid == targetXform.GridUid)
+            {
+                args.Cancelled = true;
+                return; // Projectile phases through entities on its origin grid.
+            }
+        }
+
+        // Check if target and projectile are on different maps/z-levels
         if (projectileXform.MapID != targetXform.MapID)
         {
             args.Cancelled = true;
@@ -250,7 +297,10 @@ public sealed class ImpactEffectEvent : EntityEventArgs
 /// Raised when an entity is just about to be hit with a projectile but can reflect it
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, ProjectileComponent Component, bool Cancelled);
+public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, ProjectileComponent Component, bool Cancelled) : IInventoryRelayEvent
+{
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
+}
 
 /// <summary>
 /// Raised when a projectile hits an entity

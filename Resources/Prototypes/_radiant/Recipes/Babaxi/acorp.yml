@@ -54,21 +54,6 @@
   result: MagazineHigh2RifleBABAX
 
 - type: latheRecipe
-  parent: MagazineBoxCaselessRifle
-  id: MagazineBoxCaselessRifleBABAX
-  result: MagazineBoxCaselessRifleBABAX
-
-- type: latheRecipe
-  parent: MagazineCaselessRifleShort
-  id: MagazineCaselessRifleShortBABAX
-  result: MagazineCaselessRifleShortBABAX
-
-- type: latheRecipe
-  parent: MagazinePistolCaselessRifle
-  id: MagazinePistolCaselessRifleBABAX
-  result: MagazinePistolCaselessRifleBABAX
-
-- type: latheRecipe
   parent: BorgModuleMartyrAcorp
   id: BorgModuleMartyrAcorpBABAX
   result: BorgModuleMartyrAcorpBABAX
@@ -112,11 +97,6 @@
   parent: WeaponEnergyGunMiniAcorp
   id: WeaponEnergyGunMiniAcorpBABAX
   result: WeaponEnergyGunMiniAcorpBABAX
-
-- type: latheRecipe
-  parent: WeaponEnergyShotgun
-  id: WeaponEnergyShotgunBABAX
-  result: WeaponEnergyShotgunBABAX
 
 - type: latheRecipe
   parent: MagazineBoxRifleIce
@@ -174,16 +154,6 @@
   result: EnergySwordDoubleRadiantBABAX
 
 - type: latheRecipe
-  parent: MagazineBoxAntiMateriel
-  id: MagazineBoxAntiMaterielBABAX
-  result: MagazineBoxAntiMaterielBABAX
-
-- type: latheRecipe
-  parent: MagazineBoxAntiMaterielBig
-  id: MagazineBoxAntiMaterielBigBABAX
-  result: MagazineBoxAntiMaterielBigBABAX
-
-- type: latheRecipe
   parent: ClothingOuterHardsuitAcorpSecurity
   id: ClothingOuterHardsuitAcorpSecurityBABAX
   result: ClothingOuterHardsuitAcorpSecurityBABAX
@@ -192,9 +162,4 @@
   parent: ClothingOuterHardsuitScaf
   id: ClothingOuterHardsuitScafBABAX
   result: ClothingOuterHardsuitScafBABAX
-
-- type: latheRecipe
-  parent: BoxShotgunIncendiary
-  id: BoxShotgunIncendiaryBABAX
-  result: BoxShotgunIncendiaryBABAX
 

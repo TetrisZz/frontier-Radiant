@@ -1,12 +1,13 @@
 - type: technology
-  id: FTLDrive
+  id: RSFTLDrive
   name: Двигатель БСС
-  icon:
-    sprite: _radiant/Objects/Tools/Toolboxes/super_toolbox.rsi
-    state: icon
-  discipline: Industrial
-  tier: 3
-  cost: 15000
+  entityIcon: BlueSpaceRepairKit
+  discipline: NFEngineering
+  tier: 1
+  cost: 10000
   recipeUnlocks:
-    - MachineFTLDriveCircuitboard
-    - BlueSpaceRepairKit
+  - MachineFTLDriveCircuitboard
+  - BlueSpaceRepairKit
+  technologyPrerequisites:
+  - NFShuttlecraftThrustSmall
+  position: 3, 32

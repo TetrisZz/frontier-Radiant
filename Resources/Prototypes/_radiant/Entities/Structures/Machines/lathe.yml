@@ -34,6 +34,6 @@
     - ChemistryStatic
     dynamicPacks:
     - AcorpProtolathe
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - AcorpProtolatheEMAG
+#  - type: EmagLatheRecipes
+#    emagStaticPacks:
+#    - AcorpProtolatheEMAG

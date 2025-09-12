@@ -40,7 +40,7 @@
   id: SeparatistsCommanderGear
   equipment:
     pocket1: WeaponRevolverNabat
-    pocket2: MagazineBoxMagnumIncendiary
+    pocket2: NFAmmunitionBoxPistol45Incendiary
   storage:
     back:
     - ClothingMaskGasSeparatist2

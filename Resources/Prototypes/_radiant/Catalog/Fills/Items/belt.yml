@@ -5,6 +5,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: WeaponDisabler
+      - id: NFWeaponEnergyPistolDisabler
       - id: Handcuffs
         amount: 2

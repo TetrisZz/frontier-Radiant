@@ -1,0 +1,6 @@
+- type: blueprint
+  id: Acorp
+  name: research-discipline-acorp
+  blueprint: BlueprintAcorp
+  packs:
+  - AcorpProtolathe

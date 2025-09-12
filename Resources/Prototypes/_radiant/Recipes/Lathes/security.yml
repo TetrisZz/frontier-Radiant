@@ -1,10 +1,10 @@
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: CartridgeMagnum
-  result: CartridgeMagnum
-  completetime: 1
-  materials:
-    Steel: 30
+#- type: latheRecipe
+#  parent: BaseAmmoRecipe
+#  id: CartridgeMagnum
+#  result: CartridgeMagnum
+#  completetime: 1
+#  materials:
+#    Steel: 30
 
 - type: latheRecipe
   id: GrenadeSmokeM203

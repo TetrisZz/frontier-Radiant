@@ -43,3 +43,10 @@
   - AcorpSecurity #Radiant_sector
   - AcorpCommand #Radiant_sector
   - Navy #Radiant_sector
+  - GenpopEnter
+  - GenpopLeave
+
+- type: accessGroup
+  id: General
+  tags:
+  - Maintenance

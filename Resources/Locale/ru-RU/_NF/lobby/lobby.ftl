@@ -48,7 +48,6 @@ frontier-lobby-acorp-description = Мобильная Научная База «
    Исследуйте аномалии, артефакты, создавайте технологии и применяйте передовые научные разработоки в интересах Аколит Корпорейшн.
    Храните свои секреты, сотрудничайте с сектором и помните - достойная цель оправдывает жертвы.
  
- # Crew Menu
 frontier-lobby-crew-vessel = [bold][color=#A88B5E]Vessel:[/color][/bold] {$name}
 frontier-lobby-crew-class-prefix = [bold][color=#A88B5E]Classes:[/color][/bold]{" "}
 frontier-lobby-crew-size = [bold][color=#A88B5E]Size:[/color][/bold] {$size}

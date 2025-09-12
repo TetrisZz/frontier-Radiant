@@ -19,10 +19,10 @@ using Content.Shared.Timing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Collections;
 using Robust.Shared.GameStates;
-using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
 using Content.Shared.UserInterface;
+using Robust.Shared.Prototypes;
 using Content.Shared.Access.Systems; // Frontier
 using Content.Shared.Construction.Components; // Frontier
 
@@ -48,6 +48,8 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
     private readonly HashSet<Entity<ShuttleConsoleComponent>> _consoles = new();
 
+    private static readonly ProtoId<TagPrototype> CanPilotTag = "CanPilot";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -63,7 +65,6 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         {
             subs.Event<ShuttleConsoleFTLBeaconMessage>(OnBeaconFTLMessage);
             subs.Event<ShuttleConsoleFTLPositionMessage>(OnPositionFTLMessage);
-			subs.Event<ToggleFTLLockRequestMessage>(OnToggleFTLLock);
             subs.Event<BoundUIClosedEvent>(OnConsoleUIClose);
         });
 
@@ -177,7 +178,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
     private bool TryPilot(EntityUid user, EntityUid uid)
     {
-        if (!_tags.HasTag(user, "CanPilot") ||
+        if (!_tags.HasTag(user, CanPilotTag) ||
             !TryComp<ShuttleConsoleComponent>(uid, out var component) ||
             !this.IsPowered(uid, EntityManager) ||
             !Transform(uid).Anchored ||
@@ -221,94 +222,8 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     {
         if (ent.Comp.Console != null)
         {
-            RemovePilot(ent);
+            RemovePilot(ent.Owner, ent.Comp);
         }
-    }
-
-    /// <summary>
-    /// Handles FTL lock toggling for docked shuttles
-    /// </summary>
-    private void OnToggleFTLLock(EntityUid uid, ShuttleConsoleComponent component, ToggleFTLLockRequestMessage args)
-    {
-        // Get the console's grid (shuttle)
-        var consoleXform = Transform(uid);
-        var shuttleGrid = consoleXform.GridUid;
-
-        Logger.DebugS("shuttle", $"Server received FTL lock request with {args.DockedEntities.Count} entities, enabled={args.Enabled}");
-
-        // If the shuttleGrid is null, we can't do anything
-        if (shuttleGrid == null)
-        {
-            Logger.DebugS("shuttle", $"Cannot toggle FTL lock: console {ToPrettyString(uid)} is not on a grid");
-            return;
-        }
-
-        bool processedMainGrid = false;
-
-        // Process each entity in the request
-        foreach (var dockedEntityNet in args.DockedEntities)
-        {
-            var dockedEntity = GetEntity(dockedEntityNet);
-
-            // Check if this is the main shuttle grid
-            if (dockedEntity == shuttleGrid)
-            {
-                processedMainGrid = true;
-            }
-
-            if (TryComp<FTLLockComponent>(dockedEntity, out var ftlLock))
-            {
-                Logger.DebugS("shuttle", $"Setting FTL lock for {ToPrettyString(dockedEntity)} to {args.Enabled}");
-                ftlLock.Enabled = args.Enabled;
-                Dirty(dockedEntity, ftlLock);
-            }
-        }
-
-        // If we didn't process the main grid yet, do it now
-        if (!processedMainGrid && shuttleGrid != null)
-        {
-            if (TryComp<FTLLockComponent>(shuttleGrid, out var ftlLock))
-            {
-                Logger.DebugS("shuttle", $"Setting FTL lock for main grid {ToPrettyString(shuttleGrid.Value)} to {args.Enabled}");
-                ftlLock.Enabled = args.Enabled;
-                Dirty(shuttleGrid.Value, ftlLock);
-            }
-        }
-    }
-
-    /// <summary>
-    /// Sets the FTL lock state of a shuttle entity.
-    /// </summary>
-    /// <param name="shuttleUid">The shuttle entity to modify</param>
-    /// <param name="dockedEntities">List of docked entities to also modify, or empty to only modify the shuttle</param>
-    /// <param name="enabled">The desired FTL lock state (true to enable, false to disable)</param>
-    /// <returns>True if at least one entity was modified, false otherwise</returns>
-    public bool ToggleFTLLock(EntityUid shuttleUid, List<NetEntity> dockedEntities, bool enabled)
-    {
-        var modified = false;
-
-        // Modify the main shuttle if it has the component
-        if (TryComp<FTLLockComponent>(shuttleUid, out var shuttleFtlLock))
-        {
-            shuttleFtlLock.Enabled = enabled;
-            Dirty(shuttleUid, shuttleFtlLock);
-            modified = true;
-        }
-
-        // Modify any docked entities if provided
-        foreach (var dockedEntityNet in dockedEntities)
-        {
-            var dockedEntity = GetEntity(dockedEntityNet);
-
-            if (TryComp<FTLLockComponent>(dockedEntity, out var ftlLock))
-            {
-                ftlLock.Enabled = enabled;
-                Dirty(dockedEntity, ftlLock);
-                modified = true;
-            }
-        }
-
-        return modified;
     }
 
     /// <summary>
@@ -381,7 +296,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         }
         else
         {
-            navState = new NavInterfaceState(0f, null, null, new Dictionary<NetEntity, List<DockingPortState>>(), InertiaDampeningMode.Dampen, ServiceFlags.None); // Frontier: inertia dampening);
+            navState = new NavInterfaceState(0f, null, null, new Dictionary<NetEntity, List<DockingPortState>>(), InertiaDampeningMode.Dampen, ServiceFlags.None, null, NetEntity.Invalid, true); // Frontier: inertia dampening
             mapState = new ShuttleMapInterfaceState(
                 FTLState.Invalid,
                 default,
@@ -496,7 +411,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     public NavInterfaceState GetNavState(Entity<RadarConsoleComponent?, TransformComponent?> entity, Dictionary<NetEntity, List<DockingPortState>> docks)
     {
         if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
-            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, null, null, docks, Shared._NF.Shuttles.Events.InertiaDampeningMode.Dampen, ServiceFlags.None); // Frontier: add inertia dampening
+            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, null, null, docks, InertiaDampeningMode.Dampen, ServiceFlags.None, null, NetEntity.Invalid, true); // Frontier: add inertia dampening, target
 
         return GetNavState(
             entity,
@@ -512,7 +427,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         Angle angle)
     {
         if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
-            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks, InertiaDampeningMode.Dampen, ServiceFlags.None); // Frontier: add inertial dampening
+            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks, InertiaDampeningMode.Dampen, ServiceFlags.None, null, NetEntity.Invalid, true); // Frontier: add inertial dampening, target
 
         return new NavInterfaceState(
             entity.Comp1.MaxRange,
@@ -520,7 +435,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             angle,
             docks,
             _shuttle.NfGetInertiaDampeningMode(entity), // Frontier
-            _shuttle.NfGetServiceFlags(entity)); // Frontier
+            _shuttle.NfGetServiceFlags(entity), // Frontier
+            entity.Comp1.Target, // Frontier
+            GetNetEntity(entity.Comp1.TargetEntity), // Frontier
+            entity.Comp1.HideTarget); // Frontier
     }
 
     /// <summary>

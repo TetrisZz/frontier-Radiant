@@ -1,6 +1,6 @@
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAcorpSecurity
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -23,7 +23,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAcorpSalvage
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -46,7 +46,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAcorpRnd
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -69,7 +69,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAvianCommander
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -82,7 +82,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAvian
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -95,7 +95,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAcorpEngineer
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -111,7 +111,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAcorpHeva
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -134,7 +134,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitHardEVA
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -157,7 +157,7 @@
 
 #Mime Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitAcorpBasic
   name: шлем от скафандра
   description: Вы думали иначе?
@@ -194,7 +194,7 @@
 
 #Chief Medical Officer's Hardsuit
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitMedicalAcorp
   name: шлем от скафандра
   description: Вы думали иначе?

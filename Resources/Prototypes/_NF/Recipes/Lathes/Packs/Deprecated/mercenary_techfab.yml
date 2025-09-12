@@ -37,13 +37,12 @@
   - PowerCellMedium
 ## Basic electronics
   - SignalTimerElectronics
-  - CellRechargerCircuitboard
   - BorgChargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - AirTank
 # Mercenary techfab
 ## Clothing / Armor
-  - RiotShield
+  - NFRiotShield
   - ClothingNeckIFFNeutral
   - ClothingNeckIFFGreen
   - ClothingNeckIFFRed
@@ -78,163 +77,33 @@
   - WeaponCaseShortAmmo
   - WeaponCaseShortExplosives
 ## Weapons
-  - CombatKnife
-  - WeaponLaserSvalinn # After the changes made to windows shouldn't be that much of an issue now if it's widely available
-  - WeaponNFLaserPistol # After the changes made to windows shouldn't be that much of an issue now if it's widely available
-  - WeaponRevolverArgenti
-  - WeaponPistolMk58NF
-  - WeaponShotgunDoubleBarreled
-  - WeaponRifleNovaliteC1
-  - WeaponRifleGestio
+  - NFCombatKnife
+  #- WeaponLaserSvalinn # After the changes made to windows shouldn't be that much of an issue now if it's widely available
+  - NFWeaponEnergyPistolLaser # After the changes made to windows shouldn't be that much of an issue now if it's widely available
+  - NFWeaponRevolverArgenti
+  - NFWeaponPistolMk58
+  - NFWeaponShotgunDoubleBarreled
+  - NFWeaponRifleAssaultNovaliteC1
+  - NFWeaponRifleAssaultGestio
   - BaseBallBatNF
   - CrossbowModern
   - WeaponPistolPollock
 ## Ammo boxes
-  - BoxLethalshot
-#  - MagazineBoxLightRifle \Radiant_sector
-#  - MagazineBoxPistol \Radiant_sector
-#  - MagazineBoxRifle \Radiant_sector
+  - NFAmmunitionBoxPistol35
+  - NFAmmunitionBoxShellShotgunBuckshot
+  - NFAmmunitionBoxRifle20
+  - NFAmmunitionBoxRifle30
   - CrossbowBolt
   - CrossbowBoltBroadhead
-  - BoxBeanbag
-#  - BoxShotgunSlug \Radiant_sector
-#  - MagazineBoxLightRifleRubber \Radiant_sector
-#  - MagazineBoxMagnumRubber \Radiant_sector
-  - CartridgeMagnum # Radiant_sector
-#  - MagazineBoxPistolRubber \Radiant_sector
-#  - MagazineBoxRifleRubber \Radiant_sector
+  - NFAmmunitionBoxShellShotgunBeanbag
+  - NFAmmunitionBoxShellShotgunSlug
+  - NFAmmunitionBoxRifle30Rubber
+  - NFAmmunitionBoxPistol35Rubber
+  - NFAmmunitionBoxPistol45Rubber
+  - NFAmmunitionBoxRifle20Rubber
 ## Mags / Speedloaders / Clips
-  - MagazineNovaliteC1Empty
-  - MagazineNovaliteC1
-#  - MagazineNovaliteC1Rubber \Radiant_sector
+  - NFMagazinePistol35Empty
+  - NFSpeedLoaderPistol35Empty
+  - NFSpeedLoaderPistol45Empty
+  - NFMagazineClipRifle20Empty
   - MagazineLightRifleLowCapacityEmpty
-  - MagazineLightRifleLowCapacity
-#  - MagazineLightRifleLowCapacityRubber \Radiant_sector
-#  - MagazineLightRifle \Radiant_sector
-#  - MagazineLightRifleEmpty \Radiant_sector
-#  - MagazineRifle \Radiant_sector
-#  - MagazineRifleEmpty \Radiant_sector
-  - MagazinePistol
-  - MagazinePistolEmpty
-  - SpeedLoaderRifleHeavy
-  - SpeedLoaderRifleHeavyEmpty
-#  - SpeedLoaderRifleHeavyRubber \Radiant_sector
-#  - SpeedLoaderMagnumRubber \Radiant_sector
-#  - MagazineRifleRubber \Radiant_sector
-  - MagazineShotgunSlug
-#  - MagazinePistolRubber \Radiant_sector
-#  - MagazineLightRifleRubber \Radiant_sector
-#  - MagazineShotgunBeanbag \Radiant_sector
-
-- type: latheRecipePack
-  id: NFMercenaryTechfabDeprecated
-  recipes:
-# Shared lathe recipes
-## Advanced tools
-  - WelderExperimental
-  - JawsOfLife
-  - PowerDrill
-  - JetpackVoid
-  - PowerCellHigh
-  # - PowerCellHyperNF
-  - PowerCellMicroreactor
-# Mercenary techfab
-## Armor
-  - TelescopicShield
-  - ClothingOuterArmorBulletproofNF
-  - ClothingOuterCoatBHTrench
-  - ClothingOuterArmorPunkRandomized
-  - ClothingOuterArmorPunkRed
-  - ClothingOuterArmorPunkGreen
-  - ClothingOuterArmorPunkOrange
-  - ClothingOuterArmorElitePunkRandomized
-  - ClothingBeltPunkRandomized
-  - ClothingShoesBootsPunkRandomized
-  - ClothingEyesPunkGoggles
-  - ClothingEyesPunkInfoShades
-  - ClothingMaskPunkHalf
-  - ClothingUniformRandomPunkTanktop
-  - ClothingUniformRandomPunkTanktopShorts
-  - ClothingUniformRandomPunkCroptop
-  - ClothingUniformRandomPunkCroptopShorts
-  - ClothingOuterCoatLettermanRandomized
-  - ClothingOuterCoatBomberRandomized
-## EVA / Hardsuits
-  - ClothingOuterHardsuitCap
-  - ClothingOuterHardsuitMercenary
-  - ClothingOuterHardsuitPrivateSecurity
-  - ClothingOuterHardsuitScaf
-  - ClothingShoesBootsMagSecurity
-  - ClothingShoesBootsMagMercenary
-## Utilities
-  - ForensicPad
-  - ClothingEyesHudBountyHunter
-  - ClothingEyesPunkInfoShades
-  - PinpointerUniversalNF
-  - Handcuffs
-  - SignalTrigger
-  - PortableRecharger
-  - TimerTrigger
-  - VoiceTrigger
-  - TurboItemRechargerCircuitboard
-  - ClothingBackpackHolding
-  - ClothingBackpackSatchelHolding
-  - ClothingBackpackDuffelHolding
-  - ClothingBackpackMessengerHolding
-  - FlashlightSecliteNF
-## Weapons
-  - WeaponGrapplingGun
-  - KatanaNF
-  - KukriKnifeNF
-  - MacheteNF
-  - Stunbaton
-  - BolaNF
-  - ExplosivePayload
-  - FlashPayload
-  - ChemicalPayload
-  - WeaponShotgunPatron
-  - WeaponAdvancedLaser # After the changes made to windows shouldn't be that much of an issue now if it's widely available
-  - WeaponLaserCarbine
-  - WeaponDisabler
-  - WeaponDisablerSMG
-  - WeaponLaserCannon
-  - WeaponXrayCannon
-## Ammo boxes
-  - BoxBeanbag
-  - BoxShellTranquilizer
-#  - MagazineBoxLightRifleRubber \Radiant_sector
-#  - MagazineBoxMagnumRubber \Radiant_sector
-#  - MagazineBoxPistolRubber \Radiant_sector
-#  - MagazineBoxRifleRubber \Radiant_sector
-#  - MagazineShotgunBeanbag \Radiant_sector
-
-- type: latheRecipePack
-  id: NFMercenaryTechfabDeprecatedEmag
-  recipes:
-  - MagazineBoxLightRifle # Radiant_sector
-  - MagazineBoxPistol # Radiant_sector
-  - MagazineBoxRifle # Radiant_sector
-  - BoxShotgunSlug # Radiant_sector
-  - MagazineBoxMagnum # Radiant_sector
-#  - BoxShotgunIncendiary \Radiant_sector
-#  - BoxShotgunUranium \Radiant_sector
-#  - MagazineBoxLightRifleIncendiary \Radiant_sector
-#  - MagazineBoxLightRifleUranium \Radiant_sector
-#  - MagazineBoxMagnumIncendiary \Radiant_sector
-#  - MagazineBoxMagnumUranium \Radiant_sector
-#  - MagazineBoxPistolIncendiary \Radiant_sector
-#  - MagazineBoxPistolUranium \Radiant_sector
-#  - MagazineBoxRifleIncendiary \Radiant_sector
-#  - MagazineBoxRifleUranium \Radiant_sector
-#  - MagazineGrenadeEmpty \Radiant_sector
-#  - MagazineLightRifleIncendiary \Radiant_sector
-#  - MagazineLightRifleUranium \Radiant_sector
-#  - MagazinePistolIncendiary \Radiant_sector
-#  - MagazinePistolUranium \Radiant_sector
-#  - MagazineRifleIncendiary \Radiant_sector
-#  - MagazineRifleUranium \Radiant_sector
-#  - MagazineShotgunIncendiary \Radiant_sector
-#  - SpeedLoaderMagnumIncendiary \Radiant_sector
-#  - SpeedLoaderMagnumUranium \Radiant_sector
-#  - SpeedLoaderRifleHeavyIncendiary \Radiant_sector
-#  - SpeedLoaderRifleHeavyUranium \Radiant_sector

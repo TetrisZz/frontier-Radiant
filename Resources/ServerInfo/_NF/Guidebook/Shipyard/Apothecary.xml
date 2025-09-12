@@ -46,11 +46,11 @@
         <GuideEntityEmbed Entity="SignRadiationMed"/>
     </Box>
 
-   - Проверьте, закреплен ли генераторный блок S.U.P.E.R.P.A.C.M.A.N. на полу.
-   - Проверьте, есть ли в генераторе S.U.P.E.R.P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас есть достаточный запас топлива для длительной выработки энергии во время полета.
-   - Проверьте, настроен ли генератор S.U.P.E.R.P.A.C.M.A.N. на выход HV.
-   - Установите целевую мощность на 16 [bold]k[/bold]W.
-   - Запустите генераторный блок S.U.P.E.R.P.A.C.M.A.N.
+   - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit is anchored to the floor.
+   - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit has fuel. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation during flight.
+   - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit is set to HV output.
+   - Set Target Power for 26 [bold]k[/bold]W.
+   - Start the S.U.P.E.R.P.A.C.M.A.N. generator unit.
 
   ## 2. Атмосфера
   

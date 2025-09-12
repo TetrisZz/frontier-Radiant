@@ -36,7 +36,7 @@
   id: UplinkSeparatistKammerer
   name:  uplink-separatist-kammerer-name
   description: uplink-separatist-kammerer-desc
-  productEntity: WeaponShotgunKammerer
+  productEntity: NFWeaponShotgunKammerer
   icon: { sprite: _NF/Objects/Weapons/Guns/Shotguns/pump.rsi, state: icon }
   cost:
     BlackMoney: 3
@@ -232,7 +232,7 @@
   id: UplinkSeparatistSpeedloader
   name:  uplink-security-speedloader-name
   description: uplink-security-speedloader-desc
-  productEntity: SpeedLoaderMagnum
+  productEntity: NFSpeedLoaderPistol45Overpressure
   icon: { sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: base }
   cost:
     BlackMoney: 1
@@ -280,7 +280,7 @@
   id: UplinkSeparatistMagnumAmmo
   name:  uplink-separatist-magnumammo-name
   description: uplink-separatist-magnumammo-desc
-  productEntity: MagazineBoxMagnum
+  productEntity: NFAmmunitionBoxPistol45
   icon: { sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi, state: base }
   cost:
     BlackMoney: 1
@@ -296,7 +296,7 @@
   id: UplinkSeparatistShotgunAmmo
   name:  uplink-separatist-shotgunammo-name
   description: uplink-separatist-shotgunammo-desc
-  productEntity: BoxLethalshot
+  productEntity: NFAmmunitionBoxShellShotgunBuckshot
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: base }
   cost:
     BlackMoney: 1
@@ -312,7 +312,7 @@
   id: UplinkSeparatistShotgunSlug
   name:  uplink-separatist-shotgunslug-name
   description: uplink-separatist-shotgunslug-desc
-  productEntity: BoxShotgunSlug
+  productEntity: NFAmmunitionBoxShellShotgunSlug
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: slug }
   cost:
     BlackMoney: 1
@@ -328,7 +328,7 @@
   id: UplinkSeparatistMagazineRifle
   name:  uplink-separatist-rifleammo-name
   description: uplink-separatist-rifleammo-desc
-  productEntity: MagazineRifle
+  productEntity: NFMagazineRifle20Overpressure
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: base }
   cost:
     BlackMoney: 1
@@ -360,7 +360,7 @@
   id: UplinkSeparatistMagazineRifleRubber
   name:  uplink-separatist-magazineriflerubber-name
   description: uplink-separatist-magazineriflerubber-desc
-  productEntity: BoxMagazineRifleRubber
+  productEntity: NFBoxMagazineRifle20Rubber
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: rubber }
   cost:
     BlackMoney: 5

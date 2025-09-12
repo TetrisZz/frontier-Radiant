@@ -6,8 +6,7 @@ using Content.Shared.Physics;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
-using Content.Client._Mono.Radar;
-using Content.Shared._Mono.Radar;
+using Content.Shared._NF.Radar;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
@@ -26,7 +25,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
     private readonly IEntitySystemManager _sysManager = default!;
-    private readonly RadarBlipsSystem _blips;
+    private readonly _NF.Radar.RadarBlipSystem _blips;
     private readonly SharedPhysicsSystem _physics;
 
     private EntityCoordinates? _coordinates;
@@ -65,7 +64,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
         IoCManager.InjectDependencies(this);
         _shuttles = EntManager.System<SharedShuttleSystem>();
         _transform = EntManager.System<SharedTransformSystem>();
-        _blips = EntManager.System<RadarBlipsSystem>();
+        _blips = EntManager.System<_NF.Radar.RadarBlipSystem>();
         _physics = EntManager.System<SharedPhysicsSystem>();
 
         OnMouseEntered += HandleMouseEntered;
@@ -314,17 +313,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
         foreach (var blip in blips)
         {
             var blipPos = Vector2.Transform(blip.Item1, worldToShuttle * shuttleToView);
-
-			if (blip.Item4 == RadarBlipShape.Ring)
-            {
-                // For Ring shapes, use the real radius but with a dedicated drawing method
-                DrawShieldRing(handle, blipPos, blip.Item2 * MinimapScale, blip.Item3.WithAlpha(0.8f));
-            }
-            else
-            {
-                // For other shapes, use the regular drawing method
-                DrawBlipShape(handle, blipPos, blip.Item2 * 3f, blip.Item3.WithAlpha(0.8f), blip.Item4);
-            }
+			DrawBlipShape(handle, blipPos, blip.Item2 * 3f, blip.Item3.WithAlpha(0.8f), blip.Item4);
 
             if (_isMouseInside && _controllables != null)
             {

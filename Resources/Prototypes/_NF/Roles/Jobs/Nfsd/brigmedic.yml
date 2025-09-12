@@ -5,17 +5,20 @@
 #  playTimeTracker: JobBrigmedic
 #  requirements:
 #    - !type:OverallPlaytimeRequirement
-#      time: 14400 # 4 hours Radiant_Sector
+#      time: 43200 # 12 hours
 #    - !type:DepartmentTimeRequirement
 #      department: Security
-#      time: 3600 # 1 hours Radiant_Sector
+#      time: 21600 # 6 hours
+#  alternateRequirementSets:
+#    longerPlaytimeLessSec:
+#    - !type:OverallPlaytimeRequirement
+#      time: 360000 # 100 hours
 #  startingGear: BrigmedicGear
 #  icon: JobIconBrigmedicNF
 #  supervisors: job-supervisors-bailiff
 #  weight: 125
 #  displayWeight: 35
 #  canBeAntag: false
-#  setPreference: false
 #  access:
 #  - Brigmedic
 #  accessGroups:
@@ -30,13 +33,27 @@
 #- type: startingGear
 #  id: BrigmedicGear
 #  equipment:
-#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#    pocket1: NFWeaponPistolUniversalNfsdLessLethal
 #  storage:
 #    back:
 #    - EncryptionKeyMedical
 #    - Flash
-#    - MagazinePistol
-#    - MagazinePistolRubber
+#    - NFMagazineHighCapacityPistol35Overpressure
+#    - NFMagazineHighCapacityPistol35Rubber
 #    - FrontierUplinkCoin10
 #
 # Closed by Radiant_Sector
+
+- type: chameleonOutfit
+  id: BrigmedicChameleonOutfit
+  job: Brigmedic
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatNfsdBeretCream
+    mask: ClothingMaskBreathMedicalSecurity
+    eyes: ClothingEyesHudNfsdMed
+    outerClothing: ClothingOuterCoatNfsdBomberBrigmed
+    neck: ClothingNeckNfsdBadgeSecurityBrigmedic
+    belt: ClothingBeltNfsdWebbingFilledBrigmedic
+    gloves: ClothingHandsGlovesNitrile
+    shoes: ClothingShoesBootsNfsdCreamFilled

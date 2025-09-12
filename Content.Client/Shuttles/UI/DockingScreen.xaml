@@ -2,13 +2,13 @@
                HorizontalExpand="True"
                xmlns:controls="https://spacestation14.io"
                xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
-               xmlns:ui="clr-namespace:Content.Client.Shuttles.UI">
-    <ui:ShuttleDockControl Name="DockingControl"
+               xmlns:ui="clr-namespace:Content.Client._NF.Shuttles.UI"> <!-- Frontier: move UI over to _NF namespace -->
+    <ui:NFShuttleDockControl Name="DockingControl"
                        MouseFilter="Stop"
                        VerticalAlignment="Stretch"
                        VerticalExpand="True"
                        HorizontalExpand="True"
-                       Margin="5 4 10 5"/>
+                       Margin="5 4 10 5"/> <!-- Frontier: use NF variant -->
     <controls:BoxContainer Name="RightDisplayDock"
                            VerticalAlignment="Top"
                            HorizontalAlignment="Right"
@@ -17,30 +17,10 @@
                            Align="Center"
                            Margin="5 0 5 5"
                            Orientation="Vertical">
-		<!-- FTL Lock Section -->
         <controls1:StripeBack MinSize="48 48">
-            <controls:Label Text="{controls:Loc 'FTL Lock'}" HorizontalAlignment="Center"/>
+            <controls:Label Name="DockingPortsLabel" Text="{controls:Loc 'shuttle-console-docks-label'}" HorizontalAlignment="Center"/>
         </controls1:StripeBack>
-        <controls:BoxContainer Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="5 5 5 5">
-            <controls:Button Name="FTLLockEnabledButton" 
-                             Text="{controls:Loc 'Enabled'}" 
-                             ToggleMode="True"
-                             HorizontalExpand="True"
-                             StyleClasses="OpenRight"/>
-            <controls:Button Name="FTLLockDisabledButton" 
-                             Text="{controls:Loc 'Disabled'}" 
-                             ToggleMode="True"
-                             HorizontalExpand="True"
-                             StyleClasses="OpenLeft"/>
-        </controls:BoxContainer>
-
-        <!-- Docks Section -->
-        <controls1:StripeBack MinSize="48 48">
-            <controls:Label Text="{controls:Loc 'Docks'}" HorizontalAlignment="Center"/>
-        </controls1:StripeBack>
-        <controls:Button Name="UndockAllButton" 
-                         Text="{controls:Loc 'Undock All'}" 
-                         Margin="5 5 5 5"/>
+        <controls:Button Name="UndockAllButton" Text="{controls:Loc 'shuttle-console-undock-all'}" Margin="5 5 5 5"/>
         <controls:ScrollContainer VerticalExpand="True" HScrollEnabled="False"
                                   ReturnMeasure="True">
             <controls:BoxContainer Name="DockPorts" Orientation="Vertical"/>
