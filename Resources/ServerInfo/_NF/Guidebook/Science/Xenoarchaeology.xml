@@ -9,7 +9,7 @@
 ## Узлы артефактов
 <Box>
 <GuideEntityEmbed Entity="ComplexXenoArtifact" Caption=""/>
-<GuideEntityEmbed Entity="SimpleXenoArtifactItem" Caption=""/>
+<GuideEntityEmbed Entity="ComplexXenoArtifactItem" Caption=""/>
 </Box>
 Артефакты представляют собой случайно сгенерированные структуры-графы. Они состоят из узлов, соединенных друг с другом, обход которых является главной целью ученых, работающих над ними.
 
@@ -36,11 +36,11 @@
 
 ## Артифексиум и ты
 
-При сложностях с активацией одним из рискованных вариантов является использование [color=#a4885c]артефакта[/color]. Чтобы получить артефакт, фрагменты артефакта можно [color=#a4885c]измельчить[/color] в [color=#a4885c]реактивной мельнице[/color]. Затем этот артефакт можно [color=#a4885c] распылить [/color] или [color=#a4885c] распылить [/color] на артефакт, чтобы вызвать срабатывание.
+Some nodes can be particularly difficult to reach. One way to mitigate this is with [color=#a4885c]artifexium[/color]. When [color=#a4885c]sprayed[/color] or [color=#a4885c]splashed[/color] on an artifact. This will start unlocking nodes if the artifact isn't already doing it, and it will count as a wildcard stimulus for the triggers.
 
-Стоит отметить, что артефексиум может вызывать нежелательные реакции и снижать урожайность при взаимодействии с инопланетными артефактами. Используйте его с осторожностью, и он может оказаться полезным инструментом.
+In order to get artifexium, artifact fragments can be [color=#a4885c]ground[/color] in a [color=#a4885c]reagent grinder[/color].
 
-По причинам, которые наука пока не может объяснить, использование арфифекса в лабораториях более стабильно, чем на скалах в космосе. Наши ксеоноархеологи предполагают, что эти артефакты могут обладать разумными свойствами и быть более стабильными в социальной среде.
+It is worth note that using artifexium taints the observation process, resulting in fewer research points and value generated in the artifacts. Still, it is a useful tool in a pinch.
 
 ## Сборка артефактов
 <GuideEntityEmbed Entity="ArtifactFragment" Caption="Artifact Fragment"/>

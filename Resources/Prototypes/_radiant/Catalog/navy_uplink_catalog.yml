@@ -4,7 +4,7 @@
   id: UplinkNavyAmmoPistol
   name:  uplink-navy-ammopistol-name
   description: uplink-navy-ammopistol-desc
-  productEntity: BoxMagazinePistol
+  productEntity: NFBoxMagazineHighCapacityPistol35Overpressure
   icon: { sprite: Objects/Storage/boxes.rsi, state: box }
   cost:
     FrontierUplinkCoin: 1
@@ -20,7 +20,7 @@
   id: UplinkNavyMagazineMagnum
   name:  uplink-navy-magazinemagnum-name
   description: uplink-navy-magazinemagnum-desc
-  productEntity: MagazineMagnum
+  productEntity: NFMagazinePistol45Overpressure
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red }
   cost:
     FrontierUplinkCoin: 1
@@ -36,7 +36,7 @@
   id: UplinkNavyDisabler
   name:  uplink-navy-disabler-name
   description: uplink-navy-disabler-desc
-  productEntity: WeaponDisabler
+  productEntity: NFWeaponEnergyPistolDisabler
   icon: { sprite: Objects/Storage/boxes.rsi, state: box }
   cost:
     FrontierUplinkCoin: 1
@@ -52,7 +52,7 @@
   id: UplinkNavyDrozd
   name:  uplink-navy-drozd-name
   description: uplink-navy-drozd-desc
-  productEntity: WeaponSubMachineGunDrozd
+  productEntity: NFWeaponSubMachineGunDrozd
   icon: { sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 2
@@ -84,7 +84,7 @@
   id: UplinkNavyN1984
   name:  uplink-security-n1984-name
   description: uplink-security-n1984-desc
-  productEntity: WeaponPistolN1984
+  productEntity: NFWeaponPistolN1984
   icon: { sprite: Objects/Weapons/Guns/Pistols/N1984.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 3
@@ -100,7 +100,7 @@
   id: UplinkNavyAntique
   name:  uplink-security-antique-name
   description: uplink-security-antique-desc
-  productEntity: WeaponAntiqueLaser
+  productEntity: NFWeaponEnergyPistolLaserAntique
   icon: { sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 3

@@ -8,12 +8,17 @@
   - MedicalAppraisalTool
   - HandheldCrewMonitor
   - PowerCellSmall # For small appliances, convenience if anything
+  - UniformScrubsColorBlue
+  - UniformScrubsColorGreen
+  - UniformScrubsColorPurple
+  - ClothingOuterHospitalGown
   - CraftChemBag
   - BeltMedicalEMT
   - BeltMedical
   - CraftMedicalBag
   - CraftClothingEyesHudMedical
   - CraftClothingEyesEyepatchHudMedical
+  - CraftClothingMaskBreathMedical
 
 - type: latheRecipePack
   id: NFMedical
@@ -22,6 +27,7 @@
   - ReinforcedJug
   - VialBluespace
   - ClothingOuterHardsuitMedical
+  - DefibrillatorCompact
 
 - type: latheRecipePack
   id: NFMedicalBoards

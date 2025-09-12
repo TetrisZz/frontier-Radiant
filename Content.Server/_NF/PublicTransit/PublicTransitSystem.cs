@@ -7,7 +7,6 @@ using Content.Server._NF.PublicTransit.Prototypes;
 using Content.Server._NF.SectorServices;
 using Content.Server._NF.Station.Systems;
 using Content.Server.Chat.Systems;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
@@ -21,6 +20,7 @@ using Content.Shared._NF.CCVar;
 using Content.Shared._NF.PublicTransit;
 using Content.Shared._NF.PublicTransit.Components;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Examine;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Shuttles.Components;
@@ -52,7 +52,6 @@ public sealed class PublicTransitSystem : EntitySystem
     [Dependency] private readonly StationRenameWarpsSystems _renameWarps = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly DockingSystem _dockSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
     [Dependency] private readonly SectorServiceSystem _sectorService = default!;
@@ -147,45 +146,48 @@ public sealed class PublicTransitSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (!TryComp(ent, out TransformComponent? xform)
-            || xform.GridUid == null)
+        using (args.PushGroup(nameof(BusScheduleComponent)))
         {
-            args.PushMarkup(Loc.GetString("bus-schedule-no-bus"));
-            return;
-        }
-
-        if (TryComp<TransitShuttleComponent>(xform.GridUid, out var transitShuttle))
-        {
-            // This is a bus, it only serves one route - even if the schedule is for a different route, give our info.
-            PrintBusSchedule(transitShuttle.RouteId, (xform.GridUid.Value, transitShuttle), ref args);
-        }
-        else if (TryComp<StationTransitComponent>(xform.GridUid, out var stationTransit))
-        {
-            // Get the route associated with this grid.
-            if (stationTransit.Routes.Count <= 0)
+            if (!TryComp(ent, out TransformComponent? xform)
+                || xform.GridUid == null)
             {
                 args.PushMarkup(Loc.GetString("bus-schedule-no-bus"));
                 return;
             }
 
-            var route = ent.Comp.RouteId;
-            if (route == null)
+            if (TryComp<TransitShuttleComponent>(xform.GridUid, out var transitShuttle))
             {
-                route = stationTransit.Routes.First().Key;
+                // This is a bus, it only serves one route - even if the schedule is for a different route, give our info.
+                PrintBusSchedule(transitShuttle.RouteId, (xform.GridUid.Value, transitShuttle), ref args);
             }
-            else if (!stationTransit.Routes.ContainsKey(route.Value))
+            else if (TryComp<StationTransitComponent>(xform.GridUid, out var stationTransit))
             {
-                args.PushMarkup(Loc.GetString("bus-schedule-no-buses-on-route"));
+                // Get the route associated with this grid.
+                if (stationTransit.Routes.Count <= 0)
+                {
+                    args.PushMarkup(Loc.GetString("bus-schedule-no-bus"));
+                    return;
+                }
+
+                var route = ent.Comp.RouteId;
+                if (route == null)
+                {
+                    route = stationTransit.Routes.First().Key;
+                }
+                else if (!stationTransit.Routes.ContainsKey(route.Value))
+                {
+                    args.PushMarkup(Loc.GetString("bus-schedule-no-buses-on-route"));
+                    return;
+                }
+
+                PrintStationSchedule(route.Value, xform.GridUid.Value, ref args);
+            }
+            else
+            {
+                // If any of the above have failed, or if no case was met, this thing isn't a bus and doesn't have bus service.
+                args.PushMarkup(Loc.GetString("bus-schedule-no-bus"));
                 return;
             }
-
-            PrintStationSchedule(route.Value, xform.GridUid.Value, ref args);
-        }
-        else
-        {
-            // If any of the above have failed, or if no case was met, this thing isn't a bus and doesn't have bus service.
-            args.PushMarkup(Loc.GetString("bus-schedule-no-bus"));
-            return;
         }
     }
 
@@ -202,14 +204,17 @@ public sealed class PublicTransitSystem : EntitySystem
         FormattedMessage message = new();
         message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival-header"));
 
-        var arrivalTime = grid.Comp.NextTransfer - _ticker.RoundStartTimeSpan + routeData.Prototype.TravelTime;
+        var arrivalTime = grid.Comp.NextTransfer - _timing.CurTime + routeData.Prototype.TravelTime;
         // On the way to the next grid
         int maxIndex = routeData.GridStops.Count;
         if (HasComp<FTLComponent>(grid))
         {
             var nextStopArrival = arrivalTime - routeData.Prototype.WaitTime - routeData.Prototype.TravelTime;
             message.PushNewline();
-            message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival", ("station", Name(grid.Comp.CurrentGrid)), ("time", nextStopArrival.ToString(@"hh\:mm\:ss"))));
+            if (nextStopArrival.TotalSeconds >= 1)
+                message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival", ("station", Name(grid.Comp.CurrentGrid)), ("time", nextStopArrival.ToString(@"hh\:mm\:ss"))));
+            else
+                message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival-now", ("station", Name(grid.Comp.CurrentGrid))));
             maxIndex -= 1; // Don't double count the furthest index.
         }
 
@@ -218,7 +223,10 @@ public sealed class PublicTransitSystem : EntitySystem
             var stopUid = routeData.GridStops.GetValueAtIndex((destInfo.stopIndex + i) % routeData.GridStops.Count);
 
             message.PushNewline();
-            message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival", ("station", Name(stopUid)), ("time", arrivalTime.ToString(@"hh\:mm\:ss"))));
+            if (arrivalTime.TotalSeconds >= 1)
+                message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival", ("station", Name(stopUid)), ("time", arrivalTime.ToString(@"hh\:mm\:ss"))));
+            else
+                message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival-now", ("station", Name(stopUid))));
             arrivalTime += routeData.Prototype.TravelTime + routeData.Prototype.WaitTime;
         }
         args.PushMessage(message);
@@ -265,10 +273,13 @@ public sealed class PublicTransitSystem : EntitySystem
         }
 
         // Calculate the departure time from this stop and the arrival time at the next stops.
-        var departureTime = nextBus.Comp.NextTransfer + stopDistance * (routeData.Prototype.TravelTime + routeData.Prototype.WaitTime) - _ticker.RoundStartTimeSpan;
+        var departureTime = nextBus.Comp.NextTransfer + stopDistance * (routeData.Prototype.TravelTime + routeData.Prototype.WaitTime) - _timing.CurTime;
 
         FormattedMessage message = new();
-        message.AddMarkupPermissive(Loc.GetString("bus-schedule-next-departure", ("bus", Name(nextBus)), ("time", departureTime.ToString(@"hh\:mm\:ss"))));
+        if (departureTime.TotalSeconds >= 1)
+            message.AddMarkupPermissive(Loc.GetString("bus-schedule-next-departure", ("bus", Name(nextBus)), ("time", departureTime.ToString(@"hh\:mm\:ss"))));
+        else
+            message.AddMarkupPermissive(Loc.GetString("bus-schedule-next-departure-now", ("bus", Name(nextBus))));
         message.PushNewline();
         message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival-header"));
 
@@ -278,7 +289,10 @@ public sealed class PublicTransitSystem : EntitySystem
             var stopUid = routeData.GridStops.GetValueAtIndex((destInfo.stopIndex + i) % routeData.GridStops.Count);
 
             message.PushNewline();
-            message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival", ("station", Name(stopUid)), ("time", arrivalTime.ToString(@"hh\:mm\:ss"))));
+            if (arrivalTime.TotalSeconds >= 1)
+                message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival", ("station", Name(stopUid)), ("time", arrivalTime.ToString(@"hh\:mm\:ss"))));
+            else
+                message.AddMarkupPermissive(Loc.GetString("bus-schedule-arrival-now", ("station", Name(stopUid))));
             arrivalTime += routeData.Prototype.TravelTime + routeData.Prototype.WaitTime;
         }
         args.PushMessage(message);
@@ -453,11 +467,7 @@ public sealed class PublicTransitSystem : EntitySystem
 
             // FTL to next station if it exists.  Do this before the print.
             var hyperspaceTime = MathF.Max(0.0f, (float)route.Prototype.TravelTime.TotalSeconds - _shuttles.DefaultStartupTime);
-            {
-                // Ensure the shuttle is undocked before initiating FTL travel
-                _dockSystem.UndockDocks(uid);
-                _shuttles.FTLToDock(uid, shuttle, nextGrid.Value, startupTime: _shuttles.DefaultStartupTime, hyperspaceTime: hyperspaceTime, priorityTag: comp.DockTag);
-            }
+            _shuttles.FTLToDock(uid, shuttle, nextGrid.Value, startupTime: _shuttles.DefaultStartupTime, hyperspaceTime: hyperspaceTime, priorityTag: comp.DockTag); // TODO: Unhard code the priorityTag as it should be added from the system.
             comp.CurrentGrid = nextGrid.Value;
 
             if (!TryComp(nextGrid, out MetaDataComponent? metadata))
@@ -624,10 +634,7 @@ public sealed class PublicTransitSystem : EntitySystem
 
                 // We set up a default in case the second time we call it fails for some reason
                 var nextGrid = route.GridStops.GetValueAtIndex((int)relativeIndex);
-                
-                // Ensure the shuttle is undocked before initiating FTL travel
-                _dockSystem.UndockDocks(shuttleEnt);
-				_shuttles.FTLToDock(shuttleEnt, shuttleComp, nextGrid, hyperspaceTime: (float)initialHyperspaceTime.TotalSeconds, priorityTag: transitComp.DockTag);
+                _shuttles.FTLToDock(shuttleEnt, shuttleComp, nextGrid, hyperspaceTime: (float)initialHyperspaceTime.TotalSeconds, priorityTag: transitComp.DockTag);
                 transitComp.CurrentGrid = nextGrid;
                 transitComp.NextTransfer = _timing.CurTime + route.Prototype.WaitTime + extraTime + initialHyperspaceTime;
 

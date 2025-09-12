@@ -13,6 +13,7 @@ using Robust.Shared.Utility;
 using Content.Server._NF.Shipyard.Components;
 using Content.Shared.PDA;
 using Robust.Shared.Audio;
+using Content.Shared.Interaction;
 
 namespace Content.Server.Shuttles.Systems;
 

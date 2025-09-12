@@ -31,12 +31,11 @@
 - type: startingGear
   id: NavyCaptainGear
   equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+    pocket1: NFWeaponPistolUniversalNfsdLessLethal
   storage:
     back:
     - Flash
-    - MagazinePistol
-    - MagazinePistolRubber
+    - NFMagazineHighCapacityPistol35Overpressure
     - BaseNavyUplinkRadioCaptain
     - RubberStampBailiff
     - NavyToken2

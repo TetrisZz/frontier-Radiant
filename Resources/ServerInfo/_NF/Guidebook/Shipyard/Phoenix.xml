@@ -1,7 +1,7 @@
 Размер корабля<Document>
     # ИССЛЕДОВАТЕЛЬСКИЙ ШАТТЛ КЛАССА PHOENIX
     <Box>
-      <GuideEntityEmbed Entity="VariedXenoArtifactItem"/>
+      <GuideEntityEmbed Entity="ComplexXenoArtifactItem"/>
       <GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
       <GuideEntityEmbed Entity="ComputerTabletopAnalysisConsole"/>
       <GuideEntityEmbed Entity="ExosuitFabricator"/>
@@ -14,7 +14,7 @@
 	
     [color=#a4885c]Рекомендуемый экипаж:[/color] 2-3
     
-    [color=#a4885c]Тип электрогенератора:[/color] Соляры/Плазма
+    [color=#a4885c]Power Gen Type:[/color] Uranium
     
     [color=#a4885c]Экспедиции:[/color] При покупке консоли - да
     
@@ -37,28 +37,19 @@
   - Убедитесь, что подстанция закреплена на полу.
   - Убедитесь, что ЛКП включена.
   - Проверьте текущую нагрузку ЛКП* (Вт).
-    
-    ## 1.2. Генератор P.A.C.M.A.N.
+
+    ## 1.2. S.U.P.E.R.P.A.C.M.A.N. generator units
+
     <Box>
-      <GuideEntityEmbed Entity="PortableGeneratorPacmanShuttle"/>
-      <GuideEntityEmbed Entity="SheetPlasma"/>
+      <GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
+      <GuideEntityEmbed Entity="SheetUranium"/>
     </Box>
-    
-  - Проверьте, закреплен ли генератор P.A.C.M.A.N. на полу.
-  - Проверьте, есть ли в генераторе P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки энергии во время полета.
-  - Проверьте, установлен ли генератор P.A.C.M.A.N. на выход HV.
-  - Установите целевую мощность на 9-12** [bold]k[/bold]Вт.
-  - Запустите генератор P.A.C.M.A.N.
-    
-    ## 1.3. Солнечные панели
-    <Box>
-      <GuideEntityEmbed Entity="ComputerSolarControl"/>
-      <GuideEntityEmbed Entity="SolarTracker"/>
-      <GuideEntityEmbed Entity="SolarPanel"/>
-    </Box>
-    - Осмотрите консоль солнечных панелей (находится в кабине шаттла).
-    - Отрегулируйте угловую скорость панели.
-    - Отрегулируйте угол наклона панели.
+
+    - Check that the S.U.P.E.R.P.A.C.M.A.N. generator units are anchored to the floor.
+    - Check that the S.U.P.E.R.P.A.C.M.A.N. generator units have fuel. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation during flight.
+    - Check that the S.U.P.E.R.P.A.C.M.A.N. generator units are set to HV output.
+    - Check that the power is set to at least 20** on each generator [bold]kW[/bold].
+    - Ensure that the S.U.P.E.R.P.A.C.M.A.N. generator units are enabled.
     
     ## 2. Атмосфера
     
@@ -82,10 +73,10 @@
       <GuideEntityEmbed Entity="GasPressurePump"/>
       <GuideEntityEmbed Entity="AirAlarm"/>
     </Box>
-      
-  - Включите насос.
-  - Отключите автоматический режим на воздушной сигнализации.
-  - Установите для воздушной сигнализации режим фильтрации (широкий).
+
+    - Ensure that the waste loop pump is enabled, it is located within the salvage area.
+    - Disable Auto Mode on any Air Alarms.
+    - Set Air Alarms to Filtering (Wide).
     
     ## 3. Другие проверки
     <Box>
@@ -95,11 +86,11 @@
     
     - Убедитесь, что гироскоп закреплен, питается и включен.
     - Убедитесь, что мини-генератор гравитации закреплен, питается и включен.
+
+    ## Sidenotes
     
-    ## Примечания
-
-    * - Исследовательские корабли класса PHOENIX оснащены консолью мониторинга энергопотребления, с помощью которой можно оценить общее энергопотребление корабля. Немодифицированный корабль класса PHOENIX требует 24,5 кВт энергии для поддержания работоспособности.
-
-    ** - Исследовательские корабли класса PHOENIX оснащены дополнительными солнечными панелями, которые при идеальных обстоятельствах могут обеспечить до 17,5 кВт энергии. Если предположить, что солнечная батарея будет выдавать треть своей максимальной мощности, то рекомендуемая целевая мощность для каждого генератора P.A.C.M.A.N. составляет 12 кВт..
+    * - Phoenix-class research ships are equipped a power monitoring console that be used to appraise the ship's total power consumption. An unmodified Phoenix-class ship requires 30 kW of power to remain operational.
+	
+	** - Phoenix-class research ships may spike in power usage up to 40 kW due to operation and use of the artifact analyzer.
 
   </Document>

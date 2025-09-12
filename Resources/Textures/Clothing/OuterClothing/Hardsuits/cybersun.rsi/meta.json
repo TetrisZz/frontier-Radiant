@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:IAmRasputin#5242, reptilian made by kuro(388673708753027083), equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
+    "copyright": "Created by discord:IAmRasputin#5242, reptilian made by kuro(388673708753027083), equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord), monkey state made by MercerBray for Ss14.",
     "size": {
         "x": 32,
         "y": 32
@@ -33,6 +33,14 @@
         {
             "name": "equipped-OUTERCLOTHING-vox",
             "directions": 4
+        },
+        {
+          "name": "equipped-OUTERCLOTHING-monkey",
+          "directions": 4
+        },
+        {
+          "name": "equipped-OUTERCLOTHING-harpy",
+          "directions": 4
         }
     ]
 }

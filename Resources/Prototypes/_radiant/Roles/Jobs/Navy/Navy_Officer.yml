@@ -30,12 +30,11 @@
 - type: startingGear
   id: NavyOfficerGear
   equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+    pocket1: NFWeaponPistolUniversalNfsd
   storage:
     back:
     - Flash
-    - MagazinePistol
-    - MagazinePistolRubber
+    - NFMagazineHighCapacityPistol35Overpressure
     - FrontierUplinkCoin10
     - NavyToken1
     - NFPouchNavy

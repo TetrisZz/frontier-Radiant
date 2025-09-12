@@ -1,6 +1,6 @@
 - type: entity
   name: Адъютант
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  parent: [ NFBaseWeaponShotgunChamber50, NFBaseWeaponFrameShotgunWieldable ]
   id: WeaponShotgunAdjutant
   description: Лёгкое и эргономичное оружие, предназначенное для быстрой стрельбы. Корпус часто из лёгких материалов с удобной рукояткой и цевьём, обеспечивающими контроль и комфорт.
   components:
@@ -10,8 +10,6 @@
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
-  - type: BallisticAmmoProvider
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
 
 - type: entity
   name: Покровитель
@@ -38,7 +36,7 @@
       tags:
       - ShellShotgun
     capacity: 6
-    proto: ShellShotgun
+    proto: NFShellShotgunBuckshot
     soundInsert:
       path: /Audio/_radiant/Weapons/MagIn/Load-1.ogg
       params:

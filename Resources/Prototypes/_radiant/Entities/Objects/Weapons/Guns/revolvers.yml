@@ -33,7 +33,7 @@
 
 - type: entity
   name: Шкофилд
-  parent: [BaseWeaponRevolver, BaseC3PirateContraband] # Frontier: BaseMinorContraband<BaseC3PirateContraband
+  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverSteelbolt ]
   id: WeaponRevolverSchofield
   description: Смит анд Вессон - нестареющая классика даже спустя века. Благодаря удлиненному стволу разгоняет пулю быстрее чем другие револьверы. Использует патроны калибра .45 магнум.
   components:
@@ -58,7 +58,7 @@
 
 - type: entity
   name: М2-Набат
-  parent: [BaseWeaponRevolver, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverGorlex ]
   id: WeaponRevolverNabat
   description: Пистолет револьверного механизма, получивший дурную славу из за большого спроса на черном рынке. Использует патроны калибра .45 магнум.
   components:

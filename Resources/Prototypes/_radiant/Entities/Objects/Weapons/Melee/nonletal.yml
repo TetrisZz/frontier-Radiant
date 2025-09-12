@@ -8,7 +8,10 @@
     sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
     layers:
     - state: stunbaton_off
-      map: ["enum.ToggleVisuals.Layer"]
+    - state: stunbaton_on
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
   - type: ItemToggle
     soundActivate:
       path: /Audio/_radiant/Weapons/on_tazer.ogg
@@ -67,15 +70,6 @@
           Quantity: 10
         - ReagentId: Tazinide
           Quantity: 1
-  - type: ToggleableLightVisuals
-    spriteLayer: blade
-    inhandVisuals:
-      left:
-      - state: on-inhand-left
-        shader: unshaded
-      right:
-      - state: on-inhand-right
-        shader: unshaded
   - type: Item
     size: Normal
     heldPrefix: off
@@ -85,12 +79,15 @@
     quickEquip: false
     slots:
     - Belt
-  - type: GenericVisualizer
-    visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
-          True: {state: stunbaton_on}
-          False: {state: stunbaton_off}
+  - type: ToggleableVisuals # Add support for multiple layers
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: on-inhand-left
+        shader: unshaded
+      right:
+      - state: on-inhand-right
+        shader: unshaded
 
 - type: entity
   name: электрошокер

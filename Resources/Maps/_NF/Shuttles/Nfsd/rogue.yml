@@ -587,7 +587,7 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
-- proto: GrenadeEMP
+- proto: NFGrenadeEMP
   entities:
   - uid: 79
     components:
@@ -657,7 +657,7 @@ entities:
       linkedPorts:
         78:
         - Pressed: Trigger
-- proto: MagazineGrenadeEMP
+- proto: NFMagazineGrenadeEMP
   entities:
   - uid: 89
     components:

@@ -274,30 +274,21 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxAntiMateriel
-  result: MagazineBoxAntiMateriel
+  id: NFAmmunitionBoxRifle60
+  result: NFAmmunitionBoxRifle60
   materials:
     Steel: 1000
     Plastic: 200
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxAntiMaterielBig
-  result: MagazineBoxAntiMaterielBig
-  materials:
-    Steel: 3000
-    Plastic: 600
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: GrenadeFrag
-  result: GrenadeFrag
+  id: NFGrenadeFrag
+  result: NFGrenadeFrag
   materials:
     Steel: 500
     Plastic: 100
     Plasteel: 100
     Silver: 200
-
 
 #Borg
 

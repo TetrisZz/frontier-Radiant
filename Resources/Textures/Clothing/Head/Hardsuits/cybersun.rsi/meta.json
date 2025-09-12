@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:IAmRasputin#5242",
+    "copyright": "Created by discord:IAmRasputin#5242. monkey state made by MercerBray for Ss14",
     "size": {
         "x": 32,
         "y": 32
@@ -64,6 +64,10 @@
         {
             "name": "off-equipped-HELMET-vox",
             "directions": 4
+        },
+        {
+          "name": "equipped-HELMET-monkey",
+          "directions": 4
         }
     ]
 }

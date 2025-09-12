@@ -1,0 +1,13 @@
+#Radian_sector
+
+- type: techDiscipline
+  id: Acorp
+  name: research-discipline-acorp
+  color: "#e8e8e8"
+  icon:
+    sprite: _radiant/Interface/Misc/research_disciplines.rsi
+    state: acorp
+  tierPrerequisites:
+    1: 0
+    2: 0.75
+    3: 0.75

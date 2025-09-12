@@ -6,7 +6,7 @@
   - type: StorageFill
     contents:
       - id: EnergyTazer
-      - id: WeaponDisabler
+      - id: NFWeaponEnergyPistolDisabler
       - id: EncryptionKeyAcorp
         amount: 4
       - id: Flash
@@ -28,7 +28,6 @@
       - id: Flash
       - id: ClothingOuterHardsuitAcorpRnd
       - id: AirTankFilled
-      - id: NFBlueprintVialBluespace
 
 - type: entity
   id: LockerAcorpSecurityFilled

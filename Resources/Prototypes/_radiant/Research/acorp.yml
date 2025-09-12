@@ -3,131 +3,130 @@
 - type: technology
   id: AcorpTazer
   name: research-technology-acorp-tazer
-  icon:
-    sprite: _radiant/Objects/Weapons/Melee/tazer.rsi
-    state: stunbaton_off
+  entityIcon: EnergyTazer
   discipline: Acorp
   tier: 1
-  cost: 15000
+  cost: 2500
   recipeUnlocks:
   - EnergyTazer
+  position: 0, 47
 
 - type: technology
   id: AcorpHardsuit
   name: research-technology-acorp-hardsuit
-  icon:
-    sprite: _radiant/Clothing/Hardsuits/rnd.rsi
-    state: icon
+  entityIcon: ClothingOuterHardsuitAcorpRnd
   discipline: Acorp
   tier: 1
-  cost: 15000
+  cost: 5000
   recipeUnlocks:
   - ClothingOuterHardsuitAcorpEngineer
   - ClothingOuterHardsuitAcorpBasic
   - ClothingOuterHardsuitAcorpSalvage
   - ClothingOuterHardsuitAcorpRnd
   - JetpackAcorp
+  technologyPrerequisites:
+  - AcorpTazer
+  position: 1, 46
 
 - type: technology
   id: AcorpAmmunition
   name: research-technology-acorp-ammunition
-  icon:
-    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
-    state: display
+  entityIcon: MagazineBoxHigh2Rifle
   discipline: Acorp
   tier: 1
-  cost: 15000
+  cost: 5000
   recipeUnlocks:
   - MagazineBoxHigh2Rifle
   - MagazineHigh2RifleEmptyAK
   - MagazineHigh2RifleEmpty
   - MagazineHigh2RifleAK
   - MagazineHigh2Rifle
-  - MagazineBoxCaselessRifle
-  - MagazineCaselessRifleShort
-  - MagazinePistolCaselessRifle
-  - BoxShotgunIncendiary
-  - BoxShotgunUranium
-  - BoxLethalshot
+  - NFAmmunitionBoxShellShotgunBuckshot
+  technologyPrerequisites:
+  - AcorpTazer
+  position: 1, 47
 
 - type: technology
   id: AcorpBorgModules
   name: research-technology-acorp-borg
-  icon:
-    sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
-    state: acorp
+  entityIcon: BorgModuleMartyrAcorp
   discipline: Acorp
   tier: 1
-  cost: 15000
+  cost: 2500
   recipeUnlocks:
   - BorgModuleMartyrAcorp
   - BorgModuleSyndicateWeaponAcorp
+  technologyPrerequisites:
+  - AcorpTazer
+  position: 1, 49
 
 # Tier 2
 
 - type: technology
   id: AcorpWeaponryGuns
   name: research-technology-acorp-weaponry
-  icon:
-    sprite: _radiant/Objects/Weapons/Guns/Rifles/tw-44/big.rsi
-    state: icon
+  entityIcon: WeaponRifleTW44Acorp
   discipline: Acorp
-  tier: 2
-  cost: 20000
+  tier: 1
+  cost: 10000
   recipeUnlocks:
   - WeaponRifleTW44Acorp
   - WeaponRifleSentinel9Acorp
+  technologyPrerequisites:
+  - AcorpAmmunition
+  position: 2, 47
 
 - type: technology
   id: AcorpWeaponryShotgun
   name: research-technology-acorp-shotgun
-  icon:
-    sprite: _radiant/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
-    state: icon
+  entityIcon: WeaponShotgunAdjutant
   discipline: Acorp
-  tier: 2
-  cost: 20000
+  tier: 1
+  cost: 10000
   recipeUnlocks:
   - WeaponShotgunAdjutant
-
-- type: technology
-  id: AcorpHardsuit2
-  name: research-technology-acorp-hardsuit2
-  icon:
-    sprite: _radiant/Clothing/Hardsuits/heva.rsi
-    state: icon
-  discipline: Acorp
-  tier: 2
-  cost: 20000
-  recipeUnlocks:
-  - ClothingOuterHardsuitAcorpHardEVA
-  - ClothingOuterHardsuitAcorpHeva
+  prerequisiteLineType: Diagonal
   technologyPrerequisites:
-  - AcorpHardsuit
+  - AcorpAmmunition
+  position: 2, 48
 
 - type: technology
   id: AcorpWeaponryLaser
   name: research-technology-acorp-laser
-  icon:
-    sprite: _radiant/Objects/Weapons/Laser/energygun_carbine.rsi
-    state: icon
+  entityIcon: WeaponEnergyGunMiniAcorp
   discipline: Acorp
-  tier: 2
-  cost: 20000
+  tier: 1
+  cost: 10000
   recipeUnlocks:
-  - WeaponLaserCarbineAcorp
   - WeaponEnergyGunMiniAcorp
-  - WeaponEnergyShotgun
+  technologyPrerequisites:
+  - AcorpBorgModules
+  position: 2, 49
+
+- type: technology
+  id: AcorpArmour
+  name: research-technology-acorp-armour
+  entityIcon: ClothingOuterArmorPlatecarrierfAcorp
+  discipline: Acorp
+  tier: 1
+  cost: 15000
+  recipeUnlocks:
+  - ClothingOuterArmorBulletproofAcorp
+  - ClothingOuterArmorPlatecarrierfAcorp
+  - ClothingOuterArmorRiot
+  technologyPrerequisites:
+  - AcorpHardsuit
+  position: 2, 46
+
+# Tier 3
 
 - type: technology
   id: AcorpAmmunition2
   name: research-technology-acorp-ammunition2
-  icon:
-    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle_display.rsi
-    state: icedisplay
+  entityIcon: MagazineBoxRifleIce
   discipline: Acorp
-  tier: 2
-  cost: 20000
+  tier: 1
+  cost: 15000
   recipeUnlocks:
   - MagazineBoxRifleIce
   - MagazineBoxLightRifleIce
@@ -137,75 +136,91 @@
   - MagazineBoxHigh2RifleIce
   - MagazineHigh2RifleIce
   - MagazineHigh2RifleIceAK
+  prerequisiteLineType: Tree
   technologyPrerequisites:
-  - AcorpAmmunition
+  - AcorpWeaponryShotgun
+  - AcorpWeaponryGuns
+  position: 3, 47
 
 - type: technology
-  id: AcorpArmour
-  name: research-technology-acorp-armour
-  icon:
-    sprite: _radiant/Clothing/OuterClothing/Vests/platecarrier.rsi
-    state: icon
+  id: AcorpHardsuit2
+  name: research-technology-acorp-hardsuit2
+  entityIcon: ClothingOuterHardsuitAcorpHeva
   discipline: Acorp
-  tier: 2
-  cost: 20000
+  tier: 1
+  cost: 15000
   recipeUnlocks:
-  - ClothingOuterArmorBulletproofAcorp
-  - ClothingOuterArmorPlatecarrierfAcorp
-  - ClothingOuterArmorRiot
+  - ClothingOuterHardsuitAcorpHardEVA
+  - ClothingOuterHardsuitAcorpHeva
+  technologyPrerequisites:
+  - AcorpArmour
+  position: 3, 46
 
-# Tier 3
+- type: technology
+  id: AcorpWeaponryLaser2
+  name: research-technology-acorp-laser2
+  entityIcon: WeaponLaserCarbineAcorp
+  discipline: Acorp
+  tier: 1
+  cost: 15000
+  recipeUnlocks:
+  - WeaponLaserCarbineAcorp
+  technologyPrerequisites:
+  - AcorpWeaponryLaser
+  position: 3, 49
 
 - type: technology
   id: AcorpSword
   name: research-technology-acorp-sword
-  icon:
-    sprite: _radiant/Objects/Weapons/Melee/e_cutlass.rsi
-    state: icon
+  entityIcon: EnergySwordRadiant
   discipline: Acorp
-  tier: 3
-  cost: 30000
+  tier: 1
+  cost: 20000
   recipeUnlocks:
   - EnergySwordRadiant
+  technologyPrerequisites:
+  - AcorpWeaponryLaser2
+  position: 4, 49
 
 - type: technology
   id: AcorpGlefa
   name: research-technology-acorp-posox
-  icon:
-    sprite: _radiant/Objects/Weapons/Melee/glefa.rsi
-    state: icon
+  entityIcon: EnergySwordDoubleRadiant
   discipline: Acorp
-  tier: 3
-  cost: 30000
+  tier: 1
+  cost: 20000
   recipeUnlocks:
   - EnergySwordDoubleRadiant
+  prerequisiteLineType: Diagonal
+  technologyPrerequisites:
+  - AcorpWeaponryLaser2
+  position: 4, 48
 
 - type: technology
   id: AcorpAmmunition3
   name: research-technology-acorp-ammunition3
-  icon:
-    sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
-    state: display
+  entityIcon: NFGrenadeFrag
   discipline: Acorp
-  tier: 3
-  cost: 30000
+  tier: 1
+  cost: 20000
   recipeUnlocks:
-  - MagazineBoxAntiMateriel
-  - MagazineBoxAntiMaterielBig
-  - GrenadeFrag
+  - NFAmmunitionBoxRifle60
+  - NFGrenadeFrag
   - MagazineGrenadeEmpty
+  technologyPrerequisites:
+  - AcorpAmmunition2
+  position: 4, 47
 
 - type: technology
   id: AcorpHardsuit3
   name: research-technology-acorp-hardsuit3
-  icon:
-    sprite: _radiant/Clothing/Hardsuits/sec_rig.rsi
-    state: icon
+  entityIcon: ClothingOuterHardsuitAcorpSecurity
   discipline: Acorp
-  tier: 3
-  cost: 30000
+  tier: 1
+  cost: 20000
   recipeUnlocks:
   - ClothingOuterHardsuitAcorpSecurity
   - ClothingOuterHardsuitScaf
   technologyPrerequisites:
   - AcorpHardsuit2
+  position: 4, 46

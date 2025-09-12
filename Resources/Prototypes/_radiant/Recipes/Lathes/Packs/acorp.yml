@@ -12,9 +12,6 @@
   - MagazineHigh2RifleEmpty
   - MagazineHigh2RifleAK
   - MagazineHigh2Rifle
-  - MagazineBoxCaselessRifle
-  - MagazineCaselessRifleShort
-  - MagazinePistolCaselessRifle
   - BorgModuleMartyrAcorp
   - BorgModuleSyndicateWeaponAcorp
   - WeaponRifleTW44Acorp
@@ -24,7 +21,6 @@
   - ClothingOuterHardsuitAcorpHeva
   - WeaponLaserCarbineAcorp
   - WeaponEnergyGunMiniAcorp
-  - WeaponEnergyShotgun
   - MagazineBoxRifleIce
   - MagazineBoxLightRifleIce
   - MagazineBoxPistolIce
@@ -38,15 +34,12 @@
   - ClothingOuterArmorRiot
   - EnergySwordRadiant
   - EnergySwordDoubleRadiant
-  - MagazineBoxAntiMateriel
-  - MagazineBoxAntiMaterielBig
-  - GrenadeFrag
-  - MagazineGrenadeEmpty
+  - NFAmmunitionBoxRifle60
+  - NFGrenadeFrag
+  - NFMagazineGrenadeEmpty
   - ClothingOuterHardsuitAcorpSecurity
   - ClothingOuterHardsuitScaf
-  - BoxShotgunIncendiary
-  - BoxShotgunUranium
-  - BoxLethalshot
+  - NFAmmunitionBoxShellShotgunBuckshot
 
 - type: latheRecipePack
   id: AcorpProtolatheEMAG
@@ -62,9 +55,6 @@
   - MagazineHigh2RifleEmptyBABAX
   - MagazineHigh2RifleAKBABAX
   - MagazineHigh2RifleBABAX
-  - MagazineBoxCaselessRifleBABAX
-  - MagazineCaselessRifleShortBABAX
-  - MagazinePistolCaselessRifleBABAX
   - BorgModuleMartyrAcorpBABAX
   - BorgModuleSyndicateWeaponAcorpBABAX
   - WeaponRifleTW44AcorpBABAX
@@ -74,7 +64,6 @@
   - ClothingOuterHardsuitAcorpHevaBABAX
   - WeaponLaserCarbineAcorpBABAX
   - WeaponEnergyGunMiniAcorpBABAX
-  - WeaponEnergyShotgunBABAX
   - MagazineBoxRifleIceBABAX
   - MagazineBoxLightRifleIceBABAX
   - MagazineBoxPistolIceBABAX
@@ -86,8 +75,5 @@
   - ClothingOuterArmorRiotBABAX
   - EnergySwordRadiantBABAX
   - EnergySwordDoubleRadiantBABAX
-  - MagazineBoxAntiMaterielBABAX
-  - MagazineBoxAntiMaterielBigBABAX
   - ClothingOuterHardsuitAcorpSecurityBABAX
   - ClothingOuterHardsuitScafBABAX
-  - BoxShotgunIncendiaryBABAX

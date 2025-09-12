@@ -1,65 +1,65 @@
-- type: latheRecipePack
-  id: SecurityAmmoStaticRadiant
-  recipes:
-  - BoxLethalshot
-  - BoxShotgunSlug
-  - MagazineBoxLightRifle
-  - MagazineBoxMagnum
-  - MagazineBoxPistol
-  - MagazineBoxRifle
-  - MagazineBoxPistol25ACP
-  - GrenadeSmokeM203
-  - MagazineGunnery20mm
-  - MagazineBoxGunnery90mm
-
-- type: latheRecipePack
-  id: SecurityAmmoDynamicRadiant
-  recipes:
-  - MagazineBoxLightRifleRubber
-
-- type: latheRecipePack
-  id: SecurityAmmoStaticEmagRadiant
-  recipes:
-  - MagazineBoxLightRifleRubber
-  - MagazineBoxMagnumRubber
-  - MagazineBoxPistolRubber
-  - MagazineBoxRifleRubber
-  - MagazineBoxMagnum
-  - MagazineBoxPistol
-  - MagazineBoxRifle
-  - MagazineBoxPistol25ACP
-  - MagazineLightRifle
-  - MagazineLightRifleEmpty
-  - MagazinePistol
-  - MagazinePistolEmpty
-  - MagazinePistolSubMachineGun
-  - MagazinePistolSubMachineGunEmpty
-  - MagazinePistolSubMachineGunTopMounted
-  - MagazinePistolSubMachineGunTopMountedEmpty
-  - MagazineRifle
-  - MagazineRifleEmpty
-  - MagazineShotgun
-  - MagazineShotgunEmpty
-  - MagazineShotgunSlug
-  - SpeedLoaderMagnum
-  - SpeedLoaderMagnumEmpty
-  - SpeedLoaderRifleHeavy
-  - SpeedLoaderRifleHeavyEmpty
-  - MagazineNovaliteC1
-  - MagazineNovaliteC1Empty
-  - MagazineLightRifleLowCapacity
-  - MagazineLightRifleLowCapacityEmpty
-  - MagazinePistol25ACP
-  - MagazinePistol25ACPEmpty
-  - MagazinePistolSubMachineGun25ACP
-  - MagazinePistolSubMachineGun25ACPEmpty
-
-- type: latheRecipePack
-  id: SecurityAmmoDynamicEmagRadiant
-  recipes:
-  - MagazineBoxHigh2Rifle
-  - MagazineHigh2Rifle
-  - MagazineHigh2RifleEmpty
-  - MagazineHigh2RifleAK
-  - MagazineHigh2RifleEmptyAK
-  - MagazinePistolCaselessRifle
+#- type: latheRecipePack
+#  id: SecurityAmmoStaticRadiant
+#  recipes:
+#  - BoxLethalshot
+#  - BoxShotgunSlug
+#  - MagazineBoxLightRifle
+#  - MagazineBoxMagnum
+#  - MagazineBoxPistol
+#  - MagazineBoxRifle
+#  - MagazineBoxPistol25ACP
+#  - GrenadeSmokeM203
+#  - MagazineGunnery20mm
+#  - MagazineBoxGunnery90mm
+#
+#- type: latheRecipePack
+#  id: SecurityAmmoDynamicRadiant
+#  recipes:
+#  - MagazineBoxLightRifleRubber
+#
+#- type: latheRecipePack
+#  id: SecurityAmmoStaticEmagRadiant
+#  recipes:
+#  - MagazineBoxLightRifleRubber
+#  - MagazineBoxMagnumRubber
+#  - MagazineBoxPistolRubber
+#  - MagazineBoxRifleRubber
+#  - MagazineBoxMagnum
+#  - MagazineBoxPistol
+#  - MagazineBoxRifle
+#  - MagazineBoxPistol25ACP
+#  - MagazineLightRifle
+#  - MagazineLightRifleEmpty
+#  - MagazinePistol
+#  - MagazinePistolEmpty
+#  - MagazinePistolSubMachineGun
+#  - MagazinePistolSubMachineGunEmpty
+#  - MagazinePistolSubMachineGunTopMounted
+#  - MagazinePistolSubMachineGunTopMountedEmpty
+#  - MagazineRifle
+#  - MagazineRifleEmpty
+#  - MagazineShotgun
+#  - MagazineShotgunEmpty
+#  - MagazineShotgunSlug
+#  - SpeedLoaderMagnum
+#  - SpeedLoaderMagnumEmpty
+#  - SpeedLoaderRifleHeavy
+#  - SpeedLoaderRifleHeavyEmpty
+#  - MagazineNovaliteC1
+#  - MagazineNovaliteC1Empty
+#  - MagazineLightRifleLowCapacity
+#  - MagazineLightRifleLowCapacityEmpty
+#  - MagazinePistol25ACP
+#  - MagazinePistol25ACPEmpty
+#  - MagazinePistolSubMachineGun25ACP
+#  - MagazinePistolSubMachineGun25ACPEmpty
+#
+#- type: latheRecipePack
+#  id: SecurityAmmoDynamicEmagRadiant
+#  recipes:
+#  - MagazineBoxHigh2Rifle
+#  - MagazineHigh2Rifle
+#  - MagazineHigh2RifleEmpty
+#  - MagazineHigh2RifleAK
+#  - MagazineHigh2RifleEmptyAK
+#  - MagazinePistolCaselessRifle
