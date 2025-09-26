@@ -1,0 +1,106 @@
+- type: entity
+#  categories: [ HideSpawnMenu ] # Frontier # Radiant_sector
+  name: AKMS
+  parent: [BaseWeaponRifle, BaseC3SyndicateContraband] # Frontier: BaseSecurityContraband<BaseC3SyndicateContraband
+  id: WeaponRifleAkRS
+  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    examineCaliber: gun-examine-caliber-30
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineRifle30
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineRifle30
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle30
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle30
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: energy shotgun
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseC2ContrabandUnredeemable] # Frontier: BaseGrandTheftContraband<BaseC2ContrabandUnredeemable
+  id: WeaponEnergyShotgunRS
+  description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpreadRS
+    fireCost: 150
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserSpreadRS
+      fireCost: 150
+    - proto: BulletLaserSpreadNarrowRS
+      fireCost: 200
+    - proto: BulletDisablerSmgSpreadRS
+      fireCost: 120
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
+    heldPrefix: energy
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 24
+    autoRechargePause: true
+    autoRechargePauseTime: 30

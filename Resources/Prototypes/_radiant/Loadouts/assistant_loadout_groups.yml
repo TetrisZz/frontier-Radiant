@@ -25,6 +25,18 @@
   - ASSClothingOuterCoatLongAcorp
   - ASSClothingOuterWinterAcorp
 
+# Forced EVA
+- type: loadoutGroup
+  id: AcorpForcedOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - AcorpForcedClothingOuterHardsuitAcorpBasic
+  fallbacks:
+  - AcorpForcedClothingOuterHardsuitAcorpBasic
+
 - type: loadoutGroup
   id: ASSFace
   name: loadout-group-assistant-face

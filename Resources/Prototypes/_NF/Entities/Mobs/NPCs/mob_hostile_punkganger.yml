@@ -92,10 +92,10 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.5
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+#    minAngle: 10 # Radiant_sector
+#    maxAngle: 20 # Radiant_sector
+#    angleIncrease: 2 # Radiant_sector
+#    angleDecay: 3 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -136,10 +136,10 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.5
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 5
-    angleDecay: 3
+#    minAngle: 10 # Radiant_sector
+#    maxAngle: 20 # Radiant_sector
+#    angleIncrease: 5 # Radiant_sector
+#    angleDecay: 3 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -203,9 +203,12 @@
   - type: Loadout
     prototypes:
     - PunkGangerGearLaser
-  - type: ProjectileBatteryAmmoProvider
-    proto: NFBulletLaserLow
-    fireCost: 100
+#  - type: ProjectileBatteryAmmoProvider # Radiant_sector
+#    proto: NFBulletLaserLow # Radiant_sector
+#    fireCost: 100 # Radiant_sector
+  - type: HitscanBatteryAmmoProvider # Radiant_sector
+    proto: NFRedHeavyLaser # Radiant_sector
+    fireCost: 100 # Radiant_sector
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 50
@@ -215,14 +218,17 @@
   - type: Gun
     showExamineText: false
     fireRate: 1
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 5
-    angleDecay: 3
+#    minAngle: 10 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 5 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    minAngle: 5 # Radiant_sector
+    maxAngle: 10 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+#    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg # Radiant_sector
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg # Radiant_sector
   - type: Jittering
   # Ghost role stuff
   - type: GhostRole
@@ -254,8 +260,10 @@
     capacity: 1
     count: 1
   - type: Gun
-    minAngle: 5
-    maxAngle: 15
+#    minAngle: 5
+#    maxAngle: 15
+    minAngle: 1
+    maxAngle: 5
     fireRate: 1
     selectedMode: FullAuto
     availableModes:

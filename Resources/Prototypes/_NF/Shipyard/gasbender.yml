@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Gasbender:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Gasbender {1}'

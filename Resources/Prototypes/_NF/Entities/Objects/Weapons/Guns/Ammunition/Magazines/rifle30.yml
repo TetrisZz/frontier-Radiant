@@ -52,8 +52,13 @@
       - state: inhand-left-mag
       right:
       - state: inhand-right-mag
-  - type: BallisticAmmoProvider
-    capacity: 15
+  - type: BallisticAmmoProvider # Radiant_sector
+    mayTransfer: true # Radiant_sector
+    whitelist: # Radiant_sector
+      tags: # Radiant_sector
+        - NFCartridgePistol35 # Radiant_sector
+    proto: NFCartridgePistol35 # Radiant_sector
+    capacity: 15 # Radiant_sector
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle30_low_cap_mag.rsi
     layers:
@@ -228,7 +233,8 @@
   parent: NFBaseMagazineLowCapacityRifle30
   components:
   - type: BallisticAmmoProvider
-    proto: NFCartridgeRifle30
+#    proto: NFCartridgeRifle30 # Radiant_sector
+    proto: NFCartridgePistol35 # Radiant_sector
 
 - type: entity
   id: NFMagazineLowCapacityRifle30Overpressure
@@ -236,7 +242,8 @@
   parent: NFBaseMagazineLowCapacityRifle30
   components:
   - type: BallisticAmmoProvider
-    proto: NFCartridgeRifle30Overpressure
+#    proto: NFCartridgeRifle30Overpressure # Radiant_sector
+    proto: NFCartridgePistol35Overpressure # Radiant_sector
   - type: Sprite
     layers:
     - state: base
@@ -262,7 +269,8 @@
   parent: NFBaseMagazineLowCapacityRifle30
   components:
   - type: BallisticAmmoProvider
-    proto: NFCartridgeRifle30Incendiary
+#    proto: NFCartridgeRifle30Incendiary # Radiant_sector
+    proto: NFCartridgePistol35Incendiary # Radiant_sector
   - type: Sprite
     layers:
     - state: base
@@ -288,7 +296,8 @@
   parent: NFBaseMagazineLowCapacityRifle30
   components:
   - type: BallisticAmmoProvider
-    proto: NFCartridgeRifle30Uranium
+#    proto: NFCartridgeRifle30Uranium # Radiant_sector
+    proto: NFCartridgePistol35Uranium # Radiant_sector
   - type: Sprite
     layers:
     - state: base
@@ -314,7 +323,8 @@
   parent: NFBaseMagazineLowCapacityRifle30
   components:
   - type: BallisticAmmoProvider
-    proto: NFCartridgeRifle30Practice
+#    proto: NFCartridgeRifle30Practice # Radiant_sector
+    proto: NFCartridgePistol35Practice # Radiant_sector
   - type: Sprite
     layers:
     - state: base
@@ -340,7 +350,8 @@
   parent: NFBaseMagazineLowCapacityRifle30
   components:
   - type: BallisticAmmoProvider
-    proto: NFCartridgeRifle30Rubber
+#    proto: NFCartridgeRifle30Rubber # Radiant_sector
+    proto: NFCartridgePistol35Rubber # Radiant_sector
   - type: Sprite
     layers:
     - state: base

@@ -1114,7 +1114,7 @@ entities:
       parent: 1
 - proto: BetrayalKnife
   entities:
-  - uid: 352
+  - uid: 1402
     components:
     - type: Transform
       rot: -1.5707963267948966 rad

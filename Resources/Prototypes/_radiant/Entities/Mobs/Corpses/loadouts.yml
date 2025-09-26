@@ -8,7 +8,7 @@
     gloves: ClothingHandsGlovesCombat
     belt: ClothingBeltUtilityFilled
     outerClothing: ClothingOuterHardsuitERTEngineer
-    pocket1: WeaponDisabler
+    pocket1: NFWeaponEnergyPistolDisabler
 
 - type: startingGear
   id: ERTLeaderHardsuitRadiant
@@ -21,7 +21,7 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     pocket1: FlashlightSeclite
-    pocket2: WeaponPistolMk58
+    pocket2: NFWeaponPistolUniversalNfsd
 
 - type: startingGear
   id: ERTMedicalHardsuitRadiant
@@ -44,7 +44,7 @@
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     pocket1: FlashlightSeclite
-    pocket2: WeaponEnergyGunMiniAcorp
+    pocket2: NFWeaponPistolN1984
 
 - type: startingGear
   id: ERTChaplainHardsuitRadiant
@@ -72,7 +72,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMailCarrier
     shoes: ClothingShoesSwat
-    belt: MailBagCapsulePrimed
+    belt: NFMailBagCapsulePrimed
     outerClothing: ClothingOuterHardsuitERTMailCarrier
     gloves: ClothingHandsGlovesCombat
 
@@ -85,7 +85,7 @@
     outerClothing: ClothingOuterHardsuitCBURN
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
-    pocket1: WeaponLaserPistolNF
+    pocket1: NFWeaponEnergyPistolLaser
     pocket2: RadioHandheldNF
 
 #CC

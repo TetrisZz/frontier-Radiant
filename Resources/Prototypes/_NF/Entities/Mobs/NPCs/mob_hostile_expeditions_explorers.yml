@@ -16,12 +16,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      105: Dead
+#      80: Critical Radiant_sector
+#      105: Dead Radiant_sector
+      100: Critical # Radiant_sector
+      130: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.7
-      64: 0.5
+#      48: 0.7 Radiant_sector
+#      64: 0.5 Radiant_sector
+      60: 0.7 # Radiant_sector
+      80: 0.5 # Radiant_sector
   - type: DamageStateVisuals
   - type: RotationVisuals
     defaultRotation: 90
@@ -461,12 +465,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Dead
+#      160: Dead Radiant_sector
+      200: Dead # Radiant_sector
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 155
+#        damage: 155 Radiant_sector
+        damage: 195 # Radiant_sector
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -550,8 +556,10 @@
     energy: 3
   - type: MobThresholds
     thresholds:
-      100: Critical
-      130: Dead
+#      100: Critical Radiant_sector
+#      130: Dead Radiant_sector
+      120: Critical # Radiant_sector
+      150: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7

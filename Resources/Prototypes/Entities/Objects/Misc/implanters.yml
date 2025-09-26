@@ -47,6 +47,11 @@
       - FakeMindShieldImplant
       - RadioImplant
       - RadioImplantFreelance # Frontier
+      - MedicalTrackingImplant # Radiant_sector
+      - FreelanceTrackingImplant # Radiant_sector
+      - SeparatistsTrackingImplant # Radiant_sector
+      - TrackingImplantNavy # Radiant_sector
+      - RadioImplantSeparatists # Radiant_sector
       deimplantFailureDamage:
         types:
           Cellular: 50

@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Пульсар-Д
   description: Среднее эргономичное судно ориентированное на экспедиции, добычу руды и первую помощь во время этих процессов.
-  price: 61000
+  price: 66000
   category: Medium
   group: Custom
   access: Acorp

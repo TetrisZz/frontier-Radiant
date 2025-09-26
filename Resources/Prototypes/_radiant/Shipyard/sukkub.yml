@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: SAT Суккуб
   description: Шаттл среднего размера, оснащён практически всем спектром устройств для оперативного медицинского вмешательства и зоной отдыха.
-  price: 85000
+  price: 87000
   category: Medium
   group: Shipyard
   shuttlePath: /Maps/_radiant/Shuttles/Sukkub.yml

@@ -6,22 +6,16 @@
     underweart: ClothingUnderwearTopBraWhite
     
 - type: loadout
-  id: ContractorClothingUnderwearTopBraSports
+  id: ContractorClothingUnderwearTopRadiantPink
   price: 100
   equipment:
-    underweart: ClothingUnderwearTopBraSports
+    underweart: ClothingUnderwearTopRadiantPink
     
 - type: loadout
-  id: ContractorClothingUnderwearTopBraSportsAlternative
+  id: ContractorClothingUnderwearTopBraBlack
   price: 100
   equipment:
-    underweart: ClothingUnderwearTopBraSportsAlternative
-
-- type: loadout
-  id: ContractorClothingUnderwearTopRadiantBlack
-  price: 100
-  equipment:
-    underweart: ClothingUnderwearTopRadiantBlack
+    underweart: ClothingUnderwearTopBraBlack
 
 - type: loadout
   id: ContractorClothingUnderwearTopRadiantNeeeekoUwU
@@ -30,16 +24,22 @@
     underweart: ClothingUnderwearTopRadiantNeeeekoUwU
 
 - type: loadout
-  id: ContractorClothingUnderwearTopRadiantPink
+  id: ContractorClothingUnderwearTopBraRedGarters
   price: 100
   equipment:
-    underweart: ClothingUnderwearTopRadiantPink
+    underweart: ClothingUnderwearTopBraRedGarters
 
 - type: loadout
-  id: ContractorClothingUnderwearTopRadiantSeeeexsi
+  id: ContractorClothingUnderwearTopSpaceNinja
   price: 100
   equipment:
-    underweart: ClothingUnderwearTopRadiantSeeeexsi
+    underweart: ClothingUnderwearTopSpaceNinja
+
+- type: loadout
+  id: ContractorClothingUnderwearTopBraRed
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopBraRed
     
 - type: loadout
   id: ContractorClothingUnderwearTopRadiantRed
@@ -48,37 +48,25 @@
     underweart: ClothingUnderwearTopRadiantRed
 
 - type: loadout
-  id: ContractorClothingUnderwearToplaceBra
+  id: ContractorClothingUnderwearTopRadiantSeeeexsi
   price: 100
   equipment:
-    underweart: ClothingUnderwearToplaceBra
+    underweart: ClothingUnderwearTopRadiantSeeeexsi
     
 - type: loadout
-  id: ContractorClothingUnderwearTopSpaceNinja
+  id: ContractorClothingUnderwearTopRadiantBlack
   price: 100
   equipment:
-    underweart: ClothingUnderwearTopSpaceNinja
+    underweart: ClothingUnderwearTopRadiantBlack
     
 - type: loadout
-  id: ContractorClothingUnderwearTopBraCap
+  id: ContractorClothingUnderwearTopBraWhiteFur
   price: 100
   equipment:
-    underweart: ClothingUnderwearTopBraCap
+    underweart: ClothingUnderwearTopBraWhiteFur
     
 - type: loadout
-  id: ContractorClothingUnderwearTopBraHOP
+  id: ContractorClothingUnderwearTopBraCorset
   price: 100
   equipment:
-    underweart: ClothingUnderwearTopBraHOP
-    
-- type: loadout
-  id: ContractorClothingUnderwearTopBraRD
-  price: 100
-  equipment:
-    underweart: ClothingUnderwearTopBraRD
-
-- type: loadout
-  id: ContractorClothingUnderwearTopNekoBra
-  price: 100
-  equipment:
-    underweart: ClothingUnderwearTopNekoBra
+    underweart: ClothingUnderwearTopBraCorset

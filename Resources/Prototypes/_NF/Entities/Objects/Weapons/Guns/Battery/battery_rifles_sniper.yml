@@ -26,3 +26,5 @@
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
+  - type: Gun # Radiant_sector
+    fireRate: 2 # Radiant_sector

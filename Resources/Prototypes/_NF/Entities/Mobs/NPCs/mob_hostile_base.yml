@@ -449,12 +449,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      120: Dead
+#      80: Critical # Radiant_sector
+#      120: Dead # Radiant_sector
+      100: Critical # Radiant_sector
+      140: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      40: 0.7
-      60: 0.5
+#      40: 0.7 Radiant_sector
+#      60: 0.5 Radiant_sector
+      60: 0.7 # Radiant_sector
+      80: 0.5 # Radiant_sector
   - type: Blindable
   - type: Butcherable
     butcheringType: Spike
@@ -527,8 +531,10 @@
     group: GenericNumber
   - type: SlowOnDamage
     speedModifierThresholds:
-      30: 0.7
-      50: 0.5
+#      30: 0.7 Radiant_sector
+#      50: 0.5 Radiant_sector
+      60: 0.7 # Radiant_sector
+      80: 0.5 # Radiant_sector
   - type: MobState
     allowedStates:
     - Alive
@@ -537,8 +543,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      65: Critical
-      100: Dead
+#      65: Critical Radiant_sector
+#      100: Dead Radiant_sector
+      80: Critical # Radiant_sector
+      120: Dead # Radiant_sector
   - type: NpcFactionMember
     factions:
     - SimpleHostile

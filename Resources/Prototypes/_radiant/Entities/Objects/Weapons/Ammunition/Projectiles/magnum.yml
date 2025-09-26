@@ -8,4 +8,13 @@
     damage:
       types:
         Cold: 8
-        Piercing: 20
+        Piercing: 15
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Cryoladinne
+          Quantity: 5
+  - type: SolutionTransfer
+    maxTransferAmount: 5

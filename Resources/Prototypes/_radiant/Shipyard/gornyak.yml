@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Горняк
   description: Стильное шахтерское судно со всем необходимым для добычи ресурсов.
-  price: 52000
+  price: 59000
   category: Medium
   group: Shipyard
   shuttlePath: /Maps/_radiant/Shuttles/Gornyak.yml

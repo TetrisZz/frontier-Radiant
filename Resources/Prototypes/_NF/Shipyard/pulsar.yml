@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Pulsar:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Pulsar {1}'

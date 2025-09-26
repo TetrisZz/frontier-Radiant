@@ -92,8 +92,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 
         // Radiant_sector start
 		_scannerZones.Add((300, Color.LimeGreen));
-        _scannerZones.Add((3500, Color.Gold));
-        _scannerZones.Add((15000, Color.Red));
+        _scannerZones.Add((3500, Color.Red));
         // Radiant_sector end
     }
 
@@ -279,7 +278,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
             foreach (var (radius, color) in _scannerZones)
             {
                 var scaledRadius = radius * MinimapScale;
-                handle.DrawCircle(centerUiPos, scaledRadius, color.WithAlpha(0.02f));
+                handle.DrawCircle(centerUiPos, scaledRadius, color.WithAlpha(0.00f));
                 handle.DrawCircle(centerUiPos, scaledRadius, color, filled: false);
             }
         }

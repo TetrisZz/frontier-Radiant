@@ -391,6 +391,21 @@
           - SeparatistUplink
 
 - type: listing
+  id: UplinkSeparatistIDCard
+  name:  uplink-separatist-idcard-name
+  description: uplink-separatist-idcard-desc
+  productEntity: SeparatistsPrivateSlaveIDCard
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
   id: UplinkSeparatistGrappling
   name:  uplink-separatist-grappling-name
   description: uplink-separatist-grappling-desc
@@ -462,6 +477,22 @@
   icon: { sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi, state: blackkit }
   cost:
     BlackMoney: 2
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
+  id: UplinkSeparatistRadioImplanter
+  name:  uplink-separatist-radioimplanter-name
+  description: uplink-separatist-radioimplanter-desc
+  productEntity: RadioImplanterSeparatists
+  icon: { sprite: /Textures/_radiant/Objects/Devices/encryption_keys.rsi, state: sep_label }
+  cost:
+    BlackMoney: 3
   categories:
     - UplinkSeparatistUtility
   conditions:

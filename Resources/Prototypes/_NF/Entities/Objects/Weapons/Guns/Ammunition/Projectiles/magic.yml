@@ -27,8 +27,10 @@
   - type: Projectile
     damage:
       types:
-        Bloodloss: 3
-        Asphyxiation: 3
+#        Bloodloss: 3 # Radiant_sector
+#        Asphyxiation: 3 # Radiant_sector
+        Bloodloss: 4 # Radiant_sector
+        Asphyxiation: 4 # Radiant_sector
   - type: Sprite
     noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
@@ -46,8 +48,10 @@
   - type: Projectile
     damage:
       types:
-        Bloodloss: 2
-        Slash: 4
+#        Bloodloss: 2
+#        Slash: 4
+        Bloodloss: 2 # Radiant_sector
+        Slash: 5 # Radiant_sector
   - type: Sprite
     noRot: false
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
@@ -61,7 +65,8 @@
   id: BloodCultLaser
   damage:
     types:
-      Slash: 8
+#      Slash: 8 # Radiant_sector
+      Slash: 10 # Radiant_sector
   muzzleFlash:
     sprite: _NF/Effects/bloodcultbeams.rsi
     state: red_lightning

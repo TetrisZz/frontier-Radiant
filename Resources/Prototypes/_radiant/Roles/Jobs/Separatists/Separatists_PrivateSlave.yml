@@ -9,10 +9,12 @@
   allowedSexes:
     - Female    
   startingGear: SeparatistsPrivateSlaveGear
+  alwaysUseSpawner: true
   icon: "JobIconSeparatistsPrivateSlave" 
   supervisors: job-supervisors-hire
   weight: 38
   displayWeight: 38
+  newPlayerMessage: false
   access:
   - Separatists
   accessGroups: # Frontier
@@ -20,6 +22,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
     - type: SpecialSectorStationRecord # must be given on spawn
       recordGeneration: FalseRecord
     - type: ShockOnTrigger

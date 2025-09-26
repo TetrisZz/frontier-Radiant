@@ -31,6 +31,8 @@
       path: /Audio/_radiant/Weapons/Gunshots/Fire-1.ogg
       params:
           volume: -7
+  - type: StaticPrice
+    price: 400
   - type: BallisticAmmoProvider
     whitelist:
       tags:

@@ -325,10 +325,9 @@
     - state: icon #Radiant_sector
     - state: icon-flash #Radiant_sector
       visible: false #Radiant_sector
-      map: [ "light" ] #Radiant_sector
+      shader: unshaded #Radiant_sector
   - type: Clothing
     sprite: _NF/Clothing/OuterClothing/Hardsuits/scaf.rsi
-    equippedPrefix: off #Radiant_sector
   - type: Armor # Kept original scaf stats
     modifiers:
       coefficients:
@@ -350,19 +349,29 @@
     clothingPrototype: ClothingHeadHelmetHardsuitScaf
   - type: PirateBountyItem
     id: ClothingOuterHardsuitScaf
-  - type: ToggleableLightVisuals #Radiant_sector
+  - type: ItemTogglePointLight #Radiant_sector
+  - type: ToggleableVisuals #Radiant_sector
+    spriteLayer: light #Radiant_sector
+    clothingVisuals: #Radiant_sector
+      outerClothing: #Radiant_sector
+      - state: equipped-OUTERCLOTHING-light #Radiant_sector
+        shader: unshaded #Radiant_sector
+      outerClothing-resomi: #Radiant_sector
+      - state: equipped-OUTERCLOTHING-light-resomi #Radiant_sector
+        shader: unshaded #Radiant_sector
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: false
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
   - type: PointLight
     enabled: false
+#    color: "#80ff80"
     radius: 7
     energy: 2
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     netsync: false
-  - type: Appearance
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -377,15 +386,15 @@
         id: blinking
         interpolate: Nearest
         maxDuration: 1.0
-        minValue: 0.1
-        maxValue: 2.0
+        startValue: 0.1 # Wizden#37444
+        endValue: 2.0 # Wizden#37444
         isLooped: true
   - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    maxCharge: 600
     startingCharge: 600
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
+    autoRechargeRate: 2
 
 #Radiant_sector_end
 

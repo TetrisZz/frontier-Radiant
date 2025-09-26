@@ -22,7 +22,7 @@
   minPlayers: 0
   stations:
     Orange:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Orange {1}'

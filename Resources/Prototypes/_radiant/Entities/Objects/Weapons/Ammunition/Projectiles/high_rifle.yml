@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 16
+        Piercing: 20
 
 - type: entity
   id: BulletHigh2RiflePractice
@@ -66,3 +66,12 @@
       types:
         Cold: 5
         Piercing: 10
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Cryoladinne
+          Quantity: 4
+  - type: SolutionTransfer
+    maxTransferAmount: 4

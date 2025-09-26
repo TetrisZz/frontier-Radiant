@@ -11308,13 +11308,6 @@ entities:
     - type: Transform
       pos: 2.4697776,-21.832375
       parent: 1
-- proto: JukeboxShip
-  entities:
-  - uid: 1810
-    components:
-    - type: Transform
-      pos: 3.5,-14.5
-      parent: 1
 - proto: KitchenElectricRange
   entities:
   - uid: 1811

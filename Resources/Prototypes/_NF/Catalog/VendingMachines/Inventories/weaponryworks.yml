@@ -10,7 +10,8 @@
     ClothingHandsKnuckleDusters: 1
     SurvivalKnife: 1
   # Magazines
-    NFSpeedLoaderPistol35Empty: 1
+#    NFSpeedLoaderPistol35Empty: 1 # Radiant_sector
+    SpeedLoaderRifleHeavyEmpty: 1 # Radiant_sector
     NFSpeedLoaderPistol45Empty: 1
   # Ammo boxes
     NFAmmunitionBoxPistol35: 2
@@ -31,7 +32,8 @@
     ClothingHandsKnuckleDusters: 4294967295
     SurvivalKnife: 4294967295
   # Magazines
-    NFSpeedLoaderPistol35Empty: 4294967295
+#    NFSpeedLoaderPistol35Empty: 4294967295 # Radiant_sector
+    SpeedLoaderRifleHeavyEmpty: 4294967295 # Radiant_sector
     NFSpeedLoaderPistol45Empty: 4294967295
   # Ammo boxes
     NFAmmunitionBoxPistol35: 4294967295

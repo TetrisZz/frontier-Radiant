@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Nightlight:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Nightlight {1}'

@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Энтропия
   description: Небольшое утилизационное судно.
-  price: 24500
+  price: 27200
   category: Small
   group: Custom
   access: Acorp
@@ -31,7 +31,7 @@
   minPlayers: 0
   stations:
     Entropia:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Энтропия {1}'

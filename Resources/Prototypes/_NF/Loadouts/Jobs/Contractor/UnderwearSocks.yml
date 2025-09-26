@@ -6,58 +6,52 @@
     socks: ClothingUnderwearSocksHigh
     
 - type: loadout
-  id: ContractorClothingUnderwearSocksNormal
-  price: 100
-  equipment:
-    socks: ClothingUnderwearSocksNormal
-    
-- type: loadout
-  id: ContractorClothingUnderwearSocksShort
-  price: 100
-  equipment:
-    socks: ClothingUnderwearSocksShort
-    
-- type: loadout
-  id: ContractorClothingUnderwearSocksThigh
-  price: 100
-  equipment:
-    socks: ClothingUnderwearSocksThigh
-    
-- type: loadout
-  id: ContractorClothingUnderwearSocksFishnettights
-  price: 100
-  equipment:
-    socks: ClothingUnderwearSocksFishnettights
-    
-- type: loadout
   id: ContractorClothingUnderwearSocksPantyhose
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPantyhose
     
 - type: loadout
-  id: ContractorClothingUnderwearSocksGarters
+  id: ContractorClothingUnderwearSocksRedStrip
   price: 100
   equipment:
-    socks: ClothingUnderwearSocksGarters
-
-- type: loadout
-  id: ContractorClothingUnderwearSocksRadiantThighblue
-  price: 100
-  equipment:
-    socks: ClothingUnderwearSocksRadiantThighblue
-
-- type: loadout
-  id: ContractorClothingUnderwearSocksRadiantPink
-  price: 100
-  equipment:
-    socks: ClothingUnderwearSocksRadiantPink
-
+    socks: ClothingUnderwearSocksRedStrip
+    
 - type: loadout
   id: ContractorClothingUnderwearSocksRadiantRed
   price: 100
   equipment:
     socks: ClothingUnderwearSocksRadiantRed
+    
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantBlackPolosatie
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantBlackPolosatie
+    
+- type: loadout
+  id: ContractorClothingUnderwearSocksPinkStrip
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPinkStrip
+    
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantMeee
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantMeee
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksThighWhiteStrip
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksThighWhiteStrip
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksThighRedStrip
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksThighRedStrip
 
 - type: loadout
   id: ContractorClothingUnderwearSocksRadiantStriped
@@ -66,10 +60,28 @@
     socks: ClothingUnderwearSocksRadiantStriped
 
 - type: loadout
-  id: ContractorClothingUnderwearSocksRadiantSocksBlack
+  id: ContractorClothingUnderwearSocksThighPinkStrip
   price: 100
   equipment:
-    socks: ClothingUnderwearSocksRadiantSocksBlack
+    socks: ClothingUnderwearSocksThighPinkStrip
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantPink
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantPink
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksRadiantThighblue
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksRadiantThighblue
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksGreenStrip
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksGreenStrip
 
 - type: loadout
   id: ContractorClothingUnderwearSocksRadiantBlack
@@ -78,22 +90,28 @@
     socks: ClothingUnderwearSocksRadiantBlack
 
 - type: loadout
-  id: ContractorClothingUnderwearSocksRadiantBlackPolosatie
+  id: ContractorClothingUnderwearSocksRadiantSocksBlack
   price: 100
   equipment:
-    socks: ClothingUnderwearSocksRadiantBlackPolosatie
+    socks: ClothingUnderwearSocksRadiantSocksBlack
 
 - type: loadout
-  id: ContractorClothingUnderwearSocksRadiantMeee
+  id: ContractorClothingUnderwearSocksThigh
   price: 100
   equipment:
-    socks: ClothingUnderwearSocksRadiantMeee
+    socks: ClothingUnderwearSocksThigh
 
 - type: loadout
-  id: ContractorClothingUnderwearSocksAcorpStriped
+  id: ContractorClothingUnderwearSocksFishnettights
   price: 100
   equipment:
-    socks: ClothingUnderwearSocksAcorpStriped
+    socks: ClothingUnderwearSocksFishnettights
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksGarters
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksGarters
 
 - type: loadout
   id: ContractorClothingUnderwearSocksRich

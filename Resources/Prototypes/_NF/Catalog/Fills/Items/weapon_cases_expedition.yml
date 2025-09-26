@@ -49,8 +49,9 @@
     contents:
     - id: NFWeaponPistolCobraExpedition
       amount: 1
-    - id: NFMagazinePistol45
-      amount: 2
+#    - id: NFMagazinePistol45 # Radiant_sector
+#      amount: 2
+    - id: NFAmmunitionBoxBigRifle25 # Radiant_sector
 
 - type: entity
   parent: WeaponCaseShort
@@ -89,7 +90,8 @@
     contents:
     - id: NFWeaponRevolverArgentiExpedition
       amount: 1
-    - id: NFSpeedLoaderPistol35
+#    - id: NFSpeedLoaderPistol35 # Radiant_sector
+    - id: SpeedLoaderRifleHeavy # Radiant_sector
       amount: 2
 
 - type: entity
@@ -365,7 +367,8 @@
     contents:
     - id: NFWeaponRifleSVSExpedition
       amount: 1
-    - id: NFMagazineLowCapacityRifle30
+#    - id: NFMagazineLowCapacityRifle30 # Radiant_sector
+    - id: NFMagazineRifle20 # Radiant_sector
       amount: 2
 
 - type: entity
@@ -391,7 +394,8 @@
     contents:
     - id: NFWeaponRifleAssaultJackdawExpedition
       amount: 1
-    - id: NFMagazineRifle20
+#    - id: NFMagazineRifle20 # Radiant_sector
+    - id: MagazineCaselessRifleShortRS # Radiant_sector
       amount: 2
 
 #region Energy
@@ -559,7 +563,8 @@
     contents:
     - id: NFWeaponRifleCeremonialExpedition
       amount: 1
-    - id: NFAmmunitionBoxRifle30
+#    - id: NFAmmunitionBoxRifle30 # Radiant_sector
+    - id: MagazineBoxMagnum500 # Radiant_sector
       amount: 2
 
 #region Launchers

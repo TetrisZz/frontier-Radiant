@@ -215,7 +215,8 @@
     - id: SpaceCash500
       prob: 0.45
     # Weapons
-    - id: NFWeaponShotgunKammererExpedition
+#    - id: NFWeaponShotgunKammererExpedition # Radiant_sector
+    - id: WeaponShotgunPatron # Radiant_sector
       prob: 0.6
     # Armor
     - id: ClothingOuterArmorBasicSlim
@@ -308,15 +309,20 @@
     state: icon
   - type: SpawnItemsOnUse
     items:
-    - id: NFSpeedLoaderPistol35Empty
+#    - id: NFSpeedLoaderPistol35Empty # Radiant_sector
+    - id: SpeedLoaderRifleHeavyEmpty # Radiant_sector
       prob: 0.9
-    - id: NFSpeedLoaderPistol35Empty
+#    - id: NFSpeedLoaderPistol35Empty # Radiant_sector
+    - id: SpeedLoaderRifleHeavyEmpty # Radiant_sector
       prob: 0.6
-    - id: NFSpeedLoaderPistol35Empty
+#    - id: NFSpeedLoaderPistol35Empty # Radiant_sector
+    - id: SpeedLoaderRifleHeavyEmpty # Radiant_sector
       prob: 0.1
-    - id: NFAmmunitionBoxPistol35Overpressure
+#    - id: NFAmmunitionBoxPistol35Overpressure # Radiant_sector
+    - id: NFAmmunitionBoxRifle20Overpressure # Radiant_sector
       prob: 0.9
-    - id: NFAmmunitionBoxPistol35Overpressure
+#    - id: NFAmmunitionBoxPistol35Overpressure # Radiant_sector
+    - id: NFAmmunitionBoxRifle20Overpressure # Radiant_sector
       prob: 0.2
     sound:
       path: /Audio/Items/jumpsuit_equip.ogg

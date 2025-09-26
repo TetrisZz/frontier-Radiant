@@ -1,4 +1,7 @@
 - type: loadout
   id: MEDClothingOuterCoatLabAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterCoatLabAcorpOpened

@@ -737,7 +737,8 @@
     state: icon
   - type: SpawnItemsOnUse
     items:
-      - id: NFWeaponShotgunKammererExpedition
+#      - id: NFWeaponShotgunKammererExpedition # Radiant_sector
+      - id: WeaponShotgunPatron # Radiant_sector
       - id: SyndicateJawsOfLife
       - id: NFAmmunitionBoxShellShotgunUranium
       - id: SpaceCash1000

@@ -26,8 +26,10 @@
       56: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      34: 0.7
-      45: 0.5
+#      34: 0.7 Radiant_sector
+#      45: 0.5 Radiant_sector
+      42: 0.7 # Radiant_sector
+      56: 0.5 # Radiant_sector
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -69,11 +71,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+#      40: Dead Radiant_sector
+      50: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+#      24: 0.7 Radiant_sector
+#      32: 0.5 Radiant_sector
+      30: 0.7 # Radiant_sector
+      40: 0.5 # Radiant_sector
 
 - type: entity
   parent: MobFleshJaredExpeditions
@@ -169,12 +174,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      110: Dead
+#      80: Critical Radiant_sector
+#      110: Dead Radiant_sector
+      100: Critical # Radiant_sector
+      140: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.7
-      64: 0.5
+#      48: 0.7 Radiant_sector
+#      64: 0.5 Radiant_sector
+      60: 0.7 # Radiant_sector
+      80: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:
@@ -226,11 +235,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      32: Dead
+#      32: Dead Radiant_sector
+      40: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      20: 0.7
-      26: 0.5
+#      20: 0.7 Radiant_sector
+#      26: 0.5 Radiant_sector
+      24: 0.7 # Radiant_sector
+      32: 0.5 # Radiant_sector
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 4
     rechargeSound:
@@ -242,10 +254,10 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.75
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+#    minAngle: 10 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 2 Radiant_sector
+#    angleDecay: 3 Radiant_sector
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -274,10 +286,10 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.5
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+#    minAngle: 10 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 2 Radiant_sector
+#    angleDecay: 3 Radiant_sector
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -322,11 +334,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      24: Dead
+#      24: Dead
+      30: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      15: 0.7
-      20: 0.5
+#      15: 0.7
+#      20: 0.5
+      18: 0.7 # Radiant_sector
+      24: 0.5 # Radiant_sector
   - type: MeleeWeapon
     attackRate: 1.5
     soundHit:
@@ -335,7 +350,8 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 4
+#        Blunt: 4 Radiant_sector
+        Blunt: 5 # Radiant_sector
 
 #region BOSS
 - type: entity
@@ -364,11 +380,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Dead
+#      160: Dead Radiant_sector
+      200: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      96: 0.7
-      128: 0.5
+#      96: 0.7 Radiant_sector
+#      128: 0.5 Radiant_sector
+      120: 0.7 # Radiant_sector
+      160: 0.5 # Radiant_sector
   - type: MeleeWeapon
     autoAttack: true
     attackRate: 1.5
@@ -453,7 +472,8 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 3
+#        Blunt: 3 Radiant_sector
+        Blunt: 4 # Radiant_sector
   - type: Ammo
     muzzleFlash: null
   - type: EmbeddableProjectile
@@ -476,7 +496,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      6: Dead
+#      6: Dead Radiant_sector
+      8: Dead # Radiant_sector
   - type: MeleeWeapon
     attackRate: 0.3
     soundHit:
@@ -485,7 +506,8 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 3
+#        Slash: 3 Radiant_sector
+        Slash: 4 # Radiant_sector
 
 #region Newborns
 # spawned from assimilation sack
@@ -504,7 +526,8 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 6
+#        Blunt: 6 Radiant_sector
+        Blunt: 7 # Radiant_sector
         Structural: 20
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.8

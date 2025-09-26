@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Izakaya:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Izakaya {1}'

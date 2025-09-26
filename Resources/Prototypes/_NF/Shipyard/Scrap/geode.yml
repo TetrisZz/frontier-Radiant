@@ -25,7 +25,7 @@
   minPlayers: 0
   stations:
     Geode:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Geode {1}'

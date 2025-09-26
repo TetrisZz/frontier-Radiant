@@ -20,11 +20,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      32: Dead
+#      32: Dead Radiant_sector
+      40: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      19: 0.7
-      26: 0.5
+#      19: 0.7 Radiant_sector
+#      26: 0.5 Radiant_sector
+      24: 0.7 # Radiant_sector
+      32: 0.5 # Radiant_sector
 
 - type: entity
   id: NFMobCarpMagic
@@ -37,11 +40,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+#      40: Dead Radiant_sector
+      50: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+#      24: 0.7 Radiant_sector
+#      32: 0.5 Radiant_sector
+      30: 0.7 # Radiant_sector
+      40: 0.5 # Radiant_sector
   - type: Sprite
     sprite: _NF/Mobs/Aliens/Carps/magic.rsi
     layers:
@@ -62,11 +68,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+#      40: Dead Radiant_sector
+      50: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+#      24: 0.7 Radiant_sector
+#      32: 0.5 Radiant_sector
+      30: 0.7 # Radiant_sector
+      40: 0.5 # Radiant_sector
   - type: Sprite
     sprite: _NF/Mobs/Aliens/Carps/holo.rsi
     layers:
@@ -87,11 +96,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      48: Dead
+#      48: Dead Radiant_sector
+      60: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      28: 0.7
-      38: 0.5
+#      28: 0.7 Radiant_sector
+#      38: 0.5 Radiant_sector
+      36: 0.7 # Radiant_sector
+      48: 0.5 # Radiant_sector
 
 - type: entity
   id: NFMobShark
@@ -104,11 +116,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      64: Dead
+#      64: Dead Radiant_sector
+      80: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      38: 0.7
-      52: 0.5
+#      38: 0.7 Radiant_sector
+#      52: 0.5 Radiant_sector
+      48: 0.7 # Radiant_sector
+      64: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
@@ -131,11 +146,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+#      40: Dead Radiant_sector
+      40: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+#      24: 0.7 Radiant_sector
+#      32: 0.5 Radiant_sector
+      30: 0.7 # Radiant_sector
+      40: 0.5 # Radiant_sector
   - type: Fixtures
     fixtures:
       fix1:

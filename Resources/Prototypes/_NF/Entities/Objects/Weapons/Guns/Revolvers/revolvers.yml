@@ -23,6 +23,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Gun
+    fireRate: 3 # Radiant_sector
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
 
@@ -109,6 +110,12 @@
     sprite: _DV/Objects/Weapons/Guns/Revolvers/fitz.rsi
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Revolvers/fitz.rsi
+  - type: RevolverAmmoProvider
+    capacity: 5 # Radiant_sector
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+  - type: Gun  # Radiant_sector
+    fireRate: 1.75  # Radiant_sector
 
 - type: entity
   id: NFWeaponRevolverFaith
@@ -121,6 +128,8 @@
     sprite: _DV/Objects/Weapons/Guns/Revolvers/faith.rsi
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Revolvers/faith.rsi
+  - type: Gun  # Radiant_sector
+    fireRate: 1.5  # Radiant_sector
   - type: RevolverAmmoProvider
     capacity: 4
     chambers: [ True, True, True, True ]
@@ -151,6 +160,9 @@
     sprite: _NF/Objects/Weapons/Guns/Revolvers/argenti.rsi
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Revolvers/argenti.rsi
+  - type: Gun # Radiant_sector
+    fireRate: 2.5 # Radiant_sector
+    resetOnHandSelected: false # Radiant_sector
   - type: StaticPrice
     price: 200
 

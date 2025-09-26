@@ -10,10 +10,12 @@
       department: Separatists
       time: 21600 # 6 hours Radiant_Sector
   startingGear: SeparatistsWardenGear
+  alwaysUseSpawner: true
   icon: "JobIconSeparatistsWarden" 
   supervisors: job-supervisors-hire
   weight: 34
   displayWeight: 34
+  newPlayerMessage: false
   access:
   - Separatists
   accessGroups: # Frontier
@@ -21,6 +23,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
     - type: SpecialSectorStationRecord # must be given on spawn
       recordGeneration: FalseRecord
   - !type:AddImplantSpecial

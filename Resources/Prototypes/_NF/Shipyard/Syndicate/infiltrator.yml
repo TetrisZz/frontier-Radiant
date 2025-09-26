@@ -20,7 +20,7 @@
   minPlayers: 0
   stations:
     Infiltrator:
-      stationProto: StandardFrontierAntagVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Infiltrator {1}'

@@ -21,7 +21,7 @@
   minPlayers: 0
   stations:
     Tide:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Tide {1}'

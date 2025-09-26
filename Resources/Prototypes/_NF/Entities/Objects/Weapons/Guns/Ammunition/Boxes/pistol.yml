@@ -10,7 +10,8 @@
       tags:
         - NFCartridgePistol35
     proto: NFCartridgePistol35
-    capacity: 80
+#    capacity: 80 # Radiant_sector
+    capacity: 60 # Radiant_sector
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
 
@@ -25,7 +26,8 @@
       tags:
         - NFCartridgePistol45
     proto: NFCartridgePistol45
-    capacity: 60
+#    capacity: 60 # Radiant_sector
+    capacity: 30 # Radiant_sector
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
 

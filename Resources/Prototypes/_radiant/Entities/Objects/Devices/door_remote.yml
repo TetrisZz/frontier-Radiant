@@ -1,0 +1,31 @@
+- type: entity
+  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  id: DoorRemoteAcorp
+  name: command door remote
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#e6e6e6"
+    - state: door_remotescreencolour
+      color: "#9f9f9f"
+  - type: Access
+    groups:
+    - AcorpGroup
+
+- type: entity
+  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  id: DoorRemoteSeparatists
+  name: security door remote
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#79553d"
+    - state: door_remotescreencolour
+      color: "#664733"
+  - type: Access
+    groups:
+    - SeparatistsGroup

@@ -78,6 +78,7 @@
   # - DeathSquad # Frontier
   - StationRepresentative # Frontier
   - Sheriff # Frontier
+  - NavyKomandor # Radiant_Sector
   - PlantManager # Frontier
   - StationTrafficController # Frontier
   primary: false

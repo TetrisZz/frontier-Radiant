@@ -75,9 +75,9 @@
     slots:
     - Back
     - suitStorage
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.9
-    sprintModifier: 0.9
+#  - type: SpeedModifiedOnWield Radiant_sector
+#    walkModifier: 0.9 Radiant_sector
+#    sprintModifier: 0.9 Radiant_sector
 
 # Rifles / Shotguns
 - type: entity
@@ -93,9 +93,9 @@
     slots:
     - Back
     - suitStorage
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.8
-    sprintModifier: 0.8
+#  - type: SpeedModifiedOnWield Radiant_sector
+#    walkModifier: 0.8 Radiant_sector
+#    sprintModifier: 0.8 Radiant_sector
 
 # Assault Rifles
 - type: entity
@@ -111,9 +111,9 @@
     slots:
     - Back
     - suitStorage
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.85
-    sprintModifier: 0.85
+#  - type: SpeedModifiedOnWield Radiant_sector
+#    walkModifier: 0.85 Radiant_sector
+#    sprintModifier: 0.85 Radiant_sector
 
 # Launchers
 - type: entity
@@ -129,9 +129,9 @@
     slots:
     - Back
     - suitStorage
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.3
-    sprintModifier: 0.3
+#  - type: SpeedModifiedOnWield Radiant_sector
+#    walkModifier: 0.3 Radiant_sector
+#    sprintModifier: 0.3 Radiant_sector
 
 # Sniper Rifles / LMGs
 - type: entity
@@ -147,9 +147,9 @@
     slots:
     - Back
     - suitStorage
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.3
-    sprintModifier: 0.3
+#  - type: SpeedModifiedOnWield Radiant_sector
+#    walkModifier: 0.3 Radiant_sector
+#    sprintModifier: 0.3 Radiant_sector
 
 #region Crossbows
 - type: entity

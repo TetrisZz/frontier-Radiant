@@ -3,10 +3,10 @@ gun-examine-nf-stability = - [color={$color}]Восстановление точ
 gun-examine-nf-max-angle = - [color={$color}]Максимальный разброс[/color]: [color=lightblue]{NATURALFIXED($value, 1)}°[/color]
 gun-examine-nf-min-angle = - [color={$color}]Минимальный разброс[/color]: [color=lightblue]{NATURALFIXED($value, 1)}°[/color]
 gun-examine-nf-fire-rate = - [color={$color}]Скорострельность[/color]: [color=lightblue]{NATURALFIXED($value, 1)} в/с[/color]
-gun-examine-nf-fire-rate-burst = - [color={$color}]Fire rate[/color]: [color=lightblue]{NATURALFIXED($value, 1)} RPS[/color] (burst of [color=lightblue]{$burstsize}[/color] at [color=lightblue]{NATURALFIXED($burstrate, 1)} RPS[/color])
+gun-examine-nf-fire-rate-burst = - [color={$color}]Скорострельность[/color]: [color=lightblue]{NATURALFIXED($value, 1)} в/с[/color] (очередь из [color=lightblue]{$burstsize}[/color] в [color=lightblue]{NATURALFIXED($burstrate, 1)} в/с[/color])
 gun-examine-nf-muzzle-velocity = - [color={$color}]Скорость пули[/color]: [color=lightblue]{NATURALFIXED($value, 1)} м/с[/color]
-gun-examine-nf-class = - [color={$color}]Class[/color]: [color=lightblue]{$value}[/color]
-gun-examine-nf-manufacturer = - [color={$color}]Manufacturer[/color]: [color=lightblue]{$value}[/color]
+gun-examine-nf-class = - [color={$color}]Класс[/color]: [color=lightblue]{$value}[/color]
+gun-examine-nf-manufacturer = - [color={$color}]Производства[/color]: [color=lightblue]{$value}[/color]
 
 # Calibers
 gun-examine-caliber-35 = .35 pistol ammo
@@ -54,14 +54,14 @@ weapon-details-manufacturer-nanotrasen-technologies = NanoTrasen Technologies
 weapon-details-manufacturer-steelbolt-tool-forge = Steelbolt Tool Forge
 
 # Classes (alphabetical please)
-weapon-details-class-assault-rifle = Assault Rifle
-weapon-details-class-launcher = Launcher
-weapon-details-class-light-machine-gun = Light Machine Gun
-weapon-details-class-machine-pistol = Machine Pistol
-weapon-details-class-pistol = Pistol
-weapon-details-class-revolver = Revolver
+weapon-details-class-assault-rifle = Штурмовая винтовка
+weapon-details-class-launcher = Пусковая установка
+weapon-details-class-light-machine-gun = Ручной пулемет
+weapon-details-class-machine-pistol = Автоматический пистолет
+weapon-details-class-pistol = Пистолет
+weapon-details-class-revolver = Револьвер
 weapon-details-class-rifle = Rifle
-weapon-details-class-shotgun = Shotgun
-weapon-details-class-sniper = Sniper Rifle
-weapon-details-class-submachine-gun = Submachine Gun
-weapon-details-class-tool = Tool
+weapon-details-class-shotgun = Дробовик
+weapon-details-class-sniper = Снайперская винтовка
+weapon-details-class-submachine-gun = Пистолет-пулемет
+weapon-details-class-tool = Инструмент

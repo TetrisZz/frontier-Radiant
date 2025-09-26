@@ -24,6 +24,12 @@
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 20
+    angleIncrease: 8
+    angleDecay: 9
+    fireRate: 4
 
 - type: entity
   id: NFWeaponPistolCobra
@@ -33,6 +39,7 @@
     A rugged, robust operator handgun with inbuilt silencer. An illegal firearm often used by Syndicate agents.
   components:
   - type: Gun
+    examineCaliber: gun-examine-caliber-25 # Radiant_sector
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
       params:
@@ -41,6 +48,26 @@
     sprite: _NF/Objects/Weapons/Guns/Pistols/cobra.rsi
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Pistols/cobra.rsi
+  - type: ItemSlots # Radiant_sector start
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolCaselessRifleRS
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolCaselessRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle25
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle25
+     # Radiant_sector end
 
 #region DeltaV
 - type: entity

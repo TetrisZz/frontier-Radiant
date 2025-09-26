@@ -14,19 +14,19 @@
       "name": "icon-flash"
     },
     {
-      "name": "on-equipped-OUTERCLOTHING",
+      "name": "equipped-OUTERCLOTHING-light",
       "directions": 4
     },
     {
-      "name": "on-equipped-OUTERCLOTHING-resomi",
+      "name": "equipped-OUTERCLOTHING-light-resomi",
       "directions": 4
     },
     {
-      "name": "off-equipped-OUTERCLOTHING",
+      "name": "equipped-OUTERCLOTHING",
       "directions": 4
     },
     {
-      "name": "off-equipped-OUTERCLOTHING-resomi",
+      "name": "equipped-OUTERCLOTHING-resomi",
       "directions": 4
     },
     {

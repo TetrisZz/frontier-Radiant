@@ -3,7 +3,7 @@
   parent: BaseVessel
   name: HOM Сумрак
   description: "Среднее по размеру судно наемников, известное своим хаотичным внутренним устройством: кабины, склады и жилые отсеки переполнены снаряжением, мусором и случайными трофеями."
-  price: 70000
+  price: 75000
   category: Medium
   group: Expedition
   shuttlePath: /Maps/_radiant/Shuttles/Sumrak.yml

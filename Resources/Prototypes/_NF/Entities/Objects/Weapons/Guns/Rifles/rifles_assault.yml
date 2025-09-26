@@ -10,6 +10,11 @@
     sprite: _NF/Objects/Weapons/Guns/Rifles/solandmoss.rsi
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Rifles/solandmoss.rsi
+  - type: Gun # Radiant_sector
+    fireRate: 6 # Radiant_sector
+    selectedMode: SemiAuto # Radiant_sector
+    availableModes: # Radiant_sector
+      - SemiAuto # Radiant_sector
   - type: MagazineVisuals
     magState: mag
     steps: 4
@@ -45,6 +50,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: PirateBountyItem
+    id: Lecter
 
 #region WizDen: Rubber
 - type: entity
@@ -72,6 +79,12 @@
     magState: mag
     steps: 3
     zeroVisible: true
+  - type: Gun # Radiant_sector
+    minAngle: 21 # Radiant_sector
+    maxAngle: 54 # Radiant_sector
+    angleIncrease: 6 # Radiant_sector
+    angleDecay: 24 # Radiant_sector
+    fireRate: 5 # Radiant_sector
 
 - type: entity
   id: NFWeaponRifleAssaultJackdaw
@@ -85,8 +98,34 @@
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
   - type: Gun
+    examineCaliber: gun-examine-caliber-25
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/jackdaw.ogg
+    minAngle: 22 # Radiant_sector
+    maxAngle: 36 # Radiant_sector
+    angleIncrease: 2 # Radiant_sector
+    angleDecay: 8 # Radiant_sector
+    fireRate: 8 # Radiant_sector
+  - type: ItemSlots  # Radiant_sector start
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineCaselessRifleRS
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineCaselessRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle25
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle25
+      # Radiant_sector end
 
 #region DeltaV: Rubber
 - type: entity
@@ -112,10 +151,42 @@
     sprite: _NF/Objects/Weapons/Guns/Rifles/gestio.rsi
   - type: Item
     sprite: _NF/Objects/Weapons/Guns/Rifles/gestio.rsi
+  - type: GunWieldBonus # Radiant_sector
+    minAngle: -20 # Radiant_sector
+    maxAngle: -25 # Radiant_sector
+    angleDecay: 4 # Radiant_sector
+    angleIncrease: -7 # Radiant_sector
+  - type: ItemSlots # Radiant_sector start
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineLowCapacityRifle30
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineLowCapacityRifle30
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgePistol35
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgePistol35 # Radiant_sector end
   - type: Gun
-    burstFireRate: 5
-    shotsPerBurst: 2
-    burstCooldown: 0.8
+#    burstFireRate: 5
+    burstFireRate: 6 # Radiant_sector
+#    shotsPerBurst: 2 # Radiant_sector
+#    burstCooldown: 0.8 # Radiant_sector
+    burstCooldown: 0.5 # Radiant_sector
+    fireRate: 3.75 # Radiant_sector
+    angleDecay: 4 # Radiant_sector
+    angleIncrease: 10 # Radiant_sector
+    minAngle: 21 # Radiant_sector
+    maxAngle: 35 # Radiant_sector
+    examineCaliber: gun-examine-caliber-35 # Radiant_sector
     selectedMode: Burst
     availableModes:
       - Burst
@@ -134,6 +205,8 @@
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Rifles/novalitec1.rsi
   - type: Gun
+#    fireRate: 4 # Radiant_sector
+    fireRate: 3.5 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto

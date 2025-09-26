@@ -1,4 +1,7 @@
 - type: loadout
   id: SCIClothingOuterCoatRndAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterCoatRndAcorpOpened

@@ -13,10 +13,12 @@
       role: JobSecurityOfficer
       time: 21600 # 6 hours Radiant_Sector
   startingGear: SeparatistsOperativeGear
+  alwaysUseSpawner: true
   icon: "JobIconSeparatistsOperative" 
   supervisors: job-supervisors-hire
   weight: 36
   displayWeight: 36
+  newPlayerMessage: false
   access:
   - Separatists
   accessGroups: # Frontier
@@ -24,6 +26,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
     - type: SpecialSectorStationRecord # must be given on spawn
       recordGeneration: FalseRecord
   - !type:AddImplantSpecial

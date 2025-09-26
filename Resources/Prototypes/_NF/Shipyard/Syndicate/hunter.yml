@@ -20,7 +20,7 @@
   minPlayers: 0
   stations:
     Hunter:
-      stationProto: StandardFrontierAntagVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Hunter {1}'

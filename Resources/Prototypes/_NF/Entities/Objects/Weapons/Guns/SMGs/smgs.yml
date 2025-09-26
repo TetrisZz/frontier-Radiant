@@ -42,12 +42,23 @@
   description: A fully automatic SMG.
   components: &drozdComponents
   - type: Gun
+    minAngle: 21 # Radiant_sector
+    maxAngle: 32 # Radiant_sector
+    fireRate: 6 # Radiant_sector
+    burstFireRate: 18 # Radiant_sector
+    shotsPerBurst: 3 # Radiant_sector
+    burstCooldown: 0.375 # Radiant_sector
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi
+  - type: Wieldable # Radiant_sector
+    unwieldOnUse: false # Radiant_sector
+  - type: GunWieldBonus # Radiant_sector
+    minAngle: -19 # Radiant_sector
+    maxAngle: -16 # Radiant_sector
 
 - type: entity
   id: NFWeaponSubMachineGunDrozdLessLethal # Frontier-specific rubber variant
@@ -85,6 +96,17 @@
     zeroVisible: true
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
+  - type: Gun # Radiant_sector
+    fireRate: 5.5 # Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 6 # Radiant_sector
+    angleIncrease: 1.5 # Radiant_sector
+    angleDecay: 6 # Radiant_sector
+    shotsPerBurst: 5 # Radiant_sector
+    burstCooldown: 0.2 # Radiant_sector
+    burstFireRate: 7 # Radiant_sector
+  - type: PirateBountyItem
+    id: WT550
 
 #region DeltaV
 - type: entity
@@ -95,9 +117,19 @@
     A modern take on the classic design used by mobsters throughout space and time.
   components:
   - type: Gun
+    minAngle: 21 # Radiant_sector
+    maxAngle: 45 # Radiant_sector
+    angleIncrease: 5 # Radiant_sector
+    angleDecay: 20 # Radiant_sector
+    fireRate: 8 # Radiant_sector
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/typewriter.ogg
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/SMGs/typewriter.rsi
+  - type: GunWieldBonus # Radiant_sector
+    minAngle: -20 # Radiant_sector
+    maxAngle: -30 # Radiant_sector
+  - type: Wieldable # Radiant_sector
+    unwieldOnUse: false # Radiant_sector

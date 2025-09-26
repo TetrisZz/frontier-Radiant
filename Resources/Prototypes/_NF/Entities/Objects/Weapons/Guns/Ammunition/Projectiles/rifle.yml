@@ -45,7 +45,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 13
+#        Piercing: 13 Radiant_sector
+        Piercing: 17 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle20Overpressure
@@ -56,7 +57,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 14
+#        Piercing: 14 Radiant_sector
+        Piercing: 8.5 # Radiant_sector
+        Blunt: 8.5 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle20Incendiary
@@ -67,8 +70,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 7.8 # 0.6 * base total dmg
-        Heat: 5.2 # 0.4 * base total dmg
+#        Piercing: 7.8 # 0.6 * base total dmg Radiant_sector
+#        Heat: 5.2 # 0.4 * base total dmg Radiant_sector
+        Blunt: 2 # Radiant_sector
+        Heat: 15 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle20Uranium
@@ -79,8 +84,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10.8 # 0.6 * (1.4 * base total dmg)
-        Radiation: 7.2 # 0.4 * (1.4 * base total dmg)
+#        Piercing: 10.8 # 0.6 * (1.4 * base total dmg) Radiant_sector
+#        Radiation: 7.2 # 0.4 * (1.4 * base total dmg) Radiant_sector
+        Radiation: 7 # Radiant_sector
+        Piercing: 8 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle20Practice
@@ -102,9 +109,11 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 2
+#        Piercing: 2 Radiant_sector
+        Piercing: 3 # Radiant_sector
   - type: StaminaDamageOnCollide
-    damage: 12 # ~9 hits to stun sounds reasonable, less effective than pistol because rifle round is smaller in size
+#    damage: 12 # ~9 hits to stun sounds reasonable, less effective than pistol because rifle round is smaller in size Radiant_sector
+    damage: 22 # Radiant_sector
 
 #region .25 rifle
 - type: entity
@@ -116,7 +125,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 14
+#        Piercing: 14 Radiant_sector
+        Piercing: 19 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle25Overpressure
@@ -127,7 +137,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 16
+#        Piercing: 16 Radiant_sector
+        Piercing: 9.5 # Radiant_sector
+        Blunt: 9.5 # Radiant_sectorr
 
 - type: entity
   id: NFBulletRifle25Incendiary
@@ -138,8 +150,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 8.4 # 0.6 * base total dmg
-        Heat: 5.6 # 0.4 * base total dmg
+#        Piercing: 8.4 # 0.6 * base total dmg Radiant_sector
+#        Heat: 5.6 # 0.4 * base total dmg Radiant_sector
+        Blunt: 3 # Radiant_sector
+        Heat: 16 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle25Uranium
@@ -150,8 +164,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 11.4 # 0.6 * (1.4 * base total dmg)
-        Radiation: 7.6 # 0.4 * (1.4 * base total dmg)
+#        Piercing: 11.4 # 0.6 * (1.4 * base total dmg) Radiant_sector
+#        Radiation: 7.6 # 0.4 * (1.4 * base total dmg) Radiant_sector
+        Radiation: 9 # Radiant_sector
+        Piercing: 10 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle25Practice
@@ -173,9 +189,11 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 2
+#        Piercing: 2 Radiant_sector
+        Piercing: 3 # Radiant_sector
   - type: StaminaDamageOnCollide
-    damage: 12 # ~9 hits to stun sounds reasonable, less effective than pistol because rifle round is smaller in size
+#    damage: 12 # ~9 hits to stun sounds reasonable, less effective than pistol because rifle round is smaller in size Radiant_sector
+    damage: 22 # Radiant_sector
 
 #region .30 rifle
 - type: entity
@@ -187,7 +205,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15
+#       Piercing: 15 Radiant_sector
+        Piercing: 19 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle30Overpressure
@@ -198,7 +217,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 17
+#        Piercing: 17 Radiant_sector
+        Piercing: 9.5 # Radiant_sector
+        Blunt: 9.5 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle30Incendiary
@@ -209,8 +230,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 9
-        Heat: 6
+#        Piercing: 9 Radiant_sector
+#        Heat: 6 Radiant_sector
+        Blunt: 3 # Radiant_sector
+        Heat: 16 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle30Uranium
@@ -221,8 +244,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 12.6
-        Radiation: 8.4
+#        Piercing: 12.6 Radiant_sector
+#        Radiation: 8.4 Radiant_sector
+        Radiation: 9 # Radiant_sector
+        Piercing: 10 # Radiant_sector
 
 - type: entity
   id: NFBulletRifle30Practice
@@ -244,9 +269,11 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 2
+#        Piercing: 2 Radiant_sector
+        Piercing: 3 # Radiant_sector
   - type: StaminaDamageOnCollide
-    damage: 13 # ~8 hits to stun sounds reasonable
+#    damage: 13 # ~8 hits to stun sounds reasonable Radiant_sector
+    damage: 22 # Radiant_sector
 
 #region .60 rifle
 - type: entity
@@ -258,8 +285,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 35
-        Structural: 200
+#        Piercing: 35 Radiant_sector
+#        Structural: 200 Radiant_sector
+        Piercing: 75 # Radiant_sector
+        Structural: 226 # Radiant_sector
     penetrationThreshold: 360
     penetrationDamageTypeRequirement:
     - Structural

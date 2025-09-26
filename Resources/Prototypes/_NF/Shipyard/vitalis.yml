@@ -20,7 +20,7 @@
   minPlayers: 0
   stations:
     Vitalis:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Vitalis {1}'

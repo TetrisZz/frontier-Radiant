@@ -957,22 +957,24 @@
   maxLimit: 1
   loadouts:
   - ContractorClothingUnderwearBottomBoxersWhite
-  - ContractorClothingUnderwearBottomBoxersSpaceNinja
-  - ContractorClothingUnderwearBottomBoxersCap
   - ContractorClothingUnderwearBottomRadiantBoxersNFSD
   - ContractorClothingUnderwearBottomRadiantBoxersBlack
-  - ContractorClothingUnderwearBottomBoxersRD
-  - ContractorClothingUnderwearBottomPantiesWhite
+  - ContractorClothingUnderwearBottomBoxersCMO
+  - ContractorClothingUnderwearBottomBoxersSpaceNinja
+  - ContractorClothingUnderwearBottomBoxersHOS
+  - ContractorClothingUnderwearBottomBoxersCE
+  - ContractorClothingUnderwearBottomBoxersCap
   - ContractorClothingUnderwearBottomPantiesNeko
-  - ContractorClothingUnderwearBottomPantiesLace
-  - ContractorClothingUnderwearBottomPantiesSpaceNinja
-  - ContractorClothingUnderwearBottomPantiesCap
-  - ContractorClothingUnderwearBottomRadiantPantiesTrusikiblack
-  - ContractorClothingUnderwearBottomRadiantPantiesRed
-  - ContractorClothingUnderwearBottomPantiesHOP
-  - ContractorClothingUnderwearBottomRadiantPantiesNFSD
+  - ContractorClothingUnderwearBottomPantiesWhite
   - ContractorClothingUnderwearBottomRadiantPantiesPink
-  - ContractorClothingUnderwearBottomPantiesRD
+  - ContractorClothingUnderwearBottomPantiesBlackFlur
+  - ContractorClothingUnderwearBottomPantiesWhiteFlur
+  - ContractorClothingUnderwearBottomPantiesMaid
+  - ContractorClothingUnderwearBottomPantiesRedGarters
+  - ContractorClothingUnderwearBottomPantiesRed
+  - ContractorClothingUnderwearBottomRadiantPantiesRed
+  - ContractorClothingUnderwearBottomRadiantPantiesTrusikiblack
+  - ContractorClothingUnderwearBottomPantiesBlack
   fallbacks:
   - ContractorClothingUnderwearBottomBoxersWhite
   - ContractorClothingUnderwearBottomPantiesWhite
@@ -984,21 +986,24 @@
   maxLimit: 1
   loadouts:
   - ContractorClothingUnderwearSocksHigh
-  - ContractorClothingUnderwearSocksNormal
-  - ContractorClothingUnderwearSocksShort
+  - ContractorClothingUnderwearSocksPantyhose
+  - ContractorClothingUnderwearSocksRedStrip
+  - ContractorClothingUnderwearSocksRadiantRed
+  - ContractorClothingUnderwearSocksRadiantBlackPolosatie
+  - ContractorClothingUnderwearSocksPinkStrip
+  - ContractorClothingUnderwearSocksRadiantMeee
+  - ContractorClothingUnderwearSocksThighWhiteStrip
+  - ContractorClothingUnderwearSocksThighRedStrip
+  - ContractorClothingUnderwearSocksRadiantStriped
+  - ContractorClothingUnderwearSocksThighPinkStrip
+  - ContractorClothingUnderwearSocksRadiantPink
+  - ContractorClothingUnderwearSocksRadiantThighblue
+  - ContractorClothingUnderwearSocksGreenStrip
+  - ContractorClothingUnderwearSocksRadiantBlack
+  - ContractorClothingUnderwearSocksRadiantSocksBlack
   - ContractorClothingUnderwearSocksThigh
   - ContractorClothingUnderwearSocksFishnettights
-  - ContractorClothingUnderwearSocksPantyhose
   - ContractorClothingUnderwearSocksGarters
-  - ContractorClothingUnderwearSocksRadiantThighblue
-  - ContractorClothingUnderwearSocksRadiantPink
-  - ContractorClothingUnderwearSocksRadiantRed
-  - ContractorClothingUnderwearSocksRadiantStriped
-  - ContractorClothingUnderwearSocksRadiantSocksBlack
-  - ContractorClothingUnderwearSocksRadiantBlack
-  - ContractorClothingUnderwearSocksRadiantBlackPolosatie
-  - ContractorClothingUnderwearSocksRadiantMeee
-  - ContractorClothingUnderwearSocksAcorpStriped
   - ContractorClothingUnderwearSocksRich
   
 - type: loadoutGroup
@@ -1008,16 +1013,14 @@
   maxLimit: 1
   loadouts:
   - ContractorClothingUnderwearTopBraWhite
-  - ContractorClothingUnderwearTopBraSports
-  - ContractorClothingUnderwearTopBraSportsAlternative
-  - ContractorClothingUnderwearTopNekoBra
-  - ContractorClothingUnderwearTopRadiantRed
-  - ContractorClothingUnderwearToplaceBra
-  - ContractorClothingUnderwearTopSpaceNinja
-  - ContractorClothingUnderwearTopBraCap
-  - ContractorClothingUnderwearTopRadiantBlack
-  - ContractorClothingUnderwearTopRadiantNeeeekoUwU
-  - ContractorClothingUnderwearTopBraHOP
   - ContractorClothingUnderwearTopRadiantPink
+  - ContractorClothingUnderwearTopBraBlack
+  - ContractorClothingUnderwearTopRadiantNeeeekoUwU
+  - ContractorClothingUnderwearTopBraRedGarters
+  - ContractorClothingUnderwearTopSpaceNinja
+  - ContractorClothingUnderwearTopBraRed
+  - ContractorClothingUnderwearTopRadiantRed
   - ContractorClothingUnderwearTopRadiantSeeeexsi
-  - ContractorClothingUnderwearTopBraRD
+  - ContractorClothingUnderwearTopRadiantBlack
+  - ContractorClothingUnderwearTopBraWhiteFur
+  - ContractorClothingUnderwearTopBraCorset

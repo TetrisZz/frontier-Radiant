@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Сириус
   description: Экспедиционный корабль для дальних путешествий по просторам космоса
-  price: 60725
+  price: 54000
   category: Medium
   group: Expedition
   shuttlePath: /Maps/_NF/Shuttles/Expedition/sirius.yml

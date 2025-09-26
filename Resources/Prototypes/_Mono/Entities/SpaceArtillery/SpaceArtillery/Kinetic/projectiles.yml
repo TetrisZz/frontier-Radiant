@@ -21,6 +21,7 @@
   - type: RadarBlip
     scale: 3
     requireNoGrid: true
+    visibleFromOtherGrids: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 9
@@ -58,6 +59,7 @@
   - type: RadarBlip
     scale: 2.5
     requireNoGrid: true
+    visibleFromOtherGrids: true
     shape: triangle
   - type: TimedDespawn
     lifetime: 8.75

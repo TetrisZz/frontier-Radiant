@@ -1,9 +1,24 @@
 - type: loadout
   id: ASSClothingOuterCoatLongAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterCoatLongAcorp
 
 - type: loadout
   id: ASSClothingOuterWinterAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterWinterAcorp
+
+- type: loadout
+  id: AcorpForcedClothingOuterHardsuitAcorpBasic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NFOuterSuitRequired
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterHardsuitAcorpBasic

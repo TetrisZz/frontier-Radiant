@@ -3,7 +3,7 @@
   parent: BaseVessel
   name: NSF Реведжер
   description: Крейсер-эсминец типа «Реведжер» предназначен для оперативных перехватов судов и длительного патрулирования дальнего космоса.
-  price: 95500
+  price: 74000
   category: Large
   group: Security
   access: Sergeant

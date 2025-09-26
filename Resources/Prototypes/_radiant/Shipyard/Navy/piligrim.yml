@@ -1,6 +1,6 @@
 - type: vessel
   id: Piligrim
-  parent: BaseVesselNavy
+  parent: BaseVessel
   name: COF Пилигрим
   description: Легкое судно снабжения, предназначенное для переброски экипажа между судами и оказания ограниченной медицинской помощи.
   price: 30000
