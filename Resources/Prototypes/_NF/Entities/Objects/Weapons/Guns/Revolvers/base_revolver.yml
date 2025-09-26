@@ -9,12 +9,12 @@
     - state: icon
       map: ["enum.GunVisualLayers.Base"]
   - type: Gun
-    projectileSpeed: 22.5
-    minAngle: 2.7
-    maxAngle: 13.5
-    angleIncrease: 0.7
-    angleDecay: 3.5
-    fireRate: 3
+#    projectileSpeed: 22.5 Radiant_sector
+#    minAngle: 2.7 Radiant_sector
+#    maxAngle: 13.5 Radiant_sector
+#    angleIncrease: 0.7 Radiant_sector
+#    angleDecay: 3.5 Radiant_sector
+#    fireRate: 3 Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -33,11 +33,12 @@
   abstract: true
   components:
   - type: Gun
-    minAngle: 3.1
-    maxAngle: 15.5
-    angleIncrease: 1.1
-    angleDecay: 1
-    fireRate: 2.6
+#    minAngle: 3.1 Radiant_sector
+#    maxAngle: 15.5 Radiant_sector
+#    angleIncrease: 1.1 Radiant_sector
+#    angleDecay: 1 Radiant_sector
+#    fireRate: 2.6 Radiant_sector
+    fireRate: 1.5 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
 
@@ -47,11 +48,12 @@
   abstract: true
   components:
   - type: Gun
-    minAngle: 3
-    maxAngle: 15
-    angleIncrease: 1.3
-    angleDecay: 4.7
-    fireRate: 3
+#    minAngle: 3 Radiant_sector
+#    maxAngle: 15 Radiant_sector
+#    angleIncrease: 1.3 Radiant_sector
+#    angleDecay: 4.7 Radiant_sector
+#    fireRate: 3
+    fireRate: 2
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-gorlex-steel-works
 
@@ -61,11 +63,12 @@
   abstract: true
   components:
   - type: Gun
-    minAngle: 3
-    maxAngle: 15
-    angleIncrease: 1.3
-    angleDecay: 4.7
-    fireRate: 2.7
+#    minAngle: 3 Radiant_sector
+#    maxAngle: 15 Radiant_sector
+#    angleIncrease: 1.3 Radiant_sector
+#    angleDecay: 4.7 Radiant_sector
+#    fireRate: 2.7 Radiant_sector
+    fireRate: 1
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-steelbolt-tool-forge
 
@@ -75,9 +78,10 @@
   abstract: true
   components:
   - type: Gun
-    angleIncrease: 1.5
-    angleDecay: 4.8
-    fireRate: 2.4
+#    angleIncrease: 1.5 Radiant_sector
+#    angleDecay: 4.8 Radiant_sector
+#    fireRate: 2.4 Radiant_sector
+    fireRate: 2
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-frontier-gunsmith-consortium
 
@@ -134,16 +138,19 @@
   abstract: true
   components:
   - type: Gun
-    examineCaliber: gun-examine-caliber-35
+    examineCaliber: gun-examine-caliber-20
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: RevolverAmmoProvider
     whitelist:
       tags:
-        - NFCartridgePistol35
-        - NFSpeedLoaderPistol35
+#        - NFCartridgePistol35 # Radiant_sector
+#        - NFSpeedLoaderPistol35 # Radiant_sector
+        - NFCartridgeRifle20 # Radiant_sector
+        - SpeedLoaderRifleHeavy # Radiant_sector
     capacity: 8
-    proto: NFCartridgePistol35
+#    proto: NFCartridgePistol35 # Radiant_sector
+    proto: NFCartridgeRifle20 # Radiant_sector
     chambers: [ True, True, True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null, null, null ]
 

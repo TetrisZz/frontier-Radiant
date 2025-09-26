@@ -6,6 +6,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: WeaponRifleJackdaw
-      - id: MagazineCaselessRifleShort
-      - id: MagazineCaselessRifleShort
+      - id: NFWeaponRifleAssaultJackdaw
+      - id: MagazineCaselessRifleShortRS
+      - id: MagazineCaselessRifleShortRS

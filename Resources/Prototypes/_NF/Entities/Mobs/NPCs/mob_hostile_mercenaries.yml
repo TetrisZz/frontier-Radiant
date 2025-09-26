@@ -23,12 +23,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      100: Dead
+#      80: Critical Radiant_sector
+#      100: Dead Radiant_sector
+      100: Critical # Radiant_sector
+      130: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.7
-      64: 0.5
+#      48: 0.7 Radiant_sector
+#      64: 0.5 Radiant_sector
+      60: 0.7 # Radiant_sector
+      80: 0.5 # Radiant_sector
   - type: DamageStateVisuals
   - type: RotationVisuals
     defaultRotation: 90
@@ -49,7 +53,8 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 12
+#        Slash: 12 Radiant_sector
+        Slash: 15 # Radiant_sector
         Structural: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -147,11 +152,12 @@
     count: 4
   - type: Gun
     showExamineText: false
-    minAngle: 10
-    maxAngle: 21
-    angleIncrease: 4
-    angleDecay: 3
-    fireRate: 1
+#    minAngle: 10 Radiant_sector
+#    maxAngle: 21 Radiant_sector
+#    angleIncrease: 4 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+#    fireRate: 1 Radiant_sector
+    fireRate: 0.5 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -194,10 +200,12 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.85
-    minAngle: 8
-    maxAngle: 20
-    angleIncrease: 3
-    angleDecay: 3
+#    minAngle: 8 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 3 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 10 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -285,15 +293,20 @@
       color: "#a9b6bd"
       shader: unshaded
   - type: BasicEntityAmmoProvider
-    proto: NFCartridgePistol35Overpressure
-    capacity: 6
-    count: 6
+#    proto: NFCartridgePistol35Overpressure # Radiant_sector
+    proto: NFCartridgeRifle20Overpressure # Radiant_sector
+#    capacity: 6 Radiant_sector
+#    count: 6 Radiant_sector
+    capacity: 8 # Radiant_sector
+    count: 8 # Radiant_sector
   - type: Gun
     showExamineText: false
-    minAngle: 11
-    maxAngle: 25
-    angleIncrease: 3
-    angleDecay: 3
+#    minAngle: 11 Radiant_sector
+#    maxAngle: 25 Radiant_sector
+#    angleIncrease: 3 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 15 # Radiant_sector
     fireRate: 2
     selectedMode: SemiAuto
     availableModes:
@@ -343,10 +356,12 @@
   - type: Gun
     showExamineText: false
     fireRate: 2
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 5
-    angleDecay: 3
+#    minAngle: 10 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 5 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 10 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -385,9 +400,12 @@
       state: equipped-NECK-on
       color: "#a9b6bd"
       shader: unshaded
-  - type: ProjectileBatteryAmmoProvider
-    proto: NFBulletLaserLow
-    fireCost: 100
+#  - type: ProjectileBatteryAmmoProvider # Radiant_sector
+#    proto: NFBulletLaserLow # Radiant_sector
+#    fireCost: 100 # Radiant_sector
+  - type: HitscanBatteryAmmoProvider # Radiant_sector
+    proto: NFRedMediumLaser # Radiant_sector
+    fireCost: 100  # Radiant_sector
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 50
@@ -397,14 +415,17 @@
   - type: Gun
     showExamineText: false
     fireRate: 1
-    minAngle: 8
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+#    minAngle: 8 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 2 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 10 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+#    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg # Radiant_sector
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg # Radiant_sector
   - type: MeleeWeapon
     attackRate: 2.0
     altDisarm: false
@@ -454,20 +475,25 @@
       color: "#a9b6bd"
       shader: unshaded
   - type: BasicEntityAmmoProvider
-    proto: NFCartridgeRifle25Overpressure
-    capacity: 2
-    count: 2
+#    proto: NFCartridgeRifle25Overpressure # Radiant_sector
+    proto: NFCartridgePistol35Overpressure # Radiant_sector
+#    capacity: 2 # Radiant_sector
+#    count: 2 # Radiant_sector
+    capacity: 6 # Radiant_sector
+    count: 6 # Radiant_sector
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2
+    rechargeCooldown: 6 # Radiant_sector
     rechargeSound:
       path: /Audio/_NF/Effects/silence.ogg
   - type: Gun
     showExamineText: false
     fireRate: 4
-    minAngle: 8
+    burstCooldown: 1 # Radiant_sector
+    minAngle: 5 # Radiant_sector
+#    minAngle: 8 Radiant_sector
     maxAngle: 20
-    angleIncrease: 4
-    angleDecay: 3
+#    angleIncrease: 4 Radiant_sector
+#    angleDecay: 3 Radiant_sector
     selectedMode: Burst
     availableModes:
     - Burst
@@ -511,16 +537,20 @@
       color: "#a9b6bd"
       shader: unshaded
   - type: BasicEntityAmmoProvider
-    proto: NFCartridgeRifle30Overpressure
+#    proto: NFCartridgeRifle30Overpressure Radiant_sector
+    proto: NFCartridgePistol45Overpressure # Radiant_sector
     capacity: 10
     count: 10
   - type: Gun
     showExamineText: false
-    fireRate: 1
-    minAngle: 3
-    maxAngle: 20
-    angleIncrease: 3
-    angleDecay: 3
+#    fireRate: 1 Radiant_sector
+#    minAngle: 3 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 3 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    fireRate: 0.6 # Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 15 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -780,7 +810,7 @@
       state: human
     # Suit
     - sprite: _NF/Clothing/OuterClothing/Hardsuits/scaf.rsi
-      state: on-equipped-OUTERCLOTHING #Radiant_sector
+      state: equipped-OUTERCLOTHING #Radiant_sector
     # Gas tank
     - sprite: _NF/Objects/Tanks/o2n2equal.rsi
       state: equipped-SUITSTORAGE

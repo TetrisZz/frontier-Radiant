@@ -7,15 +7,18 @@
     - !type:OverallPlaytimeRequirement
       time: 3600 # 1 hour Radiant_Sector
   startingGear: SeparatistsSlaveGear
+  alwaysUseSpawner: true
   icon: "JobIconSeparatistsSlave" 
   supervisors: job-supervisors-hire
   weight: 20
   displayWeight: 20
+  newPlayerMessage: false
   accessGroups: # Frontier
   - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
     - type: SpecialSectorStationRecord # must be given on spawn
       recordGeneration: FalseRecord
   - !type:AddImplantSpecial

@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Фотон
   description: Мелкий транспортный шаттл
-  price: 12500
+  price: 13000
   category: Micro
   group: Custom
   access: Acorp
@@ -31,7 +31,7 @@
   minPlayers: 0
   stations:
     Photone:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Фотон {1}'

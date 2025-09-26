@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: SeparatistsTrackingImplant
-  name: freelance tracking implant
+  name: separatists tracking implant
   description: This implant has a tracking device monitor for the Freelance radio channel.
   categories: [ HideSpawnMenu ]
   components:
@@ -16,8 +16,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: TrackingImplantNavy
-  name: tracking implant
-  description: This implant has a condition monitor for the NFSD radio channel.
+  name: имплант флота
+  description: Имплант отслеживающий состояние своего владельца, в случае критического и смертельного ранения оповестит конфедеративный флот
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -30,3 +30,15 @@
       - Dead
     - type: Rattle
       radioChannel: "Navy"
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantSeparatists
+  name: separatist radio implant
+  description: This implant grants access to the Freelance channel without a headset.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - Separatist

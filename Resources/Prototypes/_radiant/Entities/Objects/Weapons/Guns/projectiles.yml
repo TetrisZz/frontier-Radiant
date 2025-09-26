@@ -1,0 +1,32 @@
+- type: entity
+  name: широкий лазерный залп
+  id: BulletLaserSpreadRS
+  categories: [ HideSpawnMenu ]
+  parent: NFBulletLaserMedium
+  components:
+  - type: ProjectileSpread
+    proto: NFBulletLaserMedium
+    count: 5 #65 heat damage if you hit all your shots, but wide spread
+    spread: 30
+
+- type: entity
+  name: узкий лазерный залп
+  id: BulletLaserSpreadNarrowRS
+  categories: [ HideSpawnMenu ]
+  parent: NFBulletLaserMedium
+  components:
+  - type: ProjectileSpread
+    proto: NFBulletLaserMedium
+    count: 4 #52 heat damage if you hit all your shots, but narrower spread
+    spread: 10
+
+- type: entity
+  name: оглушающий лазерный залп
+  id: BulletDisablerSmgSpreadRS
+  categories: [ HideSpawnMenu ]
+  parent: NFBulletDisablerLow
+  components:
+  - type: ProjectileSpread
+    proto: NFBulletDisablerLow
+    count: 3 #bit stronger than a disabler if you hit your shots you goober, still not a 2 hit stun though
+    spread: 9

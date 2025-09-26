@@ -7,6 +7,7 @@
     A viper for use by cyborgs. Creates .35 ammo on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
   - type: Gun
+    fireRate: 5 # Radiant_sector
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: Sprite
@@ -38,7 +39,7 @@
 #region DeltaV
 - type: entity
   id: NFWeaponPistolPollock
-  parent: [ NFBaseWeaponPistolChamber35, NFBaseWeaponFrameMachinePistolNanotrasen ]
+  parent: [ NFBaseWeaponPistolChamber35, NFBaseWeaponFramePistolNanotrasen ] #Radiant change NFBaseWeaponFrameMachinePistolNanotrasen
   name: pollock
   description: A compact and mass-produced combat pistol.
   components:
@@ -46,6 +47,8 @@
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
+  - type: Gun  # Radiant_sector
+    fireRate: 4  # Radiant_sector
 
 - type: entity
   id: NFWeaponPistolPollockHighCapacityMag

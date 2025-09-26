@@ -9,22 +9,34 @@
     unwieldOnUse: false
   - type: GunRequiresWield
   - type: GunWieldBonus
-    minAngle: -0 # Set to 0 because GunRequiresWield
-    maxAngle: -0
+#    minAngle: -0 Radiant_sector
+#    maxAngle: -0 Radiant_sector
+    minAngle: -20 # Radiant_sector
+    maxAngle: -20 # Radiant_sector
   - type: Gun
-    projectileSpeed: 30
-    minAngle: 3.1
-    maxAngle: 15.5
-    angleIncrease: 0.8
-    angleDecay: 4
-    fireRate: 4
-    burstFireRate: 5
-    shotsPerBurst: 5
-    burstCooldown: 1
+#    minAngle: 24 Radiant_sector
+#    maxAngle: 45 Radiant_sector
+#    angleIncrease: 4 Radiant_sector
+#    angleDecay: 16 Radiant_sector
+#    fireRate: 8 Radiant_sector
+#    projectileSpeed: 30 Radiant_sector
+#    minAngle: 3.1 Radiant_sector
+#    maxAngle: 15.5 Radiant_sector
+#    angleIncrease: 0.8 Radiant_sector
+#    angleDecay: 4 Radiant_sector
+#    fireRate: 4 Radiant_sector
+#    burstFireRate: 5 Radiant_sector
+#    shotsPerBurst: 5 Radiant_sector
+#    burstCooldown: 1 Radiant_sector
+    minAngle: 24 # Radiant_sector
+    maxAngle: 45 # Radiant_sector
+    angleIncrease: 4 # Radiant_sector
+    angleDecay: 16 # Radiant_sector
+    fireRate: 8 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-    - Burst
+#    - Burst Radiant_sector
   - type: NFWeaponDetails
     class: weapon-details-class-light-machine-gun
 
@@ -35,10 +47,15 @@
   abstract: true
   components:
   - type: Gun
-    minAngle: 3.4
-    maxAngle: 17
-    angleIncrease: 1.5
-    angleDecay: 5.4
+#    minAngle: 3.4 Radiant_sector
+#    maxAngle: 17 Radiant_sector
+#    angleIncrease: 1.5 Radiant_sector
+#    angleDecay: 5.4 Radiant_sector
+    minAngle: 4 # Radiant_sector
+    maxAngle: 25 # Radiant_sector
+    angleIncrease: 4 # Radiant_sector
+    angleDecay: 16 # Radiant_sector
+    fireRate: 8 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-gorlex-steel-works
 

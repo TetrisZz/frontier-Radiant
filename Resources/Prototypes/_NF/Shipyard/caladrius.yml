@@ -31,7 +31,7 @@
   minPlayers: 0
   stations:
     Caladrius:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Caladrius {1}'

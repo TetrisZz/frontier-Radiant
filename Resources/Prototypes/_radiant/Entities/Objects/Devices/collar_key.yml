@@ -10,7 +10,6 @@
   - type: Item
     sprite: _radiant/Objects/Devices/collar_key.rsi
     storedRotation: -90
-  - type: SmugglingCapsuleItem
   - type: Tool
     qualities:
       - CollarUnlock

@@ -12,12 +12,13 @@
     minAngle: -0 # Set to 0 because GunRequiresWield
     maxAngle: -0
   - type: Gun
-    projectileSpeed: 30
-    minAngle: 1.6
-    maxAngle: 8
-    angleIncrease: 0.4
-    angleDecay: 2
-    fireRate: 1
+#    projectileSpeed: 30
+#    minAngle: 1.6
+#    maxAngle: 8
+#    angleIncrease: 0.4
+#    angleDecay: 2
+#    fireRate: 1
+    fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -35,9 +36,13 @@
   abstract: true
   components:
   - type: Gun
-    angleIncrease: 0.5
-    angleDecay: 3.5
-    fireRate: 0.8
+#    angleIncrease: 0.5 Radiant_sector
+#    angleDecay: 3.5 Radiant_sector
+#    fireRate: 0.8 Radiant_sector
+    fireRate: 0.4 # Radiant_sector
+  - type: SpeedModifiedOnWield # Radiant_sector
+    walkModifier: 0.25 # Radiant_sector
+    sprintModifier: 0.25 # Radiant_sector
   - type: NFWeaponDetails
     class: weapon-details-manufacturer-cybersun-industries
 

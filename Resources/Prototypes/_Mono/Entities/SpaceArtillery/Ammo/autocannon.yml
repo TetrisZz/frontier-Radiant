@@ -23,7 +23,7 @@
     scale: 0.5
     requireNoGrid: true
     shape: triangle
-    visibleFromOtherGrids: True
+    visibleFromOtherGrids: true
 
 - type: entity
   id: 57mmCartridgeBase

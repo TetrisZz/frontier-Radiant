@@ -9,3 +9,12 @@
       types:
         Cold: 4
         Piercing: 8
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Cryoladinne
+          Quantity: 2
+  - type: SolutionTransfer
+    maxTransferAmount: 2

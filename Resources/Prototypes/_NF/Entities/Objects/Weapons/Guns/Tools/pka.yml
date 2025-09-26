@@ -20,12 +20,12 @@
       shader: unshaded
       map: [ "empty-icon" ]
   - type: Gun
-    projectileSpeed: 20
-    minAngle: 33.1
-    maxAngle: 45.5
-    angleIncrease: 7
-    angleDecay: 5
-    fireRate: 0.5
+#    projectileSpeed: 20 Radiant_sector
+#    minAngle: 33.1 Radiant_sector
+#    maxAngle: 45.5 Radiant_sector
+#    angleIncrease: 7 Radiant_sector
+#    angleDecay: 5 Radiant_sector
+#    fireRate: 0.5 Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -52,10 +52,15 @@
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus
-    minAngle: -30
-    maxAngle: -30
+#    minAngle: -30 Radiant_sector
+#    maxAngle: -30 Radiant_sector
+    minAngle: -43 # Radiant_sector
+    maxAngle: -43 # Radiant_sector
   - type: Gun
     fireRate: 0.5
+    angleDecay: 45 # Radiant_sector
+    minAngle: 44 # Radiant_sector
+    maxAngle: 45 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
 
@@ -65,7 +70,11 @@
   abstract: true
   components:
   - type: Gun
-    fireRate: 0.9
+    fireRate: 0.9 # Radiant_sector
+    minAngle: 33.1 # Radiant_sector
+    maxAngle: 45.5 # Radiant_sector
+    angleIncrease: 7 # Radiant_sector
+    angleDecay: 5 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
     - FullAuto

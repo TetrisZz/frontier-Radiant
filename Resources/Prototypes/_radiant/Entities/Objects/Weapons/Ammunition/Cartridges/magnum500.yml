@@ -42,12 +42,3 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#57d2d9"
-  - type: ChemicalAmmo
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        reagents:
-        - ReagentId: Cryoladinne
-          Quantity: 10
-  - type: SolutionTransfer
-    maxTransferAmount: 10

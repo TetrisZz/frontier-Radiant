@@ -9816,13 +9816,6 @@ entities:
     - type: Transform
       pos: 3.5,58.5
       parent: 1
-- proto: JukeboxShip
-  entities:
-  - uid: 700
-    components:
-    - type: Transform
-      pos: 3.5,34.5
-      parent: 1
 - proto: KitchenDeepFryerPOI
   entities:
   - uid: 701
@@ -10292,18 +10285,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: LootSpawnerArmory
-  entities:
-  - uid: 2429
-    components:
-    - type: Transform
-      pos: 3.5,60.5
-      parent: 1
-  - uid: 2430
-    components:
-    - type: Transform
-      pos: 3.5,60.5
-      parent: 1
 - proto: LootSpawnerMaterials
   entities:
   - uid: 2434

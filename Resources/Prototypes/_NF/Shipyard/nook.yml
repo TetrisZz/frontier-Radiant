@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Nook:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Nook {1}'

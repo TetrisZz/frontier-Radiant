@@ -31,7 +31,7 @@
   minPlayers: 0
   stations:
     Disciple:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Disciple {1}'

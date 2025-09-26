@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Baroness:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Baroness {1}'

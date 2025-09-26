@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Вера
   description: Экспедиционное судно, оснащенное всем необходимым для покорения просторов космоса и добычи ресурсов.
-  price: 86200
+  price: 87400
   category: Large
   group: Expedition
   shuttlePath: /Maps/_radiant/Shuttles/Vera.yml

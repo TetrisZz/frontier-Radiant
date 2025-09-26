@@ -28,11 +28,9 @@
   - type: StaticPrice
     price: 500
 
-
 - type: entity
   name: энергетический пистолет
-  suffix: DO NOT MAP # Frontier - Add DO NOT MAP, this is the sheriff's gun
-  parent: [ BaseC2ContrabandUnredeemable, NFWeaponEnergyPistolLaserAntique ]
+  parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseCommandContraband
   id: WeaponEnergyGunMiniAcorp
   description: Энергетический пистолет для самообороны, имеет два режима стрельбы.
   components:
@@ -53,3 +51,38 @@
     - Back # Frontier
     - suitStorage # Frontier
     sprite: _radiant/Objects/Weapons/Laser/mini_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: NFBulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: NFBulletDisabler
+      fireCost: 100
+      name: disable
+      state: disabler
+    - proto: NFBulletLaserHeavy
+      fireCost: 200
+      name: lethal
+      state: lethal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: StaticPrice
+    price: 750

@@ -6,6 +6,7 @@ research-technology-acorp-weaponry = Огнестрельное вооружен
 research-technology-acorp-shotgun = Гладкоствольное вооружение
 research-technology-acorp-hardsuit2 = Продвинутые скафандры
 research-technology-acorp-laser = Энергетическое вооружение
+research-technology-acorp-laser2 = Продвинутое энергетическое вооружение
 research-technology-acorp-ammunition2 = Крио-боеприпасы
 research-technology-acorp-armour = Средства персональной защиты
 research-technology-acorp-sword = Энергетический меч

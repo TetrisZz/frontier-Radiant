@@ -99,6 +99,7 @@
   cost: 10000
   recipeUnlocks:
   - WeaponEnergyGunMiniAcorp
+  - WeaponLaserCarbineAcorp
   technologyPrerequisites:
   - AcorpBorgModules
   position: 2, 49
@@ -159,12 +160,12 @@
 - type: technology
   id: AcorpWeaponryLaser2
   name: research-technology-acorp-laser2
-  entityIcon: WeaponLaserCarbineAcorp
+  entityIcon: WeaponEnergyShotgunRS
   discipline: Acorp
   tier: 1
   cost: 15000
   recipeUnlocks:
-  - WeaponLaserCarbineAcorp
+  - WeaponEnergyShotgunRS
   technologyPrerequisites:
   - AcorpWeaponryLaser
   position: 3, 49
@@ -206,7 +207,7 @@
   recipeUnlocks:
   - NFAmmunitionBoxRifle60
   - NFGrenadeFrag
-  - MagazineGrenadeEmpty
+  - NFMagazineGrenadeEmpty
   technologyPrerequisites:
   - AcorpAmmunition2
   position: 4, 47

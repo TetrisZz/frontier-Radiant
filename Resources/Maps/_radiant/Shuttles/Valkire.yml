@@ -5906,13 +5906,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,31.5
       parent: 1
-- proto: JukeboxShip
-  entities:
-  - uid: 818
-    components:
-    - type: Transform
-      pos: 3.5,24.5
-      parent: 1
 - proto: JukeboxWallmountShip
   entities:
   - uid: 819

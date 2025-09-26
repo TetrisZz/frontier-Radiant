@@ -39,11 +39,14 @@
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]  #radiant_sector
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
       - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-      - map: [ "socks" ]
+      - map: [ "underwearb" ]  #radiant_sector
+      - map: [ "underweart" ]  #radiant_sector
+      - map: [ "socks" ]  #radiant_sector
       - map: [ "jumpsuit" ]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -73,7 +76,7 @@
         state: "creampie_human"
         visible: false
 # Yes, RArm has to be down here
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+#      - map: [ "enum.HumanoidVisualLayers.RArm" ]  #radiant_sector
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
@@ -169,11 +172,14 @@
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ] #radiant_sector
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
       - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-      - map: [ "socks" ]
+      - map: [ "underwearb" ]  #radiant_sector
+      - map: [ "underweart" ]  #radiant_sector
+      - map: [ "socks" ]  #radiant_sector
       - map: [ "jumpsuit" ]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -199,7 +205,7 @@
         state: "creampie_human"
         visible: false
 # Yes, RArm has to be down here
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+#      - map: [ "enum.HumanoidVisualLayers.RArm" ] #radiant_sector
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
       - map: [ "head" ]

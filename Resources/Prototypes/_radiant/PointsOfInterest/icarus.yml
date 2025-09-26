@@ -1,0 +1,52 @@
+# Author Info
+# GitHub: 
+# Discord: 
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Notes:
+- type: pointOfInterest
+  id: Icarus
+  name: 'МНБ Икарус'
+  minimumDistance: 8000
+  maximumDistance: 12000
+  spawnGroup: AcorpBase
+  gridPath: /Maps/_radiant/POI/Icarus.yml
+  addComponents:
+  - type: IFF
+    color: "#dbdbdb"
+    flags: [HideLabel]
+
+- type: gameMap
+  id: Icarus
+  mapName: 'МНБ Икарус'
+  mapPath: /Maps/_NF/POI/Icarus.yml
+  minPlayers: 0
+  stations:
+    Icarus:
+      stationProto: RecordsFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'МНБ Икарус'
+        - type: ExtraStationInformation
+          iconPath: /Textures/_radiant/Structures/Decoration/flags.rsi/acorp_flag.png
+          stationSubtext: 'frontier-lobby-acorp-subtext'
+          stationDescription: 'frontier-lobby-acorp-icarus-description'
+          lobbySortOrder: 4
+        - type: StationJobs
+          availableJobs:
+            AcorpСommandant: [ 1, 1 ]
+            AcorpDirector: [ 1, 1 ]
+            AcorpSecurity: [ 2, 2 ]
+            AcorpScience: [ 3, 3 ]
+            AcorpEngineer: [ 1, 1 ]
+            AcorpMedical: [ 1, 1 ]
+            AcorpService: [ 1, 1 ]
+            AcorpAssistant: [ 5, 5 ]
+          tags:
+          - HeadOfPersonnel
+          - HeadOfSecurity
+        - type: StationDeadDrop
+          maxDeadDrops: 1 # Fewer here, players start here.

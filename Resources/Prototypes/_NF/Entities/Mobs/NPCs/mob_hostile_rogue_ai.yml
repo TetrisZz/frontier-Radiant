@@ -73,8 +73,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      64: Critical
-      110: Dead
+#      64: Critical Radiant_sector
+#      110: Dead Radiant_sector
+      80: Critical # Radiant_sector
+      140: Dead # Radiant_sector
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -83,8 +85,10 @@
     allowRevives: true
   - type: SlowOnDamage
     speedModifierThresholds:
-      40: 0.7
-      52: 0.5
+#      40: 0.7 Radiant_sector
+#      52: 0.5 Radiant_sector
+      48: 0.7 # Radiant_sector
+      64: 0.5 # Radiant_sector
   - type: HealthExaminable
     examinableTypes:
       - Blunt
@@ -182,12 +186,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      48: Critical
-      100: Dead
+#      48: Critical Radiant_sector
+#      100: Dead Radiant_sector
+      60: Critical # Radiant_sector
+      120: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      30: 0.7
-      40: 0.5
+#      30: 0.7 Radiant_sector
+#      40: 0.5 Radiant_sector
+      36: 0.7 # Radiant_sector
+      48: 0.5 # Radiant_sector
 
 - type: entity
   id: MobRogueSiliconProjectileBatteryAmmo
@@ -238,19 +246,24 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      24: Critical
-      72: Dead
+#      24: Critical Radiant_sector
+#      72: Dead Radiant_sector
+      30: Critical # Radiant_sector
+      90: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      14: 0.7
-      20: 0.5
+#      14: 0.7 Radiant_sector
+#      20: 0.5 Radiant_sector
+      18: 0.7 # Radiant_sector
+      24: 0.5 # Radiant_sector
   - type: Gun
     showExamineText: false
     fireRate: 0.75
-    minAngle: 5
+#    minAngle: 5 # Radiant_sector
+    minAngle: 0 # Radiant_sector
     maxAngle: 15
-    angleIncrease: 2
-    angleDecay: 3
+#    angleIncrease: 2 # Radiant_sector
+#    angleDecay: 3 # Radiant_sector
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
   - type: FootstepModifier
@@ -467,9 +480,10 @@
     showExamineText: false
     fireRate: 0.7
     minAngle: 5
-    maxAngle: 15
-    angleIncrease: 2
-    angleDecay: 3
+#    maxAngle: 15 # Radiant_sector
+    maxAngle: 10 # Radiant_sector
+#    angleIncrease: 2
+#    angleDecay: 3
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -494,7 +508,8 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 12
+#        Slash: 12 # Radiant_sector
+        Slash: 15
         Structural: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -809,10 +824,12 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.8
-    minAngle: 5
-    maxAngle: 15
-    angleIncrease: 2
-    angleDecay: 3
+#    minAngle: 5 # Radiant_sector
+#    maxAngle: 15 # Radiant_sector
+#    angleIncrease: 2 # Radiant_sector
+#    angleDecay: 3 # Radiant_sector
+    minAngle: 0 # Radiant_sector
+    maxAngle: 5 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -869,10 +886,10 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.075
-    minAngle: 5
-    maxAngle: 15
-    angleIncrease: 2
-    angleDecay: 3
+#    minAngle: 5 # Radiant_sector
+#    maxAngle: 15 # Radiant_sector
+#    angleIncrease: 2 # Radiant_sector
+#    angleDecay: 3 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -924,12 +941,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      88: Critical
-      130: Dead
+#      88: Critical # Radiant_sector
+#      130: Dead # Radiant_sector
+      110: Critical # Radiant_sector
+      160: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      54: 0.7
-      70: 0.5
+#      54: 0.7 # Radiant_sector
+#      70: 0.5 # Radiant_sector
+      66: 0.7 # Radiant_sector
+      88: 0.5 # Radiant_sector
   - type: ProjectileBatteryAmmoProvider
     proto: NFTeslaGunBullet
     fireCost: 100
@@ -943,10 +964,11 @@
     projectileSpeed: 10
     showExamineText: false
     fireRate: 0.75
-    minAngle: 5
+#    minAngle: 5 # Radiant_sector
+    minAngle: 0 # Radiant_sector
     maxAngle: 15
-    angleIncrease: 2
-    angleDecay: 3
+#    angleIncrease: 2 # Radiant_sector
+#    angleDecay: 3 # Radiant_sector
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
@@ -1000,12 +1022,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Critical
-      320: Dead
+#      160: Critical # Radiant_sector
+#      320: Dead # Radiant_sector
+      200: Critical # Radiant_sector
+      400: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      96: 0.7
-      130: 0.5
+#      96: 0.7 # Radiant_sector
+#      130: 0.5 # Radiant_sector
+      120: 0.7 # Radiant_sector
+      160: 0.5 # Radiant_sector
   - type: HitscanBatteryAmmoProvider
     proto: NFRedLaserPractice
     fireCost: 10
@@ -1014,8 +1040,8 @@
     fireRate: 8
     minAngle: 1
     maxAngle: 10
-    angleIncrease: 1
-    angleDecay: 3
+#    angleIncrease: 1
+#    angleDecay: 3
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -1081,12 +1107,16 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Critical
-      360: Dead
+#      240: Critical # Radiant_sector
+#      360: Dead # Radiant_sector
+      300: Critical # Radiant_sector
+      400: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      144: 0.7
-      192: 0.5
+#      144: 0.7 # Radiant_sector
+#      192: 0.5 # Radiant_sector
+      200: 0.7 # Radiant_sector
+      260: 0.5 # Radiant_sector
   - type: BasicEntityAmmoProvider
     proto: NFBulletRocketMini # NFCartridgeRocketMini
     capacity: 10

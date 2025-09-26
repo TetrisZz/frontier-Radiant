@@ -25,7 +25,7 @@
     contents:
     - id: WeaponRevolverNabat
       amount: 1
-    - id: SpeedLoaderMagnum
+    - id: NFSpeedLoaderPistol45
       amount: 2
 
 - type: entity
@@ -38,7 +38,7 @@
     contents:
     - id: WeaponRevolverSchofield
       amount: 1
-    - id: SpeedLoaderMagnum
+    - id: NFSpeedLoaderPistol45
       amount: 2
 
 # Shotguns
@@ -52,7 +52,7 @@
     contents:
     - id: WeaponShotgunPatron
       amount: 1
-    - id: BoxLethalshot
+    - id: NFAmmunitionBoxShellShotgunBuckshot
       amount: 2
 
 - type: entity
@@ -65,7 +65,7 @@
     contents:
     - id: WeaponShotgunAdjutant
       amount: 1
-    - id: BoxLethalshot
+    - id: NFAmmunitionBoxShellShotgunBuckshot
       amount: 2
 
 # SMGs
@@ -95,7 +95,20 @@
     contents:
     - id: WeaponRifleKX2801
       amount: 1
-    - id: MagazineLightRifle
+    - id: NFMagazineRifle30
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongAkRS
+  suffix: Dungeon, AKMS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleAkRS
+      amount: 1
+    - id: NFMagazineRifle30
       amount: 2
 
 - type: entity
@@ -108,7 +121,7 @@
     contents:
     - id: WeaponRifleRanger
       amount: 1
-    - id: MagazineRifle
+    - id: NFMagazineRifle20
       amount: 2
 
 - type: entity

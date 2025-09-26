@@ -44,11 +44,14 @@
   - type: MobThresholds # Base value to fall back to
     thresholds:
       0: Alive
-      40: Dead
+#      40: Dead # Radiant_sector
+      50: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+#      24: 0.7 Radiant_sector
+#      32: 0.5 Radiant_sector
+      30: 0.7 # Radiant_sector
+      40: 0.5 # Radiant_sector
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -101,11 +104,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      16: Dead
+#      16: Dead Radiant_sector
+      16: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      10: 0.7
-      13: 0.5
+#      10: 0.7 Radiant_sector
+#      13: 0.5 Radiant_sector
+      12: 0.7 # Radiant_sector
+      16: 0.5 # Radiant_sector
   - type: Fixtures
     fixtures:
       fix1:
@@ -144,11 +150,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      24: Dead
+#      24: Dead Radiant_sector
+      30: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      15: 0.7
-      20: 0.5
+#      15: 0.7
+#      20: 0.5
+      18: 0.7 # Radiant_sector
+      24: 0.5 # Radiant_sector
   - type: Fixtures
     fixtures:
       fix1:
@@ -187,11 +196,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      32: Dead
+#      32: Dead Radiant_sector
+      40: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      19: 0.7
-      26: 0.5
+#      19: 0.7 Radiant_sector
+#      26: 0.5 Radiant_sector
+      24: 0.7 # Radiant_sector
+      32: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
@@ -219,11 +231,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+#      40: Dead Radiant_sector
+      50: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+#      24: 0.7
+#      32: 0.5
+      30: 0.7 # Radiant_sector
+      40: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
@@ -251,11 +266,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      48: Dead
+#      48: Dead Radiant_sector
+      60: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      28: 0.7
-      38: 0.5
+#      28: 0.7 Radiant_sector
+#      38: 0.5 Radiant_sector
+      36: 0.7 # Radiant_sector
+      48: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
@@ -290,15 +308,19 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+#      120: Dead Radiant_sector
+      150: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      72: 0.7
-      96: 0.5
+#      72: 0.7Radiant_sector
+#      96: 0.5 Radiant_sector
+      90: 0.7 # Radiant_sector
+      120: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 14
+#        Slash: 14 Radiant_sector
+        Slash: 16 # Radiant_sector
         Structural: 25
   - type: Butcherable
     spawned:
@@ -329,11 +351,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      28: Dead
+#      28: Dead Radiant_sector
+      35: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      17: 0.7
-      22: 0.5
+#      17: 0.7 Radiant_sector
+#      22: 0.5 Radiant_sector
+      21: 0.7 # Radiant_sector
+      28: 0.5 # Radiant_sector
   - type: Fixtures
     fixtures:
       fix1:
@@ -370,11 +395,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      64: Dead
+#      64: Dead Radiant_sector
+      80: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      38: 0.7
-      50: 0.5
+#      38: 0.7 Radiant_sector
+#      50: 0.5 Radiant_sector
+      48: 0.7 # Radiant_sector
+      64: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
@@ -400,11 +428,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+#      80: Dead Radiant_sector
+      100: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.7
-      64: 0.5
+#      48: 0.7 Radiant_sector
+#      64: 0.5 Radiant_sector
+      60: 0.7 # Radiant_sector
+      80: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
@@ -435,11 +466,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      72: Dead
+#      72: Dead Radiant_sector
+      90: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      44: 0.7
-      58: 0.5
+#      44: 0.7 Radiant_sector
+#      58: 0.5 Radiant_sector
+      54: 0.7 # Radiant_sector
+      72: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
@@ -471,15 +505,19 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Dead
+#      110: Dead Radiant_sector
+      140: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      66: 0.7
-      90: 0.5
+#      66: 0.7 Radiant_sector
+#      90: 0.5 Radiant_sector
+      84: 0.7 # Radiant_sector
+      112: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 14
+#        Blunt: 14 Radiant_sector
+        Blunt: 16 # Radiant_sector
         Structural: 20
   - type: Butcherable
     spawned:
@@ -511,7 +549,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      400: Dead
+#      400: Dead Radiant_sector
+      500: Dead # Radiant_sector
   - type: Destructible
     thresholds:
     - trigger:
@@ -538,12 +577,15 @@
         acts: [ "Destruction" ]
   - type: SlowOnDamage
     speedModifierThresholds:
-      240: 0.7
-      320: 0.5
+#      240: 0.7 Radiant_sector
+#      320: 0.5 Radiant_sector
+      300: 0.7 # Radiant_sector
+      400: 0.5 # Radiant_sector
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 20
+#        Blunt: 20 Radiant_sector
+        Blunt: 20 # Radiant_sector
         Structural: 50
   - type: Butcherable
     spawned:

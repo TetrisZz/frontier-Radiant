@@ -9,12 +9,13 @@
     - state: icon
       map: [ "enum.GunVisualLayers.Base" ]
   - type: Gun
-    projectileSpeed: 20
-    minAngle: 4.1
-    maxAngle: 20.5
-    angleIncrease: 2
-    angleDecay: 4
-    fireRate: 1.5
+#    projectileSpeed: 20 Radiant_sector
+#    minAngle: 4.1 Radiant_sector
+#    maxAngle: 20.5 Radiant_sector
+#    angleIncrease: 2 Radiant_sector
+#    angleDecay: 4 Radiant_sector
+#    fireRate: 1.5 Radiant_sector
+    fireRate: 2 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -35,9 +36,14 @@
   - type: Wieldable
     unwieldOnUse: false
   - type: GunRequiresWield
+  - type: Gun # Radiant_sector
+    minAngle: 21 # Radiant_sector
+    maxAngle: 32 # Radiant_sector
   - type: GunWieldBonus
-    minAngle: -1
-    maxAngle: -4
+#    minAngle: -1 Radiant_sector
+#    maxAngle: -4 Radiant_sector
+    minAngle: -20 # Radiant_sector
+    maxAngle: -30 # Radiant_sector
 
 #region chamber
 - type: entity

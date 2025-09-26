@@ -34,18 +34,18 @@ pirate-bounty-item-hypo = Гипоспрей
 pirate-bounty-item-akms = АКМС
 pirate-bounty-item-enforcer = Силовик
 
-pirate-bounty-item-bouquet = букеты (любые)
-pirate-bounty-item-ambrosia-deus = амброзия деус
-pirate-bounty-item-water = капелька воды
-pirate-bounty-item-cash-counterfeit = контрафактные деньги
-pirate-bounty-item-syndi-pda = кпк синдиката
-pirate-bounty-item-key-syndi = кроваво-красный ключ шифрования
+pirate-bounty-item-bouquet = Букеты (любые)
+pirate-bounty-item-ambrosia-deus = Амброзия деус
+pirate-bounty-item-water = Капелька воды
+pirate-bounty-item-cash-counterfeit = Контрафактные деньги
+pirate-bounty-item-syndi-pda = КПК Синдиката
+pirate-bounty-item-key-syndi = Кроваво-красный ключ шифрования
 pirate-bounty-item-lecter = Лектер
 pirate-bounty-item-wt550 = WT550
-pirate-bounty-item-bluespace = блюспейс кристаллы
-pirate-bounty-item-plasma-ore = плазменная руда
-pirate-bounty-item-underwear-acorp = нижнее бельё акорп (любое)
-pirate-bounty-item-altar-bananium = алтарь Хонкоматери
-
+pirate-bounty-item-bluespace = Блюспейс кристаллы
+pirate-bounty-item-plasma-ore = Плазменная руда
+pirate-bounty-item-underwear-acorp = Нижнее бельё акорп (любое)
+pirate-bounty-item-altar-bananium = Алтарь Хонкоматери
+pirate-bounty-item-spesos = Спесы
 
 pirate-bounty-description-generic = Вперёд, бездельник! Добудь мне это добро!

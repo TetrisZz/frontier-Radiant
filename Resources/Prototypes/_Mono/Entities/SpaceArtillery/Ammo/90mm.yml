@@ -15,8 +15,9 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1
-    requireNoGrid: true
     shape: triangle
+    requireNoGrid: true
+    visibleFromOtherGrids: true
 
 - type: entity
   id: 90mmBulletArmorPiercing

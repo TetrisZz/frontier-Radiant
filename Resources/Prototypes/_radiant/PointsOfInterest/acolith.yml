@@ -12,7 +12,7 @@
   name: 'МНБ Горизонт'
   minimumDistance: 8000
   maximumDistance: 12000
-  spawnGroup: Required
+  spawnGroup: AcorpBase
   gridPath: /Maps/_radiant/POI/acolith.yml
   addComponents:
   - type: IFF
@@ -33,7 +33,7 @@
         - type: ExtraStationInformation
           iconPath: /Textures/_radiant/Structures/Decoration/flags.rsi/acorp_flag.png
           stationSubtext: 'frontier-lobby-acorp-subtext'
-          stationDescription: 'frontier-lobby-acorp-description'
+          stationDescription: 'frontier-lobby-acorp-horizon-description'
           lobbySortOrder: 4
         - type: StationJobs
           availableJobs:

@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgeRifleIce
   name: патрон (.20 винтовочный ледяной)
-  parent: BaseCartridgeRifle
+  parent: NFBaseCartridgeRifle20
   components:
   - type: CartridgeAmmo
     proto: BulletRifleIce
@@ -12,12 +12,3 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#57d2d9"
-  - type: ChemicalAmmo
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        reagents:
-        - ReagentId: Cryoladinne
-          Quantity: 3
-  - type: SolutionTransfer
-    maxTransferAmount: 3

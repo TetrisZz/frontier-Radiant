@@ -17,10 +17,12 @@
       role: JobWarden
       time: 21600 # 6 hours Radiant_Sector
   startingGear: SeparatistsCommanderGear
+  alwaysUseSpawner: true
   icon: "JobIconSeparatistsCommander" 
   supervisors: job-supervisors-hire
   weight: 40
   displayWeight: 40
+  newPlayerMessage: false
   access:
   - Separatists
   accessGroups: # Frontier
@@ -28,6 +30,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
     - type: SpecialSectorStationRecord # must be given on spawn
       recordGeneration: FalseRecord
   - !type:AddImplantSpecial
@@ -46,3 +49,4 @@
     - ClothingMaskGasSeparatist2
     - BaseSeparatistUplinkRadioCaptain
     - SeparatistToken2
+    - DoorRemoteSeparatists

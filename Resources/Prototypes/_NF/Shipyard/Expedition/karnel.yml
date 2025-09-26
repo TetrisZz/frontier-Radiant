@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Карнел
   description: Экспедиционное наемническое судно, в котором есть все для далеких путешествий
-  price: 84000
+  price: 86000
   category: Large
   group: Expedition
   shuttlePath: /Maps/_NF/Shuttles/Expedition/karnel.yml

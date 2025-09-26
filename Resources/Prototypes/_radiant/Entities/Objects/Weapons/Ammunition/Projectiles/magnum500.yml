@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
+        Piercing: 45
         Structural: 100
   - type: StaminaDamageOnCollide
     damage: 35
@@ -23,3 +23,14 @@
       types:
         Cold: 10
         Piercing: 15
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Cryoladinne
+          Quantity: 10
+  - type: SolutionTransfer
+    maxTransferAmount: 10
+  - type: StaminaDamageOnCollide
+    damage: 35

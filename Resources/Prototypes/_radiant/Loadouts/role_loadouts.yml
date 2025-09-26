@@ -9,6 +9,7 @@
   - ContractorGloves
   - COMBackpack
   - COMOuterClothing
+  - AcorpForcedOuterClothing
   - COMShoes
   - COMFace
   - COMGlasses
@@ -34,6 +35,7 @@
   - ContractorGloves
   - COMBackpack
   - DIROuterClothing
+  - AcorpForcedOuterClothing
   - COMShoes
   - DIRFace
   - COMGlasses
@@ -59,6 +61,7 @@
   - ContractorGloves
   - SECBackpack
   - SECOuterClothing
+  - AcorpForcedOuterClothing
   - SECShoes
   - COMFace
   - COMGlasses
@@ -83,6 +86,7 @@
   - ContractorGloves
   - COMBackpack
   - SCIOuterClothing
+  - AcorpForcedOuterClothing
   - MEDShoes
   - DIRFace
   - SECEars
@@ -107,6 +111,7 @@
   - ContractorGloves
   - COMBackpack
   - ASSOuterClothing
+  - AcorpForcedOuterClothing
   - ENGBelt
   - ENGShoes
   - DIRFace
@@ -132,6 +137,7 @@
   - ContractorGloves
   - COMBackpack
   - MEDOuterClothing
+  - AcorpForcedOuterClothing
   - MEDShoes
   - SECEars
   - ContractorEncryptionKey
@@ -154,6 +160,7 @@
   - ContractorGloves
   - COMBackpack
   - SEROuterClothing
+  - AcorpForcedOuterClothing
   - MEDShoes
   - SECEars
   - ContractorEncryptionKey
@@ -176,6 +183,7 @@
   - ContractorGloves
   - COMBackpack
   - ASSOuterClothing
+  - AcorpForcedOuterClothing
   - MEDShoes
   - SECEars
   - ContractorEncryptionKey
@@ -202,6 +210,7 @@
   - SecurityGuardGloves
   - SEPCommanderBackpack
   - SERCommanderOuterClothing
+  - NFPirateForcedOuterClothing
   - SEPCommanderBelt
   - SEPCommanderShoes
   - SEPCommanderFace
@@ -242,6 +251,7 @@
   - SecurityGuardGloves
   - SEPCommanderBackpack
   - SEPOperativeOuterClothing
+  - NFPirateForcedOuterClothing
   - SEPCommanderBelt
   - SEPCommanderShoes
   - SEPCommanderFace
@@ -267,6 +277,7 @@
   - SecurityGuardGloves
   - SEPCommanderBackpack
   - SEPWardenOuterClothing
+  - NFPirateForcedOuterClothing
   - SEPCommanderBelt
   - SEPCommanderShoes
   - SEPCommanderFace
@@ -292,6 +303,7 @@
   - SecurityGuardGloves
   - SEPCommanderBackpack
   - SEPRecruitOuterClothing
+  - NFPirateForcedOuterClothing
   - SEPRecruitBelt
   - SEPCommanderShoes
   - SEPCommanderGlasses
@@ -313,6 +325,7 @@
   - SEPSlaveJumpsuit
   - SEPSlaveShoes
   - SEPSlavePDA
+  - NFPirateForcedOuterClothing
   - ContractorUnderwearBottom
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
@@ -329,6 +342,7 @@
   - NAVYKomandorGloves
   - NAVYKomandorBackpack
   - NAVYKomandorOuterClothing
+  - NfsdForcedOuterClothing
   - NAVYKomandorBelt
   - NAVYKomandorShoes
   - NAVYKomandorGlasses
@@ -355,6 +369,7 @@
   - NAVYKomandorGloves
   - NAVYKomandorBackpack
   - NAVYCaptainOuterClothing
+  - NfsdForcedOuterClothing
   - NAVYCaptainBelt
   - NAVYKomandorShoes
   - NAVYKomandorGlasses
@@ -380,6 +395,7 @@
   - NAVYOfficerGloves
   - NAVYKomandorBackpack
   - NAVYOfficerOuterClothing
+  - NfsdForcedOuterClothing
   - NAVYCaptainBelt
   - NAVYKomandorShoes
   - NAVYKomandorGlasses
@@ -405,6 +421,7 @@
   - NAVYBrigmedicGloves
   - NAVYKomandorBackpack
   - NAVYBrigmedicOuterClothing
+  - NfsdForcedOuterClothing
   - NAVYBrigmedicBelt
   - NAVYKomandorShoes
   - NAVYKomandorGlasses
@@ -430,6 +447,7 @@
   - NAVYOfficerGloves
   - NAVYKomandorBackpack
   - NAVYCadetOuterClothing
+  - NfsdForcedOuterClothing
   - NAVYCaptainBelt
   - NAVYKomandorShoes
   - NAVYKomandorGlasses

@@ -1,5 +1,8 @@
 - type: loadout
   id: NAVYClothingOuterArmorNavy
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterArmorNavy
 

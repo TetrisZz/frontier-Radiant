@@ -244,8 +244,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
-        Structural: 200
+#        Piercing: 30 Radiant_sector
+#        Structural: 200 Radiant_sector
+        Piercing: 75 # Radiant_sector
+        Structural: 226 # Radiant_sector
     penetrationThreshold: 360
     penetrationDamageTypeRequirement:
     - Structural

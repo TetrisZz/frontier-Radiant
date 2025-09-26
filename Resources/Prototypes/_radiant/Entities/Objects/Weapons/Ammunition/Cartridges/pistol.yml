@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgePistolIce
   name: патрон (.35 auto ice)
-  parent: BaseCartridgePistol
+  parent: NFBaseCartridgePistol35
   components:
   - type: CartridgeAmmo
     proto: BulletPistolIce
@@ -12,12 +12,3 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#57d2d9"
-  - type: ChemicalAmmo
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        reagents:
-        - ReagentId: Cryoladinne
-          Quantity: 2
-  - type: SolutionTransfer
-    maxTransferAmount: 2

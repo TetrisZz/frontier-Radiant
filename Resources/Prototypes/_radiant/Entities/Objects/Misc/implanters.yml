@@ -1,0 +1,23 @@
+- type: entity
+  id: SeparatistsTrackingImplanter
+  name: separatists tracking implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: SeparatistsTrackingImplant
+
+- type: entity
+  id: NavyTrackingImplanter
+  name: имплантер
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: TrackingImplantNavy
+
+- type: entity
+  id: RadioImplanterSeparatists
+  name: freelance radio implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: RadioImplantSeparatists

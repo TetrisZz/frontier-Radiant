@@ -64,6 +64,16 @@
     sprite: _DV/Objects/Weapons/Guns/Rifles/ceremonial_grand.rsi
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Rifles/ceremonial_grand.rsi
+    # Radiant_sector start
+  - type: Gun
+    examineCaliber: gun-examine-caliber-500
+  - type: BallisticAmmoProvider
+    capacity: 5
+    proto: CartridgeMagnum500
+    whitelist:
+      tags:
+      - CartridgeMagnum500
+     # Radiant_sector end
 
 #region Frontier
 - type: entity
@@ -76,12 +86,23 @@
     sprite: _NF/Objects/Weapons/Guns/Rifles/repeater.rsi
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Rifles/repeater.rsi
+  - type: Gun # Radiant_sector
+    examineCaliber: gun-examine-caliber-45 # Radiant_sector
+    minAngle: 21 # Radiant_sector
+    maxAngle: 36 # Radiant_sector
+    angleIncrease: 1 # Radiant_sector
+    angleDecay: 2 # Radiant_sector
+    fireRate: 1.7 # Radiant_sector
   - type: BallisticAmmoProvider
-    capacity: 8
+    capacity: 7 # Radiant_sector
+    proto: NFCartridgePistol45 # Radiant_sector
+    whitelist: # Radiant_sector
+      tags:
+      - NFCartridgePistol45 # Radiant_sector
 
 - type: entity
   id: NFWeaponRifleSVS
-  parent: [ BaseGunMelee, NFBaseItemWeaponGunMagazineFed, NFBaseWeaponRifleAssaultChamber30LowCapacity, NFBaseWeaponFrameRifleFrontierGunsmith ]
+  parent: [ BaseGunMelee, NFBaseItemWeaponGunMagazineFed, NFBaseWeaponRifleAssaultChamber20, NFBaseWeaponFrameRifleFrontierGunsmith ] # Radiant_sector NFBaseWeaponRifleAssaultChamber30LowCapacity -> NFBaseWeaponRifleAssaultChamber20
   name: SVS-42
   description: Originally designed by Samonov, this old surplus battle rifle looks like it's seen a few wars. Equipped with bayonet.
   components:
@@ -91,3 +112,5 @@
     sprite: _NF/Objects/Weapons/Guns/Rifles/svs42.rsi
   - type: AltFireMelee
     attackType: Light
+  - type: Gun # Radiant_sector
+    fireRate: 4.5 # Radiant_sector

@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Звёздная Гавань
   description: Ночной клуб, в котором есть все для хорошего время провождения - кухня, бар, вип-зона и дормы
-  price: 55000
+  price: 60000
   category: Medium
   group: Shipyard
   shuttlePath: /Maps/_NF/Shuttles/stellarhaven.yml

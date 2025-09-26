@@ -3,7 +3,8 @@
   id: NFRedLightLaser
   damage:
     types:
-      Heat: 8
+#      Heat: 8 # Radiant_sector
+      Heat: 7 # Radiant_sector
   muzzleFlash: &lightMuzzleFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -13,58 +14,70 @@
   impactFlash: &lightImpactFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_laser
-  maxLength: 21
+#  maxLength: 21 # Radiant_sector
 
 # Assault Rifles / Carbines
 - type: hitscan
   id: NFRedMediumLaser
   damage:
     types:
-      Heat: 12
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_beam_heavy
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam_heavy
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_beam_heavy
-  maxLength: 21
+#      Heat: 12 # Radiant_sector
+      Heat: 14 # Radiant_sector
+#  muzzleFlash:  # Radiant_sector start
+#    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+#    state: muzzle_beam_heavy
+#  travelFlash:
+#    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+#    state: beam_heavy
+#  impactFlash:
+#    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+#    state: impact_beam_heavy
+  muzzleFlash: *lightMuzzleFlash
+  travelFlash: *lightTravelFlash
+  impactFlash: *lightImpactFlash  # Radiant_sector end
+#  maxLength: 21 # Radiant_sector
 
 # Rifles
 - type: hitscan
   id: NFRedHeavyLaser
   damage:
     types:
-      Heat: 14
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_beam_heavy
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam_heavy
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_beam_heavy
-  maxLength: 21
+#      Heat: 14
+      Heat: 17
+#  muzzleFlash: # Radiant_sector start
+#    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+#    state: muzzle_beam_heavy
+#  travelFlash:
+#    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+#    state: beam_heavy
+#  impactFlash:
+#    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+#    state: impact_beam_heavy
+  muzzleFlash: *lightMuzzleFlash
+  travelFlash: *lightTravelFlash
+  impactFlash: *lightImpactFlash  # Radiant_sector end
+#  maxLength: 21 # Radiant_sector
 
 # Sniper Rifles
 - type: hitscan
   id: NFRedSpecialLaser
   damage:
     types:
-      Heat: 20
+#      Heat: 20 # Radiant_sector
+      Heat: 28 # Radiant_sector
   muzzleFlash: &specialMuzzleFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_beam_heavy2
+#    state: muzzle_beam_heavy2 # Radiant_sector
+    state: muzzle_beam_heavy # Radiant_sector
   travelFlash: &specialTravelFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam_heavy2
+#    state: beam_heavy2 # Radiant_sector
+    state: beam_heavy # Radiant_sector
   impactFlash: &specialImpactFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_beam_heavy2
-  maxLength: 21
+#    state: impact_beam_heavy2 # Radiant_sector
+    state: impact_beam_heavy # Radiant_sector
+#  maxLength: 21 # Radiant_sector
 
 # XRay
 - type: hitscan
@@ -82,14 +95,15 @@
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_xray
-  maxLength: 21
+#  maxLength: 21 # Radiant_sector
 
 # Pulse
 - type: hitscan
   id: NFPulse
   damage:
     types:
-      Heat: 18
+#      Heat: 18 # Radiant_sector
+      Heat: 35 # Radiant_sector
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
@@ -99,7 +113,7 @@
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_blue
-  maxLength: 21
+#  maxLength: 21 # Radiant_sector
 
 # Mobs
 - type: hitscan
@@ -110,7 +124,7 @@
   muzzleFlash: *lightMuzzleFlash
   travelFlash: *lightTravelFlash
   impactFlash: *lightImpactFlash
-  maxLength: 21
+#  maxLength: 21 # Radiant_sector
 
 # Shuttle guns
 
@@ -120,8 +134,18 @@
   maxLength: 60
   damage:
     types:
-      Heat: 30
+#      Heat: 40 # Radiant_sector
+      Heat: 45 # Radiant_sector
       Structural: 10
-  muzzleFlash: *specialMuzzleFlash
-  travelFlash: *specialTravelFlash
-  impactFlash: *specialImpactFlash
+#  muzzleFlash: *specialMuzzleFlash
+#  travelFlash: *specialTravelFlash
+#  impactFlash: *specialImpactFlash
+  muzzleFlash: # Radiant_sector start
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_beam_heavy2
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_heavy2
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_beam_heavy2 # Radiant_sector end

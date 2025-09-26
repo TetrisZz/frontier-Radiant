@@ -1,4 +1,7 @@
 - type: loadout
   id: SEPClothingOuterArmorSeparatist4
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterArmorSeparatist4

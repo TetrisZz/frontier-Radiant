@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Retort:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Retort {1}'

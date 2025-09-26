@@ -56,6 +56,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
+  - type: PirateBountyItem
+    id: Enforcer
 
 - type: entity
   id: NFWeaponShotgunKammerer
@@ -70,8 +72,12 @@
     sprite: _NF/Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Item
     sprite: _NF/Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
-  - type: BallisticAmmoProvider
-    capacity: 5
+#  - type: BallisticAmmoProvider Radiant_sector
+#    capacity: 5 Radiant_sector
+  - type: Gun
+    fireRate: 1
+  - type: GunSpreadModifier # Radiant_sector
+    spread: 0.6 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
 

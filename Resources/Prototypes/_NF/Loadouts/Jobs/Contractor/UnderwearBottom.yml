@@ -1,33 +1,10 @@
 #T0
+#Boxers
 - type: loadout
   id: ContractorClothingUnderwearBottomBoxersWhite
   price: 0
   equipment:
     underwearb: ClothingUnderwearBottomBoxersWhite
-    
-- type: loadout
-  id: ContractorClothingUnderwearBottomBoxersSpaceNinja
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomBoxersSpaceNinja
-
-- type: loadout
-  id: ContractorClothingUnderwearBottomBoxersHOP
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomBoxersHOP
-    
-- type: loadout
-  id: ContractorClothingUnderwearBottomBoxersRD
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomBoxersRD
-
-- type: loadout
-  id: ContractorClothingUnderwearBottomRadiantBoxersBlack
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomRadiantBoxersBlack
 
 - type: loadout
   id: ContractorClothingUnderwearBottomRadiantBoxersNFSD
@@ -36,64 +13,34 @@
     underwearb: ClothingUnderwearBottomRadiantBoxersNFSD
 
 - type: loadout
-  id: ContractorClothingUnderwearBottomPantiesWhite
-  price: 0
+  id: ContractorClothingUnderwearBottomRadiantBoxersBlack
+  price: 100
   equipment:
-    underwearb: ClothingUnderwearBottomPantiesWhite
+    underwearb: ClothingUnderwearBottomRadiantBoxersBlack
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersCMO
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersCMO
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersSpaceNinja
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersSpaceNinja
     
 - type: loadout
-  id: ContractorClothingUnderwearBottomPantiesNeko
+  id: ContractorClothingUnderwearBottomBoxersHOS
   price: 100
   equipment:
-    underwearb: ClothingUnderwearBottomPantiesNeko
+    underwearb: ClothingUnderwearBottomBoxersHOS
 
 - type: loadout
-  id: ContractorClothingUnderwearBottomRadiantPantiesTrusikiblack
+  id: ContractorClothingUnderwearBottomBoxersCE
   price: 100
   equipment:
-    underwearb: ClothingUnderwearBottomRadiantPantiesTrusikiblack
-
-- type: loadout
-  id: ContractorClothingUnderwearBottomRadiantPantiesRed
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomRadiantPantiesRed
-
-- type: loadout
-  id: ContractorClothingUnderwearBottomRadiantPantiesPink
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomRadiantPantiesPink
-
-- type: loadout
-  id: ContractorClothingUnderwearBottomRadiantPantiesNFSD
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomRadiantPantiesNFSD
-    
-- type: loadout
-  id: ContractorClothingUnderwearBottomPantiesSpaceNinja
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomPantiesSpaceNinja
-    
-- type: loadout
-  id: ContractorClothingUnderwearBottomPantiesCap
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomPantiesCap
-
-- type: loadout
-  id: ContractorClothingUnderwearBottomPantiesHOP
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomPantiesHOP
-    
-- type: loadout
-  id: ContractorClothingUnderwearBottomPantiesRD
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomPantiesRD
+    underwearb: ClothingUnderwearBottomBoxersCE
 
 - type: loadout
   id: ContractorClothingUnderwearBottomBoxersCap
@@ -102,7 +49,69 @@
     underwearb: ClothingUnderwearBottomBoxersCap
 
 - type: loadout
-  id: ContractorClothingUnderwearBottomPantiesLace
+  id: ContractorClothingUnderwearBottomPantiesNeko
   price: 100
   equipment:
-    underwearb: ClothingUnderwearBottomPantiesLace
+    underwearb: ClothingUnderwearBottomPantiesNeko
+
+#Panties
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesWhite
+  price: 0
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesWhite
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomRadiantPantiesPink
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomRadiantPantiesPink
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesBlackFlur
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesBlackFlur
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesWhiteFlur
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesWhiteFlur
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesMaid
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesMaid
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesRedGarters
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesRedGarters
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesRed
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesRed
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomRadiantPantiesRed
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomRadiantPantiesRed
+    
+- type: loadout
+  id: ContractorClothingUnderwearBottomRadiantPantiesTrusikiblack
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomRadiantPantiesTrusikiblack
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesBlack
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesBlack

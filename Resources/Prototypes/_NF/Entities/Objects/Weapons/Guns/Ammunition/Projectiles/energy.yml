@@ -9,7 +9,8 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 8
+#        Heat: 8 # Radiant_sector
+        Heat: 14 # Radiant_sector
 
 # Assault Rifles / Carbines
 - type: entity
@@ -38,7 +39,8 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 12
+#        Heat: 12 # Radiant_sector
+        Heat: 13 # Radiant_sector
 
 # Rifles
 - type: entity
@@ -50,7 +52,8 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 14
+#        Heat: 14 # Radiant_sector
+        Heat: 20 # Radiant_sector
 
 #region Disabler bolts
 - type: entity
@@ -83,7 +86,8 @@
       collection: WeakHit
     forceSound: true
   - type: StaminaDamageOnCollide
-    damage: 18
+#    damage: 18 # Radiant_sector
+    damage: 33 # Radiant_sector
 
 - type: entity
   id: NFBulletDisablerLow
@@ -100,7 +104,8 @@
       collection: WeakHit
     forceSound: true
   - type: StaminaDamageOnCollide
-    damage: 14
+#    damage: 14 # Radiant_sector
+    damage: 15 # Radiant_sector
 
 #region Kinetic bolts
 - type: entity
@@ -113,7 +118,8 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 10
+#        Blunt: 10 # Radiant_sector
+        Blunt: 15 # Radiant_sector
         Structural: 30
   - type: Ammo
     muzzleFlash: HitscanEffect
@@ -136,7 +142,8 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 13
+#        Blunt: 13 # Radiant_sector
+        Blunt: 20 # Radiant_sector
         Structural: 30
 
 - type: entity
@@ -155,8 +162,10 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 18
-        Structural: 30
+#        Blunt: 18 # Radiant_sector
+        Blunt: 30 # Radiant_sector
+#        Structural: 30 # Radiant_sector
+        Structural: 35 # Radiant_sector
   - type: PointLight
     color: "#ffffff"
   - type: MiningGatheringHard

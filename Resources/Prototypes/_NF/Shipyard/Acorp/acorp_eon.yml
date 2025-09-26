@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Эон
   description: Крупногабаритный экспедиционный шаттл, снабженный для долгих самодостаточных путешествий по космосу.
-  price: 55000
+  price: 60000
   category: Medium
   group: Custom
   access: Acorp

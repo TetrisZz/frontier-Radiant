@@ -179,12 +179,15 @@
     - WeaponCaseShortPollockExpedition
     - WeaponCaseShortFaithExpedition
     - WeaponCaseShortArgentiExpedition
-    - WeaponCaseShortLuckyExpedition
-    - WeaponCaseShortDeckardExpedition
-    - WeaponCaseShortRitland45Expedition
+    - WeaponCaseShortRevolverPirate # Radiant_sector
+#    - WeaponCaseShortLuckyExpedition # Radiant_sector
+#    - WeaponCaseShortRitland45Expedition # Radiant_sector
     - WeaponCaseLongBarlowsBoltExpedition
-    - WeaponCaseLongRepeaterExpedition
-    - WeaponCaseLongSniperCeremonialExpedition
+#    - WeaponCaseLongRepeaterExpedition # Radiant_sector
+#    - WeaponCaseLongSniperCeremonialExpedition # Radiant_sector
+    - WeaponCaseShortFitzExpedition # Radiant_sector
+    - WeaponCaseShortSvalinnExpedition # Radiant_sector
+    - WeaponCaseLongMusketExpedition # Radiant_sector
     chance: 1.0
     offset: 0.0
     rarePrototypes:
@@ -211,21 +214,25 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortCobra
-    - WeaponCaseShortN1984Expedition
+#    - WeaponCaseShortN1984Expedition # Radiant_sector
     - WeaponCaseShortSchofield # Radiant_sector
     - WeaponCaseShortViper
-    - WeaponCaseShortFitzExpedition
-    - WeaponCaseShortWard45Expedition
-    - WeaponCaseShortRevolverPirate
+#    - WeaponCaseShortFitzExpedition # Radiant_sector
+#    - WeaponCaseShortWard45Expedition # Radiant_sector
+#    - WeaponCaseShortRevolverPirate # Radiant_sector
     - WeaponCaseShortNabat # Radiant_sector
-    - WeaponCaseLongC20r
-    - WeaponCaseLongJackdaw
+#    - WeaponCaseLongC20r # Radiant_sector
+#    - WeaponCaseLongJackdaw # Radiant_sector
+    - WeaponCaseShortLuckyExpedition # Radiant_sector
+    - WeaponCaseShortRitland45Expedition # Radiant_sector
     - WeaponCaseLongGestioExpedition
     - WeaponCaseLongWeaponRifleNovaliteC1Expedition
     - WeaponCaseLongSVSExpedition
 #    - WeaponCaseLongKammererExpedition # Radiant_sector
     - WeaponCaseLongPatron # Radiant_sector
     - WeaponCaseShortLaserGunExpedition
+    - WeaponCaseLongRepeaterExpedition # Radiant_sector
+    - WeaponCaseLongSniperCeremonialExpedition # Radiant_sector
     chance: 1.0
     offset: 0.0
     rarePrototypes:
@@ -251,23 +258,31 @@
       color: red
   - type: RandomSpawner
     prototypes:
-    - WeaponCaseLongTypewriterExpedition
-    - WeaponCaseLongAtreidesExpedition
+#    - WeaponCaseLongTypewriterExpedition # Radiant_sector
+#    - WeaponCaseLongAtreidesExpedition # Radiant_sector
+    - WeaponCaseShortN1984Expedition # Radiant_sector
+    - WeaponCaseShortAdvancedLaserExpedition
+    - WeaponCaseShortWard45Expedition # Radiant_sector
     - WeaponCaseLongWT550Expedition
     - WeaponCaseLongFighter # Radiant_sector
     - WeaponCaseLongDrozdExpedition
     - WeaponCaseLongM90Expedition
     - WeaponCaseLongLecterExpedition
+    - WeaponCaseLongVulcanExpedition # Radiant_sector
     - WeaponCaseLongRanger # Radiant_sector
-    - WeaponCaseShortSvalinnExpedition
+#    - WeaponCaseShortSvalinnExpedition # Radiant_sector
     - WeaponCaseLongHristovExpedition
-    - WeaponCaseLongMusketExpedition
+#    - WeaponCaseLongMusketExpedition # Radiant_sector
     - WeaponCaseLongKammererExpedition # Radiant_sector
+    - WeaponCaseLongLaserCarbineExpedition # Radiant_sector
+    - WeaponCaseLongEnergyGunExpedition # Radiant_sector
     chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootGunT4
-    rareChance: 0.05
+    - SpawnDungeonLootGunT2 # Radiant_sector
+#    rareChance: 0.05 # Radiant_sector
+    rareChance: 0.1 # Radiant_sector
 
 #region guns T4
 - type: entity
@@ -289,19 +304,24 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseLongSm
-    - WeaponCaseLongVulcanExpedition
+#    - WeaponCaseLongVulcanExpedition # Radiant_sector
     - WeaponCaseLongBulldog
+    - WeaponCaseLongC20r # Radiant_sector
+#    - WeaponCaseLongAtreidesExpedition # Radiant_sector
     - WeaponCaseLongTW44 # Radiant_sector
     - WeaponCaseLongSentinel9 # Radiant_sector
     - WeaponCaseLongKX2801 # Radiant_sector
+    - WeaponCaseLongAkRS # Radiant_sector
     - WeaponCaseLongEnforcerExpedition
     - WeaponCaseLongAdjutant # Radiant_sector
     - WeaponCaseShortAntiqueLaserExpedition
     - WeaponCaseLongM203 # Radiant_sector
-    - WeaponCaseShortAdvancedLaserExpedition
-    - WeaponCaseLongLaserCarbineExpedition
+#    - WeaponCaseShortAdvancedLaserExpedition # Radiant_sector
+#    - WeaponCaseLongLaserCarbineExpedition # Radiant_sector
     - WeaponCaseLongXrayCannonExpedition
+    - WeaponCaseLongLaserCannonExpedition # Radiant_sector
     - WeaponCaseLongTemperatureGunExpedition
+    - WeaponCaseLongJackdaw # Radiant_sector
     - WeaponCaseLongLaserCarbineAcorp # Radiant_sector
     - WeaponCaseLongTypewriterExpedition # Radiant_sector
     chance: 1.0
@@ -332,8 +352,9 @@
     - WeaponCaseLongLauncherRocketExpedition
     - WeaponCaseLongLauncherChinaLake
     - WeaponCaseHeavyLightMachineGunL6
-    - WeaponCaseLongEnergyGunExpedition
-    - WeaponCaseLongLaserCannonExpedition
+    - WeaponCaseLongAtreidesExpedition # Radiant_sector
+#    - WeaponCaseLongEnergyGunExpedition # Radiant_sector
+#    - WeaponCaseLongLaserCannonExpedition # Radiant_sector
     - WeaponCaseHeavyAsmgtExpeditions
     chance: 1.0
     offset: 0.0

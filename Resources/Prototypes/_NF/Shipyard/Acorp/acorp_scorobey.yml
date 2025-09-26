@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Скарабей
   description: Мелкий экспедиционный шаттл.
-  price: 22000
+  price: 30000
   category: Small
   group: Custom
   access: Acorp

@@ -1,9 +1,15 @@
 - type: loadout
   id: COMClothingOuterCoatGreyAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterCoatGreyAcorp
 
 - type: loadout
   id: COMClothingOuterCoatAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterCoatAcorp

@@ -35,6 +35,8 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
+  - type: Gun # Radiant_sector
+    fireRate: 0.5 # Radiant_sector
 
 - type: entity
   id: NFWeaponLauncherMultipleRocket

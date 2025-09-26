@@ -21,8 +21,9 @@
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 2.5
-    requireNoGrid: true
     shape: triangle
+    requireNoGrid: true
+    visibleFromOtherGrids: true
   - type: TimedDespawn
     lifetime: 12.5
   - type: PointLight
@@ -59,6 +60,7 @@
     radarColor: "#00FFAA"
     scale: 2
     requireNoGrid: true
+    visibleFromOtherGrids: true
     shape: circle
   - type: TimedDespawn
     lifetime: 10

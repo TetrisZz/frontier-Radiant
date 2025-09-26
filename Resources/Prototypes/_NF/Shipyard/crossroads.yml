@@ -26,7 +26,7 @@
   minPlayers: 0
   stations:
     Crossroads:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Crossroads {1}'

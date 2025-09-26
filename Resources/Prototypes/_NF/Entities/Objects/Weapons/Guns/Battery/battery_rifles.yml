@@ -15,7 +15,8 @@
 
 - type: entity
   id: NFWeaponEnergyRifleCarbinePractice
-  parent: [ NFBaseWeaponEnergyGunPractice, NFBaseWeaponFrameEnergyRifleNanotrasen ]
+#  parent: [ NFBaseWeaponEnergyGunPractice, NFBaseWeaponFrameEnergyRifleNanotrasen ] # Radiant_sector
+  parent: NFWeaponEnergyRifleCarbine # Radiant_sector
   name: practice laser carbine
   suffix: Frontier
   description: |-
@@ -25,6 +26,9 @@
     sprite: _NF/Objects/Weapons/Guns/Battery/practice_laser_gun.rsi
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Battery/practice_laser_gun.rsi
+  - type: HitscanBatteryAmmoProvider # Radiant_sector
+    proto: NFRedLaserPractice # Radiant_sector
+    fireCost: 62.5 # Radiant_sector
 
 #region Pulse
 - type: entity
@@ -39,8 +43,10 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Battery # 30 shots
-    maxCharge: 3000
-    startingCharge: 3000
+#    maxCharge: 3000 # Radiant_sector
+#    startingCharge: 3000 # Radiant_sector
+    maxCharge: 40000 # Radiant_sector
+    startingCharge: 40000 # Radiant_sector
 
 #region Other
 - type: entity
@@ -105,11 +111,13 @@
       manufacturer: weapon-details-manufacturer-nanotrasen-technologies # one-off, no parent
     # Taken from energy rifle definition
     - type: Battery
-      maxCharge: 2400
-      startingCharge: 2400
-    - type: BatterySelfRecharger
-      autoRecharge: true
-      autoRechargeRate: 4
+#      maxCharge: 2400 # Radiant_sector
+#      startingCharge: 2400 # Radiant_sector
+      maxCharge: 10000 # Radiant_sector
+      startingCharge: 10000 # Radiant_sector
+#    - type: BatterySelfRecharger
+#      autoRecharge: true
+#      autoRechargeRate: 4
 
 #region Thermal
 - type: entity
@@ -131,9 +139,9 @@
       shader: unshaded
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
-  - type: Battery # 30 shots
-    maxCharge: 3000
-    startingCharge: 3000
+#  - type: Battery # 30 shots # Radiant_sector
+#    maxCharge: 3000 # Radiant_sector
+#    startingCharge: 3000 # Radiant_sector
   - type: ProjectileBatteryAmmoProvider
     proto: NFBoltTempgunCold # Frontier
     fireCost: 100

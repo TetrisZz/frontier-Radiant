@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgeMagnumIce
   name: патрон (.45 магниум ледяной)
-  parent: BaseCartridgeMagnum
+  parent: NFBaseCartridgePistol45
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumIce

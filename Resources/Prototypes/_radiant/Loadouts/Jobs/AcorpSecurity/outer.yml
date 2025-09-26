@@ -1,9 +1,15 @@
 - type: loadout
   id: SECClothingOuterArmorBasicAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterArmorBasicAcorp
 
 - type: loadout
   id: SECClothingOuterArmorCommandAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterArmorCommandAcorp

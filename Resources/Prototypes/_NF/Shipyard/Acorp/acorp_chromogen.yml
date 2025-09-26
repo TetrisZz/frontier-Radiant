@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP ХромоГен
   description: Крио-химический корабль маленького размера.
-  price: 35000
+  price: 40000
   category: Small
   group: Custom
   access: Acorp
@@ -32,7 +32,7 @@
   minPlayers: 0
   stations:
     ChromoGen:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'ХромоГен {1}'

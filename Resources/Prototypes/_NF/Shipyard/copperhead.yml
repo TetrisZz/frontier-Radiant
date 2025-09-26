@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Copperhead:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Copperhead {1}'

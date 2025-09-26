@@ -9,10 +9,11 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 4
-        Blunt: 4
-  - type: StaminaDamageOnCollide
-    damage: 4 # 15 hits to slowdown
+#        Piercing: 4 Radiant_sector
+#        Blunt: 4 Radiant_sector
+        Piercing: 16 # Radiant_sector
+#  - type: StaminaDamageOnCollide # Radiant_sector
+#    damage: 4 # 15 hits to slowdown # Radiant_sector
 
 - type: entity
   id: NFBulletPistol35Overpressure
@@ -23,10 +24,12 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 4
-        Blunt: 5
-  - type: StaminaDamageOnCollide
-    damage: 5 # 12 hits to slowdown
+#        Piercing: 4 Radiant_sector
+        Piercing: 8 # Radiant_sector
+        Blunt: 8 # Radiant_sector
+#        Blunt: 5 Radiant_sector
+#  - type: StaminaDamageOnCollide
+#    damage: 5 # 12 hits to slowdown
 
 - type: entity
   id: NFBulletPistol35Incendiary
@@ -37,10 +40,12 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 4.8 # 0.6 * base total dmg
-        Heat: 3.2 # 0.4 * base total dmg
-  - type: StaminaDamageOnCollide
-    damage: 4 # 15 hits to slowdown
+#        Blunt: 4.8 # 0.6 * base total dmg Radiant_sector
+#        Heat: 3.2 # 0.4 * base total dmg Radiant_sector
+        Blunt: 2 # Radiant_sector
+        Heat: 14 # Radiant_sector
+#  - type: StaminaDamageOnCollide Radiant_sector
+#    damage: 4 # 15 hits to slowdown Radiant_sector
 
 - type: entity
   id: NFBulletPistol35Uranium
@@ -51,10 +56,12 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 6.6 # 0.6 * (1.4 * base total dmg)
-        Radiation: 4.4 # 0.4 * (1.4 * base total dmg)
-  - type: StaminaDamageOnCollide
-    damage: 4 # 15 hits to slowdown
+#        Blunt: 6.6 # 0.6 * (1.4 * base total dmg)
+#        Radiation: 4.4 # 0.4 * (1.4 * base total dmg)
+        Radiation: 6 # Radiant_sector
+        Piercing: 10 # Radiant_sector
+#  - type: StaminaDamageOnCollide Radiant_sector
+#    damage: 4 # 15 hits to slowdown Radiant_sector
 
 - type: entity
   id: NFBulletPistol35Practice
@@ -65,7 +72,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 0.5
+#        Blunt: 0.5 Radiant_sector
+        Blunt: 2 # Radiant_sector
 
 # Frontier
 # .35 pistol
@@ -92,9 +100,11 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 1
+#        Blunt: 1 Radiant_sector
+        Blunt: 3 # Radiant_sector
   - type: StaminaDamageOnCollide
-    damage: 13 # ~8 hits to stun sounds reasonable
+#    damage: 13 # ~8 hits to stun sounds reasonable Radiant_sector
+    damage: 22 # 5 hits to stun sounds reasonable  # Radiant_sector
 
 #region .45 pistol
 - type: entity
@@ -106,10 +116,11 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 6
-        Blunt: 6
-  - type: StaminaDamageOnCollide
-    damage: 6 # 10 hits to slowdown
+#        Piercing: 6 Radiant_sector
+#        Blunt: 6 Radiant_sector
+        Piercing: 35 # Radiant_sector
+#  - type: StaminaDamageOnCollide Radiant_sector
+#    damage: 6 # 10 hits to slowdown Radiant_sector
 
 - type: entity
   id: NFBulletPistol45Overpressure
@@ -120,10 +131,12 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 6
-        Blunt: 7
-  - type: StaminaDamageOnCollide
-    damage: 7 # ~9 hits to slowdown
+#        Piercing: 6 Radiant_sector
+#        Blunt: 7 Radiant_sector
+        Piercing: 17.5 # Radiant_sector
+        Blunt: 17.5 # Radiant_sector
+#  - type: StaminaDamageOnCollide Radiant_sector
+#    damage: 7 # ~9 hits to slowdown Radiant_sector
 
 - type: entity
   id: NFBulletPistol45Incendiary
@@ -134,10 +147,12 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 7.2 # 0.6 * base total dmg
-        Heat: 4.8 # 0.4 * base total dmg
-  - type: StaminaDamageOnCollide
-    damage: 6 # 10 hits to slowdown
+#        Blunt: 7.2 # 0.6 * base total dmg Radiant_sector
+#        Heat: 4.8 # 0.4 * base total dmg Radiant_sector
+        Blunt: 3 # Radiant_sector
+        Heat: 32 # Radiant_sector
+#  - type: StaminaDamageOnCollide Radiant_sector
+#    damage: 6 # 10 hits to slowdown Radiant_sector
 
 - type: entity
   id: NFBulletPistol45Uranium
@@ -148,10 +163,12 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 9.6 # 0.6 * (1.4 * base total dmg)
-        Radiation: 6.4 # 0.6 * (1.4 * base total dmg)
-  - type: StaminaDamageOnCollide
-    damage: 6 # 10 hits to slowdown
+#        Blunt: 9.6 # 0.6 * (1.4 * base total dmg) Radiant_sector
+#        Radiation: 6.4 # 0.6 * (1.4 * base total dmg) Radiant_sector
+        Radiation: 15 # Radiant_sector
+        Piercing: 20 # Radiant_sector
+#  - type: StaminaDamageOnCollide Radiant_sector
+#    damage: 6 # 10 hits to slowdown Radiant_sector
 
 - type: entity
   id: NFBulletPistol45Practice
@@ -175,7 +192,8 @@
   - type: Projectile
     damage:
       types:
-        Shock: 6
+#        Shock: 6 # Radiant_sector
+        Shock: 9 # Radiant_sector
         Blunt: 6
   - type: StaminaDamageOnCollide
     damage: 6 # 10 hits to slowdown
@@ -189,6 +207,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 2
+#        Blunt: 2 Radiant_sector
+        Blunt: 3 # Radiant_sector
   - type: StaminaDamageOnCollide
-    damage: 18 # ~6 hits to stun sounds reasonable
+#    damage: 18 # ~6 hits to stun sounds reasonable Radiant_sector
+    damage: 35 # 3 hits to stun cuz revolver Radiant_sector

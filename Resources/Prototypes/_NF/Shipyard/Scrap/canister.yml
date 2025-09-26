@@ -25,7 +25,7 @@
   minPlayers: 0
   stations:
     Canister:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Canister {1}'

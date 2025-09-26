@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Цефей
   description: Экспедиционный военный корабль повидавший не одну команду
-  price: 83700
+  price: 62000
   category: Medium
   group: Expedition
   shuttlePath: /Maps/_NF/Shuttles/Expedition/cefey.yml

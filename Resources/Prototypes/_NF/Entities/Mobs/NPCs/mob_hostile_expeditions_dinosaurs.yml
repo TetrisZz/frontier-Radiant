@@ -61,11 +61,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+#      40: Dead Radiant_sector
+      50: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+#      24: 0.7 Radiant_sector
+#      32: 0.5 Radiant_sector
+      24: 0.7 # Radiant_sector
+      32: 0.5 # Radiant_sector
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepThud
@@ -176,11 +179,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      64: Dead
+#      64: Dead Radiant_sector
+      80: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      38: 0.7
-      52: 0.5
+#      38: 0.7 Radiant_sector
+#      52: 0.5 Radiant_sector
+      48: 0.7 # Radiant_sector
+      64: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:
@@ -216,11 +222,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+#      80: Dead Radiant_sector
+      100: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.7
-      64: 0.5
+#      48: 0.7 Radiant_sector
+#      64: 0.5 Radiant_sector
+      60: 0.7 # Radiant_sector
+      80: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:
@@ -258,11 +267,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+#      120: Dead Radiant_sector
+      150: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      72: 0.7
-      96: 0.5
+#      72: 0.7 Radiant_sector
+#      96: 0.5 Radiant_sector
+      90: 0.7 # Radiant_sector
+      120: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:
@@ -300,11 +312,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Dead
+#      160: Dead Radiant_sector
+      200: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      96: 0.7
-      130: 0.5
+#      96: 0.7 Radiant_sector
+#      130: 0.5 Radiant_sector
+      120: 0.7 # Radiant_sector
+      160: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:
@@ -320,7 +335,8 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Piercing: 12
+#        Piercing: 12 Radiant_sector
+        Piercing: 15 # Radiant_sector
         Structural: 20
 
 #region ankylosaurus
@@ -342,11 +358,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+#      200: Dead Radiant_sector
+      250: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      120: 0.7
-      160: 0.5
+#      120: 0.7 Radiant_sector
+#      160: 0.5 Radiant_sector
+      150: 0.7 # Radiant_sector
+      200: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:
@@ -382,11 +401,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      280: Dead
+#      280: Dead Radiant_sector
+      350: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      170: 0.7
-      225: 0.5
+#      170: 0.7 Radiant_sector
+#      225: 0.5 Radiant_sector
+      210: 0.7 # Radiant_sector
+      280: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:
@@ -424,11 +446,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      280: Dead
+#      280: Dead Radiant_sector
+      350: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      170: 0.7
-      225: 0.5
+#      170: 0.7 Radiant_sector
+#      225: 0.5 Radiant_sector
+      210: 0.7 # Radiant_sector
+      280: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:
@@ -467,11 +492,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      360: Dead
+#      360: Dead Radiant_sector
+      450: Dead # Radiant_sector
   - type: SlowOnDamage
     speedModifierThresholds:
-      220: 0.7
-      290: 0.5
+#      220: 0.7 Radiant_sector
+#      290: 0.5 Radiant_sector
+      270: 0.7 # Radiant_sector
+      360: 0.5 # Radiant_sector
   - type: DamageStateVisuals
     states:
       Alive:

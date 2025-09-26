@@ -52,11 +52,14 @@
     startingCharge: 300
   - type: Gun
     showExamineText: false
-    fireRate: 2
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+#    fireRate: 2 Radiant_sector
+#    minAngle: 10 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 2 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    fireRate: 4 # Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 10 # Radiant_sector
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
 
@@ -85,11 +88,14 @@
     count: 1
   - type: Gun
     showExamineText: false
-    fireRate: 2
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+#    fireRate: 2 Radiant_sector
+#    minAngle: 10 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 2 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    fireRate: 4 # Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 10 # Radiant_sector
     selectedMode: SemiAuto
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
@@ -158,10 +164,12 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.5
-    minAngle: 7
-    maxAngle: 16
-    angleIncrease: 2
-    angleDecay: 3
+#    minAngle: 7 Radiant_sector
+#    maxAngle: 16 Radiant_sector
+#    angleIncrease: 2 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    minAngle: 1 # Radiant_sector
+    maxAngle: 10 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -189,11 +197,12 @@
     capacity: 3
     count: 3
   - type: Gun
-    fireRate: 1.5
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+#    fireRate: 1.5 Radiant_sector
+#    minAngle: 10 Radiant_sector
+#    maxAngle: 20 Radiant_sector
+#    angleIncrease: 2 Radiant_sector
+#    angleDecay: 3 Radiant_sector
+    fireRate: 1.5 # Radiant_sector
     soundGunshot:
       path: /Audio/Effects/demon_consume.ogg
   - type: RechargeBasicEntityAmmo
@@ -238,14 +247,17 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Critical
-      120: Dead
+#      60: Critical Radiant_sector
+#      120: Dead Radiant_sector
+      80: Critical # Radiant_sector
+      130: Dead # Radiant_sector
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Slash: 8
+#        Slash: 8 Radiant_sector
+        Slash: 10 # Radiant_sector
         Structural: 20
     animation: WeaponArcBite
 
@@ -305,8 +317,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Critical
-      320: Dead
+#      240: Critical Radiant_sector
+#      320: Dead Radiant_sector
+      300: Critical # Radiant_sector
+      400: Dead # Radiant_sector
   - type: BasicEntityAmmoProvider
     proto: SpawnMobBloodCultistAscendedSummons # MobBloodCultDrainedOne
     capacity: 2
@@ -314,10 +328,12 @@
   - type: Gun
     showExamineText: false
     fireRate: 1
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+#    minAngle: 10
+#    maxAngle: 20
+#    angleIncrease: 2
+#    angleDecay: 3
+    minAngle: 1
+    maxAngle: 10
     soundGunshot:
       path: /Audio/Effects/teleport_arrival.ogg
   - type: RechargeBasicEntityAmmo
@@ -329,7 +345,8 @@
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Slash: 16
+#        Slash: 16 Radiant_sector
+        Slash: 20 # Radiant_sector
         Structural: 20
     animation: WeaponArcClaw
   - type: PointLight
@@ -403,8 +420,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      100: Dead
+#      80: Critical
+#      100: Dead
+      100: Critical
+      130: Dead
   - type: MeleeWeapon
     soundHit:
       collection: MetalThud
@@ -525,10 +544,10 @@
     - type: Gun
       showExamineText: false
       fireRate: 2
-      minAngle: 10
-      maxAngle: 20
-      angleIncrease: 2
-      angleDecay: 3
+#      minAngle: 10
+#      maxAngle: 20
+#      angleIncrease: 2
+#      angleDecay: 3
       selectedMode: FullAuto
       availableModes:
         - FullAuto
@@ -563,13 +582,15 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 480
+#            damage: 480 Radiant_sector
+            damage: 600 # Radiant_sector
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 240
+#            damage: 240 Radiant_sector
+            damage: 240 # Radiant_sector
           # TODO: Construction graph
           behaviors:
             - !type:DoActsBehavior

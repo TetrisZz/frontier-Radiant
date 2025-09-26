@@ -30,7 +30,7 @@
   minPlayers: 0
   stations:
     Ambition:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Ambition {1}'

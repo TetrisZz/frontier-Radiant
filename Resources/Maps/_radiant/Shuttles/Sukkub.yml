@@ -5967,13 +5967,6 @@ entities:
     - type: Transform
       pos: 0.5,-0.5
       parent: 1
-- proto: JukeboxShip
-  entities:
-  - uid: 702
-    components:
-    - type: Transform
-      pos: -2.5,10.5
-      parent: 1
 - proto: KitchenReagentGrinder
   entities:
   - uid: 703

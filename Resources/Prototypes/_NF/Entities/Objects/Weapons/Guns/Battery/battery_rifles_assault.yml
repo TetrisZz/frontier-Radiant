@@ -12,8 +12,10 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
   - type: Battery # 40 shots
-    maxCharge: 3200
-    startingCharge: 3200
+#    maxCharge: 3200 # Radiant_sector
+#    startingCharge: 3200 # Radiant_sector
+    maxCharge: 5000 # Radiant_sector
+    startingCharge: 5000 # Radiant_sector
 
 #region Laser
 # Frontier
@@ -30,6 +32,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.7
+  - type: GunRequiresWield # Radiant_sector
   - type: HeldSpeedModifier
   - type: Item
     size: Ginormous

@@ -11,6 +11,14 @@
     sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi
+  - type: Wieldable # Radiant_sector
+    unwieldOnUse: false # Radiant_sector
+  - type: GunWieldBonus # Radiant_sector
+    minAngle: -20 # Radiant_sector
+    maxAngle: -30 # Radiant_sector
+  - type: Gun # Radiant_sector
+    minAngle: 21 # Radiant_sector
+    maxAngle: 32 # Radiant_sector
 
 #region Diasblers
 - type: entity

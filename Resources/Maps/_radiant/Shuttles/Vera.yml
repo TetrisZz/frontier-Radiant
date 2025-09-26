@@ -5808,13 +5808,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,12.5
       parent: 1
-- proto: JukeboxShip
-  entities:
-  - uid: 999
-    components:
-    - type: Transform
-      pos: 0.5,-3.5
-      parent: 1
 - proto: KitchenAssembler
   entities:
   - uid: 754

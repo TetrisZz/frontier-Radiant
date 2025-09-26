@@ -29,12 +29,15 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+#      100: Critical Radiant_sector
+      120: Critical # Radiant_sector
       160: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.7
-      80: 0.5
+#      60: 0.7 Radiant_sector
+#      80: 0.5 Radiant_sector
+      72: 0.7 # Radiant_sector
+      96: 0.5 # Radiant_sector
   - type: Advertise
     pack: wizardhumanoidchatter
     minimumWait: 30

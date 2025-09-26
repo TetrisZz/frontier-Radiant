@@ -1,14 +1,23 @@
 - type: loadout
   id: NAVYClothingOuterCoatNavyLong
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterCoatNavyLong
 
 - type: loadout
   id: NAVYClothingOuterCoatNavySilverLong
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterCoatNavySilverLong
 
 - type: loadout
   id: NAVYClothingOuterCoatNavy
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
   equipment:
     outerClothing: ClothingOuterCoatNavy
