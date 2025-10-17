@@ -44,6 +44,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                 Name = "Charlie Charlieson",
                 FlavorText = "The biggest boy around.",
                 Species = "Human",
+				Voice = "Arc_warden_dota_2", // Corvax-TTS
                 Age = 21,
                 Appearance = new(
                     "Afro",

@@ -250,6 +250,8 @@
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
+  - type: TTS # Corvax-TTS
+    voice: Fact_core
 
 - type: entity
   abstract: true
