@@ -93,6 +93,8 @@
       components:
         - SecretStash
         - WrappedParcel
+  - type: TTS # Corvax-TTS
+    voice: Skippy
 
 - type: entity
   parent: [ PersonalAI, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband

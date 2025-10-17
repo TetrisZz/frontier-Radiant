@@ -6,6 +6,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
 using Content.Shared.Chat;
+using Content.Shared.Corvax.TTS;
 using Content.Shared.Database;
 using Content.Shared.Labels.Components;
 using Content.Shared.Mind.Components;
@@ -114,6 +115,19 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
 
         var range = args.TelephoneSource.Comp.LinkedTelephones.Count > 1 ? ChatTransmitRange.HideChat : ChatTransmitRange.GhostRangeLimitNoAdminCheck; // Frontier: GhostRangeLimit<GhostRangeLimitNoAdminCheck
         var volume = entity.Comp.SpeakerVolume == TelephoneVolume.Speak ? InGameICChatType.Speak : InGameICChatType.Whisper;
+
+        // Corvax-TTS-Start
+        // If speaker entity has TTS, the telephone will speak with the same voice
+        if(TryComp<TTSComponent>(args.MessageSource, out var ttsSpeaker))
+        {
+            EnsureComp<TTSComponent>(speaker, out var ttsTelephone);
+            ttsTelephone.VoicePrototypeId = ttsSpeaker.VoicePrototypeId;
+        }
+        else // Remove TTS if the speaker has no TTS
+        {
+            RemComp<TTSComponent>(speaker);
+        }
+        // Corvax-TTS-End
 
         _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false);
     }
