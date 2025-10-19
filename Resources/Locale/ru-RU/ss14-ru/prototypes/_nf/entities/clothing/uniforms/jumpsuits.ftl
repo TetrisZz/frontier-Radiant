@@ -54,3 +54,7 @@ ent-ClothingUniformJumpsuitCasualGreen = повседневная зеленый
     .desc = Свободная зелёная рубашка с серыми штанами — идеальный вариант для тех, кто хочет расслабиться.
 ent-ClothingUniformJumpsuitMilitaryArcadiaTac = аркадианский тактический комбинезон
     .desc = Тактический комбинезон произведенный Arcadia Industries.
+ent-ClothingUniformLittleGuyOveralls = комбинезон
+    .desc = Маленький и красивый комбинезон.
+ent-ClothingUniformJumpsuitCommandGeneric = командирский комбинезон
+    .desc = Стандартный комбинезон цвета командования, не связанный с каким-либо конкретным подразделением.	

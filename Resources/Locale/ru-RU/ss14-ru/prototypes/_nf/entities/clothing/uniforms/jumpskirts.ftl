@@ -22,3 +22,5 @@ ent-ClothingUniformJumpskirtPublicAffairsLiaison = юбка специалист
     .desc = Накрахмаленный и отглаженный костюм с юбкой для специалиста по связям с общественностью.
 ent-ClothingUniformJumpskirtCasualGreen = повседневная зеленая юбка
     .desc = Свободная зелёная рубашка с серой юбкой — идеальный вариант для тех, кто хочет расслабиться.
+ent-ClothingUniformJumpskirtCommandGeneric = командирская юбка
+    .desc = Стандартное платье цвета командования, не связанное с каким-либо конкретным подразделением.	

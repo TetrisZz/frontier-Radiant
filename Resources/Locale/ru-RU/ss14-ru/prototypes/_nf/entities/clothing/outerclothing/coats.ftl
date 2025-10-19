@@ -25,3 +25,7 @@ ent-ClothingOuterCoatArcadiaTrench = аркадианский плащ
 ent-ClothingOuterCoatArcadiaTrenchOpened = { ent-ClothingOuterCoatArcadiaTrench }
     .suffix = открыт
     .desc = { ent-ClothingOuterCoatArcadiaTrench.desc }
+ent-ClothingOuterCoatVictorian = черное викторианское пальто
+    .desc = Модное пальто в викторианском стиле.
+ent-ClothingOuterCoatVictorianRed = красное викторианское пальто
+    .desc = Модное пальто в викторианском стиле.
