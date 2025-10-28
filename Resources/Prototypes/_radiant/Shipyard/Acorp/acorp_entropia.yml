@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: 
+# Discord: 
+
+# Maintainer Info
+# GitHub: 
+# Discord: 
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Entropia
+  parent: BaseVessel
+  name: ACORP Энтропия
+  description: Небольшое утилизационное судно.
+  price: 27200
+  category: Small
+  group: Acorp
+  access: Acorp
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorpcargo_entropia.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Entropia
+  mapName: 'ACORP Энтропия'
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorpcargo_entropia.yml
+  minPlayers: 0
+  stations:
+    Entropia:
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Энтропия {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

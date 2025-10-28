@@ -76,6 +76,18 @@
     access:
     - Avangard
 
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavyIskentim
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Iskentim
+
 # Separatist
 
 - type: entity
@@ -187,3 +199,15 @@
   - type: ShipyardVoucher
     access:
     - Strela
+
+- type: entity
+  parent: ShipVoucherBaseSeparatistShipyard
+  id: ShipVoucherSeparatistBulat
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: sep
+  - type: ShipyardVoucher
+    access:
+    - Bulat

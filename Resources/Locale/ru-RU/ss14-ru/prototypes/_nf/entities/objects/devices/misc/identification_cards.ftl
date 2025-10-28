@@ -40,3 +40,5 @@ ent-ClarpyIDCard = ID карта Кларпи
     .desc = { ent-PirateNFIDCard.desc }
 ent-ClippyIDCard = ID карта Клиппи
     .desc = { ent-IDCardStandard.desc }
+ent-PublicAffairsIDCard = ID карта специалиста ПСсО
+    .desc = { ent-IDCardStandard.desc } 

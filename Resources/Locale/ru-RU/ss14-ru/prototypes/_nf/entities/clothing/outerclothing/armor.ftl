@@ -9,3 +9,5 @@ ent-ClothingOuterVestWebMercenaryBlack = { ent-ClothingOuterVestWebMerc }
     .desc = { ent-ClothingOuterVestWebMerc.desc }
 ent-ClothingOuterVestWebMercenary = жилет наёмника
     .desc = Высококачественный бронежилет из прочного синтетического материала. Он удивительно гибкий и лёгкий, несмотря на внушительную броню.
+ent-NFClothingOuterArmorReflective = светоотражающий жилет
+    .desc = Жилет с умеренной защитой от энергетического оружия.

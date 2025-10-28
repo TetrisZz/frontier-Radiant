@@ -1,0 +1,45 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: 
+# Discord: ???
+
+# Shuttle Notes:
+# 
+- type: vessel
+  id: Eon
+  parent: BaseVessel
+  name: ACORP Эон
+  description: Крупногабаритный экспедиционный шаттл, снабженный для долгих самодостаточных путешествий по космосу.
+  price: 60000
+  category: Medium
+  group: Acorp
+  access: Acorp
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorp_eon.yml
+  guidebookPage: Null
+  class:
+  - Expedition
+  - Medical
+  - Chemistry
+  - Kitchen
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Eon
+  mapName: 'ACORP Эон'
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorp_eon
+  minPlayers: 0
+  stations:
+    Eon:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Эон {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

@@ -1,0 +1,65 @@
+#pistol
+ent-NFWeaponEnergyPistolDisabler = { ent-WeaponDisabler }
+    .suffix = Фронтир
+    .desc = { ent-WeaponDisabler.desc }
+ent-NFWeaponEnergyPistolDisablerPractice = { ent-WeaponDisablerPractice }
+    .suffix = Фронтир
+    .desc = { ent-WeaponDisablerPractice.desc }
+ent-NFWeaponEnergyPistolLaserX01Multiphase = { ent-WeaponEnergyGunMultiphase }
+    .suffix = Фронтир
+    .desc = { ent-WeaponEnergyGunMultiphase.desc }
+ent-NFWeaponEnergyPistolLaserAdvanced = { ent-WeaponAdvancedLaser }
+    .suffix = Фронтир
+    .desc = { ent-WeaponAdvancedLaser.desc }
+ent-NFWeaponEnergyPistolLaserAntique = { ent-WeaponAntiqueLaser }
+    .suffix = Фронтир
+    .desc = { ent-WeaponAntiqueLaser.desc }
+ent-NFWeaponEnergyPistolLaser = { ent-WeaponLaserPistolNF }
+    .suffix = Фронтир
+    .desc = { ent-WeaponLaserPistolNF.desc }
+ent-NFWeaponEnergyPistolLaserMakeshift = { ent-WeaponMakeshiftLaser }
+    .suffix = Фронтир
+    .desc = { ent-WeaponMakeshiftLaser.desc }
+ent-NFWeaponEnergyPistolPulse = { ent-WeaponPulsePistol }
+    .suffix = Фронтир
+    .desc = { ent-WeaponPulsePistol.desc }
+ent-NFWeaponEnergyPistolLaserSvalinn = { ent-WeaponLaserSvalinn }
+    .suffix = Фронтир
+    .desc = { ent-WeaponLaserSvalinn.desc }
+#SubMachineGun
+ent-NFWeaponEnergySubMachineGunDisabler = { ent-WeaponDisablerSMG }
+    .suffix = Фронтир
+    .desc = { ent-WeaponDisablerSMG.desc }
+ent-NFWeaponEnergySubMachineGunDeltaV = { ent-WeaponEnergyGun }
+    .suffix = Фронтир
+    .desc = { ent-WeaponEnergyGun.desc }
+#Rifle
+ent-NFWeaponEnergyRifleCarbine = { ent-WeaponLaserCarbine }
+    .suffix = Фронтир
+    .desc = { ent-WeaponLaserCarbine.desc }
+ent-NFWeaponEnergyRifleCarbinePractice = { ent-WeaponLaserCarbinePractice }
+    .suffix = Фронтир
+    .desc = { ent-WeaponLaserCarbinePractice.desc }
+ent-NFWeaponEnergyRifleSniperCannon = { ent-WeaponLaserCannon }
+    .suffix = Фронтир
+    .desc = { ent-WeaponLaserCannon.desc }
+ent-NFWeaponEnergyRifleSniperXrayCannon = { ent-WeaponXrayCannon }
+    .suffix = Фронтир
+    .desc = { ent-WeaponXrayCannon.desc }
+ent-NFWeaponEnergyRifleTemperature = { ent-WeaponTemperatureGun }
+    .suffix = Фронтир
+    .desc = { ent-WeaponTemperatureGun.desc }
+ent-NFWeaponEnergyRiflePulse = { ent-WeaponPulseCarbine }
+    .suffix = Фронтир
+    .desc = { ent-WeaponPulseCarbine.desc }
+ent-NFWeaponEnergyRifleAssaultPulseCarbine = { ent-WeaponPulseRifle }
+    .suffix = Фронтир
+    .desc = { ent-WeaponPulseRifle.desc }
+#Shotgun
+ent-WeaponEnergyShotgunRS = { ent-WeaponEnergyShotgun }
+    .suffix = Фронтир
+    .desc = { ent-WeaponEnergyShotgun.desc }
+#LightMachineGun
+ent-NFWeaponEnergyLightMachineGunTurbo = { ent-WeaponLaserTurboNF }
+    .suffix = Фронтир
+    .desc = { ent-WeaponLaserTurboNF.desc }

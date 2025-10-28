@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: 
+# Discord:
+
+# Maintainer Info
+#
+
+# Shuttle Notes:
+#
+
+- type: vessel
+  id: Haven
+  parent: BaseVessel
+  name: HOM Гавань
+  description: Ночной клуб, в котором есть все для хорошего время провождения - кухня, бар, вип-зона и спальни.
+  price: 78500
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_radiant/Shuttles/Haven.yml
+  guidebookPage: Null
+  class:
+  - Civilian
+  - Kitchen
+
+- type: gameMap
+  id: Haven
+  mapName: 'HOM Гавань'
+  mapPath: /Maps/_radiant/Shuttles/Haven.yml
+  minPlayers: 0
+  stations:
+    Haven:
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Гавань {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

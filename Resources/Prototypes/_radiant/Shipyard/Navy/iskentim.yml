@@ -1,0 +1,32 @@
+- type: vessel
+  id: Iskentim
+  parent: BaseVesselNavy
+  name: COF Искентим
+  description: "Искитим - Многофункциональный крейсер, несущий 6 АК570 по бортам и в носу, а также курсовой М381 CHARON. Максимальный экипаж на палубе - 7 человек. Имеет камеры временного содержания, кухню и просторный медицинский отсек."
+  price: 100
+  category: Medium
+  group: Navy
+  access: Iskentim
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Iskentim.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Iskentim
+  mapName: 'COF Искентим'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Iskentim.yml
+  minPlayers: 0
+  stations:
+    Iskentim:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Искентим {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

@@ -6,5 +6,3 @@ ent-ClothingNeckCloakPirateParrot = Попугай-пират Полли
     .desc = Немой попугай по имени Полли. Любит хлопушки, пушки и сидеть у Вас на плече.
 ent-ClothingNeckCloakRosy = розовый кленовый плащ мотылька
     .desc = Плащ, сшитый из розовой таракамоли.
-ent-ClothingNeckCloakAroace = странный плащ
-    .desc = Выглядит ярко, но что-то здесь не так...

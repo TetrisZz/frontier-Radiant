@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: 
+# Discord: 
+
+# Maintainer Info
+# GitHub: 
+# Discord: 
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: ChromoGen
+  parent: BaseVessel
+  name: ACORP ХромоГен
+  description: Крио-химический корабль маленького размера.
+  price: 40000
+  category: Small
+  group: Acorp
+  access: Acorp
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorpmed_chromogen.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  - Chemistry
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: ChromoGen
+  mapName: 'ACORP ХромоГен'
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorpmed_chromogen.yml
+  minPlayers: 0
+  stations:
+    ChromoGen:
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'ХромоГен {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

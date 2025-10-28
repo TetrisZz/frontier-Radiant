@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: 
+# Discord: ???
+
+# Shuttle Notes:
+# 
+- type: vessel
+  id: Scorobey
+  parent: BaseVessel
+  name: ACORP Скарабей
+  description: Мелкий экспедиционный шаттл.
+  price: 30000
+  category: Small
+  group: Acorp
+  access: Acorp
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorptra_scorobey.yml
+  guidebookPage: Null
+  class:
+  - Expedition
+  - Medical
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Scorobey
+  mapName: 'ACORP Скарабей'
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorptra_scorobey.yml
+  minPlayers: 0
+  stations:
+    Scorobey:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Скарабей {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

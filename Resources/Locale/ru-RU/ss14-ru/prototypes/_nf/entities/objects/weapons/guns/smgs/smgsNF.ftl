@@ -1,0 +1,15 @@
+ent-NFWeaponSubMachineGunAtreides = { ent-WeaponSubMachineGunAtreides }
+    .suffix = Фронтир
+    .desc = { ent-WeaponSubMachineGunAtreides.desc }
+ent-NFWeaponSubMachineGunC20r = { ent-WeaponSubMachineGunC20r }
+    .suffix = Фронтир
+    .desc = { ent-WeaponSubMachineGunC20r.desc }
+ent-NFWeaponSubMachineGunDrozd = { ent-WeaponSubMachineGunDrozd }
+    .suffix = Фронтир
+    .desc = { ent-WeaponSubMachineGunDrozd.desc }
+ent-NFWeaponSubMachineGunDrozdLessLethal = { ent-WeaponSubMachineGunDrozd }
+    .suffix = Фронтир, травмат
+    .desc = { ent-WeaponSubMachineGunDrozd.desc }
+ent-NFWeaponSubMachineGunTypewriter = { ent-WeaponSubMachineGunTypewriter }
+    .suffix = Фронтир, травмат
+    .desc = { ent-WeaponSubMachineGunTypewriter.desc }

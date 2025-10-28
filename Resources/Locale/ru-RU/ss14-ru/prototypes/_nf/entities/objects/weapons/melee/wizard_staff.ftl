@@ -11,5 +11,3 @@ ent-WizardStaffMeleeBlood = окровавленный волшебный пос
 ent-WizardStaffDarkBolt = посох культиста
     .suffix = Тёмный снаряд
     .desc = { ent-WizardStaffMeleeBlood.desc }
-ent-Mjollnir = мьелльнир
-    .desc = Оружие, достойное бога, способное поразить с силой молнии. Оно потрескивает от едва сдерживаемой энергии.

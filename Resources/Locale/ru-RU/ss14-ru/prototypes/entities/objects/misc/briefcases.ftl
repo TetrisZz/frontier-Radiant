@@ -5,6 +5,3 @@ ent-BriefcaseBrown = коричневый чемодан
 ent-BriefcaseSyndie = { ent-BriefcaseBrown }
     .suffix = Синдикат, Пустой
     .desc = { ent-BriefcaseBrown.desc }
-ent-BriefcaseSmugglerCash = { ent-BriefcaseBrown }
-    .suffix = Контрабандист, деньги
-    .desc = { ent-BriefcaseBrown.desc }

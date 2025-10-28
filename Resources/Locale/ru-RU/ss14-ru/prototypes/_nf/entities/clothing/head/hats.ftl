@@ -49,5 +49,3 @@ ent-ClothingHeadHelmetMercenaryBlack = шлем наемника
     .desc = Боевой шлем, который обычно используют наёмники, прочный, лёгкий и пахнет порохом и суетой.	
 ent-ClothingHeadHelmetMercenary = { ent-ClothingHeadHelmetMercenaryBlack }
     .desc = Боевой шлем, который обычно используют наёмники, прочный, лёгкий и пахнет порохом и джунглями.
-ent-ClothingHeadPerformerWig = парик артиста
-    .desc = При ближайшем рассмотрении видно, что он сделан из оптического волокна.
