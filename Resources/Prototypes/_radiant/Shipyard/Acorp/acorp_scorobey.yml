@@ -9,35 +9,33 @@
 # Shuttle Notes:
 # 
 - type: vessel
-  id: Eon
+  id: Scorobey
   parent: BaseVessel
-  name: ACORP Эон
-  description: Крупногабаритный экспедиционный шаттл, снабженный для долгих самодостаточных путешествий по космосу.
-  price: 60000
-  category: Medium
-  group: Custom
+  name: ACORP Скарабей
+  description: Мелкий экспедиционный шаттл.
+  price: 30000
+  category: Small
+  group: Acorp
   access: Acorp
-  shuttlePath: /Maps/_NF/Shuttles/Acorp/acorp_eon.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorptra_scorobey.yml
   guidebookPage: Null
   class:
   - Expedition
   - Medical
-  - Chemistry
-  - Kitchen
   engine:
-  - Uranium
+  - Plasma
 
 - type: gameMap
-  id: Eon
-  mapName: 'ACORP Эон'
-  mapPath: /Maps/_NF/Shuttles/Acorp/acorp_eon
+  id: Scorobey
+  mapName: 'ACORP Скарабей'
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorptra_scorobey.yml
   minPlayers: 0
   stations:
-    Eon:
+    Scorobey:
       stationProto: StandardFrontierExpeditionVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Эон {1}'
+          mapNameTemplate: 'Скарабей {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

@@ -9,30 +9,30 @@
 #
 
 - type: vessel
-  id: stellarhaven
+  id: Haven
   parent: BaseVessel
-  name: HOM Звёздная Гавань
-  description: Ночной клуб, в котором есть все для хорошего время провождения - кухня, бар, вип-зона и дормы
-  price: 60000
+  name: HOM Гавань
+  description: Ночной клуб, в котором есть все для хорошего время провождения - кухня, бар, вип-зона и спальни.
+  price: 78500
   category: Medium
   group: Shipyard
-  shuttlePath: /Maps/_NF/Shuttles/stellarhaven.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Haven.yml
   guidebookPage: Null
   class:
   - Civilian
   - Kitchen
 
 - type: gameMap
-  id: stellarhaven
-  mapName: 'HOM Звёздная Гавань'
-  mapPath: /Maps/_NF/Shuttles/stellarhaven.yml
+  id: Haven
+  mapName: 'HOM Гавань'
+  mapPath: /Maps/_radiant/Shuttles/Haven.yml
   minPlayers: 0
   stations:
-    stellarhaven:
+    Haven:
       stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Звёздная Гавань {1}'
+          mapNameTemplate: 'Гавань {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

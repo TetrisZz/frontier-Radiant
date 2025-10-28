@@ -140,7 +140,8 @@
   - type: Gun
     examineCaliber: gun-examine-caliber-20
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+#      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg # Radiant_sector
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg # Radiant_sector
   - type: RevolverAmmoProvider
     whitelist:
       tags:

@@ -1,4 +1,32 @@
 - type: entity
+  id: MothershipComputerAcorp
+  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyardBase]
+  name: верфь акорп
+  description: Верфь шаттлов акорп, нужна если вам тесно на одном судне или ваша экспедиция требует более гибких мер.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard
+    - map: ["computerLayerKeys"]
+      state: telesci_key
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Acorp
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Acorp:
+        type: ShipyardConsoleBoundUserInterface
+  - type: ShipyardConsole
+    newJobTitle: null
+    shipyardChannel: Acorp
+    newAccessLevels: [Acorp]
+
+- type: entity
   id: ComputerShipyardNavy
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyardBase]
   name: NFSD shipyard console

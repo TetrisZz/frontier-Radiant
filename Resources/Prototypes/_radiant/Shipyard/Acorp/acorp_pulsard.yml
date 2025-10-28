@@ -15,9 +15,9 @@
   description: Среднее эргономичное судно ориентированное на экспедиции, добычу руды и первую помощь во время этих процессов.
   price: 66000
   category: Medium
-  group: Custom
+  group: Acorp
   access: Acorp
-  shuttlePath: /Maps/_NF/Shuttles/Acorp/acorpcargobig_pulsard.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorpcargobig_pulsard.yml
   guidebookPage: Null
   class:
   - Expedition
@@ -28,7 +28,7 @@
 - type: gameMap
   id: PulsarD
   mapName: 'ACORP Пульсар-Д'
-  mapPath: /Maps/_NF/Shuttles/Acorp/acorpcargobig_pulsard.yml
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorpcargobig_pulsard.yml
   minPlayers: 0
   stations:
     PulsarD:

@@ -1,0 +1,32 @@
+- type: vessel
+  id: Bulat
+  parent: BaseVesselAntag
+  name: Булат
+  description: "Крупногабаритный шаттл, заточенный выдерживать попадания артилерии и содержать до 4-х рабов. Оснащён сервисной, утильской и медицинской зоной с небольшой хим. лабораторией. Имеет четыре MARAUDER с зарядником энергоечеек на каждую и четыре L85 20mm."
+  price: 100
+  category: Medium
+  group: Separatist
+  access: Bulat
+  shuttlePath: /Maps/_radiant/Shuttles/Separatist/Bulat.yml
+  guidebookPage: Null
+  class:
+  - Syndicate
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Bulat
+  mapName: 'Булат'
+  mapPath: /Maps/_radiant/Shuttles/Separatist/Bulat.yml
+  minPlayers: 0
+  stations:
+    Bulat:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Булат {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

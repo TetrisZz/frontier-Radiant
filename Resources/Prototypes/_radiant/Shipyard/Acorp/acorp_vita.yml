@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: 
+# Discord: 
+
+# Maintainer Info
+# GitHub: 
+# Discord: 
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Vita
+  parent: BaseVessel
+  name: ACORP Вита
+  description: Малогабаритный гидропонный шаттл с собственной мини-лабораторией и двумя фитотронами.
+  price: 24000
+  category: Small
+  group: Acorp
+  access: Acorp
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorp_vita.yml
+  guidebookPage: Null
+  class:
+  - Civilian
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Vita
+  mapName: 'ACORP Вита'
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorp_vita.yml
+  minPlayers: 0
+  stations:
+    Vita:
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Вита {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

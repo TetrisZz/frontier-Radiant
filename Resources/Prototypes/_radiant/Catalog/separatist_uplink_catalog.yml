@@ -49,6 +49,22 @@
           - SeparatistUplink
 
 - type: listing
+  id: UplinkSeparatistM203
+  name:  uplink-separatist-m203-name
+  description: uplink-separatist-m203-desc
+  productEntity: WeaponCaseLongM203Separatist
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Launchers/tost/big.rsi, state: icon }
+  cost:
+    BlackMoney: 3
+  categories:
+    - UplinkSeparatistWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
   id: UplinkSeparatistRanger
   name:  uplink-separatist-ranger-name
   description: uplink-separatist-ranger-desc
@@ -95,15 +111,19 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
 
 - type: listing
-  id: UplinkSeparatistM203
-  name:  uplink-separatist-m203-name
-  description: uplink-separatist-m203-desc
-  productEntity: WeaponCaseLongM203Separatist
-  icon: { sprite: _radiant/Objects/Weapons/Guns/Launchers/tost/big.rsi, state: icon }
+  id: UplinkSeparatistAk
+  name:  uplink-separatist-ak-name
+  description: uplink-separatist-ak-desc
+  productEntity: WeaponRifleAkRS
+  icon: { sprite: Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
   cost:
-    BlackMoney: 3
+    BlackMoney: 10
   categories:
     - UplinkSeparatistWeapons
   conditions:
@@ -111,6 +131,9 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
 
 #armor
 
@@ -209,6 +232,10 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
 
 #Ammo
 
@@ -325,6 +352,25 @@
           - SeparatistUplink
 
 - type: listing
+  id: UplinkSeparatistMagazineRifle30Overpressure
+  name:  uplink-security-30riflemagazine-name
+  description: uplink-security-30riflemagazine-desc
+  productEntity: NFBoxMagazineRifle30Overpressure
+  icon: { sprite: _NF/Objects/Storage/boxes.rsi, state: icon-magazine }
+  cost:
+    BlackMoney: 1
+  categories:
+    - UplinkSeparatistAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+
+- type: listing
   id: UplinkSeparatistMagazineRifle
   name:  uplink-separatist-rifleammo-name
   description: uplink-separatist-rifleammo-desc
@@ -404,6 +450,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistGrappling
@@ -428,7 +479,7 @@
   productEntity: JetpackBlackFilled
   icon: { sprite: _DV/Objects/Tanks/Jetpacks/black.rsi, state: icon }
   cost:
-    BlackMoney: 2
+    BlackMoney: 3
   categories:
     - UplinkSeparatistUtility
   conditions:
@@ -500,6 +551,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistAxe
@@ -532,6 +588,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistHoverbike
@@ -696,6 +757,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistKey
@@ -712,6 +778,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistSlaveKit
@@ -728,6 +799,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistBoomCollar
@@ -744,6 +820,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 # Shuttles
 
@@ -762,6 +843,10 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
 
 - type: listing
   id: UplinkSeparatistSmallM220
@@ -778,6 +863,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistAmmoGunnery20mm
@@ -794,6 +884,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistAmmoBoxGunnery90mm
@@ -810,6 +905,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistSmallType35
@@ -826,6 +926,10 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
 
 - type: listing
   id: UplinkSeparatistCageRecharger
@@ -858,6 +962,10 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
 
 - type: listing
   id: UplinkSeparatistMediumM220
@@ -874,6 +982,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistHighM220
@@ -890,6 +1003,11 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
 
 - type: listing
   id: UplinkSeparatistMediumType35
@@ -906,6 +1024,10 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
 
 - type: listing
   id: UplinkSeparatistHighType35
@@ -922,3 +1044,7 @@
       whitelist:
         tags:
           - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative

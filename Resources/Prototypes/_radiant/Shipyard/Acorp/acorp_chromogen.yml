@@ -9,32 +9,33 @@
 # Shuttle Notes:
 #
 - type: vessel
-  id: Photone
+  id: ChromoGen
   parent: BaseVessel
-  name: ACORP Фотон
-  description: Мелкий транспортный шаттл
-  price: 13000
-  category: Micro
-  group: Custom
+  name: ACORP ХромоГен
+  description: Крио-химический корабль маленького размера.
+  price: 40000
+  category: Small
+  group: Acorp
   access: Acorp
-  shuttlePath: /Maps/_NF/Shuttles/Acorp/acorptransport_photone.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorpmed_chromogen.yml
   guidebookPage: Null
   class:
-  - Civilian
+  - Medical
+  - Chemistry
   engine:
   - Plasma
 
 - type: gameMap
-  id: Photone
-  mapName: 'ACORP Фотон'
-  mapPath: /Maps/_NF/Shuttles/Acorp/acorptransport_photone.yml
+  id: ChromoGen
+  mapName: 'ACORP ХромоГен'
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorpmed_chromogen.yml
   minPlayers: 0
   stations:
-    Photone:
+    ChromoGen:
       stationProto: StandardFrontierExpeditionVessel #radiant_sector
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Фотон {1}'
+          mapNameTemplate: 'ХромоГен {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

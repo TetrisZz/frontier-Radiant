@@ -20,6 +20,10 @@
   id: Avangard
   name: id-card-access-level-shipyard-avangard
 
+- type: accessLevel
+  id: Iskentim
+  name: id-card-access-level-shipyard-iskentim
+
 #Separatist
 
 - type: accessLevel
@@ -53,3 +57,7 @@
 - type: accessLevel
   id: Strela
   name: id-card-access-level-shipyard-strela
+
+- type: accessLevel
+  id: Bulat
+  name: id-card-access-level-shipyard-bulat

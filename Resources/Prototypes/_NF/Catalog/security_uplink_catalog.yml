@@ -141,6 +141,7 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
+        - Bailiff
         - Sheriff
 
 #region weapons
@@ -292,24 +293,26 @@
         - SeniorOfficer
         - Sheriff
 
-- type: listing
-  id: UplinkSecurityLaserCannon
-  name:  uplink-security-lasercanon-name
-  description: uplink-security-lasercanon-desc
-  productEntity: NFWeaponEnergyRifleSniperCannon
-  icon: { sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi, state: icon }
-  cost:
-    FrontierUplinkCoin: 14
-  categories:
-    - UplinkSecurityWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Sheriff
+#Radiant_sector
+#- type: listing
+#  id: UplinkSecurityLaserCannon
+#  name:  uplink-security-lasercanon-name
+#  description: uplink-security-lasercanon-desc
+#  productEntity: NFWeaponEnergyRifleSniperCannon
+#  icon: { sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi, state: icon }
+#  cost:
+#    FrontierUplinkCoin: 14
+#  categories:
+#    - UplinkSecurityWeapons
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - SecurityUplink
+#    - !type:BuyerJobCondition
+#      whitelist:
+#        - Sheriff
+#Radiant_sector
 
 - type: listing
   id: UplinkSecurityDisablerSMG
@@ -331,6 +334,27 @@
         - Bailiff
         - SeniorOfficer
         - Sheriff
+
+#Radiant_sector
+- type: listing
+  id: UplinkSecurityEnergySword
+  name:  uplink-security-energysword-name
+  description: uplink-security-energysword-desc
+  productEntity: EnergySwordNfsd
+  icon: { sprite: Objects/Weapons/Melee/e_sword.rsi, state: e_sword }
+  cost:
+    FrontierUplinkCoin: 5
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Sheriff
+#Radiant_sector
 
 - type: listing
   id: UplinkSecurityWT550
@@ -367,10 +391,10 @@
       whitelist:
         tags:
           - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Bailiff
-        - Sheriff
+#    - !type:BuyerJobCondition #Radiant_sector
+#      whitelist: #Radiant_sector
+#        - Bailiff #Radiant_sector
+#        - Sheriff #Radiant_sector
 
 - type: listing
   id: UplinkSecurityEmpRpg
@@ -731,6 +755,80 @@
         tags:
           - SecurityUplink
 
+#Radiant_sector
+- type: listing
+  id: UplinkSecurityMateba
+  name:  uplink-security-mateba-name
+  description: uplink-security-mateba-desc
+  productEntity: NFWeaponRevolverWard45
+  icon: { sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 3
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityPulsePistol
+  name:  uplink-security-pulsepistol-name
+  description: uplink-security-pulsepistol-desc
+  productEntity: NFWeaponEnergyPistolPulse
+  icon: { sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi, state: base }
+  cost:
+    FrontierUplinkCoin: 12
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Bailiff
+        - SeniorOfficer
+        - Sheriff
+
+- type: listing
+  id: UplinkSecurityPulseCarbine
+  name:  uplink-security-pulsecarbine-name
+  description: uplink-security-pulsecarbine-desc
+  productEntity: NFWeaponEnergyRifleAssaultPulseCarbine
+  icon: { sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi, state: base }
+  cost:
+    FrontierUplinkCoin: 20
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Sheriff
+
+- type: listing
+  id: UplinkSecurityShotIncend
+  name:  uplink-security-shotincend-name
+  description: uplink-security-shotincend-desc
+  productEntity: NFAmmunitionBoxShellShotgunIncendiary
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FrontierUplinkCoin: 2
+  categories:
+    - UplinkSecurityAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+#Radiant_sector
+
 - type: listing
   id: UplinkSecurityTruncheon
   name:  uplink-security-truncheon-name
@@ -828,7 +926,8 @@
   productEntity: EnergyShieldNfsd
   icon: { sprite: _NF/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   cost:
-    FrontierUplinkCoin: 8
+#    FrontierUplinkCoin: 8 #Radiant_sector
+    FrontierUplinkCoin: 5 #Radiant_sector
   categories:
     - UplinkSecurityUtility
   conditions:
@@ -966,7 +1065,8 @@
   productEntity: BoxEMPGrenadesNfsd
   icon: { sprite: Objects/Weapons/Grenades/empgrenade.rsi, state: icon}
   cost:
-    FrontierUplinkCoin: 2
+#    FrontierUplinkCoin: 2 #Radiant_sector
+    FrontierUplinkCoin: 4 #Radiant_sector
   categories:
     - UplinkSecurityExplosives
   conditions:
