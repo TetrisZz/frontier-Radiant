@@ -1,3 +1,11 @@
+uplink-emag-pass-name = Ограниченный ЕМАГ
+uplink-emag-pass-desc = Устройство, оно же криптографический секвенсор, используемое для взлома аппаратов и механизмов. Ее можно использовать лишь трижды.
+uplink-spaceblade-syndicate-name = Контрабандный космоспиннер
+uplink-spaceblade-syndicate-desc = Изготовлен из настоящего металла!
+uplink-syndicate-segway-name = Сегвей синдиката
+uplink-syndicate-segway-desc = Передвигайтесь стильно, не пачкая свои кроваво-красные ботинки.
+uplink-syndicate-deck-name = Пачка карт Синдиката
+uplink-syndicate-deck-desc = Коробка со стандартными 53 игральными картами с логотипом Синдиката. Пожалуйста, подходите к игре ответственно.
 uplink-emp-grenade-launcher-bundle-name = Набор ЭМИ Chine-Lake
 uplink-emp-grenade-launcher-bundle-desc = Старый гранатомет "China-Lake" в комплекте с 8 ЭМИ зарядами.
 store-category-sechardsuits = Скафандры

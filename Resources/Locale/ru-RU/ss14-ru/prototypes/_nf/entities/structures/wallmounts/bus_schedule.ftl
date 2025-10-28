@@ -1,6 +1,6 @@
-ent-BusSchedule = ·†„ÿ∑„†‘∑® “†ı·ÁÂ÷∆
-    .suffix = †ÎÂ÷
-    .desc = ‚†„ÿ∑„†‘∑®, Î ∆÷Â÷·÷“ Á∆†Û†‘÷, ∆÷¨¶† ÿ·∑®¶®Â “†ı·ÁÂ∆†. ’® ÿ·÷ÿÁ„Â∑Â®!
+ent-BusSchedule = —Ä–∞—Å–ø–∏—Å–∞–Ω–∏–µ –º–∞—Ä—à—Ä—É—Ç–æ–∫
+    .suffix = –∞–≤—Ç–æ
+    .desc = –†–∞—Å–ø–∏—Å–∞–Ω–∏–µ, –≤ –∫–æ—Ç–æ—Ä–æ–º —É–∫–∞–∑–∞–Ω–æ, –∫–æ–≥–¥–∞ –ø—Ä–∏–µ–¥–µ—Ç –º–∞—Ä—à—Ä—É—Ç–∫–∞. –ù–µ –ø—Ä–æ–ø—É—Å—Ç–∏—Ç–µ!
 ent-BusScheduleRoute1 = { ent-BusSchedule }
     .desc =  { ent-BusSchedule.desc }
 ent-BusScheduleRoute2 = { ent-BusScheduleRoute1 }

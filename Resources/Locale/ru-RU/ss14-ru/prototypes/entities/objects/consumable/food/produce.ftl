@@ -1,5 +1,7 @@
 ent-ProduceBase = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
+ent-ProduceBaseRuminant = { ent-ProduceBase }
+    .desc = { ent-ProduceBase.desc }
 ent-FoodProduceBase = { ent-FoodInjectableBase }
     .desc = { ent-FoodInjectableBase.desc }
 ent-WheatBushel = сноп пшеницы
@@ -148,7 +150,7 @@ ent-FoodPumpkin = тыква
 ent-FoodBluePumpkin = синяя тыква
     .desc = Крупный, синий... ягода. Серьёзно.
 ent-CottonBol = хлопковый шарик
-    .desc = Любимая закуска ниан, такая же пушистая, как и они.
+    .desc = Любимая закуска молей, такая же пушистая, как и они.
 ent-PyrottonBol = пирохлопковый шарик
     .desc = Скорее всего, оно подожжёт вас.
 ent-FoodCherry = вишня
@@ -157,20 +159,5 @@ ent-TrashCherryPit = вишнёвая косточка
     .desc = { ent-FoodInjectableBase.desc }
 ent-FoodAnomalyBerry = аномальная ягода
     .desc = Странная синяя ягода. Что-то в ней не так.
-ent-FoodAvocado = авокадо
-    .desc = Как вкусная маслянистая трава.
-ent-FoodAvocadoSlice = слайс авокадо
-    .desc = { ent-FoodAvocado.desc }
-ent-FoodCucumber = огурец
-    .desc = Как свежая хрустящая вода.
-ent-FoodCucumberSlice = слайс огурца
-    .desc = { ent-FoodCucumber.desc }
-ent-FoodEveryspice = острый перец
-    .desc = Длинные, бледные стручки растения «мускатный орех». Измельчённые в порошок, они придают блюдам аромат.
-ent-FoodHoneyComb = соты
-    .desc = Хрустящие слоты с медом.
-ent-FoodEveryspiceRoasted = обжаренные стручки острого перца
-    .desc = { ent-FoodEveryspice.desc }
-
-
-
+ent-FoodBloonion = лук-летун
+    .desc = Странная летающая луковица... Она не стоит ваших слёз.

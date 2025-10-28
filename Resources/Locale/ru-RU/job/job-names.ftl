@@ -20,8 +20,8 @@ job-name-hop = глава персонала
 job-name-captain = капитан
 job-name-serviceworker = сервисный работник
 job-name-centcomoff = представитель Центком
-job-name-cburn = офицер карантина Центкома
-job-name-deathsquad = агент Центкома
+job-name-cburn = агент карантинной службы Центком
+job-name-deathsquad = агент Центком
 job-name-reporter = репортёр
 job-name-musician = музыкант
 job-name-librarian = библиотекарь
@@ -34,7 +34,7 @@ job-name-botanist = ботаник
 job-name-bartender = бармен
 job-name-passenger = пассажир
 job-name-salvagespec = утилизатор
-job-name-station-ai = ИИ
+job-name-station-ai = станционный ИИ
 job-name-qm = квартирмейстер
 job-name-cargotech = грузчик
 job-name-chef = шеф-повар
@@ -48,35 +48,38 @@ job-name-ertjanitor = уборщик ОБР
 job-name-boxer = боксёр
 job-name-zookeeper = зоотехник
 job-name-visitor = посетитель
-
+job-name-cluwne = клувень
 # unused jobs
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
 job-name-geneticist = генетик
-job-name-no-id = без ID
+job-name-no-id = нет ID
+job-name-prisoner = заключённый
 job-name-roboticist = робототехник
 job-name-syndicate = синдикат
 job-name-unknown = неизвестно
 job-name-virologist = вирусолог
 job-name-zombie = зомби
-
+# Job titles
+job-title-visitor = посетитель
+job-title-cluwne = клувень
+job-title-universal = универсальная
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = атмосферный техник
 JobBartender = бармен
 JobBorg = киборг
 JobBotanist = ботаник
-JobBoxer = боксе
+JobBoxer = боксёр
 JobCaptain = капитан
 JobCargoTechnician = грузчик
 JobCentralCommandOfficial = представитель Центком
 JobChaplain = священник
-JobChef =  шеф-повар
+JobChef = шеф-повар
 JobChemist = химик
 JobChiefEngineer = старший инженер
 JobChiefMedicalOfficer = главный врач
 JobClown = клоун
 JobDetective = детектив
-JobBrigmedic = бригмедик
 JobERTChaplain = священник ОБР
 JobERTEngineer = инженер ОБР
 JobERTJanitor = уборщик ОБР
@@ -100,16 +103,16 @@ JobPassenger = авантюрист
 JobPsychologist = психолог
 JobQuartermaster = квартирмейстер
 JobReporter = репортёр
-JobResearchAssistant = научный руководитель
-JobResearchDirector = научный ассистент
+JobResearchAssistant = научный ассистент
+JobResearchDirector = научный руководитель
 JobSalvageSpecialist = утилизатор
 JobScientist = учёный
 # Frontier: кадет СБ<Cadet
-JobSecurityCadet = кадет ДШНФ
+JobSecurityCadet = кадет ДВБ
 # Frontier: офицер СБ<Deputy
-JobSecurityOfficer = патрульный ДШНФ
+JobSecurityOfficer = патрульный ДВБ
 JobServiceWorker = сервисный работник
-JobStationAi = ИИ
+JobStationAi = станционный ИИ
 JobStationEngineer = инженер
 JobTechnicalAssistant = технический ассистент
 JobVisitor = посетитель

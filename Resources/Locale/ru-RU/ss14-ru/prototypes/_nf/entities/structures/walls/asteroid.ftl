@@ -1,12 +1,3 @@
-ent-AsteroidRockBananiumCrab = { ent-AsteroidRockBananium }
-    .suffix = Бананиумовый Краб
-    .desc = { ent-AsteroidRockBananium.desc }
-ent-AsteroidRockCoalCrab = { ent-AsteroidRockCoal }
-    .suffix = Угольный Краб
-    .desc = { ent-AsteroidRockCoal.desc }
-ent-AsteroidRockGoldCrab = { ent-AsteroidRockGold }
-    .suffix = Золотой Краб
-    .desc = { ent-AsteroidRockGold.desc }
 ent-AsteroidRockPlasmaCrab = { ent-AsteroidRockPlasma }
     .suffix = Плазменный Краб
     .desc = { ent-AsteroidRockPlasma.desc }

@@ -24,6 +24,5 @@ flavor-complex-corncob = как больная шутка
 flavor-complex-gunmetal = горько-сливочный
 flavor-complex-lemondrop = освежающе кислый
 flavor-complex-greengrass = как праздник на солнце
-flavor-complex-daiquiri = модный
 flavor-complex-arsonistsbrew = как пепел и пламя
 flavor-complex-dulleavene = зловещий

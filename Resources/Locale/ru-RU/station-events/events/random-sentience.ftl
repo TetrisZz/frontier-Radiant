@@ -13,17 +13,14 @@ random-sentience-event-data-6 = [УДАЛЕНО]
 random-sentience-event-strength-1 = человека
 random-sentience-event-strength-2 = обезьяны
 random-sentience-event-strength-3 = среднего
-# Frontier: security < high (...)
-random-sentience-event-strength-4 = высокого
-# Frontier: command < genius (......)
-random-sentience-event-strength-5 = гениального
+random-sentience-event-strength-4 = службы безопасности
+random-sentience-event-strength-5 = командования
 random-sentience-event-strength-6 = клоуна
 random-sentience-event-strength-7 = низкого
 random-sentience-event-strength-8 = ИИ
 
 ## Announcement text
 
-# Frontier: station<sector
 station-event-random-sentience-announcement =
     Опираясь на { $data }, стало известно что некоторые { $amount ->
         [1] { $kind1 }
@@ -38,8 +35,6 @@ station-event-random-sentience-role-description = Вы разумный { $name 
 # Flavors
 station-event-random-sentience-flavor-mechanical = механизмы
 station-event-random-sentience-flavor-organic = органики
-station-event-random-sentience-flavor-corgi = корги
 station-event-random-sentience-flavor-primate = приматы
 station-event-random-sentience-flavor-kobold = кобольды
-station-event-random-sentience-flavor-slime = слаймы
 station-event-random-sentience-flavor-inanimate = неодушевлённые предметы
