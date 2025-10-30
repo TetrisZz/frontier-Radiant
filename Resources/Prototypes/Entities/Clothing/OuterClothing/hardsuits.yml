@@ -515,8 +515,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.75
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -577,8 +577,8 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -613,8 +613,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -814,6 +814,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
+  - type: StaminaResistance
+    damageCoefficient: 0.5 #Radiant_sector
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -828,6 +830,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
+  - type: StaminaResistance
+    damageCoefficient: 0.65 #Radiant_sector
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -844,6 +848,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
   - type: FireProtection
     reduction: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.65 #Radiant_sector
 
 #ERT Medic Hardsuit
 - type: entity
@@ -858,6 +864,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
+  - type: StaminaResistance
+    damageCoefficient: 0.65 #Radiant_sector
 
 #ERT Security Hardsuit
 - type: entity
@@ -876,6 +884,8 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: StaminaResistance
+    damageCoefficient: 0.5 #Radiant_sector
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -890,6 +900,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+  - type: StaminaResistance
+    damageCoefficient: 0.65 #Radiant_sector
 
 #Deathsquad
 - type: entity
