@@ -235,7 +235,6 @@
     - !type:BuyerJobCondition
       whitelist:
         - SeparatistsCommander
-        - SeparatistsOperative
 
 #Ammo
 
