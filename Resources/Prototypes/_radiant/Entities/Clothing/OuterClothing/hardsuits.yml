@@ -22,6 +22,8 @@
         Piercing: 0.6
         Heat: 0.6
         Caustic: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7 #Radiant_sector
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -266,7 +268,7 @@
 #Luxury Mining Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitAcorpBasic 
+  id: ClothingOuterHardsuitAcorpBasic
   name: скафандр акорп
   description: Простой скафандр акорп изготавливаемый в больших количествах для нужд в своих полевых исследованиях, даёт мобильность и небольшую защиту своему владельцу.
   components:
@@ -318,6 +320,8 @@
         Piercing: 0.5
         Heat: 0.5
         Caustic: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7 #Radiant_sector
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -406,6 +410,8 @@
         Heat: 0.60
         Radiation: 0.50
         Caustic: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7 #Radiant_sector
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.75
@@ -437,6 +443,8 @@
         Heat: 0.50
         Radiation: 0.4
         Caustic: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.6 #Radiant_sector
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.75
@@ -449,7 +457,7 @@
   parent: [ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable] # Removed BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterHardsuitNavyHeavy
   name: скафандр КФ
-  description: Тяжелый боевой скафандр конфедерации предназначенный для бойцов отдающих выбор защите, а не мобильности 
+  description: Тяжелый боевой скафандр конфедерации предназначенный для бойцов отдающих выбор защите, а не мобильности
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/navy_spacesu.rsi
@@ -468,6 +476,8 @@
         Piercing: 0.6
         Heat: 0.6
         Caustic: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.65 #Radiant_sector
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -489,6 +499,8 @@
     sprite: _radiant/Clothing/Hardsuits/navy_spacesuit2.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDvbCombat
+  - type: StaminaResistance
+    damageCoefficient: 0.65 #Radiant_sector
 
 - type: entity
   parent: ClothingOuterHardsuitNfsdCommand
@@ -502,4 +514,6 @@
     sprite: _radiant/Clothing/Hardsuits/navy_spacesuit1.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDvbCommand
+  - type: StaminaResistance
+    damageCoefficient: 0.65 #Radiant_sector
 
