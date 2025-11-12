@@ -26,7 +26,7 @@
         - type: StationNameSetup
           mapNameTemplate: 'База сепаратистов'
         - type: ExtraStationInformation
-          iconPath: /Textures/_radiant/Structures/Wallmounts/posters.rsi/poster4.png
+          iconPath: /Textures/_radiant/Interface/StationIcons/sep_banner.png
           stationSubtext: 'frontier-lobby-separatists-subtext'
           stationDescription: 'frontier-lobby-separatists-description'
         - type: StationJobs

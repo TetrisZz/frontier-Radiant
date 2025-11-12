@@ -61,6 +61,7 @@
       params:
         variation: 0.125
   - type: Vocalizer
+    hideChat: true
     minVocalizeInterval: 30
     maxVocalizeInterval: 120
   - type: DatasetVocalizer

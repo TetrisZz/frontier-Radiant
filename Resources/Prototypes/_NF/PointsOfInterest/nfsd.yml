@@ -35,7 +35,7 @@
         - type: StationNameSetup
           mapNameTemplate: 'Форпост ОСК'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          iconPath: /Textures/_radiant/Interface/StationIcons/osk-banner.png
           stationSubtext: 'frontier-lobby-nfsd-subtext'
           stationDescription: 'frontier-lobby-nfsd-description'
           lobbySortOrder: 2

@@ -2255,7 +2255,7 @@ entities:
         406:
         - - Pressed
           - Toggle
-  - uid: 400
+  - uid: 985
     components:
     - type: Transform
       rot: 3.141592653589793 rad

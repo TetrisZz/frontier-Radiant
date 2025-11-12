@@ -39,6 +39,7 @@
       72: 0.7 # Radiant_sector
       96: 0.5 # Radiant_sector
   - type: Vocalizer
+    hideChat: true
     minVocalizeInterval: 30
     maxVocalizeInterval: 120
   - type: DatasetVocalizer
