@@ -15,62 +15,26 @@
 
   [color=#a4885c]Тип электрогенератора:[/color] Сварочное топливо
 
-  [color=#a4885c]Экспедиции:[/color] При покупке консоли - да
+  # Shuttle Brief
 
-  [color=#a4885c]Консоль опознавания:[/color] Нет
+  "A delivery ship build for McCargo"
 
-  "Судно для доставки грузов, построенное для McCargo"
+  # Ship Functions
 
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
-  
-  ## 1. Электропитание
-  
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SubstationWallBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-  
-  - Убедитесь, что ЛКП включена.
-  - Проверьте текущую нагрузку ЛКП* (Вт).
-  
-  ## 1.2. Генератор J.R.P.A.C.M.A.N. 
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorJrPacmanShuttle"/>
-  <GuideEntityEmbed Entity="JerryCan"/>
-  </Box>
-  
-  - Убедитесь, что генератор J.R.P.A.C.M.A.N. закреплен на полу.
-  - Убедитесь, что в генераторе J.R.P.A.C.M.A.N. есть топливо. При длительных полетах убедитесь, что у вас есть достаточный запас топлива для длительной выработки энергии во время полета.
-  - Убедитесь, что генератор J.R.P.A.C.M.A.N. настроен на низковольтную мощность.
-  - Установите целевую мощность на 5** [bold]кВт[/bold].
-  - Запустите генератор J.R.P.A.C.M.A.N.
-  
-  ## 2. Атмосфера
-  
-  ## 2.1. Распределительная петля
-  <Box>
-  <GuideEntityEmbed Entity="AirCanister"/>
-  <GuideEntityEmbed Entity="GasPort"/>
-  </Box>
-  
-  - Убедитесь, что канистры закреплены на порте разъема.
-  
-  ## 2.2. Схема отходов
-  <Box>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
-    
-  - Убедитесь, что насос отходов включен.
-  
-  ## 3. Другие проверки
-  <Box>
-  <GuideEntityEmbed Entity="SmallGyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  </Box>
-  
-  - Проверьте, закреплен ли гироскоп, подано ли на него питание и включен ли он.
-  - Проверьте, закреплен ли, питается ли и включен ли мини-генератор гравитации.
+  # Piloting
+
+  [textlink="Piloting" link="Piloting"/]
+
+  [textlink="Sector Topology" link="SectorTopology"/]
+
+  # Hiring crew
+
+  [textlink="Hiring" link="Hiring"/]
+
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+
+  # PREFLIGHT CHECKLIST
+
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
 
 </Document>

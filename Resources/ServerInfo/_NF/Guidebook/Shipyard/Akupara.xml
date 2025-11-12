@@ -17,103 +17,31 @@
 
   [color=#a4885c]Тип электрогенератора:[/color] Урановый
 
-  [color=#a4885c]Экспедиции:[/color] Нет
-
-  [color=#a4885c]IFF Console:[/color] Нет
-
-  [color=#a4885c]Доступные роли:[/color] Авантюрист, пилот, наемник
+  # Shuttle Brief
 
   "Средний полнофункциональный биодом для ботанических исследований, который поможет ботанику полноценно взаимодействовать со своими растениями практически всеми возможными способами."
 
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
-  
-  ## 1. Электропитание
-  
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SMESBasic"/>
-  <GuideEntityEmbed Entity="SubstationBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
+  # Medical
 
-  - Проверьте, закреплен ли СМЭС на полу.
-  - Проверьте, закреплен ли блок подстанции на полу.
-  - Проверьте, включены ли все главные выключатели блоков APC.
-  - Проверьте текущую нагрузку всех блоков APC* (Вт).
-  
-  ## 1.2. S.U.P.E.R.P.A.C.M.A.N. generator unit
-  <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
-    <GuideEntityEmbed Entity="SheetUranium"/>
-    <GuideEntityEmbed Entity="SignRadiationMed"/>
-  </Box>
+  [textlink="Chemistry" link="Chemist"/]
 
-  - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit is anchored to the floor.
-  - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit has fuel. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation during flight.
-  - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit is set to HV output.
-  - Set Target Power for 30 [bold]k[/bold]W.
-  - Start the S.U.P.E.R.P.A.C.M.A.N. generator unit.
+  [textlink="Chemicals" link="Chemicals"/]
 
-  ## 2. Атмосфера
-  
-  ## 2.1. Петля дистрибуции
-  <Box>
-  <GuideEntityEmbed Entity="OxygenCanister"/>
-  <GuideEntityEmbed Entity="NitrogenCanister"/>
-  <GuideEntityEmbed Entity="GasPort"/>
-  <GuideEntityEmbed Entity="GasFilterFlipped"/>
-  <GuideEntityEmbed Entity="GasMixer"/>
-  </Box>
+  [textlink="Botany" link="Botany"/]
 
-  - Check if the O2 canister and N2 canister are anchored to their connector ports.
-  - Check if the gas mixer has its mixing ratio and output pressure set correctly.
-  - Find the filter leading into the nitrogen canister and set it to filter nitrogen.
-  - Find the filter leading into the oxygen canister and set it to filter oxygen.
-  - Enable the gas mixer.
+  # Piloting
 
-  ## 2.2. Шлейф отходов
-  <Box>
-  <GuideEntityEmbed Entity="AirAlarm"/>
-  <GuideEntityEmbed Entity="GasValve"/>
-  <GuideEntityEmbed Entity="GasFilterFlipped"/>
-  <GuideEntityEmbed Entity="GasVolumePump"/>
-  <GuideEntityEmbed Entity="StorageCanister"/>
-  </Box>
+  [textlink="Piloting" link="Piloting"/]
 
-  The Akupara does not feature a standard waste loop: it is also capable of storing valuable waste gases, and correcting O2-N2 cabin overpressure. This auxiliary loop is designated with a purple color.
+  [textlink="Sector Topology" link="SectorTopology"/]
 
-  - Убедитесь, что вы включили распределительный контур, так как он является неотъемлемой частью отработанного контура.***
-  - Установите все воздушные сигнализаторы в режим фильтрации (широкий).
+  # Hiring crew
 
-  To purge waste gases without collecting them:
-  - Open the manual valve leading to the waste vent.
+  [textlink="Hiring" link="Hiring"/]
 
-  To collect waste gases:
-  - Keep the waste vent manual valve closed.
-  - Ensure a storage canister is connected into the collection connector port.
-  - Set the auxiliary network Gas Filter to the waste gas you wish to store.
-  - Enable the volumetric gas pump leading into the collection port.
-  - Monitor contents of storage canister. Replace storage canister as necessary.
-  
-   Для коррекции избыточного давления O2-N2 в кабине:
-   - Убедитесь в том, что баллоны с O2 и N2 имеют достаточную емкость.
-   - Убедитесь, что для воздушной сигнализации в зоне с избыточным давлением включен режим Auto.
-   - Установите для воздушной сигнализации в зоне с избыточным давлением режим «Паника». Автоматический режим должен перевести воздушную сигнализацию в режим фильтрации после снижения давления.
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
 
-  ## 3. Другие проверки
-  <Box>
-  <GuideEntityEmbed Entity="Gyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  </Box>
+  # PREFLIGHT CHECKLIST
 
-  - Проверьте, закреплен ли гироскоп, подано ли на него питание и включен ли он.
-  - Проверьте, закреплен ли, питается ли и включен ли мини-генератор гравитации.
-
-  ## Примечания
-
-  * - Akupara-class vessels are equipped with three APC units that can be used to appraise the ship's total power consumption. Unmodified Akupara-class vessels require 30 kW of power to remain operational.
-
-  ** - The oxygen and nitrogen filters are critical in the event mutagenic experiments create plants that produce oxygen or nitrogen. Turning them on enables waste to pass through and enables configurating the scrubbers to handle unwanted overpressure.
-
-  *** - Кислородный и азотный фильтры очень важны в случае, если в ходе мутагенных экспериментов будут созданы растения, вырабатывающие кислород или азот. Их включение позволяет пропускать отходы и настраивать скрубберы для работы с нежелательным избыточным давлением.
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
 </Document>

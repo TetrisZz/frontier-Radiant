@@ -15,12 +15,12 @@
             "directions": 4
         },
         {
-          "name": "equipped-OUTERCLOTHING-vox",
-          "directions": 4
+            "name": "equipped-OUTERCLOTHING-vox",
+            "directions": 4
         },
 		{
-          "name": "equipped-OUTERCLOTHING-resomi",
-          "directions": 4
+            "name": "equipped-OUTERCLOTHING-resomi",
+            "directions": 4
         },
         {
             "name": "inhand-left",

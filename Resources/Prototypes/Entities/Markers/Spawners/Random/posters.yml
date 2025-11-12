@@ -119,6 +119,10 @@
       - NFPosterContrabandFscSurveyor
       - NFPosterContrabandFscCourier
       - NFPosterContrabandFsbDruid
+      - NFPosterContrabandGas
+      - NFPosterContrabandCloudWatchers
+      - NFPosterContrabandGoblinLeague
+      - NFPosterContrabandEms
       # End Frontier
     chance: 1
 
@@ -185,6 +189,7 @@
       - PosterLegitSafetyMothSSD
       - PosterLegitOppenhopper
       - PosterLegitTyrone
+      - PosterLegitHelio
         # Frontier
       - NFPosterLegitMagnusWatching
       - NFPosterLegitGoblinTinkerer

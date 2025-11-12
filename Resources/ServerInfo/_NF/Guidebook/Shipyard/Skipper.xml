@@ -15,64 +15,34 @@
 
   [color=#a4885c]Тип электрогенератора:[/color] Плазма
 
-  [color=#a4885c]Экспедиции:[/color] При покупке консоли - да
-
-  [color=#a4885c]Консоль опознавания:[/color] Нет
+  # Shuttle Brief
 
   "Небольшой корабль с кухней и гидропонным садом.."
 
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
+  # Ship Functions
 
-  ## 1. Электропитание
-  
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SubstationWallBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-  
-  - Убедитесь, что подстанция закреплена на полу.
-  - Убедитесь, что ЛКП включена.
-  - Проверьте текущую нагрузку ЛКП* (Вт).
+  # Entertainment
 
-  ## 1.2. Генератор P.A.C.M.A.N.
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorPacmanShuttle"/>
-  <GuideEntityEmbed Entity="SheetPlasma"/>
-  </Box>
-  
-  - Проверьте, закреплен ли генератор P.A.C.M.A.N. на полу.
-  - Проверьте, есть ли в генераторе P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки энергии во время полета.
-  - Проверьте, установлен ли генератор P.A.C.M.A.N. на выход HV.
-  - Установите целевую мощность на 8-9** [bold]k[/bold]Вт.
-  - Запустите генератор P.A.C.M.A.N.
+  [textlink="Food Recipes" link="FoodRecipes"/]
 
-  ## 2. Атмосфера
+  [textlink="Drinks" link="Drinks"/]
 
-  ## 2.1. Распределительная петля
-  <Box>
-  <GuideEntityEmbed Entity="OxygenCanister"/>
-  <GuideEntityEmbed Entity="NitrogenCanister"/>
-  <GuideEntityEmbed Entity="GasPort"/>
-  <GuideEntityEmbed Entity="GasMixer"/>
-  </Box>
+  [textlink="Botany" link="Botany"/]
 
-  - Проверьте, закреплены ли баллон с O2 и баллон с N2 на своих портах.
-  - Проверьте, правильно ли установлены коэффициент смешивания и выходное давление в газовом смесителе.
-  - Включите газовый смеситель.
+  # Piloting
 
-  ## 3. Другие проверки
-  <Box>
-  <GuideEntityEmbed Entity="Gyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  </Box>
+  [textlink="Piloting" link="Piloting"/]
 
-  - Проверьте, закреплен ли гироскоп, подано ли на него питание и включен ли он.
-  - Проверьте, закреплен ли, питается ли и включен ли мини-генератор гравитации.
+  [textlink="Sector Topology" link="SectorTopology"/]
 
-  ## Примечания
+  # Hiring crew
 
-  * - Служебные корабли класса SKIPPER оснащены одним блоком ЛКП, который можно использовать для оценки общего энергопотребления корабля. Можно сверить общее энергопотребление корабля с целевой мощностью генератора P.A.C.M.A.N.: чтобы подстанция и ЛКП были полностью заряжены, целевая мощность генератора P.A.C.M.A.N. должна превышать суммарную нагрузку всех ЛКП. Не забудьте проверить нагрузку АРС и отрегулировать целевую мощность генераторного блока после подключения новых энергопотребляющих машин. Средняя суммарная нагрузка всех APC на стоковой модели корабля класса Skipper составляет 16'000W в режиме простоя.
+  [textlink="Hiring" link="Hiring"/]
 
-  ** - Сервисные корабли класса SKIPPER имеют низкую потребность в электроэнергии, поэтому значение целевой мощности генератора P.A.C.M.A.N. может быть снижено до 8 кВт. Обратите внимание, что рекомендуемое значение целевой мощности, чтобы избежать отключения электричества во время зарядки гравитационного генератора и интенсивного использования энергии, составляет 9 кВт.
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+
+  # PREFLIGHT CHECKLIST
+
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+
 </Document>

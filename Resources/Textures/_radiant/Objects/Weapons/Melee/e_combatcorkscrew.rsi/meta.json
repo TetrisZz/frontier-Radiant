@@ -11,10 +11,10 @@
       "name": "icon"
     },
     {
-      "name": "e_cutlass"
+      "name": "e_combatcorkscrew"
     },
 	{
-      "name": "e_cutlass_blade",
+      "name": "e_combatcorkscrewe_blade",
       "delays": [
         [
           0.1,

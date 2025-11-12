@@ -123,7 +123,7 @@ public sealed class MagbootsFTLImmunitySystem : EntitySystem
         // Find the specific slot that should contain these magboots
         while (enumerator.MoveNext(out var slot))
         {
-            if (slot.ID == component.Slot && _container.TryGetContainer(container.Owner, slot.ID, out var slotContainer))
+            if (slot.ID == "shoes" && _container.TryGetContainer(container.Owner, slot.ID, out var slotContainer))
             {
                 if (slotContainer.Contains(uid))
                 {

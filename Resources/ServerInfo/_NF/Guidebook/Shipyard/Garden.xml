@@ -14,72 +14,28 @@
 
   [color=#a4885c]Тип электрогенератора:[/color] Плазма
 
-  [color=#a4885c]Экспедиции:[/color] None
-
-  [color=#a4885c]Консоль опознавания:[/color] Нет
+  # Shuttle Brief
 
   "A small botany vessel dedicated to horticultural experimentation."
 
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
-  
-  ## 1. Электропитание
-  
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SubstationWallBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-  
-  - Убедитесь, что подстанция закреплена на полу.
-  - Убедитесь, что ЛКП включена.
-  - Проверьте текущую нагрузку ЛКП* (Вт).
-   
-  ## 1.2. P.A.C.M.A.N. generator unit
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorPacmanShuttle"/>
-  <GuideEntityEmbed Entity="SheetPlasma"/>
-  </Box>
-  
-  - Проверьте, закреплен ли генератор P.A.C.M.A.N. на полу.
-  - Проверьте, есть ли в генераторе P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки энергии во время полета.
-  - Проверьте, установлен ли генератор P.A.C.M.A.N. на выход HV.
-  - Установите целевую мощность на 11-12** [bold]k[/bold]Вт.
-  - Запустите генератор P.A.C.M.A.N.
-  
-  ## 2. Атмосфера
-  
-  ## 2.1. Распределительная петля
-  <Box>
-  <GuideEntityEmbed Entity="AirCanister"/>
-  <GuideEntityEmbed Entity="GasPort"/>
-  </Box>
-  
-  - Проверьте, закреплен ли воздушный баллон на соединительном порту.
+  # Ship Functions
 
-  
-  ## 2.2. Схема отходов
-  <Box>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
-    
-  - Включите насос.
-  - Отключите автоматический режим на воздушной сигнализации.
-  - Установите для воздушной сигнализации режим фильтрации (широкий).
-  
-  ## 3. Other checks
-  <Box>
-  <GuideEntityEmbed Entity="SmallGyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  </Box>
-  
-  - Check that the gyroscope is anchored, powered, and enabled.
-  - Check that the mini gravity generator is anchored, powered, and enabled.
-  
-  ## Sidenotes
-  
-  * - Garden-class service ships are equipped with an APC unit that can be used to appraise the ship's total power consumption (10.8 kW). One can check the ship's total power consumption against the P.A.C.M.A.N. generator unit Target Power output: to keep substation and APC fully charged, P.A.C.M.A.N. generator unit Target Power output should exceed APC's Load. Remember to check APC Load and adjust the generator unit Target Power after connecting new power-consuming machines.
-  
-  ** - Garden-class service ships have low power demand meaning that standard P.A.C.M.A.N. generator unit's Target Power value can be lowered as low as 10 kW. Please note, that recommended Target Power value to avoid blackouts during Gravity Generator charging sequence is 12 kW.
+  [textlink="Botany" link="Botany"/]
+
+  # Piloting
+
+  [textlink="Piloting" link="Piloting"/]
+
+  [textlink="Sector Topology" link="SectorTopology"/]
+
+  # Hiring crew
+
+  [textlink="Hiring" link="Hiring"/]
+
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+
+  # PREFLIGHT CHECKLIST
+
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
 
 </Document>

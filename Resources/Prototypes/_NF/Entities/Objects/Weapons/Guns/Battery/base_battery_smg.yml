@@ -1,9 +1,9 @@
 #region base
 - type: entity
-  id: NFBaseWeaponFrameEnergySubMachineGun
-  parent: [ NFBaseWeaponEncumbranceSubMachineGun, BaseWeaponBattery ]
-  suffix: Frontier
   abstract: true
+  parent: [ NFBaseWeaponEncumbranceSubMachineGun, NFBaseGunMeleeAttackMedium, BaseWeaponBattery ]
+  id: NFBaseWeaponFrameEnergySubMachineGun
+  suffix: Frontier
   components:
   - type: Sprite
     layers:
@@ -17,17 +17,17 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-#  - type: Wieldable
-#    unwieldOnUse: false
-#  - type: GunWieldBonus
-#    minAngle: -0.6
-#    maxAngle: -2.2
+#  - type: Wieldable # Radiant_sector
+#    unwieldOnUse: false # Radiant_sector
+#  - type: GunWieldBonus # Radiant_sector
+#    minAngle: -0.4 # Radiant_sector
+#    maxAngle: -2 # Radiant_sector
   - type: Gun
 #    projectileSpeed: 30 # Radiant_sector
-#    minAngle: 2.5 # Radiant_sector
-#    maxAngle: 12.5 # Radiant_sector
-#    angleIncrease: 0.7 # Radiant_sector
-#    angleDecay: 3.5 # Radiant_sector
+#    minAngle: 2.1 # Radiant_sector
+#    maxAngle: 10.5 # Radiant_sector
+#    angleIncrease: 0.5 # Radiant_sector
+#    angleDecay: 2.5 # Radiant_sector
     fireRate: 4.5
     selectedMode: FullAuto
     availableModes:
@@ -53,10 +53,10 @@
   abstract: true
   components:
   - type: Gun
-#    minAngle: 2.9 # Radiant_sector
-#    maxAngle: 14.5 # Radiant_sector
-#    angleIncrease: 1 # Radiant_sector
-#    angleDecay: 3.4 # Radiant_sector
+#    minAngle: 2.4 # Radiant_sector
+#    maxAngle: 12 # Radiant_sector
+#    angleIncrease: 0.8 # Radiant_sector
+#    angleDecay: 2.7 # Radiant_sector
 #    fireRate: 3.8 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions

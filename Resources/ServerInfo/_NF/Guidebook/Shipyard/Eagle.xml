@@ -16,80 +16,33 @@
 
     [color=#a4885c]Тип электрогенератора:[/color] Урановый
 
-    [color=#a4885c]Экспедиции:[/color] None
+  # Shuttle Brief
 
-    [color=#a4885c]Консоль опознавания:[/color] Нет
+  "A modern, medium-sized medical & engineering vessel. Focusing on responding to shuttle distress, Eagle bears the motto 'Recover, Restore, Repair!'."
 
-    "A modern, medium-sized medical & engineering vessel. Focusing on responding to shuttle distress, Eagle bears the motto 'Recover, Restore, Repair!'."
+  # Ship Functions
 
-    # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
+  # Medical
 
-    ## 1. Электропитание
+  [textlink="Medicine" link="Medical Doctor"/]
 
-    ## 1.1. Аккумуляторные блоки
-    <Box>
-        <GuideEntityEmbed Entity="SMESBasic"/>
-        <GuideEntityEmbed Entity="SubstationWallBasic"/>
-        <GuideEntityEmbed Entity="APCBasic"/>
-    </Box>
+  [textlink="Chemistry" link="Chemist"/]
 
-  - Убедитесь, что СМЭС закреплен на полу.
-  - Убедитесь, что подстанция закреплена на полу.
-  - Убедитесь, что ЛКП включена.
-  - Проверьте текущую нагрузку ЛКП* (Вт).
+  [textlink="Chemicals" link="Chemicals"/]
 
-    ## 1.2. Генератор S.U.P.E.R.P.A.C.M.A.N.
-    <Box>
-        <GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
-        <GuideEntityEmbed Entity="SheetUranium"/>
-        <GuideEntityEmbed Entity="SignRadiationMed"/>
-    </Box>
+  # Piloting
 
-  - Проверьте, закреплен ли генератор S.U.P.E.R.P.A.C.M.A.N. на полу.
-  - Проверьте, есть ли в генераторе S.U.P.E.R.P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас есть достаточный запас топлива для длительной выработки энергии во время полета.
-  - Проверьте, настроен ли генератор S.U.P.E.R.P.A.C.M.A.N. на выход HV.
-  - Установите целевую мощность на 15 [bold]к[/bold]Вт.
-  - Запустите генератор S.U.P.E.R.P.A.C.M.A.N.
-  - Закройте радиационную защиту.
+  [textlink="Piloting" link="Piloting"/]
 
-  ## 2. Атмосфера
+  [textlink="Sector Topology" link="SectorTopology"/]
 
-     ## 2.1. Распределительная петля
-    <Box>
-        <GuideEntityEmbed Entity="OxygenCanister"/>
-        <GuideEntityEmbed Entity="NitrogenCanister"/>
-        <GuideEntityEmbed Entity="GasPort"/>
-        <GuideEntityEmbed Entity="GasMixer"/>
-    </Box>
+  # Hiring crew
 
-    - Проверьте, закреплены ли баллон с O2 и баллон с N2 на своих разъемах.
-    - Проверьте, правильно ли установлены коэффициент смешивания и выходное давление в газовом смесителе.
-    - Включите газовый смеситель.
+  [textlink="Hiring" link="Hiring"/]
 
-    ## 2.2. Схема отходов
-    <Box>
-        <GuideEntityEmbed Entity="GasPressurePump"/>
-        <GuideEntityEmbed Entity="AirAlarm"/>
-    </Box>
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
 
-    - Check waste loop pump.
-    - Set the Air Alarm in the Engine Room to Filtering (Wide).
+  # PREFLIGHT CHECKLIST
 
-    ## 3. Other checks
-    <Box>
-        <GuideEntityEmbed Entity="Gyroscope"/>
-        <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-        <GuideEntityEmbed Entity="ShuttersRadiation"/>
-    </Box>
-
-    - Check that the gyroscope is anchored, powered, and enabled.
-    - Check that the mini gravity generator is anchored, powered, and enabled.
-    - Check that radiation shutters are closed.
-
-    ## Sidenotes
-
-    * - Eagle-class medical response ships are equipped with several APC units that can be used to appraise the ship's total power consumption (which for the unmodified ship is 15.7 kW). To keep the substation and APC fully charged, the generator target power should exceed APC's Load, but by as little as possible to achieve maximum fuel efficiency. Remember to check the APC Load and adjust the generator unit's target power after adding or removing power-consuming machines.
-
-    ** - Eagle-class ships have a slightly above average power demand. A standard P.A.C.M.A.N. generator's target power value can be set to 15-16 kW to modulate between drain and charge. As much of the powerdraw is to sustain the chemistry lab powering down those machines can dramatically reduce the ship's overall draw.
-
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
 </Document>

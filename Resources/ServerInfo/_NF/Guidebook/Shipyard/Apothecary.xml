@@ -1,95 +1,56 @@
 <Document>
-    # МЕДИЦИНСКИЙ ШАТТЛ КЛАССА АПОТЕКАРИ
-    <Box>
-      <GuideEntityEmbed Entity="ComputerCrewMonitoring"/>
-      <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
-      <GuideEntityEmbed Entity="RollerBed"/>
-      <GuideEntityEmbed Entity="BodyBag"/>
-	  <GuideEntityEmbed Entity="ChemMaster"/>
-    </Box>
-    <Box>
-    <GuideEntityEmbed Entity="ShuttleMapApothecary" Caption=""/>
-    </Box>
-  
-    [color=#a4885c]Размер корабля: [/color] Маленький
+# APOTHECARY-CLASS MEDICAL SHUTTLE
+<Box>
+  <GuideEntityEmbed Entity="ComputerCrewMonitoring" Caption="Rescue"/>
+  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Research"/>
+  <GuideEntityEmbed Entity="ChemMaster" Caption="Provide"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="ShuttleMapApothecary" Caption=""/>
+</Box>
 
-    [color=#a4885c]Рекомендуемый экипаж:[/color] 1-3
+[color=#a4885c]Ship Size:[/color] Small
 
-    [color=#a4885c]Тип электрогенератора:[/color] Урановый
+[color=#a4885c]Recommended Crew:[/color] 1-3
 
-    [color=#a4885c]Экспедиции:[/color] Нет
+[color=#a4885c]Power Gen Type:[/color] Uranium
 
-    [color=#a4885c]IFF Console:[/color] Нет
+# Shuttle Brief
 
-    "Скромная химическая лаборатория и корабль медицинской поддержки, предназначенный для поддержки колонизации дальнего космоса, добычи полезных ископаемых и исследования ксеносов. Разрабатываемый компанией Far Star Biotech, «Аптекарь» - это универсальное средство помощи и оздоровления для скалолазов и ксено-биологов."
+"A medical response and chemical production shuttle. Produced by the Far Star Corporation, the Apothecary is as comfortable navigating the mineral fields of the Frontier as it is serving as the medical clinic of a station." 
 
-    # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
+# Ship Functions
 
-    ## 1. Электропитание
+<Box>
+  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Bolt Exterior Airlocks"/>
+  <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Toggle Thrusters"/>
+  <GuideEntityEmbed Entity="ButtonFrameGrey" Caption="Actuate Shutters"/>
+</Box>
 
-    ## 1.1. Аккумуляторные блоки
-    <Box>
-        <GuideEntityEmbed Entity="SMESBasic"/>
-        <GuideEntityEmbed Entity="SubstationWallBasic"/>
-        <GuideEntityEmbed Entity="APCBasic"/>
-    </Box>
+# Medical
 
-  - Проверьте, закреплен ли СМЭС на полу.
-  - Проверьте, закреплен ли блок подстанции на полу.
-  - Проверьте, включены ли все главные выключатели блоков APC.
-  - Проверьте текущую нагрузку всех блоков APC* (Вт).
+[textlink="Medicine" link="Medical Doctor"/]
 
-    ## 1.2. S.U.P.E.R.P.A.C.M.A.N. generator unit
-    <Box>
-        <GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
-        <GuideEntityEmbed Entity="SheetUranium"/>
-        <GuideEntityEmbed Entity="SignRadiationMed"/>
-    </Box>
+[textlink="Chemistry" link="Chemist"/]
 
-   - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit is anchored to the floor.
-   - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit has fuel. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation during flight.
-   - Check if the S.U.P.E.R.P.A.C.M.A.N. generator unit is set to HV output.
-   - Set Target Power for 26 [bold]k[/bold]W.
-   - Start the S.U.P.E.R.P.A.C.M.A.N. generator unit.
+[textlink="Chemicals" link="Chemicals"/]
 
-  ## 2. Атмосфера
-  
-  ## 2.1. Схема дистрибуции
-  <Box>
-        <GuideEntityEmbed Entity="AirCanister"/>
-        <GuideEntityEmbed Entity="GasPort"/>
-        <GuideEntityEmbed Entity="GasPressurePump"/>
-    </Box>
+[textlink="Botany" link="Botany"/]
 
-    - Убедитесь, что воздушный баллон закреплен на порте разъема.
-    - Убедитесь, что распределительный насос настроен на 101 кПа (101 кПа).
-    - Проверьте распределительный насос. Находится на палубе инженерной гондолы.
+# Piloting
 
-    ## 2.2. Шлейф отходов
-    <Box>
-        <GuideEntityEmbed Entity="GasPressurePump"/>
-        <GuideEntityEmbed Entity="AirAlarm"/>
-    </Box>
+[textlink="Piloting" link="Piloting"/]
 
-    - Проверьте насос отработанного контура. Находится на палубе грузовой гондолы.
-    - Установите воздушную сигнализацию в машинном отделении в режим фильтрации (широкий).
+[textlink="Sector Topology" link="SectorTopology"/]
 
-    ## 3. Другие проверки
-    <Box>
-        <GuideEntityEmbed Entity="Gyroscope"/>
-        <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-        <GuideEntityEmbed Entity="BlastDoor"/>
-    </Box>
+# Hiring crew
 
-    - Проверьте, что гироскоп закреплен, питается и включен.
-    - Убедитесь, что мини-генератор гравитации закреплен, питается и включен.
-    - Проверьте, закрыты ли взрывные двери.
-    - Убедитесь, что фигурки удобны.
+[textlink="Hiring" link="Hiring"/]
 
-    ## Примечания
+As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
 
-    * - Корабли медицинского реагирования класса Apothecary оснащены одним блоком APC, который можно использовать для оценки общего энергопотребления корабля (которое для немодифицированного корабля составляет 15,3 кВт). Для поддержания полной зарядки подстанции и APC целевая мощность генератора должна превышать нагрузку APC, но как можно меньше, чтобы достичь максимальной эффективности использования топлива. Не забывайте проверять нагрузку БТР и корректировать целевую мощность генератора после добавления или удаления энергопотребляющих машин.
+# PREFLIGHT CHECKLIST
 
-    ** - Корабли класса Apothecary имеют потребность в энергии чуть выше среднего. Целевая мощность стандартного генератора P.A.C.M.A.N. может быть установлена на 15-16 кВт для модуляции между расходом и зарядом. Поскольку большая часть потребляемой энергии приходится на химическую лабораторию, отключение этих машин может значительно снизить общее потребление энергии кораблем..
+[textlink="Preflight Checklist" link="PreflightChecklist"/]
 
 </Document>

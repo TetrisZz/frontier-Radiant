@@ -98,11 +98,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobPunkGangerLeader"/>
   </Box>
-  Уничтожьте большое и опасное существо - главаря [color=#a4885c]панк-банды[/color] за отведенное время, чтобы получить денежное вознаграждение.
+  Eliminate a large and dangerous creature - a [color=#a4885c]punk gang leader[/color] within given time constraints.
   
   ## Destruction
   <Box>
   <GuideEntityEmbed Entity="PunkPartySupplies"/>
   </Box>
-  Уничтожьте определенное количество [color=#a4885c]партийных принадлежностей[/color] за заданное время, чтобы получить денежное вознаграждение.
+  Destroy a certain number of [color=#a4885c]party supplies[/color] within given time constraints.
 </Document>

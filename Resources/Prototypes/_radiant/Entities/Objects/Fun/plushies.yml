@@ -1,0 +1,44 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieHomka
+  name: плюшевая хомка
+  description: Хомка, только плюшевая
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Plushies/homka.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: Clothing
+    quickEquip: false
+    sprite: _radiant/Objects/Fun/Plushies/homka.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: HamptrPlushie

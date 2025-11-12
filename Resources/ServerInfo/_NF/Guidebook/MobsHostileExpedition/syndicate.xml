@@ -186,11 +186,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalCommanderA"/>
   </Box>
-  Уничтожьте большое и опасное существо - [color=#a4885c]командира синдиката[/color] за отведенное время, чтобы получить денежное вознаграждение.
+  Eliminate a large and dangerous creature - a [color=#a4885c]syndicate commander[/color] within given time constraints.
   
   ## Разрушение
   <Box>
   <GuideEntityEmbed Entity="CybersunDataMiner"/>
   </Box>
-  Уничтожьте определенное количество [color=#a4885c]добытчиков данных [/color]киберсунна[/color] за заданное время, чтобы получить денежное вознаграждение.
+  Destroy a certain number of [color=#a4885c]cybersun data miners[/color] within given time constraints.
 </Document>

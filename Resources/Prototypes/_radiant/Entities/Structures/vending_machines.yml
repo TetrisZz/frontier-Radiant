@@ -148,8 +148,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    screenState: screen
-  - type: Advertise
+  - type: DatasetVocalizer
     pack: SyndieDrobeAds
   - type: Sprite
     sprite: _radiant/Structures/Machines/VendingMachines/tokensnavy.rsi
@@ -193,8 +192,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    screenState: screen
-  - type: Advertise
+  - type: DatasetVocalizer
     pack: SyndieDrobeAds
   - type: Sprite
     sprite: _radiant/Structures/Machines/VendingMachines/tokenssep.rsi

@@ -14,81 +14,29 @@
 
   [color=#a4885c]Тип электрогенератора:[/color] Урановый
 
-  [color=#a4885c]Экспедиции:[/color] None
-
-  [color=#a4885c]Консоль опознавания:[/color] Нет
+  # Shuttle Brief
 
   "A medium sized vessel specializing in long-haul salvage, mining, and cargo operations."
 
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
+  # Ship Functions
 
-  ## 1. Электропитание
+  # Cargo
 
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SMESBasic"/>
-  <GuideEntityEmbed Entity="SubstationBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
+  [textlink="Cargo Hauling" link="CargoHauling"/]
 
-  - Убедитесь, что подстанция закреплена на полу.
-  - Убедитесь, что ЛКП включена.
-  - Проверьте текущую нагрузку ЛКП* (Вт).
+  # Piloting
 
-  ## 1.2. Генератор S.U.P.E.R.P.A.C.M.A.N.
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
-  <GuideEntityEmbed Entity="SheetUranium"/>
-  <GuideEntityEmbed Entity="SignRadiationMed"/>
-  </Box>
+  [textlink="Piloting" link="Piloting"/]
 
-  - Проверьте, закреплен ли генератор S.U.P.E.R.P.A.C.M.A.N. на полу.
-  - Проверьте, есть ли в генераторе S.U.P.E.R.P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас есть достаточный запас топлива для длительной выработки энергии во время полета.
-  - Проверьте, настроен ли генератор S.U.P.E.R.P.A.C.M.A.N. на выход HV.
-  - Установите целевую мощность на 30-35 [bold]к[/bold]Вт.
-  - Запустите генератор S.U.P.E.R.P.A.C.M.A.N.
-  - Закройте радиационную защиту.
+  [textlink="Sector Topology" link="SectorTopology"/]
 
-  ## 2. Атмосфера
+  # Hiring crew
 
-  ## 2.1. Распределительная петля
-  <Box>
-  <GuideEntityEmbed Entity="GasPort"/>
-  <GuideEntityEmbed Entity="OxygenCanister"/>
-  <GuideEntityEmbed Entity="NitrogenCanister"/>
-  <GuideEntityEmbed Entity="GasMixer"/>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  </Box>
+  [textlink="Hiring" link="Hiring"/]
 
-  - Убедитесь, что баллон O2 закреплен на соединительном порту.
-  - Убедитесь, что баллон с N2 закреплен на соединительном порту.
-  - Убедитесь, что газовый смеситель настроен на правильное соотношение смешивания (21% кислорода, 79% азота).
-  - Убедитесь, что газовый смеситель настроен на 101 кПа.
-  - Убедитесь, что газовый смеситель включен.
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
 
-  ## 2.2. Схема отходов
-  <Box>
-    <GuideEntityEmbed Entity="GasPressurePump"/>
-    <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
+  # PREFLIGHT CHECKLIST
 
-  - Locate the release valve leading to the passive ventilation duct located on the back exterior of the ship and make sure it is open. The release valve can be found inside the back airlock leading up to the ship exterior.
-
-  ## 3. Other checks
-  <Box>
-    <GuideEntityEmbed Entity="Gyroscope"/>
-    <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  </Box>
-
-  - Check if the gyroscope is anchored, powered, and enabled. It can be found adjacent to your engine.
-  - Check if the mini gravity generator is anchored, powered, and enabled inside the engine room.
-
-  ## Sidenotes
-
-  * - Hauler-class salvage ships are equipped with three APC units that can be used to appraise the ship's total power consumption. Unmodified Hauler-class ships require ~27 kW of power to remain operational.
-
-  ** - Hauler-class salvage ships have higher power demand than a standard P.A.C.M.A.N. can provide at optimal settings, and come equipped with a S.U.P.E.R.P.A.C.M.A.N. instead. Please note that the recommended Target Power value to avoid blackouts during Gravity Generator charging sequence is 35 kW.
-
-  [bold]Note:[/bold] Without a working generator, fully charged battery units (SMES and substation) can provide power in a stock Hauler for approximately 5 minutes.
-
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
 </Document>
