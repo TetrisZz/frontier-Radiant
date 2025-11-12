@@ -190,11 +190,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobBloodCultistAscended"/>
   </Box>
-  Уничтожьте большое и опасное существо — [color=#a4885c]восставшего культиста[/color] — в течение заданного времени, чтобы получить денежное вознаграждение.
+  Eliminate a large and dangerous creature - an [color=#a4885c]ascended cultist[/color] within given time constraints.
   
   ##Разрушение
   <Box>
   <GuideEntityEmbed Entity="BloodCollector"/>
   </Box>
-  Уничтожьте определённое количество [color=#a4885c]кровососов[/color] за отведённое время, чтобы получить денежное вознаграждение.
+  Destroy a certain number of [color=#a4885c]blood collectors[/color] within given time constraints.
 </Document>

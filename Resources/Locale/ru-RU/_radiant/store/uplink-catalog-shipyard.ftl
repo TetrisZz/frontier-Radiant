@@ -4,8 +4,8 @@ store-preset-name-separatist-shipyard = Военная поддержка
 store-category-separatist-shipyard = Корабли
 store-category-navy-shipyard = Корабли
 
-store-currency-display-separatist-token = Жетоны Сепаратистов
-store-currency-display-navy-token = Жетоны Конфедерации
+store-currency-display-separatist-token = ЖС
+store-currency-display-navy-token = ЖК
 
 uplink-navy-normandy-name = Нормандия
 uplink-navy-normandy-desc = Корабль с невероятно мощным основным орудием M381 CHARON и AK570 90mm как запасное, имеет L85 20mm, не не может совершать БСС.

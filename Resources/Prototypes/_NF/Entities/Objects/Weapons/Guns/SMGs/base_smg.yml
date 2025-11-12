@@ -1,22 +1,22 @@
 #region frame
 - type: entity
-  id: NFBaseWeaponFrameSubMachineGun
-  parent: [ NFBaseWeaponEncumbranceSubMachineGun, NFBaseItemWeaponGunMagazineFed ]
-  name: submachine gun
   abstract: true
+  parent: [ NFBaseWeaponEncumbranceSubMachineGun, NFBaseGunMeleeAttackMedium, NFBaseItemWeaponGunMagazineFed ]
+  id: NFBaseWeaponFrameSubMachineGun
+  name: submachine gun
   components:
-#  - type: Wieldable
-#    unwieldOnUse: false
-#  - type: GunWieldBonus Radiant_sector
-#    minAngle: -0.8 Radiant_sector
-#    maxAngle: -4 Radiant_sector
+#  - type: Wieldable # Radiant_sector
+#    unwieldOnUse: false # Radiant_sector
+#  - type: GunWieldBonus # Radiant_sector
+#    minAngle: -0.7 # Radiant_sector
+#    maxAngle: -3 # Radiant_sector
   - type: Gun
-#    projectileSpeed: 22.5 Radiant_sector
-#    minAngle: 3.7 Radiant_sector
-#    maxAngle: 18.5 Radiant_sector
-#    angleIncrease: 1 Radiant_sector
-#    angleDecay: 5 Radiant_sector
-#    fireRate: 6 Radiant_sector
+#    projectileSpeed: 22.5 # Radiant_sector
+#    minAngle: 3.1 # Radiant_sector
+#    maxAngle: 15.5 # Radiant_sector
+#    angleIncrease: 0.7 # Radiant_sector
+#    angleDecay: 3.5 # Radiant_sector
+#    fireRate: 6 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -28,73 +28,77 @@
 
 #region manufacturer
 - type: entity
-  id: NFBaseWeaponFrameSubMachineGunNanotrasen
-  parent: NFBaseWeaponFrameSubMachineGun
   abstract: true
+  parent: NFBaseWeaponFrameSubMachineGun
+  id: NFBaseWeaponFrameSubMachineGunNanotrasen
   components:
 #  - type: Wieldable
 #    unwieldOnUse: false
   - type: Gun
-#    minAngle: 4.3 Radiant_sector
-#    maxAngle: 21.5 Radiant_sector
-#    angleIncrease: 1.4 Radiant_sector
-#    angleDecay: 4.8 Radiant_sector
-#    fireRate: 5.1 Radiant_sector
+#    minAngle: 3.6 # Radiant_sector
+#    maxAngle: 18 # Radiant_sector
+#    angleIncrease: 1 # Radiant_sector
+#    angleDecay: 3.4 # Radiant_sector
+#    fireRate: 5.1 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
 
 - type: entity
-  id: NFBaseWeaponFrameSubMachineGunCybersun
-  parent: [ BaseC3SyndicateContraband, NFBaseWeaponFrameSubMachineGun ]
   abstract: true
+  parent: [ BaseC3SyndicateContraband, NFBaseWeaponFrameSubMachineGun ]
+  id: NFBaseWeaponFrameSubMachineGunCybersun
   components:
-  - type: Wieldable
-    unwieldOnUse: false
-  - type: Gun
-#    angleIncrease: 1.1 Radiant_sector
-#    angleDecay: 7.7 Radiant_sector
-#    fireRate: 4.8 Radiant_sector
-    minAngle: 21 # Radiant_sector
-    maxAngle: 32 # Radiant_sector
-    shotsPerBurst: 5 # Radiant_sector
+  - type: Wieldable # Radiant_sector
+    unwieldOnUse: false # Radiant_sector
   - type: GunWieldBonus # Radiant_sector
     minAngle: -19 # Radiant_sector
     maxAngle: -16 # Radiant_sector
+  - type: Gun
+#    angleIncrease: 0.7 # Radiant_sector
+#    angleDecay: 5 # Radiant_sector
+#    fireRate: 4.8 # Radiant_sector
+    minAngle: 21 # Radiant_sector
+    maxAngle: 32 # Radiant_sector
+    shotsPerBurst: 5 # Radiant_sector
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-cybersun-industries
 
 - type: entity
-  id: NFBaseWeaponFrameSubMachineGunGorlex
-  parent: [ BaseC3SyndicateContraband, NFBaseWeaponFrameSubMachineGun ]
   abstract: true
+  parent: [ BaseC3SyndicateContraband, NFBaseWeaponFrameSubMachineGun ]
+  id: NFBaseWeaponFrameSubMachineGunGorlex
   components:
   - type: Gun
-#    minAngle: 4.1
-#    maxAngle: 20.5
-#    angleIncrease: 1.8
-#    angleDecay: 6.5
-    fireRate: 10
+#    minAngle: 3.4 # Radiant_sector
+#    maxAngle: 17 # Radiant_sector
+#    angleIncrease: 1.2 # Radiant_sector
+#    angleDecay: 4.3 # Radiant_sector
+    fireRate: 10 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-gorlex-steel-works
 
 - type: entity
-  id: NFBaseWeaponFrameSubMachineGunFrontierGunsmith
-  parent: [ NFBaseWeaponFrameSubMachineGun ]
   abstract: true
+  parent: [ NFBaseWeaponFrameSubMachineGun ]
+  id: NFBaseWeaponFrameSubMachineGunFrontierGunsmith
   components:
   - type: Gun
-    minAngle: 4.4
-    maxAngle: 22
-    angleIncrease: 2.1
-    angleDecay: 6.7
+    minAngle: 3.7
+    maxAngle: 15
+    angleIncrease: 1.4
+    angleDecay: 4.5
     fireRate: 4.8
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-frontier-gunsmith-consortium
 
 #region chamber
 - type: entity
-  id: NFBaseWeaponSubMachineGunChamber
   abstract: true
+  id: NFBaseWeaponSubMachineGunChamber
   components:
   - type: Gun
     examineCaliber: gun-examine-caliber-35
@@ -109,9 +113,9 @@
       gun_chamber: !type:ContainerSlot
 
 - type: entity
-  id: NFBaseWeaponSubMachineGunChamber35
-  parent: NFBaseWeaponSubMachineGunChamber
   abstract: true
+  parent: NFBaseWeaponSubMachineGunChamber
+  id: NFBaseWeaponSubMachineGunChamber35
   components:
   - type: ItemSlots
     slots:
@@ -134,9 +138,9 @@
             - NFCartridgePistol35
 
 - type: entity
-  id: NFBaseWeaponSubMachineGunChamber35Rubber
-  parent: NFBaseWeaponSubMachineGunChamber35
   abstract: true
+  parent: NFBaseWeaponSubMachineGunChamber35
+  id: NFBaseWeaponSubMachineGunChamber35Rubber
   components:
   - type: ItemSlots
     slots:
@@ -157,9 +161,9 @@
             - NFCartridgePistol35
 
 - type: entity
-  id: NFBaseWeaponSubMachineGunChamber35TopMounted
-  parent: NFBaseWeaponSubMachineGunChamber
   abstract: true
+  parent: NFBaseWeaponSubMachineGunChamber
+  id: NFBaseWeaponSubMachineGunChamber35TopMounted
   components:
   - type: ItemSlots
     slots:
@@ -175,9 +179,9 @@
       gun_chamber: *chamber35Standard
 
 - type: entity
-  id: NFBaseWeaponSubMachineGunChamber35TopMountedRubber
-  parent: NFBaseWeaponSubMachineGunChamber35TopMounted
   abstract: true
+  parent: NFBaseWeaponSubMachineGunChamber35TopMounted
+  id: NFBaseWeaponSubMachineGunChamber35TopMountedRubber
   components:
   - type: ItemSlots
     slots:

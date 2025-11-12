@@ -31,7 +31,7 @@
         - type: StationNameSetup
           mapNameTemplate: 'МНБ Икарус'
         - type: ExtraStationInformation
-          iconPath: /Textures/_radiant/Structures/Decoration/flags.rsi/acorp_flag.png
+          iconPath: /Textures/_radiant/Interface/StationIcons/acorp_flag.png
           stationSubtext: 'frontier-lobby-acorp-subtext'
           stationDescription: 'frontier-lobby-acorp-icarus-description'
           lobbySortOrder: 4

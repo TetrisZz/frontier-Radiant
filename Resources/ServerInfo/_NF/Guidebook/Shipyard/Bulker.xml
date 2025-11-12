@@ -8,87 +8,32 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapBulker" Caption=""/>
   </Box>
-    [color=#a4885c]Размер корабля:[/color] Medium
-	
-	[color=#a4885c]Рекомендуемый экипаж:[/color] 2-4
-	
-	[color=#a4885c]Тип электрогенератора:[/color] Урановый
-	
-	[color=#a4885c]Экспедиции:[/color] Нет
-	
-	[color=#a4885c]IFF Console:[/color] Нет
-	
-  "Среднее шахтерское судно, предназначенное для полетов в дальний космос."
-  
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
-  
-  ## 1. Электропитание
-  
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SMESBasic"/>
-  <GuideEntityEmbed Entity="SubstationBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-  
-  - Убедитесь, что блок SMES закреплен на полу.
-  - Убедитесь, что блок подстанции закреплен на полу.
-  - Убедитесь, что главный выключатель блока APC включен.
-  - Проверьте текущую нагрузку блока APC* (Вт).
-  
-  ## 1.2. Генераторный блок S.U.P.E.R.P.A.C.M.A.N.
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
-  <GuideEntityEmbed Entity="SheetUranium"/>
-  <GuideEntityEmbed Entity="SignRadiationMed"/>
-  </Box>
-  
-  - Убедитесь, что генераторный блок S.U.P.E.R.P.A.C.M.A.N. закреплен на полу.
-  - Убедитесь, что в генераторе S.U.P.E.R.P.A.C.M.A.N. есть топливо. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки энергии во время полета.
-  - Убедитесь, что генераторный блок S.U.P.E.R.P.A.C.M.A.N. настроен на выход HV.
-  - Установите целевую мощность на 27-28** [bold]кВт[/bold].
-  - Запустите генераторную установку S.U.P.E.R.P.A.C.M.A.N.
-  
-  ## 2. Атмосфера
-  
-  ## 2.1. Схема дистрибуции
-  <Box>
-  <GuideEntityEmbed Entity="GasPort"/>
-  <GuideEntityEmbed Entity="OxygenCanister"/>
-  <GuideEntityEmbed Entity="NitrogenCanister"/>
-  <GuideEntityEmbed Entity="GasMixer"/>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  </Box>
-  
-  - Убедитесь, что баллон O2 закреплен на порте разъема.
-  - Убедитесь, что баллон с N2 закреплен на порту разъема.
-  - Убедитесь, что газовый смеситель настроен на правильное соотношение смешивания (21% кислорода, 79% азота).
-  - Убедитесь, что газовый смеситель настроен на 101 кПа.
-  - Включите газовый смеситель.
-  
-  ## 2.2. Петля для отходов
-  <Box>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
-    
-  - Включите насос отработанного контура.
-  
-  ## 3. Другие проверки
-  <Box>
-  <GuideEntityEmbed Entity="Gyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  <GuideEntityEmbed Entity="BlastDoor"/>
-  </Box>
-  
-  - Проверьте, что гироскоп закреплен, питается и включен.
-  - Убедитесь, что мини-генератор гравитации закреплен, питается и включен.
-  - Убедитесь, что взрывные двери закрыты.
-  
-  ## Sidenotes
-  
-  * - Спасательные корабли класса Bulker оснащены двумя блоками APC, которые можно использовать для оценки общего энергопотребления корабля. Немодифицированные корабли класса Bulker требуют 26,6 кВт энергии для поддержания работоспособности.
-  
-  ** - Спасательные корабли класса Bulker потребляют больше энергии, чем может обеспечить стандартный P.A.C.M.A.N. при оптимальных настройках, поэтому вместо него устанавливается S.U.P.E.R.P.A.C.M.A.N. Обратите внимание, что рекомендуемое значение целевой мощности во избежание отключения электричества во время зарядки гравитационного генератора составляет 28 кВт.
-  
+  [color=#a4885c]Ship Size:[/color] Medium
+
+  [color=#a4885c]Recommended Crew:[/color] 2-4
+
+  [color=#a4885c]Power Gen Type:[/color] Uranium
+
+  # Shuttle Brief
+
+  "A medium mining vessel designed for deep space missions."
+
+  # Ship Functions
+
+  # Piloting
+
+  [textlink="Piloting" link="Piloting"/]
+
+  [textlink="Sector Topology" link="SectorTopology"/]
+
+  # Hiring crew
+
+  [textlink="Hiring" link="Hiring"/]
+
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+
+  # PREFLIGHT CHECKLIST
+
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+
 </Document>

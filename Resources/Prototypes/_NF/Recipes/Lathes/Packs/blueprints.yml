@@ -160,6 +160,7 @@
   # MiscellaneousItemsOrganization
   - NFPouchFirstAid
   - NFPouchFirstAidAlt
+  - MedicalPouch
   # ChemicalDispensary
   - ChemMasterMachineCircuitboard
   - ChemDispenserMachineCircuitboard
@@ -186,6 +187,8 @@
   # HardsuitsArmored
   - ClothingOuterHardsuitMercenary
   - ClothingOuterHardsuitPrivateSecurity
+  # HardsuitsOldWar
+  - ClothingOuterHardsuitSurplus
   # ArsenalStyle
   - ClothingEyesPunkInfoShades
   - ClothingOuterArmorPunkRandomized
@@ -206,6 +209,7 @@
   - ClothingOuterCoatBomberRandomized
   # HardsuitsArmoredAdvanced
   - ClothingOuterHardsuitScaf
+  - ClothingOuterHardsuitNoble
   # MiscellaneousItemsOrganization
   - NFPouchMercenary
   - NFPouchPrivateSecurity
@@ -254,10 +258,12 @@
   - JetpackVoid
   # BluespaceGasTanks
   - BluespaceAirTank
+  - SmallBluespaceAirTank
   # SalvageEquipment
   - MiningDrill
   - WeaponGrapplingGun
   - MineralScannerEmpty
+  - OreProcessorMachineCircuitboard
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
   # SpaceScanning
@@ -317,8 +323,9 @@
   - DeviceDesynchronizer
   # MagnetsTechAdvanced
   - ClothingShoesBootsMagAdv
-  # HardsuitsExperimentalRD
+  # HardsuitsExperimentalProtection
   - ClothingOuterHardsuitRd
+  - ClothingOuterHardsuitHostileEnvironment
   # IndustrialEngineering
   - ProtolatheHyperConvectionMachineCircuitboard
   # AdvancedToolsTechnology
@@ -479,6 +486,7 @@
   - TimerTrigger
   - FlashPayload
   - ChemicalPayload
+  - ExplosivePayload
   # NFBasicShuttleArmament
   - PowerCageRechargerCircuitboard
   - PowerCageSmall

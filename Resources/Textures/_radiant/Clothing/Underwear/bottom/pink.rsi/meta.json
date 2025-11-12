@@ -1,6 +1,6 @@
 {
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Homka",
+  "copyright": "Made by Homka for the Radiant sector - Frontier",
   "version": 1,
   "size": {
     "x": 32,
@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "Made by Homka for the Radiant sector - Frontier",
+      "name": "equipped-UNDERWEARB",
       "directions": 4
     },
     {

@@ -8,96 +8,32 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapBazaar" Caption=""/>
   </Box>
-    [color=#a4885c]Размер корабля:[/color] Средний
-	
-	[color=#a4885c]Рекомендуемый экипаж:[/color] 4+
-	
-	[color=#a4885c]Тип электрогенератора:[/color] Урановый
-	
-	[color=#a4885c]Экспедиции:[/color] Нет
-	
-	[color=#a4885c]IFF Console:[/color] Нет
-	
-  "Базар - это судно для личного обслуживания, предназначенное для продажи товаров торговцами. На судне есть два закрывающихся грузовых дока, просторный грузовой отсек и пост наемников для охраны магазина.."
-    
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
-  
-  ## 1. Электропитание
-  
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SMESBasic"/>
-  <GuideEntityEmbed Entity="SubstationBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-  
-  - Проверьте, закреплен ли СМЭС на полу.
-  - Проверьте, закреплен ли блок подстанции на полу.
-  - Проверьте, включены ли все главные выключатели блоков APC.
-  - Проверьте текущую нагрузку всех блоков APC* (Вт).
-  
-  ## 1.2. S.U.P.E.R.P.A.C.M.A.N. generator unit
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorSuperPacman"/>
-  <GuideEntityEmbed Entity="SheetUranium"/>
-  <GuideEntityEmbed Entity="SignRadiationMed"/>
-  </Box>
-  
-  - Убедитесь, что генераторы S.U.P.E.R.P.A.C.M.A.N. закреплены на полу.
-  - Убедитесь, что в генераторах S.U.P.E.R.P.A.C.M.A.N. есть топливо. При длительных полетах убедитесь, что у вас есть достаточный запас топлива для длительной выработки энергии во время полета.
-  - Убедитесь, что генераторы S.U.P.E.R.P.A.C.M.A.N. установлены на выход HV.
-  - Установите целевую мощность на 40-41** [bold]кВт[/bold].
-  - Запустите генераторные установки S.U.P.E.R.P.A.C.M.A.N.
-  
-  ## 2. Атмосфера
-  
-  ## 2.1. Схема дистрибуции
-  <Box>
-  <GuideEntityEmbed Entity="GasPort"/>
-  <GuideEntityEmbed Entity="OxygenCanister"/>
-  <GuideEntityEmbed Entity="NitrogenCanister"/>
-  <GuideEntityEmbed Entity="GasMixer"/>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  </Box>
-  
-  - Убедитесь, что баллон O2 закреплен на порте разъема.
-  - Убедитесь, что баллон с N2 закреплен на порту разъема.
-  - Убедитесь, что газовый смеситель настроен на правильное соотношение смешивания (21% кислорода, 79% азота).
-  - Убедитесь, что газовый смеситель настроен на 101 кПа.
-  - Включите газовый смеситель.
-  
-  ## 2.2. Шлейф отходов
-  <Box>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
-    
-  - Включите насос отработанного контура.
-  - Отключите автоматический режим на сигнализаторе воздуха в машинном отделении.
-  - Установите для воздушной сигнализации в машинном отделении режим фильтрации (широкий).
-  
-  ## 3. Другие проверки
-  <Box>
-  <GuideEntityEmbed Entity="Gyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  <GuideEntityEmbed Entity="BlastDoor"/>
-  </Box>
-  
-  - Проверьте, что гироскоп закреплен, питается и включен.
-  - Убедитесь, что мини-генератор гравитации закреплен, питается и включен.
-  - Убедитесь, что взрывные двери закрыты.
-  
-  ## Примечания
-  
- * - Служебные корабли класса «Базар» оснащены девятью блоками APC, которые можно использовать для оценки общего энергопотребления корабля. Можно сверить общее потребление энергии корабля с целевой мощностью генератора S.U.P.E.R.P.A.C.M.A.N.: чтобы SMES, подстанция и APC были полностью заряжены, целевая мощность генератора S.U.P.E.R.P.A.C.M.A.N. должна превышать нагрузку APC. Не забудьте проверить нагрузку APC и отрегулировать целевую мощность генератора после подключения новых энергопотребляющих машин.
-  
-  ** - Сервисные корабли класса «Базар» имеют более высокую потребность в энергии, чем может обеспечить стандартный генераторный блок P.A.C.M.A.N. при оптимальных настройках, поэтому стандартный P.A.C.M.A.N. был заменен на два S.U.P.E.R.P.A.C.M.A.N.: рекомендуемое значение целевой мощности, чтобы избежать отключений во время зарядки Гравитационного генератора, составляет 41 кВт.
+  [color=#a4885c]Ship Size:[/color] Medium
 
-  <Box>
-  <GuideEntityEmbed Entity="SignRadiationMed"/>
-  <GuideEntityEmbed Entity="ClothingOuterSuitRad"/>
-  <GuideEntityEmbed Entity="GeigerCounter"/>
-  <GuideEntityEmbed Entity="ShuttersRadiation"/>
-  </Box>
-   Примечание: При работе с радиоактивными материалами обязательно принимайте все необходимые меры защиты: используйте радиационный костюм, задействуйте внутренние устройства, обязательно включите счетчик Гейгера, мойте руки после работы и держите радиационную завесу.
+  [color=#a4885c]Recommended Crew:[/color] 4+
+
+  [color=#a4885c]Power Gen Type:[/color] Uranium
+
+  # Shuttle Brief
+
+  "The Bazaar is a personal service vessel designed to provide a platform for merchants to sell their goods. It features two locking cargo docks, a spacious cargo hold, and a mercenary post for shop security."
+
+  # Ship Functions
+
+  # Piloting
+
+  [textlink="Piloting" link="Piloting"/]
+
+  [textlink="Sector Topology" link="SectorTopology"/]
+
+  # Hiring crew
+
+  [textlink="Hiring" link="Hiring"/]
+
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+
+  # PREFLIGHT CHECKLIST
+
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+
 </Document>

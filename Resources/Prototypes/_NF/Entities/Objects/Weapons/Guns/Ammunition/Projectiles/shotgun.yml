@@ -120,8 +120,8 @@
   abstract: true
   components:
   - type: ProjectileSpread
-#    count: 7 # eight(?) total, includes the spread as a bullet Radiant_sector
-#    spread: 10 Radiant_sector
+#    count: 7 # Radiant_sector
+#    spread: 7.5 # Radiant_sector
     count: 6 # Radiant_sector
     spread: 15 # Radiant_sector
 

@@ -20,11 +20,11 @@
       shader: unshaded
       map: [ "empty-icon" ]
   - type: Gun
-#    projectileSpeed: 20 Radiant_sector
-#    minAngle: 33.1 Radiant_sector
-#    maxAngle: 45.5 Radiant_sector
-#    angleIncrease: 7 Radiant_sector
-#    angleDecay: 5 Radiant_sector
+#    projectileSpeed: 22.5 Radiant_sector
+#    minAngle: 32.7 Radiant_sector
+#    maxAngle: 43.5 Radiant_sector
+#    angleIncrease: 5.6 Radiant_sector
+#    angleDecay: 3.7 Radiant_sector
 #    fireRate: 0.5 Radiant_sector
     selectedMode: SemiAuto
     availableModes:

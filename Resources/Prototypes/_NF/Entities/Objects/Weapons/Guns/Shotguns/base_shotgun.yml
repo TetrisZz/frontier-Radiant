@@ -1,21 +1,21 @@
 #region frame
 - type: entity
-  id: NFBaseWeaponFrameShotgun
-  parent: [ NFBaseWeaponEncumbranceRifle, NFBaseItemWeaponGun ]
   abstract: true
+  parent: [ NFBaseWeaponEncumbranceRifle, NFBaseGunMeleeAttackLow, NFBaseItemWeaponGun ]
+  id: NFBaseWeaponFrameShotgun
   components:
   - type: Sprite
     layers:
     - state: icon
       map: [ "enum.GunVisualLayers.Base" ]
   - type: Gun
-#    projectileSpeed: 20 Radiant_sector
-#    minAngle: 4.1 Radiant_sector
-#    maxAngle: 20.5 Radiant_sector
-#    angleIncrease: 2 Radiant_sector
-#    angleDecay: 4 Radiant_sector
-#    fireRate: 1.5 Radiant_sector
-    fireRate: 2 # Radiant_sector
+#    projectileSpeed: 20 # Radiant_sector
+#    minAngle: 3.4 # Radiant_sector
+#    maxAngle: 17 # Radiant_sector
+#    angleIncrease: 0.9 # Radiant_sector
+#    angleDecay: 4.5 # Radiant_sector
+#    fireRate: 1.5 # Radiant_sector
+#    fireRate: 2 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -29,9 +29,9 @@
     class: weapon-details-class-shotgun
 
 - type: entity
-  id: NFBaseWeaponFrameShotgunWieldable
-  parent: [ NFBaseWeaponEncumbranceRifle, NFBaseWeaponFrameShotgun ]
   abstract: true
+  parent: [ NFBaseWeaponEncumbranceRifle, NFBaseGunMeleeAttackMedium, NFBaseWeaponFrameShotgun ]
+  id: NFBaseWeaponFrameShotgunWieldable
   components:
   - type: Wieldable
     unwieldOnUse: false
@@ -47,8 +47,8 @@
 
 #region chamber
 - type: entity
-  id: NFBaseWeaponShotgunChamber50
   abstract: true
+  id: NFBaseWeaponShotgunChamber50
   components:
   - type: Gun
     examineCaliber: gun-examine-caliber-50
@@ -66,8 +66,8 @@
         ents: []
 
 - type: entity
-  id: NFBaseWeaponShotgunChamber50Magazine
   abstract: true
+  id: NFBaseWeaponShotgunChamber50Magazine
   components:
   - type: Sprite # janky here, but mag is optional and tied with chamber
     layers:

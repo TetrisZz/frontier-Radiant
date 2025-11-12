@@ -135,11 +135,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobXenoQueen"/>
   </Box>
-  Уничтожьте большое и опасное существо - [color=#a4885c]королеву[/color] за определенное время, чтобы получить денежное вознаграждение.
+  Eliminate a large and dangerous creature - a [color=#a4885c]queen[/color] within given time constraints.
   
   ## Разрушение
   <Box>
   <GuideEntityEmbed Entity="XenoWardingTower"/>
   </Box>
-  Уничтожьте определенное количество башен [color=#a4885c]xeno warding towers[/color] за заданное время, чтобы получить денежное вознаграждение.
+  Destroy a certain number of [color=#a4885c]xeno warding towers[/color] within given time constraints.
 </Document>

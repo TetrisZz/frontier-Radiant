@@ -1,17 +1,17 @@
 #region frame
 - type: entity
-  id: NFBaseWeaponFramePistol
-  parent: [ NFBaseWeaponEncumbrancePistol, NFBaseItemWeaponGunMagazineFed ]
-  name: pistol
   abstract: true
+  parent: [ NFBaseWeaponEncumbrancePistol, NFBaseGunMeleeAttackLow, NFBaseItemWeaponGunMagazineFed ]
+  id: NFBaseWeaponFramePistol
+  name: pistol
   components:
   - type: Gun
-#    projectileSpeed: 22.5 Radiant_sector
-#    minAngle: 3.1 Radiant_sector
-#    maxAngle: 15.5 Radiant_sector
-#    angleIncrease: 0.8 Radiant_sector
-#    angleDecay: 4 Radiant_sector
-#    fireRate: 4 Radiant_sector
+#    projectileSpeed: 22.5 # Radiant_sector
+#    minAngle: 2.7 # Radiant_sector
+#    maxAngle: 13.5 # Radiant_sector
+#    angleIncrease: 0.7 # Radiant_sector
+#    angleDecay: 3.5 # Radiant_sector
+#    fireRate: 4 # Radiant_sector
     minAngle: 1 # Radiant_sector
     maxAngle: 15 # Radiant_sector
     angleIncrease: 3 # Radiant_sector
@@ -27,37 +27,37 @@
 
 #region manufacturer
 - type: entity
-  id: NFBaseWeaponFramePistolNanotrasen
-  parent: NFBaseWeaponFramePistol
   abstract: true
+  parent: NFBaseWeaponFramePistol
+  id: NFBaseWeaponFramePistolNanotrasen
   components:
   - type: Gun
-#    minAngle: 3.6 Radiant_sector
-#    maxAngle: 18 Radiant_sector
-#    angleIncrease: 1.1 Radiant_sector
-#    angleDecay: 3.7 Radiant_sector
-#    fireRate: 3.4 Radiant_sector
+#    minAngle: 3.1 # Radiant_sector
+#    maxAngle: 15.5 # Radiant_sector
+#    angleIncrease: 1 # Radiant_sector
+#    angleDecay: 3.4 # Radiant_sector
+#    fireRate: 3.4 # Radiant_sector
     fireRate: 5 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
 
 - type: entity
-  id: NFBaseWeaponFramePistolCybersun
-  parent: [ BaseC3SyndicateContraband, NFBaseWeaponFramePistol ]
   abstract: true
+  parent: [ BaseC3SyndicateContraband, NFBaseWeaponFramePistol ]
+  id: NFBaseWeaponFramePistolCybersun
   components:
   - type: Gun
-#    angleIncrease: 0.9 Radiant_sector
-#    angleDecay: 6.3  Radiant_sector
-#    fireRate: 3.2 Radiant_sector
+#    angleIncrease: 0.8 # Radiant_sector
+#    angleDecay: 5.6 # Radiant_sector
+#    fireRate: 3.2 # Radiant_sector
     fireRate: 4 # Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-cybersun-industries
 
 #region chamber
 - type: entity
-  id: NFBaseWeaponPistolChamber
   abstract: true
+  id: NFBaseWeaponPistolChamber
   components:
   - type: Gun
     soundGunshot:
@@ -71,9 +71,9 @@
       gun_chamber: !type:ContainerSlot
 
 - type: entity
-  id: NFBaseWeaponPistolChamber35
-  parent: NFBaseWeaponPistolChamber
   abstract: true
+  parent: NFBaseWeaponPistolChamber
+  id: NFBaseWeaponPistolChamber35
   components:
   - type: Gun
     examineCaliber: gun-examine-caliber-35
@@ -99,9 +99,9 @@
             - NFCartridgePistol35
 
 - type: entity
-  id: NFBaseWeaponPistolChamber35HighCapacity
-  parent: NFBaseWeaponPistolChamber35
   abstract: true
+  parent: NFBaseWeaponPistolChamber35
+  id: NFBaseWeaponPistolChamber35HighCapacity
   components:
   - type: ItemSlots
     slots:
@@ -116,9 +116,9 @@
       gun_chamber: *chamber35Standard
 
 - type: entity
-  id: NFBaseWeaponPistolChamber35HighCapacityOverpressure
-  parent: NFBaseWeaponPistolChamber35
   abstract: true
+  parent: NFBaseWeaponPistolChamber35
+  id: NFBaseWeaponPistolChamber35HighCapacityOverpressure
   components:
   - type: ItemSlots
     slots:
@@ -139,9 +139,9 @@
             - NFCartridgePistol35
 
 - type: entity
-  id: NFBaseWeaponPistolChamber35HighCapacityRubber
-  parent: NFBaseWeaponPistolChamber35
   abstract: true
+  parent: NFBaseWeaponPistolChamber35
+  id: NFBaseWeaponPistolChamber35HighCapacityRubber
   components:
   - type: ItemSlots
     slots:
@@ -162,9 +162,9 @@
             - NFCartridgePistol35
 
 - type: entity
-  id: NFBaseWeaponPistolChamber45
-  parent: NFBaseWeaponPistolChamber
   abstract: true
+  parent: NFBaseWeaponPistolChamber
+  id: NFBaseWeaponPistolChamber45
   components:
   - type: Gun
     examineCaliber: gun-examine-caliber-45

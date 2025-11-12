@@ -25,3 +25,5 @@
       - EMAG # Radiant_sector
     useSound: # Radiant_sector
       path: /Audio/Items/Culinary/chop.ogg # Radiant_sector
+  - type: StaticPrice
+    price: 2500

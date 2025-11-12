@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:IAmRasputin#5242, reptilian made by kuro(388673708753027083), equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
+    "copyright": "Created by discord:IAmRasputin#5242, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord). Vox state made by Flareguy for SS14. equipped-OUTERCLOTHING-dog modified from equipped-OUTERCLOTHING by Scrubdelub (GitHub) for SS14.",
     "size": {
         "x": 32,
         "y": 32
@@ -15,11 +15,15 @@
             "directions": 4
         },
         {
-            "name": "equipped-OUTERCLOTHING-reptilian",
+            "name": "equipped-OUTERCLOTHING-resomi",
             "directions": 4
         },
         {
-            "name": "equipped-OUTERCLOTHING-resomi",
+            "name": "equipped-OUTERCLOTHING-dog",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-harpy",
             "directions": 4
         },
         {

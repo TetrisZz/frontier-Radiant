@@ -6,7 +6,8 @@
   </Box>
 
   When going on expedition, your ship will jump to a planet and you need to complete an objective in a limited time.
-  When that time runs out, the ship jumps back, [bold]whether you're on it or not[/bold].
+  Completing this objective lowers the wait until you can attempt the next expedition.
+  When your time runs out, the ship jumps back, [bold]whether you're on it or not[/bold].
 
   Корабли, купленные в Frontier Outpost [bold]не могут[/bold] отправиться в экспедицию, но [italic]купленные в [bold]Expeditionary Lodge[/bold] могут[/italic].
   Вам нужно будет использовать [color=#a4885c]консоль спасения[/color] на борту.

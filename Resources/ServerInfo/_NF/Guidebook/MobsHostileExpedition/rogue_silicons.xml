@@ -221,11 +221,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobRogueSiliconBoss"/>
   </Box>
-  Уничтожьте большое и опасное существо - [color=#a4885c]Мех One Star[/color] за определенное время, чтобы получить денежное вознаграждение.
+  Eliminate a large and dangerous creature - a [color=#a4885c]one star unit[/color] within given time constraints.
   
   ## Destruction
   <Box>
   <GuideEntityEmbed Entity="RogueAiNode"/>
   </Box>
-  Уничтожьте определенное количество [color=#a4885c]узлов[/color] за заданное время, чтобы получить денежное вознаграждение.
+  Destroy a certain number of [color=#a4885c]rogue ai nodes[/color] within given time constraints.
 </Document>

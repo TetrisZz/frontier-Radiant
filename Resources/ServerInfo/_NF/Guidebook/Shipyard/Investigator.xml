@@ -9,98 +9,36 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapInvestigator" Caption=""/>
   </Box>
-    [color=#a4885c]Размер корабля:[/color] Средний
-	
-	[color=#a4885c]Рекомендуемый экипаж:[/color] 2-3
-	
-	[color=#a4885c]Тип электрогенератора:[/color] Соляры/Плазма
-	
-	[color=#a4885c]Экспедиции:[/color] При покупке консоли - да
-	
-	[color=#a4885c]Консоль опознавания:[/color] Нет
-	
-  "Средний исследовательский шаттл, предназначенный для ксеноархеологических исследований."
-    
-  # КОНТРОЛЬНЫЙ СПИСОК ПЕРЕД ПОЛЕТОМ
-  
-  ## 1. Электропитание
-  
-  ## 1.1. Аккумуляторные блоки
-  <Box>
-  <GuideEntityEmbed Entity="SMESBasic"/>
-  <GuideEntityEmbed Entity="SubstationBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-  
-  - Убедитесь, что СМЭС закреплен на полу.
-  - Убедитесь, что подстанция закреплена на полу.
-  - Убедитесь, что ЛКП включена.
-  - Проверьте текущую нагрузку ЛКП* (Вт).
-  
-  ## 1.2. Генератор P.A.C.M.A.N.
-  <Box>
-  <GuideEntityEmbed Entity="PortableGeneratorPacmanShuttle"/>
-  <GuideEntityEmbed Entity="SheetPlasma"/>
-  </Box>
-  
-  - Проверьте, закреплен ли генератор P.A.C.M.A.N. на полу.
-  - Проверьте, есть ли в генераторе P.A.C.M.A.N. топливо. При длительных полетах убедитесь, что у вас запасено достаточно топлива для длительной выработки энергии во время полета.
-  - Проверьте, установлен ли генератор P.A.C.M.A.N. на выход HV.
-  - Установите целевую мощность на 15-20** [bold]k[/bold]Вт.
-  - Запустите генератор P.A.C.M.A.N.
-  
-  ## 1.3. Солнечные панели
-  <Box>
-  <GuideEntityEmbed Entity="ComputerSolarControl"/>
-  <GuideEntityEmbed Entity="SolarTracker"/>
-  <GuideEntityEmbed Entity="SolarPanel"/>
-  </Box>
-  - Осмотрите консоль управления солнечными батареями (находится в кабине шаттла).
-  - Отрегулируйте угловую скорость панели.
-  - Отрегулируйте угол наклона панели.
-  
-  ## 2. Атмосфера
-  
-  ## 2.1. Распределительная петля
-  <Box>
-  <GuideEntityEmbed Entity="OxygenCanister"/>
-  <GuideEntityEmbed Entity="NitrogenCanister"/>
-  <GuideEntityEmbed Entity="GasPort"/>
-  <GuideEntityEmbed Entity="GasMixer"/>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  </Box>
-  
-  - Убедитесь, что баллон O2 закреплен на соединительном порту.
-  - Убедитесь, что баллон с N2 закреплен на соединительном порту.
-  - Убедитесь, что газовый смеситель настроен на правильное соотношение смешивания (21% кислорода, 79% азота).
-  - Убедитесь, что газовый смеситель настроен на 101 кПа.
-  - Убедитесь, что газовый смеситель включен.
-  
-  ## 2.2. Схема отходов
-  <Box>
-  <GuideEntityEmbed Entity="GasPressurePump"/>
-  <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
-    
-  - Включите насос.
-  - Отключите автоматический режим на воздушной сигнализации.
-  - Установите для воздушной сигнализации режим фильтрации (широкий).
-  
-  ## 3. Другие проверки
-  <Box>
-  <GuideEntityEmbed Entity="Gyroscope"/>
-  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
-  <GuideEntityEmbed Entity="BlastDoor"/>
-  </Box>
-  
-  - Проверьте, что гироскоп закреплен, питается и включен.
-  - Убедитесь, что мини-генератор гравитации закреплен, питается и включен.
-  - Убедитесь, что гермозатворы закрыты.
-  
-  ## Примечания
-  
-  * - Исследовательские корабли класса INVESTIGATOR оснащены двумя блоками ЛКП, которые можно использовать для оценки общего энергопотребления корабля. Немодифицированный корабль класса "Следователь" требует 39,6 кВт энергии для поддержания работоспособности.
+  [color=#a4885c]Ship Size:[/color] Medium
 
-  ** - Потребность в энергии у исследовательских кораблей класса INVESTIGATOR выше, чем может обеспечить стандартный генераторный блок P.A.C.M.A.N. при оптимальных настройках, однако корабль оснащен дополнительным генераторным блоком P.A.C.M.A.N. и 67 солнечными панелями, которые могут обеспечить до 33,5 кВт энергии при идеальных условиях. Если предположить, что солнечная батарея будет выдавать треть от максимальной мощности, то рекомендуемая целевая мощность для каждого генератора P.A.C.M.A.N. составляет 15 кВт.
+  [color=#a4885c]Recommended Crew:[/color] 2-3
+
+  [color=#a4885c]Power Gen Type:[/color] Solar/Plasma
+
+  # Shuttle Brief
+
+  "A medium research shuttle designed for xenoarcheological studies."
+
+  # Shuttle Functions
+
+  # Science
+
+  [textlink="Science" link="Science"/]
+
+  # Piloting
+
+  [textlink="Piloting" link="Piloting"/]
+
+  [textlink="Sector Topology" link="SectorTopology"/]
+
+  # Hiring crew
+
+  [textlink="Hiring" link="Hiring"/]
+
+  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+
+  # PREFLIGHT CHECKLIST
+
+  [textlink="Preflight Checklist" link="PreflightChecklist"/]
 
 </Document>

@@ -144,11 +144,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobHorrorExpeditions"/>
   </Box>
-  Уничтожьте большое и опасное существо — [color=#a4885c]отвратительный кошмар из плоти[/color] — в течение заданного времени, чтобы получить денежное вознаграждение.
+  Eliminate a large and dangerous creature - an [color=#a4885c]aberrant flesh horror[/color] within given time constraints.
   
   ## Разрушение
   <Box>
   <GuideEntityEmbed Entity="AberrantFleshDigestiveSack"/>
   </Box>
-  Уничтожьте определённое количество [color=#a4885c]мешков с ассимиляцией[/color] в течение заданного времени, чтобы получить денежное вознаграждение. [bold][color=#a4885c]Примечание[/color][/bold]: из каждого мешка с ассимиляцией периодически может появиться несколько новорождённых монстров из плоти. Новорождённые монстры менее выносливы, чем их взрослые собратья.
+  Destroy a certain number of [color=#a4885c]assimilation sacks[/color] within given time constraints. [bold][color=#a4885c]Note[/color][/bold]: each assimilation sack may spawn a few newborn aberrant flesh monsters periodically. Newborns are less robust than their fully grown counterparts.
 </Document>

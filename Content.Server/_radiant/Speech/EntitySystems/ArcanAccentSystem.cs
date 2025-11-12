@@ -1,6 +1,8 @@
 ﻿using System.Text.RegularExpressions;
+using Content.Server.Speech.Components;
 using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech;
 using Content.Server._radiant.Speech.Components;
 using Robust.Shared.Random;
 

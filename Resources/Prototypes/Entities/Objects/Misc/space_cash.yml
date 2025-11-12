@@ -64,8 +64,9 @@
   - type: CargoSellBlacklist
   - type: ShipyardSellCondition # Frontier: Teleport to shipyard console on sale
     preserveOnSale: true
-  - type: PirateBountyItem
-    id: Spesos
+  - type: WarnOnCryoSleep # Frontier: Warn players who attempt to cryo with it in their inventory
+  - type: PirateBountyItem #radiant_sector
+    id: Spesos #radiant_sector
 
 - type: material
   id: Credit

@@ -1,53 +1,56 @@
 #region frame
 - type: entity
-  id: NFBaseWeaponFrameMachinePistol
-  parent: [ NFBaseWeaponEncumbranceMachinePistol, NFBaseItemWeaponGunMagazineFed ]
-  name: machine pistol
   abstract: true
+  parent: [ NFBaseWeaponEncumbranceMachinePistol, NFBaseGunMeleeAttackLow, NFBaseItemWeaponGunMagazineFed ]
+  id: NFBaseWeaponFrameMachinePistol
+  name: machine pistol
   components:
   - type: Gun
-#    projectileSpeed: 22.5 Radiant_sector
-#    minAngle: 3.7 Radiant_sector
-#    maxAngle: 18.5 Radiant_sector
-#    angleIncrease: 1 Radiant_sector
-#    angleDecay: 5 Radiant_sector
-#    fireRate: 4 Radiant_sector
-#    burstFireRate: 5 Radiant_sector
-#    shotsPerBurst: 3 Radiant_sector
-#    burstCooldown: 1 Radiant_sector
+#    projectileSpeed: 22.5 # Radiant_sector
+#    minAngle: 3.1 # Radiant_sector
+#    maxAngle: 15.5 # Radiant_sector
+#    angleIncrease: 0.8 # Radiant_sector
+#    angleDecay: 4 # Radiant_sector
+#    fireRate: 4 # Radiant_sector
+#    burstFireRate: 5 # Radiant_sector
+#    shotsPerBurst: 3 # Radiant_sector
+#    burstCooldown: 1 # Radiant_sector
     fireRate: 6 # Radiant_sector
-    selectedMode: FullAuto
+#    selectedMode: FullAuto # Radiant_sector
+    selectedMode: SemiAuto # Radiant_sector
     availableModes:
-    - FullAuto
-    - Burst
+#    - FullAuto # Radiant_sector
+#    - Burst # Radiant_sector
+     - SemiAuto # Radiant_sector
+     - FullAuto # Radiant_sector
   - type: NFWeaponDetails
     class: weapon-details-class-machine-pistol
 
 #region manufacturer
 - type: entity
-  id: NFBaseWeaponFrameMachinePistolNanotrasen
-  parent: NFBaseWeaponFrameMachinePistol
   abstract: true
+  parent: NFBaseWeaponFrameMachinePistol
+  id: NFBaseWeaponFrameMachinePistolNanotrasen
   components:
   - type: Gun
-#    minAngle: 4.3 Radiant_sector
-#    maxAngle: 21.5 Radiant_sector
-#    angleIncrease: 1.4 Radiant_sector
-#    angleDecay: 4.8 Radiant_sector
+#    minAngle: 3.6 Radiant_sector
+#    maxAngle: 18 Radiant_sector
+#    angleIncrease: 1.2 Radiant_sector
+#    angleDecay: 4.1 Radiant_sector
 #    fireRate: 3.4 Radiant_sector
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
 
 - type: entity
-  id: NFBaseWeaponFrameMachinePistolGorlex
-  parent: [ BaseC3SyndicateContraband, NFBaseWeaponFrameMachinePistol ]
   abstract: true
+  parent: [ BaseC3SyndicateContraband, NFBaseWeaponFrameMachinePistol ]
+  id: NFBaseWeaponFrameMachinePistolGorlex
   components:
   - type: Gun
-#    minAngle: 4.1 Radiant_sector
-#    maxAngle: 20.5 Radiant_sector
-#    angleIncrease: 1.8 Radiant_sector
-#    angleDecay: 6.5 Radiant_sector
+#    minAngle: 3.4 # Radiant_sector
+#    maxAngle: 17 # Radiant_sector
+#    angleIncrease: 1.5 # Radiant_sector
+#    angleDecay: 5.4 # Radiant_sector
     minAngle: 1 # Radiant_sector
     maxAngle: 15 # Radiant_sector
     angleIncrease: 3 # Radiant_sector

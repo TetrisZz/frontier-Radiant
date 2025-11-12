@@ -47,6 +47,7 @@
       - FakeMindShieldImplant
       - RadioImplant
       - RadioImplantFreelance # Frontier
+      - ChameleonControllerImplant
       - MedicalTrackingImplant # Radiant_sector
       - FreelanceTrackingImplant # Radiant_sector
       - SeparatistsTrackingImplant # Radiant_sector
@@ -259,7 +260,7 @@
 
 - type: entity
   id: ChameleonControllerImplanter
-  suffix: chameleon controller
+  name: chameleon controller implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter

@@ -194,11 +194,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobArgocyteLeviathingExpeditions"/>
   </Box>
-  Уничтожьте большое и опасное существо — [color=#a4885c]левиафан[/color] — в заданные сроки, чтобы получить денежное вознаграждение.
+  Eliminate a large and dangerous creature - a [color=#a4885c]leviathing[/color] within given time constraints.
   
   ## Разрушение
   <Box>
   <GuideEntityEmbed Entity="ArgocyteEgg"/>
   </Box>
-  Уничтожьте определённое количество [color=#a4885c]яиц аргоцитов[/color] за отведённое время, чтобы получить денежное вознаграждение.
+  Destroy a certain number of [color=#a4885c]argocyte eggs[/color] within given time constraints.
 </Document>
