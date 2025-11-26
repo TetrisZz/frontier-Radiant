@@ -14,7 +14,7 @@
       tags:
         - CartridgeGunnery20mm
     proto: CartridgeGunnery20mm
-    capacity: 200
+    capacity: 100
   - type: Item
     size: Small
   - type: ContainerContainer

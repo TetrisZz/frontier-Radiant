@@ -3,7 +3,7 @@
   parent: BaseVessel
   name: COF Пилигрим
   description: Легкое судно снабжения, предназначенное для переброски экипажа между судами и оказания ограниченной медицинской помощи.
-  price: 30000
+  price: 32000
   category: Medium
   group: Navy
   access: Navy

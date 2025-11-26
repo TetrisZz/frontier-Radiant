@@ -2,7 +2,7 @@
 - type: loadout
   id: SheriffClothingNeckMantleSheriff
   equipment:
-    neck: ClothingNeckMantleSheriff
+    neck: ClothingNeckMantleDvb #Radiant_sector
 
 - type: loadout
   id: SheriffClothingNeckCloakSheriff

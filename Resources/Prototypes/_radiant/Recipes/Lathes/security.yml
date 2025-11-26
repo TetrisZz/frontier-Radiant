@@ -7,6 +7,11 @@
 #    Steel: 30
 
 - type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseSecurityMachineRecipeCategory ]
+  id: ScannerGateCircuitboard
+  result: ScannerGateCircuitboard
+
+- type: latheRecipe
   id: GrenadeSmokeM203
   result: GrenadeSmokeM203
   completetime: 3
@@ -63,6 +68,6 @@
   completetime: 5
   materials:
     Steel: 600
-    Plastic: 200
-    Gold: 150
-    Uranium: 200
+    Plastic: 100
+    Gold: 100
+    Uranium: 100

@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Вита
   description: Малогабаритный гидропонный шаттл с собственной мини-лабораторией и двумя фитотронами.
-  price: 24000
+  price: 25500
   category: Small
   group: Acorp
   access: Acorp

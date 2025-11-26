@@ -1,0 +1,32 @@
+- type: vessel
+  id: Vympel
+  parent: BaseVesselNavy
+  name: COF Вымпел
+  description: Многоцелевой крейсер, совмещающий в себе функции ударного судна, и корабля поддержки, вооружен пусковыми установками для ракет ASM-302, ЭМП орудиями М220, Плазма-пушками Marauder, и зенитными пулемётами L85 по периметру.
+  price: 74500
+  category: Medium
+  group: Navy
+  access: Vympel
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Vympel.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Vympel
+  mapName: 'COF Вымпел'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Vympel.yml
+  minPlayers: 0
+  stations:
+    Vympel:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Вымпел {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

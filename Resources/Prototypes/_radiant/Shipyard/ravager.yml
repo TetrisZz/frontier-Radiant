@@ -7,7 +7,7 @@
   category: Large
   group: Security
   access: Sergeant
-  shuttlePath: /Maps/_NF/Shuttles/Nfsd/ravager.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Nfsd/Ravager.yml
   class:
   - Pursuit
   - Capital
@@ -17,7 +17,7 @@
 - type: gameMap
   id: Ravager
   mapName: 'NSF Реведжер'
-  mapPath: /Maps/_NF/Shuttles/Nfsd/ravager.yml
+  mapPath: /Maps/_radiant/Shuttles/Nfsd/Ravager.yml
   minPlayers: 0
   stations:
     Ravager:

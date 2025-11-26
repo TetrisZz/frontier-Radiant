@@ -22,3 +22,6 @@
 
 - type: startingGear
   id: AcorpScienceGear
+  storage:
+    back:
+    - PinpointerAcorp

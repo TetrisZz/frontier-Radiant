@@ -15,7 +15,7 @@
 #    angleIncrease: 0.9 # Radiant_sector
 #    angleDecay: 4.5 # Radiant_sector
 #    fireRate: 1.5 # Radiant_sector
-#    fireRate: 2 # Radiant_sector
+    fireRate: 2 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

@@ -18,6 +18,7 @@
   - ShuttleGunKineticCircuitboard
   - NFScrapProcessorCircuitboard
   - OreProcessorCivilianCircuitboard
+  - ScannerGateCircuitboard # Radiant sector
 
 - type: latheRecipePack
   id: NFSalvageArchetypeStatic

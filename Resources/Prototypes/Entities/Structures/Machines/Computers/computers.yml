@@ -419,7 +419,7 @@
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Security"], ["Navy"]] #Radiant_sector add Navy
   - type: GuideHelp
     guides:
     - CriminalRecords

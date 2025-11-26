@@ -91,8 +91,6 @@
           - ItemMask
           layer:
           - MachineLayer
-    - type: AccessReader
-      access: [["Command"], ["Security"]]
     - type: ScannerGate
       fixtureId: scangate
       blacklist:
@@ -136,3 +134,14 @@
   components:
     - type: AccessReader
       access: [["AcorpCommand"], ["AcorpSecurity"]]
+
+- type: entity
+  id: ScannerGateConfederations
+  parent: ScannerGate
+  name: scanner gate
+  description: "Scans any item for prohibited traits. On the main sign you can see the inscription: \"NOT RADIODANGEROUS\"."
+  placement:
+    mode: AlignTileAny
+  components:
+    - type: AccessReader
+      access: [["Command"], ["Security"], ["Navy"]]

@@ -22,3 +22,6 @@
 
 - type: startingGear
   id: AcorpServiceGear
+  storage:
+    back:
+    - PinpointerAcorp

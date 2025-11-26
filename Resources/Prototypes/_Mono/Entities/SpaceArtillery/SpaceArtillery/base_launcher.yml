@@ -66,6 +66,7 @@
   - type: RadarBlip
     radarColor: "#9999FF"
     scale: 1
+  - type: BindToStation # Frontier
 
 - type: entity
   id: BallisticArtillery

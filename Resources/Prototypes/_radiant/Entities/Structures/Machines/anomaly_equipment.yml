@@ -2,7 +2,7 @@
   id: MachineAnomalyGeneratorAcorp
   parent: MachineAnomalyGenerator
   name: генератор аномалий акорп
-  description: Вершина псевдонаучных технологий.
+  description: Вершина псевдонаучных технологий. Использует бананиум для генерации аномалий.
   components:
   - type: Sprite
     sprite: _radiant/Structures/Machines/Anomaly/anomaly_generator.rsi
@@ -24,8 +24,19 @@
       shader: unshaded
       map: ["enum.AnomalyGeneratorVisualLayers.Base"]
   - type: AnomalyGenerator
+    refundStackType: Bananium
+    requiredMaterial: Bananium
     scienceChannel: Acorp
-    materialPerAnomaly: 4500
+    materialPerAnomaly: 3000
     cooldownLength: 900
   - type: AccessReader
     access: [["Acorp"]]
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - RawMaterial
+    materialWhiteList:
+    - Bananium
+    storage:
+      Bananium: 0
+    storageLimit: 3000

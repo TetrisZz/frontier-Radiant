@@ -6,7 +6,7 @@
   components:
   - type: EnergySword
     colorOptions:
-      - "#d4ffbf"
+      - "#574DA1"
     blockHacking: true
 
 - type: entity

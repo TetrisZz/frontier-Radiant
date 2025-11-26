@@ -26,7 +26,7 @@
     ports:
     - Toggle
   - type: Gun
-    fireRate: 12
+    fireRate: 8
     projectileSpeed: 60
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/uaf_57mm.ogg

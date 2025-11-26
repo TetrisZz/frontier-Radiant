@@ -19,6 +19,7 @@
     NFShieldBallistic: 3
     NFClothingOuterArmorReflective: 3
     NFShieldReflective: 3
+    PinpointerScanner: 3
 # Mercenary
     ClothingHeadBandMercenary: 3
     ClothingHeadHatBeretMercenary: 3
@@ -77,6 +78,7 @@
     Stunbaton: 4294967295 # Infinite
     Zipties: 4294967295 # Infinite
     Flash: 4294967295 # Infinite
+    PinpointerScanner: 4294967295 # Infinite
     ForensicScanner: 4294967295 # Infinite
     BoxForensicPad: 4294967295 # Infinite
     LogProbeCartridge: 4294967295 # Infinite
