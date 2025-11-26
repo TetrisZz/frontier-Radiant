@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 261.2.0
+  engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 09/08/2025 13:43:31
-  entityCount: 4589
+  time: 11/25/2025 04:51:46
+  entityCount: 4597
 maps: []
 grids:
 - 1
@@ -5891,7 +5891,7 @@ entities:
       pos: 2.5,-35.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -171245.39
+      secondsUntilStateChange: -171347.27
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5960,7 +5960,7 @@ entities:
       pos: 10.5,-25.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -283437.75
+      secondsUntilStateChange: -283539.62
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6071,7 +6071,7 @@ entities:
       pos: 6.5,-43.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -169334.86
+      secondsUntilStateChange: -169436.73
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6155,7 +6155,7 @@ entities:
       pos: 11.5,-50.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -11876.579
+      secondsUntilStateChange: -11978.46
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6223,7 +6223,7 @@ entities:
     - type: Docking
       name: 2В
     - type: Door
-      secondsUntilStateChange: -303090.9
+      secondsUntilStateChange: -303192.78
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6251,7 +6251,7 @@ entities:
       pos: -2.5,-9.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -257542.9
+      secondsUntilStateChange: -257644.78
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15789,7 +15789,7 @@ entities:
       pos: -5.5,-10.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -259422.14
+      secondsUntilStateChange: -259524.02
       state: Closing
 - proto: CurtainsPinkOpen
   entities:
@@ -17246,13 +17246,6 @@ entities:
     components:
     - type: Transform
       pos: 12.776123,7.127075
-      parent: 1
-- proto: DVSmartFridge
-  entities:
-  - uid: 1953
-    components:
-    - type: Transform
-      pos: -8.5,-24.5
       parent: 1
 - proto: Eggshells
   entities:
@@ -31755,6 +31748,56 @@ entities:
     - type: Transform
       pos: 11.5477295,-58.954224
       parent: 1
+- proto: ScannerGateAcorp
+  entities:
+  - uid: 4590
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-35.5
+      parent: 1
+  - uid: 4591
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-33.5
+      parent: 1
+  - uid: 4592
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-28.5
+      parent: 1
+  - uid: 4593
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,-35.5
+      parent: 1
+  - uid: 4594
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-26.5
+      parent: 1
+  - uid: 4595
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,-33.5
+      parent: 1
+  - uid: 4596
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,-28.5
+      parent: 1
+  - uid: 4597
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,-26.5
+      parent: 1
 - proto: SeedExtractor
   entities:
   - uid: 3986
@@ -33356,7 +33399,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 0.48443604,5.365795
+      pos: 0.5,5.5
       parent: 1
 - proto: SignRobo
   entities:
@@ -33391,7 +33434,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 6.458725,2.7109718
+      pos: 6.5,2.5
       parent: 1
 - proto: SignSmoking
   entities:
@@ -33472,6 +33515,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -8.5,-22.5
+      parent: 1
+- proto: SmartFridge
+  entities:
+  - uid: 1953
+    components:
+    - type: Transform
+      pos: -8.5,-24.5
       parent: 1
 - proto: SMESBasic
   entities:
@@ -35666,6 +35716,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-32.5
       parent: 1
+    - type: Acolith
 - proto: WaterDropletHat
   entities:
   - uid: 4490

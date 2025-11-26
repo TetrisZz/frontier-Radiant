@@ -196,7 +196,7 @@
   suffix: EVA, NFSD
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Security"], ["Navy"]] #Radiant_sector add Navy
 
 #HARDSUITS
 #Quartermaster hardsuit
@@ -350,7 +350,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd
   - type: AccessReader
-    access: [["Brig"]] #Radiant_Sector
+    access: [["Security"], ["Navy"]] #Radiant_sector add Navy
 
 #Deputy hardsuit
 - type: entity
@@ -366,7 +366,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd
   - type: AccessReader
-    access: [["Brig"]] #Radiant_Sector
+    access: [["Security"], ["Navy"]] #Radiant_sector add Navy
 
 #Brigmed hardsuit
 - type: entity
@@ -398,7 +398,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd
   - type: AccessReader
-    access: [["Brig"]] #Radiant_Sector
+    access: [["Security"], ["Navy"]] #Radiant_sector add Navy
 
 #Bailiff hardsuit
 - type: entity
@@ -414,7 +414,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd
   - type: AccessReader
-    access: [["Brig"]] #Radiant_Sector
+    access: [["Security"], ["Navy"]] #Radiant_sector add Navy
 
 #Sheriff hardsuit
 - type: entity
@@ -430,7 +430,7 @@
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagNfsd
   - type: AccessReader
-    access: [["Brig"]] #Radiant_Sector
+    access: [["Security"], ["Navy"]] #Radiant_sector add Navy
 
 #Combat hardsuit
 - type: entity

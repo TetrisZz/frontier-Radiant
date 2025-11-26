@@ -24,6 +24,18 @@
   id: Iskentim
   name: id-card-access-level-shipyard-iskentim
 
+- type: accessLevel
+  id: Doblest
+  name: id-card-access-level-shipyard-doblest
+
+- type: accessLevel
+  id: Berill
+  name: id-card-access-level-shipyard-berill
+
+- type: accessLevel
+  id: Vympel
+  name: id-card-access-level-shipyard-vympel
+
 #Separatist
 
 - type: accessLevel

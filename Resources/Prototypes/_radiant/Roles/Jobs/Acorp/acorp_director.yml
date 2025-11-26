@@ -34,3 +34,6 @@
   id: AcorpDirectorGear
   equipment:
     belt: BoxFolderClipboard
+  storage:
+    back:
+    - PinpointerAcorp

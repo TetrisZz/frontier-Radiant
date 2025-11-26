@@ -1,0 +1,15 @@
+- type: listing
+  id: UplinkSecurityRadar
+  name: uplink-security-radar-name
+  description: uplink-security-radar-desc
+  productEntity: AdvancedRadarConsoleCircuitboard
+  icon: { sprite: _radiant/Interface/Misc/uplink_icon.rsi, state: radar }
+  cost:
+    FrontierUplinkCoin: 12
+  categories:
+    - UplinkSecurityUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink

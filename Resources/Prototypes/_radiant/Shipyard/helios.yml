@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Гелиос
   description: Универсальное наёмническое судно среднего класса. Надёжный, манёвренный и приспособленный к любым условиям.
-  price: 56500
+  price: 60000
   category: Medium
   group: Expedition
   shuttlePath: /Maps/_radiant/Shuttles/Helios.yml

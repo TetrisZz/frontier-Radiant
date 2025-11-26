@@ -33958,7 +33958,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 12.906738,30.646484
       parent: 1
-- proto: MachineAnomalyGenerator
+- proto: MachineAnomalyGeneratorAcorp
   entities:
   - uid: 3815
     components:
@@ -46626,6 +46626,7 @@ entities:
     - type: Transform
       pos: 7.5,10.5
       parent: 1
+    - type: Acolith
 - proto: WaterCooler
   entities:
   - uid: 5684

@@ -29,7 +29,7 @@
       types:
         Structural: 125
         Blunt: 30
-        Piercing: 60
+        Piercing: 30
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:

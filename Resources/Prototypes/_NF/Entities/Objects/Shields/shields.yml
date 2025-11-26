@@ -4,11 +4,11 @@
   id: EnergyShieldNfsd
   components:
   - type: Sprite
-    sprite: _NF/Objects/Weapons/Melee/e_shield.rsi
+    sprite: _radiant/Objects/Weapons/Melee/e_shield.rsi #move to radiant folder
   - type: Item
-    sprite: _NF/Objects/Weapons/Melee/e_shield.rsi
+    sprite: _radiant/Objects/Weapons/Melee/e_shield.rsi #move to radiant folder
   - type: PointLight
-    color: green
+    color: blue
 
 - type: entity
   name: metal shield

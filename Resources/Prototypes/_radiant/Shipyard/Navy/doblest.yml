@@ -1,0 +1,32 @@
+- type: vessel
+  id: Doblest
+  parent: BaseVesselNavy
+  name: COF Доблесть
+  description: Бронированное судно Конфедеративного Флота для особых случаев.
+  price: 100
+  category: Large
+  group: Navy
+  access: Doblest
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Doblest.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Doblest
+  mapName: 'COF Доблесть'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Doblest.yml
+  minPlayers: 0
+  stations:
+    Doblest:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Доблесть {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

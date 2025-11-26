@@ -58,3 +58,64 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: G-5 Боец
+  parent: BaseWeaponSubMachineGun
+  id: WeaponSubMachineGunVeresk
+  description: Легкое ПП от концерна Browning, высокая скорострельность и большой объем магазина компенсируется крайне низким поражающим воздействием. Использует патроны .25 ACP.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk.rsi
+  - type: Gun
+    fireRate: 9
+    minAngle: 4
+    maxAngle: 10
+    angleIncrease: 0.5
+    angleDecay: 4
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/KFirePlayer.ogg
+      params:
+        volume: -5
+    availableModes:
+    - FullAuto
+  - type: ChamberMagazineAmmoProvider
+    soundBoltOpened: /Audio/_radiant/Weapons/WPN_GG_Reload_BoltOpen_01.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGun25ACP
+        insertSound:
+          path: /Audio/_radiant/Weapons/WPN_GG_Reload_MagIn_02.ogg
+          params:
+            volume: -1.5
+        ejectSound:
+          path: /Audio/_radiant/Weapons/magout3.ogg
+          params:
+            volume: -1.5
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGun25ACP
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol25ACP
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol25ACP
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

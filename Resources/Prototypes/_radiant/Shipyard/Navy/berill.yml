@@ -1,0 +1,32 @@
+- type: vessel
+  id: Berill
+  parent: BaseVesselNavy
+  name: COF Берилл
+  description: Легкое разведывательное судно, пригодное, как для патрулирования космоса, так и выполнения боевых задач, подходит и для обучения молодого экипажа в около боевых условиях. Несет на себе два орудия, типа Marauder, и четыре L85
+  price: 100
+  category: Medium
+  group: Navy
+  access: Berill
+  shuttlePath: /Maps/_radiant/Shuttles/Navy/Berill.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Berill
+  mapName: 'COF Берилл'
+  mapPath: /Maps/_radiant/Navy/Shuttles/Berill.yml
+  minPlayers: 0
+  stations:
+    Berill:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Берилл {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

@@ -28,6 +28,9 @@
   - NFAmmunitionBoxPistol45
   - NFAmmunitionBoxPistol45Overpressure
   - NFAmmunitionBoxPistol45Rubber
+  - MagazineGunnery20mm # Radiant_sector
+  - MagazineBoxGunnery90mm # Radiant_sector
+  - MagazineBoxPistol25ACP # Radiant_sector
 
 - type: latheRecipePack
   id: NfsdToolsStatic

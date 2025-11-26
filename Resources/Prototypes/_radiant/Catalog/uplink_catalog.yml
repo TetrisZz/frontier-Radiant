@@ -16,7 +16,7 @@
   name: Набор "Пересмешник"
   description: "Невероятно смертоносный: Содержит Булл-пап винтовку Пересмешник и два укороченых магазина к ней."
   icon: { sprite: /Textures/_DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledRifle
+  productEntity: ClothingBackpackDuffelSyndicateFilledRifleJackdaw
   discountCategory: veryRareDiscounts
   cost:
     Telecrystal: 20

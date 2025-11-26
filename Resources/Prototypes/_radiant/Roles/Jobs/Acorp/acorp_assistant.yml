@@ -19,3 +19,6 @@
 
 - type: startingGear
   id: AcorpAssistantGear
+  storage:
+    back:
+    - PinpointerAcorp

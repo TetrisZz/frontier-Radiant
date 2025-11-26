@@ -1,0 +1,38 @@
+- type: entity
+  parent: PinpointerBase
+  name: пинпоинтер акорпа
+  description: Вспомогательное устройство акорпа которое помогает бедным экспедиторам найти своё убежище, его можно поместить в кпк.
+  id: PinpointerAcorp
+  suffix: Acorp
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer-acorp
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Tag
+    tags:
+    - BookSpaceLaw
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#d3d3d3"
+      - state: inhand-left-stripe
+        color: "#d3d3d3"
+      - state: inhand-left-top
+      right:
+      - state: inhand-right-base
+        color: "#d3d3d3"
+      - state: inhand-right-stripe
+        color: "#d3d3d3"
+      - state: inhand-right-top
+  - type: Icon
+    state: pinpointer-acorp
+  - type: Pinpointer
+    component: Acolith
+    targetName: МНБ

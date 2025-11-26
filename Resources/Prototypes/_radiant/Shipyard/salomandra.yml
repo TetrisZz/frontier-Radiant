@@ -1,0 +1,34 @@
+- type: vessel
+  id: Salomandra
+  parent: BaseVessel
+  name: USS Саламандра
+  description: Медицинский шаттл, имеющий на своем борту все необходимое для оказания врачебного ухода всем нуждающимся, до прихода к власти конфедерации, суда такого типа часто использовались незаконными торговцами органами.
+  price: 67000
+  category: Medium
+  group: Medical
+  shuttlePath: /Maps/_radiant/Shuttles/Salomandra.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  engine:
+  - AME
+
+- type: gameMap
+  id: Salomandra
+  mapName: 'USS Salomandra'
+  mapPath: /Maps/_radiant/Shuttles/Salomandra.yml
+  minPlayers: 0
+  stations:
+    Salomandra:
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Salomandra {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]

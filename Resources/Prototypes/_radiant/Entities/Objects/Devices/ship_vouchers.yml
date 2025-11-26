@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseShipVoucher
   id: ShipVoucherBaseNavyShipyard
-  name: ваучер на шаттл сепаратистов
-  description: Позволяет приобрести один корабль на верфи сепаратистов. Уничтожается после продажи.
+  name: ваучер на шаттл флота
+  description: Позволяет приобрести один корабль на верфи флота. Уничтожается после продажи.
   components:
   - type: Sprite
     layers:
@@ -88,11 +88,49 @@
     access:
     - Iskentim
 
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavyDoblest
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Doblest
+
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavyBerill
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Berill
+
+- type: entity
+  parent: ShipVoucherBaseNavyShipyard
+  id: ShipVoucherNavyVympel
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: navy
+  - type: ShipyardVoucher
+    access:
+    - Vympel
+
 # Separatist
 
 - type: entity
   parent: BaseShipVoucher
   id: ShipVoucherBaseSeparatistShipyard
+  name: ваучер на шаттл сепаратистов
+  description: Позволяет приобрести один корабль на верфи сепаратистов. Уничтожается после продажи.
   components:
   - type: Sprite
     layers:

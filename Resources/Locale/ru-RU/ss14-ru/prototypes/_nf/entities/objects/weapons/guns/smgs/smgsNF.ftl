@@ -13,3 +13,6 @@ ent-NFWeaponSubMachineGunDrozdLessLethal = { ent-WeaponSubMachineGunDrozd }
 ent-NFWeaponSubMachineGunTypewriter = { ent-WeaponSubMachineGunTypewriter }
     .suffix = Фронтир, травмат
     .desc = { ent-WeaponSubMachineGunTypewriter.desc }
+ent-NFWeaponSubMachineGunWt550 = { ent-WeaponSubMachineGunWt550 }
+    .suffix = Фронтир
+    .desc = { ent-WeaponSubMachineGunWt550.desc }

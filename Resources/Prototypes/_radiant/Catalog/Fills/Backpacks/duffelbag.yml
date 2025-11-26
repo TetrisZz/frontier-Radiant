@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateFilledRifle
+  id: ClothingBackpackDuffelSyndicateFilledRifleJackdaw
   name: чёрно-красный вещмешок
   description: Вместительный и удобный вещмешок цвета эбонита и крови, в который влезут «игрушки» для любых возрастов.
   components:

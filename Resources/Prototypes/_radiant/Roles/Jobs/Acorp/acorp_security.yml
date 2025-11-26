@@ -28,3 +28,6 @@
   id: AcorpSecurityGear
   equipment:
     belt: EnergyTazer
+  storage:
+    back:
+    - PinpointerAcorp

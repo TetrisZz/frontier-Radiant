@@ -30,7 +30,7 @@
   productEntity: CartridgeGunnery220mm
   icon: { sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi, state: base }
   cost:
-    NavyToken: 2
+    NavyToken: 1
   categories:
     - UplinkNavyShipyard
   conditions:
@@ -169,6 +169,75 @@
   icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
   cost:
     NavyToken: 3
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+    - !type:BuyerJobCondition
+      whitelist:
+        - NavyCadet
+        - NavyBrigmedic
+        - NavyCaptain
+        - NavyKomandor
+        - NavyOfficer
+
+- type: listing
+  id: UplinkNavyShipyardDoblest
+  name: uplink-navy-doblest-name
+  description: uplink-navy-doblest-desc
+  productEntity: ShipVoucherNavyDoblest
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
+  cost:
+    NavyToken: 3
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+    - !type:BuyerJobCondition
+      whitelist:
+        - NavyCadet
+        - NavyBrigmedic
+        - NavyCaptain
+        - NavyKomandor
+        - NavyOfficer
+
+- type: listing
+  id: UplinkNavyShipyardBerill
+  name: uplink-navy-berill-name
+  description: uplink-navy-berill-desc
+  productEntity: ShipVoucherNavyBerill
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
+  cost:
+    NavyToken: 1
+  categories:
+    - UplinkNavyShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyShipyard
+    - !type:BuyerJobCondition
+      whitelist:
+        - NavyCadet
+        - NavyBrigmedic
+        - NavyCaptain
+        - NavyKomandor
+        - NavyOfficer
+
+- type: listing
+  id: UplinkNavyShipyardVympel
+  name: uplink-navy-vympel-name
+  description: uplink-navy-vympel-desc
+  productEntity: ShipVoucherNavyVympel
+  icon: { sprite: _radiant/Objects/Misc/voucher.rsi, state: navy }
+  cost:
+    NavyToken: 2
   categories:
     - UplinkNavyShipyard
   conditions:

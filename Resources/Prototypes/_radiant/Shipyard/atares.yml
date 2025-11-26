@@ -3,10 +3,10 @@
   parent: BaseVessel
   name: HOM Атарес-N21
   description: Корабль, предназначенный для дальних путешествий, на нем есть мед.отсек, кухня и небольшие спальни
-  price: 72150
+  price: 60000
   category: Medium
   group: Expedition
-  shuttlePath: /Maps/_NF/Shuttles/Expedition/atares.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Expedition/Atares.yml
   guidebookPage: Null
   class:
   - Expedition
@@ -16,7 +16,7 @@
 - type: gameMap
   id: Atares
   mapName: 'Атарес-N21'
-  mapPath: /Maps/_NF/Shuttles/Expedition/atares.yml
+  mapPath: /Maps/_radiant/Shuttles/Expedition/Atares.yml
   minPlayers: 0
   stations: 
     Atares:
