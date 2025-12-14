@@ -1,0 +1,30 @@
+- type: loadout
+  id: PhoenixClothingUniformJumpsuitMedicalBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalBlack
+
+- type: loadout
+  id: PhoenixClothingUniformJumpsuitMedicalBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalBlue
+
+- type: loadout
+  id: PhoenixClothingUniformJumpsuitMedicalWhite
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalWhite
+
+- type: loadout
+  id: PhoenixClothingUniformJumpskirtMedicalBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalBlack
+
+- type: loadout
+  id: PhoenixClothingUniformJumpskirtMedicalBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalBlue
+
+- type: loadout
+  id: PhoenixClothingUniformJumpskirtMedicalWhite
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalWhite
+

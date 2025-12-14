@@ -5,7 +5,7 @@
   playTimeTracker: JobAcorpAssistant
   startingGear: AcorpAssistantGear
   icon: "JobIconAcorpAssistant" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-acorp-director
   weight: 1 # Prioritize station & department jobs
   displayWeight: 10 # Second from the top
   access:

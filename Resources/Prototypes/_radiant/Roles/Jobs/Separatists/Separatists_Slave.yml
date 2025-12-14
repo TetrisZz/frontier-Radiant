@@ -9,7 +9,7 @@
   startingGear: SeparatistsSlaveGear
   alwaysUseSpawner: true
   icon: "JobIconSeparatistsSlave" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-separatists-slave
   weight: 20
   displayWeight: 20
   newPlayerMessage: false

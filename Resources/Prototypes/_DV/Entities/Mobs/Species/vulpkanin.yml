@@ -49,6 +49,8 @@
         sprite: _DV/Mobs/Customization/Vulpkanin/masking_helpers.rsi
         state: female_full
         visible: false
+      - map: [ "enum.HumanoidVisualLayers.LFoot" ] # Radiant_sector
+      - map: [ "enum.HumanoidVisualLayers.RFoot" ] # Radiant_sector
       - map: [ "underwearb" ]
       - map: [ "underweart" ]
       - map: [ "socks" ]
@@ -57,8 +59,8 @@
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+#      - map: [ "enum.HumanoidVisualLayers.LFoot" ] # Radiant_sector
+#      - map: [ "enum.HumanoidVisualLayers.RFoot" ] # Radiant_sector
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi

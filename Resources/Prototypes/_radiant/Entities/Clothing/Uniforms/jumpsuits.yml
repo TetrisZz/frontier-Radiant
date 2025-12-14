@@ -305,3 +305,36 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/gachimuchi.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/gachimuchi.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalWhite
+  name: комбинезон агента
+  description: Удобный, практичный, сшит из качественной ткани.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/medical_suit1.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/medical_suit1.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalBlue
+  name: комбинезон агента
+  description: Удобный, практичный, сшит из качественной ткани.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/medical_suit2.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/medical_suit2.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMedicalBlack
+  name: комбинезон агента
+  description: Удобный, практичный, сшит из качественной ткани.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/medical_suit3.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/medical_suit3.rsi

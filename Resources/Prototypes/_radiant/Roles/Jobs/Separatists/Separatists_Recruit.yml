@@ -13,7 +13,7 @@
   startingGear: SeparatistsRecruitGear
   alwaysUseSpawner: true
   icon: "JobIconSeparatistsRecruit" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-separatists-cadet
   weight: 32
   displayWeight: 32
   newPlayerMessage: false

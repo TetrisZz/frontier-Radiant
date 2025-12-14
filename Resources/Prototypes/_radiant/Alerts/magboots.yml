@@ -1,0 +1,15 @@
+- type: alert
+  id: MagbootsMedical
+  icons:
+  - sprite: _radiant/Clothing/Boots/magboots_med.rsi
+    state: icon-on
+  name: alerts-magboots-name
+  description: alerts-magboots-desc
+
+- type: alert
+  id: MagbootsSeparatist
+  icons:
+  - sprite: _radiant/Clothing/Boots/magboots.rsi
+    state: icon-on
+  name: alerts-magboots-name
+  description: alerts-magboots-desc

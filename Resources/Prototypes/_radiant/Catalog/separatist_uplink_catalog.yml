@@ -259,7 +259,7 @@
   name:  uplink-security-speedloader-name
   description: uplink-security-speedloader-desc
   productEntity: NFSpeedLoaderPistol45Overpressure
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: base }
+  icon: { sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Pistol45/speed_loader.rsi, state: icon-overpressure }
   cost:
     BlackMoney: 1
   categories:
@@ -307,7 +307,7 @@
   name:  uplink-separatist-magnumammo-name
   description: uplink-separatist-magnumammo-desc
   productEntity: NFAmmunitionBoxPistol45
-  icon: { sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi, state: base }
+  icon: { sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi, state: icon-45 }
   cost:
     BlackMoney: 1
   categories:
@@ -323,7 +323,7 @@
   name:  uplink-separatist-shotgunammo-name
   description: uplink-separatist-shotgunammo-desc
   productEntity: NFAmmunitionBoxShellShotgunBuckshot
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: base }
+  icon: { sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-buckshot }
   cost:
     BlackMoney: 1
   categories:
@@ -339,7 +339,7 @@
   name:  uplink-separatist-shotgunslug-name
   description: uplink-separatist-shotgunslug-desc
   productEntity: NFAmmunitionBoxShellShotgunSlug
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: slug }
+  icon: { sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-slug }
   cost:
     BlackMoney: 1
   categories:
@@ -406,7 +406,7 @@
   name:  uplink-separatist-magazineriflerubber-name
   description: uplink-separatist-magazineriflerubber-desc
   productEntity: NFBoxMagazineRifle20Rubber
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: rubber }
+  icon: { sprite: _NF/Objects/Storage/boxes.rsi, state: icon-magazine }
   cost:
     BlackMoney: 5
   categories:
@@ -897,6 +897,27 @@
   icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/box_90.rsi, state: base }
   cost:
     BlackMoney: 2
+  categories:
+    - UplinkSeparatistShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
+
+- type: listing
+  id: UplinkSeparatistTurretM220
+  name: uplink-separatist-turret_m220-name
+  description: uplink-separatist-turret_m220-desc
+  productEntity: WeaponTurretM220Flatpack
+  icon: { sprite: _radiant/Objects/ShuttleWeapons/rubicon.rsi, state: space_artillery }
+  cost:
+    BlackMoney: 3
   categories:
     - UplinkSeparatistShuttle
   conditions:

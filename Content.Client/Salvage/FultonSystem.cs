@@ -16,7 +16,7 @@ public sealed class FultonSystem : SharedFultonSystem
     [Dependency] private readonly AnimationPlayerSystem _player = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
-    private static readonly TimeSpan AnimationDuration = TimeSpan.FromSeconds(0.4);
+    private static readonly TimeSpan AnimationDuration = TimeSpan.FromSeconds(45); // Radiant_sector
 
     private static readonly Animation InitialAnimation = new()
     {
@@ -29,30 +29,32 @@ public sealed class FultonSystem : SharedFultonSystem
                 KeyFrames =
                 {
                     new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId("fulton_expand"), 0f),
-                    new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId("fulton_balloon"), 0.4f),
+                    new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId("fulton_balloon"), 45f), // Radiant_sector
                 }
             }
         }
     };
 
-    private static readonly Animation FultonAnimation = new()
-    {
-        Length = TimeSpan.FromSeconds(0.8f),
-        AnimationTracks =
-        {
-            new AnimationTrackComponentProperty()
-            {
-                ComponentType = typeof(SpriteComponent),
-                Property = nameof(SpriteComponent.Offset),
-                KeyFrames =
-                {
-                    new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0f),
-                    new AnimationTrackProperty.KeyFrame(new Vector2(0f, -0.3f), 0.3f),
-                    new AnimationTrackProperty.KeyFrame(new Vector2(0f, 20f), 0.5f),
-                }
-            }
-        }
-    };
+ // Radiant_sector start
+//    private static readonly Animation FultonAnimation = new()
+//    {
+//        Length = TimeSpan.FromSeconds(0.8f),
+//        AnimationTracks =
+//        {
+//            new AnimationTrackComponentProperty()
+//            {
+//                ComponentType = typeof(SpriteComponent),
+//                Property = nameof(SpriteComponent.Offset),
+//                KeyFrames =
+//                {
+//                    new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0f),
+//                    new AnimationTrackProperty.KeyFrame(new Vector2(0f, -0.3f), 0.3f),
+//                    new AnimationTrackProperty.KeyFrame(new Vector2(0f, 20f), 0.5f),
+//                }
+//            }
+//        }
+//    };
+ // Radiant_sector end
 
     public override void Initialize()
     {
@@ -87,7 +89,7 @@ public sealed class FultonSystem : SharedFultonSystem
         var despawn = AddComp<TimedDespawnComponent>(animationEnt);
         despawn.Lifetime = 1.5f;
 
-        _player.Play(animationEnt, FultonAnimation, "fulton-animation");
+//        _player.Play(animationEnt, FultonAnimation, "fulton-animation"); // Radiant_sector
     }
 
     private void OnHandleState(EntityUid uid, FultonedComponent component, ref AfterAutoHandleStateEvent args)

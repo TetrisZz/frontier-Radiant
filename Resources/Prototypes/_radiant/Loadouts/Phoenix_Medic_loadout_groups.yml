@@ -1,0 +1,69 @@
+- type: loadoutGroup
+  id: PhoenixMedicPDA
+  name: loadout-group-medical-id
+  hidden: true
+  loadouts:
+  - PhoenixPDAPhoenixMedic
+  fallbacks:
+  - PhoenixPDAPhoenixMedic
+
+- type: loadoutGroup
+  id: PhoenixMedicJumpsuit
+  name: униформа
+  loadouts:
+  - PhoenixClothingUniformJumpsuitVirology
+  - PhoenixClothingUniformJumpsuitMedicalDoctor
+  - PhoenixClothingUniformJumpsuitGenetics
+  - PhoenixClothingUniformJumpsuitChemistry
+  - PhoenixClothingUniformJumpskirtOfLife
+  - PhoenixClothingUniformJumpskirtChemistry
+  - PhoenixClothingUniformJumpskirtGenetics
+  - PhoenixClothingUniformJumpskirtMedicalDoctor
+  - PhoenixClothingUniformJumpskirtVirology
+  fallbacks:
+  - PhoenixClothingUniformJumpsuitMedicalDoctor
+  - PhoenixClothingUniformJumpskirtMedicalDoctor
+
+- type: loadoutGroup
+  id: PhoenixMedicOuterClothing
+  name: верхняя одежда
+  minLimit: 0
+  loadouts:
+  - PhoenixClothingOuterCoatLabChem
+  - PhoenixClothingOuterCoatLab
+  - PhoenixClothingOuterCoatLabGene
+  - PhoenixClothingOuterCoatLabViro
+
+- type: loadoutGroup
+  id: PhoenixMedicHead
+  name: головные уборы
+  minLimit: 0
+  loadouts:
+  - PhoenixClothingHeadHatSurgcapBlue
+  - PhoenixClothingHeadNurseHat
+  - PhoenixClothingHeadHatBeretMedic
+
+- type: loadoutGroup
+  id: PhoenixMedicFace
+  name: loadout-group-commandant-face
+  hidden: true
+  loadouts:
+  - PhoenixMaskBreathMedicalSecurity
+  fallbacks:
+  - PhoenixMaskBreathMedicalSecurity
+
+- type: loadoutGroup
+  id: PhoenixMedicBelt
+  name: пояса
+  loadouts:
+  - PhoenixClothingBeltMedicalFilled
+  - PhoenixClothingBeltMedicalEMTFilled
+
+- type: loadoutGroup
+  id: PhoenixMedicShoes
+  name: обувь
+  loadouts:
+  - PhoenixClothingShoesColorWhite
+  - PhoenixClothingShoesBootsLaceup
+  fallbacks:
+  - ClothingShoesColorWhite

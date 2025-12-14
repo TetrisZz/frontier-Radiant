@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: MedicalPhoenix
+  name: id-card-access-level-medical_phoenix
+
+- type: accessGroup
+  id: MedicalPhoenixAgent
+  tags:
+  - Maintenance
+  - External
+  - Brig
+  - MedicalPhoenix
+  - Mercenary
+  - Captain

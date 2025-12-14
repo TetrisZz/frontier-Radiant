@@ -107,7 +107,7 @@
   - type: Sprite
     drawdepth: Effects
     noRot: true
-    offset: 0,0.5
+#    offset: 0,0.5 # Radiant_sector
     layers:
       - map: [ "enum.FultonVisualLayers.Base" ]
         sprite: Objects/Tools/fulton_balloon.rsi

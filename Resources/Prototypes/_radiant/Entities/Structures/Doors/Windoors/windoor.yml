@@ -22,8 +22,17 @@
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureNavyLocked
-  suffix: Separatists, Locked
+  suffix: Navy, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNavy ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecurePhoenixLocked
+  suffix: Phoenix, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalPhoenix ]

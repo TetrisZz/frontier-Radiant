@@ -84,6 +84,19 @@
     - id: MagazineBoxPistol25ACP
       amount: 1
 
+- type: entity
+  parent: [WeaponCaseLong, RareWeaponCase]
+  id: WeaponCaseLongVeresk
+  suffix: Dungeon, Veresk
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunVeresk
+      amount: 1
+    - id: MagazinePistolSubMachineGunVereskLow
+      amount: 2
+
 # Rifles
 - type: entity
   parent: [WeaponCaseLong, RareWeaponCase]
@@ -94,6 +107,19 @@
   - type: StorageFill
     contents:
     - id: WeaponRifleKX2801
+      amount: 1
+    - id: NFMagazineRifle30
+      amount: 2
+
+- type: entity
+  parent: [WeaponCaseLong, RareWeaponCase]
+  id: WeaponCaseLongGuardian
+  suffix: Dungeon, Guardian
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleGuardian
       amount: 1
     - id: NFMagazineRifle30
       amount: 2

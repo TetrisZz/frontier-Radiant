@@ -14,10 +14,10 @@
       time: 21600 # 6 hours Radiant_Sector
     - !type:RoleTimeRequirement
       role: JobAcorpSecurity
-      time: 21600 # 6 hours Radiant_Sector
+      time: 10800 # 3 hours Radiant_Sector
   startingGear: AcorpDirectorGear
   icon: "JobIconAcorpDirector" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-acorp-commandant
   weight: 2 # Prioritize station & department jobs
   displayWeight: 35 # Second from the top
   access:

@@ -23,7 +23,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterAcorp
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
+  parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterSeparatist
   name: куртка сепаратиста
   description: Согреет не только тело, но и вашу душу.

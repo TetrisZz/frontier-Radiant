@@ -218,6 +218,24 @@
     containers:
       board: [ DoorElectronicsAcorpSecurity ]
 
+- type: entity
+  parent: AirlockAcorpCommandBlack
+  id: AirlockAcorpCommandSecurityBlackLocked
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpSecurity ]
+
+- type: entity
+  parent: AirlockAcorpCommandBlackGlass
+  id: AirlockAcorpCommandSecurityBlackGlassLocked
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpSecurity ]
+
 # AcorpCommand
 
 - type: entity
@@ -322,3 +340,59 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsBrig ]
+
+# Medical
+
+- type: entity
+  parent: AirlockMedical
+  id: AirlockMedicalPhoenixLocked
+  suffix: Phoenix, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalPhoenix ]
+
+- type: entity
+  parent: AirlockVirology
+  id: AirlockVirologyPhoenixLocked
+  suffix: Phoenix, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalPhoenix ]
+
+- type: entity
+  parent: AirlockChemistry
+  id: AirlockChemistryPhoenixLocked
+  suffix: Phoenix, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalPhoenix ]
+
+- type: entity
+  parent: AirlockChemistryGlass
+  id: AirlockChemistryPhoenixGlassLocked
+  suffix: Phoenix, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalPhoenix ]
+
+- type: entity
+  parent: AirlockMedicalGlass
+  id: AirlockMedicalPhoenixGlassLocked
+  suffix: Phoenix, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalPhoenix ]
+
+- type: entity
+  parent: AirlockVirologyGlass
+  id: AirlockVirologyPhoenixGlassLocked
+  suffix: Phoenix, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalPhoenix ]

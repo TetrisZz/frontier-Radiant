@@ -2,7 +2,7 @@
   parent: EncryptionKey
   id: EncryptionKeyAcorp
   name: ключ акорп
-  description: An encryption key used by freelancers, who may or may not have an affiliation. It looks like it's worn out.
+  description: Ключ шифрования, используемый (не) подозрительными учеными.
   components:
   - type: EncryptionKey
     channels:
@@ -20,7 +20,7 @@
   parent: EncryptionKeyAcorp
   id: EncryptionKeySeparatist
   name: ключ сепаратиста
-  description: An encryption key used by freelancers, who may or may not have an affiliation. It looks like it's worn out.
+  description: Ключ шифрования, врядли по нему обсуждают как спасти мир.
   components:
   - type: EncryptionKey
     channels:
@@ -35,7 +35,7 @@
   parent: EncryptionKeyAcorp
   id: EncryptionKeyNavy
   name: ключ конфедеративного флота
-  description: An encryption key used by freelancers, who may or may not have an affiliation. It looks like it's worn out.
+  description: Ключ шифрования, по нему обсуждают как спасти мир.
   components:
   - type: EncryptionKey
     channels:
@@ -45,3 +45,18 @@
     layers:
     - state: crypt_navy
     - state: navy_label
+
+- type: entity
+  parent: EncryptionKeyAcorp
+  id: EncryptionKeyEmergency
+  name: ключ шифрования экстренного канала
+  description: Ключ шифрования, в космосе никто не услышит твоего крика, ну разве что кроме обладателя этого ключа.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Emergency
+    defaultChannel: Emergency
+  - type: Sprite
+    layers:
+    - state: crypt_med
+    - state: med_label

@@ -154,3 +154,21 @@
     sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
     state: commander
   jobName: job-name-navy-komandor
+
+# Medical
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPhoenixMedic
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Paramedic
+  jobName: job-name-medical_phoenix-medic
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPhoenixAgent
+  icon:
+    sprite: /Textures/_radiant/Interface/Misc/job_icons.rsi
+    state: medikkf
+  jobName: job-name-medical_phoenix-medic

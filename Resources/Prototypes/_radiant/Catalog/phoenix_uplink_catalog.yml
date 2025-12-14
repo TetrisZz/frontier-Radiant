@@ -1,0 +1,616 @@
+#Weapons
+
+- type: listing
+  id: UplinkPhoenixMk58
+  name: uplink-phoenix-mk58-name
+  description: uplink-phoenix-mk58-desc
+  productEntity: NFWeaponPistolMk58
+  icon: { sprite: Objects/Weapons/Guns/Pistols/mk58.rsi, state: icon }
+  cost:
+    Speso: 5000
+  categories:
+    - UplinkPhoenixWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+
+- type: listing
+  id: UplinkPhoenixMk58Magazine
+  name: uplink-phoenix-mk58_magazine-name
+  description: uplink-phoenix-mk58_magazine-desc
+  productEntity: NFMagazinePistol35
+  cost:
+    Speso: 1000
+  categories:
+    - UplinkPhoenixWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+
+- type: listing
+  id: UplinkPhoenixEnergySMG
+  name: uplink-security-energygun-name
+  description: uplink-security-energygun-desc
+  productEntity: NFWeaponEnergySubMachineGunDeltaV
+  icon: { sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi, state: icon }
+  cost:
+    Speso: 10000
+  categories:
+    - UplinkPhoenixWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - PhoenixAgent
+
+- type: listing
+  id: UplinkPhoenixVeresk
+  name: uplink-phoenix-veresk-name
+  description: uplink-phoenix-veresk-desc
+  productEntity: WeaponSubMachineGunVereskBlue
+  icon: { sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk_blue/big.rsi, state: icon }
+  cost:
+    Speso: 40000
+  categories:
+    - UplinkPhoenixWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - PhoenixAgent
+
+- type: listing
+  id: UplinkPhoenixVereskMagazine
+  name: uplink-phoenix-veresk_magazine-name
+  description: uplink-phoenix-veresk_magazine-desc
+  productEntity: MagazinePistolSubMachineGunVereskLow
+  cost:
+    Speso: 5000
+  categories:
+    - UplinkPhoenixWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - PhoenixAgent
+
+- type: listing
+  id: UplinkPhoenixGuardian
+  name: uplink-phoenix-guardian-name
+  description: uplink-phoenix-guardian-desc
+  productEntity: WeaponRifleGuardianBlue
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/big.rsi, state: icon }
+  cost:
+    Speso: 60000
+  categories:
+    - UplinkPhoenixWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - PhoenixAgent
+
+- type: listing
+  id: UplinkPhoenixGuardianMagazine
+  name: uplink-phoenix-guardian_magazine-name
+  description: uplink-phoenix-guardian_magazine-desc
+  productEntity: NFMagazineRifle30
+  cost:
+    Speso: 7500
+  categories:
+    - UplinkPhoenixWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - PhoenixAgent
+
+#Hardsuits
+
+- type: listing
+  id: UplinkPhoenixHardsuitParamed
+  name: uplink-phoenix-hardsuit_paramed-name
+  description: uplink-phoenix-hardsuit_paramed-desc
+  productEntity: ClothingOuterHardsuitVoidParamed
+  icon: { sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi, state: icon }
+  cost:
+    Speso: 1500
+  categories:
+    - UplinkPhoenixHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+
+- type: listing
+  id: UplinkPhoenixHardsuitCMO
+  name: uplink-phoenix-hardsuit_cmo-name
+  description: uplink-phoenix-hardsuit_cmo-desc
+  productEntity: ClothingOuterHardsuitMedical
+  icon: { sprite: Clothing/OuterClothing/Hardsuits/medical.rsi, state: icon }
+  cost:
+    Speso: 5000
+  categories:
+    - UplinkPhoenixHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+
+- type: listing
+  id: UplinkPhoenixHardsuitCombat
+  name: uplink-phoenix-hardsuit_combat-name
+  description: uplink-phoenix-hardsuit_combat-desc
+  productEntity: ClothingOuterHardsuitMedicalCombat
+  icon: { sprite: _radiant/Clothing/Hardsuits/newmed.rsi, state: icon }
+  cost:
+    Speso: 30000
+  categories:
+    - UplinkPhoenixHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - PhoenixAgent
+
+#Utility
+
+- type: listing
+  id: UplinkPhoenixButton
+  name: uplink-phoenix-button-name
+  description: uplink-phoenix-button-desc
+  productEntity: PanicButton
+  cost:
+    Speso: 2500
+  categories:
+    - UplinkPhoenixUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixImplanter
+  name: uplink-phoenix-implanter-name
+  description: uplink-phoenix-implanter-desc
+  productEntity: EmergencyTrackingImplanter
+  icon: { sprite: _radiant/Objects/Devices/encryption_keys.rsi, state: med_label }
+  cost:
+    Speso: 2500
+  categories:
+    - UplinkPhoenixUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixBeacon
+  name: uplink-phoenix-beacon-name
+  description: uplink-phoenix-beacon-desc
+  productEntity: FultonBeacon
+  icon: { sprite: Objects/Tools/fulton.rsi, state: folded_extraction }
+  cost:
+    Speso: 10000
+  categories:
+    - UplinkPhoenixUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+
+- type: listing
+  id: UplinkPhoenixTeleport
+  name: uplink-phoenix-teleport-name
+  description: uplink-phoenix-teleport-desc
+  productEntity: MedicalTeleport
+  icon: { sprite: _radiant/Objects/Tools/bug.rsi, state: icon }
+  cost:
+    Speso: 20000
+  categories:
+    - UplinkPhoenixUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+
+- type: listing
+  id: UplinkPhoenixRollerBed
+  name: uplink-phoenix-rollerbed-name
+  description: uplink-phoenix-rollerbed-desc
+  productEntity: RollerBedSpawnFolded
+  icon: { sprite: Structures/Furniture/rollerbeds.rsi, state: rollerbed_folded }
+  cost:
+    Speso: 1000
+  categories:
+    - UplinkPhoenixUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+
+- type: listing
+  id: UplinkPhoenixHypoMini
+  name: uplink-phoenix-hypo-name
+  description: uplink-phoenix-hypo-desc
+  productEntity: HypoMini
+  icon: { sprite: _NF/Objects/Specific/Medical/hypomini.rsi, state: hypo }
+  cost:
+    Speso: 5000
+  categories:
+    - UplinkPhoenixUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+
+- type: listing
+  id: UplinkPhoenixMagBoots
+  name: uplink-phoenix-magboots-name
+  description: uplink-phoenix-magboots-desc
+  productEntity: ClothingShoesBootsMagMedical
+  icon: { sprite: _radiant/Clothing/Boots/magboots_med.rsi, state: icon }
+  cost:
+    Speso: 20000
+  categories:
+    - UplinkPhoenixUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixHypospray
+  name: uplink-phoenix-hypospray-name
+  description: uplink-phoenix-hypospray-desc
+  productEntity: Hypospray
+  icon: { sprite: Objects/Specific/Medical/hypospray.rsi, state: hypo }
+  cost:
+    Speso: 100000
+  categories:
+    - UplinkPhoenixUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+#Machine
+
+- type: listing
+  id: UplinkPhoenixCentrifuge
+  name: uplink-phoenix-centrifuge-name
+  description: uplink-phoenix-centrifuge-desc
+  productEntity: MachineCentrifugeFlatpack
+  cost:
+    Speso: 5000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixElectrolysis
+  name: uplink-phoenix-electrolysis-name
+  description: uplink-phoenix-electrolysis-desc
+  productEntity: MachineElectrolysisUnitFlatpack
+  cost:
+    Speso: 5000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixHotplate
+  name: uplink-phoenix-hotplate-name
+  description: uplink-phoenix-hotplate-desc
+  productEntity: ChemistryHotplateFlatpack
+  cost:
+    Speso: 7500
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixReagentGrinder
+  name: uplink-phoenix-reagent_grinder-name
+  description: uplink-phoenix-reagent_grinder-desc
+  productEntity: KitchenReagentGrinderFlatpack
+  cost:
+    Speso: 7500
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixCryoPod
+  name: uplink-phoenix-cryo_pod-name
+  description: uplink-phoenix-cryo_pod-desc
+  productEntity: CryoPodFlatpack
+  cost:
+    Speso: 10000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixStasisBed
+  name: uplink-phoenix-stasis_bed-name
+  description: uplink-phoenix-stasis_bed-desc
+  productEntity: StasisBedFlatpack
+  cost:
+    Speso: 10000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixChemMaster
+  name: uplink-phoenix-chem_master-name
+  description: uplink-phoenix-chem_master-desc
+  productEntity: ChemMasterFlatpack
+  cost:
+    Speso: 10000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixVendingMedicalRestock
+  name: uplink-phoenix-vending_medical_restock-name
+  description: uplink-phoenix-vending_medical_restock-desc
+  productEntity: VendingMachineRestockMedical
+  cost:
+    Speso: 15000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixVendingMedical
+  name: uplink-phoenix-vending_medical-name
+  description: uplink-phoenix-vending_medical-desc
+  productEntity: VendingMachineMedicalFlatpack
+  cost:
+    Speso: 20000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixMachineChemicalsFlatpackRestock
+  name: uplink-phoenix-machine_chemicals_restock-name
+  description: uplink-phoenix-machine_chemicals_restock-desc
+  productEntity: VendingMachineRestockChemVend
+  cost:
+    Speso: 25000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixMachineChemicalsFlatpack
+  name: uplink-phoenix-machine_chemicals-name
+  description: uplink-phoenix-machine_chemicals-desc
+  productEntity: VendingMachineChemicalsFlatpack
+  cost:
+    Speso: 25000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixChemDispenser
+  name: uplink-phoenix-chem_dispenser-name
+  description: uplink-phoenix-chem_dispenser-desc
+  productEntity: ChemDispenserMachineCircuitboard
+  cost:
+    Speso: 30000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic
+
+- type: listing
+  id: UplinkPhoenixComputerIFF
+  name: uplink-phoenix-computer_iff-name
+  description: uplink-phoenix-computer_iff-desc
+  productEntity: ComputerIFFFlatpack
+  cost:
+    Speso: 40000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+
+- type: listing
+  id: UplinkPhoenixMedicalTechFab
+  name: uplink-phoenix-medical_techfab-name
+  description: uplink-phoenix-medical_techfab-desc
+  productEntity: MedicalTechFabFlatpack
+  cost:
+    Speso: 45000
+  categories:
+    - UplinkPhoenixMachine
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PhoenixUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - DirectorOfCare
+        - PhoenixAgent
+        - PhoenixMedic

@@ -1,6 +1,6 @@
 - type: entity
   name: чёрный букет
-  parent: CaptainSabre
+  parent: BaseItem
   id: BlackBouquet
   description: Букет чёрных цветов, пахнет цветами и кажется дымом.
   components:
@@ -25,6 +25,8 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Item
+    size: Normal
   - type: DamageOnHit
     damage:
       types:
@@ -40,101 +42,80 @@
   - type: Construction
     graph: BlackBouquet
     node: BlackBouquet
-  - type: Item
-    sprite: _radiant/Objects/Decoration/bouquets/black-bouquet.rsi
   - type: PirateBountyItem
     id: Bouquet
 
 - type: entity
   name: синий букет
-  parent: CaptainSabre
+  parent: BlackBouquet
   id: BlueBouquet
   description: Букет из синих цветов, пахнет цветами и медицинским отсеком.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Decoration/bouquets/blue-bouquet.rsi
     state: item
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 20
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Voice/Diona/diona_rustle1.ogg
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          FoodPoppy:
-            min: 1
-            max: 2
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: DamageOnHit
-    damage:
-      types:
-        Blunt: 5
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    attackRate: 0.75
-    damage:
-      types:
-        Blunt: 2
-    soundHit:
-        path: /Audio/Voice/Diona/diona_salute.ogg
   - type: Construction
     graph: BlueBouquet
     node: BlueBouquet
-  - type: Item
-    sprite: _radiant/Objects/Decoration/bouquets/blue-bouquet.rsi
   - type: PirateBountyItem
     id: Bouquet
 
 - type: entity
   name: букет
-  parent: CaptainSabre
+  parent: BlackBouquet
   id: MulticolouredBouquet
   description: Букет из разных цветов, вкусно пахнет.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Decoration/bouquets/multicoloured-bouquet.rsi
     state: item
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 20
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Voice/Diona/diona_rustle1.ogg
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          FoodPoppy:
-            min: 1
-            max: 3
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: DamageOnHit
-    damage:
-      types:
-        Blunt: 5
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    attackRate: 0.75
-    damage:
-      types:
-        Blunt: 2
-    soundHit:
-        path: /Audio/Voice/Diona/diona_salute.ogg
   - type: Construction
     graph: MulticolouredBouquet
     node: MulticolouredBouquet
-  - type: Item
-    sprite: _radiant/Objects/Decoration/bouquets/multicoloured-bouquet.rsi
+  - type: PirateBountyItem
+    id: Bouquet
+
+- type: entity
+  name: оранжевый букет
+  parent: BlackBouquet
+  id: OrangeBouquet
+  description: Букет из лилий, привлекает внимание.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Decoration/bouquets/orange-bouquet.rsi
+    state: item
+  - type: Construction
+    graph: OrangeBouquet
+    node: OrangeBouquet
+  - type: PirateBountyItem
+    id: Bouquet
+
+- type: entity
+  name: розовый букет
+  parent: BlackBouquet
+  id: PurpleBouquet
+  description: Букет из розовых цветов, необычно пахнет.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Decoration/bouquets/purple-bouquet.rsi
+    state: item
+  - type: Construction
+    graph: PurpleBouquet
+    node: PurpleBouquet
+  - type: PirateBountyItem
+    id: Bouquet
+
+- type: entity
+  name: красный букет
+  parent: BlackBouquet
+  id: RedBouquet
+  description: Букет из маков.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Decoration/bouquets/red-bouquet.rsi
+    state: item
+  - type: Construction
+    graph: RedBouquet
+    node: RedBouquet
   - type: PirateBountyItem
     id: Bouquet

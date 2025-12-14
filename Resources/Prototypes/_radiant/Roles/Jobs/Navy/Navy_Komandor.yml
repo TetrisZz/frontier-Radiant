@@ -14,7 +14,7 @@
       time: 21600 # 6 hours
   startingGear: NavyKomandorGear
   icon: "JobIconNavyKomandor" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-navy-cc
   weight: 190
   displayWeight: 75
   accessGroups:

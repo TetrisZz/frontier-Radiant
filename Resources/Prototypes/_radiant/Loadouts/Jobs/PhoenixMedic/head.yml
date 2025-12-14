@@ -1,0 +1,4 @@
+- type: loadout
+  id: PhoenixClothingHeadNurseHat
+  equipment:
+    head: ClothingHeadNurseHat

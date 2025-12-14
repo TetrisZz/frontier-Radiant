@@ -96,3 +96,19 @@
       sprite: _radiant/Clothing/Ears/Headsets/sep_headset.rsi
     - type: Clothing
       sprite: _radiant/Clothing/Ears/Headsets/sep_headset.rsi
+
+- type: entity
+  parent: [ClothingHeadset, BaseC2ContrabandUnredeemable]
+  id: ClothingHeadsetEmergency
+  name: гарнитура корпуса феникс
+  description: Гарнитура, которая помогает слушать предсмертные крики.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyEmergency
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/brigmedic.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/brigmedic.rsi

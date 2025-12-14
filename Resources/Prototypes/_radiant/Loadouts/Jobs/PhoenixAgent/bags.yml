@@ -1,0 +1,24 @@
+- type: loadout
+  id: PhoenixClothingBackpackMessengerColorWhite
+  equipment:
+    back: ClothingBackpackMessengerColorWhite
+
+- type: loadout
+  id: PhoenixClothingBackpackDuffelMedical
+  equipment:
+    back: ClothingBackpackDuffelMedical
+
+- type: loadout
+  id: PhoenixClothingBackpackMessengerMedical
+  equipment:
+    back: ClothingBackpackMessengerMedical
+
+- type: loadout
+  id: PhoenixClothingBackpackMedical
+  equipment:
+    back: ClothingBackpackMedical
+
+- type: loadout
+  id: PhoenixClothingBackpackSatchelMedical
+  equipment:
+    back: ClothingBackpackSatchelMedical

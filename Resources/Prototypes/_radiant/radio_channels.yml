@@ -19,3 +19,11 @@
   keycode: 'ф'
   frequency: 2974
   color: "#9589d6"
+
+- type: radioChannel
+  id: Emergency
+  name: chat-radio-emergency
+  keycode: 'э'
+  frequency: 9514
+  color: "#0ec7c1"
+  longRange: true

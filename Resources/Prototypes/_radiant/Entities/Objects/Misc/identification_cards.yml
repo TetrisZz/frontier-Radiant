@@ -233,3 +233,30 @@
     layers:
     - state: white
     - state: idcommander
+
+# Medical
+
+- type: entity
+  parent: AcorpIDCard
+  id: PhoenixMedicIDCard
+  name: ID-карта медика
+  components:
+  - type: PresetIdCard
+    job: PhoenixMedic
+  - type: Sprite
+    layers:
+    - state: mediki
+    - sprite: Objects/Misc/id_cards.rsi
+      state: idparamedic
+
+- type: entity
+  parent: AcorpIDCard
+  id: PhoenixAgentIDCard
+  name: ID-карта агента
+  components:
+  - type: PresetIdCard
+    job: PhoenixAgent
+  - type: Sprite
+    layers:
+    - state: mediki
+    - state: idmedikkf

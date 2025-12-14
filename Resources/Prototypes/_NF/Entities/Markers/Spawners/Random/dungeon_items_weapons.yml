@@ -264,10 +264,12 @@
     - WeaponCaseShortAdvancedLaserExpedition
     - WeaponCaseShortWard45Expedition # Radiant_sector
     - WeaponCaseLongWT550Expedition
+    - WeaponCaseLongVeresk # Radiant_sector
     - WeaponCaseLongFighter # Radiant_sector
     - WeaponCaseLongDrozdExpedition
     - WeaponCaseLongM90Expedition
     - WeaponCaseLongLecterExpedition
+    - WeaponCaseLongGuardian # Radiant_sector
     - WeaponCaseLongVulcanExpedition # Radiant_sector
     - WeaponCaseLongRanger # Radiant_sector
 #    - WeaponCaseShortSvalinnExpedition # Radiant_sector

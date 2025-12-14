@@ -464,3 +464,59 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+
+# Phoenix
+
+- type: roleLoadout
+  id: JobPhoenixMedic
+  groups:
+  - PhoenixMedicHead
+  - PhoenixMedicJumpsuit
+  - NAVYBrigmedicGloves
+  - PhoenixAgentBackpack
+  - PhoenixMedicOuterClothing
+  - ContractorForcedOuterClothing
+  - PhoenixMedicBelt
+  - PhoenixMedicShoes
+  - PhoenixMedicFace
+  - ContractorGlasses
+  - PhoenixAgentEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - PhoenixMedicPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific
+
+- type: roleLoadout
+  id: JobPhoenixAgent
+  groups:
+  - PhoenixAgentHead
+  - PhoenixAgentJumpsuit
+  - MercenaryGloves
+  - PhoenixAgentBackpack
+  - PhoenixAgentOuterClothing
+  - NfsdForcedOuterClothing
+  - PhoenixAgentBelt
+  - PhoenixAgentShoes
+  - PhoenixMedicFace
+  - MercenaryGlasses
+  - PhoenixAgentEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - PhoenixAgentPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorBackpackItems
+  - ContractorHandItems
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
+  - NFSpeciesSpecific

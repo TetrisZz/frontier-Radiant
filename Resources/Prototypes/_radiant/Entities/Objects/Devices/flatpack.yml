@@ -68,3 +68,12 @@
   components:
   - type: Flatpack
     entity: WeaponTurretAK570
+
+- type: entity
+  parent: BaseRadiantFlatpack
+  id: WeaponTurretM220Flatpack
+  name: упакованная турель M220 EMP
+  description: Универсально-сборная упаковка, используемая для сборки управляемой стационарной турели.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretM220

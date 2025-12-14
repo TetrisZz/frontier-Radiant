@@ -224,9 +224,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
         Heat: 0.9
 
 - type: entity
@@ -247,9 +247,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
         Heat: 0.9
 
 - type: entity
@@ -270,9 +270,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
         Heat: 0.9
 
 #Navy Hardsuit
@@ -344,3 +344,13 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.9
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitNfsdBronze
+  id: ClothingHeadHelmetHardsuitMedicalCombat
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/slemnewmed.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/slemnewmed.rsi

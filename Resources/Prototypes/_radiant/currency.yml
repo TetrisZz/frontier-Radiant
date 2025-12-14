@@ -1,20 +1,27 @@
 - type: currency
   id: BlackMoney
   displayName: store-currency-display-blackMoney
-  cash: 
+  cash:
     1: BlackMoney1
   canWithdraw: true
 
 - type: currency
   id: SeparatistToken
   displayName: store-currency-display-separatist-token
-  cash: 
+  cash:
     1: SeparatistToken1
   canWithdraw: true
 
 - type: currency
   id: NavyToken
   displayName: store-currency-display-navy-token
-  cash: 
+  cash:
     1: NavyToken1
   canWithdraw: true
+
+#- type: currency
+#  id: Spesos
+#  displayName: store-currency-display-spesos
+#  cash:
+#    1: SpaceCash
+#  canWithdraw: true

@@ -30,3 +30,14 @@
     sprite: _radiant/Clothing/Belt/rps.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Belt/rps.rsi
+
+- type: entity
+  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase
+  id: ClothingBeltCombatWebbingMedical
+  name: медицинская РПС
+  description: Выглядит стильно и практично, пропахла хлором.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/rpsss_med.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/rpsss_med.rsi

@@ -83,6 +83,7 @@ public sealed partial class IdCardConsoleComponent : Component
 		"AcorpSecurity", //Radiant_sector
 		"AcorpCommand", //Radiant_sector
 		"Navy", //Radiant_sector
+		"MedicalPhoenix", //Radiant_sector
     };
 
     [Serializable, NetSerializable]

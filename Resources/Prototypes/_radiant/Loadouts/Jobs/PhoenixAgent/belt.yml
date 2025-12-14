@@ -1,0 +1,14 @@
+- type: loadout
+  id: PhoenixClothingBeltCombatWebbingMedical
+  equipment:
+    belt: ClothingBeltCombatWebbingMedical
+
+- type: loadout
+  id: PhoenixClothingBeltMedical
+  equipment:
+    belt: ClothingBeltMedical
+
+- type: loadout
+  id: PhoenixClothingBeltMedicalEMT
+  equipment:
+    belt: ClothingBeltMedicalEMT

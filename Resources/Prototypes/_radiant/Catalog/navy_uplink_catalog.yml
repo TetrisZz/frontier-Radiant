@@ -5,7 +5,7 @@
   name:  uplink-navy-ammopistol-name
   description: uplink-navy-ammopistol-desc
   productEntity: NFBoxMagazineHighCapacityPistol35Overpressure
-  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  icon: { sprite: _NF/Objects/Storage/boxes.rsi, state: icon-magazine }
   cost:
     FrontierUplinkCoin: 1
   categories:
@@ -21,7 +21,6 @@
   name:  uplink-navy-magazinemagnum-name
   description: uplink-navy-magazinemagnum-desc
   productEntity: NFMagazinePistol45Overpressure
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red }
   cost:
     FrontierUplinkCoin: 1
   categories:
@@ -37,7 +36,22 @@
   name:  uplink-navy-disabler-name
   description: uplink-navy-disabler-desc
   productEntity: NFWeaponEnergyPistolDisabler
-  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  icon: { sprite: _NF/Objects/Storage/boxes.rsi, state: icon-magazine }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyVereskMagazine
+  name:  uplink-navy-veresk_magazine-name
+  description: uplink-navy-veresk_magazine-desc
+  productEntity: MagazinePistolSubMachineGunVereskHigh
   cost:
     FrontierUplinkCoin: 1
   categories:
@@ -104,6 +118,22 @@
   icon: { sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 3
+  categories:
+    - UplinkNavyWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NavyUplink
+
+- type: listing
+  id: UplinkNavyVeresk
+  name:  uplink-phoenix-veresk-name
+  description: uplink-phoenix-veresk-desc
+  productEntity: WeaponSubMachineGunVereskBlue
+  icon: { sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk_blue/big.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 4
   categories:
     - UplinkNavyWeapons
   conditions:

@@ -11,7 +11,7 @@
       time: 3600 # 1 hours Radiant_Sector
   startingGear: NavyBrigmedicGear
   icon: "JobIconNavyBrigmedic"
-  supervisors: job-supervisors-bailiff
+  supervisors: job-supervisors-navy-captain
   weight: 125
   displayWeight: 35
   canBeAntag: false

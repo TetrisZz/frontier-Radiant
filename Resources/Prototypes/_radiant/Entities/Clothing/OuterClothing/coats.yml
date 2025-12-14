@@ -125,7 +125,7 @@
 #Navy
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatNavy
   name: пиджак конфедеративного флота
   description: Пиджак конфедеративного флота, выдаётся лишь избранным чтобы подчеркнуть их важность в управлении флотом.

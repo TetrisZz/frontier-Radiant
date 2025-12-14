@@ -1,0 +1,35 @@
+- type: vessel
+  id: Hecate
+  parent: BaseVessel
+  name: UUS Геката
+  description: Крупное медицинское судно, для оказания помощи в ходе боестолкновений.
+  price: 101000
+  category: Large
+  group: Medical
+  access: MedicalPhoenix
+  shuttlePath: /Maps/_radiant/Shuttles/Hecate.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Hecate
+  mapName: 'Геката'
+  mapPath: /Maps/_radiant/Shuttles/Hecate.yml
+  minPlayers: 0
+  stations: 
+    Hecate:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Геката {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

@@ -1039,7 +1039,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Security"], ["Navy"]] #Radiant_sector
   - type: MarketModifier # Frontier
     mod: 5 # Frontier
   - type: PointLight

@@ -64,9 +64,23 @@
       path: /Audio/_NF/Announcements/PocketSizedAndy/andy2_solar_flare_end.ogg
     duration: 120
     maxDuration: 240
-  - type: SolarFlareRule
-    allChannels: true
-    lightBreakChancePerSecond: 0.0003
+  - type: SolarFlareRule # Radiant sector edit start
+    onlyJamHeadsets: true
+    affectedChannels:
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Traffic
+    - Nfsd
+    - Navy
+    - Acorp
+    - Separatist  # Radiant sector edit end
+    lightBreakChancePerSecond: 0.0001 # Radiant sector edit
     doorToggleChancePerSecond: 0.001
 
 - type: entity

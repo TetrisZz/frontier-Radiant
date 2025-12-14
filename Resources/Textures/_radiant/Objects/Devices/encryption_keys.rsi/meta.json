@@ -12,6 +12,8 @@
     {"name": "sep_label"},
     {"name": "crypt_sep"},
     {"name": "navy_label"},
+    {"name": "crypt_med"},
+    {"name": "med_label"},
     {"name": "crypt_navy"}
   ]
 }

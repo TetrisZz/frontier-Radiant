@@ -222,3 +222,54 @@
   - type: Tag
     tags:
     - SeparatistShipyard
+
+- type: entity
+  parent: [BaseStructureDisableAnchoring, StorePresetPhoenixUplink, VendingMachine]
+  id: VendingMachinePhoenix
+  name: снаряжение корпуса феникс
+  description: Бабки, бабки, сука, бабки!!!
+  components:
+  - type: VendingMachine
+    cashSlot: Null
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+  - type: DatasetVocalizer
+    pack: SyndieDrobeAds
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/VendingMachines/phoenix.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.3
+    color: "#9589d6"
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      Speso: 0
+  - type: AccessReader
+    access: [["MedicalPhoenix"]]
+  - type: Tag
+    tags:
+    - PhoenixUplink
+
+- type: entity
+  parent: VendingMachineSec
+  id: VendingMachineSecPhoenix
+  components:
+  - type: AccessReader
+    access: [["MedicalPhoenix"]]

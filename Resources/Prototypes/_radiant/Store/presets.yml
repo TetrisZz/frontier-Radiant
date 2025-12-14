@@ -33,6 +33,22 @@
     balance:
       FrontierUplinkCoin: 0
 
+- type: entity
+  id: StorePresetPhoenixUplink
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-phoenix-uplink
+    categories:
+    - UplinkPhoenixWeapons
+    - UplinkPhoenixHardsuits
+    - UplinkPhoenixUtility
+    - UplinkPhoenixMachine
+    currencyWhitelist:
+    - Speso
+    balance:
+      Speso: 0
+
 # Shipyard
 
 - type: entity
