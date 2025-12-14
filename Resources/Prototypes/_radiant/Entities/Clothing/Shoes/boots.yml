@@ -80,4 +80,21 @@
   - type: Clothing
     sprite: _radiant/Clothing/Boots/magboots.rsi
   - type: Magboots
-    magbootsAlert: MagbootsPirate
+    magbootsAlert: MagbootsSeparatist
+
+- type: entity
+  parent: [BaseC3PirateContraband, ClothingShoesBootsMag]
+  id: ClothingShoesBootsMagMedical
+  name: магнитные ботинки корпуса феникс
+  description: Тащить тела в невесомости ещё никогда не было так просто.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/magboots_med.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/magboots_med.rsi
+  - type: Magboots
+    magbootsAlert: MagbootsMedical
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.9

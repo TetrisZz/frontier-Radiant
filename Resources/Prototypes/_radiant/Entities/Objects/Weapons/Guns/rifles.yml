@@ -253,3 +253,92 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: М-30 Аспид-С
+  parent: [BaseWeaponRifle, BaseC3SyndicateContraband]
+  id: WeaponRifleGuardian
+  description: Базовая, удешевлённая версия карабина М-30. Оружие надёжное, но без продвинутой модификации. Использует 30-й калибр.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian/big.rsi
+    scale: 0.75, 0.75
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian/tiny.rsi
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian/tiny.rsi
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -0
+    maxAngle: -0
+  - type: Gun
+    burstCooldown: 0.7
+    fireRate: 4
+    angleDecay: 3
+    angleIncrease: 1
+    minAngle: 1
+    maxAngle: 4
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/Fire_guardian.ogg
+      params:
+        volume: -1
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_radiant/Weapons/peredergivanie.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineRifle30
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineRifle30
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle30
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle30
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: М-30 Аспид-К
+  parent: WeaponRifleGuardian
+  id: WeaponRifleGuardianBlue
+  description: Продвинутая модификация линейки М-30, созданная для точечной работы на средних дистанциях. Оснащена стабилизированной газоотводной системой и улучшенным компенсатором, благодаря чему практически не даёт увод ствола очередью. Использует 30-й калибр.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/big.rsi
+    scale: 0.75, 0.75
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/tiny.rsi
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/tiny.rsi

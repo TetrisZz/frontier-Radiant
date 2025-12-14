@@ -5,16 +5,16 @@
   playTimeTracker: JobNavyCaptain
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 86400 # 24 hours Radiant_Sector
+      time: 57600 # 16 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
       department: Navy
-      time: 64800 # 18 hours
+      time: 18000 # 5 hours
     - !type:RoleTimeRequirement
       role: JobNavyOfficer
-      time: 21600 # 6 hours
+      time: 10800 # 3 hours
   startingGear: NavyCaptainGear
   icon: "JobIconNavyCaptain" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-navy-komandor
   weight: 154
   displayWeight: 61
   access:

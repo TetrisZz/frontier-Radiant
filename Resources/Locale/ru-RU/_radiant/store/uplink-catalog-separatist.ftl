@@ -101,6 +101,10 @@ uplink-separatist-cagerecharger-name = зарядник энергоячеек (
 uplink-separatist-cagerecharger-desc = Печатная плата зарядника энергоячеек.
 uplink-separatist-ammogunnery90mm-name = магазин (90mm)
 uplink-separatist-ammogunnery90mm-desc = Магазин для корабельной AK570 90mm heavy autocannon.
+
+uplink-separatist-turret_m220-name = Cтационарная турель M220 EMP
+uplink-separatist-turret_m220-desc = Корабельная турель M220 RUBICON EMP, может выручить при захвате цели которую жалко расстреливать.
+
 uplink-separatist-mediumm220-name = средней емкости ЭМИ энергоячейка
 uplink-separatist-mediumm220-desc = Энергоячейка для зарядки корабельного M220 RUBICON EMP launcher.
 uplink-separatist-highm220-name = высокой емкости ЭМИ энергоячейка

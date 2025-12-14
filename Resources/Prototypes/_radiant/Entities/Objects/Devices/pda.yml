@@ -418,3 +418,44 @@
   - type: Contraband
     turnInValues:
       SeparatistToken: 1
+
+# Phoenix
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: PDAPhoenixMedic
+  name: paramedic PDA
+  description: Shiny and sterile.
+  components:
+  - type: Pda
+    id: PhoenixMedicIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-paramedic
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#2a4b5b"
+  - type: Icon
+    state: pda-paramedic
+
+- type: entity
+  parent: PDASeparatistsCommander
+  id: PDAPhoenixAgent
+  name: КПК агента
+  description: Так и гласит, что вы непобедимы.
+  components:
+  - type: Pda
+    id: PhoenixAgentIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-medikkkkf
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentHColor: "#8900c9"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-medikkkkf

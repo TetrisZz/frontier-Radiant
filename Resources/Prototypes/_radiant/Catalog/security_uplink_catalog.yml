@@ -13,3 +13,24 @@
       whitelist:
         tags:
           - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityGuardian
+  name: uplink-phoenix-guardian-name
+  description: uplink-phoenix-guardian-desc
+  productEntity: WeaponRifleGuardianBlue
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/big.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 4
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Bailiff
+        - SeniorOfficer
+        - Sheriff

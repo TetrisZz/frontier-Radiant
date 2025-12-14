@@ -12,14 +12,14 @@
       time: 21600 # 6 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
       department: Navy
-      time: 21600 # 6 hours Radiant_Sector
+      time: 10800 # 3 hours Radiant_Sector
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 21600 # 6 hours Radiant_Sector
+      time: 10800 # 3 hours Radiant_Sector
   startingGear: SeparatistsCommanderGear
   alwaysUseSpawner: true
   icon: "JobIconSeparatistsCommander" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-separatists-cc
   weight: 40
   displayWeight: 40
   newPlayerMessage: false

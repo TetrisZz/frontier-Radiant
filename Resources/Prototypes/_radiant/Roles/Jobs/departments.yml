@@ -40,3 +40,15 @@
   - NavyOfficer
   - NavyBrigmedic
   - NavyCadet
+
+- type: department
+  id: MedicalPhoenix
+  name: department-medical_phoenix
+  description: department-medical_phoenix-description
+  color: "#52B4E9"
+  weight: -1
+  roles:
+  - DirectorOfCare
+  - PhoenixAgent
+  - PhoenixMedic
+

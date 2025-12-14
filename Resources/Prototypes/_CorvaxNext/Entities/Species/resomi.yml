@@ -87,9 +87,9 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      260: 0.8
-      250: 0.6
-      230: 0.4
+      272: 0.8
+      242: 0.6
+      196: 0.4
   - type: ThermalRegulator
     normalBodyTemperature: 300.15
   - type: Speech

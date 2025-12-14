@@ -1,0 +1,35 @@
+- type: vessel
+  id: Aurelia
+  parent: BaseVessel
+  name: HOM Аурелия
+  description: Медицинское судно с хорошей защитой и со всем необходимым для работы в космосе.
+  price: 62500
+  category: Medium
+  group: Medical
+  access: MedicalPhoenix
+  shuttlePath: /Maps/_radiant/Shuttles/Aurelia.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Aurelia
+  mapName: 'Аурелия'
+  mapPath: /Maps/_radiant/Shuttles/Aurelia.yml
+  minPlayers: 0
+  stations: 
+    Aurelia:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Аурелия {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

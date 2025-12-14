@@ -239,3 +239,29 @@
     sprite: _radiant/Structures/Decoration/flags.rsi
     layers:
       - state: flotptr
+
+# Phoenix
+
+- type: entity
+  id: SpawnPointPhoenixMedic
+  parent: SpawnPointJobBase
+  name: PhoenixMedic
+  components:
+  - type: SpawnPoint
+    job_id: PhoenixMedic
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: paramedic
+
+- type: entity
+  id: SpawnPointPhoenixAgent
+  parent: SpawnPointJobBase
+  name: PhoenixAgent
+  components:
+  - type: SpawnPoint
+    job_id: PhoenixAgent
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: brigmedic

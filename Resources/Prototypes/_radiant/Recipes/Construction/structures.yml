@@ -1,7 +1,5 @@
 - type: construction
   id: AtmosDeviceFanDirectional
-  name: Fan Directional
-  description: Небольшой вентилятор, препятствующий распространению газов.
   graph: AtmosDeviceFanDirectional
   startNode: start
   targetNode: AtmosDeviceFanDirectional

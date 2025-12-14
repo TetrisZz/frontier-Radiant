@@ -39,8 +39,9 @@ public sealed partial class FultonComponent : Component
     {
         Components = new[]
         {
-            "Item",
-            "Anchorable"
+            "Deathgasp"
+//            "Item", Radiant sector
+//            "Anchorable" Radiant sector
         }
     };
 

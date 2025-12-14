@@ -1,0 +1,45 @@
+- type: loadout
+  id: PhoenixClothingUniformJumpsuitVirology
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVirology
+
+- type: loadout
+  id: PhoenixClothingUniformJumpsuitMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+
+- type: loadout
+  id: PhoenixClothingUniformJumpsuitGenetics
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGenetics
+
+- type: loadout
+  id: PhoenixClothingUniformJumpsuitChemistry
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChemistry
+
+- type: loadout
+  id: PhoenixClothingUniformJumpskirtOfLife
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtOfLife
+
+- type: loadout
+  id: PhoenixClothingUniformJumpskirtChemistry
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtChemistry
+
+- type: loadout
+  id: PhoenixClothingUniformJumpskirtGenetics
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGenetics
+
+- type: loadout
+  id: PhoenixClothingUniformJumpskirtMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalDoctor
+
+- type: loadout
+  id: PhoenixClothingUniformJumpskirtVirology
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtVirology
+

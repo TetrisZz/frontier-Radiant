@@ -1,0 +1,76 @@
+- type: entity
+  id: BaseMagazinePistolSubMachineGunVeresk
+  name: магазин для вереска (.35 авто)
+  parent: [BaseItem, BaseC1Contraband, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny, BaseSecurityContraband<BaseC1Contraband
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineSubMachineGunPistol35Veresk
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - NFCartridgePistol35
+    capacity: 30
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazinePistolSubMachineGunVereskHigh
+  name: магазин для вереска (.35 авто)
+  parent: BaseMagazinePistolSubMachineGunVeresk
+  description: Коробчатый двухрядный магазин на 30 патронов для пистолета-пулемета Вереск.
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgePistol35
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/high_veresk_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  id: MagazinePistolSubMachineGunVereskLow
+  name: магазин для вереска (.35 авто)
+  parent: BaseMagazinePistolSubMachineGunVeresk
+  description: Коробчатый двухрядный магазин на 20 патронов для пистолета-пулемета Вереск.
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgePistol35
+    capacity: 20
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/low_veresk_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag

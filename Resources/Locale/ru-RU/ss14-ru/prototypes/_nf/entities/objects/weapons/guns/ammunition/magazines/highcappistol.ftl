@@ -1,0 +1,16 @@
+ent-NFMagazineHighCapacityPistol35 = увеличеный пистолетный магазин (.35 авто)
+    .desc = { ent-BaseMagazinePistol.desc }
+ent-NFMagazineHighCapacityPistol35Emp = увеличеный пистолетный магазин (.35 авто ЭМИ)
+    .desc = { ent-BaseMagazinePistol.desc }
+ent-NFMagazineHighCapacityPistol35Empty = увеличеный пистолетный магазин (.35 авто любой)
+    .desc = { ent-BaseMagazinePistol.desc }
+ent-NFMagazineHighCapacityPistol35Incendiary = увеличеный пистолетный магазин (.35 авто зажигательный)
+    .desc = { ent-BaseMagazinePistol.desc }
+ent-NFMagazineHighCapacityPistol35Overpressure = увеличеный пистолетный магазин (.35 авто экспансивный)
+    .desc = { ent-BaseMagazinePistol.desc }
+ent-NFMagazineHighCapacityPistol35Practice = увеличеный пистолетный магазин (.35 авто учебный)
+    .desc = { ent-BaseMagazinePistol.desc }
+ent-NFMagazineHighCapacityPistol35Rubber = увеличеный пистолетный магазин (.35 авто резиновый)
+    .desc = { ent-BaseMagazinePistol.desc }
+ent-NFMagazineHighCapacityPistol35Uranium = увеличеный пистолетный магазин (.35 авто урановый)
+    .desc = { ent-BaseMagazinePistol.desc }

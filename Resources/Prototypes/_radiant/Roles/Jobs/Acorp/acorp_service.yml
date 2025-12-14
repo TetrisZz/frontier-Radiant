@@ -8,7 +8,7 @@
       time: 1000
   startingGear: AcorpServiceGear
   icon: "JobIconAcorpService" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-acorp-director
   weight: 2 # Prioritize station & department jobs
   displayWeight: 15 # Second from the top
   access:

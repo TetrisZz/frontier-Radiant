@@ -6,18 +6,18 @@
       edges:
         - to: MulticolouredBouquet
           steps:
-            - tag: Flower
-              name: flower
+            - tag: lilyFlower
+              name: лилию
+              icon:
+                sprite: Objects/Specific/Hydroponics/lily.rsi
+                state: produce
+            - tag: PoppyFlower
+              name: мак
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Flower
-              name: flower
-              icon:
-                sprite: Objects/Specific/Hydroponics/poppy.rsi
-                state: produce
-            - tag: Flower
-              name: flower
+              name: любой цветок
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
@@ -36,17 +36,17 @@
         - to: BlueBouquet
           steps:
             - tag: Flower
-              name: flower
+              name: любой цветок
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Flower
-              name: flower
+              name: любой цветок
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: AmbrosiaDeus
-              name: ambrosia deus
+              name: амброзию деус
               icon:
                 sprite: Objects/Specific/Hydroponics/ambrosia_deus.rsi
                 state: produce
@@ -65,17 +65,17 @@
         - to: BlackBouquet
           steps:
             - tag: Flower
-              name: flower
+              name: любой цветок
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Flower
-              name: flower
+              name: любой цветок
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Pyrotton
-              name: pyrotton
+              name: пирохлопок
               icon:
                 sprite: Objects/Specific/Hydroponics/pyrotton.rsi
                 state: produce
@@ -85,3 +85,89 @@
     - node: BlackBouquet
       entity: BlackBouquet
 
+- type: constructionGraph
+  id: OrangeBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: OrangeBouquet
+          steps:
+            - tag: lilyFlower
+              name: лилию
+              icon:
+                sprite: Objects/Specific/Hydroponics/lily.rsi
+                state: produce
+            - tag: lilyFlower
+              name: лилию
+              icon:
+                sprite: Objects/Specific/Hydroponics/lily.rsi
+                state: produce
+            - tag: lilyFlower
+              name: лилию
+              icon:
+                sprite: Objects/Specific/Hydroponics/lily.rsi
+                state: produce
+            - material: Paper
+              amount: 2
+              doAfter: 10
+    - node: OrangeBouquet
+      entity: OrangeBouquet
+
+- type: constructionGraph
+  id: RedBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: RedBouquet
+          steps:
+            - tag: PoppyFlower
+              name: мак
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: PoppyFlower
+              name: мак
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: PoppyFlower
+              name: мак
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - material: Paper
+              amount: 2
+              doAfter: 10
+    - node: RedBouquet
+      entity: RedBouquet
+
+- type: constructionGraph
+  id: PurpleBouquet
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: PurpleBouquet
+          steps:
+            - tag: Flower
+              name: любой цветок
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: Flower
+              name: любой цветок
+              icon:
+                sprite: Objects/Specific/Hydroponics/poppy.rsi
+                state: produce
+            - tag: SpacemansTrumpet
+              name: космонавтскую трубу
+              icon:
+                sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
+                state: produce
+            - material: Paper
+              amount: 2
+              doAfter: 10
+    - node: PurpleBouquet
+      entity: PurpleBouquet

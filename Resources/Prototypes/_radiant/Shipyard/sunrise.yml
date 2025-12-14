@@ -1,0 +1,35 @@
+- type: vessel
+  id: Sunrise
+  parent: BaseVessel
+  name: HOM Восход
+  description: Медицинское судно с хорошей защитой и со всем необходимым для работы в космосе.
+  price: 55000
+  category: Medium
+  group: Medical
+  access: MedicalPhoenix
+  shuttlePath: /Maps/_radiant/Shuttles/Sunrise.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Sunrise
+  mapName: 'Восход'
+  mapPath: /Maps/_radiant/Shuttles/Sunrise.yml
+  minPlayers: 0
+  stations: 
+    Sunrise:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Восход {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

@@ -1584,6 +1584,7 @@
   - type: Tag
     tags:
     - Flower # TODO add "RedFlower" or "Poppy" tag, when other color flowers will be
+    - PoppyFlower # Radiant_sector
   - type: FoodSequenceElement
     entries:
       Taco: Poppy
@@ -1616,6 +1617,7 @@
   - type: Tag
     tags:
     - Flower
+    - lilyFlower # Radiant_sector
   - type: FoodSequenceElement
     entries:
       Taco: Lily
@@ -2039,6 +2041,7 @@
   - type: Tag
     tags:
     - Flower
+    - SpacemansTrumpet # Radiant_sector
   - type: Instrument #hehe trumpet
     program: 56
   - type: FoodSequenceElement

@@ -57,3 +57,11 @@
 
 - type: playTimeTracker
   id: JobNavyKomandor
+
+# Medical
+
+- type: playTimeTracker
+  id: JobPhoenixMedic
+
+- type: playTimeTracker
+  id: JobPhoenixAgent

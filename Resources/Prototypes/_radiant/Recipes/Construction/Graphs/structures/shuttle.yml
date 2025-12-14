@@ -12,14 +12,14 @@
           steps:
             - material: Silver
               amount: 20
-              doAfter: 1
+              doAfter: 10
             - material: Plasteel
               amount: 10
-              doAfter: 1
+              doAfter: 10
             - material: Steel
               amount: 30
-              doAfter: 4            
-            
+              doAfter: 10
+
     - node: AtmosDeviceFanDirectional
       entity: AtmosDeviceFanDirectional
       edges:
@@ -36,4 +36,8 @@
               amount: 20
           steps:
             - tool: Screwing
-              doAfter: 1
+              doAfter: 60
+            - tool: Welding
+              doAfter: 20.0
+            - tool: Cutting
+              doAfter: 1.0

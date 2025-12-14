@@ -3,6 +3,8 @@
   suffix: Filled, Hardsuit
   parent: [BaseStructureIndestructible, BaseStructureLockImmuneToEmag, BaseStructureAccessReaderImmuneToEmag, LockerAcorpCaptain]
   components:
+  - type: AccessReader
+    access: [["AcorpSecurity"]]
   - type: StorageFill
     contents:
       - id: EnergyTazer

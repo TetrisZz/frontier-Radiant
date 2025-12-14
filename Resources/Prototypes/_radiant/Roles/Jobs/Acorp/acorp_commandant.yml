@@ -9,7 +9,7 @@
   whitelisted: true
   startingGear: AcorpСommandantGear
   icon: "JobIconAcorpСommandant" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-acorp-cc
   weight: 3 # Prioritize station & department jobs
   displayWeight: 40 # Second from the top
   access:

@@ -43,3 +43,13 @@
   components:
   - type: AccessReader
     access: [["Navy"]]
+
+# Medical
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMedicalPhoenix
+  suffix: MedicalPhoenix, Locked
+  components:
+  - type: AccessReader
+    access: [["MedicalPhoenix"]]

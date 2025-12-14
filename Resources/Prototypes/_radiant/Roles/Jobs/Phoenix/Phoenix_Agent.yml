@@ -1,0 +1,33 @@
+- type: job
+  id: PhoenixAgent
+  name: job-name-phoenix-agent
+  description: job-description-phoenix-agent
+  playTimeTracker: JobPhoenixAgent
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 21600 # 6 hours Radiant_Sector
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 10800 # 3 hours Radiant_Sector
+  startingGear: PhoenixAgentGear
+  icon: "JobIconPhoenixAgent" 
+  supervisors: job-supervisors-phoenix-cmo
+  weight: 61
+  displayWeight: 10
+  accessGroups:
+  - MedicalPhoenixAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, EmergencyTrackingImplant ]
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: PhoenixAgentGear
+  equipment:
+    pocket1: NFWeaponPistolUniversalNfsd
+  storage:
+    back:
+    - Flash
+    - NFMagazineHighCapacityPistol35Overpressure

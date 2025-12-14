@@ -371,3 +371,36 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/dress_traditional.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/dress_traditional.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMedicalWhite
+  name: платье агента
+  description: Удобное, вроде даже всё прикрывает.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/medical_suit1.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/medical_suit1.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMedicalBlue
+  name: платье агента
+  description: Удобное, вроде даже всё прикрывает.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/medical_suit2.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/medical_suit2.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMedicalBlack
+  name: платье агента
+  description: Удобное, вроде даже всё прикрывает.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/medical_suit3.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/medical_suit3.rsi

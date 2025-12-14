@@ -19,3 +19,6 @@ job-name-navy-captain = Капитан
 job-name-navy-officer = Офицер-артиллерист
 job-name-navy-brigmedic = Офицер мед службы
 job-name-navy-cadet = Курсант
+
+job-name-phoenix-agent = Агент поддержки
+job-name-phoenix-medic = Медик-интервент

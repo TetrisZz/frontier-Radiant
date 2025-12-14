@@ -45,3 +45,21 @@
 - type: storeCategory
   id: UplinkNavyShuttle
   name: store-category-navy-shuttle
+
+#Phoenix
+
+- type: storeCategory
+  id: UplinkPhoenixWeapons
+  name: store-category-phoenix-weapons
+
+- type: storeCategory
+  id: UplinkPhoenixHardsuits
+  name: store-category-phoenix-hardsuits
+
+- type: storeCategory
+  id: UplinkPhoenixUtility
+  name: store-category-phoenix-utility
+
+- type: storeCategory
+  id: UplinkPhoenixMachine
+  name: store-category-phoenix-machine

@@ -11,7 +11,7 @@
 - type: pointOfInterest
   id: Medical
   parent: BasePOI
-  name: 'Медицинский Диспансер'
+  name: 'Медицинский Центр'
   minimumDistance: 1650
   maximumDistance: 3400
   spawnGroup: Required
@@ -25,7 +25,7 @@
 
 - type: gameMap
   id: Medical
-  mapName: 'Medical Dispatch'
+  mapName: 'Медицинский Центр'
   mapPath: /Maps/_NF/POI/medical.yml
   minPlayers: 0
   stations:
@@ -33,7 +33,7 @@
       stationProto: RecordsFrontierOutpost
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Медицинский Диспансер'
+          mapNameTemplate: 'Медицинский Центр'
         - type: ExtraStationInformation
           iconPath: /Textures/_NF/Interface/StationIcons/medic.png
           stationSubtext: 'frontier-lobby-medical-subtext'
@@ -42,6 +42,8 @@
         - type: StationJobs
           availableJobs:
             DirectorOfCare: [ 1, 1 ]
+            PhoenixAgent: [ 2, 2 ]
+            PhoenixMedic: [ 4, 4 ]
             Pilot: [ -1, -1 ]
             Mercenary: [ -1, -1 ]
           tags:

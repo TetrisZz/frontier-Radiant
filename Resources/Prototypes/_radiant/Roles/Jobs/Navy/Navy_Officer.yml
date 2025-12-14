@@ -8,14 +8,14 @@
       time: 28800 # 8 hours Radiant_Sector
     - !type:DepartmentTimeRequirement
       department: Navy
-      time: 10800 # 3 hours Radiant_Sector
+      time: 7200 # 2 hours Radiant_Sector
   alternateRequirementSets:
     longerPlaytimeLessSec:
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hours Radiant_Sector
   startingGear: NavyOfficerGear
   icon: "JobIconNavyOfficer" 
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-navy-captain
   weight: 139
   displayWeight: 41
   accessGroups:

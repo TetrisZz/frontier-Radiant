@@ -1,0 +1,24 @@
+- type: loadout
+  id: PhoenixClothingHeadHatBeretMedic
+  equipment:
+    head: ClothingHeadHatBeretMedic
+
+- type: loadout
+  id: PhoenixClothingHeadHatBeretCommander
+  equipment:
+    head: ClothingHeadHatBeretCommander
+
+- type: loadout
+  id: PhoenixClothingHeadHatSurgcapBlue
+  equipment:
+    head: ClothingHeadHatSurgcapBlue
+
+- type: loadout
+  id: PhoenixClothingHeadHatBeretBrigmedic
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+
+- type: loadout
+  id: PhoenixClothingHeadHatParamedicsoft
+  equipment:
+    head: ClothingHeadHatParamedicsoft

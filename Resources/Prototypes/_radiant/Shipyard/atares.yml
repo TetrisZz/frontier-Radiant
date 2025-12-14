@@ -6,7 +6,7 @@
   price: 60000
   category: Medium
   group: Expedition
-  shuttlePath: /Maps/_radiant/Shuttles/Expedition/Atares.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Atares.yml
   guidebookPage: Null
   class:
   - Expedition
@@ -16,7 +16,7 @@
 - type: gameMap
   id: Atares
   mapName: 'Атарес-N21'
-  mapPath: /Maps/_radiant/Shuttles/Expedition/Atares.yml
+  mapPath: /Maps/_radiant/Shuttles/Atares.yml
   minPlayers: 0
   stations: 
     Atares:

@@ -1,0 +1,84 @@
+- type: loadoutGroup
+  id: PhoenixAgentPDA
+  name: loadout-group-assistant-id
+  hidden: true
+  loadouts:
+  - PhoenixPDAPhoenixAgent
+  fallbacks:
+  - PhoenixPDAPhoenixAgent
+
+- type: loadoutGroup
+  id: PhoenixAgentJumpsuit
+  name: униформа
+  loadouts:
+  - PhoenixClothingUniformJumpsuitMedicalBlack
+  - PhoenixClothingUniformJumpsuitMedicalBlue
+  - PhoenixClothingUniformJumpsuitMedicalWhite
+  - PhoenixClothingUniformJumpskirtMedicalBlack
+  - PhoenixClothingUniformJumpskirtMedicalBlue
+  - PhoenixClothingUniformJumpskirtMedicalWhite
+  fallbacks:
+  - PhoenixClothingUniformJumpsuitMedicalBlue
+  - PhoenixClothingUniformJumpskirtMedicalBlue
+
+- type: loadoutGroup
+  id: PhoenixAgentEars
+  name: loadout-group-commandant-ears
+  hidden: true
+  loadouts:
+  - PhoenixClothingHeadsetEmergency
+  fallbacks:
+  - PhoenixClothingHeadsetEmergency
+
+- type: loadoutGroup
+  id: PhoenixAgentOuterClothing
+  name: верхняя одежда
+  minLimit: 0
+  loadouts:
+  - PhoenixClothingOuterVest
+  - PhoenixClothingOuterArmorHeavyAcorp
+  - PhoenixClothingOuterCoatAMG
+
+- type: loadoutGroup
+  id: PhoenixAgentHead
+  name: головные уборы
+  minLimit: 0
+  loadouts:
+  - PhoenixClothingHeadHatBeretMedic
+  - PhoenixClothingHeadHatBeretCommander
+  - PhoenixClothingHeadHatSurgcapBlue
+  - PhoenixClothingHeadHatBeretBrigmedic
+  - PhoenixClothingHeadHatParamedicsoft
+
+- type: loadoutGroup
+  id: PhoenixAgentBelt
+  name: пояса
+  loadouts:
+  - PhoenixClothingBeltCombatWebbingMedical
+  - PhoenixClothingBeltMedical
+  - PhoenixClothingBeltMedicalEMT
+
+- type: loadoutGroup
+  id: PhoenixAgentBackpack
+  name: рюкзаки
+  minLimit: 1
+  loadouts:
+  - PhoenixClothingBackpackMessengerColorWhite
+  - PhoenixClothingBackpackDuffelMedical
+  - PhoenixClothingBackpackMessengerMedical
+  - PhoenixClothingBackpackMedical
+  - PhoenixClothingBackpackSatchelMedical
+  fallbacks:
+  - PhoenixClothingBackpackMedical
+
+- type: loadoutGroup
+  id: PhoenixAgentShoes
+  name: обувь
+  loadouts:
+  - PhoenixClothingShoesBootsCombat
+  - PhoenixClothingShoesColorWhite
+  - PhoenixClothingShoesBootsJack
+  - PhoenixClothingShoesBootsCowboyBlack
+  - PhoenixClothingShoesBootsLaceup
+  fallbacks:
+  - PhoenixClothingShoesBootsCombat

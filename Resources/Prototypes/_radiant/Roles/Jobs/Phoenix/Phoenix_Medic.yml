@@ -1,0 +1,26 @@
+- type: job
+  id: PhoenixMedic
+  name: job-name-phoenix-medic
+  description: job-description-phoenix-medic
+  playTimeTracker: JobPhoenixMedic
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 14400 # 4 hours Radiant_Sector
+  startingGear: PhoenixMedicGear
+  icon: "JobIconPhoenixMedic" 
+  supervisors: job-supervisors-phoenix-cmo
+  weight: 60
+  displayWeight: 9
+  access:
+  - MedicalPhoenix
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddImplantSpecial
+    implants: [ EmergencyTrackingImplant ]
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: PhoenixMedicGear

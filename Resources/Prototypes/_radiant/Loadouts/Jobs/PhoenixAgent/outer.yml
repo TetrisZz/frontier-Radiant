@@ -1,0 +1,23 @@
+- type: loadout
+  id: PhoenixClothingOuterVest
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  equipment:
+    outerClothing: ClothingOuterVest
+
+- type: loadout
+  id: PhoenixClothingOuterArmorHeavyAcorp
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  equipment:
+    outerClothing: ClothingOuterArmorHeavyAcorp
+
+- type: loadout
+  id: PhoenixClothingOuterCoatAMG
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  equipment:
+    outerClothing: ClothingOuterCoatAMG

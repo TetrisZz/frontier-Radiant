@@ -1,0 +1,10 @@
+ent-NFMagazineShotgunDrumEmpty = барабан (.50 дробь любой)
+    .desc = { ent-BaseMagazineShotgun.desc }
+ent-NFMagazineShotgunDrumBeanbag = барабан (.50 дробь травматический)
+    .desc = { ent-BaseMagazineShotgun.desc }
+ent-NFMagazineShotgunDrum = барабан (.50 дробь картечь)
+    .desc = { ent-BaseMagazineShotgun.desc }
+ent-NFMagazineShotgunDrumIncendiary = барабан (.50 дробь зажигательный)
+    .desc = { ent-BaseMagazineShotgun.desc }
+ent-NFMagazineShotgunDrumSlug = барабан (.50 дробь цельный)
+    .desc = { ent-BaseMagazineShotgun.desc }

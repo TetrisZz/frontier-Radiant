@@ -1,0 +1,49 @@
+- type: stack
+  id: MedicalTeleport
+  name: квант-якорь
+  icon:
+    sprite: /Textures/_radiant/Objects/Tools/bug.rsi
+    state: icon
+  spawn: MedicalTeleport1
+  maxCount: 1
+
+- type: entity
+  id: MedicalTeleport
+  parent: BaseItem
+  name: квант-якорь
+  description: Компактное телепортационное устройство, закрепляемое на одежде с помощью магнит-блокировки. Работает в паре с привязанным маяком — при активации после небольшой задержки мгновенно перебрасывает владельца к указанной точке. Имеет ограниченный радиус действия и требует прямой связи с маяком; в искажённых зонах может дать погрешность.
+  components:
+  - type: Fulton
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Stack
+    stackType: MedicalTeleport
+    count: 1
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: /Textures/_radiant/Objects/Tools/bug.rsi
+    state: icon
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  id: MedicalTeleport1
+  categories: [ HideSpawnMenu ]
+  parent: MedicalTeleport
+  name: fulton
+  components:
+  - type: Stack
+    count: 1
