@@ -68,6 +68,7 @@
     - id: BluespaceDungeonChromite
     - id: BluespaceDungeonSnow
     - id: BluespaceDungeonCave
+    - id: BluespaceDungeonCaveZombie
 
 - type: entity
   id: BluespaceSalvageEventScheduler

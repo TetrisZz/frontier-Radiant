@@ -171,6 +171,9 @@
           - Stunbaton
           - PowerCell # Frontier
         blacklist: # Frontier
+          components: # Frontier
+          - WizardStaffRechargeable # Frontier
+          - BloodCultStaffRechargeable # Frontier
           tags: # Frontier
           - PotatoBattery # Frontier
 
@@ -199,6 +202,9 @@
         blacklist:
           tags:
           - PotatoBattery
+          components: # Frontier
+          - WizardStaffRechargeable # Frontier
+          - BloodCultStaffRechargeable # Frontier
 
 - type: entity
   parent: [ BaseItemRecharger, BaseWallmount ]
@@ -228,6 +234,9 @@
           - Stunbaton
           - PowerCell # Frontier
         blacklist: # Frontier
+          components: # Frontier
+          - WizardStaffRechargeable # Frontier
+          - BloodCultStaffRechargeable # Frontier
           tags: # Frontier
           - PotatoBattery # Frontier
   # imp start
