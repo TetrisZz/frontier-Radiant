@@ -52,6 +52,9 @@
   - PowerCageMedium
   - PowerCageSmall
   - PowerCageRechargerCircuitboard
+  - NFClothingNeckCardNfsdWrit
+  - NFBaseClothingNeckHolsterThighNfsd
+  - NFBaseClothingNeckSheathThighNfsd
 
 - type: latheRecipePack
   id: NfsdTargetsStatic
