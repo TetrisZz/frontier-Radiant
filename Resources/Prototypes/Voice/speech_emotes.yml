@@ -606,3 +606,24 @@
     # Corvax-Localization-Start
     - пинг
     # Corvax-Localization-End
+  
+- type: emote
+  id: Ston
+  name: Стонать
+  category: Vocal
+#  available: false
+  icon: Interface/Actions/scream.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["стонет"]
+  chatTriggers:
+    - ston
+    - стон
+    - стонет
+    - стонать
+
+

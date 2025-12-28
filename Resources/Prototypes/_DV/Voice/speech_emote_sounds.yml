@@ -93,7 +93,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: MaleScreams
+      collection: VulpkaninScreams
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -132,6 +132,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Ston:
+      collection: MaleSton
     Belch: # Frontier
       collection: Belch # Frontier
     MonkeyScreeches: # Frontier
@@ -143,7 +145,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: FemaleScreams
+      collection: VulpkaninScreams
     Laugh:
       collection: FemaleLaugh
     Sneeze:
@@ -182,6 +184,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Ston:
+      collection: FemaleSton
     Belch: # Frontier
       collection: Belch # Frontier
     MonkeyScreeches: # Frontier
@@ -204,3 +208,4 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
+

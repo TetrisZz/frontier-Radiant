@@ -19,6 +19,13 @@
     1: NavyToken1
   canWithdraw: true
 
+- type: currency
+  id: Cristalhom
+  displayName: store-currency-display-cristalhom-token
+  cash:
+    1: Cristalhom
+  canWithdraw: true
+
 #- type: currency
 #  id: Spesos
 #  displayName: store-currency-display-spesos

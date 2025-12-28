@@ -29,6 +29,8 @@
       collection: Snores
     Sigh:
       collection: MaleSigh
+    Ston:
+      collection: MaleSton
 
 - type: emoteSounds
   id: FemaleResomi
@@ -61,4 +63,6 @@
       collection: Snores
     Sigh:
       collection: FemaleSigh
+    Ston:
+      collection: FemaleSton
 

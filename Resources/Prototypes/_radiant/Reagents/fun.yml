@@ -1,0 +1,54 @@
+- type: reagent
+  id: Aphrodisiac
+  name: reagent-name-aphrodisiac
+  group: Special
+  desc: reagent-desc-aphrodisiac
+  physicalDesc: reagent-physical-desc-aphrodisiac
+  flavor: funny
+  color: "#FF47CA"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+        - !type:Emote
+          emote: Ston
+          probability: 0.3
+          showInChat: true
+        - !type:PopupMessage
+          type: Local
+          messages:
+            - "Вы чувствуете сильное возбуждение"
+            - "Вы горите от желания..."
+            - "Вам хочется сорвать с себя одежду"
+          probability: 0.1
+
+
+- type: reagent
+  id: Excitement
+  name: reagent-name-excitement
+  group: Special
+  desc: reagent-desc-excitement
+  physicalDesc: reagent-physical-desc-excitement
+  flavor: funny
+  color: "#EE204D"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+        - !type:Emote
+          emote: Ston
+          probability: 0.1
+          showInChat: true
+        - !type:PopupMessage
+          type: Local
+          messages:
+            - "Вы чувствуете легкое возбуждение"
+            - "Вам хочется снять с себя одежду..."
+          probability: 0.1
+        - !type:HealthChange
+          conditions:
+            - !type:ReagentThreshold
+              min: 15
+          damage:
+            types:
+              Poison: 1

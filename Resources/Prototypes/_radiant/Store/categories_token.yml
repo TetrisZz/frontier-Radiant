@@ -9,3 +9,8 @@
 - type: storeCategory
   id: UplinkNavyShipyard
   name: store-category-navy-shipyard
+
+#hom
+- type: storeCategory
+  id: UplinkHomShipyard
+  name: store-category-hom-shipyard
