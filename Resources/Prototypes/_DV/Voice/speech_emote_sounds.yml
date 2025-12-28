@@ -132,8 +132,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
     MonkeyScreeches: # Frontier
@@ -184,8 +184,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Ston:
-      collection: FemaleSton
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
     MonkeyScreeches: # Frontier

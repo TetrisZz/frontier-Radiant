@@ -42,8 +42,8 @@
       collection: GoblinMutterCollection
     GoblinThroatSinging:
       collection: GoblinThroatSingingCollection
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: FemaleGoblin
@@ -88,8 +88,8 @@
       collection: GoblinMutterCollection
     GoblinThroatSinging:
       collection: GoblinThroatSingingCollection
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: UnisexSheleg
@@ -130,8 +130,8 @@
       collection: ShelegGasp
     DefaultDeathgasp:
       collection: ShelegDeathGasp
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: Cat

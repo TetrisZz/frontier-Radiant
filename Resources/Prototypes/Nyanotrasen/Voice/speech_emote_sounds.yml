@@ -44,8 +44,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -92,5 +92,5 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Ston:
-      collection: FemaleSton
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector

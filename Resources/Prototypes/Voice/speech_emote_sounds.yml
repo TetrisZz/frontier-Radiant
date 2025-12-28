@@ -42,8 +42,8 @@
       collection: MaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 
 - type: emoteSounds
@@ -89,8 +89,8 @@
       collection: FemaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
-    Ston:
-      collection: FemaleSton
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
 
 
 - type: emoteSounds
@@ -122,8 +122,8 @@
       collection: DeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -152,8 +152,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Ston:
-      collection: FemaleSton
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -202,8 +202,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
@@ -255,8 +255,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Ston:
-      collection: FemaleSton
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
@@ -308,8 +308,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
@@ -383,8 +383,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
@@ -430,8 +430,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-    Ston:
-      collection: FemaleSton
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:

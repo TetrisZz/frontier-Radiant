@@ -606,7 +606,9 @@
     # Corvax-Localization-Start
     - пинг
     # Corvax-Localization-End
-  
+
+# Radiant sector
+
 - type: emote
   id: Ston
   name: Стонать
