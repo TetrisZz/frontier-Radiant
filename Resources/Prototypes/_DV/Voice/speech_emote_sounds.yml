@@ -92,8 +92,8 @@
   params:
     variation: 0.125
   sounds:
-    Scream:
-      collection: VulpkaninScreams
+    Scream: # Radiant sector
+      collection: VulpkaninScreams # Radiant sector
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -143,9 +143,9 @@
   id: FemaleVulpkanin
   params:
     variation: 0.125
-  sounds:
-    Scream:
-      collection: VulpkaninScreams
+  sounds: 
+    Scream: # Radiant sector
+      collection: VulpkaninScreams # Radiant sector
     Laugh:
       collection: FemaleLaugh
     Sneeze:
