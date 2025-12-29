@@ -3,7 +3,7 @@
   parent: BaseVessel
   name: HOM Аурелия
   description: Медицинское судно с хорошей защитой и со всем необходимым для работы в космосе.
-  price: 62500
+  price: 66000
   category: Medium
   group: Medical
   access: MedicalPhoenix

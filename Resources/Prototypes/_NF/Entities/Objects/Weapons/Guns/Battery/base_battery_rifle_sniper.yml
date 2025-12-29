@@ -92,7 +92,8 @@
   - type: Gun
     examineCaliber: gun-examine-hitscan-xray
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+#      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg # Radiant_sector
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg # Radiant_sector
   - type: HitscanBatteryAmmoProvider
     proto: NFXrayLaser
 #    fireCost: 120 # Radiant_sector

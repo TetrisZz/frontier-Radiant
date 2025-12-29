@@ -3,7 +3,7 @@
   parent: BaseVesselAntag
   name: Шторм
   description: Устаревший корабль ядерных оперативников
-  price: 60000
+  price: 100000
   category: Medium
   group: Syndicate
   shuttlePath: /Maps/_radiant/Shuttles/Storm.yml

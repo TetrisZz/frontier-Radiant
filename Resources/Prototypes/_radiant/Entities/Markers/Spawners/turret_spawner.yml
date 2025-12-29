@@ -3,7 +3,7 @@
   id: SpawnMobWeaponTurretRadiationSyndicateRadiant
   parent: MarkerBase
   name: syndicate laser turret spawner
-  suffix: Hostile, xrey
+  suffix: NFSyndicate, xrey
   components:
   - type: Sprite
     layers:
@@ -18,7 +18,7 @@
   id: SpawnMobWeaponTurretHeavyLaserSyndicateRadiant
   parent: MarkerBase
   name: syndicate ballistic turret spawner
-  suffix: Hostile, HeavyLaser
+  suffix: NFSyndicate, HeavyLaser
   components:
   - type: Sprite
     layers:
@@ -33,7 +33,7 @@
   id: SpawnMobWeaponTurretRedShuttleLaserSyndicateRadiant
   parent: MarkerBase
   name: syndicate ballistic turret spawner
-  suffix: Hostile, ShuttleLaser
+  suffix: NFSyndicate, ShuttleLaser
   components:
   - type: Sprite
     layers:
@@ -48,7 +48,7 @@
   id: SpawnMobWeaponTurretSyndicateLaserSpreadRadiant
   parent: MarkerBase
   name: syndicate ballistic turret spawner
-  suffix: Hostile, LaserShotgun
+  suffix: NFSyndicate, LaserShotgun
   components:
   - type: Sprite
     layers:
@@ -63,7 +63,7 @@
   id: SpawnMobWeaponTurretSyndicateCannonBallRadiant
   parent: MarkerBase
   name: syndicate ballistic turret spawner
-  suffix: Hostile, CannonBall
+  suffix: NFSyndicate, CannonBall
   components:
   - type: Sprite
     layers:

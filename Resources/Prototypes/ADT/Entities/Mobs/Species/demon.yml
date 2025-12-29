@@ -71,13 +71,13 @@
     messagePerceivedByOthers: hugging-success-generic-others
   - type: Carriable # Carrying system from nyanotrasen.
   - type: ShortWhitelist
-    scale: 0.92
+    scale: 0.9
     density: 180
     pseudoItem: true
     cosmeticOnly: false
   - type: TallWhitelist
     density: 190
-    scale: 1.08
+    scale: 1.1
 
 - type: entity
   save: false

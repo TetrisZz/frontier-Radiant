@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Гавань
   description: Ночной клуб, в котором есть все для хорошего время провождения - кухня, бар, вип-зона и спальни.
-  price: 81250
+  price: 81700
   category: Medium
   group: Shipyard
   shuttlePath: /Maps/_radiant/Shuttles/Haven.yml

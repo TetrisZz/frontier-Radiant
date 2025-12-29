@@ -105,8 +105,8 @@
     shotsPerBurst: 5 # Radiant_sector
     burstCooldown: 0.2 # Radiant_sector
     burstFireRate: 7 # Radiant_sector
-  - type: PirateBountyItem
-    id: WT550
+  - type: PirateBountyItem #radiant_sector
+    id: WT550 #radiant_sector
 
 #region DeltaV
 - type: entity

@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 12/08/2025 09:16:19
-  entityCount: 2484
+  time: 12/27/2025 03:50:15
+  entityCount: 2488
 maps: []
 grids:
 - 1
@@ -1914,7 +1914,7 @@ entities:
       pos: -1.5,11.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -79574.06
+      secondsUntilStateChange: -79780.97
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1925,7 +1925,7 @@ entities:
       pos: 1.5,14.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -79759
+      secondsUntilStateChange: -79965.91
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2015,7 +2015,7 @@ entities:
       pos: 1.5,-8.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -75119.13
+      secondsUntilStateChange: -75326.04
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3398,6 +3398,106 @@ entities:
     components:
     - type: Transform
       pos: 3.5,30.5
+      parent: 1
+  - uid: 1404
+    components:
+    - type: Transform
+      pos: -3.5,7.5
+      parent: 1
+  - uid: 1405
+    components:
+    - type: Transform
+      pos: -3.5,6.5
+      parent: 1
+  - uid: 1406
+    components:
+    - type: Transform
+      pos: -3.5,5.5
+      parent: 1
+  - uid: 1407
+    components:
+    - type: Transform
+      pos: -3.5,4.5
+      parent: 1
+  - uid: 1408
+    components:
+    - type: Transform
+      pos: -3.5,3.5
+      parent: 1
+  - uid: 1409
+    components:
+    - type: Transform
+      pos: 3.5,4.5
+      parent: 1
+  - uid: 1410
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 1
+  - uid: 1411
+    components:
+    - type: Transform
+      pos: 3.5,5.5
+      parent: 1
+  - uid: 1412
+    components:
+    - type: Transform
+      pos: 3.5,6.5
+      parent: 1
+  - uid: 1413
+    components:
+    - type: Transform
+      pos: 3.5,7.5
+      parent: 1
+  - uid: 1448
+    components:
+    - type: Transform
+      pos: 3.5,-18.5
+      parent: 1
+  - uid: 1449
+    components:
+    - type: Transform
+      pos: 3.5,-19.5
+      parent: 1
+  - uid: 1450
+    components:
+    - type: Transform
+      pos: -3.5,-19.5
+      parent: 1
+  - uid: 1451
+    components:
+    - type: Transform
+      pos: -3.5,-18.5
+      parent: 1
+  - uid: 1452
+    components:
+    - type: Transform
+      pos: -3.5,-17.5
+      parent: 1
+  - uid: 1455
+    components:
+    - type: Transform
+      pos: 3.5,-15.5
+      parent: 1
+  - uid: 1456
+    components:
+    - type: Transform
+      pos: 3.5,-16.5
+      parent: 1
+  - uid: 1457
+    components:
+    - type: Transform
+      pos: 3.5,-17.5
+      parent: 1
+  - uid: 2485
+    components:
+    - type: Transform
+      pos: -3.5,-15.5
+      parent: 1
+  - uid: 2486
+    components:
+    - type: Transform
+      pos: -3.5,-16.5
       parent: 1
 - proto: BarricadeDirectional
   entities:
@@ -7950,12 +8050,12 @@ entities:
   - uid: 1198
     components:
     - type: MetaData
-      name: cargo trading crate (Cargo Depot D)
+      name: cargo trading crate (Торговый Центр)
     - type: Transform
       pos: -2.5,-21.5
       parent: 1
     - type: Label
-      currentLabel: Cargo Depot D
+      currentLabel: Торговый Центр
     - type: NameModifier
       baseName: cargo trading crate
 - proto: CurtainsBlack
@@ -9249,56 +9349,6 @@ entities:
     - type: Transform
       pos: 6.5,24.5
       parent: 1
-  - uid: 1404
-    components:
-    - type: Transform
-      pos: -3.5,7.5
-      parent: 1
-  - uid: 1405
-    components:
-    - type: Transform
-      pos: -3.5,6.5
-      parent: 1
-  - uid: 1406
-    components:
-    - type: Transform
-      pos: -3.5,5.5
-      parent: 1
-  - uid: 1407
-    components:
-    - type: Transform
-      pos: -3.5,4.5
-      parent: 1
-  - uid: 1408
-    components:
-    - type: Transform
-      pos: -3.5,3.5
-      parent: 1
-  - uid: 1409
-    components:
-    - type: Transform
-      pos: 3.5,3.5
-      parent: 1
-  - uid: 1410
-    components:
-    - type: Transform
-      pos: 3.5,4.5
-      parent: 1
-  - uid: 1411
-    components:
-    - type: Transform
-      pos: 3.5,5.5
-      parent: 1
-  - uid: 1412
-    components:
-    - type: Transform
-      pos: 3.5,6.5
-      parent: 1
-  - uid: 1413
-    components:
-    - type: Transform
-      pos: 3.5,7.5
-      parent: 1
   - uid: 1414
     components:
     - type: Transform
@@ -9468,56 +9518,6 @@ entities:
     components:
     - type: Transform
       pos: -6.5,1.5
-      parent: 1
-  - uid: 1448
-    components:
-    - type: Transform
-      pos: -3.5,-15.5
-      parent: 1
-  - uid: 1449
-    components:
-    - type: Transform
-      pos: -3.5,-16.5
-      parent: 1
-  - uid: 1450
-    components:
-    - type: Transform
-      pos: -3.5,-17.5
-      parent: 1
-  - uid: 1451
-    components:
-    - type: Transform
-      pos: -3.5,-18.5
-      parent: 1
-  - uid: 1452
-    components:
-    - type: Transform
-      pos: -3.5,-19.5
-      parent: 1
-  - uid: 1453
-    components:
-    - type: Transform
-      pos: 3.5,-19.5
-      parent: 1
-  - uid: 1454
-    components:
-    - type: Transform
-      pos: 3.5,-18.5
-      parent: 1
-  - uid: 1455
-    components:
-    - type: Transform
-      pos: 3.5,-17.5
-      parent: 1
-  - uid: 1456
-    components:
-    - type: Transform
-      pos: 3.5,-16.5
-      parent: 1
-  - uid: 1457
-    components:
-    - type: Transform
-      pos: 3.5,-15.5
       parent: 1
 - proto: GrilleDiagonal
   entities:
@@ -12650,6 +12650,68 @@ entities:
     components:
     - type: Transform
       pos: 3.1069722,-31.850517
+      parent: 1
+- proto: SpawnMobWeaponTurretRadiationSyndicateRadiant
+  entities:
+  - uid: 1453
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-17.5
+      parent: 1
+  - uid: 1454
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-17.5
+      parent: 1
+  - uid: 2442
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,51.5
+      parent: 1
+  - uid: 2443
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,51.5
+      parent: 1
+  - uid: 2444
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,28.5
+      parent: 1
+  - uid: 2445
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,28.5
+      parent: 1
+  - uid: 2446
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,69.5
+      parent: 1
+  - uid: 2447
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,69.5
+      parent: 1
+  - uid: 2487
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,5.5
+      parent: 1
+  - uid: 2488
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,5.5
       parent: 1
 - proto: StairStageDark
   entities:
@@ -16299,56 +16361,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,-21.5
       parent: 1
-- proto: WeaponTurretLaserHostileNF
-  entities:
-  - uid: 2442
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.5,50.5
-      parent: 1
-    - type: HitscanBatteryAmmoProvider
-      proto: NFXrayLaser
-  - uid: 2443
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -3.5,50.5
-      parent: 1
-    - type: HitscanBatteryAmmoProvider
-      proto: NFXrayLaser
-  - uid: 2444
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -3.5,27.5
-      parent: 1
-    - type: HitscanBatteryAmmoProvider
-      proto: NFXrayLaser
-  - uid: 2445
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.5,27.5
-      parent: 1
-    - type: HitscanBatteryAmmoProvider
-      proto: NFXrayLaser
-  - uid: 2446
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -7.5,69.5
-      parent: 1
-    - type: HitscanBatteryAmmoProvider
-      proto: NFXrayLaser
-  - uid: 2447
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,69.5
-      parent: 1
-    - type: HitscanBatteryAmmoProvider
-      proto: NFXrayLaser
 - proto: WeaponTurretSyndicateDisposable
   entities:
   - uid: 2448

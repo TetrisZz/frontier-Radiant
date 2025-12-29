@@ -317,7 +317,7 @@
         paths:
         - /Maps/_NF/Bluespace/mcevent.yml
 
-#Radiant_Sector
+# Radiant_Sector
 
 - type: entity
   id: BluespaceCentComTrain
@@ -392,4 +392,4 @@
         - type: PreventPilot
         - type: ForceAnchor
         paths:
-        - /Maps/_radiant/POI/Lambda.yml
+        - /Maps/_radiant/Bluespace/Lambda.yml

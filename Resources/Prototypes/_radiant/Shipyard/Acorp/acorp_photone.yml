@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Фотон
   description: Мелкий транспортный шаттл
-  price: 13000
+  price: 16800
   category: Micro
   group: Acorp
   access: Acorp

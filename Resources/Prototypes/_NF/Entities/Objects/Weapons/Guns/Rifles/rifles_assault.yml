@@ -50,8 +50,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
-  - type: PirateBountyItem
-    id: Lecter
+  - type: PirateBountyItem #radiant_sector
+    id: Lecter #radiant_sector
 
 #region WizDen: Rubber
 - type: entity
