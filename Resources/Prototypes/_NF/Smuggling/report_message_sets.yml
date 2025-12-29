@@ -22,11 +22,15 @@
 
 - type: smugglingReportMessageSet
   id: Pirate
-  channel: Freelance
+#  channel: Freelance # Radiant sector
+  channel: Separatist
   messageSets:
-  - prob: 0.333
-    minDelay: 14
-    maxDelay: 16
+#  - prob: 0.333
+  - prob: 0.8 # Radiant sector
+#    minDelay: 14 # Radiant sector
+#    maxDelay: 16 # Radiant sector
+    minDelay: 10 # Radiant sector
+    maxDelay: 14 # Radiant sector
     messages:
     - type: PodLocation
       message: smuggling-report-pirate

@@ -13,6 +13,7 @@
     - id: NFBluespaceSyndicateCrate
     - id: NFBluespaceBrokenMcDelivery
     - id: NFSmugglingFax
+    - id: BluespaceLambda # Radiant sector
 
 - type: entity
   id: NFBreakerFlip

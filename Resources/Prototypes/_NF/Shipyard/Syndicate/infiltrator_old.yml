@@ -3,7 +3,7 @@
   parent: BaseVesselAntag
   name: Ламндер
   description: Устаревший корабль ядерных оперативников
-  price: 100000
+  price: 40000
   category: Medium
   group: Syndicate
   shuttlePath: /Maps/_NF/Shuttles/Syndicate/infiltrator_old.yml

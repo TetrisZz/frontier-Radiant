@@ -132,6 +132,10 @@ namespace Content.Server._NF.Smuggling
 
             var x = _random.NextFloat(comp.MinimumDistance, comp.MaximumDistance);
             var y = _random.NextFloat(comp.MinimumDistance, comp.MaximumDistance);
+
+            if (_random.Next(0, 2) == 0) x = -x;
+            if (_random.Next(0, 2) == 0) y = -y;
+
             var dropLocation = new Vector2(x, y);
 
             var mapId = Transform(user).MapID;
@@ -163,7 +167,7 @@ namespace Content.Server._NF.Smuggling
 
             var spawnedGrid = grid;
 
-            Timer.Spawn(TimeSpan.FromMinutes(5), () =>
+            Timer.Spawn(TimeSpan.FromMinutes(2), () =>
             {
                 var completeMsg = Loc.GetString(comp.CompleteNotifyLoc);
 

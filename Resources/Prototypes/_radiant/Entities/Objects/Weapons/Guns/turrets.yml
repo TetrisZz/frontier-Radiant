@@ -2,7 +2,7 @@
 - type: entity
   id: WeaponTurretRadiationSyndicateRadiant
   name: лазерная турель
-  suffix: Radiant, Syndicate
+  suffix: Radiant, Xray, Syndicate
   parent:
   - BaseC3SyndicateContraband
   - BaseTurretSearchBeam
@@ -10,19 +10,19 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+    sprite: _radiant/Objects/Weapons/Laser/turret_xray.rsi
   - type: Gun
     fireRate: 3
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
       params:
         variation: 0.125
   - type: HitscanBatteryAmmoProvider
-    proto: XrayLaser
+    proto: NFXrayLaser
     fireCost: 10
   - type: NpcFactionMember
     factions:
-    - SyndicateNF
+    - NFSyndicate
 
 - type: entity
   id: WeaponTurretHeavyLaserSyndicateRadiant
@@ -39,15 +39,15 @@
   - type: Gun
     fireRate: 1.5
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
       params:
         variation: 0.125
   - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
+    proto: NFRedSpecialLaser
     fireCost: 10
   - type: NpcFactionMember
     factions:
-    - SyndicateNF
+    - NFSyndicate
 
 - type: entity
   id: WeaponTurretRedShuttleLaserSyndicateRadiant
@@ -68,11 +68,11 @@
       params:
         variation: 0.125
   - type: HitscanBatteryAmmoProvider
-    proto: RedShuttleLaser
+    proto: NFRedShuttleLaser
     fireCost: 10
   - type: NpcFactionMember
     factions:
-    - SyndicateNF
+    - NFSyndicate
 
 #balistic_laser
 
@@ -86,11 +86,11 @@
     fireRate: 3
     selectedMode: FullAuto
   - type: BallisticAmmoProvider
-    proto: BulletLaserSpread
+    proto: BulletLaserSpreadRS
     capacity: 500
   - type: NpcFactionMember
     factions:
-    - Syndicate
+    - NFSyndicate
 
 #balistic_BABAX
 
@@ -104,8 +104,8 @@
     fireRate: 2
     selectedMode: FullAuto
   - type: BallisticAmmoProvider
-    proto: CannonBall
+    proto: NFBulletCannonBall
     capacity: 500
   - type: NpcFactionMember
     factions:
-    - Syndicate
+    - NFSyndicate

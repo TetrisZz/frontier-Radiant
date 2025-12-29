@@ -5,24 +5,6 @@
   components:
   - type: NFAdventureRule
 
-- type: entity #radiant_sector
-  id: BluespaceLambdaRoundstart
-  parent: BaseGameRule
-  components:
-  - type: BasicStationEventScheduler
-    scheduledGameRules: !type:NestedSelector
-      tableId: MajorBluespaceEventsTable
-    minimumTimeUntilFirstEvent: 72000 # 20 h
-    minMaxEventTiming:
-      min: 72000 # 20 h between events
-      max: 86400 # 24 h between events
-
-- type: entityTable #radiant_sector
-  id: MajorBluespaceLambdaRoundstart
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: BluespaceCacheError
-
 - type: entity
   id: BluespaceEventScheduler
   parent: BaseGameRule

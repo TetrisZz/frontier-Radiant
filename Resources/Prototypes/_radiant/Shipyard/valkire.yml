@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Валькирия
   description: Судно, которое привлекает не только внимание, но и хороший заработок.
-  price: 79500
+  price: 83200
   category: Large
   group: Shipyard
   shuttlePath: /Maps/_radiant/Shuttles/valkire.yml
