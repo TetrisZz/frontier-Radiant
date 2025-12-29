@@ -42,6 +42,8 @@
       collection: GoblinMutterCollection
     GoblinThroatSinging:
       collection: GoblinThroatSingingCollection
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: FemaleGoblin
@@ -86,6 +88,8 @@
       collection: GoblinMutterCollection
     GoblinThroatSinging:
       collection: GoblinThroatSingingCollection
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: UnisexSheleg
@@ -126,6 +130,8 @@
       collection: ShelegGasp
     DefaultDeathgasp:
       collection: ShelegDeathGasp
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: Cat
@@ -195,23 +201,11 @@
 
 - type: emoteSounds
   id: CatMistake
-  sound:
-    path: /Audio/Animals/cat_meow.ogg
-    params:
-      variation: 0.125
+  params:
+    variation: 0.125
   sounds:
     Scream:
       collection: CatMistake
-    Hiss:
-      collection: FelinidHisses
-    Meow:
-      path: /Audio/Animals/cat_meow.ogg
-      params:
-        variation: 0.125
-    Growl:
-      collection: FelinidGrowls
-    Purr:
-      collection: FelinidPurrs
 
 - type: emoteSounds
   id: Dog

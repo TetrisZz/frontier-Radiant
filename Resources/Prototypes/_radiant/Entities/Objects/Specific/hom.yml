@@ -1,0 +1,101 @@
+- type: entity
+  name: кристалл
+  parent: BaseItem
+  id: Cristalhom
+  suffix: 20 CR
+  description: Красный кристалл, от которого исходит легкое свечение.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/cristal.rsi
+    state: icon
+  - type: Item
+    sprite: _radiant/Objects/Specific/cristal.rsi
+    size: Tiny
+  - type: Stack
+    count: 20
+    stackType: Cristalhom
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      Cristalhom: 1
+
+- type: entity
+  parent: Cristalhom
+  id: Cristalhom1
+  suffix: 1 CR
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: Cristalhom
+  id: Cristalhom5
+  suffix: 5 CR
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: Cristalhom
+  id: Cristalhom10
+  suffix: 10 CR
+  components:
+  - type: Stack
+    count: 10
+
+
+# Uplinks
+- type: entity
+  parent: [ BaseItem, StorePresetHomUplink ]
+  id: BaseHomUplinkRadio
+  name: аплинк meow
+  description: Типо мяу-мяу-мяу.
+  suffix: Empty
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/homulink.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: _radiant/Objects/Devices/homulink.rsi
+    heldPrefix: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - HomUplink
+
+- type: entity
+  parent: BaseHomUplinkRadio
+  id: BaseHomUplinkRadioDebug
+  suffix: hom, DEBUG
+  components:
+  - type: Store
+    balance:
+      Cristalhom: 99999
+
+- type: entity
+  parent: BaseHomUplinkRadio
+  id: BaseHomUplinkRadio50
+  suffix: hom, 50
+  components:
+  - type: Store
+    balance:
+      Cristalhom: 50
+
+- type: entity
+  parent: BaseHomUplinkRadio
+  id: BaseHomUplinkRadio100
+  suffix: hom, 100
+  components:
+  - type: Store
+    balance:
+      Cristalhom: 100

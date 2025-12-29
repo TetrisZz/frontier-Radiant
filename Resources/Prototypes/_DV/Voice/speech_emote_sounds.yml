@@ -92,8 +92,8 @@
   params:
     variation: 0.125
   sounds:
-    Scream:
-      collection: MaleScreams
+    Scream: # Radiant sector
+      collection: VulpkaninScreams # Radiant sector
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -132,6 +132,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
     MonkeyScreeches: # Frontier
@@ -141,9 +143,9 @@
   id: FemaleVulpkanin
   params:
     variation: 0.125
-  sounds:
-    Scream:
-      collection: FemaleScreams
+  sounds: 
+    Scream: # Radiant sector
+      collection: VulpkaninScreams # Radiant sector
     Laugh:
       collection: FemaleLaugh
     Sneeze:
@@ -182,6 +184,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
     MonkeyScreeches: # Frontier
@@ -204,3 +208,4 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
+

@@ -49,6 +49,22 @@
     balance:
       Speso: 0
 
+- type: entity
+  id: StorePresetHomUplink
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-hom-uplink
+    categories:
+    - UplinkHomWeapons
+    - UplinkHomHardsuits
+    - UplinkHomUtility
+    - UplinkHomShuttle
+    currencyWhitelist:
+    - Cristalhom
+    balance:
+      Cristalhom: 0
+
 # Shipyard
 
 - type: entity

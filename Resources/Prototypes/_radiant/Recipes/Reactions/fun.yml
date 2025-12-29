@@ -1,0 +1,22 @@
+- type: reaction
+  id: Excitement
+  impact: Medium
+  reactants:
+    Leporazine:
+      amount: 1
+    Wine:
+      amount: 3
+  products:
+    Excitement: 2
+
+- type: reaction
+  id: Aphrodisiac
+  impact: Medium
+  reactants:
+    Omnizine:
+      amount: 1
+    Excitement:
+      amount: 1
+  products:
+    Aphrodisiac: 3
+

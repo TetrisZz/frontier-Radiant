@@ -15,3 +15,9 @@
   name: SeparatistToken
   icon: _radiant/Objects/Specific/tokens.rsi
   spawn: SeparatistToken1
+
+- type: stack
+  id: Cristalhom
+  name: Cristalhom
+  icon: _radiant/Objects/Specific/cristal.rsi
+  spawn: Cristalhom1

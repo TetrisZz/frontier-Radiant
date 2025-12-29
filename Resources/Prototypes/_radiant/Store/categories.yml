@@ -63,3 +63,19 @@
 - type: storeCategory
   id: UplinkPhoenixMachine
   name: store-category-phoenix-machine
+
+- type: storeCategory
+  id: UplinkHomWeapons
+  name: store-category-hom-weapons
+
+- type: storeCategory
+  id: UplinkHomHardsuits
+  name: store-category-hom-hardsuits
+
+- type: storeCategory
+  id: UplinkHomUtility
+  name: store-category-hom-utility
+
+- type: storeCategory
+  id: UplinkHomShuttle
+  name: store-category-hom-shuttle

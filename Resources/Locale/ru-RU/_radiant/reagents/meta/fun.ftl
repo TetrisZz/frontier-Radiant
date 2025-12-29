@@ -1,0 +1,6 @@
+reagent-name-aphrodisiac =  афродизиак
+reagent-desc-aphrodisiac = Порадуйте своего партнера...
+reagent-physical-desc-aphrodisiac =  розового оттенка с легким свечением.
+reagent-name-excitement = легкий возбудитель
+reagent-desc-excitement =  Малоэффективный возбудитель для новичков.
+reagent-physical-desc-excitement = алого оттенка с легким блеском...

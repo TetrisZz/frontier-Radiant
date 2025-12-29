@@ -140,3 +140,21 @@
   id: XenoborgPing
   files:
   - /Audio/Voice/Xenoborg/xenoborg_ping.ogg
+
+ # Radiant sector 
+ 
+- type: soundCollection
+  id: FemaleSton
+  files:
+    - /Audio/_radiant/Voice/Human/female_moan_5.ogg
+    - /Audio/_radiant/Voice/Human/female_moan_1.ogg
+    - /Audio/_radiant/Voice/Human/female_moan_2.ogg
+    - /Audio/_radiant/Voice/Human/female_moan_3.ogg
+    - /Audio/_radiant/Voice/Human/female_moan_4.ogg
+
+- type: soundCollection
+  id: MaleSton
+  files:
+  - /Audio/_radiant/Voice/Human/male_moan_1.ogg
+  - /Audio/_radiant/Voice/Human/male_moan_2.ogg
+  - /Audio/_radiant/Voice/Human/male_moan_3.ogg

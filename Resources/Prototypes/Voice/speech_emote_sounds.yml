@@ -42,6 +42,9 @@
       collection: MaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
+
 
 - type: emoteSounds
   id: FemaleHuman
@@ -86,6 +89,9 @@
       collection: FemaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
+
 
 - type: emoteSounds
   id: MaleReptilian
@@ -116,6 +122,8 @@
       collection: DeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -144,6 +152,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
 
@@ -192,10 +202,13 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
     variation: 0.125
+
 
 - type: emoteSounds
   id: FemaleSlime
@@ -242,10 +255,13 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
     variation: 0.125
+
 
 - type: emoteSounds
   id: UnisexVox
@@ -262,11 +278,14 @@
       collection: Weh
     Hew:
       collection: Hew
+    Ston:
+      collection: MaleSton
     Belch: # Frontier
       collection: Belch # Frontier
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
+
 
 - type: emoteSounds
   id: UnisexDiona
@@ -289,10 +308,13 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
     variation: 0.125
+
 
 - type: emoteSounds
   id: UnisexArachnid
@@ -361,6 +383,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
@@ -406,6 +430,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
@@ -677,3 +703,5 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: WawaDeath
+
+

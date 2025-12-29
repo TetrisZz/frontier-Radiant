@@ -29,6 +29,8 @@
       collection: Snores
     Sigh:
       collection: MaleSigh
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
 
 - type: emoteSounds
   id: FemaleResomi
@@ -61,4 +63,6 @@
       collection: Snores
     Sigh:
       collection: FemaleSigh
+    Ston: # Radiant sector
+      collection: FemaleSton # Radiant sector
 
