@@ -1,11 +1,11 @@
 {
   "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Skyrat-tg at commit https://github.com/Skyrat-SS13/Skyrat-tg/commit/bb8d8f968abdddc1dcf86ceda8d47001d531e321, edited by Homka",
   "size": {
     "x": 32,
-    "y": 32
+    "y": 64
   },
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/faf6db214927874c19b8fa8585d26b5d40de1acc, derelict sprites modified by GoldenCan(GitHub), xenoborg sprites, created and modified by Samuka-C (github).",
   "states": [
     {
       "name": "clown",
@@ -65,33 +65,7 @@
     },
     {
       "name": "janitor_moving",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "janitor_e",
@@ -107,55 +81,11 @@
     },
     {
       "name": "medical",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "medical_moving",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "medical_e",
@@ -175,25 +105,7 @@
     },
     {
       "name": "miner_moving",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "miner_e",
@@ -273,55 +185,11 @@
     },
     {
       "name": "synd_medical_l",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "synd_medical_e",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "synd_engi",
@@ -345,155 +213,27 @@
     },
     {
       "name": "xenoborg_heavy_e_r",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "xenoborg_heavy_l",
       "directions": 4
     },
-	  {
+    {
       "name": "xenoborg_scout",
       "directions": 4
     },
     {
       "name": "xenoborg_scout_l",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "xenoborg_scout_e",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "xenoborg_scout_e_r",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "xenoborg_engi",
@@ -505,49 +245,7 @@
     },
     {
       "name": "xenoborg_engi_e_r",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "xenoborg_engi_l",
@@ -559,101 +257,15 @@
     },
     {
       "name": "xenoborg_stealth_e",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "xenoborg_stealth_e_r",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "directions": 4
     },
     {
       "name": "xenoborg_stealth_l",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ],
-        [
-          0.1,
-          0.2,
-          0.1
-        ]
-      ]
+      "directions": 4
     }
   ]
 }
