@@ -37,6 +37,7 @@ entities:
     - type: MetaData
     - type: Transform
       parent: invalid
+    - type: DangerZone
     - type: MapGrid
       chunks:
         0,0:
