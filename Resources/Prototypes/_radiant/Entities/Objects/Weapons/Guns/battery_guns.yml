@@ -27,6 +27,9 @@
     fireCost: 155
   - type: StaticPrice
     price: 500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 4
 
 - type: entity
   name: энергетический пистолет
@@ -66,11 +69,11 @@
     fireModes:
     - proto: NFBulletDisabler
       fireCost: 100
-      name: disable
+      name: оглушающий
       state: disabler
     - proto: NFBulletLaserHeavy
       fireCost: 200
-      name: lethal
+      name: летальный
       state: lethal
   - type: MagazineVisuals
     magState: mag
@@ -86,3 +89,221 @@
           Special: { state: mode-ion }
   - type: StaticPrice
     price: 750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 3
+
+# Cyborg
+
+- type: entity
+  name: энергетический пистолет киборгов
+  parent: WeaponEnergyGunMiniAcorp
+  id: WeaponEnergyGunMiniAcorpBorg
+  description: Энергетический пистолет для самообороны, имеет два режима стрельбы.
+  components:
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: NFBulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: NFBulletDisabler
+      fireCost: 100
+      name: оглушающий
+      state: disabler
+    - proto: NFBulletLaserHeavy
+      fireCost: 100
+      name: летальный
+      state: lethal
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+    autoRechargePause: true
+    autoRechargePauseTime: 5
+
+- type: entity
+  id: NFWeaponEnergySubMachineGunDeltaVBorg
+  parent: NFBaseWeaponFrameEnergySubMachineGunNanotrasen
+  name: энергетическое пп киборга
+  description: Энергетическое пп способное к самозарядке.
+  components:
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-lethal
+      map: ["Firemode"]
+      shader: unshaded
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    examineCaliber: gun-examine-energybolt
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: NFBulletLaserLow
+    fireCost: 50
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 35
+
+- type: entity
+  id: NFWeaponEnergySubMachineGunDisablerBorg
+  parent: NFWeaponEnergySubMachineGunDisabler
+  name: станнер-пулемёт киборга
+  suffix: Frontier
+  description: Усовершенствованное оружие, которое изнуряет органические цели, пока они не свалятся с ног. Некоторые называют его автостаннер.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 15
+
+- type: entity
+  name: тайзер борга
+  parent: NFWeaponEnergyPistolDisabler
+  id: WeaponTaserBorg
+  description: Электрошокер малой мощности, работающий на энергии, используемый службами безопасности для подавления целей с близкого расстояния.
+  components:
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: ProjectileBatteryAmmoProvider
+    proto: NFBulletTaser # Frontier: use NF variant
+    fireCost: 200
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Item
+    heldPrefix: taser4
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+    autoRechargePause: true
+    autoRechargePauseTime: 30
+
+- type: entity
+  name: энергетическая винтовка киборга
+  parent: BaseWeaponBattery
+  id: WeaponLaserCarbineAcorpBorg
+  description: Мощные импульсы способные пробивать большинство видов брони.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Laser/energygun_carbine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Laser/energygun_carbine.rsi
+  - type: Gun
+    fireRate: 2.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: Battery
+    maxCharge: 2015
+    startingCharge: 0
+  - type: HitscanBatteryAmmoProvider
+    proto: ElectroLaser
+    fireCost: 155
+  - type: StaticPrice
+    price: 500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+    autoRechargePause: true
+    autoRechargePauseTime: 5
+
+- type: entity
+  name: энергетический дробовик киборга
+  parent: BaseWeaponBattery
+  id: WeaponEnergyShotgunRSBorg
+  description: Прототип энергетического оружия, использующий различные конфигурации дробовика.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+  - type: Gun
+    fireRate: 1.4
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpreadRS
+    fireCost: 150
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserSpreadRS
+      fireCost: 150
+    - proto: BulletLaserSpreadNarrowRS
+      fireCost: 200
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
+    heldPrefix: energy
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 24
+    autoRechargePause: true
+    autoRechargePauseTime: 5

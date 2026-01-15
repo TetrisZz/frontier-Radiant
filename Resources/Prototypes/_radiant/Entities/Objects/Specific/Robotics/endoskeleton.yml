@@ -1,0 +1,41 @@
+﻿- type: entity
+  id: CyborgEndoskeletonAcorp
+  parent: CyborgEndoskeleton
+  name: эндоскелет киборга акорпа
+  description: Каркас, на котором собирается киборг акорпа, он может исполнять функции ученого, уборщика, врача, ботаника и повара одновременно! При полном уничтожении достать модули или мозг из него невозможно.
+  components:
+  - type: Construction
+    graph: CyborgAcorp
+    node: start
+    defaultTarget: cyborgacorp
+    containers:
+    - part-container
+    - cell_slot
+
+- type: entity
+  id: CyborgEndoskeletonAcorpSecurity
+  parent: CyborgEndoskeleton
+  name: эндоскелет киборга акорп-секьюрити
+  description: Каркас, на котором собирается киборг акорп-секьюрити, быстрая машина, выполненная из прочного но легкого металла, отражает выстрелы за счет изгибов корпуса и может передвигатся в космосе.
+  components:
+  - type: Construction
+    graph: CyborgAcorp
+    node: start1
+    defaultTarget: cyborgacorpsecurity
+    containers:
+    - part-container
+    - cell_slot
+
+- type: entity
+  id: CyborgEndoskeletonAcorpMiner
+  parent: CyborgEndoskeleton
+  name: эндоскелет большого киборга акорпа
+  description: Каркас, на котором собирается большой киборг акорпа, он медлителен но прочный и создан выполнять силовые работы, может выполнять обязанности шахтера и инженера.
+  components:
+  - type: Construction
+    graph: CyborgAcorp
+    node: start2
+    defaultTarget: cyborgacorpminer
+    containers:
+    - part-container
+    - cell_slot

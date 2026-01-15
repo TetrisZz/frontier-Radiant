@@ -991,7 +991,8 @@
   productEntity: BorgModuleSyndicateWeapon
   discountCategory: usualDiscounts
   cost:
-    Telecrystal: 5
+#    Telecrystal: 5 # Radiant sector
+    Telecrystal: 4 # Radiant sector
   categories:
   - UplinkDisruption
 # Radiant_Sector
@@ -1005,7 +1006,8 @@
   icon: { sprite: /Textures/Objects/Specific/Robotics/borgmodule.rsi, state: syndicateborgbomb }
   discountCategory: veryRareDiscounts
   cost:
-    Telecrystal: 4
+#    Telecrystal: 4 # Radiant sector
+    Telecrystal: 6 # Radiant sector
   categories:
     - UplinkDisruption
 # Radiant_Sector

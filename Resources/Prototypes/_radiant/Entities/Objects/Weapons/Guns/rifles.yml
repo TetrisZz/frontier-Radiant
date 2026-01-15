@@ -342,3 +342,31 @@
     sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/tiny.rsi
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/tiny.rsi
+
+# Cyborg
+
+- type: entity
+  name: Новалайт C1.31b
+  parent: [ BaseWeaponShotgun, NFBaseGunMeleeAttackMedium ]
+  id: NFWeaponRifleAssaultNovaliteC1Borg
+  description: Модификация винтовки Лектер от компании SW LLC — гражданская полуавтоматическая винтовка с ленточным магазином специально модифицированная для использования в корпусе киборга, компенсирована более низкой скорострельностью для предотвращения износа ствола. Использует .20 винтовочные патроны.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Rifles/novalitec1.rsi
+  - type: Item
+    sprite: _NF/Objects/Weapons/Guns/Rifles/novalitec1.rsi
+  - type: Gun
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: StaticPrice
+    price: 400
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - NFCartridgeRifle20
+    capacity: 100
+    proto: null

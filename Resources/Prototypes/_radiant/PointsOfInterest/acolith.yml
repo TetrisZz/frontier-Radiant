@@ -10,8 +10,8 @@
 - type: pointOfInterest
   id: Acolith
   name: 'МНБ Горизонт'
-  minimumDistance: 8000
-  maximumDistance: 12000
+  minimumDistance: 7000
+  maximumDistance: 9500
   spawnGroup: AcorpBase
   gridPath: /Maps/_radiant/POI/acolith.yml
   addComponents:

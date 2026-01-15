@@ -54,16 +54,6 @@
   result: MagazineHigh2RifleBABAX
 
 - type: latheRecipe
-  parent: BorgModuleMartyrAcorp
-  id: BorgModuleMartyrAcorpBABAX
-  result: BorgModuleMartyrAcorpBABAX
-
-- type: latheRecipe
-  parent: BorgModuleSyndicateWeaponAcorp
-  id: BorgModuleSyndicateWeaponAcorpBABAX
-  result: BorgModuleSyndicateWeaponAcorpBABAX
-
-- type: latheRecipe
   parent: WeaponRifleTW44Acorp
   id: WeaponRifleTW44AcorpBABAX
   result: WeaponRifleTW44AcorpBABAX

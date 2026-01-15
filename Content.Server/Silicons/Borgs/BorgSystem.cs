@@ -350,6 +350,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
             access.Add($"Medical");
             access.Add($"Pilot");
             access.Add($"Mercenary");
+			access.Add($"Acorp"); // Radiant sector
+			access.Add($"AcorpSecurity"); // Radiant sector
 
             _access.TrySetTags(uid, access);
         }

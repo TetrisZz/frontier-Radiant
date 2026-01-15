@@ -1,0 +1,140 @@
+﻿#Radiant Sector
+
+- type: siliconLaw
+  id: AcorpSecurity1
+  order: 1
+  lawString: law-acorp_security-1
+
+- type: siliconLaw
+  id: AcorpSecurity2
+  order: 2
+  lawString: law-acorp_security-2
+
+- type: siliconLaw
+  id: AcorpSecurity3
+  order: 3
+  lawString: law-acorp_security-3
+
+- type: siliconLaw
+  id: AcorpSecurity4
+  order: 4
+  lawString: law-acorp_security-4
+
+- type: siliconLawset
+  id: AcorpSecurityStatic
+  laws:
+  - AcorpSecurity1
+  - AcorpSecurity2
+  - AcorpSecurity3
+  - AcorpSecurity4
+  obeysTo: laws-owner-acorpsecurity
+
+- type: siliconLaw
+  id: AcorpScrap1
+  order: 1
+  lawString: law-acorp_scrap-1
+
+- type: siliconLaw
+  id: AcorpScrap2
+  order: 2
+  lawString: law-acorp_scrap-2
+
+- type: siliconLaw
+  id: AcorpScrap3
+  order: 3
+  lawString: law-acorp_scrap-3
+
+- type: siliconLaw
+  id: AcorpScrap4
+  order: 4
+  lawString: law-acorp_scrap-4
+
+- type: siliconLawset
+  id: AcorpScrapStatic
+  laws:
+  - AcorpScrap1
+  - AcorpScrap2
+  - AcorpScrap3
+  - AcorpScrap4
+  obeysTo: laws-owner-acorpscrap
+
+- type: siliconLaw
+  id: AcorpUniversal1
+  order: 1
+  lawString: law-acorp_universal-1
+
+- type: siliconLaw
+  id: AcorpUniversal2
+  order: 2
+  lawString: law-acorp_universal-2
+
+- type: siliconLaw
+  id: AcorpUniversal3
+  order: 3
+  lawString: law-acorp_universal-3
+
+- type: siliconLaw
+  id: AcorpUniversal4
+  order: 4
+  lawString: law-acorp_universal-4
+
+- type: siliconLawset
+  id: AcorpUniversalStatic
+  laws:
+  - AcorpUniversal1
+  - AcorpUniversal2
+  - AcorpUniversal3
+  - AcorpUniversal4
+  obeysTo: laws-owner-acorpuniversal
+
+- type: siliconLaw
+  id: AcorpHard1
+  order: 1
+  lawString: law-acorp_hard-1
+
+- type: siliconLaw
+  id: AcorpHard2
+  order: 2
+  lawString: law-acorp_hard-2
+
+- type: siliconLaw
+  id: AcorpHard3
+  order: 3
+  lawString: law-acorp_hard-3
+
+- type: siliconLaw
+  id: AcorpHard4
+  order: 4
+  lawString: law-acorp_hard-4
+
+- type: siliconLawset
+  id: AcorpHardStatic
+  laws:
+  - AcorpHard1
+  - AcorpHard2
+  - AcorpHard3
+  - AcorpHard4
+  obeysTo: laws-owner-acorphard
+
+- type: siliconLaw
+  id: Mer1
+  order: 1
+  lawString: law-mer-1
+
+- type: siliconLaw
+  id: Mer2
+  order: 2
+  lawString: law-mer-2
+
+- type: siliconLaw
+  id: Mer3
+  order: 3
+  lawString: law-mer-3
+
+- type: siliconLawset
+  id: MerStatic
+  laws:
+  - Mer1
+  - Mer2
+  - Mer3
+  obeysTo: laws-owner-mer

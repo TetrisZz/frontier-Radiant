@@ -1,0 +1,22 @@
+- type: entity
+  name: самоуничтожение
+  description: Все во славу науки, конечно же.
+  parent: GrenadeBase
+  id: SelfDestructAcorp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 50
+    intensitySlope: 5
+    maxIntensity: 30
+    canCreateVacuum: false
+  - type: OnUseTimerTrigger
+    delay: 9.5
+    beepSound:
+      path: /Audio/_radiant/Effects/Grenades/SelfDestruct/SDS_Charge2.ogg
+      params:
+        volume: 30
+    initialBeepDelay: 0
+    beepInterval: 16

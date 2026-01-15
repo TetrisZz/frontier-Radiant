@@ -1,0 +1,26 @@
+- type: technology
+  id: MercenaryCombatModule
+  name: research-technology-arsenal-module
+  entityIcon: BorgModuleCombatLethal
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - BorgModuleCombatLethal
+  - BorgModuleCombatNonLethal
+  technologyPrerequisites:
+  - NFAdvancedRiotControl
+  position: 3, 42
+
+- type: technology
+  id: MercenaryCyborgArmour
+  name: research-technology-arsenal-cyborg_armour
+  entityIcon: CyborgArmour
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - CyborgArmour
+  technologyPrerequisites:
+  - MercenaryCombatModule
+  position: 4, 42

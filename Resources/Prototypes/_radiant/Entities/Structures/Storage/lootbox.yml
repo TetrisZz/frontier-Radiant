@@ -1,0 +1,47 @@
+- type: entity
+  id: CrateAcorpBorg
+  parent: [ BaseStructureDynamic, BaseStructureIndestructible ]
+  name: высокая капсула
+  description: Лучше не ковырять это пальцем...
+  components:
+  - type: WiresPanel
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/lootbox.rsi
+    offset: 0,0.5
+    noRot: true
+    layers:
+    - state: open
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 50
+        mask:
+        - HighImpassable
+        layer:
+        - HighImpassable
+  - type: StorageFill
+    contents:
+      - id: BorgChassisAcorpDeath
+  - type: EntityStorage
+    capacity: 1
+    whitelist:
+      components:
+      - BorgChassis
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorClosed: closed
+    openDrawDepth: 0
+    closedDrawDepth: 4
+  - type: AccessReader
+    access: [["CentralCommand"]]
+  - type: Lock
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot

@@ -24,7 +24,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
+          radius: 0.40 #Radiant Sector
         density: 300
         mask:
         - MobMask
@@ -112,7 +112,8 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Prying
+    openingTool: Screwing # Radiant sector
+    openDelay: 3 # Radiant sector
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -248,7 +249,8 @@
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
   - type: TTS # Corvax-TTS
-    voice: Fact_core
+    voice: Caitlyn
+  - type: Stripping # Radiant sector
 
 - type: entity
   abstract: true
@@ -336,6 +338,8 @@
   parent: BaseBorgChassis
   abstract: true
   components:
+  - type: Sprite
+    sprite: _radiant/Mobs/Silicon/chassis.rsi #Radiant Sector
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -366,12 +370,19 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: FootstepModifier #Radiant Sector
+    footstepSoundCollection:
+      collection: FootstepBorgRadiant
+      params:
+        volume: -9
 
 - type: entity
   id: BaseBorgChassisDerelict
   parent: BaseBorgChassis
   abstract: true
   components:
+  - type: Sprite
+    sprite: _radiant/Mobs/Silicon/chassis.rsi #Radiant Sector
   - type: NpcFactionMember
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
@@ -387,6 +398,15 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+  - type: Strap #Radiant Sector ↓
+    buckleOnInteractHand: False
+    position: Stand
+    buckleOffset: "0,0.05"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBorgRadiant
+      params:
+        volume: -9 #Radiant Sector ↑
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable

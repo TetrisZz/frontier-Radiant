@@ -24,11 +24,11 @@
   - type: Sprite
     noRot: true
     drawdepth: Items
-    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    sprite: _radiant/Objects/Specific/Robotics/cyborg_parts.rsi # Radiant_sector
     state: robo_suit
   - type: Appearance
   - type: ItemMapper
-    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    sprite: _radiant/Objects/Specific/Robotics/cyborg_parts.rsi # Radiant_sector
     mapLayers:
       borg_l_arm+o:
         whitelist:

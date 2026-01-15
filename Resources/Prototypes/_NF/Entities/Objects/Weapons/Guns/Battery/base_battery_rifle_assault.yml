@@ -48,9 +48,9 @@
   - type: Battery # Default: 30 shots with 80 fireCost
     maxCharge: 2400
     startingCharge: 2400
-#  - type: BatterySelfRecharger # Radiant_sector
-#    autoRecharge: true # Radiant_sector
-#    autoRechargeRate: 4 # Default recharge rate: 1 shot per 20 seconds with 80 fireCost # Radiant_sector
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 4 # Default recharge rate: 1 shot per 20 seconds with 80 fireCost
   - type: NFWeaponDetails
     class: weapon-details-class-assault-rifle
 

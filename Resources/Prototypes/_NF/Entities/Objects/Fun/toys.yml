@@ -961,6 +961,9 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _NF/Objects/Fun/emotional_support_rpg.rsi
+  - type: Tag # Radiant sector
+    tags:
+    - Nonmetallic
   - type: Gun
     soundGunshot:
       path: /Audio/Effects/thunk.ogg
@@ -1020,6 +1023,9 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+  - type: Tag # Radiant sector
+    tags:
+    - Nonmetallic
   - type: Gun
     clumsyProof: true
 
@@ -1035,6 +1041,9 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+  - type: Tag # Radiant sector
+    tags:
+    - Nonmetallic
   - type: Item
     sprite: Objects/Fun/capgun.rsi
     heldPrefix: capgun

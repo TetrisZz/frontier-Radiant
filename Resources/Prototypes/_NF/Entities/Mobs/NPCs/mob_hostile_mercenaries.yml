@@ -480,16 +480,16 @@
     proto: NFCartridgePistol35Overpressure # Radiant_sector
 #    capacity: 2 # Radiant_sector
 #    count: 2 # Radiant_sector
-    capacity: 6 # Radiant_sector
-    count: 6 # Radiant_sector
+    capacity: 9 # Radiant_sector
+    count: 9 # Radiant_sector
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 6 # Radiant_sector
+    rechargeCooldown: 1 # Radiant_sector
     rechargeSound:
       path: /Audio/_NF/Effects/silence.ogg
   - type: Gun
     showExamineText: false
     fireRate: 4
-    burstCooldown: 1 # Radiant_sector
+    burstCooldown: 1.5 # Radiant_sector
     minAngle: 5 # Radiant_sector
 #    minAngle: 8 Radiant_sector
     maxAngle: 20

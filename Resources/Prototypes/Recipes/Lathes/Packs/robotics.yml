@@ -11,9 +11,19 @@
 - type: latheRecipePack
   id: BorgModulesStatic
   recipes:
-  - BorgModuleTool
+#  - BorgModuleTool # Radiant sector
   - BorgModuleCable
   - BorgModuleFireExtinguisher
+  - BorgModuleBureaucracy # Radiant sector
+  - BorgModuleNFService # Radiant sector
+  - BorgModuleClowning # Radiant sector
+  - BorgModuleMusique # Radiant sector
+  - BorgModuleHarvesting # Radiant sector
+  - BorgModuleDiagnosis # Radiant sector
+  - BorgModuleRescue # Radiant sector
+  - BorgModuleChemical # Radiant sector
+  - BorgModuleCombatCombined # Radiant sector
+  - BorgModuleRadio # Radiant sector
 
 - type: latheRecipePack
   id: BorgLimbsStatic
@@ -40,7 +50,10 @@
   - BorgModuleAdvancedChemical
   - BorgModuleAdvancedMining
   - BorgModuleAdvancedParamedic # Frontier
-  - BorgModuleRCD # Frontier
+  - BorgModuleCombatPinpointer # Radiant sector
+  - BorgModuleCombatLethal # Radiant sector
+  - BorgModuleCombatNonLethal # Radiant sector
+  - CyborgArmour # Radiant sector
 
 - type: latheRecipePack
   id: MechParts

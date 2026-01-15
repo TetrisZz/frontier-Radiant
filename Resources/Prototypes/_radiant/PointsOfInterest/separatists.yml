@@ -2,7 +2,7 @@
   id: Separatists
   parent: BasePOI
   name: База сепаратистов
-  minimumDistance: 10000
+  minimumDistance: 11000
   maximumDistance: 15000
   spawnGamePreset: [ NFPirate ]
   spawnGroup: Required

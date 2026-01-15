@@ -1,0 +1,48 @@
+# Mercenary borg
+- type: borgType
+  id: mercenary
+
+  # Description
+  dummyPrototype: BorgChassisMercenary
+
+  # Functional
+  extraModuleCount: 5
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleMercenary
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleJetpack
+
+  radioChannels:
+  - Medical
+  - Traffic
+
+  addComponents:
+  - type: FlashImmunity
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleCombatPinpointer
+      - BorgModuleCombatCombined
+  - type: TTS
+    voice: Mister_handy_fl3
+
+  # Visual
+  inventoryTemplateId: borgTall
+  spriteBodyState: mercenary
+  spriteHasMindState: mercenary_e
+  spriteNoMindState: mercenary_e_r
+  spriteToggleLightState: mercenary_l
+
+  # Pet
+  petSuccessString: petting-success-salvage-cyborg
+  petFailureString: petting-failure-salvage-cyborg
+
+  # Sounds #Radiant Sector
+  footstepCollection:
+    collection: FootstepBorgRadiant
+    params:
+      volume: -9

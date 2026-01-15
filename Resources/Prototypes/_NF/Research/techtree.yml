@@ -1724,6 +1724,7 @@
   - ClothingEyesHudBountyHunter
   - NFForensicPad
   - FlashlightSecliteNF
+  - BorgModuleCombatPinpointer # Radiant sector
   technologyPrerequisites:
   - NFBasicAmmunitionProduction
   position: 1, 42
@@ -1854,9 +1855,10 @@
   cost: 7500
   recipeUnlocks:
   - HoloprojectorField
+  prerequisiteLineType: Diagonal # Radiant sector
   technologyPrerequisites:
-  - NFAdvancedRiotControl
-  position: 3, 42
+  - MercenaryCombatModule # Radiant sector
+  position: 4, 43 # Radiant sector
 
 - type: technology
   id: NFSpecialMeans

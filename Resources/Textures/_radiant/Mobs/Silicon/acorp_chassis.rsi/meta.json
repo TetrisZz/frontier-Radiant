@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Skyrat-tg at commit https://github.com/Skyrat-SS13/Skyrat-tg/commit/bb8d8f968abdddc1dcf86ceda8d47001d531e321, edited by Homka",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "asec",
+      "directions": 4
+    },
+    {
+      "name": "asec_e",
+      "directions": 4
+    },
+    {
+      "name": "asec_e_r",
+      "directions": 4
+    },
+    {
+      "name": "asec_l",
+      "directions": 4
+    },
+    {
+      "name": "ascrap",
+      "directions": 4
+    },
+    {
+      "name": "ascrap_e_r",
+      "directions": 4
+    },
+    {
+      "name": "ascrap_l",
+      "directions": 4
+    },
+    {
+      "name": "ascrap_e",
+      "directions": 4
+    },
+    {
+      "name": "ascientist",
+      "directions": 4
+    },
+    {
+      "name": "ascientist_e",
+      "directions": 4
+    },
+    {
+      "name": "ascientist_e_r",
+      "directions": 4
+    },
+    {
+      "name": "ascientist_l",
+      "directions": 4
+    },
+    {
+      "name": "acorp",
+      "directions": 4
+    },
+    {
+      "name": "acorp_l",
+      "directions": 4
+    },
+    {
+      "name": "acorp_e",
+      "directions": 4
+    },
+    {
+      "name": "acorp_e_r",
+      "directions": 4
+    }
+  ]
+}

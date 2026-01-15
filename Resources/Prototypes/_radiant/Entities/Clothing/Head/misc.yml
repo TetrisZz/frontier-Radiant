@@ -8,3 +8,45 @@
     sprite: _radiant/Clothing/Head/demonichorns.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Head/demonichorns.rsi
+
+- type: entity
+  parent: [ClothingHeadBase, BaseToggleClothing]
+  id: CyborgArmour
+  name: броня киборга
+  description: Броня которой можно укрепить вашего железного друга, для сохранения в целости его важных частей.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/armorplate.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+  - type: ToggleClothing
+    action: ActionToggleMagboots
+  - type: ComponentToggler
+    components:
+    - type: NoSlip
+  - type: ItemTogglePrefix
+    prefixOn: on
+  - type: ToggleClothingPrefix
+    prefixOn: on
+  - type: Magboots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: icon-on}
+          False: {state: icon}
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - BorgOnly

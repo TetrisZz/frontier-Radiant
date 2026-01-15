@@ -18,7 +18,7 @@
 
 - type: entity
   name: электрический посох
-  parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseMeleeWeaponEnergy
   id: EnergySwordDoubleRadiant
   description: Электрический посох, изготовленная опытными бойцами Аколит Корпорейшн. Электрическая глефа, часто используется стражами влиятельных императоров и их окружения в монархических мирах.
   components:
@@ -44,8 +44,8 @@
             Blunt: 5
             Heat: 5
             Shock: 5
-  - type: StaminaDamageOnHit
-    damage: 20
+#  - type: StaminaDamageOnHit
+#    damage: 20
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -83,69 +83,13 @@
     reflectProb: .50
     spread: 60
 
+# Borgs
 - type: entity
-  name: электрический посох
-  parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
-  id: EnergyAxeRadiant
+  name: электрический посох киборга
+  suffix: Одноручное, Для боргов
+  parent: EnergySwordDoubleRadiant
+  id: EnergySwordDoubleRadiantBorg
   description: Электрический посох, изготовленная опытными бойцами Аколит Корпорейшн. Электрическая глефа, часто используется стражами влиятельных императоров и их окружения в монархических мирах.
   components:
-  - type: ItemToggle
-    onUse: false # wielding events control it instead
-    onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
-    soundActivate:
-      path: /Audio/Weapons/ebladeon.ogg
-      params:
-        volume: 3
-    soundDeactivate:
-      path: /Audio/Weapons/ebladeoff.ogg
-      params:
-        volume: 3
-  - type: ItemToggleMeleeWeapon
-    activatedSoundOnSwing:
-      path: /Audio/Weapons/eblademiss.ogg
-      params:
-        volume: 3
-        variation: 0.250
-    activatedDamage:
-        types:
-            Blunt: 5
-            Heat: 5
-            Shock: 5
-  - type: StaminaDamageOnHit
-    damage: 20
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Weapons/ebladehum.ogg
-      params:
-        volume: 3
-  - type: ComponentToggler
-    components:
-    - type: Sharp
-    - type: DisarmMalus
-      malus: 0.7
-    - type: Execution
-      doAfterDuration: 4.0
   - type: Wieldable
-    wieldSound: null # esword light sound instead
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    attackRate: 1.5
-    angle: 100
-    damage:
-      types:
-        Blunt: 4.5
-  - type: Sprite
-    sprite: _radiant/Objects/Weapons/Melee/e_combatcorkscrew.rsi
-    layers:
-      - state: e_cutlass
-      - state: e_cutlass_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
-  - type: Item
-    size: Small
-    sprite: _radiant/Objects/Weapons/Melee/e_combatcor-inhands.rsi
-  - type: Reflect
-    reflectProb: .50
-    spread: 60
+    freeHandsRequired: 0

@@ -138,3 +138,10 @@
     neck: ClothingNeckScarfStripedCentcom
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
+
+# Borg
+
+- type: startingGear
+  id: AcorpDeadLoadout
+  equipment:
+    head: CyborgArmour

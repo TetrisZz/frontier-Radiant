@@ -34,9 +34,9 @@
   - type: Battery # Radiant_sector
     maxCharge: 1000 # Radiant_sector
     startingCharge: 1000 # Radiant_sector
-#  - type: BatterySelfRecharger # Radiant_sector
-#    autoRecharge: true # Radiant_sector
-#    autoRechargeRate: 3 # Default recharge rate: 1 shot per 20 seconds with 60 fireCost # Radiant_sector
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 3 # Default recharge rate: 1 shot per 20 seconds with 60 fireCost
   - type: StaticPrice
     price: 250
   - type: NFWeaponDetails
