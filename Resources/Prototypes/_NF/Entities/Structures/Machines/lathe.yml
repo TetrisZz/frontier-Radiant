@@ -344,9 +344,9 @@
     - NFMercenaryStatic
     - NFMercenaryClothesStatic
     - NFMercenaryStorageStatic
-    - NFMercenaryWeaponsStatic
+    #- NFMercenaryWeaponsStatic #
     - NFMercenaryAmmoBoxesStatic
-    - NfsdPracticeStatic
+    #- NfsdPracticeStatic #
     - NFMercenaryMagazineStatic
     - NFTopicalsStatic
     - NFMercenaryArchetypeStatic
