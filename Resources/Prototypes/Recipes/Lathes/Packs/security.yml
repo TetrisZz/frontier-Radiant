@@ -143,3 +143,27 @@
   #recipes: # Frontier
   #- WeaponDisabler # Frontier
   #- WeaponDisablerSMG # Frontier
+
+- type: latheRecipePack #Radiant Sector 
+  id: EnergyWeapons 
+  recipes: 
+  - NFWeaponEnergyPistolLaserAdvancedRS 
+  - NFWeaponEnergyRifleSniperCannon 
+  - NFWeaponEnergyRifleSniperXrayCannon 
+  - NFWeaponEnergySubMachineGunDeltaVRS 
+  - NFWeaponEnergyPistolDisablerRS 
+  - NFWeaponEnergySubMachineGunDisablerRS 
+  - NFWeaponEnergyPistolLaserRS 
+  - NFWeaponEnergyRifleCarbineRS 
+  - NFWeaponEnergyRifleCarbinePracticeRS 
+  - NFWeaponEnergyPistolDisablerPracticeRS 
+  - NFWeaponEnergyPistolLaserMakeshiftRS 
+  - NFWeaponEnergyPistolLaserSvalinnRS 
+  - NFWeaponEnergyRifleTemperature
+
+- type: latheRecipePack #Radiant Sector 
+  id: EnergyWeaponsShuttle 
+  recipes: 
+  - ShuttleGunPerforatorCircuitboard 
+  - ShuttleGunSvalinnMachineGunCircuitboard 
+

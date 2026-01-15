@@ -344,13 +344,16 @@
     - NFMercenaryStatic
     - NFMercenaryClothesStatic
     - NFMercenaryStorageStatic
-    - NFMercenaryWeaponsStatic
+    #- NFMercenaryWeaponsStatic #
     - NFMercenaryAmmoBoxesStatic
-    - NfsdPracticeStatic
+    #- NfsdPracticeStatic #
     - NFMercenaryMagazineStatic
     - NFTopicalsStatic
     - NFMercenaryArchetypeStatic
     - NFMercenaryArchetypeMeleeStatic
+    dynamicPacks:
+    - EnergyWeapons #Radiant Sector
+    - EnergyWeaponsShuttle
   - type: BlueprintReceiver
     whitelist:
       tags:
