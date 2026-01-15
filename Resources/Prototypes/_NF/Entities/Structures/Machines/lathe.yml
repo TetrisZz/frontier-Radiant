@@ -351,6 +351,9 @@
     - NFTopicalsStatic
     - NFMercenaryArchetypeStatic
     - NFMercenaryArchetypeMeleeStatic
+    dynamicPacks:
+    - EnergyWeapons #Radiant Sector
+    - EnergyWeaponsShuttle
   - type: BlueprintReceiver
     whitelist:
       tags:

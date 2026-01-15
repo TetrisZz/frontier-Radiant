@@ -1,0 +1,100 @@
+- type: latheRecipe
+  id: ClothingMaskGasSwatRS
+  parent: NFBaseArmorRecipe
+  result: ClothingMaskGasSwat
+  materials:
+    Durathread: 700
+    Steel: 300
+    Plasteel: 1000
+
+- type: latheRecipe
+  id: ServiceTechFabCircuitboardRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: ServiceTechFabCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+
+- type: latheRecipe
+  id: McServiceTechFabCircuitboardRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: McServiceTechFabCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+
+- type: latheRecipe
+  id: EngineeringTechFabCircuitboardRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: EngineeringTechFabCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+
+- type: latheRecipe
+  id: CloningPodMachineCircuitboardRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: CloningPodMachineCircuitboard
+  materials:
+    Glass: 1200
+    Steel: 1000
+    Plastic: 1400
+    Silver: 100
+
+- type: latheRecipe
+  id: BodyScannerComputerCircuitboardRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: BodyScannerComputerCircuitboard
+  materials:
+    Glass: 1200
+    Steel: 1000
+    Plastic: 1400
+    Silver: 100
+
+- type: latheRecipe
+  id: CloningConsoleComputerCircuitboardRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: CloningConsoleComputerCircuitboard
+  materials:
+    Glass: 1200
+    Steel: 1000
+    Plastic: 1400
+    Silver: 100
+
+
+- type: latheRecipe
+  id: BoomBoxPinkRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: BoomBoxPink
+  materials:
+    Glass: 1200
+    Steel: 1700
+    Plastic: 2600
+
+- type: latheRecipe
+  id: BoomBoxRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: BoomBox
+  materials:
+    Glass: 1200
+    Steel: 1700
+    Plastic: 2600
+
+- type: latheRecipe
+  id: BoomBoxBlueRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: BoomBoxBlue
+  materials:
+    Glass: 1200
+    Steel: 1700
+    Plastic: 2600
+
+- type: latheRecipe
+  id: FireExtinguisherBluespaceRS
+  parent: [BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory]
+  result: FireExtinguisherBluespace
+  materials:
+    Glass: 1200
+    Steel: 1700
+    Plastic: 2600
+    Bluespace: 100

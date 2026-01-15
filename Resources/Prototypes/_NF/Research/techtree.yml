@@ -130,6 +130,20 @@
   - NFIndustrialEngineering
   position: 2, 2
 
+- type: technology #Radiant Sector
+  id: NFRapidPartExchangeFab
+  name: nf-research-technology-rped-fab
+  entityIcon: EngineeringTechFab
+  discipline: NFEngineering
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - EngineeringTechFabCircuitboardRS
+  prerequisiteLineType: Diagonal
+  technologyPrerequisites:
+  - NFMechanicalCompression
+  position: 3, 0
+
 - type: technology
   id: NFMiscellaneousItemsOrganization
   name: nf-research-technology-personal-storage-solutions
@@ -220,6 +234,19 @@
   technologyPrerequisites:
   - NFAdvancedToolsTechnology
   position: 3, 4
+
+- type: technology #Radiant Sector
+  id: NFAdvancedFireExtinguisherBluespaceRS
+  name: nf-research-technology-advanced-extinguisher
+  entityIcon: FireExtinguisherBluespace
+  discipline: NFEngineering
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - FireExtinguisherBluespaceRS
+  technologyPrerequisites:
+  - NFAdvancedCyborgToolsTechnology
+  position: 4, 4
 
 - type: technology
   id: NFMatterEnergyConversion
@@ -584,6 +611,7 @@
   - MedicalAssemblerMachineCircuitboard
   - HotplateMachineCircuitboard
   - DefibrillatorCompact
+  - BlankMediPen #Radiant Sector
   technologyPrerequisites:
   - NFBasicMedicine
   position: 2, 11
@@ -616,6 +644,21 @@
   technologyPrerequisites:
   - NFEngineeringMedicine
   position: 3, 11
+
+- type: technology #Radiant Sector
+  id: NFAppliedCircuitboard
+  name: nf-research-technology-applied-circuitboard
+  entityIcon: CloningPod
+  discipline: NFMedical
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - CloningPodMachineCircuitboardRS
+  - CloningConsoleComputerCircuitboardRS
+  - BodyScannerComputerCircuitboardRS
+  technologyPrerequisites:
+  - NFAppliedBiochemicalStasis
+  position: 4, 11
 
 # region Magboots
 
@@ -684,6 +727,19 @@
   technologyPrerequisites:
   - NFMagnetsTech
   position: 2, 13
+
+- type: technology #Rasiant Sector
+  id: NFMagnetsTechCombatJump
+  name: nf-research-technology-magnets-tech-jump
+  entityIcon: ClothingShoesBootsJump
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - ClothingShoesBootsJump
+  technologyPrerequisites:
+  - NFMagnetsTechCombat
+  position: 3, 13
 
 - type: technology
   id: NFMagnetsTechAdvanced
@@ -894,6 +950,21 @@
   - NFAdvancedEntertainment
   position: 1, 18
 
+- type: technology #Radiant Sector
+  id: NFAdvancedInstrumentsBox
+  name: nf-research-technology-advanced-box
+  entityIcon: BoomBoxPink
+  discipline: NFService
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - BoomBoxPinkRS
+  - BoomBoxRS
+  - BoomBoxBlueRS
+  technologyPrerequisites:
+  - NFAdvancedInstruments
+  position: 2, 18
+
 - type: technology
   id: NFAdvancedEntertainment
   name: nf-research-technology-advanced-entertainment
@@ -1017,15 +1088,20 @@
 
 # region Kitchen
 
-- type: technology
+- type: technology #Radiant Sector
   id: NFSelectiveDropper
   name: nf-research-technology-food-filtration
   entityIcon: ServiceSelectiveDropper
   discipline: NFService
   tier: 1
-  cost: 1000
+  cost: 2000
   recipeUnlocks:
   - ServiceSelectiveDropper
+  - HydroponicsToolScythe
+  - HydroponicsToolSpade
+  - HydroponicsToolHatchet
+  - HydroponicsToolMiniHoe
+  - HydroponicsToolClippers
   technologyPrerequisites:
   - NFAdvancedHydroponicsEquipment
   position: 0, 23
@@ -1128,6 +1204,20 @@
   technologyPrerequisites:
   - NFFoodService
   position: 2, 24
+
+- type: technology #Radiant sector
+  id: NFAdvancedFoodServiceTech
+  name: nf-research-technology-advanced-food-service-tech
+  entityIcon: ServiceTechFab
+  discipline: NFService
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ServiceTechFabCircuitboardRS
+  - McServiceTechFabCircuitboardRS
+  technologyPrerequisites:
+  - NFFoodService
+  position: 3, 24
 
 - type: technology
   id: NFBiogenerator
@@ -1742,28 +1832,12 @@
   - NFMagazineSubMachineGun35Empty
   - NFMagazineSubMachineGunTopMounted35Empty
   - NFMagazinePistol45Empty
+  - NFAmmunitionBoxShellShotgunTranquilizer
+  - NFAmmunitionBoxShellShotgunBeanbag
   prerequisiteLineType: Diagonal
   technologyPrerequisites:
   - NFBasicAmmunitionProduction
   position: 1, 44
-
-- type: technology
-  id: NFNonlethalAmmunition
-  name: nf-research-technology-nonlethal-ammunition
-  entityIcon: NFAmmunitionBoxShellShotgunBeanbag
-  discipline: NFArsenalMercenary
-  tier: 1
-  cost: 2500
-  recipeUnlocks:
-  - NFAmmunitionBoxShellShotgunBeanbag
-  - NFAmmunitionBoxRifle20Rubber
-  - NFAmmunitionBoxRifle30Rubber
-  - NFAmmunitionBoxPistol35Rubber
-  - NFAmmunitionBoxPistol45Rubber
-  - NFAmmunitionBoxShellShotgunTranquilizer
-  technologyPrerequisites:
-  - NFBasicAmmunitionProduction
-  position: 1, 45
 
 - type: technology
   id: NFAdvancedRiotControl
@@ -1807,6 +1881,22 @@
   technologyPrerequisites:
   - NFBountyHunting
   position: 2, 43
+
+- type: technology #Radiant sector
+  id: NFArsenalRiot
+  name: nf-research-technology-arsenal-riot
+  entityIcon: ClothingOuterArmorRiot
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 3500
+  recipeUnlocks:
+  - ClothingOuterArmorRiot
+  - ClothingHeadHelmetRiot
+  - RiotShield
+  - ClothingMaskGasSwatRS
+  technologyPrerequisites:
+  - NFArsenalStyle
+  position: 4, 43
 
 - type: technology
   id: NFImprovedRifleAmmo
@@ -1908,3 +1998,104 @@
   - NFImprovedSalvageWeapons
   - NFExplosiveTechnology
   position: 4, 40
+
+#Radiant Sector
+
+- type: technology
+  id: NFImprovedSvalinn
+  name: rs-research-technology-svalinn
+  entityIcon: NFWeaponEnergyPistolLaserSvalinn
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 2500
+  recipeUnlocks:
+  - NFWeaponEnergyPistolLaserSvalinnRS
+  - NFWeaponEnergyPistolLaserMakeshiftRS
+  technologyPrerequisites:
+  - NFBasicAmmunitionProduction
+  position: 1, 45
+
+- type: technology
+  id: NFImprovedPractice
+  name: rs-research-technology-practice
+  entityIcon: NFWeaponEnergySubMachineGunDisabler
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - NFWeaponEnergyPistolDisablerPracticeRS
+  - NFWeaponEnergyRifleCarbinePracticeRS
+  - NFWeaponEnergyRifleCarbineRS
+  - NFWeaponEnergyPistolLaserRS
+  - NFWeaponEnergyPistolDisablerRS
+  - NFWeaponEnergySubMachineGunDisablerRS
+  technologyPrerequisites:
+  - NFImprovedSvalinn
+  position: 2, 45
+
+- type: technology
+  id: NFImprovedRifle
+  name: rs-research-technology-rifle
+  entityIcon: NFWeaponEnergyRifleTemperature
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 1000
+  recipeUnlocks:
+  - NFWeaponEnergySubMachineGunDeltaVRS
+  - NFWeaponEnergyRifleTemperature
+  technologyPrerequisites:
+  - NFImprovedPractice
+  position: 3, 45
+
+- type: technology
+  id: NFImprovedSniperCannon
+  name: rs-research-technology-cannon
+  entityIcon: NFWeaponEnergyRifleSniperCannon
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 12500
+  recipeUnlocks:
+  - NFWeaponEnergyRifleSniperXrayCannon
+  - NFWeaponEnergyRifleSniperCannon
+  technologyPrerequisites:
+  - NFImprovedRifle
+  position: 4, 45
+
+- type: technology
+  id: NFImprovedLaserAdvanced
+  name: rs-research-technology-laser-advanced
+  entityIcon: NFWeaponEnergyPistolLaserAdvanced
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 15000
+  recipeUnlocks:
+  - NFWeaponEnergyPistolLaserAdvancedRS
+  technologyPrerequisites:
+  - NFImprovedSniperCannon
+  position: 5, 45
+
+- type: technology
+  id: NFImprovedLaserAdvancedGunCircuitboard
+  name: rs-research-technology-laser-advanced-gun
+  entityIcon: ShuttleGunSvalinnMachineGun
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 12000
+  recipeUnlocks:
+  - ShuttleGunSvalinnMachineGunCircuitboard
+  technologyPrerequisites:
+  - NFBasicShuttleArmament
+  position: 5, 40
+
+- type: technology
+  id: NFImprovedLaserAdvancedPerforator
+  name: rs-research-technology-laser-advanced-perforator
+  entityIcon: ShuttleGunPerforator
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 15000
+  recipeUnlocks:
+  - ShuttleGunPerforatorCircuitboard
+  technologyPrerequisites:
+  - NFImprovedLaserAdvancedGunCircuitboard
+  position: 6, 40
