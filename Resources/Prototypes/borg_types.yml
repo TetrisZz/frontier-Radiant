@@ -28,9 +28,21 @@
   spriteNoMindState: robot_e_r
   spriteToggleLightState: robot_l
 
+  addComponents: #Radiant Sector
+  - type: Strap
+    buckleOnInteractHand: False
+    position: Stand
+    buckleOffset: "0,0.1"
+
   # Pet
   petSuccessString: petting-success-generic-cyborg
   petFailureString: petting-failure-generic-cyborg
+
+  # Sounds #Radiant Sector
+  footstepCollection:
+    collection: FootstepBorgRadiant
+    params:
+      volume: -9
 
 
 # Engineering borg
@@ -58,6 +70,18 @@
   - Engineering
   - Science
 
+  addComponents: #Radiant Sector
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: Strap
+    buckleOnInteractHand: False
+    position: Stand
+    buckleOffset: "0,0.1"
+  - type: TTS
+    voice: Karina_petrova_tb
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: engineer
@@ -68,6 +92,12 @@
   # Pet
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
+
+  # Sounds #Radiant Sector
+  footstepCollection:
+    collection: FootstepBorgRadiant
+    params:
+      volume: -9
 
 
 # Salvage borg
@@ -95,6 +125,15 @@
   - Supply
   - Science
 
+  addComponents: #Radiant Sector
+  - type: Strap
+    buckleOnInteractHand: False
+    position: Stand
+    buckleOffset: "0,0.1"
+  - type: PointLight
+    radius: 6
+    energy: 3
+
   # Visual
   inventoryTemplateId: borgTall
   spriteBodyState: miner
@@ -106,6 +145,12 @@
   # Pet
   petSuccessString: petting-success-salvage-cyborg
   petFailureString: petting-failure-salvage-cyborg
+
+  # Sounds #Radiant Sector
+  footstepCollection:
+    collection: FootstepBorgRadiant
+    params:
+      volume: -9
 
 
 # Janitor borg
@@ -132,6 +177,14 @@
   - Science
   - Service
 
+  addComponents: #Radiant Sector
+  - type: Strap
+    buckleOnInteractHand: False
+    position: Stand
+    buckleOffset: "0,0.1"
+  - type: TTS
+    voice: Amina
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: janitor
@@ -143,6 +196,12 @@
   # Pet
   petSuccessString: petting-success-janitor-cyborg
   petFailureString: petting-failure-janitor-cyborg
+
+  # Sounds #Radiant Sector
+  footstepCollection:
+    collection: FootstepBorgRadiant
+    params:
+      volume: -9
 
 
 # Medical borg
@@ -161,7 +220,7 @@
 
   defaultModules:
   - BorgModuleTool
-  - BorgModuleChemical
+#  - BorgModuleChemical #Radiant Sector
   - BorgModuleTopicals
   - BorgModuleRescue
   # - BorgModuleAdvancedTreatment # Frontier
@@ -173,6 +232,10 @@
   - Medical
 
   addComponents:
+  - type: Strap #Radiant Sector
+    buckleOnInteractHand: False
+    position: Stand
+    buckleOffset: "0,0.1"
   - type: SolutionScanner
   - type: ShowHealthBars
     damageContainers:
@@ -180,6 +243,10 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  - type: ContainerFill #Radiant Sector
+    containers:
+      borg_module:
+      - BorgModuleChemical
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -193,10 +260,13 @@
   petSuccessString: petting-success-medical-cyborg
   petFailureString: petting-failure-medical-cyborg
 
-  # Sounds
+  # Sounds #Radiant Sector
+#  footstepCollection:
+#    collection: FootstepHoverBorg
   footstepCollection:
-    collection: FootstepHoverBorg
-
+    collection: FootstepBorgRadiant
+    params:
+      volume: -9
 
 # Service borg
 - type: borgType
@@ -228,6 +298,14 @@
   - Science
   - Service
 
+  addComponents: #Radiant Sector
+  - type: Strap
+    buckleOnInteractHand: False
+    position: Stand
+    buckleOffset: "0,0.1"
+  - type: TTS
+    voice: Amina
+
   # Visual
   inventoryTemplateId: borgTall
   spriteBodyState: service
@@ -238,3 +316,9 @@
   # Pet
   petSuccessString: petting-success-service-cyborg
   petFailureString: petting-failure-service-cyborg
+
+  # Sounds #Radiant Sector
+  footstepCollection:
+    collection: FootstepBorgRadiant
+    params:
+      volume: -9

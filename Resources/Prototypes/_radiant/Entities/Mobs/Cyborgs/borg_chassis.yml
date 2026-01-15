@@ -1,0 +1,528 @@
+- type: entity
+  id: BaseBorgChassisAcorp
+  parent: BaseBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: Sprite
+    sprite: _radiant/Mobs/Silicon/acorp_chassis.rsi
+  - type: Access
+    enabled: false
+    tags:
+    - Borg
+  - type: AccessReader
+    access: [["Acorp"]]
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Acorp
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Acorp
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: IonStormTarget
+    chance: 0
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: PointLight
+    color: "#ffffff"
+  - type: FootstepModifier #Radiant Sector
+    footstepSoundCollection:
+      collection: FootstepBorgRadiant
+      params:
+        volume: -9
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: BorgChassisAcorp
+  parent: [BaseBorgChassisAcorp, ShowMedicalIcons]
+  name: syndicate medical cyborg
+  description: A combat medical cyborg. Has limited offensive potential, but makes more than up for it with its support capabilities.
+  components:
+    - type: Sprite
+      layers:
+        - state: ascientist
+        - state: ascientist_e
+          map: ["enum.BorgVisualLayers.Light"]
+          shader: unshaded
+          visible: false
+        - state: ascientist_l
+          shader: unshaded
+          map: ["light"]
+          visible: false
+    - type: SiliconLawProvider
+      laws: AcorpUniversalStatic
+    - type: BorgChassis
+      maxModules: 10
+      hasMindState: ascientist_e
+      noMindState: ascientist_e_r
+      moduleWhitelist:
+        tags:
+        - BorgModuleGeneric
+        - BorgModuleScience
+        - BorgModuleJanitor
+        - BorgModuleMedical
+        - BorgModuleService
+    - type: Strap
+      buckleOnInteractHand: False
+      position: Stand
+      buckleOffset: "0,0.1"
+    - type: ShowHealthBars
+    - type: InteractionPopup
+      interactSuccessString: petting-success-syndicate-cyborg
+      interactFailureString: petting-failure-syndicate-cyborg
+      interactSuccessSound:
+        path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: SolutionScanner
+
+- type: entity
+  id: BorgChassisAcorpSecurity
+  parent: BaseBorgChassisAcorp
+  name: syndicate assault cyborg
+  description: A lean, mean killing machine with access to a variety of deadly modules.
+  components:
+    - type: Sprite
+      layers:
+        - state: asec
+        - state: asec_e
+          map: ["enum.BorgVisualLayers.Light"]
+          shader: unshaded
+          visible: false
+        - state: asec_l
+          shader: unshaded
+          map: ["light"]
+          visible: false
+    - type: Access
+      enabled: false
+      tags:
+      - Acorp
+      - AcorpSecurity
+      - AcorpCommand
+    - type: TTS
+      voice: Karina_petrova_tb
+    - type: Reflect
+      spread: 360
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 2.75
+      baseSprintSpeed : 4.95
+    - type: ShowJobIcons
+    - type: FlashImmunity
+    - type: MovementAlwaysTouching
+    - type: SiliconLawProvider
+      laws: AcorpSecurityStatic
+    - type: BorgChassis
+      maxModules: 6
+      hasMindState: asec_e
+      noMindState: asec_e_r
+      moduleWhitelist:
+        tags:
+        - BorgModuleGeneric
+        - BorgModuleMercenary
+    - type: InteractionPopup
+      interactSuccessString: petting-success-syndicate-cyborg
+      interactFailureString: petting-failure-syndicate-cyborg
+      interactSuccessSound:
+        path: /Audio/Ambience/Objects/periodic_beep.ogg
+
+- type: entity
+  id: BorgChassisAcorpMiner
+  parent: BaseBorgChassisAcorp
+  name: syndicate saboteur cyborg
+  description: A streamlined engineering cyborg, equipped with covert modules. Its chameleon projector lets it disguise itself as a Nanotrasen cyborg.
+  components:
+    - type: Sprite
+      layers:
+        - state: ascrap
+        - state: ascrap_e
+          map: ["enum.BorgVisualLayers.Light"]
+          shader: unshaded
+          visible: false
+        - state: ascrap_l
+          shader: unshaded
+          map: ["light"]
+          visible: false
+    - type: BorgChassis
+      maxModules: 8
+      hasMindState: ascrap_e
+      noMindState: ascrap_e_r
+      moduleWhitelist:
+        tags:
+        - BorgModuleGeneric
+        - BorgModuleEngineering
+        - BorgModuleCargo
+    - type: SiliconLawProvider
+      laws: AcorpScrapStatic
+    - type: TTS
+      voice: Mister_gutsy_fl3
+    - type: ShowHealthBars
+      damageContainers:
+      - Inorganic
+      - Silicon
+    - type: MovementSpeedModifier # slower
+      baseWalkSpeed : 2.25
+      baseSprintSpeed : 3.825
+    - type: MobThresholds # tankier
+      thresholds:
+        0: Alive
+        150: Critical
+        200: Dead
+      stateAlertDict:
+        Alive: BorgHealth
+        Critical: BorgCrit
+        Dead: BorgDead
+      showOverlays: false
+      allowRevives: true
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 125
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Machines/warning_buzzer.ogg
+            params:
+              volume: 5
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:EmptyContainersBehaviour
+          containers:
+          - cell_slot
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: Repairable
+      doAfterDelay: 14 # more HP, more time to heal
+    - type: InteractionPopup
+      interactSuccessString: petting-success-syndicate-cyborg
+      interactFailureString: petting-failure-syndicate-cyborg
+      interactSuccessSound:
+        path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: FootstepModifier #Radiant Sector
+      footstepSoundCollection:
+        collection: FootstepBorgRadiantBig
+        params:
+          volume: -15
+          Pitch: 0,75
+    - type: PointLight
+      radius: 7
+      energy: 3
+
+- type: entity
+  id: BorgChassisAcorpDeath
+  parent: BaseBorgChassisAcorp
+  name: Агент Люма v4
+  description: Он не назовет вам свои законы.
+  components:
+    - type: Sprite
+      layers:
+        - state: acorp
+        - state: acorp_e
+          map: ["enum.BorgVisualLayers.Light"]
+          shader: unshaded
+          visible: false
+        - state: acorp_l
+          shader: unshaded
+          map: ["light"]
+          visible: false
+    - type: MobThresholds # tankier
+      thresholds:
+        0: Alive
+        500: Critical
+        9000: Dead
+      stateAlertDict:
+        Alive: BorgHealth
+        Critical: BorgCrit
+        Dead: BorgDead
+      showOverlays: false
+      allowRevives: true
+    - type: AccessReader
+      access: [["CentralCommand"]]
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 450
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Machines/warning_buzzer.ogg
+            params:
+              volume: 5
+      - trigger:
+          !type:DamageTrigger
+          damage: 9999
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:EmptyContainersBehaviour
+          containers:
+          - cell_slot
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: Repairable
+      doAfterDelay: 20 # more HP, more time to heal
+    - type: SiliconLawProvider
+      laws: AcorpHardStatic
+    - type: ShowHealthBars
+      damageContainers:
+      - Inorganic
+      - Silicon
+      - Biological
+    - type: WiresPanel
+      openingTool: Screwing
+      openDelay: 60
+    - type: Reflect
+      spread: 360
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Binary
+      - Common
+      - Acorp
+      - Science
+      - Engineering
+      - Supply
+      - Service
+      - Medical
+      - Traffic
+      - Nfsd
+      - Navy
+      - Greeting
+    - type: ActiveRadio
+      channels:
+      - Binary
+      - Common
+      - Acorp
+      - Science
+      - Engineering
+      - Supply
+      - Service
+      - Medical
+      - Traffic
+      - Nfsd
+      - Navy
+      - Greeting
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellAntiqueProto
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 2.75
+      baseSprintSpeed : 4.95
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical
+      - Dead
+      damageCap: 9999
+      damage:
+        groups:
+          Brute: -0.4
+          Burn: -0.4
+    - type: ShowJobIcons
+    - type: FlashImmunity
+    - type: MovementAlwaysTouching
+    - type: BorgChassis
+      maxModules: 99
+      moduleWhitelist:
+        tags:
+          - BorgModuleGeneric
+          - BorgModuleScience
+          - BorgModuleJanitor
+          - BorgModuleMedical
+          - BorgModuleService
+          - BorgModuleSyndicate
+          - BorgModuleSyndicateAssault
+          - BorgModuleEngineering
+          - BorgModuleCargo
+          - BorgModuleMercenary
+      hasMindState: acorp_e
+      noMindState: acorp_e_r
+    - type: ContainerFill
+      containers:
+        borg_brain:
+        - MMIFilled
+        borg_module:
+        - BorgModuleAcorpMartyr
+        - BorgModuleEsword
+        - BorgModuleL6C
+        - BorgModuleOperative
+        - BorgModuleJetpack
+        - BorgModuleAdvancedTool
+        - BorgModuleAcorpNonLethal
+        - BorgModuleAcorpLaserWeapon
+        - BorgModuleAcorpShotgunWeapon
+        - BorgModuleArtifact
+        - BorgModuleAnomaly
+        - BorgModuleConstruction
+        - BorgModuleRCD
+        - BorgModuleCable
+        - BorgModuleMining
+        - BorgModuleTraversal
+        - BorgModuleAppraisal
+        - BorgModuleAdvancedCleaning
+        - BorgModuleCustodial
+        - BorgModuleAdvancedChemical
+        - BorgModuleTopicals
+        - BorgModuleRescue
+        - BorgModuleMusique
+        - BorgModuleClowning
+        - BorgModuleGardening
+        - BorgModuleHarvesting
+        - BorgModuleBureaucracy # Frontier: FIXME - stacked as hell
+        - BorgModuleNFService # Frontier
+        - BorgModuleChef # Frontier
+        - BorgModuleAdvancedParamedic
+        - BorgModuleCombatPinpointer
+        - BorgModuleCombatLethal
+    - type: Loadout
+      prototypes:
+        - AcorpDeadLoadout
+    - type: InteractionPopup
+      interactSuccessString: petting-success-syndicate-cyborg
+      interactFailureString: petting-failure-syndicate-cyborg
+      interactSuccessSound:
+        path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: PointLight
+      radius: 7
+      energy: 3
+
+- type: entity
+  id: BorgChassisDonat
+  parent: BaseBorgChassis
+  name: cyborg
+  description: A lean, mean killing machine with access to a variety of deadly modules.
+  components:
+    - type: Sprite
+      layers:
+        - state: mer
+        - state: mer_e
+          map: ["enum.BorgVisualLayers.Light"]
+          shader: unshaded
+          visible: false
+        - state: mer_l
+          shader: unshaded
+          map: ["light"]
+          visible: false
+    - type: SiliconLawProvider
+      laws: MerStatic
+    - type: BorgChassis
+      maxModules: 3
+      moduleWhitelist:
+        tags:
+          - BorgModuleGeneric
+          - BorgModuleSyndicate
+          - BorgModuleSyndicateAssault
+      hasMindState: mer_e
+      noMindState: mer_e_r
+    - type: InteractionPopup
+      interactSuccessString: petting-success-syndicate-cyborg
+      interactFailureString: petting-failure-syndicate-cyborg
+      interactSuccessSound:
+        path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: FootstepModifier
+      footstepSoundCollection:
+         collection: FootstepBorgRadiant
+         params:
+          volume: -6
+
+- type: entity
+  id: BorgChassisMercenary
+  parent: BorgChassisSelectable
+  name: киборг-наёмник
+  description: Гибрид машины и человека, помогающий в работе. Они обожают, когда их снова и снова просят назвать свои законы.
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mercenary
+
+# finished borg
+
+- type: entity
+  parent: BorgChassisAcorp
+  id: BorgChassisAcorpComplited
+  name: киборг акорпа
+  suffix: С модулями
+  description: Гибрид машины и человека, помогающий в работе. Они обожают, когда их снова и снова просят назвать свои законы.
+  components:
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleJetpack
+      - BorgModuleTool
+      - BorgModuleArtifact
+      - BorgModuleAnomaly
+      - BorgModuleCleaning
+      - BorgModuleCustodial
+      - BorgModuleAdvancedParamedic
+      - BorgModuleGardening
+      - BorgModuleChef
+
+- type: entity
+  parent: BorgChassisAcorpSecurity
+  id: BorgChassisAcorpSecurityComplited
+  name: киборг акорп-секьюрити
+  suffix: С модулями
+  description: Гибрид машины и человека, помогающий в работе. Они обожают, когда их снова и снова просят назвать свои законы.
+  components:
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleJetpack
+      - BorgModuleTool
+      - BorgModuleAcorpNonLethal
+      - BorgModuleAcorpLaserWeapon
+
+- type: entity
+  parent: BorgChassisAcorpMiner
+  id: BorgChassisAcorpMinerComplited
+  name: большой киборг акорпа
+  suffix: С модулями
+  description: Гибрид машины и человека, помогающий в работе. Они обожают, когда их снова и снова просят назвать свои законы.
+  components:
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleJetpack
+      - BorgModuleTool
+      - BorgModuleCable
+      - BorgModuleConstruction
+      - BorgModuleRCDShipyard
+      - BorgModuleMining
+      - BorgModuleAppraisal

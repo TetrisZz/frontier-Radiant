@@ -1,4 +1,4 @@
-# Tier 1
+# Tier 0
 
 - type: technology
   id: AcorpTazer
@@ -9,7 +9,10 @@
   cost: 2500
   recipeUnlocks:
   - EnergyTazer
+  - CyborgEndoskeletonAcorp
   position: 0, 47
+
+# Tier 1
 
 - type: technology
   id: AcorpHardsuit
@@ -47,20 +50,46 @@
   position: 1, 47
 
 - type: technology
-  id: AcorpBorgModules
-  name: research-technology-acorp-borg
-  entityIcon: BorgModuleMartyrAcorp
+  id: AcorpWeaponryLaser
+  name: research-technology-acorp-laser
+  entityIcon: WeaponEnergyGunMiniAcorp
   discipline: Acorp
   tier: 1
-  cost: 2500
+  cost: 10000
   recipeUnlocks:
-  - BorgModuleMartyrAcorp
-  - BorgModuleSyndicateWeaponAcorp
+  - WeaponEnergyGunMiniAcorp
+  - WeaponLaserCarbineAcorp
   technologyPrerequisites:
   - AcorpTazer
   position: 1, 49
 
+- type: technology
+  id: AcorpBorgModules
+  name: research-technology-acorp-borg
+  entityIcon: BorgModuleAcorpMartyr
+  discipline: Acorp
+  tier: 1
+  cost: 2500
+  recipeUnlocks:
+  - BorgModuleAcorpMartyr
+  technologyPrerequisites:
+  - AcorpTazer
+  position: 1, 50
+
 # Tier 2
+
+- type: technology
+  id: AcorpWeaponryLaser2
+  name: research-technology-acorp-laser2
+  entityIcon: WeaponEnergyShotgunRS
+  discipline: Acorp
+  tier: 1
+  cost: 15000
+  recipeUnlocks:
+  - WeaponEnergyShotgunRS
+  technologyPrerequisites:
+  - AcorpWeaponryLaser
+  position: 2, 49
 
 - type: technology
   id: AcorpWeaponryGuns
@@ -91,20 +120,6 @@
   position: 2, 48
 
 - type: technology
-  id: AcorpWeaponryLaser
-  name: research-technology-acorp-laser
-  entityIcon: WeaponEnergyGunMiniAcorp
-  discipline: Acorp
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  - WeaponEnergyGunMiniAcorp
-  - WeaponLaserCarbineAcorp
-  technologyPrerequisites:
-  - AcorpBorgModules
-  position: 2, 49
-
-- type: technology
   id: AcorpArmour
   name: research-technology-acorp-armour
   entityIcon: ClothingOuterArmorPlatecarrierfAcorp
@@ -119,7 +134,47 @@
   - AcorpHardsuit
   position: 2, 46
 
+- type: technology
+  id: AcorpCyborgMiner
+  name: research-technology-acorp-miner
+  entityIcon: BorgChassisAcorpMinerComplited
+  discipline: Acorp
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - CyborgEndoskeletonAcorpMiner
+  technologyPrerequisites:
+  - AcorpBorgModules
+  position: 2, 50
+
 # Tier 3
+
+- type: technology
+  id: AcorpSword
+  name: research-technology-acorp-sword
+  entityIcon: EnergySwordRadiant
+  discipline: Acorp
+  tier: 1
+  cost: 20000
+  recipeUnlocks:
+  - EnergySwordRadiant
+  technologyPrerequisites:
+  - AcorpWeaponryLaser2
+  position: 3, 49
+
+- type: technology
+  id: AcorpGlefa
+  name: research-technology-acorp-posox
+  entityIcon: EnergySwordDoubleRadiant
+  discipline: Acorp
+  tier: 1
+  cost: 20000
+  recipeUnlocks:
+  - EnergySwordDoubleRadiant
+  prerequisiteLineType: Diagonal
+  technologyPrerequisites:
+  - AcorpWeaponryLaser2
+  position: 3, 48
 
 - type: technology
   id: AcorpAmmunition2
@@ -158,44 +213,19 @@
   position: 3, 46
 
 - type: technology
-  id: AcorpWeaponryLaser2
-  name: research-technology-acorp-laser2
-  entityIcon: WeaponEnergyShotgunRS
+  id: AcorpCyborgSecurity
+  name: research-technology-acorp-security
+  entityIcon: BorgChassisAcorpSecurityComplited
   discipline: Acorp
   tier: 1
-  cost: 15000
+  cost: 5000
   recipeUnlocks:
-  - WeaponEnergyShotgunRS
+  - CyborgEndoskeletonAcorpSecurity
   technologyPrerequisites:
-  - AcorpWeaponryLaser
-  position: 3, 49
+  - AcorpCyborgMiner
+  position: 3, 50
 
-- type: technology
-  id: AcorpSword
-  name: research-technology-acorp-sword
-  entityIcon: EnergySwordRadiant
-  discipline: Acorp
-  tier: 1
-  cost: 20000
-  recipeUnlocks:
-  - EnergySwordRadiant
-  technologyPrerequisites:
-  - AcorpWeaponryLaser2
-  position: 4, 49
-
-- type: technology
-  id: AcorpGlefa
-  name: research-technology-acorp-posox
-  entityIcon: EnergySwordDoubleRadiant
-  discipline: Acorp
-  tier: 1
-  cost: 20000
-  recipeUnlocks:
-  - EnergySwordDoubleRadiant
-  prerequisiteLineType: Diagonal
-  technologyPrerequisites:
-  - AcorpWeaponryLaser2
-  position: 4, 48
+# Tier 4
 
 - type: technology
   id: AcorpAmmunition3
@@ -225,3 +255,16 @@
   technologyPrerequisites:
   - AcorpHardsuit2
   position: 4, 46
+
+- type: technology
+  id: AcorpModuleShotgun
+  name: research-technology-acorp-module_shotgun
+  entityIcon: BorgModuleAcorpShotgunWeapon
+  discipline: Acorp
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - BorgModuleAcorpShotgunWeapon
+  technologyPrerequisites:
+  - AcorpCyborgSecurity
+  position: 4, 50

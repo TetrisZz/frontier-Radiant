@@ -326,6 +326,7 @@
     - type: Tag # Frontier
       tags: # Frontier
       - Sidearm # Frontier
+      - Nonmetallic # Radiant sector
 
 # Admeme
 - type: entity

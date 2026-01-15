@@ -1,0 +1,161 @@
+- type: entity
+  parent: BaseItem
+  id: BaseIntercomBorg
+  name: intercom
+  description: An intercom. For when the station just needs to know something.
+  abstract: true
+  components:
+  - type: TelecomExempt
+  - type: Item
+    size: Normal
+  - type: EncryptionKeyHolder
+    keySlots: 10
+    keysExtractionMethod: Prying
+  - type: RadioMicrophone
+    powerRequired: true
+    unobstructedRequired: true
+    listenRange: 2
+    toggleOnInteract: false
+  - type: RadioSpeaker
+    toggleOnInteract: false
+  - type: Intercom
+  - type: Speech
+    speechVerb: Robotic
+  - type: VoiceOverride # This is for the wire that makes an electricity zapping noise.
+    speechVerbOverride: Electricity
+    enabled: false
+  - type: Appearance
+  - type: WiresVisuals
+  - type: WiresPanelSecurity
+  - type: ContainerFill
+    containers:
+      board: [ IntercomElectronics ]
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+  - type: Sprite
+    noRot: false
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/intercom.rsi
+    layers:
+    - state: base
+    - state: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: broadcasting
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: speaker
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      shader: unshaded
+      visible: false
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: WiresPanel
+  - type: Wires
+    boardName: wires-board-name-intercom
+    layoutId: Intercom
+  - type: ActivatableUI
+    key: enum.IntercomUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.IntercomUiKey.Key:
+        type: IntercomBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Construction
+    graph: Intercom
+    node: intercom
+    containers:
+    - board
+    - key_slots
+  - type: GenericVisualizer
+    visuals:
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RadioDeviceVisuals.Broadcasting:
+        enum.RadioDeviceVisualLayers.Broadcasting:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RadioDeviceVisuals.Speaker:
+        enum.RadioDeviceVisualLayers.Speaker:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  id: IntercomConstructedBorg
+  parent: BaseIntercomBorg
+  suffix: Empty, Panel Open
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: broadcasting
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: speaker
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      shader: unshaded
+      visible: false
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: true
+  - type: WiresPanel
+    open: true
+
+- type: entity
+  id: IntercomBorg
+  parent: [BaseStructureDisableToolUse, IntercomConstructedBorg] # Frontier: add BaseStructureDisableToolUse
+  suffix: ""
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: broadcasting
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: speaker
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      shader: unshaded
+      visible: false
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: WiresPanel
+    open: false
+  - type: Physics # Frontier
+    canCollide: false # Frontier
+
+- type: entity
+  id: IntercomCommonBorg
+  parent: IntercomBorg
+  suffix: Common
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyTraffic
+      - EncryptionKeyGreeting
+      - EncryptionKeyMedical
+      - EncryptionKeyCargo
+      - EncryptionKeyEngineering

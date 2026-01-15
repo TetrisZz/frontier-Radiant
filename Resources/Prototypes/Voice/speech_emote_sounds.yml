@@ -45,7 +45,6 @@
     Ston: # Radiant sector
       collection: MaleSton # Radiant sector
 
-
 - type: emoteSounds
   id: FemaleHuman
   params:
@@ -91,7 +90,6 @@
       collection: Belch # Frontier
     Ston: # Radiant sector
       collection: FemaleSton # Radiant sector
-
 
 - type: emoteSounds
   id: MaleReptilian
@@ -209,7 +207,6 @@
   params:
     variation: 0.125
 
-
 - type: emoteSounds
   id: FemaleSlime
   sounds:
@@ -262,7 +259,6 @@
   params:
     variation: 0.125
 
-
 - type: emoteSounds
   id: UnisexVox
   sounds:
@@ -278,14 +274,13 @@
       collection: Weh
     Hew:
       collection: Hew
-    Ston:
-      collection: MaleSton
+    Ston: # Radiant sector
+      collection: MaleSton # Radiant sector
     Belch: # Frontier
       collection: Belch # Frontier
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
-
 
 - type: emoteSounds
   id: UnisexDiona
@@ -314,7 +309,6 @@
       collection: Belch # Frontier
   params:
     variation: 0.125
-
 
 - type: emoteSounds
   id: UnisexArachnid
@@ -703,5 +697,3 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: WawaDeath
-
-

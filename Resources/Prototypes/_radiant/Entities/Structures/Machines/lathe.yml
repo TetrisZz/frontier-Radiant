@@ -19,6 +19,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: ProtolatheMachineCircuitboardAcorp
+  - type: OreSiloClient
   - type: MaterialStorage
     whitelist:
       tags:

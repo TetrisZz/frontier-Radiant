@@ -221,6 +221,9 @@
       fireCost: 100
     - proto: NFAnomalousParticleSigmaStrong
       fireCost: 100
+  - type: Tag # Radiant sector
+    tags:
+    - Nonmetallic
 
 - type: entity
   id: NFWeaponPistolCHIMPUpgraded
@@ -241,6 +244,9 @@
       fireCost: 100
     - proto: NFAnomalousParticleSigmaStrong
       fireCost: 100
+  - type: Tag # Radiant sector
+    tags:
+    - Nonmetallic
 
 #region Holoflare pistol
 - type: entity
@@ -261,6 +267,9 @@
     - state: mode-cyan
       shader: unshaded
       map: [ "Firemode" ]
+  - type: Tag # Radiant sector
+    tags:
+    - Nonmetallic
   - type: Item
     size: Small
     inhandVisuals:

@@ -12,6 +12,18 @@
     },
     {
       "name": "icon-acorp"
+    },
+    {
+      "name": "generic"
+    },
+    {
+      "name": "icon-radio"
+    },
+    {
+      "name": "mercenary"
+    },
+    {
+      "name": "icon-mercenary"
     }
   ]
 }

@@ -1,37 +1,332 @@
+# generic modules
 - type: entity
-  id: BorgModuleMartyrAcorp
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
-  name: модуль борга Мученик
-  description: Модуль, в котором есть взрывчатка, с которой вам, вероятно, не захочется иметь дело. Техническая деталь, дающая киборгам новые способности.
+  id: BorgModuleRadio
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: связной модуль киборга
+  description: Модуль, в котором есть рация, два интеркома с общими каналами и прожектор.
   components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: generic
+    - state: icon-radio
+  - type: Item
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#8FCBCB"
+      - state: base-module-inhand-left
+        color: "#A1A1A1"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7D7D7D"
+      right:
+      - state: base-icon-inhand-right
+        color: "#8FCBCB"
+      - state: base-module-inhand-right
+        color: "#A1A1A1"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7D7D7D"
+  - type: ItemBorgModule
+    moduleId: Radio
+    items:
+    - RadioHandheldNF
+    - IntercomCommonBorg
+    - IntercomCommonBorg
+    - FloodlightBorg
+  - type: BorgModuleIcon
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: radio }
+
+# mercenary modules
+- type: entity
+  id: BaseBorgModuleMercenary
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
+  - type: Tag
+    tags:
+    - BorgModuleMercenary
+  - type: Item
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#3d3d1f"
+      - state: base-module-inhand-left
+        color: "#636337"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#15150b"
+      right:
+      - state: base-icon-inhand-right
+        color: "#3d3d1f"
+      - state: base-module-inhand-right
+        color: "#636337"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#15150b"
+
+- type: entity
+  id: BorgModuleCombatCombined
+  parent: [ BaseBorgModuleMercenary, BaseProviderBorgModule ]
+  name: совмещенный боевой модуль киборга
+  description: Модуль, в котором есть все или почти все, чтобы быть уважаемым наёмником среди железок. Техническая деталь, дающая киборгам новые способности.
+  components:
+  - type: Sprite
+    layers:
+    - state: mercenary
+    - state: icon-mercenary
+  - type: DroppableBorgModule
+    moduleId: CombatZipties
+    items:
+    - id: Zipties
+      whitelist:
+        tags:
+        - Handcuffs
+    - id: Zipties
+      whitelist:
+        tags:
+        - Handcuffs
+  - type: ItemBorgModule
+    moduleId: CombatCombined
+    items:
+    - WeaponEnergyGunMiniAcorpBorg
+    - FlashBorg
+    - CombatKnife
+  - type: BorgModuleIcon
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatcombined }
+
+- type: entity
+  id: BorgModuleCombatLethal
+  parent: [ BaseBorgModuleMercenary, BaseProviderBorgModule ]
+  name: летальный боевой модуль киборга
+  description: Модуль, который даёт функцию убивать без страха и жалости. Техническая деталь, дающая киборгам новые способности.
+  components:
+  - type: Sprite
+    layers:
+    - state: mercenary
+    - state: icon-mercenary
+  - type: ItemBorgModule
+    moduleId: CombatLethal
+    items:
+    - NFWeaponEnergySubMachineGunDeltaVBorg
+    - FlashBorg
+    - JetpackCombatBorg
+    - PlasteelAxe
+    - PlasteelEpee
+    - PlasteelMace
+  - type: BorgModuleIcon
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatlethal }
+
+- type: entity
+  id: BorgModuleCombatLethalNovalite
+  parent: [ BaseBorgModuleMercenary, BaseProviderBorgModule ]
+  name: огнестрельный боевой модуль киборга
+  description: Модуль, который даёт два мать его автомата в обе руки, делать косплей на американские фильмы про вьетнам ещё никогда не было так просто.
+  components:
+  - type: Sprite
+    layers:
+    - state: mercenary
+    - state: icon-mercenary
+  - type: DroppableBorgModule
+    moduleId: CombatAmmoBox
+    items:
+    - id: NFAmmunitionBoxRifle20
+      whitelist:
+        tags:
+        - NFAmmunitionBoxRifle20
+  - type: ItemBorgModule
+    moduleId: CombatLethal
+    items:
+    - NFWeaponRifleAssaultNovaliteC1Borg
+    - NFWeaponRifleAssaultNovaliteC1Borg
+    - NFWeaponHoloflareGun
+  - type: BorgModuleIcon
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatlethalnovalite }
+
+- type: entity
+  id: BorgModuleCombatNonLethal
+  parent: [ BaseBorgModuleMercenary, BaseProviderBorgModule ]
+  name: нелетальный модуль киборга
+  description: Модуль, в котором есть все чтобы ваша цель осталась жива. Техническая деталь, дающая киборгам новые способности.
+  components:
+  - type: Sprite
+    layers:
+    - state: mercenary
+    - state: icon-mercenary
+  - type: ItemBorgModule
+    moduleId: CombatNonLethal
+    items:
+    - NFWeaponEnergySubMachineGunDisablerBorg
+    - FlashBorg
+    - WeaponTaserBorg
+  - type: DroppableBorgModule
+    moduleId: CombatHandcuffs
+    items:
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
+  - type: BorgModuleIcon
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatnonlethal }
+
+- type: entity
+  id: BorgModuleCombatPinpointer
+  parent: [ BaseBorgModuleMercenary, BaseProviderBorgModule ]
+  name: отслеживающий модуль киборга
+  description: Модуль, с помощью которого можно отслеживать ваши цели, убивать или защищать, вот в чем вопрос. Техническая деталь, дающая киборгам новые способности.
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleGeneric
+  - type: Sprite
+    layers:
+    - state: mercenary
+    - state: icon-mercenary
+  - type: ItemBorgModule
+    moduleId: CombatPinpointer
+    items:
+    - PinpointerUniversal
+    - PinpointerUniversal
+    - PinpointerUniversal
+    - PinpointerScannerUnpowered
+  - type: BorgModuleIcon
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatpinpointer }
+
+# acorp modules
+
+- type: entity
+  id: BaseBorgModuleAcorp
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
+  - type: Item
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#f9f4ee"
+      - state: base-module-inhand-left
+        color: "#343332"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#343332"
+      right:
+      - state: base-icon-inhand-right
+        color: "#f9f4ee"
+      - state: base-module-inhand-right
+        color: "#343332"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#343332"
+
+- type: entity
+  id: BorgModuleAcorpNonLethal
+  parent: [ BaseBorgModuleMercenary, BaseProviderBorgModule ]
+  name: нелетальный модуль киборга
+  description: Модуль, в котором есть все чтобы ваша цель осталась жива. Техническая деталь, дающая киборгам новые способности.
+  components:
+  - type: Sprite
+    layers:
+    - state: acorp
+    - state: icon-acorp
+  - type: ItemBorgModule
+    moduleId: CombatNonLethal
+    items:
+    - NFWeaponEnergySubMachineGunDisablerBorg
+    - FlashBorg
+    - WeaponTaserBorg
+  - type: DroppableBorgModule
+    moduleId: CombatHandcuffs
+    items:
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
+  - type: BorgModuleIcon
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: acorpnonlethal }
+  - type: BorgModule
+    defaultModule: True
+
+- type: entity
+  id: BorgModuleAcorpMartyr
+  parent: [ BaseBorgModuleAcorp, BaseProviderBorgModule ]
+  name: модуль борга самоуничтожение
+  description: Модуль, который выполняет лишь одну функцию, зато как.
+  components:
+    - type: Tag
+      tags:
+      - BorgModuleGeneric
     - type: Sprite
       sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
       layers:
         - state: acorp
         - state: icon-acorp
     - type: ItemBorgModule
-      moduleId: Martyr # Frontier
+      moduleId: AcorpMartyr
       items:
-        - SelfDestructSeq
+        - SelfDestructAcorp
     - type: BorgModuleIcon
-      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
+      icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: acorpmartyr }
 
-
-#syndicate modules
 - type: entity
-  id: BorgModuleSyndicateWeaponAcorp
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  id: BorgModuleAcorpLaserWeapon
+  parent: [ BaseBorgModuleAcorp, BaseProviderBorgModule ]
   name: оружейный модуль борга
+  description: Модуль, который делает пиу-пиу. Техническая деталь, дающая киборгам новые способности.
   components:
+  - type: Tag
+    tags:
+    - BorgModuleMercenary
   - type: Sprite
     sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
     layers:
       - state: acorp
       - state: icon-acorp
   - type: ItemBorgModule
-    moduleId: Weapons # Frontier
+    moduleId: AcorpLaser
     items:
-    - WeaponPistolEchis
-    - EnergyDaggerLoud
+    - WeaponLaserCarbineAcorpBorg
+    - EnergySwordRadiant
+    - PinpointerAcorp
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: acorplaser }
+  - type: BorgModule
+    defaultModule: True
+
+- type: entity
+  id: BorgModuleAcorpShotgunWeapon
+  parent: [ BaseBorgModuleAcorp, BaseProviderBorgModule ]
+  name: модуль борга дробовик
+  description: Модуль, который делает пиу-пиу-пиу-пиу-пиу, за выстрел. Техническая деталь, дающая киборгам новые способности.
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleMercenary
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+      - state: acorp
+      - state: icon-acorp
+  - type: ItemBorgModule
+    moduleId: AcorpShotgun
+    items:
+    - WeaponEnergyShotgunRSBorg
+    - EnergySwordDoubleRadiantBorg
+#    - JetpackCombatBorgAcorp
+  - type: BorgModuleIcon
+    icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: acorpshotgun }

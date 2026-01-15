@@ -158,3 +158,14 @@
   - type: Appearance
   - type: StaticPrice
     price: 100
+
+- type: entity
+  name: вспышка киборга
+  parent: Flash
+  id: FlashBorg
+  description: Вспышка с увеличенным количеством зарядов, взамен увеличения времени остывания лампы.
+  components:
+    - type: LimitedCharges
+      maxCharges: 99
+    - type: UseDelay
+      delay: 6

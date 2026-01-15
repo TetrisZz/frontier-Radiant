@@ -8,7 +8,8 @@
       state: security
     - type: MachineBoard
       prototype: ScannerGate
-      stackRequirements:
+      requirements:
         Capacitor: 2
+      stackRequirements:
         Cable: 2
         Glass: 1

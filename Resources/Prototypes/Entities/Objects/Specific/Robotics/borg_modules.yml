@@ -467,10 +467,12 @@
   - type: ItemBorgModule
     moduleId: FireExtinguisher # Frontier
     items:
-    - BorgFireExtinguisher
+#    - BorgFireExtinguisher # Radiant sector
+    - SelfRechargingFireExtinguisher # Radiant sector
   # - BorgHandheldGPSBasic # Frontier
   # - HandheldStationMapUnpowered # Frontier
   # - HandHeldMassScannerBorg # Frontier: todo - metal foam grenade? fire axe?
+    - HandHeldMassScannerBorg # Radiant sector
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: extinguisher-module }
 
@@ -492,9 +494,11 @@
     - Wirecutter
     - WelderIndustrial
     - Multitool
-    - MaintenanceJack # Frontier
+#    - MaintenanceJack # Frontier deleted by Radiant sector
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
+  - type: BorgModule # Radiant sector
+    defaultModule: True
 
 # cargo modules
 - type: entity

@@ -32,3 +32,40 @@
       moles:
         - 1.025689525 # oxygen
         - 1.025689525 # nitrogen
+
+# Infinite jetpack
+- type: entity
+  parent: JetpackSecurity
+  id: JetpackCombatBorg
+  name: джетпак борга
+  suffix: Бесконечный
+  components:
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 5
+      temperature: 293.15
+  - type: Jetpack
+    moleUsage: 0
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1.3
+    weightlessFriction: 0.3
+    weightlessModifier: 1
+
+- type: entity
+  parent: JetpackAcorp
+  id: JetpackCombatBorgAcorp
+  name: джетпак борга
+  suffix: Бесконечный
+  components:
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 5
+      temperature: 293.15
+  - type: Jetpack
+    moleUsage: 0
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1.3
+    weightlessFriction: 0.3
+    weightlessModifier: 1

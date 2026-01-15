@@ -38,6 +38,9 @@
   name: ammunition box (.20 rifle)
   abstract: true
   components:
+  - type: Tag #Radiant Sector
+    tags:
+      - NFAmmunitionBoxRifle20
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -53,6 +56,9 @@
   suffix: 200
   abstract: true
   components:
+  - type: Tag #Radiant Sector
+    tags:
+      - NFAmmunitionBoxRifle20
   - type: Item
     size: Normal
     shape:

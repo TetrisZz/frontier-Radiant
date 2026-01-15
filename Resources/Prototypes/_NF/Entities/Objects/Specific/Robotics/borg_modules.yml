@@ -14,6 +14,7 @@
     - HandheldHealthAnalyzerUnpowered
     - BorgHypoTricordrazine
     - BorgHypoInaprovaline
+    - HandheldCrewMonitorBorg # Radiant sector
   - type: BorgModuleIcon
     icon: { sprite: _NF/Interface/Actions/actions_borg.rsi, state: adv-paramed-module }
 
@@ -53,6 +54,8 @@
       displayName: borg-placeholder-display-name-fuel
   - type: BorgModuleIcon
     icon: { sprite: _NF/Interface/Actions/actions_borg.rsi, state: jetpack-module }
+  - type: BorgModule # Radiant sector
+    defaultModule: True
 
 - type: entity
   id: BorgModuleRCDShipyard

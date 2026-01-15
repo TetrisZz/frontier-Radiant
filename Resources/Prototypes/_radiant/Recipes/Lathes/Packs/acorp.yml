@@ -12,8 +12,7 @@
   - MagazineHigh2RifleEmpty
   - MagazineHigh2RifleAK
   - MagazineHigh2Rifle
-  - BorgModuleMartyrAcorp
-  - BorgModuleSyndicateWeaponAcorp
+  - BorgModuleAcorpMartyr
   - WeaponRifleTW44Acorp
   - WeaponRifleSentinel9Acorp
   - WeaponShotgunAdjutant
@@ -41,6 +40,11 @@
   - ClothingOuterHardsuitAcorpSecurity
   - ClothingOuterHardsuitScaf
   - NFAmmunitionBoxShellShotgunBuckshot
+  - BorgModuleAcorpMartyr
+  - BorgModuleAcorpShotgunWeapon
+  - CyborgEndoskeletonAcorp
+  - CyborgEndoskeletonAcorpSecurity
+  - CyborgEndoskeletonAcorpMiner
 
 - type: latheRecipePack
   id: AcorpProtolatheEMAG
@@ -56,8 +60,6 @@
   - MagazineHigh2RifleEmptyBABAX
   - MagazineHigh2RifleAKBABAX
   - MagazineHigh2RifleBABAX
-  - BorgModuleMartyrAcorpBABAX
-  - BorgModuleSyndicateWeaponAcorpBABAX
   - WeaponRifleTW44AcorpBABAX
   - WeaponRifleSentinel9AcorpBABAX
   - WeaponShotgunAdjutantBABAX

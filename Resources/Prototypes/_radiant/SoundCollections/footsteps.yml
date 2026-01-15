@@ -1,0 +1,9 @@
+- type: soundCollection
+  id: FootstepBorgRadiant
+  files:
+  - /Audio/_radiant/Effects/Footsteps/borgwalk5.ogg
+
+- type: soundCollection
+  id: FootstepBorgRadiantBig
+  files:
+  - /Audio/_radiant/Effects/Footsteps/borgwalk6.ogg

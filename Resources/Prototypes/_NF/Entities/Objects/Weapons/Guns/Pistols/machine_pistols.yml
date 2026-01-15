@@ -9,7 +9,8 @@
   - type: Gun
     fireRate: 5 # Radiant_sector
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+#      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg # Radiant_sector
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg # Radiant_sector
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
   - type: Clothing
@@ -35,6 +36,9 @@
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+  - type: Gun # Radiant_sector
+    soundGunshot: # Radiant_sector
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg # Radiant_sector
 
 #region DeltaV
 - type: entity

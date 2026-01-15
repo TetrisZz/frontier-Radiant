@@ -1,0 +1,68 @@
+- type: entity
+  name: прожектор киборга
+  id: FloodlightBorg
+  parent: BaseItem
+  description: Столб с установленными на него мощными фонарями.
+  components:
+  - type: HandheldLight
+    addPrefix: true
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        startValue: 0.1
+        endValue: 2.0
+        isLooped: true
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
+  - type: Appearance
+  - type: Item
+    sprite: Objects/Misc/Lights/lights.rsi
+    size: Normal
+    heldPrefix: off
+  - type: Sprite
+    sprite: Objects/Misc/Lights/lights.rsi
+    layers:
+      - state: floodlight
+        map: [ "base" ]
+      - state: floodlight-on
+        shader: unshaded
+        visible: false
+        map: [ "light" ]
+  - type: Physics
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2, -0.5, 0.2, 0.5"
+        density: 50
+        mask:
+        - HighImpassable
+  - type: PointLight
+    enabled: false
+    radius: 8
+    energy: 5
+    netsync: false
+  - type: Battery
+    maxCharge: 9999
+    startingCharge: 9999
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5

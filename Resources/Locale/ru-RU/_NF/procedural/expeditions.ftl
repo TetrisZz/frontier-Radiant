@@ -2,11 +2,11 @@ salvage-expedition-window-finish = Завершить экспедицию
 salvage-expedition-announcement-early-finish = Экспедиция была окончена. Шаттл покинет планету через {$departTime} секунд.
 salvage-expedition-announcement-destruction = { $count ->
     [1] Уничтожьте {$structure} до окончания экспедиции.
-    *[others] Уничтожьте {$count} ($structure) до окончания экспедиции.
+    *[others] Уничтожьте {$count} {MAKEPLURAL($structure)} до окончания экспедиции.
 }
 salvage-expedition-announcement-elimination = { $count ->
     [1] Ликвидируйте {$target} до окончания экспедиции.
-    *[others] Ликвидируйте {$count} ($target) до окончания экспедиции.
+    *[others] Ликвидируйте {$count} {MAKEPLURAL($target)} до окончания экспедиции.
 }
 salvage-expedition-announcement-destruction-entity-fallback = сооружение
 salvage-expedition-announcement-elimination-entity-fallback = цель

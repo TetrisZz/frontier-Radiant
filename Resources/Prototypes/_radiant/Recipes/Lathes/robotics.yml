@@ -1,0 +1,101 @@
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: CyborgArmour
+  result: CyborgArmour
+  completetime: 4
+  materials:
+    Steel: 250
+    Plasteel: 400
+    Plastic: 250
+    Silver: 250
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCombatCombined
+  result: BorgModuleCombatCombined
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+    Silver: 100
+    Plasteel: 100
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCombatPinpointer
+  result: BorgModuleCombatPinpointer
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+    Silver: 100
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCombatLethal
+  result: BorgModuleCombatLethal
+  materials:
+    Steel: 500
+    Glass: 250
+    Plastic: 300
+    Silver: 200
+    Gold: 400
+    Plasteel: 500
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleCombatNonLethal
+  result: BorgModuleCombatNonLethal
+  materials:
+    Steel: 500
+    Glass: 250
+    Plastic: 250
+    Silver: 200
+    Gold: 100
+    Plasteel: 250
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleRadio
+  result: BorgModuleRadio
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleBureaucracy
+  result: BorgModuleBureaucracy
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleNFService
+  result: BorgModuleNFService
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleClowning
+  result: BorgModuleClowning
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleMusique
+  result: BorgModuleMusique
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleHarvesting
+  result: BorgModuleHarvesting
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleDiagnosis
+  result: BorgModuleDiagnosis
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleRescue
+  result: BorgModuleRescue
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleChemical
+  result: BorgModuleChemical
+

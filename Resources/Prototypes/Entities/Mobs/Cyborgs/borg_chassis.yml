@@ -3,6 +3,7 @@
   parent: BaseBorgChassisNT
   components:
   - type: Sprite
+    sprite: _radiant/Mobs/Silicon/chassis.rsi #Radiant Sector
     layers:
     - state: robot
       map: ["enum.BorgVisualLayers.Body", "movement"]
@@ -21,7 +22,7 @@
     noMindState: robot_e_r
   - type: BorgTransponder
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _radiant/Mobs/Silicon/chassis.rsi #Radiant Sector
       state: robot
     name: cyborg
   - type: InteractionPopup
@@ -31,6 +32,11 @@
     inherentRadioChannels:
     - Common
     - Binary
+  - type: FootstepModifier #Radiant Sector
+    footstepSoundCollection:
+      collection: FootstepBorgRadiant
+      params:
+        volume: -9
 
 - type: entity
   id: BorgChassisGeneric
@@ -112,6 +118,14 @@
       interactFailureString: petting-failure-syndicate-cyborg
       interactSuccessSound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: FootstepModifier # Radiant Sector
+      footstepSoundCollection:
+        collection: FootstepBorgRadiantBig
+        params:
+          volume: -15
+          Pitch: 0.75
+    - type: TTS # Radiant Sector
+      voice: Mister_gutsy_fl3 # Radiant Sector
 
 - type: entity
   id: BorgChassisSyndicateMedical
@@ -139,6 +153,10 @@
           - BorgModuleSyndicate
       hasMindState: synd_medical_e
       noMindState: synd_medical
+    - type: Strap # Radiant Sector
+      buckleOnInteractHand: False
+      position: Stand
+      buckleOffset: "0,0.1"
     - type: ShowHealthBars
     - type: InteractionPopup
       interactSuccessString: petting-success-syndicate-cyborg
@@ -146,11 +164,6 @@
       interactSuccessSound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
     - type: SolutionScanner
-    - type: FootstepModifier
-      footstepSoundCollection:
-        collection: FootstepHoverBorg
-        params:
-          volume: -6
 
 - type: entity
   id: BorgChassisSyndicateSaboteur
@@ -178,6 +191,10 @@
           - BorgModuleSyndicate
       hasMindState: synd_engi_e
       noMindState: synd_engi
+    - type: Strap # Radiant Sector
+      buckleOnInteractHand: False
+      position: Stand
+      buckleOffset: "0,0.1"
     - type: ShowHealthBars
       damageContainers:
       - Inorganic
