@@ -1,0 +1,53 @@
+- type: entity
+  parent: BaseItem
+  id: RSMysteryLighterBox
+  name: Случайная зажигалка
+  suffix: Filled
+  description: Коробка со случайной зажигкой, надеюсь, выпадет розовая.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    layers:
+    - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: BlueHomFlippo
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: MerFlippo
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: HomFlippo
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: BlackHomFlippo
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: UniFlippo
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: GreenFlippo
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: CybersunFlippo
+        orGroup: Lighterbox
+        weight: 0.15
+      - id: WaffleCoFlippo
+        orGroup: Lighterbox
+        weight: 0.15
+      - id: InterdyneFlippo
+        orGroup: Lighterbox
+        weight: 0.15
+      - id: HonkCoFlippo
+        orGroup: Lighterbox
+        weight: 0.15
+      - id: BlackFlippo 
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: BlackMFlippo 
+        orGroup: Lighterbox
+        weight: 0.35
+      - id: PinkFlippo 
+        orGroup: Lighterbox
+        weight: 0.35
