@@ -5,16 +5,28 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
 using Content.Server._radiant.GridWanted;
+using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
 using Content.Shared.CriminalRecords.Systems;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
+using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.GameObjects;
 using Content.Shared.Ghost;
 using Robust.Shared.Timing;
-// logging and popup removed
+using Robust.Shared.Map;
+using System.Linq;
+using Content.Shared.GameTicking;
+using Robust.Shared.Player;
+using System;
+using Robust.Shared.Collections;
+using Robust.Shared.Log;
+using Content.Server._NF.RoundNotifications.Events;
+using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
+using Robust.Shared.Network; // ДОБАВЬ ЭТО!
 
 namespace Content.Server._radiant.GridWanted.Systems;
 
@@ -25,24 +37,81 @@ public sealed class GridWantedSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
+
+    private ISawmill _sawmill = default!;
+
     private float _checkTimer = 0f;
+    private TimeSpan _roundStartTime;
+
+    // Храним по UserId с временем последнего розыска
+    private readonly Dictionary<EntityUid, ZoneRuntimeData> _zoneData = new();
+
+    private sealed class ZoneRuntimeData
+    {
+        // Храним когда последний раз выдавали розыск (15 минут КД)
+        public Dictionary<NetUserId, TimeSpan> PlayerCooldowns { get; set; } = new();
+        // Для быстрой проверки уже разысканных в этом раунде
+        public HashSet<NetUserId> AlreadyWantedThisRound { get; set; } = new();
+    }
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _sawmill = _logManager.GetSawmill("gridwanted");
+
+        SubscribeLocalEvent<RoundStartedEvent>(OnRoundStart);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+
+        SubscribeLocalEvent<DangerZoneComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnRoundStart(RoundStartedEvent ev)
+    {
+        _roundStartTime = _gameTiming.CurTime;
+        // НЕ очищаем _zoneData полностью, только очищаем AlreadyWantedThisRound
+        foreach (var data in _zoneData.Values)
+        {
+            data.AlreadyWantedThisRound.Clear();
+        }
+    }
+
+    private void OnMapInit(EntityUid uid, DangerZoneComponent component, MapInitEvent args)
+    {
+        if (!_zoneData.ContainsKey(uid))
+        {
+            _zoneData[uid] = new ZoneRuntimeData();
+        }
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent args)
+    {
+        // Очищаем полностью при рестарте
+        _zoneData.Clear();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        // Ждем 10 секунд после старта раунда
+        if (_gameTiming.CurTime < _roundStartTime + TimeSpan.FromSeconds(10))
+        {
+            _checkTimer = 0f;
+            return;
+        }
+
         _checkTimer += frameTime;
         if (_checkTimer < 2.0f)
             return;
 
         _checkTimer = 0f;
-
         ProcessAllZones();
     }
 
@@ -52,130 +121,161 @@ public sealed class GridWantedSystem : EntitySystem
 
         while (zoneQuery.MoveNext(out var gridUid, out var zone))
         {
-            ProcessZone(gridUid, zone.Reason);
+            ProcessZone(gridUid, zone);
         }
     }
 
-    private void ProcessZone(EntityUid gridUid, string reason)
+    // Получение UserId игрока
+    private bool TryGetPlayerUserId(EntityUid playerUid, out NetUserId userId)
     {
-        var zoneQuery = EntityQueryEnumerator<DangerZoneComponent>();
-        DangerZoneComponent? zone = null;
-        while (zoneQuery.MoveNext(out var uid, out var z))
+        userId = default;
+
+        if (!_playerManager.TryGetSessionByEntity(playerUid, out var session))
+            return false;
+
+        userId = session.UserId;
+        return true;
+    }
+
+    private void ProcessZone(EntityUid gridUid, DangerZoneComponent zone)
+    {
+        if (!_zoneData.TryGetValue(gridUid, out var zoneRuntimeData))
         {
-            if (uid == gridUid)
-            {
-                zone = z;
-                break;
-            }
+            zoneRuntimeData = new ZoneRuntimeData();
+            _zoneData[gridUid] = zoneRuntimeData;
         }
-        if (zone == null) return;
 
-        var currentPlayers = new HashSet<EntityUid>();
+        var currentTime = _gameTiming.CurTime;
 
-        // Только для игроков
         foreach (var session in _playerManager.Sessions)
         {
             if (session.AttachedEntity is not { } playerUid)
                 continue;
 
-            // Ignore ghosts and aghosts (visiting entities)
             if (HasComp<GhostComponent>(playerUid))
                 continue;
 
-            // Check if mind is visiting another entity (aghost)
-            if (_mind.TryGetMind(playerUid, out var mindId, out var mind))
-            {
-                if (mind.VisitingEntity is { Valid: true })
-                    continue;
-            }
+            if (!TryComp(playerUid, out TransformComponent? transform))
+                continue;
 
-            var transform = Transform(playerUid);
             if (transform.GridUid != gridUid)
                 continue;
 
-            currentPlayers.Add(playerUid);
-            if (!zone.PreviousPlayers.Contains(playerUid))
+            // Получаем UserId (уникальный на аккаунт)
+            if (!TryGetPlayerUserId(playerUid, out var userId))
+                continue;
+
+            // Получаем имя для записи в розыск
+            if (!TryGetPlayerName(playerUid, out var playerName))
+                continue;
+
+            // ПРОВЕРКА КД 15 МИНУТ
+            if (zoneRuntimeData.PlayerCooldowns.TryGetValue(userId, out var lastWantedTime))
             {
-                string playerName = Name(playerUid);
-                // Вошел на грид, проверяем кулдаун и был ли уже wanted
-                if (!zone.AlreadyWantedPlayers.Contains(playerName))
+                var timeSinceLastWanted = currentTime - lastWantedTime;
+
+                // Если прошло меньше 15 минут - пропускаем
+                if (timeSinceLastWanted.TotalMinutes < 15.0)
                 {
-                    var currentTime = _timing.CurTime;
-                    if (!zone.LastWantedNotification.TryGetValue(playerName, out var lastTime) || (currentTime - lastTime).TotalMinutes >= 15)
-                    {
-                        // Ставим розыск
-                        SetCriminalRecordWanted(playerUid, reason, zone);
-                        zone.LastWantedNotification[playerName] = currentTime;
-                    }
+                    continue;
                 }
             }
-        }
 
-        zone.PreviousPlayers = currentPlayers;
+            // Проверяем, не разыскивается ли уже в этом раунде
+            if (zoneRuntimeData.AlreadyWantedThisRound.Contains(userId))
+                continue;
+
+            // Выдаем розыск (без проверки IsPlayerAlreadyWanted)
+            if (TrySetCriminalRecordWanted(playerUid, zone.Reason, playerName))
+            {
+                // УСПЕШНО: обновляем данные
+                zoneRuntimeData.PlayerCooldowns[userId] = currentTime;
+                zoneRuntimeData.AlreadyWantedThisRound.Add(userId);
+
+                _sawmill.Info($"Выдан розыск игроку {playerName} (UserId: {userId}) по причине: {zone.Reason}. КД: 15 минут");
+            }
+        }
     }
 
-    private void SetCriminalRecordWanted(EntityUid playerUid, string reason, DangerZoneComponent zone)
+    // Возвращает bool (успешно или нет)
+    private bool TrySetCriminalRecordWanted(EntityUid playerUid, string reason, string playerName)
     {
         try
         {
-            // processing player
+            if (!TryGetPlayerRecordKey(playerName, out var recordKey))
+                return false;
 
-            // 1. Получаем StationRecordKey игрока
-            if (!TryGetPlayerRecordKey(playerUid, out var recordKey))
-                return;
-
-            // Проверяем что recordKey не null
             if (recordKey == null)
-                return;
+                return false;
 
-            // found record
-
-            // 2. Получаем CriminalRecord
             if (!_stationRecords.TryGetRecord<CriminalRecord>(recordKey.Value, out var record))
-                return;
+                return false;
 
-            bool wasWanted = record.Status == SecurityStatus.Wanted;
+            // Если уже в розыске - не трогаем
+            if (record.Status == SecurityStatus.Wanted)
+                return false;
 
-            // 3. Ставим розыск через OverwriteStatus (всегда устанавливает)
             string officer = "Система автоматического наблюдения";
+            string playerJobTitle = GetRecordedJobTitle(recordKey.Value) ?? GetPlayerJob(playerUid) ?? "Unknown";
+
+            // Выдаем розыск
             _criminalRecords.OverwriteStatus(recordKey.Value, record, SecurityStatus.Wanted, reason, officer);
 
-            zone.AlreadyWantedPlayers.Add(Name(playerUid));
+            // Отправляем радио-сообщение
+            SendRadioWantedMessage(playerUid, reason, officer, playerJobTitle);
 
-            if (!wasWanted)
-            {
-                // Send radio message
-                SendRadioWantedMessage(playerUid, reason, officer);
-            }
-
-            // wanted set
-
-            // Обновляем иконку через Shared систему
+            // Обновляем иконку
             UpdateCriminalIcon(playerUid);
+
+            return true;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            // swallow
+            _sawmill.Error($"Error setting wanted status for {playerName}: {ex}");
+            return false;
         }
     }
 
     private void UpdateCriminalIcon(EntityUid playerUid)
     {
-        if (EntityManager.System<SharedCriminalRecordsSystem>() is { } sharedSystem)
+        try
         {
-            sharedSystem.SetCriminalIcon(
-                Name(playerUid),
-                SecurityStatus.Wanted,
-                playerUid
-            );
+            if (!TryGetPlayerName(playerUid, out var playerName))
+                return;
+
+            if (EntityManager.System<SharedCriminalRecordsSystem>() is { } sharedSystem)
+            {
+                sharedSystem.SetCriminalIcon(
+                    playerName,
+                    SecurityStatus.Wanted,
+                    playerUid
+                );
+            }
+        }
+        catch (Exception)
+        {
+            // Игнорируем ошибки
         }
     }
 
-    private bool TryGetPlayerRecordKey(EntityUid playerUid, out StationRecordKey? recordKey)
+    private bool TryGetPlayerName(EntityUid playerUid, out string playerName)
+    {
+        playerName = string.Empty;
+
+        if (!_idCardSystem.TryFindIdCard(playerUid, out var idCard))
+            return false;
+
+        var idCardName = idCard.Comp.FullName;
+        if (string.IsNullOrWhiteSpace(idCardName))
+            return false;
+
+        playerName = idCardName;
+        return true;
+    }
+
+    private bool TryGetPlayerRecordKey(string playerName, out StationRecordKey? recordKey)
     {
         recordKey = null;
-
-        string playerName = Name(playerUid);
 
         var stationQuery = EntityQueryEnumerator<StationRecordsComponent>();
 
@@ -191,12 +291,29 @@ public sealed class GridWantedSystem : EntitySystem
         return false;
     }
 
-    private void SendRadioWantedMessage(EntityUid playerUid, string reason, string officer)
+    private string? GetPlayerJob(EntityUid playerUid)
     {
-        string playerName = Name(playerUid);
+        if (_idCardSystem.TryFindIdCard(playerUid, out var idCard))
+        {
+            return idCard.Comp.JobTitle;
+        }
+        return null;
+    }
 
-        // Find a virtual entity to send message from (like other systems do)
-        // We'll use the first criminal records console if available, or create virtual sender
+    private string? GetRecordedJobTitle(StationRecordKey recordKey)
+    {
+        if (_stationRecords.TryGetRecord<GeneralStationRecord>(recordKey, out var generalRecord))
+        {
+            return generalRecord.JobTitle;
+        }
+        return null;
+    }
+
+    private void SendRadioWantedMessage(EntityUid playerUid, string reason, string officer, string jobTitle)
+    {
+        if (!TryGetPlayerName(playerUid, out var playerName))
+            return;
+
         var consoleQuery = EntityQueryEnumerator<CriminalRecordsConsoleComponent>();
         EntityUid? sender = null;
 
@@ -209,12 +326,11 @@ public sealed class GridWantedSystem : EntitySystem
         if (sender == null)
             return;
 
-        // Format message like CriminalRecordsConsoleSystem does
         var message = Loc.GetString("criminal-records-console-wanted",
             ("name", playerName),
             ("officer", officer),
             ("reason", reason),
-            ("job", "Unknown"));
+            ("job", jobTitle));
 
         _radio.SendRadioMessage(sender.Value, message, "Nfsd", sender.Value);
     }

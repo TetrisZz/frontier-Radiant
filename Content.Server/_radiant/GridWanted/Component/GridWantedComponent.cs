@@ -1,6 +1,7 @@
 using Robust.Shared.GameObjects;
 using System.Collections.Generic;
 using Robust.Shared.Timing;
+using Robust.Shared.Network;
 
 namespace Content.Server._radiant.GridWanted;
 
@@ -8,14 +9,12 @@ namespace Content.Server._radiant.GridWanted;
 public sealed partial class DangerZoneComponent : Component
 {
     [DataField("reason")]
-    public string Reason = "Долбаеб";
+    public string Reason = "Проникновение в хранилище конфедерации с цель ограбления";
+
+    // Храним по UserId (уникальный идентификатор аккаунта)
+    [DataField]
+    public Dictionary<NetUserId, TimeSpan> PlayerCooldowns = new();
 
     [DataField]
-    public HashSet<EntityUid> PreviousPlayers = new();
-
-    [DataField]
-    public Dictionary<string, TimeSpan> LastWantedNotification = new();
-
-    [DataField]
-    public HashSet<string> AlreadyWantedPlayers = new();
+    public HashSet<NetUserId> AlreadyWantedThisRound = new();
 }
