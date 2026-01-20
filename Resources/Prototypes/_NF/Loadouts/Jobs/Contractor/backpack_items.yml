@@ -131,6 +131,16 @@
     back:
     - CigarGoldCase
 
+- type: loadout
+  id: ContractorRSMysteryLighterBox
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 500
+  storage:
+    back:
+    - RSMysteryLighterBox
+
 # Lighters:
 #T0
 - type: loadout

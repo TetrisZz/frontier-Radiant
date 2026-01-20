@@ -213,3 +213,17 @@
     sprite: _radiant/Clothing/OuterClothing/Coats/plahprosto.rsi
   - type: Clothing
     sprite: _radiant/Clothing/OuterClothing/Coats/plahprosto.rsi
+
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityCommandContraband<BaseC2ContrabandUnredeemable
+  id: ClothingOuterCoatRadiantElite
+  name: темный плащ
+  description: Тяжёлый плащ из многослойной синтетической ткани глубокого чёрного цвета. Материал устойчив к вакуумной пыли, искрам и слабому лазерному излучению, почти не бликует при освещении.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/elite.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/elite.rsi
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 

@@ -47,3 +47,33 @@
       path: /Audio/_radiant/Weapons/Cock/Pump.ogg
       params:
         volume: -2.5
+
+- type: entity
+  id: WeaponShotgunCshotGun
+  parent: [ NFBaseWeaponShotgunChamber50, NFBaseWeaponFrameShotgunWieldable ]
+  name: Рубеж
+  description: |-
+    Штатный дробовик ближнего боя. Используется для штурма, подавления сопротивления и защиты объектов. Эффективен на малых дистанциях.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun_inhands_64x.rsi
+  - type: GunSpreadModifier
+    spread: 0.5
+  - type: Gun
+    fireRate: 1
+  - type: NFWeaponDetails
+    manufacturer: weapon-details-manufacturer-nanotrasen-munitions
+  - type: BallisticAmmoProvider
+    soundInsert:
+      path: /Audio/_radiant/Weapons/MagIn/Load-1.ogg
+      params:
+        volume: -1.5
+    soundRack:
+      path: /Audio/_radiant/Weapons/Cock/Pump.ogg
+      params:
+        volume: -2.5
+

@@ -52,3 +52,31 @@
     sprite: _radiant/Clothing/Neck/Mantles/dvb.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Neck/Mantles/dvb.rsi
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckMantleMercenary
+  name: мантия наемника
+  description: Мантия, которая выделит вас из толпы.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Mantles/mercenarymantle.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Mantles/mercenarymantle.rsi
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckMantleHunter
+  name: мантия охотника за головами
+  description: Мантия, которая выделит вас из толпы.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Mantles/huntermantle.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Mantles/huntermantle.rsi
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 

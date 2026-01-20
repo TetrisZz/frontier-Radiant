@@ -84,3 +84,21 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/redgarters.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesCow
+  name: трусики
+  description: А корова делает Му-у-у
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/cow.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesSexsi
+  name: сексуальные трусики
+  description: Ох уж эти кружева...
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/sexsi.rsi

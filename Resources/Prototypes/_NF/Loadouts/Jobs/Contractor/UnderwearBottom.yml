@@ -115,3 +115,15 @@
   price: 100
   equipment:
     underwearb: ClothingUnderwearBottomPantiesBlack
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesCow
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesCow
+  
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesSexsi
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesSexsi

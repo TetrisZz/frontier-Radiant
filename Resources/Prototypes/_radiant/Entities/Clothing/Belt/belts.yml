@@ -41,3 +41,17 @@
     sprite: _radiant/Clothing/Belt/rpsss_med.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Belt/rpsss_med.rsi
+
+- type: entity
+  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase
+  id: ClothingBeltCombatWebbingScabbard
+  name: ножны
+  description: Выглядит стильно и практично.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/scabbardsd.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/scabbardsd.rsi
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 1500 

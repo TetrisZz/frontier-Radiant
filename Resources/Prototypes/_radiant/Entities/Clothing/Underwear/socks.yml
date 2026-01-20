@@ -69,3 +69,12 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/stripedblondestockings.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksThighCow
+  name: пятнистые чулки
+  description: А коровка делает Му-у-у.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/cow.rsi

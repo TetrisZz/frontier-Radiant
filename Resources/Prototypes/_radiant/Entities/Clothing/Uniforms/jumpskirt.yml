@@ -11,17 +11,6 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtAcorp1
-  name: юбка-комбинезон акорп
-  description: Белая юбка-комбинезон формы Аколит Корпорейшн.
-  components:
-  - type: Sprite
-    sprite: _radiant/Clothing/Uniforms/Jumpskirt/CASSECJumpskirt.rsi
-  - type: Clothing
-    sprite: _radiant/Clothing/Uniforms/Jumpskirt/CASSECJumpskirt.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPinkDress
   name: розовое платье
   description: Огромное платье розового цвета.
@@ -52,17 +41,6 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/cap.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/cap.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtCaptainAcorp1
-  name: юбка-водолазка коменданта
-  description: Юбка-водолазка коменданта Аколит Корпорейшн, для тех кому холодно или одиноко во время своей смены.
-  components:
-  - type: Sprite
-    sprite: _radiant/Clothing/Uniforms/Jumpskirt/CASHosalt_F.rsi
-  - type: Clothing
-    sprite: _radiant/Clothing/Uniforms/Jumpskirt/CASHosalt_F.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -404,3 +382,25 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/medical_suit3.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/medical_suit3.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtKimonoRS
+  name: кимоно
+  description: Сама нежность.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/kimono.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/kimono.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtGothic
+  name: готическое платье
+  description: Оно и правда такое тёмное?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/gothic.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/gothic.rsi

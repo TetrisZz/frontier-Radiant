@@ -23,3 +23,29 @@
     vendPrice: 1000 # Frontier
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Special/gorichnaya.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSpecialSwimsuit1
+  name: купальник
+  description: Время для отдыха.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Special/swimsuit1.rsi
+  - type: StaticPrice # Frontier
+    vendPrice: 1000 # Frontier
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Special/swimsuit1.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSpecialMaidRadiantSwimsuit
+  name: купальник
+  description: Время для отдыха.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Special/swimsuit.rsi
+  - type: StaticPrice # Frontier
+    vendPrice: 1000 # Frontier
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Special/swimsuit.rsi

@@ -207,3 +207,83 @@
       whitelist:
         tags:
           - HomUplink
+
+- type: listing
+  id: UplinkHomNWeaponShotgunCshotGun
+  name:  uplink-hom-nabat-name
+  description: uplink-hom-nabat-desc
+  productEntity: WeaponShotgunCshotGun
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi, state: icon }
+  cost:
+    Cristalhom: 25
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingNeckMantleHunter
+  name:  uplink-hom-mantle1-name
+  description: uplink-hom-mantle1-desc
+  productEntity: ClothingNeckMantleHunter
+  icon: { sprite: _radiant/Clothing/Neck/Mantles/huntermantle.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingNeckMantleMercenary
+  name:  uplink-hom-mantle2-name
+  description: uplink-hom-mantle2-desc
+  productEntity: ClothingNeckMantleMercenary
+  icon: { sprite: _radiant/Clothing/Neck/Mantles/mercenarymantle.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingOuterRndRS
+  name:  uplink-hom-rnd2-name
+  description: uplink-hom-rnd2-desc
+  productEntity: ClothingOuterRndRS
+  icon: { sprite: _radiant/Clothing/OuterClothing/Armor/armor_rnd.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingOuterRNDRS
+  name:  uplink-hom-rnd-name
+  description: uplink-hom-rnd-desc
+  productEntity: ClothingOuterRNDRS
+  icon: { sprite: _radiant/Clothing/OuterClothing/Armor/armor_med.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink

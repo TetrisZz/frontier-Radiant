@@ -280,11 +280,29 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitGreenLok
 
-- type: loadout
+- type: loadout #Radiant Sector
   id: ContractorClothingUniformJumpsuitRedLok
   price: 200
   equipment:
     jumpsuit: ClothingUniformJumpsuitRedLok
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpskirtGothic
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGothic
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpsuitSuitRed
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitRed
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpsuitSuitrBlack
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitrBlack
 
 #T1
 - type: loadout

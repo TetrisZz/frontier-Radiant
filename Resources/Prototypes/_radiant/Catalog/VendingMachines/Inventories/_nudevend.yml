@@ -30,6 +30,8 @@
     ClothingUnderwearBottomPantiesBlack: 4294967295 # Infinite
     ClothingUnderwearBottomPantiesBlackFlur: 4294967295 # Infinite
     ClothingUnderwearBottomPantiesRedGarters: 4294967295 # Infinite
+    ClothingUnderwearBottomPantiesCow: 4294967295 # Infinite
+    ClothingUnderwearBottomPantiesSexsi: 4294967295 # Infinite
 # Top
     ClothingUnderwearTopBraCMO: 4294967295 # Infinite
     ClothingUnderwearTopBraHOP: 4294967295 # Infinite
@@ -48,6 +50,8 @@
     ClothingUnderwearTopBraRedGarters: 4294967295 # Infinite
     ClothingUnderwearTopBraRed: 4294967295 # Infinite
     ClothingUnderwearTopBraBlack: 4294967295 # Infinite
+    ClothingUnderwearTopBraSexsi: 4294967295 # Infinite
+    ClothingUnderwearTopBraCow: 4294967295 # Infinite
 # Socks
     ClothingUnderwearSocksHigh: 4294967295 # Infinite
     ClothingUnderwearSocksPantyhose: 4294967295 # Infinite
@@ -69,6 +73,7 @@
     ClothingUnderwearSocksThighRedStrip: 4294967295 # Infinite
     ClothingUnderwearSocksThighPinkStrip: 4294967295 # Infinite
     ClothingUnderwearSocksGreenStrip: 4294967295 # Infinite
+    ClothingUnderwearSocksThighCow: 4294967295 # Infinite
 # Special
     ClothingUnderwearTopSpaceNinja: 3
     ClothingUnderwearBottomBoxersSpaceNinja: 3
@@ -90,3 +95,7 @@
     ErpToySpankerRed: 4294967295 # Infinite
     ClothingUnderwearBottomErpToyFoxyTailRed: 4294967295 # Infinite
     ClothingUnderwearBottomErpToyFoxyTail: 4294967295 # Infinite
+    ErpToyDildoRed: 3 # Infinite
+    ErpToyDildoPink: 3 # Infinite
+    ErpToyDildo: 3 # Infinite
+    ErpToyBeads: 4294967295 # Infinite
