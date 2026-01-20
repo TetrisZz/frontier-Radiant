@@ -1,0 +1,208 @@
+- type: marking
+  id: HumanHairBunHeadRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: bunhead
+
+- type: marking
+  id: HumanHairLooseHeelRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: looseheel
+
+- type: marking
+  id: HumanHairShaggyRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: shaggy
+
+- type: marking
+  id: HumanHairShaggyTailRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: shaggytail
+
+- type: marking
+  id: HumanHairAnimeTailRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: animetail
+
+- type: marking
+  id: HumanHairAnimetaiRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: animetai
+
+- type: marking
+  id: HumanHairMilkmaidRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: milkmaid
+
+- type: marking
+  id: HumanHairShaggy2RS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: shaggy2 
+
+- type: marking
+  id: HumanHairShaggy3RS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: shaggy3
+
+- type: marking
+  id: HumanHairStraightRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: straight
+
+- type: marking
+  id: HumanHairBraidRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: braid 
+
+- type: marking
+  id: HumanHairMenRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: men 
+
+- type: marking
+  id: HumanHairDropRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: drop
+
+- type: marking
+  id: HumanHairMinianimeS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: minianime
+
+
+- type: marking
+  id: HumanHairBraid4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: braid4
+
+- type: marking
+  id: HumanHairLoose10
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: loose10
+
+- type: marking
+  id: HumanHairLoose9
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: loose9
+
+- type: marking
+  id: HumanHairLoose8
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: loose8
+
+- type: marking
+  id: HumanHairTail4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: tail4
+
+- type: marking
+  id: HumanHairLoose6
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: loose6
+
+- type: marking
+  id: HumanHairLoose7
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: loose7
+
+- type: marking
+  id: HumanHairTail6
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: tail6
+
+- type: marking
+  id: HumanHairLoose5
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: loose5
+
+- type: marking
+  id: HumanHairTail7
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: tail7
+
+- type: marking
+  id: HumanHairTail5
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: tail5
+
+- type: marking
+  id: HumanHairLoose4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _radiant/Mobs/Customization/human_hair.rsi
+      state: loose4

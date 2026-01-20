@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "taken from https://github.com/BlueMoon-Labs/BlueMoon-Station",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+      "directions" : 4,
+      "name" : "gigachad"
+    }
+  ]
+}
