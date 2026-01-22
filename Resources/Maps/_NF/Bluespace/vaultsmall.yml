@@ -26,6 +26,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
+    - type: DangerZone
     - type: Transform
       parent: invalid
     - type: MapGrid
