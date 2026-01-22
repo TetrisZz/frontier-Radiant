@@ -129,6 +129,16 @@
   equipment:
     belt: ClothingBeltHolster
 
+- type: loadout #Radiant Sector
+  id: ContractorClothingBeltCombatWebbingScabbardFilled
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 2000
+  equipment:
+    belt: ClothingBeltCombatWebbingScabbardFilled
+
+
 - type: loadout
   id: ContractorClothingBeltChaplainSash
   effects:

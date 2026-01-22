@@ -118,4 +118,9 @@
   price: 5000
   equipment:
     socks: ClothingUnderwearSocksRich
-    
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksThighCow
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksThighCow

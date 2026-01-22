@@ -1,0 +1,50 @@
+# Non-human mobs
+#region Leech
+# Blood Leech, melee, fast, has moderate health regen
+- type: entity
+  name: blood leech
+  categories: [ HideSpawnMenu ]
+  parent:
+  - MobMovementSpeedModifierSpecial
+  - MobStaminaFodder
+  - MobNonHumanHostileBase
+  - MobPassiveRegen
+  - MobHumanoidHostileAISimpleMelee
+  id: MobBloodCultGigachad
+  description: This cultist, once human, is now a twisted and corrupted abomination, its body warped and distorted by the dark energies of Nar'Sie's influence.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - BloodCultNF
+  - type: DatasetVocalizer
+    dataset: bloodcultisthumanoidchatter
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _radiant/Mobs/NPC/gigachad.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: gigachad
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gigachad
+      Critical:
+        Base: gigachad
+      Dead:
+        Base: gigachad
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+#      60: Critical Radiant_sector
+#      120: Dead Radiant_sector
+      80: Critical # Radiant_sector
+      130: Dead # Radiant_sector
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+#        Slash: 8 Radiant_sector
+        Slash: 10 # Radiant_sector
+        Structural: 20
+    animation: WeaponArcBite

@@ -11,17 +11,6 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitAcorp1
-  name: комбинезон акорп
-  description: Белый комбинезон формы Аколит Корпорейшн.
-  components:
-  - type: Sprite
-    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASSECJumpsuit.rsi
-  - type: Clothing
-    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASSECJumpsuit.rsi
-
-- type: entity
-  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitExploratorAcorp
   name: комбинезон полевого персонала
   description: Стандартный комбинезон для пыльной работы Акорп, за трудом учёных стоит множество других людей, ведь для Марии Кюри кто-то тоже добывал уран.
@@ -63,17 +52,6 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/acorp_cap_jumpsuit.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/acorp_cap_jumpsuit.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitCaptainAcorp1
-  name: водолазка коменданта
-  description: Водолазка коменданта Аколит Корпорейшн, для тех кому холодно или одиноко во время своей смены.
-  components:
-  - type: Sprite
-    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASHosAlt.rsi
-  - type: Clothing
-    sprite: _radiant/Clothing/Uniforms/Jumpsuit/CASHosAlt.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -338,3 +316,25 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/medical_suit3.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/medical_suit3.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSuitRed
+  name: красный костюм
+  description: Удобный, практичный, сшит из качественной ткани.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/suitred.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/suitred.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSuitrBlack
+  name: темный костюм
+  description: Удобный, практичный, сшит из качественной ткани.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/suitrblack.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/suitrblack.rsi

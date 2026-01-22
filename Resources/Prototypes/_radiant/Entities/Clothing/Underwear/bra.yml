@@ -108,3 +108,21 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/redgarters.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraSexsi
+  name: сексуальный лифчик
+  description: Ох уж эти кружева...
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/sexsi.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraCow
+  name: пятнистый лифчик
+  description: Лифчик, что поможет тебе не замерзнуть холодными ночами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/cow.rsi

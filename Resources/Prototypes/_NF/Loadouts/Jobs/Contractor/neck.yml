@@ -117,6 +117,24 @@
     neck: ClothingNeckChokerHeart # Radiant_sector]
 
 - type: loadout
+  id: ContractorClothingNeckMantleMercenary # Radiant_sector[
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 2500
+  equipment:
+    neck: ClothingNeckMantleMercenary # Radiant_sector]
+
+- type: loadout
+  id: ContractorClothingNeckMantleHunter # Radiant_sector[
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 2500
+  equipment:
+    neck: ClothingNeckMantleHunter # Radiant_sector]
+
+- type: loadout
   id: ContractorCDDogtags
   effects:
   - !type:GroupLoadoutEffect

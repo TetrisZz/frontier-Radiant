@@ -1,0 +1,115 @@
+{
+    "version": 1,
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "copyright": "taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13, braid4, loose10, loose9, loose8, tail4, loose6, loose7, tail6, loose5, tail7, tail5, loose4  taken from https://github.com/BlueMoon-Labs/BlueMoon-Station?tab=readme-ov-file#AGPL-3.0-1-ov-file",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+      {
+        "name": "bunhead",
+        "directions": 4
+      },
+      {
+        "name": "looseheel",
+        "directions": 4
+      },
+      {
+        "name": "shaggy",
+        "directions": 4
+      },
+      {
+        "name": "shaggytail",
+        "directions": 4
+      },
+      {
+        "name": "animetail",
+        "directions": 4
+      },
+      {
+        "name": "animetai",
+        "directions": 4
+      },
+      {
+        "name": "milkmaid",
+        "directions": 4
+      },
+      {
+        "name": "shaggy2",
+        "directions": 4
+      },
+      {
+        "name": "straight",
+        "directions": 4
+      },
+      {
+        "name": "braid",
+        "directions": 4
+      },
+      {
+        "name": "minianime",
+        "directions": 4
+      },
+      {
+        "name": "men",
+        "directions": 4
+      },
+      {
+        "name": "drop",
+        "directions": 4
+      },
+      {
+        "name": "braid4",
+        "directions": 4
+      },
+      {
+        "name": "loose10",
+        "directions": 4
+      },
+      {
+        "name": "loose9",
+        "directions": 4
+      },
+      {
+        "name": "loose8",
+        "directions": 4
+      },
+      {
+        "name": "tail4",
+        "directions": 4
+      },
+      {
+        "name": "loose6",
+        "directions": 4
+      },
+      {
+        "name": "loose7",
+        "directions": 4
+      },
+      {
+        "name": "tail6",
+        "directions": 4
+      },
+      {
+        "name": "loose5",
+        "directions": 4
+      },
+      {
+        "name": "tail7",
+        "directions": 4
+      },
+      {
+        "name": "tail5",
+  "directions": 4
+      },
+      {
+        "name": "loose4",
+        "directions": 4
+      },
+      {
+        "name": "shaggy3",
+        "directions": 4
+      }
+    ]
+  }

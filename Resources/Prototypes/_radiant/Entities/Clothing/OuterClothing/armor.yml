@@ -103,25 +103,6 @@
   - type: ExplosionResistance
     damageCoefficient: 0.80
 
-- type: entity
-  parent: ClothingOuterArmorBasic
-  id: ClothingOuterArmorAcorpMedic
-  name: bulletproof vest
-  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
-  components:
-  - type: Sprite
-    sprite: _radiant/Clothing/OuterClothing/LPPCASAsclVest.rsi
-  - type: Clothing
-    sprite: _radiant/Clothing/OuterClothing/LPPCASAsclVest.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.60
-        Heat: 0.9
-  - type: ExplosionResistance
-    damageCoefficient: 0.80
 
 #Separatist
 
@@ -256,3 +237,129 @@
         Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.90
+
+- type: entity
+  parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
+  id: ClothingOuterArmorDvb
+  name: броня ДВБ
+  description: Возможно, она поможет спасти жизнь. Но это не точно.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_dvb.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_dvb.rsi
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.40 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Heat: 0.55
+        Caustic: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 1000 
+
+- type: entity
+  parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
+  id: ClothingOuterArmorRS
+  name: броня
+  description: Возможно, она поможет спасти жизнь. Но это не точно.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_ordinary.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_ordinary.rsi
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.50 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Heat: 0.70
+        Caustic: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 
+
+- type: entity
+  parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
+  id: ClothingOuterHeavyArmorRS
+  name: тяжелая броня
+  description: Возможно, она поможет спасти жизнь. Но это не точно.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_whi.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_whi.rsi
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.40 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Heat: 0.60
+        Caustic: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.8
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 4000 
+
+- type: entity
+  parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
+  id: ClothingOuterRndRS
+  name: броня ученого
+  description: Возможно, она поможет спасти жизнь. Но это не точно.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_rnd.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_rnd.rsi
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Heat: 0.80
+        Caustic: 0.70
+        Radiation: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.60
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 
+
+- type: entity
+  parent: [RecyclableItemClothArmor, ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseC1Contraband,ClothingOuterBioGeneral] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemClothArmor
+  id: ClothingOuterRNDRS
+  name: медицинская броня
+  description: Возможно, она поможет спасти жизнь. Но это не точно.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_med.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Armor/armor_med.rsi
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.60 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Heat: 0.70
+        Caustic: 0.70
+        Radiation: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 
+

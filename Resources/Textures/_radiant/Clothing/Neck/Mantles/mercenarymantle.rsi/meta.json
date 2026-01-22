@@ -1,0 +1,18 @@
+{
+  "license": "CC-BY-SA-3.0",
+  "copyright": "taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13 , edited by Homka",
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    }
+  ]
+}

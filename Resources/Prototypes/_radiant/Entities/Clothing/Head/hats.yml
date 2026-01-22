@@ -41,21 +41,6 @@
     - SecurityHelmet
 
 - type: entity
-  parent: [ClothingHeadHelmetBase, BaseC2ContrabandUnredeemable] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
-  id: ClothingHeadHelmetAcorp1
-  name: шлем
-  description: Шлем для защиты вашей самой важной части тела.
-  components:
-  - type: Sprite
-    sprite: _radiant/Clothing/Head/Helmets/CASHelmet.rsi
-  - type: Clothing
-    sprite: _radiant/Clothing/Head/Helmets/CASHelmet.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - SecurityHelmet
-
-- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRadioAcorp
   name: шапка-ушанка

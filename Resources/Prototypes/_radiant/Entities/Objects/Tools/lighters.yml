@@ -1,0 +1,199 @@
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: UniFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/uni.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/uni.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: blue
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: BlackHomFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/blackhom.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/blackhom.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: blue
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: HomFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/hom.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/hom.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: red
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: MerFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/mer.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/mer.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: yellow
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: SepFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/sep.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/sep.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: red
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: BlueHomFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/blue.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/blue.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: blue
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: GreenFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/green.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/green.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: yellow
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: BlackFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/black.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/black.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: blue
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: BlackMFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/black_s.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/black_s.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: blue
+
+- type: entity
+  parent: [BaseBrandedLighter]
+  id: PinkFlippo
+  name: зажигалка
+  description: Эта зажигалка видела слишком много огня и плохих решений.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Lighters/pink.rsi
+  - type: Item
+    sprite: _radiant/Objects/Tools/Lighters/pink.rsi
+  - type: Welder
+    fuelConsumption: 0.005
+    fuelLitCost: 0.01
+    tankSafe: true
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 2
+    color: red

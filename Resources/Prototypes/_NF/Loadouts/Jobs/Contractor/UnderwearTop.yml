@@ -70,3 +70,15 @@
   price: 100
   equipment:
     underweart: ClothingUnderwearTopBraCorset
+
+- type: loadout
+  id: ContractorClothingUnderwearTopBraCow
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopBraCow
+
+- type: loadout
+  id: ContractorClothingUnderwearTopBraSexsi
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopBraSexsi

@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-4.0",
+    "copyright": "taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "bolt-open"
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        }
+    ]
+}

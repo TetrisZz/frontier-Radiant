@@ -8,3 +8,18 @@
       - id: NFWeaponEnergyPistolDisabler
       - id: Handcuffs
         amount: 2
+
+- type: entity
+  id: ClothingBeltCombatWebbingScabbardFilled
+  parent: ClothingBeltCombatWebbingScabbard
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: CaptainSabreHilt
+      - id: ContrabandAppraisalTool
+      - id: Handcuffs
+      - id: HandHeldMassScanner
+      - id: RSMysteryLighterBox
+      - id: CigPackMixed
+

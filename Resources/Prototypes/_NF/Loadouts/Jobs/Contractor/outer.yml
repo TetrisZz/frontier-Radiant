@@ -20,6 +20,18 @@
     outerClothing: ClothingOuterHardsuitVoidParamed
 
 - type: loadout
+  id: ContractorClothingOuterCoatRadiantElite
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  price: 3000
+  equipment:
+    outerClothing: ClothingOuterCoatRadiantElite
+
+- type: loadout
   id: ContractorClothingOuterHoodieGrey
   hideEffects:
   - !type:GroupLoadoutEffect

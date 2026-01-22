@@ -1,26 +1,3 @@
-- type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
-  id: ClothingOuterWinterAcorp
-  name: зимняя куртка акорп
-  description: Тяжёлая куртка из 'синтетического' меха животных.
-  components:
-  - type: Sprite
-    sprite: _radiant/Clothing/OuterClothing/CASCoatSec.rsi
-    layers:
-    - state: icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      right:
-      - state: inhand-right
-  - type: Clothing
-    sprite: _radiant/Clothing/OuterClothing/CASCoatSec.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterAcorp
 
 - type: entity
   parent: ClothingOuterWinterCoat

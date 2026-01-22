@@ -51,6 +51,9 @@
   - ContractorClothingUniformJumpskirtBlackDress
   - ContractorClothingUniformJumpskirtDressClassic
   - ContractorClothingUniformJumpsuitGreenLok
+  - ContractorClothingUniformJumpskirtGothic
+  - ContractorClothingUniformJumpsuitSuitRed
+  - ContractorClothingUniformJumpsuitSuitrBlack
   - ContractorClothingUniformJumpsuitRedLok
   - ContractorClothingUniformJumpsuitColorDarkBlue
   - ContractorClothingUniformJumpskirtColorDarkBlue
@@ -322,6 +325,7 @@
   - ContractorClothingOuterApron
   - ContractorClothingOuterApronBar
   - ContractorClothingOuterApronBotanist
+  - ContractorClothingOuterCoatRadiantElite
   - ContractorClothingOuterApronChef
   - ContractorClothingOuterHoodieBlack
   - ContractorClothingOuterCoatJensen
@@ -426,6 +430,7 @@
   - ContractorClothingBeltChaplainSashFilled
   - ContractorBooksBag
   - ContractorChemBag
+  - ContractorClothingBeltCombatWebbingScabbardFilled
   - ContractorOreBag
   - ContractorPlantBag
   - ContractorConstructionBag
@@ -644,6 +649,8 @@
   - ContractorClothingNeckBellCollar
   - ContractorCDDogtags
   - ContractorClothingNeckStethoscope
+  - ContractorClothingNeckMantleMercenary
+  - ContractorClothingNeckMantleHunter
   - ContractorClothingOuterPoncho
   - ContractorClothingOuterPonchoClassic
   - ContractorClothingNeckCloakMiner
@@ -784,6 +791,7 @@
   - ContractorTobaccoPouchPurpleFilled
   - ContractorVape
   - ContractorCigarGoldCase
+  - ContractorRSMysteryLighterBox
   - ContractorMatchbox
   - ContractorLighter
   - ContractorFlippoLighter
@@ -977,6 +985,8 @@
   - ContractorClothingUnderwearBottomRadiantPantiesRed
   - ContractorClothingUnderwearBottomRadiantPantiesTrusikiblack
   - ContractorClothingUnderwearBottomPantiesBlack
+  - ContractorClothingUnderwearBottomPantiesCow
+  - ContractorClothingUnderwearBottomPantiesSexsi
   fallbacks:
   - ContractorClothingUnderwearBottomBoxersWhite
   - ContractorClothingUnderwearBottomPantiesWhite
@@ -1006,6 +1016,7 @@
   - ContractorClothingUnderwearSocksThigh
   - ContractorClothingUnderwearSocksFishnettights
   - ContractorClothingUnderwearSocksGarters
+  - ContractorClothingUnderwearSocksThighCow
   - ContractorClothingUnderwearSocksRich
   
 - type: loadoutGroup
@@ -1026,3 +1037,5 @@
   - ContractorClothingUnderwearTopRadiantBlack
   - ContractorClothingUnderwearTopBraWhiteFur
   - ContractorClothingUnderwearTopBraCorset
+  - ContractorClothingUnderwearTopBraCow
+  - ContractorClothingUnderwearTopBraSexsi
