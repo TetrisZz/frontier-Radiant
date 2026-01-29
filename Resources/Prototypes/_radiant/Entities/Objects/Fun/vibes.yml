@@ -1,0 +1,155 @@
+- type: entity
+  parent: BaseItem
+  id: BaseVibe
+  abstract: true
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 75
+      Steel: 25
+  - type: Vibrator
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+    - On
+    - Off
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 3000 
+  - type: ItemToggle
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_radiant/Lewd/vibrate_loop.ogg
+  - type: UseDelay
+    delay: 1.0
+  - type: Appearance 
+  - type: ToggleableVisuals # Add support for multiple layers
+    spriteLayer: on
+
+- type: entity
+  parent: [BaseVibe, ClothingButtPlugBase]
+  id: LewdWand
+  name: magic wand
+  description: A magic wand! This one casts spells of pleasure!
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Vibes/magic_wand.rsi
+    layers:
+      - state: magicwand_off
+        map: ["base"]
+      - state: magicwand_medium
+        map: ["on"]
+        visible: false
+
+- type: entity
+  parent: [BaseVibe, ClothingButtPlugBase]
+  id: LewdVibeGreen
+  name: tentacle vibrator
+  description: A green vibrator in the shape of a tentacle.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_green.rsi
+    layers:
+      - state: vibrator_green_off
+        map: ["base"]
+      - state: vibrator_green_medium
+        map: ["on"]
+        visible: false
+
+- type: entity
+  parent: [BaseVibe, ClothingButtPlugBase]
+  id: LewdVibeTeal
+  name: teal vibrator
+  description: A teal vibrator with a bolbous look.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_teal.rsi
+    layers:
+      - state: vibrator_teal_off
+        map: ["base"]
+      - state: vibrator_teal_medium
+        map: ["on"]
+        visible: false
+
+- type: entity
+  parent: [BaseVibe, ClothingButtPlugBase]
+  id: LewdVibePink
+  name: pink vibrator
+  description: A common pink vibrator.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_pink.rsi
+    layers:
+      - state: vibrator_pink_off
+        map: ["base"]
+      - state: vibrator_pink_medium
+        map: ["on"]
+        visible: false
+
+- type: entity
+  parent: [BaseVibe, ClothingButtPlugBase]
+  id: LewdVibeRed
+  name: beaded vibrator
+  description: A red vibrator with different sized beads.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_red.rsi
+    layers:
+      - state: vibrator_red_off
+        map: ["base"]
+      - state: vibrator_red_medium
+        map: ["on"]
+        visible: false
+
+- type: entity
+  parent: [BaseVibe, ClothingButtPlugBase]
+  id: LewdVibeYellow
+  name: yellow vibrator
+  description: A yellow vibrator in the shape of an egg.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_yellow.rsi
+    layers:
+      - state: vibrator_yellow_off
+        map: ["base"]
+      - state: vibrator_yellow_medium
+        map: ["on"]
+        visible: false
+
+- type: entity
+  parent: BaseItem
+  id: RSMysteryLewdVibe
+  name: Случайный вибратор
+  suffix: Filled
+  description: Коробка со случайным вибратором.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    layers:
+    - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: LewdWand
+        orGroup: Lewdbox
+        weight: 0.35
+      - id: LewdVibeGreen
+        orGroup: Lewdbox
+        weight: 0.35
+      - id: LewdVibeTeal
+        orGroup: Lewdbox
+        weight: 0.35
+      - id: LewdVibePink
+        orGroup: Lewdbox
+        weight: 0.35
+      - id: LewdVibeRed
+        orGroup: Lewdbox
+        weight: 0.35
+      - id: LewdVibeYellow
+        orGroup: Lewdbox
+        weight: 0.35

@@ -1,0 +1,13 @@
+- type: entity
+  id: Pole
+  parent: ChairBase
+  name: шест
+  description: Палка с амбициями.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/pole.rsi
+    state: pole
+    offset: 0,0.3
+    noRot: true
+
+

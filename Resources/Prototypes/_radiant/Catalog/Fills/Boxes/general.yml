@@ -23,3 +23,136 @@
         amount: 3
       - id: FoodLollipop
       - id: FoodBakedMuffinCherry
+
+- type: entity
+  parent: BoxRS
+  id: BoxRSSexEconom
+  suffix: Econom
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingButtPlugBaseBeads
+      - id: ClothingHeadPaperSack
+      - id: ClothingSmallmetalButtplug
+      - id: ClothingMedmetalButtplug
+      - id: ClothingBigmetalButtplug
+      - id: ClothingNeckChokerHeart
+      - id: ClothingButtPlugBaseVibratorBlack
+      - id: DrinkGrapeCan
+        amount: 2
+      - id: FoodBakedMuffin
+        amount: 2
+      - id: ClothingBeltStraponHuman
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 3999 
+
+
+- type: entity
+  parent: BoxRS
+  id: BoxRSSexMedium
+  suffix: Medium
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingBigyellowButtplug
+      - id: ErpToySpanker
+      - id: ClothingNeckChokerBlackShaped
+      - id: LewdWand
+      - id: ClothingBigpinkButtplug
+      - id: ClothingSmallyellowButtplug
+      - id: ClothingBeltStraponDragon
+      - id: ClothingMedtealButtplug
+      - id: ClothingUniformSpecialBunny
+      - id: ClothingHeadHatBunny
+      - id: Condom
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 5999 
+
+
+- type: entity
+  parent: BoxRS
+  id: BoxRSSexFull
+  suffix: Full
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingBigGreenButtplug
+      - id: ClothingBigyellowButtplug
+      - id: ClothingHeadHatDemonic
+      - id: ClothingUniformSpecialMaidRadiant
+      - id: ClothingBeltStraponDragon
+      - id: FoodBakedMuffinCherry
+      - id: PinkCondom
+      - id: ClothingButtPlugErpToyFoxyTailRed
+      - id: LewdVibeRed
+      - id: LewdVibePink
+      - id: DragonDildo
+      - id: AvianDildo
+      - id: ClothingNeckChokerBlackShaped
+      - id: ClothingButtPlugBaseBeads
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 9999 
+
+
+- type: entity
+  parent: BoxWRS
+  id: BoxRSSexSoloW
+  components:
+  - type: StorageFill
+    contents:
+      - id: RSMysteryLewdVibe
+      - id: RSMysteryButtplug
+      - id: RSMysteryDildo
+      - id: DrinkWineCan
+      - id: FoodDonutCaramel
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2999 
+
+- type: entity
+  parent: BoxMRS
+  id: BoxRSSexSoloM
+  components:
+  - type: StorageFill
+    contents:
+      - id: RSMysteryLewdFleshlight
+      - id: CigPackBlack
+      - id: RSMysteryLighterBox
+      - id: DrinkBeerCan
+      - id: FoodDonutCaramel
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2999 
+
+- type: entity
+  parent: BoxPinkCondom
+  id: BoxPinkCondomFull
+  suffix: Full
+  components:
+  - type: StorageFill
+    contents:
+      - id: PinkCondom
+        amount: 2
+      - id: Condom
+        amount: 2
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000
+
+- type: entity
+  parent: BoxTealCondom
+  id: BoxTealCondomFull
+  suffix: Full
+  components:
+  - type: StorageFill
+    contents:
+      - id: TealCondom
+        amount: 2
+      - id: Condom
+        amount: 2
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000

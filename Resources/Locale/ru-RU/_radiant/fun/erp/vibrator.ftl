@@ -1,0 +1,12 @@
+ent-LewdWand = Вибратор
+    .desc = Всегда на волне, не задаёт лишних вопросов и умеет довести до нужной цели. Компактный, но крайне настойчивый.
+ent-LewdVibeGreen = Вибратор зеленый
+    .desc = { ent-LewdWand.desc }
+ent-LewdVibePink = Вибратор розовый
+    .desc = { ent-LewdWand.desc }
+ent-LewdVibeRed = Вибратор красный
+    .desc = { ent-LewdWand.desc }
+ent-LewdVibeTeal = Вибратор чирок
+    .desc = { ent-LewdWand.desc }
+ent-LewdVibeYellow = Вибратор желтый
+    .desc = { ent-LewdWand.desc }

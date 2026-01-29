@@ -33,6 +33,18 @@
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
+    <!-- RS-start -->
+    <ui:MenuButton
+        Name="InteractionButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/_radiant/Interface/InteractionPanel/interaction.svg.192dpi.png'}"
+        ToolTip="{Loc 'game-hud-open-interaction-menu-button-tooltip'}"
+        BoundKey = "{x:Static is:ContentKeyFunctions.OpenInteractionMenu}" 
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        />
+    <!-- RS-end -->
     <ui:MenuButton
         Name="CharacterButton"
         Access="Internal"

@@ -1,0 +1,124 @@
+- type: entity
+  id: BoxBaseRS
+  name: набор для хорошего вечера
+  description: Вечер обещает быть интересным...
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Storage/boxs.rsi
+    layers:
+      - state: boxs
+
+- type: entity
+  id: BoxRS
+  parent: [BoxBaseRS, BaseStorageItem]
+  suffix: Empty
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,5
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,5
+
+- type: entity
+  id: BoxBaseSmailWRS
+  name: набор настоящей женщины
+  description: Вечер обещает быть интересным...
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Storage/boxs.rsi
+    layers:
+      - state: boxs2
+
+- type: entity
+  id: BoxBaseSmailMRS
+  name: набор джентльмена
+  description: Вечер обещает быть интересным...
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Storage/boxs.rsi
+    layers:
+      - state: boxs2
+
+- type: entity
+  id: BoxWRS
+  parent: [BoxBaseSmailWRS, BaseStorageItem]
+  suffix: Full
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,2
+
+- type: entity
+  id: BoxMRS
+  parent: [BoxBaseSmailMRS, BaseStorageItem]
+  suffix: Full
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,2
+
+- type: entity
+  id: BoxBasePinkCondom
+  name: коробка презервативов
+  description: Вечер обещает быть интересным...
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Storage/boxs.rsi
+    layers:
+      - state: boxs3
+
+- type: entity
+  id: BoxBaseTealCondom
+  name: коробка презервативов
+  description: Вечер обещает быть интересным...
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Storage/boxs.rsi
+    layers:
+      - state: boxs4
+
+- type: entity
+  id: BoxPinkCondom
+  parent: [BoxBasePinkCondom, BaseStorageItem]
+  suffix: Empty
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+
+- type: entity
+  id: BoxTealCondom
+  parent: [BoxBaseTealCondom, BaseStorageItem]
+  suffix: Empty
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1

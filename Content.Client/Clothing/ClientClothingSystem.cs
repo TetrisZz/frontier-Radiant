@@ -47,6 +47,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 		{"socks", "SOCKS"},
 	    {"underweart", "UNDERWEART"},
 	    {"underwearb", "UNDERWEARB"},
+	    {"plug", "PLUG"}, /// Radiant sector
         {"id", "IDCARD"},
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},

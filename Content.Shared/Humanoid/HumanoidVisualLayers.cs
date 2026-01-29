@@ -10,6 +10,7 @@ namespace Content.Shared.Humanoid
         Tail,
         Hair,
         FacialHair,
+        Wings, // Radiant Sector
         UndergarmentTop,
         UndergarmentBottom,
         Chest,

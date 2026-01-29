@@ -52,6 +52,8 @@ flavor-base-horrible = ужасно
 flavor-base-terrible = ужасающе
 flavor-base-mindful = разумно
 flavor-base-chewy = жевательно
+# RS
+flavor-base-cum = солоновато
 flavor-base-trashy = мусорно
 flavor-base-motivating = мотивирующее
 

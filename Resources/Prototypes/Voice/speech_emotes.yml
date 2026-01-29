@@ -621,6 +621,7 @@
   blacklist:
     tags:
     - SiliconEmotes
+    - VimPilot
   chatMessages: ["стонет"]
   chatTriggers:
     - ston

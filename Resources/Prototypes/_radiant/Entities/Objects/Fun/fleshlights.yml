@@ -1,0 +1,124 @@
+- type: entity
+  parent: BaseItem
+  id: BaseFleshlight
+  abstract: true
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 1500 
+  - type: Drink
+    solution: fleshlight
+    ignoreEmpty: true
+  - type: SolutionContainerManager
+    solutions:
+      fleshlight:
+        maxVol: 10
+  - type: SolutionTransfer
+    transferAmount: 5
+    maxTransferAmount: 10
+    minTransferAmount: 1
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Spillable
+    solution: fleshlight
+  - type: DrawableSolution
+    solution: fleshlight
+  - type: RefillableSolution
+    solution: fleshlight
+  - type: DrainableSolution
+    solution: fleshlight
+  - type: ExaminableSolution
+    solution: fleshlight
+  - type: Tag
+    tags:
+     - Fleshlight
+  - type: SexToy
+    prototype:
+    - fleshlight
+
+- type: entity
+  parent: BaseFleshlight
+  id: LewdFleshlightGreen
+  name: зеленая киска
+  description: Пахнет пластиком, звучит подозрительно, а объяснить начальству, зачем он у вас, будет сложно.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Fleshlights/fleshlight_green.rsi
+    state: icon
+
+- type: entity
+  parent: BaseFleshlight
+  id: LewdFleshlightTeal
+  name: бирюзовая киска
+  description: Персональный антистрессовый прибор.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Fleshlights/fleshlight_teal.rsi
+    state: icon
+
+- type: entity
+  parent: BaseFleshlight
+  id: LewdFleshlightPink
+  name: розовая киска
+  description: Данный прибор гаучно не одобрен, морально сомнителен, но технически исправен
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Fleshlights/fleshlight_pink.rsi
+    state: icon
+
+- type: entity
+  parent: BaseFleshlight
+  id: LewdFleshlightRed
+  name: красная киска
+  description: Пахнет пластиком, звучит подозрительно, а объяснить начальству, зачем он у вас, будет сложно.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Fleshlights/fleshlight_red.rsi
+    state: icon
+
+- type: entity
+  parent: BaseFleshlight
+  id: LewdFleshlightYellow
+  name: желтая киска
+  description: Данный прибор гаучно не одобрен, морально сомнителен, но технически исправен
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Fleshlights/fleshlight_yellow.rsi
+    state: icon
+
+
+- type: entity
+  parent: BaseItem
+  id: RSMysteryLewdFleshlight
+  name: Случайный мастурбатор
+  suffix: Filled
+  description: Коробка со случайным мастурбатором.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    layers:
+    - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: LewdFleshlightGreen
+        orGroup: LewdFleshlightbox
+        weight: 0.35
+      - id: LewdFleshlightTeal
+        orGroup: LewdFleshlightbox
+        weight: 0.35
+      - id: LewdFleshlightPink
+        orGroup: LewdFleshlightbox
+        weight: 0.35
+      - id: LewdFleshlightRed
+        orGroup: LewdFleshlightbox
+        weight: 0.35
+      - id: LewdFleshlightYellow
+        orGroup: LewdFleshlightbox
+        weight: 0.35

@@ -1,0 +1,57 @@
+- type: constructionGraph
+  id: bedRS
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: bed_double_down
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 4
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+
+        - to: bed_double
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 4
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+
+    - node: bed_double_down
+      entity: BedDoubleDown
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 4
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: bed_double
+      entity: BedDouble
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 4
+          steps:
+            - tool: Screwing
+              doAfter: 1

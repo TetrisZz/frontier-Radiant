@@ -1,0 +1,19 @@
+- type: construction
+  id: BedDoubleDown
+  graph: bedRS
+  startNode: start
+  targetNode: bed_double_down
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+
+- type: construction
+  id: BedDouble
+  graph: bedRS
+  startNode: start
+  targetNode: bed_double
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+

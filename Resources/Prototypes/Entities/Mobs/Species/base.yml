@@ -43,6 +43,8 @@
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "plug" ] #RS
+    - map: [ "enum.HumanoidVisualLayers.Wings" ] #radiant_sector
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]

@@ -1,0 +1,150 @@
+
+- type: entity
+  parent: ClothingButtPlugBase
+  id: AvianDildo
+  name: avian dildo
+  description: A dildo in the shape of a bird's "caw-k".
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Dildos/dildo_avian.rsi
+    state: icon
+  - type: SexToy
+    prototype:
+    - dildo
+
+- type: entity
+  parent: ClothingButtPlugBase
+  id: CanineDildo
+  name: canine dildo
+  description: A dildo of a green rocket.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Dildos/dildo_canine.rsi
+    state: icon
+  - type: SexToy
+    prototype:
+    - dildo
+  - type: Strapon
+
+- type: entity
+  parent: ClothingButtPlugBase
+  id: CanineDildoRed
+  name: red canine dildo
+  description: You'll be seeing stars when you ride THIS red rocket.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Dildos/dildo_canine_red.rsi
+    state: icon
+  - type: SexToy
+    prototype:
+    - dildo
+  - type: Strapon
+
+- type: entity
+  parent: ClothingButtPlugBase
+  id: HorseDildo
+  name: horse dildo
+  description: A large dildo of a horse... Wow it's big...
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Dildos/dildo_equine.rsi
+    state: icon
+  - type: SexToy
+    prototype:
+    - dildo
+  - type: Strapon
+
+- type: entity
+  parent: ClothingButtPlugBase
+  id: DragonDildo
+  name: dragon dildo
+  description: A large red dildo of a dragon... Woof...
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Dildos/dildo_dragon.rsi
+    state: icon
+  - type: SexToy
+    prototype:
+    - dildo
+  - type: Strapon
+
+- type: entity
+  parent: ClothingButtPlugBase
+  id: NormalDildo
+  name: dildo
+  description: A simple pink dildo.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Dildos/dildo_human.rsi
+    state: icon
+  - type: SexToy
+    prototype:
+    - dildo
+  - type: Strapon
+
+- type: entity
+  parent: ClothingButtPlugBase
+  id: TentacleDildo
+  name: tentacle dildo
+  description: A floppy tentacle dildo... Is it slimey?
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Dildos/dildo_tentacle.rsi
+    state: icon
+  - type: SexToy
+    prototype:
+    - dildo
+  - type: Strapon
+
+- type: entity
+  parent: ClothingButtPlugBase
+  id: DoubleDildo
+  name: double-sided dildo
+  description: A long dildo with two ends. Bring a friend!
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/Dildos/dildo_double.rsi
+    state: icon
+  - type: SexToy
+    prototype:
+    - dildo
+  - type: Strapon
+
+- type: entity
+  parent: BaseItem
+  id: RSMysteryDildo
+  name: Случайный фаллоимитатор
+  suffix: Filled
+  description: Коробка со случайным фаллоимитатором.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    layers:
+    - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: AvianDildo
+        orGroup: Dildobox
+        weight: 0.35
+      - id: CanineDildo
+        orGroup: Dildobox
+        weight: 0.35
+      - id: CanineDildoRed
+        orGroup: Dildobox
+        weight: 0.35
+      - id: HorseDildo
+        orGroup: Dildobox
+        weight: 0.35
+      - id: DragonDildo
+        orGroup: Dildobox
+        weight: 0.35
+      - id: NormalDildo
+        orGroup: Dildobox
+        weight: 0.35
+      - id: TentacleDildo
+        orGroup: Dildobox
+        weight: 0.35
+      - id: DoubleDildo
+        orGroup: Dildobox
+        weight: 0.35

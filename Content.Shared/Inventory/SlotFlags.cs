@@ -29,6 +29,7 @@ public enum SlotFlags
 	UNDERWEART = 1 << 16,
     UNDERWEARB = 1 << 17,
     SOCKS = 1 << 18,
+    PLUG = 1 << 19, // RS
     WALLET = 1 << 13, // Frontier: using an unused slot, redefine to a new bit if/when it's used (goodbye ushort)
     All = ~NONE,
 

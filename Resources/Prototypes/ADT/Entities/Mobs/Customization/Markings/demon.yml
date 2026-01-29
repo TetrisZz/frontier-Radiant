@@ -61,3 +61,40 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Demon/custom.rsi
     state: goatee
+
+# Radiant Sector
+- type: marking
+  id: SuccubusWingsDemon
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Demon/demonwings.rsi
+    state: succubus_wings
+
+- type: marking
+  id: SuccubusWingsDemonTwo
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Demon/demonwings.rsi
+    state: succubus_wings-2
+
+- type: marking
+  id: SuccubusWingsDemonT
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Demon/demonwings.rsi
+    state: succubus_wings-3
+
+- type: marking
+  id: SuccubusWingsDemonH
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Demon/demonwings.rsi
+    state: succubus_wings-4

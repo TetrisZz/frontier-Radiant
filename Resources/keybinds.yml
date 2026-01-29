@@ -637,3 +637,9 @@ binds:
   key: X
   mod1: Shift
 # endregion Frontier
+
+# region RS
+- function: OpenInteractionMenu
+  type: State
+  key: J
+# endregion RS

@@ -12,12 +12,13 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
-  - type: StaticPrice
+  - type: StaticPrice 
     price: 100
+    vendPrice: 1500 
 
 - type: entity
-  parent: BaseErpToy
-  id: ErpToyBeads
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugBaseBeads
   name: анальные шарики
   description: Выкинь
   components:
@@ -25,38 +26,35 @@
     sprite: _radiant/Objects/Fun/Erp/beads.rsi
 
 - type: entity
-  parent: BaseErpToy
-  id: ErpToyDildo
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugBaseDildo
   name: черный фаллоимитатор
   description: Явно длинее, чем у твоего парня.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/dildo.rsi
-    state: dildo
 
 - type: entity
-  parent: BaseErpToy
-  id: ErpToyDildoPink
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugBaseDildoPink
   name: розовый фаллоимитатор
   description: Явно длинее, чем у твоего парня.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/dildopink.rsi
-    state: dildo
 
 - type: entity
-  parent: BaseErpToy
-  id: ErpToyDildoRed
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugBaseDildoRed
   name: красный фаллоимитатор
   description: Явно длинее, чем у твоего парня.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/dildored.rsi
-    state: dildo
 
 - type: entity
-  parent: BaseErpToy
-  id: ErpToyVibratorBlack
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugBaseVibratorBlack
   name: черный вибратор
   description: От него больше пользы, чем от твоего бывшего.
   components:
@@ -64,8 +62,8 @@
     sprite: _radiant/Objects/Fun/Erp/vibratorblack.rsi
 
 - type: entity
-  parent: BaseErpToy
-  id: ErpToyVibratorRed
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugBaseVibratorRed
   name: красный вибратор
   description: От него больше пользы, чем от твоего бывшего.
   components:
@@ -73,8 +71,8 @@
     sprite: _radiant/Objects/Fun/Erp/vibratorred.rsi
 
 - type: entity
-  parent: ClothingUnderwearBottomBase
-  id: ClothingUnderwearBottomErpToyFoxyTail
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugErpToyFoxyTail
   name: лисий хвостик
   description: Уррурур-р.
   components:
@@ -82,8 +80,8 @@
     sprite: _radiant/Objects/Fun/Erp/redtail.rsi
 
 - type: entity
-  parent: ClothingUnderwearBottomBase
-  id: ClothingUnderwearBottomErpToyFoxyTailRed
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugErpToyFoxyTailRed
   name: лисий хвостик
   description: Уррурур-р.
   components:
