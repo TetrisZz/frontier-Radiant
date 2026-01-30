@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Ирис
   description: Экспедиционное судно, на нем имеется все по минимуму - оружейная, мини-кухня, мед с химией.
-  price: 56900
+  price: 50900
   category: Medium
   group: Expedition
   shuttlePath: /Maps/_radiant/Shuttles/Iris.yml

@@ -142,7 +142,7 @@
     - type: SiliconLawProvider
       laws: AcorpSecurityStatic
     - type: BorgChassis
-      maxModules: 6
+      maxModules: 7
       hasMindState: asec_e
       noMindState: asec_e_r
       moduleWhitelist:
@@ -423,6 +423,8 @@
     - type: PointLight
       radius: 7
       energy: 3
+    - type: TTS
+      voice: Sentrybot
 
 - type: entity
   id: BorgChassisDonat

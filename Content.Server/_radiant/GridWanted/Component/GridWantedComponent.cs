@@ -9,7 +9,7 @@ namespace Content.Server._radiant.GridWanted;
 public sealed partial class DangerZoneComponent : Component
 {
     [DataField("reason")]
-    public string Reason = "Проникновение в хранилище конфедерации с цель ограбления";
+    public string Reason = "Проникновение в хранилище конфедерации с целью ограбления";
 
     // Храним по UserId (уникальный идентификатор аккаунта)
     [DataField]

@@ -356,10 +356,10 @@
   - type: Item
     sprite: _NF/Objects/Weapons/Guns/Rifles/novalitec1.rsi
   - type: Gun
-    fireRate: 3
-    selectedMode: SemiAuto
+    fireRate: 2
+    selectedMode: FullAuto
     availableModes:
-      - SemiAuto
+      - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
   - type: StaticPrice

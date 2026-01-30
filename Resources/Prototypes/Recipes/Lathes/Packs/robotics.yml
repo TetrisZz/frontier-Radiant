@@ -53,6 +53,7 @@
   - BorgModuleCombatPinpointer # Radiant sector
   - BorgModuleCombatLethal # Radiant sector
   - BorgModuleCombatNonLethal # Radiant sector
+  - BorgModuleCombatLethalNovalite # Radiant sector
   - CyborgArmour # Radiant sector
 
 - type: latheRecipePack
