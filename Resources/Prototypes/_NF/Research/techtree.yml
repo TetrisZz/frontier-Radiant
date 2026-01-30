@@ -1846,9 +1846,10 @@
   entityIcon: Truncheon
   discipline: NFArsenalMercenary
   tier: 1
-  cost: 8000
+  cost: 10000 # Radiant sector
   recipeUnlocks:
   - NFTelescopicShield
+  - NFClothingBackpackElectropack # Radiant sector
   technologyPrerequisites:
   - NFBountyHunting
   position: 2, 42
@@ -1882,22 +1883,6 @@
   technologyPrerequisites:
   - NFBountyHunting
   position: 2, 43
-
-- type: technology #Radiant sector
-  id: NFArsenalRiot
-  name: nf-research-technology-arsenal-riot
-  entityIcon: ClothingOuterArmorRiot
-  discipline: NFArsenalMercenary
-  tier: 1
-  cost: 3500
-  recipeUnlocks:
-  - ClothingOuterArmorRiot
-  - ClothingHeadHelmetRiot
-  - RiotShield
-  - ClothingMaskGasSwatRS
-  technologyPrerequisites:
-  - NFArsenalStyle
-  position: 4, 43
 
 - type: technology
   id: NFImprovedRifleAmmo
@@ -1950,19 +1935,19 @@
   - MercenaryCombatModule # Radiant sector
   position: 4, 43 # Radiant sector
 
-- type: technology
-  id: NFSpecialMeans
-  name: nf-research-technology-special-means
-  entityIcon: ClothingBackpackElectropack
-  discipline: NFArsenalNfsd
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - NFClothingBackpackElectropack
-  prerequisiteLineType: Diagonal
-  technologyPrerequisites:
-  - NFAdvancedRiotControl
-  position: 3, 43
+#- type: technology
+#  id: NFSpecialMeans
+#  name: nf-research-technology-special-means
+#  entityIcon: ClothingBackpackElectropack
+#  discipline: NFArsenalNfsd
+#  tier: 1
+#  cost: 5000
+#  recipeUnlocks:
+#  - NFClothingBackpackElectropack
+#  prerequisiteLineType: Diagonal
+#  technologyPrerequisites:
+#  - NFAdvancedRiotControl
+#  position: 3, 43
 
 - type: technology
   id: NFBulkRifleAmmo
@@ -2002,6 +1987,22 @@
   position: 4, 40
 
 #Radiant Sector
+
+- type: technology #Radiant sector
+  id: NFArsenalRiot
+  name: nf-research-technology-arsenal-riot
+  entityIcon: ClothingOuterArmorRiot
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 3500
+  recipeUnlocks:
+  - ClothingOuterArmorRiot
+  - ClothingHeadHelmetRiot
+  - RiotShield
+  - ClothingMaskGasSwatRS
+  technologyPrerequisites:
+  - NFArsenalStyle
+  position: 3, 43
 
 - type: technology
   id: NFImprovedSvalinn

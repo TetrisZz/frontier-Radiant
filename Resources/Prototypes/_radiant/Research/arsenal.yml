@@ -8,6 +8,7 @@
   recipeUnlocks:
   - BorgModuleCombatLethal
   - BorgModuleCombatNonLethal
+  - BorgModuleCombatLethalNovalite
   technologyPrerequisites:
   - NFAdvancedRiotControl
   position: 3, 42

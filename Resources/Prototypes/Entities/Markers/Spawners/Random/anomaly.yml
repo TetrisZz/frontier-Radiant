@@ -22,7 +22,7 @@
     - AnomalyFlora
     - AnomalyShadow
     - AnomalyTech
-    - AnomalySanta
+#    - AnomalySanta
     rareChance: 0.125 # Frontier: 0.3<0.125 (3/10 to 1/8)
     rarePrototypes:
     - RandomAnomalyInjectorSpawner

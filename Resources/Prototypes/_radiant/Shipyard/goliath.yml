@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: HOM Голиаф
   description: Крупное экспедиционное судно, вместимостью от 5 человек, на нем есть все необходимое для далеких путешествий.
-  price: 144000
+  price: 150000
   category: Large
   group: Expedition
   shuttlePath: /Maps/_radiant/Shuttles/Goliath.yml
