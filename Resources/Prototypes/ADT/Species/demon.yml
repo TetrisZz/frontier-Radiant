@@ -29,6 +29,7 @@
     RLeg: MobDemonRLeg
     LFoot: MobDemonLFoot
     RFoot: MobDemonRFoot
+    Wings: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobDemonMarkingLimits
@@ -60,6 +61,9 @@
       required: false
     Arms:
       points: 4
+      required: false
+    Wings: #Radiant sector
+      points: 1
       required: false
 
 - type: humanoidBaseSprite

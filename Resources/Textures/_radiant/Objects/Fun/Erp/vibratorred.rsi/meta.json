@@ -11,11 +11,15 @@
       "name": "icon"
     },
     {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },
     {
-      "name": "inhand-right",
+      "name": "equipped-PLUG",
       "directions": 4
     }
   ]

@@ -1,6 +1,6 @@
 - type: entity
   id: MobCatBobik
-  parent: [NFMobPet, MobCatGhost]
+  parent: [NFMobPet, MobCorgiGhost]
   name: Бомбик
   description: Просить у него помощни точно не стоит. 
   components:
@@ -21,14 +21,16 @@
       Dead:
         Base: secdog_dead
         BaseUnshaded: mask_null
+  - type: Speech
+    speechSounds: Vulpkanin
+    speechVerb: Vulpkanin
+    allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'Growl']
   - type: GhostRole
-    name: ghost-role-information-clippy-name
-    description: ghost-role-information-clippy-description
+    name: бомбик
+    description: Просить у него помощни точно не стоит. 
     rules: ghost-role-information-nonantagonist-rules
-    prototype: CatClippy
+    prototype: MobCorgiGhost
     mindRoles: [ MindRoleGhostRoleNeutral ]
-  - type: Loadout
-    prototypes: [ MobClippyGear ]
   - type: RandomMetadata
     nameSegments: null
   - type: AutoImplant

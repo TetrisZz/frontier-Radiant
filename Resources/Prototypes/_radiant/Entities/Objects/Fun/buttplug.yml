@@ -1,0 +1,270 @@
+
+- type: entity
+  name: большая зеленая пробка
+  id: ClothingBigGreenButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: green_big
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Medium green buttplug
+  id: ClothingMedGreenButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: green_med
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Small green buttplug
+  id: ClothingSmallGreenButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: green_small
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: big metal buttplug
+  id: ClothingBigmetalButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: metal_big
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Medium metal buttplug
+  id: ClothingMedmetalButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: metal_med
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Small metal buttplug
+  id: ClothingSmallmetalButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: metal_small
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: big pink buttplug
+  id: ClothingBigpinkButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: pink_big
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Medium pink buttplug
+  id: ClothingMedpinkButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: pink_med
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Small pink buttplug
+  id: ClothingSmallpinkButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: pink_small
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: big teal buttplug
+  id: ClothingBigtealButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: teal_big
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Medium teal buttplug
+  id: ClothingMedtealButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: teal_med
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Small teal buttplug
+  id: ClothingSmalltealButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: teal_small
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: big yellow buttplug
+  id: ClothingBigyellowButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: yellow_big
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Medium yellow buttplug
+  id: ClothingMedyellowButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: yellow_med
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: Small yellow buttplug
+  id: ClothingSmallyellowButtplug
+  parent: ClothingButtPlugBase
+  description: Создана для тех, кто любит порядок, симметрию и слегка нестандартный подход к релаксу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/buttplug.rsi
+    scale: 1.0, 1.0
+    layers:
+      - state: yellow_small
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: BaseItem
+  id: RSMysteryButtplug
+  name: Случайная пробка
+  suffix: Filled
+  description: Коробка со случайной пробкой.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    layers:
+    - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: ClothingBigGreenButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingMedGreenButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingSmallGreenButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingBigmetalButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingMedmetalButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingSmallmetalButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingBigpinkButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingMedpinkButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingSmallpinkButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingBigtealButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingMedtealButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingSmalltealButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingBigyellowButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingMedyellowButtplug
+        orGroup: Buttplugbox
+        weight: 0.35
+      - id: ClothingSmallyellowButtplug
+        orGroup: Buttplugbox
+        weight: 0.35

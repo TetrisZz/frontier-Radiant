@@ -15,6 +15,14 @@
       uiWindowPos: 3,0
       strippingWindowPos: 0,6
       displayName: Socks
+    - name: plug # RS
+      slotTexture: plug
+      slotFlags: PLUG
+      stripTime: 6
+      uiWindowPos: 3,3
+      strippingWindowPos: 3,6
+      displayName: Plug
+      stripHidden: true
     - name: underwearb # Andromeda-Underwear
       slotTexture: underwearb
       slotFlags: UNDERWEARB

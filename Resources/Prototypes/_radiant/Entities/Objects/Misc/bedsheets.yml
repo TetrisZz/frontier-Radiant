@@ -30,3 +30,394 @@
     state: flotbel
   - type: Clothing
     sprite: Clothing/Neck/Bedsheets/captain.rsi
+
+- type: entity
+  parent: BaseItem
+  id: DoubleBedsheetBase
+  name: Одеяло
+  abstract: true
+  description: Удивительно мягкое льняное одеяло.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Bed
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/doublebedsheets.rsi
+    noRot: true
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 400
+  - type: Tag
+    tags:
+    - Bedsheet
+
+- type: entity
+  id: DoubleBedsheetBlack
+  parent: DoubleBedsheetBase
+  name: чёрное одеяло
+  components:
+  - type: Sprite
+    state: sheetblack
+
+- type: entity
+  id: DoubleBedsheetBlue
+  parent: DoubleBedsheetBase
+  name: синее одеяло
+  components:
+  - type: Sprite
+    state: sheetblue
+
+- type: entity
+  id: DoubleBedsheetBrown
+  parent: DoubleBedsheetBase
+  name: коричневое одеяло
+  components:
+  - type: Sprite
+    state: sheetbrown
+
+- type: entity
+  id: DoubleBedsheetCaptain
+  parent: DoubleBedsheetBase
+  name: одеяло капитана
+  description: Оно украшено эмблемой Конфедерации и соткано из революционно нового вида нитей, понижающих шанс проникновения большинства нехимических веществ до 0,01%. Популярно среди многих современных капитанов.
+  components:
+  - type: Sprite
+    state: sheetcaptain
+  - type: StealTarget
+    stealGroup: HeadBedsheet
+
+- type: entity
+  id: DoubleBedsheetCE
+  parent: DoubleBedsheetBase
+  name: одеяло старшего инженера
+  description: Имеет светоотражающие элементы и устойчиво к пятнам, поэтому не беспокойтесь, что вы заляпаете его маслом.
+  components:
+  - type: Sprite
+    state: sheetce
+  - type: StealTarget
+    stealGroup: HeadBedsheet
+
+- type: entity
+  id: DoubleBedsheetCentcom
+  parent: DoubleBedsheetBase
+  name: одеяло Центком
+  description: Очень красивое одеяло, сотканное из передовых нанонитей для сохранения тепла, незаменимое для всех руководителей.
+  components:
+  - type: Sprite
+    state: sheetcentcom
+  - type: StealTarget
+    stealGroup: HeadBedsheet
+
+- type: entity
+  id: DoubleBedsheetClown
+  parent: DoubleBedsheetBase
+  name: одеяло клоуна
+  description: Радужное одеяло с нашитой клоунской маской. Слегка пахнет бананами.
+  components:
+  - type: Sprite
+    state: sheetclown
+
+- type: entity
+  id: DoubleBedsheetCMO
+  parent: DoubleBedsheetBase
+  name: одеяло главврача
+  description: Это стерилизованное одеяло, украшенное эмблемой креста. На нём осталась кошачья шерсть, вероятно, от Рантайма.
+  components:
+  - type: Sprite
+    state: sheetcmo
+  - type: StealTarget
+    stealGroup: HeadBedsheet
+
+- type: entity
+  id: DoubleBedsheetCosmos
+  parent: DoubleBedsheetBase
+  name: космическая одеяло
+  description: Сделано из мечтаний тех, кто смотрит на звёзды.
+  components:
+  - type: Sprite
+    state: sheetcosmos
+
+- type: entity
+  id: DoubleBedsheetCult
+  parent: DoubleBedsheetBase
+  name: одеяло культа
+  description: Вам может присниться Нар'Си, если вы будете спать под ним. Оно выглядит довольно потрёпанным и светится колдовским сиянием.
+  components:
+  - type: Sprite
+    state: sheetcult
+
+- type: entity
+  id: DoubleBedsheetGreen
+  parent: DoubleBedsheetBase
+  name: зелёное одеяло
+  components:
+  - type: Sprite
+    state: sheetgreen
+
+- type: entity
+  id: DoubleBedsheetGrey
+  parent: DoubleBedsheetBase
+  name: серое одеяло
+  components:
+  - type: Sprite
+    state: sheetgrey
+
+- type: entity
+  id: DoubleBedsheetHOP
+  parent: DoubleBedsheetBase
+  name: одеяло главы персонала
+  description: Оно украшено эмблемой ключа. Для тех редких моментов, когда вы можете отдохнуть и потискать Иана не беспокоясь, что вас вызывают по рации.
+  components:
+  - type: Sprite
+    state: sheethop
+  - type: StealTarget
+    stealGroup: HeadBedsheet
+
+- type: entity
+  id: DoubleBedsheetHOS
+  parent: DoubleBedsheetBase
+  name: одеяло главы СБ
+  description: Оно украшено эмблемой в виде щита. Пока преступность не спит, спите вы, но вы по-прежнему ЗАКОН!
+  components:
+  - type: Sprite
+    state: sheethos
+  - type: StealTarget
+    stealGroup: HeadBedsheet
+
+- type: entity
+  id: DoubleBedsheetIan
+  parent: DoubleBedsheetBase
+  name: одеяло Иана
+  components:
+  - type: Sprite
+    state: sheetian
+
+- type: entity
+  id: DoubleBedsheetMedical
+  parent: DoubleBedsheetBase
+  name: медицинское одеяло
+  description: Это стерилизованное* одеяло, обычно используемое в медотсеке. *Стерилизация не проводится, если на борту станции присутствует вирусолог.
+  components:
+  - type: Sprite
+    state: sheetmedical
+
+- type: entity
+  id: DoubleBedsheetMime
+  parent: DoubleBedsheetBase
+  name: одеяло мима
+  description: Умиротворяющее полосатое одеяло. Когда вы накрываетесь им, то весь шум словно исчезает.
+  components:
+  - type: Sprite
+    state: sheetmime
+
+- type: entity
+  id: DoubleBedsheetNT
+  parent: DoubleBedsheetBase
+  name: одеяло NT
+  description: Имеет эмблему Nanotrasen, и от него исходит аура долга.
+  components:
+  - type: Sprite
+    state: sheetNT
+
+- type: entity
+  id: DoubleBedsheetOrange
+  parent: DoubleBedsheetBase
+  name: оранжевое одеяло
+  components:
+  - type: Sprite
+    state: sheetorange
+
+- type: entity
+  id: DoubleBedsheetPurple
+  parent: DoubleBedsheetBase
+  name: фиолетовое одеяло 
+  components:
+  - type: Sprite
+    state: sheetpurple
+
+- type: entity
+  id: DoubleBedsheetQM
+  parent: DoubleBedsheetBase
+  name: QM's bedsheet
+  components:
+  - type: Sprite
+    state: sheetqm
+  - type: StealTarget
+    stealGroup: HeadBedsheet
+
+- type: entity
+  id: DoubleBedsheetRainbow
+  parent: DoubleBedsheetBase
+  name: рандомное одеяло
+  components:
+  - type: Sprite
+    state: sheetrainbow
+
+- type: entity
+  id: DoubleBedsheetRD
+  parent: DoubleBedsheetBase
+  name: одеяло научрука
+  description: На нём имеется эмблема с мензуркой, и сделано оно из огнестойкого материала, который, вероятно, не защитит вас в случае пожаров, с которыми вы сталкиваетесь ежедневно.
+  components:
+  - type: Sprite
+    state: sheetrd
+  - type: StealTarget
+    stealGroup: HeadBedsheet
+
+- type: entity
+  id: DoubleBedsheetRed
+  parent: DoubleBedsheetBase
+  name: красное одеяло
+  components:
+  - type: Sprite
+    state: sheetred
+
+- type: entity
+  id: DoubleBedsheetSyndie
+  parent: DoubleBedsheetBase
+  name: одеяло синди
+  description: It has a syndicate emblem and it has an aura of evil.
+  components:
+  - type: Sprite
+    state: sheetsyndie
+
+- type: entity
+  id: DoubleBedsheetUSA
+  parent: DoubleBedsheetBase
+  name: одеяло США
+  components:
+  - type: Sprite
+    state: sheetUSA
+
+- type: entity
+  id: DoubleBedsheetWhite
+  parent: DoubleBedsheetBase
+  name: белое одеяло
+  components:
+  - type: Butcherable
+    spawned:
+    - id: ClothingOuterGhostSheet 
+      amount: 1
+  - type: Sprite
+    state: sheetwhite
+
+- type: entity
+  id: DoubleBedsheetWiz
+  parent: DoubleBedsheetBase
+  name: одеяло волшебника
+  description: A special fabric enchanted with magic so you can have an enchanted night. It even glows!
+  components:
+  - type: Sprite
+    state: sheetwiz
+
+- type: entity
+  id: DoubleBedsheetYellow
+  parent: DoubleBedsheetBase
+  name: жёлтое одеяло
+  components:
+  - type: Sprite
+    state: sheetyellow
+
+# Radiant Sector
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetBlack
+  result: DoubleBedsheetBlack
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetBlue
+  result: DoubleBedsheetBlue
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetBrown
+  result: DoubleBedsheetBrown
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetClown
+  result: DoubleBedsheetClown
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetCosmos
+  result: DoubleBedsheetCosmos
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetCult
+  result: DoubleBedsheetCult
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetGreen
+  result: DoubleBedsheetGreen
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetGrey
+  result: DoubleBedsheetGrey
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetIan
+  result: DoubleBedsheetIan
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetMedical
+  result: DoubleBedsheetMedical
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetMime
+  result: DoubleBedsheetMime
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetNT
+  result: DoubleBedsheetNT
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetOrange
+  result: DoubleBedsheetOrange
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetPurple
+  result: DoubleBedsheetPurple
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetRainbow
+  result: DoubleBedsheetRainbow
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetRed
+  result: DoubleBedsheetRed
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetUSA
+  result: DoubleBedsheetUSA
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetWhite
+  result: DoubleBedsheetWhite
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetWiz
+  result: DoubleBedsheetWiz
+
+- type: latheRecipe
+  parent: BaseSpecifiedBedsheetRecipe
+  id: DoubleBedsheetYellow
+  result: DoubleBedsheetYellow

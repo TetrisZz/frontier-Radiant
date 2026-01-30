@@ -13,6 +13,7 @@ namespace Content.Shared.Humanoid.Markings
         HeadSide,
         Snout,
         Chest,
+        Wings, // Radiant Sector
         UndergarmentTop,
         UndergarmentBottom,
         Arms,
@@ -35,6 +36,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
+                HumanoidVisualLayers.Wings => MarkingCategories.Wings, // Radiant Sector
                 HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
                 HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.RArm => MarkingCategories.Arms,

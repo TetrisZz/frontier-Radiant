@@ -25,6 +25,32 @@
     color: "#ce89d6"
 
 - type: entity
+  parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
+  id: SexVendingMachineRadiant
+  name: Секс-шоп
+  description: Специальный автомат для...Для чего?
+  components:
+  - type: VendingMachine
+    pack: SexVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/VendingMachines/sex-vending-machine.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#ce89d6"
+
+- type: entity
   parent: VendingMachineSec
   id: VendingMachineSecAcorp
   components:

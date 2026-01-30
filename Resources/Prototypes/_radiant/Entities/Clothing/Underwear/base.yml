@@ -1,0 +1,24 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ClothingPlugBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 1500 
+  - type: Item
+    size: Tiny
+
+
+- type: entity
+  abstract: true
+  parent: ClothingPlugBase
+  id: ClothingButtPlugBase
+  components:
+  - type: Clothing
+    slots:
+    - plug
+
+

@@ -1,0 +1,14 @@
+# Hostile
+- type: entity
+  id: SpawnMobCatBobik
+  parent: MarkerBase
+  name: спавн бомбика
+  suffix: спавнер
+  components:
+  - type: Sprite
+    layers:
+    - state: secdog
+    - sprite: _radiant/Mobs/Pets/dogsep.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCatBobik

@@ -206,3 +206,123 @@
   sprites:
     - sprite: _radiant/Mobs/Customization/human_hair.rsi
       state: loose4
+
+- type: marking
+  id: ADTAllcrayfish
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: crayfish
+
+- type: marking
+  id: ADTAllhonor
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: honor
+
+- type: marking
+  id: ADTAllmadscientist
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: madscientist
+
+- type: marking
+  id: ADTAllmonday
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: monday
+
+- type: marking
+  id: ADTAllpunk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: punk
+
+- type: marking
+  id: ADTAllAyanami
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: ayanami
+
+- type: marking
+  id: ADTAllBubbleGum
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: bubble_gum
+
+- type: marking
+  id: ADTAllMavis
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: mavis
+
+- type: marking
+  id: ADTAllCloud
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: cloud
+
+- type: marking
+  id: ADTAllMorningHairstyle
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: morning_hairstyle
+
+- type: marking
+  id: ADTAllMorningHairstyle2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: morning_hairstyle_2
+
+- type: marking
+  id: ADTAllPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: ponytail
+
+- type: marking
+  id: ADTAllPrinceCharming
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: prince_charming
+
+- type: marking
+  id: ADTAllShavedFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: shaved_female
+
+- type: marking
+  id: ADTAllShavedFemaleUnisex
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: ADT/Customization/Markings/hair.rsi
+      state: shaved_unisex

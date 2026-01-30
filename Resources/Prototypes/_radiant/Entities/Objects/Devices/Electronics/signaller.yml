@@ -1,0 +1,23 @@
+
+- type: entity
+  parent: RemoteSignaller
+  id: SexRemoteSignaller
+  name: пульт дистанционного управления
+  description: Пульт для дистанционного управления...чем?.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/sexsignaller.rsi
+    state: icon
+  - type: Signaller
+  - type: UseDelay
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 400 
+  - type: DeviceLinkSource
+    ports:
+      - Pressed
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 15

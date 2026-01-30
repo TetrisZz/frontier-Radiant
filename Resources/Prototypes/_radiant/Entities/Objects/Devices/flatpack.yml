@@ -77,3 +77,24 @@
   components:
   - type: Flatpack
     entity: WeaponTurretM220
+
+- type: entity
+  parent: BaseFlatpack
+  id: BaseRadiantFlatpackSexShop
+  components:
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 1500 
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/flatpack.rsi
+    layers:
+    - state: sexshop
+
+- type: entity
+  parent: BaseRadiantFlatpackSexShop
+  id: PoleFlatpack
+  name: упаковка с шестом
+  description: Универсально-сборная упаковка, используемая для сборки шеста.
+  components:
+  - type: Flatpack
+    entity: Pole

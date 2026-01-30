@@ -1,0 +1,76 @@
+- type: vendingMachineInventory
+  id: SexVendInventory
+  startingInventory:
+# Toy
+    BoxRSSexFull: 10 # Infinite
+    BoxRSSexMedium: 10 # Infinite
+    BoxRSSexEconom: 10 # Infinite
+    BoxRSSexSoloM: 10 # Infinite
+    BoxRSSexSoloW: 10 # Infinite
+    BoxTealCondomFull: 10 
+    BoxPinkCondomFull: 10 
+    ClothingUniformJumpskirtJanimaidmini: 4294967295 # Infinite
+    ClothingUniformSpecialBunny: 4294967295 # Infinite
+    ClothingUniformSpecialMaidRadiant: 4294967295 # Infinite
+    ClothingHeadHatDemonic: 4294967295 # Infinite
+    ClothingNeckChokerBlack: 4294967295 # Infinite
+    ClothingNeckChokerBlack2: 4294967295 # Infinite
+    ClothingNeckChokerBlackShaped: 4294967295 # Infinite
+    ClothingNeckChokerHeart: 4294967295 # Infinite
+    ClothingNeckChokerSpike: 4294967295 # Infinite
+    SexRemoteSignaller: 10
+    ClothingOuterShibari: 5
+    PoleFlatpack: 10
+    ClothingButtPlugBaseVibratorBlack: 4294967295 # Infinite
+    ClothingButtPlugBaseVibratorRed: 4294967295 # Infinite
+    ClothingButtPlugBaseSpanker: 4294967295 # Infinite
+    ClothingButtPlugBaseSpankerRed: 4294967295 # Infinite
+    ClothingButtPlugBaseFoxyTailRed: 4294967295 # Infinite
+    ClothingButtPlugBaseFoxyTail: 4294967295 # Infinite
+    ClothingButtPlugBaseDildoRed: 3 # Infinite
+    ClothingButtPlugBaseDildoPink: 3 # Infinite
+    ClothingButtPlugBaseDildo: 3 # Infinite
+    ClothingButtPlugBaseBeads: 4294967295 # Infinite
+    LewdWand: 5 # Infinite
+    LewdVibeGreen: 5 # Infinite
+    LewdVibeTeal: 5 # Infinite
+    LewdVibePink: 5 # Infinite
+    LewdVibeRed: 5 # Infinite
+    LewdVibeYellow: 5 # Infinite
+    ClothingBigGreenButtplug: 3 # Infinite
+    ClothingMedGreenButtplug: 3 # Infinite
+    ClothingSmallGreenButtplug: 3 # Infinite
+    ClothingBigmetalButtplug: 3 # Infinite
+    ClothingMedmetalButtplug: 3 # Infinite
+    ClothingSmallmetalButtplug: 3 # Infinite
+    ClothingBigpinkButtplug: 3 # Infinite
+    ClothingMedpinkButtplug: 3 # Infinite
+    ClothingSmallpinkButtplug: 3 # Infinite
+    ClothingBigtealButtplug: 3 # Infinite
+    ClothingMedtealButtplug: 3 # Infinite
+    ClothingSmalltealButtplug: 3 # Infinite
+    ClothingBigyellowButtplug: 3 # Infinite
+    ClothingMedyellowButtplug: 3 # Infinite
+    ClothingSmallyellowButtplug: 3 # Infinite
+    AvianDildo: 3 # Infinite
+    CanineDildo: 3 # Infinite
+    CanineDildoRed: 3 # Infinite
+    HorseDildo: 3 # Infinite
+    DragonDildo: 3 # Infinite
+    NormalDildo: 3 # Infinite
+    TentacleDildo: 3 # Infinite
+    DoubleDildo: 3 # Infinite
+    ErpToySpankerRed: 5 # Infinite
+    ErpToySpanker: 5 # Infinite
+    ClothingButtPlugErpToyFoxyTailRed: 5 # Infinite
+    ClothingButtPlugErpToyFoxyTail: 5 # Infinite
+    LewdFleshlightGreen: 5 # Infinite
+    LewdFleshlightTeal: 5 # Infinite
+    LewdFleshlightPink: 5 # Infinite
+    LewdFleshlightRed: 5 # Infinite
+    LewdFleshlightYellow: 5 # Infinite
+    ClothingBeltStraponAvian: 5 # Infinite
+    ClothingBeltStraponCanine: 5 # Infinite
+    ClothingBeltStraponDragon: 5 # Infinite
+    ClothingBeltStraponEquine: 5 # Infinite
+    ClothingBeltStraponHuman: 5 # Infinite

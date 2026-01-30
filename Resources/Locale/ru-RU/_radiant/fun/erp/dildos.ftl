@@ -1,0 +1,16 @@
+ent-AvianDildo = Птичий фаллоимитатор
+    .desc = Не опаздывает, не устаёт и не задаёт лишних вопросов. Надёжный, как план Б, С и D.
+ent-DoubleDildo = Двойной фаллоимитатор
+    .desc = { ent-AvianDildo.desc }
+ent-TentacleDildo = Щупальцевый фаллоимитатор
+    .desc = { ent-AvianDildo.desc }
+ent-NormalDildo = Фаллоимитатор
+    .desc = { ent-AvianDildo.desc }
+ent-DragonDildo = Драконий фаллоимитатор
+    .desc = { ent-AvianDildo.desc }
+ent-HorseDildo = Лошадиный фаллоимитатор
+    .desc = { ent-AvianDildo.desc }
+ent-CanineDildoRed = Красный фаллоимитатор
+    .desc = { ent-AvianDildo.desc }
+ent-CanineDildo = Фаллоимитатор
+    .desc = { ent-AvianDildo.desc }
