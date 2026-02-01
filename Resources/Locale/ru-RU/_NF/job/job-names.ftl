@@ -16,7 +16,7 @@ job-name-plant-technician = Техник Электростанции
 job-name-security-guard = Охранник Аванпоста
 job-name-sheriff = Шериф
 job-name-stc = Диспетчер Трафика
-job-name-sr = Представитель Сектора
+job-name-sr = Губернатор
 job-name-pal = Специалист ПСсО
 job-name-doc = Смотритель Мед Обслуживания
 
