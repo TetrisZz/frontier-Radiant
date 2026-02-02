@@ -24,3 +24,16 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Backpacks/backpacksep.rsi
+
+- type: entity
+  parent: NFClothingBackpack
+  id: ClothingBackpackMeow
+  name: рюкзак meow
+  description: Рюкзак, который просто meow.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Backpacks/meow.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,7 # Frontier: Was 0,0,19,9

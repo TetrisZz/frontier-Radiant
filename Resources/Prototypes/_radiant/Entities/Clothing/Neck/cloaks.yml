@@ -51,3 +51,12 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Cloaks/sheriffcloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase # Frontier: removed BaseCommandContraband
+  id: ClothingNeckCloakRS
+  name: плащ
+  description: Стильный плащ, выглядит, как что-то особенное
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/cloak.rsi

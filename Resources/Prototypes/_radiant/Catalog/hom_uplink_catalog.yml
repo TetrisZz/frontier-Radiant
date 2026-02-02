@@ -1,11 +1,43 @@
 # Weapons
+- type: listing
+  id: UplinkHomClothingBackpackSatchelMeow
+  name:  uplink-hom-backpack-name
+  description: uplink-hom-backpack-desc
+  productEntity: ClothingBackpackSatchelMeow
+  icon: { sprite: _radiant/Clothing/Back/Satchels/meow.rsi, state: icon }
+  cost:
+    Cristalhom: 10
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
 
 - type: listing
-  id: UplinkHomUniformJumpsuitHoSAlt
+  id: UplinkHomClothingBackpackMeow
+  name:  uplink-hom-backpacks-name
+  description: uplink-hom-backpacks-desc
+  productEntity: ClothingBackpackMeow
+  icon: { sprite: _radiant/Clothing/Back/Backpacks/meow.rsi, state: icon }
+  cost:
+    Cristalhom: 10
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+# 
+- type: listing
+  id: UplinkHomClothingBeltCombatWebbingMerc
   name:  uplink-hom-hosalt-name
   description: uplink-hom-hosalt-desc
-  productEntity: ClothingUniformJumpsuitHoSAlt
-  icon: { sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi, state: icon }
+  productEntity: ClothingBeltCombatWebbingMerc
+  icon: { sprite: _radiant/Clothing/Belt/rpsnaem.rsi, state: icon }
   cost:
     Cristalhom: 1
   categories:
@@ -17,11 +49,11 @@
           - HomUplink
 
 - type: listing
-  id: UplinkHomUniformJumpsuitHoS
+  id: UplinkHomClothingHandsGlovesCombatMerc
   name:  uplink-hom-hos-name
   description: uplink-hom-hos-desc
-  productEntity: ClothingUniformJumpsuitHoS
-  icon: { sprite: Clothing/Uniforms/Jumpsuit/hos.rsi, state: icon }
+  productEntity: ClothingHandsGlovesCombatMerc
+  icon: { sprite: _radiant/Clothing/Hands/naem.rsi, state: icon }
   cost:
     Cristalhom: 1
   categories:
@@ -33,11 +65,11 @@
           - HomUplink
 
 - type: listing
-  id: UplinkHomUniformJumpsuitHoSBlue
+  id: UplinkHomClothingHeadHelmetMecRS
   name:  uplink-hom-hosblue-name
   description: uplink-hom-hosblue-desc
-  productEntity: ClothingUniformJumpsuitHoSBlue
-  icon: { sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi, state: icon }
+  productEntity: ClothingHeadHelmetMecRS
+  icon: { sprite: _radiant/Clothing/Head/Helmets/naem.rsi, state: icon }
   cost:
     Cristalhom: 1
   categories:
@@ -49,11 +81,11 @@
           - HomUplink
 
 - type: listing
-  id: UplinkHomUniformJumpsuitHoSGrey
+  id: UplinkHomClothingUniformJumpsuitSuitrMercRS
   name:  uplink-hom-hosgray-name
   description: uplink-hom-hosgray-desc
-  productEntity: ClothingUniformJumpsuitHoSGrey
-  icon: { sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi, state: icon }
+  productEntity: ClothingUniformJumpsuitSuitrMercRS
+  icon: { sprite: _radiant/Clothing/Uniforms/Jumpsuit/merc.rsi, state: icon }
   cost:
     Cristalhom: 1
   categories:
@@ -65,13 +97,13 @@
           - HomUplink
 
 - type: listing
-  id: UplinkHomUniformJumpsuitHoSParadeMale
+  id: UplinkHomClothingOuterHardsuitMersc
   name:  uplink-hom-hosparade-name
   description: uplink-hom-hosparade-desc
-  productEntity: ClothingUniformJumpsuitHoSParadeMale
-  icon: { sprite: Clothing/Uniforms/Jumpsuit/hos_parade.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitMersc
+  icon: { sprite: _radiant/Clothing/Hardsuits/mercs.rsi, state: icon }
   cost:
-    Cristalhom: 1
+    Cristalhom: 7
   categories:
     - UplinkHomUtility
   conditions:
@@ -81,13 +113,13 @@
           - HomUplink
 
 - type: listing
-  id: ClothingUniformJumpsuitHosFormal
+  id: UplinkHomClothingOuterHardsuitMerscRS
   name:  uplink-hom-hosformal-name
   description: uplink-hom-hosformal-desc
-  productEntity: ClothingUniformJumpsuitHosFormal
-  icon: { sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitMerscRS
+  icon: { sprite: _radiant/Clothing/Hardsuits/merc.rsi, state: icon }
   cost:
-    Cristalhom: 1
+    Cristalhom: 7
   categories:
     - UplinkHomUtility
   conditions:
@@ -95,13 +127,13 @@
       whitelist:
         tags:
           - HomUplink
-    
+
 - type: listing
-  id: UplinkHomUniformJumpskirtHoS
-  name:  uplink-hom-jumpskirthos-name
-  description: uplink-hom-jumpskirthos-desc
-  productEntity: ClothingUniformJumpskirtHoS
-  icon: { sprite: Clothing/Uniforms/Jumpskirt/hos.rsi, state: icon }
+  id: UplinkHomClothingNeckCloakRS
+  name:  uplink-hom-clocksd-name
+  description: uplink-hom-clocksd-desc
+  productEntity: ClothingNeckCloakRS
+  icon: { sprite: _radiant/Clothing/Neck/Cloaks/cloak.rsi, state: icon }
   cost:
     Cristalhom: 1
   categories:
@@ -113,43 +145,11 @@
           - HomUplink
 
 - type: listing
-  id: UplinkHomUniformJumpskirtHoSAlt
-  name:  uplink-hom-jumpskirthosalt-name
-  description: uplink-hom-jumpskirthosalt-desc
-  productEntity: ClothingUniformJumpskirtHoSAlt
-  icon: { sprite: Clothing/Uniforms/Jumpskirt/hos_alt.rsi, state: icon }
-  cost:
-    Cristalhom: 1
-  categories:
-    - UplinkHomUtility
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - HomUplink
-
-- type: listing
-  id: UplinkHomUniformJumpskirtHoSParadeMale
-  name:  uplink-hom-hosparademale-name
-  description: uplink-hom-hosparademale-desc
-  productEntity: ClothingUniformJumpskirtHoSParadeMale
-  icon: { sprite: Clothing/Uniforms/Jumpskirt/hos_parade.rsi, state: icon }
-  cost:
-    Cristalhom: 1
-  categories:
-    - UplinkHomUtility
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - HomUplink
-
-- type: listing
-  id: UplinkHomUniformJumpskirtHosFormal
-  name:  uplink-hom-jumpskirthosformal-name
-  description: uplink-hom-jumpskirthosformal-desc
-  productEntity: ClothingUniformJumpskirtHosFormal
-  icon: { sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi, state: icon }
+  id: UplinkHomClothingNeckScarfNerc
+  name:  uplink-hom-scmer-name
+  description: uplink-hom-scmer-desc
+  productEntity: ClothingNeckScarfNerc
+  icon: { sprite: _radiant/Clothing/Neck/Scarfs/merc.rsi, state: icon }
   cost:
     Cristalhom: 1
   categories:
@@ -263,7 +263,7 @@
   productEntity: ClothingOuterRndRS
   icon: { sprite: _radiant/Clothing/OuterClothing/Armor/armor_rnd.rsi, state: icon }
   cost:
-    Cristalhom: 1
+    Cristalhom: 3
   categories:
     - UplinkHomUtility
   conditions:
@@ -279,9 +279,233 @@
   productEntity: ClothingOuterRNDRS
   icon: { sprite: _radiant/Clothing/OuterClothing/Armor/armor_med.rsi, state: icon }
   cost:
-    Cristalhom: 1
+    Cristalhom: 3
   categories:
     - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingOuterArmorRS
+  name:  uplink-hom-ordinary-name
+  description: uplink-hom-ordinary-desc
+  productEntity: ClothingOuterArmorRS
+  icon: { sprite: _radiant/Clothing/OuterClothing/Armor/armor_ordinary.rsi, state: icon }
+  cost:
+    Cristalhom: 3
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingOuterHeavyArmorRS
+  name:  uplink-hom-whi-name
+  description: uplink-hom-whi-desc
+  productEntity: ClothingOuterHeavyArmorRS
+  icon: { sprite: _radiant/Clothing/OuterClothing/Armor/armor_whi.rsi, state: icon }
+  cost:
+    Cristalhom: 3
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomNWeaponStun23
+  name:  uplink-hom-stunbaton-name
+  description: uplink-hom-stunbaton-desc
+  productEntity: Stun23
+  icon: { sprite: _radiant/Objects/Weapons/Melee/stunbaton.rsi, state: stunbaton_on }
+  cost:
+    Cristalhom: 10
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponHyperEutacticBlade1
+  name:  uplink-hom-cutlass-name
+  description: uplink-hom-cutlass-desc
+  productEntity: HyperEutacticBlade1
+  icon: { sprite: _radiant/Objects/Weapons/Melee/e_cutlass1.rsi, state: e_cutlass_blade }
+  cost:
+    Cristalhom: 20
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponHyperEutacticBlade2
+  name:  uplink-hom-blade-name
+  description: uplink-hom-blade-desc
+  productEntity: HyperEutacticBlade2
+  icon: { sprite: _radiant/Objects/Weapons/Melee/e_saw.rsi, state: e_cutlass_blade }
+  cost:
+    Cristalhom: 20
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponShotgunPoorGun
+  name:  uplink-hom-gun-name
+  description: uplink-hom-gun-desc
+  productEntity: WeaponShotgunPoorGun
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi, state: icon }
+  cost:
+    Cristalhom: 25
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomBoxRSSexFull
+  name:  uplink-hom-sex-name
+  description: uplink-hom-sex-desc
+  productEntity: BoxRSSexFull
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs }
+  cost:
+    Cristalhom: 2
+  categories:
+    - UplinkHomShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomBoxRSSexSoloW
+  name:  uplink-hom-sexw-name
+  description: uplink-hom-sexw-desc
+  productEntity: BoxRSSexSoloW
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs2 }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkBoxBaseSmailMRS
+  name:  uplink-hom-sexm-name
+  description: uplink-hom-sexm-desc
+  productEntity: BoxRSSexSoloM
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs2 }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkDrinkJuicePineappleCarton
+  name:  uplink-hom-juice-name
+  description: uplink-hom-juice-desc
+  productEntity: DrinkJuicePineappleCarton
+  icon: { sprite: Objects/Consumable/Drinks/pineapplejuice.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkRSMysteryDildo
+  name:  uplink-hom-dildo-name
+  description: uplink-hom-dildo-desc
+  productEntity: RSMysteryDildo
+  icon: { sprite: Objects/Fun/figurines.rsi, state: fig_box }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkRSMysteryLewdFleshlight
+  name:  uplink-hom-fleshlight-name
+  description: uplink-hom-fleshlight-desc
+  productEntity: RSMysteryLewdFleshlight
+  icon: { sprite: Objects/Fun/figurines.rsi, state: fig_box }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkRSMysteryButtplug
+  name:  uplink-hom-plug-name
+  description: uplink-hom-plug-desc
+  productEntity: RSMysteryButtplug
+  icon: { sprite: Objects/Fun/figurines.rsi, state: fig_box }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkRSMysteryLewdVibe
+  name:  uplink-hom-vibe-name
+  description: uplink-hom-vibe-desc
+  productEntity: RSMysteryLewdVibe
+  icon: { sprite: Objects/Fun/figurines.rsi, state: fig_box }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomShuttle
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:

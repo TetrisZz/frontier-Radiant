@@ -272,6 +272,30 @@
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
 
 - type: entity
+  name: energy cutlass
+  parent: [BaseMeleeWeaponEnergy, BaseC3PirateContraband] # Frontier: BaseMajorContraband<BaseC3PirateContraband
+  id: EnergyCutlass1
+  description: An exotic energy weapon.
+  components:
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Slash: 10
+            Heat: 12
+    deactivatedSecret: true
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_cutlass1.rsi
+    layers:
+      - state: e_cutlass
+      - state: e_cutlass_blade
+        color: "#e95151"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
+  - type: Item
+    sprite: Objects/Weapons/Melee/e_cutlass1.rsi
+
+- type: entity
   name: double-bladed energy sword
   parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: EnergySwordDouble

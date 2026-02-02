@@ -55,3 +55,14 @@
   - type: StaticPrice 
     price: 100
     vendPrice: 1500 
+
+- type: entity
+  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase
+  id: ClothingBeltCombatWebbingMerc
+  name: РПС наемника
+  description: Выглядит стильно и практично.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/rpsnaem.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/rpsnaem.rsi

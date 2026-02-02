@@ -73,7 +73,35 @@
       params:
         volume: -1.5
     soundRack:
-      path: /Audio/_radiant/Weapons/Cock/Pump.ogg
+      path: /Audio/_radiant/Weapons/Cock/shotgunpump2.ogg
       params:
         volume: -2.5
 
+- type: entity
+  id: WeaponShotgunPoorGun
+  parent: [ NFBaseWeaponShotgunChamber50, NFBaseWeaponFrameShotgunWieldable ]
+  name: кровавый изгиб
+  description: |-
+    Этот дробовик выглядит так, будто выкован из тёмного металла, пропитанного древними ритуалами. Его изогнутая форма напоминает коготь хищника, а рукоять украшена узорами, напоминающими засохшие капли крови. Это оружие идеально подойдёт охотнику на нежить или воину, не боящемуся тёмной стороны силы. Легенды гласят, что дробовик усиливает ярость владельца, позволяя ему сражаться даже в самых безнадёжных ситуациях.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi
+  - type: GunSpreadModifier
+    spread: 0.6
+  - type: Gun
+    fireRate: 1
+  - type: NFWeaponDetails
+    manufacturer: weapon-details-manufacturer-nanotrasen-munitions
+  - type: BallisticAmmoProvider
+    soundInsert:
+      path: /Audio/_radiant/Weapons/MagIn/Load-1.ogg
+      params:
+        volume: -1.5
+    soundRack:
+      path: /Audio/_radiant/Weapons/Cock/shotgunpump1.ogg
+      params:
+        volume: -2.5

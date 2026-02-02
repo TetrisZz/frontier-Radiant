@@ -26,6 +26,7 @@
   - ASSUnderwearSocks
   - SECUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobAcorpDirector
@@ -52,6 +53,7 @@
   - ASSUnderwearSocks
   - SCIUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobAcorpSecurity
@@ -78,6 +80,7 @@
   - ASSUnderwearSocks
   - SECUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobAcorpScience
@@ -102,6 +105,7 @@
   - ASSUnderwearSocks
   - SCIUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobAcorpEngineer
@@ -129,6 +133,7 @@
   - ASSUnderwearSocks
   - ASSUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobAcorpMedical
@@ -152,6 +157,7 @@
   - ASSUnderwearSocks
   - ASSUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobAcorpService
@@ -175,6 +181,7 @@
   - ASSUnderwearSocks
   - ASSUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobAcorpAssistant
@@ -198,6 +205,7 @@
   - ASSUnderwearSocks
   - ASSUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 # Separatists
 
@@ -226,6 +234,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobSeparatistsPrivateSlave
@@ -242,6 +251,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobSeparatistsOperative
@@ -267,7 +277,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
-
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobSeparatistsWarden
@@ -293,7 +303,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
-
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobSeparatistsRecruit
@@ -318,6 +328,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobSeparatistsSlave
@@ -359,6 +370,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobNavyCaptain
@@ -386,6 +398,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobNavyOfficer
@@ -412,6 +425,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobNavyBrigmedic
@@ -438,6 +452,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobNavyCadet
@@ -464,6 +479,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 # Phoenix
 
@@ -493,6 +509,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
 
 - type: roleLoadout
   id: JobPhoenixAgent
@@ -520,3 +537,4 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFSpeciesSpecific
+  - ASSSpecial
