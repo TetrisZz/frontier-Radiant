@@ -28,3 +28,18 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-regal-white
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesCombatMerc
+  name: перчатки наемника
+  description: Эти тактические перчатки огнеупорны и ударопрочны.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Hands/naem.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Hands/naem.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-regal-white

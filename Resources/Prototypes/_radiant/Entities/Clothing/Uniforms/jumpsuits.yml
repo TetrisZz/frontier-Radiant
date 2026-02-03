@@ -338,3 +338,14 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/suitrblack.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/suitrblack.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSuitrMercRS
+  name: костюм наемника
+  description: Удобный, практичный, сшит из качественной ткани.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/merc.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/merc.rsi

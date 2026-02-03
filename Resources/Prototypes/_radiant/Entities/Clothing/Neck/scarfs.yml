@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfNerc
+  name: шарф
+  description: Шарф из лимитированной коллекции. На бирке указано "Номер 5 из 13"
+  components:
+  - type: Tag
+    tags:
+    - ObjectOfSpiritualSignificance
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Scarfs/merc.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Scarfs/merc.rsi

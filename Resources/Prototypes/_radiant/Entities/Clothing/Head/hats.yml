@@ -180,3 +180,18 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+
+- type: entity
+  parent: [ClothingHeadHelmetBase] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
+  id: ClothingHeadHelmetMecRS
+  name: шлем наемника
+  description: Шлем для защиты вашей самой важной части тела.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Helmets/naem.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Helmets/naem.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet

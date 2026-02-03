@@ -93,3 +93,87 @@
   components:
   - type: Wieldable
     freeHandsRequired: 0
+
+# Item will look weird in handslot. Will need to adjust handstorage visuals in a future PR
+- type: entity
+  parent: BaseMeleeWeaponEnergy
+  id: HyperEutacticBlade1
+  name: энергетический клинок
+  description: Экспериментальный энергетический клинок. Использует стабилизированную плазменную дугу, способную прорезать броню и космические костюмы. Рекомендуется не махать им в тесных отсеках.
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    attackRate: 0.8 #0.7 and below is too slow
+    angle: 100
+    range: 2.0
+    damage:
+      types:
+        Blunt: 4.5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        volume: -3
+        variation: 0.250
+    activatedDamage:
+      types:
+        Slash: 20
+        Heat: 20
+        Structural: 20
+  - type: MeleeRequiresWield
+  - type: UseDelay
+    delay: 1.5
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/e_cutlass1.rsi
+    layers:
+      - state: e_cutlass
+      - state: e_cutlass_blade
+        color: "#e95151"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
+  - type: Item
+    size: Small
+    sprite: _radiant/Objects/Weapons/Melee/e_cutlass1.rsi
+
+# Item will look weird in handslot. Will need to adjust handstorage visuals in a future PR
+- type: entity
+  parent: BaseMeleeWeaponEnergy
+  id: HyperEutacticBlade2
+  name: плазменная пила
+  description: Инженерный инструмент, переделанный в оружие. Плазменное лезвие разрывает металл, плоть и технику с одинаковой эффективностью.
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    attackRate: 0.8 #0.7 and below is too slow
+    angle: 100
+    range: 2.0
+    damage:
+      types:
+        Blunt: 4.5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        volume: -3
+        variation: 0.250
+    activatedDamage:
+      types:
+        Slash: 20
+        Heat: 20
+        Structural: 20
+  - type: MeleeRequiresWield
+  - type: UseDelay
+    delay: 1.5
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/e_saw.rsi
+    layers:
+      - state: e_cutlass
+      - state: e_cutlass_blade
+        color: "#e95151"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
+  - type: Item
+    size: Small
+    sprite: _radiant/Objects/Weapons/Melee/e_saw.rsi

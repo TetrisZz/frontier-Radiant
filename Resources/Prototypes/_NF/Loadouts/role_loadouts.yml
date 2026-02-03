@@ -26,6 +26,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobPilot
@@ -54,6 +55,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobMercenary
@@ -82,6 +84,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 # region Frontier
 - type: roleLoadout
@@ -108,6 +111,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobNFJanitor
@@ -129,6 +133,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobMailCarrier
@@ -153,6 +158,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobStationTrafficController
@@ -179,6 +185,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobStationRepresentative
@@ -206,6 +213,7 @@
   - StationRepBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobSecurityGuard
@@ -232,6 +240,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 # region Misc
 - type: roleLoadout
@@ -258,6 +267,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobPlantManager
@@ -286,6 +296,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobPlantTechnician
@@ -313,6 +324,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 # region NFSD
 - type: roleLoadout
@@ -342,6 +354,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobDeputy
@@ -370,6 +383,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobBrigmedic
@@ -398,6 +412,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobNFDetective
@@ -426,6 +441,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobPublicAffairsLiaison
@@ -453,6 +469,7 @@
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific # Explicitly civilian variant
+  - ASSSpecial #Radiant Sector
 
 # - type: roleLoadout # Fix when this is actully used
   # id: JobPrisonGuard
@@ -506,6 +523,7 @@
   - SeniorOfficerBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobSeniorOfficer
@@ -534,6 +552,7 @@
   - SeniorOfficerBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 - type: roleLoadout
   id: JobSheriff
@@ -561,6 +580,7 @@
   - SeniorOfficerBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
+  - ASSSpecial #Radiant Sector
 
 # region NFPirate
 
@@ -582,6 +602,7 @@
   - ContractorUnderwearTop
   - NFPiratePDA
   - ContractorWallet
+  - ASSSpecial #Radiant Sector
   - PirateBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific
@@ -607,6 +628,7 @@
   - NFPirateFirstMatePDA
   - ContractorWallet
   - PirateBackpackItems
+  - ASSSpecial #Radiant Sector
   - ContractorHandItems
   - NFSpeciesSpecific
   canCustomizeName: true # pseudonym?
@@ -629,6 +651,7 @@
   - ContractorUnderwearSocks
   - ContractorUnderwearTop
   - NFPirateCaptainPDA
+  - ASSSpecial #Radiant Sector
   - PirateCaptainWallet
   - PirateCaptainBackpackItems
   - ContractorHandItems

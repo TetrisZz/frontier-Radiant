@@ -106,4 +106,12 @@
   - ACORPClothingUnderwearTopRadiantSeeeexsi
   - ACORPClothingUnderwearTopRadiantNeeeekoUwU
   - ACORPClothingUnderwearTopBraWhite
-  
+
+- type: loadoutGroup
+  id: ASSSpecial
+  name: loadout-group-assistant-special
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - HomUplinkRadio100
+  - ClothingNeckClokRS

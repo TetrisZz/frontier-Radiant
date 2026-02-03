@@ -354,3 +354,26 @@
     sprite: _radiant/Clothing/Head/Hardsuits/slemnewmed.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Head/Hardsuits/slemnewmed.rsi
+
+- type: entity
+  parent: NFClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitMercRS
+  name: шлем от скафандра
+  description: Вы думали иначе?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hardsuits/merc.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hardsuits/merc.rsi
+  - type: PointLight
+    color: "#ffdbad"
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.9
