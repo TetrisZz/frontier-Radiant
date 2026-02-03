@@ -27,7 +27,7 @@
     allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'Growl']
   - type: GhostRole
     name: бомбик
-    description: Просить у него помощни точно не стоит. 
+    description: Просить у него помощи точно не стоит. 
     rules: ghost-role-information-nonantagonist-rules
     prototype: MobCorgiGhost
     mindRoles: [ MindRoleGhostRoleNeutral ]

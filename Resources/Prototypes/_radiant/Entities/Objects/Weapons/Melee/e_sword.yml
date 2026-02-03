@@ -1,6 +1,6 @@
 - type: entity
   name: энегетический меч
-  parent: [BaseMeleeWeaponEnergy, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseMeleeWeaponEnergy
   id: EnergySwordRadiant
   description: Энегетический меч Фантом. Компактное холодное оружие, использующее концентрированное энергетическое лезвие. В обычном состоянии выглядит как небольшая рукоять, но при активации высвобождает полупрозрачное и колеблющееся лезвие.
   components:
@@ -15,6 +15,8 @@
       map: [ "blade" ]
   - type: Item
     sprite: _radiant/Objects/Weapons/Melee/e_cutlass-inhands.rsi
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   name: электрический посох
@@ -23,8 +25,8 @@
   description: Электрический посох, изготовленная опытными бойцами Аколит Корпорейшн. Электрическая глефа, часто используется стражами влиятельных императоров и их окружения в монархических мирах.
   components:
   - type: ItemToggle
-    onUse: false # wielding events control it instead
-    onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
+    onUse: false
+    onActivate: false
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
       params:
@@ -44,8 +46,6 @@
             Blunt: 5
             Heat: 5
             Shock: 5
-#  - type: StaminaDamageOnHit
-#    damage: 20
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -53,16 +53,17 @@
         volume: 3
   - type: ComponentToggler
     components:
-    - type: Sharp
     - type: DisarmMalus
       malus: 0.7
     - type: Execution
       doAfterDuration: 4.0
+    - type: StaminaDamageOnHit
+      damage: 20
   - type: Wieldable
-    wieldSound: null # esword light sound instead
+    wieldSound: null
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 1.5
+    attackRate: 1.4
     angle: 100
     damage:
       types:
@@ -77,7 +78,8 @@
         shader: unshaded
         map: [ "blade" ]
   - type: Item
-    size: Small
+    shape:
+    - 0,0,0,3
     sprite: _radiant/Objects/Weapons/Melee/glefa.rsi
   - type: Reflect
     reflectProb: .50

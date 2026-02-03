@@ -23,7 +23,6 @@
   minLimit: 0
   loadouts:
   - ASSClothingOuterCoatLongAcorp
-  - ASSClothingOuterWinterAcorp
 
 # Forced EVA
 - type: loadoutGroup

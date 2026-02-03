@@ -7,14 +7,6 @@
     outerClothing: ClothingOuterCoatLongAcorp
 
 - type: loadout
-  id: ASSClothingOuterWinterAcorp
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: NFCoatCapable
-  equipment:
-    outerClothing: ClothingOuterWinterAcorp
-
-- type: loadout
   id: AcorpForcedClothingOuterHardsuitAcorpBasic
   effects:
   - !type:GroupLoadoutEffect
