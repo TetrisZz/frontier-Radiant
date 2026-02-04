@@ -1,4 +1,4 @@
-# Weapons
+# Одежда
 - type: listing
   id: UplinkHomClothingBackpackSatchelMeow
   name:  uplink-hom-backpack-name
@@ -31,7 +31,6 @@
         tags:
           - HomUplink
 
-# 
 - type: listing
   id: UplinkHomClothingBeltCombatWebbingMerc
   name:  uplink-hom-hosalt-name
@@ -40,6 +39,22 @@
   icon: { sprite: _radiant/Clothing/Belt/rpsnaem.rsi, state: icon }
   cost:
     Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingHeadHatCatEars
+  name:  uplink-hom-catears-name
+  description: uplink-hom-catears-desc
+  productEntity: ClothingHeadHatCatEars
+  icon: { sprite: Clothing/Head/Hats/catears.rsi, state: icon }
+  cost:
+    Cristalhom: 3
   categories:
     - UplinkHomUtility
   conditions:
@@ -506,6 +521,54 @@
     Cristalhom: 1
   categories:
     - UplinkHomShuttle
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkCrateServiceKitHydroponics
+  name:  uplink-hom-droponics-name
+  description: uplink-hom-droponics-desc
+  productEntity: CrateServiceKitHydroponics
+  icon: { sprite: Structures/Storage/Crates/hydroponics.rsi, state: icon }
+  cost:
+    Cristalhom: 10
+  categories:
+    - UplinkHomHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkCrateServiceKitKitchen
+  name:  uplink-hom-kitchen-name
+  description: uplink-hom-kitchen-desc
+  productEntity: CrateServiceKitKitchen
+  icon: { sprite: _NF/Structures/Storage/Crates/biodegradable.rsi, state: icon }
+  cost:
+    Cristalhom: 10
+  categories:
+    - UplinkHomHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkBorgChassisDonat
+  name:  uplink-hom-borg-name
+  description: uplink-hom-borg-desc
+  productEntity: BorgChassisDonat
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: mer_icon }
+  cost:
+    Cristalhom: 30
+  categories:
+    - UplinkHomHardsuits
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:

@@ -426,13 +426,77 @@
     - type: TTS
       voice: Sentrybot
 
+
+- type: entity
+  id: BaseBorgChassisDonat
+  parent: BaseBorgChassis
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: Access
+    enabled: false
+    tags:
+    - Borg
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Medical
+    - Traffic
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Medical
+    - Traffic
+    - Common
+  - type: Speech
+    speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
+  - type: IonStormTarget
+    chance: 0
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: PointLight
+    color: "#ffffff"
+  - type: FootstepModifier #Radiant Sector
+    footstepSoundCollection:
+      collection: FootstepBorgRadiant
+      params:
+        volume: -9
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
 - type: entity
   id: BorgChassisDonat
-  parent: BaseBorgChassis
-  name: cyborg
-  description: A lean, mean killing machine with access to a variety of deadly modules.
+  parent: BaseBorgChassisDonat
+  name: продвинутый киборг-наёмник
+  description: Гибрид машины и человека, помогающий в работе. Они обожают, когда их снова и снова просят назвать свои законы.
   components:
     - type: Sprite
+      sprite: _radiant/Mobs/Silicon/chassis.rsi
       layers:
         - state: mer
         - state: mer_e
@@ -446,24 +510,31 @@
     - type: SiliconLawProvider
       laws: MerStatic
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 10
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
-          - BorgModuleSyndicate
-          - BorgModuleSyndicateAssault
+          - BorgModuleMercenary
       hasMindState: mer_e
       noMindState: mer_e_r
+    - type: ContainerFill
+      containers:
+        borg_brain:
+        - MMIFilled
+        borg_module:
+        - BorgModuleTopicals
+        - BorgModuleRescue
+        - BorgModuleTool
+        - BorgModuleJetpack
+        - BorgModuleCombatPinpointer
+        - BorgModuleCombatCombined
     - type: InteractionPopup
       interactSuccessString: petting-success-syndicate-cyborg
       interactFailureString: petting-failure-syndicate-cyborg
       interactSuccessSound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
-    - type: FootstepModifier
-      footstepSoundCollection:
-         collection: FootstepBorgRadiant
-         params:
-          volume: -6
+    - type: TTS
+      voice: Amina
 
 - type: entity
   id: BorgChassisMercenary
