@@ -535,6 +535,10 @@
         path: /Audio/Ambience/Objects/periodic_beep.ogg
     - type: TTS
       voice: Amina
+    - type: Strap
+      buckleOnInteractHand: False
+      position: Stand
+      buckleOffset: "0,0.1"
 
 - type: entity
   id: BorgChassisMercenary
