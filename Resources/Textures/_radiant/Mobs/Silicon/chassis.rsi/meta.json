@@ -296,6 +296,9 @@
       "directions": 4
     },
     {
+      "name": "mer_icon"
+    },
+    {
       "name": "mer_l",
       "directions": 4
     }

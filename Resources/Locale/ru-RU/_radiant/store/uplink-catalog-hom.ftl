@@ -1,5 +1,5 @@
 store-category-hom-weapons = Оружие
-store-category-hom-hardsuits = Бронескафандры
+store-category-hom-hardsuits = Прочее
 store-category-hom-utility = Одежда
 store-category-hom-shuttle = Сексуальное
 store-currency-display-cristalhom-token = Кристалл
@@ -71,3 +71,15 @@ uplink-hom-clocksd-name = плащ
 uplink-hom-clocksd-desc = Стильный плащ, выглядит, как что-то особенное
 uplink-hom-scmer-name = шарф
 uplink-hom-scmer-desc = Шарф из лимитированной коллекции. На бирке указано "Номер X из XX"
+
+uplink-hom-droponics-name = набор для гидропоники
+uplink-hom-droponics-desc = Содержит полный комплект для создания гидропонной установки.
+
+uplink-hom-kitchen-name = набор для кухни
+uplink-hom-kitchen-desc = Внутри полный комплект для обустройства кухни.
+
+uplink-hom-catears-name = кошачьи ушки
+uplink-hom-catears-desc = НЯ!
+
+uplink-hom-borg-name = личный борг
+uplink-hom-borg-desc = Борг наёмнического типа, поддерживает все модули стандартного шасси наёмника и имеет модули для оказания экстренной помощи.

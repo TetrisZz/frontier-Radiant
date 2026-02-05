@@ -4215,22 +4215,6 @@ entities:
     - type: Transform
       pos: 11.657275,-2.1539192
       parent: 1
-- proto: ErpToyDildoPink
-  entities:
-  - uid: 472
-    components:
-    - type: Transform
-      parent: 468
-    - type: Physics
-      canCollide: False
-- proto: ErpToyDildoRed
-  entities:
-  - uid: 466
-    components:
-    - type: Transform
-      parent: 462
-    - type: Physics
-      canCollide: False
 - proto: ErpToySpanker
   entities:
   - uid: 473

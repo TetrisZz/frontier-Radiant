@@ -6073,15 +6073,6 @@ entities:
       parent: 785
     - type: Physics
       canCollide: False
-- proto: ErpToyDildoRed
-  entities:
-  - uid: 793
-    components:
-    - type: Transform
-      parent: 792
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ExosuitFabricator
   entities:
   - uid: 794
