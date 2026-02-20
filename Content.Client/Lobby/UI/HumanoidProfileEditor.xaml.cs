@@ -1817,6 +1817,8 @@ namespace Content.Client.Lobby.UI
             HeightSlider.MinValue = species.MinHeight;
             HeightSlider.MaxValue = species.MaxHeight;
 
+            HeightSlider.Value = Profile.Height;
+
             WidthSlider.MinValue = species.MinWidth;
             WidthSlider.MaxValue = species.MaxWidth;
 
@@ -1827,8 +1829,6 @@ namespace Content.Client.Lobby.UI
 
             UpdateHeightWidthLabels();
 }
-
-        }
 
         private void UpdateHeightWidthLabels()
         {
