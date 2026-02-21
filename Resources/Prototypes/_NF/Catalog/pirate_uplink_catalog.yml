@@ -29,10 +29,10 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
-        - NFPirateFirstMate
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
+#        - NFPirateFirstMate
 
 - type: listing
   id: UplinkPirateHardsuitElite
@@ -49,9 +49,9 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
 
 - type: listing
   id: UplinkPirateCaptainCrateFilled
@@ -68,9 +68,9 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
 
 - type: listing
   id: UplinkPirateWoodenKegRum
@@ -151,10 +151,10 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
-        - NFPirateFirstMate
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
+#        - NFPirateFirstMate
 
 - type: listing
   id: UplinkPirateBlunderbuss
@@ -219,9 +219,9 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
 
 - type: listing
   id: UplinkEnergyCutlass
@@ -238,10 +238,10 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
-        - NFPirateFirstMate
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
+#        - NFPirateFirstMate
 
 - type: listing
   id: UplinkPirateAnchor
@@ -434,10 +434,10 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
-        - NFPirateFirstMate
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
+#        - NFPirateFirstMate
 
 - type: listing
   id: UplinkRadioImplanterFreelance
@@ -468,9 +468,9 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
   categories:
   - UplinkPirateUtility
 
@@ -519,10 +519,10 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
-        - NFPirateFirstMate
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
+#        - NFPirateFirstMate
   categories:
   - UplinkPirateUtility
 
@@ -539,9 +539,9 @@
       whitelist:
         tags:
           - PirateUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - NFPirateCaptain
+#    - !type:BuyerJobCondition # Radiant sector
+#      whitelist:
+#        - NFPirateCaptain
   categories:
   - UplinkPirateUtility
 

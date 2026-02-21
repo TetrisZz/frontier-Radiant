@@ -103,7 +103,8 @@
   components:
   - type: SpawnItemsOnUse
     items:
-      - id: NFWeaponRevolverRitland45Expedition
+#      - id: NFWeaponRevolverRitland45Expedition # Radiant sector
+      - id: WeaponRevolverPythonAPRS # Radiant sector
       - id: NFSpeedLoaderPistol45Incendiary
       - id: NFSpeedLoaderPistol45Incendiary
       - id: SpaceCash2500
@@ -133,8 +134,9 @@
   components:
   - type: SpawnItemsOnUse
     items:
+      - id: SpeedLoaderMagnumAPRS # Radiant sector
       - id: NFSpeedLoaderPistol45
-      - id: NFSpeedLoaderPistol45Overpressure
+#      - id: NFSpeedLoaderPistol45Overpressure # Radiant sector
       - id: SpaceCash2500
       # Bonus Loot T3
       - id: SpaceCash1000

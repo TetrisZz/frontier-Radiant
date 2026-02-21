@@ -1,0 +1,45 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Caduceus
+  parent: BaseVessel
+  name: HOM Кадуцей
+  description: Большой корабль со всем необходимым для оказывания лечения в любом виде.
+  price: 99000
+  category: Medium
+  group: Medical
+  access: MedicalPhoenix
+  shuttlePath: /Maps/_radiant/Shuttles/Caduceus.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Caduceus
+  mapName: 'HOM Кадуцей'
+  mapPath: /Maps/_radiant/Shuttles/Caduceus.yml
+  minPlayers: 0
+  stations:
+    Caduceus:
+      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Кадуцей {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]  

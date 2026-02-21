@@ -478,7 +478,7 @@
   productEntity: JetpackBlackFilled
   icon: { sprite: _DV/Objects/Tanks/Jetpacks/black.rsi, state: icon }
   cost:
-    BlackMoney: 3
+    BlackMoney: 5
   categories:
     - UplinkSeparatistUtility
   conditions:
@@ -897,27 +897,6 @@
   icon: { sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/box_90.rsi, state: base }
   cost:
     BlackMoney: 2
-  categories:
-    - UplinkSeparatistShuttle
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SeparatistUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - SeparatistsCommander
-        - SeparatistsOperative
-        - SeparatistsWarden
-
-- type: listing
-  id: UplinkSeparatistTurretM220
-  name: uplink-separatist-turret_m220-name
-  description: uplink-separatist-turret_m220-desc
-  productEntity: WeaponTurretM220Flatpack
-  icon: { sprite: _radiant/Objects/ShuttleWeapons/rubicon.rsi, state: space_artillery }
-  cost:
-    BlackMoney: 3
   categories:
     - UplinkSeparatistShuttle
   conditions:

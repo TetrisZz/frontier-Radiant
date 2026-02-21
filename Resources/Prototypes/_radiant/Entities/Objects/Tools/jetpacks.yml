@@ -1,7 +1,7 @@
-#Empty black
+#Empty white
 - type: entity
   id: JetpackAcorp
-  parent: [BaseJetpack, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseJetpack
   name: джетпак
   suffix: пустой
   components:
@@ -16,12 +16,56 @@
     #  - Back
     # End DeltaV modifications
 
-# Filled black
+# Filled white
 - type: entity
   id: JetpackAcorpFilled
   parent: JetpackAcorp
   name: джетпак
   suffix: полный
+  components:
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 13 minutes of thrust
+      volume: 5
+      temperature: 293.15
+      moles:
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen
+
+#Empty black
+- type: entity
+  id: JetpackBlackDVB
+  parent: BaseJetpack
+  name: джетпак
+  suffix: Empty
+  components:
+  - type: Item
+    sprite: _radiant/Objects/Tanks/Jetpacks/dvb_black.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+  - type: Sprite
+    sprite: _radiant/Objects/Tanks/Jetpacks/dvb_black.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+  - type: Clothing
+    sprite: _radiant/Objects/Tanks/Jetpacks/dvb_black.rsi # DeltaV - Modified sprites to allow SUITSTORAGE use.
+    # DeltaV modifications - Covered by modifications on parent
+    #slots:
+    #  - Back
+    # End DeltaV modifications
+  # Frontier: emaggable jetpacks
+  - type: Tag
+    tags:
+      - DemagImmune
+  - type: Jetpack
+    radarBlip: false
+  # End Frontier: emaggable jetpacks
+#  - type: StaticPrice # Frontier
+#    price: 1000 # Frontier
+
+# Filled black
+- type: entity
+  id: JetpackBlackDVBFilled
+  parent: JetpackBlackDVB
+  name: джетпак
+  suffix: Заполненный
   components:
   - type: GasTank
     outputPressure: 42.6

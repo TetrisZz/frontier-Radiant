@@ -279,13 +279,16 @@
     - id: ClothingOuterHardsuitSpatio
       weight: 0.25
     - id: ClothingOuterHardsuitLuxury
-      weight: 0.45
+#      weight: 0.45 # Radiant sector
+      weight: 0.25 # Radiant sector
     - id: ClothingOuterHardsuitSalvage
       weight: 0.25
     - id: ClothingOuterHardsuitHostileEnvironment
-      weight: 0.025
+#      weight: 0.025 # Radiant sector
+      weight: 0.2 # Radiant sector
     - id: ClothingOuterHardsuitMaximPrototype
-      weight: 0.025
+#      weight: 0.025 # Radiant sector
+      weight: 0.05 # Radiant sector
 
 #region Lockers
 - type: entityTable
@@ -322,22 +325,26 @@
     children:
     # spawn probabilities skewed towards empty lockers to reduce entity spam
     - id: SuitStorageBase
-      weight: 55
+#      weight: 55 # Radiant sector
+      weight: 5 # Radiant sector
     - !type:GroupSelector
       weight: 0.2
       children:
       - id: SuitStorageEVACargo
       - id: SuitStorageSalv
+      - id: SuitStorageSurplus # Radiant sector
     - !type:GroupSelector
       weight: 0.2
       children:
       - id: SuitStorageEVASalvage
       - id: SuitStorageQuartermaster
     - !type:GroupSelector
-      weight: 0.05
+#      weight: 0.05 # Radiant sector
+      weight: 0.1 # Radiant sector
       children:
       - id: SuitStorageNTSRA
       - id: SuitStorageMining
+      - id: SuitStoragePirateCap # Radiant sector
 
 # region Machines
 - type: entityTable

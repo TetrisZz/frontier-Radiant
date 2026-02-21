@@ -1,0 +1,50 @@
+#region .6,8-mm SPC
+- type: entity # Lethal
+  abstract: true
+  id: StorageFillAmmoBoxLethalHigh2Rifle
+  suffix: .6,8 rifle, Lethal, x4 boxes
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxHigh2Rifle
+      amount: 4
+
+- type: entity # Rubber
+  abstract: true
+  id: StorageFillAmmoBoxRubberHigh2Rifle
+  suffix: .6,8 rifle, Rubber, x4 boxes
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxHigh2Rubber
+      amount: 4
+
+- type: entity # Practice
+  abstract: true
+  id: StorageFillAmmoBoxPracticeHigh2Rifle
+  suffix: .6,8 rifle, Practice, x4 boxes
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxHigh2RiflePractice
+      amount: 4
+
+- type: entity # Incendiary
+  abstract: true
+  id: StorageFillAmmoBoxIncendiaryHigh2Rifle
+  suffix: .6,8 rifle, Incendiary, x4 boxes
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxHigh2RifleIncendiary
+      amount: 4
+
+- type: entity # Uranium
+  abstract: true
+  id: StorageFillAmmoBoxUraniumHigh2Rifle
+  suffix: .6,8 rifle, Uranium, x4 boxes
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxHigh2RifleUranium
+      amount: 4

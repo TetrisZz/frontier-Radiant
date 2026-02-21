@@ -456,7 +456,8 @@
   name:  uplink-security-jetpack-name
   description: uplink-security-jetpack-desc
   productEntity: JetpackNfsdFilled
-  icon: { sprite: _NF/Objects/Tanks/Jetpacks/nfsd.rsi, state: icon }
+#  icon: { sprite: _NF/Objects/Tanks/Jetpacks/nfsd.rsi, state: icon } # Radiant sector
+  icon: { sprite: _radiant/Objects/Tanks/Jetpacks/dvb.rsi, state: icon } # Radiant sector
   cost:
     FrontierUplinkCoin: 1
   categories:

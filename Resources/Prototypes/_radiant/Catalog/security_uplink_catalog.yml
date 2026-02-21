@@ -15,6 +15,22 @@
           - SecurityUplink
 
 - type: listing
+  id: UplinkSecurityJetpackBlack
+  name: uplink-security-jetpack_black-name
+  description: uplink-security-jetpack_black-desc
+  productEntity: JetpackBlackDVBFilled
+  icon: { sprite: _radiant/Objects/Tanks/Jetpacks/dvb_black.rsi, state: icon }
+  cost:
+    FrontierUplinkCoin: 7
+  categories:
+    - UplinkSecurityUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
   id: UplinkSecurityGuardian
   name: uplink-phoenix-guardian-name
   description: uplink-phoenix-guardian-desc

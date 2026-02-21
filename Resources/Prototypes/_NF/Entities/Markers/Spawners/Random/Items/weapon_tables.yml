@@ -433,6 +433,9 @@
       children:
       - id: WeaponCaseShortAmmoBoxLethalShotgun
       - id: WeaponCaseShortAmmoBoxSlugShotgun
+    - !type:GroupSelector # Radiant sector
+      children:
+      - id: WeaponCaseShortAmmoBoxLethalHigh2Rifle
 
 # region ammo rubber
 - type: entityTable
@@ -443,6 +446,7 @@
     - id: WeaponCaseShortAmmoBoxRubber35
     - id: WeaponCaseShortAmmoBoxRubber45
     - id: WeaponCaseShortAmmoBoxRubberShotgun
+    - id: WeaponCaseShortAmmoBoxRubberHigh2Rifle # Radiant sector
     - !type:GroupSelector
       children:
       - id: WeaponCaseShortAmmoBoxRubber20
@@ -451,6 +455,7 @@
       children:
       - id: WeaponCaseShortAmmoBoxRubber25
       - id: WeaponCaseShortAmmoBoxBigRubber25
+
 
 # region ammo incendiary
 - type: entityTable
@@ -462,6 +467,7 @@
     - id: WeaponCaseShortAmmoBoxIncendiary35
     - id: WeaponCaseShortAmmoBoxIncendiaryShotgun
     - id: WeaponCaseShortAmmoBoxIncendiary45
+    - id: WeaponCaseShortAmmoBoxIncendiaryHigh2Rifle # Radiant sector
 
 # region ammo uranium
 - type: entityTable
@@ -473,6 +479,7 @@
     - id: WeaponCaseShortAmmoBoxUranium35
     - id: WeaponCaseShortAmmoBoxUraniumShotgun
     - id: WeaponCaseShortAmmoBoxUranium45
+    - id: WeaponCaseShortAmmoBoxUraniumHigh2Rifle # Radiant sector
 
 # region ammo practice
 - type: entityTable
@@ -485,6 +492,7 @@
     - id: WeaponCaseShortAmmoBoxPractice25
     - id: WeaponCaseShortAmmoBoxPracticeShotgun
     - id: WeaponCaseShortAmmoBoxPractice45
+    - id: WeaponCaseShortAmmoBoxPracticeHigh2Rifle # Radiant sector
 
 # region combined
 - type: entityTable

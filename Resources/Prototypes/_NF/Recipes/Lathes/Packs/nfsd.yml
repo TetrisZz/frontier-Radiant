@@ -18,19 +18,18 @@
   - NFAmmunitionBoxShellShotgunBeanbag
   - NFAmmunitionBoxRifle20
   - NFAmmunitionBoxRifle20Overpressure
-  - NFAmmunitionBoxRifle20Rubber
+#  - NFAmmunitionBoxRifle20Rubber # Radiant sector
   - NFAmmunitionBoxRifle30
   - NFAmmunitionBoxRifle30Overpressure
-  - NFAmmunitionBoxRifle30Rubber
+#  - NFAmmunitionBoxRifle30Rubber # Radiant sector
   - NFAmmunitionBoxPistol35
   - NFAmmunitionBoxPistol35Overpressure
-  - NFAmmunitionBoxPistol35Rubber
+#  - NFAmmunitionBoxPistol35Rubber # Radiant sector
   - NFAmmunitionBoxPistol45
   - NFAmmunitionBoxPistol45Overpressure
-  - NFAmmunitionBoxPistol45Rubber
-  - MagazineGunnery20mm # Radiant_sector
-  - MagazineBoxGunnery90mm # Radiant_sector
-  - MagazineBoxPistol25ACP # Radiant_sector
+#  - NFAmmunitionBoxPistol45Rubber # Radiant sector
+  - MagazineGunnery20mm # Radiant sector
+  - MagazineBoxGunnery90mm # Radiant sector
 
 - type: latheRecipePack
   id: NfsdToolsStatic

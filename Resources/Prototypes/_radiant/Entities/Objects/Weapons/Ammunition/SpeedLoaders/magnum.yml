@@ -1,0 +1,28 @@
+- type: entity
+  id: SpeedLoaderMagnumAPRS
+  name: "спидлоадер (.45 магнум бронебойные)"
+  parent: NFBaseSpeedLoaderPistol45
+  description: Спидлоудер для быстрой перезарядки пустого револьвера, вмещает до шести патронов. Предназначен для хранения редких бронебойных боеприпасов.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumAPRS
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: decal-01
+      color: "#540000"
+    - state: base-6
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#540000"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#540000"

@@ -1,0 +1,35 @@
+## .6,8-mm SPC
+- type: entity
+  parent:
+  - WeaponCaseShortAmmo
+  - StorageFillAmmoBoxLethalHigh2Rifle
+  id: WeaponCaseShortAmmoBoxLethalHigh2Rifle
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent:
+  - WeaponCaseShortAmmo
+  - StorageFillAmmoBoxRubberHigh2Rifle
+  id: WeaponCaseShortAmmoBoxRubberHigh2Rifle
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent:
+  - WeaponCaseShortAmmo
+  - StorageFillAmmoBoxPracticeHigh2Rifle
+  id: WeaponCaseShortAmmoBoxPracticeHigh2Rifle
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent:
+  - WeaponCaseShortAmmo
+  - StorageFillAmmoBoxIncendiaryHigh2Rifle
+  id: WeaponCaseShortAmmoBoxIncendiaryHigh2Rifle
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent:
+  - WeaponCaseShortAmmo
+  - StorageFillAmmoBoxUraniumHigh2Rifle
+  id: WeaponCaseShortAmmoBoxUraniumHigh2Rifle
+  categories: [ HideSpawnMenu ]

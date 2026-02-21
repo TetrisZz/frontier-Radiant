@@ -170,3 +170,13 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  parent: NFWeaponRevolverRitland45
+  id: WeaponRevolverPythonAPRS # For the uplink.
+  name: Питон
+  description: Мощный револьвер двойного действия. Громкий и эффектный, идеально подходит для любого агента, который хочет заявить о себе. Вмещает 6 патронов калибра .45 магнум.
+  suffix: Бронебойные
+  components:
+  - type: RevolverAmmoProvider
+    proto: CartridgeMagnumAPRS # Frontier

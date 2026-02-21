@@ -300,6 +300,9 @@
     - NfsdTargetsStatic
     - NfsdBoardsStatic
     - NfsdReportingStatic
+    dynamicPacks:
+    - EnergyWeaponsNFSD # Radiant Sector
+    - EnergyWeaponsShuttle # Radiant Sector
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -345,16 +348,17 @@
     - NFMercenaryStatic
     - NFMercenaryClothesStatic
     - NFMercenaryStorageStatic
-    #- NFMercenaryWeaponsStatic #
+    - NFMercenaryWeaponsStatic
     - NFMercenaryAmmoBoxesStatic
-    #- NfsdPracticeStatic #
-    - NFMercenaryMagazineStatic
-    - NFTopicalsStatic
+    - NfsdPracticeStatic
+#    - NFMercenaryMagazineStatic # Radiant Sector
+    - NFMercenaryMagazineStaticRadiant # Radiant Sector
+#    - NFTopicalsStatic # Radiant Sector
     - NFMercenaryArchetypeStatic
     - NFMercenaryArchetypeMeleeStatic
     dynamicPacks:
-    - EnergyWeapons #Radiant Sector
-    - EnergyWeaponsShuttle
+    - EnergyWeaponsMercenary # Radiant Sector
+    - EnergyWeaponsShuttle # Radiant Sector
   - type: BlueprintReceiver
     whitelist:
       tags:
