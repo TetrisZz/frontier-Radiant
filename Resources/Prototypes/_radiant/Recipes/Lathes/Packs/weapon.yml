@@ -1,0 +1,49 @@
+- type: latheRecipePack
+  id: EnergyWeapons
+  recipes:
+  - NFWeaponEnergyPistolLaserAdvancedRS
+  - NFWeaponEnergyRifleSniperCannon
+  - NFWeaponEnergyRifleSniperXrayCannon
+  - NFWeaponEnergySubMachineGunDeltaVRS
+  - NFWeaponEnergyPistolDisablerRS
+  - NFWeaponEnergySubMachineGunDisablerRS
+  - NFWeaponEnergyPistolLaserRS
+  - NFWeaponEnergyRifleCarbineRS
+  - NFWeaponEnergyRifleCarbinePracticeRS
+  - NFWeaponEnergyPistolDisablerPracticeRS
+  - NFWeaponEnergyPistolLaserMakeshiftRS
+  - NFWeaponEnergyPistolLaserSvalinnRS
+  - NFWeaponEnergyRifleTemperature
+
+- type: latheRecipePack
+  id: EnergyWeaponsNFSD
+  recipes:
+  - NFWeaponEnergyPistolLaserAdvancedRS
+  - NFWeaponEnergyRifleSniperCannon
+  - NFWeaponEnergyRifleSniperXrayCannon
+  - NFWeaponEnergySubMachineGunDeltaVRS
+  - NFWeaponEnergySubMachineGunDisablerRS
+  - NFWeaponEnergyRifleCarbineRS
+  - NFWeaponEnergyPistolLaserMakeshiftRS
+  - NFWeaponEnergyPistolLaserSvalinnRS
+  - NFWeaponEnergyRifleTemperature
+
+- type: latheRecipePack
+  id: EnergyWeaponsMercenary
+  recipes:
+  - NFWeaponEnergyPistolLaserAdvancedRS
+  - NFWeaponEnergyRifleSniperCannon
+  - NFWeaponEnergyRifleSniperXrayCannon
+  - NFWeaponEnergySubMachineGunDeltaVRS
+  - NFWeaponEnergyPistolDisablerRS
+  - NFWeaponEnergySubMachineGunDisablerRS
+  - NFWeaponEnergyRifleCarbineRS
+  - NFWeaponEnergyPistolLaserMakeshiftRS
+  - NFWeaponEnergyPistolLaserSvalinnRS
+  - NFWeaponEnergyRifleTemperature
+
+- type: latheRecipePack
+  id: EnergyWeaponsShuttle 
+  recipes: 
+  - ShuttleGunPerforatorCircuitboard 
+  - ShuttleGunSvalinnMachineGunCircuitboard 

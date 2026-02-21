@@ -544,14 +544,12 @@
     count: 10
   - type: Gun
     showExamineText: false
-#    fireRate: 1 Radiant_sector
-#    minAngle: 3 Radiant_sector
-#    maxAngle: 20 Radiant_sector
-#    angleIncrease: 3 Radiant_sector
-#    angleDecay: 3 Radiant_sector
-    fireRate: 0.6 # Radiant_sector
-    minAngle: 1 # Radiant_sector
-    maxAngle: 15 # Radiant_sector
+#    fireRate: 1 # Radiant_sector
+    minAngle: 3
+    maxAngle: 20
+    angleIncrease: 3
+    angleDecay: 3
+    fireRate: 0.4 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -585,13 +583,15 @@
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: BasicEntityAmmoProvider
-    proto: NFCartridgePistol45Incendiary
+#    proto: NFCartridgePistol45Incendiary # Radiant_sector
+    proto: NFCartridgePistol35Incendiary # Radiant_sector
     capacity: 6
     count: 6
   - type: Gun
     minAngle: 2
     maxAngle: 8
-    fireRate: 6
+#    fireRate: 6 # Radiant_sector
+    fireRate: 3 # Radiant_sector
     selectedMode: FullAuto
     availableModes:
       - FullAuto

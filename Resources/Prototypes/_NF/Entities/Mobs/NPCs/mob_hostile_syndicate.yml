@@ -93,7 +93,8 @@
       prototypes:
         - SyndicateNavalCaptainGearC
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgePistol45Overpressure
+#      proto: NFCartridgePistol45Overpressure # Radiant sector
+      proto: CartridgeMagnumAPRS # Radiant sector
       capacity: 1
       count: 1
 

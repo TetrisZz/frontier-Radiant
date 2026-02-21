@@ -3,6 +3,7 @@
   recipes:
   - ClothingOuterEVASuitMercenary
   - ClothingOuterEVASuitPrivateSec
+  - BorgModuleCombatLethalNovalite # Radiant sector
 
 - type: latheRecipePack
   id: NFMercenaryClothesStatic
@@ -61,12 +62,12 @@
   - NFAmmunitionBoxRifle30
   - CrossbowBolt
   - CrossbowBoltBroadhead
-  - NFAmmunitionBoxShellShotgunBeanbag
-  - NFAmmunitionBoxShellShotgunSlug
-  - NFAmmunitionBoxRifle30Rubber
-  - NFAmmunitionBoxPistol35Rubber
-  - NFAmmunitionBoxPistol45Rubber
-  - NFAmmunitionBoxRifle20Rubber
+#  - NFAmmunitionBoxShellShotgunBeanbag # Radiant sector
+#  - NFAmmunitionBoxShellShotgunSlug # Radiant sector
+#  - NFAmmunitionBoxRifle30Rubber # Radiant sector
+#  - NFAmmunitionBoxPistol35Rubber # Radiant sector
+#  - NFAmmunitionBoxPistol45Rubber # Radiant sector
+#  - NFAmmunitionBoxRifle20Rubber # Radiant sector
 
 - type: latheRecipePack
   id: NFMercenarySpeedloadersStatic

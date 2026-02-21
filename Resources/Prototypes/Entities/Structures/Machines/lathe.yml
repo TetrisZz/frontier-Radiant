@@ -318,7 +318,7 @@
     - NFEngineeringBoardsCircuitImprinter # Frontier
   - type: EmagLatheRecipes
     emagDynamicPacks:
-    - EnergyWeaponsShuttle
+    - EnergyWeaponsShuttle # Radiant sector
   - type: MaterialStorage
     whitelist:
       tags:
@@ -496,7 +496,8 @@
       idleState: icon
       runningState: icon
       staticPacks:
-      - NfsdAmmoStatic # Frontier: SecurityAmmoStatic<NfsdAmmoStatic
+#      - NfsdAmmoStatic # Frontier: SecurityAmmoStatic<NfsdAmmoStatic # Radiant_sector
+      - RadiantAmmoStatic # Radiant_sector
       - NFMercenaryMagazineStatic
 #      dynamicPacks: # Radiant_sector
 #      - SecurityAmmoDynamicRadiant

@@ -1,6 +1,6 @@
 - type: entity
   id: CartridgeMagnumIce
-  name: патрон (.45 магниум ледяной)
+  name: патрон (.45 магнум ледяной)
   parent: NFBaseCartridgePistol45
   components:
   - type: CartridgeAmmo
@@ -21,3 +21,20 @@
           Quantity: 5
   - type: SolutionTransfer
     maxTransferAmount: 5
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: CartridgeMagnumAPRS
+  name: патрон (.45 магнум бронебойный)
+  parent: NFBaseCartridgePistol45
+  description: Тяжелый патрон магнум, который в основном используется в револьверах. Бронебойные боеприпасы известны своей способностью пробивать бронежилеты насквозь.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumAPRS
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#0a0a0a"

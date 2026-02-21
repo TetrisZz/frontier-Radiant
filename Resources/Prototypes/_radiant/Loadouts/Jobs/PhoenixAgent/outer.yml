@@ -4,7 +4,7 @@
   - !type:GroupLoadoutEffect
     proto: NFCoatCapable
   equipment:
-    outerClothing: ClothingOuterVest
+    outerClothing: ClothingOuterArmorBasicSlim
 
 - type: loadout
   id: PhoenixClothingOuterArmorHeavyAcorp

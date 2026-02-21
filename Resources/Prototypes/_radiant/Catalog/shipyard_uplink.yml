@@ -256,6 +256,28 @@
 #Separatist
 
 - type: listing
+  id: UplinkSeparatistShipyardTurretM220
+  name: uplink-separatist-turret_m220-name
+  description: uplink-separatist-turret_m220-desc
+  productEntity: WeaponTurretM220Flatpack
+  icon: { sprite: _radiant/Objects/ShuttleWeapons/rubicon.rsi, state: space_artillery }
+  cost:
+    SeparatistToken: 1
+  categories:
+    - UplinkSeparatistShipyard
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistShipyard
+    - !type:BuyerJobCondition
+      whitelist:
+        - SeparatistsCommander
+        - SeparatistsOperative
+        - SeparatistsWarden
+        - SeparatistsRecruit
+
+- type: listing
   id: UplinkSeparatistShipyard220mm
   name: uplink-separatist-220mm-name
   description: uplink-separatist-220mm-desc

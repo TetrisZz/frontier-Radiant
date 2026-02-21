@@ -53,7 +53,7 @@
   dummyPrototype: BorgChassisEngineer
 
   # Functional
-  extraModuleCount: 3
+  extraModuleCount: 5
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
@@ -62,8 +62,8 @@
   defaultModules:
   - BorgModuleTool
   - BorgModuleConstruction
-  - BorgModuleRCDShipyard # Frontier: RCD<RCDShipyard
-  - BorgModuleCable
+#  - BorgModuleRCDShipyard # Frontier: RCD<RCDShipyard #Radiant Sector
+#  - BorgModuleCable #Radiant Sector
   - BorgModuleJetpack # Frontier
 
   radioChannels:
@@ -81,6 +81,11 @@
     buckleOffset: "0,0.1"
   - type: TTS
     voice: Karina_petrova_tb
+  - type: ContainerFill #Radiant Sector
+    containers:
+      borg_module:
+      - BorgModuleRCDShipyard
+      - BorgModuleCable
 
   # Visual
   inventoryTemplateId: borgShort

@@ -1,6 +1,6 @@
 - type: entity
   id: BulletMagnumIce
-  name: bullet (.45 magnum ice)
+  name: пуля (.45 магнум ледяная)
   parent: BaseBulletIce
   categories: [ HideSpawnMenu ]
   components:
@@ -18,3 +18,15 @@
           Quantity: 5
   - type: SolutionTransfer
     maxTransferAmount: 5
+
+- type: entity
+  id: BulletMagnumAPRS
+  name: пуля (.45 магнум бронебойная)
+  parent: NFBaseBulletAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 26 # 20% decrease
+    ignoreResistances: true
