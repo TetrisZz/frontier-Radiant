@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Энтропия
   description: Небольшое утилизационное судно.
-  price: 27200
+  price: 31000
   category: Small
   group: Acorp
   access: Acorp

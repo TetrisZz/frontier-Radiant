@@ -1,0 +1,44 @@
+# Hostile
+- type: entity
+  id: SpawnMobBloodCultGigachad
+  parent: MarkerBase
+  name: спавн гигачада
+  suffix: спавнер
+  components:
+  - type: Sprite
+    layers:
+    - state: gigachad
+    - sprite: _radiant/Mobs/NPC/gigachad.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBloodCultGigachad
+
+# Hostile
+- type: entity
+  id: SpawnMobBloodCultRatv
+  parent: MarkerBase
+  name: спавн служитель ратвара
+  suffix: спавнер
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - sprite: _radiant/Mobs/NPC/ratvar1.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBloodCultRatv
+
+# Hostile
+- type: entity
+  id: SpawnMobBloodCultRatvar
+  parent: MarkerBase
+  name: спавн служитель ратвара поменьше
+  suffix: спавнер
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - sprite: _radiant/Mobs/NPC/ratvar2.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBloodCultRatvar
