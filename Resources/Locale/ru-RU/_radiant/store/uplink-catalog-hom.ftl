@@ -35,9 +35,9 @@ uplink-hom-whi-name = Тяжелая броня
 uplink-hom-whi-desc = Возможно, она поможет спасти жизнь. Но это не точно.
 uplink-hom-ordinary-name = Броня
 uplink-hom-ordinary-desc = Возможно, она поможет спасти жизнь. Но это не точно.
-uplink-hom-backpack-name = Удобная сумка
+uplink-hom-backpack-name = Чехол
 uplink-hom-backpack-desc = Чехол для любой бездонной сумки, ПЕРЕД ИСПОЛЬЗОВАНИЕМ ВЫЛОЖИТЬ ПРЕДМЕТЫ ИЗ СУМКИ
-uplink-hom-backpacks-name = Рюкзак meow
+uplink-hom-backpacks-name = Чехол
 uplink-hom-backpacks-desc = Чехол для любой бездонной сумки, ПЕРЕД ИСПОЛЬЗОВАНИЕМ ВЫЛОЖИТЬ ПРЕДМЕТЫ ИЗ СУМКИ
 uplink-hom-clocksd-name = Плащ
 uplink-hom-clocksd-desc = Стильный плащ, выглядит, как что-то особенное
@@ -83,3 +83,12 @@ uplink-hom-kitchen-desc = Внутри полный комплект для об
 
 uplink-hom-borg-name = Личный борг
 uplink-hom-borg-desc = Борг наёмнического типа, поддерживает все модули стандартного шасси наёмника и имеет модуль для оказания первой помощи помощи. Благодаря лучшей изоляции не подвержен ионым штормам.
+
+uplink-hom-case-name = Оружейный кейс
+uplink-hom-case-desc = Что он вообще вмещает?...
+
+uplink-hom-gut-name = Чехол
+uplink-hom-gut-desc = Чехол для любой бездонной сумки, ПЕРЕД ИСПОЛЬЗОВАНИЕМ ВЫЛОЖИТЬ ПРЕДМЕТЫ ИЗ СУМКИ
+
+uplink-hom-fds-name = Чехол
+uplink-hom-fds-desc = Чехол для любой бездонной сумки, ПЕРЕД ИСПОЛЬЗОВАНИЕМ ВЫЛОЖИТЬ ПРЕДМЕТЫ ИЗ СУМКИ

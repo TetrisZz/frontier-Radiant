@@ -32,6 +32,38 @@
           - HomUplink
 
 - type: listing
+  id: UplinkHomClothingBackpackGutSkin
+  name:  uplink-hom-gut-name
+  description: uplink-hom-gut-desc
+  productEntity: ClothingBackpackGutSkin
+  icon: { sprite: _radiant/Clothing/Back/Duffels/gut.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingBackpackFdsSkin
+  name:  uplink-hom-fds-name
+  description: uplink-hom-fds-desc
+  productEntity: ClothingBackpackFdsSkin
+  icon: { sprite: _radiant/Clothing/Back/Duffels/fds.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
   id: UplinkHomClothingBeltCombatWebbingMerc
   name:  uplink-hom-hosalt-name
   description: uplink-hom-hosalt-desc
@@ -583,6 +615,22 @@
   icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: mer_icon }
   cost:
     Cristalhom: 30
+  categories:
+    - UplinkHomHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkWeaponCaseRS
+  name:  uplink-hom-case-name
+  description: uplink-hom-case-desc
+  productEntity: WeaponCaseRS
+  icon: { sprite: _radiant/Objects/Storage/Cases/guncaseheavy.rsi, state: icon }
+  cost:
+    Cristalhom: 1
   categories:
     - UplinkHomHardsuits
   conditions:
