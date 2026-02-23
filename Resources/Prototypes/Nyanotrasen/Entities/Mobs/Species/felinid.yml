@@ -1,16 +1,18 @@
 - type: entity
+  save: false
   name: Urist McFelinid
   parent: BaseMobHuman
   id: MobFelinidBase
   abstract: true
   components:
   - type: Sprite
-    scale: 0.8, 0.8
+#    scale: 0.8, 0.8 # Radiant sector
   - type: HumanoidAppearance
     species: Felinid
     hideLayersOnEquip: # Frontier
     - Hair # Frontier
     - HeadTop # Frontier
+    initial: Felinid
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -55,6 +57,7 @@
       types:
         Blunt: 1
   - type: Stamina
+    critThreshold: 85
   - type: TypingIndicator
     proto: felinid
   - type: PseudoItem

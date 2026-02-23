@@ -52,6 +52,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         var humanoidAppearance = entity.Comp1;
         var sprite = entity.Comp2;
 
+        var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(humanoidAppearance.Species);
+
+        var height = Math.Clamp(humanoidAppearance.Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
+        var width = Math.Clamp(humanoidAppearance.Width, speciesPrototype.MinWidth, speciesPrototype.MaxWidth);
+        humanoidAppearance.Height = height;
+        humanoidAppearance.Width = width;
+
+        _sprite.SetScale((entity, sprite), new Vector2(width, height));
         sprite[_sprite.LayerMapReserve((entity.Owner, sprite), HumanoidVisualLayers.Eyes)].Color = humanoidAppearance.EyeColor;
     }
 
@@ -237,6 +245,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.Species = profile.Species;
         humanoid.SkinColor = profile.Appearance.SkinColor;
         humanoid.EyeColor = profile.Appearance.EyeColor;
+        humanoid.Height = profile.Height;
+        humanoid.Width = profile.Width;
 
         UpdateSprite((uid, humanoid, Comp<SpriteComponent>(uid)));
     }

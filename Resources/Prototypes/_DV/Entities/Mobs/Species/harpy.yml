@@ -32,7 +32,7 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: Sprite
-    scale: 0.9, 0.9
+#    scale: 0.9, 0.9 # Radiant sector
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]

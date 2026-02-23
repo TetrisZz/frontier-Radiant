@@ -11,6 +11,12 @@
   maleFirstNames: NamesVulpkaninMale
   femaleFirstNames: NamesVulpkaninFemale
   lastNames: NamesVulpkaninLast
+  minHeight: 0.75 # Radiant sector ↓
+  defaultHeight: 1
+  maxHeight: 1.25
+  minWidth: 0.7
+  defaultWidth: 1
+  maxWidth: 1.3 # Radiant sector ↑
 
 - type: speciesBaseSprites
   id: MobVulpkaninSprites
