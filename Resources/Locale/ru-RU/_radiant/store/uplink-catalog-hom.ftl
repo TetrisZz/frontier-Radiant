@@ -92,3 +92,6 @@ uplink-hom-gut-desc = Чехол для любой бездонной сумки
 
 uplink-hom-fds-name = Чехол
 uplink-hom-fds-desc = Чехол для любой бездонной сумки, ПЕРЕД ИСПОЛЬЗОВАНИЕМ ВЫЛОЖИТЬ ПРЕДМЕТЫ ИЗ СУМКИ
+
+uplink-hom-fox-name = Питомец
+uplink-hom-fox-desc = Погоди, что?

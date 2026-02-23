@@ -638,3 +638,19 @@
       whitelist:
         tags:
           - HomUplink
+
+- type: listing
+  id: UplinkCrateFunMobFenGhost
+  name:  uplink-hom-fox-name
+  description: uplink-hom-fox-desc
+  productEntity: CrateFunMobFenGhost
+  icon: { sprite: _radiant/Mobs/Pets/fen.rsi, state: fox }
+  cost:
+    Cristalhom: 10
+  categories:
+    - UplinkHomHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
