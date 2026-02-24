@@ -144,8 +144,10 @@
         !type:String
         pda-sheriff
   - type: PdaBorderColor
-    borderColor: "#FFFDD0"
-    accentHColor: "#896b49"
+#    borderColor: "#FFFDD0" # Radiant sector
+#    accentHColor: "#896b49" # Radiant sector
+    borderColor: "#323232" # Radiant sector
+    accentHColor: "#3a3e77" # Radiant sector
   - type: Icon
     state: pda-sheriff
   - type: CartridgeLoader # Extended with the ledger
@@ -180,8 +182,10 @@
         !type:String
         pda-cadet
   - type: PdaBorderColor
-    borderColor: "#FFFDD0"
-    accentHColor: "#896b49"
+#    borderColor: "#FFFDD0" # Radiant sector
+#    accentHColor: "#896b49" # Radiant sector
+    borderColor: "#323232" # Radiant sector
+    accentHColor: "#3a3e77" # Radiant sector
   - type: Icon
     state: pda-cadet
 
@@ -206,8 +210,10 @@
         !type:String
         pda-deputy
   - type: PdaBorderColor
-    borderColor: "#FFFDD0"
-    accentHColor: "#896b49"
+#    borderColor: "#FFFDD0" # Radiant sector
+#    accentHColor: "#896b49" # Radiant sector
+    borderColor: "#323232" # Radiant sector
+    accentHColor: "#3a3e77" # Radiant sector
   - type: Icon
     state: pda-deputy
 
@@ -258,8 +264,10 @@
         !type:String
         pda-sergeant
   - type: PdaBorderColor
-    borderColor: "#FFFDD0"
-    accentHColor: "#896b49"
+#    borderColor: "#FFFDD0" # Radiant sector
+#    accentHColor: "#896b49" # Radiant sector
+    borderColor: "#323232" # Radiant sector
+    accentHColor: "#3a3e77" # Radiant sector
   - type: Icon
     state: pda-sergeant
 
@@ -284,8 +292,10 @@
         !type:String
         pda-bailiff
   - type: PdaBorderColor
-    borderColor: "#FFFDD0"
-    accentHColor: "#896b49"
+#    borderColor: "#FFFDD0" # Radiant sector
+#    accentHColor: "#896b49" # Radiant sector
+    borderColor: "#323232" # Radiant sector
+    accentHColor: "#3a3e77" # Radiant sector
   - type: Icon
     state: pda-bailiff
 
@@ -341,8 +351,10 @@
         !type:String
         pda-pal
   - type: PdaBorderColor
-    borderColor: "#FFFDD0"
-    accentHColor: "#896b49"
+#    borderColor: "#FFFDD0" # Radiant sector
+#    accentHColor: "#896b49" # Radiant sector
+    borderColor: "#323232" # Radiant sector
+    accentHColor: "#3a3e77" # Radiant sector
   - type: Icon
     state: pda-pal
 

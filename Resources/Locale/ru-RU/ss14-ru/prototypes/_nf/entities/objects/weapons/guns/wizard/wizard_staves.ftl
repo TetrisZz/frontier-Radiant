@@ -1,7 +1,3 @@
-ent-123456d5145 = турель
-    .suffix = УДАЛИТЬ СУФФИКС
-    .desc = { ent-WeaponInertStaffWizardElementalAdept.desc }
-
 ent-WeaponInertStaffWizardElementalAdept = инертный посох волшебника-адепта элементаля голубого кюрасао
     .desc = Большая волшебная палка для больших волшебных заклинаний.
 ent-WeaponChargedStaffWizardElementalAdept = посох волшебника-адепта элементаля голубого кюрасао

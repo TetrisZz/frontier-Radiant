@@ -78,6 +78,8 @@
     layers:
     - state: artillery
   - type: Appearance
+  - type: AutoShootGun
+  - type: GunSignalControl
   - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -94,6 +96,9 @@
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
   - type: WirelessNetworkConnection
     range: 500
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
   - type: Gun
     fireRate: 2.0
     projectileSpeed: 80
@@ -108,11 +113,13 @@
     containers:
       gun_magazine: !type:ContainerSlot
   - type: Actions
+  - type: CombatMode
+    isInCombatMode: true
   - type: RadarBlip
     radarColor: "#FF9100"
     scale: 1
   - type: ShipGunType
-    shipType: Ballistic
+    shipType: Missile
 
 # 220mm
 
@@ -130,6 +137,8 @@
     - state: space_artillery
     scale: 1.5, 1.5
   - type: Appearance
+  - type: AutoShootGun
+  - type: GunSignalControl
   - type: WirelessNetworkConnection
     range: 500
   - type: Fixtures
@@ -152,7 +161,12 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
   - type: Actions
+  - type: CombatMode
+    isInCombatMode: true
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -163,7 +177,7 @@
   - type: RadarBlip
     radarColor: "#03FC9D"
   - type: ShipGunType
-    shipType: Ballistic
+    shipType: Missile
 
 # Railgun
 
@@ -180,6 +194,8 @@
     layers:
     - state: space_artillery
   - type: Appearance
+  - type: AutoShootGun
+  - type: GunSignalControl
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -228,8 +244,13 @@
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: CombatMode
+    isInCombatMode: true
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 1
   - type: ShipGunType
-    shipType: Ballistic
+    shipType: Missile

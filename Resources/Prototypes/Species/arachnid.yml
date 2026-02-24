@@ -13,6 +13,12 @@
   lastNames: NamesArachnidLast
   sexes:
   - Unsexed
+  minHeight: 0.85 # Radiant sector ↓
+  defaultHeight: 1
+  maxHeight: 1.2
+  minWidth: 0.8
+  defaultWidth: 1
+  maxWidth: 1.25 # Radiant sector ↑
 
 - type: speciesBaseSprites
   id: MobArachnidSprites

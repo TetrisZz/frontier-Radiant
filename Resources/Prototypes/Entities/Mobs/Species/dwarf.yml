@@ -21,7 +21,7 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    scale: 1, 0.8
+#    scale: 1, 0.8 # Radiant sector
   - type: Body
     prototype: Dwarf
     requiredLegs: 2

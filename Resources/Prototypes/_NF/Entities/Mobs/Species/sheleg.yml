@@ -6,7 +6,7 @@
   abstract: true
   components:
   - type: Sprite
-    scale: 1.15, 1.2 # tall but dont make it too thin or its going to look bad
+#    scale: 1.15, 1.2 # tall but dont make it too thin or its going to look bad  # Radiant sector
   - type: HumanoidAppearance
     species: Sheleg
     hideLayersOnEquip:

@@ -13,6 +13,8 @@
     layers:
     - state: space_artillery
   - type: Appearance
+  - type: AutoShootGun
+  - type: GunSignalControl
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
@@ -29,6 +31,11 @@
   - type: SpaceArtillery
     powerChargeRate: 250
     powerUsePassive: 200
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: CombatMode
+    isInCombatMode: true
   - type: Actions
   - type: Destructible
     thresholds:

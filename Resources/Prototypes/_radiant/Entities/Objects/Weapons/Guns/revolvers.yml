@@ -10,7 +10,7 @@
     sprite: _radiant/Objects/Weapons/Guns/Revolvers/acorprevol.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 0.9
+    fireRate: 1.3
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -23,7 +23,7 @@
         - CartridgeMagnum500
     mayTransfer: true # Frontier
     proto: CartridgeMagnum500
-    capacity: 5
+    capacity: 6
     chambers: [ True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null ]
     soundEject:

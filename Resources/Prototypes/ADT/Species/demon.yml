@@ -8,6 +8,12 @@
   markingLimits: MobDemonMarkingLimits
   dollPrototype: MobDemonDummy
   skinColoration: Hues
+  minHeight: 0.75
+  defaultHeight: 1
+  maxHeight: 1.25
+  minWidth: 0.7
+  defaultWidth: 1
+  maxWidth: 1.3
 
 - type: speciesBaseSprites
   id: MobDemonSprites

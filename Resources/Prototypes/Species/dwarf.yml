@@ -7,3 +7,9 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned
+  minHeight: 0.70 # Radiant sector ↓
+  defaultHeight: 0.8
+  maxHeight: 0.95
+  minWidth: 0.90
+  defaultWidth: 1
+  maxWidth: 1.15 # Radiant sector ↑

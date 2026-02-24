@@ -185,9 +185,8 @@
         !type:String
         pda-chapter
   - type: PdaBorderColor
-    borderColor: "#282828"
-    accentHColor: "#d7d7d0"
-    accentVColor: "#282828"
+    borderColor: "#2c2c2b"
+    accentHColor: "#b0b0af"
   - type: Sprite
     sprite: _radiant/Objects/Devices/pda_vanilla.rsi
     layers:
@@ -203,7 +202,7 @@
       visible: false
 
 - type: entity
-  parent: PDASeparatistsCommander
+  parent: BasePDA
   id: PDASeparatistsPrivateSlave
   name: КПК личной рабыни
   description: Как это мило...как ты тут оказалась?
@@ -215,15 +214,16 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pda-personalslave
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#282828"
-    accentVColor: "#282828"
+    borderColor: "#2c2c2b"
+    accentVColor: "#8b8b8a"
   - type: Icon
     state: pda-personalslave
 
 - type: entity
-  parent: PDASeparatistsCommander
+  parent: BasePDA
   id: PDASeparatistsOperative
   name: КПК оперативника
   description: Пахнет кровью рекрутов и порохом.
@@ -235,15 +235,16 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pda-operative
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: PdaBorderColor
-    borderColor: "#862510"
-    accentHColor: "#282828"
-    accentVColor: "#862510"
+    borderColor: "#2c2c2b"
+    accentHColor: "#5a4324"
   - type: Icon
     state: pda-operative
 
 - type: entity
-  parent: PDASeparatistsCommander
+  parent: BasePDA
   id: PDASeparatistsWarden
   name: КПК надзирателя
   description: Исполнит ли он роль хлыста?
@@ -255,15 +256,15 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pda-warden
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#3a6b78"
-    accentVColor: "#3a6b78"
+    borderColor: "#5a4324"
   - type: Icon
     state: pda-warden
 
 - type: entity
-  parent: PDASeparatistsCommander
+  parent: BasePDA
   id: PDASeparatistsRecruit
   name: КПК рекрута
   description: Стильный и крутой, но так только по началу.
@@ -275,15 +276,15 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pda-reserve
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#8900c9"
-    accentVColor: "#8900c9"
+    borderColor: "#2c2c2b"
   - type: Icon
     state: pda-reserve
 
 - type: entity
-  parent: PDASeparatistsCommander
+  parent: BasePDA
   id: PDASeparatistsSlave
   name: КПК раба
   description: Ну и чего ты добился?
@@ -295,10 +296,10 @@
       enum.PdaVisuals.PdaType:
         !type:String
         pda-slave
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#8900c9"
-    accentVColor: "#8900c9"
+    borderColor: "#93692e"
   - type: Icon
     state: pda-slave
 
@@ -310,6 +311,8 @@
   name: КПК курсанта
   description: Стильный и крутой, но так только по началу.
   components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: Pda
     id: NavyCadetIDCard
   - type: Appearance
@@ -318,9 +321,7 @@
         !type:String
         pda-cadetfleet
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#282828"
-    accentVColor: "#282828"
+    borderColor: "#252950"
   - type: Icon
     state: pda-cadetfleet
 
@@ -330,6 +331,8 @@
   name: КПК ОМС
   description: Пахнет Инсузином, странно...
   components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: Pda
     id: NavyBrigmedicIDCard
   - type: Appearance
@@ -338,9 +341,7 @@
         !type:String
         pda-doctorfleet
   - type: PdaBorderColor
-    borderColor: "#862510"
-    accentHColor: "#282828"
-    accentVColor: "#862510"
+    borderColor: "#282c55"
   - type: Icon
     state: pda-doctorfleet
 
@@ -350,6 +351,8 @@
   name: КПК офицера
   description: Пахнет кровью и порохом.
   components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: Pda
     id: NavyOfficerIDCard
   - type: Appearance
@@ -358,9 +361,7 @@
         !type:String
         pda-fleetofficer
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#3a6b78"
-    accentVColor: "#3a6b78"
+    borderColor: "#252950"
   - type: Icon
     state: pda-fleetofficer
 
@@ -370,6 +371,8 @@
   name: КПК капитана 
   description: Дорого ли он стоит? Хм...
   components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: Pda
     id: NavyCaptainIDCard
   - type: Appearance
@@ -378,9 +381,8 @@
         !type:String
         pda-captainfleet
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#8900c9"
-    accentVColor: "#8900c9"
+    borderColor: "#252950"
+    accentHColor: "#b77931"
   - type: Icon
     state: pda-captainfleet
 
@@ -390,6 +392,8 @@
   name: КПК коммандора
   description: Так и гласит, что вы непобедимы.
   components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: Pda
     id: NavyKomandorIDCard
   - type: Appearance
@@ -398,9 +402,8 @@
         !type:String
         pda-commander
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#8900c9"
-    accentVColor: "#8900c9"
+    borderColor: "#252950"
+    accentHColor: "#b77931"
   - type: Icon
     state: pda-commander
 
@@ -409,8 +412,8 @@
 - type: entity
   parent: BaseMedicalPDA
   id: PDAPhoenixMedic
-  name: paramedic PDA
-  description: Shiny and sterile.
+  name: КПК медика
+  description: Вскрытие показало что пациент умер от вскрытия.
   components:
   - type: Pda
     id: PhoenixMedicIDCard
@@ -429,7 +432,7 @@
   parent: PDASeparatistsCommander
   id: PDAPhoenixAgent
   name: КПК агента
-  description: Так и гласит, что вы непобедимы.
+  description: Защищать жизнь - калеча другие жизни? Слава капитализму.
   components:
   - type: Pda
     id: PhoenixAgentIDCard
@@ -439,8 +442,7 @@
         !type:String
         pda-medikkkkf
   - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentHColor: "#8900c9"
-    accentVColor: "#8900c9"
+    borderColor: "#2e3b49"
+    accentHColor: "#b2b4b5"
   - type: Icon
     state: pda-medikkkkf
