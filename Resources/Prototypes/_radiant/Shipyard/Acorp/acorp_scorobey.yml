@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: ACORP Скарабей
   description: Мелкий экспедиционный шаттл.
-  price: 30000
+  price: 50000
   category: Small
   group: Acorp
   access: Acorp
@@ -23,7 +23,7 @@
   - Expedition
   - Medical
   engine:
-  - Plasma
+  - Uranium
 
 - type: gameMap
   id: Scorobey

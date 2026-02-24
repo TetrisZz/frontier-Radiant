@@ -1,0 +1,9 @@
+- type: entity
+  id: CrateFunMobFenGhost
+  parent: CrateLivestock
+  name: питомец
+  description: Погоди, что?
+  components:
+    - type: StorageFill
+      contents:
+        - id: MobFenGhost

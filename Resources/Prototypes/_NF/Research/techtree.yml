@@ -2045,7 +2045,7 @@
   entityIcon: NFWeaponEnergyRifleTemperature
   discipline: NFArsenalMercenary
   tier: 1
-  cost: 1000
+  cost: 10000
   recipeUnlocks:
   - NFWeaponEnergySubMachineGunDeltaVRS
   - NFWeaponEnergyRifleTemperature

@@ -1,0 +1,20 @@
+
+- type: entity
+  name: оружейный кейс
+  parent: WeaponCaseLong
+  id: WeaponCaseRS
+  description: A reinforced casing for storing heavy armaments.
+  suffix: Heavy
+  components:
+  - type: MultiHandedItem
+  - type: Sprite
+    sprite: _radiant/Objects/Storage/Cases/guncaseheavy.rsi
+  - type: Item
+    sprite: _radiant/Objects/Storage/Cases/guncaseheavy.rsi
+    size: Large
+    shape:
+    - 0,0,8,3
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,7,3

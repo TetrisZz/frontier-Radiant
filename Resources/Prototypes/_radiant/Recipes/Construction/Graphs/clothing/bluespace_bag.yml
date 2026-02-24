@@ -15,8 +15,24 @@
             - tag: SatchelMeowSkin
               doAfter: 2
 
+        - to: BackpackGut
+          steps:
+            - tag: BackpackGutSkin
+              doAfter: 2
+
+        - to: BackpackFds
+          steps:
+            - tag: BackpackFdsSkin
+              doAfter: 2
+
     - node: SatchelMeow
       entity: ClothingBackpackMeow
 
     - node: BackpackMeow
       entity: ClothingBackpackSatchelMeow
+
+    - node: BackpackFds
+      entity: ClothingBackpackFds
+
+    - node: BackpackGut
+      entity: ClothingBackpackGut

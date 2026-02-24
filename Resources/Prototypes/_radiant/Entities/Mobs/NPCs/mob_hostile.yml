@@ -1,0 +1,134 @@
+- type: entity
+  name: гигачад
+  categories: [ HideSpawnMenu ]
+  parent:
+  - MobMovementSpeedModifierSpecial
+  - MobStaminaFodder
+  - MobNonHumanHostileBase
+  - MobPassiveRegen
+  - MobHumanoidHostileAISimpleMelee
+  id: MobBloodCultGigachad
+  description: This cultist, once human, is now a twisted and corrupted abomination, its body warped and distorted by the dark energies of Nar'Sie's influence.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - BloodCultNF
+  - type: DatasetVocalizer
+    dataset: bloodcultisthumanoidchatter
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _radiant/Mobs/NPC/gigachad.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: gigachad
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gigachad
+      Critical:
+        Base: gigachad
+      Dead:
+        Base: gigachad
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      180: Critical
+      230: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Slash: 10 
+        Structural: 20
+    animation: WeaponArcBite
+
+- type: entity
+  name: служитель ратвара
+  categories: [ HideSpawnMenu ]
+  parent:
+  - MobMovementSpeedModifierSpecial
+  - MobStaminaFodder
+  - MobNonHumanHostileBase
+  - MobPassiveRegen
+  - MobHumanoidHostileAISimpleMelee
+  id: MobBloodCultRatv
+  description: This cultist, once human, is now a twisted and corrupted abomination, its body warped and distorted by the dark energies of Nar'Sie's influence.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - BloodCultNF
+  - type: DatasetVocalizer
+    dataset: bloodcultisthumanoidchatter
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _radiant/Mobs/NPC/ratvar1.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: icon
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: icon
+      Critical:
+        Base: icon
+      Dead:
+        Base: icon
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Slash: 10 
+        Structural: 20
+    animation: WeaponArcBite
+
+- type: entity
+  name: служитель ратвара поменьше
+  categories: [ HideSpawnMenu ]
+  parent:
+  - MobMovementSpeedModifierSpecial
+  - MobStaminaFodder
+  - MobNonHumanHostileBase
+  - MobPassiveRegen
+  - MobHumanoidHostileAISimpleMelee
+  id: MobBloodCultRatvar
+  description: This cultist, once human, is now a twisted and corrupted abomination, its body warped and distorted by the dark energies of Nar'Sie's influence.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - BloodCultNF
+  - type: DatasetVocalizer
+    dataset: bloodcultisthumanoidchatter
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _radiant/Mobs/NPC/ratvar2.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: icon
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: icon
+      Critical:
+        Base: icon
+      Dead:
+        Base: icon
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Slash: 10 
+        Structural: 20
+    animation: WeaponArcBite

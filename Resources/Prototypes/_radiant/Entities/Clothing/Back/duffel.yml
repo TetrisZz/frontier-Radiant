@@ -24,3 +24,71 @@
   components:
     - type: Sprite
       sprite: _radiant/Clothing/Back/Duffels/flot.rsi
+
+
+- type: entity
+  parent: NFClothingBackpack
+  id: ClothingBackpackFdsSkin
+  name: нераспакованная сумка
+  description: Лишь чехол, чтобы поместить в него другую сумку.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Duffels/fds.rsi
+  - type: Tag
+    tags:
+    - BackpackFdsSkin
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,1,1
+
+- type: entity
+  parent: NFClothingBackpack
+  id: ClothingBackpackFds
+  categories: [ HideSpawnMenu ]
+  name: сумка
+  description: Универсальная сумка для ежедневного использования с лаконичным дизайном и удобной организацией отделений. Подходит для работы и прогулок, обеспечивая комфорт и аккуратное хранение всего необходимого.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Duffels/fds.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,7 # Frontier: Was 0,0,19,9
+  - type: Construction
+    graph: BlueSpaceBagSkinCrafting
+    node: start
+
+
+- type: entity
+  parent: NFClothingBackpack
+  id: ClothingBackpackGutSkin
+  name: нераспакованная сумка
+  description: Лишь чехол, чтобы поместить в него другую сумку.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Duffels/gut.rsi
+  - type: Tag
+    tags:
+    - BackpackGutSkin
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,1,1
+
+- type: entity
+  parent: NFClothingBackpack
+  id: ClothingBackpackGut
+  categories: [ HideSpawnMenu ]
+  name: чехол от гитары
+  description: Стильная сумка с силуэтом гитарного чехла, которая сочетает музыкальный характер и практичность. Внутри — продуманное пространство для повседневных вещей, снаружи — выразительный дизайн, привлекающий внимание и подчеркивающий индивидуальность владельца.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Duffels/gut.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,7 # Frontier: Was 0,0,19,9
+  - type: Construction
+    graph: BlueSpaceBagSkinCrafting
+    node: start
