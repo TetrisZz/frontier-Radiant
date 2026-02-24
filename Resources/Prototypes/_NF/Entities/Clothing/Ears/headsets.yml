@@ -24,6 +24,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyNfsd
+      - EncryptionKeySecurity
 
 - type: entity
   parent: ClothingHeadsetNfsdBrown

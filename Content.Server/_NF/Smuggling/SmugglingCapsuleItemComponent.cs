@@ -11,7 +11,7 @@ namespace Content.Server._NF.Smuggling.Components
         public string ChannelNotify = "Separatist";
 
         [DataField("channelNotifyOpponent")]
-        public string ChannelNotifyOpponent = "Command";
+        public string ChannelNotifyOpponent = "Security";
 
         [DataField("dropGrid")]
         public ResPath DropGrid = new("/Maps/_radiant/DeadDrop/kapsyla_sep.yml");

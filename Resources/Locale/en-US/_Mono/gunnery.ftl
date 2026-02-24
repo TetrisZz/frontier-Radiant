@@ -4,3 +4,7 @@ gunnery-window-connected = CONNECTED
 gunnery-select-all = Select All
 gunnery-unselect-all = Unselect All
 gunnery-guns = Guns
+
+gunnery-type-ballistic = Сдерживающие
+gunnery-type-missile = Разрушительные
+gunnery-type-energy = Не летальные

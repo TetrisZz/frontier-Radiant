@@ -1,6 +1,6 @@
 - type: smugglingReportMessageSet
   id: Nfsd
-  channel: Nfsd
+  channel: Security
   messageSets:
   - prob: 0.8
     messages:
@@ -25,11 +25,10 @@
 #  channel: Freelance # Radiant sector
   channel: Separatist
   messageSets:
-#  - prob: 0.333
-  - prob: 0.8 # Radiant sector
+  - prob: 0.333
 #    minDelay: 14 # Radiant sector
 #    maxDelay: 16 # Radiant sector
-    minDelay: 10 # Radiant sector
+    minDelay: 12 # Radiant sector
     maxDelay: 14 # Radiant sector
     messages:
     - type: PodLocation
