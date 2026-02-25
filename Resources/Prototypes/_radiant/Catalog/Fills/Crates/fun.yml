@@ -7,3 +7,13 @@
     - type: StorageFill
       contents:
         - id: MobFenGhost
+
+- type: entity
+  id: CrateFunMobPigRSGhost
+  parent: CrateLivestock
+  name: питомец
+  description: Погоди, что?
+  components:
+    - type: StorageFill
+      contents:
+        - id: MobPigRSGhost

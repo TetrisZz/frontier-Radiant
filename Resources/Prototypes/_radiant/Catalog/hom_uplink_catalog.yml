@@ -646,7 +646,23 @@
   productEntity: CrateFunMobFenGhost
   icon: { sprite: _radiant/Mobs/Pets/fen.rsi, state: fox }
   cost:
-    Cristalhom: 10
+    Cristalhom: 7
+  categories:
+    - UplinkHomHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkCrateFunMobPigRSGhost
+  name:  uplink-hom-fox-name
+  description: uplink-hom-fox-desc
+  productEntity: CrateFunMobPigRSGhost
+  icon: { sprite: _radiant/Mobs/Pets/pig.rsi, state: pig }
+  cost:
+    Cristalhom: 7
   categories:
     - UplinkHomHardsuits
   conditions:

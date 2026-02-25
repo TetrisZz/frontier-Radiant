@@ -149,3 +149,92 @@
     nameSegments: [NamesCatSpace]
   - type: Inventory
     speciesId: fox
+
+- type: entity
+  name: домашняя свинья
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobPigRS
+  description: Oink.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pig
+      sprite: _radiant/Mobs/Pets/pig.rsi
+  - type: Carriable #DeltaV
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: pig
+    templateId: pet
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Pig
+    - VimPilot
+  - type: Reproductive
+    partnerWhitelist:
+      tags:
+      - Pig
+    offspring:
+    - id: MobPig
+  - type: ReproductivePartner
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pig
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBacon
+      amount: 6
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-pig
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/pig_oink.ogg
+  - type: ReplacementAccent
+    accent: pig
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+
+- type: entity
+  suffix: Ghost
+  parent: [BaseEmotionalGhost, MobPigRS]
+  id: MobPigRSGhost
+  components:
+  - type: ReplacementAccent
+    accent: pig
+  - type: Vocal
+    sounds:
+      Male: pig
+      Female: pig
+      Unsexed: pig
+  - type: RandomMetadata
+    nameSegments: [NamesCatSpace]
+  - type: Inventory
+    speciesId: pig

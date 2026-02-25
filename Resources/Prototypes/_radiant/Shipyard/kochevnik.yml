@@ -3,7 +3,7 @@
   parent: BaseVessel
   name: HOM Кочевник
   description: Большое многофункциональное судно, предназначенное для длительных миссий и автономной жизни экипажа.
-  price: 250000
+  price: 300000
   category: Large
   group: Expedition
   shuttlePath: /Maps/_radiant/Shuttles/Kochevnik.yml

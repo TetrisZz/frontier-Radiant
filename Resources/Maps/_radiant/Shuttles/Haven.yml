@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 01/22/2026 18:58:59
-  entityCount: 1369
+  time: 02/25/2026 19:04:26
+  entityCount: 1377
 maps: []
 grids:
 - 1
@@ -1410,61 +1410,29 @@ entities:
     - type: Transform
       pos: -1.684382,-16.451077
       parent: 1
-- proto: Bed
-  entities:
-  - uid: 104
-    components:
-    - type: Transform
-      pos: 8.5,4.5
-      parent: 1
-  - uid: 105
-    components:
-    - type: Transform
-      anchored: False
-      pos: 8.503624,4.8245792
-      parent: 1
-    - type: Physics
-      bodyType: Dynamic
-    - type: Pullable
-      prevFixedRotation: True
-  - uid: 106
-    components:
-    - type: Transform
-      anchored: False
-      pos: -4.498435,4.849474
-      parent: 1
-    - type: Physics
-      bodyType: Dynamic
-    - type: Pullable
-      prevFixedRotation: True
-  - uid: 107
-    components:
-    - type: Transform
-      pos: -4.5,4.5
-      parent: 1
-- proto: BedsheetBlue
-  entities:
-  - uid: 108
-    components:
-    - type: Transform
-      pos: 8.503624,4.8245792
-      parent: 1
-  - uid: 109
-    components:
-    - type: Transform
-      pos: 8.5,4.5
-      parent: 1
-- proto: BedsheetRed
+- proto: BedDouble
   entities:
   - uid: 110
     components:
     - type: Transform
-      pos: -4.5,4.5
+      pos: 8.5,3.5
       parent: 1
   - uid: 111
     components:
     - type: Transform
-      pos: -4.498435,4.849474
+      pos: -4.5,3.5
+      parent: 1
+- proto: BedDoubleDown
+  entities:
+  - uid: 106
+    components:
+    - type: Transform
+      pos: -4.5,3.5
+      parent: 1
+  - uid: 107
+    components:
+    - type: Transform
+      pos: 8.5,3.5
       parent: 1
 - proto: BenchSofaCorner
   entities:
@@ -2982,6 +2950,18 @@ entities:
       parent: 1
 - proto: Carpet
   entities:
+  - uid: 104
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-1.5
+      parent: 1
+  - uid: 108
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-0.5
+      parent: 1
   - uid: 409
     components:
     - type: Transform
@@ -3042,6 +3022,48 @@ entities:
     components:
     - type: Transform
       pos: -7.5,-1.5
+      parent: 1
+  - uid: 1170
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-2.5
+      parent: 1
+  - uid: 1370
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-0.5
+      parent: 1
+  - uid: 1371
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-1.5
+      parent: 1
+  - uid: 1372
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-2.5
+      parent: 1
+  - uid: 1373
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,-0.5
+      parent: 1
+  - uid: 1374
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,-1.5
+      parent: 1
+  - uid: 1375
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,-2.5
       parent: 1
 - proto: CarpetBlack
   entities:
@@ -3994,6 +4016,22 @@ entities:
     - type: Transform
       pos: 1.5,-13.5
       parent: 1
+- proto: DoubleBedsheetRed
+  entities:
+  - uid: 1377
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,3.5
+      parent: 1
+- proto: DoubleBedsheetWiz
+  entities:
+  - uid: 472
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,3.5
+      parent: 1
 - proto: Dresser
   entities:
   - uid: 462
@@ -4009,7 +4047,7 @@ entities:
         464:
           position: 1,0
           _rotation: South
-        466:
+        invalid:
           position: 2,0
           _rotation: South
         467:
@@ -4026,7 +4064,7 @@ entities:
           ents:
           - 465
           - 464
-          - 466
+          - invalid
           - 467
           - 463
   - uid: 468
@@ -4042,7 +4080,7 @@ entities:
         470:
           position: 1,0
           _rotation: South
-        472:
+        invalid:
           position: 2,0
           _rotation: South
         473:
@@ -4059,7 +4097,7 @@ entities:
           ents:
           - 471
           - 470
-          - 472
+          - invalid
           - 473
           - 469
 - proto: DrinkGlass
@@ -6871,6 +6909,14 @@ entities:
     - type: Transform
       pos: -4.5,6.5
       parent: 1
+- proto: Pole
+  entities:
+  - uid: 1376
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,-15.5
+      parent: 1
 - proto: PosterContrabandRealExomorph
   entities:
   - uid: 927
@@ -6887,6 +6933,18 @@ entities:
       parent: 1
 - proto: PottedPlantRandom
   entities:
+  - uid: 105
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,4.5
+      parent: 1
+  - uid: 109
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,4.5
+      parent: 1
   - uid: 929
     components:
     - type: Transform
@@ -7232,6 +7290,13 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-20.5
+      parent: 1
+- proto: SexVendingMachineRadiant
+  entities:
+  - uid: 466
+    components:
+    - type: Transform
+      pos: 7.5,-19.5
       parent: 1
 - proto: ShelfBar
   entities:
@@ -8725,13 +8790,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-24.5
-      parent: 1
-- proto: VendingMachineTheater
-  entities:
-  - uid: 1170
-    components:
-    - type: Transform
-      pos: 7.5,-19.5
       parent: 1
 - proto: WallmountTelevision
   entities:
