@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 02/25/2026 19:03:56
-  entityCount: 1043
+  time: 02/26/2026 17:01:44
+  entityCount: 1048
 maps: []
 grids:
 - 1
@@ -397,6 +397,37 @@ entities:
             663: -7,12
             664: -7,13
         - node:
+            color: '#FFFFFFFF'
+            id: BushDThree
+          decals:
+            744: -8.99019,6.0907125
+        - node:
+            color: '#FFFFFFFF'
+            id: Bushe1
+          decals:
+            743: -6.998682,7.294875
+        - node:
+            color: '#FFFFFFFF'
+            id: Bushf2
+          decals:
+            730: -8.143055,6.0758457
+            731: -8.009296,5.2730713
+            732: -7.2513356,6.4921
+            733: -7.5634375,6.1204453
+            734: -8.455156,6.700227
+            735: -8.945603,6.863755
+            736: -8.767258,6.0907125
+            737: -8.945603,6.1204453
+            738: -7.9052625,7.012417
+            739: -8.009296,7.651664
+            740: -7.2959204,6.908354
+        - node:
+            color: '#FFFFFFFF'
+            id: Bushi3
+          decals:
+            741: -7.043267,6.0163813
+            742: -9.005052,7.1313467
+        - node:
             angle: -1.5707963267948966 rad
             color: '#FFFFFFFF'
             id: Caution
@@ -415,6 +446,16 @@ entities:
             522: -4,12
             523: -3,12
             524: -2,12
+        - node:
+            color: '#FFFFFFFF'
+            id: FlowersBRThree
+          decals:
+            746: -8.039021,6.68536
+        - node:
+            color: '#FFFFFFFF'
+            id: Flowersy2
+          decals:
+            745: -7.9498487,5.912318
         - node:
             color: '#96DAFFA7'
             id: MiniTileCheckerAOverlay
@@ -4782,6 +4823,13 @@ entities:
     - type: Transform
       pos: -2.5,13.5
       parent: 1
+- proto: LightTree
+  entities:
+  - uid: 1046
+    components:
+    - type: Transform
+      pos: -7.453714,7.3285294
+      parent: 1
 - proto: LockerBotanistFilled
   entities:
   - uid: 490
@@ -5070,6 +5118,18 @@ entities:
     components:
     - type: Transform
       pos: -9.5,23.5
+      parent: 1
+  - uid: 1047
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.5,26.5
+      parent: 1
+  - uid: 1048
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,26.5
       parent: 1
 - proto: PoweredlightCyan
   entities:
@@ -5607,6 +5667,11 @@ entities:
     - type: Transform
       pos: -5.5,11.5
       parent: 1
+  - uid: 1044
+    components:
+    - type: Transform
+      pos: 0.5,13.5
+      parent: 1
 - proto: ShuttersRadiation
   entities:
   - uid: 34
@@ -5847,23 +5912,55 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,7.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        314:
+        - - Pressed
+          - Toggle
   - uid: 995
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -15.5,7.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        316:
+        - - Pressed
+          - Toggle
   - uid: 996
     components:
     - type: Transform
       pos: -12.5,14.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        984:
+        - - Pressed
+          - Toggle
+        985:
+        - - Pressed
+          - Toggle
+        986:
+        - - Pressed
+          - Toggle
   - uid: 997
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,10.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        989:
+        - - Pressed
+          - Toggle
+        987:
+        - - Pressed
+          - Toggle
+        1044:
+        - - Pressed
+          - Toggle
   - uid: 1000
     components:
     - type: Transform
@@ -6027,6 +6124,13 @@ entities:
     components:
     - type: Transform
       pos: -5.3752074,22.179474
+      parent: 1
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 1045
+    components:
+    - type: Transform
+      pos: -7.5,9.5
       parent: 1
 - proto: StasisBed
   entities:
