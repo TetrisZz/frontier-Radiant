@@ -69,7 +69,6 @@ public sealed partial class GenericStatusEffect : EntityEffect
 
 public enum StatusEffectMetabolismType
 {
-    Update,
     Add,
     Remove,
     Set
