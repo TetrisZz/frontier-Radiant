@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Homka for the Radiant sector - Frontier",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "com"
+    },
+    {
+      "name": "mist"
+    },
+    {
+      "name": "rnd"
+    }
+  ]
+}

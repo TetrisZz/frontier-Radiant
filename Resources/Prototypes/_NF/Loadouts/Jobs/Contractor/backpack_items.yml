@@ -528,6 +528,13 @@
     - RubberStampClown
 
 - type: loadout
+  id: ContractorRubberStampRS
+  price: 2000
+  storage:
+    back:
+    - RubberStampRS
+
+- type: loadout
   id: ContractorRubberStampMime
   price: 1500
   storage:

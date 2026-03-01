@@ -1,0 +1,38 @@
+- type: entity
+  name: печать коменданта
+  parent: RubberStampBase
+  id: RubberStampComRS
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-com
+    stampedColor: "#0a0a0a"
+    stampState: "paper_stamp-rs-com"
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/stamps.rsi
+    state: com
+
+- type: entity
+  name: печать для важных документов
+  parent: RubberStampBase
+  id: RubberStampRS
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-mist
+    stampedColor: "#30d5c8"
+    stampState: "paper_stamp-rs-mist"
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/stamps.rsi
+    state: mist
+
+- type: entity
+  name: печать директора
+  parent: RubberStampBase
+  id: RubberStampRNDRS
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-rnd
+    stampedColor: "#9932cc"
+    stampState: "paper_stamp-rs-com"
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/stamps.rsi
+    state: rnd

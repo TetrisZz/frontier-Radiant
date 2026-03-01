@@ -830,6 +830,7 @@
   - ContractorBrbSign
   - ContractorHandLabeler
   - ContractorStampsApprovedDenied
+  - ContractorRubberStampRS
   - ContractorRubberStampCaptain
   - ContractorRubberStampChaplain
   - ContractorRubberStampDoctor
