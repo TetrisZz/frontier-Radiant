@@ -90,7 +90,7 @@
   - AutolatheHyperConvectionMachineCircuitboard
   - ProtolatheHyperConvectionMachineCircuitboard
   - CircuitImprinterHyperConvectionMachineCircuitboard
-  # - TechDiskComputerCircuitboard # Frontier: no tech disks
+  - TechDiskComputerCircuitboard # Frontier: no tech disks # Radiant sector
   - FlatpackerMachineCircuitboard
   - SheetifierMachineCircuitboard
   - PowerCageRechargerCircuitboard

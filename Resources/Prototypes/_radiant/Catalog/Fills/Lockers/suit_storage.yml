@@ -38,6 +38,7 @@
         - id: AirTankFilled
         - id: ClothingOuterHardsuitAcorpEngineer
         - id: ClothingMaskBreathAcorp 
+        - id: JetpackMiniFilled
         - id: ClothingShoesBootsMag
   - type: AccessReader
     access: [["Acorp"]]

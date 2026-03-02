@@ -26,6 +26,11 @@
   accessGroups: # Frontier
   - GeneralAccess
   special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - RadiantAcorp
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift

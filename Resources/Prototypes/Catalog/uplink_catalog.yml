@@ -1770,7 +1770,8 @@
   icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
   productEntity: CrateCybersunJuggernautBundle
   cost:
-    Telecrystal: 12
+#    Telecrystal: 12 # Radiant Sector
+    Telecrystal: 12 # Radiant Sector
   categories:
   - UplinkWearables
 #  conditions:

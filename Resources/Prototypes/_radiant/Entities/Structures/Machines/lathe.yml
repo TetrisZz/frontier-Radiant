@@ -1,7 +1,51 @@
 - type: entity
+  id: PrinterAcorp
+  parent: BaseLathe
+  name: принтер акорпа
+  description: Высокофункциональный факс, позволяющий отправлять любые данные в любых количествах, прямо в научные центры корпорации.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/primter.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: BiogeneratorMachineCircuitboard
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+          - MachineLayer
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - TechnicalDocument
+  - type: ProduceMaterialExtractor
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    staticPacks:
+    - AcorpPrinter
+
+- type: entity
   id: ProtolatheAcorp
-  parent: BaseLatheLube
-  name: принтер акорп
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: ТехФаб акорп
   description: Очень важная и ценная технология, которая принадлежит и была разработана Аколит Корпорейшн. Без него ваша работа - не имеет смысла.
   components:
   - type: Sprite
@@ -38,3 +82,61 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - AcorpProtolatheEMAG
+  - type: ReagentSpeed
+    solution: lube
+    modifiers:
+      SpaceLube: 0.5 # Frontier: 0.25<0.5 (we double dip on time with lube and machine parts)
+      SpaceGlue: 5
+  - type: SolutionContainerManager
+    solutions:
+      lube:
+        maxVol: 250
+  - type: Spillable
+    solution: lube
+  - type: RefillableSolution
+    solution: lube
+  - type: ExaminableSolution
+    solution: lube
+  - type: Appearance
+  - type: WiresVisuals
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+          - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: WiresPanel
+  - type: ActivatableUI
+    key: enum.LatheUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.LatheUiKey.Key:
+        type: LatheBoundUserInterface
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: StaticPrice
+    price: 800
+  - type: ResearchClient
+  - type: TechnologyDatabase
+  - type: MaterialStorageMagnetPickup # Frontier
+    range: 0.30 # Frontier

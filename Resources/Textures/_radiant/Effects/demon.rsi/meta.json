@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Homka for the Radiant sector - Frontier",
+    "states": [
+        {
+            "name": "default0",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "default1"
+        },
+        {
+            "name": "default2"
+        }
+    ]
+}

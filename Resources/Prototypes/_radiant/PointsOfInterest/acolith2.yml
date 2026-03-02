@@ -1,0 +1,51 @@
+# Author Info
+# GitHub: 
+# Discord: 
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Notes:
+- type: pointOfInterest
+  id: Acolith2
+  name: 'МНБ Горизонт'
+  minimumDistance: 7000
+  maximumDistance: 9500
+  spawnGroup: AcorpBase
+  gridPath: /Maps/_radiant/POI/acolith.yml
+  addComponents:
+  - type: IFF
+    color: "#dbdbdb"
+    flags: [HideLabel]
+
+- type: gameMap
+  id: Acolith2
+  mapName: 'МНБ Горизонт'
+  mapPath: /Maps/_NF/POI/acolith.yml
+  minPlayers: 0
+  stations:
+    Acolith2:
+      stationProto: RecordsFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'МНБ Горизонт'
+        - type: ExtraStationInformation
+          iconPath: /Textures/_radiant/Interface/StationIcons/acorp_flag.png
+          stationSubtext: 'frontier-lobby-acorp-subtext'
+          stationDescription: 'frontier-lobby-acorp-horizon-description'
+          lobbySortOrder: 4
+        - type: StationJobs
+          availableJobs:
+            AcorpСommandant: [ 1, 1 ]
+            AcorpDirector: [ 1, 1 ]
+            AcorpSecurity: [ 2, 2 ]
+            AcorpScience: [ 3, 3 ]
+            AcorpEngineer: [ 1, 1 ]
+            AcorpMedical: [ 1, 1 ]
+            AcorpService: [ 1, 1 ]
+            AcorpAssistant: [ 5, 5 ]
+          tags:
+          - HeadOfPersonnel
+          - HeadOfSecurity
+        - type: StationDeadDrop

@@ -250,7 +250,8 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+#      board: [ DoorElectronicsSecurity ] # Radiant sector
+      board: [ DoorElectronicsSecurityNavy ] # Radiant sector
 
 - type: entity
   parent: AirlockShuttleNfsd

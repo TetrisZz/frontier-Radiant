@@ -326,21 +326,23 @@
     # spawn probabilities skewed towards empty lockers to reduce entity spam
     - id: SuitStorageBase
 #      weight: 55 # Radiant sector
-      weight: 5 # Radiant sector
+      weight: 25 # Radiant sector
     - !type:GroupSelector
-      weight: 0.2
+#      weight: 0.2 # Radiant sector
+      weight: 25 # Radiant sector
       children:
       - id: SuitStorageEVACargo
       - id: SuitStorageSalv
       - id: SuitStorageSurplus # Radiant sector
     - !type:GroupSelector
-      weight: 0.2
+#      weight: 0.2 # Radiant sector
+      weight: 25 # Radiant sector
       children:
       - id: SuitStorageEVASalvage
       - id: SuitStorageQuartermaster
     - !type:GroupSelector
 #      weight: 0.05 # Radiant sector
-      weight: 0.1 # Radiant sector
+      weight: 25 # Radiant sector
       children:
       - id: SuitStorageNTSRA
       - id: SuitStorageMining

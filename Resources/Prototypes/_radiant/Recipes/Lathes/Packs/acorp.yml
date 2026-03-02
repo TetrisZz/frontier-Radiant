@@ -1,4 +1,15 @@
 - type: latheRecipePack
+  id: AcorpPrinter
+  recipes:
+  - ResearchDisk2500Acorp
+  - ResearchDisk5000Acorp
+  - ResearchDisk10000Acorp
+  - SpaceCash2500Acorp
+  - SpaceCash15000Acorp
+  - SpaceCash30000Acorp
+  - BlueSpaceTicketAcorp
+
+- type: latheRecipePack
   id: AcorpProtolathe
   recipes:
   - EnergyTazer
@@ -45,6 +56,7 @@
   - CyborgEndoskeletonAcorp
   - CyborgEndoskeletonAcorpSecurity
   - CyborgEndoskeletonAcorpMiner
+  - HyposprayAcorp
 
 - type: latheRecipePack
   id: AcorpProtolatheEMAG

@@ -21,6 +21,7 @@
     - AberrantFleshExpeditionNF # Frontier
     - ContrabandClothing # Frontier
     - ContrabandDetection # Frontier
+    - RadiantAcorp # Radiant sector
 
 - type: npcFaction
   id: NanoTrasen
@@ -96,6 +97,7 @@
   - AberrantFleshExpeditionNF # Frontier
   - ContrabandClothing # Frontier
   - ContrabandDetection # Frontier
+  - RadiantAcorp # Radiant sector
 
 - type: npcFaction
   id: SimpleNeutral
@@ -126,6 +128,7 @@
   - AberrantFleshExpeditionNF # Frontier
   - ContrabandClothing # Frontier
   - ContrabandDetection # Frontier
+  - RadiantAcorp # Radiant sector
 
 - type: npcFaction
   id: Xeno
@@ -153,6 +156,7 @@
   - AberrantFleshExpeditionNF # Frontier
   - ContrabandClothing # Frontier
   - ContrabandDetection # Frontier
+  - RadiantAcorp # Radiant sector
 
 - type: npcFaction
   id: Zombie
@@ -181,6 +185,7 @@
   - AberrantFleshExpeditionNF # Frontier
   - ContrabandClothing # Frontier
   - ContrabandDetection # Frontier
+  - RadiantAcorp # Radiant sector
 
 - type: npcFaction
   id: Revolutionary
@@ -204,6 +209,7 @@
   - AberrantFleshExpeditionNF # Frontier
   - ContrabandClothing # Frontier
   - ContrabandDetection # Frontier
+  - RadiantAcorp # Radiant sector
 
 - type: npcFaction
   id: AllHostile # Frontier: use HostileUniversally
@@ -221,6 +227,7 @@
   - Revolutionary
   - Wizard
   - Xenoborg
+  - RadiantAcorp # Radiant sector
 
 - type: npcFaction
   id: Wizard
@@ -251,6 +258,7 @@
   - AberrantFleshExpeditionNF # Frontier
   - ContrabandClothing # Frontier
   - ContrabandDetection # Frontier
+  - RadiantAcorp # Radiant sector
 
 - type: npcFaction
   id: Xenoborg
@@ -279,3 +287,4 @@
   - AberrantFleshExpeditionNF # Frontier
   - ContrabandClothing # Frontier
   - ContrabandDetection # Frontier
+  - RadiantAcorp # Radiant sector

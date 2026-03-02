@@ -1,9 +1,12 @@
 - type: entity
   id: ProtolatheMachineCircuitboardAcorp
   parent: BaseMachineCircuitboard
-  name: принтер акорп (машинная плата)
-  description: Печатная плата для принтера акорп
+  name: ТехФаб акорп (машинная плата)
+  description: Печатная плата для ТехФаба акорп.
   components:
+    - type: Sprite
+      sprite: _radiant/Objects/Misc/module.rsi
+      state: acorp
     - type: MachineBoard
       prototype: ProtolatheAcorp
       requirements: # Frontier
@@ -12,6 +15,18 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: TechDiskComputerAcorpCircuitboard
+  name: терминал технических документаций (машинная плата)
+  description: Печатная плата для терминала печати технических документаций.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/module.rsi
+    state: cpu_acorp
+  - type: ComputerBoard
+    prototype: ComputerTechnologyDiskTerminalAcorp
 
 - type: entity
   id: MachineFTLDriveCircuitboard

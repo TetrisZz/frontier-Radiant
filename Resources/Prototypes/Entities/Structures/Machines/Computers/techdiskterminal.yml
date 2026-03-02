@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseComputer
   id: ComputerTechnologyDiskTerminal
-  categories: [ HideSpawnMenu ] # Frontier: no tech disks
+#  categories: [ HideSpawnMenu ] # Frontier: no tech disks # Radiant sector
   name: tech disk terminal
   description: A terminal used to print out technology disks.
   components:
@@ -14,6 +14,10 @@
     - map: ["computerLayerScreen"]
       state: unshaded
   - type: DiskConsole
+    diskPrototype: ResearchDisk  # Radiant sector
+    diskPrototypeRare: ResearchDisk10000 # Radiant sector
+    pricePerDisk: 1100 # Radiant sector
+    pricePerRareDisk: 11000 # Radiant sector
   - type: ResearchClient
   - type: ActivatableUI
     key: enum.DiskConsoleUiKey.Key

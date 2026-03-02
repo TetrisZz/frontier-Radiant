@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Used with permission from https://www.artstation.com/designerhere Discord: @designerhere (discord) for Frontier Station, edited by dustylens (github)",
+    "copyright": "Create by TetrisZz",
     "size": {
         "x": 32,
         "y": 32
@@ -10,7 +10,7 @@
         {
             "name": "icon",
             "directions": 1,
-            "delays": [ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 1 ] ]
         }
     ]
 }

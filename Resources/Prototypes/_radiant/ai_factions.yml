@@ -1,0 +1,68 @@
+- type: npcFaction
+  id: RadiantAcorp
+  friendly:
+  - NanoTrasen
+  - PetsNT
+  hostile:
+  ## SS14 factions
+  - Syndicate
+  - SimpleHostile
+  - SimpleNeutral
+  - Passive
+  - Zombie
+  - Revolutionary
+  - Xeno
+  - Wizard
+  - Dragon
+  - Xenoborg
+  ## Frontier Factions
+  #- Monkey
+  #- Goblin
+  - NFSyndicate
+  - WizFedFaction
+  - BloodCultNF
+  - NFPirate
+  - ExplorersExpeditionNF
+  - ArtifactConstruct
+  - StreetGangNF
+  - DinosaursNF
+  - MercenariesExpeditionNF
+  - SiliconsExpeditionNF
+  - AberrantFleshExpeditionNF
+  # - ContrabandClothing
+  - ContrabandDetection
+
+- type: npcFaction
+  id: RadiantAcorpTurret
+  friendly:
+  - RadiantAcorp
+  hostile:
+  ## SS14 factions
+  - NanoTrasen
+  - Syndicate
+  - SimpleHostile
+  - SimpleNeutral
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Xeno
+  - Wizard
+  - Dragon
+  - Xenoborg
+  ## Frontier Factions
+  - Monkey
+  - Goblin
+  - NFSyndicate
+  - WizFedFaction
+  - BloodCultNF
+  - NFPirate
+  - ExplorersExpeditionNF
+  - ArtifactConstruct
+  - StreetGangNF
+  - DinosaursNF
+  - MercenariesExpeditionNF
+  - SiliconsExpeditionNF
+  - AberrantFleshExpeditionNF
+  - ContrabandClothing
+  - ContrabandDetection

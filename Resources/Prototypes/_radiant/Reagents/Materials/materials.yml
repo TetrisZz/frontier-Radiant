@@ -5,3 +5,10 @@
   icon: { sprite: _radiant/Objects/Materials/Sheets/ingots.rsi, state: hydrogen }
   color: "#57d2d9"
   price: 0.2
+
+- type: material
+  id: TechnicalDocument
+  stackEntity: TreasureTechnicalDocument
+  name: materials-technicaldocument
+  icon: { sprite: _radiant/Objects/bureaucracy.rsi, state: paper }
+  price: 0.2

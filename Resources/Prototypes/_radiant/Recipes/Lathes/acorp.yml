@@ -40,12 +40,26 @@
 
 - type: latheRecipe
   id: JetpackAcorp
-  parent: NFBaseHardSuitRecipe
+  completetime: 10
   result: JetpackAcorp
   materials:
     Steel: 1000
     Plastic: 1200
     Plasteel: 1200
+    Silver: 200
+
+- type: latheRecipe
+  id: HyposprayAcorp
+  completetime: 15
+  result: HyposprayAcorp
+  materials:
+    Steel: 300
+    Glass: 200
+    Plastic: 250
+    Gold: 400
+    Silver: 200
+    Diamond: 100
+    Brass: 100
 
 #hardsuits
 

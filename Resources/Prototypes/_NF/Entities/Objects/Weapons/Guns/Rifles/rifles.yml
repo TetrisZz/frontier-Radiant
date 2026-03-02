@@ -92,9 +92,9 @@
     maxAngle: 36 # Radiant_sector
     angleIncrease: 1 # Radiant_sector
     angleDecay: 2 # Radiant_sector
-    fireRate: 1.7 # Radiant_sector
+    fireRate: 1.6 # Radiant_sector
   - type: BallisticAmmoProvider
-    capacity: 7 # Radiant_sector
+    capacity: 6 # Radiant_sector
     proto: NFCartridgePistol45 # Radiant_sector
     whitelist: # Radiant_sector
       tags:

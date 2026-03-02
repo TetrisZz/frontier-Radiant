@@ -1,0 +1,186 @@
+- type: entity
+  id: PrinterAcorpLocker
+  parent: BaseStructure
+  name: принтер акорпа
+  description: Высокофункциональный факс, позволяющий отправлять любые данные в любых количествах, прямо в научные центры корпорации.
+  components:
+  - type: StationAiWhitelist
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/smash.ogg"
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/primterLocking.rsi
+    snapCardinals: true
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+      visible: false
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+      shader: unshaded
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: electrified_ai
+      sprite: Interface/Misc/ai_hud.rsi
+      shader: unshaded
+      visible: false
+      map: ["enum.ElectrifiedLayers.HUD"]
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      shader: unshaded
+      visible: false
+      map: ["enum.ElectrifiedLayers.Sparks"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+        - FullTileMask
+        layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
+        - GlassAirlockLayer
+  - type: LayerChangeOnWeld
+    unWeldedLayer: GlassAirlockLayer
+    weldedLayer: GlassLayer
+  - type: AccessReader
+    containerAccessProvider: board
+  - type: Door
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/door_lock_off.ogg
+    closeSound:
+      path: /Audio/Machines/door_lock_on.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+    closeTimeOne: 0
+    openTimeOne: 0
+    bumpOpen: false
+    clickOpen: true
+    canCrush: false
+    canPry: false
+    occludes: false
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+  - type: Weldable
+    fuel: 5
+    time: 3
+  - type: Airlock
+    openUnlitVisible: true # Corvax-Resprite-Airlocks
+    autoCloseDelay: 60
+    openPanelVisible: true
+    denyAnimationTime: 0
+    animatePanel: false
+    safety: false
+  - type: NavMapDoor
+  - type: DoorBolt
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ElectrifiedVisuals.ShowSparks:
+        enum.ElectrifiedLayers.Sparks:
+          True: { visible: True }
+          False: { visible: False }
+  - type: WiresVisuals
+  - type: ElectrocutionHUDVisuals
+  - type: ExtensionCableReceiver
+  - type: ApcPowerReceiver
+    powerLoad: 20
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: Wires
+    boardName: wires-board-name-airlock
+    layoutId: AirlockService
+  - type: DoorSignalControl
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - Open
+      - Close
+      - Toggle
+      - AutoClose
+      - DoorBolt
+  - type: DeviceLinkSource
+    ports:
+      - DoorStatus
+    lastSignals:
+      DoorStatus: false
+  - type: SoundOnOverload
+  - type: SpawnOnOverload
+  - type: UserInterface
+    interfaces:
+      enum.AiUi.Key:
+        type: StationAiBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: RadiationBlocker
+    resistance: 3
+  - type: Occluder
+    enabled: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: Construction
+    graph: Airlock
+    node: airlock
+    containers:
+    - board
+  - type: PlacementReplacement
+    key: walls
+  - type: Paintable
+    group: AirlockStandard
+  - type: StaticPrice
+    price: 150
+  - type: LightningTarget
+    priority: 1
+  - type: Tag
+    tags:
+      - Airlock
+      # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+  - type: PryUnpowered
+  - type: BlockWeather
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpCommand ]
+  placement:
+    mode: SnapgridCenter

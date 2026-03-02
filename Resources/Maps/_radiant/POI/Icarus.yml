@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 01/15/2026 12:54:26
-  entityCount: 5793
+  time: 03/01/2026 05:29:34
+  entityCount: 5789
 maps: []
 grids:
 - 1
@@ -23370,7 +23370,7 @@ entities:
     - type: Transform
       pos: 0.5,-32.5
       parent: 1
-- proto: FaxMachineNFAcolithCommandant
+- proto: FaxMachineNFIcarusCommandant
   entities:
   - uid: 2546
     components:
@@ -33837,8 +33837,8 @@ entities:
           - 2149
           - 2146
           - 2150
-          - 2147
-          - 2148
+          - invalid
+          - invalid
           - 2145
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -33862,8 +33862,8 @@ entities:
           ents:
           - 2155
           - 2159
-          - 2156
-          - 2157
+          - invalid
+          - invalid
           - 2158
           - 2154
           - 2160
@@ -33892,9 +33892,9 @@ entities:
           - 2169
           - 2164
           - 2163
-          - 2165
+          - invalid
           - 2167
-          - 2166
+          - invalid
           - 2168
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -33905,8 +33905,8 @@ entities:
   - uid: 3814
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.906738,30.646484
+      rot: 3.141592653589793 rad
+      pos: 12.917712,30.27099
       parent: 1
 - proto: MachineAnomalyGeneratorAcorp
   entities:
@@ -34978,7 +34978,8 @@ entities:
   - uid: 3856
     components:
     - type: Transform
-      pos: 12.529785,30.700195
+      rot: 3.141592653589793 rad
+      pos: 12.431602,30.368214
       parent: 1
   - uid: 3857
     components:
@@ -36776,6 +36777,20 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,19.5
+      parent: 1
+- proto: PrinterAcorp
+  entities:
+  - uid: 2147
+    components:
+    - type: Transform
+      pos: 3.5,38.5
+      parent: 1
+- proto: PrinterAcorpLocker
+  entities:
+  - uid: 2148
+    components:
+    - type: Transform
+      pos: 3.5,38.5
       parent: 1
 - proto: ProtolatheAcorp
   entities:
@@ -46016,12 +46031,13 @@ entities:
     - type: Transform
       pos: 19.001953,-27.356934
       parent: 1
-- proto: TelecomServerFilledShuttle
+- proto: TechDiskComputerAcorpCircuitboard
   entities:
-  - uid: 5592
+  - uid: 2156
     components:
     - type: Transform
-      pos: 3.5,38.5
+      rot: 3.141592653589793 rad
+      pos: 13.556602,30.257103
       parent: 1
 - proto: ThrusterBigZetaFTLAcorp
   entities:
@@ -46977,7 +46993,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -900.9392
+      secondsUntilStateChange: -976.01807
       state: Opening
     - type: Airlock
       autoClose: False

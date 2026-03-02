@@ -16,7 +16,7 @@
     proto: CartridgeGunnery20mm
     capacity: 100
   - type: Item
-    size: Small
+    size: Large
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

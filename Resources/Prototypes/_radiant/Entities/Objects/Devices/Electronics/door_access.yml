@@ -44,6 +44,14 @@
   - type: AccessReader
     access: [["Navy"]]
 
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSecurityNavy
+  suffix: Security, Locked
+  components:
+  - type: AccessReader
+    access: [["Security"], ["Navy"]]
+
 # Medical
 
 - type: entity

@@ -293,6 +293,8 @@
   id: TableDungeonLootEngineeringPowerCells
   table: !type:GroupSelector
     children:
+    - id: TreasureTechnicalDocument # Radiant sector
+      weight: 0.20 # Radiant sector
     - id: PowerCellPotato
       weight: 0.05
     - id: PowerCellSmall
@@ -300,11 +302,14 @@
     - id: PowerCellMedium
       weight: 0.25
     - id: PowerCellHigh
-      weight: 0.35
+#      weight: 0.35 # Radiant sector
+      weight: 0.3 # Radiant sector
     - id: PowerCellHyper
-      weight: 0.2
+#      weight: 0.2 # Radiant sector
+      weight: 0.1 # Radiant sector
     - id: PowerCellMicroreactor
-      weight: 0.09
+#      weight: 0.09 # Radiant sector
+      weight: 0.04 # Radiant sector
     - id: PowerCellAntiqueProto
       weight: 0.01
 

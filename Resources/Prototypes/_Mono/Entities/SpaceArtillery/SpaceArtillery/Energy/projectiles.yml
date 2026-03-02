@@ -47,8 +47,9 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 75
-        Heat: 115
+        Radiation: 50
+        Heat: 75
+        Structural: 75
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:

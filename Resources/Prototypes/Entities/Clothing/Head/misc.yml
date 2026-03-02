@@ -222,7 +222,8 @@
   - type: AddAccentClothing
     accent: OwOAccent
   - type: StaticPrice
-    price: 15000
+#    price: 15000 # Radiant sector
+    price: 5 # Radiant sector
 
 - type: entity
   parent: [ClothingHeadHatCatEars, BaseToggleClothing]

@@ -1,0 +1,71 @@
+- type: entity
+  name: гипоспрей акорп
+  parent: BaseItem
+  description: Стерильный инъектор для быстрого введения лекарств пациентам.
+  id: HyposprayAcorp
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Medical/hyposptay_acorp.rsi
+    layers:
+      - state: hypo
+        map: ["enum.SolutionContainerLayers.Base"]
+      - state: hypo_fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    sprite: Objects/Specific/Medical/hypospray.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 15
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 1.5
+  - type: StaticPrice
+    price: 250
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: hypo_fill
+    solutionName: hypospray
+
+- type: entity
+  name: продвинутый гипоспрей акорпа
+  parent: BaseItem
+  description: Стерильный инъектор для быстрого введения лекарств пациентам, теперь в стильном белом корпусе.
+  id: HyposprayAcorpWhite
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Medical/hyposptay_acorp_white.rsi
+    layers:
+      - state: hypo
+        map: ["enum.SolutionContainerLayers.Base"]
+      - state: hypo_fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    sprite: Objects/Specific/Medical/syndihypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 20
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 0.5
+  - type: Appearance
+  - type: StaticPrice
+    price: 1000
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: hypo_fill
+    solutionName: hypospray

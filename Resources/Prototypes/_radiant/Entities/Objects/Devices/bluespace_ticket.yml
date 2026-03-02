@@ -1,0 +1,34 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseBlueSpaceTicket
+  name: ship voucher
+  description: Used for free shuttle rentals from a shipyard.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/voucher.rsi
+    layers:
+    - state: bluespace_acorp
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: StaticPrice
+    price: 0
+  - type: CargoSellBlacklist
+  - type: DeleteOnTrigger
+  - type: ActiveTimerTrigger
+    timeRemaining: 35
+
+- type: entity
+  parent: BaseBlueSpaceTicket
+  id: BlueSpaceTicketAcorp
+  name: блюспейс билет
+  description: Билет скомпресованной массы, используемый как маяк в блюспейс пространстве, меньше чем через минуту он станет грузом.
+  components:
+  - type: Sprite
+    layers:
+    - state: bluespace_acorp
+  - type: SpawnOnTrigger
+    mapCoords: true
+    proto: CrateAcorpGambling

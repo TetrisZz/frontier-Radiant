@@ -287,8 +287,8 @@
       rareChance: 0.05
       offset: 0.2
       chance: 0.45
-      prototypes:
-      - ShadowBasaltRandom
+#      prototypes: # Radiant sector
+#      - ShadowBasaltRandom # Radiant sector
       rarePrototypes:
       - ShadowPortal
       - ShadowKudzuLootSpawner

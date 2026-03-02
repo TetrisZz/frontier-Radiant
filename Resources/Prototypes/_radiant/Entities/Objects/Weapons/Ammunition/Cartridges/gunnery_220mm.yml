@@ -17,6 +17,13 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
   - type: StaticPrice
     price: 2500
 
