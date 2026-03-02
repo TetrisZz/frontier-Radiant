@@ -16,6 +16,8 @@ research-technology-acorp-borg = Модули корпорации
 research-technology-acorp-miner = Большие киборги
 research-technology-acorp-security = Охранные киборги
 research-technology-acorp-module_shotgun = Продвинутые Модули
+research-technology-acorp-disk = Печать технологических дисков
+research-technology-acorp-hypospray = Высокоточное производство
 
 research-discipline-acorp = Акорп
 

@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 01/15/2026 19:21:46
-  entityCount: 4426
+  time: 03/01/2026 05:28:06
+  entityCount: 4388
 maps: []
 grids:
 - 1
@@ -13127,12 +13127,6 @@ entities:
       parent: 1
 - proto: ChairOfficeLight
   entities:
-  - uid: 70
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.3997507,-24.447756
-      parent: 1
   - uid: 1540
     components:
     - type: Transform
@@ -13157,6 +13151,15 @@ entities:
       parent: 1
     - type: Pullable
       prevFixedRotation: True
+  - uid: 1627
+    components:
+    - type: Transform
+      anchored: True
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-24.5
+      parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: ChairWood
   entities:
   - uid: 1544
@@ -13635,26 +13638,6 @@ entities:
     - type: Transform
       pos: -5.319214,-43.474792
       parent: 1
-- proto: ClothingHeadHatAcorp
-  entities:
-  - uid: 1622
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1635
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1648
-    components:
-    - type: Transform
-      parent: 1647
-    - type: Physics
-      canCollide: False
 - proto: ClothingHeadHatChef
   entities:
   - uid: 1601
@@ -13664,26 +13647,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingHeadPyjamaSyndicateRed
-  entities:
-  - uid: 1623
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1636
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1649
-    components:
-    - type: Transform
-      parent: 1647
-    - type: Physics
-      canCollide: False
 - proto: ClothingMaskMuzzle
   entities:
   - uid: 5
@@ -13737,7 +13700,7 @@ entities:
   - uid: 1661
     components:
     - type: Transform
-      pos: -2.7838135,2.6079102
+      pos: -3.0434647,2.597309
       parent: 1
 - proto: ClothingOuterApron
   entities:
@@ -13941,24 +13904,6 @@ entities:
       parent: 1
 - proto: ClothingUnderwearBottomBoxersAcorp
   entities:
-  - uid: 1625
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1638
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1651
-    components:
-    - type: Transform
-      parent: 1647
-    - type: Physics
-      canCollide: False
   - uid: 1665
     components:
     - type: Transform
@@ -13985,24 +13930,6 @@ entities:
       canCollide: False
 - proto: ClothingUnderwearBottomPantiesAcorp
   entities:
-  - uid: 1626
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1639
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1652
-    components:
-    - type: Transform
-      parent: 1647
-    - type: Physics
-      canCollide: False
   - uid: 1667
     components:
     - type: Transform
@@ -14085,24 +14012,6 @@ entities:
     - type: InsideEntityStorage
 - proto: ClothingUnderwearSocksAcorpStriped
   entities:
-  - uid: 1627
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1640
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1653
-    components:
-    - type: Transform
-      parent: 1647
-    - type: Physics
-      canCollide: False
   - uid: 1669
     components:
     - type: Transform
@@ -14129,24 +14038,6 @@ entities:
       canCollide: False
 - proto: ClothingUnderwearSocksGreenStrip
   entities:
-  - uid: 1628
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1641
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1654
-    components:
-    - type: Transform
-      parent: 1647
-    - type: Physics
-      canCollide: False
   - uid: 1693
     components:
     - type: Transform
@@ -14173,26 +14064,6 @@ entities:
       parent: 1686
     - type: Physics
       canCollide: False
-- proto: ClothingUnderwearSocksNormal
-  entities:
-  - uid: 1629
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1642
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1655
-    components:
-    - type: Transform
-      parent: 1647
-    - type: Physics
-      canCollide: False
 - proto: ClothingUnderwearSocksPinkStrip
   entities:
   - uid: 1671
@@ -14205,26 +14076,6 @@ entities:
     components:
     - type: Transform
       parent: 1663
-    - type: Physics
-      canCollide: False
-- proto: ClothingUnderwearSocksRadiantBlackPolosatie
-  entities:
-  - uid: 1630
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1643
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1656
-    components:
-    - type: Transform
-      parent: 1647
     - type: Physics
       canCollide: False
 - proto: ClothingUnderwearSocksRadiantSocksBlack
@@ -14243,24 +14094,6 @@ entities:
       canCollide: False
 - proto: ClothingUnderwearTopBraAcorp
   entities:
-  - uid: 1631
-    components:
-    - type: Transform
-      parent: 1621
-    - type: Physics
-      canCollide: False
-  - uid: 1644
-    components:
-    - type: Transform
-      parent: 1634
-    - type: Physics
-      canCollide: False
-  - uid: 1657
-    components:
-    - type: Transform
-      parent: 1647
-    - type: Physics
-      canCollide: False
   - uid: 1675
     components:
     - type: Transform
@@ -14739,7 +14572,7 @@ entities:
       pos: -5.5,-10.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -295552.88
+      secondsUntilStateChange: -295871.44
       state: Closing
 - proto: CurtainsPinkOpen
   entities:
@@ -15791,189 +15624,6 @@ entities:
       parent: 1
 - proto: Dresser
   entities:
-  - uid: 1621
-    components:
-    - type: Transform
-      pos: 0.5,-5.5
-      parent: 1
-    - type: Storage
-      storedItems:
-        1633:
-          position: 0,0
-          _rotation: South
-        1632:
-          position: 2,0
-          _rotation: South
-        1624:
-          position: 4,0
-          _rotation: South
-        1626:
-          position: 2,3
-          _rotation: South
-        1631:
-          position: 1,3
-          _rotation: South
-        1623:
-          position: 0,2
-          _rotation: East
-        1622:
-          position: 6,0
-          _rotation: North
-        1627:
-          position: 3,3
-          _rotation: South
-        1625:
-          position: 0,3
-          _rotation: South
-        1628:
-          position: 3,2
-          _rotation: South
-        1629:
-          position: 4,2
-          _rotation: South
-        1630:
-          position: 4,3
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1633
-          - 1632
-          - 1624
-          - 1623
-          - 1625
-          - 1631
-          - 1626
-          - 1622
-          - 1627
-          - 1628
-          - 1629
-          - 1630
-  - uid: 1634
-    components:
-    - type: Transform
-      pos: -6.5,-1.5
-      parent: 1
-    - type: Storage
-      storedItems:
-        1642:
-          position: 4,2
-          _rotation: South
-        1641:
-          position: 3,2
-          _rotation: South
-        1643:
-          position: 4,3
-          _rotation: South
-        1638:
-          position: 0,3
-          _rotation: South
-        1639:
-          position: 1,3
-          _rotation: South
-        1644:
-          position: 2,3
-          _rotation: South
-        1636:
-          position: 0,2
-          _rotation: East
-        1637:
-          position: 4,0
-          _rotation: South
-        1635:
-          position: 6,0
-          _rotation: South
-        1646:
-          position: 0,0
-          _rotation: South
-        1645:
-          position: 2,0
-          _rotation: South
-        1640:
-          position: 3,3
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1642
-          - 1641
-          - 1643
-          - 1638
-          - 1639
-          - 1644
-          - 1636
-          - 1637
-          - 1635
-          - 1646
-          - 1645
-          - 1640
-  - uid: 1647
-    components:
-    - type: Transform
-      pos: -5.5,-16.5
-      parent: 1
-    - type: Storage
-      storedItems:
-        1658:
-          position: 0,0
-          _rotation: South
-        1659:
-          position: 2,0
-          _rotation: South
-        1650:
-          position: 4,0
-          _rotation: South
-        1653:
-          position: 3,3
-          _rotation: South
-        1649:
-          position: 0,2
-          _rotation: East
-        1648:
-          position: 6,0
-          _rotation: North
-        1657:
-          position: 0,3
-          _rotation: South
-        1651:
-          position: 1,3
-          _rotation: South
-        1652:
-          position: 2,3
-          _rotation: South
-        1655:
-          position: 4,2
-          _rotation: South
-        1654:
-          position: 3,2
-          _rotation: South
-        1656:
-          position: 4,3
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1658
-          - 1659
-          - 1651
-          - 1652
-          - 1653
-          - 1650
-          - 1649
-          - 1648
-          - 1657
-          - 1655
-          - 1654
-          - 1656
   - uid: 1663
     components:
     - type: Transform
@@ -16202,37 +15852,6 @@ entities:
     - type: Transform
       pos: 12.552124,-14.179871
       parent: 1
-- proto: EncryptionKeyAcorp
-  entities:
-  - uid: 1957
-    components:
-    - type: Transform
-      parent: 1956
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyMedicalScience
-  entities:
-  - uid: 1958
-    components:
-    - type: Transform
-      parent: 1956
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyScience
-  entities:
-  - uid: 1960
-    components:
-    - type: Transform
-      pos: -3.0888672,2.822998
-      parent: 1
-- proto: EncryptionKeyTraffic
-  entities:
-  - uid: 1959
-    components:
-    - type: Transform
-      parent: 1956
-    - type: Physics
-      canCollide: False
 - proto: EngineeringTechFabCircuitboard
   entities:
   - uid: 1961
@@ -16284,14 +15903,14 @@ entities:
     - type: Transform
       pos: 1.5,-33.5
       parent: 1
-- proto: FaxMachineNFAcolith
+- proto: FaxMachineNFGorizontCommandant
   entities:
   - uid: 1968
     components:
     - type: Transform
       pos: 9.5,2.5
       parent: 1
-- proto: FaxMachineNFAcolithCommandant
+- proto: FaxMachineNFGorizont
   entities:
   - uid: 1969
     components:
@@ -16317,13 +15936,11 @@ entities:
       parent: 1
 - proto: filingCabinetRandom
   entities:
-  - uid: 1971
+  - uid: 1628
     components:
     - type: Transform
-      pos: -5.1437416,-24.498756
+      pos: -7.5,-19.5
       parent: 1
-    - type: Pullable
-      prevFixedRotation: True
   - uid: 1976
     components:
     - type: Transform
@@ -23920,8 +23537,13 @@ entities:
   - uid: 97
     components:
     - type: Transform
+      anchored: True
       pos: -0.5,-24.5
       parent: 1
+    - type: Physics
+      bodyType: Static
+    - type: Pullable
+      prevFixedRotation: True
     - type: EntityStorage
       air:
         volume: 200
@@ -23948,10 +23570,10 @@ entities:
           ents:
           - 1758
           - 1802
-          - 1945
-          - 1953
-          - 1973
           - 1974
+          - 1973
+          - 1953
+          - 1945
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -24129,6 +23751,13 @@ entities:
     components:
     - type: Transform
       pos: 16.5,-55.5
+      parent: 1
+- proto: MedicalAssembler
+  entities:
+  - uid: 134
+    components:
+    - type: Transform
+      pos: -5.5,-24.5
       parent: 1
 - proto: MedicalBed
   entities:
@@ -25824,6 +25453,27 @@ entities:
       powerLoad: 60
 - proto: PoweredSmallLight
   entities:
+  - uid: 70
+    components:
+    - type: Transform
+      pos: -0.5,-20.5
+      parent: 1
+  - uid: 1624
+    components:
+    - type: Transform
+      pos: -7.5,-19.5
+      parent: 1
+  - uid: 1625
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,-21.5
+      parent: 1
+  - uid: 1626
+    components:
+    - type: Transform
+      pos: -3.5,-20.5
+      parent: 1
   - uid: 3231
     components:
     - type: Transform
@@ -25869,17 +25519,6 @@ entities:
     components:
     - type: Transform
       pos: 15.5,-20.5
-      parent: 1
-  - uid: 3239
-    components:
-    - type: Transform
-      pos: -8.5,-19.5
-      parent: 1
-  - uid: 3240
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-21.5
       parent: 1
   - uid: 3241
     components:
@@ -26170,6 +25809,20 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 14.5,-60.5
+      parent: 1
+- proto: PrinterAcorp
+  entities:
+  - uid: 1621
+    components:
+    - type: Transform
+      pos: 8.5,11.5
+      parent: 1
+- proto: PrinterAcorpLocker
+  entities:
+  - uid: 1623
+    components:
+    - type: Transform
+      pos: 8.5,11.5
       parent: 1
 - proto: PrisonerIDCard
   entities:
@@ -33265,34 +32918,13 @@ entities:
     - type: Transform
       pos: -0.5,-48.5
       parent: 1
-- proto: TelecomServerFilledShuttle
+- proto: TechDiskComputerAcorpCircuitboard
   entities:
-  - uid: 1956
+  - uid: 1622
     components:
     - type: Transform
-      pos: 8.5,11.5
+      pos: -2.474021,2.6250858
       parent: 1
-    - type: Pullable
-      prevFixedRotation: True
-    - type: Anchorable
-      currentDelay: 2
-    - type: ContainerContainer
-      containers:
-        key_slots: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1957
-          - 1959
-          - 1958
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
 - proto: ThrusterBigZetaFTLAcorp
   entities:
   - uid: 4416

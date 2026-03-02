@@ -1,0 +1,60 @@
+- type: latheRecipe
+  abstract: true
+  id: BaseResearchPrinterAcorpRecipe
+  completetime: 2
+  categories:
+  - Research
+  materials:
+    TechnicalDocument: 1
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpRecipe
+  id: ResearchDisk2500Acorp
+  result: ResearchDisk2500
+  materials:
+    TechnicalDocument: 1
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpRecipe
+  id: ResearchDisk5000Acorp
+  result: ResearchDisk5000
+  materials:
+    TechnicalDocument: 2
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpRecipe
+  id: ResearchDisk10000Acorp
+  result: ResearchDisk10000
+  materials:
+    TechnicalDocument: 4
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpRecipe
+  name: деньги (2500)
+  id: SpaceCash2500Acorp
+  result: SpaceCash2500
+  materials:
+    TechnicalDocument: 1
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpRecipe
+  name: деньги (15000)
+  id: SpaceCash15000Acorp
+  result: SpaceCash15000
+  materials:
+    TechnicalDocument: 5
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpRecipe
+  name: деньги (30000)
+  id: SpaceCash30000Acorp
+  result: SpaceCash30000
+  materials:
+    TechnicalDocument: 9
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpRecipe
+  id: BlueSpaceTicketAcorp
+  result: BlueSpaceTicketAcorp
+  materials:
+    TechnicalDocument: 2

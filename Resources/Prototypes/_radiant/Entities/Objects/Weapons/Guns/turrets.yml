@@ -1,3 +1,47 @@
+# acorp laser
+- type: entity
+  id: WeaponTurretElectroLaserAcorp
+  name: лазерная турель
+  suffix: Radiant, Acorp
+  parent:
+  - BaseTurretSearchBeam
+  - BaseWeaponTurretEnergyNF
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Laser/laser_acorp.rsi
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        variation: 0.125
+  - type: HitscanBatteryAmmoProvider
+    proto: ElectroLaser
+    fireCost: 10
+  - type: NpcFactionMember
+    factions:
+    - RadiantAcorpTurret
+
+# acorp turret
+
+- type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurret35IceAcorp
+  name: турель
+  suffix: Radiant, Acorp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+  - type: BallisticAmmoProvider
+    proto: BulletPistolIce
+    capacity: 500
+  - type: NpcFactionMember
+    factions:
+    - RadiantAcorpTurret
+
 # laser
 - type: entity
   id: WeaponTurretRadiationSyndicateRadiant

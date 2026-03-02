@@ -1,0 +1,96 @@
+- type: entity
+  parent: BaseItem
+  id: TreasureTechnicalDocument
+  name: техническая документация
+  description: Из всех документов этот сохранился лучше всего, жаль что схемы непонятны, а язык на котором что-то написано - неизвестен.
+  components:
+  - type: Tag
+    tags:
+    - Document
+    - Paper
+    - TechnicalDocument
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      TechnicalDocument: 1
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Food
+    solution: food
+    delay: 7
+    forceFeedDelay: 7
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Sprite
+    sprite: _radiant/Objects/bureaucracy.rsi
+    layers:
+    - state: paper
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: SalvageSpawnerScrapCommon
+  id: TreasureTechnicalDocument5Spawner
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: TreasureTechnicalDocument5Group
+
+- type: entityTable
+  id: TreasureTechnicalDocument5Group
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: TreasureTechnicalDocument5
+
+- type: entityTable
+  id: TreasureTechnicalDocument5
+  table: !type:GroupSelector
+    children:
+    - id: TreasureTechnicalDocument
+      weight: 0.5
+      amount: 5
+    - id: TreasureTechnicalDocument
+      weight: 0.5
+      amount: 5

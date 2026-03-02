@@ -1,6 +1,32 @@
+# Special
 - type: entity
   parent: FaxMachineBase
-  id: FaxMachineNFAcolithCommandant
+  id: FaxMachineComCentr
+  name: факс дальнего действия КомЦентр
+  suffix: Акорп командование
+  components:
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "base" ]
+        color: "#ffffff"
+  - type: FaxMachine
+    name: "Командный центр"
+    notifyAdmins: true
+
+# Special
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineNFGorizontCommandant
+  suffix: POI, МНБ Комендант
+  components:
+  - type: FaxMachine
+    name: "МНБ Горизонт - Комендант"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineNFGorizont
   suffix: POI, МНБ
   components:
   - type: FaxMachine
@@ -8,8 +34,16 @@
 
 - type: entity
   parent: FaxMachineBase
-  id: FaxMachineNFAcolith
+  id: FaxMachineNFIcarusCommandant
   suffix: POI, МНБ Комендант
   components:
   - type: FaxMachine
-    name: "МНБ Горизонт - Комендант"
+    name: "МНБ Икарус - Комендант"
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineNFIcarus
+  suffix: POI, МНБ
+  components:
+  - type: FaxMachine
+    name: "МНБ Икарус"

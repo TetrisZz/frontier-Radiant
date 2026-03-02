@@ -14,6 +14,11 @@
       "name": "navy"
     },
     {
+        "name": "bluespace_acorp",
+        "directions": 1,
+        "delays": [ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },

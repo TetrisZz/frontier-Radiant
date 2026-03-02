@@ -1,0 +1,6 @@
+- type: typingIndicator
+  id: arcan
+  spritePath: /Textures/_radiant/Effects/demon.rsi
+  typingState: default0
+  idleState: default0
+  offset: 0, 0.125

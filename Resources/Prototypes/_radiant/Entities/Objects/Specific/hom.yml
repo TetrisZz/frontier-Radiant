@@ -17,7 +17,7 @@
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 200
+    price: 5
   - type: Currency
     price:
       Cristalhom: 1

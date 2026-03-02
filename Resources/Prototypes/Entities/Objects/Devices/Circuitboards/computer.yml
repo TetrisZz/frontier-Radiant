@@ -339,7 +339,7 @@
   parent: BaseComputerCircuitboard
   id: TechDiskComputerCircuitboard
   name: tech disk terminal board
-  categories: [ HideSpawnMenu ] # Frontier: no tech disks
+#  categories: [ HideSpawnMenu ] # Frontier: no tech disks # Radiant sector
   description: A computer printed circuit board for a technology disk terminal.
   components:
   - type: Sprite

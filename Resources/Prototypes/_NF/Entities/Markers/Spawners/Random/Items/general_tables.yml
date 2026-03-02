@@ -4,7 +4,10 @@
   table: !type:GroupSelector
     children:
     - id: FolderSpawner
-      weight: 0.2
+#      weight: 0.2 # Radiant sector
+      weight: 0.1 # Radiant sector
+    - id: BoxFolderTDAcorpTier1 # Radiant sector
+      weight: 0.1 # Radiant sector
     - id: Paper
       weight: 0.2
     - id: PaperOffice
@@ -794,7 +797,8 @@
       - id: SpaceCash100
       - id: SpaceCash500
     - !type:GroupSelector
-      weight: 0.6
+#      weight: 0.6 # Radiant sector
+      weight: 0.3 # Radiant sector
       children:
       - id: SpaceCash1000
         weight: 0.3
@@ -811,6 +815,15 @@
         weight: 0.5
       - id: SpaceCash30000
         weight: 0.2
+    - !type:GroupSelector # Radiant sector ↓
+      weight: 0.3
+      children:
+      - id: BoxFolderTDAcorpTier2
+        weight: 0.3
+      - id: BoxFolderTDAcorpTier1
+        weight: 0.5
+      - id: BoxFolderTDAcorpTier3
+        weight: 0.2 # Radiant sector ↑
 
 # region Other
 - type: entityTable

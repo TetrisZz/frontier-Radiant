@@ -1,0 +1,10 @@
+- type: entity
+  parent: ResearchDisk
+  id: ResearchDisk2500
+  name: диск исследовательских очков (2500)
+  description: Диск для сервера РНД, содержащий 2500 очков.
+  components:
+  - type: ResearchDisk
+    points: 2500
+  - type: StaticPrice # Frontier
+    price: 500 # Frontier

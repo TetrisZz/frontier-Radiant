@@ -1,0 +1,34 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerTechnologyDiskTerminalAcorp
+  name: терминал печати технических документаций
+  description: Терминал, используйте свои изучения, чтобы сгенерировать документации что все ещё нуждаются в повторных обработках.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _radiant/Structures/Machines/tech_disk_printer.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["computerLayerScreen"]
+      state: unshaded
+  - type: DiskConsole
+    diskPrototype: TreasureTechnicalDocument
+    diskPrototypeRare: TreasureTechnicalDocument5Spawner
+    pricePerDisk: 2500
+    pricePerRareDisk: 12500
+  - type: ResearchClient
+  - type: ActivatableUI
+    key: enum.DiskConsoleUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.DiskConsoleUiKey.Key:
+        type: DiskConsoleBoundUserInterface
+  - type: ExtensionCableReceiver
+  - type: Computer
+    board: TechDiskComputerAcorpCircuitboard
+  - type: PointLight
+    radius: 0.8
+    energy: 0.5
+    color: "#b5b5b5"

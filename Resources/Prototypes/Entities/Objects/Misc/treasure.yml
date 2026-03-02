@@ -11,6 +11,13 @@
       color: "#868686"
     - state: datadisk_label
     - state: datadisk_encrypted
+  - type: Tag # Radiant sector ↓
+    tags:
+    - TechnicalDocument
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      TechnicalDocument: 4 # Radiant sector ↑
   - type: PointLight
     radius: 1.5
     energy: 0.5

@@ -204,13 +204,13 @@
     castShadows: false
   - type: TileSpawnAnomaly
     entries:
-    - settings:
-        spawnOnPulse: true
-        spawnOnStabilityChanged: true
-        minAmount: 3
-        maxAmount: 7
-        maxRange: 4
-      floor: FloorFlesh
+#    - settings: # Radiant sector ↓
+#        spawnOnPulse: true
+#        spawnOnStabilityChanged: true
+#        minAmount: 3
+#        maxAmount: 7
+#        maxRange: 4
+#      floor: FloorFlesh # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 10
@@ -233,10 +233,27 @@
         minRange: 3
         maxRange: 4.5
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobHorrorExpeditions # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 10
@@ -251,10 +268,27 @@
         maxAmount: 10
         maxRange: 8
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobHorrorExpeditions # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 5
@@ -267,10 +301,14 @@
         maxAmount: 2
         maxRange: 1
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshGolemOldExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshClampOldExpeditions # Radiant sector ↑
       - FleshKudzu
 
 - type: entity
@@ -405,12 +443,12 @@
     castShadows: false
   - type: TileSpawnAnomaly
     entries:
-    - settings:
-        spawnOnPulse: true
-        minAmount: 15
-        maxAmount: 20
-        maxRange: 7.5
-      floor: FloorAsteroidTile
+#    - settings: # Radiant sector ↓
+#        spawnOnPulse: true
+#        minAmount: 15
+#        maxAmount: 20
+#        maxRange: 7.5
+#      floor: FloorAsteroidTile # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 30
@@ -797,12 +835,12 @@
       collection: AnomalyFloraSupercritical
   - type: TileSpawnAnomaly
     entries:
-    - settings:
-        spawnOnPulse: true
-        minAmount: 3
-        maxAmount: 7
-        maxRange: 5
-      floor: FloorAstroGrass
+#    - settings: # Radiant sector ↓
+#        spawnOnPulse: true
+#        minAmount: 3
+#        maxAmount: 7
+#        maxRange: 5
+#      floor: FloorAstroGrass # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 10
@@ -818,6 +856,9 @@
         maxRange: 2
       spawns:
       - KudzuFlowerFriendly
+      - KudzuFlowerFriendly # Radiant sector ↓
+      - KudzuFlowerFriendly
+      - KudzuFlowerAngry # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 5
@@ -902,6 +943,13 @@
       collection: AnomalyFluidSupercritical
   - type: EntitySpawnAnomaly
     entries:
+    - settings: # Radiant sector ↓
+        spawnOnPulse: true
+        maxAmount: 1
+        minRange: 4.5
+        maxRange: 7.5
+      spawns:
+      - ReagentSlimeSpawner # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 3

@@ -39,6 +39,9 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -135,6 +138,9 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseC1Contraband ]
@@ -150,6 +156,9 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseC1Contraband ]
@@ -165,6 +174,9 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseC1Contraband ]
@@ -180,6 +192,9 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseC1Contraband ]
@@ -195,3 +210,6 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD

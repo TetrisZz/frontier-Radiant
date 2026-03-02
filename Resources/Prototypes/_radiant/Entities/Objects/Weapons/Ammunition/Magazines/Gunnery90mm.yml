@@ -16,7 +16,7 @@
     proto: CartridgeGunnery90mm
     capacity: 30
   - type: Item
-    size: Small
+    size: Normal
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

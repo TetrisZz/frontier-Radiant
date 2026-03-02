@@ -1,0 +1,90 @@
+- type: entity
+  id: BoxFolderTDAcorpTier1
+  parent: BoxFolderBase
+  name: папка
+  suffix: Тир1
+  description: Папка, заполненная совершенно секретными документами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/bureaucracy.rsi
+    layers:
+    - state: folder2
+    - state: folder-base
+  - type: StorageFill
+    contents:
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+        prob: 0.5
+      - id: TreasureTechnicalDocument
+        prob: 0.4
+      - id: TreasureTechnicalDocument
+        prob: 0.3
+      - id: TreasureTechnicalDocument
+        prob: 0.2
+      - id: TreasureTechnicalDocument
+        prob: 0.1
+
+- type: entity
+  id: BoxFolderTDAcorpTier2
+  parent: BoxFolderBase
+  name: папка
+  suffix: Тир2
+  description: Папка, заполненная совершенно секретными документами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/bureaucracy.rsi
+    layers:
+    - state: folder1
+    - state: folder-base
+  - type: StorageFill
+    contents:
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+        prob: 0.5
+      - id: TreasureTechnicalDocument
+        prob: 0.4
+      - id: TreasureTechnicalDocument
+        prob: 0.3
+      - id: TreasureTechnicalDocument
+        prob: 0.2
+      - id: TreasureTechnicalDocument
+        prob: 0.1
+
+- type: entity
+  id: BoxFolderTDAcorpTier3
+  parent: BoxFolderBase
+  name: папка
+  suffix: Тир3
+  description: Папка, заполненная совершенно секретными документами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/bureaucracy.rsi
+    layers:
+    - state: folder
+    - state: folder-base
+  - type: StorageFill
+    contents:
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+      - id: TreasureTechnicalDocument
+        prob: 0.5
+      - id: TreasureTechnicalDocument
+        prob: 0.4
+      - id: TreasureTechnicalDocument
+        prob: 0.3
+      - id: TreasureTechnicalDocument
+        prob: 0.2
+      - id: TreasureTechnicalDocument
+        prob: 0.1

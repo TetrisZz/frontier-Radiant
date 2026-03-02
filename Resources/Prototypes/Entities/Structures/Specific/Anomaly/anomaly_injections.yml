@@ -115,12 +115,12 @@
     color: "#6270bb"
   - type: TileSpawnAnomaly
     entries:
-    - settings:
-        spawnOnPulse: true
-        minAmount: 2
-        maxAmount: 5
-        maxRange: 2
-      floor: FloorAstroGrass
+#    - settings: # Radiant sector ↓
+#        spawnOnPulse: true
+#        minAmount: 2
+#        maxAmount: 5
+#        maxRange: 2
+#      floor: FloorAstroGrass # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 5
@@ -136,6 +136,9 @@
         maxRange: 1
       spawns:
       - KudzuFlowerFriendly
+      - KudzuFlowerFriendly # Radiant sector ↓
+      - KudzuFlowerFriendly
+      - KudzuFlowerAngry # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 2
@@ -162,13 +165,13 @@
     color: "#cb5b7e"
   - type: TileSpawnAnomaly
     entries:
-    - settings:
-        spawnOnPulse: true
-        spawnOnStabilityChanged: true
-        minAmount: 1
-        maxAmount: 3
-        maxRange: 2
-      floor: FloorFlesh
+#    - settings: # Radiant sector ↓
+#        spawnOnPulse: true
+#        spawnOnStabilityChanged: true
+#        minAmount: 1
+#        maxAmount: 3
+#        maxRange: 2
+#      floor: FloorFlesh # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 5
@@ -191,10 +194,27 @@
         minRange: 2.5
         maxRange: 4.5
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobHorrorExpeditions # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 5
@@ -209,10 +229,27 @@
         maxAmount: 5
         maxRange: 8
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobHorrorExpeditions # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 2
@@ -225,10 +262,14 @@
         maxAmount: 2
         maxRange: 1
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshGolemOldExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshClampOldExpeditions # Radiant sector ↑
       - FleshKudzu
 
 - type: entity
@@ -283,12 +324,12 @@
     color: "#5ca8cb"
   - type: TileSpawnAnomaly
     entries:
-    - settings:
-        spawnOnPulse: true
-        minAmount: 7
-        maxAmount: 10
-        maxRange: 4
-      floor: FloorAsteroidTile
+#    - settings: # Radiant sector ↓
+#        spawnOnPulse: true
+#        minAmount: 7
+#        maxAmount: 10
+#        maxRange: 4
+#      floor: FloorAsteroidTile # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 15
