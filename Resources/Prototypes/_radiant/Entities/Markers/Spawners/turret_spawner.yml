@@ -18,7 +18,7 @@
 - type: entity
   id: SpawnMobWeaponTurret35IceAcorp
   parent: MarkerBase
-  name: турель акорпа 35 ледяные
+  name: турель акорпа 500 ледяные
   suffix: Radiant, Acorp
   components:
   - type: Sprite

@@ -1,4 +1,25 @@
 - type: listing
+  id: UplinkSecurityMagazineRifle20Drum
+  name:  uplink-security-20rifledrummagazine-name
+  description: uplink-security-20rifledrummagazine-desc
+  productEntity: NFMagazineDrumRifle20
+  icon: { sprite: _radiant/Interface/Misc/uplink_icon.rsi, state: 20_drum }
+  cost:
+    FrontierUplinkCoin: 3
+  categories:
+    - UplinkSecurityAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Bailiff
+        - SeniorOfficer
+        - Sheriff
+
+- type: listing
   id: UplinkSecurityRadar
   name: uplink-security-radar-name
   description: uplink-security-radar-desc

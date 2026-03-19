@@ -48,8 +48,8 @@
   - type: Tag
     tags:
       - DemagImmune
-  - type: Jetpack
-    radarBlip: false
+#  - type: Jetpack # Radiant sector
+#    radarBlip: false # Radiant sector
 
 #Filled pirate
 - type: entity

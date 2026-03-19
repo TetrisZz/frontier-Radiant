@@ -58,6 +58,8 @@
   - type: DatasetVocalizer
     dataset: spacepunkhumanoidchatter
   - type: AutoWakeUp
+  - type: DisableSuitSensors # Radiant sector
+    removeRegistration: true # Radiant sector
 
 # Humans
 #region Tier 1

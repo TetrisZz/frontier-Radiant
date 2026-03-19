@@ -3,7 +3,6 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-
     startAnnouncement: station-event-bluespace-cache-start-announcement
     startAudio:
       path: /Audio/_NF/Announcements/PocketSizedAndy/andy2_bluespace_cache_arrival.ogg
@@ -21,7 +20,7 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SyndicateWeaponsCache
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: Gravity
@@ -52,7 +51,6 @@
     endAudio:
       path: /Audio/_NF/Announcements/PocketSizedAndy/andy2_bluespace_vault_leave.ogg
     warningAnnouncement: station-event-bluespace-vault-warning-announcement
-
     earliestStart: 120
     weight: 5
     duration: 1020
@@ -63,7 +61,7 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SecureNTVault
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: Gravity
@@ -83,6 +81,7 @@
       Frontier: 0.25
       Medical: 0.25
       Edison: 0.25
+
 - type: entity
   id: BluespaceVaultSmallError
   parent: BaseStationEventShortDelay
@@ -106,7 +105,7 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-SecureNTVault
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: Gravity
@@ -126,6 +125,7 @@
       Frontier: 0.25
       Medical: 0.25
       Edison: 0.25
+
 - type: entity
   id: BluespaceSyndicateFTLInterception
   parent: BaseStationEventShortDelay
@@ -149,7 +149,7 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-UnidentifiedVessel
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: Gravity
@@ -188,7 +188,7 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-UnidentifiedVessel
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: Gravity
@@ -227,7 +227,7 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-UnidentifiedVessel
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: Gravity
@@ -265,7 +265,7 @@
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-Cave
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: Gravity
@@ -306,7 +306,7 @@
         - station-event-bluespace-name-BrokenMcDelivery
         minCount: 2
         maxCount: 3
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: IFF
@@ -332,15 +332,15 @@
     earliestStart: 80
     minimumPlayers: 10
     weight: 1
-    duration: 1800
-    maxDuration: 2400
+    duration: 1500
+    maxDuration: 1800
     reoccurrenceDelay: 510 # Only once per shift possible
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
         nameLoc:
         - station-event-bluespace-name-train
-        minimumDistance: 3000
+        minimumDistance: 3250
         maximumDistance: 4000
         addComponents:
         - type: Gravity
@@ -355,6 +355,43 @@
         - type: ForceAnchor
         paths:
         - /Maps/_radiant/Bluespace/Train.yml
+
+- type: entity
+  id: BluespaceVaultAcorpError
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-bluespace-generic-acorp-start-announcement
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    warningAnnouncement: station-event-bluespace-generic-acorp-warning-announcement
+    endAnnouncement: station-event-bluespace-generic-acorp-end-announcement
+    earliestStart: 120
+    minimumPlayers: 10
+    weight: 5
+    duration: 1450
+    maxDuration: 1600
+    reoccurrenceDelay: 480 # 8 hours
+  - type: BluespaceErrorRule
+    groups:
+      grid: !type:GridSpawnGroup
+        nameLoc:
+        - station-event-bluespace-name-AcorpVault
+        minimumDistance: 3250
+        maximumDistance: 4250
+        addComponents:
+        - type: Gravity
+          enabled: true
+          inherent: true
+        - type: IFF
+          color: "#E10F9B"
+        - type: LinkedLifecycleGridParent
+        - type: ProtectedGrid
+          preventArtifactTriggers: true
+        - type: PreventPilot
+        - type: ForceAnchor
+        paths:
+        - /Maps/_radiant/Bluespace/acorp_vault.yml
 
 - type: entity
   id: BluespaceLambda

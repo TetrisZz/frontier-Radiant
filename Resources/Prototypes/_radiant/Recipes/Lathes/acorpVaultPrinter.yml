@@ -1,0 +1,231 @@
+- type: latheRecipe
+  abstract: true
+  id: BaseResearchPrinterAcorpVaultRecipe
+  completetime: 5
+  materials:
+    TechnicalDocument: 1
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: WeaponEnergyGunMiniAcorpVault
+  result: WeaponEnergyGunMiniAcorp
+  categories:
+  - Weapons
+  materials:
+    TechnicalDocument: 17
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: WeaponLaserCarbineAcorpVault
+  result: WeaponLaserCarbineAcorp
+  categories:
+  - Weapons
+  materials:
+    TechnicalDocument: 20
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: WeaponShotgunAdjutantVault
+  result: WeaponShotgunAdjutant
+  categories:
+  - Weapons
+  materials:
+    TechnicalDocument: 30
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: WeaponRifleTW44AcorpVault
+  result: WeaponRifleTW44Acorp
+  categories:
+  - Weapons
+  materials:
+    TechnicalDocument: 30
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: WeaponRifleSentinel9AcorpVault
+  result: WeaponRifleSentinel9Acorp
+  categories:
+  - Weapons
+  materials:
+    TechnicalDocument: 35
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: WeaponEnergyShotgunRSVault
+  result: WeaponEnergyShotgunRS
+  categories:
+  - Weapons
+  materials:
+    TechnicalDocument: 100
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: EnergySwordRadiantVault
+  result: EnergySwordRadiant
+  categories:
+  - Weapons
+  materials:
+    TechnicalDocument: 100
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: EnergySwordDoubleRadiantVault
+  result: EnergySwordDoubleRadiant
+  categories:
+  - Weapons
+  materials:
+    TechnicalDocument: 100
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: HyposprayAcorpVault
+  result: HyposprayAcorp
+  categories:
+  - Tools
+  materials:
+    TechnicalDocument: 30
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: BorgModuleAcorpMartyrVault
+  result: BorgModuleAcorpMartyr
+  categories:
+  - Modules
+  materials:
+    TechnicalDocument: 25
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineHigh2RifleEmptyVault
+  result: MagazineHigh2RifleEmpty
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 10
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineHigh2RifleEmptyAKVault
+  result: MagazineHigh2RifleEmptyAK
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 10
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxHigh2RifleVault
+  result: MagazineBoxHigh2Rifle
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 10
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxHigh2RifleUraniumVault
+  result: MagazineBoxHigh2RifleUranium
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 20
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxHigh2RifleIncendiaryVault
+  result: MagazineBoxHigh2RifleIncendiary
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 20
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxHigh2RubberVault
+  result: MagazineBoxHigh2Rubber
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 20
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxHigh2RifleIceVault
+  result: MagazineBoxHigh2RifleIce
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 25
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxRifleIceVault
+  result: MagazineBoxRifleIce
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 25
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxLightRifleIceVault
+  result: MagazineBoxLightRifleIce
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 25
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxPistolIceVault
+  result: MagazineBoxPistolIce
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 25
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: MagazineBoxMagnum500IceVault
+  result: MagazineBoxMagnum500Ice
+  categories:
+  - Ammo
+  materials:
+    TechnicalDocument: 25
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: ClothingOuterHardsuitAcorpRndVault
+  result: ClothingOuterHardsuitAcorpRnd
+  categories:
+  - EVASuits
+  materials:
+    TechnicalDocument: 25
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: ClothingOuterHardsuitAcorpHevaVault
+  result: ClothingOuterHardsuitAcorpHeva
+  categories:
+  - EVASuits
+  materials:
+    TechnicalDocument: 45
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: ClothingOuterHardsuitAcorpHardEVAVault
+  result: ClothingOuterHardsuitAcorpHardEVA
+  categories:
+  - EVASuits
+  materials:
+    TechnicalDocument: 50
+
+- type: latheRecipe
+  parent: BaseResearchPrinterAcorpVaultRecipe
+  id: ClothingOuterHardsuitAcorpSecurityVault
+  result: ClothingOuterHardsuitAcorpSecurity
+  categories:
+  - EVASuits
+  materials:
+    TechnicalDocument: 75

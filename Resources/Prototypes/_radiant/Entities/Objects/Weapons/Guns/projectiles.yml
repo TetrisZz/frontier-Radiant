@@ -1,4 +1,31 @@
 - type: entity
+  id: BulletLaserEMPRS
+  parent: NFBaseBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: yellow
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Shock: 10
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: EmpOnTrigger
+    range: 0.3
+    energyConsumption: 2700000
+    disableDuration: 30
+  - type: EmpDescription
+    range: 0.4
+    energyConsumption: 2700000
+    disableDuration: 30
+
+- type: entity
   name: широкий лазерный залп
   id: BulletLaserSpreadRS
   categories: [ HideSpawnMenu ]

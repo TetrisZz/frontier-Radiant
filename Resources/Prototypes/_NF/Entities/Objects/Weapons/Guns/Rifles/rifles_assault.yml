@@ -85,6 +85,9 @@
     angleIncrease: 6 # Radiant_sector
     angleDecay: 24 # Radiant_sector
     fireRate: 5 # Radiant_sector
+    selectedMode: SemiAuto # Radiant_sector
+    availableModes: # Radiant_sector
+      - SemiAuto # Radiant_sector
 
 - type: entity
   id: NFWeaponRifleAssaultJackdaw

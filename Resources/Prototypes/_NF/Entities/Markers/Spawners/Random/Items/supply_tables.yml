@@ -277,15 +277,16 @@
   table: !type:GroupSelector
     children:
     - id: ClothingOuterHardsuitSpatio
-      weight: 0.25
+#      weight: 0.25 # Radiant sector
+      weight: 0.30 # Radiant sector
     - id: ClothingOuterHardsuitLuxury
 #      weight: 0.45 # Radiant sector
-      weight: 0.25 # Radiant sector
+      weight: 0.30 # Radiant sector
     - id: ClothingOuterHardsuitSalvage
       weight: 0.25
     - id: ClothingOuterHardsuitHostileEnvironment
 #      weight: 0.025 # Radiant sector
-      weight: 0.2 # Radiant sector
+      weight: 0.1 # Radiant sector
     - id: ClothingOuterHardsuitMaximPrototype
 #      weight: 0.025 # Radiant sector
       weight: 0.05 # Radiant sector
