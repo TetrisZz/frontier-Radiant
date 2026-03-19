@@ -91,21 +91,21 @@
     sprite: _NF/Clothing/Neck/Misc/holster_thigh.rsi
     layers:
     - state: icon
-      color: "#515151"
+      color: "#493926"
   - type: Clothing
     sprite: _NF/Clothing/Neck/Misc/holster_thigh.rsi
     clothingVisuals:
       neck:
       - state: equipped-NECK
-        color: "#515151"
+        color: "#493926"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#515151"
+        color: "#493926"
       right:
       - state: inhand-right
-        color: "#515151"
+        color: "#493926"
   - type: ItemMapper
     sprite: _NF/Clothing/Neck/Misc/holster_thigh.rsi
 
@@ -117,20 +117,20 @@
   - type: Sprite
     layers:
     - state: icon
-      color: "#493926"
+      color: "#515151"
   - type: Clothing
     clothingVisuals:
       neck:
       - state: equipped-NECK
-        color: "#493926"
+        color: "#515151"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#493926"
+        color: "#515151"
       right:
       - state: inhand-right
-        color: "#493926"
+        color: "#515151"
 
 # region thigh sheath
 - type: entity
@@ -143,21 +143,21 @@
     sprite: _NF/Clothing/Neck/Misc/holster_thigh_sheath.rsi
     layers:
     - state: icon
-      color: "#515151"
+      color: "#493926"
   - type: Clothing
     sprite: _NF/Clothing/Neck/Misc/holster_thigh_sheath.rsi
     clothingVisuals:
       neck:
       - state: equipped-NECK
-        color: "#515151"
+        color: "#493926"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#515151"
+        color: "#493926"
       right:
       - state: inhand-right
-        color: "#515151"
+        color: "#493926"
   - type: ItemMapper
     sprite: _NF/Clothing/Neck/Misc/holster_thigh_sheath.rsi
 
@@ -169,17 +169,17 @@
   - type: Sprite
     layers:
     - state: icon
-      color: "#493926"
+      color: "#515151"
   - type: Clothing
     clothingVisuals:
       neck:
       - state: equipped-NECK
-        color: "#493926"
+        color: "#515151"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#493926"
+        color: "#515151"
       right:
       - state: inhand-right
-        color: "#493926"
+        color: "#515151"
