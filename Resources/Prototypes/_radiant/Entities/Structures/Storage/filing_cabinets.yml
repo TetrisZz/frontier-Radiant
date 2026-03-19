@@ -1,0 +1,123 @@
+# много дукументоф
+
+- type: entityTable
+  id: FilingCabinetFillTableAcorp
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+      children:
+      - id: BoxFolderBlue
+      - id: BoxFolderRed
+      - id: BoxFolderYellow
+      - id: BoxFolderWhite
+      - id: BoxFolderGrey
+      - id: BoxFolderBlack
+      - id: BoxFolderBlue
+      - id: BoxFolderRed
+      - id: BoxFolderYellow
+      - id: BoxFolderWhite
+      - id: BoxFolderGrey
+      - id: BoxFolderBlack
+      - id: BoxFolderTDAcorpTier1
+      - id: BoxFolderTDAcorpTier2
+    - !type:GroupSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 3
+      children:
+      - id: Paper
+      - id: PaperOffice
+      - id: TreasureTechnicalDocument
+    - !type:GroupSelector
+      prob: .3
+      rolls: !type:ConstantNumberSelector
+        value: 2
+      children:
+      - id: Pen
+    - !type:GroupSelector
+      prob: 0.15
+      children:
+      - !type:AllSelector
+        weight: 0.2
+        children:
+        - id: RubberStampApproved
+        - id: RubberStampDenied
+      - id: RubberStampGreytide
+        weight: 0.1
+      - id: LuxuryPen
+
+- type: entity
+  abstract: true
+  id: BaseBureaucraticStorageFillAcorp
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FilingCabinetFillTableAcorp
+
+- type: entity
+  parent: [BaseBureaucraticStorageFillAcorp, filingCabinet]
+  name: картотечный шкаф
+  description: Шкаф для хранения всего, что пожелаете.
+  suffix: Хранилище акорп
+  id: filingCabinetRandomAcorp
+
+# мало дукументоф
+
+- type: entityTable
+  id: FilingCabinetFillTableAcorp1
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+      children:
+      - id: BoxFolderBlue
+      - id: BoxFolderRed
+      - id: BoxFolderYellow
+      - id: BoxFolderWhite
+      - id: BoxFolderGrey
+      - id: BoxFolderBlack
+    - !type:GroupSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 3
+      children:
+      - id: Paper
+      - id: PaperOffice
+      - id: TreasureTechnicalDocument
+    - !type:GroupSelector
+      prob: .3
+      rolls: !type:ConstantNumberSelector
+        value: 2
+      children:
+      - id: Pen
+    - !type:GroupSelector
+      prob: 0.15
+      children:
+      - !type:AllSelector
+        weight: 0.2
+        children:
+        - id: RubberStampApproved
+        - id: RubberStampDenied
+      - id: RubberStampGreytide
+        weight: 0.1
+      - id: LuxuryPen
+
+- type: entity
+  abstract: true
+  id: BaseBureaucraticStorageFillAcorp1
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: FilingCabinetFillTableAcorp1
+
+- type: entity
+  parent: [BaseBureaucraticStorageFillAcorp1, filingCabinetTall]
+  name: высокий шкаф
+  description: Шкаф для хранения всего, что пожелаете.
+  suffix: Хранилище акорп
+  id: filingCabinetTallRandomAcorp

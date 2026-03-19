@@ -731,6 +731,7 @@
     - SuitStorageEVAEmergency
 #    - SuitStorageEVAPrisoner
 #    - SuitStorageEVAPirate
+    - SuitStorageEVAPirate # Radiant sector
     - SuitStorageEngi
     - SuitStorageAtmos
     - SuitStorageSalv

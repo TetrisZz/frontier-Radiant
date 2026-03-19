@@ -1,3 +1,13 @@
+#HighSecDoors
+- type: entity
+  parent: HighSecDoor
+  id: HighSecAcorpSecurityLocked
+  suffix: AcorpSecurity, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAcorpSecurity ]
+
 # Acorp
 
 - type: entity

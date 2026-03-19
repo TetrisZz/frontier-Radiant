@@ -40,7 +40,7 @@
   ## SS14 factions
   - NanoTrasen
   - Syndicate
-  - SimpleHostile
+#  - SimpleHostile
   - SimpleNeutral
   - Passive
   - PetsNT
@@ -63,6 +63,6 @@
   - DinosaursNF
   - MercenariesExpeditionNF
   - SiliconsExpeditionNF
-  - AberrantFleshExpeditionNF
+#  - AberrantFleshExpeditionNF
   - ContrabandClothing
   - ContrabandDetection

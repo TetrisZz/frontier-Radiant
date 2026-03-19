@@ -13,6 +13,7 @@
     capacity: 60
   - type: Item
     size: Small
+    storedRotation: -90
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

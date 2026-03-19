@@ -411,7 +411,7 @@
   productEntity: BoxT3SuperCapacitor
   icon: { sprite: Objects/Storage/boxes.rsi, state: box}
   cost:
-    FrontierUplinkCoin: 4
+    FrontierUplinkCoin: 3
   categories:
     - UplinkNavyShuttle
   conditions:

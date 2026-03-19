@@ -3,6 +3,9 @@
   id: MobRandomERTCorpse
   suffix: Мёртвый, ОБР
   components:
+  - type: DisableSuitSensors
+    removeRegistration: true
+  - type: MedicalBounty
   - type: Loadout
     prototypes:
       - ERTEngineerHardsuitRadiant
@@ -19,6 +22,9 @@
   id: MobRandomCCCorpse
   suffix: Мёртвый, ЦК
   components:
+  - type: DisableSuitSensors
+    removeRegistration: true
+  - type: MedicalBounty
   - type: Loadout
     prototypes:
       - СС0SuitRadiant

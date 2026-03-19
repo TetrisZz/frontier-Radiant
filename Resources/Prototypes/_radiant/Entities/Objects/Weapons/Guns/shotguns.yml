@@ -10,6 +10,10 @@
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+  - type: Gun
+    fireRate: 1.5
+  - type: BallisticAmmoProvider
+    capacity: 8
 
 - type: entity
   name: Покровитель
