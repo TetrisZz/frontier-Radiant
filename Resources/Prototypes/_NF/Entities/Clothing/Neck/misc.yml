@@ -27,6 +27,7 @@
   description: A way to inform others about your presence, or just to annoy everyone around you!
   components:
   - type: Sprite
+    scale: 0.5, 0.5
     sprite: _NF/Clothing/Neck/bellcollar.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/bellcollar.rsi

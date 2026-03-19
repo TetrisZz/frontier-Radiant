@@ -320,6 +320,41 @@
   - type: Sprite
     state: sheetyellow
 
+- type: entity
+  id: DoubleBedsheetNfsd
+  parent: DoubleBedsheetBase
+  name: одеяло ДВБ
+  description: Удивительно мягкое льняное одеяло.
+  components:
+  - type: Sprite
+    state: sheetnfsd
+
+- type: entity
+  id: DoubleNfsdSheriff
+  parent: DoubleBedsheetBase
+  name: одеяло шерифа
+  components:
+  - type: Sprite
+    state: sheetnfsdsheriff
+
+- type: entity
+  id: DoubleBedsheetNavy
+  parent: DoubleBedsheetBase
+  name: одеяло конфедеративного флота
+  description: Соткано из обломков альянсов и республик, насильно ставшими субьектами конфедерации.
+  components:
+  - type: Sprite
+    state: flot
+
+- type: entity
+  id: DoubleBedsheetNavySilver
+  parent: DoubleBedsheetBase
+  name: одеяло конфедеративного флота
+  description: Соткано из обломков альянсов и республик, насильно ставшими субьектами конфедерации.
+  components:
+  - type: Sprite
+    state: flotbel
+
 # Radiant Sector
 
 - type: latheRecipe

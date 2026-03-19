@@ -7,7 +7,7 @@ stamp-component-stamped-name-doctor = Доктор
 stamp-component-stamped-name-engineer = Инженер
 
 # Radiant Sector
-
+stamp-component-stamped-name-bailiff = Инспектор
 stamp-component-stamped-name-com = Комендант Экспедиции
 stamp-component-stamped-name-mist = Хуйня, переделывай
 stamp-component-stamped-name-rnd = Директор Исследования
