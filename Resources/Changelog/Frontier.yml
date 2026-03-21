@@ -7915,3 +7915,10 @@ Entries:
   id: 6610
   time: '2026-03-16T16:51:50.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4365
+- author: Bartholemew Dingleberry
+  changes:
+    - type: Remove
+      message: The watchdog is gone now, hope you said your goodbyes
+  id: 6611
+  time: '2026-03-21T17:18:03.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4367
