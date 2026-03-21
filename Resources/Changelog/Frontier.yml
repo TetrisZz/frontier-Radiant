@@ -7922,3 +7922,10 @@ Entries:
   id: 6611
   time: '2026-03-21T17:18:03.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4367
+- author: Bartholemew Dingleberry
+  changes:
+    - type: Tweak
+      message: Minor QOL changes to the DBI Stronghold
+  id: 6612
+  time: '2026-03-21T17:19:44.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4385
