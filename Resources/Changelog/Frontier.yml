@@ -7964,3 +7964,10 @@ Entries:
   id: 6617
   time: '2026-03-21T17:34:18.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4394
+- author: ErhardSteinhauer
+  changes:
+    - type: Add
+      message: Added dedicated chaplain shuttle - LVHI Lantern Mk2.
+  id: 6618
+  time: '2026-03-21T18:11:28.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4390
