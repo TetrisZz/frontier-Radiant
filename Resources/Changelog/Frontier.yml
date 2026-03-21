@@ -7943,3 +7943,10 @@ Entries:
   id: 6614
   time: '2026-03-21T17:21:52.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4393
+- author: ErhardSteinhauer
+  changes:
+    - type: Tweak
+      message: Updated LVHI Searchlight shuttle.
+  id: 6615
+  time: '2026-03-21T17:26:03.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4396
