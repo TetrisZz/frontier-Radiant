@@ -7957,3 +7957,10 @@ Entries:
   id: 6616
   time: '2026-03-21T17:29:11.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4395
+- author: ErhardSteinhauer
+  changes:
+    - type: Tweak
+      message: Updated LVHI Broom shuttle.
+  id: 6617
+  time: '2026-03-21T17:34:18.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4394
