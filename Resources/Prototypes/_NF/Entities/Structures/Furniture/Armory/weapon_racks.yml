@@ -55,11 +55,11 @@
   - type: Sprite
     layers:
     - state: base-pistol
-      color: "#56422b"
+      color: "#2f2f2f"
     - state: lock
-      color: "#1f6626"
+      color: "#3c3c3c"
     - state: base-pistol-decal
-      color: "#f1b223"
+      color: "#202344"
     - state: pistol-0
     - map: ["enum.StorageFillLayers.Fill"]
     - state: locked
@@ -78,11 +78,11 @@
   - type: Sprite
     layers:
     - state: base-pistol-wall
-      color: "#56422b"
+      color: "#2f2f2f"
     - state: lock
-      color: "#1f6626"
+      color: "#3c3c3c"
     - state: base-pistol-wall-decal
-      color: "#f1b223"
+      color: "#202344"
     - state: pistol-0
     - map: ["enum.StorageFillLayers.Fill"]
     - state: locked
@@ -255,11 +255,11 @@
   - type: Sprite
     layers:
     - state: base-gun
-      color: "#56422b"
+      color: "#2f2f2f"
     - state: lock
-      color: "#1f6626"
+      color: "#3c3c3c"
     - state: base-gun-decal
-      color: "#537045"
+      color: "#202344"
     - state: locked
       map: [ enum.LockVisualLayers.Lock ]
       shader: unshaded
@@ -284,11 +284,11 @@
   - type: Sprite
     layers:
     - state: base-gun-wall
-      color: "#56422b"
+      color: "#2f2f2f"
     - state: lock
-      color: "#1f6626"
+      color: "#3c3c3c"
     - state: base-gun-wall-decal
-      color: "#537045"
+      color: "#202344"
     - state: locked
       map: [ enum.LockVisualLayers.Lock ]
       shader: unshaded
@@ -314,11 +314,11 @@
   - type: Sprite
     layers:
     - state: base-melee
-      color: "#56422b"
+      color: "#2f2f2f"
     - state: lock
-      color: "#1f6626"
+      color: "#3c3c3c"
     - state: base-melee-decal
-      color: "#537045"
+      color: "#202344"
     - state: locked
       map: [ enum.LockVisualLayers.Lock ]
       shader: unshaded
@@ -343,11 +343,11 @@
   - type: Sprite
     layers:
     - state: base-melee-wall
-      color: "#56422b"
+      color: "#2f2f2f"
     - state: lock
-      color: "#1f6626"
+      color: "#3c3c3c"
     - state: base-melee-wall-decal
-      color: "#537045"
+      color: "#202344"
     - state: locked
       map: [ enum.LockVisualLayers.Lock ]
       shader: unshaded
@@ -373,11 +373,11 @@
   - type: Sprite
     layers:
     - state: base-pistol
-      color: "#56422b"
+      color: "#2f2f2f"
     - state: lock
-      color: "#1f6626"
+      color: "#3c3c3c"
     - state: base-pistol-decal
-      color: "#537045"
+      color: "#202344"
     - state: locked
       map: [ enum.LockVisualLayers.Lock ]
       shader: unshaded
@@ -401,11 +401,11 @@
   - type: Sprite
     layers:
     - state: base-pistol-wall
-      color: "#56422b"
+      color: "#2f2f2f"
     - state: lock
-      color: "#1f6626"
+      color: "#3c3c3c"
     - state: base-pistol-wall-decal
-      color: "#537045"
+      color: "#202344"
     - state: locked
       map: [ enum.LockVisualLayers.Lock ]
       shader: unshaded
