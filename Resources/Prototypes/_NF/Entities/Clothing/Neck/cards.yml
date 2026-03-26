@@ -72,23 +72,23 @@
   - type: Sprite
     layers:
     - state: icon-base
-      color: "#63492a"
+      color: "#3c3c3c"
     - state: icon-unshaded
       map: ["cardUnshadedIconDocument"]
-      color: "#59784b"
+      color: "#202344"
       shader: unshaded
     - state: icon-unshaded
       map: ["cardUnshadedIconEmpty"]
-      color: "#784b4b"
+      color: "#202344"
       shader: unshaded
   - type: Clothing
     clothingVisuals:
       neck:
       - state: equipped-NECK
-        color: "#63492a"
+        color: "#3c3c3c"
       - state: equipped-NECK-unshaded
         shader: unshaded
-        color: "#59784b"
+        color: "#202344"
   - type: ContainerContainer
     containers:
       paper_label: !type:ContainerSlot

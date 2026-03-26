@@ -1,0 +1,9 @@
+ent-BluespaceOre = блюспейс руда
+    .suffix = полный
+    .desc = { ent-BananiumOre1.desc }
+ent-BluespaceOre1 = блюспейс руда
+    .suffix = 1
+    .desc = { ent-BananiumOre1.desc }
+ent-BananiumOre5 = { ent-BananiumOre1 }
+    .suffix = 5
+    .desc = { ent-BananiumOre1.desc }
