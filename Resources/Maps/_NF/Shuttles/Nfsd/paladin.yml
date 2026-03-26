@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 03/26/2026 21:43:27
+  time: 03/26/2026 23:26:35
   entityCount: 222
 maps: []
 grids:
@@ -158,22 +158,24 @@ entities:
       data:
         tiles:
           0,0:
-            0: 4871
-            1: 3072
+            0: 12407
+            1: 35840
             2: 16384
-          0,-1:
-            0: 32563
-            1: 32776
           -1,0:
-            0: 34956
-            1: 512
+            0: 35020
+            1: 25088
           0,1:
-            1: 48
-            2: 68
+            0: 1
+            1: 768
+            2: 1092
           -1,1:
-            1: 192
+            0: 8
+            1: 3072
+          0,-1:
+            1: 32776
+            0: 3891
           -1,-1:
-            0: 52872
+            0: 36488
             1: 2
           0,-2:
             1: 49152
@@ -251,7 +253,7 @@ entities:
       pos: 1.5,3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -3206.0017
+      secondsUntilStateChange: -3228.3198
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
