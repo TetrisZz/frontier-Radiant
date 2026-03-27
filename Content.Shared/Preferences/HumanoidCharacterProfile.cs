@@ -28,7 +28,7 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
-        private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
+        private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // Corvax-Localization
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int DefaultBalance = 30000; // Frontier
@@ -608,7 +608,7 @@ namespace Content.Shared.Preferences
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
-                name = Regex.Replace(name, @"[^А-Я,а-я,A-Z,a-z,0-9, -]", string.Empty);
+                name = RestrictedNameRegex.Replace(name, string.Empty);
                 /*
                  * 0041-005A  Basic Latin: Uppercase Latin Alphabet
                  * 0061-007A  Basic Latin: Lowercase Latin Alphabet

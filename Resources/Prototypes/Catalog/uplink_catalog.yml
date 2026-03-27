@@ -1771,7 +1771,7 @@
   productEntity: CrateCybersunJuggernautBundle
   cost:
 #    Telecrystal: 12 # Radiant Sector
-    Telecrystal: 12 # Radiant Sector
+    Telecrystal: 15 # Radiant Sector
   categories:
   - UplinkWearables
 #  conditions:

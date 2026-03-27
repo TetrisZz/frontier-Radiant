@@ -1,6 +1,6 @@
 - type: marking
   id: DemonChestCowSpots
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Chest
   speciesRestriction: [DemonSpecies]
   sprites:
@@ -9,7 +9,7 @@
 
 - type: marking
   id: DemonChestGuard
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Chest
   speciesRestriction: [DemonSpecies]
   sprites:
@@ -18,7 +18,7 @@
 
 - type: marking
   id: DemonChestLinesEmperos
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Chest
   speciesRestriction: [DemonSpecies]
   sprites:
@@ -27,7 +27,7 @@
 
 - type: marking
   id: DemonChestQueenLines
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Chest
   speciesRestriction: [DemonSpecies]
   sprites:
@@ -36,7 +36,7 @@
 
 - type: marking
   id: DemonChestTreeLines
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Chest
   speciesRestriction: [DemonSpecies]
   sprites:
@@ -45,7 +45,7 @@
 
 - type: marking
   id: DemonChestTrinitySpots
-  bodyPart: Chest
+  bodyPart: LLeg
   markingCategory: Chest
   speciesRestriction: [DemonSpecies]
   sprites:
