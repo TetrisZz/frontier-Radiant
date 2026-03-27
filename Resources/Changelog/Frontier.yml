@@ -8026,3 +8026,12 @@ Entries:
   id: 6624
   time: '2026-03-26T17:48:56.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4402
+- author: Alkheemist
+  changes:
+    - type: Tweak
+      message: >-
+        NT have strategically pivoted the focus of Edison Power Plant from
+        exporting power generation to mining.
+  id: 6625
+  time: '2026-03-27T17:41:02.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4406
