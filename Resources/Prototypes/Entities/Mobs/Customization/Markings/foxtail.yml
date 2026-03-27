@@ -3,7 +3,7 @@
   id: FoxTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human, Felinid, Vulpkanin]
+  speciesRestriction: [Human, Felinid, Vulpkanin, Tajaran]
   coloring:
     default:
       type:
