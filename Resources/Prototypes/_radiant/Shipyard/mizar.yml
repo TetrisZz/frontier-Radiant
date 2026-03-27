@@ -1,3 +1,4 @@
+
 # Author Info
 # GitHub: 
 # Discord: ???
@@ -9,33 +10,35 @@
 # Shuttle Notes:
 #
 - type: vessel
-  id: Iris
+  id: Mizar
   parent: BaseVessel
-  name: HOM Ирис
-  description: Экспедиционное судно, на нем имеется все по минимуму - оружейная, мини-кухня, мед с химией.
-  price: 50900
-  category: Medium
+  name: HOM Мицар
+  description: Крупное экспедиционное судно, вместимостью от 5 человек, на нем есть все необходимое для далеких путешествий.
+  price: 150000
+  category: Large
   group: Expedition
-  shuttlePath: /Maps/_radiant/Shuttles/Iris.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Mizar.yml
   guidebookPage: Null
   class:
-  - Salvage
+  - Kitchen
   - Chemistry
+  - Salvage
+  - Science
   - Expedition
   engine:
   - Bananium
 
 - type: gameMap
-  id: Iris
-  mapName: 'HOM Ирис'
-  mapPath: /Maps/_radiant/Shuttles/Iris.yml
+  id: Mizar
+  mapName: 'HOM Мицар'
+  mapPath: /Maps/_radiant/Shuttles/Mizar.yml
   minPlayers: 0
   stations:
-    Iris:
+    Mizar:
       stationProto: StandardFrontierExpeditionVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Ирис {1}'
+          mapNameTemplate: 'Мицар {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

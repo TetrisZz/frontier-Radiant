@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 03/19/2026 04:13:32
+  time: 03/26/2026 23:26:35
   entityCount: 222
 maps: []
 grids:
@@ -252,12 +252,6 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -3221.9155
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 93
     components:
     - type: Transform
