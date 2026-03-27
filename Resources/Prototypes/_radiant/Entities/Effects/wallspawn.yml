@@ -1,0 +1,55 @@
+﻿- type: entity
+  id: RadiantWallSpawnAsteroidUraniumGolem
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: NFAsteroidRockUraniumGolem
+
+- type: entity
+  id: RadiantWallSpawnAsteroidBananiumGolem
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: NFAsteroidRockBananiumGolem
+
+- type: entity
+  id: RadiantWallSpawnAsteroidQuartzGolem
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: NFAsteroidRockQuartzGolem
+
+- type: entity
+  id: RadiantWallSpawnAsteroidSilverGolem
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: NFAsteroidRockSilverGolem
+
+- type: entity
+  id: RadiantWallSpawnAsteroidGoldGolem
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: NFAsteroidRockGoldGolem
+
+- type: entity
+  id: RadiantWallSpawnAsteroidIronGolem
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: NFAsteroidRockIronGolem
+
+- type: entity
+  id: RadiantWallSpawnAsteroidCoalGolem
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: NFAsteroidRockCoalGolem

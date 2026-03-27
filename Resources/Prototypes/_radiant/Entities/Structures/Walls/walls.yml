@@ -8,9 +8,22 @@
     sprite: _radiant/Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: _radiant/Structures/Walls/shuttle.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 4000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
-  parent: WallReinforced
+  parent: WallPlastitanium
   id: RadiantWallShuttlePlastitanium
   name: стена шаттла
   suffix: Plastitanium

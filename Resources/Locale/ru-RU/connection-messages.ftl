@@ -17,7 +17,7 @@ cmd-kicknonwhitelisted-help = Использование: kicknonwhitelisted
 
 ban-banned-permanent = Этот бан можно только обжаловать. Для этого посетите: https://discord.com/invite/TwFeWjNNDT
 ban-banned-permanent-appeal = Этот бан можно только обжаловать. Для этого посетите: https://discord.com/invite/TwFeWjNNDT
-ban-expires = Вы получили бан на {$duration} минут, он окончиться {$time} по UTC (для московского времени добавьте 3 часа).
+ban-expires = Вы получили бан на {$duration} минут, он окончится {$time} по UTC (для московского времени добавьте 3 часа).
 ban-banned-1 = Вам, или другому пользователю этого компьютера или соединения, запрещено здесь играть.
 ban-banned-2 = Причина бана: "{$reason}"
 ban-banned-3 = Если эта блокировка была выдана по ошибке или мера слишком сурова по вашему мнению, вы можете подать апелляцию в discord, в соответствующем канале.

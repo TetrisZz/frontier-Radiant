@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 03/01/2026 05:29:34
-  entityCount: 5789
+  time: 03/09/2026 06:08:20
+  entityCount: 5788
 maps: []
 grids:
 - 1
@@ -9776,12 +9776,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,-4.5
-      parent: 1
-  - uid: 152
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 14.5,-13.5
       parent: 1
   - uid: 153
     components:
@@ -21062,6 +21056,18 @@ entities:
     - type: Transform
       pos: 4.5,4.5
       parent: 1
+    - type: DisableToolUse
+      digging: True
+      rolling: True
+      honking: True
+      sawing: True
+      slicing: True
+      pulsing: True
+      welding: True
+      cutting: True
+      screwing: True
+      prying: True
+      anchoring: True
 - proto: CratePlasticBiodegradable
   entities:
   - uid: 2204
@@ -23370,19 +23376,16 @@ entities:
     - type: Transform
       pos: 0.5,-32.5
       parent: 1
-- proto: FaxMachineNFIcarusCommandant
+- proto: FaxMachineNFIcarus
   entities:
-  - uid: 2546
+  - uid: 2157
     components:
     - type: Transform
       pos: 4.5,-14.5
       parent: 1
-  - uid: 2547
-    components:
-    - type: Transform
-      pos: 12.5,37.5
-      parent: 1
-  - uid: 2548
+- proto: FaxMachineNFIcarusCommandant
+  entities:
+  - uid: 2165
     components:
     - type: Transform
       pos: 1.5,30.5
@@ -32929,6 +32932,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,-35.5
       parent: 1
+- proto: HighSecAcorpSecurityLocked
+  entities:
+  - uid: 152
+    components:
+    - type: Transform
+      pos: 14.5,-13.5
+      parent: 1
 - proto: HolofanProjector
   entities:
   - uid: 35
@@ -34266,17 +34276,19 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
+- proto: NFHolopadAcolith
+  entities:
+  - uid: 2166
+    components:
+    - type: Transform
+      pos: 7.5,8.5
+      parent: 1
 - proto: NFHolopadAcolithBridge
   entities:
   - uid: 3841
     components:
     - type: Transform
       pos: 4.5,37.5
-      parent: 1
-  - uid: 3842
-    components:
-    - type: Transform
-      pos: 7.5,8.5
       parent: 1
 - proto: NFHolopadAcolithCommandant
   entities:
@@ -36785,6 +36797,18 @@ entities:
     - type: Transform
       pos: 3.5,38.5
       parent: 1
+    - type: DisableToolUse
+      digging: True
+      rolling: True
+      honking: True
+      sawing: True
+      slicing: True
+      pulsing: True
+      welding: True
+      cutting: True
+      screwing: True
+      prying: True
+      anchoring: True
 - proto: PrinterAcorpLocker
   entities:
   - uid: 2148
@@ -36792,6 +36816,18 @@ entities:
     - type: Transform
       pos: 3.5,38.5
       parent: 1
+    - type: DisableToolUse
+      digging: True
+      rolling: True
+      honking: True
+      sawing: True
+      slicing: True
+      pulsing: True
+      welding: True
+      cutting: True
+      screwing: True
+      prying: True
+      anchoring: True
 - proto: ProtolatheAcorp
   entities:
   - uid: 4109
@@ -42575,6 +42611,20 @@ entities:
     - type: Transform
       pos: 10.5,38.5
       parent: 1
+    - type: DisableToolUse
+      digging: True
+      rolling: True
+      honking: True
+      sawing: True
+      slicing: True
+      pulsing: True
+      welding: True
+      cutting: True
+      screwing: True
+      prying: True
+      anchoring: True
+    missingComponents:
+    - ApcPowerReceiver
 - proto: SalvageTechFabCircuitboardNF
   entities:
   - uid: 2113
@@ -46993,7 +47043,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -976.01807
+      secondsUntilStateChange: -1264.8483
       state: Opening
     - type: Airlock
       autoClose: False

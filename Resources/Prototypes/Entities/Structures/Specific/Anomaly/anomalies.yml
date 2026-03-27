@@ -253,7 +253,8 @@
       - MobFleshGolemAltExpeditions
       - MobFleshGolemExpeditions
       - MobFleshJaredExpeditions
-      - MobHorrorExpeditions # Radiant sector ↑
+      - MobHorrorExpeditions
+      - FleshKudzu # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 10
@@ -480,6 +481,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroidUranium
       - NFWallSpawnAsteroidUraniumCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidUraniumGolem # Radiant sector
     - settings:
         spawnOnPulse: true
         maxAmount: 3
@@ -498,6 +500,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroid
       - NFWallSpawnAsteroidUraniumCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidUraniumGolem # Radiant sector
     - settings:
         spawnOnSuperCritical: true
         minAmount: 6
@@ -530,6 +533,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroidBananium
       - NFWallSpawnAsteroidBananiumCrab # Frontier: use NF prefix
+      - RadiantWallSpawnAsteroidBananiumGolem # Radiant sector
     - settings:
         spawnOnPulse: true
         maxAmount: 3
@@ -548,6 +552,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroid
       - NFWallSpawnAsteroidBananiumCrab # Frontier: use NF prefix
+      - RadiantWallSpawnAsteroidBananiumGolem # Radiant sector
     - settings:
         spawnOnSuperCritical: true
         minAmount: 3
@@ -580,6 +585,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroidQuartz
       - NFWallSpawnAsteroidQuartzCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidQuartzGolem # Radiant sector
     - settings:
         spawnOnPulse: true
         maxAmount: 3
@@ -598,6 +604,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroid
       - NFWallSpawnAsteroidQuartzCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidQuartzGolem # Radiant sector
     - settings:
         spawnOnSuperCritical: true
         minAmount: 6
@@ -630,6 +637,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroidSilver
       - NFWallSpawnAsteroidSilverCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidSilverGolem # Radiant sector
     - settings:
         spawnOnPulse: true
         maxAmount: 3
@@ -648,6 +656,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroid
       - NFWallSpawnAsteroidSilverCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidSilverGolem # Radiant sector
     - settings:
         spawnOnSuperCritical: true
         minAmount: 6
@@ -680,6 +689,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroidGold
       - NFWallSpawnAsteroidGoldCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidGoldGolem # Radiant sector
     - settings:
         spawnOnPulse: true
         maxAmount: 3
@@ -698,6 +708,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroid
       - NFWallSpawnAsteroidGoldCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidGoldGolem # Radiant sector
     - settings:
         spawnOnSuperCritical: true
         minAmount: 6
@@ -730,6 +741,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroidIron
       - NFWallSpawnAsteroidIronCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidIronGolem # Radiant sector
     - settings:
         spawnOnPulse: true
         maxAmount: 3
@@ -748,6 +760,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroid
       - NFWallSpawnAsteroidIronCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidIronGolem # Radiant sector
     - settings:
         spawnOnSuperCritical: true
         minAmount: 6
@@ -780,6 +793,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroidCoal
       - NFWallSpawnAsteroidCoalCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidCoalGolem # Radiant sector
     - settings:
         spawnOnPulse: true
         maxAmount: 3
@@ -798,6 +812,7 @@
       - WallSpawnAsteroid
       - WallSpawnAsteroid
       - NFWallSpawnAsteroidCoalCrab # Frontier: use NF variant
+      - RadiantWallSpawnAsteroidCoalGolem # Radiant sector
     - settings:
         spawnOnSuperCritical: true
         minAmount: 6

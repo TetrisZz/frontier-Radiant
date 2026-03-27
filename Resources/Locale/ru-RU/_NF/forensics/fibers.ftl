@@ -1,2 +1,1 @@
-fibers-cream = кремовый
-fibers-regal-white = королевские белые
+fibers-cream = кремовые

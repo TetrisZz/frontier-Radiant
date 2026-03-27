@@ -123,7 +123,7 @@
   productEntity: WeaponRifleAkRS
   icon: { sprite: Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
   cost:
-    BlackMoney: 10
+    BlackMoney: 6
   categories:
     - UplinkSeparatistWeapons
   conditions:
@@ -134,6 +134,7 @@
     - !type:BuyerJobCondition
       whitelist:
         - SeparatistsCommander
+        - SeparatistsOperative
 
 #armor
 

@@ -2,8 +2,8 @@
   id: Separatists
   parent: BasePOI
   name: База сепаратистов
-  minimumDistance: 11000
-  maximumDistance: 15000
+  minimumDistance: 14000
+  maximumDistance: 18000
   spawnGamePreset: [ NFPirate ]
   spawnGroup: Required
   gridPath: /Maps/_radiant/POI/Separatists.yml

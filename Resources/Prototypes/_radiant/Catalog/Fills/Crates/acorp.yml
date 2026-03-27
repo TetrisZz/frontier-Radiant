@@ -80,7 +80,7 @@
       prob: 0.01
       orGroup: Guaranteed
     - id: MercenaryTechFabCircuitboardNF
-      prob: 0.01
+      prob: 0.1
       orGroup: Guaranteed
     #junk
     - id: MobEmotionalSupportScurret
@@ -130,13 +130,13 @@
       orGroup: Junk
     #weapons
     - id: NFWeaponEnergyRifleAssaultPulseCarbine # Frontier: WeaponPulseCarbine<NFWeaponEnergyRifleAssaultPulseCarbine
-      prob: 0.003
+      prob: 0.002
       orGroup: Weapons
     - id: NFWeaponRifleAssaultSm # Frontier: WeaponRifleAk<NFWeaponRifleAssaultSm
       prob: 0.005
       orGroup: Weapons
     - id: WeaponLauncherM203 # Frontier: WeaponLauncherPirateCannon<NFWeaponLauncherPirateCannon
-      prob: 0.06
+      prob: 0.003
       orGroup: Weapons
     - id: NFWeaponPistolCHIMPUpgraded # Frontier: FWeaponPistolCHIMP<NFWeaponPistolCHIMP
       prob: 0.007
@@ -189,6 +189,9 @@
     - id: NFWeaponRifleFoam # Frontier: WeaponRifleFoam<NFWeaponRifleFoam
       prob: 0.03
       orGroup: Weapons
+    - id: EmpGrenadeNfsd
+      prob: 0.008
+      orGroup: NotUseful
     #clothing
     - id: ClothingUniformJumpsuitFamilyGuy
       prob: 0.05
@@ -197,13 +200,13 @@
       prob: 0.001
       orGroup: Clothes
     - id: ClothingOuterHardsuitCBURN
-      prob: 0.009
+      prob: 0.001
       orGroup: Clothes
     - id: ClothingOuterHardsuitSanta
-      prob: 0.009
+      prob: 0.002
       orGroup: Clothes
     - id: ClothingBackpackERTClown
-      prob: 0.009
+      prob: 0.002
       orGroup: Clothes
     - id: ClothingNeckCloakAdmin
       prob: 0.01
@@ -404,6 +407,9 @@
     - id: MobGoliath
       prob: 0.001
       orGroup: NotUseful
+    - id: ReagentSlimePax
+      prob: 0.01
+      orGroup: NotUseful
     - id: MobRogueSiliconGuardian
       prob: 0.001
       orGroup: NotUseful
@@ -450,8 +456,5 @@
       prob: 0.008
       orGroup: NotUseful
     - id: CartridgeGunnery220mm
-      prob: 0.001
-      orGroup: NotUseful
-    - id: EmpGrenadeNfsd
       prob: 0.001
       orGroup: NotUseful

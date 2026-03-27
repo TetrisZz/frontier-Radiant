@@ -15,3 +15,4 @@
     Goblin: 2 # Frontier
 #    Sheleg: 2 # Frontier: TODO add a overwrite for suit in case there isnt one
     Harpy: 1 # Frontier
+    Tajaran: 3 # Einstein Engines - Tajaran, see Prototypes/_EE/Entities/Mobs/Species/tajaran.yml

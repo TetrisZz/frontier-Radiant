@@ -1,0 +1,10 @@
+ent-MechEmu = Эму АВП
+    .desc = Более старая модель механического погрузчика для грузов, Эму, имеет единственный встроенный модуль силового погрузчика.
+ent-MechEmuBattery = { ent-MechEmu }
+    .desc = { ent-MechEmu.desc }
+    .suffix = батарея
+ent-MechEmuCargo = { ent-MechEmu }
+    .desc = { ent-MechEmu.desc }
+    .suffix = карго, средняя батарея
+ent-MechEquipmentFork = силовой погрузчик
+    .desc = Дает меху возможность поднимать торговые ящики и устанавливать их на стеллажи.

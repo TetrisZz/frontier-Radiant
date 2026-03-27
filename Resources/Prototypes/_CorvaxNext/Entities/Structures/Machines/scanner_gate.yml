@@ -97,6 +97,7 @@
         components:
           - Gun
           - ExplodeOnTrigger
+          - EnergySword
       whitelist:
         tags:
           - Nonmetallic

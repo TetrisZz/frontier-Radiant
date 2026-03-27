@@ -27,7 +27,7 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
-    fiberColor: fibers-regal-white
+    fiberColor: fibers-white
 
 - type: entity
   parent: ClothingHandsBase
@@ -42,4 +42,4 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
-    fiberColor: fibers-regal-white
+    fiberColor: fibers-cream
