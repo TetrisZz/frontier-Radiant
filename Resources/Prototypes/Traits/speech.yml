@@ -19,8 +19,9 @@
     - type: OwOAccent
     - type: ReplacementAccent
       accent: dwarf
-    - type: ArcanAccent # Radiant_sector
+    - type: ArcanAccent # Radiant sector
     - type: ResomiAccent # Corvax-Next-Resomi
+    - type: GrowlingAccent # Radiant sector
 
 # 1 Cost
 

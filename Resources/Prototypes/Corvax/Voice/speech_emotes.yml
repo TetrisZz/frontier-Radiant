@@ -1,0 +1,90 @@
+- type: emote
+  id: PurrTajaran
+  name: Мурчать
+  category: Vocal
+  available: false
+  icon: Interface/Actions/scream.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [мурлычет.]
+  chatTriggers:
+  - purr
+  - purr.
+  - purr!
+  - purrs
+  - purrs.
+  - purrs!
+  - мурчит
+  - мурчит.
+  - мурчит!
+  - мурлычет
+  - мурлычет.
+  - мурлычет!
+
+- type: emote
+  id: MeowTajaran
+  category: Vocal
+  name: Мяукнуть
+  icon: Interface/Actions/scream.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [мяукает.]
+  chatTriggers:
+    - meow
+    - meows
+    - meow.
+    - meow!
+    - meowing
+    - meowed
+    - miau
+    - miaus
+    - meows.
+    - meows~
+    - meows!
+    - meowing.
+    - meowed.
+    - miau.
+    - miaus.
+    - miaus!
+    - nya
+    - nyas
+    - nya.
+    - nyas.
+    - nyas!
+    - mraow.
+    - mraow!
+    - mraow~
+    - mraows.
+    - mraows!
+    - mraows~
+    # Corvax-Localization-Start
+    - мяу
+    - мяу~
+    - мяу.
+    - мяу!
+    - мау
+    - мау~
+    - мау.
+    - мау!
+    - миау
+    - миау~
+    - миау.
+    - миау!
+    - мяфкает
+    - мяфкает~
+    - мяфкает.
+    - мяфкает!
+    - мяукает
+    - мяукает~
+    - мяукает.
+    - мяукает!
+    # Corvax-Localization-End
