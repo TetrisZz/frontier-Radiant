@@ -9,6 +9,9 @@
   "states": [
     {
       "name": "radar"
+    },
+    {
+      "name": "20_drum"
     }
   ]
 }

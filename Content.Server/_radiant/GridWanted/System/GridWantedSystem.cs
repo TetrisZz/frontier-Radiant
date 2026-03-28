@@ -332,6 +332,6 @@ public sealed class GridWantedSystem : EntitySystem
             ("reason", reason),
             ("job", jobTitle));
 
-        _radio.SendRadioMessage(sender.Value, message, "Nfsd", sender.Value);
+        _radio.SendRadioMessage(sender.Value, message, "Security", sender.Value);
     }
 }

@@ -791,14 +791,15 @@
   table: !type:GroupSelector
     children:
     - !type:GroupSelector
-      weight: 0.2
+#      weight: 0.2 # Radiant sector
+      weight: 0.25 # Radiant sector
       children:
       - id: SpaceCash10
       - id: SpaceCash100
       - id: SpaceCash500
     - !type:GroupSelector
 #      weight: 0.6 # Radiant sector
-      weight: 0.3 # Radiant sector
+      weight: 0.35 # Radiant sector
       children:
       - id: SpaceCash1000
         weight: 0.3
@@ -816,7 +817,7 @@
       - id: SpaceCash30000
         weight: 0.2
     - !type:GroupSelector # Radiant sector ↓
-      weight: 0.3
+      weight: 0.2
       children:
       - id: BoxFolderTDAcorpTier2
         weight: 0.3

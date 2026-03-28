@@ -1,0 +1,251 @@
+#region Acorp
+#weapon racks
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled0
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponLaserCarbineAcorp
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled1
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponRifleEstocRS
+      weapon2:
+      - NFWeaponRifleAssaultNovaliteC1
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled2
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - NFWeaponPkaCannon
+      weapon2:
+      - NFWeaponRifleMusket
+      weapon3:
+      - NFWeaponEnergySubMachineGunDeltaV
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled3
+  parent: StructureGunRackAcorp
+  categories: [ HideSpawnMenu ]
+  suffix: Акорп, Случайный спавн
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - NFWeaponRifleRepeater
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled4
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponShotgunAdjutant
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled5
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - NFWeaponEnergyRifleSniperXrayCannon
+      weapon2:
+      - NFWeaponRifleAssaultVulcan
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled6
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponRifleSentinel9Acorp
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled7
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - NFWeaponEnergyRifleTemperature
+      weapon2:
+      - NFWeaponEnergyPistolLaserAdvanced
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled8
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponRifleKX2801
+      weapon2:
+      - NFWeaponRifleBarlowsBolt
+
+- type: entity
+  id: StructureGunWeaponRackAcorpFilled9
+  parent: StructureGunRackAcorp
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponRifleTW44Acorp
+      weapon2:
+      - NFWeaponShotgunKammerer
+
+#region Acorp
+#weapon racks
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled0
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponLaserCarbineAcorp
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled1
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponRifleEstocRS
+      weapon2:
+      - NFWeaponRifleAssaultNovaliteC1
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled2
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - NFWeaponPkaCannon
+      weapon2:
+      - NFWeaponRifleMusket
+      weapon3:
+      - NFWeaponEnergySubMachineGunDeltaV
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled3
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - NFWeaponRifleRepeater
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled4
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponShotgunAdjutant
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled5
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - NFWeaponEnergyRifleSniperXrayCannon
+      weapon2:
+      - NFWeaponRifleAssaultVulcan
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled6
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponRifleSentinel9Acorp
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled7
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - NFWeaponEnergyRifleTemperature
+      weapon2:
+      - NFWeaponEnergyPistolLaserAdvanced
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled8
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponRifleKX2801
+      weapon2:
+      - NFWeaponRifleBarlowsBolt
+
+- type: entity
+  id: StructureGunWeaponRackAcorpSecurityFilled9
+  parent: StructureGunRackAcorpSecurity
+  suffix: Акорп, Случайный спавн
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ContainerFill
+    containers:
+      weapon1:
+      - WeaponRifleTW44Acorp
+      weapon2:
+      - NFWeaponShotgunKammerer

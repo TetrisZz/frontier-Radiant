@@ -1,7 +1,7 @@
 <Document>
   # Species
 
-  Nanotrasen employs a variety of sapient species.
+  Конфедерация нанимает разнообразные разумные виды.
 
   <Box>
   <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>

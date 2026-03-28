@@ -35,7 +35,8 @@
   - type: Clothing
     sprite: _NF/Clothing/Hands/Gloves/nfsd_brown.rsi
   - type: Fiber
-    fiberColor: fibers-brown
+#    fiberColor: fibers-brown
+    fiberColor: fibers-black_white
 
 - type: entity
   parent: ClothingHandsGlovesCombatNfsdBrown
@@ -48,7 +49,8 @@
   - type: Clothing
     sprite: _NF/Clothing/Hands/Gloves/nfsd_cream.rsi
   - type: Fiber
-    fiberColor: fibers-cream
+#    fiberColor: fibers-cream
+    fiberColor: fibers-blue_white
 
 - type: entity
   parent: ClothingHandsGlovesHop

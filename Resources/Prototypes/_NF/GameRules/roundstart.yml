@@ -28,7 +28,8 @@
     - id: BluespaceSyndicateFTLInterception
     - id: BluespaceWizardFederationScout
     - id: BluespaceBloodMoon
-    - id: BluespaceCentComTrain
+    - id: BluespaceCentComTrain # Radiant sector
+    - id: BluespaceVaultAcorpError # Radiant sector
 
 - type: entity
   id: BluespaceDungeonEventScheduler

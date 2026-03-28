@@ -572,7 +572,7 @@
   id: VulpPointsFeet
   markingCategory: Overlay
   bodyPart: RFoot
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Tajaran] #radiant_sector
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_feet
@@ -609,7 +609,7 @@
   id: VulpPointsHands
   markingCategory: Overlay
   bodyPart: RHand
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Tajaran] #radiant_sector
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_hands

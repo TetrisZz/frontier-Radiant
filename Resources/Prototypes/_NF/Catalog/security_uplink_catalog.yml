@@ -548,7 +548,8 @@
   productEntity: BoxT3SuperCapacitor
   icon: { sprite: Objects/Storage/boxes.rsi, state: box}
   cost:
-    FrontierUplinkCoin: 8 # 4<8
+#    FrontierUplinkCoin: 8 # 4<8
+    FrontierUplinkCoin: 4 # Radiant sector
   categories:
     - UplinkSecurityBundles
   conditions:

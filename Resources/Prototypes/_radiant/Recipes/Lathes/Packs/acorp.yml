@@ -10,6 +10,36 @@
   - BlueSpaceTicketAcorp
 
 - type: latheRecipePack
+  id: AcorpPrinterVault
+  recipes:
+  - WeaponEnergyGunMiniAcorpVault
+  - WeaponLaserCarbineAcorpVault
+  - WeaponShotgunAdjutantVault
+  - WeaponRifleTW44AcorpVault
+  - WeaponRifleSentinel9AcorpVault
+  - WeaponEnergyShotgunRSVault
+  - EnergySwordRadiantVault
+  - EnergySwordDoubleRadiantVault
+  - HyposprayAcorpVault
+  - BorgModuleAcorpMartyrVault
+  - BorgModuleAcorpMartyrVault
+  - MagazineHigh2RifleEmptyVault
+  - MagazineHigh2RifleEmptyAKVault
+  - MagazineBoxHigh2RifleVault
+  - MagazineBoxHigh2RifleUraniumVault
+  - MagazineBoxHigh2RifleIncendiaryVault
+  - MagazineBoxHigh2RubberVault
+  - MagazineBoxHigh2RifleIceVault
+  - MagazineBoxRifleIceVault
+  - MagazineBoxLightRifleIceVault
+  - MagazineBoxPistolIceVault
+  - MagazineBoxMagnum500IceVault
+  - ClothingOuterHardsuitAcorpRndVault
+  - ClothingOuterHardsuitAcorpHevaVault
+  - ClothingOuterHardsuitAcorpHardEVAVault
+  - ClothingOuterHardsuitAcorpSecurityVault
+
+- type: latheRecipePack
   id: AcorpProtolathe
   recipes:
   - EnergyTazer

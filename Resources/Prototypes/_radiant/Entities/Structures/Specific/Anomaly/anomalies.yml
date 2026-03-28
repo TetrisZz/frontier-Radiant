@@ -6,8 +6,8 @@
   - type: Anomaly
     corePrototype: AnomalyCoreFlesh
     coreInertPrototype: AnomalyCoreFleshInert
-    minPulseLength: 180
-    maxPulseLength: 300
+    minPulseLength: 60
+    maxPulseLength: 170
     supercriticalSoundAtAnimationStart:
       collection: AnomalyFleshSupercritical
   - type: Sprite
@@ -41,22 +41,41 @@
     entries:
     - settings:
         spawnOnPulse: true
-        minAmount: 1
-        maxAmount: 4
+        minAmount: 3
+        maxAmount: 6
         minRange: 1.5
         maxRange: 2.5
       spawns:
       - FleshBlocker
     - settings:
         spawnOnPulse: true
-        maxAmount: 3
+        minAmount: 2
+        maxAmount: 8
         minRange: 3
         maxRange: 4.5
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobHorrorExpeditions
+      - FleshKudzu # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 10
@@ -67,14 +86,31 @@
       - FleshBlocker
     - settings:
         spawnOnSuperCritical: true
-        minAmount: 5
-        maxAmount: 10
+        minAmount: 10
+        maxAmount: 20
         maxRange: 8
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshGolemOldExpeditions
+      - MobFleshClampExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshLoverExpeditions
+      - MobFleshGolemAltExpeditions
+      - MobFleshGolemExpeditions
+      - MobFleshJaredExpeditions
+      - MobHorrorExpeditions # Radiant sector ↑
     - settings:
         spawnOnSuperCritical: true
         minAmount: 5
@@ -87,8 +123,12 @@
         maxAmount: 2
         maxRange: 1
       spawns:
-      - MobFleshJared
-      - MobFleshGolem
-      - MobFleshClamp
-      - MobFleshLover
+#      - MobFleshJared # Radiant sector ↓
+#      - MobFleshGolem
+#      - MobFleshClamp
+#      - MobFleshLover
+      - MobFleshGolemOldExpeditions
+      - MobFleshJaredOldExpeditions
+      - MobFleshClampOldExpeditions
+      - MobFleshClampOldExpeditions # Radiant sector ↑
       - FleshKudzu

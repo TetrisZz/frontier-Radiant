@@ -17,6 +17,7 @@
     - Harpy # DeltaV
     - Felinid # DeltaV
     - Oni # DeltaV
+    - Tajaran # EE
 
 - type: guideEntry
   id: Arachnid
@@ -57,3 +58,8 @@
   id: Vox
   name: species-name-vox
   text: "/ServerInfo/Guidebook/Mobs/Vox.xml"
+
+- type: guideEntry
+  id: Tajaran
+  name: species-name-tajaran
+  text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"

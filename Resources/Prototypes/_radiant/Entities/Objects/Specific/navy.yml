@@ -12,6 +12,7 @@
     layers:
     - state: icon-on
   - type: Item
+    storedRotation: -90
     sprite: _radiant/Objects/Devices/navyuplink.rsi
     heldPrefix: icon-on
   - type: UserInterface
