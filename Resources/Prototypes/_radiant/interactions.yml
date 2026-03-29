@@ -52,6 +52,7 @@
   - DemonSpecies
   - Goblin
   - Sheleg
+  - Tajaran
   - Harpy
   nearestAllowedGenders:
   - Male
@@ -69,6 +70,7 @@
   - Reptilian
   - Vulpkanin
   - Vox
+  - Tajaran
   - Resomi
   - DemonSpecies
 
@@ -82,6 +84,7 @@
   - Vox
   - Resomi
   - DemonSpecies
+  - Tajaran
 
 - type: interaction
   id: BaseTargetHasEars
@@ -90,6 +93,7 @@
   - Felinid
   - Vulpkanin
   - Resomi
+  - Tajaran
 
 - type: interaction
   parent: BaseHumanoid
@@ -105,6 +109,7 @@
   - Reptilian
   - SlimePerson
   - Vulpkanin #/~UwU~\
+  - Tajaran
   - Skrell
   - Resomi
   - DemonSpecies
@@ -124,6 +129,7 @@
   - Felinid
   - Moth
   - Reptilian
+  - Tajaran
   - SlimePerson
   - Vulpkanin #/~UwU~\
   - Skrell
