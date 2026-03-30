@@ -8035,3 +8035,10 @@ Entries:
   id: 6625
   time: '2026-03-27T17:41:02.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4406
+- author: Leander
+  changes:
+    - type: Remove
+      message: Improvised Pneumatic Cannon can no longer use crossbow bolts as ammo.
+  id: 6626
+  time: '2026-03-30T18:46:33.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4183
