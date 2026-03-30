@@ -1,0 +1,127 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: LockerWallEVAColorPurpleBlack
+  parent: NFBaseLockerGridInvWallColor
+  name: настенный шкаф EVA скафандра ученого
+  description: Темный шкаф для хранения черно-фиолетового EVA скафандра ученого.
+  components:
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.StorageVisualLayers.Base"]
+        color: "#1e1d1f"
+      - state: fillEva-0
+        map: ["enum.StorageFillLayers.Fill"]
+      - state: door
+        map: ["enum.StorageVisualLayers.Door"]
+        color: "#1e1d1f"
+      - state: door-decal-line-01
+        map: [ decal1 ]
+        color: "#333333"
+      - state: door-decal-eva-02
+        map: [ decal2 ]
+        color: "#5a3074"
+      - state: welded
+        visible: false
+        map: ["enum.WeldableLayers.BaseWelded"]
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+    - type: StorageFillVisualizer
+      maxFillLevels: 6
+      fillBaseName: fillEva
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: LockerWallEVAColorPinkWhite
+  parent: NFBaseLockerGridInvWallColor
+  name: настенный шкаф Розового EVA скафандра HOM 
+  description: Светлый шкаф для хранения розового EVA скафандра HOM.
+  components:
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.StorageVisualLayers.Base"]
+        color: "#f8f7fc"
+      - state: fillEva-0
+        map: ["enum.StorageFillLayers.Fill"]
+      - state: door
+        map: ["enum.StorageVisualLayers.Door"]
+        color: "#f8f7fc"
+      - state: door-decal-line-01
+        map: [ decal1 ]
+        color: "#e0e0e0"
+      - state: door-decal-eva-02
+        map: [ decal2 ]
+        color: "#eb6ba9"
+      - state: welded
+        visible: false
+        map: ["enum.WeldableLayers.BaseWelded"]
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+    - type: StorageFillVisualizer
+      maxFillLevels: 6
+      fillBaseName: fillEva
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: LockerWallEVAColorBlackWhite
+  parent: NFBaseLockerGridInvWallColor
+  name: настенный шкаф EVA скафандра HOM
+  description: Контрастный шкаф для хранения черно-белого EVA скафандра HOM.
+  components:
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.StorageVisualLayers.Base"]
+        color: "#1e1d1f"
+      - state: fillEva-0
+        map: ["enum.StorageFillLayers.Fill"]
+      - state: door
+        map: ["enum.StorageVisualLayers.Door"]
+        color: "#1e1d1f"
+      - state: door-decal-line-01
+        map: [ decal1 ]
+        color: "#333333"
+      - state: door-decal-eva-02
+        map: [ decal2 ]
+        color: "#f8f7fc"
+      - state: welded
+        visible: false
+        map: ["enum.WeldableLayers.BaseWelded"]
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+    - type: StorageFillVisualizer
+      maxFillLevels: 6
+      fillBaseName: fillEva
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: LockerWallEVAColorGreenBlack
+  parent: NFBaseLockerGridInvWallColor
+  name: настенный EVA скафандра HOM
+  description: Прочный шкаф для хранения зеленого EVA скафандра HOM/
+  components:
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.StorageVisualLayers.Base"]
+        color: "#1e1d1f"
+      - state: fillEva-0
+        map: ["enum.StorageFillLayers.Fill"]
+      - state: door
+        map: ["enum.StorageVisualLayers.Door"]
+        color: "#1e1d1f"
+      - state: door-decal-line-01
+        map: [ decal1 ]
+        color: "#333333"
+      - state: door-decal-eva-02
+        map: [ decal2 ]
+        color: "#0c4f48"
+      - state: welded
+        visible: false
+        map: ["enum.WeldableLayers.BaseWelded"]
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+    - type: StorageFillVisualizer
+      maxFillLevels: 6
+      fillBaseName: fillEva

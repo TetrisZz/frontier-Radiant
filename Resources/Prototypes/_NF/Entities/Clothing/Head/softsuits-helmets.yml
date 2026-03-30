@@ -801,28 +801,21 @@
     sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
     layers:
     - state: icon-base
-      color: "#a9947d"
+      color: "#212121"
     - state: icon-reinforced-points
-      color: "#384d2f"
+      color: "#333333"
     - state: icon-visor
-      color: "#52843f"
-  - type: ToggleableVisuals
-    spriteLayer: light
-    clothingVisuals:
-      head:
-      - state: equipped-head-light-siren
-        color: red
-        shader: unshaded
+      color: "#323669"
   - type: Clothing
     sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
     clothingVisuals:
       head:
       - state: equipped-head-base
-        color: "#a9947d"
+        color: "#212121"
       - state: equipped-head-reinforced-points
-        color: "#384d2f"
+        color: "#333333"
       - state: equipped-head-visor
-        color: "#52843f"
+        color: "#323669"
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false

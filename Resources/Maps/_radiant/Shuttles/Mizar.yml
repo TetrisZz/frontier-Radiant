@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 03/28/2026 21:19:24
-  entityCount: 1966
+  time: 03/30/2026 21:20:47
+  entityCount: 1985
 maps: []
 grids:
 - 1
@@ -2531,6 +2531,30 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: BoxFolderBase
+  entities:
+  - uid: 1978
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.388019,7.7224784
+      parent: 1
+  - uid: 1979
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.670396,7.4548864
+      parent: 1
+  - uid: 1980
+    components:
+    - type: Transform
+      pos: 10.876579,5.6456633
+      parent: 1
+  - uid: 1981
+    components:
+    - type: Transform
+      pos: 10.653649,5.2888737
+      parent: 1
 - proto: ButtonFrameCaution
   entities:
   - uid: 1632
@@ -5154,6 +5178,13 @@ entities:
       inSlot: back
     - type: Physics
       canCollide: False
+- proto: ClothingBeltUtilityFilled
+  entities:
+  - uid: 1972
+    components:
+    - type: Transform
+      pos: 5.4754977,-6.610393
+      parent: 1
 - proto: ClothingEyesGlassesChemical
   entities:
   - uid: 690
@@ -6143,6 +6174,25 @@ entities:
     - type: Transform
       pos: 14.672904,7.2633333
       parent: 1
+- proto: DrinkWineBottleFull
+  entities:
+  - uid: 1976
+    components:
+    - type: Transform
+      pos: 9.803532,27.909925
+      parent: 1
+- proto: DrinkWineGlass
+  entities:
+  - uid: 1973
+    components:
+    - type: Transform
+      pos: 10.071047,27.746397
+      parent: 1
+  - uid: 1974
+    components:
+    - type: Transform
+      pos: 9.446843,27.523403
+      parent: 1
 - proto: EncryptionKeyScience
   entities:
   - uid: 762
@@ -6211,6 +6261,14 @@ entities:
     components:
     - type: Transform
       pos: 13.5,28.5
+      parent: 1
+- proto: FlashlightSeclite
+  entities:
+  - uid: 508
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.098723,7.6599765
       parent: 1
 - proto: FloorDrain
   entities:
@@ -8759,14 +8817,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0000FFFF'
-  - uid: 938
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,7.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#0000FFFF'
   - uid: 939
     components:
     - type: Transform
@@ -8821,6 +8871,12 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0000FFFF'
+  - uid: 1975
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,7.5
+      parent: 1
 - proto: GasVentScrubber
   entities:
   - uid: 958
@@ -9300,6 +9356,13 @@ entities:
     - type: Transform
       pos: 15.509135,-9.266985
       parent: 1
+- proto: HandheldCrewMonitorEmpty
+  entities:
+  - uid: 1971
+    components:
+    - type: Transform
+      pos: 12.212042,5.5111427
+      parent: 1
 - proto: HighSecDoor
   entities:
   - uid: 1569
@@ -9367,6 +9430,14 @@ entities:
     - type: Transform
       pos: 1.5,25.5
       parent: 1
+- proto: KitchenDeepFryer
+  entities:
+  - uid: 1968
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,27.5
+      parent: 1
 - proto: KitchenElectricRange
   entities:
   - uid: 505
@@ -9407,9 +9478,9 @@ entities:
     - type: Transform
       pos: 5.5,34.5
       parent: 1
-- proto: LockerChemistry
+- proto: LockerChemistryFilled
   entities:
-  - uid: 712
+  - uid: 568
     components:
     - type: Transform
       pos: 1.5,1.5
@@ -9460,24 +9531,24 @@ entities:
     - type: Transform
       pos: 9.5,-5.5
       parent: 1
-- proto: LockerSalvageSpecialist
+- proto: LockerSalvageSpecialistFilled
   entities:
-  - uid: 595
+  - uid: 569
     components:
     - type: Transform
       pos: 0.5,13.5
       parent: 1
-  - uid: 596
+  - uid: 571
     components:
     - type: Transform
       pos: 1.5,13.5
       parent: 1
-  - uid: 597
+  - uid: 595
     components:
     - type: Transform
       pos: 5.5,13.5
       parent: 1
-  - uid: 598
+  - uid: 596
     components:
     - type: Transform
       pos: 4.5,13.5
@@ -9515,6 +9586,36 @@ entities:
     components:
     - type: Transform
       pos: 12.5,31.5
+      parent: 1
+- proto: LockerWallEVAColorBlackWhiteFilled
+  entities:
+  - uid: 1985
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-12.5
+      parent: 1
+- proto: LockerWallEVAColorGreenBlackFilled
+  entities:
+  - uid: 1983
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-3.5
+      parent: 1
+  - uid: 1984
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 16.5,-3.5
+      parent: 1
+- proto: LockerWallEVAColorPinkWhiteFilled
+  entities:
+  - uid: 1982
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,-6.5
       parent: 1
 - proto: LockerWallMaterialsFuelBananiumFilled2
   entities:
@@ -9659,10 +9760,10 @@ entities:
           ent: 670
 - proto: MaterialReclaimer
   entities:
-  - uid: 569
+  - uid: 598
     components:
     - type: Transform
-      pos: 5.5,7.5
+      pos: 3.5,7.5
       parent: 1
 - proto: MedicalAssembler
   entities:
@@ -9696,6 +9797,13 @@ entities:
     components:
     - type: Transform
       pos: 4.5,19.5
+      parent: 1
+- proto: NFHolopadShip
+  entities:
+  - uid: 1970
+    components:
+    - type: Transform
+      pos: 7.5,38.5
       parent: 1
 - proto: NFLockerScienceFilled
   entities:
@@ -9752,6 +9860,20 @@ entities:
     - type: Transform
       pos: -2.5,0.5
       parent: 1
+- proto: NFWeaponShotgunDoubleBarreled
+  entities:
+  - uid: 938
+    components:
+    - type: Transform
+      parent: 626
+    - type: Physics
+      canCollide: False
+  - uid: 1967
+    components:
+    - type: Transform
+      parent: 628
+    - type: Physics
+      canCollide: False
 - proto: NitrogenCanister
   entities:
   - uid: 1582
@@ -9764,13 +9886,11 @@ entities:
       bodyType: Static
 - proto: OreProcessor
   entities:
-  - uid: 568
+  - uid: 712
     components:
     - type: Transform
-      pos: 3.5,7.5
+      pos: 4.5,7.5
       parent: 1
-    - type: MaterialStorageMagnetPickup
-      magnetEnabled: True
 - proto: OxygenCanister
   entities:
   - uid: 1583
@@ -10167,6 +10287,14 @@ entities:
     - type: Transform
       pos: 4.5,5.5
       parent: 1
+- proto: RadiantRecord
+  entities:
+  - uid: 1977
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.555572,27.576683
+      parent: 1
 - proto: RadiumChemistryVial
   entities:
   - uid: 699
@@ -10255,13 +10383,11 @@ entities:
       parent: 1
 - proto: ScrapProcessor
   entities:
-  - uid: 571
+  - uid: 597
     components:
     - type: Transform
-      pos: 4.5,7.5
+      pos: 5.5,7.5
       parent: 1
-    - type: MaterialStorageMagnetPickup
-      magnetEnabled: True
 - proto: SeedExtractor
   entities:
   - uid: 499
@@ -11029,6 +11155,11 @@ entities:
           - Forward
         - - Off
           - Off
+        319:
+        - - On
+          - Forward
+        - - Off
+          - Off
   - uid: 579
     components:
     - type: Transform
@@ -11056,16 +11187,11 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        319:
-        - - On
-          - Forward
-        - - Off
-          - Off
         572:
-        - - On
-          - Forward
         - - Off
           - Off
+        - - On
+          - Forward
         573:
         - - On
           - Forward
@@ -11366,6 +11492,28 @@ entities:
     - type: Transform
       pos: 10.5,16.5
       parent: 1
+    - type: ContainerContainer
+      containers:
+        weapon1: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 938
+        weapon2: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        weapon3: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        weapon4: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        weapon5: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
   - uid: 627
     components:
     - type: Transform
@@ -11376,6 +11524,28 @@ entities:
     - type: Transform
       pos: 9.5,14.5
       parent: 1
+    - type: ContainerContainer
+      containers:
+        weapon1: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 1967
+        weapon2: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        weapon3: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        weapon4: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        weapon5: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: StructureGunRackSalvage
   entities:
   - uid: 600
@@ -11496,12 +11666,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,28.5
-      parent: 1
-  - uid: 508
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 1.5,27.5
       parent: 1
   - uid: 509
     components:
@@ -12030,6 +12194,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,43.5
+      parent: 1
+  - uid: 1969
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-16.5
       parent: 1
 - proto: VendingMachineBooze
   entities:

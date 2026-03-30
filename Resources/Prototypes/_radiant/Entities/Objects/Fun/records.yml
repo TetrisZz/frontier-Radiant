@@ -1,0 +1,29 @@
+
+- type: entity
+  parent: BaseRecord
+  id: RadiantRecord
+  name: кассета сектора Радиант
+  description: Всем известно, что кассеты — лучший способ хранения аналоговых данных.
+  components:
+  - type: Sprite
+    state: radiant
+  - type: JukeboxContainer
+    tracks:
+    - AceofSpades 
+    - Bismarck
+    - Buckshot
+    - DANCETillWeDie
+    - DeathOdyssey
+    - DirtyHarry
+    - FeelGoodInc
+    - Heartbeat
+    - Hydrogen
+    - INVISIBLE
+    - KickBack
+    - KillAllXenos
+    - Panzermensch
+    - RunwayWalk
+    - ThroughMyBlood
+    - LastBreath
+    - ARSTOTZKA
+    - pornofilms 

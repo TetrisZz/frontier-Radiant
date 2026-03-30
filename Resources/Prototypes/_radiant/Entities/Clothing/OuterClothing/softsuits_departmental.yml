@@ -1,0 +1,227 @@
+- type: entity
+  parent: NFDepartmentalEVASuit
+  id: ClothingOuterEVASuitPurpleBlack
+  name: EVA скафандр ученого
+  description: Темный EVA скафандр с фиолетовыми акцентами для работы в лаборатории.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#1e1d1f"
+    - state: icon-decals-01
+      color: "#5a3074"
+    - state: icon-reinforced-points
+      color: "#333333"
+    - state: icon-breathing-gear
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#1e1d1f"
+      - state: inhand-left-decals-01
+        color: "#5a3074"
+      - state: inhand-left-reinforced-points
+        color: "#333333"
+      - state: inhand-left-breathing-gear
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right-base
+        color: "#1e1d1f"
+      - state: inhand-right-decals-01
+        color: "#5a3074"
+      - state: inhand-right-reinforced-points
+        color: "#333333"
+      - state: inhand-right-breathing-gear
+      - state: inhand-right-unshaded
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-base
+        color: "#1e1d1f"
+      - state: equipped-decals-01
+        color: "#5a3074"
+      - state: equipped-reinforced-points
+        color: "#333333"
+      - state: equipped-breathing-gear
+      - state: equipped-unshaded
+        shader: unshaded
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadEVAHelmetPurpleBlack
+
+- type: entity
+  parent: NFDepartmentalEVASuit
+  id: ClothingOuterEVASuitPinkWhite
+  name: EVA скафандр HOM v1
+  description: Яркий EVA скафандр с мягкими розовыми акцентами.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#f8f7fc"
+    - state: icon-decals-01
+      color: "#eb6ba9"
+    - state: icon-reinforced-points
+      color: "#e0e0e0"
+    - state: icon-breathing-gear
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#f8f7fc"
+      - state: inhand-left-decals-01
+        color: "#eb6ba9"
+      - state: inhand-left-reinforced-points
+        color: "#e0e0e0"
+      - state: inhand-left-breathing-gear
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right-base
+        color: "#f8f7fc"
+      - state: inhand-right-decals-01
+        color: "#eb6ba9"
+      - state: inhand-right-reinforced-points
+        color: "#e0e0e0"
+      - state: inhand-right-breathing-gear
+      - state: inhand-right-unshaded
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-base
+        color: "#f8f7fc"
+      - state: equipped-decals-01
+        color: "#eb6ba9"
+      - state: equipped-reinforced-points
+        color: "#e0e0e0"
+      - state: equipped-breathing-gear
+      - state: equipped-unshaded
+        shader: unshaded
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadEVAHelmetPinkWhite
+
+- type: entity
+  parent: NFDepartmentalEVASuit
+  id: ClothingOuterEVASuitBlackWhite
+  name: EVA скафандр HOM v2
+  description: Классический контрастный EVA скафандр для работы
+  components:
+  - type: Sprite
+    layers:
+      - state: equipped-base
+        color: "#1e1d1f"
+      - state: equipped-decals-01
+        color: "#f8f7fc"
+      - state: equipped-reinforced-points
+        color: "#333333"
+      - sprite: _NF/Clothing/OuterClothing/Armor/bulletproof_vest_procedural.rsi
+        state: decor_base_OuterClothing_armor_06
+        color: "#f8f7fc"
+      - state: equipped-breathing-gear
+      - state: equipped-unshaded
+        shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#1e1d1f"
+      - state: inhand-left-decals-01
+        color: "#f8f7fc"
+      - state: inhand-left-reinforced-points
+        color: "#333333"
+      - state: inhand-left-breathing-gear
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right-base
+        color: "#1e1d1f"
+      - state: inhand-right-decals-01
+        color: "#f8f7fc"
+      - state: inhand-right-reinforced-points
+        color: "#333333"
+      - state: inhand-right-breathing-gear
+      - state: inhand-right-unshaded
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-base
+        color: "#1e1d1f"
+      - state: equipped-decals-01
+        color: "#f8f7fc"
+      - state: equipped-reinforced-points
+        color: "#333333"
+      - sprite: _NF/Clothing/OuterClothing/Armor/bulletproof_vest_procedural.rsi
+        state: decor_base_OuterClothing_armor_06
+        color: "#f8f7fc"
+      - state: equipped-breathing-gear
+      - state: equipped-unshaded
+        shader: unshaded
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadEVAHelmetBlackWhite
+
+- type: entity
+  parent: NFDepartmentalEVASuit
+  id: ClothingOuterEVASuitGreenBlack
+  name: EVA скафандр HOM v3
+  description: Прочный EVA скафандр с глубокими зелеными акцентами.
+  components:
+  - type: Sprite
+    layers:
+      - state: equipped-base
+        color: "#1e1d1f"
+      - state: equipped-decals-01
+        color: "#0c4f48"
+      - state: equipped-reinforced-points
+        color: "#333333"
+      - sprite: _NF/Clothing/OuterClothing/Armor/bulletproof_vest_procedural.rsi
+        state: decor_base_OuterClothing_armor_06
+        color: "#0c4f48"
+      - state: equipped-breathing-gear
+      - state: equipped-unshaded
+        shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#1e1d1f"
+      - state: inhand-left-decals-01
+        color: "#0c4f48"
+      - state: inhand-left-reinforced-points
+        color: "#333333"
+      - state: inhand-left-breathing-gear
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right-base
+        color: "#1e1d1f"
+      - state: inhand-right-decals-01
+        color: "#0c4f48"
+      - state: inhand-right-reinforced-points
+        color: "#333333"
+      - state: inhand-right-breathing-gear
+      - state: inhand-right-unshaded
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-base
+        color: "#1e1d1f"
+      - state: equipped-decals-01
+        color: "#0c4f48"
+      - state: equipped-reinforced-points
+        color: "#333333"
+      - sprite: _NF/Clothing/OuterClothing/Armor/bulletproof_vest_procedural.rsi
+        state: decor_base_OuterClothing_armor_06
+        color: "#0c4f48"
+      - state: equipped-breathing-gear
+      - state: equipped-unshaded
+        shader: unshaded
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadEVAHelmetGreenBlack

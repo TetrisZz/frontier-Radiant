@@ -1,0 +1,19 @@
+- type: entity
+  parent: [ LockerWallEVAColorPurpleBlack, StorageFillEVASuitPurpleBlack ]
+  id: LockerWallEVAColorPurpleBlackFilled
+  suffix: Filled
+
+- type: entity
+  parent: [ LockerWallEVAColorPinkWhite, StorageFillEVASuitPinkWhite ]
+  id: LockerWallEVAColorPinkWhiteFilled
+  suffix: Filled
+
+- type: entity
+  parent: [ LockerWallEVAColorBlackWhite, StorageFillEVASuitBlackWhite ]
+  id: LockerWallEVAColorBlackWhiteFilled
+  suffix: Filled
+
+- type: entity
+  parent: [ LockerWallEVAColorGreenBlack, StorageFillEVASuitGreenBlack ]
+  id: LockerWallEVAColorGreenBlackFilled
+  suffix: Filled
