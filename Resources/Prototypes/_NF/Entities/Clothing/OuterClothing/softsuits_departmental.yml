@@ -1473,13 +1473,13 @@
   - type: Sprite
     layers:
     - state: icon-base
-      color: "#a9947d"
+      color: "#212121"
     - state: icon-decals-01
-      color: "#384d2f"
+      color: "#323669"
     - state: icon-reinforced-points
-      color: "#493926"
+      color: "#333333"
     - state: icon-shoulder-light
-      color: "#384d2f"
+      color: "#323669"
     - state: icon-breathing-gear
     - state: icon-unshaded
       shader: unshaded
@@ -1491,21 +1491,21 @@
     inhandVisuals:
       left:
       - state: inhand-left-base
-        color: "#a9947d"
+        color: "#212121"
       - state: inhand-left-decals-01
-        color: "#384d2f"
+        color: "#323669"
       - state: inhand-left-reinforced-points
-        color: "#493926"
+        color: "#333333"
       - state: inhand-left-breathing-gear
       - state: inhand-left-unshaded
         shader: unshaded
       right:
       - state: inhand-right-base
-        color: "#a9947d"
+        color: "#212121"
       - state: inhand-right-decals-01
-        color: "#384d2f"
+        color: "#323669"
       - state: inhand-right-reinforced-points
-        color: "#493926"
+        color: "#333333"
       - state: inhand-right-breathing-gear
       - state: inhand-right-unshaded
         shader: unshaded
@@ -1513,13 +1513,13 @@
     clothingVisuals:
       outerClothing:
       - state: equipped-base
-        color: "#a9947d"
+        color: "#212121"
       - state: equipped-decals-01
-        color: "#384d2f"
+        color: "#323669"
       - state: equipped-reinforced-points
-        color: "#493926"
+        color: "#333333"
       - state: equipped-shoulder-light
-        color: "#384d2f"
+        color: "#323669"
       - state: equipped-breathing-gear
       - state: equipped-unshaded
         shader: unshaded

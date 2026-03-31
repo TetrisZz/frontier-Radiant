@@ -1,0 +1,129 @@
+- type: entity
+  parent: ClothingHeadEVAHelmetWithLightBase
+  id: ClothingHeadEVAHelmetPurpleBlack
+  name: purple-black EVA helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    layers:
+    - state: icon-base
+      color: "#1e1d1f"
+    - state: icon-reinforced-points
+      color: "#333333"
+    - state: icon-visor
+      color: "#5a3074"
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head-base
+        color: "#1e1d1f"
+      - state: equipped-head-reinforced-points
+        color: "#333333"
+      - state: equipped-head-visor
+        color: "#5a3074"
+
+- type: entity
+  parent: ClothingHeadEVAHelmetWithLightBase
+  id: ClothingHeadEVAHelmetPinkWhite
+  name: pink-white EVA helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    layers:
+    - state: icon-base
+      color: "#f8f7fc"
+    - state: icon-reinforced-points
+      color: "#e0e0e0"
+    - state: icon-visor
+      color: "#eb6ba9"
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head-base
+        color: "#f8f7fc"
+      - state: equipped-head-reinforced-points
+        color: "#e0e0e0"
+      - state: equipped-head-visor
+        color: "#eb6ba9"
+
+- type: entity
+  parent: ClothingHeadEVAHelmetWithLightBase
+  id: ClothingHeadEVAHelmetBlackWhite
+  name: black-white EVA helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    layers:
+    - state: icon-base
+      color: "#1e1d1f"
+    - state: icon-reinforced-points
+      color: "#333333"
+    - state: icon-visor
+      color: "#f8f7fc"
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head-base
+        color: "#1e1d1f"
+      - state: equipped-head-reinforced-points
+        color: "#333333"
+      - state: equipped-head-visor
+        color: "#f8f7fc"
+
+- type: entity
+  parent: ClothingHeadEVAHelmetWithLightBase
+  id: ClothingHeadEVAHelmetGreenBlack
+  name: green-black EVA helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    layers:
+    - state: icon-base
+      color: "#1e1d1f"
+    - state: icon-reinforced-points
+      color: "#333333"
+    - state: icon-visor
+      color: "#0c4f48"
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head-base
+        color: "#1e1d1f"
+      - state: equipped-head-reinforced-points
+        color: "#333333"
+      - state: equipped-head-visor
+        color: "#0c4f48"
+
+- type: entity
+  parent: ClothingHeadEVAHelmetWithLightBase
+  id: ClothingHeadEVAHelmetBlueBlack
+  name: blue-black EVA helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    layers:
+    - state: icon-base
+      color: "#212121"
+    - state: icon-reinforced-points
+      color: "#333333"
+    - state: icon-visor
+      color: "#323669"
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Helmets/eva_color.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head-base
+        color: "#212121"
+      - state: equipped-head-reinforced-points
+        color: "#333333"
+      - state: equipped-head-visor
+        color: "#323669"

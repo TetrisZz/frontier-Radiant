@@ -1,0 +1,10 @@
+ent-ClothingNeckBodyCameraNFSD = нательная камера ОСК
+    .desc = Нательная камера. Она следит за тобой.
+ent-ClothingNeckBodyCameraNFSDOff = { ent-ClothingNeckBodyCameraNFSD }
+    .suffix = Выключена
+    .desc = { ent-ClothingNeckBodyCameraNFSD.desc }
+ent-ClothingNeckBodyCamera = нательная камера
+    .desc = { ent-ClothingNeckBodyCameraNFSD.desc }
+ent-ClothingNeckBodyCameraOff = { ent-ClothingNeckBodyCamera }
+    .suffix = Выключена
+    .desc = { ent-ClothingNeckBodyCamera.desc }

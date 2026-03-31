@@ -1,0 +1,27 @@
+ent-AmeJarBig = увеличенный топливный бак ДАМ
+    .desc = Герметично закрытый сосуд, содержащий особо плотное антивещество для использования в антивещественном реакторе.
+ent-FuelBananium = бананиумное топливо
+    .suffix = 20
+    .desc = Стержень из прессованной бананиумной кожуры, пригодный для использования в качестве топлива.
+ent-FuelBananium1 = { ent-FuelBananium }
+    .suffix = 1
+    .desc = { ent-FuelBananium.desc }
+ent-FuelPlasma = плазменное топливо
+    .suffix = 20
+    .desc = Стержень из ненасыщенной плазмы, пригодный для использования в качестве топлива.
+ent-FuelPlasma1 = { ent-FuelPlasma }
+    .suffix = 1
+    .desc = { ent-FuelPlasma.desc }
+ent-FuelUranium = плазменное топливо
+    .suffix = 20
+    .desc = Стержень из прессованной бананиумной кожуры, пригодный для использования в качестве топлива.
+ent-FuelUranium1 = { ent-FuelUranium }
+    .suffix = 1
+    .desc = { ent-FuelUranium.desc }
+ent-FuelSkrungle1 = скрунглер
+    .suffix = 1
+    .desc = Нечестивое топливо, которое используется в большинстве генераторов. Оно резонирует с темной энергией..
+ent-FuelSkrungle = { ent-FuelSkrungle1 }
+    .suffix = 20
+    .desc = { ent-FuelSkrungle1.desc }
+

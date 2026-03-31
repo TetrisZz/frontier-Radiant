@@ -1,0 +1,48 @@
+- type: entity
+  abstract: true
+  id: StorageFillEVASuitPurpleBlack
+  description: Contains a standard issue purple-black EVA kit.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterEVASuitPurpleBlack
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMag
+    - id: DoubleEmergencyTankO2N2EqualFilled
+
+
+- type: entity
+  abstract: true
+  id: StorageFillEVASuitPinkWhite
+  description: Contains a standard issue pink-white EVA kit.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterEVASuitPinkWhite
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMag
+    - id: DoubleEmergencyTankO2N2EqualFilled
+
+- type: entity
+  abstract: true
+  id: StorageFillEVASuitBlackWhite
+  description: Contains a standard issue black-white EVA kit.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterEVASuitBlackWhite
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMag
+    - id: DoubleEmergencyTankO2N2EqualFilled
+
+- type: entity
+  abstract: true
+  id: StorageFillEVASuitGreenBlack
+  description: Contains a standard issue green-black EVA kit.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterEVASuitGreenBlack
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMag
+    - id: DoubleEmergencyTankO2N2EqualFilled
