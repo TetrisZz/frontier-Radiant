@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseComputerShuttle
+  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputerShuttle]
   id: ComputerShuttleAcorp
   name: консоль управления 
   description: Массивная консоль управления кораблем, изготовленная чтобы управляться с действительно большими кораблями.
