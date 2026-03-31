@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 03/19/2026 23:56:27
-  entityCount: 5304
+  time: 03/29/2026 06:02:02
+  entityCount: 5306
 maps: []
 grids:
 - 1
@@ -6514,13 +6514,22 @@ entities:
     - type: Transform
       pos: 6.880533,22.523745
       parent: 1
-- proto: BoxFolderNfsdForms
+- proto: BoxFolderNavyForms
   entities:
   - uid: 324
     components:
     - type: Transform
-      pos: -2.5404377,3.727912
+      pos: -2.725935,3.6489117
       parent: 1
+- proto: BoxFolderNavyFormsBrown
+  entities:
+  - uid: 5306
+    components:
+    - type: Transform
+      pos: 2.3079498,21.647032
+      parent: 1
+- proto: BoxFolderNfsdForms
+  entities:
   - uid: 325
     components:
     - type: Transform
@@ -6551,6 +6560,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -37.335884,12.597369
+      parent: 1
+  - uid: 5305
+    components:
+    - type: Transform
+      pos: 2.7428298,21.656548
       parent: 1
 - proto: BrigTimer
   entities:
@@ -12743,22 +12757,6 @@ entities:
     - type: Transform
       pos: 7.5,5.5
       parent: 1
-- proto: ComputerShipyardNavy
-  entities:
-  - uid: 1581
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 6.5,11.5
-      parent: 1
-- proto: ComputerShipyardNfsd
-  entities:
-  - uid: 1501
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 10.5,11.5
-      parent: 1
 - proto: ComputerTabletopComms
   entities:
   - uid: 1278
@@ -12812,6 +12810,22 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,11.5
+      parent: 1
+- proto: ComputerTabletopShipyardNavy
+  entities:
+  - uid: 1501
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,11.5
+      parent: 1
+- proto: ComputerTabletopShipyardNfsd
+  entities:
+  - uid: 1581
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.5,11.5
       parent: 1
 - proto: ComputerTabletopShuttle
   entities:

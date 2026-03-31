@@ -29,20 +29,20 @@
 - type: entity
   id: ComputerShipyardNavy
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyardBase]
-  name: NFSD shipyard console
-  description: Used to buy NFSD patrol vessels.
+  name: консоль верфи флота
+  description: Любой самый крупный флот начинается здесь.
   components:
   - type: Sprite
-    sprite: _NF/Structures/Machines/computers.rsi
+    sprite: _radiant/Structures/Machines/computers.rsi
     layers:
     - map: ["computerLayerBody"]
-      state: computer
+      state: computer_standart
     - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
+      state: generic_keyboard_standart
     - map: ["computerLayerScreen"]
-      state: shipyard_nfsd
+      state: shipyard_navy
     - map: ["computerLayerKeys"]
-      state: telesci_key
+      state: telesci_key_standart
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Navy
   - type: UserInterface
@@ -56,8 +56,8 @@
 - type: entity
   id: ComputerShipyardSeparatist
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
-  name: black market shipyard console
-  description: Used to buy ill-gotten vesssels for nefarious purposes.
+  name: консоль верфи сепаратистов
+  description: Стань преступником!
   components:
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Separatist

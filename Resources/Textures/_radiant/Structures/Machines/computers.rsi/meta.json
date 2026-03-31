@@ -12,7 +12,15 @@
       "directions": 4
     },
     {
+      "name": "computer_standart",
+      "directions": 4
+    },
+    {
       "name": "generic_keyboard",
+      "directions": 4
+    },
+    {
+      "name": "generic_keyboard_standart",
       "directions": 4
     },
     {
@@ -28,11 +36,75 @@
       "directions": 4
     },
     {
+      "name": "telesci_key_standart",
+      "directions": 4
+    },
+    {
       "name": "computer_turrel",
       "directions": 4
     },
     {
       "name": "shipyard",
+      "directions": 4,
+      "delays": [
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "shipyard_dvb",
+      "directions": 4,
+      "delays": [
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ],
+        [
+          1.0,
+          0.3,
+          1.0,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "shipyard_navy",
       "directions": 4,
       "delays": [
         [

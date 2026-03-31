@@ -1,0 +1,19 @@
+- type: entity
+  parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerShipyardNavy]
+  id: ComputerTabletopShipyardNavy
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _radiant/Structures/Machines/computers.rsi
+      state: shipyard_navy
+    - map: ["computerLayerKeys"]
+      sprite: _radiant/Structures/Machines/computers.rsi
+      state: telesci_key_standart

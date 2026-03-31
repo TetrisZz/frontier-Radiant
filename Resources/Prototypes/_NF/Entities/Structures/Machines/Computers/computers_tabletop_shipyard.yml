@@ -73,11 +73,15 @@
       sprite: _NF/Structures/Machines/computer_tabletop.rsi
       state: generic_keyboard_tabletop
     - map: ["computerLayerScreen"]
-      sprite: _NF/Structures/Machines/computers.rsi
-      state: shipyard_nfsd
+#      sprite: _NF/Structures/Machines/computers.rsi # Radiant sector
+      sprite: _radiant/Structures/Machines/computers.rsi # Radiant sector
+#      state: shipyard_nfsd # Radiant sector
+      state: shipyard_dvb # Radiant sector
     - map: ["computerLayerKeys"]
-      sprite: _NF/Structures/Machines/computers.rsi
-      state: telesci_key
+#      sprite: _NF/Structures/Machines/computers.rsi # Radiant sector
+      sprite: _radiant/Structures/Machines/computers.rsi # Radiant sector
+#      state: telesci_key # Radiant sector
+      state: telesci_key_standart # Radiant sector
 
 - type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerShipyardBlackMarket]

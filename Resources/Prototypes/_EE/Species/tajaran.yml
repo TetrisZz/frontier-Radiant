@@ -46,7 +46,7 @@
       points: 2
       required: false
     Arms:
-      points: 2
+      points: 4
       required: false
     Snout:
       points: 1

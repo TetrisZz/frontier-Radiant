@@ -546,7 +546,8 @@
     contents:
     - id: NFWeaponRifleRepeaterExpedition
       amount: 1
-    - id: NFAmmunitionBoxRifle20
+#    - id: NFAmmunitionBoxRifle20 # Radiant sector
+    - id: NFAmmunitionBoxPistol45 # Radiant sector
       amount: 2
 
 - type: entity

@@ -85,16 +85,21 @@
   description: Used to buy NFSD patrol vessels.
   components:
   - type: Sprite
-    sprite: _NF/Structures/Machines/computers.rsi
+#    sprite: _NF/Structures/Machines/computers.rsi # Radiant sector
+    sprite: _radiant/Structures/Machines/computers.rsi # Radiant sector
     layers:
     - map: ["computerLayerBody"]
-      state: computer
+#      state: computer # Radiant sector
+      state: computer_standart # Radiant sector
     - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
+#      state: generic_keyboard # Radiant sector
+      state: generic_keyboard_standart # Radiant sector
     - map: ["computerLayerScreen"]
-      state: shipyard_nfsd
+#      state: shipyard_nfsd # Radiant sector
+      state: shipyard_dvb # Radiant sector
     - map: ["computerLayerKeys"]
-      state: telesci_key
+#      state: telesci_key # Radiant sector
+      state: telesci_key_standart # Radiant sector
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Security
   - type: UserInterface

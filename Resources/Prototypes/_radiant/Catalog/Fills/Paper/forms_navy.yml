@@ -18,16 +18,16 @@
 - type: entity
   id: BoxFolderNavyForms
   parent: [FillNavyForms, BoxFolderPalGreen]
-  name: NFSD form folder
-  description: A folder filled with NFSD paperwork templates.
-  suffix: Forms, Green
+  name: папка с формами
+  description: Папка, заполненная шаблонами документов Конфедерации.
+  suffix: Формы, Синяя
 
 - type: entity
   id: BoxFolderNavyFormsBrown
   parent: [FillNavyForms, BoxFolderPalBrown]
-  name: NFSD form folder
-  description: A folder filled with NFSD paperwork templates.
-  suffix: Forms, Brown
+  name: папка с формами
+  description: Папка, заполненная шаблонами документов Конфедерации.
+  suffix: Формы, Черная
 
 # Forms
 - type: entity
@@ -182,7 +182,7 @@
       [bold]Время ухода со службы :[/bold]
 
       [bold]Должность:[/bold] 
-      bold]Имя:[/bold] 
+      [bold]Имя:[/bold] 
       [bold]Время начала службы:[/bold] 
       [bold]Время ухода со службы :[/bold]
 

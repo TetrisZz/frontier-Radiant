@@ -1,0 +1,12 @@
+ent-CargoTechFabCircuitboardNF = плата карго техфаба
+    .desc = Печатная плата для карго техфаба.
+ent-KitchenAssemblerMachineCircuitboard = плата Ед-О-Мата
+    .desc = Печатная плата для Ед-О-Мата.
+ent-NFHolopadGridMachineCircuitboard = плата внутрикорабельного голопада
+    .desc = Печатная плата для внутрикорабельного голопада.
+ent-MedicalAssemblerMachineCircuitboard = плата медицинского ассемблера
+    .desc = Печатная плата для медицинского ассемблера.
+ent-MobileEmpGeneratorMachineCircuitboard = плата генератора Б_ЭМИ
+    .desc = Печатная плата для генератора Б_ЭМИ.
+ent-ImpCoffeeMachineCircuitboard = плата кофемашины
+    .desc = Печатная плата для кофемашины.
