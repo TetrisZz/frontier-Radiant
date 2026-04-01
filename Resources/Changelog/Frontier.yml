@@ -8052,3 +8052,12 @@ Entries:
   id: 6627
   time: '2026-04-01T04:35:06.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4370
+- author: NanoTrasen Recruitment Division
+  changes:
+    - type: Add
+      message: >-
+        The Goblinbanekind has been pardonned for their crimes and are now a
+        playable species!
+  id: 6628
+  time: '2026-04-01T04:37:13.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4419
