@@ -1,0 +1,32 @@
+- type: vessel
+  id: Spark
+  parent: BaseVessel
+  name: NSF Искра
+  description: Небольшой шаттл-перехатчик, имеет два Перфоратора. 
+  price: 22000
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_radiant/Shuttles/Spark.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Spark
+  mapName: 'NSF Искра'
+  mapPath: /Maps/_radiant/Shuttles/Spark.yml
+  minPlayers: 0
+  stations:
+    Spark:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Искра {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}

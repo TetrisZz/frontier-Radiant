@@ -1,0 +1,32 @@
+- type: vessel
+  id: Guarantor
+  parent: BaseVessel
+  name: NSF Спика
+  description: Небольшой шаттл, предназначенный для перевозки заключенных.
+  price: 22000
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_radiant/Shuttles/Guarantor.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Guarantor
+  mapName: 'NSF Спика'
+  mapPath: /Maps/_radiant/Shuttles/Guarantor.yml
+  minPlayers: 0
+  stations:
+    Guarantor:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Спика {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {}
