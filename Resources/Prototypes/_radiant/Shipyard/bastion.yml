@@ -1,0 +1,32 @@
+- type: vessel
+  id: Bastion
+  parent: BaseVessel
+  name: NSF Бастион
+  description: Большой материнский корабль, имеет камеры для содержания, а так же небольшой мед. отсек и кухню.
+  price: 120000
+  category: Large
+  group: Security
+  access: Bailiff
+  shuttlePath: /Maps/_radiant/Shuttles/Bastion.yml
+  guidebookPage: Null
+  class:
+  - Capital
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Bastion
+  mapName: 'NSF Бастион'
+  mapPath: /Maps/_radiant/Shuttles/Bastion.yml
+  minPlayers: 0
+  stations:
+    Bastion:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Бастион {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs: {} # Removed the chef since we dont have a real loadout for it

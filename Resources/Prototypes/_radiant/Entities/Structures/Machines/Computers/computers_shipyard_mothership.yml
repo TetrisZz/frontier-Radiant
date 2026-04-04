@@ -1,0 +1,26 @@
+
+- type: entity
+  id: BastionMothershipComputer
+  parent: BaseMothershipComputer
+  name: консоль верфи бастиона
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_standart
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard_standart
+    - map: ["computerLayerScreen"]
+      state: shipyard_dvb
+    - map: ["computerLayerKeys"]
+      state: telesci_key_standart
+  - type: ShipyardConsole
+    newJobTitle: null
+    shipyardChannel: Nfsd
+    newAccessLevels: [Captain, Security, Brig]
+  - type: ShipyardListing
+    shuttles:
+    - Guarantor
+    - Spark
+
