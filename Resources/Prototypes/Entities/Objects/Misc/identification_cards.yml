@@ -588,7 +588,7 @@
 
 - type: entity
   name: contractor ID card # Frontier: passenger<contractor
-  parent: [IDCardStandard, BaseChameleon, BaseC3SyndicateContraband] # Frontier: Add BaseC3SyndicateContraband (upstream merge todo: check if this reveals it)
+  parent: [IDCardStandard, BaseChameleon, BaseC3SyndicateContraband] # Frontier: Add BaseC3SyndicateContraband
   id: AgentIDCard
   suffix: Agent
   components:
