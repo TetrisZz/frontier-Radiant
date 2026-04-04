@@ -8095,3 +8095,10 @@ Entries:
   id: 6632
   time: '2026-04-04T13:09:53.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4373
+- author: Kvantos0
+  changes:
+    - type: Tweak
+      message: Added a temp requirement to the ambuzol plus reaction.
+  id: 6633
+  time: '2026-04-04T13:12:52.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4413
