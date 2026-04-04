@@ -8079,3 +8079,12 @@ Entries:
   id: 6630
   time: '2026-04-04T13:08:24.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4415
+- author: teecoding
+  changes:
+    - type: Tweak
+      message: >-
+        Bloodloss now causes screen desaturation instead of drunkenness wobble
+        while preserving species' blood color
+  id: 6631
+  time: '2026-04-04T13:09:11.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4303
