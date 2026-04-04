@@ -2298,16 +2298,6 @@
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
     bloodMaxVolume: 50
-  # Frontier - parrot repeating nearby phrases UPSTREAM MERGE TODO: DECIDE WHETHER TO USE WIZDEN IMPLEMENTATION
-  - type: ParrotSpeech
-    blacklist:
-      components:
-        - ParrotSpeech # Stop parrots repeating their own speech
-        - SurveillanceCamera
-        - SurveillanceCameraMonitor
-        - RadioSpeaker
-        - VendingMachine
-  # End Frontier
 
 - type: entity
   parent: MobParrotBase
