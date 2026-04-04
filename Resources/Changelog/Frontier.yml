@@ -8088,3 +8088,10 @@ Entries:
   id: 6631
   time: '2026-04-04T13:09:11.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4303
+- author: Narvath
+  changes:
+    - type: Add
+      message: Add a mentoring pAI to Greenhorn's loadout.
+  id: 6632
+  time: '2026-04-04T13:09:53.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4373
