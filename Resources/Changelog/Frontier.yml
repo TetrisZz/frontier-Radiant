@@ -8118,3 +8118,10 @@ Entries:
   id: 6635
   time: '2026-04-05T20:20:29.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4429
+- author: Bonaout
+  changes:
+    - type: Remove
+      message: Goblinbanes have been banished from this dimension once more.
+  id: 6636
+  time: '2026-04-05T20:20:51.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4432
