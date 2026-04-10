@@ -8139,3 +8139,13 @@ Entries:
   id: 6638
   time: '2026-04-10T09:42:28.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4428
+- author: Kvantos0
+  changes:
+    - type: Tweak
+      message: >-
+        Leporazine range brought in line with the base temperature damage
+        threshholds. Room temp pets should no longer ignite internally when
+        treated with lepo.
+  id: 6639
+  time: '2026-04-10T09:42:51.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4424
