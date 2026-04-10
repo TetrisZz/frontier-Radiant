@@ -8176,3 +8176,13 @@ Entries:
   id: 6642
   time: '2026-04-10T22:43:21.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4442
+- author: Kvantos0
+  changes:
+    - type: Tweak
+      message: >-
+        Changed bluespace authorization content to allow NFSD Commanding
+        Officers to also authorize them. (Note: Not all papers, just that the
+        bluespace auth.) Credit for the paper remains with Starly.
+  id: 6643
+  time: '2026-04-10T22:46:01.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4439
