@@ -14,5 +14,5 @@
   name: bloodloss
   components:
     - type: StutteringAccent
-    - type: DrunkStatusEffect
+    # - type: DrunkStatusEffect # Frontier: replaced by BloodlossOverlaySystem. TODO: See if it makes sense to convert that system to use status effects
     - type: RejuvenateRemovedStatusEffect
