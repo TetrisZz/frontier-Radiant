@@ -8149,3 +8149,14 @@ Entries:
   id: 6639
   time: '2026-04-10T09:42:51.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4424
+- author: Kvantos0
+  changes:
+    - type: Fix
+      message: >-
+        Scurret backslots no longer expect jumpsuit items making it impossible
+        to use it. Valid displacements still need to be filtered, but you can
+        contribute to add the ScurretWearable tag to any backslot compatible
+        item now if the sprites aren't broken.
+  id: 6640
+  time: '2026-04-10T09:43:13.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4418
