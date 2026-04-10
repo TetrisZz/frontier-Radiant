@@ -8132,3 +8132,10 @@ Entries:
   id: 6637
   time: '2026-04-10T06:20:37.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4440
+- author: Kvantos0
+  changes:
+    - type: Tweak
+      message: Doubled bluespace jug capacity.
+  id: 6638
+  time: '2026-04-10T09:42:28.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4428
