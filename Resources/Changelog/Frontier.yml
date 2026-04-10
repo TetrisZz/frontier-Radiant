@@ -8125,3 +8125,10 @@ Entries:
   id: 6636
   time: '2026-04-05T20:20:51.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4432
+- author: Eli_Real_
+  changes:
+    - type: Add
+      message: Added hairflower to the backpack loadout
+  id: 6637
+  time: '2026-04-10T06:20:37.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4440
