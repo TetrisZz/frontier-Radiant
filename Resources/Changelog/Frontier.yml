@@ -8160,3 +8160,12 @@ Entries:
   id: 6640
   time: '2026-04-10T09:43:13.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4418
+- author: Zalindae
+  changes:
+    - type: Add
+      message: >-
+        Added the Cooking Bag! a belt bound bag for your food! no more floor
+        dough!
+  id: 6641
+  time: '2026-04-10T09:44:07.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4193
