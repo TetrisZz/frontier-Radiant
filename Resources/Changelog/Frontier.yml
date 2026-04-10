@@ -8169,3 +8169,10 @@ Entries:
   id: 6641
   time: '2026-04-10T09:44:07.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4193
+- author: Bartholemew-Dingleberry
+  changes:
+    - type: Fix
+      message: the Hound's Guidebook displays the correct name now.
+  id: 6642
+  time: '2026-04-10T22:43:21.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4442
