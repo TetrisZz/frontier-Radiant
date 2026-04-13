@@ -11,7 +11,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Server.Salvage.Expeditions;
-using Content.Server.Salvage.Expeditions.Structure;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Dataset;
@@ -497,7 +496,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
                 }
 
                 var uid = _entManager.SpawnEntity(shaggy, _map.GridTileToLocal(mapUid, grid, tile));
-                // _entManager.AddComponent<SalvageStructureComponent>(uid); // FRONTIER UPSTREAM MERGE TODO: figure out if we needed this
+                _entManager.AddComponent<SalvageStructureComponent>(uid);
                 structureComp.Structures.Add(uid);
                 break;
             }
