@@ -22,6 +22,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared._NF.Medical.SuitSensors; // Frontier
+using Content.Shared.Salvage; // Frontier
+using Content.Shared.Salvage.Expeditions; // Frontier
 using Robust.Shared.Map.Components; // Frontier
 
 namespace Content.Shared.Medical.SuitSensors;
@@ -41,6 +43,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedSalvageSystem _salvage = default!; // Frontier
 
     private EntityQuery<SuitSensorComponent> _sensorQuery;
     public override void Initialize()
@@ -412,17 +415,15 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                         Vector2.Transform(_transform.GetWorldPosition(transform, xformQuery),
                             _transform.GetInvWorldMatrix(xformQuery.GetComponent(transform.GridUid.Value), xformQuery)));
 
-                    // FRONTIER UPSTREAM MERGE TODO: figure out how to deal with this server comp in shared
-                    /*
                     // Frontier: check if sensor is on expedition
-                    if (TryComp<SalvageExpeditionComponent>(transform.MapUid, out var salvageComp))
+                    SharedSalvageExpeditionComponent? salvageComp = null;
+                    if (_salvage.ResolveExpedition(transform.MapUid, ref salvageComp))
                         locationName = Loc.GetString("suit-sensor-location-expedition");
                     else if (TryComp(transform.GridUid, out MetaDataComponent? meta))
                         locationName = meta.EntityName;
                     else
                         locationName = Loc.GetString("suit-sensor-location-unknown"); // Frontier
                     // End Frontier
-                    */
 
                 }
                 else if (transform.MapUid != null)
