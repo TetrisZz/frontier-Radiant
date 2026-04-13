@@ -54,6 +54,8 @@ public sealed partial class SalvageSystem
         SubscribeLocalEvent<SalvageExpeditionComponent, ComponentGetState>(OnExpeditionGetState);
         SubscribeLocalEvent<SalvageExpeditionComponent, EntityTerminatingEvent>(OnMapTerminating); // Frontier
 
+        SubscribeLocalEvent<SalvageStructureComponent, ExaminedEvent>(OnStructureExamine); // Frontier
+
         _cooldown = _configurationManager.GetCVar(CCVars.SalvageExpeditionCooldown);
         Subs.CVar(_configurationManager, CCVars.SalvageExpeditionCooldown, SetCooldownChange);
 
@@ -274,7 +276,13 @@ public sealed partial class SalvageSystem
         _salvageJobs.Add((job, cancelToken));
         _salvageQueue.EnqueueJob(job);
     }
-    // Frontier: exped job handling, ghost reparenting
+
+    // Frontier: Restore salvage structure examine, exped job handling, ghost reparenting
+    private void OnStructureExamine(EntityUid uid, SalvageStructureComponent component, ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("salvage-expedition-structure-examine"));
+    }
+
     // Handle exped spawn job failures gracefully - reset the console
     private void OnExpeditionSpawnComplete(EntityUid uid, SalvageExpeditionDataComponent component, ExpeditionSpawnCompleteEvent ev)
     {
