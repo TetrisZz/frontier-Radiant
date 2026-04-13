@@ -5,6 +5,9 @@ using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Server.GameObjects; // Frontier
+using Content.Server.Station.Systems; // Frontier
+using Content.Shared.Humanoid; // Frontier
 
 namespace Content.Server.Trigger.Systems;
 
@@ -13,6 +16,8 @@ public sealed class RattleOnTriggerSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly TransformSystem _transform = default!; // Frontier
+    [Dependency] private readonly StationSystem _station = default!; // Frontier
 
     public override void Initialize()
     {
@@ -39,62 +44,31 @@ public sealed class RattleOnTriggerSystem : EntitySystem
         if (!ent.Comp.Messages.TryGetValue(mobstate.CurrentState, out var messageId))
             return;
 
-        // Gets the location of the user
-        var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(target.Value));
+        // Frontier: more specific species, grid and coordinate messages
 
-        var message = Loc.GetString(messageId, ("user", target.Value), ("position", posText));
+        // // Gets the location of the user
+        // var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(target.Value));
+        // var message = Loc.GetString(messageId, ("user", target.Value), ("position", posText));
+
+        // Gets location of the implant
+        var pos = _transform.GetMapCoordinates(target.Value);
+        var x = (int)pos.X;
+        var y = (int)pos.Y;
+        var posText = $"({x}, {y})";
+
+        // Frontier: Gets station location of the implant
+        var station = _station.GetOwningStation(ent);
+        var stationText = station is null ? "" : $"{Name(station.Value)} ";
+
+        // Frontier: Gets species of the implant user
+        var speciesText = $"";
+        if (TryComp<HumanoidAppearanceComponent>(target.Value, out var species))
+            speciesText = $" ({species!.Species})";
+
+        var message = Loc.GetString(messageId, ("user", target.Value), ("specie", speciesText), ("grid", stationText!), ("position", posText));
+        // End Frontier
+
         // Sends a message to the radio channel specified by the implant
         _radio.SendRadioMessage(ent.Owner, message, _prototypeManager.Index(ent.Comp.RadioChannel), ent.Owner);
     }
 }
-
-// Frontier upstream merge todo: add this to OnTrigger
-/*
-
-        // Frontier: custom function implementation
-        private void HandleRattleTrigger(EntityUid uid, RattleComponent component, TriggerEvent args)
-        {
-            if (!TryComp<SubdermalImplantComponent>(uid, out var implanted))
-                return;
-
-            if (implanted.ImplantedEntity == null)
-                return;
-
-            // Gets location of the implant
-            var ownerXform = Transform(uid);
-            var pos = ownerXform.MapPosition;
-            var x = (int) pos.X;
-            var y = (int) pos.Y;
-            var posText = $"({x}, {y})";
-
-            // Frontier: Gets station location of the implant
-            var station = _station.GetOwningStation(uid);
-            var stationText = station is null ? null : $"{Name(station.Value)} ";
-
-            if (stationText == null)
-                stationText = "";
-
-            // Frontier: Gets species of the implant user
-            var speciesText = $"";
-            if (TryComp<HumanoidAppearanceComponent>(implanted.ImplantedEntity, out var species))
-                speciesText = $" ({species!.Species})";
-
-            var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", stationText!), ("position", posText));
-            var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", stationText!), ("position", posText));
-
-            if (!TryComp<MobStateComponent>(implanted.ImplantedEntity, out var mobstate))
-                return;
-
-            if (mobstate.CurrentState != MobState.Alive)
-            {
-                // Sends a message to the radio channel specified by the implant
-                if (mobstate.CurrentState == MobState.Critical)
-                    _radioSystem.SendRadioMessage(uid, critMessage, _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel), uid);
-                if (mobstate.CurrentState == MobState.Dead)
-                    _radioSystem.SendRadioMessage(uid, deathMessage, _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel), uid);
-            }
-
-            args.Handled = true;
-        }
-        // End Frontier
-        */

@@ -1,6 +1,7 @@
 using Content.Shared.Body.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Trigger.Components.Effects;
+using Content.Shared.Body.Components; // Frontier
 
 namespace Content.Shared.Trigger.Systems;
 
@@ -34,52 +35,23 @@ public sealed class GibOnTriggerSystem : EntitySystem
                 PredictedQueueDel(item);
             }
         }
-        _body.GibBody(target.Value, true);
+
+        // Frontier - Gib organs, conditional gibbing
+        if (ent.Comp.DeleteOrgans)
+        {
+            if (TryComp<BodyComponent>(ent, out var body))
+            {
+                var organs = _body.GetBodyOrganEntityComps<TransformComponent>((ent, body));
+                foreach (var organ in organs)
+                {
+                    Del(organ.Owner);
+                }
+            }
+        }
+
+        if (ent.Comp.Gib)
+            _body.GibBody(target.Value, true);
+        // End Frontier
         args.Handled = true;
     }
 }
-
-// Frontier upstream merge todo: add this to OnTrigger
-/*
- // Frontier: more configurable gib triggers
-        private void HandleGibTrigger(EntityUid uid, GibOnTriggerComponent component, TriggerEvent args)
-        {
-            EntityUid ent;
-            if (component.UseArgumentEntity)
-            {
-                ent = uid;
-            }
-            else
-            {
-                if (!TryComp(uid, out TransformComponent? xform))
-                    return;
-                ent = xform.ParentUid;
-            }
-
-            if (component.DeleteItems)
-            {
-                var items = _inventory.GetHandOrInventoryEntities(ent);
-                foreach (var item in items)
-                {
-                    Del(item);
-                }
-            }
-
-            if (component.DeleteOrgans) // Frontier - Gib organs
-            {
-                if (TryComp<BodyComponent>(ent, out var body))
-                {
-                    var organs = _body.GetBodyOrganEntityComps<TransformComponent>((ent, body));
-                    foreach (var organ in organs)
-                    {
-                        Del(organ.Owner);
-                    }
-                }
-            } // Frontier
-
-            if (component.Gib)
-                _body.GibBody(ent, true);
-            args.Handled = true;
-        }
-        // End Frontier
-*/
