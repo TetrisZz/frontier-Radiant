@@ -8200,3 +8200,12 @@ Entries:
   id: 6645
   time: '2026-04-20T12:28:40.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4452
+- author: Bartholemew Dingleberry
+  changes:
+    - type: Tweak
+      message: >-
+        made Paper, cardboard, engineering goggles, insulated gloves, Shipyard
+        RCD, and Compressed matter craftable in an Engineering lathe
+  id: 6646
+  time: '2026-04-20T12:29:07.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4427
