@@ -98,3 +98,15 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.9
+
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesDameNaemDon
+  name: рабочие ботинки
+  description: Рабочие ботинки, хорошо сочетаются с розовыми чулками.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/workbootsnaem.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/workbootsnaem.rsi

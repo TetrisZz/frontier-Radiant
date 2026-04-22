@@ -670,3 +670,35 @@
       whitelist:
         tags:
           - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponWeaponPistolNocturne
+  name:  uplink-hom-nocturne-name
+  description: uplink-hom-nocturne-desc
+  productEntity: WeaponPistolNocturne
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkToolboxEDon
+  name:  uplink-hom-oolbo-name
+  description: uplink-hom-oolbo-desc
+  productEntity: ToolboxEDonFull
+  icon: { sprite: _radiant/Objects/Tools/Toolboxes/toolbox.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink

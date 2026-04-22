@@ -227,3 +227,35 @@
   - type: Construction
     graph: ShacklesCollarCrafting
     node: clone
+
+- type: entity
+  parent: Clothing
+  id: ClothingNeckShockCollarToyDon
+  name: электрический ошейник
+  description: Подобие на электрический ошейник, который бьёт током по сигналу, но его можно снять самостоятельно.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/shock_collar_fak.rsi
+    scale: 0.6, 0.6
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/shock_collar_fak.rsi
+    stripDelay: 10
+    equipDelay: 5
+    unequipDelay: 15
+    quickEquip: false
+    slots:
+    - neck
+  - type: ShockOnTrigger
+    damage: 1
+    duration: 2
+    cooldown: 4
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: Tag
+    tags:
+    - WhitelistChameleon 
