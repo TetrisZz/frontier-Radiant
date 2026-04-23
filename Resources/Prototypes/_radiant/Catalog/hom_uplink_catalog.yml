@@ -208,6 +208,38 @@
           - HomUplink
 
 - type: listing
+  id: UplinkHomClothingNeckMercapl
+  name:  uplink-hom-mercapl-name
+  description: uplink-hom-mercapl-desc
+  productEntity: ClothingNeckScarfMercapl
+  icon: { sprite: _radiant/Clothing/Neck/Scarfs/mercapl.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingNeckPendant
+  name:  uplink-hom-pendant-name
+  description: uplink-hom-pendant-desc
+  productEntity: ClothingNeckPendant
+  icon: { sprite: _radiant/Clothing/Neck/pendant.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
   id: UplinkHomOuterCoatHoSTrench
   name:  uplink-hom-hostrench-name
   description: uplink-hom-hostrench-desc
@@ -245,6 +277,54 @@
   description: uplink-hom-mantlehos-desc
   productEntity: ClothingNeckMantleHOS
   icon: { sprite: Clothing/Neck/mantles/hosmantle.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingShoesDameDov
+  name:  uplink-hom-shoes-name
+  description: uplink-hom-shoes-desc
+  productEntity: ClothingShoesDameDov
+  icon: { sprite: _radiant/Clothing/Boots/shoes_2.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingHandsGlovesLatexRS
+  name:  uplink-hom-latex-name
+  description: uplink-hom-latex-desc
+  productEntity: ClothingHandsGlovesLatexRS
+  icon: { sprite: _radiant/Clothing/Hands/latex.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingUniformSpecialGorichnaya
+  name:  uplink-hom-orichnaya-name
+  description: uplink-hom-orichnaya-desc
+  productEntity: ClothingUniformSpecialGorichnaya
+  icon: { sprite: _radiant/Clothing/Uniforms/Special/gorichnaya2.rsi, state: icon }
   cost:
     Cristalhom: 1
   categories:
@@ -697,6 +777,22 @@
     Cristalhom: 5
   categories:
     - UplinkHomHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingHandsKnuckleRS
+  name:  uplink-hom-nuckle-name
+  description: uplink-hom-nuckle-desc
+  productEntity: ClothingHandsKnuckleRS
+  icon: { sprite: _radiant/Clothing/Hands/KnuckleDusters/knuckledusterbig.rsi, state: knuckleduster }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomWeapons
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:

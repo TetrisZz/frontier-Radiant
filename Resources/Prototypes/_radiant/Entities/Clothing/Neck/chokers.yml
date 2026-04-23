@@ -39,3 +39,15 @@
     sprite: _radiant/Clothing/Neck/heart-shaped-choker.rsi
   - type: StaticPrice # Frontier
     vendPrice: 500 # Frontier
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckPendant
+  name: странная подвеска
+  description: Странная подвеска, выглядит так, будто она отдает легким блеском.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Clothing/Neck/pendant.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/pendant.rsi

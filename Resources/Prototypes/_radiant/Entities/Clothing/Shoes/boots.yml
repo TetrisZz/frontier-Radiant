@@ -110,3 +110,26 @@
     sprite: _radiant/Clothing/Boots/workbootsnaem.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Boots/workbootsnaem.rsi
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesDameDov
+  name: элегантные туфли
+  description: Элегантные туфли чёрного цвета, хорошо сочетаются с широкими джинсами. Как сильно бьет этот каблук?...
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 6
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/shoes_2.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/shoes_2.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        volume: -6
+        variation: 0.09
+  - type: StaticPrice # Frontier
+    vendPrice: 5000 # Frontier
