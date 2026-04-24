@@ -8209,3 +8209,10 @@ Entries:
   id: 6646
   time: '2026-04-20T12:29:07.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4427
+- author: ErhardSteinhauer
+  changes:
+    - type: Tweak
+      message: Increased ranged projectile damage by 25% (kinetic and energy).
+  id: 6647
+  time: '2026-04-24T04:46:42.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4436
