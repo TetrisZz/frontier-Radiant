@@ -1,0 +1,21 @@
+
+- type: entity
+  name: бомбический тулбокс
+  parent: ToolboxBase 
+  id: ToolboxEDon
+  description: Отличный набор.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/Toolboxes/toolbox.rsi
+    state: icon
+  - type: Item
+    size: Ginormous # Frontier
+    sprite: _radiant/Objects/Tools/Toolboxes/toolbox.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,3
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 20

@@ -49,3 +49,16 @@
     vendPrice: 1000 # Frontier
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Special/swimsuit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSpecialGorichnaya
+  name: платье горничной
+  description: Милое платье, которое хорошо подчеркивает вашу грацию. По ощущениям очень мягкое.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Special/gorichnaya2.rsi
+  - type: StaticPrice # Frontier
+    vendPrice: 10000 # Frontier
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Special/gorichnaya2.rsi

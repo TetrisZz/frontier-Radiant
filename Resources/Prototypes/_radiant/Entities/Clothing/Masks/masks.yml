@@ -135,3 +135,51 @@
       right:
       - state: inhand-right
         color: "#3e3e48"
+
+- type: entity
+  parent: ClothingMaskBandanaBase
+  id: ClothingMaskBalaclavaDon
+  name: балаклава
+  description: Балаклава, чтобы выглядеть устрашающе.
+  components:
+  - type: FoldableClothing
+    foldedSlots:
+    - HEAD
+    unfoldedSlots:
+    - MASK
+    foldedHideLayers: []
+    unfoldedHideLayers:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+    hideOnToggle: true
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/mask_4.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon
+      map: ["foldedLayer"]
+      visible: false
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/mask_4.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+      head:
+      - state: equipped-MASK
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3e3e48"
+      right:
+      - state: inhand-right
+        color: "#3e3e48"

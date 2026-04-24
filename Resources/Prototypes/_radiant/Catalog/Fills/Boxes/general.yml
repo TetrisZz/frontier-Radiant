@@ -156,3 +156,21 @@
   - type: StaticPrice 
     price: 100
     vendPrice: 2000
+
+- type: entity
+  parent: ToolboxEDon
+  id: ToolboxEDonFull
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskBalaclavaDon
+      - id: ClothingHandsGlovesCombatMercDon
+      - id: ClothingShoesDameNaemDon
+      - id: ClothingNeckShockCollarToyDon
+      - id: ClothingUniformJumpsuitMilitaryEngineering
+      - id: Crowbar
+      - id: Wrench
+      - id: Screwdriver
+      - id: Wirecutter
+      - id: Welder
+      - id: Multitool

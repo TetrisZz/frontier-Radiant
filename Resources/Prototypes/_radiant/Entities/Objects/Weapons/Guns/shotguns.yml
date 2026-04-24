@@ -72,7 +72,7 @@
       params:
           volume: -7
   - type: NFWeaponDetails
-    manufacturer: weapon-details-manufacturer-nanotrasen-munitions
+    manufacturer: AURORA
   - type: BallisticAmmoProvider
     soundInsert:
       path: /Audio/_radiant/Weapons/MagIn/sh_spapa12_reload_loop_shell_insert_02.ogg
@@ -82,6 +82,7 @@
       path: /Audio/_radiant/Weapons/Cock/shotgunpump2.ogg
       params:
         volume: -2.5
+
 
 - type: entity
   id: WeaponShotgunPoorGun
@@ -113,7 +114,7 @@
       params:
           volume: -11
   - type: NFWeaponDetails
-    manufacturer: weapon-details-manufacturer-nanotrasen-munitions
+    manufacturer: AURORA
   - type: Tool
     qualities:
     - Prying

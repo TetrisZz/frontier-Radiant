@@ -109,3 +109,55 @@
     slots:
     - suitStorage
     - Belt
+
+- type: entity
+  name: Ноктюрн-25
+  parent: [ NFBaseGunMeleeAttackLow, BaseWeaponPistol, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable<BaseC1Contraband to match weapon description
+  id: WeaponPistolNocturne
+  description: Пистолет под калибр .35, рассчитанный на стабильную и быструю стрельбу. Обладает умеренной отдачей и хорошей управляемостью, позволяя держать темп огня без потери точности. Не самый мощный в своём классе, но надёжный и предсказуемый — делает ровно то, что от него требуется, без лишнего шума и излишеств.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazinePistol35
+        insertSound:
+          path: /Audio/_radiant/Weapons/WPN_GG_Reload_MagIn_2.ogg
+          params:
+            volume: -2.5
+        ejectSound:
+          path: /Audio/_radiant/Weapons/magout1.ogg
+          params:
+            volume: -2.5
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazinePistol35
+            - NFMagazineHighCapacityPistol35
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgePistol35
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgePistol35
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi
+  - type: Gun
+    fireRate: 15
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/mur.ogg
+      params:
+        volume: -5
+  - type: NFWeaponDetails
+    manufacturer: AURORA

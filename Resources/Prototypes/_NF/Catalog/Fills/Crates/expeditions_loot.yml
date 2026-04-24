@@ -153,14 +153,15 @@
   components:
   - type: StorageFill
     contents:
-    - id: KitchenMicrowaveFlatpack
+    - id: ElectricRangeMachineCircuitboard
+    - id: VendingMachineRestockChefvend
+    - id: KitchenAssemblerMachineCircuitboard
     - id: KitchenElectricGrillFlatpack
+    - id: VendingMachineChefvendFlatpack
+    - id: ServiceTechFabFlatpack
     - id: KitchenReagentGrinderFlatpack
     - id: VendingMachineBoozeFlatpack
-    - id: VendingMachineDinnerwareFlatpack
-    - id: ServiceTechFabFlatpack
-    - id: VendingMachineRestockChefvend
-    - id: VendingMachineRestockDinnerware
+    - id: KitchenMicrowaveFlatpack
 
 - type: entity
   parent: CratePlasticBiodegradable
@@ -189,10 +190,12 @@
   - type: StorageFill
     contents:
     - id: HydroponicsTrayEmptyFlatpack
-      amount: 3
+      amount: 4
     - id: VendingMachineNutriFlatpack
     - id: VendingMachineSeedsUnlockedFlatpack
-    - id: ServiceTechFabFlatpack
+    - id: SeedExtractorMachineCircuitboard
+    - id: ClothingBeltPlantFilled
+    - id: PlantBag
 
 # Medical
 - type: entity

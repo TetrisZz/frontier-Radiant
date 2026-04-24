@@ -11,3 +11,17 @@
     sprite: _radiant/Clothing/Neck/Scarfs/merc.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Neck/Scarfs/merc.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfMercapl
+  name: шарфик
+  description: Шарф из лимитированной коллекции. На бирке указано "Номер 1 из 2"
+  components:
+  - type: Tag
+    tags:
+    - ObjectOfSpiritualSignificance
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Scarfs/mercapl.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Scarfs/mercapl.rsi
