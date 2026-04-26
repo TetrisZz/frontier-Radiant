@@ -8239,3 +8239,16 @@ Entries:
   id: 6650
   time: '2026-04-26T06:36:51.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4471
+- author: ray-boop
+  changes:
+    - type: Add
+      message: Added Pomegranate and its Mutation, both usable for burgers and tacos.
+    - type: Add
+      message: Added New Explosion Sound Effect to be used in things :).
+    - type: Add
+      message: Added recipe to make grenadine.
+    - type: Fix
+      message: Pirate Grenades now don't explode in your hands anymore (boring).
+  id: 6651
+  time: '2026-04-26T10:07:45.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4249
