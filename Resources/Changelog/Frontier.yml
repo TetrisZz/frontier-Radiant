@@ -8279,3 +8279,44 @@ Entries:
   id: 6654
   time: '2026-04-26T10:09:08.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4433
+- author: ErhardSteinhauer
+  changes:
+    - type: Add
+      message: >-
+        Added a new type of treasure: organic samples, obtained by butchering
+        aberrant flesh monsters, argocytes, zombies and xenos. These can be sold
+        or processed/butchered into biomass.
+    - type: Add
+      message: >-
+        Added new stackable materials: xeno chitin and argocyte chitin.
+        Currently, their only use is selling.
+    - type: Add
+      message: >-
+        Argocytes, Dinosaurs and Xenos now drop trophies when butchered. These
+        can be sold, processed into biomass, or slotted in to a wall mounted
+        trophy frame for decoration (multiple variants available under the Misc
+        category in the construction menu).
+    - type: Tweak
+      message: >-
+        Xenos now can be butchered with just a knife, no butchering spike
+        needed.
+    - type: Tweak
+      message: >-
+        Rogue Silicons now have a damage threshold; once exceeded, they collapse
+        into wrecks that can be processed via material reclaimer for additional
+        tech scrap.
+    - type: Tweak
+      message: >-
+        NPCs with loadouts now store their cash in wallets, which function like
+        any other lootable NPC pack: on use spawns items.
+    - type: Tweak
+      message: Halved the time it takes to remove items from NPCs with loadouts.
+    - type: Tweak
+      message: >-
+        Adjusted NPC loot pools and spawn probabilities. Bosses and some higher
+        tier NPCs now have a chance to drop thematic blueprints.
+    - type: Tweak
+      message: NPC loot bags can now be collected and stored in Treasure Chests.
+  id: 6655
+  time: '2026-04-26T13:24:08.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4064
