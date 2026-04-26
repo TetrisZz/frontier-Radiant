@@ -8252,3 +8252,12 @@ Entries:
   id: 6651
   time: '2026-04-26T10:07:45.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4249
+- author: SemperVictor
+  changes:
+    - type: Add
+      message: >-
+        Added the electrolysis unit and centrifuge to the starting blueprints on
+        the medical lathe and to the Industrial Chemistry tech. 
+  id: 6652
+  time: '2026-04-26T10:08:10.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4472
