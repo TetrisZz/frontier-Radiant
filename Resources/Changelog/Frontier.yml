@@ -8270,3 +8270,12 @@ Entries:
   id: 6653
   time: '2026-04-26T10:08:40.0000000+00:00'
   url: https://github.com/new-frontiers-14/frontier-station-14/pull/4469
+- author: Kvantos0
+  changes:
+    - type: Add
+      message: >-
+        Added "Permitted" status to criminal records options. NFSD can now mark
+        permit holders for ease of information access.
+  id: 6654
+  time: '2026-04-26T10:09:08.0000000+00:00'
+  url: https://github.com/new-frontiers-14/frontier-station-14/pull/4433
