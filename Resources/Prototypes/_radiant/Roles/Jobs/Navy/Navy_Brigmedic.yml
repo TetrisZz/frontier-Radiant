@@ -25,6 +25,9 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
+  - !type:AddComponentSpecial
+    components:
+      - type: PreventShipyardTitleOverwrite
 
 - type: startingGear
   id: NavyBrigmedicGear

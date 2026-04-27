@@ -38,6 +38,9 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
+  - !type:AddComponentSpecial # Radiant sector
+    components:
+      - type: PreventShipyardTitleOverwrite
 
 - type: startingGear
   id: BailiffGear

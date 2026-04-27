@@ -227,7 +227,7 @@
     graph: ThrusterBigZetaFTL
     node: repaired
   - type: Machine
-    board: Null
+    board: ThrusterSecurityMachineCircuitboard
   - type: Destructible
     thresholds:
     - trigger:
@@ -259,7 +259,7 @@
     graph: ThrusterBigZetaFTLLong
     node: repaired
   - type: Machine
-    board: Null
+    board: ThrusterSecurityMachineCircuitboard
   - type: Destructible
     thresholds:
     - trigger:
@@ -288,7 +288,7 @@
     state: broken
     drawdepth: Mobs
   - type: Machine
-    board: Null
+    board: ThrusterSecurityMachineCircuitboard
   - type: Fixtures
     fixtures:
       fix1:
@@ -318,7 +318,7 @@
     state: broken
     drawdepth: Mobs
   - type: Machine
-    board: Null
+    board: ThrusterSecurityMachineCircuitboard
   - type: Fixtures
     fixtures:
       fix1:
@@ -351,7 +351,7 @@
     graph: ThrusterBigZetaFTLAcorp
     node: repaired
   - type: Machine
-    board: Null
+    board: ThrusterSecurityMachineCircuitboard
   - type: Destructible
     thresholds:
     - trigger:
@@ -380,7 +380,7 @@
     state: broken
     drawdepth: Mobs
   - type: Machine
-    board: Null
+    board: ThrusterSecurityMachineCircuitboard
   - type: Fixtures
     fixtures:
       fix1:

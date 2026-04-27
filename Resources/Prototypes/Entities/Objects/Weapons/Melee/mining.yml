@@ -60,6 +60,8 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+      params: # Radiant sector
+        volume: -3
     attackRate: 4
     damage:
       groups:
@@ -82,6 +84,8 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+      params: # Radiant sector
+        volume: -3
     attackRate: 4
     damage:
       groups:

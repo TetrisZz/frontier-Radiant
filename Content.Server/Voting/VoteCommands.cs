@@ -89,7 +89,7 @@ namespace Content.Server.Voting
             var options = new VoteOptions
             {
                 Title = title,
-                Duration = TimeSpan.FromSeconds(30),
+                Duration = TimeSpan.FromSeconds(60),
             };
 
             for (var i = 1; i < args.Length; i++)

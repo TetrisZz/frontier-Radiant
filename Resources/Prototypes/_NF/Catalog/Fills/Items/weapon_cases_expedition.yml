@@ -588,8 +588,8 @@
     contents:
     - id: NFWeaponLauncherRocketExpedition
       amount: 1
-    - id: NFCartridgeRocket
-      amount: 2
+#    - id: NFCartridgeRocket # Radiant sector
+#      amount: 2 # Radiant sector
 
 - type: entity
   parent: [WeaponCaseLong, RareWeaponCase]

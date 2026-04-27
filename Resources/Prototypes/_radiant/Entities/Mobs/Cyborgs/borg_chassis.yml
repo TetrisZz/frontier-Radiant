@@ -449,11 +449,13 @@
     - Borg
   - type: IntrinsicRadioTransmitter
     channels:
+    - Binary
     - Medical
     - Traffic
     - Common
   - type: ActiveRadio
     channels:
+    - Binary
     - Medical
     - Traffic
     - Common

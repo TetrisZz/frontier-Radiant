@@ -26,7 +26,7 @@
   channel: Separatist
   messageSets:
 #  - prob: 0.333 # Radiant sector
-  - prob: 0.5 # Radiant sector
+  - prob: 0.666 # Radiant sector
 #    minDelay: 14 # Radiant sector
 #    maxDelay: 16 # Radiant sector
     minDelay: 12 # Radiant sector

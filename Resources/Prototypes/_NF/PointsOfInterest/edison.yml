@@ -12,9 +12,11 @@
   id: Edison
   parent: BasePOI
   name: 'Электростанция'
-  minimumDistance: 3650
-  maximumDistance: 5400
-  minimumClearance: 1000
+#  minimumDistance: 3650
+#  maximumDistance: 5400
+#  minimumClearance: 1000
+  minimumDistance: 2100
+  maximumDistance: 3500
   spawnGroup: Required
   gridPath: /Maps/_NF/POI/edison.yml
   addComponents:
