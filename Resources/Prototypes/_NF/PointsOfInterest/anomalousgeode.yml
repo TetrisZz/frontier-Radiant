@@ -12,8 +12,11 @@
   id: AnomalousGeode
   parent: BasePOI
   name: 'Жеода Аномалий'
-  minimumDistance: 2100
-  maximumDistance: 3800
+#  minimumDistance: 2100
+#  maximumDistance: 3800
+  minimumDistance: 3650
+  maximumDistance: 5400
+  minimumClearance: 1000
   spawnGroup: ScienceLab
   gridPath: /Maps/_NF/POI/anomalousgeode.yml
   addComponents:

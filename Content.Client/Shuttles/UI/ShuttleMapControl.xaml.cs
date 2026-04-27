@@ -33,6 +33,8 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 
     protected override bool Draggable => true;
 
+    protected override float ScrollSensitivity => 4f; // Radiant sector
+
     public bool ShowBeacons = true;
     public MapId ViewingMap = MapId.Nullspace;
 
@@ -78,7 +80,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     private readonly Dictionary<Color, List<(Vector2, string)>> _strings = new();
     private readonly List<ShuttleExclusionObject> _viewportExclusions = new();
 
-    public ShuttleMapControl() : base(256f, 512f, 512f)
+    public ShuttleMapControl() : base(256f, 4096f, 512f) // Radiant sector
     {
         RobustXamlLoader.Load(this);
         _mapSystem = EntManager.System<SharedMapSystem>();

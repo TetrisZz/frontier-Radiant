@@ -5,7 +5,7 @@
   description: Небольшой шаттл-перехатчик, имеет два Перфоратора. 
   price: 22000
   category: Small
-  group: Security
+  group: Custom
   access: Security
   shuttlePath: /Maps/_radiant/Shuttles/Spark.yml
   guidebookPage: Null

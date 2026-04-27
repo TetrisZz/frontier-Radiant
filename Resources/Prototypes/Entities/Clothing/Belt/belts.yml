@@ -563,7 +563,8 @@
 # Belts without visualizers
 
 - type: entity
-  parent: [ClothingBeltAmmoProviderBase, BaseC1Contraband] # Frontier: BaseSecurityBartenderContraband<BaseC1Contraband
+#  parent: [ClothingBeltAmmoProviderBase, BaseC1Contraband] # Frontier: BaseSecurityBartenderContraband<BaseC1Contraband # Radiant sector
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband] # Radiant sector
   id: ClothingBeltBandolier
   name: bandolier
   description: A bandolier for holding shotgun ammunition.
@@ -572,13 +573,16 @@
     sprite: Clothing/Belt/bandolier.rsi
   - type: Clothing
     sprite: Clothing/Belt/bandolier.rsi
-  #- type: Item # Frontier
+  #- type: Item # Frontier #
     #size: Huge # Frontier
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - ShellShotgun
-    capacity: 14
+#  - type: BallisticAmmoProvider # Radiant sector ↓
+#    whitelist:
+#      tags:
+#        - ShellShotgun
+#    capacity: 14
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Appearance # Radiant sector ↑
 
 - type: entity
   parent: ClothingBeltBase

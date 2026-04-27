@@ -24,6 +24,7 @@
     implants: [ MindShieldImplant, TrackingImplantNavy ]
   - !type:AddComponentSpecial
     components:
+      - type: PreventShipyardTitleOverwrite
       - type: CommandStaff
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday

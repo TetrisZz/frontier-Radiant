@@ -1,6 +1,6 @@
 - type: entity
   id: PrinterAcorpLocker
-  parent: BaseStructure
+  parent: [BaseStructureIndestructible, BaseStructure]
   name: принтер акорпа
   description: Высокофункциональный факс, позволяющий отправлять любые данные в любых количествах, прямо в научные центры корпорации.
   components:

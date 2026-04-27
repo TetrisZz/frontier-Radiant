@@ -19,11 +19,20 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelNavy
-  name: серебряная сумка флота 
-  description: Чёрно-белая сумка для элегантных сотрудников акорп, в неё вы можете спрятать трусики директора исследований. 
+  name: золотая сумка флота 
+  description: Выглядит дорого и богато, но вряд ли внутри соответствующие внешности вещи. 
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Satchels/flot.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelNavyGold
+  name: золотая сумка флота
+  description: Выглядит дорого и богато, но вряд ли внутри соответствующие внешности вещи. 
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Satchels/flot1.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel

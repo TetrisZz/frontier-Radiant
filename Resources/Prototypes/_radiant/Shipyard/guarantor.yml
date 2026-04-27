@@ -5,7 +5,7 @@
   description: Небольшой шаттл, предназначенный для перевозки заключенных.
   price: 22000
   category: Small
-  group: Security
+  group: Custom
   access: Security
   shuttlePath: /Maps/_radiant/Shuttles/Guarantor.yml
   guidebookPage: Null
