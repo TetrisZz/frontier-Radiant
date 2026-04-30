@@ -11,6 +11,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
+using Content.Shared.Storage.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -58,6 +59,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -136,6 +138,44 @@ public sealed class ClientClothingSystem : ClothingSystem
 
             item.MappedLayer = key;
             args.Layers.Add((key, layer));
+        }
+
+        AddItemMapperLayers(uid, item, args, layers);
+    }
+
+    private void AddItemMapperLayers(EntityUid uid, ClothingComponent clothing, GetEquipmentVisualsEvent args,
+        List<PrototypeLayerData> baseLayers)
+    {
+        if (!TryComp(uid, out ItemMapperComponent? itemMapper) ||
+            !TryComp(uid, out AppearanceComponent? appearance))
+        {
+            return;
+        }
+
+        if (!_appearance.TryGetData<ShowLayerData>(uid, StorageMapVisuals.LayerChanged, out var wrapper, appearance))
+            return;
+
+        if (wrapper.QueuedEntities.Count == 0)
+            return;
+
+        var baseLayer = baseLayers.FirstOrDefault();
+        foreach (var layerName in wrapper.QueuedEntities)
+        {
+            var mapperRsiPath = wrapper.RsiPaths.TryGetValue(layerName, out var perLayerPath)
+                ? perLayerPath
+                : itemMapper.RSIPath?.ToString() ?? baseLayer?.RsiPath;
+
+            if (mapperRsiPath == null)
+                continue;
+
+            var mapperLayer = new PrototypeLayerData
+            {
+                RsiPath = mapperRsiPath,
+                State = layerName,
+            };
+
+            var key = $"{args.Slot}-{layerName}";
+            args.Layers.Add((key, mapperLayer));
         }
     }
 
