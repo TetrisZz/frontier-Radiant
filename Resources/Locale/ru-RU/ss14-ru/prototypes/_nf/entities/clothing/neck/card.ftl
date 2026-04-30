@@ -4,4 +4,4 @@ ent-NFClothingNeckCardReporter = карточка репортера
     .desc = Пропуск для прессы, подтверждающий, что предъявитель является сотрудником СМИ.
 ent-NFClothingNeckCardMedic = медицинская карточка
     .desc = Удостоверение личности для медицинского персонала.
-
+clothing-neck-badge-slot = Слот для бейджа
