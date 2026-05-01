@@ -111,6 +111,14 @@ public sealed partial class WantedListUiFragment : BoxContainer
             ("gender", record.TargetInfo.Gender)
         ));
 
+        TargetShuttle.Visible = true;
+        TargetShuttle.SetMessage(GetLoc(
+            "general-station-record-console-record-shuttle",
+            ("shuttle", string.IsNullOrWhiteSpace(record.TargetInfo.RegisteredShuttle)
+                ? Loc.GetString("general-station-record-console-record-no-shuttle")
+                : record.TargetInfo.RegisteredShuttle))
+        );
+
         // Set reason
         WantedReason.SetMessage(GetLoc(
             "wanted-list-reason-label",

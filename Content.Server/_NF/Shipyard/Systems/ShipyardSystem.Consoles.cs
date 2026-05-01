@@ -217,6 +217,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         var shuttleOwner = Name(player).Trim();
         AssignShuttleDeedProperties((targetId, deedID), shuttleUid, name, shuttleOwner, voucherUsed, voucherUsed ? targetId.ToString() : null);
         deedID.DeedHolder = targetId;
+        _records.UpdateRegisteredShuttleFromId(targetId);
 
         var deedShuttle = EnsureComp<ShuttleDeedComponent>(shuttleUid);
         AssignShuttleDeedProperties((shuttleUid, deedShuttle), shuttleUid, name, shuttleOwner, voucherUsed, voucherUsed ? targetId.ToString() : null);
@@ -233,7 +234,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             // Add lock component and set the shuttle ID
             var lockComp = EnsureComp<ShuttleConsoleLockComponent>(consoleUid);
             _shuttleConsoleLock.SetShuttleId(consoleUid, shuttleUid.ToString(), lockComp);
-            
+
             // Log for debugging
             Log.Debug("Locked shuttle console {0} to shuttle {1} for deed holder {2}", consoleUid, shuttleUid, targetId);
         }
@@ -443,6 +444,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         _shuttleRecordsSystem.TrySetSaleTime(shuttleNetEntity);
 
         RemComp<ShuttleDeedComponent>(targetId);
+        _records.UpdateRegisteredShuttleFromId(targetId);
 
         if (!voucherUsed)
         {
