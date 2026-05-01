@@ -64,6 +64,26 @@
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt.rsi
+  - type: Appearance
+  - type: ItemSlots
+    slots:
+      badge_slot:
+        name: clothing-neck-badge-slot
+        whitelist:
+          tags:
+            - NfsdBadge
+        insertOnInteract: false
+        priority: 1
+  - type: ItemMapper
+    mapLayers:
+      equipped-NECK:
+        whitelist:
+          tags:
+            - NfsdBadge
+    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
+  - type: ContainerContainer
+    containers:
+      badge_slot: !type:ContainerSlot {}
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -75,6 +95,26 @@
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt_short.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt_short.rsi
+  - type: Appearance
+  - type: ItemSlots
+    slots:
+      badge_slot:
+        name: clothing-neck-badge-slot
+        whitelist:
+          tags:
+            - NfsdBadge
+        insertOnInteract: false
+        priority: 1
+  - type: ItemMapper
+    mapLayers:
+      equipped-NECK:
+        whitelist:
+          tags:
+            - NfsdBadge
+    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
+  - type: ContainerContainer
+    containers:
+      badge_slot: !type:ContainerSlot {}
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -97,7 +137,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpskirt/private_security.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpskirt/private_security.rsi
-    
+
 - type: entity
   parent: ClothingUniformJumpskirtHoP
   id: ClothingUniformJumpskirtSr
