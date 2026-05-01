@@ -39,5 +39,5 @@ ent-ClearNFPDA = { ent-ClearPDA }
     .desc = { ent-ClearPDA    .desc }
 ent-NFDetectivePDA = КПК детектива
     .desc = Пахнет дождём... стекающим по крышам...
-ent-NFDetectivePDA = NFPrisonerPDA - КПК заключённого
+ent-NFDetectivePDA =КПК заключённого
     .desc = Этот КПK — символ вашего падения и надежды на искупление. Он хранит в себе воспоминания о прошлом и мечты о будущем. Используйте его, чтобы найти путь к свободе.
