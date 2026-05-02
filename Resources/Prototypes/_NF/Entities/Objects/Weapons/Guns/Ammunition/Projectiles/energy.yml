@@ -9,7 +9,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-#        Heat: 8 # Radiant_sector
+#        Heat: 10 # Radiant_sector
         Heat: 14 # Radiant_sector
 
 # Assault Rifles / Carbines
@@ -39,7 +39,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-#        Heat: 12 # Radiant_sector
+#        Heat: 15 # Radiant_sector
         Heat: 13 # Radiant_sector
 
 # Rifles
@@ -52,7 +52,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-#        Heat: 14 # Radiant_sector
+#        Heat: 17.5 # Radiant_sector
         Heat: 20 # Radiant_sector
 
 #region Disabler bolts
@@ -118,7 +118,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-#        Blunt: 10 # Radiant_sector
+#        Blunt: 12.5 # Radiant_sector
         Blunt: 15 # Radiant_sector
         Structural: 30
   - type: Ammo
@@ -142,7 +142,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-#        Blunt: 13 # Radiant_sector
+#        Blunt: 16.25 # Radiant_sector
         Blunt: 20 # Radiant_sector
         Structural: 30
 
@@ -162,7 +162,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-#        Blunt: 18 # Radiant_sector
+#        Blunt: 22.5 # Radiant_sector
         Blunt: 30 # Radiant_sector
 #        Structural: 30 # Radiant_sector
         Structural: 35 # Radiant_sector

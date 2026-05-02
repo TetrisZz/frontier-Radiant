@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Modified by Jackal298 (github), based on paradise station at https://github.com/ParadiseSS13/Paradise/blob/ede55cc8f5b50abcd4f51d37779b56853a440a9a/icons/obj/clothing/uniforms.dmi, fix digi sprites by DreamlyJack",
+  "copyright": "Modified by Jackal298 (github), based on paradise station at https://github.com/ParadiseSS13/Paradise/blob/ede55cc8f5b50abcd4f51d37779b56853a440a9a/icons/obj/clothing/uniforms.dmi, fix digi sprites by DreamlyJack | Folded version taken from tgstation (https://github.com/tgstation/tgstation/blob/5ed5566dbf09507cb99768faa696f8c3f8f65660/icons/mob/uniform.dmi) spritework and edited by Pinkbat5 (github)",
   "size": {
     "x": 32,
     "y": 32
@@ -15,7 +15,7 @@
       "directions": 4
     },
     {
-      "name": "equipped-INNERCLOTHING-reptilian",
+      "name": "folded-equipped-INNERCLOTHING",
       "directions": 4
     },
     {

@@ -30,6 +30,9 @@
 #  - NFAmmunitionBoxPistol45Rubber # Radiant sector
   - MagazineGunnery20mm # Radiant sector
   - MagazineBoxGunnery90mm # Radiant sector
+  - NFMagazineGrenadeEmpty
+  - NFGrenadeFlash
+  - NFGrenadeEMP
 
 - type: latheRecipePack
   id: NfsdToolsStatic
@@ -54,6 +57,7 @@
   - NFClothingNeckCardNfsdWrit
   - NFBaseClothingNeckHolsterThighNfsd
   - NFBaseClothingNeckSheathThighNfsd
+  - JetpackNfsd
 
 - type: latheRecipePack
   id: NfsdTargetsStatic
@@ -86,6 +90,8 @@
 - type: latheRecipePack
   id: NfsdReportingStatic
   recipes:
-    - CassetteTape
-    - TapeRecorder
-    - ClothingNeckBodyCameraNFSD
+  - CassetteTape
+  - TapeRecorder
+  - ClothingNeckBodyCameraNFSD
+  - Gavel
+  - GavelBlock

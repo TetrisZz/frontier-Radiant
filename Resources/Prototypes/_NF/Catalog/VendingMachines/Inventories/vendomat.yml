@@ -16,6 +16,7 @@
     BoomBox: 4294967295 # Frontier: 10<Infinite
     BoomBoxPink: 4294967295 # Frontier: 10<Infinite
     BoomBoxBlue: 4294967295 # Frontier: 10<Infinite
+    DoorElectronics: 4294967295 # Infinite
   contrabandInventory: # Early bird gets the borg arm
     ProximitySensor: 1
     LeftArmBorg: 1

@@ -247,6 +247,14 @@
   storage:
     back:
     - UrnMortuary
+    
+- type: loadout
+  id: ContractorClothingHeadHatHairflower
+  price: 0
+  storage:
+    back:
+    - ClothingHeadHatHairflower
+
 
 #T1
 - type: loadout
