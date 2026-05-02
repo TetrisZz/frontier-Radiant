@@ -31,11 +31,11 @@
         color: "#7D7D7D"
   - type: ItemBorgModule
     moduleId: Radio
-    items:
-    - RadioHandheldNF
-    - IntercomCommonBorg
-    - IntercomCommonBorg
-    - FloodlightBorg
+    hands:
+    - item: RadioHandheldNF
+    - item: IntercomCommonBorg
+    - item: IntercomCommonBorg
+    - item: FloodlightBorg
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: radio }
 
@@ -80,23 +80,26 @@
     layers:
     - state: mercenary
     - state: icon-mercenary
-  - type: DroppableBorgModule
-    moduleId: CombatZipties
-    items:
-    - id: Zipties
-      whitelist:
-        tags:
-        - Handcuffs
-    - id: Zipties
-      whitelist:
-        tags:
-        - Handcuffs
   - type: ItemBorgModule
     moduleId: CombatCombined
-    items:
-    - WeaponEnergyGunMiniAcorpBorg
-    - FlashBorg
-    - CombatKnife
+    hands:
+    - item: WeaponEnergyGunMiniAcorpBorg
+    - item: FlashBorg
+    - item: CombatKnife
+    - item: Zipties
+      hand:
+        emptyRepresentative: Zipties
+        emptyLabel: стяжки
+        whitelist:
+          tags:
+          - Handcuffs
+    - item: Zipties
+      hand:
+        emptyRepresentative: Zipties
+        emptyLabel: стяжки
+        whitelist:
+          tags:
+          - Handcuffs
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatcombined }
 
@@ -112,13 +115,13 @@
     - state: icon-mercenary
   - type: ItemBorgModule
     moduleId: CombatLethal
-    items:
-    - NFWeaponEnergySubMachineGunDeltaVBorg
-    - FlashBorg
-    - JetpackCombatBorg
-    - PlasteelAxe
-    - PlasteelEpee
-    - PlasteelMace
+    hands:
+    - item: NFWeaponEnergySubMachineGunDeltaVBorg
+    - item: FlashBorg
+    - item: JetpackCombatBorg
+    - item: PlasteelAxe
+    - item: PlasteelEpee
+    - item: PlasteelMace
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatlethal }
 
@@ -132,19 +135,25 @@
     layers:
     - state: mercenary
     - state: icon-mercenary
-  - type: DroppableBorgModule
-    moduleId: CombatAmmoBox
-    items:
-    - id: NFAmmunitionBoxRifle20
-      whitelist:
-        tags:
-        - NFAmmunitionBoxRifle20
   - type: ItemBorgModule
     moduleId: CombatLethal
-    items:
-    - NFWeaponRifleAssaultNovaliteC1Borg
-    - NFWeaponRifleAssaultNovaliteC1Borg
-    - NFWeaponHoloflareGun
+    hands:
+    - item: NFWeaponRifleAssaultNovaliteC1Borg
+    - item: NFWeaponRifleAssaultNovaliteC1Borg
+    - item: NFWeaponHoloflareGun
+    - item: NFAmmunitionBoxRifle20
+      hand:
+        emptyRepresentative: NFAmmunitionBoxRifle20
+        emptyLabel: патроны 20. винтовочные
+        whitelist:
+          tags:
+          - NFAmmunitionBoxRifle20
+    - hand:
+        emptyRepresentative: NFAmmunitionBoxRifle20
+        emptyLabel: патроны 20. винтовочные
+        whitelist:
+          tags:
+          - NFAmmunitionBoxRifle20
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatlethalnovalite }
 
@@ -160,21 +169,24 @@
     - state: icon-mercenary
   - type: ItemBorgModule
     moduleId: CombatNonLethal
-    items:
-    - NFWeaponEnergySubMachineGunDisablerBorg
-    - FlashBorg
-    - WeaponTaserBorg
-  - type: DroppableBorgModule
-    moduleId: CombatHandcuffs
-    items:
-    - id: Handcuffs
-      whitelist:
-        tags:
-        - Handcuffs
-    - id: Handcuffs
-      whitelist:
-        tags:
-        - Handcuffs
+    hands:
+    - item: NFWeaponEnergySubMachineGunDisablerBorg
+    - item: FlashBorg
+    - item: WeaponTaserBorg
+    - item: Handcuffs
+      hand:
+        emptyRepresentative: Handcuffs
+        emptyLabel: наручники
+        whitelist:
+          tags:
+          - Handcuffs
+    - item: Handcuffs
+      hand:
+        emptyRepresentative: Handcuffs
+        emptyLabel: наручники
+        whitelist:
+          tags:
+          - Handcuffs
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatnonlethal }
 
@@ -193,11 +205,11 @@
     - state: icon-mercenary
   - type: ItemBorgModule
     moduleId: CombatPinpointer
-    items:
-    - PinpointerUniversal
-    - PinpointerUniversal
-    - PinpointerUniversal
-    - PinpointerScannerUnpowered
+    hands:
+    - item: PinpointerUniversal
+    - item: PinpointerUniversal
+    - item: PinpointerUniversal
+    - item: PinpointerScannerUnpowered
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: combatpinpointer }
 
@@ -233,24 +245,30 @@
   - type: Tag
     tags:
     - BorgModuleFirstAid
-  - type: DroppableBorgModule
+  - type: ItemBorgModule
     moduleId: FirstAid
-    items:
-    - id: Brutepack
-      whitelist:
-        components:
-        - Healing
-      displayName: borg-placeholder-display-name-topical-medication
-    - id: Ointment
-      whitelist:
-        components:
-        - Healing
-      displayName: borg-placeholder-display-name-topical-medication
-    - id: Gauze
-      whitelist:
-        components:
-        - Healing
-      displayName: borg-placeholder-display-name-topical-medication
+    hands:
+    - item: Gauze
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Gauze
+        whitelist:
+          components:
+          - Healing
+    - item: Brutepack
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Brutepack
+        whitelist:
+          components:
+          - Healing
+    - item: Ointment
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Ointment
+        whitelist:
+          components:
+          - Healing
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: first-aid }
   - type: BorgModule
@@ -297,21 +315,24 @@
     - state: icon-acorp
   - type: ItemBorgModule
     moduleId: CombatNonLethal
-    items:
-    - NFWeaponEnergySubMachineGunDisablerBorg
-    - FlashBorg
-    - WeaponTaserBorg
-  - type: DroppableBorgModule
-    moduleId: CombatHandcuffs
-    items:
-    - id: Handcuffs
-      whitelist:
-        tags:
-        - Handcuffs
-    - id: Handcuffs
-      whitelist:
-        tags:
-        - Handcuffs
+    hands:
+    - item: NFWeaponEnergySubMachineGunDisablerBorg
+    - item: FlashBorg
+    - item: WeaponTaserBorg
+    - item: Handcuffs
+      hand:
+        emptyRepresentative: Handcuffs
+        emptyLabel: наручники
+        whitelist:
+          tags:
+          - Handcuffs
+    - item: Handcuffs
+      hand:
+        emptyRepresentative: Handcuffs
+        emptyLabel: наручники
+        whitelist:
+          tags:
+          - Handcuffs
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: acorpnonlethal }
   - type: BorgModule
@@ -333,8 +354,8 @@
         - state: icon-acorp
     - type: ItemBorgModule
       moduleId: AcorpMartyr
-      items:
-        - SelfDestructAcorp
+      hands:
+      - item: SelfDestructAcorp
     - type: BorgModuleIcon
       icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: acorpmartyr }
 
@@ -354,10 +375,10 @@
       - state: icon-acorp
   - type: ItemBorgModule
     moduleId: AcorpLaser
-    items:
-    - WeaponLaserCarbineAcorpBorg
-    - EnergySwordRadiant
-    - PinpointerAcorp
+    hands:
+    - item: WeaponLaserCarbineAcorpBorg
+    - item: EnergySwordRadiant
+    - item: PinpointerAcorp
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: acorplaser }
   - type: BorgModule
@@ -380,8 +401,9 @@
   - type: ItemBorgModule
     moduleId: AcorpShotgun
     items:
-    - WeaponEnergyShotgunRSBorg
-    - EnergySwordDoubleRadiantBorg
-#    - JetpackCombatBorgAcorp
+    hands:
+    - item: WeaponEnergyShotgunRSBorg
+    - item: EnergySwordDoubleRadiantBorg
+#    - item: JetpackCombatBorgAcorp
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: acorpshotgun }

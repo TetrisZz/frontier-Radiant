@@ -1,35 +1,22 @@
 - type: entity
-  parent: BaseSubdermalImplant
+  parent: NFBaseDeathRattleImplant
   id: SeparatistsTrackingImplant
   name: separatists tracking implant
   description: This implant has a tracking device monitor for the Freelance radio channel.
   categories: [ HideSpawnMenu ]
   components:
-    - type: SubdermalImplant
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-      - Dead
-    - type: Rattle
-      radioChannel: "Separatist"
+  - type: RattleOnTrigger
+    radioChannel: Separatist
 
 - type: entity
-  parent: BaseSubdermalImplant
+  parent: NFBaseDeathRattleImplant
   id: TrackingImplantNavy
   name: имплант флота
   description: Имплант отслеживающий состояние своего владельца, в случае критического и смертельного ранения оповестит конфедеративный флот
   categories: [ HideSpawnMenu ]
   components:
-    - type: SubdermalImplant
-      whitelist:
-        components:
-        - MobState
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-      - Dead
-    - type: Rattle
-      radioChannel: "Navy"
+  - type: RattleOnTrigger
+    radioChannel: Navy
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -44,16 +31,11 @@
     - Separatist
 
 - type: entity
-  parent: BaseSubdermalImplant
+  parent: NFBaseDeathRattleImplant
   id: EmergencyTrackingImplant
   name: emergency tracking implant
   description: This implant has a tracking device monitor for the Freelance radio channel.
   categories: [ HideSpawnMenu ]
   components:
-    - type: SubdermalImplant
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-      - Dead
-    - type: Rattle
-      radioChannel: "Emergency"
+  - type: RattleOnTrigger
+    radioChannel: Emergency

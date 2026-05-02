@@ -56,7 +56,7 @@
   - type: Flammable
     damage:
       types:
-        Heat: 4.5 # moths burn more easily
+        Heat: 2.5 # moths burn more easily
   - type: Temperature # Moths hate the heat and thrive in the cold.
     heatDamageThreshold: 320
     coldDamageThreshold: 230
@@ -110,6 +110,7 @@
       - map: [ "plug" ] #RS
       - map: [ "back" ]
       - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

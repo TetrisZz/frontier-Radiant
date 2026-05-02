@@ -46,7 +46,7 @@
   description: ghost-role-information-curie-description
   rules: ghost-role-information-emotional-support-rules
   entityPrototype: MobCatCurie
-  whitelisted: true
+#  whitelisted: true # Radiant sector
 
 - type: ghostRole
   id: CatMistake
@@ -86,4 +86,12 @@
   description: nf-ghost-role-information-buddy-description
   rules: ghost-role-information-nonantagonist-rules
   entityPrototype: NFMobHumanBuddy
-  whitelisted: false
+#  whitelisted: true # Radiant sector
+
+- type: ghostRole
+  id: WhitelistToggleableGhostRole
+  name: dummy
+  description: dummy
+  rules: dummy
+  entityPrototype: GreenhornPAI
+#  whitelisted: true # Used for whitelist purpose only # Radiant sector

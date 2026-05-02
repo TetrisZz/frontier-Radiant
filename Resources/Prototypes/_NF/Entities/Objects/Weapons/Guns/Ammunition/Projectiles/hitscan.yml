@@ -3,7 +3,7 @@
   id: NFRedLightLaser
   damage:
     types:
-#      Heat: 8 # Radiant_sector
+#      Heat: 10 # Radiant_sector
       Heat: 7 # Radiant_sector
   muzzleFlash: &lightMuzzleFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -21,7 +21,7 @@
   id: NFRedMediumLaser
   damage:
     types:
-#      Heat: 12 # Radiant_sector
+#      Heat: 15 # Radiant sector
       Heat: 14 # Radiant_sector
 #  muzzleFlash:  # Radiant_sector start
 #    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -42,7 +42,7 @@
   id: NFRedHeavyLaser
   damage:
     types:
-#      Heat: 14
+#      Heat: 17.5
       Heat: 17
 #  muzzleFlash: # Radiant_sector start
 #    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -63,7 +63,7 @@
   id: NFRedSpecialLaser
   damage:
     types:
-#      Heat: 20 # Radiant_sector
+#      Heat: 25 # Radiant_sector
       Heat: 28 # Radiant_sector
   muzzleFlash: &specialMuzzleFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -84,8 +84,8 @@
   id: NFXrayLaser
   damage:
     types:
-      Heat: 10
-      Radiation: 10
+      Heat: 12.5
+      Radiation: 12.5
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_xray
@@ -102,7 +102,7 @@
   id: NFPulse
   damage:
     types:
-#      Heat: 18 # Radiant_sector
+#      Heat: 22.5 # Radiant_sector
       Heat: 35 # Radiant_sector
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -128,13 +128,13 @@
 
 # Shuttle guns
 
-# Whatstone - got a rough value based on 
+# Whatstone - got a rough value based on
 - type: hitscan
   id: NFRedShuttleLaser
   maxLength: 60
   damage:
     types:
-#      Heat: 40 # Radiant_sector
+#      Heat: 37.5 # Radiant_sector
       Heat: 45 # Radiant_sector
       Structural: 10
 #  muzzleFlash: *specialMuzzleFlash

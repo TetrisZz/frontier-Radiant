@@ -23,6 +23,7 @@
     walkModifier: 0.95
     sprintModifier: 0.95
   - type: ShockOnTrigger
+    targetContainer: true
     damage: 5
     duration: 3
     cooldown: 4
@@ -98,6 +99,7 @@
     - neck
   - type: Unremoveable
   - type: ShockOnTrigger
+    targetContainer: true
     damage: 1
     duration: 2
     cooldown: 1
@@ -152,6 +154,7 @@
     slots:
     - neck
   - type: ShockOnTrigger
+    targetContainer: true
     damage: 1
     duration: 2
     cooldown: 4
@@ -249,6 +252,7 @@
     slots:
     - neck
   - type: ShockOnTrigger
+    targetContainer: true
     damage: 1
     duration: 2
     cooldown: 4
