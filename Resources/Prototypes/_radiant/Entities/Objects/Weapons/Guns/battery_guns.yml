@@ -93,6 +93,72 @@
     autoRecharge: true
     autoRechargeRate: 3
 
+- type: entity
+  id: WeaponDominator
+  parent: [ BaseWeaponBatterySmall, NFBaseGunMeleeAttackLow ]
+  name: Доминатор
+  description: Высокотехнологичное оружие, разработанное организацией AURORA для борьбы с преступностью.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Laser/dominator.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - shader: unshaded
+      map: ["Firemode"]
+    - shader: unshaded
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+    sprite: _radiant/Objects/Weapons/Laser/dominator.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/low-laser-strike.ogg
+      params:
+        volume: -6.5
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+  - type: ProjectileBatteryAmmoProvider
+    proto: NFBulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: NFBulletDisabler
+      fireCost: 100
+      name: оглушающий
+      state: disable
+    - proto: NFBulletLaserHeavy
+      fireCost: 200
+      name: летальный
+      state: lethal
+  - type: MagazineVisuals
+    magState: disable
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler:
+            state: disable-unshaded-0
+          Lethal:
+            state: lethal-unshaded-0
+  - type: NFWeaponDetails
+    manufacturer: AURORA
+  - type: StaticPrice
+    price: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+
 # Cyborg
 
 - type: entity
