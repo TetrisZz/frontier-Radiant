@@ -1,0 +1,15 @@
+#T0
+- type: loadout
+  id: NAVYClothingUnderwearBottomPantiesNav
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesNav
+
+- type: loadout
+  id: NAVYClothingUnderwearBottomPantiesNavy
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesNavy
+
+- type: loadout
+  id: NAVYClothingUnderwearBottomBoxersNavy
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersNavy

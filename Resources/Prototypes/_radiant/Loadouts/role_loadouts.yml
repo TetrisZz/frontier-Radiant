@@ -31,7 +31,7 @@
 - type: roleLoadout
   id: JobAcorpDirector
   groups:
-  - COMNeck
+  - DIRNeck
   - DIRJumpsuit
   - ContractorGloves
   - COMBackpack
@@ -366,9 +366,9 @@
   - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
-  - ContractorUnderwearBottom
+  - NAVYKomandorUnderwearBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - NAVYKomandorUnderwearTop
   - NFSpeciesSpecific
   - ASSSpecial
 
@@ -394,9 +394,9 @@
   - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
-  - ContractorUnderwearBottom
+  - NAVYKomandorUnderwearBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - NAVYKomandorUnderwearTop
   - NFSpeciesSpecific
   - ASSSpecial
 
@@ -421,9 +421,9 @@
   - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
-  - ContractorUnderwearBottom
+  - NAVYKomandorUnderwearBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - NAVYKomandorUnderwearTop
   - NFSpeciesSpecific
   - ASSSpecial
 
@@ -448,9 +448,9 @@
   - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
-  - ContractorUnderwearBottom
+  - NAVYKomandorUnderwearBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - NAVYKomandorUnderwearTop
   - NFSpeciesSpecific
   - ASSSpecial
 
@@ -475,9 +475,9 @@
   - ContractorImplanter
   - ContractorBackpackItems
   - ContractorHandItems
-  - ContractorUnderwearBottom
+  - NAVYKomandorUnderwearBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - NAVYKomandorUnderwearTop
   - NFSpeciesSpecific
   - ASSSpecial
 

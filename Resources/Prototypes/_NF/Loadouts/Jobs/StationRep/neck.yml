@@ -10,3 +10,15 @@
   price: 0
   equipment:
     neck: ClothingNeckMantleSr
+
+- type: loadout
+  id: StationRepClothingNeckCloakGybRS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 540000 # 150
+  equipment:
+    neck: ClothingNeckCloakGybRS
+

@@ -846,3 +846,19 @@
       whitelist:
         tags:
           - HomUplink
+
+- type: listing
+  id: UplinkHomClothingNeckCloakHomRS
+  name:  uplink-hom-cloakhomk-name
+  description: uplink-hom-cloakhomk-desc
+  productEntity: ClothingNeckCloakHomRS
+  icon: { sprite: _radiant/Clothing/Neck/Cloaks/hom.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink

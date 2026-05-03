@@ -49,8 +49,12 @@ namespace Content.Client.Interaction.Panel.Ui
         public BoxContainer TargetModel => this.FindControl<BoxContainer>("TargetSpriteView");
         public CollapsibleHeading SpecialHeading => this.FindControl<CollapsibleHeading>("Special");
         public CollapsibleHeading FavouritesHeading => this.FindControl<CollapsibleHeading>("Favourites");
-        public CollapsibleHeading HarmlessHeading => this.FindControl<CollapsibleHeading>("Harmless");
-        public CollapsibleHeading OutspokenHeading => this.FindControl<CollapsibleHeading>("Outspoken");
+        public CollapsibleHeading LipsHeading => this.FindControl<CollapsibleHeading>("Lips");
+        public CollapsibleHeading HeadHeading => this.FindControl<CollapsibleHeading>("Head");
+        public CollapsibleHeading ChestHeading => this.FindControl<CollapsibleHeading>("Chest");
+        public CollapsibleHeading GroinHeading => this.FindControl<CollapsibleHeading>("Groin");
+        public CollapsibleHeading TailHeading => this.FindControl<CollapsibleHeading>("Tail");
+        public CollapsibleHeading BodyHeading => this.FindControl<CollapsibleHeading>("Body");
         private SpriteView _userSpriteView;
         private SpriteView _targetSpriteView;
         private Label _targetLabel;
@@ -92,8 +96,12 @@ namespace Content.Client.Interaction.Panel.Ui
 
             SetupHeading(SpecialHeading);
             SetupHeading(FavouritesHeading);
-            SetupHeading(HarmlessHeading);
-            SetupHeading(OutspokenHeading);
+            SetupHeading(LipsHeading);
+            SetupHeading(HeadHeading);
+            SetupHeading(ChestHeading);
+            SetupHeading(GroinHeading);
+            SetupHeading(TailHeading);
+            SetupHeading(BodyHeading);
 
             PopulateInteractions();
             UpdateTarget();
@@ -467,14 +475,7 @@ namespace Content.Client.Interaction.Panel.Ui
                 buttonContainer.AddChild(pinButton);
                 _allButtons.Add(buttonContainer);
 
-                if (prototype.ERP)
-                {
-                    OutspokenContainer.AddChild(buttonContainer);
-                }
-                else
-                {
-                    HarmlessContainer.AddChild(buttonContainer);
-                }
+                GetContainerByCategory(prototype).AddChild(buttonContainer);
             }
 
             if (_importedPrototypes.Any())
@@ -609,8 +610,12 @@ namespace Content.Client.Interaction.Panel.Ui
 
             SpecialContainer.RemoveAllChildren();
             FavouritesContainer.RemoveAllChildren();
-            HarmlessContainer.RemoveAllChildren();
-            OutspokenContainer.RemoveAllChildren();
+            LipsContainer.RemoveAllChildren();
+            HeadContainer.RemoveAllChildren();
+            ChestContainer.RemoveAllChildren();
+            GroinContainer.RemoveAllChildren();
+            TailContainer.RemoveAllChildren();
+            BodyContainer.RemoveAllChildren();
 
             foreach (var buttonContainer in _allButtons)
             {
@@ -624,7 +629,7 @@ namespace Content.Client.Interaction.Panel.Ui
                     var prototype = _prototypeManager.Index<InteractionPrototype>(button.Name);
                     if (prototype == null) continue;
 
-                    (prototype.ERP ? OutspokenContainer : HarmlessContainer).AddChild(buttonContainer);
+                    GetContainerByCategory(prototype).AddChild(buttonContainer);
                 }
             }
 
@@ -707,6 +712,20 @@ namespace Content.Client.Interaction.Panel.Ui
             return target.Entity;
         }
         #endregion
+
+        private BoxContainer GetContainerByCategory(InteractionPrototype prototype)
+        {
+            return prototype.Category.ToLowerInvariant() switch
+            {
+                "lips" or "lip" or "губы" => LipsContainer,
+                "head" or "голова" => HeadContainer,
+                "chest" or "breasts" or "грудь" => ChestContainer,
+                "groin" or "genitals" or "промежность" => GroinContainer,
+                "tail" or "хвост" => TailContainer,
+                "body" or "тело" => BodyContainer,
+                _ => BodyContainer
+            };
+        }
 
         #region Logic
         private bool IsInteractionAllowed(InteractionPrototype prototype, HumanoidAppearanceComponent userAppearance, EntityUid target)

@@ -348,9 +348,9 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorUnderwearBottom
+  - SheriffBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - SheriffTop
   - ContractorBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
@@ -377,9 +377,9 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorUnderwearBottom
+  - SheriffBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - SheriffTop
   - ContractorBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
@@ -406,9 +406,9 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorUnderwearBottom
+  - SheriffBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - SheriffTop
   - ContractorBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
@@ -435,9 +435,9 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorUnderwearBottom
+  - SheriffBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - SheriffTop
   - ContractorBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
@@ -463,9 +463,9 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorUnderwearBottom
+  - SheriffBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - SheriffTop
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific # Explicitly civilian variant
@@ -517,9 +517,9 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorUnderwearBottom
+  - SheriffBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - SheriffTop
   - SeniorOfficerBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
@@ -546,9 +546,9 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorUnderwearBottom
+  - SheriffBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - SheriffTop
   - SeniorOfficerBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific
@@ -574,9 +574,9 @@
   - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorUnderwearBottom
+  - SheriffBottom
   - ContractorUnderwearSocks
-  - ContractorUnderwearTop
+  - SheriffTop
   - SeniorOfficerBackpackItems
   - ContractorHandItems
   - NfsdSpeciesSpecific

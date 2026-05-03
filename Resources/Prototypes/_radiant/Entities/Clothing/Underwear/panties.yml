@@ -102,3 +102,39 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/sexsi.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesNavy
+  name: трусики КФ
+  description: Красивое и дорогое белье.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/navy1.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesNav
+  name: трусики КФ
+  description: Красивое и дорогое белье.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/navy.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesDVB
+  name: трусики ДВБ
+  description: Красивое и дорогое белье.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/dvbp1.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesDVBB
+  name: трусики ДВБ
+  description: Красивое и дорогое белье.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/dvbp.rsi

@@ -1945,3 +1945,22 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
   groupBy: "militaryJumpsuit"
+
+# Radiant Sector
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpsuitRedSweatpants
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRedSweatpants
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpsuitBlackSweatpants
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlackSweatpants
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpsuitBlueSweatpants
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlueSweatpants
