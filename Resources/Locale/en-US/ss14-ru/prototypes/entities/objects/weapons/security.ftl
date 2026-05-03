@@ -7,5 +7,3 @@ ent-Flash = flash
 ent-SciFlash = flash
     .suffix = 2 charges
     .desc = { ent-Flash.desc }
-ent-PortableFlasher = portable flasher
-    .desc = An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.

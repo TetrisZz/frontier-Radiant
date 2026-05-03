@@ -6,7 +6,10 @@
   <GuideEntityEmbed Entity="CrateFoodMcCargo"/>
   <GuideEntityEmbed Entity="KitchenDeepFryer"/>
   </Box>
-  [color=#a4885c]Размер корабля:[/color] Средний
+  <Box>
+  <GuideEntityEmbed Entity="ShuttleMapMcCargo" Caption=""/>
+  </Box>
+  [color=#a4885c]Ship Size:[/color] Medium
 
   [color=#a4885c]Рекомендуемый экипаж:[/color] 1-4
 

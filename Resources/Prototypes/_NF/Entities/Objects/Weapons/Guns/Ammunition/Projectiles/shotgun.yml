@@ -8,7 +8,7 @@
   - type: Projectile
     damage:
       types:
-#        Piercing: 4 Radiant_sector
+#        Piercing: 5 Radiant_sector
         Piercing: 10 # Radiant_sector
         Structural: 15 # Radiant_sector
 
@@ -21,7 +21,7 @@
   - type: Projectile
     damage:
       types:
-#        Piercing: 5 Radiant_sector
+#        Piercing: 6.25 Radiant_sector
         Piercing: 5 # Radiant_sector
         Blunt: 5 # Radiant_sector
         Structural: 20 # Radiant_sector
@@ -35,8 +35,8 @@
   - type: Projectile
     damage:
       types:
-#        Blunt: 2.4 Radiant_sector
-#        Heat: 1.6 Radiant_sector
+#        Blunt: 3 Radiant_sector
+#        Heat: 2 Radiant_sector
         Blunt: 3 # Radiant_sector
         Heat: 7 # Radiant_sector
 
@@ -50,7 +50,7 @@
     damage:
       types:
 #        Blunt: 0.1 Radiant_sector
-        Blunt: 0.1 # Radiant_sector
+        Blunt: 1 # Radiant_sector
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -61,8 +61,8 @@
   - type: Projectile
     damage:
       types:
-#        Piercing: 3.5 Radiant_sector
-#        Radiation: 3.5 Radiant_sector
+#        Piercing: 4.4 Radiant_sector
+#        Radiation: 4.4 Radiant_sector
         Radiation: 5 # Radiant_sector
         Piercing: 5 # Radiant_sector
 
@@ -83,8 +83,8 @@
   - type: Projectile
     damage:
       types:
-#        Piercing: 2 Radiant_sector
-#        Slash: 2 Radiant_sector
+#        Piercing: 2.5 Radiant_sector
+#        Slash: 2.5 Radiant_sector
         Piercing: 3 # Radiant_sector
         Slash: 3 # Radiant_sector
 
@@ -97,8 +97,8 @@
   - type: Projectile
     damage:
       types:
-#        Slash: 3.5 Radiant_sector
-        Slash: 25 # Radiant_sector
+#        Slash: 4.4 Radiant_sector
+        Slash: 10 # Radiant_sector
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -109,10 +109,10 @@
   - type: Projectile
     damage:
       types:
-#        Piercing: 4 Radiant_sector
-#        Structural: 5 Radiant_sector
-        Piercing: 25 # Radiant_sector
-        Structural: 5 # Radiant_sector
+#        Piercing: 5 Radiant_sector
+#        Structural: 6.25 Radiant_sector
+        Piercing: 12.5 # Radiant_sector
+        Structural: 25 # Radiant_sector
 
 #region PelletsSpread
 - type: entity
@@ -164,8 +164,10 @@
   components:
   - type: ProjectileSpread
     proto: NFPelletShotgunUranium
-    count: 5
-    spread: 6
+#    count: 5 # Radiant sector
+#    spread: 6 # Radiant sector
+    count: 6 # Radiant sector
+    spread: 7.5 # Radiant sector
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -207,8 +209,8 @@
   - type: Projectile
     damage:
       types:
-#        Piercing: 20 Radiant_sector
-#        Blunt: 5 Radiant_sector
+#        Piercing: 25 Radiant_sector
+#        Blunt: 6.25 Radiant_sector
         Piercing: 40 # Radiant_sector
         Structural: 15 # Radiant_sector
 
@@ -221,7 +223,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 10
+        Blunt: 12.5
   - type: StaminaDamageOnCollide
     damage: 30 # 4 hits to stun
 

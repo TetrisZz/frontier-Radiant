@@ -61,7 +61,7 @@
           type: WiresBoundUserInterface
   - type: RadarConsole
   - type: WorldLoader
-    radius: 256
+    radius: 624
 
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerGunneryConsole]
