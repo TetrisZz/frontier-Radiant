@@ -1964,3 +1964,15 @@
   price: 500
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueSweatpants
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpskirtGreenlok
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenlok
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpskirtRedTurtleneck
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedTurtleneck
