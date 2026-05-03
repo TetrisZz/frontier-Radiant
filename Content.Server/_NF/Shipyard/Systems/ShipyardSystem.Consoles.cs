@@ -217,7 +217,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         var shuttleOwner = Name(player).Trim();
         AssignShuttleDeedProperties((targetId, deedID), shuttleUid, name, shuttleOwner, voucherUsed, voucherUsed ? targetId.ToString() : null);
         deedID.DeedHolder = targetId;
-        _records.UpdateRegisteredShuttleFromId(targetId);
+        _records.UpdateRegisteredShuttleFromId(targetId); //Radiant
 
         var deedShuttle = EnsureComp<ShuttleDeedComponent>(shuttleUid);
         AssignShuttleDeedProperties((shuttleUid, deedShuttle), shuttleUid, name, shuttleOwner, voucherUsed, voucherUsed ? targetId.ToString() : null);

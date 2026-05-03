@@ -48,7 +48,7 @@ public sealed class ItemMapperSystem : SharedItemMapperSystem
         component.SpriteLayers.AddRange(wrapper.QueuedEntities);
 
         foreach (var sprite in component.SpriteLayers)
-        {
+        {//Radiant start
             _sprite.LayerMapReserve((owner, spriteComponent), sprite);
             _sprite.LayerSetSprite((owner, spriteComponent), sprite, new SpriteSpecifier.Rsi(component.RSIPath!.Value, sprite));
             _sprite.LayerSetVisible((owner, spriteComponent), sprite, false);
