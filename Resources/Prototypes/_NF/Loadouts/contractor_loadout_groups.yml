@@ -888,6 +888,7 @@
   - ContractorHypoMini
   - ContractorBible
   - ContractorBodycam
+  - ContractorPhotoCamera # Radiant
 
 - type: loadoutGroup
   id: ContractorFace
@@ -1009,7 +1010,7 @@
   fallbacks:
   - ContractorClothingUnderwearBottomBoxersWhite
   - ContractorClothingUnderwearBottomPantiesWhite
-  
+
 - type: loadoutGroup
   id: ContractorUnderwearSocks
   name: loadout-group-contractor-underwearsocks
@@ -1037,7 +1038,7 @@
   - ContractorClothingUnderwearSocksGarters
   - ContractorClothingUnderwearSocksThighCow
   - ContractorClothingUnderwearSocksRich
-  
+
 - type: loadoutGroup
   id: ContractorUnderwearTop
   name: loadout-group-contractor-underweartop

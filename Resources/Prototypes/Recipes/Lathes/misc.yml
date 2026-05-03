@@ -293,3 +293,14 @@
   materials:
     Plastic: 100
     Steel: 25
+    
+ #Radiant
+- type: latheRecipe
+  id: PhotoCameraFilled
+  result: PhotoCameraFilled
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 200
+

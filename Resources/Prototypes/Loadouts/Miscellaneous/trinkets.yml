@@ -42,6 +42,13 @@
     - PlushieSpaceLizard
 
 - type: loadout
+  id: LoadoutPhotoCamera
+  price: 5000
+  storage:
+    back:
+    - PhotoCameraFilled
+
+- type: loadout
   id: ThreeCandles
   dummyEntity: LoadoutDummyCandles
   storage:
