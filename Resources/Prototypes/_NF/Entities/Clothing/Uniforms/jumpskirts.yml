@@ -64,7 +64,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt.rsi
-  - type: Appearance
+  - type: Appearance #Radiant start
   - type: ItemSlots
     slots:
       badge_slot:
@@ -83,7 +83,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
   - type: ContainerContainer
     containers:
-      badge_slot: !type:ContainerSlot {}
+      badge_slot: !type:ContainerSlot {} #Radiant end
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -95,7 +95,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt_short.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt_short.rsi
-  - type: Appearance
+  - type: Appearance #Radiant start
   - type: ItemSlots
     slots:
       badge_slot:
@@ -114,7 +114,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
   - type: ContainerContainer
     containers:
-      badge_slot: !type:ContainerSlot {}
+      badge_slot: !type:ContainerSlot {} #Radiant end
 
 - type: entity
   parent: ClothingUniformSkirtBase

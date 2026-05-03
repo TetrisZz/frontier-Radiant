@@ -59,7 +59,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //Radiant
 
     public override void Initialize()
     {
@@ -140,6 +140,8 @@ public sealed class ClientClothingSystem : ClothingSystem
             args.Layers.Add((key, layer));
         }
 
+//Radiant start
+
         AddItemMapperLayers(uid, item, args, layers);
     }
 
@@ -177,6 +179,7 @@ public sealed class ClientClothingSystem : ClothingSystem
             var key = $"{args.Slot}-{layerName}";
             args.Layers.Add((key, mapperLayer));
         }
+        //Radiant end
     }
 
     /// <summary>

@@ -39,17 +39,18 @@ namespace Content.Shared.Storage.Components
     public sealed class ShowLayerData : ICloneable
     {
         public readonly IReadOnlyList<string> QueuedEntities;
-        public readonly Dictionary<string, string> RsiPaths;
+        public readonly Dictionary<string, string> RsiPaths; //Radiant
 
         public ShowLayerData()
         {
             QueuedEntities = new List<string>();
-            RsiPaths = new Dictionary<string, string>();
+            RsiPaths = new Dictionary<string, string>(); //Radiant
         }
 
         public ShowLayerData(IReadOnlyList<string> other)
         {
             QueuedEntities = other;
+            //Radiant start
             RsiPaths = new Dictionary<string, string>();
         }
 
@@ -57,12 +58,13 @@ namespace Content.Shared.Storage.Components
         {
             QueuedEntities = other;
             RsiPaths = rsiPaths;
+            //Radiant end
         }
 
         public object Clone()
         {
             // QueuedEntities should never be getting modified after this object is created.
-            return new ShowLayerData(new List<string>(QueuedEntities), new Dictionary<string, string>(RsiPaths));
+            return new ShowLayerData(new List<string>(QueuedEntities), new Dictionary<string, string>(RsiPaths)); //Radiant
         }
     }
 }

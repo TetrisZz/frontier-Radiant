@@ -71,11 +71,11 @@ public abstract class SharedItemMapperSystem : EntitySystem
             return;
 
         if (TryComp(uid, out AppearanceComponent? appearanceComponent)
-            && TryGetLayers(uid, itemMapper, out var containedLayers, out var rsiPaths))
+            && TryGetLayers(uid, itemMapper, out var containedLayers, out var rsiPaths)) //Radiant "rsiPaths"
         {
             _appearance.SetData(uid,
                 StorageMapVisuals.LayerChanged,
-                new ShowLayerData(containedLayers, rsiPaths),
+                new ShowLayerData(containedLayers, rsiPaths), //Radiant "rsiPaths"
                 appearanceComponent);
         }
     }
@@ -92,7 +92,7 @@ public abstract class SharedItemMapperSystem : EntitySystem
     /// <param name="showLayers">list of <paramref name="itemMapper"/> layers that should be visible</param>
     /// <returns>false if <c>msg.Container.Owner</c> is not a storage, true otherwise.</returns>
     private bool TryGetLayers(EntityUid uid, ItemMapperComponent itemMapper, out List<string> showLayers,
-        out Dictionary<string, string> rsiPaths)
+        out Dictionary<string, string> rsiPaths) //Radiant "rsiPaths"
     {
         var containedLayers = _container.GetAllContainers(uid)
             .Where(c => itemMapper.ContainerWhitelist?.Contains(c.ID) ?? true)
@@ -100,9 +100,10 @@ public abstract class SharedItemMapperSystem : EntitySystem
             .ToArray();
 
         var list = new List<string>();
-        var paths = new Dictionary<string, string>();
+        var paths = new Dictionary<string, string>(); //Radiant
         foreach (var mapLayerData in itemMapper.MapLayers.Values)
         {
+            //Radiant start
             var matchingEntities = containedLayers
                 .Where(ent => _whitelistSystem.IsWhitelistPassOrNull(mapLayerData.Whitelist, ent))
                 .ToArray();
@@ -130,6 +131,7 @@ public abstract class SharedItemMapperSystem : EntitySystem
 
         showLayers = list;
         rsiPaths = paths;
+        //Radiant end
         return true;
     }
 }

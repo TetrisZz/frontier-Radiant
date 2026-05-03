@@ -86,7 +86,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump.rsi
-  - type: Appearance
+  - type: Appearance #Radiant start
   - type: ItemSlots
     slots:
       clothing-neck-badge-slot:
@@ -105,7 +105,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
   - type: ContainerContainer
     containers:
-      clothing-neck-badge-slot: !type:ContainerSlot {}
+      clothing-neck-badge-slot: !type:ContainerSlot {} #Radiant end
 
 - type: entity
   parent: ClothingUniformBase
@@ -117,7 +117,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump_short.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump_short.rsi
-  - type: Appearance
+  - type: Appearance #Radiant start
   - type: ItemSlots
     slots:
       badge_slot:
@@ -136,7 +136,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
   - type: ContainerContainer
     containers:
-      badge_slot: !type:ContainerSlot {}
+      badge_slot: !type:ContainerSlot {} #Radiant end
 
 - type: entity
   parent: ClothingUniformBase
@@ -148,7 +148,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_black.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_black.rsi
-  - type: Appearance
+  - type: Appearance #Radiant start
   - type: ItemSlots
     slots:
       badge_slot:
@@ -167,7 +167,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
   - type: ContainerContainer
     containers:
-      badge_slot: !type:ContainerSlot {}
+      badge_slot: !type:ContainerSlot {} #Radiant end
 
 - type: entity
   parent: ClothingUniformBase
@@ -179,7 +179,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_gray.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_gray.rsi
-  - type: Appearance
+  - type: Appearance #Radiant start
   - type: ItemSlots
     slots:
       badge_slot:
@@ -198,7 +198,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
   - type: ContainerContainer
     containers:
-      badge_slot: !type:ContainerSlot {}
+      badge_slot: !type:ContainerSlot {} #Radiant end
 
 - type: entity
   parent: ClothingUniformBase
@@ -210,7 +210,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_camo.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_camo.rsi
-  - type: Appearance
+  - type: Appearance #Radiant start
   - type: ItemSlots
     slots:
       badge_slot:
@@ -229,7 +229,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
   - type: ContainerContainer
     containers:
-      clothing-neck-badge-slot: !type:ContainerSlot {}
+      clothing-neck-badge-slot: !type:ContainerSlot {} #Radiant end
 
 - type: entity
   parent: ClothingUniformBase
@@ -241,7 +241,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
-  - type: Appearance
+  - type: Appearance #Radiant start
   - type: ItemSlots
     slots:
       clothing-neck-badge-slot:
@@ -260,7 +260,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
   - type: ContainerContainer
     containers:
-      clothing-neck-badge-slot: !type:ContainerSlot {}
+      clothing-neck-badge-slot: !type:ContainerSlot {} #Radiant end
 
 - type: entity
   parent: ClothingUniformBase
