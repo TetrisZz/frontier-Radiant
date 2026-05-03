@@ -217,3 +217,8 @@
   - CandleGreenSmall
   - CandlePurpleSmall
   - CandleRedSmall
+
+- type: latheRecipePack
+  id: NFPhotoCameraStatic
+  recipes:
+  - PhotoCameraFilled

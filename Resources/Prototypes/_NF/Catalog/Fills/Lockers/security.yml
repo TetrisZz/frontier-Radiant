@@ -21,6 +21,7 @@
       - id: DrinkDetFlask
       - id: BoxEvidenceMarkers
       - id: HandLabeler
+      - id: PhotoCameraFilled # Radiant
   - type: AccessReader
     access: [["Detective"]]
 

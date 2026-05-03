@@ -259,3 +259,13 @@
   price: 3000
   inhand:
     - ClothingNeckBodyCameraOff
+
+  # Radiant
+- type: loadout
+  id: ContractorPhotoCamera
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 5000
+  inhand:
+    - PhotoCameraFilled

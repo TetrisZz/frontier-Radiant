@@ -875,6 +875,7 @@
   - ContractorHypoMini
   - ContractorBible
   - ContractorBodycam
+  - ContractorPhotoCamera # Radiant
 
 - type: loadoutGroup
   id: ContractorFace
@@ -956,7 +957,7 @@
   - ContractorMedicalTrackingImplanter
   - ContractorLightImplanter
   - ContractorBikeHornImplanter
-  - ContractorWehImplanter 
+  - ContractorWehImplanter
   - ContractorSadTromboneImplanter
   - ContractorMimePowersImplanter
   - ContractorBibleUserImplanter
@@ -993,7 +994,7 @@
   fallbacks:
   - ContractorClothingUnderwearBottomBoxersWhite
   - ContractorClothingUnderwearBottomPantiesWhite
-  
+
 - type: loadoutGroup
   id: ContractorUnderwearSocks
   name: loadout-group-contractor-underwearsocks
@@ -1021,7 +1022,7 @@
   - ContractorClothingUnderwearSocksGarters
   - ContractorClothingUnderwearSocksThighCow
   - ContractorClothingUnderwearSocksRich
-  
+
 - type: loadoutGroup
   id: ContractorUnderwearTop
   name: loadout-group-contractor-underweartop
