@@ -55,18 +55,54 @@
 
                     <!-- Третья разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Harmless" Title="{Loc 'interaction-panel-harmless-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Lips" Title="{Loc 'interaction-panel-lips-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
-                            <BoxContainer Name="HarmlessContainer" Orientation="Vertical" SeparationOverride="5">
+                            <BoxContainer Name="LipsContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
                         </CollapsibleBody>
                     </Collapsible>
 
                     <!-- Четвертая разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Outspoken" Title="{Loc 'interaction-panel-outspoken-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Head" Title="{Loc 'interaction-panel-head-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
-                            <BoxContainer Name="OutspokenContainer" Orientation="Vertical" SeparationOverride="5">
+                            <BoxContainer Name="HeadContainer" Orientation="Vertical" SeparationOverride="5">
+                            </BoxContainer>
+                        </CollapsibleBody>
+                    </Collapsible>
+
+                    <!-- Пятая разворачивающаяся панель -->
+                    <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
+                        <CollapsibleHeading Name="Chest" Title="{Loc 'interaction-panel-chest-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleBody Margin="0, 5, 0, 0">
+                            <BoxContainer Name="ChestContainer" Orientation="Vertical" SeparationOverride="5">
+                            </BoxContainer>
+                        </CollapsibleBody>
+                    </Collapsible>
+
+                    <!-- Шестая разворачивающаяся панель -->
+                    <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
+                        <CollapsibleHeading Name="Groin" Title="{Loc 'interaction-panel-groin-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleBody Margin="0, 5, 0, 0">
+                            <BoxContainer Name="GroinContainer" Orientation="Vertical" SeparationOverride="5">
+                            </BoxContainer>
+                        </CollapsibleBody>
+                    </Collapsible>
+
+                    <!-- Седьмая разворачивающаяся панель -->
+                    <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
+                        <CollapsibleHeading Name="Tail" Title="{Loc 'interaction-panel-tail-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleBody Margin="0, 5, 0, 0">
+                            <BoxContainer Name="TailContainer" Orientation="Vertical" SeparationOverride="5">
+                            </BoxContainer>
+                        </CollapsibleBody>
+                    </Collapsible>
+
+                    <!-- Восьмая разворачивающаяся панель -->
+                    <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
+                        <CollapsibleHeading Name="Body" Title="{Loc 'interaction-panel-body-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleBody Margin="0, 5, 0, 0">
+                            <BoxContainer Name="BodyContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
                         </CollapsibleBody>
                     </Collapsible>

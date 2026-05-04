@@ -1,12 +1,14 @@
 - type: vendingMachineInventory
   id: XomkaVendInventory
   startingInventory:
-# Boxer
+
     ClothingUniformJumpskirtDressRedTango: 4294967295 # Infinite
     ClothingUniformJumpskirtBlackDress: 4294967295 # Infinite
     ClothingUniformJumpskirtPinkDress: 4294967295 # Infinite
     ClothingUniformJumpskirtSwimwearPink: 4294967295 # Infinite
     ClothingUniformJumpskirtSwimwearRed: 4294967295 # Infinite
+    ClothingUniformJumpskirtGreenlok: 4294967295 # Infinite
+    ClothingUniformJumpskirtRedTurtleneck: 4294967295 # Infinite
     ClothingUniformSpecialMaidRadiantSwimsuit: 4294967295 # Infinite
     ClothingUniformSpecialSwimsuit1: 4294967295 # Infinite
     ClothingUniformJumpskirtDressBlackTango: 4294967295 # Infinite
@@ -15,7 +17,9 @@
     ClothingUniformSpecialMaidRadiant: 4294967295 # Infinite
     ClothingUniformJumpskirtDressTraditional: 4294967295 # Infinite
     ClothingUniformJumpsuitRedLok: 4294967295 # Infinite
-    ClothingShoesDame: 4294967295 # Infinite
+    ClothingUniformJumpsuitRedSweatpants: 4294967295
+    ClothingUniformJumpsuitBlackSweatpants: 4294967295
+    ClothingUniformJumpsuitBlueSweatpants: 4294967295
     ClothingOuterCoatRadiant: 4294967295 # Infinite
     ClothingOuterCoatRadiantLong: 4294967295 # Infinite
     ClothingUniformJumpsuitDungeonMaster: 4294967295 # Infinite
@@ -30,7 +34,14 @@
     ClothingOuterHeavyArmorRS: 4294967295 # Infinite
     ClothingOuterRndRS: 4294967295 # Infinite
     ClothingOuterRNDRS: 4294967295 # Infinite
-    ClothingShoesDameDov: 4294967295 # Infinite
     ClothingHandsGlovesLatexRS: 4294967295 # Infinite
     ClothingUniformSpecialGorichnaya: 4294967295 # Infinite
+    ClothingShoesColorSandalsDeepBlack: 4294967295
+    ClothingShoesColorSandalsScarlet: 4294967295
+    ClothingShoesColorSandalsPink: 4294967295
+    ClothingShoesColorSandalsNeonPurple: 4294967295
+    ClothingShoesColorSandalsMint: 4294967295
+    ClothingShoesDame: 4294967295 # Infinite
+    ClothingShoesDameDov: 4294967295 # Infinite
+
 

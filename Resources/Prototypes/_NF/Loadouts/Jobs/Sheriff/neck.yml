@@ -13,3 +13,15 @@
   id: SheriffClothingNeckNfsdBadgeSheriff
   equipment:
     neck: ClothingNeckNfsdBadgeSheriff
+
+- type: loadout
+  id: SheriffClothingNeckCloakSbRS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 540000 # 150hr
+  equipment:
+    neck: ClothingNeckCloakSbRS
+

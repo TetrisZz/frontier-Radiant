@@ -370,3 +370,72 @@
       - NFCartridgeRifle20
     capacity: 100
     proto: null
+
+- type: entity
+  name: Кобальт
+  parent: [NFBaseGunMeleeAttackMedium, BaseWeaponRifle]
+  id: WeaponRifleCobalt
+  description: Компактная штурмовая винтовка, созданная для операций, где важны скорость, контроль и минимальная заметность. «Кобальт» получил своё название за характерный тёмный, почти синеватый оттенок корпуса и «холодный» характер — точный, сдержанный, без лишней отдачи.Оружие спроектировано с упором на баланс - укороченная конструкция обеспечивает высокую манёвренность, а внутренняя система стабилизации снижает подброс ствола при автоматическом огне. Благодаря этому стрелок сохраняет контроль даже в динамичных столкновениях на ближней дистанции.Материалы корпуса включают композитные сплавы с антирефлекторным покрытием, что уменьшает заметность в условиях слабого освещения. Использует .20 винтовочные патроны.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/cobalt.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/cobalt.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 20
+    maxAngle: 30
+    angleIncrease: 1
+    angleDecay: 1
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/fire2-rifle.ogg
+      params:
+        volume: -3.5
+    soundEmpty:
+      path: /Audio/_radiant/Weapons/Empty/m4a1_empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineRifle20
+        insertSound:
+          path: /Audio/_radiant/Weapons/MagIn/slow-reloading.ogg
+          params:
+            volume: -2.5
+        ejectSound:
+          path: /Audio/_radiant/Weapons/MagOut/m4a1_magout.ogg
+          params:
+            volume: -2.5
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineRifle20
+            - NFMagazineDrumRifle20
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle20
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle20
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -25
+    angleDecay: 1.5
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: NFWeaponDetails
+    manufacturer: AURORA

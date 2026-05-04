@@ -1,0 +1,10 @@
+- type: loadout
+  id: DIRClothingNeckCloakDrRS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAcorpDirector
+      time: 540000 # 150hr
+  equipment:
+    neck: ClothingNeckCloakDrRS

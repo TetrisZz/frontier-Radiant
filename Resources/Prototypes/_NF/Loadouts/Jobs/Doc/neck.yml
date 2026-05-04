@@ -7,3 +7,14 @@
   id: DocClothingNeckMantleCMO
   equipment:
     neck: ClothingNeckMantleCMO
+
+- type: loadout
+  id: DocClothingNeckCloakGvRS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobDirectorOfCare
+      time: 540000 # 150
+  equipment:
+    neck: ClothingNeckCloakGvRS

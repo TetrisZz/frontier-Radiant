@@ -58,6 +58,7 @@
   loadouts:
   - DocClothingCloakCmo
   - DocClothingNeckMantleCMO
+  - DocClothingNeckCloakGvRS
 
 - type: loadoutGroup
   id: DocPDA

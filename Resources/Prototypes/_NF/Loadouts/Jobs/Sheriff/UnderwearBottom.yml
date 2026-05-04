@@ -1,0 +1,15 @@
+#T0
+- type: loadout
+  id: SheriffClothingUnderwearBottomPantiesDVBB
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesDVBB
+
+- type: loadout
+  id: SheriffClothingUnderwearBottomPantiesDVB
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesDVB
+
+- type: loadout
+  id: SheriffClothingUnderwearBottomBoxersDVB
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersDVB

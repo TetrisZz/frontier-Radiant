@@ -339,10 +339,10 @@
   id: UplinkHomNWeaponShotgunCshotGun
   name:  uplink-hom-nabat-name
   description: uplink-hom-nabat-desc
-  productEntity: WeaponShotgunCshotGun
+  productEntity: WeaponCaseLongShotgunCshotGun
   icon: { sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi, state: icon }
   cost:
-    Cristalhom: 25
+    Cristalhom: 20
   categories:
     - UplinkHomWeapons
   conditions:
@@ -499,10 +499,10 @@
   id: UplinkHomWeaponShotgunPoorGun
   name:  uplink-hom-gun-name
   description: uplink-hom-gun-desc
-  productEntity: WeaponShotgunPoorGun
+  productEntity: WeaponCaseLongWeaponShotgunPoorGun
   icon: { sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi, state: mag-unshaded-1 }
   cost:
-    Cristalhom: 25
+    Cristalhom: 20
   categories:
     - UplinkHomWeapons
   conditions:
@@ -516,7 +516,7 @@
   name:  uplink-hom-collar-name
   description: uplink-hom-collar-desc
   productEntity: ClothingNeckShockCollarToy
-#  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs }
+  icon: { sprite: _radiant/Clothing/Neck/shock_collar_fake.rsi, state: icon }
   cost:
     Cristalhom: 2
   categories:
@@ -755,7 +755,7 @@
   id: UplinkHomWeaponWeaponPistolNocturne
   name:  uplink-hom-nocturne-name
   description: uplink-hom-nocturne-desc
-  productEntity: WeaponPistolNocturne
+  productEntity: WeaponCaseShortNocturne
   icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi, state: icon }
   cost:
     Cristalhom: 5
@@ -793,6 +793,102 @@
     Cristalhom: 5
   categories:
     - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponDominator
+  name:  uplink-hom-dominator-name
+  description: uplink-hom-dominator-desc
+  productEntity: WeaponCaseLongWeaponDominator
+  icon: { sprite: _radiant/Objects/Weapons/Laser/dominator.rsi, state: base }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponCobalt
+  name:  uplink-hom-cobalt-name
+  description: uplink-hom-cobalt-desc
+  productEntity: WeaponCaseLongRifleCobalt
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/cobalt.rsi, state: icon }
+  cost:
+    Cristalhom: 15
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingOuterCoatAurora
+  name:  uplink-hom-aurora-name
+  description: uplink-hom-aurora-desc
+  productEntity: ClothingOuterCoatAurora
+  icon: { sprite: _radiant/Clothing/OuterClothing/Coats/kyrtka-AUR.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomClothingNeckCloakHomRS
+  name:  uplink-hom-cloakhomk-name
+  description: uplink-hom-cloakhomk-desc
+  productEntity: ClothingNeckCloakHomRS
+  icon: { sprite: _radiant/Clothing/Neck/Cloaks/hom.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomBoxRSDonUwe
+  name:  uplink-hom-uwe-name
+  description: uplink-hom-uwe-desc
+  productEntity: BoxRSDonUwe
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomBoxRSDonUw
+  name:  uplink-hom-uw-name
+  description: uplink-hom-uw-desc
+  productEntity: BoxRSDonUw
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomUtility
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:

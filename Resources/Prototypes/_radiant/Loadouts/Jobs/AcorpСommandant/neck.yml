@@ -13,3 +13,14 @@
   id: COMClothingNeckMantleAcorpGrey
   equipment:
     neck: ClothingNeckMantleAcorpGrey
+
+- type: loadout
+  id: COMClothingNeckCloakComRS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobAcorpСommandant
+      time: 540000 # 150hr
+  equipment:
+    neck: ClothingNeckCloakComRS

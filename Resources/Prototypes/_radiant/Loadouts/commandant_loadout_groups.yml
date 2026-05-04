@@ -15,6 +15,7 @@
   - COMClothingNeckCloakAcorpAdmin2
   - COMClothingNeckCloakAcorpAdmin
   - COMClothingNeckMantleAcorpGrey
+  - COMClothingNeckCloakComRS
 
 - type: loadoutGroup
   id: COMJumpsuit

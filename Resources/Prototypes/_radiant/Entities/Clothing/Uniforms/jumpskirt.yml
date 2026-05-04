@@ -404,3 +404,25 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/gothic.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/gothic.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtGreenlok
+  name: юбка-комбинезон
+  description: Удобное, вроде даже всё прикрывает.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/greenlok.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/greenlok.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtRedTurtleneck
+  name: юбка-комбинезон
+  description: Удобное, вроде даже всё прикрывает.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/red-turtleneck.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/red-turtleneck.rsi

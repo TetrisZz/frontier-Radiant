@@ -166,6 +166,7 @@
   loadouts:
   - PlantManagerClothingNeckMantleCE
   - PlantManagerClothingNeckCloakCe
+  - PlantManagerClothingNeckCloakSiRS
 
 - type: loadoutGroup
   id: PlantManagerPDA
