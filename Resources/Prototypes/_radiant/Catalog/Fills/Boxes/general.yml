@@ -174,3 +174,24 @@
       - id: Wirecutter
       - id: Welder
       - id: Multitool
+
+- type: entity
+  parent: BoxWRS
+  id: BoxRSDonUwe
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearTopBraXeno
+      - id: ClothingUnderwearBottomPantiesXeno
+      - id: ClothingUnderwearSocksRadiantBlack
+
+
+- type: entity
+  parent: BoxWRS
+  id: BoxRSDonUw
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderwearTopBraAngel
+      - id: ClothingUnderwearBottomPantiesAngel
+      - id: ClothingUnderwearSocksRich

@@ -162,3 +162,23 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/dvbb.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraAngel
+  name: ангельский бюстгальтер
+  description: Бюстгальтер, что поможет тебе не замерзнуть холодными ночами.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Clothing/Underwear/top/angel.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraXeno
+  name: бюстгальтер ксено
+  description: Бюстгальтер, что поможет тебе не замерзнуть холодными ночами.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Clothing/Underwear/top/xeno.rsi

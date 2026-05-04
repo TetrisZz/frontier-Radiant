@@ -516,7 +516,7 @@
   name:  uplink-hom-collar-name
   description: uplink-hom-collar-desc
   productEntity: ClothingNeckShockCollarToy
-  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs }
+  icon: { sprite: _radiant/Clothing/Neck/shock_collar_fake.rsi, state: icon }
   cost:
     Cristalhom: 2
   categories:
@@ -853,6 +853,38 @@
   description: uplink-hom-cloakhomk-desc
   productEntity: ClothingNeckCloakHomRS
   icon: { sprite: _radiant/Clothing/Neck/Cloaks/hom.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomBoxRSDonUwe
+  name:  uplink-hom-uwe-name
+  description: uplink-hom-uwe-desc
+  productEntity: BoxRSDonUwe
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomBoxRSDonUw
+  name:  uplink-hom-uw-name
+  description: uplink-hom-uw-desc
+  productEntity: BoxRSDonUw
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs }
   cost:
     Cristalhom: 5
   categories:

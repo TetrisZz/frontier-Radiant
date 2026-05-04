@@ -138,3 +138,23 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/dvbp.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesAngel
+  name: ангельские трусики
+  description: Красивое и дорогое белье.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Clothing/Underwear/bottom/angel.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesXeno
+  name: трусики ксено
+  description: Красивое и дорогое белье.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Clothing/Underwear/bottom/xeno.rsi
