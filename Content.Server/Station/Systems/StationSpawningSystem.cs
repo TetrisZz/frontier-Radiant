@@ -169,12 +169,16 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             var detail = AddComp<DetailExaminableComponent>(entity.Value);
             detail.Content = profile.FlavorText;
+            detail.OOCFlavorText = profile.OOCFlavorText;
+            detail.CharacterFlavorText = profile.CharacterFlavorText;
+            detail.GreenFlavorText = profile.GreenFlavorText;
+            detail.YellowFlavorText = profile.YellowFlavorText;
+            detail.RedFlavorText = profile.RedFlavorText;
+            detail.TagsFlavorText = profile.TagsFlavorText;
+            detail.LinksFlavorText = profile.LinksFlavorText;
+            detail.NSFWFlavorText = profile.NSFWFlavorText;
             detail.ERPStatus = profile.ERPStatus;
             Dirty(entity.Value, detail);
-//            if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-//            {
-//                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
-//            }
         }
 
         if (loadout != null)

@@ -9,6 +9,30 @@ public sealed partial class DetailExaminableComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public string Content = string.Empty;
 
+    [DataField, AutoNetworkedField]
+    public string OOCFlavorText = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string CharacterFlavorText = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string GreenFlavorText = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string YellowFlavorText = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string RedFlavorText = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string TagsFlavorText = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string LinksFlavorText = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public string NSFWFlavorText = string.Empty;
+
     [DataField("ERPStatus", required: true), AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
     public EnumERPStatus ERPStatus = EnumERPStatus.HALF;

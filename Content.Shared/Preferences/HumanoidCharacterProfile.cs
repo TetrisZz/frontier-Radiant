@@ -74,6 +74,30 @@ namespace Content.Shared.Preferences
         public string FlavorText { get; set; } = string.Empty;
 
         [DataField]
+        public string OOCFlavorText { get; set; } = string.Empty;
+
+        [DataField]
+        public string CharacterFlavorText { get; set; } = string.Empty;
+
+        [DataField]
+        public string GreenFlavorText { get; set; } = string.Empty;
+
+        [DataField]
+        public string YellowFlavorText { get; set; } = string.Empty;
+
+        [DataField]
+        public string RedFlavorText { get; set; } = string.Empty;
+
+        [DataField]
+        public string TagsFlavorText { get; set; } = string.Empty;
+
+        [DataField]
+        public string LinksFlavorText { get; set; } = string.Empty;
+
+        [DataField]
+        public string NSFWFlavorText { get; set; } = string.Empty;
+
+        [DataField]
         public EnumERPStatus ERPStatus { get; set; } = 0;
 
         /// <summary>
@@ -145,6 +169,14 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
+            string oocflavortext,
+            string characterflavortext,
+            string greenflavortext,
+            string yellowflavortext,
+            string redflavortext,
+            string tagsflavortext,
+            string linksflavortext,
+            string nsfwflavortext,
             int erpStatus,
             string species,
             float height,
@@ -164,6 +196,14 @@ namespace Content.Shared.Preferences
         {
             Name = name;
             FlavorText = flavortext;
+            OOCFlavorText = oocflavortext;
+            CharacterFlavorText = characterflavortext;
+            GreenFlavorText = greenflavortext;
+            YellowFlavorText = yellowflavortext;
+            RedFlavorText = redflavortext;
+            TagsFlavorText = tagsflavortext;
+            LinksFlavorText = linksflavortext;
+            NSFWFlavorText = nsfwflavortext;
             ERPStatus = (EnumERPStatus)erpStatus;
             Species = species;
             Height = height;
@@ -189,7 +229,7 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts)
-            : this(other.Name, other.FlavorText, (int)other.ERPStatus, other.Species, other.Height, other.Width, other.Voice, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
+            : this(other.Name, other.FlavorText, other.OOCFlavorText, other.CharacterFlavorText, other.GreenFlavorText, other.YellowFlavorText, other.RedFlavorText, other.TagsFlavorText, other.LinksFlavorText, other.NSFWFlavorText, (int)other.ERPStatus, other.Species, other.Height, other.Width, other.Voice, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
                 jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, loadouts)
         {
         }
@@ -198,6 +238,14 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile(HumanoidCharacterProfile other)
             : this(other.Name,
                 other.FlavorText,
+                other.OOCFlavorText,
+                other.CharacterFlavorText,
+                other.GreenFlavorText,
+                other.YellowFlavorText,
+                other.RedFlavorText,
+                other.TagsFlavorText,
+                other.LinksFlavorText,
+                other.NSFWFlavorText,
                 (int)other.ERPStatus,
                 other.Species,
                 other.Height,
@@ -317,6 +365,46 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithFlavorText(string flavorText)
         {
             return new(this) { FlavorText = flavorText };
+        }
+
+        public HumanoidCharacterProfile WithOOCFlavorText(string oocFlavorText)
+        {
+            return new(this) { OOCFlavorText = oocFlavorText };
+        }
+
+        public HumanoidCharacterProfile WithCharacterText(string characterFlavorText)
+        {
+            return new(this) { CharacterFlavorText = characterFlavorText };
+        }
+
+        public HumanoidCharacterProfile WithGreenPreferencesText(string greenFlavorText)
+        {
+            return new(this) { GreenFlavorText = greenFlavorText };
+        }
+
+        public HumanoidCharacterProfile WithYellowPreferencesText(string yellowFlavorText)
+        {
+            return new(this) { YellowFlavorText = yellowFlavorText };
+        }
+
+        public HumanoidCharacterProfile WithRedPreferencesText(string redFlavorText)
+        {
+            return new(this) { RedFlavorText = redFlavorText };
+        }
+
+        public HumanoidCharacterProfile WithTagsText(string tagsFlavorText)
+        {
+            return new(this) { TagsFlavorText = tagsFlavorText };
+        }
+
+        public HumanoidCharacterProfile WithLinksText(string linksFlavorText)
+        {
+            return new(this) { LinksFlavorText = linksFlavorText };
+        }
+
+        public HumanoidCharacterProfile WithNSFWPreferencesText(string nsfwFlavorText)
+        {
+            return new(this) { NSFWFlavorText = nsfwFlavorText };
         }
 
         public HumanoidCharacterProfile WithERPStatus(EnumERPStatus state)
@@ -550,6 +638,16 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (OOCFlavorText != other.OOCFlavorText) return false;
+            if (CharacterFlavorText != other.CharacterFlavorText) return false;
+            if (GreenFlavorText != other.GreenFlavorText) return false;
+            if (YellowFlavorText != other.YellowFlavorText) return false;
+            if (RedFlavorText != other.RedFlavorText) return false;
+            if (TagsFlavorText != other.TagsFlavorText) return false;
+            if (LinksFlavorText != other.LinksFlavorText) return false;
+            if (NSFWFlavorText != other.NSFWFlavorText) return false;
+            if (ERPStatus != other.ERPStatus) return false;
+            if (Voice != other.Voice) return false;
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -641,6 +739,86 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
+            string oocflavortext;
+            if (OOCFlavorText.Length > maxFlavorTextLength)
+            {
+                oocflavortext = FormattedMessage.RemoveMarkupOrThrow(OOCFlavorText)[..maxFlavorTextLength];
+            }
+            else
+            {
+                oocflavortext = FormattedMessage.RemoveMarkupOrThrow(OOCFlavorText);
+            }
+
+            string characterDescription;
+            if (CharacterFlavorText.Length > maxFlavorTextLength)
+            {
+                characterDescription = FormattedMessage.RemoveMarkupOrThrow(CharacterFlavorText)[..maxFlavorTextLength];
+            }
+            else
+            {
+                characterDescription = FormattedMessage.RemoveMarkupOrThrow(CharacterFlavorText);
+            }
+
+            string greenPreferences;
+            if (GreenFlavorText.Length > maxFlavorTextLength)
+            {
+                greenPreferences = FormattedMessage.RemoveMarkupOrThrow(GreenFlavorText)[..maxFlavorTextLength];
+            }
+            else
+            {
+                greenPreferences = FormattedMessage.RemoveMarkupOrThrow(GreenFlavorText);
+            }
+
+            string yellowPreferences;
+            if (YellowFlavorText.Length > maxFlavorTextLength)
+            {
+                yellowPreferences = FormattedMessage.RemoveMarkupOrThrow(YellowFlavorText)[..maxFlavorTextLength];
+            }
+            else
+            {
+                yellowPreferences = FormattedMessage.RemoveMarkupOrThrow(YellowFlavorText);
+            }
+
+            string redPreferences;
+            if (RedFlavorText.Length > maxFlavorTextLength)
+            {
+                redPreferences = FormattedMessage.RemoveMarkupOrThrow(RedFlavorText)[..maxFlavorTextLength];
+            }
+            else
+            {
+                redPreferences = FormattedMessage.RemoveMarkupOrThrow(RedFlavorText);
+            }
+
+            string tags;
+            if (TagsFlavorText.Length > maxFlavorTextLength)
+            {
+                tags = FormattedMessage.RemoveMarkupOrThrow(TagsFlavorText)[..maxFlavorTextLength];
+            }
+            else
+            {
+                tags = FormattedMessage.RemoveMarkupOrThrow(TagsFlavorText);
+            }
+
+            string links;
+            if (LinksFlavorText.Length > maxFlavorTextLength)
+            {
+                links = FormattedMessage.RemoveMarkupOrThrow(LinksFlavorText)[..maxFlavorTextLength];
+            }
+            else
+            {
+                links = FormattedMessage.RemoveMarkupOrThrow(LinksFlavorText);
+            }
+
+            string nsfwPreferences;
+            if (NSFWFlavorText.Length > maxFlavorTextLength)
+            {
+                nsfwPreferences = FormattedMessage.RemoveMarkupOrThrow(NSFWFlavorText)[..maxFlavorTextLength];
+            }
+            else
+            {
+                nsfwPreferences = FormattedMessage.RemoveMarkupOrThrow(NSFWFlavorText);
+            }
+
             // Frontier
             //make sure theres no funny bank stuff going on
             var bankBalance = BankBalance;
@@ -706,6 +884,14 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
+            OOCFlavorText = oocflavortext;
+            CharacterFlavorText = characterDescription;
+            GreenFlavorText = greenPreferences;
+            YellowFlavorText = yellowPreferences;
+            RedFlavorText = redPreferences;
+            TagsFlavorText = tags;
+            LinksFlavorText = links;
+            NSFWFlavorText = nsfwPreferences;
             Age = age;
             Height = height;
             Width = width;
@@ -841,6 +1027,15 @@ namespace Content.Shared.Preferences
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
+            hashCode.Add(OOCFlavorText);
+            hashCode.Add(CharacterFlavorText);
+            hashCode.Add(GreenFlavorText);
+            hashCode.Add(YellowFlavorText);
+            hashCode.Add(RedFlavorText);
+            hashCode.Add(TagsFlavorText);
+            hashCode.Add(LinksFlavorText);
+            hashCode.Add(NSFWFlavorText);
+            hashCode.Add((int)ERPStatus);
             hashCode.Add(Species);
             hashCode.Add(Height);
             hashCode.Add(Width);

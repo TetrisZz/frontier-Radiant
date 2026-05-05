@@ -63,6 +63,14 @@ namespace Content.Client.Lobby.UI
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
+        private TextEdit? _flavorTextOOCEdit;
+        private TextEdit? _characterTextEdit;
+        private TextEdit? _greenTextEdit;
+        private TextEdit? _yellowTextEdit;
+        private TextEdit? _redTextEdit;
+        private TextEdit? _tagsTextEdit;
+        private TextEdit? _linksTextEdit;
+        private TextEdit? _nsfwTextEdit;
         private OptionButton? _erpStatus = null!;
         private Slider _heightSlider => CHeightSlider;
         private Slider _widthSlider => CWidthSlider;
@@ -575,23 +583,43 @@ namespace Content.Client.Lobby.UI
                 TabContainer.AddChild(_flavorText);
                 TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-flavortext-tab"));
                 _flavorTextEdit = _flavorText.CFlavorTextInput;
+                _flavorTextOOCEdit = _flavorText.CFlavorOOCTextInput;
+                _characterTextEdit = _flavorText.CCharacterTextInput;
+                _greenTextEdit = _flavorText.CGreenTextInput;
+                _yellowTextEdit = _flavorText.CYellowTextInput;
+                _redTextEdit = _flavorText.CRedTextInput;
+                _tagsTextEdit = _flavorText.CTagsTextInput;
+                _linksTextEdit = _flavorText.CLinksTextInput;
+                _nsfwTextEdit = _flavorText.CNSFWTextInput;
 
                 _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
+                _flavorText.OnFlavorOOCTextChanged += OnFlavorOOCTextChange;
+                _flavorText.OnCharacterTextChanged += OnCharacterFlavorTextChange;
+                _flavorText.OnGreenTextChanged += OnGreenFlavorTextChange;
+                _flavorText.OnYellowTextChanged += OnYellowFlavorTextChange;
+                _flavorText.OnRedTextChanged += OnRedFlavorTextChange;
+                _flavorText.OnTagsTextChanged += OnTagsFlavorTextChange;
+                _flavorText.OnLinksTextChanged += OnLinksFlavorTextChange;
+                _flavorText.OnNSFWTextChanged += OnNSFWFlavorTextChange;
 
                 _erpStatus = _flavorText.CERPStatusOption;
 
-                _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-no"), (int)EnumERPStatus.NO);
-                _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-half"), (int)EnumERPStatus.HALF);
-                _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-full"), (int)EnumERPStatus.FULL);
-
-                _erpStatus.OnItemSelected += args =>
+                if (_erpStatus != null)
                 {
-                    if (Profile is null) return;
+                    _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-no"), (int)EnumERPStatus.NO);
+                    _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-half"), (int)EnumERPStatus.HALF);
+                    _erpStatus.AddItem(Loc.GetString("humanoid-erp-status-full"), (int)EnumERPStatus.FULL);
 
-                    _erpStatus.SelectId(args.Id);
-                    Profile = Profile.WithERPStatus((EnumERPStatus)args.Id);
-                    IsDirty = true;
-                };
+                    _erpStatus.OnItemSelected += args =>
+                    {
+                        if (Profile is null) return;
+
+                        _erpStatus.SelectId(args.Id);
+                        Profile = Profile.WithERPStatus((EnumERPStatus)args.Id);
+                        IsDirty = true;
+                        UpdateFlavorPreview();
+                    };
+                }
             }
             else
             {
@@ -600,9 +628,33 @@ namespace Content.Client.Lobby.UI
 
                 TabContainer.RemoveChild(_flavorText);
                 _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
+                _flavorText.OnFlavorOOCTextChanged -= OnFlavorOOCTextChange;
+                _flavorText.OnCharacterTextChanged -= OnCharacterFlavorTextChange;
+                _flavorText.OnGreenTextChanged -= OnGreenFlavorTextChange;
+                _flavorText.OnYellowTextChanged -= OnYellowFlavorTextChange;
+                _flavorText.OnRedTextChanged -= OnRedFlavorTextChange;
+                _flavorText.OnTagsTextChanged -= OnTagsFlavorTextChange;
+                _flavorText.OnLinksTextChanged -= OnLinksFlavorTextChange;
+                _flavorText.OnNSFWTextChanged -= OnNSFWFlavorTextChange;
                 _flavorText.Dispose();
                 _flavorTextEdit?.Dispose();
                 _flavorTextEdit = null;
+                _flavorTextOOCEdit?.Dispose();
+                _flavorTextOOCEdit = null;
+                _characterTextEdit?.Dispose();
+                _characterTextEdit = null;
+                _greenTextEdit?.Dispose();
+                _greenTextEdit = null;
+                _yellowTextEdit?.Dispose();
+                _yellowTextEdit = null;
+                _redTextEdit?.Dispose();
+                _redTextEdit = null;
+                _tagsTextEdit?.Dispose();
+                _tagsTextEdit = null;
+                _linksTextEdit?.Dispose();
+                _linksTextEdit = null;
+                _nsfwTextEdit?.Dispose();
+                _nsfwTextEdit = null;
                 _flavorText = null;
             }
         }
@@ -881,8 +933,6 @@ namespace Content.Client.Lobby.UI
             JobOverride = null;
 
             UpdateNameEdit();
-            UpdateFlavorTextEdit();
-            UpdateERPStatus();
             UpdateSexControls();
             // Changing species provides inaccurate sliders without these
             UpdateHeightControls();
@@ -906,7 +956,10 @@ namespace Content.Client.Lobby.UI
             RefreshSpecies();
             RefreshTraits();
             RefreshFlavorText();
+            UpdateFlavorTextEdit();
+            UpdateERPStatus();
             ReloadPreview();
+            UpdateFlavorPreview();
 
             if (Profile != null)
             {
@@ -1203,6 +1256,87 @@ namespace Content.Client.Lobby.UI
 
             Profile = Profile.WithFlavorText(content);
             SetDirty();
+            UpdateFlavorPreview();
+        }
+
+        private void OnFlavorOOCTextChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithOOCFlavorText(content);
+            SetDirty();
+            UpdateFlavorPreview();
+        }
+
+        private void OnCharacterFlavorTextChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithCharacterText(content);
+            SetDirty();
+            UpdateFlavorPreview();
+        }
+
+        private void OnGreenFlavorTextChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithGreenPreferencesText(content);
+            SetDirty();
+            UpdateFlavorPreview();
+        }
+
+        private void OnYellowFlavorTextChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithYellowPreferencesText(content);
+            SetDirty();
+            UpdateFlavorPreview();
+        }
+
+        private void OnRedFlavorTextChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithRedPreferencesText(content);
+            SetDirty();
+            UpdateFlavorPreview();
+        }
+
+        private void OnTagsFlavorTextChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithTagsText(content);
+            SetDirty();
+            UpdateFlavorPreview();
+        }
+
+        private void OnLinksFlavorTextChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithLinksText(content);
+            SetDirty();
+            UpdateFlavorPreview();
+        }
+
+        private void OnNSFWFlavorTextChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithNSFWPreferencesText(content);
+            SetDirty();
+            UpdateFlavorPreview();
         }
 
         private void OnMarkingChange(MarkingSet markings)
@@ -1361,12 +1495,14 @@ namespace Content.Client.Lobby.UI
 			UpdateTTSVoicesControls(); // Corvax-TTS
             Markings.SetSex(newSex);
             ReloadPreview();
+            UpdateFlavorPreview();
         }
 
         private void SetGender(Gender newGender)
         {
             Profile = Profile?.WithGender(newGender);
             ReloadPreview();
+            UpdateFlavorPreview();
         }
 
         // Corvax-TTS-Start
@@ -1391,6 +1527,7 @@ namespace Content.Client.Lobby.UI
             UpdateSexControls(); // update sex for new species
             UpdateSpeciesGuidebookIcon();
             ReloadPreview();
+            UpdateFlavorPreview();
         }
 
         private void SetName(string newName)
@@ -1402,6 +1539,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, newName);
+            UpdateFlavorPreview();
         }
 
         private void SetSpawnPriority(SpawnPriorityPreference newSpawnPriority)
@@ -1454,6 +1592,170 @@ namespace Content.Client.Lobby.UI
             {
                 _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? "");
             }
+
+            if (_flavorTextOOCEdit != null)
+            {
+                _flavorTextOOCEdit.TextRope = new Rope.Leaf(Profile?.OOCFlavorText ?? "");
+            }
+
+            if (_characterTextEdit != null)
+            {
+                _characterTextEdit.TextRope = new Rope.Leaf(Profile?.CharacterFlavorText ?? "");
+            }
+
+            if (_greenTextEdit != null)
+            {
+                _greenTextEdit.TextRope = new Rope.Leaf(Profile?.GreenFlavorText ?? "");
+            }
+
+            if (_yellowTextEdit != null)
+            {
+                _yellowTextEdit.TextRope = new Rope.Leaf(Profile?.YellowFlavorText ?? "");
+            }
+
+            if (_redTextEdit != null)
+            {
+                _redTextEdit.TextRope = new Rope.Leaf(Profile?.RedFlavorText ?? "");
+            }
+
+            if (_tagsTextEdit != null)
+            {
+                _tagsTextEdit.TextRope = new Rope.Leaf(Profile?.TagsFlavorText ?? "");
+            }
+
+            if (_linksTextEdit != null)
+            {
+                _linksTextEdit.TextRope = new Rope.Leaf(Profile?.LinksFlavorText ?? "");
+            }
+
+            if (_nsfwTextEdit != null)
+            {
+                _nsfwTextEdit.TextRope = new Rope.Leaf(Profile?.NSFWFlavorText ?? "");
+            }
+        }
+
+        private void UpdateFlavorPreview()
+        {
+            if (_flavorText == null || Profile == null)
+                return;
+
+            _flavorText.PreviewAppearanceText.SetMessage(Profile.FlavorText);
+            _flavorText.PreviewTraitsText.SetMessage(Profile.CharacterFlavorText);
+            _flavorText.PreviewOOCText.SetMessage(Profile.OOCFlavorText);
+            _flavorText.PreviewTagsText.Text = Profile.TagsFlavorText;
+
+            ProcessFlavorPreviewLinks(Profile.LinksFlavorText);
+
+            _flavorText.PreviewGYRContainer.RemoveAllChildren();
+            CreateFlavorPreviewGyrHeading(Loc.GetString("humanoid-profile-editor-gyr-green"), Color.Green);
+            CreateFlavorPreviewGyrBody(Profile.GreenFlavorText);
+            CreateFlavorPreviewGyrHeading(Loc.GetString("humanoid-profile-editor-gyr-yellow"), Color.Yellow);
+            CreateFlavorPreviewGyrBody(Profile.YellowFlavorText);
+            CreateFlavorPreviewGyrHeading(Loc.GetString("humanoid-profile-editor-gyr-red"), Color.Red);
+            CreateFlavorPreviewGyrBody(Profile.RedFlavorText);
+
+            _flavorText.PreviewNSFWText.SetMessage(Profile.NSFWFlavorText);
+
+            var species = Loc.GetString($"species-name-{Profile.Species.ToString().ToLowerInvariant()}");
+            var sex = Loc.GetString($"humanoid-profile-editor-sex-{Profile.Sex.ToString().ToLowerInvariant()}-text");
+            var gender = Loc.GetString($"humanoid-profile-editor-pronouns-{Profile.Gender.ToString().ToLowerInvariant()}-text");
+
+            _flavorText.PreviewNameText.Text = Profile.Name;
+            _flavorText.PreviewGenderText.Text = $"{species}|{sex}|{gender}";
+
+            if (_entManager.EntityExists(PreviewDummy))
+                _flavorText.TargetPreview.SetEntity(PreviewDummy);
+        }
+
+        private void CreateFlavorPreviewGyrHeading(string text, Color color)
+        {
+            var label = new Label
+            {
+                Text = text,
+                VerticalExpand = true,
+                FontColorOverride = color
+            };
+
+            _flavorText?.PreviewGYRContainer.AddChild(label);
+        }
+
+        private void CreateFlavorPreviewGyrBody(string text)
+        {
+            var label = new RichTextLabel
+            {
+                Text = text + "\n",
+                VerticalExpand = true
+            };
+
+            _flavorText?.PreviewGYRContainer.AddChild(label);
+        }
+
+        private void ProcessFlavorPreviewLinks(string linksText)
+        {
+            if (_flavorText?.PreviewLinksContainer == null)
+                return;
+
+            _flavorText.PreviewLinksContainer.RemoveAllChildren();
+            if (string.IsNullOrEmpty(linksText))
+                return;
+
+            var links = linksText.Split(new[] { ',', ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var link in links)
+            {
+                if (IsFlavorPreviewLinkUrl(link))
+                    CreateFlavorPreviewLinkButton(link);
+                else
+                    CreateFlavorPreviewLinkLabel(link);
+            }
+        }
+
+        private static bool IsFlavorPreviewLinkUrl(string url)
+        {
+            return url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                   url.StartsWith("https://", StringComparison.OrdinalIgnoreCase) ||
+                   url.StartsWith("www.", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private void CreateFlavorPreviewLinkButton(string url)
+        {
+            var button = new Button
+            {
+                Text = GetFlavorPreviewLinkDisplayText(url),
+                ToolTip = Loc.GetString("humanoid-profile-editor-link-tooltip", ("url", url)),
+                HorizontalExpand = true,
+                HorizontalAlignment = HAlignment.Center,
+            };
+
+            button.OnPressed += _ => OpenFlavorPreviewLink(url);
+
+            _flavorText?.PreviewLinksContainer.AddChild(button);
+        }
+
+        private void CreateFlavorPreviewLinkLabel(string text)
+        {
+            var label = new Label
+            {
+                Text = text,
+                HorizontalExpand = true,
+                HorizontalAlignment = HAlignment.Center,
+                FontColorOverride = Color.Gray
+            };
+
+            _flavorText?.PreviewLinksContainer.AddChild(label);
+        }
+
+        private static string GetFlavorPreviewLinkDisplayText(string url)
+        {
+            return url.Length > 40 ? url[..37] + "..." : url;
+        }
+
+        private void OpenFlavorPreviewLink(string url)
+        {
+            if (url.StartsWith("www.", StringComparison.OrdinalIgnoreCase))
+                url = "https://" + url;
+
+            var uriOpener = IoCManager.Resolve<IUriOpener>();
+            uriOpener.OpenUri(url);
         }
 
         private void UpdateAgeEdit()

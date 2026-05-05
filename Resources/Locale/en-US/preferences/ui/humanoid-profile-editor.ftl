@@ -10,9 +10,6 @@ humanoid-profile-editor-sex-female-text = Female
 humanoid-profile-editor-sex-unsexed-text = None
 humanoid-profile-editor-age-label = Age:
 humanoid-profile-editor-skin-color-label = Skin color:
-humanoid-profile-editor-height-label = Height: {$height}cm
-humanoid-profile-editor-width-label = Width: {$width}cm
-humanoid-profile-editor-weight-label = Weight: {$weight}kg
 humanoid-profile-editor-species-label = Species:
 humanoid-profile-editor-pronouns-label = Pronouns:
 humanoid-profile-editor-pronouns-male-text = He / Him
@@ -29,9 +26,7 @@ humanoid-profile-editor-spawn-priority-label = Spawn priority:
 humanoid-profile-editor-eyes-label = Eye color:
 humanoid-profile-editor-jobs-tab = Jobs
 humanoid-profile-editor-preference-unavailable-stay-in-lobby-button = Stay in lobby if preference unavailable.
-# Frontier: we have multiple overflow job types, so we change this message.
-# humanoid-profile-editor-preference-unavailable-spawn-as-overflow-button = Be {INDEFINITE($overflowJob)} {$overflowJob} if preference unavailable.
-humanoid-profile-editor-preference-unavailable-spawn-as-overflow-button = Start in an available job if preference unavailable.
+humanoid-profile-editor-preference-unavailable-spawn-as-overflow-button = Be {INDEFINITE($overflowJob)} {$overflowJob} if preference unavailable.
 humanoid-profile-editor-preference-jumpsuit = Jumpsuit
 humanoid-profile-editor-preference-jumpskirt = Jumpskirt
 humanoid-profile-editor-preference-backpack = Backpack
@@ -45,7 +40,7 @@ humanoid-profile-editor-preference-spawn-priority-arrivals = Arrivals
 humanoid-profile-editor-preference-spawn-priority-cryosleep = Cryosleep
 
 humanoid-profile-editor-jobs-amount-in-department-tooltip = Jobs in the {$departmentName} department
-humanoid-profile-editor-department-jobs-label = {$departmentName}
+humanoid-profile-editor-department-jobs-label = {$departmentName} jobs
 humanoid-profile-editor-antags-tab = Antags
 humanoid-profile-editor-antag-preference-yes-button = Yes
 humanoid-profile-editor-antag-preference-no-button = No
@@ -58,6 +53,24 @@ humanoid-profile-editor-naming-rules-warning = Warning: Offensive or LRP IC name
 humanoid-profile-editor-markings-tab = Markings
 humanoid-profile-editor-flavortext-tab = Description
 
+humanoid-profile-editor-flavor-label = Appearance
+humanoid-profile-editor-flavor-character-label = Personality and speech
+humanoid-profile-editor-flavor-ooc-label = OOC notes
+humanoid-profile-editor-flavor-tags-label = Tags (comma-separated)
+humanoid-profile-editor-flavor-links-label = Links to art, lore, references
+humanoid-profile-editor-flavor-links-label-preview = Links
+humanoid-profile-editor-flavor-green-label = Favorite themes (green)
+humanoid-profile-editor-flavor-yellow-label = Discuss first (yellow)
+humanoid-profile-editor-flavor-red-label = Forbidden (red)
+humanoid-profile-editor-flavor-nsfw-label = NSFW preferences
+
+humanoid-profile-editor-gyr-green = Green
+humanoid-profile-editor-gyr-yellow = Yellow
+humanoid-profile-editor-gyr-red = Red
+humanoid-profile-editor-link-tooltip =
+    Open link: {$url}
+    Stay safe: avoid suspicious links; report issues to admins.
+
 # Traits
 humanoid-profile-editor-traits-tab = Traits
 humanoid-profile-editor-no-traits = No traits available
@@ -67,3 +80,6 @@ humanoid-profile-editor-trait-count-hint = Points available: [{$current}/{$max}]
 trait-category-disabilities = Disabilities
 trait-category-speech = Speech traits
 trait-category-quirks = Quirks
+humanoid-profile-editor-height-label = Height: {$height}
+humanoid-profile-editor-width-label = Width: {$width}
+humanoid-profile-editor-weight-label = Weight: {$weight}
