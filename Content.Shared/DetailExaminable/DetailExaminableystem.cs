@@ -1,7 +1,6 @@
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
-using Content.Shared._radiant;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.DetailExaminable;
@@ -30,21 +29,14 @@ public sealed class DetailExaminableSystem : EntitySystem
         {
             Act = () =>
             {
-                var markup = new FormattedMessage();
-                markup.AddMarkupPermissive(ent.Comp.Content);
-
-                if (ent.Comp.ERPStatus == EnumERPStatus.FULL) markup.PushColor(Color.Green);
-                else if (ent.Comp.ERPStatus == EnumERPStatus.HALF) markup.PushColor(Color.Yellow);
-                else markup.PushColor(Color.Red);
-                markup.AddMarkup("\n" + ent.Comp.GetERPStatusName());
-
-                _examine.SendExamineTooltip(user, ent, markup, false, false);
+                RaiseLocalEvent(new DetailExaminableOpenEvent(user, ent));
             },
             Text = Loc.GetString("detail-examinable-verb-text"),
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
             Message = detailsRange ? null : Loc.GetString("detail-examinable-verb-disabled"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/examine.svg.192dpi.png")),
+            ClientExclusive = true
         };
 
         args.Verbs.Add(verb);

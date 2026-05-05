@@ -402,6 +402,16 @@ namespace Content.Server.Database
         public int Slot { get; set; }
         [Column("char_name")] public string CharacterName { get; set; } = null!;
         public string FlavorText { get; set; } = null!;
+
+        [Column("ooc_flavor_text")] public string OocFlavorText { get; set; } = null!;
+        [Column("character_flavor_text")] public string CharacterFlavorText { get; set; } = null!;
+        [Column("green_flavor_text")] public string GreenFlavorText { get; set; } = null!;
+        [Column("yellow_flavor_text")] public string YellowFlavorText { get; set; } = null!;
+        [Column("red_flavor_text")] public string RedFlavorText { get; set; } = null!;
+        [Column("tags_flavor_text")] public string TagsFlavorText { get; set; } = null!;
+        [Column("links_flavor_text")] public string LinksFlavorText { get; set; } = null!;
+        [Column("nsfw_flavor_text")] public string NsfwFlavorText { get; set; } = null!;
+
         public int ERPStatus { get; set; }
         public int Age { get; set; }
         public int BankBalance { get; set; }
