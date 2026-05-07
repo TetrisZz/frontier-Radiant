@@ -113,9 +113,9 @@ public sealed partial class WantedListUiFragment : BoxContainer
         // Radiant sector  start
         TargetShuttle.Visible = true;
         TargetShuttle.SetMessage(GetLoc(
-            "general-station-record-console-record-shuttle",
+            "wanted-list-shuttle-label",
             ("shuttle", string.IsNullOrWhiteSpace(record.TargetInfo.RegisteredShuttle)
-                ? Loc.GetString("general-station-record-console-record-no-shuttle")
+                ? Loc.GetString("wanted-list-no-shuttle-label")
                 : record.TargetInfo.RegisteredShuttle))
         // Radiant sector  end
         );

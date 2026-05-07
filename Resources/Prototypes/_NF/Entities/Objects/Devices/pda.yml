@@ -238,6 +238,8 @@
         !type:String
         pda-brigmed
   - type: PdaBorderColor
+    # borderColor: "#FFFDD0" # Radiant sector
+    # accentHColor: "#896b49" # Radiant sector
     borderColor: "#323232" # Radiant sector
     accentHColor: "#3a3e77" # Radiant sector
   - type: Icon

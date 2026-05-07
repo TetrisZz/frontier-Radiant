@@ -75,6 +75,7 @@
                                FontColorOverride="DarkGray" />
                         <Label Name="PersonPrints" />
                     </BoxContainer>
+                    <!-- Radiant sector start. Record Shuttle field -->
                     <BoxContainer Orientation="Horizontal"
                                   Margin="0 0 0 5">
                         <Label Text="{Loc 'general-station-record-shuttle-field'}"
@@ -83,6 +84,7 @@
                                Margin="0 0 6 0"
                                FontColorOverride="DarkGray" />
                         <Label Name="PersonShuttle" />
+                        <!-- Radiant sector end -->
                     </BoxContainer>
                     <BoxContainer Orientation="Horizontal"
                                   Margin="0 0 0 5">
