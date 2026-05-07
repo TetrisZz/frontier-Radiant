@@ -75,6 +75,10 @@ wanted-list-job-label = [color=darkgray]Должность:[/color] [color=white
 wanted-list-species-label = [color=darkgray]Вид:[/color] [color=white]{ $species }[/color]
 wanted-list-gender-label = [color=darkgray]Гендер:[/color] [color=white]{ $gender }[/color]
 wanted-list-reason-label = [color=darkgray]Причина:[/color] [color=white]{ $reason }[/color]
+# Radiant sector start
+wanted-list-shuttle-label = [color=white]{ $shuttle }[/color]
+wanted-list-no-shuttle-label = [color=white]отсутствует[/color]
+# Radiant sector end
 wanted-list-unknown-reason-label = неизвестная причина
 wanted-list-initiator-label = [color=darkgray]Инициатор:[/color] [color=white]{ $initiator }[/color]
 wanted-list-unknown-initiator-label = неизвестный инициатор

@@ -234,6 +234,11 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         }
 
         PersonPrints.Text = stationRecord.Fingerprint ??  Loc.GetString("generic-not-available-shorthand");
+        // Radiant sector start
+        PersonShuttle.Text = string.IsNullOrEmpty(stationRecord.RegisteredShuttle)
+            ? Loc.GetString("general-station-record-console-record-no-shuttle")
+            : stationRecord.RegisteredShuttle;
+        // Radiant sector end
         PersonDna.Text = stationRecord.DNA ??  Loc.GetString("generic-not-available-shorthand");
 
         if (criminalRecord.Status != SecurityStatus.None)

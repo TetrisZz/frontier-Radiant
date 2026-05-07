@@ -9,6 +9,7 @@ using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.StationRecords;
+using Content.Shared._NF.Shipyard.Components;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -87,6 +88,42 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             }
         }
     }
+    //Radiant sector 
+    public void UpdateRegisteredShuttleFromId(EntityUid targetId)
+    {
+        if (!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
+            || keyStorage.Key is not { } key)
+        {
+            return;
+        }
+
+        if (!TryGetRecord<GeneralStationRecord>(key, out var record))
+            return;
+
+        record.RegisteredShuttle = GetRegisteredShuttleName(targetId);
+        Synchronize(key);
+    }
+
+    private string? GetRegisteredShuttleName(EntityUid targetId)
+    {
+        if (!TryComp<ShuttleDeedComponent>(targetId, out var shuttleDeed))
+            return null;
+
+        if (Deleted(shuttleDeed.ShuttleUid))
+        {
+            RemComp<ShuttleDeedComponent>(targetId);
+            return null;
+        }
+
+        var name = shuttleDeed.ShuttleName?.Trim();
+        var suffix = shuttleDeed.ShuttleNameSuffix?.Trim();
+
+        if (string.IsNullOrEmpty(name))
+            return null;
+
+        return string.IsNullOrEmpty(suffix) ? name : $"{name} {suffix}";
+    }
+    //Radiant sector end
 
     public void CreateGeneralRecord(EntityUid station, EntityUid player, HumanoidCharacterProfile profile,
         string? jobId, StationRecordsComponent records) // Frontier: private<public

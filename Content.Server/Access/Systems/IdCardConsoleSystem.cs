@@ -261,6 +261,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         //     suffix = suffix[..MaxSuffixLength];
 
         _shipyard.TryRenameShuttle(targetId, shuttleDeed, name, suffix);
+        _record.UpdateRegisteredShuttleFromId(targetId); //Radiant sector
 
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(player):player} has changed the shuttle name of {ToPrettyString(shuttleDeed.ShuttleUid):entity} to {ShipyardSystem.GetFullName(shuttleDeed)}");

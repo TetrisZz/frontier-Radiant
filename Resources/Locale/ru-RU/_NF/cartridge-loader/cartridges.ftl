@@ -14,7 +14,7 @@ ledger-balance = Баланс:
 ledger-no-balance = Н/А
 
 ledger-tab-Frontier = Аванпост Фронтира
-ledger-tab-Nfsd = ДШНФ
+ledger-tab-Nfsd = ОСК
 ledger-tab-Medical = Медицинский Диспансер
 # Fallback, if this displays, something's wrong.
 ledger-tab-Unknown = Неизвестно

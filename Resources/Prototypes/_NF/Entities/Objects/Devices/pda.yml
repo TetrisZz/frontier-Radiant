@@ -238,8 +238,10 @@
         !type:String
         pda-brigmed
   - type: PdaBorderColor
-    borderColor: "#FFFDD0"
-    accentHColor: "#896b49"
+    # borderColor: "#FFFDD0" # Radiant sector
+    # accentHColor: "#896b49" # Radiant sector
+    borderColor: "#323232" # Radiant sector
+    accentHColor: "#3a3e77" # Radiant sector
   - type: Icon
     state: pda-brigmed
 
@@ -320,7 +322,8 @@
         !type:String
         pda-nfdetective
   - type: PdaBorderColor
-    borderColor: "#774705"
+    borderColor: "#323232" # Radiant sector
+    accentHColor: "#3a3e77" # Radiant sector
   - type: Icon
     state: pda-nfdetective
 
