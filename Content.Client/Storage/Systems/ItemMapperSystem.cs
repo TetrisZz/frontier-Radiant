@@ -15,8 +15,8 @@ public sealed class ItemMapperSystem : SharedItemMapperSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly ItemSystem _item = default!; //Radiant
-    [Dependency] private readonly IResourceCache _resourceCache = default!; //Radiant
+    [Dependency] private readonly ItemSystem _item = default!; //Radiant sector
+    [Dependency] private readonly IResourceCache _resourceCache = default!; //Radiant sector
 
     public override void Initialize()
     {
@@ -43,7 +43,7 @@ public sealed class ItemMapperSystem : SharedItemMapperSystem
             }
 
             EnableLayers((uid, component, spriteComponent, args.Component));
-            _item.VisualsChanged(uid); //Radiant
+            _item.VisualsChanged(uid); //Radiant sector
         }
     }
 
@@ -56,7 +56,7 @@ public sealed class ItemMapperSystem : SharedItemMapperSystem
         component.SpriteLayers.AddRange(wrapper.QueuedEntities);
 
         foreach (var sprite in component.SpriteLayers)
-        {//Radiant start
+        {//Radiant sector start
             _sprite.LayerMapReserve((owner, spriteComponent), sprite);
             ResPath spriteRsiPath = wrapper.RsiPaths.TryGetValue(sprite, out var path)
                 ? GetValidLayerPath(component, spriteComponent, sprite, new ResPath(path))
@@ -97,7 +97,7 @@ public sealed class ItemMapperSystem : SharedItemMapperSystem
 
         validPath = path;
         return false;
-    }//Radiant end
+    }//Radiant sector end
 
     private void EnableLayers(Entity<ItemMapperComponent, SpriteComponent, AppearanceComponent> ent)
     {
@@ -108,13 +108,13 @@ public sealed class ItemMapperSystem : SharedItemMapperSystem
         foreach (var layerName in component.SpriteLayers)
         {
             var show = wrapper.QueuedEntities.Contains(layerName);
-            //Radiant start
+            //Radiant sector start
             ResPath spriteRsiPath = wrapper.RsiPaths.TryGetValue(layerName, out var path)
                 ? GetValidLayerPath(component, spriteComponent, layerName, new ResPath(path))
                 : component.RSIPath ?? throw new InvalidOperationException("ItemMapperComponent RSIPath must be set.");
 
             _sprite.LayerSetSprite((owner, spriteComponent), layerName, new SpriteSpecifier.Rsi(spriteRsiPath, layerName));
-            //Radiant end
+            //Radiant sector end
             _sprite.LayerSetVisible((owner, spriteComponent), layerName, show);
         }
     }

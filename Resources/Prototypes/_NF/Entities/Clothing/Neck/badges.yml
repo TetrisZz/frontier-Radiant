@@ -12,9 +12,9 @@
     layers: []
   - type: Clothing
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
-  - type: Tag # radiant start
+  - type: Tag # Radiant sector start
     tags:
-      - NfsdBadge # radiant end
+      - NfsdBadge # Radiant sector end
 
 - type: entity
   parent: ClothingNeckNfsdBadge
@@ -102,6 +102,6 @@
     sprite: _NF/Clothing/Neck/Misc/palbadge.rsi
   - type: TypingIndicatorClothing
     proto: pal
-  - type: Tag # radiant start
+  - type: Tag # Radiant sector start
     tags:
-      - NfsdBadge # radiant end
+      - NfsdBadge # Radiant sector end

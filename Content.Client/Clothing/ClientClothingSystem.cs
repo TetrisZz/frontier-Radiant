@@ -48,7 +48,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 		{"socks", "SOCKS"},
 	    {"underweart", "UNDERWEART"},
 	    {"underwearb", "UNDERWEARB"},
-	    {"plug", "PLUG"}, /// Radiant sector
+	    {"plug", "PLUG"}, /// Radiant sector 
         {"id", "IDCARD"},
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
@@ -59,7 +59,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //Radiant
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //Radiant sector sector
 
     public override void Initialize()
     {
@@ -140,7 +140,7 @@ public sealed class ClientClothingSystem : ClothingSystem
             args.Layers.Add((key, layer));
         }
 
-//Radiant start
+    //Radiant sector start
 
         AddItemMapperLayers(uid, item, args, layers);
     }
@@ -179,7 +179,7 @@ public sealed class ClientClothingSystem : ClothingSystem
             var key = $"{args.Slot}-{layerName}";
             args.Layers.Add((key, mapperLayer));
         }
-        //Radiant end
+    //Radiant sector end
     }
 
     /// <summary>
