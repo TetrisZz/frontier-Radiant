@@ -88,7 +88,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             }
         }
     }
-    //Radiant
+    //Radiant sector 
     public void UpdateRegisteredShuttleFromId(EntityUid targetId)
     {
         if (!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
@@ -123,7 +123,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
 
         return string.IsNullOrEmpty(suffix) ? name : $"{name} {suffix}";
     }
-    //Radiant end
+    //Radiant sector end
 
     public void CreateGeneralRecord(EntityUid station, EntityUid player, HumanoidCharacterProfile profile,
         string? jobId, StationRecordsComponent records) // Frontier: private<public
