@@ -48,7 +48,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 		{"socks", "SOCKS"},
 	    {"underweart", "UNDERWEART"},
 	    {"underwearb", "UNDERWEARB"},
-	    {"plug", "PLUG"}, /// Radiant sector 
+	    {"plug", "PLUG"}, /// Radiant sector
         {"id", "IDCARD"},
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
@@ -59,7 +59,7 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //Radiant sector sector
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //Radiant sector
 
     public override void Initialize()
     {

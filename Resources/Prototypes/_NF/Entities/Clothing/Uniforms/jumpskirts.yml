@@ -64,7 +64,7 @@
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt.rsi
-  - type: Appearance #Radiant sector sector start
+  - type: Appearance #Radiant sector start
   - type: ItemSlots
     slots:
       badge_slot:
