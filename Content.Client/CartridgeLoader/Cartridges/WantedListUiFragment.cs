@@ -111,7 +111,6 @@ public sealed partial class WantedListUiFragment : BoxContainer
             ("gender", record.TargetInfo.Gender)
         ));
         // Radiant sector  start
-        TargetShuttle.Visible = true;
         TargetShuttle.SetMessage(GetLoc(
             "wanted-list-shuttle-label",
             ("shuttle", string.IsNullOrWhiteSpace(record.TargetInfo.RegisteredShuttle)
