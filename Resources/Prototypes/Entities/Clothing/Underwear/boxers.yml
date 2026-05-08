@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomBoxersWhite
-  name: боксеры
-  description: Стандартное нижнее белье Nanotrasen для сотрудников станции. Окрашено в белый цвет.
+  name: white boxers
+  description: Standard Nanotrasen underwear for station personnel. Dyed white.
   components:
   - type: Sprite
     sprite: Clothing/Underwear/Bottom/boxers.rsi
@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomBoxersSpaceNinja
-  name: повязка на пах
-  description: Кусок обычной ткани. Вроде бы сделано только для парней.
+  name: space ninja groin wrap
+  description: A piece of ordinary cloth. It seems to be made only for guys.
   components:
   - type: StaticPrice # Frontier
     vendPrice: 300 # Frontier
@@ -27,8 +27,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomBoxersDeathSquad
-  name: боксеры эскадрона смерти
-  description: Самые технологичные боксеры в галактике.
+  name: death squad boxers
+  description: The most technologically advanced boxers in the galaxy.
   components:
   - type: Sprite
     sprite: Clothing/Underwear/Bottom/deathboxers.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomRadiantBoxersNFSD
-  name: зеленые боксеры
-  description: Вам может показаться что это бельё ДШ, но на самом деле это просто боксеры зеленого цвета.
+  name: green boxers
+  description: You might think these are OSG underwear, but they are really just green boxers.
   components:
   - type: Sprite
     sprite: Clothing/Underwear/Bottom/NFSD.rsi
@@ -55,8 +55,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomRadiantBoxersBlack
-  name: черные боксеры
-  description: Стандартные боксеры чёрного цвета.
+  name: black boxers
+  description: Standard black boxers.
   components:
   - type: Sprite
     sprite: Clothing/Underwear/Bottom/Black.rsi

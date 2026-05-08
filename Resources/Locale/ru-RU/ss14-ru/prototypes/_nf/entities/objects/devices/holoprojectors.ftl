@@ -1,4 +1,4 @@
-ent-HoloprojectorNfsd = голопроектор барьеров ДШ
+ent-HoloprojectorNfsd = голопроектор барьеров ОСК
     .desc = Создаёт прочный, но хрупкий голографический барьер. Идеально для временной защиты от назойливых космических нарушителей.
 ent-HoloprojectorNfsdEmpty = { ent-HoloprojectorSecurityEmpty }
     .suffix = Пустой

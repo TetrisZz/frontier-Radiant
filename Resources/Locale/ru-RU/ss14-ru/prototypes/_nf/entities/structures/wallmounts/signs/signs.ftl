@@ -1,6 +1,6 @@
 ent-BaseSignDirectionalNF = { ent-BaseSignDirectional }
     .desc = { ent-BaseSignDirectional.desc }
-ent-SignDirectionalSr = знак "ПС"
+ent-SignDirectionalSr = знак "губернатора"
     .desc = Этот указатель покажет вам путь к офису представителя станции. Следуйте за стрелкой и не заблудитесь!
 ent-SignDirectionalCB1 = карго док 1
     .desc = Знак указывает путь к первому грузовому доку. Если ищете своё отправление, двигайтесь в этом направлении!
