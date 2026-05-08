@@ -9,14 +9,14 @@
 # Shuttle Notes:
 #
 - type: vessel
-  id: Onix
+  id: Hadar
   parent: BaseVessel
-  name: HOM Оникс
-  description: Экспедиционное судно с ксеноархелогией.
-  price: 95000
+  name: HOM Хадар
+  description: Экспедиционное судно, на нем имеется все для длительных полетов.
+  price: 160000
   category: Large
   group: Expedition
-  shuttlePath: /Maps/_radiant/Shuttles/Onix.yml
+  shuttlePath: /Maps/_radiant/Shuttles/Hadar.yml
   guidebookPage: Null
   class:
   - Salvage
@@ -24,19 +24,19 @@
   - Science
   - Expedition
   engine:
-  - Uranium
+  - Bananium
 
 - type: gameMap
-  id: Onix
-  mapName: 'HOM Оникс'
-  mapPath: /Maps/_radiant/Shuttles/Onix.yml
+  id: Hadar
+  mapName: 'HOM Хадар'
+  mapPath: /Maps/_radiant/Shuttles/Hadar.yml
   minPlayers: 0
   stations:
-    Onix:
+    Hadar:
       stationProto: StandardFrontierExpeditionVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Оникс {1}'
+          mapNameTemplate: 'Хадар {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
