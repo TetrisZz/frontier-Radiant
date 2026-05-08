@@ -24,7 +24,7 @@
     visibleFromOtherGrids: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 9
+    lifetime: 5.5
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBomb
@@ -62,7 +62,7 @@
     visibleFromOtherGrids: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 8.75
+    lifetime: 4.3
   - type: PointLight
     color: "#FCBA03"
   - type: ExplodeOnTrigger

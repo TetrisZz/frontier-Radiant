@@ -23,9 +23,9 @@ public sealed partial class RadarBlipSystem : SharedRadarBlipSystem
     private Dictionary<NetUserId, TimeSpan> _nextBlipRequestPerUser = new();
 
     // The minimum amount of time between handled blip requests.
-    private static readonly TimeSpan MinRequestPeriod = TimeSpan.FromMilliseconds(250);
+    private static readonly TimeSpan MinRequestPeriod = TimeSpan.FromMilliseconds(050);
     // Maximum distance for blips to be considered visible
-    private const float MaxBlipRenderDistance = 1000f;
+    private const float MaxBlipRenderDistance = 3000f;
 
     public override void Initialize()
     {

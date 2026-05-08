@@ -23,7 +23,7 @@
       gun_magazine: !type:ContainerSlot
   - type: Gun
     fireRate: 1
-    projectileSpeed: 80
+    projectileSpeed: 110
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:

@@ -27,7 +27,7 @@
     - Toggle
   - type: Gun
     fireRate: 8
-    projectileSpeed: 60
+    projectileSpeed: 90
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/uaf_57mm.ogg
     soundEmpty:
@@ -78,7 +78,7 @@
     range: 500
   - type: Gun
     fireRate: 2.0
-    projectileSpeed: 80
+    projectileSpeed: 120
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
     soundEmpty:
@@ -131,7 +131,7 @@
           bounds: "-0.75,-0.75,0.75,0.75"
         density: 1500 # fat mf
   - type: Gun
-    projectileSpeed: 105
+    projectileSpeed: 220
     fireRate: 0.125
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/uaf_cyrexa_452.ogg
@@ -177,7 +177,7 @@
     range: 500
   - type: Gun
     fireRate: 0.05
-    projectileSpeed: 110 # i was gonna make this faster, but the engine really hates fast moving projectiles and collisions
+    projectileSpeed: 275 # i was gonna make this faster, but the engine really hates fast moving projectiles and collisions
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/uaf_tona_iv_608.ogg
     soundEmpty:

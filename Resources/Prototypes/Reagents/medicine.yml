@@ -633,9 +633,15 @@
     Medicine:
       effects:
       - !type:EvenHealthChange # Frontier: Changed brute healing to EvenHealthChange
+        conditions: # Radiant sector
+        - !type:TotalDamage # Radiant sector
+          max: 50 # Radiant sector
         damage:
           Brute: -2.5 # Frontier: -2.5<-3.5
       - !type:HealthChange
+        conditions: # Radiant sector
+        - !type:TotalDamage # Radiant sector
+          max: 50 # Radiant sector
         damage:
           types:
             Asphyxiation: -2.5
@@ -852,12 +858,39 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange
+#      - !type:EvenHealthChange # Radiant sector ↓
+#        damage:
+#          Burn: -2
+#          Toxin: -2
+#          Airloss: -2
+#          Brute: -2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 0
+          max: 26
         damage:
-          Burn: -2
-          Toxin: -2
-          Airloss: -2
-          Brute: -2
+          types:
+            Poison: -1
+            Asphyxiation: -1
+          groups:
+            Brute: -2.5
+            Burn: -2.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 0
+          max: 26
+        damage:
+          types:
+            Cellular: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 26
+        damage:
+          types:
+            Cellular: 3 # Radiant sector ↑
 
 - type: reagent
   id: Ultravasculine
