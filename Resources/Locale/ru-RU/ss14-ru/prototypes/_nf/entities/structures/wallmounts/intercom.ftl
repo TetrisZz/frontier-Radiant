@@ -1,3 +1,3 @@
 ent-IntercomNfsd = { ent-IntercomSecurity }
-    .suffix = ОСК
+    .suffix = ДШ
     .desc = { ent-IntercomSecurity.desc }

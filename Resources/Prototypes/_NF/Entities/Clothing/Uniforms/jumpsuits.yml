@@ -86,26 +86,6 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump.rsi
-  - type: Appearance #Radiant sector start
-  - type: ItemSlots
-    slots:
-      clothing-neck-badge-slot:
-        name: clothing-neck-badge-slot
-        whitelist:
-          tags:
-            - NfsdBadge
-        insertOnInteract: false
-        priority: 1
-  - type: ItemMapper
-    mapLayers:
-      equipped-NECK:
-        whitelist:
-          tags:
-            - NfsdBadge
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
-  - type: ContainerContainer
-    containers:
-      clothing-neck-badge-slot: !type:ContainerSlot {} #Radiant sector end
 
 - type: entity
   parent: ClothingUniformBase
@@ -117,26 +97,6 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump_short.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump_short.rsi
-  - type: Appearance #Radiant sector start
-  - type: ItemSlots
-    slots:
-      badge_slot:
-        name: clothing-neck-badge-slot
-        whitelist:
-          tags:
-            - NfsdBadge
-        insertOnInteract: false
-        priority: 1
-  - type: ItemMapper
-    mapLayers:
-      equipped-NECK:
-        whitelist:
-          tags:
-            - NfsdBadge
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
-  - type: ContainerContainer
-    containers:
-      badge_slot: !type:ContainerSlot {} #Radiant sector end
 
 - type: entity
   parent: ClothingUniformBase
@@ -148,26 +108,6 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_black.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_black.rsi
-  - type: Appearance #Radiant sector start
-  - type: ItemSlots
-    slots:
-      badge_slot:
-        name: clothing-neck-badge-slot
-        whitelist:
-          tags:
-            - NfsdBadge
-        insertOnInteract: false
-        priority: 1
-  - type: ItemMapper
-    mapLayers:
-      equipped-NECK:
-        whitelist:
-          tags:
-            - NfsdBadge
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
-  - type: ContainerContainer
-    containers:
-      badge_slot: !type:ContainerSlot {} #Radiant sector end
 
 - type: entity
   parent: ClothingUniformBase
@@ -179,26 +119,6 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_gray.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_gray.rsi
-  - type: Appearance #Radiant sector start
-  - type: ItemSlots
-    slots:
-      badge_slot:
-        name: clothing-neck-badge-slot
-        whitelist:
-          tags:
-            - NfsdBadge
-        insertOnInteract: false
-        priority: 1
-  - type: ItemMapper
-    mapLayers:
-      equipped-NECK:
-        whitelist:
-          tags:
-            - NfsdBadge
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
-  - type: ContainerContainer
-    containers:
-      badge_slot: !type:ContainerSlot {} #Radiant sector end
 
 - type: entity
   parent: ClothingUniformBase
@@ -210,26 +130,6 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_camo.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_camo.rsi
-  - type: Appearance #Radiant sector start
-  - type: ItemSlots
-    slots:
-      badge_slot:
-        name: clothing-neck-badge-slot
-        whitelist:
-          tags:
-            - NfsdBadge
-        insertOnInteract: false
-        priority: 1
-  - type: ItemMapper
-    mapLayers:
-      equipped-NECK:
-        whitelist:
-          tags:
-            - NfsdBadge
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
-  - type: ContainerContainer
-    containers:
-      clothing-neck-badge-slot: !type:ContainerSlot {} #Radiant sector end
 
 - type: entity
   parent: ClothingUniformBase
@@ -241,26 +141,6 @@
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
-  - type: Appearance #Radiant sector start
-  - type: ItemSlots
-    slots:
-      clothing-neck-badge-slot:
-        name: clothing-neck-badge-slot
-        whitelist:
-          tags:
-            - NfsdBadge
-        insertOnInteract: false
-        priority: 1
-  - type: ItemMapper
-    mapLayers:
-      equipped-NECK:
-        whitelist:
-          tags:
-            - NfsdBadge
-    sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
-  - type: ContainerContainer
-    containers:
-      clothing-neck-badge-slot: !type:ContainerSlot {} #Radiant sector end
 
 - type: entity
   parent: ClothingUniformBase

@@ -1,6 +1,6 @@
-ent-JetpackNfsd = джетпак ДВБ
+ent-JetpackNfsd = джетпак дшнф
     .suffix = Пустой
     .desc = { ent-JetpackSecurity.desc }
-ent-JetpackNfsdFilled = джетпак ДВБ
+ent-JetpackNfsdFilled = джетпак дшнф
     .suffix = Заполненный
     .desc = { ent-JetpackNfsd.desc }

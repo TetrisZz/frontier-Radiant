@@ -12,9 +12,6 @@
     layers: []
   - type: Clothing
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_bronze_badge.rsi
-  - type: Tag # Radiant sector start
-    tags:
-      - NfsdBadge # Radiant sector end
 
 - type: entity
   parent: ClothingNeckNfsdBadge
@@ -32,7 +29,7 @@
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_silver_badge.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/Scarfs/nfsd_silver_badge.rsi
-
+    
 - type: entity
   parent: ClothingNeckNfsdBadge
   id: ClothingNeckNfsdBadgeSecurityBrigmedic
@@ -102,6 +99,3 @@
     sprite: _NF/Clothing/Neck/Misc/palbadge.rsi
   - type: TypingIndicatorClothing
     proto: pal
-  - type: Tag # Radiant sector start
-    tags:
-      - NfsdBadge # Radiant sector end
