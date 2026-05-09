@@ -81,6 +81,10 @@ wanted-list-species-label = [color=darkgray]Species:[/color] [color=white]{$spec
 wanted-list-gender-label = [color=darkgray]Gender:[/color] [color=white]{$gender}[/color]
 
 wanted-list-reason-label = [color=darkgray]Reason:[/color] [color=white]{$reason}[/color]
+# Radiant sector start
+wanted-list-shuttle-label = [color=darkgray]Shuttle:[/color] [color=white]{ $shuttle }[/color]
+wanted-list-no-shuttle-label = [color=darkgray]Shuttle:[/color] [color=white]none[/color]
+# Radiant sector end
 wanted-list-unknown-reason-label = unknown reason
 
 wanted-list-initiator-label = [color=darkgray]Initiator:[/color] [color=white]{$initiator}[/color]
