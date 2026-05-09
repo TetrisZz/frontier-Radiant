@@ -68,10 +68,4 @@ public sealed record GeneralStationRecord
     /// </summary>
     [DataField]
     public string? DNA;
-
-    /// <summary>
-    ///     Current shuttle registered to this record, if any.
-    /// </summary>
-    [DataField]
-    public string? RegisteredShuttle;
 }
