@@ -23,7 +23,7 @@
     range: 500
   - type: Gun
     fireRate: 0.5
-    projectileSpeed: 40
+    projectileSpeed: 70
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
     soundEmpty:
@@ -86,7 +86,7 @@
     range: 500
   - type: Gun
     fireRate: 0.5
-    projectileSpeed: 55
+    projectileSpeed: 85
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
     soundEmpty:

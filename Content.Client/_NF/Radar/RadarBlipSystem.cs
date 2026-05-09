@@ -18,10 +18,10 @@ public sealed partial class RadarBlipSystem : EntitySystem
     private static readonly List<(NetEntity? Grid, Vector2 Position, float Scale, Color Color, RadarBlipShape Shape)> EmptyRawBlipList = new();
     private TimeSpan _lastRequestTime = TimeSpan.Zero;
     // Minimum time between requests.  Slightly larger than the server-side value.
-    private static readonly TimeSpan RequestThrottle = TimeSpan.FromMilliseconds(250);
+    private static readonly TimeSpan RequestThrottle = TimeSpan.FromMilliseconds(050);
 
     // Maximum distance for blips to be considered visible
-    private const float MaxBlipRenderDistance = 1000;
+    private const float MaxBlipRenderDistance = 3000;
 
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;

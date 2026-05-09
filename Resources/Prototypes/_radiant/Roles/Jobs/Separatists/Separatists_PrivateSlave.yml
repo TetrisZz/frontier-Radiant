@@ -23,6 +23,7 @@
   - !type:AddComponentSpecial
     components:
     - type: MailDisabled
+    - type: Pacified
     - type: SpecialSectorStationRecord # must be given on spawn
       recordGeneration: FalseRecord
     - type: ShockOnTrigger

@@ -15,7 +15,7 @@
     ignoreWeaponGrid: true
   - type: ShipWeaponProjectile
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 3.75
   - type: PointLight
     radius: 3.5
     energy: 0.5

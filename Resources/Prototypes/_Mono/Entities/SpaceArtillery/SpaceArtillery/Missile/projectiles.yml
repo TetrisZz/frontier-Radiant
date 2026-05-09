@@ -25,7 +25,7 @@
     visibleFromOtherGrids: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 7.5
+    lifetime: 6
   - type: PointLight
     radius: 3.5
     color: orange

@@ -1,0 +1,10 @@
+- type: reaction
+  id: OmnizineArithrazine
+  impact: Medium
+  reactants:
+    Omnizine:
+      amount: 1
+    Arithrazine:
+      amount: 1
+  products:
+    Razorium: 1
