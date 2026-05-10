@@ -227,3 +227,14 @@
   - type: StaticPrice 
     price: 100
     vendPrice: 2000 
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatAurora
+  name: фирменная куртка
+  description: Куртка AURORA разработана для повседневной жизни на орбитальных станциях и шаттлах. Она сочетает в себе защиту от перепадов температуры, ограниченной атмосферы и механических повреждений в тесных технических отсеках. Карманы расположены так, чтобы ими было удобно пользоваться даже в ограниченном пространстве и в перчатках.На задней части размещён фирменный знак AURORA — светящийся в мягком спектре логотип, который служит не только элементом стиля, но и средством быстрой идентификации в затемнённых отсеках.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/kyrtka-AUR.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/kyrtka-AUR.rsi

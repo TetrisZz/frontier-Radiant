@@ -1,0 +1,174 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesColorSandalsDeepBlack
+  name: черные босоножки
+  description: Поглощают свет и внимание.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    layers:
+    - state: icon
+      color: "#2b2b2b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#2b2b2b"
+      right:
+      - state: inhand-right
+        color: "#2b2b2b"
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        color: "#141414"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        volume: -6
+        variation: 0.09
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesColorSandalsScarlet
+  name: алые босоножки
+  description: Яркие, дерзкие и притягательные.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    layers:
+    - state: icon
+      color: "#c1121f"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#c1121f"
+      right:
+      - state: inhand-right
+        color: "#c1121f"
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        color: "#780000"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        volume: -6
+        variation: 0.09
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesColorSandalsPink
+  name: розовые босоножки
+  description: Лёгкость и игривость в каждом шаге.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    layers:
+    - state: icon
+      color: "#ff8fab"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8fab"
+      right:
+      - state: inhand-right
+        color: "#ff8fab"
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        color: "#ff4d6d"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        volume: -6
+        variation: 0.09
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesColorSandalsNeonPurple
+  name: неоново-фиолетовые босоножки
+  description: Словно из ночного клуба будущего.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    layers:
+    - state: icon
+      color: "#9d4edd"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#9d4edd"
+      right:
+      - state: inhand-right
+        color: "#9d4edd"
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        color: "#5a189a"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        volume: -6
+        variation: 0.09
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesColorSandalsMint
+  name: мятные босоножки
+  description: Освежающий стиль.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    layers:
+    - state: icon
+      color: "#80ffdb"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#80ffdb"
+      right:
+      - state: inhand-right
+        color: "#80ffdb"
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/sandals.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        color: "#56cfe1"
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        volume: -6
+        variation: 0.09
+  - type: StaticPrice 
+    price: 100
+    vendPrice: 2000 

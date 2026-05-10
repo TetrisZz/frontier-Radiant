@@ -33,4 +33,10 @@
     ClothingShoesDameDov: 4294967295 # Infinite
     ClothingHandsGlovesLatexRS: 4294967295 # Infinite
     ClothingUniformSpecialGorichnaya: 4294967295 # Infinite
+    ClothingShoesColorSandalsDeepBlack: 4294967295
+    ClothingShoesColorSandalsScarlet: 4294967295
+    ClothingShoesColorSandalsPink: 4294967295
+    ClothingShoesColorSandalsNeonPurple: 4294967295
+    ClothingShoesColorSandalsMint: 4294967295
+
 

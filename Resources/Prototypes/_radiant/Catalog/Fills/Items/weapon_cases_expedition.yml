@@ -33,3 +33,66 @@
   - StorageFillAmmoBoxUraniumHigh2Rifle
   id: WeaponCaseShortAmmoBoxUraniumHigh2Rifle
   categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [WeaponCaseShort, RareWeaponCase]
+  id: WeaponCaseShortNocturne
+  suffix: Dungeon, Nocturne
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolNocturne
+      amount: 1
+    - id: NFMagazineHighCapacityPistol35
+      amount: 2
+
+- type: entity
+  parent: [WeaponCaseLong, RareWeaponCase]
+  id: WeaponCaseLongWeaponDominator
+  suffix: Dungeon, Dominator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponDominator
+      amount: 1
+
+- type: entity
+  parent: [WeaponCaseLong, RareWeaponCase]
+  id: WeaponCaseLongWeaponShotgunPoorGun
+  suffix: Dungeon, ShotgunPoorGun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunPoorGun
+      amount: 1
+    - id: NFAmmunitionBoxShellShotgunBuckshot
+      amount: 2
+
+- type: entity
+  parent: [WeaponCaseLong, RareWeaponCase]
+  id: WeaponCaseLongShotgunCshotGun
+  suffix: Dungeon, ShotgunCshotGun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunCshotGun
+      amount: 1
+    - id: NFAmmunitionBoxShellShotgunBuckshot
+      amount: 2
+
+- type: entity
+  parent: [WeaponCaseLong, RareWeaponCase]
+  id: WeaponCaseLongRifleCobalt
+  suffix: Dungeon, Cobalt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleCobalt
+      amount: 1
+    - id: NFMagazineRifle20
+      amount: 2
