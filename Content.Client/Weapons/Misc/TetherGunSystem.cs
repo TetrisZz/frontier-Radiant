@@ -112,6 +112,10 @@ public sealed class TetherGunSystem : SharedTetherGunSystem
         {
             _sprite.SetColor((uid, sprite), tether.LineColor);
         }
+        else if (TryComp<PlayerLeashPullerComponent>(component.Tetherer, out var leash))
+        {
+            _sprite.SetColor((uid, sprite), leash.LineColor);
+        }
     }
 
     private void OnTetheredShutdown(EntityUid uid, TetheredComponent component, ComponentShutdown args)

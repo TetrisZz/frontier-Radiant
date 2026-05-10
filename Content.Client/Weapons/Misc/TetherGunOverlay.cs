@@ -1,12 +1,15 @@
 using Content.Shared.Weapons.Misc;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Weapons.Misc;
 
 public sealed class TetherGunOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
+    private static readonly SpriteSpecifier.Rsi LeashRopeSprite = new(new ResPath("/Textures/Objects/Weapons/Guns/Launchers/grappling_gun.rsi"), "rope");
 
     private IEntityManager _entManager;
 
@@ -19,10 +22,14 @@ public sealed class TetherGunOverlay : Overlay
     {
         var query = _entManager.EntityQueryEnumerator<TetheredComponent>();
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
-        var tetherQuery = _entManager.GetEntityQuery<TetherGunComponent>();
+        var tetherGunQuery = _entManager.GetEntityQuery<TetherGunComponent>();
         var forceQuery = _entManager.GetEntityQuery<ForceGunComponent>();
+        var leashPullerQuery = _entManager.GetEntityQuery<PlayerLeashPullerComponent>();
         var worldHandle = args.WorldHandle;
         var xformSystem = _entManager.System<SharedTransformSystem>();
+        var spriteSystem = _entManager.System<SpriteSystem>();
+        var leashRopeTexture = spriteSystem.Frame0(LeashRopeSprite);
+        var leashRopeWidth = leashRopeTexture.Width / (float) EyeManager.PixelsPerMeter;
 
         while (query.MoveNext(out var uid, out var tethered))
         {
@@ -54,9 +61,17 @@ public sealed class TetherGunOverlay : Overlay
             {
                 color = force.LineColor;
             }
-            else if (tetherQuery.TryGetComponent(tethered.Tetherer, out var tether))
+            else if (tetherGunQuery.TryGetComponent(tethered.Tetherer, out var tether))
             {
                 color = tether.LineColor;
+            }
+            else if (leashPullerQuery.TryGetComponent(tethered.Tetherer, out var leashPuller))
+            {
+                color = leashPuller.LineColor;
+                var ropeBox = new Box2(-leashRopeWidth / 2f, -length, leashRopeWidth / 2f, length);
+                var ropeRotated = new Box2Rotated(ropeBox.Translated(midPoint), angle, midPoint);
+                worldHandle.DrawTextureRect(leashRopeTexture, ropeRotated, color);
+                continue;
             }
 
             worldHandle.DrawRect(rotated, color.WithAlpha(0.3f));

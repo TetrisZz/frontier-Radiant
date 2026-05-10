@@ -34,6 +34,7 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ThrownItemSystem _thrown = default!;
+    [Dependency] private readonly SharedPlayerLeashSystem _playerLeash = default!;
 
     private const string TetherJoint = "tether";
 
@@ -56,6 +57,13 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
 
     private void OnTetheredContainerInserted(EntityUid uid, TetheredComponent component, EntGotInsertedIntoContainerMessage args)
     {
+        if (TryComp<PlayerLeashPullerComponent>(component.Tetherer, out var leash) &&
+            leash.Following == uid)
+        {
+            _playerLeash.StopLeash(component.Tetherer, leash);
+            return;
+        }
+
         if (TryComp<TetherGunComponent>(component.Tetherer, out var tetherGun))
         {
             StopTether(component.Tetherer, tetherGun);
@@ -76,6 +84,10 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
 
     private void OnTetheredUpdateCanMove(EntityUid uid, TetheredComponent component, UpdateCanMoveEvent args)
     {
+        // Targets pulled by player leash should retain movement while inside leash radius.
+        if (HasComp<PlayerLeashPullerComponent>(component.Tetherer))
+            return;
+
         args.Cancel();
     }
 
@@ -86,8 +98,12 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
         // Just to set the angular velocity due to joint funnies
         var tetheredQuery = EntityQueryEnumerator<TetheredComponent, PhysicsComponent>();
 
-        while (tetheredQuery.MoveNext(out var uid, out _, out var physics))
+        while (tetheredQuery.MoveNext(out var uid, out var tethered, out var physics))
         {
+            // Player leash keeps humanoids upright; tether gun spin breaks that.
+            if (HasComp<PlayerLeashPullerComponent>(tethered.Tetherer))
+                continue;
+
             var sign = Math.Sign(physics.AngularVelocity);
 
             if (sign == 0)
