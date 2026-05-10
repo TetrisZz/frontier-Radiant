@@ -31,3 +31,11 @@
   - DIRClothingMaskBreathAcorp
   fallbacks:
   - DIRClothingMaskBreathAcorp
+
+- type: loadoutGroup
+  id: DIRNeck
+  name: loadout-group-director-neck
+  loadouts:
+  - COMClothingNeckCloakAcorpAdmin2
+  - COMClothingNeckCloakAcorpAdmin
+  - DIRClothingNeckCloakDrRS

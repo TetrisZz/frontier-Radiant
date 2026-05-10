@@ -9,7 +9,7 @@ namespace Content.Shared.Chat.Prototypes
     public sealed partial class InteractionPrototype : IPrototype, IInheritingPrototype
     {
         [IdDataField]
-        public string ID { get; private set; } = default!;
+        public string ID { get; set; } = default!;
 
         /// <inheritdoc />
         [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<InteractionPrototype>))]
@@ -31,6 +31,9 @@ namespace Content.Shared.Chat.Prototypes
 
         [DataField("erp")]
         public bool ERP { get; set; } = false;
+
+        [DataField("category")]
+        public string Category { get; set; } = "body";
 
         [DataField("interactSound")]
         public SoundSpecifier? InteractSound;

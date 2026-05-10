@@ -9,3 +9,14 @@
   price: 0
   equipment:
     neck: ClothingNeckCloakCe
+
+- type: loadout
+  id: PlantManagerClothingNeckCloakSiRS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobPlantManager
+      time: 540000 # 150
+  equipment:
+    neck: ClothingNeckCloakSiRS

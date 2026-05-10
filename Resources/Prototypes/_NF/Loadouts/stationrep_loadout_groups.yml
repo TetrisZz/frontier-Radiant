@@ -69,6 +69,7 @@
   loadouts:
   - StationRepClothingNeckCloakSr
   - StationRepClothingNeckMantleSr
+  - StationRepClothingNeckCloakGybRS
 
 - type: loadoutGroup
   id: StationRepPDA

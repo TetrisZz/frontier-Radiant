@@ -37,6 +37,36 @@
   erp: true
 
 - type: interaction
+  id: BaseCategoryLips
+  abstract: true
+  category: lips
+
+- type: interaction
+  id: BaseCategoryHead
+  abstract: true
+  category: head
+
+- type: interaction
+  id: BaseCategoryBody
+  abstract: true
+  category: body
+
+- type: interaction
+  id: BaseCategoryChest
+  abstract: true
+  category: chest
+
+- type: interaction
+  id: BaseCategoryGroin
+  abstract: true
+  category: groin
+
+- type: interaction
+  id: BaseCategoryTail
+  abstract: true
+  category: tail
+
+- type: interaction
   id: BaseHumanoid
   abstract: true
   allowedSpecies:
@@ -150,6 +180,8 @@
 # Harmless
 - type: interaction
   id: InteractionHandshake
+
+  category: body
   name: interaction-handshake
   userMessages: ["chat-interaction-handshake-message"]
   targetMessages: ["chat-interaction-handshake-message-target"]
@@ -158,6 +190,8 @@
 
 - type: interaction
   id: InteractionAirKiss
+
+  category: lips
   name: interaction-air-kiss
   userMessages: ["chat-interaction-air-kiss-message"]
   targetMessages: ["chat-interaction-air-kiss-message-target"]
@@ -165,18 +199,24 @@
 
 - type: interaction
   id: InteractionGiveFive
+
+  category: body
   name: interaction-give-five
   userMessages: ["chat-interaction-give-five-message"]
   targetMessages: ["chat-interaction-give-five-message-target"]
 
 - type: interaction
   id: InteractionNod
+
+  category: head
   name: interaction-nod
   userMessages: ["chat-interaction-nod-message"]
   targetMessages: ["chat-interaction-nod-message-target"]
 
 - type: interaction
   id: InteractionPatted
+
+  category: body
   name: interaction-patted
   userMessages: ["chat-interaction-patted-message"]
   targetMessages: ["chat-interaction-patted-message-target"]
@@ -184,18 +224,24 @@
 
 - type: interaction
   id: InteractionWink
+
+  category: head
   name: interaction-wink
   userMessages: ["chat-interaction-wink-message"]
   targetMessages: ["chat-interaction-wink-message-target"]
 
 - type: interaction
   id: InteractionBow
+
+  category: body
   name: interaction-bow
   userMessages: ["chat-interaction-bow-message"]
   targetMessages: ["chat-interaction-bow-message-target"]
 
 - type: interaction
   id: InteractionTickles
+
+  category: body
   name: interaction-tickles
   userMessages: ["chat-interaction-tickles-message"]
   targetMessages: ["chat-interaction-tickles-message-target"]
@@ -203,6 +249,8 @@
 
 - type: interaction
   id: InteractionStrokeHead
+
+  category: head
   name: interaction-stroke-head
   userMessages: ["chat-interaction-stroke-head-message"]
   targetMessages: ["chat-interaction-stroke-head-message-target"]
@@ -210,6 +258,8 @@
 
 - type: interaction
   id: InteractionSlapFace
+
+  category: head
   name: interaction-slap-face
   userMessages: ["chat-interaction-slap-face-message"]
   targetMessages: ["chat-interaction-slap-face-message-target"]
@@ -217,6 +267,8 @@
 
 - type: interaction
   id: InteractionSqueezeCheeks
+
+  category: head
   name: interaction-squeeze-cheeks
   userMessages: ["chat-interaction-squeeze-cheeks-message"]
   targetMessages: ["chat-interaction-squeeze-cheeks-message-target"]
@@ -224,6 +276,8 @@
 
 - type: interaction
   id: InteractionMassageShoulder
+
+  category: body
   name: interaction-massage-shoulder
   userMessages: ["chat-interaction-massage-shoulder-message"]
   targetMessages: ["chat-interaction-massage-shoulder-message-target"]
@@ -231,6 +285,8 @@
 # Pre-ERP
 - type: interaction
   id: InteractionHug
+
+  category: body
   name: interaction-hug
   userMessages: ["chat-interaction-hug-message"]
   targetMessages: ["chat-interaction-hug-message-target"]
@@ -238,6 +294,8 @@
 
 - type: interaction
   id: InteractionCaress
+
+  category: head
   name: interaction-caress
   userMessages: ["chat-interaction-caress-message"]
   targetMessages: ["chat-interaction-caress-message-target"]
@@ -246,6 +304,8 @@
 
 - type: interaction
   id: InteractionKissForehead
+
+  category: head
   name: interaction-kiss-forehead
   userMessages: ["chat-interaction-kiss-forehead-message"]
   targetMessages: ["chat-interaction-kiss-forehead-message-target"]
@@ -254,6 +314,8 @@
 
 - type: interaction
   id: InteractionHoldHand
+
+  category: body
   name: interaction-hold-hand
   userMessages: ["chat-interaction-hold-hand-message"]
   targetMessages: ["chat-interaction-hold-hand-message-target"]
@@ -261,6 +323,8 @@
 
 - type: interaction
   id: InteractionStrokeHair
+
+  category: head
   name: interaction-stroke-hair
   userMessages: ["chat-interaction-stroke-hair-message"]
   targetMessages: ["chat-interaction-stroke-hair-message-target"]
@@ -274,6 +338,8 @@
 
 - type: interaction
   id: InteractionKissCheek
+
+  category: head
   name: interaction-kiss-cheek
   userMessages: ["chat-interaction-kiss-cheek-message"]
   targetMessages: ["chat-interaction-kiss-cheek-message-target"]
@@ -284,6 +350,8 @@
 
 - type: interaction
   id: InteractionHoldFace
+
+  category: head
   name: interaction-hold-face
   userMessages: ["chat-interaction-hold-face-message"]
   targetMessages: ["chat-interaction-hold-face-message-target"]
@@ -292,6 +360,8 @@
 
 - type: interaction
   id: InteractionStrokeBack
+
+  category: body
   name: interaction-stroke-back
   userMessages: ["chat-interaction-stroke-back-message"]
   targetMessages: ["chat-interaction-stroke-back-message-target"]
@@ -299,6 +369,8 @@
 
 - type: interaction
   id: InteractionKissNeck
+
+  category: head
   name: interaction-kiss-neck
   userMessages: ["chat-interaction-kiss-neck-message"]
   targetMessages: ["chat-interaction-kiss-neck-message-target"]
@@ -307,6 +379,8 @@
 
 - type: interaction
   id: InteractionHoldTight
+
+  category: body
   name: interaction-hold-tight
   userMessages: ["chat-interaction-hold-tight-message"]
   targetMessages: ["chat-interaction-hold-tight-message-target"]
@@ -314,6 +388,8 @@
 
 - type: interaction
   id: InteractionKissLips
+
+  category: lips
   name: interaction-kiss-lips
   userMessages: ["chat-interaction-kiss-lips-message"]
   targetMessages: ["chat-interaction-kiss-lips-message-target"]
@@ -328,6 +404,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionintImateTouch
+
+  category: body
   name: interaction-intimate-touch
   userMessages: ["chat-interaction-intimate-touch-message"]
   targetMessages: ["chat-interaction-intimate-touch-message-target"]
@@ -337,6 +415,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionTouchBreasts
+
+  category: chest
   name: interaction-touch-breasts
   userMessages: ["chat-interaction-touch-breasts-message-1", "chat-interaction-touch-breasts-message-2"]
   targetMessages: ["chat-interaction-touch-breasts-message-target-1", "chat-interaction-touch-breasts-message-target-2"]
@@ -350,6 +430,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionTouchAss
+
+  category: groin
   name: interaction-touch-ass
   userMessages: ["chat-interaction-touch-ass-message-1", "chat-interaction-touch-ass-message-2"]
   targetMessages: ["chat-interaction-touch-ass-message-target-1", "chat-interaction-touch-ass-message-target-2"]
@@ -359,6 +441,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionBrushLips
+
+  category: lips
   name: interaction-brush-lips
   userMessages: ["chat-interaction-brush-lips-message"]
   targetMessages: ["chat-interaction-brush-lips-message-target"]
@@ -367,6 +451,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionintBiteLips
+
+  category: lips
   name: interaction-bite-lips
   userMessages: ["chat-interaction-bite-lips-message"]
   targetMessages: ["chat-interaction-bite-lips-message-target"]
@@ -376,6 +462,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionPullClose
+
+  category: body
   name: interaction-pull-close
   userMessages: ["chat-interaction-pull-close-message-1", "chat-interaction-pull-close-message-2"]
   targetMessages: ["chat-interaction-pull-close-message-target-1", "chat-interaction-pull-close-message-target-2"]
@@ -386,6 +474,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionSlowCaress
+
+  category: body
   name: interaction-slow-caress
   userMessages: ["chat-interaction-slow-caress-message"]
   targetMessages: ["chat-interaction-slow-caress-message-target"]
@@ -394,6 +484,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionSlap
+
+  category: groin
   name: interaction-slap
   userMessages: ["chat-interaction-slap-message"]
   targetMessages: ["chat-interaction-slap-message-target"]
@@ -404,6 +496,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionPullHair
+
+  category: head
   name: interaction-pull-hair
   userMessages: ["chat-interaction-pull-hair-roughly-message"]
   targetMessages: ["chat-interaction-pull-hair-roughly-message-target"]
@@ -418,6 +512,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseMaleOnly ]
   id: InteractionAnalEnterSlowly
+
+  category: groin
   name: interaction-anal-enter-slowly
   userMessages: ["chat-interaction-anal-enter-message"]
   targetMessages: ["chat-interaction-anal-enter-message-target"]
@@ -430,6 +526,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseMaleOnly ]
   id: InteractionAnalTraxSlowly
+
+  category: groin
   name: interaction-anal-trax-slowly
   userMessages: ["chat-interaction-trax-anal-message-1", "chat-interaction-trax-anal-message-2", "chat-interaction-trax-anal-message-3"]
   targetMessages: ["chat-interaction-trax-anal-message-target-1", "chat-interaction-trax-anal-message-target-2", "chat-interaction-trax-anal-message-target-3"]
@@ -442,6 +540,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseMaleOnly ]
   id: InteractionVagTraxSlowly
+
+  category: groin
   name: interaction-vag-trax-slowly
   userMessages: ["chat-interaction-trax-vag-message-1", "chat-interaction-trax-vag-message-2", "chat-interaction-trax-vag-message-3"]
   targetMessages: ["chat-interaction-trax-vag-message-target-1", "chat-interaction-trax-vag-message-target-2", "chat-interaction-trax-vag-message-target-3"]
@@ -454,6 +554,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseMaleOnly ]
   id: InteractionAnalEnterFaster
+
+  category: groin
   name: interaction-anal-enter-faster
   userMessages: ["chat-interaction-anal-enter-faster-message"]
   targetMessages: ["chat-interaction-anal-enter-faster-message-target"]
@@ -466,6 +568,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseMaleOnly ]
   id: InteractionVaginaEnterSlowly
+
+  category: groin
   name: interaction-vagina-enter-slowly
   userMessages: ["chat-interaction-vagina-enter-message"]
   targetMessages: ["chat-interaction-vagina-enter-message-target"]
@@ -480,6 +584,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseMaleOnly ]
   id: InteractionVaginaEnterFaster
+
+  category: groin
   name: interaction-vagina-enter-faster
   userMessages: ["chat-interaction-vagina-enter-faster-message"]
   targetMessages: ["chat-interaction-vagina-enter-faster-message-target"]
@@ -494,6 +600,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionTouchDick
+
+  category: groin
   name: interaction-touch-dick
   userMessages: ["chat-interaction-touch-dick-message-1", "chat-interaction-touch-dick-message-2"]
   targetMessages: ["chat-interaction-touch-dick-message-target-1", "chat-interaction-touch-dick-message-target-2"]
@@ -507,6 +615,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionLickDick
+
+  category: groin
   name: interaction-lick-dick
   userMessages: ["chat-interaction-lick-dick-message"]
   targetMessages: ["chat-interaction-lick-dick-message-target"]
@@ -521,6 +631,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionKissDick
+
+  category: groin
   name: interaction-kiss-dick
   userMessages: ["chat-interaction-kiss-dick-message-1", "chat-interaction-kiss-dick-message-2"]
   targetMessages: ["chat-interaction-kiss-dick-message-target-1", "chat-interaction-kiss-dick-message-target-2"]
@@ -536,6 +648,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionTermDick
+
+  category: groin
   name: interaction-term-dick
   userMessages: ["chat-interaction-term-dick-message-1", "chat-interaction-term-dick-message-2"]
   targetMessages: ["chat-interaction-term-dick-message-target-1", "chat-interaction-term-dick-message-target-2"]
@@ -550,6 +664,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionMasturbateDick
+
+  category: groin
   name: interaction-masturbate-dick
   userMessages: ["chat-interaction-masturbate-dick-message"]
   targetMessages: ["chat-interaction-masturbate-dick-message-target"]
@@ -563,6 +679,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionSuckDick
+
+  category: groin
   name: interaction-suck-dick
   userMessages: ["chat-interaction-suck-dick-message-1", "chat-interaction-suck-dick-message-2", "chat-interaction-suck-dick-message-3"]
   targetMessages: ["chat-interaction-suck-dick-message-target-1", "chat-interaction-suck-dick-message-target-2", "chat-interaction-suck-dick-message-target-3"]
@@ -577,6 +695,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionLegkDick
+
+  category: groin
   name: interaction-leg-dick
   userMessages: ["chat-interaction-leg-dick-message-1", "chat-interaction-leg-dick-message-2", "chat-interaction-leg-dick-message-3"]
   targetMessages: ["chat-interaction-leg-dick-message-target-1", "chat-interaction-leg-dick-message-target-2", "chat-interaction-leg-dick-message-target-3"]
@@ -590,6 +710,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseMaleOnly ]
   id: InteractionSlowThrust
+
+  category: groin
   name: interaction-slow-thrust
   userMessages: ["chat-interaction-slow-thrust-message"]
   targetMessages: ["chat-interaction-slow-thrust-message-target"]
@@ -601,6 +723,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseMaleOnly ]
   id: InteractionFastThrust
+
+  category: groin
   name: interaction-fast-thrust
   userMessages: ["chat-interaction-fast-thrust-message"]
   targetMessages: ["chat-interaction-fast-thrust-message-target"]
@@ -612,6 +736,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseMaleOnly ]
   id: InteractionDeepThrust
+
+  category: groin
   name: interaction-deep-thrust
   userMessages: ["chat-interaction-deep-thrust-message"]
   targetMessages: ["chat-interaction-deep-thrust-message-target"]
@@ -623,6 +749,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseHumanoid ]
   id: InteractionLickAnal
+
+  category: groin
   name: interaction-lick-anal
   userMessages: ["chat-interaction-lick-anal-message"]
   targetMessages: ["chat-interaction-lick-anal-message-target"]
@@ -635,6 +763,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseMaleOnly ]
   id: InteractionRubbingDickVagina
+
+  category: groin
   name: interaction-rubbing-dick-vagina
   userMessages: ["chat-interaction-rubbing-dick-vagina-message-1", "chat-interaction-rubbing-dick-vagina-message-2"]
   targetMessages: ["chat-interaction-rubbing-dick-vagina-message-target-1", "chat-interaction-rubbing-dick-vagina-message-target-2"]
@@ -649,6 +779,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseFemaleOnly ]
   id: InteractionRubbingVaginaDick
+
+  category: groin
   name: interaction-rubbing-vagina-dick
   userMessages: ["chat-interaction-rubbing-vagina-dick-message-1", "chat-interaction-rubbing-vagina-dick-message-2"]
   targetMessages: ["chat-interaction-rubbing-vagina-dick-message-target-1", "chat-interaction-rubbing-vagina-dick-message-target-2"]
@@ -663,6 +795,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseFemaleOnly ]
   id: InteractionRubbingVaginaVagina
+
+  category: groin
   name: interaction-rubbing-vagina-vagina
   userMessages: ["chat-interaction-rubbing-vagina-vagina-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-vagina-message-target"]
@@ -676,6 +810,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseMaleOnly ]
   id: InteractionMinetTraxSlowly
+
+  category: groin
   name: interaction-minet-trax-slowly
   userMessages: ["chat-interaction-trax-minet-message-1", "chat-interaction-trax-minet-message-2", "chat-interaction-trax-minet-message-3"]
   targetMessages: ["chat-interaction-trax-minet-message-target-1", "chat-interaction-trax-minet-message-target-2", "chat-interaction-trax-minet-message-target-3"]
@@ -688,6 +824,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseMaleOnly ]
   id: InteractionSisTraxSlowly
+
+  category: groin
   name: interaction-sis-trax-slowly
   userMessages: ["chat-interaction-trax-sis-message-1", "chat-interaction-trax-sis-message-2", "chat-interaction-trax-sis-message-3"]
   targetMessages: ["chat-interaction-trax-sis-message-target-1", "chat-interaction-trax-sis-message-target-2", "chat-interaction-trax-sis-message-target-3"]
@@ -700,6 +838,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
   id: InteractionRubbingVaginaHand
+
+  category: body
   name: interaction-rubbing-vagina-hand
   userMessages: ["chat-interaction-rubbing-vagina-hand-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-hand-message-target"]
@@ -711,6 +851,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
   id: InteractionRubbingVaginaLeg
+
+  category: body
   name: interaction-rubbing-vagina-leg
   userMessages: ["chat-interaction-rubbing-vagina-leg-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-leg-message-target"]
@@ -722,6 +864,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionCunnilingusSlowly
+
+  category: groin
   name: interaction-cunnilingus-slowly
   userMessages: ["chat-interaction-cunnilingus-slowly-message-1", "chat-interaction-cunnilingus-slowly-message-2"]
   targetMessages: ["chat-interaction-cunnilingus-slowly-message-target-1", "chat-interaction-cunnilingus-slowly-message-target-2"]
@@ -736,6 +880,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionCunnilingusFaster
+
+  category: groin
   name: interaction-cunnilingus-faster
   userMessages: ["chat-interaction-cunnilingus-faster-message"]
   targetMessages: ["chat-interaction-cunnilingus-faster-message-target"]
@@ -750,6 +896,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionClitoris
+
+  category: groin
   name: interaction-clitoris
   userMessages: ["chat-interaction-clitoris-message-1", "chat-interaction-clitoris-message-2"]
   targetMessages: ["chat-interaction-clitoris-message-target-1", "chat-interaction-clitoris-message-target-2"]
@@ -763,6 +911,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionMassageVagina
+
+  category: groin
   name: interaction-massage-vagina
   userMessages: ["chat-interaction-massage-vagina-message-1", "chat-interaction-massage-vagina-message-2"]
   targetMessages: ["chat-interaction-massage-vagina-message-target-1", "chat-interaction-massage-vagina-message-target-2"]
@@ -784,6 +934,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionFaceBreasts
+
+  category: chest
   name: interaction-face-breasts
   userMessages: ["chat-interaction-face-breasts-message"]
   targetMessages: ["chat-interaction-face-breasts-message-target"]
@@ -798,6 +950,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionLickBreasts
+
+  category: chest
   name: interaction-lick-breasts
   userMessages: ["chat-interaction-lick-breasts-message-1", "chat-interaction-lick-breasts-message-2"]
   targetMessages: ["chat-interaction-lick-breasts-message-target-1", "chat-interaction-lick-breasts-message-target-2"]
@@ -812,6 +966,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionTraxBreasts
+
+  category: chest
   name: interaction-trax-breasts
   userMessages: ["chat-interaction-trax-breasts-message-1", "chat-interaction-trax-breasts-message-2", "chat-interaction-trax-breasts-message-2"]
   targetMessages: ["chat-interaction-trax-breasts-message-target-1", "chat-interaction-trax-breasts-message-target-2", "chat-interaction-trax-breasts-message-target-2"]
@@ -826,6 +982,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionBiteBreasts
+
+  category: chest
   name: interaction-bite-breasts
   userMessages: ["chat-interaction-bite-breasts-message-1", "chat-interaction-bite-breasts-message-2"]
   targetMessages: ["chat-interaction-bite-breasts-message-target-1", "chat-interaction-bite-breasts-message-target-2"]
@@ -839,6 +997,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionTouchNippels
+
+  category: chest
   name: interaction-touch-nippels
   userMessages: ["chat-interaction-touch-nippels-message-1", "chat-interaction-touch-nippels-message-2"]
   targetMessages: ["chat-interaction-touch-nippels-message-target-1", "chat-interaction-touch-nippels-message-target-2"]
@@ -852,6 +1012,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionLickNippels
+
+  category: chest
   name: interaction-lick-nippels
   userMessages: ["chat-interaction-lick-nippels-message-1", "chat-interaction-lick-nippels-message-2"]
   targetMessages: ["chat-interaction-lick-nippels-message-target-1", "chat-interaction-lick-nippels-message-target-2"]
@@ -866,6 +1028,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionRoughGrip
+
+  category: body
   name: interaction-rough-grip
   userMessages: ["chat-interaction-rough-grip-message"]
   targetMessages: ["chat-interaction-rough-grip-message-target"]
@@ -876,6 +1040,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionChokeLightly
+
+  category: head
   name: interaction-choke-lightly
   userMessages: ["chat-interaction-choke-lightly-message"]
   targetMessages: ["chat-interaction-choke-lightly-message-target"]
@@ -884,6 +1050,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionBiteRough
+
+  category: body
   name: interaction-bite-rough
   userMessages: ["chat-interaction-bite-rough-message"]
   targetMessages: ["chat-interaction-bite-rough-message-target"]
@@ -895,6 +1063,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionScratchBack
+
+  category: body
   name: interaction-scratch-back
   userMessages: ["chat-interaction-scratch-back-message"]
   targetMessages: ["chat-interaction-scratch-back-message-target"]
@@ -906,6 +1076,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionBiteLip
+
+  category: lips
   name: interaction-bite-lip
   userMessages: ["chat-interaction-bite-lip-message-1", "chat-interaction-bite-lip-message-2"]
   targetMessages: ["chat-interaction-bite-lip-message-target-1", "chat-interaction-bite-lip-message-target-2"]
@@ -917,6 +1089,8 @@
 # Diona
 - type: interaction
   id: InteractionDionaHug
+
+  category: body
   name: interaction-diona-hug
   userMessages: ["chat-interaction-diona-hug-message"]
   targetMessages: ["chat-interaction-diona-hug-message-target"]
@@ -927,6 +1101,8 @@
 
 - type: interaction
   id: InteractionDionaTouchFoliage
+
+  category: body
   name: interaction-touch-foliage
   userMessages: ["chat-interaction-touch-foliage-message"]
   targetMessages: ["chat-interaction-touch-foliage-message-target"]
@@ -938,6 +1114,8 @@
 # Vox
 - type: interaction
   id: InteractionVoxTouchWings
+
+  category: body
   name: interaction-touch-wings
   userMessages: ["chat-interaction-touch-wings-message"]
   targetMessages: ["chat-interaction-touch-wings-message-target"]
@@ -947,6 +1125,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionVoxEnterSlowly
+
+  category: groin
   name: interaction-vox-enter-slowly
   userMessages: ["chat-interaction-vox-enter-slowly-message"]
   targetMessages: ["chat-interaction-vox-enter-slowly-message-target"]
@@ -958,6 +1138,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionVoxEnterFaster
+
+  category: groin
   name: interaction-vox-enter-faster
   userMessages: ["chat-interaction-vox-enter-faster-message"]
   targetMessages: ["chat-interaction-vox-enter-faster-message-target"]
@@ -969,6 +1151,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
   id: InteractionRubbingVaginaVox
+
+  category: groin
   name: interaction-rubbing-vagina-vox
   userMessages: ["chat-interaction-rubbing-vagina-vox-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-vox-message-target"]
@@ -981,6 +1165,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionTouchFilament
+
+  category: body
   name: interaction-touch-filament
   userMessages: ["chat-interaction-touch-filament-message"]
   targetMessages: ["chat-interaction-touch-filament-message-target"]
@@ -991,6 +1177,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionEnterSlowlyFilament
+
+  category: groin
   name: interaction-enter-slowly-filament
   userMessages: ["chat-interaction-enter-slowly-filament-message"]
   targetMessages: ["chat-interaction-enter-slowly-filament-message-target"]
@@ -1002,6 +1190,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionEnterFasterFilament
+
+  category: groin
   name: interaction-enter-faster-filament
   userMessages: ["chat-interaction-enter-faster-filament-message"]
   targetMessages: ["chat-interaction-enter-faster-filament-message-target"]
@@ -1013,6 +1203,8 @@
 # Vulpkanin
 - type: interaction
   id: InteractionVulpkaninStroking
+
+  category: body
   name: interaction-vulpkanin-stroking
   userMessages: ["chat-interaction-vulpkanin-stroking-message"]
   targetMessages: ["chat-interaction-vulpkanin-stroking-message-target"]
@@ -1022,6 +1214,8 @@
 
 - type: interaction
   id: InteractionVulpkaninStrokingBack
+
+  category: body
   name: interaction-vulpkanin-stroking-back
   userMessages: ["chat-interaction-vulpkanin-stroking-back-message"]
   targetMessages: ["chat-interaction-vulpkanin-stroking-back-message-target"]
@@ -1033,6 +1227,8 @@
 - type: interaction
   parent: BaseTargetHasTail
   id: InteractionTouchTail
+
+  category: tail
   name: interaction-touch-tail
   userMessages: ["chat-interaction-touch-tail-message"]
   targetMessages: ["chat-interaction-touch-tail-message-target"]
@@ -1041,6 +1237,8 @@
 - type: interaction
   parent: BaseTargetHasTail
   id: InteractionGrabTail
+
+  category: tail
   name: interaction-grab-tail
   userMessages: ["chat-interaction-grab-tail-message"]
   targetMessages: ["chat-interaction-grab-tail-message-target"]
@@ -1049,6 +1247,8 @@
 - type: interaction
   parent: BaseTargetHasTail
   id: InteractionTugsTail
+
+  category: tail
   name: interaction-tugs-tail
   userMessages: ["chat-interaction-tugs-tail-message"]
   targetMessages: ["chat-interaction-tugs-tail-message-target"]
@@ -1057,6 +1257,8 @@
 - type: interaction
   parent: BaseTargetHasTail
   id: InteractionMassageTail
+
+  category: tail
   name: interaction-massage-tail
   userMessages: ["chat-interaction-massage-tail-message"]
   targetMessages: ["chat-interaction-massage-tail-message-target"]
@@ -1065,6 +1267,8 @@
 - type: interaction
   parent: BaseUserHasTail
   id: InteractionWavingTail
+
+  category: tail
   name: interaction-waving-tail
   userMessages: ["chat-interaction-waving-tail-message"]
   targetMessages: ["chat-interaction-waving-tail-message-target"]
@@ -1073,6 +1277,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasTail ]
   id: InteractionLickTail
+
+  category: tail
   name: interaction-lick-tail
   userMessages: ["chat-interaction-lick-tail-message"]
   targetMessages: ["chat-interaction-lick-tail-message-target"]
@@ -1082,6 +1288,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasTail ]
   id: InteractionEatTail
+
+  category: tail
   name: interaction-eat-tail
   userMessages: ["chat-interaction-eat-tail-message"]
   targetMessages: ["chat-interaction-eat-tail-message-target"]
@@ -1090,6 +1298,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionHoldsDickTail
+
+  category: tail
   name: interaction-holds-dick-tail
   userMessages: ["chat-interaction-holds-dick-tail-message"]
   targetMessages: ["chat-interaction-holds-dick-tail-message-target"]
@@ -1103,6 +1313,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionRubbingVaginaTail
+
+  category: tail
   name: interaction-rubbing-vagina-tail
   userMessages: ["chat-interaction-rubbing-vagina-tail-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-tail-message-target"]
@@ -1116,6 +1328,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionInsertTailVox
+
+  category: tail
   name: interaction-insert-tail-vox
   userMessages: ["chat-interaction-insert-tail-vox-message"]
   targetMessages: ["chat-interaction-insert-tail-vox-message-target"]
@@ -1127,6 +1341,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothingAnal ]
   id: InteractionInsertTailAnal
+
+  category: tail
   name: interaction-insert-tail-anal
   userMessages: ["chat-interaction-insert-tail-anal-message"]
   targetMessages: ["chat-interaction-insert-tail-anal-message-target"]
@@ -1138,6 +1354,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing, ]
   id: InteractionInsertTailVagina
+
+  category: tail
   name: interaction-insert-tail-vagina
   userMessages: ["chat-interaction-insert-tail-vagina-message"]
   targetMessages: ["chat-interaction-insert-tail-vagina-message-target"]
@@ -1151,6 +1369,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionRunsTailVagina
+
+  category: tail
   name: interaction-runs-tail-vagina
   userMessages: ["chat-interaction-runs-tail-vagina-message"]
   targetMessages: ["chat-interaction-runs-tail-vagina-message-target"]
@@ -1164,6 +1384,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionMassageTailDick
+
+  category: tail
   name: interaction-massage-tail-dick
   userMessages: ["chat-interaction-massage-tail-dick-message"]
   targetMessages: ["chat-interaction-massage-tail-dick-message-target"]
@@ -1177,6 +1399,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionHugsTailDick
+
+  category: tail
   name: interaction-hugs-tail-dick
   userMessages: ["chat-interaction-hugs-tail-dick-message"]
   targetMessages: ["chat-interaction-hugs-tail-dick-message-target"]
@@ -1190,6 +1414,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionHugsTaillDick
+
+  category: tail
   name: interaction-hugs-taill-dick
   userMessages: ["chat-interaction-hugs-taill-dick-message"]
   targetMessages: ["chat-interaction-hugs-taill-dick-message-target"]
@@ -1203,6 +1429,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetSlimeTail, BaseCheckClothing ]
   id: InteractionHugsSlimeDick
+
+  category: tail
   name: interaction-hugs-slime-dick
   userMessages: ["chat-interaction-hugs-slime-dick-message"]
   targetMessages: ["chat-interaction-hugs-slime-dick-message-target"]
@@ -1216,6 +1444,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetSlimeTail, BaseCheckClothing ]
   id: InteractionFondleSlimeDick
+
+  category: tail
   name: interaction-fondle-slime-dick
   userMessages: ["chat-interaction-fondle-slime-dick-message"]
   targetMessages: ["chat-interaction-fondle-slime-dick-message-target"]
@@ -1230,6 +1460,8 @@
 - type: interaction
   parent: BaseTargetHasEars
   id: InteractionTicklesEars
+
+  category: head
   name: interaction-tickles-ears
   userMessages: ["chat-interaction-tickles-ears-message"]
   targetMessages: ["chat-interaction-tickles-ears-message-target"]
@@ -1238,6 +1470,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
   id: InteractionKissEars
+
+  category: head
   name: interaction-kiss-ears
   userMessages: ["chat-interaction-kiss-ears-message"]
   targetMessages: ["chat-interaction-kiss-ears-message-target"]
@@ -1249,6 +1483,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars, BaseHumanoid ]
   id: InteractionLickEars
+
+  category: head
   name: interaction-lick-ears
   userMessages: ["chat-interaction-lick-ears-message"]
   targetMessages: ["chat-interaction-lick-ears-message-target"]
@@ -1258,6 +1494,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
   id: InteractionBiteEars
+
+  category: head
   name: interaction-bite-ears
   userMessages: ["chat-interaction-bite-ears-message"]
   targetMessages: ["chat-interaction-bite-ears-message-target"]
@@ -1267,6 +1505,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal ]
   id: InteractionStraponEnterAnalSlowly
+
+  category: groin
   name: interaction-strapon-enter-anal-slowly
   userMessages: ["chat-interaction-strapon-enter-anal-slowly-message"]
   targetMessages: ["chat-interaction-strapon-enter-anal-slowly-message-target"]
@@ -1287,6 +1527,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal ]
   id: InteractionStraponEnterAnalFaster
+
+  category: groin
   name: interaction-strapon-enter-anal-faster
   userMessages: ["chat-interaction-strapon-enter-anal-faster-message"]
   targetMessages: ["chat-interaction-strapon-enter-anal-faster-message-target"]
@@ -1307,6 +1549,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex ]
   id: InteractionStraponEnterVaginaSlowly
+
+  category: groin
   name: interaction-strapon-enter-vagina-slowly
   userMessages: ["chat-interaction-strapon-enter-vagina-slowly-message"]
   targetMessages: ["chat-interaction-strapon-enter-vagina-slowly-message-target"]
@@ -1329,6 +1573,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex ]
   id: InteractionStraponEnterVaginaFaster
+
+  category: groin
   name: interaction-strapon-enter-vagina-faster
   userMessages: ["chat-interaction-strapon-enter-vagina-faster-message"]
   targetMessages: ["chat-interaction-strapon-enter-vagina-faster-message-target"]
@@ -1351,6 +1597,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionStraponEnterVoxSlowly
+
+  category: groin
   name: interaction-strapon-enter-vox-slowly
   userMessages: ["chat-interaction-strapon-enter-vox-slowly-message"]
   targetMessages: ["chat-interaction-strapon-enter-vox-slowly-message-target"]
@@ -1362,6 +1610,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionStraponEnterVoxFaster
+
+  category: groin
   name: interaction-strapon-enter-vox-faster
   userMessages: ["chat-interaction-strapon-enter-vox-faster-message"]
   targetMessages: ["chat-interaction-strapon-enter-vox-faster-message-target"]

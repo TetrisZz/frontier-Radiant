@@ -437,3 +437,5 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: NFWeaponDetails
+    manufacturer: AURORA

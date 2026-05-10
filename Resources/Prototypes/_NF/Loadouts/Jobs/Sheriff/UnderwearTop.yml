@@ -1,0 +1,11 @@
+#T0
+- type: loadout
+  id: SheriffClothingUnderwearTopBraDVB
+  equipment:
+    underweart: ClothingUnderwearTopBraDVB
+    
+- type: loadout
+  id: SheriffClothingUnderwearTopBraDVBB
+  equipment:
+    underweart: ClothingUnderwearTopBraDVBB
+    

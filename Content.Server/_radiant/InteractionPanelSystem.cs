@@ -222,14 +222,25 @@ namespace Content.Server.Interaction.Panel
         {
             int preferredIndex = GetRandomMessageIndex(interactionPrototype);
 
-            if (interactionPrototype.TargetMessages.Count > 0 && !prototype)
+            if (interactionPrototype.TargetMessages.Count > 0)
             {
                 if (preferredIndex < 0 || preferredIndex >= interactionPrototype.TargetMessages.Count)
                     preferredIndex = 0;
 
-                var targetMessage = Loc.GetString(interactionPrototype.TargetMessages[preferredIndex], ("user", Identity.Entity(user, _entManager)));
-                var otherMessage = Loc.GetString(interactionPrototype.OtherMessages.Count > 0 ? interactionPrototype.OtherMessages[preferredIndex] : "",
-                    ("user", Identity.Entity(user, _entManager)), ("target", Identity.Entity(target, _entManager)));
+                string targetMessage;
+                string otherMessage;
+                if (prototype)
+                {
+                    targetMessage = ReplaceCustomPlaceholders(interactionPrototype.TargetMessages[preferredIndex], user, target);
+                    var otherTemplate = interactionPrototype.OtherMessages.Count > 0 ? interactionPrototype.OtherMessages[preferredIndex] : "";
+                    otherMessage = ReplaceCustomPlaceholders(otherTemplate, user, target);
+                }
+                else
+                {
+                    targetMessage = Loc.GetString(interactionPrototype.TargetMessages[preferredIndex], ("user", Identity.Entity(user, _entManager)));
+                    otherMessage = Loc.GetString(interactionPrototype.OtherMessages.Count > 0 ? interactionPrototype.OtherMessages[preferredIndex] : "",
+                        ("user", Identity.Entity(user, _entManager)), ("target", Identity.Entity(target, _entManager)));
+                }
 
                 if (_entManager.TryGetComponent<ActorComponent>(target, out var actor))
                     _popupSystem.PopupEntity(targetMessage, target, actor.PlayerSession, PopupType.Small);
@@ -254,11 +265,7 @@ namespace Content.Server.Interaction.Panel
                 }
                 else
                 {
-                    emoteCommand = interactionPrototype.UserMessages[0];
-                    if (emoteCommand.Contains("$target"))
-                    {
-                        emoteCommand = emoteCommand.Replace("$target", Name(Identity.Entity(target, _entManager)));
-                    }
+                    emoteCommand = ReplaceCustomPlaceholders(interactionPrototype.UserMessages[0], user, target);
                 }
 
                 if (_entManager.TryGetComponent<ActorComponent>(user, out var userActor))
@@ -277,6 +284,18 @@ namespace Content.Server.Interaction.Panel
             }
 
             PlayInteractionSound(interactionPrototype.InteractSound, user, target, interactionPrototype.SoundPerceivedByOthers);
+        }
+
+        private string ReplaceCustomPlaceholders(string template, EntityUid user, EntityUid target)
+        {
+            var userName = Name(Identity.Entity(user, _entManager));
+            var targetName = Name(Identity.Entity(target, _entManager));
+
+            return template
+                .Replace("{ $user }", userName)
+                .Replace("{ $target }", targetName)
+                .Replace("$user", userName)
+                .Replace("$target", targetName);
         }
 
         private int GetRandomMessageIndex(InteractionPrototype interactionPrototype)

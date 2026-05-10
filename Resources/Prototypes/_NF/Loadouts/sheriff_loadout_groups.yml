@@ -29,6 +29,7 @@
   - SheriffClothingNeckNfsdBadgeSheriff
   - SheriffClothingNeckMantleSheriff
   - SheriffClothingNeckCloakSheriff
+  - SheriffClothingNeckCloakSbRS
   fallbacks:
   - SheriffClothingNeckNfsdBadgeSheriff
 
@@ -59,3 +60,18 @@
   - SheriffClothingHeadsetAltNfsdGreenCentcom
   fallbacks:
   - SheriffClothingHeadsetAltNfsdCreamandBrownCentcom
+
+- type: loadoutGroup
+  id: SheriffTop
+  name: loadout-group-sheriff-top
+  loadouts:
+  - SheriffClothingUnderwearTopBraDVB
+  - SheriffClothingUnderwearTopBraDVBB
+
+- type: loadoutGroup
+  id: SheriffBottom
+  name: loadout-group-sheriff-bottom
+  loadouts:
+  - SheriffClothingUnderwearBottomBoxersDVB
+  - SheriffClothingUnderwearBottomPantiesDVB
+  - SheriffClothingUnderwearBottomPantiesDVBB

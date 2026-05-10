@@ -1936,3 +1936,34 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
   groupBy: "militaryJumpsuit"
+
+# Radiant Sector
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpsuitRedSweatpants
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRedSweatpants
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpsuitBlackSweatpants
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlackSweatpants
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpsuitBlueSweatpants
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlueSweatpants
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpskirtGreenlok
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGreenlok
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpskirtRedTurtleneck
+  price: 500
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtRedTurtleneck

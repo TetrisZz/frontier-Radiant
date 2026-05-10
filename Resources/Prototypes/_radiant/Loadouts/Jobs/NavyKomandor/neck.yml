@@ -7,3 +7,14 @@
   id: NAVYClothingNeckMantleNavyWhite
   equipment:
     neck: ClothingNeckMantleNavyWhite
+
+- type: loadout
+  id: NAVYClothingNeckCloakSbRS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobNavyKomandor
+      time: 540000 # 150hr
+  equipment:
+    neck: ClothingNeckCloakSbRS

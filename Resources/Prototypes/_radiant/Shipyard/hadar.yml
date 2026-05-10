@@ -1,0 +1,47 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Hadar
+  parent: BaseVessel
+  name: HOM Хадар
+  description: Экспедиционное судно, на нем имеется все для длительных полетов.
+  price: 160000
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_radiant/Shuttles/Hadar.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Chemistry
+  - Science
+  - Expedition
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Hadar
+  mapName: 'HOM Хадар'
+  mapPath: /Maps/_radiant/Shuttles/Hadar.yml
+  minPlayers: 0
+  stations:
+    Hadar:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Хадар {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]

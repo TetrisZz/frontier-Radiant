@@ -105,3 +105,21 @@
   loadouts:
   - NAVYClothingNeckMantleNavyWhite
   - NAVYClothingNeckMantleNavyBlack
+  - NAVYClothingNeckCloakSbRS
+
+- type: loadoutGroup
+  id: NAVYKomandorUnderwearTop
+  name: loadout-group-komandor-bra
+  loadouts:
+  - NAVYClothingUnderwearTopBraNan
+  - NAVYClothingUnderwearTopBraNavy
+
+- type: loadoutGroup
+  id: NAVYKomandorUnderwearBottom
+  name: loadout-group-komandor-bottom
+  loadouts:
+  - NAVYClothingUnderwearBottomBoxersNavy
+  - NAVYClothingUnderwearBottomPantiesNavy
+  - NAVYClothingUnderwearBottomPantiesNav
+
+

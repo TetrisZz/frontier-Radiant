@@ -60,3 +60,66 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Cloaks/cloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakComRS
+  name: роскошный плащ
+  description: Плащ из дорогой ткани, подчёркивающий высокий статус владельца.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/com.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSiRS
+  name: роскошный плащ
+  description: Элегантный плащ с изысканным кроем и безупречным стилем.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/si.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakGybRS
+  name: роскошный плащ
+  description: Богато украшенный плащ, словно созданный для знати.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/gyb.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakGvRS
+  name: роскошный плащ
+  description: Великолепный плащ, притягивающий взгляды окружающих.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/gv.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakDrRS
+  name: роскошный плащ
+  description: Тяжёлый и дорогой плащ, говорящий о богатстве владельца.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/di.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSbRS
+  name: роскошный плащ
+  description: Утончённый плащ с роскошной отделкой и благородным видом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/sb.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakHomRS
+  name: роскошный плащ
+  description: Утончённый плащ с роскошной отделкой и благородным видом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Cloaks/hom.rsi

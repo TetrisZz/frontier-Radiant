@@ -349,3 +349,42 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/merc.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/merc.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRedSweatpants
+  name: красный спортивный костюм
+  description: Удобные спортивные штаны яркого красного цвета.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/red_sweatpants.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/red_sweatpants.rsi
+  - type: StaticPrice # Frontier
+    vendPrice: 1000 # Frontier
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlackSweatpants
+  name: черный спортивный костюм
+  description: Классические спортивные штаны черного цвета.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/black_sweatpants.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/black_sweatpants.rsi
+  - type: StaticPrice # Frontier
+    vendPrice: 1000 # Frontier
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueSweatpants
+  name: синий спортивный костюм
+  description: Удобные спортивные штаны спокойного синего цвета.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/blue_sweatpants.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/blue_sweatpants.rsi
+  - type: StaticPrice # Frontier
+    vendPrice: 1000 # Frontier
