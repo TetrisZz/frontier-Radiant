@@ -105,6 +105,51 @@
   price: 200
   equipment:
     shoes: ClothingShoesColorYellow
+
+- type: loadout
+  id: ContractorClothingShoesColorSandalsDeepBlack
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  price: 200
+  equipment:
+    shoes: ClothingShoesColorSandalsDeepBlack
+
+- type: loadout
+  id: ContractorClothingShoesColorSandalsScarlet
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  price: 200
+  equipment:
+    shoes: ClothingShoesColorSandalsScarlet
+
+- type: loadout
+  id: ContractorClothingShoesColorSandalsPink
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  price: 200
+  equipment:
+    shoes: ClothingShoesColorSandalsPink
+
+- type: loadout
+  id: ContractorClothingShoesColorSandalsNeonPurple
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  price: 200
+  equipment:
+    shoes: ClothingShoesColorSandalsNeonPurple
+
+- type: loadout
+  id: ContractorClothingShoesColorSandalsMint
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  price: 200
+  equipment:
+    shoes: ClothingShoesColorSandalsMint
 #T1
 - type: loadout
   id: ContractorClothingShoesColorWhite
@@ -399,6 +444,15 @@
   price: 1200
   equipment:
     shoes: ClothingShoesDameDane
+
+- type: loadout
+  id: ContractorClothingShoesDameDov
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  price: 1200
+  equipment:
+    shoes: ClothingShoesDameDov
 
 - type: loadout
   id: ContractorClothingShoesBootsWork

@@ -11,12 +11,24 @@ namespace Content.Shared.Interaction
         public NetEntity? Target { get; }
         public InteractionPrototype? Prototype { get; }
 
-        public InteractionPressedEvent(NetEntity user, string interactionId, NetEntity? target, InteractionPrototype? prototype)
+        /// <summary>
+        /// If true, only the user and target should see the interaction messages/sound.
+        /// </summary>
+        public bool HideFromOthers { get; }
+
+        /// <summary>
+        /// Client-side arousal from the local prototype manager (full data). Used when server-resolved <see cref="InteractionPrototype.EffectiveArousal"/> is 0 (e.g. incomplete network copy).
+        /// </summary>
+        public int ArousalHint { get; }
+
+        public InteractionPressedEvent(NetEntity user, string interactionId, NetEntity? target, InteractionPrototype? prototype, bool hideFromOthers, int arousalHint = 0)
         {
             User = user;
             InteractionId = interactionId;
             Target = target;
             Prototype = prototype;
+            HideFromOthers = hideFromOthers;
+            ArousalHint = arousalHint;
         }
     }
 }

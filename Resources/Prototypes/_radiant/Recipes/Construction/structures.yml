@@ -13,5 +13,57 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  id: RadiantRailing
+  name: перила
+  graph: RadiantRailing
+  startNode: start
+  targetNode: railing
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantRailingCorner
+  name: угловые перила
+  graph: RadiantRailing
+  startNode: start
+  targetNode: railingCorner
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantRailingCornerSmall
+  name: малые угловые перила
+  graph: RadiantRailing
+  startNode: start
+  targetNode: railingCornerSmall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantRailingRound
+  name: круглые перила
+  graph: RadiantRailing
+  startNode: start
+  targetNode: railingRound
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
 
 

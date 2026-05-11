@@ -15,6 +15,7 @@ interaction-panel-chest-collapsible = Грудь
 interaction-panel-groin-collapsible = Промежность
 interaction-panel-tail-collapsible = Хвост
 interaction-panel-body-collapsible = Тело
+interaction-panel-arousal-label = Возбуждение
 interact-player = Вы
 diona-leaves = ...имеет листья
 diona-branches = ...имеет ветки

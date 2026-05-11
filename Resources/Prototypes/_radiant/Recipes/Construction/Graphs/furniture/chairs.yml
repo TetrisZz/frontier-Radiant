@@ -1,0 +1,76 @@
+- type: constructionGraph
+  id: RadiantChairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: comfyChairBrown
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: comfyChairCarp
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: comfyChairBarber
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: comfyChairWhite
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+
+    - node: comfyChairBrown
+      entity: ComfyChairBrown
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: comfyChairCarp
+      entity: ComfyChairCarp
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: comfyChairBarber
+      entity: ComfyChairBarber
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: comfyChairWhite
+      entity: ComfyChairWhite
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1

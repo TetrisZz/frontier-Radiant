@@ -6,26 +6,35 @@
   components:
   - type: Sprite
     sprite: _radiant/Structures/Furniture/sofa.rsi
+  - type: Construction
+    graph: RadiantSofasGraph
+    node: BenchSofaWhiteMiddleNode
   - type: StaticPrice # Frontier
     price: 25 # Frontier: 25
 
 - type: entity
   id: BenchSofaWhiteLeft
   suffix: Left
-  parent: BenchSofaCorpMiddle
+  parent: BenchSofaWhiteMiddle
   components:
   - type: Sprite
     sprite: _radiant/Structures/Furniture/sofa.rsi
     state: left
+  - type: Construction
+    graph: RadiantSofasGraph
+    node: BenchSofaWhiteLeftNode
 
 - type: entity
   id: BenchSofaWhiteRight
   suffix: Right
-  parent: BenchSofaCorpMiddle
+  parent: BenchSofaWhiteMiddle
   components:
   - type: Sprite
     sprite: _radiant/Structures/Furniture/sofa.rsi
     state: right
+  - type: Construction
+    graph: RadiantSofasGraph
+    node: BenchSofaWhiteRightNode
 
 - type: entity
   name: grey sofa
@@ -58,3 +67,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: Construction
+    graph: RadiantSofasGraph
+    node: BenchSofaWhiteCornerNode

@@ -72,6 +72,12 @@ public sealed partial class EmotePrototype : IPrototype
     // goob edit - animations
     [DataField]
     public object? Event = null;
+
+    /// <summary>
+    /// Radiant: server-only arousal gain for the performing entity when the emote successfully runs.
+    /// </summary>
+    [DataField("arousalPoints")]
+    public float ArousalPoints;
 }
 
 /// <summary>

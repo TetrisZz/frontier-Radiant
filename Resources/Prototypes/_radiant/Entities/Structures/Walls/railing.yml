@@ -1,0 +1,59 @@
+- type: entity
+  parent: Railing
+  id: RadiantRailing
+  name: перила
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Walls/railing.rsi
+    state: side
+  - type: Icon
+    sprite: _radiant/Structures/Walls/railing.rsi
+    state: side
+  - type: Construction
+    graph: RadiantRailing
+    node: railing
+
+- type: entity
+  parent: RailingCorner
+  id: RadiantRailingCorner
+  name: перила
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Walls/railing.rsi
+    state: corner
+  - type: Icon
+    sprite: _radiant/Structures/Walls/railing.rsi
+    state: corner
+  - type: Construction
+    graph: RadiantRailing
+    node: railingCorner
+
+- type: entity
+  parent: RailingCornerSmall
+  id: RadiantRailingCornerSmall
+  name: перила
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Walls/railing.rsi
+    state: corner_small
+  - type: Icon
+    sprite: _radiant/Structures/Walls/railing.rsi
+    state: corner_small
+  - type: Construction
+    graph: RadiantRailing
+    node: railingCornerSmall
+
+- type: entity
+  parent: RailingRound
+  id: RadiantRailingRound
+  name: перила
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Walls/railing.rsi
+    state: round
+  - type: Icon
+    sprite: _radiant/Structures/Walls/railing.rsi
+    state: round
+  - type: Construction
+    graph: RadiantRailing
+    node: railingRound

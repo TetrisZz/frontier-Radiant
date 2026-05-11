@@ -731,6 +731,39 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     /// <summary>
+    /// Sends an emote chat line only to the specified pair (source and target), ignoring normal voice range.
+    /// Used for private ERP interactions that should not be visible to bystanders.
+    /// </summary>
+    public void SendPrivateEmotePair(EntityUid source, EntityUid target, string action, string? nameOverride = null, bool hideLog = false)
+    {
+        var ent = Identity.Entity(source, EntityManager);
+        var name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
+
+        var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
+            ("entityName", name),
+            ("entity", ent),
+            ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
+
+        // Deliver only to source + target sessions.
+        foreach (var session in _playerManager.Sessions)
+        {
+            var attached = session.AttachedEntity;
+            if (attached != source && attached != target)
+                continue;
+
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, action, wrappedMessage, source, hideChat: false, session.Channel, author: session.UserId);
+        }
+
+        if (!hideLog)
+        {
+            if (name != Name(source))
+                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Private emote from {ToPrettyString(source):user} as {name}: {action}");
+            else
+                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Private emote from {ToPrettyString(source):user}: {action}");
+        }
+    }
+
+    /// <summary>
     ///     Returns true if the given player is 'allowed' to send the given message, false otherwise.
     /// </summary>
     private bool CanSendInGame(string message, IConsoleShell? shell = null, ICommonSession? player = null)

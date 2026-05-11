@@ -10,6 +10,8 @@
     Narcotic:
       metabolismRate: 0.1
       effects:
+        - !type:ModifyArousal
+          amount: 1.3
         - !type:Emote
           emote: Ston
           probability: 0.3
@@ -35,6 +37,8 @@
     Narcotic:
       metabolismRate: 0.1
       effects:
+        - !type:ModifyArousal
+          amount: 1
         - !type:Emote
           emote: Ston
           probability: 0.1

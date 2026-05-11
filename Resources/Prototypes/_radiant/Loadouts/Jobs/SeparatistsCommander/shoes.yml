@@ -30,3 +30,51 @@
   equipment:
     shoes: ClothingShoesBootsCombatLongFiled
 
+- type: loadout
+  id: SEPClothingShoesDameDov
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesDameDov
+
+- type: loadout
+  id: SEPClothingShoesColorSandalsDeepBlack
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesColorSandalsDeepBlack
+
+- type: loadout
+  id: SEPClothingShoesColorSandalsScarlet
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesColorSandalsScarlet
+
+- type: loadout
+  id: SEPClothingShoesColorSandalsPink
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesColorSandalsPink
+
+- type: loadout
+  id: SEPClothingShoesColorSandalsNeonPurple
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesColorSandalsNeonPurple
+
+- type: loadout
+  id: SEPClothingShoesColorSandalsMint
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: ShoesCapableNF
+  equipment:
+    shoes: ClothingShoesColorSandalsMint
+

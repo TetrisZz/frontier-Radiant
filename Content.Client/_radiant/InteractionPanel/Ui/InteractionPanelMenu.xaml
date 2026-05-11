@@ -17,6 +17,18 @@
             <BoxContainer Name="TargetSpriteView" />
         </BoxContainer>
 
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4, 2, 4, 4">
+            <Label Text="{Loc 'interaction-panel-arousal-label'}" StyleClasses="LabelSubText" />
+            <ProgressBar Name="ArousalBar" MinValue="0" MaxValue="1" Value="0" HorizontalExpand="True" SetHeight="10">
+                <ProgressBar.ForegroundStyleBoxOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#E85A8A" />
+                </ProgressBar.ForegroundStyleBoxOverride>
+            </ProgressBar>
+            <CheckBox Name="HideFromOthersCheckBox"
+                      Text="Скрыть от окружающих (видим только мы)"
+                      Margin="0, 4, 0, 0"/>
+        </BoxContainer>
+
         <!-- Специальный блок -->
         <BoxContainer HorizontalExpand="True">
             <Button Name="ImportButton" MinWidth="320" Text="{Loc 'interaction-panel-import-button'}"/>
