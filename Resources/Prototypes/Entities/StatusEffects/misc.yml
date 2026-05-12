@@ -92,3 +92,11 @@
   parent: [ StatusEffectWoozy, StatusEffectSlurred ]
   id: StatusEffectDrunk
   name: drunk
+
+# Timed jitter animation (see SharedJitteringSystem.DoJitter).
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectJitter
+  name: jitter
+  components:
+  - type: JitteringStatusEffect

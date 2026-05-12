@@ -12,6 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
+using Content.Shared.DoAfter;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -41,6 +42,7 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     private const string TetherPrototype = "TetherEntity";
     private static readonly TimeSpan PullKnockdownDuration = TimeSpan.FromSeconds(2);
     private const float YankInteractionRange = 3f;
@@ -53,6 +55,49 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
         SubscribeLocalEvent<PlayerLeashPullerComponent, GetVerbsEvent<InteractionVerb>>(AddSelfDetachVerb);
         SubscribeLocalEvent<PlayerLeashPullerComponent, EntityTerminatingEvent>(OnPullerTerminating);
         SubscribeLocalEvent<TetheredComponent, EntityTerminatingEvent>(OnTetheredTerminating);
+        SubscribeLocalEvent<LeashComponent, PlayerLeashAttachDoAfterEvent>(OnLeashAttachDoAfter);
+    }
+
+    private void OnLeashAttachDoAfter(EntityUid leashUid, LeashComponent _, PlayerLeashAttachDoAfterEvent args)
+    {
+        if (!_net.IsServer || args.Handled)
+            return;
+
+        var puller = args.User;
+        if (!args.Target.HasValue)
+            return;
+
+        var target = args.Target.Value;
+
+        if (args.Cancelled)
+        {
+            args.Handled = true;
+            return;
+        }
+
+        if (!TryGetHeldLeash(puller, out var heldItemUid, out LeashComponent? _))
+        {
+            _popup.PopupPredicted(Loc.GetString("player-leash-fail-no-leash"), puller, puller);
+            args.Handled = true;
+            return;
+        }
+
+        if (heldItemUid != leashUid)
+        {
+            _popup.PopupPredicted(Loc.GetString("player-leash-fail-no-leash"), puller, puller);
+            args.Handled = true;
+            return;
+        }
+
+        if (TryGetAttachBlocker(puller, target, out var fail))
+        {
+            _popup.PopupPredicted(Loc.GetString(fail!), puller, puller);
+            args.Handled = true;
+            return;
+        }
+
+        args.Handled = true;
+        StartLeash(puller, target);
     }
 
     private void OnPullerTerminating(EntityUid uid, PlayerLeashPullerComponent comp, ref EntityTerminatingEvent args)
@@ -90,7 +135,7 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
                 continue;
             }
 
-            if (!TryGetHeldLeash(puller, out _, out _))
+            if (!TryGetHeldLeash(puller, out _, out LeashComponent? _))
             {
                 PopupLeashSnapped(puller, follower);
                 StopLeash(puller, leash);
@@ -207,10 +252,8 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
             return;
         }
 
-        if (!TryGetHeldLeash(args.User, out var leashUid, out var leashComp))
+        if (!TryGetHeldLeash(args.User, out _, out LeashComponent? _))
             return;
-        _ = leashUid;
-        _ = leashComp;
 
         InteractionVerb attach = new()
         {
@@ -241,16 +284,28 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
                 _popup.PopupPredicted(Loc.GetString("player-leash-fail-no-leash"), pullerUid, pullerUid);
                 return;
             }
-            _ = leashUid;
-            _ = leashComp;
 
             if (TryGetAttachBlocker(pullerUid, targetUid, out var fail))
             {
-                _popup.PopupPredicted(Loc.GetString(fail), pullerUid, pullerUid);
+                _popup.PopupPredicted(Loc.GetString(fail!), pullerUid, pullerUid);
                 return;
             }
 
-            StartLeash(pullerUid, targetUid);
+            var delay = TimeSpan.FromSeconds(MathF.Max(0.1f, leashComp.AttachDelaySeconds));
+            var doAfterArgs = new DoAfterArgs(EntityManager, pullerUid, delay, new PlayerLeashAttachDoAfterEvent(), leashUid, targetUid, leashUid)
+            {
+                NeedHand = true,
+                BreakOnDropItem = true,
+                BreakOnMove = false,
+                RequireCanInteract = true,
+                BreakOnDamage = true,
+                DistanceThreshold = 2.5f,
+            };
+
+            if (!_doAfter.TryStartDoAfter(doAfterArgs))
+                return;
+
+            _popup.PopupPredicted(Loc.GetString("player-leash-start-attaching"), pullerUid, pullerUid);
         };
 
         args.Verbs.Add(attach);
@@ -385,17 +440,21 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
         _transform.SetWorldPosition(tether, _transform.GetWorldPosition(puller));
     }
 
-    private bool TryGetHeldLeash(EntityUid user, [NotNullWhen(true)] out EntityUid? leashUid, [NotNullWhen(true)] out LeashComponent? leash)
+    /// <summary>
+    /// On failure, <paramref name="leashItemUid"/> is invalid and <paramref name="leashComp"/> is null.
+    /// </summary>
+    private bool TryGetHeldLeash(EntityUid user, out EntityUid leashItemUid, [NotNullWhen(true)] out LeashComponent? leashComp)
     {
-        leashUid = null;
-        leash = null;
+        leashItemUid = EntityUid.Invalid;
+        leashComp = null;
 
         foreach (var held in _hands.EnumerateHeld(user))
         {
-            if (!TryComp(held, out leash))
+            if (!TryComp(held, out LeashComponent? comp))
                 continue;
 
-            leashUid = held;
+            leashComp = comp;
+            leashItemUid = held;
             return true;
         }
 

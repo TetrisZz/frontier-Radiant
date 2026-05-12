@@ -1,3 +1,4 @@
+player-leash-start-attaching = Вы прицепляете поводок...
 player-leash-verb-attach = Пристегнуть
 player-leash-verb-detach = Отстегнуть поводок
 player-leash-verb-detach-target = Отстегнуть от цели
