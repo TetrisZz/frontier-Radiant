@@ -104,6 +104,7 @@
     - NFServiceArchetypeStatic
     - NFPietyStatic
     - NFCandlesStatic
+    - NFPhotoCameraStatic # Radiant
   - type: EmagLatheRecipes
     emagStaticPacks:
     - NFServiceTechfabEmagStatic
@@ -300,6 +301,7 @@
     - NfsdTargetsStatic
     - NfsdBoardsStatic
     - NfsdReportingStatic
+    - NFPhotoCameraStatic
     dynamicPacks:
     - EnergyWeaponsNFSD # Radiant Sector
     - EnergyWeaponsShuttle # Radiant Sector

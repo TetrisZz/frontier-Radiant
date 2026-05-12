@@ -1,3 +1,4 @@
+using Content.Server._CorvaxGoob.Photo;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -316,6 +317,31 @@ public sealed class FaxSystem : EntitySystem
 
                     break;
                 case FaxConstants.FaxPrintCommand:
+                    //Port start
+                    // Check if it's a photo fax first
+                    if (args.Data.TryGetValue(FaxConstants.FaxPhotoImageData, out string? photoImageData))
+                    {
+                        args.Data.TryGetValue(FaxConstants.FaxPaperNameData, out string? photoName);
+                        args.Data.TryGetValue(FaxConstants.FaxPaperPrototypeData, out string? photoPrototypeId);
+
+                        var photoData = Convert.FromBase64String(photoImageData);
+                        // Use a workaround: store image data in a temporary way
+                        // The receiving fax will create a PhotoCard with the image data
+                        var printed = Spawn(photoPrototypeId ?? "PhotoCard", Transform(uid).Coordinates);
+                        if (TryComp<PhotoCardComponent>(printed, out var photoCard))
+                        {
+                            photoCard.ImageData = photoData;
+                        }
+                        _metaData.SetEntityName(printed, photoName ?? "Faxed Photo");
+
+                        // Log the received photo
+                        _adminLogger.Add(LogType.Action,
+                            LogImpact.Low,
+                            $"\"{component.FaxName}\" {ToPrettyString(uid):tool} received photo from {args.SenderAddress}");
+                        break;
+                    }
+                    //Port end
+
                     if (!args.Data.TryGetValue(FaxConstants.FaxPaperNameData, out string? name) ||
                         !args.Data.TryGetValue(FaxConstants.FaxPaperContentData, out string? content))
                         return;
@@ -328,8 +354,8 @@ public sealed class FaxSystem : EntitySystem
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampProtectedData, out bool? stampProtected); // Frontier
                     args.Data.TryGetValue(FaxConstants.FaxBlueprintRecipes, out HashSet<ProtoId<LatheRecipePrototype>>? blueprintRecipes); // Frontier
 
-                    var printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, stampProtected ?? false, blueprintRecipes); // Frontier: add stampProtected, blueprintRecipes
-                    Receive(uid, printout, args.SenderAddress);
+                    var Printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, entityUid: null, stampProtected: stampProtected ?? false, blueprintRecipes: blueprintRecipes); // Frontier: add stampProtected, blueprintRecipes, Port-Photo
+                    Receive(uid, Printout, args.SenderAddress);
 
                     break;
             }
@@ -487,8 +513,8 @@ public sealed class FaxSystem : EntitySystem
         if (sendEntity == null)
             return;
 
-        if (!TryComp(sendEntity, out MetaDataComponent? metadata) ||
-            !TryComp<PaperComponent>(sendEntity, out var paper))
+        // CorvaxGoob-PhotoCamera-Start
+        if (!TryComp(sendEntity, out MetaDataComponent? metadata))
             return;
 
         TryComp<LabelComponent>(sendEntity, out var labelComponent);
@@ -499,17 +525,34 @@ public sealed class FaxSystem : EntitySystem
         if (TryComp<BlueprintComponent>(sendEntity, out var blueprints))
             blueprintRecipes = blueprints.ProvidedRecipes;
 
+        FaxPrintout? printout = null;
+
+        if (TryComp<PaperComponent>(sendEntity, out var paper))
+        {
+            printout = new FaxPrintout(paper.Content,
+                nameMod?.BaseName ?? metadata.EntityName,
+                labelComponent?.CurrentLabel,
+                metadata.EntityPrototype?.ID ?? component.PrintPaperId,
+                paper.StampState,
+                paper.StampedBy,
+                paper.EditingDisabled,
+                entityUid: null,
+                stampProtected: _tag.HasTag(sendEntity.Value, NFPaperStampProtectedTag), // Frontier
+                blueprintRecipes: blueprintRecipes // Frontier
+            );
+        }
+        else if (TryComp<PhotoCardComponent>(sendEntity, out var photo) )
+        {
+            var meta = MetaData(sendEntity.Value);
+
+            if (meta.EntityPrototype is not null)
+                printout = new FaxPrintout("", meta.EntityName, prototypeId: meta.EntityPrototype.ID, entityUid: sendEntity);
+        }
         // TODO: See comment in 'Send()' about not being able to copy whole entities
-        var printout = new FaxPrintout(paper.Content,
-                                       nameMod?.BaseName ?? metadata.EntityName,
-                                       labelComponent?.CurrentLabel,
-                                       metadata.EntityPrototype?.ID ?? component.PrintPaperId,
-                                       paper.StampState,
-                                       paper.StampedBy,
-                                       paper.EditingDisabled,
-                                       _tag.HasTag(sendEntity.Value, NFPaperStampProtectedTag), // Frontier
-                                       blueprintRecipes // Frontier
-                                       );
+
+        if (printout is null)
+            return;
+        // CorvaxGoob-PhotoCamera-End
 
         component.PrintingQueue.Enqueue(printout);
         component.SendTimeoutRemaining += component.SendTimeout;
@@ -518,7 +561,7 @@ public sealed class FaxSystem : EntitySystem
         // will start immediately.
 
         // Frontier: check if paper should be destroyed on sending.
-        if (paper.DestroyOnFax)
+        if (paper is not null && paper.DestroyOnFax)
         {
             DeleteFax(uid, sendEntity.Value, paper);
         }
@@ -555,8 +598,39 @@ public sealed class FaxSystem : EntitySystem
         if (!component.KnownFaxes.TryGetValue(component.DestinationFaxAddress, out var faxName))
             return;
 
-        if (!TryComp(sendEntity, out MetaDataComponent? metadata) ||
-           !TryComp<PaperComponent>(sendEntity, out var paper))
+        //Radiant start
+        if (!TryComp(sendEntity, out MetaDataComponent? metadata))
+            return;
+
+        // Check if it's a PhotoCard first
+        if (TryComp<PhotoCardComponent>(sendEntity, out var photoCard))
+        {
+            // Send photo via fax
+            var photoPayload = new NetworkPayload()
+            {
+                { DeviceNetworkConstants.Command, FaxConstants.FaxPrintCommand },
+                { FaxConstants.FaxPaperNameData, metadata.EntityName },
+                { FaxConstants.FaxPaperPrototypeData, metadata.EntityPrototype?.ID ?? string.Empty },
+                { FaxConstants.FaxPhotoImageData, photoCard.ImageData != null ? Convert.ToBase64String(photoCard.ImageData) : string.Empty },
+            };
+
+            _deviceNetworkSystem.QueuePacket(uid, component.DestinationFaxAddress, photoPayload);
+
+            _adminLogger.Add(LogType.Action,
+                LogImpact.Low,
+                $"{ToPrettyString(args.Actor):actor} " +
+                $"sent fax from \"{component.FaxName}\" {ToPrettyString(uid):tool} " +
+                $"to \"{faxName}\" ({component.DestinationFaxAddress}) " +
+                $"of photo: {ToPrettyString(sendEntity):subject}");
+
+            component.SendTimeoutRemaining += component.SendTimeout;
+            _audioSystem.PlayPvs(component.SendSound, uid);
+            UpdateUserInterface(uid, component);
+            return;
+        }
+
+        //Radiant end
+        if (!TryComp<PaperComponent>(sendEntity, out var paper))
             return;
 
         TryComp<NameModifierComponent>(sendEntity, out var nameMod);
@@ -664,14 +738,18 @@ public sealed class FaxSystem : EntitySystem
             }
 
             paper.EditingDisabled = printout.Locked;
-
-            // Frontier: stamp protection
-            if (printout.StampProtected)
-            {
-                _tag.AddTag(printed, NFPaperStampProtectedTag);
-            }
-            // End Frontier
         }
+        else if (printout.EntityUid.HasValue && TryComp<PhotoCardComponent>(printout.EntityUid.Value, out var photo)) // CorvaxGoob-PhotoCamera
+        {
+            EnsureComp<PhotoCardComponent>(printed).ImageData = photo.ImageData;
+        }
+
+        // Frontier: stamp protection
+        if (printout.StampProtected)
+        {
+            _tag.AddTag(printed, NFPaperStampProtectedTag);
+        }
+        // End Frontier
 
         // Frontier: blueprint recipes
         if (TryComp<BlueprintComponent>(printed, out var blueprint))
@@ -691,7 +769,7 @@ public sealed class FaxSystem : EntitySystem
     private void NotifyAdmins(string faxName)
     {
         _chat.SendAdminAnnouncement(Loc.GetString("fax-machine-chat-notify", ("fax", faxName)));
-        _audioSystem.PlayGlobal("/Audio/Machines/high_tech_confirm.ogg", Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
+        _audioSystem.PlayGlobal(new SoundPathSpecifier("/Audio/Machines/high_tech_confirm.ogg"), Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
     }
 
     // Frontier: delete sensitive items on fax to prevent duplication
