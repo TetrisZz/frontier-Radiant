@@ -12,6 +12,7 @@
     - !type:RoleTimeRequirement
       role: JobNavyCaptain
       time: 21600 # 6 hours
+  whitelisted: true
   startingGear: NavyKomandorGear
   icon: "JobIconNavyKomandor" 
   supervisors: job-supervisors-navy-cc

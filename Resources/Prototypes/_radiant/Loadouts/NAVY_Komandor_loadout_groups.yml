@@ -110,6 +110,8 @@
 - type: loadoutGroup
   id: NAVYKomandorUnderwearTop
   name: loadout-group-komandor-bra
+  minLimit: 0
+  maxLimit: 1
   loadouts:
   - NAVYClothingUnderwearTopBraNan
   - NAVYClothingUnderwearTopBraNavy

@@ -64,6 +64,8 @@
 - type: loadoutGroup
   id: SheriffTop
   name: loadout-group-sheriff-top
+  minLimit: 0
+  maxLimit: 1
   loadouts:
   - SheriffClothingUnderwearTopBraDVB
   - SheriffClothingUnderwearTopBraDVBB

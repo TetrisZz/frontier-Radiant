@@ -21,6 +21,6 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobAcorpСommandant
-      time: 540000 # 150hr
+      time: 90000 # 25
   equipment:
     neck: ClothingNeckCloakComRS

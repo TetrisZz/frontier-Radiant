@@ -11,14 +11,14 @@
   equipment:
     neck: ClothingNeckMantleSr
 
-- type: loadout
+- type: loadout # Radiant sector
   id: StationRepClothingNeckCloakGybRS
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 540000 # 150
+      time: 90000 # 25
   equipment:
     neck: ClothingNeckCloakGybRS
 
