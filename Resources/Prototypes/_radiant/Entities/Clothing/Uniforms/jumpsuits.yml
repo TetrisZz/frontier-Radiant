@@ -353,7 +353,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRedSweatpants
-  name: красный спортивный костюм
+  name: синий спортивный костюм
   description: Удобные спортивные штаны яркого красного цвета.
   components:
   - type: Sprite
@@ -379,7 +379,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBlueSweatpants
-  name: синий спортивный костюм
+  name: красный спортивный костюм
   description: Удобные спортивные штаны спокойного синего цвета.
   components:
   - type: Sprite

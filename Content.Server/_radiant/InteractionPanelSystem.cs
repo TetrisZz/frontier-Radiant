@@ -13,6 +13,7 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.ERP.Components;
 using Content.Server.Chat.Systems;
+using Content.Server._radiant.Arousal;
 using Content.Server.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -30,9 +31,9 @@ namespace Content.Server.Interaction.Panel
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+        [Dependency] private readonly ArousalSystem _arousal = default!;
 
         private readonly Dictionary<NetEntity, DateTime> _lastInteractionTimes = new();
-        private readonly Dictionary<NetEntity, int> _userPoints = new();
 
         public override void Initialize()
         {
@@ -42,21 +43,14 @@ namespace Content.Server.Interaction.Panel
 
         private void OnInteractionPressed(InteractionPressedEvent ev)
         {
-            if (ev.Prototype != null)
-            {
-                HandleInteraction(ev.User, ev.Target, ev.InteractionId, ev.Prototype);
-                // HandlePoints it should not be here, in order to avoid accidents
-            }
-            else
-            {
-                HandleInteraction(ev.User, ev.Target, ev.InteractionId, null);
-                HandlePoints(ev.User, ev.Target, ev.InteractionId);
-            }
+            HandleInteraction(ev.User, ev.Target, ev.InteractionId, ev.Prototype, ev.HideFromOthers, ev.ArousalHint);
         }
 
-        public void HandleInteraction(NetEntity user, NetEntity? target, string interactionId, InteractionPrototype? prototype)
+        public void HandleInteraction(NetEntity user, NetEntity? target, string interactionId, InteractionPrototype? prototype, bool hideFromOthers, int arousalHint = 0)
         {
             if (target == null) return;
+
+            interactionId = interactionId.Trim();
 
             var userEntity = _entManager.GetEntity(user);
             if (HasComp<GhostComponent>(userEntity) && !HasComp<HumanoidAppearanceComponent>(userEntity))
@@ -95,19 +89,26 @@ namespace Content.Server.Interaction.Panel
                 }
             }
 
+            // Networked ev.Prototype is incomplete (e.g. Points default to 0). Prefer server prototype data when the id exists.
+            var useImportedPlaceholderPath = false;
             InteractionPrototype interactionPrototype;
-            if (prototype != null)
+            if (_prototypeManager.TryIndex<InteractionPrototype>(interactionId, out var indexedPrototype))
+            {
+                interactionPrototype = indexedPrototype;
+            }
+            else if (prototype != null)
             {
                 interactionPrototype = prototype;
+                useImportedPlaceholderPath = true;
             }
             else
             {
-                interactionPrototype = _prototypeManager.Index<InteractionPrototype>(interactionId);
+                return;
             }
 
             if (_lastInteractionTimes.TryGetValue(target.Value, out var lastInteractionTime))
             {
-                if (DateTime.UtcNow - lastInteractionTime < interactionPrototype.UseDelay && prototype == null)
+                if (DateTime.UtcNow - lastInteractionTime < interactionPrototype.UseDelay && !useImportedPlaceholderPath)
                 {
                     var message = Loc.GetString("interaction-delay-message");
 
@@ -115,7 +116,7 @@ namespace Content.Server.Interaction.Panel
                         _popupSystem.PopupEntity(message, userEntity, actor.PlayerSession, PopupType.Small);
                     return;
                 }
-                else if (DateTime.UtcNow - lastInteractionTime < TimeSpan.FromSeconds(2) && prototype != null)
+                else if (DateTime.UtcNow - lastInteractionTime < TimeSpan.FromSeconds(2) && useImportedPlaceholderPath)
                 {
                     var message = Loc.GetString("interaction-delay-message");
 
@@ -202,14 +203,7 @@ namespace Content.Server.Interaction.Panel
             }
             else
             {
-                if (prototype != null)
-                {
-                    ExecuteInteraction(userEntity, targetEntity, interactionPrototype, true);
-                }
-                else
-                {
-                    ExecuteInteraction(userEntity, targetEntity, interactionPrototype, false);
-                }
+                ExecuteInteraction(userEntity, targetEntity, interactionPrototype, useImportedPlaceholderPath, hideFromOthers, arousalHint);
             }
         }
 
@@ -218,7 +212,7 @@ namespace Content.Server.Interaction.Panel
             // TODO Доделать делей
         }
 
-        private void ExecuteInteraction(EntityUid user, EntityUid target, InteractionPrototype interactionPrototype, bool prototype)
+        private void ExecuteInteraction(EntityUid user, EntityUid target, InteractionPrototype interactionPrototype, bool prototype, bool hideFromOthers, int arousalHint)
         {
             int preferredIndex = GetRandomMessageIndex(interactionPrototype);
 
@@ -245,12 +239,15 @@ namespace Content.Server.Interaction.Panel
                 if (_entManager.TryGetComponent<ActorComponent>(target, out var actor))
                     _popupSystem.PopupEntity(targetMessage, target, actor.PlayerSession, PopupType.Small);
 
-                var filter = Filter.Local()
-                    .AddAllPlayers()
-                    .RemoveWhereAttachedEntity(uid => uid == user)
-                    .RemoveWhereAttachedEntity(uid => uid == target);
+                if (!hideFromOthers)
+                {
+                    var filter = Filter.Local()
+                        .AddAllPlayers()
+                        .RemoveWhereAttachedEntity(uid => uid == user)
+                        .RemoveWhereAttachedEntity(uid => uid == target);
 
-                _popupSystem.PopupEntity(otherMessage, user, filter, false, PopupType.Small);
+                    _popupSystem.PopupEntity(otherMessage, user, filter, false, PopupType.Small);
+                }
             }
 
             if (interactionPrototype.UserMessages.Count > 0)
@@ -268,22 +265,45 @@ namespace Content.Server.Interaction.Panel
                     emoteCommand = ReplaceCustomPlaceholders(interactionPrototype.UserMessages[0], user, target);
                 }
 
-                if (_entManager.TryGetComponent<ActorComponent>(user, out var userActor))
+                if (hideFromOthers)
                 {
-                    var playerSession = userActor.PlayerSession;
+                    // Private emote: visible in chat only for user and target.
+                    _chatSystem.SendPrivateEmotePair(user, target, emoteCommand);
+                }
+                else
+                {
+                    if (_entManager.TryGetComponent<ActorComponent>(user, out var userActor))
+                    {
+                        var playerSession = userActor.PlayerSession;
 
-                    _chatSystem.TrySendInGameICMessage(
-                        source: user,
-                        message: emoteCommand,
-                        desiredType: InGameICChatType.Emote,
-                        range: ChatTransmitRange.Normal,
-                        hideLog: false,
-                        player: playerSession
-                    );
+                        _chatSystem.TrySendInGameICMessage(
+                            source: user,
+                            message: emoteCommand,
+                            desiredType: InGameICChatType.Emote,
+                            range: ChatTransmitRange.Normal,
+                            hideLog: false,
+                            player: playerSession
+                        );
+                    }
                 }
             }
 
-            PlayInteractionSound(interactionPrototype.InteractSound, user, target, interactionPrototype.SoundPerceivedByOthers);
+            var perceivedByOthers = interactionPrototype.SoundPerceivedByOthers && !hideFromOthers;
+            PlayInteractionSound(interactionPrototype.InteractSound, user, target, perceivedByOthers);
+
+            var arousal = interactionPrototype.EffectiveArousal;
+            if (arousal <= 0 && arousalHint > 0)
+                arousal = Math.Clamp(arousalHint, 0, 12);
+            _arousal.AddArousal(user, arousal);
+
+            if (arousal > 0 && interactionPrototype.PartnerArousalMultiplier > 0f)
+            {
+                _arousal.AddPassivePartnerArousal(
+                    target,
+                    arousal,
+                    interactionPrototype.PartnerArousalMultiplier,
+                    interactionPrototype.UseDelay);
+            }
         }
 
         private string ReplaceCustomPlaceholders(string template, EntityUid user, EntityUid target)
@@ -327,61 +347,6 @@ namespace Content.Server.Interaction.Panel
             else
             {
                 return allMessages.Count > 0 ? new Random().Next(allMessages.Count) : 0;
-            }
-        }
-
-        private void HandlePoints(NetEntity user, NetEntity? target, string interactionId)
-        {
-            if (target == null) return;
-
-            var userEntity = _entManager.GetEntity(user);
-            if (!_entManager.TryGetComponent<HumanoidAppearanceComponent>(userEntity, out var appearanceComponent))
-                return;
-
-            if (appearanceComponent.Sex != Sex.Male)
-                return;
-
-            var interactionPrototype = _prototypeManager.Index<InteractionPrototype>(interactionId);
-            if (_lastInteractionTimes.TryGetValue(user, out var lastInteractionTime) &&
-                DateTime.UtcNow - lastInteractionTime < interactionPrototype.UseDelay)
-                return;
-
-            _lastInteractionTimes[user] = DateTime.UtcNow;
-
-            int currentPoints = _userPoints.TryGetValue(user, out var points) ? points : 0;
-            int pointsToAdd = interactionPrototype.Points;
-            currentPoints += pointsToAdd;
-
-            _userPoints[user] = currentPoints;
-
-            if (currentPoints >= 44)
-            {
-                _userPoints[user] = 0;
-                TriggerFluidEvent(userEntity);
-            }
-        }
-
-        private void TriggerFluidEvent(EntityUid userEntity)
-        {
-            var coordinates = _entManager.GetComponent<TransformComponent>(userEntity).Coordinates;
-            var puddleEnt = Spawn("PuddleCum", coordinates);
-
-            var sound = new SoundPathSpecifier("/Audio/_radiant/Voice/Human/male_moan_2.ogg");
-            _audio.PlayPvs(sound, puddleEnt);
-
-            var message = Loc.GetString("interaction-end-message");
-            if (_entManager.TryGetComponent<ActorComponent>(userEntity, out var actor))
-            {
-                var playerSession = actor.PlayerSession;
-
-                _chatSystem.TrySendInGameICMessage(
-                    source: userEntity,
-                    message: message,
-                    desiredType: InGameICChatType.Emote,
-                    range: ChatTransmitRange.Normal,
-                    hideLog: false,
-                    player: playerSession
-                );
             }
         }
 

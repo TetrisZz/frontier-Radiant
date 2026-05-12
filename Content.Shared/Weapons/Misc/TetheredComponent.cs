@@ -8,6 +8,7 @@ namespace Content.Shared.Weapons.Misc;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TetheredComponent : Component
 {
+    /// <summary> Source of the tether (weapon or mob with <see cref="PlayerLeashPullerComponent"/>). </summary>
     [DataField("tetherer"), AutoNetworkedField]
     public EntityUid Tetherer;
 

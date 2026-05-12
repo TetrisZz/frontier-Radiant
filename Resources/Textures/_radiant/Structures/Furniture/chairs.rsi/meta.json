@@ -24,6 +24,14 @@
       "directions": 4
     },
     {
+      "name": "comfy-wh",
+      "directions": 4
+    },
+    {
+      "name": "comfy-wh-overlay",
+      "directions": 4
+    },
+    {
       "name": "office-grey",
       "directions": 4
     },

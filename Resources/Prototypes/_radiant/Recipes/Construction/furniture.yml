@@ -17,3 +17,99 @@
   objectType: Structure
   placementMode: SnapgridCenter
 
+- type: construction
+  id: RadiantComfyChairBrown
+  graph: RadiantChairs
+  startNode: start
+  targetNode: comfyChairBrown
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantComfyChairCarp
+  graph: RadiantChairs
+  startNode: start
+  targetNode: comfyChairCarp
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantComfyChairBarber
+  graph: RadiantChairs
+  startNode: start
+  targetNode: comfyChairBarber
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantComfyChairWhite
+  graph: RadiantChairs
+  startNode: start
+  targetNode: comfyChairWhite
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaWhiteMiddle
+  graph: RadiantSofasGraph
+  startNode: start
+  targetNode: BenchSofaWhiteMiddleNode
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaWhiteLeft
+  graph: RadiantSofasGraph
+  startNode: start
+  targetNode: BenchSofaWhiteLeftNode
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaWhiteRight
+  graph: RadiantSofasGraph
+  startNode: start
+  targetNode: BenchSofaWhiteRightNode
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BenchSofaWhiteCorner
+  graph: RadiantSofasGraph
+  startNode: start
+  targetNode: BenchSofaWhiteCornerNode
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+

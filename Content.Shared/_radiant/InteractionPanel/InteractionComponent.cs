@@ -41,6 +41,32 @@ namespace Content.Shared.Chat.Prototypes
         [DataField("points")]
         public int Points { get; set; } = 0;
 
+        /// <summary>
+        /// Optional YAML alias for <see cref="Points"/> (same meaning as emote <c>arousalPoints</c>).
+        /// If non-zero, overrides <see cref="Points"/> for arousal gain from the interaction panel.
+        /// </summary>
+        [DataField("arousalPoints")]
+        public int ArousalPoints { get; set; }
+
+        /// <summary>
+        /// Arousal added on successful panel interaction (server).
+        /// ERP / intimate protos get +1 over the YAML value when that value is positive.
+        /// </summary>
+        public int EffectiveArousal
+        {
+            get
+            {
+                var baseVal = ArousalPoints != 0 ? ArousalPoints : Points;
+                return ERP && baseVal > 0 ? baseVal + 1 : baseVal;
+            }
+        }
+
+        /// <summary>
+        /// When positive, the interaction target receives this fraction of the initiator's arousal gain (same base as <see cref="EffectiveArousal"/>).
+        /// </summary>
+        [DataField]
+        public float PartnerArousalMultiplier { get; set; }
+
         [DataField("soundPerceivedByOthers")]
         public bool SoundPerceivedByOthers = true;
 

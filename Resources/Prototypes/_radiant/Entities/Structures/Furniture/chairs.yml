@@ -8,34 +8,56 @@
     state: office-grey
 
 - type: entity
-  name: comfy chair
+  name: удобное кресло
   id: ComfyChairBrown
   parent: ChairBase
-  description: It looks comfy.
+  description: Выглядит очень удобным.
   components:
   - type: Sprite
     sprite: _radiant/Structures/Furniture/chairs.rsi
     state: comfy-brown
+  - type: Construction
+    graph: RadiantChairs
+    node: comfyChairBrown
 
 - type: entity
-  name: comfy chair
+  name: кресло музыканта
   id: ComfyChairCarp
   parent: ChairBase
-  description: It looks comfy.
+  description: Удобное кресло с музыкальным настроением.
   components:
   - type: Sprite
     sprite: _radiant/Structures/Furniture/chairs.rsi
     state: carp
+  - type: Construction
+    graph: RadiantChairs
+    node: comfyChairCarp
 
 - type: entity
-  name: comfy chair
+  name: парикмахерское кресло
   id: ComfyChairBarber
   parent: ChairBase
-  description: It looks comfy.
+  description: Кресло для стрижки и укладки.
   components:
   - type: Sprite
     sprite: _radiant/Structures/Furniture/chairs.rsi
     state: barber
+  - type: Construction
+    graph: RadiantChairs
+    node: comfyChairBarber
+
+- type: entity
+  name: белое удобное кресло
+  id: ComfyChairWhite
+  parent: ChairBase
+  description: Выглядит очень удобным.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/chairs.rsi
+    state: comfy-wh
+  - type: Construction
+    graph: RadiantChairs
+    node: comfyChairWhite
 
 - type: entity
   name: comfy chair

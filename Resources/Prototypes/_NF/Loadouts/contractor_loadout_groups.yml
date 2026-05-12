@@ -473,6 +473,11 @@
   - ContractorClothingShoesColorBrown
   - ContractorClothingShoesColorGreen
   - ContractorClothingShoesColorYellow
+  - ContractorClothingShoesColorSandalsDeepBlack
+  - ContractorClothingShoesColorSandalsScarlet
+  - ContractorClothingShoesColorSandalsPink
+  - ContractorClothingShoesColorSandalsNeonPurple
+  - ContractorClothingShoesColorSandalsMint
   - ContractorClothingShoesColorWhite
   - ContractorClothingShoesBootsMag
   - ContractorClothingShoesBootsWinter
@@ -497,6 +502,7 @@
   - ContractorClothingShoesFlippers
   - ContractorClothingShoesBootsPunkRandomized # Punkish (Randomized visuals)
   - ContractorClothingShoesDameDane
+  - ContractorClothingShoesDameDov
   - ContractorClothingShoesBootsWork
   - ContractorClothingShoesBootsCowboyBlack
   - ContractorClothingShoesBootsCowboyBrown

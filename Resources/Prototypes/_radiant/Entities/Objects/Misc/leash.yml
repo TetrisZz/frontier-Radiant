@@ -1,0 +1,21 @@
+
+- type: entity
+  parent: BaseItem
+  id: LeashItem
+  name: поводок
+  description: Прочный поводок для выгула собак. Держите его в активной руке, чтобы пристегивать и отстегивать.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/leash.rsi
+    state: leash
+  - type: Item
+    sprite: _radiant/Objects/Misc/leash.rsi
+    state: leash
+    size: Small
+  - type: Leash
+    maxForce: 9000
+    frequency: 18
+    dampingRatio: 1.8
+    massLimit: 200
+    maxLeashDistance: 14
+    lineColor: "#0a0a0a"
