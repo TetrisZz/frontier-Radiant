@@ -10,13 +10,13 @@
   equipment:
     neck: ClothingNeckCloakCe
 
-- type: loadout
+- type: loadout # Radiant sector
   id: PlantManagerClothingNeckCloakSiRS
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobPlantManager
-      time: 540000 # 150
+      time: 90000 # 25
   equipment:
     neck: ClothingNeckCloakSiRS

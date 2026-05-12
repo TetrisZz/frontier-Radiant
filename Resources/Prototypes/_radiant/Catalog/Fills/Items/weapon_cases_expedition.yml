@@ -83,16 +83,3 @@
       amount: 1
     - id: NFAmmunitionBoxShellShotgunBuckshot
       amount: 2
-
-- type: entity
-  parent: [WeaponCaseLong, RareWeaponCase]
-  id: WeaponCaseLongRifleCobalt
-  suffix: Dungeon, Cobalt
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleCobalt
-      amount: 1
-    - id: NFMagazineRifle20
-      amount: 2

@@ -15,6 +15,6 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobNavyKomandor
-      time: 540000 # 150hr
+      time: 90000 # 25
   equipment:
     neck: ClothingNeckCloakSbRS

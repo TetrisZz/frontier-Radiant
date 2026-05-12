@@ -1,6 +1,6 @@
 - type: entity
   name: Виспер
-  parent: [ NFBaseGunMeleeAttackLow, BaseWeaponPistol, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable<BaseC1Contraband to match weapon description
+  parent: [ NFBaseWeaponPistolChamber45, NFBaseWeaponFramePistolCybersun ]
   id: WeaponPistolWhisper
   description: Простой и легкий пистолет с глушителем, стреляет быстро с минимальной отдачей благодаря патронам .25 ACP, глушитель лишь приятное дополнение.
   components:
@@ -112,7 +112,7 @@
 
 - type: entity
   name: Ноктюрн-25
-  parent: [ NFBaseGunMeleeAttackLow, BaseWeaponPistol, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable<BaseC1Contraband to match weapon description
+  parent: [ NFBaseWeaponPistolChamber45, NFBaseWeaponFramePistolCybersun ]
   id: WeaponPistolNocturne
   description: Пистолет под калибр .35, рассчитанный на стабильную и быструю стрельбу. Обладает умеренной отдачей и хорошей управляемостью, позволяя держать темп огня без потери точности. Не самый мощный в своём классе, но надёжный и предсказуемый — делает ровно то, что от него требуется, без лишнего шума и излишеств.
   components:
@@ -152,7 +152,12 @@
   - type: Clothing
     sprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi
   - type: Gun
-    fireRate: 15
+    projectileSpeed: 25
+    minAngle: 2
+    maxAngle: 13
+    angleIncrease: 0.7
+    angleDecay: 5
+    fireRate: 5.5
     availableModes:
     - SemiAuto
     soundGunshot:

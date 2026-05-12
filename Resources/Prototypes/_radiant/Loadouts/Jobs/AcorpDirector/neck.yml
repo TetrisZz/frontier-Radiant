@@ -5,6 +5,6 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobAcorpDirector
-      time: 540000 # 150hr
+      time: 90000 # 25
   equipment:
     neck: ClothingNeckCloakDrRS

@@ -14,14 +14,14 @@
   equipment:
     neck: ClothingNeckNfsdBadgeSheriff
 
-- type: loadout
+- type: loadout # Radiant sector
   id: SheriffClothingNeckCloakSbRS
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfSecurity
-      time: 540000 # 150hr
+      time: 90000 # 25
   equipment:
     neck: ClothingNeckCloakSbRS
 

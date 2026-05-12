@@ -32,7 +32,7 @@
   minPlayers: 0
   stations:
     Stronghold:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel # Radiant sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Stronghold {1}'

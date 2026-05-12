@@ -339,7 +339,7 @@
   id: UplinkHomNWeaponShotgunCshotGun
   name:  uplink-hom-nabat-name
   description: uplink-hom-nabat-desc
-  productEntity: WeaponCaseLongShotgunCshotGun
+  productEntity: WeaponShotgunCshotGun
   icon: { sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi, state: icon }
   cost:
     Cristalhom: 20
@@ -499,7 +499,7 @@
   id: UplinkHomWeaponShotgunPoorGun
   name:  uplink-hom-gun-name
   description: uplink-hom-gun-desc
-  productEntity: WeaponCaseLongWeaponShotgunPoorGun
+  productEntity: WeaponShotgunPoorGun
   icon: { sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi, state: mag-unshaded-1 }
   cost:
     Cristalhom: 20
@@ -799,37 +799,21 @@
         tags:
           - HomUplink
 
-- type: listing
-  id: UplinkHomWeaponDominator
-  name:  uplink-hom-dominator-name
-  description: uplink-hom-dominator-desc
-  productEntity: WeaponCaseLongWeaponDominator
-  icon: { sprite: _radiant/Objects/Weapons/Laser/dominator.rsi, state: base }
-  cost:
-    Cristalhom: 5
-  categories:
-    - UplinkHomWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - HomUplink
-
-- type: listing
-  id: UplinkHomWeaponCobalt
-  name:  uplink-hom-cobalt-name
-  description: uplink-hom-cobalt-desc
-  productEntity: WeaponCaseLongRifleCobalt
-  icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/cobalt.rsi, state: icon }
-  cost:
-    Cristalhom: 15
-  categories:
-    - UplinkHomWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - HomUplink
+#- type: listing
+#  id: UplinkHomWeaponDominator
+#  name:  uplink-hom-dominator-name
+#  description: uplink-hom-dominator-desc
+#  productEntity: WeaponCaseLongWeaponDominator
+#  icon: { sprite: _radiant/Objects/Weapons/Laser/dominator.rsi, state: base }
+#  cost:
+#    Cristalhom: 5
+#  categories:
+#    - UplinkHomWeapons
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - HomUplink
 
 - type: listing
   id: UplinkHomClothingOuterCoatAurora
