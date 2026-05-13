@@ -24,4 +24,10 @@ public sealed partial class LeashComponent : Component
 
     [DataField]
     public Color LineColor = Color.LightSkyBlue;
+
+    /// <summary>
+    /// Time required to attach this leash to another humanoid (verb / interaction).
+    /// </summary>
+    [DataField]
+    public float AttachDelaySeconds = 10f;
 }

@@ -217,6 +217,22 @@ chat-interaction-rubbing-vagina-dick-message-others-1 = { $user } трется �
 chat-interaction-rubbing-vagina-dick-message-2 = немного ёрзая, ритмично трется вагиной о член { $target }
 chat-interaction-rubbing-vagina-dick-message-message-target-2 = { $user } немного ёрзая, ритмично трется вагиной о вашу член
 chat-interaction-rubbing-vagina-dick-message-message-others-2 = { $user } немного ёрзая, ритмично трется вагиной о член { $target }
+
+interaction-female-ride-dick-anal = Трахнуть член попкой
+chat-interaction-female-ride-dick-anal-message-1 = насаживается попкой на член { $target }
+chat-interaction-female-ride-dick-anal-message-target-1 = { $user } насаживается попкой на ваш член
+chat-interaction-female-ride-dick-anal-message-others-1 = { $user } насаживается попкой на член { $target }
+chat-interaction-female-ride-dick-anal-message-2 = ритмично двигается попкой, трахая член { $target }
+chat-interaction-female-ride-dick-anal-message-target-2 = { $user } ритмично двигается попкой, трахая ваш член
+chat-interaction-female-ride-dick-anal-message-others-2 = { $user } ритмично двигается попкой, трахая член { $target }
+
+interaction-female-ride-dick-vagina = Трахнуть член киской
+chat-interaction-female-ride-dick-vagina-message-1 = насаживается киской на член { $target }
+chat-interaction-female-ride-dick-vagina-message-target-1 = { $user } насаживается киской на ваш член
+chat-interaction-female-ride-dick-vagina-message-others-1 = { $user } насаживается киской на член { $target }
+chat-interaction-female-ride-dick-vagina-message-2 = ритмично двигается бёдрами, трахая член { $target } киской
+chat-interaction-female-ride-dick-vagina-message-target-2 = { $user } ритмично двигается бёдрами, трахая ваш член киской
+chat-interaction-female-ride-dick-vagina-message-others-2 = { $user } ритмично двигается бёдрами, трахая член { $target } киской
 interaction-rubbing-vagina-vagina = Потерется киской о киску
 chat-interaction-rubbing-vagina-vagina-message = трется киской о киску { $target }, смешивая их соки
 chat-interaction-rubbing-vagina-vagina-message-target = { $user } трется киской о вашу киску, смешивая ваши соки

@@ -818,6 +818,38 @@
   - Resomi
 
 - type: interaction
+  parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseFemaleOnly ]
+  id: InteractionFemaleRideDickAnal
+
+  category: groin
+  name: interaction-female-ride-dick-anal
+  userMessages: ["chat-interaction-female-ride-dick-anal-message-1", "chat-interaction-female-ride-dick-anal-message-2"]
+  targetMessages: ["chat-interaction-female-ride-dick-anal-message-target-1", "chat-interaction-female-ride-dick-anal-message-target-2"]
+  otherMessages: ["chat-interaction-female-ride-dick-anal-message-others-1", "chat-interaction-female-ride-dick-anal-message-others-2"]
+  interactSound: /Audio/_radiant/Interacrtions/slaps.ogg
+  arousalPoints: 4
+  nearestAllowedGenders:
+  - Male
+  blackListSpecies:
+  - Resomi
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseFemaleOnly ]
+  id: InteractionFemaleRideDickVagina
+
+  category: groin
+  name: interaction-female-ride-dick-vagina
+  userMessages: ["chat-interaction-female-ride-dick-vagina-message-1", "chat-interaction-female-ride-dick-vagina-message-2"]
+  targetMessages: ["chat-interaction-female-ride-dick-vagina-message-target-1", "chat-interaction-female-ride-dick-vagina-message-target-2"]
+  otherMessages: ["chat-interaction-female-ride-dick-vagina-message-others-1", "chat-interaction-female-ride-dick-vagina-message-others-2"]
+  interactSound: /Audio/_radiant/Interacrtions/slaps.ogg
+  arousalPoints: 4
+  nearestAllowedGenders:
+  - Male
+  blackListSpecies:
+  - Resomi
+
+- type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseFemaleOnly ]
   id: InteractionRubbingVaginaVagina
 
