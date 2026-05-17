@@ -11,3 +11,4 @@ stamp-component-stamped-name-bailiff = Инспектор
 stamp-component-stamped-name-com = Комендант Экспедиции
 stamp-component-stamped-name-mist = Хуйня, переделывай
 stamp-component-stamped-name-rnd = Директор Исследования
+stamp-component-stamped-name-pal = Специалист ПСсО

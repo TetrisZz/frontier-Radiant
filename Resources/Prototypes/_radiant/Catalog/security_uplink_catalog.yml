@@ -36,6 +36,22 @@
           - SecurityUplink
 
 - type: listing
+  id: UplinkSecurityForensicScanner
+  name: uplink-security-forensic-scanner-name
+  description: uplink-security-forensic-scanner-desc
+  productEntity: ForensicScanner
+  icon: { sprite: _NF/Objects/Devices/forensic_scanner.rsi, state: forensicnew }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkSecurityUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
   id: UplinkSecurityJetpackBlack
   name: uplink-security-jetpack_black-name
   description: uplink-security-jetpack_black-desc

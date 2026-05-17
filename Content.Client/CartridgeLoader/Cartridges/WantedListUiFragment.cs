@@ -110,6 +110,14 @@ public sealed partial class WantedListUiFragment : BoxContainer
             "wanted-list-gender-label",
             ("gender", record.TargetInfo.Gender)
         ));
+        // Radiant sector  start
+        TargetShuttle.SetMessage(GetLoc(
+            "wanted-list-shuttle-label",
+            ("shuttle", string.IsNullOrWhiteSpace(record.TargetInfo.RegisteredShuttle)
+                ? Loc.GetString("wanted-list-no-shuttle-label")
+                : record.TargetInfo.RegisteredShuttle))
+        // Radiant sector  end
+        );
 
         // Set reason
         WantedReason.SetMessage(GetLoc(

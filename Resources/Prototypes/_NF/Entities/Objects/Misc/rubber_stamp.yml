@@ -74,7 +74,8 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-pal
-    stampedColor: "#61943a"
+    stampedColor: "#4285B4FF" #Radiant
+    # stampedColor: "#61943a" #Radiant
     stampState: "paper_stamp-nf-pal"
   - type: Sprite
     sprite: _NF/Objects/Misc/stamps.rsi
