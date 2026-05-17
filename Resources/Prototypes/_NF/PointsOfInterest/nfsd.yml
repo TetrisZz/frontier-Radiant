@@ -49,10 +49,10 @@
 #            Brigmedic: [ 1, 1 ] Radiant_sector
             NFDetective: [ 1, 1 ]
             NavyOfficer: [ 1, 1 ] #Radiant_sector
-            Deputy: [ 3, 3 ]
-            NavyBrigmedic: [ 2, 2 ] #Radiant_sector
-            Cadet: [ 2, 2 ]
-            NavyCadet: [ 2, 2 ] #Radiant_sector
+            Deputy: [ 2, 2 ]
+            NavyBrigmedic: [ 1, 1 ] #Radiant_sector
+            Cadet: [ 1, 1 ]
+            NavyCadet: [ 1, 1 ] #Radiant_sector
             # Others:
             PublicAffairsLiaison: [ 1, 1 ]
             Prisoner: [ 0, 0 ]

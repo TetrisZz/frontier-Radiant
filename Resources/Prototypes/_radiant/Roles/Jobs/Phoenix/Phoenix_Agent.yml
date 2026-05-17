@@ -5,10 +5,17 @@
   playTimeTracker: JobPhoenixAgent
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 21600 # 6 hours Radiant_Sector
+      time: 21600 # 6 hours
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 10800 # 3 hours Radiant_Sector
+      time: 10800 # 3 hours
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement
+      department: MedicalPhoenix
+      time: 18000 # 5 hours
   startingGear: PhoenixAgentGear
   icon: "JobIconPhoenixAgent" 
   supervisors: job-supervisors-phoenix-cmo

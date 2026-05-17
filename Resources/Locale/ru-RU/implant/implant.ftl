@@ -21,8 +21,3 @@ implanter-label-inject = [color=green]{ $implantName }[/color]
 implanter-label-draw = [color=red]{ $implantName }[/color]
     Режим: [color=white]{ $modeString }[/color]
 implanter-contained-implant-text = [color=green]{ $desc }[/color]
-
-## Implant Messages
-
-deathrattle-implant-dead-message = Зафиксирована смерть {$user}{$specie} по координатам {$grid} {$position}.
-deathrattle-implant-critical-message = Жизненные показатели {$user}{$specie} критические, требуется немедленная помощь по координатам {$grid} {$position}.

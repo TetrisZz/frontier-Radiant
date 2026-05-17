@@ -32,11 +32,11 @@
         - type: StationJobs
           availableJobs:
             SeparatistsCommander: [ 1, 1 ]
-            SeparatistsPrivateSlave: [ 1, 1 ]
-            SeparatistsOperative: [ 4, 4 ]
-            SeparatistsWarden: [ 2, 2 ]
-            SeparatistsRecruit: [ 3, 3 ]
-            SeparatistsSlave: [ 4, 4 ]
+            SeparatistsPrivateSlave: [ 0, 0 ]
+            SeparatistsOperative: [ 2, 2 ]
+            SeparatistsWarden: [ 1, 1 ]
+            SeparatistsRecruit: [ 2, 2 ]
+            SeparatistsSlave: [ 2, 2 ]
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt
