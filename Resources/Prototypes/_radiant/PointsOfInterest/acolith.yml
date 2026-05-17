@@ -39,13 +39,11 @@
           availableJobs:
             AcorpСommandant: [ 1, 1 ]
             AcorpDirector: [ 1, 1 ]
-            AcorpSecurity: [ 2, 2 ]
-            AcorpScience: [ 3, 3 ]
-            AcorpEngineer: [ 1, 1 ]
-            AcorpMedical: [ 1, 1 ]
-            AcorpService: [ 1, 1 ]
-            AcorpAssistant: [ 5, 5 ]
+            AcorpSecurity: [ 0, 0 ]
+            AcorpScience: [ 0, 0 ]
+            AcorpEngineer: [ 0, 0 ]
+            AcorpMedical: [ 0, 0 ]
+            AcorpService: [ 0, 0 ]
+            AcorpAssistant: [ 0, 0 ]
           tags:
-          - HeadOfPersonnel
-          - HeadOfSecurity
-        - type: StationDeadDrop
+          - AcorpCommand

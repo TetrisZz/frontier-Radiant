@@ -6,6 +6,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hrs
+    - !type:DepartmentTimeRequirement
+      department: MedicalPhoenix
+      time: 28800 # 8 hours
   whitelisted: false #Radiant_Sector
   startingGear: DocGear
   alwaysUseSpawner: true

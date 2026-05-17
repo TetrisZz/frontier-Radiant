@@ -42,8 +42,8 @@
         - type: StationJobs
           availableJobs:
             DirectorOfCare: [ 1, 1 ]
-            PhoenixAgent: [ 2, 2 ]
-            PhoenixMedic: [ 4, 4 ]
+            PhoenixAgent: [ 2, 2 ] # Radiant sector
+            PhoenixMedic: [ 2, 2 ] # Radiant sector
             Pilot: [ -1, -1 ]
             Mercenary: [ -1, -1 ]
           tags:

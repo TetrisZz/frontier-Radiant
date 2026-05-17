@@ -17,8 +17,13 @@
     price: 0
   - type: CargoSellBlacklist
   - type: DeleteOnTrigger
-  - type: ActiveTimerTrigger
-    timeRemaining: 35
+  - type: TriggerOnSpawn
+    keyOut: trigger1
+  - type: TimerTrigger
+    delay: 35
+    keyOut: trigger
+    keysIn:
+    - trigger1
 
 - type: entity
   parent: BaseBlueSpaceTicket
