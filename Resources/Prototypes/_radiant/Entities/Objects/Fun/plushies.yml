@@ -42,3 +42,111 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: HamptrPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieVulpRS
+  name: плюшевая вульпочка
+  description: Мягкая и пахнет лаймом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Plushies/vulp.rsi
+    state: vulp
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/purr.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieVulpRSBlack
+  name: плюшевая вульпочка
+  description: Мягкая и пахнет пыльной шерстью.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Plushies/vulp.rsi
+    state: vulpi
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieVulpRSGray
+  name: плюшевая вульпочка
+  description: Мягкая и пахнет пивом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Plushies/vulp.rsi
+    state: gray
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/vulp_scream1.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_DV/Voice/Vulpkanin/vulp_scream1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieVulpRSWh
+  name: плюшевая вульпочка
+  description: Мягкая и пахнет мятой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Plushies/vulp.rsi
+    state: wh
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/purr.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg

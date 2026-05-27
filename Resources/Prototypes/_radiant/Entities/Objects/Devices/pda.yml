@@ -38,6 +38,12 @@
   description: Стильный и крутой.
   components:
   - type: Pda
+    penSlot:
+      startingItem: ComenadantPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
     id: AcorpCommandIDCard
   - type: Appearance
     appearanceDataInit:
@@ -157,6 +163,12 @@
   components:
   - type: Pda
     id: AcorpDirectorIDCard
+    penSlot:
+      startingItem: DirectorIsPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -389,13 +401,19 @@
 - type: entity
   parent: BaseSecurityPDA
   id: PDANavyKomandor
-  name: КПК коммандора
+  name: КПК командора
   description: Так и гласит, что вы непобедимы.
   components:
   - type: Sprite
     sprite: _radiant/Objects/Devices/pda_vanilla.rsi
   - type: Pda
     id: NavyKomandorIDCard
+    penSlot:
+      startingItem: ComandorPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:

@@ -799,37 +799,6 @@
         tags:
           - HomUplink
 
-- type: listing
-  id: UplinkHomWeaponDominator
-  name:  uplink-hom-dominator-name
-  description: uplink-hom-dominator-desc
-  productEntity: WeaponCaseLongWeaponDominator
-  icon: { sprite: _radiant/Objects/Weapons/Laser/dominator.rsi, state: base }
-  cost:
-    Cristalhom: 5
-  categories:
-    - UplinkHomWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - HomUplink
-
-- type: listing
-  id: UplinkHomWeaponCobalt
-  name:  uplink-hom-cobalt-name
-  description: uplink-hom-cobalt-desc
-  productEntity: WeaponCaseLongRifleCobalt
-  icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/cobalt.rsi, state: icon }
-  cost:
-    Cristalhom: 15
-  categories:
-    - UplinkHomWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - HomUplink
 
 - type: listing
   id: UplinkHomClothingOuterCoatAurora
@@ -889,6 +858,22 @@
     Cristalhom: 5
   categories:
     - UplinkHomUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkBoxPlushiesRandom
+  name:  uplink-hom-plushies-name
+  description: uplink-hom-plushies-desc
+  productEntity: BoxPlushiesRandom
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs5 }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomHardsuits
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
