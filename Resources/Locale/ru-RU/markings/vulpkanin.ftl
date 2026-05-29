@@ -33,6 +33,43 @@ marking-VulpEarShock-shock-inner = Сближенные уши (Внутренн
 marking-VulpEarShock-inner = Сближенные уши (Внутренняя часть)
 marking-VulpEarShock = Вульпканин Сближенные
 
+#Radiant Sector
+
+marking-VulpEarDamaged-vulp = Уши вульпканина (Основа)
+marking-VulpEarDamaged-vulp-inner = Уши вульпканина (Внутренняя часть)
+marking-VulpEarDamaged = Вульпканин (Поврежденное ухо)
+
+marking-VulpEarFadeDamaged-vulp = Уши вульпканина (Основа)
+marking-VulpEarFadeDamaged-vulp-fade = Уши вульпканина (Градиент)
+marking-VulpEarFadeDamaged-vulp-inner = Уши вульпканина (Внутренняя часть)
+marking-VulpEarFadeDamaged = Вульпканин (Градиент, Поврежденное ухо)
+
+marking-VulpEarSharpDamaged-vulp = Уши вульпканина (Основа)
+marking-VulpEarSharpDamaged-vulp-sharp = Уши вульпканина (Острые)
+marking-VulpEarSharpDamaged-vulp-inner = Уши вульпканина (Внутренняя часть)
+marking-VulpEarSharpDamaged = Вульпканин (Острые, Поврежденное ухо)
+
+marking-VulpEarCoyoteDamaged-coyote = Уши койота (Основа)
+marking-VulpEarCoyoteDamaged-coyote-inner = Уши койота (Внутренняя часть)
+marking-VulpEarCoyoteDamaged = Вульпканин Койот (Поврежденное ухо)
+
+marking-VulpEarJackalDamaged-jackal = Уши шакала (Основа)
+marking-VulpEarJackalDamaged-jackal-inner = Уши шакала (Внутренняя часть)
+marking-VulpEarJackalDamaged = Вульпканин Шакал (Поврежденное ухо)
+
+marking-VulpEarJackalDamaged1-jackal = Уши шакала (Основа)
+marking-VulpEarJackalDamaged1-jackal-inner = Уши шакала (Внутренняя часть)
+marking-VulpEarJackalDamaged1 = Вульпканин Шакал (Поврежденное ухо)
+
+marking-VulpEarOtieDamaged-otie = Короткие уши (Основа)
+marking-VulpEarOtieDamaged-otie-inner = Короткие уши (Внутренняя часть)
+marking-VulpEarOtieDamaged = Вульпканин Сближенные (Поврежденное ухо)
+
+marking-VulpEarShockDamaged-shock = Сближенные уши (Основа)
+marking-VulpEarShockDamaged-shock-inner = Сближенные уши (Внутренняя часть)
+marking-VulpEarShockDamaged-inner = Сближенные уши (Внутренняя часть)
+marking-VulpEarShockDamaged = Вульпканин Сближенные (Поврежденное ухо)
+
 # Snout
 
 marking-VulpSnout-snout = Морда

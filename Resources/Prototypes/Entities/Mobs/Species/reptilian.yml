@@ -71,20 +71,33 @@
   - type: Wagging
   - type: Inventory
     speciesId: reptilian
+# radiant sector
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: jumpsuit-female
-  - type: Carriable # Frontier: Carrying system from nyanotrasen.
-  - type: ShortWhitelist # Frontier
-    scale: 0.8 # Frontier
-    density: 140 # Frontier
-    pseudoItem: true # Frontier
-    cosmeticOnly: false # Frontier
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+# radiant sector
   - type: TallWhitelist # Frontier
     scale: 1.2 # Frontier
+
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -94,18 +107,34 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
-    hideLayersOnEquip:
+    hideLayersOnEquip:  # radiant sector
     - Snout
-    - HeadTop
+#    - HeadTop  # radiant sector
     - HeadSide
-    undergarmentBottom: UndergarmentBottomBoxersReptilian
   - type: Inventory
     speciesId: reptilian
+    # radiant sector
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
 
 #Weh
