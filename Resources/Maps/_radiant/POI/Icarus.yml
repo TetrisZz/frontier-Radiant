@@ -21069,7 +21069,7 @@ entities:
       parent: 1
 - proto: CrateAcorpBorg
   entities:
-  - uid: 3842
+  - uid: 7153
     components:
     - type: Transform
       anchored: True
