@@ -134,3 +134,6 @@ uplink-hom-uw-desc = Просто красивое белье.
 
 uplink-hom-uwe-name = Комплект белья ксено
 uplink-hom-uwe-desc = Просто красивое белье.
+
+uplink-hom-plushies-name = Подарочная коробка c плюшкой
+uplink-hom-plushies-desc = Небольшая подарочная коробка со случайной игрушкой.

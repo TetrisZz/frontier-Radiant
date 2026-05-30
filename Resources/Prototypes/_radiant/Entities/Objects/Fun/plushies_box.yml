@@ -1,0 +1,41 @@
+- type: entity
+  id: BoxPlushies
+  parent: BaseItem
+  name: подарочная коробка
+  description: Небольшая подарочная коробка.
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 50
+  - type: Sprite
+    sprite: _radiant/Objects/Storage/boxs.rsi
+    state: fig_box_unfolded
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+
+- type: entity
+  parent: PresentRandom
+  id: BoxPlushiesRandom
+  name: подарочная коробка c плюшкой
+  description: Небольшая подарочная коробка со случайной игрушкой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Storage/boxs.rsi
+    scale: 0.6, 0.6
+    layers:
+      - state: boxs5
+  - type: SpawnItemsOnUse
+    items:
+      - id: BoxPlushies
+      - id: PlushieVulpRSWh
+        orGroup: PlushiesBox
+      - id: PlushieVulpRSGray
+        orGroup: PlushiesBox
+      - id: PlushieVulpRSBlack
+        orGroup: PlushiesBox
+      - id: PlushieVulpRS
+        orGroup: PlushiesBox
+      - id: PlushieHomka
+        orGroup: PlushiesBox

@@ -878,3 +878,19 @@
       whitelist:
         tags:
           - HomUplink
+
+- type: listing
+  id: UplinkBoxPlushiesRandom
+  name:  uplink-hom-plushies-name
+  description: uplink-hom-plushies-desc
+  productEntity: BoxPlushiesRandom
+  icon: { sprite: _radiant/Objects/Storage/boxs.rsi, state: boxs5 }
+  cost:
+    Cristalhom: 1
+  categories:
+    - UplinkHomHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink

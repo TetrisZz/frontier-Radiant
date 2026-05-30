@@ -1,0 +1,72 @@
+
+
+- type: marking
+  id: VulpEarJackalDamaged
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: jackal
+
+- type: marking
+  id: VulpEarCoyoteDamaged
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: coyote
+
+- type: marking
+  id: VulpEarJackalDamaged1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin, Felinid]
+  sprites:
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: jackal
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: jackal-inner
+
+- type: marking
+  id: VulpEarShockDamaged
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin, Felinid]
+  sprites:
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: shock
+
+- type: marking
+  id: VulpEarDamaged
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin, Human, Felinid] #radiant_sector
+  sprites:
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: vulp
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: vulp-inner
+
+- type: marking
+  id: VulpEarFadeDamaged
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin, Felinid]
+  sprites:
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: vulp
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: vulp-fade
+
+- type: marking
+  id: VulpEarSharpDamaged
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin, Felinid]
+  sprites:
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: vulp
+    - sprite: _radiant/Mobs/Customization/Vulpkanin/ear_markings.rsi
+      state: vulp-sharp
