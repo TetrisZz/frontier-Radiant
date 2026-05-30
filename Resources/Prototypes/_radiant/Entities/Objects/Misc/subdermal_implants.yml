@@ -1,8 +1,8 @@
 - type: entity
   parent: NFBaseDeathRattleImplant
   id: SeparatistsTrackingImplant
-  name: separatists tracking implant
-  description: This implant has a tracking device monitor for the Freelance radio channel.
+  name: имплант слежения жизни сепаратистов
+  description: Имплант отслеживающий состояние своего владельца, в случае критического и смертельного ранения оповестит сепаратистов.
   categories: [ HideSpawnMenu ]
   components:
   - type: RattleOnTrigger
@@ -11,8 +11,8 @@
 - type: entity
   parent: NFBaseDeathRattleImplant
   id: TrackingImplantNavy
-  name: имплант флота
-  description: Имплант отслеживающий состояние своего владельца, в случае критического и смертельного ранения оповестит конфедеративный флот
+  name: имплант слежения жизни флота
+  description: Имплант отслеживающий состояние своего владельца, в случае критического и смертельного ранения оповестит конфедеративный флот.
   categories: [ HideSpawnMenu ]
   components:
   - type: RattleOnTrigger
@@ -21,8 +21,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: RadioImplantSeparatists
-  name: separatist radio implant
-  description: This implant grants access to the Freelance channel without a headset.
+  name: имплант рации сепаратистов
+  description: Имплант даёт доступ к радиочастоте Сепаратистов без гарнитуры.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -33,8 +33,8 @@
 - type: entity
   parent: NFBaseDeathRattleImplant
   id: EmergencyTrackingImplant
-  name: emergency tracking implant
-  description: This implant has a tracking device monitor for the Freelance radio channel.
+  name: имплант слежения жизни Феникса
+  description: Имплант отслеживающий состояние своего владельца, в случае критического и смертельного ранения оповестит Феникс в любой точки галактики.
   categories: [ HideSpawnMenu ]
   components:
   - type: RattleOnTrigger

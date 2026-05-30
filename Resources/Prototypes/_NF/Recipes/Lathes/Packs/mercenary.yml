@@ -60,6 +60,7 @@
   - NFAmmunitionBoxShellShotgunBuckshot
   - NFAmmunitionBoxRifle20
   - NFAmmunitionBoxRifle30
+  - NFAmmunitionBoxRifle3006 # Radiant sector
   - CrossbowBolt
   - CrossbowBoltBroadhead
 #  - NFAmmunitionBoxShellShotgunBeanbag # Radiant sector
@@ -91,6 +92,9 @@
   - NFSpeedLoaderPistol45Empty
   - MagazineAsmgtUniversalEmpty
   - NFMagazineClipRifle20Empty
+  - NFMagazineRifle3006Empty # Radiant sector
+  - SpeedLoaderRifleHeavyEmpty # Radiant sector
+  - MagazinePistolSubMachineGunVereskLowEmpty # Radiant sector
 
 - type: latheRecipePack
   id: NFMercenaryArchetypeStatic

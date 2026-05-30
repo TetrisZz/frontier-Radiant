@@ -1,0 +1,184 @@
+#region base .30-60 Springfield
+- type: entity
+  id: NFBaseMagazineRifle3006
+  name: magazine (.30-60 Springfield)
+  parent: [ BaseC1Contraband, RecyclableItemSteelTiny, BaseMagazineLightRifle ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - NFMagazineRifle3006
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - NFCartridgeRifle3006
+    proto: NFCartridgeRifle3006
+    capacity: 20
+  - type: Sprite
+    scale: 0.7, 0.7
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/rifle3006_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Magazine/rifle3006_mag.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+#region .30 magazines
+- type: entity
+  id: NFMagazineRifle3006Empty
+  name: magazine (.30-60 Springfield, any)
+  parent: NFBaseMagazineRifle3006
+  suffix: empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
+  id: NFMagazineRifle3006
+  name: magazine (.30-60 Springfield)
+  parent: NFBaseMagazineRifle3006
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006
+
+- type: entity
+  id: NFMagazineRifle3006Overpressure
+  name: magazine (.30-60 Springfield, overpressure)
+  parent: NFBaseMagazineRifle3006
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Overpressure
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: decal-01
+      color: "#ff8d00"
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ff8d00"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ff8d00"
+
+- type: entity
+  id: NFMagazineRifle3006Incendiary
+  name: magazine (.30-60 Springfield, incendiary)
+  parent: NFBaseMagazineRifle3006
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Incendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: decal-01
+      color: "#ff0000"
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ff0000"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ff0000"
+
+- type: entity
+  id: NFMagazineRifle3006Uranium
+  name: magazine (.30-60 Springfield, uranium)
+  parent: NFBaseMagazineRifle3006
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Uranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: decal-01
+      color: "#00ff00"
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#00ff00"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#00ff00"
+
+- type: entity
+  id: NFMagazineRifle3006Practice
+  name: magazine (.30-60 Springfield, practice)
+  parent: NFBaseMagazineRifle3006
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Practice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: decal-01
+      color: "#dddddd"
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#dddddd"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#dddddd"
+
+- type: entity
+  id: NFMagazineRifle3006Rubber
+  name: magazine (.30-60 Springfield, rubber)
+  parent: NFBaseMagazineRifle3006
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Rubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: decal-01
+      color: "#00b0ff"
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#00b0ff"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#00b0ff"

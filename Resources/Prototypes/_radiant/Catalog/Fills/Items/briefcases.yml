@@ -193,6 +193,19 @@
     - id: MagazineBoxHigh2Rifle
       amount: 2
 
+- type: entity
+  parent: [WeaponCaseLong, RareWeaponCase]
+  id: WeaponCaseLongMG12
+  suffix: Dungeon, MG12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: NFWeaponRifleMG12
+      amount: 1
+    - id: NFAmmunitionBoxRifle3006
+      amount: 2
+
 # Energy
 - type: entity
   parent: [WeaponCaseLong, RareWeaponCase]

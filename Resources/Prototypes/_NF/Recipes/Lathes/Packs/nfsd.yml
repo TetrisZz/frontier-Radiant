@@ -13,6 +13,7 @@
   id: NfsdAmmoStatic
   recipes:
   # Ammo boxes
+  - NFAmmunitionBoxShellShotgunBuckshot # Radiant sector
   - NFAmmunitionBoxShellShotgunOverpressure
   - NFAmmunitionBoxShellShotgunSlug
   - NFAmmunitionBoxShellShotgunBeanbag
@@ -22,6 +23,8 @@
   - NFAmmunitionBoxRifle30
   - NFAmmunitionBoxRifle30Overpressure
 #  - NFAmmunitionBoxRifle30Rubber # Radiant sector
+  - NFAmmunitionBoxRifle3006 # Radiant sector
+  - NFAmmunitionBoxRifle3006Overpressure # Radiant sector
   - NFAmmunitionBoxPistol35
   - NFAmmunitionBoxPistol35Overpressure
 #  - NFAmmunitionBoxPistol35Rubber # Radiant sector

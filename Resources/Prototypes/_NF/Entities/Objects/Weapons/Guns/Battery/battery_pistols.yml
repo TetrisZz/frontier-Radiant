@@ -83,18 +83,84 @@
 - type: entity
   categories: [ DoNotMap ]
   id: NFWeaponEnergyPistolLaserX01Multiphase
-  parent: [ BaseC2ContrabandUnredeemable, NFWeaponEnergyPistolLaserAntique ]
+#  parent: [ BaseC2ContrabandUnredeemable, NFWeaponEnergyPistolLaserAntique ] # Radiant sector
+  parent: [ BaseWeaponBatterySmall, BaseC2ContrabandUnredeemable ] # Radiant sector
   name: X-01 multiphase energy gun
   description: |-
     This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes. On the handle is a label that says 'for authorized use only.'
   components:
+# Radiant sector start
+#  - type: Sprite
+#    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+#  - type: Clothing
+#    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+#  - type: Item
+#    heldPrefix: lethal
+#    inhandVisuals: {} # FIXME: overwriting antique laser
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
+    quickEquip: false # Frontier
+    slots: # Frontier
+    - Back # Frontier
+    - suitStorage # Frontier
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
-  - type: Item
-    heldPrefix: lethal
-    inhandVisuals: {} # FIXME: overwriting antique laser
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+    fireRate: 2.5
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: NFBulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: NFBulletDisabler
+      fireCost: 100
+      name: оглушающий
+      state: disabler
+    - proto: NFBulletLaserHeavy
+      fireCost: 200
+      name: летальный
+      state: lethal
+    - proto: BulletLaserEMPRS
+      fireCost: 400
+      name: эми
+      state: special
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: StaticPrice
+    price: 750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 3
+# Radiant sector end
 
 - type: entity
   id: NFWeaponEnergyPistolLaserAdvanced

@@ -1,6 +1,7 @@
 - type: entity
   id: SeparatistsTrackingImplanter
-  name: separatists tracking implanter
+  name: имплантер "трекер сепаратистов"
+  description: Компактный одноразовый шприц, специально предназначенный для введения подкожных имплантов.
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -8,7 +9,8 @@
 
 - type: entity
   id: NavyTrackingImplanter
-  name: имплантер
+  name: имплантер "трекер флота"
+  description: Одноразовый шприц, специально предназначенный для введения подкожных имплантов.
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter
@@ -16,7 +18,8 @@
 
 - type: entity
   id: RadioImplanterSeparatists
-  name: freelance radio implanter
+  name: имплантер "связь Сепаратистов"
+  description: Одноразовый шприц, специально предназначенный для введения подкожных имплантов.
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -24,7 +27,8 @@
 
 - type: entity
   id: EmergencyTrackingImplanter
-  name: emergency tracking implanter
+  name: имплантер "трекер Феникса"
+  description: Одноразовый шприц, специально предназначенный для введения подкожных имплантов.
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter

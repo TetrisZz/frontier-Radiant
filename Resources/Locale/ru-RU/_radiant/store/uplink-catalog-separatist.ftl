@@ -127,4 +127,4 @@ uplink-separatist-key-desc = Ключ от ошейника, может испо
 uplink-separatist-slavekit-name = Набор раба
 uplink-separatist-slavekit-desc = Набор начинающего работорговца содержащий: шоковый ошейник, передатчик сигналов, конфигуратор сетей и универсальный пинпоинтер.
 uplink-separatist-boomcollar-name = Взрывной ошейник
-uplink-separatist-boomcollar-desc = При активации подрывает своего носителя, не гибает.
+uplink-separatist-boomcollar-desc = При активации подрывает своего носителя делая возможным его восстановления только через крио с большой тратой медикоментов, не гибает.

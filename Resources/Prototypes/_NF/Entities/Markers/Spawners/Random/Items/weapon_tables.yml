@@ -221,6 +221,7 @@
       - id: WeaponCaseLongGestioExpedition
       - id: WeaponCaseLongWeaponRifleNovaliteC1Expedition
       - id: WeaponCaseLongSVSExpedition
+      - id: WeaponCaseLongMG12 # Radiant sector
       - id: WeaponCaseLongPatron # Radiant_sector
 #      - id: WeaponCaseLongKammererExpedition # Radiant_sector
       - id: WeaponCaseShortLaserGunExpedition

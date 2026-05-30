@@ -55,11 +55,11 @@
 			"directions": 4
 		},
         {
-			"name": "ion-inhand-left",
+			"name": "special-inhand-left",
 			"directions": 4
 		},
 		{
-			"name": "ion-inhand-right",
+			"name": "special-inhand-right",
 			"directions": 4
 		},
 		{

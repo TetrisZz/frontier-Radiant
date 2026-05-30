@@ -390,7 +390,8 @@
     contents:
     - id: NFWeaponRifleAssaultVulcanExpedition
       amount: 1
-    - id: NFMagazineRifle30
+#    - id: NFMagazineRifle30 # Radiant_sector
+    - id: NFMagazineRifle3006 # Radiant_sector
       amount: 2
 
 - type: entity

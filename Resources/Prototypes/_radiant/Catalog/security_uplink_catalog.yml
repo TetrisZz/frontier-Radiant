@@ -1,4 +1,25 @@
 - type: listing
+  id: UplinkSecurityMagazineRifle3006Overpressure
+  name:  uplink-security-3006riflemagazine-name
+  description: uplink-security-3006riflemagazine-desc
+  productEntity: NFBoxMagazineRifle3006Overpressure
+  icon: { sprite: _NF/Objects/Storage/boxes.rsi, state: icon-magazine }
+  cost:
+    FrontierUplinkCoin: 1
+  categories:
+    - UplinkSecurityAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - Bailiff
+        - SeniorOfficer
+        - Sheriff
+
+- type: listing
   id: UplinkSecurityMagazineRifle20Drum
   name:  uplink-security-20rifledrummagazine-name
   description: uplink-security-20rifledrummagazine-desc

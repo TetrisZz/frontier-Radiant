@@ -2,7 +2,7 @@
   parent: Clothing
   id: ClothingNeckShockCollar
   name: электрический ошейник
-  suffix: SelfUnremovable
+  suffix: Нельзя Снять
   description: Электрический ошейник, который бьёт током по сигналу.
   components:
   - type: Item
@@ -42,7 +42,7 @@
   parent: Clothing
   id: ClothingNeckBoomCollar
   name: взрывной ошейник
-  suffix: SelfUnremovable
+  suffix: Нельзя Снять
   description: Электрический ошейник, который делает БУМ! по сигналу.
   components:
   - type: Item
@@ -63,11 +63,35 @@
     walkModifier: 0.95
     sprintModifier: 0.95
   - type: ExplodeOnTrigger
+    keysIn:
+    - trigger1
+  - type: DamageOnTrigger
+    damage:
+      types:
+        Slash: 2000
+        Cellular: 200
+    targetContainer: true
+    ignoreResistances: true
+    keysIn:
+    - trigger1
   - type: Explosive
-    explosionType: Radioactive
-    maxIntensity: 100
-    intensitySlope: 100
-    totalIntensity: 100
+    explosionType: Default
+    maxIntensity: 20
+    intensitySlope: 10
+    totalIntensity: 10
+  - type: TimerTrigger
+    beepSound:
+      path: "/Audio/Machines/timer.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 1
+    delay: 3
+    keyOut: trigger1
+    keysIn:
+    - trigger
+    examinable: false
+    popup: "Ошейник был активирован"
   - type: TriggerOnSignal
   - type: DeviceLinkSink
     ports:
@@ -83,7 +107,7 @@
   parent: Clothing
   id: ClothingNeckShockCollarPrivateSlave
   name: ошейник рабыни
-  suffix: SelfUnremovable
+  suffix: Нельзя Снять
   description: Электрический ошейник, который бьёт током по сигналу.
   components:
   - type: Item

@@ -343,30 +343,32 @@
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/tiny.rsi
 
-#region DeltaV
 - type: entity
   id: NFWeaponRifleMG12
   parent: [ NFBaseWeaponRifleChamber20, NFBaseWeaponFrameRifleFrontierGunsmith ]
-  name: ceremonial rifle
-  description: A ceremonial variant of the Mark 1 Rifle, in tasteful blue and white.
+  name: MG-12
+  description: Полуавтоматическая винтовка с деревянной ложой и внутренним магазином на 10 патронов. Использует калибр .30-06 Springfield
   components:
   - type: Sprite
     sprite: _radiant/Objects/Weapons/Guns/Rifles/mg12/big.rsi
-    scale: 0.75, 0.75
+    scale: 0.8, 0.75
   - type: Clothing
     sprite: _radiant/Objects/Weapons/Guns/Rifles/mg12/tiny.rsi
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/Rifles/mg12/tiny.rsi
-    # Radiant_sector start
   - type: Gun
-    examineCaliber: gun-examine-caliber-500
+    examineCaliber: gun-examine-caliber-3006
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/shotRifle.ogg
+      params:
+        volume: -7
   - type: BallisticAmmoProvider
-    capacity: 5
-    proto: CartridgeMagnum500
+    capacity: 10
+    proto: NFCartridgeRifle3006
     whitelist:
       tags:
-      - CartridgeMagnum500
-     # Radiant_sector end
+      - NFCartridgeRifle3006
 
 # Cyborg
 

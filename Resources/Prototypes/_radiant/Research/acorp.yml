@@ -55,7 +55,7 @@
   - MagazineHigh2RifleEmpty
   - MagazineHigh2RifleAK
   - MagazineHigh2Rifle
-  - NFAmmunitionBoxShellShotgunBuckshot
+#  - NFAmmunitionBoxShellShotgunBuckshot
   technologyPrerequisites:
   - AcorpTazer
   position: 1, 47

@@ -1,0 +1,10 @@
+- type: entity
+  name: коробка магазинов .30-60 (экспансивные)
+  parent: BoxMagazine
+  id: NFBoxMagazineRifle3006Overpressure
+  description: Коробка полная магазинов калибра .30-60 (экспансивные)
+  components:
+  - type: StorageFill
+    contents:
+      - id: NFMagazineRifle3006Overpressure
+        amount: 4

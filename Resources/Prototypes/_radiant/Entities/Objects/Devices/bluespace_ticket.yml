@@ -24,6 +24,8 @@
     keyOut: trigger
     keysIn:
     - trigger1
+    examinable: false
+    popup: null
 
 - type: entity
   parent: BaseBlueSpaceTicket
