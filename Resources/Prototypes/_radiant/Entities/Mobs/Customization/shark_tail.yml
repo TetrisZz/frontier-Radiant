@@ -2,7 +2,7 @@
   id: SharkTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [ Human ] #radiant_sector
+  speciesRestriction: [ Human, Reptilian, DemonSpecies ] 
   coloring:
     default:
       type:

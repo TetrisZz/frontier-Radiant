@@ -133,7 +133,7 @@
         - BookSpaceLaw
         - BookNfsdSop
     penSlot:
-      startingItem: PenCentcom
+      startingItem: SheriffPen #Radiant Sector
       priority: -1
       whitelist:
         tags:

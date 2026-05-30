@@ -1,0 +1,54 @@
+- type: entity
+  name: ручка шерифа
+  parent: [BaseAdvancedPen, BaseCentcommCommandContraband]
+  id: SheriffPen
+  description: Тяжёлая перьевая ручка шерифа. Подписывает ордера, протоколы и иногда — чужие смертные приговоры. Пишет суровой синей линией закона.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/pens.rsi
+    state: pen_sh
+  - type: Item
+    sprite: _radiant/Objects/Misc/pens.rsi
+    heldPrefix: pen_sh
+
+- type: entity
+  name: ручка командора
+  parent: [BaseAdvancedPen, BaseCentcommCommandContraband]
+  id: ComandorPen
+  description: Этой ручкой подписывают приказы, от которых экипаж начинает нервно смотреть в окна. Чернила пахнут властью и переработками.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/pens.rsi
+    state: pen_km
+  - type: Item
+    sprite: _radiant/Objects/Misc/pens.rsi
+    heldPrefix: pen_km
+
+- type: entity
+  name: ручка директора исследований
+  parent: [BaseAdvancedPen, BaseCentcommCommandContraband]
+  id: DirectorIsPen
+  description: Перьевая ручка директора исследований. Идеальна для одобрения сомнительных экспериментов и подписания отчётов, которые никто не поймёт.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/pens.rsi
+    state: pen_di
+  - type: Item
+    sprite: _radiant/Objects/Misc/pens.rsi
+    heldPrefix: pen_di
+
+- type: entity
+  name: ручка коменданта экспедиций
+  parent: [BaseAdvancedPen, BaseCentcommCommandContraband]
+  id: ComenadantPen
+  description: Надёжная ручка коменданта экспедиций. Ею отмечают маршруты, списки потерь и места, куда «точно не стоит лезть»
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/pens.rsi
+    state: pen_ke
+  - type: Item
+    sprite: _radiant/Objects/Misc/pens.rsi
+    heldPrefix: pen_ke
+
+
+
