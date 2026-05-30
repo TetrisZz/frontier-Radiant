@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprite made by Duran",
+  "copyright": "Sprite made by Duran, Homka was made equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran, for the Radiant Sector.",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,18 @@
     },
     {
       "name": "equipped-OUTERCLOTHING-harpy",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-tajaran",
       "directions": 4
     },
     {

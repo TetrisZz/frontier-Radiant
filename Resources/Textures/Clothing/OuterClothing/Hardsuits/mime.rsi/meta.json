@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by Roudenn(https://github.com/Roudenn), harpy variant modified by Adeinitas, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
+    "copyright": "Sprited by Roudenn(https://github.com/Roudenn), Harpy Variant By Adeinitas, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord), reptilian made by kuro(388673708753027083), inhand resprited by inventor05(gh: inventor055, discord: qwerty05555)",
     "size": {
         "x": 32,
         "y": 32
@@ -14,8 +14,12 @@
             "name": "equipped-OUTERCLOTHING",
             "directions": 4
         },
-		{
-            "name": "equipped-OUTERCLOTHING-harpy",
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
             "directions": 4
         },
         {
@@ -23,11 +27,15 @@
             "directions": 4
         },
         {
-            "name": "inhand-left",
+            "name": "equipped-OUTERCLOTHING-reptilian",
             "directions": 4
         },
         {
-            "name": "inhand-right",
+            "name": "equipped-OUTERCLOTHING-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-tajaran",
             "directions": 4
         }
     ]

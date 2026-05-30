@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 05/25/2026 06:11:13
-  entityCount: 5791
+  time: 05/29/2026 20:53:21
+  entityCount: 5784
 maps: []
 grids:
 - 1
@@ -13234,6 +13234,16 @@ entities:
       parent: 779
     - type: Physics
       canCollide: False
+- proto: BarSign
+  entities:
+  - uid: 2151
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,33.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: BaseBallBat
   entities:
   - uid: 781
@@ -20446,48 +20456,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 2145
-    components:
-    - type: Transform
-      parent: 2144
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2146
-    components:
-    - type: Transform
-      parent: 2144
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2154
-    components:
-    - type: Transform
-      parent: 2153
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2155
-    components:
-    - type: Transform
-      parent: 2153
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2163
-    components:
-    - type: Transform
-      parent: 2162
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2164
-    components:
-    - type: Transform
-      parent: 2162
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingOuterCoatLabAcorpOpened
   entities:
   - uid: 2119
@@ -20600,52 +20568,6 @@ entities:
       parent: 2125
     - type: Physics
       canCollide: False
-- proto: ClothingShoesBootsAcorpArm
-  entities:
-  - uid: 2149
-    components:
-    - type: Transform
-      parent: 2144
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2158
-    components:
-    - type: Transform
-      parent: 2153
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2167
-    components:
-    - type: Transform
-      parent: 2162
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingShoesBootsAcorpWorkBoots
-  entities:
-  - uid: 2150
-    components:
-    - type: Transform
-      parent: 2144
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2159
-    components:
-    - type: Transform
-      parent: 2153
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2168
-    components:
-    - type: Transform
-      parent: 2162
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingShoesBootsAcorpWorkBoots2
   entities:
   - uid: 38
@@ -34011,105 +33933,18 @@ entities:
   - uid: 2144
     components:
     - type: Transform
-      anchored: True
-      pos: 20.5,23.5
-      parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: Physics
-      bodyType: Static
-    - type: Lock
-      locked: False
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 2152
-          - 2151
-          - 2149
-          - 2146
-          - 2150
-          - invalid
-          - invalid
-          - 2145
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 2153
-    components:
-    - type: Transform
-      anchored: True
-      pos: 23.5,25.5
-      parent: 1
-    - type: Physics
-      bodyType: Static
-    - type: Lock
-      locked: False
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 2155
-          - 2159
-          - invalid
-          - invalid
-          - 2158
-          - 2154
-          - 2160
-          - 2161
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 2162
-    components:
-    - type: Transform
-      anchored: True
       pos: 23.5,29.5
       parent: 1
-    - type: Physics
-      bodyType: Static
-    - type: Lock
-      locked: False
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 2170
-          - 2169
-          - 2164
-          - 2163
-          - invalid
-          - 2167
-          - invalid
-          - 2168
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
+  - uid: 2145
+    components:
+    - type: Transform
+      pos: 20.5,23.5
+      parent: 1
+  - uid: 2146
+    components:
+    - type: Transform
+      pos: 23.5,25.5
+      parent: 1
 - proto: LuxuryPen
   entities:
   - uid: 3814
@@ -34421,50 +34256,6 @@ entities:
     - type: Transform
       pos: 20.473328,-19.328735
       parent: 1
-- proto: NFBedrollFolded
-  entities:
-  - uid: 2151
-    components:
-    - type: Transform
-      parent: 2144
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2152
-    components:
-    - type: Transform
-      parent: 2144
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2160
-    components:
-    - type: Transform
-      parent: 2153
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2161
-    components:
-    - type: Transform
-      parent: 2153
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2169
-    components:
-    - type: Transform
-      parent: 2162
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2170
-    components:
-    - type: Transform
-      parent: 2162
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: NFBedrollStained
   entities:
   - uid: 3839
@@ -37118,6 +36909,18 @@ entities:
       parent: 1
 - proto: RadiantRailing
   entities:
+  - uid: 2152
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,-27.5
+      parent: 1
+  - uid: 2153
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,-26.5
+      parent: 1
   - uid: 3842
     components:
     - type: Transform
@@ -37255,6 +37058,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,28.5
+      parent: 1
+- proto: RadiantRailingCornerSmall
+  entities:
+  - uid: 2154
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,-25.5
       parent: 1
 - proto: RadiantRailingRound
   entities:
@@ -43178,6 +42989,14 @@ entities:
           - 796
     - type: Fixtures
       fixtures: {}
+  - uid: 2149
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,23.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ShelfWood
   entities:
   - uid: 771
@@ -43221,6 +43040,13 @@ entities:
           - 778
           - 773
           - 774
+    - type: Fixtures
+      fixtures: {}
+  - uid: 2150
+    components:
+    - type: Transform
+      pos: -5.5,36.5
+      parent: 1
     - type: Fixtures
       fixtures: {}
 - proto: ShuttersNormalOpen

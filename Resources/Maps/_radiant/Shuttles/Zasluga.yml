@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 05/26/2026 06:39:40
+  time: 05/27/2026 05:44:30
   entityCount: 2486
 maps: []
 grids:
@@ -12476,7 +12476,7 @@ entities:
       pos: 14.5,9.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -42528.76
+      secondsUntilStateChange: -42599.973
       state: Closing
 - proto: hydroponicsTray
   entities:
@@ -16828,6 +16828,20 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 14.5,-4.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        2443:
+        - - Pressed
+          - Toggle
+        2442:
+        - - Pressed
+          - Toggle
+        2441:
+        - - Pressed
+          - Toggle
+        2440:
+        - - Pressed
+          - Toggle
     - type: Fixtures
       fixtures: {}
   - uid: 2481

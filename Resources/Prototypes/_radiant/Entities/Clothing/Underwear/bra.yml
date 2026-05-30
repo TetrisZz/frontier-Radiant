@@ -1,5 +1,126 @@
 - type: entity
   parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraWhite
+  name: бра
+  description: Только наши лифчики Nanotrasen могут легко сниматься и надеваться.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/bra.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraSports
+  name: спортивное бра
+  description: Лифчик для занятий спортом. Ведь бег от ухажеров является спортом?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/sportsbra.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraSportsAlternative
+  name: альтернативное спортивное бра
+  description: Лифчик для занятий спортом. Альтернативная версия. На этот раз будут не ухажеры, а насильники. Пойдёт?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/sportsbraalt.rsi
+
+#etc
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopNekoBra
+  name: неко бра
+  description: Для тех кто любит "кошек".
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/nekobra.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearToplaceBra
+  name: кружевное бра
+  description: Для ваших массивных документов.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/lacebra.rsi
+
+# SpaceNinja
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopSpaceNinja
+  name: повязка на грудь
+  description: Кусок обычной ткани.
+  components:
+  - type: StaticPrice # Frontier
+    vendPrice: 300 # Frontier
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/SpaceNinja/bra.rsi
+
+# Deathsquad
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopDeathBra
+  name: бра эскадрона смерти
+  description: Самые технологичные бра в галактике.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/deathbra.rsi
+
+
+# Homka
+
+# black
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopRadiantBlack
+  name: чёрное бра
+  description: Лифчик чёрного цвета для любителей классики.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/black.rsi
+
+# neeeekoUwU
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopRadiantNeeeekoUwU
+  name: бра горничной
+  description: Лифчик тёмного цвета для тех, кто знает себе цену. Дзиньк!
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/neeeekoUwU.rsi
+
+# pink
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopRadiantPink
+  name: розовый топ
+  description: Топ розового цвета, который элегантно подчеркивает ваши плечи. 
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/pink.rsi
+
+# seeeexsi
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopRadiantSeeeexsi
+  name: сексуальное бра
+  description: Бра тёмного цвета, которое сложно надевается, но снимается довольно легко.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/seeeexsi.rsi
+
+# red
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopRadiantRed
+  name: красное бра
+  description: Сексуальное бра красного цвета, которое подчеркнет не только красивую грудь, но и отличный вкус владелицы этого бра! В нём можно спрятать ID-карту Представителя.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/red.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorp
   name: бра акорп
   description: Лифчик акорп, зачем корпорации уникальное бельё?

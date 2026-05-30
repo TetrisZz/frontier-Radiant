@@ -12,6 +12,18 @@
       "directions": 4
     },
     {
+      "name": "equipped-SOCKS-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SOCKS-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SOCKS-tajaran",
+      "directions": 4
+    },
+    {
       "name": "icon"
     }
   ]

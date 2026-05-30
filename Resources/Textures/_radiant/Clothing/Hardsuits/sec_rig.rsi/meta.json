@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "NES-Station. Artist`s : maksgab. Homka was made for rezomi, for the Radiant Sector",
+  "copyright": "NES-Station. Artist`s : maksgab. Homka was made for equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran, for the Radiant Sector.",
   "size": {
     "x": 32,
     "y": 32
@@ -16,6 +16,18 @@
     },
     {
       "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    }, 
+    {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-tajaran",
       "directions": 4
     },    
     {
