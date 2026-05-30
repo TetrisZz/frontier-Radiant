@@ -15,7 +15,7 @@ adjectives-nf-gun-rare-1 = убойный {$baseName}
 adjectives-nf-gun-rare-2 = смертельный {$baseName}
 adjectives-nf-gun-rare-3 = убийственный {$baseName}
 adjectives-nf-gun-rare-4 = легендарный {$baseName}
-adjectives-nf-gun-rare-5 = заводской {$baseName}
+adjectives-nf-gun-rare-5 = древний {$baseName}
 
 names-nf-gun-epic-1 = Бластер-мастер 9000
 names-nf-gun-epic-2 = Хроно-триггер
@@ -29,7 +29,7 @@ names-nf-gun-epic-9 = Маленький друг
 names-nf-gun-epic-10 = Второе мнение
 names-nf-gun-epic-11 = Переговорщик
 names-nf-gun-epic-12 = Решатель Проблем
-names-nf-gun-epic-13 = Жаркая Леди
+names-nf-gun-epic-13 = Горячая Леди
 names-nf-gun-epic-14 = Дальний Выстрел
 names-nf-gun-epic-15 = Последний Шанс
 names-nf-gun-epic-16 = Большая Берта

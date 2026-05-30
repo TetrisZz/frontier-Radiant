@@ -1,0 +1,102 @@
+#region base
+- type: entity
+  id: NFBaseCartridgeRifle3006
+  name: патрон (.30-60 Springfield)
+  parent: BaseCartridgeLightRifle
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - NFCartridgeRifle3006
+
+#region .30-60 Springfield
+- type: entity
+  id: NFCartridgeRifle3006
+  name: патрон (.30-60 Springfield)
+  parent: NFBaseCartridgeRifle3006
+  components:
+  - type: CartridgeAmmo
+    proto: NFBulletRifle3006
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#666666"
+
+- type: entity
+  id: NFCartridgeRifle3006Overpressure
+  name: патрон (.30-60 Springfield, overpressure)
+  parent: NFBaseCartridgeRifle3006
+  components:
+  - type: CartridgeAmmo
+    proto: NFBulletRifle3006Overpressure
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ff8d00"
+
+- type: entity
+  id: NFCartridgeRifle3006Incendiary
+  name: патрон (.30-60 Springfield, incendiary)
+  parent: NFBaseCartridgeRifle3006
+  components:
+  - type: CartridgeAmmo
+    proto: NFBulletRifle3006Incendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ff0000"
+
+- type: entity
+  id: NFCartridgeRifle3006Uranium
+  name: патрон (.30-60 Springfield, uranium)
+  parent: NFBaseCartridgeRifle3006
+  components:
+  - type: CartridgeAmmo
+    proto: NFBulletRifle3006Uranium
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#00ff00"
+
+- type: entity
+  id: NFCartridgeRifle3006Practice
+  name: патрон (.30-60 Springfield, practice)
+  parent: NFBaseCartridgeRifle3006
+  components:
+  - type: CartridgeAmmo
+    proto: NFBulletRifle3006Practice
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#dddddd"
+
+- type: entity
+  id: NFCartridgeRifle3006Rubber
+  name: патрон (.30-60 Springfield, rubber)
+  parent: NFBaseCartridgeRifle3006
+  components:
+  - type: CartridgeAmmo
+    proto: NFBulletRifle3006Rubber
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#00b0ff"

@@ -470,7 +470,7 @@
   productEntity: HyperEutacticBlade1
   icon: { sprite: _radiant/Objects/Weapons/Melee/e_cutlass1.rsi, state: e_cutlass_blade }
   cost:
-    Cristalhom: 70
+    Cristalhom: 50
   categories:
     - UplinkHomWeapons
   conditions:
@@ -486,7 +486,7 @@
   productEntity: HyperEutacticBlade2
   icon: { sprite: _radiant/Objects/Weapons/Melee/e_saw.rsi, state: e_cutlass_blade }
   cost:
-    Cristalhom: 70
+    Cristalhom: 50
   categories:
     - UplinkHomWeapons
   conditions:

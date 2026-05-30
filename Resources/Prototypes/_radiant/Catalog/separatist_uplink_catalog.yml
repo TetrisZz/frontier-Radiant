@@ -812,7 +812,7 @@
   productEntity: ClothingNeckBoomCollar
   icon: { sprite: _radiant/Clothing/Neck/collarsboom.rsi, state: icon }
   cost:
-    BlackMoney: 7
+    BlackMoney: 3
   categories:
     - UplinkSeparatistSlave
   conditions:

@@ -11,11 +11,13 @@
   - NFMagazineClipRifle20Empty
   - NFMagazinePistol35Empty
   - MagazineLightRifleLowCapacityEmpty
+  - SpeedLoaderRifleHeavyEmpty
 
 - type: latheRecipePack
   id: RadiantAmmoStatic
   recipes:
   # Ammo boxes
+  - NFAmmunitionBoxShellShotgunBuckshot
   - NFAmmunitionBoxShellShotgunOverpressure
   - NFAmmunitionBoxShellShotgunSlug
   - NFAmmunitionBoxShellShotgunBeanbag
@@ -23,6 +25,8 @@
   - NFAmmunitionBoxRifle20Overpressure
   - NFAmmunitionBoxRifle30
   - NFAmmunitionBoxRifle30Overpressure
+  - NFAmmunitionBoxRifle3006
+  - NFAmmunitionBoxRifle3006Overpressure
   - NFAmmunitionBoxPistol35
   - NFAmmunitionBoxPistol35Overpressure
   - NFAmmunitionBoxPistol45

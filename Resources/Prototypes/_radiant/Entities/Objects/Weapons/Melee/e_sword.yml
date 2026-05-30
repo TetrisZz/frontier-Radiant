@@ -105,7 +105,7 @@
   components:
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    attackRate: 0.8 #0.7 and below is too slow
+    attackRate: 1
     angle: 100
     range: 2.0
     damage:
@@ -134,6 +134,9 @@
         visible: false
         shader: unshaded
         map: [ "blade" ]
+  - type: Reflect
+    reflectProb: .1
+    spread: 60
   - type: Item
     size: Small
     sprite: _radiant/Objects/Weapons/Melee/e_cutlass1.rsi
@@ -147,7 +150,7 @@
   components:
   - type: MeleeWeapon
     wideAnimationRotation: 180
-    attackRate: 0.8 #0.7 and below is too slow
+    attackRate: 1
     angle: 100
     range: 2.0
     damage:
@@ -176,6 +179,9 @@
         visible: false
         shader: unshaded
         map: [ "blade" ]
+  - type: Reflect
+    reflectProb: .1
+    spread: 60
   - type: Item
     size: Small
     sprite: _radiant/Objects/Weapons/Melee/e_saw.rsi

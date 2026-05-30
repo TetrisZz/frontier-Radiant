@@ -11,6 +11,17 @@ namespace Content.Shared.Trigger.Components.Effects;
 public sealed partial class DamageOnTriggerComponent : BaseXOnTriggerComponent
 {
     /// <summary>
+    /// Damage entity containing this entity instead (for example for wearable clothing).
+    /// Has priority over TargetUser.
+    /// </summary>
+    /// <remarks>
+    /// TODO: Make this more generic so it can be used for all triggers.
+    /// Maybe a BeforeTriggerEvent where we modify the target.
+    /// </remarks>
+    [DataField, AutoNetworkedField]
+    public bool TargetContainer;
+
+    /// <summary>
     /// Should the damage ignore resistances?
     /// </summary>
     [DataField, AutoNetworkedField]

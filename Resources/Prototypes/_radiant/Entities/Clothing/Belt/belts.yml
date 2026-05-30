@@ -66,3 +66,47 @@
     sprite: _radiant/Clothing/Belt/rpsnaem.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Belt/rpsnaem.rsi
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseC1Contraband] # Frontier: BaseCommandContraband<BaseC1Contraband
+  id: ClothingBeltSheathKomandor
+  name: церемониальные сабельные ножны
+  description: Украшенные ножны, предназначенные для хранения командорского клинка.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - KomandorSabre
+          - Sheathable # Frontier
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - KomandorSabre
+          - Sheathable # Frontier
+  - type: Appearance
+
+- type: entity
+  id: ClothingBeltSheathKomandorFilled
+  parent: ClothingBeltSheathKomandor
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - KomandorSabre

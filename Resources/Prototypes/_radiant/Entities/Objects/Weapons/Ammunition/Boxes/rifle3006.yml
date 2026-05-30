@@ -1,0 +1,121 @@
+#region base .30-60 Springfield
+- type: entity
+  id: NFBaseAmmunitionBoxRifle3006
+  parent: NFBaseAmmunitionBox
+  name: ammunition box (.30-60 Springfield)
+  abstract: true
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - NFCartridgeRifle3006
+    capacity: 45
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Ammunition/Boxes/rifle3006.rsi
+
+#region .30-60 Springfield
+- type: entity
+  id: NFAmmunitionBoxRifle3006
+  parent: NFBaseAmmunitionBoxRifle3006
+  name: ammunition box (.30-60 Springfield)
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+      color: "#e3cb44"
+    - state: decal-calibre-30-06
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: NFAmmunitionBoxRifle3006Overpressure
+  parent: NFBaseAmmunitionBoxRifle3006
+  name: ammunition box (.30-60 Springfield, overpressure)
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Overpressure
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+      color: "#e3cb44"
+    - state: decal-01
+      color: "#ff8d00"
+    - state: decal-calibre-30-06
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: NFAmmunitionBoxRifle3006Incendiary
+  parent: NFBaseAmmunitionBoxRifle3006
+  name: ammunition box (.30-60 Springfield, incendiary)
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Incendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+      color: "#e3cb44"
+    - state: decal-01
+      color: "#ff0000"
+    - state: decal-calibre-30-06
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: NFAmmunitionBoxRifle3006Uranium
+  parent: NFBaseAmmunitionBoxRifle3006
+  name: ammunition box (.30-60 Springfield, uranium)
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Uranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+      color: "#e3cb44"
+    - state: decal-01
+      color: "#00ff00"
+    - state: decal-calibre-30-06
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: NFAmmunitionBoxRifle3006Practice
+  parent: NFBaseAmmunitionBoxRifle3006
+  name: ammunition box (.30-60 Springfield, practice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Practice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+      color: "#e3cb44"
+    - state: decal-01
+      color: "#dddddd"
+    - state: decal-calibre-30-06
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: NFAmmunitionBoxRifle3006Rubber
+  parent: NFBaseAmmunitionBoxRifle3006
+  name: ammunition box (.30-60 Springfield, rubber)
+  components:
+  - type: BallisticAmmoProvider
+    proto: NFCartridgeRifle3006Rubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+      color: "#e3cb44"
+    - state: decal-01
+      color: "#00b0ff"
+    - state: decal-calibre-30-06
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

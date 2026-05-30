@@ -1,0 +1,71 @@
+#region .30-60 Springfield
+- type: entity
+  id: NFBulletRifle3006
+  name: пуля (.30-60 Springfield)
+  parent: NFBaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 33
+
+- type: entity
+  id: NFBulletRifle3006Overpressure
+  name: пуля (.30-60 Springfield, overpressure)
+  parent: NFBaseBulletOverpressure
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 16.5
+        Blunt: 16.5
+
+- type: entity
+  id: NFBulletRifle3006Incendiary
+  name: пуля (.30-60 Springfield, incendiary)
+  parent: NFBaseBulletIncendiary
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 6
+        Heat: 27
+
+- type: entity
+  id: NFBulletRifle3006Uranium
+  name: пуля (.30-60 Springfield, uranium)
+  parent: NFBaseBulletUranium
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 16.5
+        Piercing: 16.5
+
+- type: entity
+  id: NFBulletRifle3006Practice
+  name: пуля (.30-60 Springfield, practice)
+  parent: NFBaseBulletPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 4
+
+- type: entity
+  id: NFBulletRifle3006Rubber
+  name: пуля (.30-60 Springfield, rubber)
+  parent: NFBaseBulletRubber
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 5
+  - type: StaminaDamageOnCollide
+    damage: 24 # ~5 hits to stun sounds reasonable

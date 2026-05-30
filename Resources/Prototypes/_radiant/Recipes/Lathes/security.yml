@@ -12,47 +12,28 @@
   result: ScannerGateCircuitboard
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxMagnum500
+  result: MagazineBoxMagnum500
+  completetime: 15
+  materials:
+    Steel: 3000 # box - free, 30 [bullets] * 100 [Steel per bullet]
+    Plasteel: 1500 # box - free, 30 [bullets] * 50 [Plasteel per bullet]
+
+- type: latheRecipe
+  parent: BaseEmptyMagazineRecipe
+  id: SpeedLoaderRifleHeavyEmpty
+  result: SpeedLoaderRifleHeavyEmpty
+  materials:
+    Steel: 20
+
+- type: latheRecipe
   id: GrenadeSmokeM203
   result: GrenadeSmokeM203
   completetime: 3
   materials:
     Steel: 200
     Plastic: 100
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxPistol25ACP
-  result: MagazineBoxPistol25ACP
-  materials:
-    Steel: 450
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazinePistol25ACP
-  result: MagazinePistol25ACP
-  materials:
-    Steel: 120
-
-- type: latheRecipe
-  parent: BaseEmptyAmmoRecipe
-  id: MagazinePistol25ACPEmpty
-  result: MagazinePistol25ACPEmpty
-  materials:
-    Steel: 20
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazinePistolSubMachineGun25ACP
-  result: MagazinePistolSubMachineGun25ACP
-  materials:
-    Steel: 300
-
-- type: latheRecipe
-  parent: BaseEmptyAmmoRecipe
-  id: MagazinePistolSubMachineGun25ACPEmpty
-  result: MagazinePistolSubMachineGun25ACPEmpty
-  materials:
-    Steel: 30
 
 - type: latheRecipe
   id: MagazineGunnery20mm
@@ -71,3 +52,100 @@
     Plastic: 100
     Gold: 100
     Uranium: 100
+
+- type: latheRecipe
+  parent: BaseEmptyMagazineRecipe
+  id: MagazinePistolSubMachineGunVereskLowEmpty
+  result: MagazinePistolSubMachineGunVereskLowEmpty
+  materials:
+    Steel: 25
+
+#region 25 ACP
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistol25ACP
+  result: MagazineBoxPistol25ACP
+  materials:
+    Steel: 450
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistol25ACP
+  result: MagazinePistol25ACP
+  materials:
+    Steel: 120
+
+- type: latheRecipe
+  parent: BaseEmptyMagazineRecipe
+  id: MagazinePistol25ACPEmpty
+  result: MagazinePistol25ACPEmpty
+  materials:
+    Steel: 20
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolSubMachineGun25ACP
+  result: MagazinePistolSubMachineGun25ACP
+  materials:
+    Steel: 300
+
+- type: latheRecipe
+  parent: BaseEmptyMagazineRecipe
+  id: MagazinePistolSubMachineGun25ACPEmpty
+  result: MagazinePistolSubMachineGun25ACPEmpty
+  materials:
+    Steel: 30
+
+#region .30-06
+
+- type: latheRecipe
+  parent: BaseEmptyMagazineRecipe
+  id: NFMagazineRifle3006Empty
+  result: NFMagazineRifle3006Empty
+  materials:
+    Steel: 30
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: NFAmmunitionBoxRifle3006
+  result: NFAmmunitionBoxRifle3006
+  materials:
+    Steel: 1575 # box - free, 45 [bullets] * 35 [Steel per bullet]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: NFAmmunitionBoxRifle3006Overpressure
+  result: NFAmmunitionBoxRifle3006Overpressure
+  materials:
+    Steel: 2020 # box - free, 45 [bullets] * 45 [Steel per bullet]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: NFAmmunitionBoxRifle3006Practice
+  result: NFAmmunitionBoxRifle3006Practice
+  materials:
+    Steel: 600 # box - free, 45 [bullets] * 20 [Steel per bullet]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: NFAmmunitionBoxRifle3006Incendiary
+  result: NFAmmunitionBoxRifle3006Incendiary
+  materials:
+    Plastic: 1575 # box - free, 45 [bullets] * 35 [Plastic per bullet]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: NFAmmunitionBoxRifle3006Uranium
+  result: NFAmmunitionBoxRifle3006Uranium
+  materials:
+    Plastic: 810 # box - free, 45 [bullets] * 18 [Plastic per bullet]
+    Uranium: 810 # box - free, 45 [bullets] * 18 [Uranium per bullet]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: NFAmmunitionBoxRifle3006Rubber
+  result: NFAmmunitionBoxRifle3006Rubber
+  materials:
+    Plastic: 810 # box - free, 45 [bullets] * 18 [Plastic per bullet]
+    Steel: 810 # box - free, 45 [bullets] * 18 [Steel per bullet]

@@ -1,10 +1,12 @@
 using Content.Shared.Damage;
 using Content.Shared.Trigger.Components.Effects;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.Trigger.Systems;
 
 public sealed class DamageOnTriggerSystem : EntitySystem
 {
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Radiant add TargetContainer
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
@@ -19,8 +21,20 @@ public sealed class DamageOnTriggerSystem : EntitySystem
         if (args.Key != null && !ent.Comp.KeysIn.Contains(args.Key))
             return;
 
-        var target = ent.Comp.TargetUser ? args.User : ent.Owner;
-
+// Radiant add TargetContainer
+        EntityUid? target;
+        if (ent.Comp.TargetContainer)
+        {
+            // damage whoever is wearing this clothing item
+            if (!_container.TryGetContainingContainer(ent.Owner, out var container))
+                return;
+            target = container.Owner;
+        }
+        else
+        {
+            target = ent.Comp.TargetUser ? args.User : ent.Owner;
+        }
+// Radiant end
         if (target == null)
             return;
 

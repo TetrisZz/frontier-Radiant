@@ -72,3 +72,6 @@ weapon-description-rarity-uncommon = Это [bold][color=#33FF44]необычн�
 weapon-description-rarity-rare = Это [bold][color=#33CCFF]редкое[/color][/bold] оружие.
 weapon-description-rarity-epic = Это [bold][color=#CC66FF]эпическое[/color][/bold] оружие.
 weapon-description-rarity-legendary = Это [bold][color=#FFCC00]легендарное[/color][/bold] оружие.
+# Radiant sector start
+weapon-description-rarity-unique = Это [bold][color=#584FB3]заводское[/color][/bold] оружие.
+# Radiant sector end

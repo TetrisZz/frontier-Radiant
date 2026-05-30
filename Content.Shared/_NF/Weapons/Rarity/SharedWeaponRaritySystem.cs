@@ -50,6 +50,7 @@ public abstract class SharedWeaponRaritySystem : EntitySystem
             WeaponRarity.Uncommon => "weapon-description-rarity-uncommon",
             WeaponRarity.Rare => "weapon-description-rarity-rare",
             WeaponRarity.Epic => "weapon-description-rarity-epic",
+            WeaponRarity.Unique => "weapon-description-rarity-unique", // Radiant sector
             // Anything above epic is shown as 'legendary'. Admeme guns etc.
             // Common is excluded above.
             _ => "weapon-description-rarity-legendary",

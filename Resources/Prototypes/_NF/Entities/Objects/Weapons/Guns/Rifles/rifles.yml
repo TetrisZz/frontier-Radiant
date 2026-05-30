@@ -66,6 +66,7 @@
     sprite: _DV/Objects/Weapons/Guns/Rifles/ceremonial_grand.rsi
     # Radiant_sector start
   - type: Gun
+    fireRate: 1.3 # Radiant_sector
     examineCaliber: gun-examine-caliber-500
   - type: BallisticAmmoProvider
     capacity: 5

@@ -79,15 +79,35 @@
     magState: mag
     steps: 3
     zeroVisible: true
-  - type: Gun # Radiant_sector
-    minAngle: 21 # Radiant_sector
-    maxAngle: 54 # Radiant_sector
-    angleIncrease: 6 # Radiant_sector
-    angleDecay: 24 # Radiant_sector
-    fireRate: 5 # Radiant_sector
-    selectedMode: SemiAuto # Radiant_sector
-    availableModes: # Radiant_sector
-      - SemiAuto # Radiant_sector
+  - type: Gun # Radiant sector ↓
+    minAngle: 21
+    maxAngle: 54
+    angleIncrease: 6
+    angleDecay: 24
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    examineCaliber: gun-examine-caliber-3006
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineRifle3006
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineRifle3006
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle3006
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle3006 # Radiant sector ↑
 
 - type: entity
   id: NFWeaponRifleAssaultJackdaw
