@@ -42,6 +42,17 @@
 #        Heat: 15 # Radiant_sector
         Heat: 13 # Radiant_sector
 
+- type: entity
+  id: NFBulletLaserRepeater
+  parent: NFBaseBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 12.5
+
 # Rifles
 - type: entity
   id: NFBulletLaserHeavy
