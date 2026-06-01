@@ -103,7 +103,7 @@
     prototypes:
     - NpcGearWizardPurpleApprentice
   - type: BasicEntityAmmoProvider
-    proto: BulletMagicBolt
+    proto: NFBulletMagicBoltMob
     capacity: 2
     count: 2
   - type: Gun
@@ -123,7 +123,7 @@
     prototypes:
     - NpcGearWizardAdeptBlue
   - type: BasicEntityAmmoProvider
-    proto: BulletIceGlobe
+    proto: NFBulletMagicIceBoltMob
     capacity: 1
     count: 1
   - type: Gun
@@ -142,7 +142,7 @@
     prototypes:
     - NpcGearWizardAdeptRed
   - type: BasicEntityAmmoProvider
-    proto: BulletFireBolt
+    proto: NFBulletMagicFireBoltMob
     capacity: 2
     count: 2
   - type: Gun
@@ -167,7 +167,7 @@
     maxCharge: 800
     startingCharge: 800
   - type: HitscanBatteryAmmoProvider
-    proto: CausticBeam
+    proto: NFHitscanMagicCausticBeamMob
     fireCost: 100
   - type: Gun
     showExamineText: false
@@ -215,7 +215,7 @@
     maxCharge: 800
     startingCharge: 800
   - type: HitscanBatteryAmmoProvider
-    proto: WizardHitscanLightning
+    proto: NFHitscanMagicLightningMob
     fireCost: 100
 
 - type: entity

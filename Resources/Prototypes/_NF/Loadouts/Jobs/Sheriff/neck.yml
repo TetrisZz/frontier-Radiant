@@ -3,16 +3,19 @@
   id: SheriffClothingNeckMantleSheriff
   equipment:
     neck: ClothingNeckMantleDvb #Radiant_sector
+  groupBy: "NeckMantles"
 
 - type: loadout
   id: SheriffClothingNeckCloakSheriff
   equipment:
     neck: ClothingNeckCloakSheriff
+  groupBy: "NeckCloaks"
 
 - type: loadout
   id: SheriffClothingNeckNfsdBadgeSheriff
   equipment:
     neck: ClothingNeckNfsdBadgeSheriff
+  groupBy: "NeckMisc"
 
 - type: loadout # Radiant sector
   id: SheriffClothingNeckCloakSbRS
@@ -24,4 +27,3 @@
       time: 90000 # 25
   equipment:
     neck: ClothingNeckCloakSbRS
-

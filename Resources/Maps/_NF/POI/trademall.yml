@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 05/11/2026 13:54:37
+  time: 05/31/2026 05:51:59
   entityCount: 6316
 maps: []
 grids:
@@ -10409,6 +10409,14 @@ entities:
     components:
     - type: Transform
       pos: 10.5,23.5
+      parent: 1
+- proto: BorgCharger
+  entities:
+  - uid: 4418
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 45.5,-5.5
       parent: 1
 - proto: BoxLightMixed
   entities:
@@ -22742,7 +22750,7 @@ entities:
       pos: 0.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -1272.4323
+      secondsUntilStateChange: -1336.5647
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 9419.9239154
@@ -38196,12 +38204,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,27.5
-      parent: 1
-  - uid: 4418
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 45.5,-5.5
       parent: 1
   - uid: 4419
     components:

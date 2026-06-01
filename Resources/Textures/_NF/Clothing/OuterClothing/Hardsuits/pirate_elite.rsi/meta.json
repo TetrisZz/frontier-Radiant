@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-4.0",
-    "copyright": "Content created by Bing Guss for Frontier Server, Homka was made equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran, for the Radiant Sector.",
+    "copyright": "Content created by Bing Guss for Frontier Server, Homka was made equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran, for the Radiant Sector, Vox and Harpy state by Duran",
     "size": {
         "x": 32,
         "y": 32
@@ -14,18 +14,26 @@
             "name": "equipped-OUTERCLOTHING",
             "directions": 4
         },
-    {
-      "name": "equipped-OUTERCLOTHING-reptilian",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-vulpkanin",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-tajaran",
-      "directions": 4
-    },
+        {
+            "name": "equipped-OUTERCLOTHING-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-tajaran",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-harpy",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-vox",
+            "directions": 4
+        },
         {
             "name": "inhand-left",
             "directions": 4
