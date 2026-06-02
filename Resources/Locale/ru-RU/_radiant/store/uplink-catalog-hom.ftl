@@ -137,3 +137,6 @@ uplink-hom-uwe-desc = Просто красивое белье.
 
 uplink-hom-plushies-name = Подарочная коробка c плюшкой
 uplink-hom-plushies-desc = Небольшая подарочная коробка со случайной игрушкой.
+
+uplink-hom-crypt-name = Ключ шифрования частного канала
+uplink-hom-crypt-desc = Ключ шифрования приватного канала связи для таких почетных лиц, как вы. 

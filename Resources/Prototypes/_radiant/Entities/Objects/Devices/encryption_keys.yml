@@ -60,3 +60,18 @@
     layers:
     - state: crypt_med
     - state: med_label
+
+- type: entity
+  parent: EncryptionKeyAcorp
+  id: EncryptionKeyGD
+  name: ключ шифрования частного канала
+  description: Ключ шифрования приватного канала связи.
+  components:
+  - type: EncryptionKey
+    channels:
+    - GD
+    defaultChannel: GD
+  - type: Sprite
+    layers:
+    - state: crypt_g
+    - state: g_label

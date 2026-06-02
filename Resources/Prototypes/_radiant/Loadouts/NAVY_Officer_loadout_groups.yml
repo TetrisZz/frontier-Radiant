@@ -23,9 +23,9 @@
 - type: loadoutGroup
   id: NAVYOfficerEars
   name: loadout-group-commandant-ears
-  hidden: true
   loadouts:
   - NAVYClothingHeadsetNavy
+  - NAVYNFClothingWristsetFleetSilver
   fallbacks:
   - NAVYClothingHeadsetNavy
 

@@ -2,3 +2,13 @@
   id: COMClothingHeadsetAltAcorp
   equipment:
     ears: ClothingHeadsetAltAcorp
+
+- type: loadout
+  id: COMNFClothingWristsetAcorpHead
+  equipment:
+    ears: NFClothingWristsetAcorpHead
+
+- type: loadout
+  id: COMNFClothingWristsetAcorpHead2
+  equipment:
+    ears: NFClothingWristsetAcorpHead2

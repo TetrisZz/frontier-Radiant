@@ -22,9 +22,9 @@
 - type: loadoutGroup
   id: NAVYCaptainEars
   name: loadout-group-commandant-ears
-  hidden: true
   loadouts:
   - NAVYClothingHeadsetNavyCaptain
+  - NAVYNFClothingWristsetFleetHeadAlt
   fallbacks:
   - NAVYClothingHeadsetNavyCaptain
 

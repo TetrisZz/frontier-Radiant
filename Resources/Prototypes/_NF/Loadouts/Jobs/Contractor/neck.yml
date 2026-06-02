@@ -118,8 +118,9 @@
     proto: ContractorT1
   price: 500
   equipment:
-    neck: ClothingNeckChokerSpike # Radiant_sector]
-    
+    neck: ClothingNeckChokerSpike 
+  groupBy: "NeckChoker" # Radiant_sector]
+
 - type: loadout
   id: ContractorClothingNeckChokerHeart # Radiant_sector[
   effects:
@@ -127,7 +128,38 @@
     proto: ContractorT1
   price: 500
   equipment:
-    neck: ClothingNeckChokerHeart # Radiant_sector]
+    neck: ClothingNeckChokerHeart 
+  groupBy: "NeckChoker" # Radiant_sector]
+
+- type: loadout
+  id: ContractorClothingNeckChokerBlack # Radiant_sector[
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckChokerBlack 
+  groupBy: "NeckChoker" # Radiant_sector]
+
+- type: loadout
+  id: ContractorClothingNeckChokerBlackShaped # Radiant_sector[
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckChokerBlackShaped 
+  groupBy: "NeckChoker" # Radiant_sector]
+
+- type: loadout
+  id: ContractorClothingNeckChokerBlack2 # Radiant_sector[
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    neck: ClothingNeckChokerBlack2 
+  groupBy: "NeckChoker" # Radiant_sector]
 
 - type: loadout
   id: ContractorClothingNeckMantleMercenary # Radiant_sector[
@@ -136,7 +168,8 @@
     proto: ContractorT1
   price: 2500
   equipment:
-    neck: ClothingNeckMantleMercenary # Radiant_sector]
+    neck: ClothingNeckMantleMercenary 
+  groupBy: "NeckMantleMercenary" # Radiant_sector]
 
 - type: loadout
   id: ContractorClothingNeckMantleHunter # Radiant_sector[
@@ -145,7 +178,8 @@
     proto: ContractorT1
   price: 2500
   equipment:
-    neck: ClothingNeckMantleHunter # Radiant_sector]
+    neck: ClothingNeckMantleHunter 
+  groupBy: "NeckMantleMercenary" # Radiant_sector]
 
 - type: loadout
   id: ContractorCDDogtags

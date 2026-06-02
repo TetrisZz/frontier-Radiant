@@ -1,56 +1,56 @@
 # Contractor
 
-loadout-group-service-outerclothing = Сервисный работник, верхняя одежда
-loadout-group-service-jumpsuit = Сервисный работник, комбинезон
-loadout-group-service-id = Сервисный работник, КПК
+loadout-group-service-outerclothing = Верхняя одежда
+loadout-group-service-jumpsuit = Униформа
+loadout-group-service-id = КПК
 
-loadout-group-acorpsecurity-underwearbottom = Секьюрити, трусы
-loadout-group-acorpsecurity-head = Секьюрити, голова
-loadout-group-acorpsecurity-ears = акорп, гарнитура
-loadout-group-acorpsecurity-shoes = Секьюрити, обувь
-loadout-group-acorpsecurity-backpack = Секьюрити, рюкзак
-loadout-group-acorpsecurity-outerclothing = Секьюрити, верхняя одежда
-loadout-group-acorpsecurity-jumpsuit = Секьюрити, комбинезон
-loloadout-group-acorpsecurity-id = Секьюрити, КПК
-loadout-group-acorpsecurity-underweartop = Секьюрити, бра
+loadout-group-acorpsecurity-underwearbottom = Белье, Низ
+loadout-group-acorpsecurity-head = Головные уборы
+loadout-group-acorpsecurity-ears = Гарнитура
+loadout-group-acorpsecurity-shoes = Обувь
+loadout-group-acorpsecurity-backpack = Рюкзаки
+loadout-group-acorpsecurity-outerclothing = Верхняя одежда
+loadout-group-acorpsecurity-jumpsuit = Униформа
+loloadout-group-acorpsecurity-id = КПК
+loadout-group-acorpsecurity-underweartop = Белье, Верх
 
-loadout-group-science-underwearbottom = РНД, трусы
-loadout-group-science-outerclothing = Учёный, верхняя одежда
-loadout-group-science-jumpsuit = Учёный, комбинезон
-loadout-group-science-id = Учёный, КПК
-loadout-group-science-underweartop = РНД, бра
+loadout-group-science-underwearbottom = Белье, Низ
+loadout-group-science-outerclothing = Верхняя одежда
+loadout-group-science-jumpsuit = Униформа
+loadout-group-science-id = КПК
+loadout-group-science-underweartop =  Белье, Верх
 
-loadout-group-medical-shoes = Акорп, обувь
-loadout-group-medical-outerclothing = Медик, верхняя одежда
-loadout-group-medical-jumpsuit = Медик, комбинезон
-loadout-group-medical-id = Медик, КПК
+loadout-group-medical-shoes = Обувь
+loadout-group-medical-outerclothing = Верхняя одежда
+loadout-group-medical-jumpsuit = Униформа
+loadout-group-medical-id = КПК
 
-loadout-group-engineer-glasses = Инженер, очки
-loadout-group-engineer-belt = Инженер, пояс
-loadout-group-engineer-head = Инженер, голова
-loadout-group-engineer-shoes = Инженер, обувь
-loadout-group-engineer-id = Инженер, КПК
-loadout-group-engineer-jumpsuit = Инженер, комбинезон
+loadout-group-engineer-glasses = Очки
+loadout-group-engineer-belt = Поясы
+loadout-group-engineer-head = Головные уборы
+loadout-group-engineer-shoes = Обувь
+loadout-group-engineer-id = КПК
+loadout-group-engineer-jumpsuit = Униформа
 
-loadout-group-director-face = Акорп, маска
-loadout-group-director-outerclothing = Директор исследований, верхняя одежда
-loadout-group-director-jumpsuit = Директор исследований, комбинезон
-loadout-group-director-id = Директор исследований, КПК
+loadout-group-director-face = Маска
+loadout-group-director-outerclothing = Верхняя одежда
+loadout-group-director-jumpsuit = Униформа
+loadout-group-director-id = КПК
 
-loadout-group-commandant-ears = Акорп, гарнитура
-loadout-group-commandant-glasses = Акорп, очки
-loadout-group-commandant-face = Секьюрити, маска
-loadout-group-commandant-shoes = Акорп, обувь
-loadout-group-commandant-backpack = Акорп, рюкзак
-loadout-group-commandant-head = Акорп, голова
-loadout-group-commandant-outerclothing = Комендант, верхняя одежда
-loadout-group-commandant-jumpsuit = Комендант, комбинезон
-loadout-group-commandant-neck = Акорп, шея
-loadout-group-commandant-id = Комендант, КПК
+loadout-group-commandant-ears = Гарнитура
+loadout-group-commandant-glasses = Очки
+loadout-group-commandant-face = Маска
+loadout-group-commandant-shoes = Обувь
+loadout-group-commandant-backpack = Рюкзаки
+loadout-group-commandant-head = Головные уборы
+loadout-group-commandant-outerclothing = Верхняя одежда
+loadout-group-commandant-jumpsuit = Униформа
+loadout-group-commandant-neck = Шея
+loadout-group-commandant-id = КПК
 
-loadout-group-assistant-underweartop = Акорп, бра
-loadout-group-assistant-underwearsocks = Акорп, носки
-loadout-group-assistant-underwearbottom = Акорп, трусы
-loadout-group-assistant-outerclothing = Акорп, верхняя одежда
-loadout-group-assistant-jumpsuit = Персонал, комбинезон
-loadout-group-assistant-face = Персонал, маска
+loadout-group-assistant-underweartop = Белье, Верх
+loadout-group-assistant-underwearsocks = Носки
+loadout-group-assistant-underwearbottom = Белье, Низ
+loadout-group-assistant-outerclothing = Верхняя одежда
+loadout-group-assistant-jumpsuit = Униформа
+loadout-group-assistant-face = Маска

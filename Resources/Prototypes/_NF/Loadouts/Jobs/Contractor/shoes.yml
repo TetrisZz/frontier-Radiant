@@ -128,6 +128,7 @@
   price: 200
   equipment:
     shoes: ClothingShoesColorSandalsDeepBlack
+  groupBy: "SandalsColor"
 
 - type: loadout
   id: ContractorClothingShoesColorSandalsScarlet
@@ -137,6 +138,7 @@
   price: 200
   equipment:
     shoes: ClothingShoesColorSandalsScarlet
+  groupBy: "SandalsColor"
 
 - type: loadout
   id: ContractorClothingShoesColorSandalsPink
@@ -146,6 +148,7 @@
   price: 200
   equipment:
     shoes: ClothingShoesColorSandalsPink
+  groupBy: "SandalsColor"
 
 - type: loadout
   id: ContractorClothingShoesColorSandalsNeonPurple
@@ -155,6 +158,7 @@
   price: 200
   equipment:
     shoes: ClothingShoesColorSandalsNeonPurple
+  groupBy: "SandalsColor"
 
 - type: loadout
   id: ContractorClothingShoesColorSandalsMint
@@ -164,6 +168,8 @@
   price: 200
   equipment:
     shoes: ClothingShoesColorSandalsMint
+  groupBy: "SandalsColor"
+
 #T1
 - type: loadout
   id: ContractorClothingShoesColorWhite

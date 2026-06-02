@@ -2,3 +2,8 @@
   id: NAVYClothingHeadsetNavyCommander
   equipment:
     ears: ClothingHeadsetNavyCommander
+
+- type: loadout
+  id: NAVYNFClothingWristsetNavyCommander
+  equipment:
+    ears: NFClothingWristsetNavyCommander

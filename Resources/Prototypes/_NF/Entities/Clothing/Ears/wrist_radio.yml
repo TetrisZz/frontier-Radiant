@@ -44,30 +44,30 @@
       key_slots:
       - EncryptionKeyStationMaster
 
-- type: entity
+- type: entity #radiant sector
   parent: [NFBaseClothingWristset, BaseCommandContraband]
   id: NFClothingWristsetSheriff
-  name: sheriff wristset
+  name: наручная рация шерифа
   components:
   - type: Sprite
     layers:
     - state: icon
-      color: "#384d2f"
+      color: "#131415"
     - state: icon-decal-01
-      color: "#c2ae98"
+      color: "#2a2d59"
     - state: icon-decal-02
-      color: "#f1b223ff"
+      color: "#ebac3f"
     - state: icon-unshaded
-      color: "#52843f"
+      color: "#ebac3f"
       shader: unshaded
     - state: icon-buttons
   - type: Clothing
     clothingVisuals:
       ears:
       - state: equipped-EARS
-        color: "#384d2f"
+        color: "#131415"
       - state: equipped-EARS-unshaded
-        color: "#52843f"
+        color: "#ebac3f"
         shader: unshaded
   - type: ContainerFill
     containers:
@@ -134,7 +134,7 @@
       - EncryptionKeyDoc
 
 # region NFSD (full)
-- type: entity
+- type: entity #Radiant Sector
   parent: [NFBaseClothingWristset, ClothingHeadsetNfsdBrown]
   id: NFClothingWristsetNfsdBrown
   name: NFSD wristset
@@ -142,18 +142,18 @@
   - type: Sprite
     layers:
     - state: icon
-      color: "#63492a"
+      color: "#070707"
     - state: icon-unshaded
-      color: "#52843f"
+      color: "#4f5aa5"
       shader: unshaded
     - state: icon-buttons
   - type: Clothing
     clothingVisuals:
       ears:
       - state: equipped-EARS
-        color: "#63492a"
+        color: "#070707"
       - state: equipped-EARS-unshaded
-        color: "#52843f"
+        color: "#4f5aa5"
         shader: unshaded
   - type: ContainerFill
     containers:
@@ -167,25 +167,25 @@
   name: NFSD wristset
   suffix: Common
 
-- type: entity
+- type: entity #Radiant Sector
   parent: NFClothingWristsetNfsdBrown
   id: NFClothingWristsetNfsdGreen
   components:
   - type: Sprite
     layers:
     - state: icon
-      color: "#384d2f"
+      color: "#272a4e"
     - state: icon-unshaded
-      color: "#52843f"
+      color: "#6b76c9"
       shader: unshaded
     - state: icon-buttons
   - type: Clothing
     clothingVisuals:
       ears:
       - state: equipped-EARS
-        color: "#384d2f"
+        color: "#272a4e"
       - state: equipped-EARS-unshaded
-        color: "#52843f"
+        color: "#6b76c9"
         shader: unshaded
 
 - type: entity
@@ -194,25 +194,25 @@
   name: NFSD wristset
   suffix: Common
 
-- type: entity
+- type: entity #Radiant Sector
   parent: NFClothingWristsetNfsdBrown
   id: NFClothingWristsetNfsdCream
   components:
   - type: Sprite
     layers:
     - state: icon
-      color: "#c2ae98"
+      color: "#353864"
     - state: icon-unshaded
-      color: "#52843f"
+      color: "#8d96e8"
       shader: unshaded
     - state: icon-buttons
   - type: Clothing
     clothingVisuals:
       ears:
       - state: equipped-EARS
-        color: "#c2ae98"
+        color: "#353864"
       - state: equipped-EARS-unshaded
-        color: "#52843f"
+        color: "#8d96e8"
         shader: unshaded
 
 - type: entity
