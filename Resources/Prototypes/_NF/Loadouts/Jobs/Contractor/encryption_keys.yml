@@ -33,3 +33,15 @@
   price: 20
   encryptionKeys:
   - EncryptionKeyScience
+
+- type: loadout #Radiant Sector
+  id: ContractorEncryptionKeyGD
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  storage:
+    back:
+    - EncryptionKeyGD

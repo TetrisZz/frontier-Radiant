@@ -68,6 +68,9 @@
     Arms:
       points: 4
       required: false
+    Overlay:
+      points: 8
+      required: false
     Wings: #Radiant sector
       points: 1
       required: false
