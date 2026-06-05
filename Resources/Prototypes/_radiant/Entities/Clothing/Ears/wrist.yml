@@ -135,6 +135,7 @@
       - EncryptionKeyCommon
       - EncryptionKeyNavy
       - EncryptionKeyCommand
+      - EncryptionKeySecurity
 
 - type: entity
   parent: NFBaseClothingWristset
