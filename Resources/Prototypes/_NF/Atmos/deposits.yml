@@ -13,6 +13,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MostlyNitrogen
@@ -28,6 +29,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MostlyOxygen
@@ -43,6 +45,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MostlyCarbonDioxide
@@ -58,6 +61,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MostlyNitrousOxide
@@ -73,6 +77,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MostlyAmmonia
@@ -88,6 +93,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MostlyWaterVapor
@@ -103,6 +109,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MostlyPlasma
@@ -118,6 +125,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MuddleEven
@@ -133,6 +141,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -  2000,  4000  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MuddlePlasma
@@ -148,6 +157,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -  2000,  4000  # helium
+  -     0,   0    # oil
 
 - type: gasDeposit
   id: MostlyHelium
@@ -163,3 +173,22 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   - 7500, 12500  # helium
+  -     0,   0    # oil
+
+#Radiant start
+- type: gasDeposit
+  id: MostlyOil
+  gases:
+  -     0,  1000  # oxygen
+  -     0,  2000  # nitrogen
+  -     0,   200  # carbon dioxide
+  -     0,   200  # plasma
+  -     0,    50  # tritium
+  -     0,  3000  # water vapor
+  -     0,  2000  # ammonia
+  -     0,  1000  # n2o
+  -     0,     0  # frezon
+  -     0,     0  # respiron
+  -     0,   200  # helium
+  -  7500, 12500  # oil
+#Radiant end

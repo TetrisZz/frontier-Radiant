@@ -1,0 +1,11 @@
+- type: gas
+  id: 11
+  name: gases-oil
+  specificHeat: 2.0
+  heatCapacityRatio: 1.1
+  molarMass: 120
+  color: 2B2B2B
+  reagent: CrudeOil
+  pricePerMole: 1
+
+

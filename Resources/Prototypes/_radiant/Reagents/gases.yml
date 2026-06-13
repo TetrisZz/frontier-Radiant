@@ -1,0 +1,61 @@
+- type: reagent
+  id: CrudeOil
+  name: reagent-name-gasoil
+  desc: reagent-desc-gasoil
+  physicalDesc: reagent-physical-desc-oily
+  flavor: bitter
+  color: "#2B2B2B"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Oxygenate
+        factor: 1.25
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+    Gas:
+      effects:
+      - !type:Oxygenate
+        factor: 1.25
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 1
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        - !type:OrganType
+          type: Sheleg
+          shouldHave: false
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        ratios:
+          CarbonDioxide: 1.0
+          Respiron: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Sheleg
+        ratios:
+          WaterVapor: 1.0
+          Respiron: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Vox
+        ratios:
+          Ammonia: 1.0
+          Respiron: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Slime
+        ratios:
+          NitrousOxide: 1.0
+          Respiron: -1.0

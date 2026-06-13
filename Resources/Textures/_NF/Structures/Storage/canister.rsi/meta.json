@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by stagnation for Frontier",
+  "copyright": "Made by stagnation for Frontier. Made Oil canistre for Radiant",
   "size": {
     "x": 32,
     "y": 32
@@ -132,6 +132,12 @@
     },
     {
       "name": "water_vapor-1"
+    },
+    {
+      "name": "oil"
+    },
+    {
+      "name": "oil-1"
     }
   ]
 }

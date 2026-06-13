@@ -17,6 +17,7 @@
       Frezon: danger
       Respiron: ignore # Frontier
       Helium: stationHe # Frontier
+      Oil: stationOil # Radiant
 
 - type: entity
   parent: [AirSensorVoxBase, AirSensor]
@@ -42,6 +43,7 @@
     - NitrousOxide
     - Frezon
     - Helium # Frontier
+    - Oil # Radiant
 
 # use this to prevent overriding filters with hardcoded defaults
 - type: entity

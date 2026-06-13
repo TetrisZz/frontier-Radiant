@@ -7,6 +7,13 @@
 # As a result, all upperWarn's should be <1 and lowerWarn's should be >1,
 # otherwise the warning will never kick in.
 
+- type: alarmThreshold #Radiant
+  id: stationOil #Radiant
+  upperBound: !type:AlarmThresholdSetting #Radiant
+    threshold: 0.006 #Radiant
+  upperWarnAround: !type:AlarmThresholdSetting #Radiant
+    threshold: 0.5 # minor gasping and airloss at 0.3% #Radiant
+
 - type: alarmThreshold
   id: stationTemperature
   upperBound: !type:AlarmThresholdSetting
@@ -132,3 +139,4 @@
     threshold: 0.8
   lowerWarnAround: !type:AlarmThresholdSetting
     threshold: 1.1
+

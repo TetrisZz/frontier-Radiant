@@ -148,6 +148,16 @@
     - type: GasMiner
       spawnGas: NitrousOxide
 
+#Radiant
+- type: entity
+  name: oil gas miner
+  parent: GasMinerBase
+  id: GasMinerOil
+  components:
+    - type: GasMiner
+      spawnGas: Oil
+#Radiant end
+
 # Frontier: Frontier specific gas miners
 - type: entity
   name: helium gas miner
