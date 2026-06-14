@@ -18,13 +18,13 @@
     zeroVisible: true
   - type: Appearance
   - type: Gun
-#    projectileSpeed: 30 # Radiant_sector
-#    minAngle: 1.8 # Radiant_sector
-#    maxAngle: 9 # Radiant_sector
-#    angleIncrease: 0.5 # Radiant_sector
-#    angleDecay: 2.5 # Radiant_sector
-#    fireRate: 3 # Radiant_sector
-    fireRate: 2 # Radiant_sector
+    projectileSpeed: 30
+    minAngle: 1.8
+    maxAngle: 9
+    angleIncrease: 0.5
+    angleDecay: 2.5
+#    fireRate: 3 # Radiant sector
+    fireRate: 2 # Radiant sector
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -49,11 +49,12 @@
   abstract: true
   components:
   - type: Gun
-#    minAngle: 2.1 # Radiant_sector
-#    maxAngle: 10.5 # Radiant_sector
-#    angleIncrease: 0.7 # Radiant_sector
-#    angleDecay: 2.4 # Radiant_sector
-#    fireRate: 2.6 # Radiant_sector
+    minAngle: 2.1
+    maxAngle: 10.5
+    angleIncrease: 0.7
+    angleDecay: 2.4
+#    fireRate: 2.6 # Radiant sector
+    fireRate: 2 # Radiant sector
   - type: NFWeaponDetails
     class: weapon-details-manufacturer-nanotrasen-munitions
 
@@ -63,11 +64,11 @@
   abstract: true
   components:
   - type: Gun
-#    minAngle: 2.2 # Radiant_sector
-#    maxAngle: 11 # Radiant_sector
-#    angleIncrease: 1.1 # Radiant_sector
-#    angleDecay: 3.5 # Radiant_sector
-#    fireRate: 2 # Radiant_sector
+    minAngle: 2.2
+    maxAngle: 11
+    angleIncrease: 1.1
+    angleDecay: 3.5
+    fireRate: 2
   - type: NFWeaponDetails
     class: weapon-details-manufacturer-frontier-gunsmith-consortium
 

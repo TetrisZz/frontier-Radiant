@@ -1,6 +1,6 @@
 - type: entity
   name: M203
-  parent: [ NFBaseGunMeleeAttackHigh, BaseWeaponRifle, BaseC2ContrabandUnredeemable]
+  parent: [ NFBaseWeaponLauncherChamberRockets, NFBaseWeaponFrameLauncherGorlex ]
   id: WeaponLauncherM203
   description: Обновленный дизайн однозарядного гранатомета придуманного еще в 21 веке, теперь приклад из наноуглеродного сплава, а ствол выкован из титана.
   components:

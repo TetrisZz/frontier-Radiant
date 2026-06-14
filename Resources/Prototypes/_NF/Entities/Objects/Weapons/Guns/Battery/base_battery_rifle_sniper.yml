@@ -14,32 +14,29 @@
       shader: unshaded
   - type: Wieldable
     unwieldOnUse: false
-#  - type: GunRequiresWield
+  - type: GunRequiresWield
   - type: GunWieldBonus
-#    minAngle: -0 # Set to 0 because GunRequiresWield # Radiant_sector
-#    maxAngle: -0 # Radiant_sector
-    minAngle: -20 # Radiant_sector
-    maxAngle: -30 # Radiant_sector
+    minAngle: -0 # Set to 0 because GunRequiresWield
+    maxAngle: -0
   - type: Gun
-#    projectileSpeed: 30 # Radiant_sector
-#    minAngle: 1 # Radiant_sector
-#    maxAngle: 5 # Radiant_sector
-#    angleIncrease: 0.3 # Radiant_sector
-#    angleDecay: 1.5 # Radiant_sector
-#    fireRate: 1.2 # Radiant_sector
-    minAngle: 21 # Radiant_sector
-    maxAngle: 32 # Radiant_sector
-    fireRate: 1.5 # Radiant_sector
+    projectileSpeed: 30
+    minAngle: 1
+    maxAngle: 5
+    angleIncrease: 0.3
+    angleDecay: 1.5
+    fireRate: 1.2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-#  - type: SpeedModifiedOnWield # Radiant_sector
-#    walkModifier: 0.1 # Radiant_sector
-#    sprintModifier: 0.1 # Radiant_sector
-#  - type: CursorOffsetRequiresWield # Radiant_sector
-#  - type: EyeCursorOffset # Radiant_sector
-#    maxOffset: 10 # Radiant_sector
-#    pvsIncrease: 1 # Radiant_sector
+  - type: SpeedModifiedOnWield
+#    walkModifier: 0.1 # Radiant sector
+#    sprintModifier: 0.1 # Radiant sector
+    walkModifier: 0.65 # Radiant sector
+    sprintModifier: 0.65 # Radiant sector
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 10
+    pvsIncrease: 1
   - type: Battery # 20 shots
 #    maxCharge: 2400 # Radiant_sector
 #    startingCharge: 2400 # Radiant_sector
@@ -64,11 +61,12 @@
   abstract: true
   components:
   - type: Gun
-#    minAngle: 1.2 # Radiant_sector
-#    maxAngle: 6 # Radiant_sector
-#    angleIncrease: 0.4 # Radiant_sector
-#    angleDecay: 1.4 # Radiant_sector
-#    fireRate: 1 # Radiant_sector
+    minAngle: 1.2
+    maxAngle: 6
+    angleIncrease: 0.4
+    angleDecay: 1.4
+#    fireRate: 1 # Radiant sector
+    fireRate: 1.5 
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
 

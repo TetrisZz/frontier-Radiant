@@ -11,7 +11,7 @@
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Rifles/solandmoss.rsi
   - type: Gun # Radiant_sector
-    fireRate: 6 # Radiant_sector
+    fireRate: 3.5 # Radiant_sector
     selectedMode: SemiAuto # Radiant_sector
     availableModes: # Radiant_sector
       - SemiAuto # Radiant_sector
@@ -80,11 +80,8 @@
     steps: 3
     zeroVisible: true
   - type: Gun # Radiant sector ↓
-    minAngle: 21
-    maxAngle: 54
-    angleIncrease: 6
-    angleDecay: 24
-    fireRate: 3
+    angleIncrease: 5
+    fireRate: 2.5
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -124,11 +121,9 @@
     examineCaliber: gun-examine-caliber-25
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/jackdaw.ogg
-    minAngle: 22 # Radiant_sector
-    maxAngle: 36 # Radiant_sector
     angleIncrease: 2 # Radiant_sector
     angleDecay: 8 # Radiant_sector
-    fireRate: 8 # Radiant_sector
+    fireRate: 5 # Radiant_sector
   - type: ItemSlots  # Radiant_sector start
     slots:
       gun_magazine:
@@ -174,11 +169,6 @@
     sprite: _NF/Objects/Weapons/Guns/Rifles/gestio.rsi
   - type: Item
     sprite: _NF/Objects/Weapons/Guns/Rifles/gestio.rsi
-  - type: GunWieldBonus # Radiant_sector
-    minAngle: -20 # Radiant_sector
-    maxAngle: -25 # Radiant_sector
-    angleDecay: 4 # Radiant_sector
-    angleIncrease: -7 # Radiant_sector
   - type: ItemSlots # Radiant_sector start
     slots:
       gun_magazine:
@@ -207,8 +197,6 @@
     fireRate: 3.75 # Radiant_sector
     angleDecay: 4 # Radiant_sector
     angleIncrease: 10 # Radiant_sector
-    minAngle: 21 # Radiant_sector
-    maxAngle: 35 # Radiant_sector
     examineCaliber: gun-examine-caliber-35 # Radiant_sector
     selectedMode: Burst
     availableModes:
@@ -228,8 +216,6 @@
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Rifles/novalitec1.rsi
   - type: Gun
-#    fireRate: 4 # Radiant_sector
-    fireRate: 3.5 # Radiant_sector
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto

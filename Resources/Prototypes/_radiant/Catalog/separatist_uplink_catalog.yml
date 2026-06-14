@@ -68,7 +68,7 @@
   id: UplinkSeparatistRanger
   name:  uplink-separatist-ranger-name
   description: uplink-separatist-ranger-desc
-  productEntity: WeaponRifleRanger
+  productEntity: WeaponRifleRangerRS
   icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/m.rsi, state: icon }
   cost:
     BlackMoney: 4
@@ -84,7 +84,7 @@
   id: UplinkSeparatistFighter
   name:  uplink-separatist-fighter-name
   description: uplink-separatist-fighter-desc
-  productEntity: WeaponSubMachineGunFighter
+  productEntity: WeaponSubMachineGunFighterRS
   icon: { sprite: _radiant/Objects/Weapons/Guns/SMGs/fighter.rsi, state: icon }
   cost:
     BlackMoney: 4
@@ -120,7 +120,7 @@
   id: UplinkSeparatistAk
   name:  uplink-separatist-ak-name
   description: uplink-separatist-ak-desc
-  productEntity: WeaponRifleAkRS
+  productEntity: WeaponRifleAkRSZavodskoy
   icon: { sprite: Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
   cost:
     BlackMoney: 6

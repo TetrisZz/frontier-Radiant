@@ -25,11 +25,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
   - type: Gun
-    minAngle: 1
-    maxAngle: 20
-    angleIncrease: 8
-    angleDecay: 9
-    fireRate: 4
+    angleIncrease: 8 # Radiant sector
+    fireRate: 2.7 # Radiant sector
 
 - type: entity
   id: NFWeaponPistolCobra

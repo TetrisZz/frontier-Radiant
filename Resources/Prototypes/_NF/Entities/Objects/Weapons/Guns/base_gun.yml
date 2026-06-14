@@ -75,9 +75,9 @@
     slots:
     - Back
     - suitStorage
-#  - type: SpeedModifiedOnWield
-#    walkModifier: 0.95
-#    sprintModifier: 0.95
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.95
+    sprintModifier: 0.95
 
 # Rifles / Shotguns
 - type: entity
@@ -93,9 +93,9 @@
     slots:
     - Back
     - suitStorage
-#  - type: SpeedModifiedOnWield
-#    walkModifier: 0.9
-#    sprintModifier: 0.9
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9
+    sprintModifier: 0.9
 
 # Assault Rifles
 - type: entity
@@ -111,9 +111,9 @@
     slots:
     - Back
     - suitStorage
-#  - type: SpeedModifiedOnWield
-#    walkModifier: 0.925
-#    sprintModifier: 0.925
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.925
+    sprintModifier: 0.925
 
 # Launchers
 - type: entity
@@ -129,9 +129,9 @@
     slots:
     - Back
     - suitStorage
-#  - type: SpeedModifiedOnWield
-#    walkModifier: 0.65
-#    sprintModifier: 0.65
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.65
+    sprintModifier: 0.65
 
 # Sniper Rifles / LMGs
 - type: entity
@@ -147,9 +147,9 @@
     slots:
     - Back
     - suitStorage
-#  - type: SpeedModifiedOnWield
-#    walkModifier: 0.65
-#    sprintModifier: 0.65
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.65
+    sprintModifier: 0.65
 
 - type: entity
   id: NFBaseWeaponEncumbranceCrossbow

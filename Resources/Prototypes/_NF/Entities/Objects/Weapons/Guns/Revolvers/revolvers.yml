@@ -23,7 +23,12 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Gun
-    fireRate: 3 # Radiant_sector
+    fireRate: 3 # Radiant sector
+    minAngle: 1 # Radiant sector
+    maxAngle: 2 # Radiant sector
+    angleIncrease: 0.5 # Radiant sector
+    angleDecay: 4 # Radiant sector
+    projectileSpeed: 25 # Radiant sector
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
 

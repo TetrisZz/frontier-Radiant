@@ -123,17 +123,20 @@
     examineCaliber: gun-examine-caliber-20
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
-    minAngle: 30
-    maxAngle: 43
+    minAngle: 2
+    maxAngle: 18
     shotsPerBurst: 3
     selectedMode: Burst
     availableModes:
     - Burst
     - SemiAuto
     burstFireRate: 14
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunRequiresWield
   - type: GunWieldBonus
-    minAngle: -28
-    maxAngle: -25
+    minAngle: -0 # Set to 0 because GunRequiresWield
+    maxAngle: -0
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -159,8 +162,8 @@
     sprintModifier: 0.75
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 2
-    pvsIncrease: 0.2
+    maxOffset: 4
+    pvsIncrease: 0.4
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
