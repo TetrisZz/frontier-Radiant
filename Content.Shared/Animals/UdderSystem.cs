@@ -1,7 +1,9 @@
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -24,6 +26,7 @@ public sealed class UdderSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -64,6 +67,9 @@ public sealed class UdderSystem : EntitySystem
             if (_mobState.IsDead(uid))
                 continue;
 
+            if (!CanProduceMilk(uid, udder))
+                continue;
+
             if (!_solutionContainerSystem.ResolveSolution(uid, udder.SolutionName, ref udder.Solution, out var solution))
                 continue;
 
@@ -85,12 +91,15 @@ public sealed class UdderSystem : EntitySystem
         }
     }
 
-    private void AttemptMilk(Entity<UdderComponent?> udder, EntityUid userUid, EntityUid containerUid)
+    private void AttemptMilk(EntityUid udderUid, EntityUid userUid, EntityUid containerUid)
     {
-        if (!Resolve(udder, ref udder.Comp))
+        if (!TryComp(udderUid, out UdderComponent? udder))
             return;
 
-        var doargs = new DoAfterArgs(EntityManager, userUid, 5, new MilkingDoAfterEvent(), udder, udder, used: containerUid)
+        if (!CanBeMilked((udderUid, udder), userUid, true))
+            return;
+
+        var doargs = new DoAfterArgs(EntityManager, userUid, 5, new MilkingDoAfterEvent(), udderUid, udderUid, used: containerUid)
         {
             BreakOnMove = true,
             BreakOnDamage = true,
@@ -103,6 +112,9 @@ public sealed class UdderSystem : EntitySystem
     private void OnDoAfter(Entity<UdderComponent> entity, ref MilkingDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || args.Args.Used == null)
+            return;
+
+        if (!CanBeMilked(entity, args.Args.User))
             return;
 
         if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution, out var solution))
@@ -133,7 +145,8 @@ public sealed class UdderSystem : EntitySystem
     {
         if (args.Using == null ||
              !args.CanInteract ||
-             !HasComp<RefillableSolutionComponent>(args.Using.Value))
+             !HasComp<RefillableSolutionComponent>(args.Using.Value) ||
+             !CanProduceMilk(entity, entity.Comp))
             return;
 
         var uid = entity.Owner;
@@ -149,5 +162,39 @@ public sealed class UdderSystem : EntitySystem
             Priority = 2
         };
         args.Verbs.Add(verb);
+    }
+
+    private bool CanProduceMilk(EntityUid uid, UdderComponent udder)
+    {
+        if (udder.SexRestriction == null)
+            return true;
+
+        return TryComp(uid, out HumanoidAppearanceComponent? humanoid)
+               && humanoid.Sex == udder.SexRestriction;
+    }
+
+    private bool CanBeMilked(Entity<UdderComponent> entity, EntityUid user, bool showBlockedPopup = false)
+    {
+        if (!CanProduceMilk(entity, entity.Comp))
+            return false;
+
+        if (entity.Comp.RequiredEmptySlots.Count == 0)
+            return true;
+
+        if (!TryComp(entity, out InventoryComponent? inventory))
+            return true;
+
+        foreach (var slot in entity.Comp.RequiredEmptySlots)
+        {
+            if (!_inventory.TryGetSlotEntity(entity, slot, out _, inventory))
+                continue;
+
+            if (showBlockedPopup)
+                _popupSystem.PopupClient(Loc.GetString("udder-system-clothing-blocked"), user, user);
+
+            return false;
+        }
+
+        return true;
     }
 }

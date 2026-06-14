@@ -5,3 +5,4 @@ udder-system-success = You fill {THE($target)} with {$amount}u from the udder.
 udder-system-dry = The udder is dry.
 
 udder-system-verb-milk = Milk
+udder-system-clothing-blocked = They need to remove their uniform and outer clothing before they can be milked.

@@ -27,3 +27,11 @@
   frequency: 9514
   color: "#0ec7c1"
   longRange: true
+
+- type: radioChannel
+  id: GD
+  name: chat-radio-gd
+  keycode: 'я'
+  frequency: 6981
+  color: "#66ffe3"
+  longRange: true

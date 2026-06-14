@@ -342,7 +342,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressTraditional
-  name: красное платье
+  name: старомодный костюм горничной
   description: Ты точно хочешь это надеть?...
   components:
   - type: Sprite

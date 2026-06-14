@@ -1,2 +1,52 @@
 ent-CartridgeRifleRubber = патрон (.20 винтовочный резиновый)
     .desc = { ent-BaseCartridgeRifle.desc }
+ent-NFCartridgeRifle10 = патрон (.10 винтовочный)
+    .desc = { ent-NFBaseCartridgeRifle10.desc }
+ent-NFCartridgeRifle10Practice = патрон (.10 винтовочный учебный)
+    .desc = { ent-NFBaseCartridgeRifle10.desc }
+ent-NFCartridgeRifle10Rubber = патрон (.10 винтовочный резиновый)
+    .desc = { ent-NFBaseCartridgeRifle10.desc }
+
+ent-NFCartridgeRifle20 = патрон (.20 винтовочный)
+    .desc = { ent-NFBaseCartridgeRifle20.desc }
+ent-NFCartridgeRifle20Overpressure = патрон (.20 винтовочный усиленный)
+    .desc = { ent-NFBaseCartridgeRifle20.desc }
+ent-NFCartridgeRifle20Incendiary = патрон (.20 винтовочный зажигательный)
+    .desc = { ent-NFBaseCartridgeRifle20.desc }
+ent-NFCartridgeRifle20Uranium = патрон (.20 винтовочный урановый)
+    .desc = { ent-NFBaseCartridgeRifle20.desc }
+ent-NFCartridgeRifle20Practice = патрон (.20 винтовочный учебный)
+    .desc = { ent-NFBaseCartridgeRifle20.desc }
+ent-NFCartridgeRifle20Rubber = патрон (.20 винтовочный резиновый)
+    .desc = { ent-NFBaseCartridgeRifle20.desc }
+
+ent-NFCartridgeRifle25 = патрон (.25 винтовочный)
+    .desc = { ent-NFBaseCartridgeRifle25.desc }
+ent-NFCartridgeRifle25Overpressure = патрон (.25 винтовочный усиленный)
+    .desc = { ent-NFBaseCartridgeRifle25.desc }
+ent-NFCartridgeRifle25Incendiary = патрон (.25 винтовочный зажигательный)
+    .desc = { ent-NFBaseCartridgeRifle25.desc }
+ent-NFCartridgeRifle25Uranium = патрон (.25 винтовочный урановый)
+    .desc = { ent-NFBaseCartridgeRifle25.desc }
+ent-NFCartridgeRifle25Practice = патрон (.25 винтовочный учебный)
+    .desc = { ent-NFBaseCartridgeRifle25.desc }
+ent-NFCartridgeRifle25Rubber = патрон (.25 винтовочный резиновый)
+    .desc = { ent-NFBaseCartridgeRifle25.desc }
+
+ent-NFCartridgeRifle30 = патрон (.30 винтовочный)
+    .desc = { ent-NFBaseCartridgeRifle30.desc }
+ent-NFCartridgeRifle30Overpressure = патрон (.30 винтовочный усиленный)
+    .desc = { ent-NFBaseCartridgeRifle30.desc }
+ent-NFCartridgeRifle30Incendiary = патрон (.30 винтовочный зажигательный)
+    .desc = { ent-NFBaseCartridgeRifle30.desc }
+ent-NFCartridgeRifle30Uranium = патрон (.30 винтовочный урановый)
+    .desc = { ent-NFBaseCartridgeRifle30.desc }
+ent-NFCartridgeRifle30Practice = патрон (.30 винтовочный учебный)
+    .desc = { ent-NFBaseCartridgeRifle30.desc }
+ent-NFCartridgeRifle30Rubber = патрон (.30 винтовочный резиновый)
+    .desc = { ent-NFBaseCartridgeRifle30.desc }
+
+ent-NFCartridgeRifle60 = патрон (.60 винтовочный)
+    .desc = { ent-NFBaseCartridgeRifle60.desc }
+ent-NFCartridgeRifle60Rubber = патрон (.60 винтовочный резиновый)
+    .desc = { ent-NFBaseCartridgeRifle60.desc }

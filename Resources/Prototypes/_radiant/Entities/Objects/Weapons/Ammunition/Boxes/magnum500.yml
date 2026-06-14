@@ -27,7 +27,7 @@
 - type: entity
   parent: BaseMagazineBoxMagnum500
   id: MagazineBoxMagnum500
-  name: коробка патронов (.500 магниум)
+  name: коробка патронов (.500 магнум)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum500
@@ -44,7 +44,7 @@
 - type: entity
   parent: BaseMagazineBoxMagnum500
   id: MagazineBoxMagnum500Ice
-  name: коробка патронов (.500 магниум ледяные)
+  name: коробка патронов (.500 магнум ледяные)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum500Ice

@@ -48,9 +48,9 @@
 - type: loadoutGroup
   id: SECEars
   name: loadout-group-acorpsecurity-ears
-  hidden: true
   loadouts:
   - ACORPClothingHeadsetAcorp
+  - ACORPNFClothingWristsetAcorpBlack
   fallbacks:
   - ACORPClothingHeadsetAcorp
 

@@ -1,6 +1,7 @@
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
+using Content.Shared.Humanoid;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -54,4 +55,16 @@ public sealed partial class UdderComponent : Component
     /// </summary>
     [DataField, AutoPausedField, Access(typeof(UdderSystem))]
     public TimeSpan NextGrowth = TimeSpan.Zero;
+
+    /// <summary>
+    ///     If set, only this sex can be milked and produce milk.
+    /// </summary>
+    [DataField]
+    public Sex? SexRestriction;
+
+    /// <summary>
+    ///     Inventory slots that must be empty before milking can begin.
+    /// </summary>
+    [DataField]
+    public List<string> RequiredEmptySlots = new();
 }

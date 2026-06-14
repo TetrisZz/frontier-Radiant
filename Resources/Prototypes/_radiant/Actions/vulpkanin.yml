@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseAction
+  id: ActionVulpkaninLeap
+  name: vulpkanin-action-leap-name
+  description: vulpkanin-action-leap-desc
+  components:
+  - type: Action
+    useDelay: 12
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionVulpkaninFeral
+  name: vulpkanin-action-feral-name
+  description: vulpkanin-action-feral-desc
+  components:
+  - type: Action
+    useDelay: 45
+    icon:
+      sprite: Interface/Actions/devour.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:VulpkaninFeralEvent {}

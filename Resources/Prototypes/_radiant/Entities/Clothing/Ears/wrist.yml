@@ -1,0 +1,166 @@
+- type: entity
+  parent: NFBaseClothingWristset
+  id: NFClothingWristsetAcorpBlack
+  name: наручная рация Acorp
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#000000"
+    - state: icon-unshaded
+      color: "#131415"
+      shader: unshaded
+    - state: icon-buttons
+  - type: Clothing
+    clothingVisuals:
+      ears:
+      - state: equipped-EARS
+        color: "#000000"
+      - state: equipped-EARS-unshaded
+        color: "#131415"
+        shader: unshaded
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyAcorp
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: NFClothingWristsetAcorpBlack
+  id: NFClothingWristsetAcorpHead
+  name: наручная рация Acorp
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#bcc4c4"
+    - state: icon-unshaded
+      color: "#ffffff"
+      shader: unshaded
+    - state: icon-buttons
+  - type: Clothing
+    clothingVisuals:
+      ears:
+      - state: equipped-EARS
+        color: "#bcc4c4"
+      - state: equipped-EARS-unshaded
+        color: "#ffffff"
+        shader: unshaded
+
+- type: entity
+  parent: [NFBaseClothingWristset, BaseCommandContraband]
+  id: NFClothingWristsetAcorpHead2
+  name: наручная рация Acorp
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#131415"
+    - state: icon-decal-01
+      color: "#bcc4c4"
+    - state: icon-decal-02
+      color: "#ffffff"
+    - state: icon-unshaded
+      color: "#bcc4c4"
+      shader: unshaded
+    - state: icon-buttons
+  - type: Clothing
+    clothingVisuals:
+      ears:
+      - state: equipped-EARS
+        color: "#131415"
+      - state: equipped-EARS-unshaded
+        color: "#bcc4c4"
+        shader: unshaded
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyAcorp
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: [NFBaseClothingWristset, BaseCommandContraband]
+  id: NFClothingWristsetNavyCommander
+  name: наручная рация командора
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#2a2d59"
+    - state: icon-decal-01
+      color: "#a5a6a9"
+    - state: icon-decal-02
+      color: "#ebac3f"
+    - state: icon-unshaded
+      color: "#ebac3f"
+      shader: unshaded
+    - state: icon-buttons
+  - type: Clothing
+    clothingVisuals:
+      ears:
+      - state: equipped-EARS
+        color: "#2a2d59"
+      - state: equipped-EARS-unshaded
+        color: "#ebac3f"
+        shader: unshaded
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyStationMaster
+
+- type: entity
+  parent: NFBaseClothingWristset
+  id: NFClothingWristsetFleetHeadAlt
+  name: наручная рация капитана
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ebac3f"
+    - state: icon-unshaded
+      color: "#2a2d59"
+      shader: unshaded
+    - state: icon-buttons
+  - type: Clothing
+    clothingVisuals:
+      ears:
+      - state: equipped-EARS
+        color: "#ebac3f"
+      - state: equipped-EARS-unshaded
+        color: "#2a2d59"
+        shader: unshaded
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyNavy
+      - EncryptionKeyCommand
+      - EncryptionKeySecurity
+
+- type: entity
+  parent: NFBaseClothingWristset
+  id: NFClothingWristsetFleetSilver
+  name: наручная рация флота
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#a5a6a9"
+    - state: icon-unshaded
+      color: "#2a2d59"
+      shader: unshaded
+    - state: icon-buttons
+  - type: Clothing
+    clothingVisuals:
+      ears:
+      - state: equipped-EARS
+        color: "#a5a6a9"
+      - state: equipped-EARS-unshaded
+        color: "#2a2d59"
+        shader: unshaded
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyNavy
+      - EncryptionKeySecurity

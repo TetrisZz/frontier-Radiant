@@ -2,3 +2,8 @@
   id: ACORPClothingHeadsetAcorp
   equipment:
     ears: ClothingHeadsetAcorp
+
+- type: loadout
+  id: ACORPNFClothingWristsetAcorpBlack
+  equipment:
+    ears: NFClothingWristsetAcorpBlack

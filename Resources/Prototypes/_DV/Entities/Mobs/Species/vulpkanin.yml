@@ -149,6 +149,20 @@
   - type: TallWhitelist
     scale: 1.2
   # End Frontier
+#  - type: JumpAbility #Radiant Sector
+#    action: ActionVulpkaninLeap
+#    jumpDistance: 3.5
+#    jumpThrowSpeed: 10
+#    jumpSound: /Audio/Effects/stealthoff.ogg
+  - type: VulpkaninFeralAbility #Radiant Sector
+    duration: 10
+    speedModifier: 1.12
+    bonusDamage:
+      types:
+        Slash: 3
+        Blunt: 2
+    activateSound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
 
 - type: entity
   save: false

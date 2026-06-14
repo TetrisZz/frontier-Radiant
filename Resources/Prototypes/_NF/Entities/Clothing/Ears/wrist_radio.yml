@@ -52,22 +52,22 @@
   - type: Sprite
     layers:
     - state: icon
-      color: "#384d2f"
+      color: "#131415" #Radiant Sector
     - state: icon-decal-01
-      color: "#c2ae98"
+      color: "#2a2d59" #Radiant Sector
     - state: icon-decal-02
-      color: "#f1b223ff"
+      color: "#ebac3f" #Radiant Sector
     - state: icon-unshaded
-      color: "#52843f"
+      color: "#ebac3f" #Radiant Sector
       shader: unshaded
     - state: icon-buttons
   - type: Clothing
     clothingVisuals:
       ears:
       - state: equipped-EARS
-        color: "#384d2f"
+        color: "#131415"
       - state: equipped-EARS-unshaded
-        color: "#52843f"
+        color: "#ebac3f"
         shader: unshaded
   - type: ContainerFill
     containers:
@@ -142,24 +142,25 @@
   - type: Sprite
     layers:
     - state: icon
-      color: "#63492a"
+      color: "#070707" #Radiant Sector
     - state: icon-unshaded
-      color: "#52843f"
+      color: "#4f5aa5" #Radiant Sector
       shader: unshaded
     - state: icon-buttons
   - type: Clothing
     clothingVisuals:
       ears:
       - state: equipped-EARS
-        color: "#63492a"
+        color: "#070707" #Radiant Sector
       - state: equipped-EARS-unshaded
-        color: "#52843f"
+        color: "#4f5aa5" #Radiant Sector
         shader: unshaded
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyNfsd
+      - EncryptionKeySecurity
 
 - type: entity
   parent: [NFBaseClothingWristset, NFClothingWristsetNfsdBrown]
@@ -174,18 +175,18 @@
   - type: Sprite
     layers:
     - state: icon
-      color: "#384d2f"
+      color: "#272a4e" #Radiant Sector
     - state: icon-unshaded
-      color: "#52843f"
+      color: "#6b76c9" #Radiant Sector
       shader: unshaded
     - state: icon-buttons
   - type: Clothing
     clothingVisuals:
       ears:
       - state: equipped-EARS
-        color: "#384d2f"
+        color: "#272a4e"  #Radiant Sector
       - state: equipped-EARS-unshaded
-        color: "#52843f"
+        color: "#6b76c9"  #Radiant Sector
         shader: unshaded
 
 - type: entity
@@ -201,18 +202,18 @@
   - type: Sprite
     layers:
     - state: icon
-      color: "#c2ae98"
+      color: "#353864" #Radiant Sector
     - state: icon-unshaded
-      color: "#52843f"
+      color: "#8d96e8" #Radiant Sector
       shader: unshaded
     - state: icon-buttons
   - type: Clothing
     clothingVisuals:
       ears:
       - state: equipped-EARS
-        color: "#c2ae98"
+        color: "#353864" #Radiant Sector
       - state: equipped-EARS-unshaded
-        color: "#52843f"
+        color: "#8d96e8" #Radiant Sector
         shader: unshaded
 
 - type: entity

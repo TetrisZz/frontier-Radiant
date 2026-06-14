@@ -78,6 +78,21 @@
   - type: TallWhitelist
     density: 190
     scale: 1.1
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+  - type: Udder
+    reagentId: Milk
+    quantityPerUpdate: 25
+    growthDelay: 30
+    sexRestriction: Female
+    requiredEmptySlots:
+    - jumpsuit
+    - outerClothing
 
 - type: entity
   save: false
