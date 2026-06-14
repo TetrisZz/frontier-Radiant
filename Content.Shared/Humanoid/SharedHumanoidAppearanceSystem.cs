@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._radiant.Humanoid;
 using Content.Shared.CCVar;
 using Content.Shared.Decals;
 using Content.Shared.Examine;
@@ -489,35 +490,33 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         // Hair/facial hair - this may eventually be deprecated.
         // We need to ensure hair before applying it or coloring can try depend on markings that can be invalid
-        var hairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.Hair, out var hairAlpha, _proto)
-            ? profile.Appearance.SkinColor.WithAlpha(hairAlpha) : profile.Appearance.HairColor;
-        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _proto)
-            ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha) : profile.Appearance.FacialHairColor;
-
-        // Frontier: Match hair and facial hair colors to the forced color if it exists
-        if (_markingManager.MustMatchColor(profile.Species, HumanoidVisualLayers.Hair, out var forcedHairAlpha, _proto) is Color forcedHairColor)
-        {
-            profile.Appearance.SkinColor.WithAlpha(forcedHairAlpha);
-            hairColor = forcedHairColor;
-        }
-        if (_markingManager.MustMatchColor(profile.Species, HumanoidVisualLayers.FacialHair, out var forcedFacialHairAlpha, _proto) is Color forcedFacialHairColor)
-        {
-            profile.Appearance.SkinColor.WithAlpha(forcedFacialHairAlpha);
-            facialHairColor = forcedFacialHairColor;
-        }
-        // End Frontier
-
         if (_markingManager.Markings.TryGetValue(profile.Appearance.HairStyleId, out var hairPrototype) &&
             _markingManager.CanBeApplied(profile.Species, profile.Sex, hairPrototype, _proto))
         {
-            AddMarking(uid, profile.Appearance.HairStyleId, hairColor, false);
+            var colors = HairColoringHelper.BuildMarkingColors(
+                profile.Appearance,
+                profile.Species,
+                hairPrototype,
+                HumanoidVisualLayers.Hair,
+                _markingManager,
+                _proto);
+            AddMarking(uid, profile.Appearance.HairStyleId, colors, false);
         }
 
         if (_markingManager.Markings.TryGetValue(profile.Appearance.FacialHairStyleId, out var facialHairPrototype) &&
             _markingManager.CanBeApplied(profile.Species, profile.Sex, facialHairPrototype, _proto))
         {
-            AddMarking(uid, profile.Appearance.FacialHairStyleId, facialHairColor, false);
+            var colors = HairColoringHelper.BuildMarkingColors(
+                profile.Appearance,
+                profile.Species,
+                facialHairPrototype,
+                HumanoidVisualLayers.FacialHair,
+                _markingManager,
+                _proto);
+            AddMarking(uid, profile.Appearance.FacialHairStyleId, colors, false);
         }
+
+        HairColoringHelper.CopyGradientSettingsToComponent(profile.Appearance, humanoid);
 
         humanoid.MarkingSet.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _proto);
 

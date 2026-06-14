@@ -1,0 +1,17 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Vertical"
+              Margin="4">
+    <Label Name="TitleLabel" />
+    <BoxContainer Orientation="Horizontal">
+        <Label Text="{Loc 'hair-gradient-mode-label'}" MinWidth="90" />
+        <OptionButton Name="ModeButton" HorizontalExpand="True" />
+    </BoxContainer>
+    <BoxContainer Name="GradientOptions" Orientation="Vertical" Visible="False">
+        <Label Text="{Loc 'hair-gradient-secondary-color-label'}" />
+        <ColorSelectorSliders Name="SecondaryColorSelector" HorizontalExpand="True" />
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc 'hair-gradient-direction-label'}" MinWidth="90" />
+            <OptionButton Name="DirectionButton" HorizontalExpand="True" />
+        </BoxContainer>
+    </BoxContainer>
+</BoxContainer>
