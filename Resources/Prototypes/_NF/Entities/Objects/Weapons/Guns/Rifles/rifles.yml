@@ -89,8 +89,6 @@
     sprite: _NF/Objects/Weapons/Guns/Rifles/repeater.rsi
   - type: Gun # Radiant_sector
     examineCaliber: gun-examine-caliber-45 # Radiant_sector
-    minAngle: 21 # Radiant_sector
-    maxAngle: 36 # Radiant_sector
     angleIncrease: 1 # Radiant_sector
     angleDecay: 2 # Radiant_sector
     fireRate: 1.6 # Radiant_sector
@@ -114,4 +112,4 @@
   - type: AltFireMelee
     attackType: Light
   - type: Gun # Radiant_sector
-    fireRate: 4.5 # Radiant_sector
+    fireRate: 3 # Radiant_sector

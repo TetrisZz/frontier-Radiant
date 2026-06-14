@@ -13,8 +13,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
-#  - type: GunSpreadModifier # Radiant_sector
-#    spread: 1.1 # Radiant_sector
+  - type: GunSpreadModifier
+    spread: 1.1
   - type: Gun
     selectedMode: FullAuto
     availableModes:
@@ -36,8 +36,7 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
   - type: GunSpreadModifier
-#    spread: 0.5 # Radiant_sector
-    spread: 0.6 # Radiant_sector
+    spread: 0.5
   - type: BallisticAmmoProvider
     capacity: 2
   - type: Construction
@@ -61,6 +60,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
+  - type: GunSpreadModifier
+    spread: 1.2
   - type: PirateBountyItem
     id: Enforcer
 
@@ -135,8 +136,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Item
     size: Small
-#  - type: GunSpreadModifier # Radiant_sector
-#    spread: 1.5 # Radiant_sector
+  - type: GunSpreadModifier
+    spread: 1.5
   - type: BallisticAmmoProvider
     capacity: 1
   - type: NFWeaponDetails

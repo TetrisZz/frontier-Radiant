@@ -10,7 +10,7 @@
   name: chat-radio-nfsd # Radiant_sector-Localization
   keycode: 'б'
   frequency: 1023
-  color: "#574DA1" # Radiant_sector
+  color: "#5A4FB3" # Radiant_sector
 
 - type: radioChannel
   id: Greeting

@@ -1,2 +1,2 @@
 materials-barcryoladinne = криоладин
-materials-technicaldocument = технические данные
+materials-technicaldocument = тех. данные

@@ -38,7 +38,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponShotgunBulldog # Frontier: WeaponShotgunBulldog<NFWeaponShotgunBulldog
+#      - id: NFWeaponShotgunBulldog # Frontier: WeaponShotgunBulldog<NFWeaponShotgunBulldog
+      - id: NFWeaponShotgunBulldogRS # Radiant sector
       - id: NFMagazineShotgunDrum # Frontier: MagazineShotgun<NFMagazineShotgunDrum
         amount: 3
       - id: NFMagazineShotgunDrumSlug # Frontier: MagazineShotgunSlug<NFMagazineShotgunDrumSlug
@@ -52,7 +53,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponSubMachineGunC20r # Frontier: WeaponSubMachineGunC20r<NFWeaponSubMachineGunC20r
+#      - id: NFWeaponSubMachineGunC20r # Frontier: WeaponSubMachineGunC20r<NFWeaponSubMachineGunC20r
+      - id: NFWeaponSubMachineGunC20rRS # Radiant sector
       - id: NFMagazineSubMachineGun35 # Frontier: MagazinePistolSubMachineGun<NFMagazineSubMachineGun35
         amount: 2
 #     - id: SMGSuppressor
@@ -92,7 +94,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponLightMachineGunL6 # Frontier: WeaponLightMachineGunL6<NFWeaponLightMachineGunL6
+#      - id: NFWeaponLightMachineGunL6 # Frontier: WeaponLightMachineGunL6<NFWeaponLightMachineGunL6
+      - id: NFWeaponLightMachineGunL6RS # Radiant sector
       - id: NFMagazineBoxRifle20 # Frontier: MagazineLightRifleBox<NFMagazineBoxRifle20
 
 - type: entity

@@ -213,7 +213,8 @@
   id: UplinkSecurityEnforcer
   name:  uplink-security-enforcer-name
   description: uplink-security-enforcer-desc
-  productEntity: NFWeaponShotgunEnforcer
+#  productEntity: NFWeaponShotgunEnforcer # Radiant sector
+  productEntity: NFWeaponShotgunEnforcerRS # Radiant sector
   icon: { sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 3
@@ -234,8 +235,9 @@
   id: UplinkSecurityLecter
   name:  uplink-security-lecter-name
   description: uplink-security-lecter-desc
-  productEntity: NFWeaponRifleAssaultLecter
-  icon: { sprite: _NF/Objects/Weapons/Guns/Rifles/lecter.rsi, state: icon }
+#  productEntity: NFWeaponRifleAssaultLecter # Radiant sector
+  productEntity: NFWeaponRifleAssaultLecterRS # Radiant sector
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/lecter.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 3
   categories:
@@ -255,8 +257,9 @@
   id: UplinkSecurityVulcan
   name:  uplink-security-vulcan-name
   description: uplink-security-vulcan-desc
-  productEntity: NFWeaponRifleAssaultVulcan
-  icon: { sprite: _DV/Objects/Weapons/Guns/Rifles/vulcan.rsi, state: icon }
+#  productEntity: NFWeaponRifleAssaultVulcan # Radiant sector
+  productEntity: NFWeaponRifleAssaultVulcanRS # Radiant sector
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Rifles/vulcan.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 4
   categories:
@@ -380,7 +383,8 @@
   id: UplinkSecurityWT550
   name:  uplink-security-wt550-name
   description: uplink-security-wt550-desc
-  productEntity: NFWeaponSubMachineGunWt550
+#  productEntity: NFWeaponSubMachineGunWt550 # Radiant sector
+  productEntity: NFWeaponSubMachineGunWt550RS # Radiant sector
   icon: { sprite: Objects/Weapons/Guns/SMGs/wt550.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 4

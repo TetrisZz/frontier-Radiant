@@ -29,5 +29,5 @@ public sealed partial class LeashComponent : Component
     /// Time required to attach this leash to another humanoid (verb / interaction).
     /// </summary>
     [DataField]
-    public float AttachDelaySeconds = 10f;
+    public float AttachDelaySeconds = 3f;
 }

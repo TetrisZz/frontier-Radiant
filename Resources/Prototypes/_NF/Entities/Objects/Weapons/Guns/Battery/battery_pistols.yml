@@ -3,7 +3,7 @@
 - type: entity
   id: NFWeaponEnergyPistolLaserSvalinn
 #  parent: [ NFBaseWeaponFrameEnergyPistolNanotrasen, BaseWeaponPowerCellSmall ] # Radiant_sector
-  parent: [ BaseWeaponPowerCellSmall, BaseC1Contraband ] # Radiant_sector Я промолчу про тот прототип что был раньше
+  parent: [ BaseWeaponPowerCellSmall, BaseC1Contraband ] # Radiant_sector
   name: svalinn
   description: A cheap and widely used laser pistol.
   components:
@@ -38,8 +38,8 @@
   - type: Battery # Radiant_sector
     maxCharge: 500 # Radiant_sector
     startingCharge: 500 # Radiant_sector
-#  - type: BatterySelfRecharger # doesn't recharge # Radiant_sector
-#    autoRecharge: false # Radiant_sector
+  - type: BatterySelfRecharger # doesn't recharge
+    autoRecharge: false
   - type: HitscanBatteryAmmoProvider # Radiant_sector
     proto: NFRedMediumLaser # Radiant_sector
     fireCost: 62.5 # Radiant_sector
@@ -164,7 +164,7 @@
 
 - type: entity
   id: NFWeaponEnergyPistolLaserAdvanced
-  parent: [ NFBaseWeaponEnergyPistolFireModes, NFBaseWeaponFrameEnergyPistolNanotrasen ]
+  parent: [ NFBaseWeaponEnergyPistolDisabler, NFBaseWeaponFrameEnergyPistolNanotrasen ]
   name: advanced laser pistol
   description: |-
     An experimental civilian grade high-energy laser pistol with a self-charging nuclear battery and two settings: disable and kill.

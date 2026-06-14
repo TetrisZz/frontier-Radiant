@@ -1,0 +1,633 @@
+# Pistol
+
+- type: entity
+  id: NFWeaponPistolN1984RS
+  parent: [ NFBaseWeaponPistolChamber45, NFBaseWeaponFramePistolNanotrasen ]
+  name: N1984
+  description: |-
+    Запасное оружие любого уважающего себя офицера. Выпускается в калибре .45 магнум, самом богоугодном калибре.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Pistols/N1984.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Pistols/N1984.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 1
+    maxAngle: 20
+    angleIncrease: 8
+    angleDecay: 9
+    projectileSpeed: 25
+  - type: RareWeapon
+    rarity: Unique
+
+# SMG
+
+- type: entity
+  name: Вереск
+  parent: [ NFBaseGunMeleeAttackMedium, BaseWeaponSubMachineGun ]
+  id: WeaponSubMachineGunVereskBlue
+  description: Автоматический пистолет пулемет компактного размера, можно использовать как в одной руке, так и держать за рукоятку на цевье, поставляется с магазином ограниченной емкости. Использует патроны .35 авто.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk_blue/big.rsi
+    scale: 0.90, 0.90
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk_blue/tiny.rsi
+  - type: RareWeapon
+    rarity: Unique
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk_blue/tiny.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -3
+    maxAngle: -4
+    angleDecay: 2
+    angleIncrease: -4
+  - type: Gun
+    fireRate: 7
+    minAngle: 4
+    maxAngle: 16
+    angleIncrease: 5
+    angleDecay: 1
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/SR2_Fire_Single_Suppressed_01.ogg
+      params:
+        volume: -2
+    availableModes:
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGunVereskLow
+        insertSound:
+          path: /Audio/_radiant/Weapons/MagIn/SR2_Reload_Magin.ogg
+          params:
+            volume: -1.5
+        ejectSound:
+          path: /Audio/_radiant/Weapons/MagOut/SR2_Reload_Magout.ogg
+          params:
+            volume: -1.5
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineSubMachineGunPistol35Veresk
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgePistol35
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgePistol35
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  id: NFWeaponSubMachineGunDrozdRS
+  parent: [ BaseC2ContrabandUnredeemable, NFBaseWeaponSubMachineGunChamber35, NFBaseWeaponFrameSubMachineGunNanotrasen ]
+  name: Дрозд
+  description: Превосходный полностью автоматический тяжёлый пистолет-пулемёт. Использует патроны калибра .35 авто.
+  suffix: Заводской
+  components:
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+    minAngle: 21
+    maxAngle: 32
+    fireRate: 6
+    angleIncrease: 0.5
+    angleDecay: 4
+    burstFireRate: 18
+    shotsPerBurst: 3
+    burstCooldown: 0.375
+    projectileSpeed: 25
+    selectedMode: Burst
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+  - type: RareWeapon
+    rarity: Unique
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/drozd.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/drozd.rsi
+
+- type: entity
+  id: NFWeaponSubMachineGunC20rRS
+  parent: [ NFBaseWeaponSubMachineGunChamber35, NFBaseWeaponFrameSubMachineGunCybersun ]
+  name: C-20r
+  description: |-
+    Оружие, часто используемое печально известными ядерными оперативниками. Использует патроны калибра .35 авто.
+  suffix: Заводской
+  components:
+  - type: Gun
+    projectileSpeed: 25
+    fireRate: 8
+    minAngle: 21
+    maxAngle: 32
+    angleIncrease: 0.5
+    angleDecay: 4
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
+  - type: RareWeapon
+    rarity: Unique
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+
+- type: entity
+  name: G-5 Боец
+  parent: [ NFBaseGunMeleeAttackMedium, BaseWeaponSubMachineGun ]
+  id: WeaponSubMachineGunFighterRS
+  description: Легкое ПП от концерна Browning, высокая скорострельность и большой объем магазина компенсируется крайне низким поражающим воздействием. Использует патроны .25 ACP.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/fighter.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/SMGs/fighter.rsi
+  - type: RareWeapon
+    rarity: Unique
+  - type: Gun
+    fireRate: 9
+    minAngle: 4
+    maxAngle: 10
+    angleIncrease: 0.5
+    angleDecay: 4
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/KFirePlayer.ogg
+      params:
+        volume: -5
+    availableModes:
+    - FullAuto
+  - type: ChamberMagazineAmmoProvider
+    soundBoltOpened: /Audio/_radiant/Weapons/WPN_GG_Reload_BoltOpen_01.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGun25ACP
+        insertSound:
+          path: /Audio/_radiant/Weapons/WPN_GG_Reload_MagIn_02.ogg
+          params:
+            volume: -1.5
+        ejectSound:
+          path: /Audio/_radiant/Weapons/magout3.ogg
+          params:
+            volume: -1.5
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGun25ACP
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol25ACP
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol25ACP
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  id: NFWeaponSubMachineGunWt550RS
+  parent: [ BaseC2ContrabandUnredeemable, NFBaseWeaponSubMachineGunChamber35TopMounted, NFBaseWeaponFrameSubMachineGunNanotrasen ]
+  name: WT-550
+  description: |-
+    Отличный пистолет-пулемёт, производства NanoTrasen's Small Arms Division. Использует патроны калибра .35 авто.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/SMGs/wt550.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: base-unshaded
+        map: ["enum.GunVisualLayers.BaseUnshaded"]
+        shader: unshaded
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _NF/Objects/Weapons/Guns/SMGs/wt550.rsi
+  - type: Gun
+    fireRate: 5.5
+    minAngle: 1
+    maxAngle: 6
+    angleIncrease: 1.5
+    angleDecay: 6
+    projectileSpeed: 25
+  - type: RareWeapon
+    rarity: Unique
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null
+
+# Rifle Assault
+
+- type: entity
+  name: АКМС
+  parent: [ NFBaseWeaponRifleAssaultChamber30, NFBaseWeaponFrameRifleAssaultCybersun ]
+  id: WeaponRifleAkRSZavodskoy
+  description: Несколько побитая боевая винтовка, конструкция которой берёт своё начало на старой Земле. Популярна среди преступников, ополченцев и террористов благодаря своей известной надёжности и простой конструкции. Использует патроны калибра .30 винтовочный.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    projectileSpeed: 25
+    fireRate: 5
+    minAngle: 1
+    maxAngle: 2
+    angleIncrease: 0.5
+    angleDecay: 4
+    examineCaliber: gun-examine-caliber-30
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: RareWeapon
+    rarity: Unique
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineRifle30
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineRifle30
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle30
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle30
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: М-30 Аспид-К
+  parent: [ NFBaseWeaponRifleAssaultChamber30, NFBaseWeaponFrameRifleAssaultFrontierGunsmith ]
+  id: WeaponRifleGuardianBlue
+  description: Продвинутая модификация линейки М-30, созданная для точечной работы на средних дистанциях. Оснащена стабилизированной газоотводной системой и улучшенным компенсатором, благодаря чему практически не даёт увод ствола очередью. Использует 30-й калибр.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/big.rsi
+    scale: 0.75, 0.75
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/tiny.rsi
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/guardian_blue/tiny.rsi
+  - type: RareWeapon
+    rarity: Unique
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -0
+    maxAngle: -0
+  - type: Gun
+    burstCooldown: 0.7
+    fireRate: 4
+    angleDecay: 3
+    angleIncrease: 1
+    minAngle: 1
+    maxAngle: 6
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/Fire_guardian.ogg
+      params:
+        volume: -1
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_radiant/Weapons/peredergivanie.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineRifle30
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineRifle30
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle30
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle30
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  id: NFWeaponRifleAssaultLecterRS
+  parent: [ BaseC2ContrabandUnredeemable, NFBaseWeaponRifleAssaultChamber20, NFBaseWeaponFrameRifleAssaultNanotrasen ]
+  name: Лектер
+  description: |-
+    Первоклассная армейская штурмовая винтовка. Использует патроны калибра .20 винтовочный.
+  suffix: Заводской
+  components:
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/lecter.rsi
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/lecter.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Gun
+    projectileSpeed: 25
+    fireRate: 5
+    minAngle: 1
+    maxAngle: 2
+    angleIncrease: 0.5
+    angleDecay: 4
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: RareWeapon
+    rarity: Unique
+  - type: PirateBountyItem #radiant_sector
+    id: Lecter #radiant_sector
+
+- type: entity
+  id: NFWeaponRifleAssaultVulcanRS
+  parent: [ NFBaseWeaponRifleAssaultChamber30, NFBaseWeaponFrameRifleAssaultFrontierGunsmith ]
+  name: Вулкан
+  description: |-
+    Эта винтовка, является одним из самых мощных образцов стрелкового оружия в арсенале Службы безопасности, представляет собой современный вариант классической винтовки, которую неофициально называют "Правой рукой свободного мира". Использует патроны калибра .30-06 Springfield.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/vulcan.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/vulcan.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Gun
+    projectileSpeed: 25
+    fireRate: 3.5
+    minAngle: 1
+    maxAngle: 24
+    angleIncrease: 6
+    angleDecay: 24
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    examineCaliber: gun-examine-caliber-3006
+  - type: RareWeapon
+    rarity: Unique
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineRifle3006
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineRifle3006
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle3006
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle3006
+
+- type: entity
+  name: Рейнджер
+  parent: [ NFBaseWeaponRifleAssaultChamber20, NFBaseWeaponFrameRifleAssaultCybersun ]
+  id: WeaponRifleRangerRS
+  description: Модернизированная винтовка с богатой историей, обеспечивает хороший баланс огневой мощи и точности даже спустя века. Использует .20 винтовочные патроны.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/m.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Guns/Rifles/m.rsi
+  - type: Gun
+    fireRate: 4.5
+    minAngle: 1
+    maxAngle: 5
+    angleIncrease: 1
+    angleDecay: 2.5
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/CarabineShoot.ogg
+      params:
+        volume: -3.5
+    soundEmpty:
+      path: /Audio/_radiant/Weapons/Empty/m4a1_empty.ogg
+  - type: RareWeapon
+    rarity: Unique
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: NFMagazineRifle20
+        insertSound:
+          path: /Audio/_radiant/Weapons/MagIn/m4a1_magin.ogg
+          params:
+            volume: -2.5
+        ejectSound:
+          path: /Audio/_radiant/Weapons/MagOut/m4a1_magout.ogg
+          params:
+            volume: -2.5
+        priority: 2
+        whitelist:
+          tags:
+            - NFMagazineRifle20
+            - NFMagazineDrumRifle20
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: NFCartridgeRifle20
+        priority: 1
+        whitelist:
+          tags:
+            - NFCartridgeRifle20
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+# Shotgun
+
+- type: entity
+  id: NFWeaponShotgunBulldogRS
+  parent:
+  - BaseC3SyndicateContraband
+  - NFBaseWeaponShotgunChamber50Magazine
+  - NFBaseWeaponFrameShotgunWieldable
+  name: Бульдог
+  description: |-
+    Автоматический магазинный дробовик для ведения ближнего боя. Бьёт как мул на стероидах. Использует патроны калибра .50 ружейный.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+  - type: Gun
+    projectileSpeed: 25
+    fireRate: 2
+    minAngle: 1
+    maxAngle: 2
+    angleIncrease: 0.5
+    angleDecay: 4
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: RareWeapon
+    rarity: Unique
+  - type: NFWeaponDetails
+    manufacturer: weapon-details-manufacturer-gorlex-steel-works
+
+- type: entity
+  id: NFWeaponShotgunEnforcerRS
+  parent: [ NFBaseWeaponShotgunChamber50, NFBaseWeaponFrameShotgunWieldable ]
+  name: Силовик
+  description: |-
+    Полуавтоматический дробовик премиум-класса, гордость для всех сил безопасности. Использует патроны калибра .50 ружейный.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
+  - type: NFWeaponDetails
+    manufacturer: weapon-details-manufacturer-nanotrasen-munitions
+  - type: Gun
+    projectileSpeed: 25
+    fireRate: 2
+    minAngle: 1
+    maxAngle: 2
+    angleIncrease: 0.5
+    angleDecay: 4
+  - type: RareWeapon
+    rarity: Unique
+  - type: PirateBountyItem
+    id: Enforcer
+
+# LMG
+
+- type: entity
+  id: NFWeaponLightMachineGunL6RS
+  parent: [ NFBaseWeaponLightMachineGunChamber20, NFBaseWeaponFrameLightMachineGunGorlex ]
+  name: L6 SAW
+  description: |-
+    Разработанный компанией Waffle Corp, L6 SAW — это смертоносный лёгкий пулемёт, часто используемое мародёрами Gorlex. Несмотря на громоздкость и плохую эргономичность, его тяжёлый ствол и большая ёмкость магазина делают его идеальным для подавления противника градом пуль. Питается от патронных лент .30 калибра.
+  suffix: Заводской
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+  - type: Gun
+    projectileSpeed: 25
+    fireRate: 8
+    minAngle: 4
+    maxAngle: 25
+    angleIncrease: 4
+    angleDecay: 16
+  - type: RareWeapon
+    rarity: Unique
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true

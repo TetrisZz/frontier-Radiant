@@ -66,8 +66,8 @@
   id: UplinkNavyDrozd
   name:  uplink-navy-drozd-name
   description: uplink-navy-drozd-desc
-  productEntity: NFWeaponSubMachineGunDrozd
-  icon: { sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi, state: icon }
+  productEntity: NFWeaponSubMachineGunDrozdRS
+  icon: { sprite: _radiant/Objects/Weapons/Guns/SMGs/drozd.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 2
   categories:
@@ -98,8 +98,8 @@
   id: UplinkNavyN1984
   name:  uplink-security-n1984-name
   description: uplink-security-n1984-desc
-  productEntity: NFWeaponPistolN1984
-  icon: { sprite: Objects/Weapons/Guns/Pistols/N1984.rsi, state: icon }
+  productEntity: NFWeaponPistolN1984RS
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/N1984.rsi, state: icon }
   cost:
     FrontierUplinkCoin: 3
   categories:
