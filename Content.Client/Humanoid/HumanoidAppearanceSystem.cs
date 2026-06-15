@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Client.DisplacementMap;
-using Content.Shared._radiant.Humanoid;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -8,7 +7,6 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -182,40 +180,38 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         //markings.RemoveCategory(MarkingCategories.FacialHair);
 
         // We need to ensure hair before applying it or coloring can try depend on markings that can be invalid
-        if (_markingManager.Markings.TryGetValue(profile.Appearance.HairStyleId, out var hairPrototype))
-        {
-            var hair = new Marking(
-                profile.Appearance.HairStyleId,
-                HairColoringHelper.BuildMarkingColors(
-                    profile.Appearance,
-                    profile.Species,
-                    hairPrototype,
-                    HumanoidVisualLayers.Hair,
-                    _markingManager,
-                    _prototypeManager));
+        var hairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.Hair, out var hairAlpha, _prototypeManager)
+            ? profile.Appearance.SkinColor.WithAlpha(hairAlpha)
+            : profile.Appearance.HairColor;
+        var hair = new Marking(profile.Appearance.HairStyleId,
+            new[] { hairColor });
 
-            if (_markingManager.CanBeApplied(profile.Species, profile.Sex, hair, _prototypeManager))
-            {
-                markings.AddBack(MarkingCategories.Hair, hair);
-            }
+        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _prototypeManager)
+            ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha)
+            : profile.Appearance.FacialHairColor;
+        var facialHair = new Marking(profile.Appearance.FacialHairStyleId,
+            new[] { facialHairColor });
+
+        // Frontier: Match hair and facial hair colors to the forced color if it exists
+        if (_markingManager.MustMatchColor(profile.Species, HumanoidVisualLayers.Hair, out var forcedHairAlpha, _prototypeManager) is Color forcedHairColor)
+        {
+            profile.Appearance.SkinColor.WithAlpha(forcedHairAlpha);
+            hairColor = forcedHairColor;
         }
-
-        if (_markingManager.Markings.TryGetValue(profile.Appearance.FacialHairStyleId, out var facialHairPrototype))
+        if (_markingManager.MustMatchColor(profile.Species, HumanoidVisualLayers.FacialHair, out var forcedFacialHairAlpha, _prototypeManager) is Color forcedFacialHairColor)
         {
-            var facialHair = new Marking(
-                profile.Appearance.FacialHairStyleId,
-                HairColoringHelper.BuildMarkingColors(
-                    profile.Appearance,
-                    profile.Species,
-                    facialHairPrototype,
-                    HumanoidVisualLayers.FacialHair,
-                    _markingManager,
-                    _prototypeManager));
+            profile.Appearance.SkinColor.WithAlpha(forcedFacialHairAlpha);
+            facialHairColor = forcedFacialHairColor;
+        }
+        // End Frontier
 
-            if (_markingManager.CanBeApplied(profile.Species, profile.Sex, facialHair, _prototypeManager))
-            {
-                markings.AddBack(MarkingCategories.FacialHair, facialHair);
-            }
+        if (_markingManager.CanBeApplied(profile.Species, profile.Sex, hair, _prototypeManager))
+        {
+            markings.AddBack(MarkingCategories.Hair, hair);
+        }
+        if (_markingManager.CanBeApplied(profile.Species, profile.Sex, facialHair, _prototypeManager))
+        {
+            markings.AddBack(MarkingCategories.FacialHair, facialHair);
         }
 
         // Finally adding marking with forced colors
@@ -251,7 +247,6 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.EyeColor = profile.Appearance.EyeColor;
         humanoid.Height = profile.Height;
         humanoid.Width = profile.Width;
-        HairColoringHelper.CopyGradientSettingsToComponent(profile.Appearance, humanoid);
 
         UpdateSprite((uid, humanoid, Comp<SpriteComponent>(uid)));
     }
@@ -401,8 +396,13 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 _sprite.LayerSetSprite((entity.Owner, sprite), layerId, rsi);
             }
 
-            if (_sprite.LayerMapTryGet((entity.Owner, sprite), layerId, out var layerIndex, false))
-                ApplyMarkingShader(sprite, layerIndex, markingPrototype, colors, j, humanoid);
+            // impstation edit begin - check if there's a shader defined in the markingPrototype's shader datafield, and if there is...
+            if (markingPrototype.Shader != null)
+            {
+                // use spriteComponent's layersetshader function to set the layer's shader to that which is specified.
+                sprite.LayerSetShader(layerId, markingPrototype.Shader);
+            }
+            // impstation edit end
 
             _sprite.LayerSetVisible((entity.Owner, sprite), layerId, visible);
 
@@ -416,11 +416,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             // So if that happens just default to white?
             if (colors != null && j < colors.Count)
             {
-                var color = ShouldUseHairGradientShader(markingPrototype, colors, humanoid)
-                    ? Color.White
-                    : colors[j];
-
-                _sprite.LayerSetColor((entity.Owner, sprite), layerId, color);
+                _sprite.LayerSetColor((entity.Owner, sprite), layerId, colors[j]);
             }
             else
             {
@@ -432,64 +428,6 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 _displacement.TryAddDisplacement(displacementData, (entity.Owner, sprite), targetLayer + j + 1, layerId, out _);
             }
         }
-    }
-
-    private void ApplyMarkingShader(
-        SpriteComponent sprite,
-        int layerIndex,
-        MarkingPrototype markingPrototype,
-        IReadOnlyList<Color>? colors,
-        int colorIndex,
-        HumanoidAppearanceComponent humanoid)
-    {
-        if (ShouldUseHairGradientShader(markingPrototype, colors, humanoid))
-        {
-            var primary = colors != null && colorIndex < colors.Count
-                ? colors[colorIndex]
-                : Color.White;
-            var secondary = markingPrototype.BodyPart == HumanoidVisualLayers.Hair
-                ? humanoid.HairGradientColor
-                : humanoid.FacialHairGradientColor;
-            var direction = markingPrototype.BodyPart == HumanoidVisualLayers.Hair
-                ? humanoid.HairGradientDirection
-                : humanoid.FacialHairGradientDirection;
-            var shader = _prototypeManager.Index<ShaderPrototype>(HairColoringHelper.GradientShader).InstanceUnique();
-
-            shader.SetParameter("color1", new Vector3(primary.R, primary.G, primary.B));
-            shader.SetParameter("color2", new Vector3(secondary.R, secondary.G, secondary.B));
-            shader.SetParameter("direction", HairColoringHelper.DirectionToShaderParam(direction));
-            shader.SetParameter("brightness", 1.35f);
-            sprite.LayerSetShader(layerIndex, shader, HairColoringHelper.GradientShader);
-            return;
-        }
-
-        if (markingPrototype.Shader != null)
-        {
-            sprite.LayerSetShader(layerIndex, markingPrototype.Shader);
-        }
-        else
-        {
-            sprite.LayerSetShader(layerIndex, null, null);
-        }
-    }
-
-    private bool ShouldUseHairGradientShader(
-        MarkingPrototype markingPrototype,
-        IReadOnlyList<Color>? colors,
-        HumanoidAppearanceComponent humanoid)
-    {
-        if (colors == null)
-            return false;
-
-        if (!HairColoringHelper.CanUseCustomHairColor(humanoid.Species, markingPrototype.BodyPart, _markingManager, _prototypeManager))
-            return false;
-
-        return markingPrototype.BodyPart switch
-        {
-            HumanoidVisualLayers.Hair => humanoid.HairColoringMode == HairColoringMode.Gradient,
-            HumanoidVisualLayers.FacialHair => humanoid.FacialHairColoringMode == HairColoringMode.Gradient,
-            _ => false,
-        };
     }
 
     public override void SetSkinColor(EntityUid uid, Color skinColor, bool sync = true, bool verify = true, HumanoidAppearanceComponent? humanoid = null)
