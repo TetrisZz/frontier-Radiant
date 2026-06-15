@@ -1,3 +1,4 @@
+using Content.Shared._radiant.Humanoid;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid.Markings;
@@ -135,6 +136,24 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Width = 1f;
+
+    [DataField, AutoNetworkedField]
+    public HairColoringMode HairColoringMode { get; set; } = HairColoringMode.Solid;
+
+    [DataField, AutoNetworkedField]
+    public Color HairGradientColor { get; set; } = Color.Black;
+
+    [DataField, AutoNetworkedField]
+    public HairGradientDirection HairGradientDirection { get; set; } = HairGradientDirection.TopToBottom;
+
+    [DataField, AutoNetworkedField]
+    public HairColoringMode FacialHairColoringMode { get; set; } = HairColoringMode.Solid;
+
+    [DataField, AutoNetworkedField]
+    public Color FacialHairGradientColor { get; set; } = Color.Black;
+
+    [DataField, AutoNetworkedField]
+    public HairGradientDirection FacialHairGradientDirection { get; set; } = HairGradientDirection.TopToBottom;
 }
 
 [DataDefinition]
