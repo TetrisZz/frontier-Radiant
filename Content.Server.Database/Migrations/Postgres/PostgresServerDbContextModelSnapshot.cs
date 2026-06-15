@@ -854,6 +854,19 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("facial_hair_color");
 
+                    b.Property<int>("FacialHairColoringMode")
+                        .HasColumnType("integer")
+                        .HasColumnName("facial_hair_coloring_mode");
+
+                    b.Property<string>("FacialHairGradientColor")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("facial_hair_gradient_color");
+
+                    b.Property<int>("FacialHairGradientDirection")
+                        .HasColumnType("integer")
+                        .HasColumnName("facial_hair_gradient_direction");
+
                     b.Property<string>("FacialHairName")
                         .IsRequired()
                         .HasColumnType("text")
@@ -873,6 +886,19 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("hair_color");
+
+                    b.Property<int>("HairColoringMode")
+                        .HasColumnType("integer")
+                        .HasColumnName("hair_coloring_mode");
+
+                    b.Property<string>("HairGradientColor")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("hair_gradient_color");
+
+                    b.Property<int>("HairGradientDirection")
+                        .HasColumnType("integer")
+                        .HasColumnName("hair_gradient_direction");
 
                     b.Property<string>("HairName")
                         .IsRequired()

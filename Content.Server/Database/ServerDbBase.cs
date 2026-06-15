@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Logs;
+using Content.Shared._radiant.Humanoid;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Ghost.Roles;
@@ -268,6 +269,25 @@ namespace Content.Server.Database
                 loadouts[role.RoleName] = loadout;
             }
 
+            var appearance = new HumanoidCharacterAppearance
+            (
+                profile.HairName,
+                Color.FromHex(profile.HairColor),
+                profile.FacialHairName,
+                Color.FromHex(profile.FacialHairColor),
+                Color.FromHex(profile.EyeColor),
+                Color.FromHex(profile.SkinColor),
+                markings
+            )
+            {
+                HairColoringMode = (HairColoringMode) profile.HairColoringMode,
+                HairGradientColor = Color.FromHex(profile.HairGradientColor),
+                HairGradientDirection = (HairGradientDirection) profile.HairGradientDirection,
+                FacialHairColoringMode = (HairColoringMode) profile.FacialHairColoringMode,
+                FacialHairGradientColor = Color.FromHex(profile.FacialHairGradientColor),
+                FacialHairGradientDirection = (HairGradientDirection) profile.FacialHairGradientDirection,
+            };
+
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
                 profile.FlavorText,
@@ -280,16 +300,7 @@ namespace Content.Server.Database
                 sex,
                 gender,
                 balance,
-                new HumanoidCharacterAppearance
-                (
-                    profile.HairName,
-                    Color.FromHex(profile.HairColor),
-                    profile.FacialHairName,
-                    Color.FromHex(profile.FacialHairColor),
-                    Color.FromHex(profile.EyeColor),
-                    Color.FromHex(profile.SkinColor),
-                    markings
-                ),
+                appearance,
                 spawnPriority,
                 jobs,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
@@ -323,8 +334,14 @@ namespace Content.Server.Database
             profile.BankBalance = humanoid.BankBalance;
             profile.HairName = appearance.HairStyleId;
             profile.HairColor = appearance.HairColor.ToHex();
+            profile.HairColoringMode = (int) appearance.HairColoringMode;
+            profile.HairGradientColor = appearance.HairGradientColor.ToHex();
+            profile.HairGradientDirection = (int) appearance.HairGradientDirection;
             profile.FacialHairName = appearance.FacialHairStyleId;
             profile.FacialHairColor = appearance.FacialHairColor.ToHex();
+            profile.FacialHairColoringMode = (int) appearance.FacialHairColoringMode;
+            profile.FacialHairGradientColor = appearance.FacialHairGradientColor.ToHex();
+            profile.FacialHairGradientDirection = (int) appearance.FacialHairGradientDirection;
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
