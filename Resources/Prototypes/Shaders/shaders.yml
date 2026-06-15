@@ -115,3 +115,14 @@
   id: Hologram
   kind: source
   path: "/Textures/Shaders/hologram.swsl"
+
+#Radiant sector
+- type: shader
+  id: HairGradient
+  kind: source
+  path: "/Textures/Shaders/hair_gradient.swsl"
+  params:
+    color1: 1, 1, 1
+    color2: 0, 0, 0
+    direction: 2
+    brightness: 1.35
