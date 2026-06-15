@@ -805,6 +805,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("facial_hair_color");
 
+                    b.Property<int>("FacialHairColoringMode")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("facial_hair_coloring_mode");
+
+                    b.Property<string>("FacialHairGradientColor")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("facial_hair_gradient_color");
+
+                    b.Property<int>("FacialHairGradientDirection")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("facial_hair_gradient_direction");
+
                     b.Property<string>("FacialHairName")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -824,6 +837,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_color");
+
+                    b.Property<int>("HairColoringMode")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("hair_coloring_mode");
+
+                    b.Property<string>("HairGradientColor")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("hair_gradient_color");
+
+                    b.Property<int>("HairGradientDirection")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("hair_gradient_direction");
 
                     b.Property<string>("HairName")
                         .IsRequired()
