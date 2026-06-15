@@ -10,6 +10,7 @@ using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
+using Content.Shared._radiant.Humanoid;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.GameTicking;
@@ -304,6 +305,34 @@ namespace Content.Client.Lobby.UI
                     Profile.Appearance.WithFacialHairColor(newColor.marking.MarkingColors[0]));
                 UpdateCMarkingsFacialHair();
                 ReloadPreview();
+            };
+
+            HairStylePicker.OnGradientChanged += () =>
+            {
+                if (Profile is null)
+                    return;
+
+                Profile = Profile.WithCharacterAppearance(
+                    Profile.Appearance.WithHairGradient(
+                        HairStylePicker.GetGradientMode(),
+                        HairStylePicker.GetGradientSecondaryColor(),
+                        HairStylePicker.GetGradientDirection()));
+                UpdateCMarkingsHair();
+                ReloadProfilePreview();
+            };
+
+            FacialHairPicker.OnGradientChanged += () =>
+            {
+                if (Profile is null)
+                    return;
+
+                Profile = Profile.WithCharacterAppearance(
+                    Profile.Appearance.WithFacialHairGradient(
+                        FacialHairPicker.GetGradientMode(),
+                        FacialHairPicker.GetGradientSecondaryColor(),
+                        FacialHairPicker.GetGradientDirection()));
+                UpdateCMarkingsFacialHair();
+                ReloadProfilePreview();
             };
 
             HairStylePicker.OnSlotRemove += _ =>
@@ -1717,6 +1746,9 @@ namespace Content.Client.Lobby.UI
                 facialHairMarking,
                 Profile.Species,
                 1);
+
+            HairStylePicker.UpdateGradientFromAppearance(Profile.Appearance, Profile.Species);
+            FacialHairPicker.UpdateGradientFromAppearance(Profile.Appearance, Profile.Species);
         }
 
         private void UpdateCMarkingsHair()
@@ -1734,18 +1766,32 @@ namespace Content.Client.Lobby.UI
             {
                 if (_markingManager.CanBeApplied(Profile.Species, Profile.Sex, hairProto, _prototypeManager))
                 {
-                    if (_markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out var _, _prototypeManager))
+                    if (_markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.FacialHair, out var _, _prototypeManager))
                     {
                         hairColor = Profile.Appearance.SkinColor;
                     }
                     // Frontier: Forced hair color
-                    else if (_markingManager.MustMatchColor(Profile.Species, HumanoidVisualLayers.Hair, out var _, _prototypeManager) is Color matchedColor)
+                    else if (_markingManager.MustMatchColor(Profile.Species, HumanoidVisualLayers.FacialHair, out var _, _prototypeManager) is Color matchedColor)
                     {
                         hairColor = matchedColor;
                     }
                     // End Frontier
                     else
                     {
+                        if (Profile.Appearance.HairColoringMode == HairColoringMode.Gradient)
+                        {
+                            Markings.HairMarking = new(
+                                Profile.Appearance.HairStyleId,
+                                HairColoringHelper.BuildMarkingColors(
+                                    Profile.Appearance,
+                                    Profile.Species,
+                                    hairProto,
+                                    HumanoidVisualLayers.Hair,
+                                    _markingManager,
+                                    _prototypeManager));
+                            return;
+                        }
+
                         hairColor = Profile.Appearance.HairColor;
                     }
                 }
@@ -1786,6 +1832,20 @@ namespace Content.Client.Lobby.UI
                     // End Frontier
                     else
                     {
+                        if (Profile.Appearance.FacialHairColoringMode == HairColoringMode.Gradient)
+                        {
+                            Markings.FacialHairMarking = new(
+                                Profile.Appearance.FacialHairStyleId,
+                                HairColoringHelper.BuildMarkingColors(
+                                    Profile.Appearance,
+                                    Profile.Species,
+                                    facialHairProto,
+                                    HumanoidVisualLayers.FacialHair,
+                                    _markingManager,
+                                    _prototypeManager));
+                            return;
+                        }
+
                         facialHairColor = Profile.Appearance.FacialHairColor;
                     }
                 }
