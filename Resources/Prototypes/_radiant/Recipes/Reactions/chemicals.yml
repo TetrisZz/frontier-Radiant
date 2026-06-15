@@ -1,0 +1,10 @@
+- type: reaction
+  id: Naphtha
+  minTemp: 400
+  reactants:
+    CrudeOil:
+      amount: 2
+    Hydrogen:
+      amount: 1
+  products:
+    Naphtha: 1

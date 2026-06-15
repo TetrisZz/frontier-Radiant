@@ -406,6 +406,8 @@
         weight: 0.25
       - id: HeliumCanister # Frontier
         weight: 0.25 # Frontier
+      - id: OilCanister # Radiant
+        weight: 0.25 # Radiant
 #      - id: TritiumCanister # Frontier
 #        weight: 0.05 # Frontier
 #      - id: FrezonCanister # Frontier

@@ -237,6 +237,18 @@ namespace Content.Shared.Atmos
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
 
+        #region Oil (Radiant)
+        /// <summary>
+        ///     Amount of heat released per mole of burnt oil.
+        /// </summary>
+        public const float FireOilEnergyReleased = 140e3f;
+
+        public const float OilMinimumBurnTemperature = (100f + T0C);
+        public const float OilUpperTemperature = 700;
+        public const float OilOxygenFullburn = 10f;
+        public const float OilBurnRateDelta = 9f;
+        #endregion
+
         /// <summary>
         ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs)
         /// </summary>

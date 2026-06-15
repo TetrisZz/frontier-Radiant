@@ -22,7 +22,7 @@
       - 0 # Frezon
       - 0 # Respiron
       - 0 # Helium
-      - 1800 # Oil
+      - 1846 # Oil
       temperature: 293.15
   - type: Destructible
     thresholds:

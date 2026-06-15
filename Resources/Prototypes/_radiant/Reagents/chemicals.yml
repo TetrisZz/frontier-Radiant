@@ -1,0 +1,23 @@
+- type: reagent
+  id: Naphtha
+  name: reagent-name-naphtha
+  desc: reagent-desc-naphtha
+  physicalDesc: reagent-physical-desc-oily
+  slipData:
+  requiredSlipSpeed: 3.5
+  flavor: bitter
+  flavorMinimum: 0.01
+  recognizable: true
+  friction: 0.4
+  tileReactions:
+  - !type:FlammableTileReaction {}
+  color: "#2B2B2B"
+  boilingPoint: 353.2
+  meltingPoint: 278.7
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 1

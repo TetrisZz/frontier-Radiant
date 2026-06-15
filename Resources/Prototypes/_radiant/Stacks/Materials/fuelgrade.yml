@@ -1,0 +1,6 @@
+- type: stack
+  id: FuelOil
+  name: stack-Oil
+  icon: { sprite: _radiant/Objects/Specific/Fuel/fuelgrade_material.rsi, state: Oil }
+  spawn: FuelOil1
+  maxCount: 30

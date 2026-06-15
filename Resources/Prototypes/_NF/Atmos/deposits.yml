@@ -13,7 +13,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MostlyNitrogen
@@ -29,7 +29,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MostlyOxygen
@@ -45,7 +45,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MostlyCarbonDioxide
@@ -61,7 +61,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MostlyNitrousOxide
@@ -77,7 +77,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MostlyAmmonia
@@ -93,7 +93,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MostlyWaterVapor
@@ -109,7 +109,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MostlyPlasma
@@ -125,7 +125,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MuddleEven
@@ -141,7 +141,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -  2000,  4000  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MuddlePlasma
@@ -157,7 +157,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -  2000,  4000  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 - type: gasDeposit
   id: MostlyHelium
@@ -173,7 +173,7 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   - 7500, 12500  # helium
-  -     0,   0    # oil
+  -     0,   1500    # oil
 
 #Radiant start
 - type: gasDeposit
@@ -190,5 +190,5 @@
   -     0,     0  # frezon
   -     0,     0  # respiron
   -     0,   200  # helium
-  -  7500, 12500  # oil
+  -  10000, 15000  # oil
 #Radiant end
