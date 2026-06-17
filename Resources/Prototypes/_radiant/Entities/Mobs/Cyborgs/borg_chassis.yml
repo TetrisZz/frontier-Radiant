@@ -453,12 +453,14 @@
     - Medical
     - Traffic
     - Common
+    - GD
   - type: ActiveRadio
     channels:
     - Binary
     - Medical
     - Traffic
     - Common
+    - GD
   - type: Speech
     speechSounds: SyndieBorg
     allowedEmotes:
