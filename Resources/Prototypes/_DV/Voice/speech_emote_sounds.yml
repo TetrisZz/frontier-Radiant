@@ -109,7 +109,7 @@
     Sigh:
       collection: MaleSigh
     Crying:
-      collection: MaleCry
+      collection: VulpkaninWhines #radiant sector
     Whistle:
       collection: Whistles
     Weh:
@@ -161,7 +161,7 @@
     Sigh:
       collection: FemaleSigh
     Crying:
-      collection: FemaleCry
+      collection: VulpkaninWhines #radiant sector
     Whistle:
       collection: Whistles
     Weh:

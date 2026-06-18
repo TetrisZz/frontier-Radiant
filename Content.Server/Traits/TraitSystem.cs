@@ -1,6 +1,11 @@
 using Content.Shared.GameTicking;
+using Content.Shared.Animals; ///radiant sector 
+using Content.Shared.Chemistry.Components; ///radiant sector
+using Content.Shared.Chemistry.EntitySystems; ///radiant sector
+using Content.Shared.FixedPoint; ///radiant sector
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid; ///radiant sector
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
@@ -12,6 +17,7 @@ public sealed class TraitSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!; ///radiant sector
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     public override void Initialize()
@@ -44,8 +50,23 @@ public sealed class TraitSystem : EntitySystem
                 _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, args.Mob))
                 continue;
 
+            if (traitPrototype.AllowedSexes.Count > 0 && ///radiant sector
+                (!TryComp(args.Mob, out HumanoidAppearanceComponent? humanoid) || ///radiant sector
+                 !traitPrototype.AllowedSexes.Contains(humanoid.Sex))) ///radiant sector
+                continue; ///radiant sector
+
             // Add all components required by the prototype
             EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
+
+            if (TryComp(args.Mob, out UdderComponent? udder)) ///radiant sector
+            {
+                _solutionContainer.EnsureSolution( 
+                    args.Mob,
+                    udder.SolutionName,
+                    out _,
+                    out _,
+                    FixedPoint2.New(250));
+            }
 
             // Add item required by the trait
             if (traitPrototype.TraitGear == null)

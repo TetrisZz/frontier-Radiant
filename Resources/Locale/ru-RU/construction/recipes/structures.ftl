@@ -25,3 +25,17 @@ construction-recipe-pinion-airlock-glass = стеклянный заводной
 construction-recipe-airlock-glass-shuttle = стеклянный шлюз шаттла
 construction-recipe-plastic-flaps-clear = пластиковые шторки (прозрачные)
 construction-recipe-plastic-flaps-opaque = пластиковые шторки (непрозрачные)
+
+#radiant sector
+
+construction-recipe-stairs-steel = стальные ступеньки
+construction-recipe-stair-stage-steel = стальные ступеньки
+construction-recipe-stairs-white = белые ступеньки
+construction-recipe-stair-stage-white = белые ступеньки
+construction-recipe-stairs-dark = тёмные ступеньки
+construction-recipe-stair-stage-dark = тёмные ступеньки
+construction-recipe-stairs-wood = деревянные ступеньки
+construction-recipe-stair-stage-wood = деревянные ступеньки
+construction-recipe-wall-solid-diagonal = обычная стена (диагональ)
+construction-recipe-wall-reinforced-diagonal = укреплённая стена (диагональ)
+construction-recipe-shuttle-window-diagonal = окно шаттла (диагональ)

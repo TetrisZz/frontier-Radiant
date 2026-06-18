@@ -114,7 +114,7 @@ public sealed class UdderSystem : EntitySystem
         if (args.Cancelled || args.Handled || args.Args.Used == null)
             return;
 
-        if (!CanBeMilked(entity, args.Args.User))
+        if (!CanBeMilked(entity, args.Args.User, true))
             return;
 
         if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution, out var solution))

@@ -1,0 +1,16 @@
+- type: trait
+  id: Lactation
+  name: trait-lactation-name
+  description: trait-lactation-desc
+  category: Quirks
+  allowedSexes:
+  - Female
+  components:
+  - type: Udder
+    reagentId: Milk
+    quantityPerUpdate: 25
+    growthDelay: 30
+    sexRestriction: Female
+    requiredEmptySlots:
+    - jumpsuit
+    - outerClothing

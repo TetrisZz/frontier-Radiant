@@ -110,6 +110,7 @@
     allowedEmotes:
     - PurrTajaran
     - MeowTajaran
+    - Hiss # Radiant sector
   - type: DamageOnHighSpeedImpact # Landing on all fours!
     damage:
       types:

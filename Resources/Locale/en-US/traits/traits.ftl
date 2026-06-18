@@ -74,3 +74,9 @@ trait-hemophilia-desc = Your body fails to make blood clots.
 
 trait-impaired-mobility-name = Impaired Mobility
 trait-impaired-mobility-desc = You have difficulty moving without a mobility aid.
+
+trait-lactation-name = Lactation
+trait-lactation-desc = Allows the character to produce milk.
+
+trait-emotional-restraint-name = Emotionally restrained
+trait-emotional-restraint-desc = You keep your composure under pain and will not automatically scream or cry when hurt.

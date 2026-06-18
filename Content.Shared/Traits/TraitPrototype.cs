@@ -1,4 +1,5 @@
 using Content.Shared.Whitelist;
+using Content.Shared.Humanoid; ///radiant sector
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Traits;
@@ -60,4 +61,10 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
+
+    /// <summary>
+    /// If set, only profiles with one of these sexes can select this trait.
+    /// </summary>
+    [DataField] ///radiant sector
+    public HashSet<Sex> AllowedSexes = new();
 }

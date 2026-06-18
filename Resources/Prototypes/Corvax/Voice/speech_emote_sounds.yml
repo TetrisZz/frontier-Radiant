@@ -32,6 +32,8 @@
       collection: MaleDeathGasp
     MeowTajaran:
       path: /Audio/Corvax/Effects/Tajaran/cry.ogg
+    Hiss: # Radiant sector
+      collection: FelinidHisses # Radiant sector
     Ston: # Radiant sector
       collection: MaleSton # Radiant sector
 
@@ -68,5 +70,7 @@
       collection: FemaleDeathGasp
     MeowTajaran:
       path: /Audio/Corvax/Effects/Tajaran/cry.ogg
+    Hiss: # Radiant sector
+      collection: FelinidHisses # Radiant sector
     Ston: # Radiant sector
       collection: FemaleSton # Radiant sector
