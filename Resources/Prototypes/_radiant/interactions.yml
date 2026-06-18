@@ -169,6 +169,7 @@
   - Goblin
   - Sheleg
   - Harpy
+  - DemonSpecies
 
 - type: interaction
   id: BaseTargetSlimeTail

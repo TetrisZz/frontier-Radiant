@@ -409,7 +409,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGreenlok
   name: юбка-комбинезон
-  description: Удобное, вроде даже всё прикрывает.
+  description: Удобная юбка-комбинезон, вроде даже всё прикрывает.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/greenlok.rsi
@@ -420,9 +420,31 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRedTurtleneck
   name: юбка-комбинезон
-  description: Удобное, вроде даже всё прикрывает.
+  description: Удобная юбка-комбинезон, вроде даже всё прикрывает.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/red-turtleneck.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/red-turtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtFilTurtleneck
+  name: юбка-комбинезон
+  description: Удобная юбка-комбинезон, вроде даже всё прикрывает.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fil-turtleneck.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/fil-turtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtBlueTurtleneck
+  name: юбка-комбинезон
+  description: Удобная юбка-комбинезон, вроде даже всё прикрывает.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/blue-turtleneck.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/blue-turtleneck.rsi

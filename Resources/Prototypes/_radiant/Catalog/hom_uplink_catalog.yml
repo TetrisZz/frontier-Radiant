@@ -895,18 +895,18 @@
         tags:
           - HomUplink
 
-- type: listing
-  id: UplinkEncryptionKeyGD
-  name:  uplink-hom-crypt-name
-  description: uplink-hom-crypt-desc
-  productEntity: EncryptionKeyGD
-  icon: { sprite: _radiant/Objects/Devices/encryption_keys.rsi, state: crypt_g }
-  cost:
-    Cristalhom: 3
-  categories:
-    - UplinkHomHardsuits
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - HomUplink
+##- type: listing
+##  id: UplinkEncryptionKeyGD
+##  name:  uplink-hom-crypt-name
+##  description: uplink-hom-crypt-desc
+##  productEntity: EncryptionKeyGD
+##  icon: { sprite: _radiant/Objects/Devices/encryption_keys.rsi, state: crypt_g }
+##  cost:
+##    Cristalhom: 3
+##  categories:
+##    - UplinkHomHardsuits
+##  conditions:
+##    - !type:StoreWhitelistCondition
+##      whitelist:
+##        tags:
+##          - HomUplink

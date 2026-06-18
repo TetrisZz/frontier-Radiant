@@ -200,6 +200,24 @@
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
+  - type: EmoteOnDamage #radiant sector start
+    emoteChance: 0.35
+    emoteCooldown: 6s
+    minimumDamage: 5
+    maximumDamage: 60
+    withChat: true
+    emotes:
+    - Scream
+    - Crying
+    emoteWeights:
+      Scream: 4
+      Crying: 1
+    damageTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+#radiant sector end
   - type: Grammar
     attributes:
       proper: true

@@ -2,6 +2,7 @@ namespace Content.Server.Chat;
 
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Damage.Prototypes; ///radiant sector
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
@@ -23,6 +24,31 @@ public sealed partial class EmoteOnDamageComponent : Component
     /// </summary>
     [DataField("emotes", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<EmotePrototype>)), ViewVariables(VVAccess.ReadWrite)]
     public HashSet<string> Emotes = new();
+
+    /// <summary>
+    /// Optional weights for specific emotes. Emotes without an explicit weight use 1.
+    /// </summary>
+    [DataField("emoteWeights"), ViewVariables(VVAccess.ReadWrite)]
+    public Dictionary<string, float> EmoteWeights = new();
+
+    /// <summary>
+    ///radiant sector. Minimum total damage in one damage change required to emote.
+    /// </summary>
+    [DataField("minimumDamage"), ViewVariables(VVAccess.ReadWrite)]
+    public float MinimumDamage;
+
+    /// <summary>
+    /// Optional upper bound for a random damage threshold roll.
+    /// If greater than MinimumDamage, each damage event rolls a threshold between both values.
+    /// </summary>
+    [DataField("maximumDamage"), ViewVariables(VVAccess.ReadWrite)]
+    public float MaximumDamage;
+
+    /// <summary>
+    /// If non-empty, only positive damage of these types counts toward the threshold.
+    /// </summary>
+    [DataField("damageTypes", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<DamageTypePrototype>)), ViewVariables(VVAccess.ReadWrite)]
+    public HashSet<string> DamageTypes = new();
 
     /// <summary>
     /// Also send the emote in chat.

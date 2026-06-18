@@ -2,6 +2,8 @@ namespace Content.Server.Chat.Systems;
 
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint; ///radiant sector
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -26,26 +28,94 @@ public sealed class EmoteOnDamageSystem : EntitySystem
         if (!args.DamageIncreased)
             return;
 
+        if (HasComp<EmotionalRestraintComponent>(uid)) ///radiant sector
+            return;
+
+        if (args.DamageDelta == null) ///radiant sector
+            return;
+
         if (emoteOnDamage.LastEmoteTime + emoteOnDamage.EmoteCooldown > _gameTiming.CurTime)
             return;
 
         if (emoteOnDamage.Emotes.Count == 0)
             return;
 
+        var qualifyingDamage = GetQualifyingDamage(args.DamageDelta, emoteOnDamage.DamageTypes); ///radiant sector
+        var threshold = emoteOnDamage.MaximumDamage > emoteOnDamage.MinimumDamage ///radiant sector
+            ? _random.NextFloat(emoteOnDamage.MinimumDamage, emoteOnDamage.MaximumDamage) ///radiant sector
+            : emoteOnDamage.MinimumDamage; ///radiant sector
+
+        if (qualifyingDamage < FixedPoint2.New(threshold)) ///radiant sector
+            return; ///radiant sector
+
         if (!_random.Prob(emoteOnDamage.EmoteChance))
             return;
 
-        var emote = _random.Pick(emoteOnDamage.Emotes);
+        var emote = PickEmote(emoteOnDamage); ///radiant sector
         if (emoteOnDamage.WithChat)
         {
             _chatSystem.TryEmoteWithChat(uid, emote, emoteOnDamage.HiddenFromChatWindow ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal);
         }
         else
         {
-            _chatSystem.TryEmoteWithoutChat(uid,emote);
+            _chatSystem.TryEmoteWithoutChat(uid, emote);
         }
 
         emoteOnDamage.LastEmoteTime = _gameTiming.CurTime;
+    }
+
+    private string PickEmote(EmoteOnDamageComponent emoteOnDamage) ///radiant sector
+    {
+        if (emoteOnDamage.EmoteWeights.Count == 0)
+            return _random.Pick(emoteOnDamage.Emotes);
+
+        var totalWeight = 0f;
+        foreach (var emote in emoteOnDamage.Emotes)
+        {
+            if (emoteOnDamage.EmoteWeights.TryGetValue(emote, out var weight) && weight > 0)
+                totalWeight += weight;
+            else if (!emoteOnDamage.EmoteWeights.ContainsKey(emote))
+                totalWeight += 1f;
+        }
+
+        if (totalWeight <= 0)
+            return _random.Pick(emoteOnDamage.Emotes);
+
+        var roll = _random.NextFloat() * totalWeight;
+        var accumulated = 0f;
+        foreach (var emote in emoteOnDamage.Emotes)
+        {
+            var weight = emoteOnDamage.EmoteWeights.TryGetValue(emote, out var configuredWeight)
+                ? configuredWeight
+                : 1f;
+
+            if (weight <= 0)
+                continue;
+
+            accumulated += weight;
+            if (accumulated >= roll)
+                return emote;
+        }
+
+        return _random.Pick(emoteOnDamage.Emotes);
+    }
+
+    private static FixedPoint2 GetQualifyingDamage(DamageSpecifier damage, HashSet<string> damageTypes) ///radiant sector
+    {
+        var total = FixedPoint2.Zero;
+
+        foreach (var (type, value) in damage.DamageDict)
+        {
+            if (value <= FixedPoint2.Zero)
+                continue;
+
+            if (damageTypes.Count != 0 && !damageTypes.Contains(type))
+                continue;
+
+            total += value;
+        }
+
+        return total;
     }
 
     /// <summary>

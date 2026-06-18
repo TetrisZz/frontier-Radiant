@@ -24,3 +24,11 @@
   category: Quirks
   components:
   - type: Snoring
+
+- type: trait
+  id: EmotionalRestraint
+  name: trait-emotional-restraint-name
+  description: trait-emotional-restraint-desc
+  category: Quirks
+  components:
+  - type: EmotionalRestraint

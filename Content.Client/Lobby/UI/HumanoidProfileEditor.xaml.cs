@@ -663,6 +663,9 @@ namespace Content.Client.Lobby.UI
 
             foreach (var trait in traits)
             {
+                if (Profile != null && trait.AllowedSexes.Count > 0 && !trait.AllowedSexes.Contains(Profile.Sex))
+                    continue; ///radiant sector
+
                 if (trait.Category == null)
                 {
                     defaultTraits.Add(trait.ID);

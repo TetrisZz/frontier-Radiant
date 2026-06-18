@@ -1,9 +1,13 @@
+using Content.Shared._radiant.Humanoid;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Holopad;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
@@ -105,14 +109,86 @@ public sealed class HolopadSystem : SharedHolopadSystem
         hologramSprite.DirectionOverride = Direction.South;
         hologramSprite.EnableDirectionOverride = true;
 
-        // Remove shading from all layers (except displacement maps)
+        ApplyHairGradientShaders((hologram, hologramSprite), target);
+
+        // Remove shading from all layers (except displacement maps and custom hair gradients)
         for (var i = 0; i < hologramSprite.AllLayers.Count(); i++)
         {
-            if (_sprite.TryGetLayer((hologram, hologramSprite), i, out var layer, false) && layer.ShaderPrototype != "DisplacedDraw")
+            if (_sprite.TryGetLayer((hologram, hologramSprite), i, out var layer, false)
+                && layer.ShaderPrototype != "DisplacedDraw"
+                && layer.ShaderPrototype != HairColoringHelper.GradientShader)
+            {
                 hologramSprite.LayerSetShader(i, "unshaded");
+            }
         }
 
         UpdateHologramShader(hologram, hologramSprite, holopadhologram);
+    }
+
+    private void ApplyHairGradientShaders(Entity<SpriteComponent> hologram, EntityUid? target)
+    {
+        if (!TryComp<HumanoidAppearanceComponent>(target, out var humanoid))
+            return;
+
+        ApplyHairGradientShader(hologram, humanoid, MarkingCategories.Hair);
+        ApplyHairGradientShader(hologram, humanoid, MarkingCategories.FacialHair);
+    }
+
+    private void ApplyHairGradientShader(
+        Entity<SpriteComponent> hologram,
+        HumanoidAppearanceComponent humanoid,
+        MarkingCategories category)
+    {
+        var visualLayer = category == MarkingCategories.Hair
+            ? HumanoidVisualLayers.Hair
+            : HumanoidVisualLayers.FacialHair;
+
+        var coloringMode = visualLayer == HumanoidVisualLayers.Hair
+            ? humanoid.HairColoringMode
+            : humanoid.FacialHairColoringMode;
+
+        if (coloringMode != HairColoringMode.Gradient)
+            return;
+
+        if (!humanoid.MarkingSet.TryGetCategory(category, out var markings))
+            return;
+
+        foreach (var marking in markings)
+        {
+            if (!_prototypeManager.TryIndex<MarkingPrototype>(marking.MarkingId, out var markingPrototype))
+                continue;
+
+            if (markingPrototype.BodyPart != visualLayer)
+                continue;
+
+            for (var i = 0; i < markingPrototype.Sprites.Count; i++)
+            {
+                if (markingPrototype.Sprites[i] is not SpriteSpecifier.Rsi rsi)
+                    continue;
+
+                var layerId = $"{markingPrototype.ID}-{rsi.RsiState}";
+                if (!_sprite.LayerMapTryGet(hologram.AsNullable(), layerId, out var layerIndex, false))
+                    continue;
+
+                var primary = i < marking.MarkingColors.Count
+                    ? marking.MarkingColors[i]
+                    : Color.White;
+                var secondary = visualLayer == HumanoidVisualLayers.Hair
+                    ? humanoid.HairGradientColor
+                    : humanoid.FacialHairGradientColor;
+                var direction = visualLayer == HumanoidVisualLayers.Hair
+                    ? humanoid.HairGradientDirection
+                    : humanoid.FacialHairGradientDirection;
+                var shader = _prototypeManager.Index<ShaderPrototype>(HairColoringHelper.GradientShader).InstanceUnique();
+
+                shader.SetParameter("color1", new Vector3(primary.R, primary.G, primary.B));
+                shader.SetParameter("color2", new Vector3(secondary.R, secondary.G, secondary.B));
+                shader.SetParameter("direction", HairColoringHelper.DirectionToShaderParam(direction));
+                shader.SetParameter("brightness", 1.35f);
+                hologram.Comp.LayerSetShader(layerIndex, shader, HairColoringHelper.GradientShader);
+                _sprite.LayerSetColor(hologram.AsNullable(), layerId, Color.White);
+            }
+        }
     }
 
     private void UpdateHologramShader(EntityUid uid, SpriteComponent sprite, HolopadHologramComponent holopadHologram)

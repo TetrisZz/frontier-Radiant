@@ -388,3 +388,25 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/blue_sweatpants.rsi
   - type: StaticPrice # Frontier
     vendPrice: 1000 # Frontier
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueLok
+  name: синий свитер
+  description: Свитер зеленого цвета, наверное очень теплый.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/blue-turtleneck.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/blue-turtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFilLok
+  name: фиолетовый свитер
+  description: Свитер зеленого цвета, наверное очень теплый.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/fil-turtleneck.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/fil-turtleneck.rsi

@@ -468,6 +468,9 @@ namespace Content.Shared.Preferences
             if (!protoManager.TryIndex(traitId, out var traitProto))
                 return new(this);
 
+            if (!CanHaveTrait(traitProto)) ///radiant sector
+                return new(this); ///radiant sector
+
             var category = traitProto.Category;
 
             // Category not found so dump it.
@@ -772,6 +775,9 @@ namespace Content.Shared.Preferences
                 if (!protoManager.TryIndex(trait, out var traitProto))
                     continue;
 
+                if (!CanHaveTrait(traitProto))
+                    continue;
+
                 // Always valid.
                 if (traitProto.Category == null)
                 {
@@ -795,6 +801,11 @@ namespace Content.Shared.Preferences
             }
 
             return result;
+        }
+
+        private bool CanHaveTrait(TraitPrototype trait)
+        {
+            return trait.AllowedSexes.Count == 0 || trait.AllowedSexes.Contains(Sex);
         }
 
         // Corvax-TTS-Start

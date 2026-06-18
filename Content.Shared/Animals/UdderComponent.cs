@@ -23,7 +23,7 @@ public sealed partial class UdderComponent : Component
     /// <summary>
     ///     The name of <see cref="Solution"/>.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public string SolutionName = "udder";
 
     /// <summary>
@@ -59,12 +59,12 @@ public sealed partial class UdderComponent : Component
     /// <summary>
     ///     If set, only this sex can be milked and produce milk.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Sex? SexRestriction;
 
     /// <summary>
     ///     Inventory slots that must be empty before milking can begin.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public List<string> RequiredEmptySlots = new();
 }

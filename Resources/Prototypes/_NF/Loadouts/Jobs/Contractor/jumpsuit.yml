@@ -2118,14 +2118,14 @@
 
 - type: loadout #Radiant Sector
   id: ContractorClothingUniformJumpskirtGreenlok
-  price: 500
+  price: 200
   equipment:
     jumpsuit: ClothingUniformJumpskirtGreenlok
   groupBy: "LokJumpsuits"
 
 - type: loadout #Radiant Sector
   id: ContractorClothingUniformJumpskirtRedTurtleneck
-  price: 500
+  price: 200
   equipment:
     jumpsuit: ClothingUniformJumpskirtRedTurtleneck
   groupBy: "LokJumpsuits"
@@ -2150,3 +2150,31 @@
   equipment:
     jumpsuit: ClothingUniformSpecialGorichnaya
   groupBy: "GorichnayaJumpsuits"
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpskirtFilTurtleneck
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtFilTurtleneck
+  groupBy: "LokJumpsuits"
+
+- type: loadout #Radiant Sector
+  id: ContractorClothingUniformJumpskirtBlueTurtleneck
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueTurtleneck
+  groupBy: "LokJumpsuits"
+
+- type: loadout
+  id: ContractorClothingUniformJumpsuitBlueLok
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlueLok
+  groupBy: "LokJumpsuits"
+
+- type: loadout
+  id: ContractorClothingUniformJumpsuitFilLok
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFilLok
+  groupBy: "LokJumpsuits"
