@@ -1013,9 +1013,11 @@
 - type: loadoutGroup
   id: ContractorUnderwearBottom
   name: loadout-group-contractor-underwearbottom
-  minLimit: 1
+  minLimit: 0
   maxLimit: 1
   loadouts:
+  - ContractorClothingUnderwearBottomBoxersWhiteOnlyMaleBoxers
+  - ContractorClothingUnderwearBottomOnlyFemaleBottom
   - ContractorClothingUnderwearBottomBoxersWhite
   - ContractorClothingUnderwearBottomRadiantBoxersNFSD
   - ContractorClothingUnderwearBottomRadiantBoxersBlack
@@ -1038,8 +1040,8 @@
   - ContractorClothingUnderwearBottomPantiesCow
   - ContractorClothingUnderwearBottomPantiesSexsi
   fallbacks:
-  - ContractorClothingUnderwearBottomBoxersWhite
-  - ContractorClothingUnderwearBottomPantiesWhite
+  - ContractorClothingUnderwearBottomBoxersWhiteOnlyMaleBoxers
+  - ContractorClothingUnderwearBottomOnlyFemaleBottom
 
 - type: loadoutGroup
   id: ContractorUnderwearSocks
@@ -1075,6 +1077,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
+  - ClothingUnderwearTopBraWhiteOnlyFemaleBra
   - ContractorClothingUnderwearTopBraWhite
   - ContractorClothingUnderwearTopRadiantPink
   - ContractorClothingUnderwearTopBraBlack
@@ -1089,3 +1092,5 @@
   - ContractorClothingUnderwearTopBraCorset
   - ContractorClothingUnderwearTopBraCow
   - ContractorClothingUnderwearTopBraSexsi
+  fallbacks:
+  - ClothingUnderwearTopBraWhiteOnlyFemaleBra

@@ -27,6 +27,8 @@
   - ContractorHandItems
   - NFSpeciesSpecific
   - ASSSpecial #Radiant Sector
+  - ContractorUnderwearBottomDefault
+  - ContractorUnderwearTopDefault
 
 - type: roleLoadout
   id: JobPilot

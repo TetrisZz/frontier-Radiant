@@ -1,0 +1,17 @@
+- type: loadout
+  id: ContractorClothingUnderwearBottomBoxersWhiteOnlyMaleBoxers
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectMaleOnly
+  price: 0
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersWhite
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomOnlyFemaleBottom
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectFemaleOnly
+  price: 0
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesWhite
