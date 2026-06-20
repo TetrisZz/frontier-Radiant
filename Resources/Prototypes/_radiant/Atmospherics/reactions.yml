@@ -1,0 +1,19 @@
+- type: gasReaction
+  id: OilFire
+  priority: -2
+  minimumTemperature: 373.149 # Same as Atmospherics.FireMinimumTemperatureToExist
+  minimumRequirements:
+    - 0.01  # oxygen
+    - 0     # nitrogen
+    - 0     # carbon dioxide
+    - 0     # plasma
+    - 0     # tritium
+    - 0     # water vapor
+    - 0     # ammonia
+    - 0     # n2o
+    - 0     # frezon
+    - 0     # respiron
+    - 0     # helium
+    - 0.01  # oil
+  effects:
+    - !type:OilFireReaction {}

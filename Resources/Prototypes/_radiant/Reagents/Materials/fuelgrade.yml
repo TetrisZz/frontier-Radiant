@@ -1,0 +1,7 @@
+- type: material
+  id: Oil
+  stackEntity: FuelOil1
+  name: Oil
+  icon: { sprite: _radiant/Objects/Specific/Fuel/fuelgrade_material.rsi, state: Oil }
+  color: "#2B2B2B"
+  price: 0.1 # half of YOU (consistency with the others)

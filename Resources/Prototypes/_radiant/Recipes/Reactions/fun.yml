@@ -20,3 +20,15 @@
   products:
     Aphrodisiac: 3
 
+- type: reaction
+  id: SolidifyNaphtha
+  impact: Low
+  quantized: true
+  reactants:
+    Naphtha:
+      amount: 10
+    FrostOil:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: FuelOil1

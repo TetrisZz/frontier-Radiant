@@ -170,7 +170,7 @@
       multiplier: 0.01
     - type: MaterialStorage
       storageLimit: 3000
-      materialWhiteList: [Plasma, FuelGradePlasma, RawPlasma, Skrungle] # Frontier: add FuelGradePlasma, RawPlasma, Scrungle
+      materialWhiteList: [Plasma, FuelGradePlasma, RawPlasma, Skrungle, Oil] # Frontier: add FuelGradePlasma, RawPlasma, Scrungle. Radiant: add Oil
     - type: PortableGenerator
       startChance: 0.8
     - type: UpgradePowerSupplier
@@ -205,7 +205,11 @@
       - input: Skrungle
         output: FuelGradePlasma
         rate: 1
-    # End Frontier: magnet pickup, fuel adapter
+    #Radiant start
+      - input: Oil
+        output: FuelGradePlasma
+        rate: 8
+    #Radiant end
 
 - type: entity
   name: S.U.P.E.R.P.A.C.M.A.N. portable generator # Frontier: no -type
@@ -250,7 +254,7 @@
       multiplier: 0.01
     - type: MaterialStorage
       storageLimit: 3000
-      materialWhiteList: [Uranium, FuelGradeUranium, RawUranium, Skrungle] # Frontier: add FuelGradeUranium, RawUranium, Skrungle
+      materialWhiteList: [Uranium, FuelGradeUranium, RawUranium, Skrungle, Oil] # Frontier: add FuelGradeUranium, RawUranium, Skrungle
     - type: PortableGenerator
     - type: UpgradePowerSupplier
       powerSupplyMultiplier: 1.25
@@ -280,7 +284,12 @@
       - input: Skrungle
         output: FuelGradeUranium
         rate: 0.5
-    # End Frontier: magnet pickup, fuel adapter
+    # End Frontier: magnet pickup, fuel adapter Oil
+        #Radiant start
+      - input: Oil
+        output: FuelGradeUranium
+        rate: 5
+    #Radiant end
 
 - type: entity
   name: J.R.P.A.C.M.A.N. portable generator # Frontier: no -type
@@ -341,6 +350,7 @@
       solution: tank
       reagents:
         WeldingFuel: 1
+        CrudeOil: 10
     - type: SolutionContainerManager
       solutions:
         tank:

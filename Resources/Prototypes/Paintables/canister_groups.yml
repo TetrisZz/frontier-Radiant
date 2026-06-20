@@ -19,3 +19,4 @@
     liquid-carbon-dioxide: LiquidCarbonDioxideCanister # Frontier
     respiron: RespironCanister # Frontier
     helium: HeliumCanister # Frontier
+    Oil: OilCanister # Radiant

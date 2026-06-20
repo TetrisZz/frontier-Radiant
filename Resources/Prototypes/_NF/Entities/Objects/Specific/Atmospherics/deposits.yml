@@ -167,6 +167,16 @@
     depositPrototype: MostlyHelium
   - type: Sprite
     color: "#fab87e"
+
+- type: entity
+  parent: BaseGasDeposit
+  id: GasDepositOil
+  suffix: Oil
+  components:
+  - type: RandomGasDeposit
+    depositPrototype: MostlyOil
+  - type: Sprite
+    color: "#21211d"
 # endregion Standard Deposits
 
 # region Very Small Deposits
@@ -246,6 +256,13 @@
   - GasDepositHelium
   id: GasDepositHeliumVerySmall
   suffix: Helium, Very Small
+
+- type: entity
+  parent:
+  - BaseGasDepositVerySmall
+  - GasDepositOil
+  id: GasDepositOilVerySmall
+  suffix: Oil, Very Small
 # endregion Very Small Deposits
 
 # region Small Deposits
@@ -325,6 +342,13 @@
   - GasDepositHelium
   id: GasDepositHeliumSmall
   suffix: Helium, Small
+
+- type: entity
+  parent:
+  - BaseGasDepositSmall
+  - GasDepositOil
+  id: GasDepositOilSmall
+  suffix: Oil, Small
 # endregion Small Deposits
 
 # region Large Deposits
@@ -404,6 +428,13 @@
   - GasDepositHelium
   id: GasDepositHeliumLarge
   suffix: Helium, Large
+
+- type: entity
+  parent:
+  - BaseGasDepositLarge
+  - GasDepositOil
+  id: GasDepositOilLarge
+  suffix: Oil, Large
 # endregion Large Deposits
 
 # region Very Large Deposits
@@ -483,6 +514,13 @@
   - GasDepositHelium
   id: GasDepositHeliumVeryLarge
   suffix: Helium, Very Large
+
+- type: entity
+  parent:
+  - BaseGasDepositVeryLarge
+  - GasDepositOil
+  id: GasDepositOilVeryLarge
+  suffix: Oil, Very Large
 # endregion Very Large Deposits
 
 # Debug item for detecting gas deposits

@@ -32,7 +32,8 @@ namespace Content.Server.Atmos.Portable
             Gas.Ammonia,
             Gas.NitrousOxide,
             Gas.Frezon,
-            Gas.Helium // Frontier
+            Gas.Helium, // Frontier
+            Gas.Oil // Radiant
         };
 
         [ViewVariables(VVAccess.ReadWrite)]

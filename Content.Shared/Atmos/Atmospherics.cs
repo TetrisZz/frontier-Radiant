@@ -179,6 +179,8 @@ namespace Content.Shared.Atmos
             [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
             [Gas.Respiron] = Loc.GetString("gas-respiron-abbreviation"), // Frontier
             [Gas.Helium] = Loc.GetString("gas-helium-abbreviation"), // Frontier
+            [Gas.Oil] = Loc.GetString("gas-oil-abbreviation"), // Radiant
+
         };
 
         #region Excited Groups
@@ -208,7 +210,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 11; // Frontier: 9<11
+        public const int TotalNumberOfGases = 12; // Frontier: 9<12
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -234,6 +236,18 @@ namespace Content.Shared.Atmos
         public const float PlasmaUpperTemperature = 700; // Frontier: (1370f+T0C)<700
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
+
+        #region Oil (Radiant)
+        /// <summary>
+        ///     Amount of heat released per mole of burnt oil.
+        /// </summary>
+        public const float FireOilEnergyReleased = 140e3f;
+
+        public const float OilMinimumBurnTemperature = (100f + T0C);
+        public const float OilUpperTemperature = 700;
+        public const float OilOxygenFullburn = 10f;
+        public const float OilBurnRateDelta = 9f;
+        #endregion
 
         /// <summary>
         ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs)
@@ -377,6 +391,7 @@ namespace Content.Shared.Atmos
         NitrousOxide = 7,
         Frezon = 8,
         Respiron = 9, // Frontier
-        Helium = 10 // Frontier
+        Helium = 10, // Frontier
+        Oil = 11 // Radiant
     }
 }

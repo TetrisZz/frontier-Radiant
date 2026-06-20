@@ -139,5 +139,13 @@
   </Box>
   A gas that can be found in deep space, commonly on rocky asteroids. Helium is non reactive and non-toxic. Used in party balloons and high technology.
 
+  <!-- Radiant: oil section -->
+
+  ## Oil
+  <Box>
+    <GuideEntityEmbed Entity="OilCanister" Caption=""/>
+  </Box>
+  Dark oily liquid. Very combustible. It is toxic in large quantities. It evaporates when heated. When burning, it produces black smoke. (but it won't burn)
+
 
 </Document>

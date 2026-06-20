@@ -27,6 +27,7 @@
       Frezon: danger
       Respiron: ignore # Frontier
       Helium: stationHe # Frontier
+      Oil: stationOil # Radiant
   - type: Tag
     tags:
       - AirSensor
