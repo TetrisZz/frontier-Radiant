@@ -1397,7 +1397,7 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
-  
+
 #Command
 - type: loadoutGroup
   id: CaptainUnderwearBottom
@@ -1531,6 +1531,9 @@
   - WhitePantiesNeko
   - PantiesLace
   - PantiesThong
+  fallbacks:
+  - ContractorClothingUnderwearBottomBoxersWhiteOnlyMaleBoxers
+  - ContractorClothingUnderwearBottomOnlyFemaleBottom
 
 - type: loadoutGroup
   id: BasicUnderwearTop
@@ -1543,6 +1546,8 @@
   - BraNeko
   - BraLace
   - BraSportsAlt
+  fallbacks:
+  - ClothingUnderwearTopBraWhiteOnlyFemaleBra
 
 - type: loadoutGroup
   id: BasicUnderwearSocks

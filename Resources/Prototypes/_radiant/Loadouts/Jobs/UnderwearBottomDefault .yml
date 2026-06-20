@@ -1,0 +1,8 @@
+- type: loadout
+  id: ClothingUnderwearTopBraWhiteOnlyFemaleBra
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectFemaleOnly
+  price: 0
+  equipment:
+    underweart: ClothingUnderwearTopBraWhite
