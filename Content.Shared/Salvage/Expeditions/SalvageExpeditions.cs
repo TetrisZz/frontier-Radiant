@@ -17,9 +17,10 @@ public sealed class SalvageExpeditionConsoleState : BoundUserInterfaceState
     public ushort ActiveMission;
     public List<SalvageMissionParams> Missions;
     public bool CanFinish; // Frontier
+    public TimeSpan ManualFinishAvailableAt; ///radiant sector
     public TimeSpan CooldownTime; // Frontier: separate fail vs. success time
 
-    public SalvageExpeditionConsoleState(TimeSpan nextOffer, bool claimed, bool cooldown, ushort activeMission, List<SalvageMissionParams> missions, bool canFinish, TimeSpan cooldownTime) // Frontier: add canFinish, cooldownTime
+    public SalvageExpeditionConsoleState(TimeSpan nextOffer, bool claimed, bool cooldown, ushort activeMission, List<SalvageMissionParams> missions, bool canFinish, TimeSpan manualFinishAvailableAt, TimeSpan cooldownTime) // Frontier: add canFinish, manualFinishAvailableAt, cooldownTime
     {
         NextOffer = nextOffer;
         Claimed = claimed;
@@ -27,6 +28,7 @@ public sealed class SalvageExpeditionConsoleState : BoundUserInterfaceState
         ActiveMission = activeMission;
         Missions = missions;
         CanFinish = canFinish; // Frontier
+        ManualFinishAvailableAt = manualFinishAvailableAt; ///radiant sector
         CooldownTime = cooldownTime; // Frontier
     }
 }
@@ -110,6 +112,12 @@ public sealed partial class SalvageExpeditionDataComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public bool CanFinish = false;
+
+    /// <summary>
+    /// The earliest time at which the expedition may be manually finished.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public TimeSpan ManualFinishAvailableAt = TimeSpan.Zero;
 
     /// <summary>
     /// The total cooldown time that we had to wait.

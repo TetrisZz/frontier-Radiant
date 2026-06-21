@@ -50,6 +50,7 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
         _window.Progression = null;
         _window.Cooldown = current.CooldownTime;
         _window.NextOffer = current.NextOffer;
+        _window.ManualFinishAvailableAt = current.ManualFinishAvailableAt; ///radiant sector
         _window.Claimed = current.Claimed;
         _window.SetFinishDisabled(!current.CanFinish); // Frontier
         _window.ClearOptions();

@@ -26,6 +26,8 @@ public sealed partial class SalvageSystem
      * Handles actively running a salvage expedition.
      */
 
+    private static readonly TimeSpan ManualFinishCooldown = TimeSpan.FromMinutes(4.5); ///radiant sector
+
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!; // Frontier
 
@@ -111,7 +113,8 @@ public sealed partial class SalvageSystem
         // Frontier: early finish
         if (TryComp<SalvageExpeditionDataComponent>(component.Station, out var data))
         {
-            data.CanFinish = true;
+            data.CanFinish = false;
+            data.ManualFinishAvailableAt = _timing.CurTime + ManualFinishCooldown;
             UpdateConsoles((component.Station, data));
         }
         // End Frontier: early finish
@@ -170,6 +173,7 @@ public sealed partial class SalvageSystem
         }
 
         station.CanFinish = false; // Frontier
+        station.ManualFinishAvailableAt = TimeSpan.Zero; // Frontier
 
         // Check if any shuttles remain.
         var query = EntityQueryEnumerator<ShuttleComponent, TransformComponent>();
@@ -298,6 +302,23 @@ public sealed partial class SalvageSystem
             {
                 QueueDel(uid);
             }
+        }
+
+        var finishCooldownQuery = EntityQueryEnumerator<SalvageExpeditionComponent>();
+        while (finishCooldownQuery.MoveNext(out _, out var expedition))
+        {
+            if (expedition.Stage < ExpeditionStage.Running ||
+                !TryComp<SalvageExpeditionDataComponent>(expedition.Station, out var data) ||
+                data.CanFinish ||
+                data.ManualFinishAvailableAt == TimeSpan.Zero ||
+                data.ManualFinishAvailableAt > _timing.CurTime)
+            {
+                continue;
+            }
+
+            data.CanFinish = true;
+            data.ManualFinishAvailableAt = TimeSpan.Zero;
+            UpdateConsoles((expedition.Station, data));
         }
 
         // Frontier: mission-specific logic
