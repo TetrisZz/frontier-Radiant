@@ -280,3 +280,55 @@
   price: 2500
   equipment:
     belt: ClothingBeltSheathFilledHilt
+
+- type: loadout
+  id: ContractorClothingBeltCombatWebbingSetOr
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 100
+  equipment:
+    belt: ClothingBeltCombatWebbingSetOr
+  groupBy: "donbelt"
+
+- type: loadout
+  id: ContractorClothingBeltCombatWebbingSetRed
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 100
+  equipment:
+    belt: ClothingBeltCombatWebbingSetRed
+  groupBy: "donbelt"
+
+- type: loadout
+  id: ContractorClothingBeltCombatWebbingSetBlue
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 100
+  equipment:
+    belt: ClothingBeltCombatWebbingSetBlue
+  groupBy: "donbelt"
+
+- type: loadout
+  id: ContractorClothingBeltCombatWebbingMerc
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 100
+  equipment:
+    belt: ClothingBeltCombatWebbingMerc
+  groupBy: "donbelt"

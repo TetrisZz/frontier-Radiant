@@ -234,6 +234,9 @@
   - ContractorClothingUniformJumpskirtBlueTurtleneckDress
   - ContractorClothingUniformJumpskirtYellowTurtleneckDress
   - ContractorClothingUniformJumpskirtYellowOldDress
+  - ContractorClothingUniformJumpskirtSetDon #Radiant Sector
+  - ContractorClothingUniformJumpsuitSetDon #Radiant Sector
+  - ContractorClothingUniformJumpsuitSuitrMercRS #Radiant Sector
   fallbacks:
   - ContractorClothingUniformJumpsuitColorGrey
   - ContractorClothingUniformJumpskirtColorGrey
@@ -448,6 +451,10 @@
   - ContractorClothingBeltBandolier
   - ContractorClothingBeltHolster
   - ContractorClothingBeltChaplainSash
+  - ContractorClothingBeltCombatWebbingSetOr #Radiant Sector
+  - ContractorClothingBeltCombatWebbingSetRed #Radiant Sector
+  - ContractorClothingBeltCombatWebbingSetBlue #Radiant Sector
+  - ContractorClothingBeltCombatWebbingMerc #Radiant Sector
   - ContractorClothingBeltChaplainSashFilled
   - ContractorTrashBagBlue
   - ContractorTrashBag
@@ -493,6 +500,9 @@
   - ContractorClothingShoesBootsWinterCap
   - ContractorClothingShoesBootsWinterCargo
   - ContractorClothingShoesBootsWinterChef
+  - ContractorClothingShoesBootsCombatLongBlue #Radiant Sector
+  - ContractorClothingShoesBootsCombatLongRed #Radiant Sector
+  - ContractorClothingShoesBootsCombatLongOr #Radiant Sector
   - ContractorClothingShoesBootsWinterChem
   - ContractorClothingShoesBootsWinterEngi
   - ContractorClothingShoesBootsWinterGenetics
@@ -585,6 +595,9 @@
   - ContractorClothingHeadHatQMsoft
   - ContractorClothingHeadHatCardinal
   - ContractorClothingHeadHatHoodNunHood
+  - ContractorClothingHeadHatOr #Radiant Sector
+  - ContractorClothingHeadHatRed #Radiant Sector
+  - ContractorClothingHeadHatBlue #Radiant Sector
   - ContractorClothingHeadSafari
   - ContractorClothingHeadHatJester
   - ContractorClothingHeadHatJesterAlt

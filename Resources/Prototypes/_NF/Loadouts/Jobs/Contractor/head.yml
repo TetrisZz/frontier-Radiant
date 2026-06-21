@@ -662,3 +662,42 @@
   equipment:
     head: ClothingHeadHatTophat
   groupBy: "HeadHat"
+
+- type: loadout
+  id: ContractorClothingHeadHatBlue
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    head: ClothingHeadHatBlue
+  groupBy: "DonHeadHat"
+
+- type: loadout
+  id: ContractorClothingHeadHatRed
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    head: ClothingHeadHatRed
+  groupBy: "DonHeadHat"
+
+- type: loadout
+  id: ContractorClothingHeadHatOr
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    head: ClothingHeadHatOr
+  groupBy: "DonHeadHat"

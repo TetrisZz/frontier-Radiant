@@ -133,3 +133,36 @@
         variation: 0.09
   - type: StaticPrice # Frontier
     vendPrice: 5000 # Frontier
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  id: ClothingShoesBootsCombatLongBlue
+  name: боевые темные ботинки
+  description: Ботинки для настоящих робастов! Не думаю, что ты хочешь, чтобы твое лицо оказалось под ними...
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/boots_set_blue.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/boots_set_blue.rsi
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  id: ClothingShoesBootsCombatLongRed
+  name: боевые темные ботинки
+  description: Ботинки для настоящих робастов! Не думаю, что ты хочешь, чтобы твое лицо оказалось под ними...
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/boots_set_red.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/boots_set_red.rsi
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  id: ClothingShoesBootsCombatLongOr
+  name: боевые темные ботинки
+  description: Ботинки для настоящих робастов! Не думаю, что ты хочешь, чтобы твое лицо оказалось под ними...
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Boots/boots_set_or.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Boots/boots_set_or.rsi
