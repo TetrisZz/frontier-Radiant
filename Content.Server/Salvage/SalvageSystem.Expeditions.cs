@@ -201,6 +201,8 @@ public sealed partial class SalvageSystem
         }
         // End Frontier: separate timeout/announcement for success/failures
         component.ActiveMission = 0;
+        component.CanFinish = false; ///radiant sector
+        component.ManualFinishAvailableAt = TimeSpan.Zero; ///radiant sector
         component.Cooldown = true;
         UpdateConsoles(expedition);
     }
@@ -248,7 +250,7 @@ public sealed partial class SalvageSystem
     private SalvageExpeditionConsoleState GetState(SalvageExpeditionDataComponent component)
     {
         var missions = component.Missions.Values.ToList();
-        return new SalvageExpeditionConsoleState(component.NextOffer, component.Claimed, component.Cooldown, component.ActiveMission, missions, component.CanFinish, component.CooldownTime); // Frontier: add CanFinish, CooldownTime
+        return new SalvageExpeditionConsoleState(component.NextOffer, component.Claimed, component.Cooldown, component.ActiveMission, missions, component.CanFinish, component.ManualFinishAvailableAt, component.CooldownTime); // Frontier: add CanFinish, ManualFinishAvailableAt, CooldownTime
     }
 
     private void SpawnMission(SalvageMissionParams missionParams, EntityUid station, EntityUid? coordinatesDisk)
@@ -290,6 +292,8 @@ public sealed partial class SalvageSystem
         {
             component.ActiveMission = 0;
             component.Cooldown = false;
+            component.CanFinish = false; ///radiant sector
+            component.ManualFinishAvailableAt = TimeSpan.Zero; ///radiant sector
             UpdateConsoles((uid, component));
         }
     }

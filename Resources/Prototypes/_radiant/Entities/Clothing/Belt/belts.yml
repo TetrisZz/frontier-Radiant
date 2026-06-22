@@ -110,3 +110,36 @@
     containers:
       item:
       - KomandorSabre
+
+- type: entity
+  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase
+  id: ClothingBeltCombatWebbingSetRed
+  name: РПС наемника
+  description: Выглядит стильно и практично.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/rps_set_red.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/rps_set_red.rsi
+
+- type: entity
+  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase
+  id: ClothingBeltCombatWebbingSetBlue
+  name: РПС наемника
+  description: Выглядит стильно и практично.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/rps_set_blue.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/rps_set_blue.rsi
+
+- type: entity
+  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase
+  id: ClothingBeltCombatWebbingSetOr
+  name: РПС наемника
+  description: Выглядит стильно и практично.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Belt/rps_set_or.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Belt/rps_set_or.rsi

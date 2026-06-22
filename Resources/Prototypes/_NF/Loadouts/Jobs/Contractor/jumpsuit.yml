@@ -2178,3 +2178,42 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitFilLok
   groupBy: "LokJumpsuits"
+
+- type: loadout
+  id: ContractorClothingUniformJumpskirtSetDon
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSetDon
+  groupBy: "DonJumpsuits"
+
+- type: loadout
+  id: ContractorClothingUniformJumpsuitSetDon
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSetDon
+  groupBy: "DonJumpsuits"
+
+- type: loadout
+  id: ContractorClothingUniformJumpsuitSuitrMercRS
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitrMercRS
+  groupBy: "DonJumpsuits"

@@ -80,7 +80,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretNavy
   name: берет КФ
-  description: Элегантный берет сотруднка Конфедеративного флота.
+  description: Элегантный берет сотрудника Конфедеративного флота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hats/flotselect.rsi
@@ -96,7 +96,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatCapNavy
   name: берет КФ
-  description: Элегантный берет сотруднка Конфедеративного флота.
+  description: Элегантный берет сотрудника Конфедеративного флота.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hats/navycap.rsi
@@ -112,7 +112,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSeparatist
   name: берет сепаратиста
-  description: Дерзкий берет сотруднка сепаратиста.
+  description: Дерзкий берет сепаратиста.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Head/Hats/takesg.rsi
@@ -213,3 +213,48 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBlue
+  name: берет 
+  description: Вроде ничего необычного?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/b_set_blue.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/b_set_blue.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatRed
+  name: берет 
+  description: Вроде ничего необычного?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/b_set_red.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/b_set_red.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatOr
+  name: берет 
+  description: Вроде ничего необычного?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/b_set_or.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/b_set_or.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable

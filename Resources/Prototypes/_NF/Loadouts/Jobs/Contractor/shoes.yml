@@ -745,3 +745,42 @@
   equipment:
     shoes: ClothingShoesBling
   groupBy: "ShoesGimmick"
+
+- type: loadout
+  id: ContractorClothingShoesBootsCombatLongBlue
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    shoes: ClothingShoesBootsCombatLongBlue
+  groupBy: "ShoesDon"
+
+- type: loadout
+  id: ContractorClothingShoesBootsCombatLongRed
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    shoes: ClothingShoesBootsCombatLongRed
+  groupBy: "ShoesDon"
+
+- type: loadout
+  id: ContractorClothingShoesBootsCombatLongOr
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    shoes: ClothingShoesBootsCombatLongOr
+  groupBy: "ShoesDon"

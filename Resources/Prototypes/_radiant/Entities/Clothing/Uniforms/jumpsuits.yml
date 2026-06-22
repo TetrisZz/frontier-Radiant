@@ -410,3 +410,14 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fil-turtleneck.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fil-turtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSetDon
+  name: темный костюм
+  description: Удобный, практичный, сшит из качественной ткани.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/set.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/set.rsi
