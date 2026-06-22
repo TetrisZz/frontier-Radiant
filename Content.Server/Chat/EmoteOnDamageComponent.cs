@@ -32,6 +32,13 @@ public sealed partial class EmoteOnDamageComponent : Component
     public Dictionary<string, float> EmoteWeights = new();
 
     /// <summary>
+    /// Optional chat message overrides for specific emotes.
+    /// The emote itself still runs normally, so sounds and blockers keep using the original prototype. ///Radiant Sector
+    /// </summary>
+    [DataField("chatMessages"), ViewVariables(VVAccess.ReadWrite)]
+    public Dictionary<string, string> ChatMessages = new();
+
+    /// <summary>
     ///radiant sector. Minimum total damage in one damage change required to emote.
     /// </summary>
     [DataField("minimumDamage"), ViewVariables(VVAccess.ReadWrite)]

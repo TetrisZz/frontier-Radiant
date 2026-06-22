@@ -26,6 +26,11 @@ namespace Content.Shared.Chemistry.Reaction
         /// </summary>
         private const int MaxReactionIterations = 20;
 
+        private static readonly Dictionary<string, string[]> ReagentAliases = new() ///Radiant Sector
+        {
+            ["Milk"] = new[] { "MilkArcana", "MilkGoblin" },
+        };
+
         [Dependency] private readonly INetManager _netMan = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -62,8 +67,11 @@ namespace Content.Shared.Chemistry.Reaction
             {
                 // For this dictionary we only need to cache based on the first reagent.
                 var reagent = reaction.Reactants.Keys.First();
-                var list = dict.GetOrNew(reagent);
-                list.Add(reaction);
+                foreach (var reagentKey in GetReagentAndAliases(reagent))
+                {
+                    var list = dict.GetOrNew(reagentKey);
+                    list.Add(reaction);
+                }
             }
             _reactionsSingle = dict.ToFrozenDictionary();
 
@@ -72,11 +80,50 @@ namespace Content.Shared.Chemistry.Reaction
             {
                 foreach (var reagent in reaction.Reactants.Keys)
                 {
-                    var list = dict.GetOrNew(reagent);
-                    list.Add(reaction);
+                    foreach (var reagentKey in GetReagentAndAliases(reagent))
+                    {
+                        var list = dict.GetOrNew(reagentKey);
+                        list.Add(reaction);
+                    }
                 }
             }
             _reactions = dict.ToFrozenDictionary();
+        }
+
+        private static IEnumerable<string> GetReagentAndAliases(string reagent)
+        {
+            yield return reagent;
+
+            if (!ReagentAliases.TryGetValue(reagent, out var aliases))
+                yield break;
+
+            foreach (var alias in aliases)
+            {
+                yield return alias;
+            }
+        }
+
+        private static FixedPoint2 GetTotalEquivalentQuantity(Solution solution, string reagent)
+        {
+            var quantity = FixedPoint2.Zero;
+
+            foreach (var reagentKey in GetReagentAndAliases(reagent))
+            {
+                quantity += solution.GetTotalPrototypeQuantity(reagentKey);
+            }
+
+            return quantity;
+        }
+
+        private static void RemoveEquivalentReagent(Solution solution, string reagent, FixedPoint2 quantity)
+        {
+            foreach (var reagentKey in GetReagentAndAliases(reagent))
+            {
+                if (quantity <= FixedPoint2.Zero)
+                    return;
+
+                quantity -= solution.RemoveReagent(reagentKey, quantity, ignoreReagentData: true);
+            }
         }
 
         /// <summary>
@@ -132,7 +179,7 @@ namespace Content.Shared.Chemistry.Reaction
                 var reactantName = reactantData.Key;
                 var reactantCoefficient = reactantData.Value.Amount;
 
-                var reactantQuantity = solution.GetTotalPrototypeQuantity(reactantName);
+                var reactantQuantity = GetTotalEquivalentQuantity(solution, reactantName);
 
                 if (reactantQuantity <= FixedPoint2.Zero)
                     return false;
@@ -179,7 +226,7 @@ namespace Content.Shared.Chemistry.Reaction
                 if (!reactant.Value.Catalyst)
                 {
                     var amountToRemove = unitReactions * reactant.Value.Amount;
-                    solution.RemoveReagent(reactant.Key, amountToRemove, ignoreReagentData: true);
+                    RemoveEquivalentReagent(solution, reactant.Key, amountToRemove);
                 }
             }
 

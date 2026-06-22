@@ -39,3 +39,17 @@
   components:
   - type: RattleOnTrigger
     radioChannel: Emergency
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ExpeditionRescueMedicalImplant
+  name: имплант медицинского отслеживания
+  description: An emergency implant that reports rescued expedition casualties to medical.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    whitelist:
+      components:
+      - MobState
+  - type: ExpeditionRescueMedicalImplant

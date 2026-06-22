@@ -19,4 +19,5 @@
     dampingRatio: 1.8
     massLimit: 200
     maxLeashDistance: 14
-    lineColor: "#0a0a0a"
+    maxLeashTargets: 3
+    lineColor: "#050507"

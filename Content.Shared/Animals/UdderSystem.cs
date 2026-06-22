@@ -32,15 +32,22 @@ public sealed class UdderSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<UdderComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<UdderComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<UdderComponent, GetVerbsEvent<AlternativeVerb>>(AddMilkVerb);
         SubscribeLocalEvent<UdderComponent, MilkingDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<UdderComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
     }
 
+    private void OnStartup(Entity<UdderComponent> entity, ref ComponentStartup args)
+    {
+        ApplySpeciesRules(entity);
+    }
+
     private void OnMapInit(EntityUid uid, UdderComponent component, MapInitEvent args)
     {
         component.NextGrowth = _timing.CurTime + component.GrowthDelay;
+        ApplySpeciesRules((uid, component));
     }
 
     private void OnEntRemoved(Entity<UdderComponent> entity, ref EntRemovedFromContainerMessage args)
@@ -166,11 +173,32 @@ public sealed class UdderSystem : EntitySystem
 
     private bool CanProduceMilk(EntityUid uid, UdderComponent udder)
     {
+        if (!ApplySpeciesRules((uid, udder)))
+            return false;
+
         if (udder.SexRestriction == null)
             return true;
 
         return TryComp(uid, out HumanoidAppearanceComponent? humanoid)
                && humanoid.Sex == udder.SexRestriction;
+    }
+
+    private bool ApplySpeciesRules(Entity<UdderComponent> entity)
+    {
+        if (!TryComp(entity, out HumanoidAppearanceComponent? humanoid))
+            return true;
+
+        var species = humanoid.Species;
+        if (entity.Comp.BlockedSpecies.Contains(species))
+        {
+            RemCompDeferred<UdderComponent>(entity);
+            return false;
+        }
+
+        if (entity.Comp.SpeciesReagents.TryGetValue(species, out var reagent))
+            entity.Comp.ReagentId = reagent;
+
+        return true;
     }
 
     private bool CanBeMilked(Entity<UdderComponent> entity, EntityUid user, bool showBlockedPopup = false)

@@ -8,6 +8,17 @@
   components:
   - type: Udder
     reagentId: Milk
+    speciesReagents:
+      DemonSpecies: MilkArcana
+      Goblin: MilkGoblin
+      SlimePerson: Slime
+    blockedSpecies:
+    - Vox
+    - Resomi
+    - Moth
+    - Diona
+    - Reptilian
+    - Arachnid
     quantityPerUpdate: 25
     growthDelay: 30
     sexRestriction: Female

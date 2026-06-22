@@ -43,6 +43,12 @@ reagent-desc-milk = An opaque white liquid produced by the mammary glands of mam
 reagent-name-milk-goat = goats milk
 reagent-desc-milk-goat = An opaque white liquid produced by a goat. High buttermilk content.
 
+reagent-name-milk-arcana = arcana milk
+reagent-desc-milk-arcana = A sweet pink milk produced by arcana.
+
+reagent-name-milk-goblin = goblin milk
+reagent-desc-milk-goblin = A green milk produced by goblins.
+
 reagent-name-milk-oat = oat milk
 reagent-desc-milk-oat = Surprisingly tasty.
 

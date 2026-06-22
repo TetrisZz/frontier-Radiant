@@ -96,16 +96,30 @@ public partial class ChatSystem
         bool forceEmote = false
     )
     {
+        return TryEmoteWithChat(source, emote, null, range, hideLog, nameOverride, ignoreActionBlocker, forceEmote); /// Radiant Sector
+    }
+
+    public bool TryEmoteWithChat(
+        EntityUid source,
+        EmotePrototype emote,
+        string? chatMessage,
+        ChatTransmitRange range = ChatTransmitRange.Normal,
+        bool hideLog = false,
+        string? nameOverride = null,
+        bool ignoreActionBlocker = false,
+        bool forceEmote = false
+    )
+    {
         if (!forceEmote && !AllowedToUseEmote(source, emote))
             return false;
 
         var didEmote = TryEmoteWithoutChat(source, emote, ignoreActionBlocker);
 
         // check if proto has valid message for chat
-        if (didEmote && emote.ChatMessages.Count != 0)
+        if (didEmote && (chatMessage != null || emote.ChatMessages.Count != 0))
         {
             // not all emotes are loc'd, but for the ones that are we pass in entity
-            var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
+            var action = Loc.GetString(chatMessage ?? _random.Pick(emote.ChatMessages), ("entity", source));
             SendEntityEmote(source, action, range, nameOverride, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
         }
 

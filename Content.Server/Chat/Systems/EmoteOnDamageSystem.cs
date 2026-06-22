@@ -54,7 +54,17 @@ public sealed class EmoteOnDamageSystem : EntitySystem
         var emote = PickEmote(emoteOnDamage); ///radiant sector
         if (emoteOnDamage.WithChat)
         {
-            _chatSystem.TryEmoteWithChat(uid, emote, emoteOnDamage.HiddenFromChatWindow ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal);
+            _prototypeManager.TryIndex<EmotePrototype>(emote, out var prototype); ///Radiant Sector
+            var chatMessage = emoteOnDamage.ChatMessages.GetValueOrDefault(emote);
+
+            if (prototype != null)
+            {
+                _chatSystem.TryEmoteWithChat(
+                    uid,
+                    prototype,
+                    chatMessage,
+                    emoteOnDamage.HiddenFromChatWindow ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal);
+            }
         }
         else
         {

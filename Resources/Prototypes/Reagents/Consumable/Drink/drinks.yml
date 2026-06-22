@@ -305,6 +305,20 @@
   name: reagent-name-milk-goat
   desc: reagent-desc-milk-goat
 
+- type: reagent #Radiant Sector
+  id: MilkArcana
+  parent: Milk
+  name: reagent-name-milk-arcana
+  desc: reagent-desc-milk-arcana
+  color: "#F5A6C8"
+
+- type: reagent #Radiant Sector
+  id: MilkGoblin
+  parent: Milk
+  name: reagent-name-milk-goblin
+  desc: reagent-desc-milk-goblin
+  color: "#76C65A"
+
 - type: reagent
   id: MilkOat
   name: reagent-name-milk-oat

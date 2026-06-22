@@ -39,11 +39,13 @@ chat-emote-name-howl = Выть
 chat-emote-name-growl = Рычать
 # Сообщение
 chat-emote-msg-scream = кричит!
+chat-emote-msg-scream-pain = кричит от боли!
 chat-emote-msg-laugh = смеётся.
 chat-emote-msg-honk = хонкает.
 chat-emote-msg-sigh = вздыхает.
 chat-emote-msg-whistle = свистит.
 chat-emote-msg-crying = плачет.
+chat-emote-msg-crying-pain = плачет от боли.
 chat-emote-msg-squish = хлюпает.
 chat-emote-msg-chitter = щебечет.
 chat-emote-msg-squeak = пищит.

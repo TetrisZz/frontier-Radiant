@@ -10,6 +10,10 @@ salvage-expedition-announcement-elimination = { $count ->
 }
 salvage-expedition-announcement-destruction-entity-fallback = structure
 salvage-expedition-announcement-elimination-entity-fallback = target
+salvage-expedition-rescue-medical-radio = Casualties recovered from expedition aboard {$shuttle} at {$coordinates}: {$patients}. Medical response requested.
+salvage-expedition-rescue-implant-medical-radio = Emergency medical implant reports death of {$patient} aboard {$shuttle} at {$coordinates}. Body is in a medical pod; recovery required.
+salvage-expedition-rescue-patient-entry = {$patient} {$coordinates}
+salvage-expedition-rescue-unknown-shuttle = unknown shuttle
 
 salvage-expedition-shuttle-not-found = Cannot locate shuttle.
 salvage-expedition-not-everyone-aboard = Not all crew aboard! {CAPITALIZE(THE($target))} is still out there!

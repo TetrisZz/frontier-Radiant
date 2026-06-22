@@ -3,6 +3,8 @@ using System.Numerics;
 using Content.Client.UserInterface.Systems.Interaction;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared._radiant;
+using Content.Shared.DetailExaminable;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
@@ -111,6 +113,13 @@ namespace Content.Client.Interaction.Panel.Ui
         protected override void FrameUpdate(FrameEventArgs args)
         {
             base.FrameUpdate(args);
+
+            var session = _playerManager.LocalSession;
+            if (session?.AttachedEntity is { } user && IsErpDenied(user))
+            {
+                Close();
+                return;
+            }
 
             UpdateArousalBar();
 
@@ -441,6 +450,12 @@ namespace Content.Client.Interaction.Panel.Ui
             if (session?.AttachedEntity == null) return;
 
             var user = session.AttachedEntity.Value;
+            if (IsErpDenied(user))
+            {
+                Close();
+                return;
+            }
+
             if (!_entManager.TryGetComponent<HumanoidAppearanceComponent>(user, out var appearanceComponent)) return;
 
             var target = FindTarget(user);
@@ -694,6 +709,7 @@ namespace Content.Client.Interaction.Panel.Ui
 
             var target = nearbyEntities
                 .Where(e => e.Owner != user)
+                .Where(e => !IsErpDenied(e.Owner))
                 .Select(e => (Entity: e.Owner, Distance: Vector2.Distance(sourceWorldPosition, _transform.GetWorldPosition(e.Owner))))
                 .OrderBy(e => e.Distance)
                 .FirstOrDefault();
@@ -710,6 +726,9 @@ namespace Content.Client.Interaction.Panel.Ui
                     foreach (var buckledEntity in strapComponent.BuckledEntities)
                     {
                         if (buckledEntity == user)
+                            continue;
+
+                        if (IsErpDenied(buckledEntity))
                             continue;
 
                         if (!_entManager.TryGetComponent<TransformComponent>(buckledEntity, out var buckledEntityTransform))
@@ -734,6 +753,12 @@ namespace Content.Client.Interaction.Panel.Ui
                 return null;
 
             return target.Entity;
+        }
+
+        private bool IsErpDenied(EntityUid uid)
+        {
+            return _entManager.TryGetComponent<DetailExaminableComponent>(uid, out var detail) &&
+                   detail.ERPStatus == EnumERPStatus.NO;
         }
         #endregion
 

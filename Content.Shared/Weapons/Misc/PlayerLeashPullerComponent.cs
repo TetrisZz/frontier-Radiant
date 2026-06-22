@@ -13,6 +13,7 @@ public sealed partial class PlayerLeashPullerComponent : Component
     public const float DefaultDampingRatio = 2.5f;
     public const float DefaultMassLimit = 200f;
     public const float DefaultMaxLeashDistance = 14f;
+    public const int DefaultMaxLeashTargets = 3; //Radiant Sector
 
     /// <summary> The tether anchor entity (<see cref="TetherEntity"/> prototype) used for physics. </summary>
     [DataField, AutoNetworkedField]
@@ -21,6 +22,18 @@ public sealed partial class PlayerLeashPullerComponent : Component
     /// <summary> The mob currently being dragged. </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Following;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? TetherAnchor2;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? Following2;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? TetherAnchor3;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? Following3;
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public float MaxForce = DefaultMaxForce;
@@ -42,6 +55,12 @@ public sealed partial class PlayerLeashPullerComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public float CurrentLeashDistance = 3f;
 
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public float CurrentLeashDistance2 = 3f;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public float CurrentLeashDistance3 = 3f;
+
     /// <summary> Minimum leash length when reeling in. </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public float MinLeashDistance = 1f;
@@ -52,6 +71,9 @@ public sealed partial class PlayerLeashPullerComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public Color LineColor = Color.LightSkyBlue;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public int MaxLeashTargets = DefaultMaxLeashTargets;
 
     public const string LeashJointId = "player-leash";
 }

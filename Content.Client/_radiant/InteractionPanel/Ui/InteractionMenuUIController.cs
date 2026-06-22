@@ -1,6 +1,8 @@
 using Content.Client.Gameplay;
 using Content.Client.Interaction.Panel.Ui;
 using Content.Client.UserInterface.Controls;
+using Content.Shared._radiant;
+using Content.Shared.DetailExaminable;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
 using JetBrains.Annotations;
@@ -14,6 +16,7 @@ namespace Content.Client.UserInterface.Systems.Interaction;
 [UsedImplicitly]
 public sealed class InteractionUIController : UIController, IOnStateChanged<GameplayState>
 {
+    [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private InteractionPanelMenu? _interactionWindow;
@@ -79,17 +82,23 @@ public sealed class InteractionUIController : UIController, IOnStateChanged<Game
 
     private void ToggleInteractionMenu()
     {
+        var session = _playerManager.LocalSession;
+        if (session?.AttachedEntity is { } user && IsErpDenied(user))
+        {
+            _interactionWindow?.Close();
+            return;
+        }
+
         if (_interactionWindow == null)
         {
             _interactionWindow = UIManager.CreateWindow<InteractionPanelMenu>();
             _interactionWindow.OnClose += OnWindowClosed;
             _interactionWindow.OnOpen += OnWindowOpen;
 
-            var session = _playerManager.LocalSession;
             if (session?.AttachedEntity.HasValue == true)
             {
-                var user = session.AttachedEntity.Value;
-                _interactionWindow.UpdateUser(user);
+                var attached = session.AttachedEntity.Value;
+                _interactionWindow.UpdateUser(attached);
             }
             _interactionWindow.OpenCenteredRight();
         }
@@ -111,5 +120,11 @@ public sealed class InteractionUIController : UIController, IOnStateChanged<Game
     {
         if (InteractionButton != null)
             InteractionButton.Pressed = true;
+    }
+
+    private bool IsErpDenied(EntityUid uid)
+    {
+        return _entManager.TryGetComponent<DetailExaminableComponent>(uid, out var detail) &&
+               detail.ERPStatus == EnumERPStatus.NO;
     }
 }

@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseAction
+  id: ActionArcanaAura
+  name: arcana-aura-action-name
+  description: arcana-aura-action-desc
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/devour.rsi
+      state: icon
+    iconOn:
+      sprite: Interface/Actions/devour.rsi
+      state: icon-on
+  - type: InstantAction
+    event: !type:ArcanaAuraToggleEvent {}

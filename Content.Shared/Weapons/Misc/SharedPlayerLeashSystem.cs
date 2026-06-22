@@ -110,10 +110,10 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
         if (!TryComp<PlayerLeashPullerComponent>(tethered.Tetherer, out var pullerComp))
             return;
 
-        if (pullerComp.Following != uid)
+        if (!HasLeashTarget(pullerComp, uid))
             return;
 
-        StopLeash(tethered.Tetherer, pullerComp, land: false);
+        StopLeashTarget(tethered.Tetherer, pullerComp, uid, land: false);
     }
 
     public override void Update(float frameTime)
@@ -124,59 +124,79 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
 
         while (q.MoveNext(out var puller, out var leash, out var pullerXform))
         {
-            if (leash.TetherAnchor is not { } anchor || leash.Following is not { } follower)
-                continue;
-
-            if (Deleted(puller) || Deleted(follower) || Deleted(anchor))
+            if (!HasAnyLeashTarget(leash))
             {
-                if (!Deleted(puller) && !Deleted(follower))
-                    PopupLeashSnapped(puller, follower);
-                StopLeash(puller, leash, land: !Deleted(puller));
+                RemComp<PlayerLeashPullerComponent>(puller);
+                continue;
+            }
+
+            if (Deleted(puller))
+            {
+                StopLeash(puller, leash, land: false);
                 continue;
             }
 
             if (!TryGetHeldLeash(puller, out _, out LeashComponent? _))
             {
-                PopupLeashSnapped(puller, follower);
+                PopupLeashSnapped(puller, leash);
                 StopLeash(puller, leash);
                 continue;
             }
 
-            var mapA = Transform(puller).MapID;
-            var mapB = Transform(follower).MapID;
-            if (mapA != mapB || mapA == MapId.Nullspace)
+            for (var slot = 0; slot < PlayerLeashPullerComponent.DefaultMaxLeashTargets; slot++)
             {
-                PopupLeashSnapped(puller, follower);
-                StopLeash(puller, leash);
-                continue;
+                var follower = GetFollower(leash, slot);
+                var anchor = GetAnchor(leash, slot);
+
+                if (follower is not { } followerUid || anchor is not { } anchorUid)
+                    continue;
+
+                if (Deleted(followerUid) || Deleted(anchorUid))
+                {
+                    if (!Deleted(followerUid))
+                        PopupLeashSnapped(puller, followerUid);
+                    StopLeashSlot(puller, leash, slot, land: true);
+                    continue;
+                }
+
+                var mapA = Transform(puller).MapID;
+                var mapB = Transform(followerUid).MapID;
+                if (mapA != mapB || mapA == MapId.Nullspace)
+                {
+                    PopupLeashSnapped(puller, followerUid);
+                    StopLeashSlot(puller, leash, slot);
+                    continue;
+                }
+
+                var pPos = _transform.GetWorldPosition(pullerXform);
+                var fPos = _transform.GetWorldPosition(followerUid);
+
+                var hardLimit = leash.MaxLeashDistance;
+                var distanceSquared = (pPos - fPos).LengthSquared();
+                if (distanceSquared > hardLimit * hardLimit)
+                {
+                    PopupLeashSnapped(puller, followerUid);
+                    StopLeashSlot(puller, leash, slot);
+                    continue;
+                }
+
+                var currentDistance = Math.Clamp(GetCurrentDistance(leash, slot), leash.MinLeashDistance, leash.MaxLeashDistance);
+                SetCurrentDistance(leash, slot, currentDistance);
+                var distance = MathF.Sqrt(distanceSquared);
+
+                if (distance <= currentDistance || distance <= 0.001f)
+                    _transform.SetWorldPosition(anchorUid, fPos);
+                else
+                    _transform.SetWorldPosition(anchorUid, pPos + (fPos - pPos) / distance * currentDistance);
             }
 
-            var pPos = _transform.GetWorldPosition(pullerXform);
-            var fPos = _transform.GetWorldPosition(follower);
-
-            var hardLimit = leash.MaxLeashDistance;
-            var distanceSquared = (pPos - fPos).LengthSquared();
-            if (distanceSquared > hardLimit * hardLimit)
-            {
-                PopupLeashSnapped(puller, follower);
-                StopLeash(puller, leash);
-                continue;
-            }
-
-            var currentDistance = Math.Clamp(leash.CurrentLeashDistance, leash.MinLeashDistance, leash.MaxLeashDistance);
-            leash.CurrentLeashDistance = currentDistance;
-            var distance = MathF.Sqrt(distanceSquared);
-
-            if (distance <= currentDistance || distance <= 0.001f)
-                _transform.SetWorldPosition(anchor, fPos);
-            else
-                _transform.SetWorldPosition(anchor, pPos + (fPos - pPos) / distance * currentDistance);
+            Dirty(puller, leash);
         }
     }
 
     private void AddSelfDetachVerb(EntityUid uid, PlayerLeashPullerComponent comp, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (args.Target != uid || args.User != uid || comp.Following is not { } follower || Deleted(follower))
+        if (args.Target != uid || args.User != uid || !HasAnyLeashTarget(comp))
             return;
 
         if (!args.CanInteract || !args.CanComplexInteract)
@@ -196,7 +216,7 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
         InteractionVerb tighten = new()
         {
             Text = Loc.GetString("player-leash-verb-tighten"),
-            Act = () => AdjustLeashDistance(uid, comp, -comp.DistanceAdjustStep),
+            Act = () => AdjustLeashDistance(uid, comp, -comp.DistanceAdjustStep, null),
             Priority = 19,
             Impact = LogImpact.Low,
         };
@@ -205,7 +225,7 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
         InteractionVerb loosen = new()
         {
             Text = Loc.GetString("player-leash-verb-loosen"),
-            Act = () => AdjustLeashDistance(uid, comp, comp.DistanceAdjustStep),
+            Act = () => AdjustLeashDistance(uid, comp, comp.DistanceAdjustStep, null),
             Priority = 18,
             Impact = LogImpact.Low,
         };
@@ -214,7 +234,7 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
         InteractionVerb yank = new()
         {
             Text = Loc.GetString("player-leash-verb-yank"),
-            Act = () => YankLeashTarget(uid, comp),
+            Act = () => YankLeashTargets(uid, comp, null),
             Priority = 17,
             Impact = LogImpact.Low,
         };
@@ -236,14 +256,15 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
 
         TryComp<PlayerLeashPullerComponent>(args.User, out var existing);
 
-        if (existing is { Following: { } current } && current == args.Target)
+        if (existing != null && TryGetLeashSlot(existing, args.Target, out _))
         {
             var puller = args.User;
             var leash = existing;
+            var target = args.Target;
             InteractionVerb detach = new()
             {
                 Text = Loc.GetString("player-leash-verb-detach-target"),
-                Act = () => StopLeash(puller, leash),
+                Act = () => StopLeashTarget(puller, leash, target),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/unbuckle.svg.192dpi.png")),
                 Priority = 20,
                 Impact = LogImpact.Low,
@@ -263,10 +284,10 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
             Text = Loc.GetString("player-leash-verb-attach"),
         };
 
-        if (existing is { Following: not null } && existing.Following != args.Target)
+        if (existing != null && ActiveLeashTargetCount(existing) >= existing.MaxLeashTargets)
         {
             attach.Disabled = true;
-            attach.Message = Loc.GetString("player-leash-verb-msg-already-pulling");
+            attach.Message = Loc.GetString("player-leash-verb-msg-too-many");
         }
         else if (TryGetAttachBlocker(args.User, args.Target, out var locId))
         {
@@ -347,10 +368,10 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
         }
 
         if (TryComp<PlayerLeashPullerComponent>(puller, out var busy) &&
-            busy.Following != null &&
-            busy.Following != target)
+            ActiveLeashTargetCount(busy) >= busy.MaxLeashTargets &&
+            !TryGetLeashSlot(busy, target, out _))
         {
-            locId = "player-leash-verb-msg-already-pulling";
+            locId = "player-leash-verb-msg-too-many";
             return true;
         }
 
@@ -381,33 +402,35 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
 
     private void StartLeash(EntityUid puller, EntityUid target)
     {
-        if (TryComp<PlayerLeashPullerComponent>(puller, out var existing) && existing.Following != null)
-            StopLeash(puller, existing);
-
         if (!TryGetHeldLeash(puller, out _, out var leashItem))
             return;
 
         var leash = EnsureComp<PlayerLeashPullerComponent>(puller);
+        if (!TryGetFreeLeashSlot(leash, out var slot))
+            return;
+
         leash.MaxForce = leashItem.MaxForce;
         leash.Frequency = leashItem.Frequency;
         leash.DampingRatio = leashItem.DampingRatio;
         leash.MassLimit = leashItem.MassLimit;
         leash.MaxLeashDistance = leashItem.MaxLeashDistance;
         leash.LineColor = leashItem.LineColor;
+        leash.MaxLeashTargets = Math.Clamp(leashItem.MaxLeashTargets, 1, PlayerLeashPullerComponent.DefaultMaxLeashTargets);
         var startDistance = (_transform.GetWorldPosition(puller) - _transform.GetWorldPosition(target)).Length();
-        leash.CurrentLeashDistance = Math.Clamp(startDistance, leash.MinLeashDistance, leash.MaxLeashDistance);
+        SetCurrentDistance(leash, slot, Math.Clamp(startDistance, leash.MinLeashDistance, leash.MaxLeashDistance));
 
         PhysicsComponent? targetPhysics = null;
         TransformComponent? targetXform = null;
         if (!Resolve(target, ref targetPhysics, ref targetXform))
         {
-            RemComp<PlayerLeashPullerComponent>(puller);
+            if (!HasAnyLeashTarget(leash))
+                RemComp<PlayerLeashPullerComponent>(puller);
             return;
         }
 
         _transform.Unanchor(target, targetXform);
 
-        leash.Following = target;
+        SetFollower(leash, slot, target);
         var tethered = EnsureComp<TetheredComponent>(target);
         _physics.SetBodyStatus(target, targetPhysics, BodyStatus.InAir, false);
         _physics.SetSleepingAllowed(target, targetPhysics, false);
@@ -424,7 +447,7 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
 
         var tether = Spawn(TetherPrototype, _transform.GetMapCoordinates(target));
         var tetherPhysics = Comp<PhysicsComponent>(tether);
-        leash.TetherAnchor = tether;
+        SetAnchor(leash, slot, tether);
         _physics.WakeBody(tether);
 
         var joint = _joints.CreateMouseJoint(tether, target, id: PlayerLeashPullerComponent.LeashJointId);
@@ -463,8 +486,31 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
 
     public void StopLeash(EntityUid puller, PlayerLeashPullerComponent leash, bool land = true)
     {
-        var follower = leash.Following;
-        var anchor = leash.TetherAnchor;
+        for (var slot = 0; slot < PlayerLeashPullerComponent.DefaultMaxLeashTargets; slot++)
+        {
+            StopLeashSlot(puller, leash, slot, land, removeComponent: false);
+        }
+
+        RemComp<PlayerLeashPullerComponent>(puller);
+    }
+
+    public bool HasLeashTarget(PlayerLeashPullerComponent leash, EntityUid target)
+    {
+        return TryGetLeashSlot(leash, target, out _);
+    }
+
+    public void StopLeashTarget(EntityUid puller, PlayerLeashPullerComponent leash, EntityUid target, bool land = true)
+    {
+        if (!TryGetLeashSlot(leash, target, out var slot))
+            return;
+
+        StopLeashSlot(puller, leash, slot, land);
+    }
+
+    private void StopLeashSlot(EntityUid puller, PlayerLeashPullerComponent leash, int slot, bool land = true, bool removeComponent = true)
+    {
+        var follower = GetFollower(leash, slot);
+        var anchor = GetAnchor(leash, slot);
 
         if (follower == null && anchor == null)
             return;
@@ -497,29 +543,57 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
             _blocker.UpdateCanMove(f);
         }
 
-        RemComp<PlayerLeashPullerComponent>(puller);
-    }
+        SetFollower(leash, slot, null);
+        SetAnchor(leash, slot, null);
+        SetCurrentDistance(leash, slot, leash.MinLeashDistance);
 
-    private void AdjustLeashDistance(EntityUid puller, PlayerLeashPullerComponent leash, float delta)
-    {
-        var next = Math.Clamp(leash.CurrentLeashDistance + delta, leash.MinLeashDistance, leash.MaxLeashDistance);
-        if (Math.Abs(next - leash.CurrentLeashDistance) < 0.001f)
+        if (removeComponent && !HasAnyLeashTarget(leash))
+        {
+            RemComp<PlayerLeashPullerComponent>(puller);
             return;
+        }
 
-        leash.CurrentLeashDistance = next;
         Dirty(puller, leash);
-        _popup.PopupPredicted(Loc.GetString("player-leash-popup-distance", ("distance", MathF.Round(next, 1))), puller, puller);
     }
 
-    private void YankLeashTarget(EntityUid puller, PlayerLeashPullerComponent leash)
+    private void AdjustLeashDistance(EntityUid puller, PlayerLeashPullerComponent leash, float delta, EntityUid? target)
     {
-        if (leash.Following is not { } follower || Deleted(follower))
-            return;
+        for (var slot = 0; slot < PlayerLeashPullerComponent.DefaultMaxLeashTargets; slot++)
+        {
+            var follower = GetFollower(leash, slot);
+            if (follower == null || target != null && follower != target)
+                continue;
 
+            var current = GetCurrentDistance(leash, slot);
+            var next = Math.Clamp(current + delta, leash.MinLeashDistance, leash.MaxLeashDistance);
+            if (Math.Abs(next - current) < 0.001f)
+                continue;
+
+            SetCurrentDistance(leash, slot, next);
+            _popup.PopupPredicted(Loc.GetString("player-leash-popup-distance", ("distance", MathF.Round(next, 1))), puller, puller);
+        }
+
+        Dirty(puller, leash);
+    }
+
+    private void YankLeashTargets(EntityUid puller, PlayerLeashPullerComponent leash, EntityUid? target)
+    {
+        for (var slot = 0; slot < PlayerLeashPullerComponent.DefaultMaxLeashTargets; slot++)
+        {
+            var follower = GetFollower(leash, slot);
+            if (follower is not { } followerUid || Deleted(followerUid) || target != null && followerUid != target)
+                continue;
+
+            YankLeashTarget(puller, leash, followerUid, GetCurrentDistance(leash, slot));
+        }
+    }
+
+    private void YankLeashTarget(EntityUid puller, PlayerLeashPullerComponent leash, EntityUid follower, float leashDistance)
+    {
         if (!_mob.IsAlive(puller) || !_mob.IsAlive(follower))
             return;
 
-        if (!_interaction.InRangeUnobstructed(puller, follower, range: MathF.Max(YankInteractionRange, leash.CurrentLeashDistance), popup: true))
+        if (!_interaction.InRangeUnobstructed(puller, follower, range: MathF.Max(YankInteractionRange, leashDistance), popup: true))
             return;
 
         var pullerPos = _transform.GetWorldPosition(puller);
@@ -543,5 +617,140 @@ public sealed class SharedPlayerLeashSystem : EntitySystem
     {
         _popup.PopupPredicted(Loc.GetString("player-leash-popup-snapped"), null, puller, puller);
         _popup.PopupPredicted(Loc.GetString("player-leash-popup-snapped"), null, follower, follower);
+    }
+
+    private void PopupLeashSnapped(EntityUid puller, PlayerLeashPullerComponent leash)
+    {
+        _popup.PopupPredicted(Loc.GetString("player-leash-popup-snapped"), null, puller, puller);
+
+        for (var slot = 0; slot < PlayerLeashPullerComponent.DefaultMaxLeashTargets; slot++)
+        {
+            if (GetFollower(leash, slot) is { } follower && !Deleted(follower))
+                _popup.PopupPredicted(Loc.GetString("player-leash-popup-snapped"), null, follower, follower);
+        }
+    }
+
+    private static bool HasAnyLeashTarget(PlayerLeashPullerComponent leash)
+    {
+        return leash.Following != null || leash.Following2 != null || leash.Following3 != null;
+    }
+
+    private static int ActiveLeashTargetCount(PlayerLeashPullerComponent leash)
+    {
+        var count = 0;
+
+        if (leash.Following != null)
+            count++;
+        if (leash.Following2 != null)
+            count++;
+        if (leash.Following3 != null)
+            count++;
+
+        return count;
+    }
+
+    private static bool TryGetLeashSlot(PlayerLeashPullerComponent leash, EntityUid target, out int slot)
+    {
+        for (slot = 0; slot < PlayerLeashPullerComponent.DefaultMaxLeashTargets; slot++)
+        {
+            if (GetFollower(leash, slot) == target)
+                return true;
+        }
+
+        slot = -1;
+        return false;
+    }
+
+    private static bool TryGetFreeLeashSlot(PlayerLeashPullerComponent leash, out int slot)
+    {
+        for (slot = 0; slot < Math.Clamp(leash.MaxLeashTargets, 1, PlayerLeashPullerComponent.DefaultMaxLeashTargets); slot++)
+        {
+            if (GetFollower(leash, slot) == null)
+                return true;
+        }
+
+        slot = -1;
+        return false;
+    }
+
+    private static EntityUid? GetFollower(PlayerLeashPullerComponent leash, int slot)
+    {
+        return slot switch
+        {
+            0 => leash.Following,
+            1 => leash.Following2,
+            2 => leash.Following3,
+            _ => null,
+        };
+    }
+
+    private static void SetFollower(PlayerLeashPullerComponent leash, int slot, EntityUid? value)
+    {
+        switch (slot)
+        {
+            case 0:
+                leash.Following = value;
+                break;
+            case 1:
+                leash.Following2 = value;
+                break;
+            case 2:
+                leash.Following3 = value;
+                break;
+        }
+    }
+
+    private static EntityUid? GetAnchor(PlayerLeashPullerComponent leash, int slot)
+    {
+        return slot switch
+        {
+            0 => leash.TetherAnchor,
+            1 => leash.TetherAnchor2,
+            2 => leash.TetherAnchor3,
+            _ => null,
+        };
+    }
+
+    private static void SetAnchor(PlayerLeashPullerComponent leash, int slot, EntityUid? value)
+    {
+        switch (slot)
+        {
+            case 0:
+                leash.TetherAnchor = value;
+                break;
+            case 1:
+                leash.TetherAnchor2 = value;
+                break;
+            case 2:
+                leash.TetherAnchor3 = value;
+                break;
+        }
+    }
+
+    private static float GetCurrentDistance(PlayerLeashPullerComponent leash, int slot)
+    {
+        return slot switch
+        {
+            0 => leash.CurrentLeashDistance,
+            1 => leash.CurrentLeashDistance2,
+            2 => leash.CurrentLeashDistance3,
+            _ => leash.CurrentLeashDistance,
+        };
+    }
+
+    private static void SetCurrentDistance(PlayerLeashPullerComponent leash, int slot, float value)
+    {
+        switch (slot)
+        {
+            case 0:
+                leash.CurrentLeashDistance = value;
+                break;
+            case 1:
+                leash.CurrentLeashDistance2 = value;
+                break;
+            case 2:
+                leash.CurrentLeashDistance3 = value;
+                break;
+        }
     }
 }

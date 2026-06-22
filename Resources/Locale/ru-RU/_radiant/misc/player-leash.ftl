@@ -6,6 +6,7 @@ player-leash-verb-tighten = Подтянуть поводок
 player-leash-verb-loosen = Ослабить поводок
 player-leash-verb-yank = Дернуть за поводок
 player-leash-verb-msg-already-pulling = Вы уже тянете другую цель.
+player-leash-verb-msg-too-many = К поводку уже прицеплено максимум целей.
 
 player-leash-fail-no-leash = Нужно держать поводок в руке.
 player-leash-fail-not-alive = Нужно быть живым, чтобы использовать поводок.

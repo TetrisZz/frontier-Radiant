@@ -58,9 +58,9 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
     private void OnTetheredContainerInserted(EntityUid uid, TetheredComponent component, EntGotInsertedIntoContainerMessage args)
     {
         if (TryComp<PlayerLeashPullerComponent>(component.Tetherer, out var leash) &&
-            leash.Following == uid)
+            _playerLeash.HasLeashTarget(leash, uid))
         {
-            _playerLeash.StopLeash(component.Tetherer, leash);
+            _playerLeash.StopLeashTarget(component.Tetherer, leash, uid);
             return;
         }
 
