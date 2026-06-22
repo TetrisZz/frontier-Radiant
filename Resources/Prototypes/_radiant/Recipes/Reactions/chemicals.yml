@@ -8,3 +8,13 @@
       amount: 1
   products:
     Naphtha: 1
+
+- type: reaction
+  id: Helium
+  reactants:
+    Hydrogen:
+      amount: 1
+    Uranium:
+      amount: 1
+  products:
+    Helium: 1

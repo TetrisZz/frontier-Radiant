@@ -114,7 +114,7 @@
         rate: 0.25
       - input: Oil
         output: FuelGradeBananium
-        rate: 8
+        rate: 0.3
     - type: Geiger
       showExamine: true
       broadcastAudio: true
