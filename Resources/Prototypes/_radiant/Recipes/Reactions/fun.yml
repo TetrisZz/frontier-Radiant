@@ -32,3 +32,22 @@
   effects:
   - !type:CreateEntityReactionEffect
     entity: FuelOil1
+
+- type: reaction
+  id: SolidifyHeliumNaphtha
+  impact: Low
+  quantized: true
+  reactants:
+    Naphtha:
+      amount: 20
+    Helium:
+      amount: 10
+  effects:
+  - !type:CreateGas
+    gas: CarbonDioxide
+  - !type:PopupMessage
+    visualType: LargeCaution
+    messages: [ "Carbon-dioxide-created" ]
+    type: Pvs
+  - !type:CreateEntityReactionEffect
+    entity: FuelOil1

@@ -208,7 +208,7 @@
     #Radiant start
       - input: Oil
         output: FuelGradePlasma
-        rate: 8
+        rate: 0.8
     #Radiant end
 
 - type: entity
@@ -288,7 +288,7 @@
         #Radiant start
       - input: Oil
         output: FuelGradeUranium
-        rate: 5
+        rate: 0.5
     #Radiant end
 
 - type: entity
@@ -350,7 +350,7 @@
       solution: tank
       reagents:
         WeldingFuel: 1
-        CrudeOil: 10
+        Naphtha: 10
     - type: SolutionContainerManager
       solutions:
         tank:

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseC3CultContrabandNoValue, BaseItem]
+  parent: BaseItem
   id: FuelOil
   name: Solid naphtha
   description: An unholy fuel that powers most generators. It resonates with dark energies.
@@ -8,16 +8,15 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Oil: 100
+      Oil: 1000 # Radiant: 1 unit of Oil = 1000 volume
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fuel/fuelgrade_material.rsi
     layers:
     - state: Oil
       map: ["base"]
   - type: Appearance
-  - type: StaticPrice
-    price: 500
-    vendPrice: 5000
+  - type: StackPrice
+    price: 875 # Radiant: per-unit price (1=500, 2=1000, etc.)
   - type: Stack
     stackType: FuelOil
     count: 20
@@ -26,9 +25,8 @@
 - type: entity
   parent: FuelOil
   id: FuelOil1
-  suffix: Single
+  suffix: 1
   components:
   - type: Stack
     count: 1
-  - type: StaticPrice
-    vendPrice: 0
+
