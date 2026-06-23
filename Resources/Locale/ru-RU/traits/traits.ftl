@@ -49,7 +49,7 @@ trait-impaired-mobility-name = Нарушение подвижности
 trait-impaired-mobility-desc = Вам тяжело передвигаться без посторонней помощи.
 #Radiant sector
 trait-lactation-name = Лактация
-trait-lactation-desc = Позволяет персонажу вырабатывать молоко.
+trait-lactation-desc = Позволяет персонажу вырабатывать молоко. Работает только у млекопитающих.
 
 trait-emotional-restraint-name = Устойчивость к боли
 trait-emotional-restraint-desc = Вы сохраняете самообладание при боли и не кричите и не плачете автоматически при ранении.

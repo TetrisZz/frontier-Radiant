@@ -201,7 +201,7 @@
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
   - type: EmoteOnDamage #radiant sector start
-    emoteChance: 0.35
+    emoteChance: 0.45
     emoteCooldown: 6s
     minimumDamage: 5
     maximumDamage: 60
@@ -210,8 +210,11 @@
     - Scream
     - Crying
     emoteWeights:
-      Scream: 4
-      Crying: 1
+      Scream: 3
+      Crying: 2
+    chatMessages:
+      Scream: chat-emote-msg-scream-pain
+      Crying: chat-emote-msg-crying-pain
     damageTypes:
     - Blunt
     - Slash

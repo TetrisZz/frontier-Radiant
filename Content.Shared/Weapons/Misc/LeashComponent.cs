@@ -25,6 +25,9 @@ public sealed partial class LeashComponent : Component
     [DataField]
     public Color LineColor = Color.LightSkyBlue;
 
+    [DataField] //Radiant Sector
+    public int MaxLeashTargets = PlayerLeashPullerComponent.DefaultMaxLeashTargets;
+
     /// <summary>
     /// Time required to attach this leash to another humanoid (verb / interaction).
     /// </summary>

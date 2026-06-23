@@ -35,11 +35,13 @@ chat-emote-name-snore = Snore
 
 # Message
 chat-emote-msg-scream = screams!
+chat-emote-msg-scream-pain = screams in pain!
 chat-emote-msg-laugh = laughs.
 chat-emote-msg-honk = honks.
 chat-emote-msg-sigh = sighs.
 chat-emote-msg-whistle = whistles.
 chat-emote-msg-crying = cries.
+chat-emote-msg-crying-pain = cries in pain.
 chat-emote-msg-squish = squishes.
 chat-emote-msg-chitter = chitters.
 chat-emote-msg-squeak = squeaks.

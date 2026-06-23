@@ -10,6 +10,10 @@ salvage-expedition-announcement-elimination = { $count ->
 }
 salvage-expedition-announcement-destruction-entity-fallback = сооружение
 salvage-expedition-announcement-elimination-entity-fallback = цель
+salvage-expedition-rescue-medical-radio = С экспедиции на борт {$shuttle} возвращены пострадавшие, координаты {$coordinates}: {$patients}. Требуется медицинская помощь.
+salvage-expedition-rescue-implant-medical-radio = Медицинский имплант сообщает о смерти {$patient} на борту {$shuttle}, координаты {$coordinates}. Тело находится в медицинской капсуле, требуется эвакуация.
+salvage-expedition-rescue-patient-entry = {$patient} {$coordinates}
+salvage-expedition-rescue-unknown-shuttle = неизвестный шаттл
 
 salvage-expedition-shuttle-not-found = Не обнаружен шаттл.
 salvage-expedition-not-everyone-aboard = Не вся команда на шаттле! {CAPITALIZE(THE($target))} всё еще отсутствует!

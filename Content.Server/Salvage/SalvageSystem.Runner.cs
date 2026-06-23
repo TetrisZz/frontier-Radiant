@@ -1,17 +1,27 @@
 using System.Numerics;
+using System.Diagnostics.CodeAnalysis; //Radiant Sector
+using Content.Server.Ghost.Roles.Components; //Radiant Sector
 using Content.Server.Salvage.Expeditions;
+using Content.Server.Storage.EntitySystems; //Radiant Sector
+using Content.Shared.Implants; //Radiant Sector
+using Content.Shared.Implants.Components; //Radiant Sector
+using Content.Shared.Radio; //Radiant Sector
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
+using Content.Shared.Mind.Components; //Radiant Sector
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs; //Radiant Sector
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Localizations;
 using Content.Shared.Station.Components;
+using Content.Shared.Storage.Components; //Radiant Sector
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes; //Radiant Sector
 using Robust.Shared.Map; // Frontier
 using Content.Server.GameTicking; // Frontier
 using Content.Server._NF.Salvage.Expeditions.Structure; // Frontier
@@ -27,9 +37,13 @@ public sealed partial class SalvageSystem
      */
 
     private static readonly TimeSpan ManualFinishCooldown = TimeSpan.FromMinutes(4.5); ///radiant sector
+    private static readonly ProtoId<RadioChannelPrototype> RescueMedicalChannel = "Medical"; ///Radiant Sector
+    private const string SeparatistRadioImplantPrototype = "SeparatistsTrackingImplant"; ///Radiant Sector
 
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!; // Frontier
+    [Dependency] private readonly EntityStorageSystem _entityStorage = default!; ///Radiant Sector
+    [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!; ///Radiant Sector
 
     private void InitializeRunner()
     {
@@ -37,6 +51,7 @@ public sealed partial class SalvageSystem
         SubscribeLocalEvent<FTLStartedEvent>(OnFTLStarted);
         SubscribeLocalEvent<FTLCompletedEvent>(OnFTLCompleted);
         SubscribeLocalEvent<ConsoleFTLAttemptEvent>(OnConsoleFTLAttempt);
+        SubscribeLocalEvent<MobStateChangedEvent>(OnRescueImplantMobStateChanged); ///Radiant Sector
     }
 
     private void OnConsoleFTLAttempt(ref ConsoleFTLAttemptEvent ev)
@@ -191,6 +206,8 @@ public sealed partial class SalvageSystem
     // Runs the expedition
     private void UpdateRunner()
     {
+        UpdateRescueImplants(); ///Radiant Sector
+
         // Generic missions
         var query = EntityQueryEnumerator<SalvageExpeditionComponent>();
 
@@ -199,6 +216,16 @@ public sealed partial class SalvageSystem
         {
             var remaining = comp.EndTime - _timing.CurTime;
             var audioLength = _audio.GetAudioLength(comp.SelectedSong);
+
+            if (!comp.RescueStarted && ///Radiant Sector
+                comp.Stage >= ExpeditionStage.Running && ///Radiant Sector
+                remaining <= comp.RescueTimeBeforeEnd && ///Radiant Sector
+                remaining > TimeSpan.Zero) ///Radiant Sector
+            {
+                comp.RescueStarted = true; ///Radiant Sector
+                Dirty(uid, comp); ///Radiant Sector
+                RescueExpeditionCasualties(uid, comp); ///Radiant Sector
+            }
 
             if (comp.Stage < ExpeditionStage.FinalCountdown && remaining < TimeSpan.FromSeconds(45))
             {
@@ -383,5 +410,275 @@ public sealed partial class SalvageSystem
             }
         }
         // End Frontier: mission-specific logic
+    }
+
+    private void RescueExpeditionCasualties(EntityUid expeditionMap, SalvageExpeditionComponent expedition) ///Radiant Sector start
+    {
+        var shuttles = new List<EntityUid>();
+        var shuttleQuery = EntityQueryEnumerator<ShuttleComponent, TransformComponent>();
+
+        while (shuttleQuery.MoveNext(out var shuttleUid, out _, out var shuttleXform))
+        {
+            if (shuttleXform.MapUid == expeditionMap && !HasComp<FTLComponent>(shuttleUid))
+                shuttles.Add(shuttleUid);
+        }
+
+        if (shuttles.Count == 0)
+            return;
+
+        var rescuedByShuttle = new Dictionary<EntityUid, List<string>>();
+        var rescueSourceByShuttle = new Dictionary<EntityUid, EntityUid>();
+        var playerQuery = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, TransformComponent>();
+
+        while (playerQuery.MoveNext(out var playerUid, out var mind, out var mobState, out var playerXform))
+        {
+            if (!mind.HasMind ||
+                IsGhostRoleEntity(playerUid) ||
+                playerXform.MapUid != expeditionMap ||
+                mobState.CurrentState is not (MobState.Critical or MobState.Dead))
+            {
+                continue;
+            }
+
+            if (!TryGetRescuePod(shuttles, expedition, out var pod, out var podStorage, out var podShuttle))
+                continue;
+
+            var implantUid = EnsureRescueImplant(playerUid, expedition, Name(podShuttle), mobState);
+
+            if (podStorage.Open)
+                _entityStorage.CloseStorage(pod, podStorage);
+
+            if (!_entityStorage.Insert(playerUid, pod, podStorage))
+                continue;
+
+            if (!rescuedByShuttle.TryGetValue(podShuttle, out var rescued))
+            {
+                rescued = new List<string>();
+                rescuedByShuttle[podShuttle] = rescued;
+            }
+
+            rescued.Add(Loc.GetString(
+                "salvage-expedition-rescue-patient-entry",
+                ("patient", Name(playerUid)),
+                ("coordinates", GetRescueCoordinatesText(playerUid))));
+
+            if (implantUid != null)
+                rescueSourceByShuttle.TryAdd(podShuttle, implantUid.Value);
+        }
+
+        foreach (var (shuttle, rescued) in rescuedByShuttle)
+        {
+            var source = rescueSourceByShuttle.GetValueOrDefault(shuttle, shuttle);
+            var message = Loc.GetString(
+                "salvage-expedition-rescue-medical-radio",
+                ("shuttle", Name(shuttle)),
+                ("patients", string.Join(", ", rescued)),
+                ("coordinates", GetRescueCoordinatesText(shuttle)));
+
+            _radioSystem.SendRadioMessage(source, message, RescueMedicalChannel, shuttle);
+        }
+    }
+
+    private bool TryGetRescuePod(
+        IReadOnlyList<EntityUid> shuttles,
+        SalvageExpeditionComponent expedition,
+        out EntityUid pod,
+        [NotNullWhen(true)] out EntityStorageComponent? storage,
+        out EntityUid podShuttle)
+    {
+        foreach (var shuttle in shuttles)
+        {
+            var podQuery = EntityQueryEnumerator<EntityStorageComponent, MetaDataComponent, TransformComponent>();
+
+            while (podQuery.MoveNext(out var podUid, out var podStorage, out var meta, out var podXform))
+            {
+                if (podXform.GridUid != shuttle ||
+                    meta.EntityPrototype?.ID != expedition.RescuePodPrototype.Id ||
+                    podStorage.Contents.ContainedEntities.Count > 0)
+                {
+                    continue;
+                }
+
+                pod = podUid;
+                storage = podStorage;
+                podShuttle = shuttle;
+                return true;
+            }
+        }
+
+        var targetShuttle = shuttles[0];
+        var offset = GetRescuePodSpawnOffset(targetShuttle, expedition.RescuePodPrototype);
+        var spawned = Spawn(expedition.RescuePodPrototype, new EntityCoordinates(targetShuttle, offset));
+
+        if (TryComp(spawned, out storage))
+        {
+            pod = spawned;
+            podShuttle = targetShuttle;
+            return true;
+        }
+
+        QueueDel(spawned);
+        pod = default;
+        storage = null;
+        podShuttle = default;
+        return false;
+    }
+
+    private Vector2 GetRescuePodSpawnOffset(EntityUid shuttle, EntProtoId rescuePodPrototype)
+    {
+        var count = 0;
+        var podQuery = EntityQueryEnumerator<MetaDataComponent, TransformComponent>();
+
+        while (podQuery.MoveNext(out _, out var meta, out var xform))
+        {
+            if (xform.GridUid == shuttle && meta.EntityPrototype?.ID == rescuePodPrototype.Id)
+                count++;
+        }
+
+        return new Vector2(count % 4, count / 4);
+    }
+
+    private EntityUid? EnsureRescueImplant(
+        EntityUid target,
+        SalvageExpeditionComponent expedition,
+        string shuttleName,
+        MobStateComponent? mobState = null)
+    {
+        if (HasImplantPrototype(target, SeparatistRadioImplantPrototype))
+            return null;
+
+        if (TryComp<ImplantedComponent>(target, out var implanted))
+        {
+            foreach (var implant in implanted.ImplantContainer.ContainedEntities)
+            {
+                if (!TryComp<ExpeditionRescueMedicalImplantComponent>(implant, out var rescueImplant))
+                    continue;
+
+                SetupRescueImplant(target, rescueImplant, expedition.RescueImplantDelay, shuttleName, mobState);
+                rescueImplant.Activated = false;
+                Dirty(implant, rescueImplant);
+                return implant;
+            }
+        }
+
+        var implantUid = _subdermalImplant.AddImplant(target, expedition.RescueImplantPrototype);
+        if (implantUid != null &&
+            TryComp<ExpeditionRescueMedicalImplantComponent>(implantUid.Value, out var component))
+        {
+            SetupRescueImplant(target, component, expedition.RescueImplantDelay, shuttleName, mobState);
+            Dirty(implantUid.Value, component);
+        }
+
+        return implantUid;
+    }
+
+    private void SetupRescueImplant(
+        EntityUid target,
+        ExpeditionRescueMedicalImplantComponent rescueImplant,
+        TimeSpan delay,
+        string shuttleName,
+        MobStateComponent? mobState = null)
+    {
+        rescueImplant.AlertDelay = delay;
+        rescueImplant.PatientName = Name(target);
+        rescueImplant.ShuttleName = shuttleName;
+        rescueImplant.ActivateAt = Resolve(target, ref mobState, false) && mobState.CurrentState == MobState.Dead
+            ? _timing.CurTime + delay
+            : TimeSpan.Zero;
+    }
+
+    private void OnRescueImplantMobStateChanged(MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead ||
+            HasImplantPrototype(args.Target, SeparatistRadioImplantPrototype) ||
+            !TryComp<ImplantedComponent>(args.Target, out var implanted))
+        {
+            return;
+        }
+
+        foreach (var implant in implanted.ImplantContainer.ContainedEntities)
+        {
+            if (!TryComp<ExpeditionRescueMedicalImplantComponent>(implant, out var rescueImplant) ||
+                rescueImplant.Activated)
+            {
+                continue;
+            }
+
+            rescueImplant.PatientName = string.IsNullOrWhiteSpace(rescueImplant.PatientName)
+                ? Name(args.Target)
+                : rescueImplant.PatientName;
+            rescueImplant.ActivateAt = _timing.CurTime + rescueImplant.AlertDelay;
+            Dirty(implant, rescueImplant);
+        }
+    }
+
+    private void UpdateRescueImplants()
+    {
+        var query = EntityQueryEnumerator<ExpeditionRescueMedicalImplantComponent, SubdermalImplantComponent>();
+
+        while (query.MoveNext(out var implantUid, out var rescueImplant, out var subdermal))
+        {
+            if (rescueImplant.Activated ||
+                rescueImplant.ActivateAt == TimeSpan.Zero ||
+                rescueImplant.ActivateAt > _timing.CurTime ||
+                subdermal.ImplantedEntity == null ||
+                Deleted(subdermal.ImplantedEntity.Value))
+            {
+                continue;
+            }
+
+            var target = subdermal.ImplantedEntity.Value;
+            if (HasImplantPrototype(target, SeparatistRadioImplantPrototype))
+            {
+                rescueImplant.Activated = true;
+                Dirty(implantUid, rescueImplant);
+                continue;
+            }
+
+            if (!TryComp<MobStateComponent>(target, out var mobState) ||
+                mobState.CurrentState != MobState.Dead)
+            {
+                rescueImplant.ActivateAt = TimeSpan.Zero;
+                Dirty(implantUid, rescueImplant);
+                continue;
+            }
+
+            var message = Loc.GetString(
+                "salvage-expedition-rescue-implant-medical-radio",
+                ("patient", string.IsNullOrWhiteSpace(rescueImplant.PatientName) ? Name(target) : rescueImplant.PatientName),
+                ("shuttle", string.IsNullOrWhiteSpace(rescueImplant.ShuttleName) ? Loc.GetString("salvage-expedition-rescue-unknown-shuttle") : rescueImplant.ShuttleName),
+                ("coordinates", GetRescueCoordinatesText(target)));
+
+            _radioSystem.SendRadioMessage(implantUid, message, RescueMedicalChannel, target);
+
+            rescueImplant.Activated = true;
+            Dirty(implantUid, rescueImplant);
+        }
+    }
+
+    private string GetRescueCoordinatesText(EntityUid target)
+    {
+        var coordinates = _transform.GetMapCoordinates(target);
+        return $"({(int) coordinates.X}, {(int) coordinates.Y})"; ///Radiant Sector end
+    }
+
+    private bool IsGhostRoleEntity(EntityUid uid)
+    {
+        return HasComp<GhostRoleComponent>(uid) ||
+               HasComp<GhostTakeoverAvailableComponent>(uid);
+    }
+
+    private bool HasImplantPrototype(EntityUid target, string prototype)
+    {
+        if (!TryComp<ImplantedComponent>(target, out var implanted))
+            return false;
+
+        foreach (var implant in implanted.ImplantContainer.ContainedEntities)
+        {
+            if (MetaData(implant).EntityPrototype?.ID == prototype)
+                return true;
+        }
+
+        return false;
     }
 }

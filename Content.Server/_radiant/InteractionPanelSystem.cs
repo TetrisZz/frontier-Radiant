@@ -2,6 +2,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Cuffs.Components;
+using Content.Shared._radiant;
+using Content.Shared.DetailExaminable;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
@@ -62,6 +64,10 @@ namespace Content.Server.Interaction.Panel
                 return;
 
             var targetEntity = _entManager.GetEntity(target.Value);
+
+            if (IsErpDenied(userEntity) || IsErpDenied(targetEntity))
+                return;
+
             if (_entManager.TryGetComponent<MobThresholdsComponent>(targetEntity, out var targetThresholds) &&
                 targetThresholds.CurrentThresholdState != MobState.Alive &&
                 targetThresholds.CurrentThresholdState != MobState.Invalid)
@@ -362,6 +368,12 @@ namespace Content.Server.Interaction.Panel
             {
                 _audio.PlayEntity(sound, Filter.Entities(user, target), target, false);
             }
+        }
+
+        private bool IsErpDenied(EntityUid uid)
+        {
+            return _entManager.TryGetComponent<DetailExaminableComponent>(uid, out var detail) &&
+                   detail.ERPStatus == EnumERPStatus.NO;
         }
     }
 }

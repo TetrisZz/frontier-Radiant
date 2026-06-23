@@ -11,6 +11,7 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
+using Content.Shared.Chemistry.Components; ///Radiant Sector
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
@@ -76,6 +77,11 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private static readonly ProtoId<TagPrototype> MetalTag = "Metal";
         private static readonly ProtoId<TagPrototype> PlasticTag = "Plastic";
+
+        private static readonly Dictionary<string, string[]> ReagentAliases = new() ///Radiant Sector
+        {
+            ["Milk"] = new[] { "MilkArcana", "MilkGoblin" }, ///Radiant Sector
+        };
 
         public override void Initialize()
         {
@@ -168,7 +174,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
             foreach (var reagent in recipeReagents)
             {
-                if (args.Event.Reaction.Reactants.ContainsKey(reagent))
+                if (GetReagentAndAliases(reagent).Any(args.Event.Reaction.Reactants.ContainsKey)) ///Radiant Sector
                 {
                     args.Event.Cancelled = true;
                     return;
@@ -227,7 +233,7 @@ namespace Content.Server.Kitchen.EntitySystems
                     if (!totalReagentsToRemove.ContainsKey(reagent))
                         continue;
 
-                    var quant = solution.GetTotalPrototypeQuantity(reagent);
+                    var quant = GetTotalEquivalentQuantity(solution, reagent); ///Radiant Sector
 
                     if (quant >= totalReagentsToRemove[reagent])
                     {
@@ -239,7 +245,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         totalReagentsToRemove[reagent] -= quant;
                     }
 
-                    _solutionContainer.RemoveReagent(solutionEntity.Value, reagent, quant);
+                    RemoveEquivalentReagent(solutionEntity.Value, reagent, quant); ///Radiant Sector
                 }
             }
 
@@ -699,19 +705,71 @@ namespace Content.Server.Kitchen.EntitySystems
             foreach (var reagent in recipe.IngredientsReagents)
             {
                 // TODO Turn recipe.IngredientsReagents into a ReagentQuantity[]
-                if (!reagents.ContainsKey(reagent.Key))
+                var quantity = GetTotalEquivalentQuantity(reagents, reagent.Key);
+
+                if (quantity <= FixedPoint2.Zero)
                     return (recipe, 0);
 
-                if (reagents[reagent.Key] < reagent.Value)
+                if (quantity < reagent.Value)
                     return (recipe, 0);
 
                 portions = portions == 0
-                    ? reagents[reagent.Key].Int() / reagent.Value.Int()
-                    : Math.Min(portions, reagents[reagent.Key].Int() / reagent.Value.Int());
+                    ? quantity.Int() / reagent.Value.Int()
+                    : Math.Min(portions, quantity.Int() / reagent.Value.Int());
             }
 
             //cook only as many of those portions as time allows
             return (recipe, (int) Math.Min(portions, component.CurrentCookTimerTime / recipe.CookTime));
+        }
+
+        private static IEnumerable<string> GetReagentAndAliases(string reagent)
+        {
+            yield return reagent;
+
+            if (!ReagentAliases.TryGetValue(reagent, out var aliases))
+                yield break;
+
+            foreach (var alias in aliases)
+            {
+                yield return alias;
+            }
+        }
+
+        private static FixedPoint2 GetTotalEquivalentQuantity(Dictionary<string, FixedPoint2> reagents, string reagent)
+        {
+            var quantity = FixedPoint2.Zero;
+
+            foreach (var reagentKey in GetReagentAndAliases(reagent))
+            {
+                if (reagents.TryGetValue(reagentKey, out var reagentQuantity))
+                    quantity += reagentQuantity;
+            }
+
+            return quantity;
+        }
+
+        private static FixedPoint2 GetTotalEquivalentQuantity(Solution solution, string reagent)
+        {
+            var quantity = FixedPoint2.Zero;
+
+            foreach (var reagentKey in GetReagentAndAliases(reagent))
+            {
+                quantity += solution.GetTotalPrototypeQuantity(reagentKey);
+            }
+
+            return quantity;
+        }
+
+        private void RemoveEquivalentReagent(Entity<SolutionComponent> solutionEntity, string reagent, FixedPoint2 quantity)
+        {
+            foreach (var reagentKey in GetReagentAndAliases(reagent))
+            {
+                if (quantity <= FixedPoint2.Zero)
+                    return;
+
+                var removed = _solutionContainer.RemoveReagent(solutionEntity, reagentKey, quantity);
+                quantity -= removed;
+            }
         }
 
         public override void Update(float frameTime)

@@ -23,6 +23,7 @@
   - type: Speech
     speechSounds: Lizard
   - type: ArcanAccent
+  - type: ArcanaAuraAbility #Radiant Sector
   - type: Vocal
     sounds:
       Male: MaleHuman
@@ -83,10 +84,10 @@
       udder:
         maxVol: 250
         reagents:
-        - ReagentId: Milk
+        - ReagentId: MilkArcana #Radiant Sector
           Quantity: 30
   - type: Udder
-    reagentId: Milk
+    reagentId: MilkArcana #Radiant Sector
     quantityPerUpdate: 25
     growthDelay: 30
     sexRestriction: Female

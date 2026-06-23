@@ -30,6 +30,36 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
     public TimeSpan EndTime;
 
     /// <summary>
+    ///     Has the emergency rescue sweep already run for this expedition.///Radiant Sector
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public bool RescueStarted;
+
+    /// <summary>
+    ///     How long before expedition end to extract critical or dead players.///Radiant Sector
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public TimeSpan RescueTimeBeforeEnd = TimeSpan.FromMinutes(1);
+
+    /// <summary>
+    ///     Delay before the implanted emergency medicine activates.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public TimeSpan RescueImplantDelay = TimeSpan.FromMinutes(2);
+
+    /// <summary>
+    ///     Emergency pod to use when no empty pod already exists on the shuttle.///Radiant Sector
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public EntProtoId RescuePodPrototype = "MedicalPod";
+
+    /// <summary>
+    ///     Implant injected into rescued players.///Radiant Sector
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public EntProtoId RescueImplantPrototype = "ExpeditionRescueMedicalImplant";
+
+    /// <summary>
     /// Station whose mission this is.
     /// </summary>
     [DataField("station")]

@@ -21,6 +21,18 @@ public sealed partial class UdderComponent : Component
     public ProtoId<ReagentPrototype> ReagentId = new();
 
     /// <summary>
+    ///     Reagents to produce for specific humanoid species.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, ProtoId<ReagentPrototype>> SpeciesReagents = new();
+
+    /// <summary>
+    ///     Humanoid species that cannot produce or be milked.
+    /// </summary>
+    [DataField]
+    public HashSet<string> BlockedSpecies = new();
+
+    /// <summary>
     ///     The name of <see cref="Solution"/>.
     /// </summary>
     [DataField, AutoNetworkedField]

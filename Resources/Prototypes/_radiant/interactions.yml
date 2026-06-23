@@ -297,6 +297,61 @@
   userMessages: ["chat-interaction-massage-shoulder-message"]
   targetMessages: ["chat-interaction-massage-shoulder-message-target"]
 
+- type: interaction
+  id: InteractionBrushCheek
+  arousalPoints: 1
+
+  category: head
+  name: interaction-brush-cheek
+  userMessages: ["chat-interaction-brush-cheek-message"]
+  targetMessages: ["chat-interaction-brush-cheek-message-target"]
+
+- type: interaction
+  id: InteractionWarmSmile
+  arousalPoints: 1
+
+  category: head
+  name: interaction-warm-smile
+  userMessages: ["chat-interaction-warm-smile-message"]
+  targetMessages: ["chat-interaction-warm-smile-message-target"]
+
+- type: interaction
+  id: InteractionSqueezePalm
+  arousalPoints: 1
+
+  category: body
+  name: interaction-squeeze-palm
+  userMessages: ["chat-interaction-squeeze-palm-message"]
+  targetMessages: ["chat-interaction-squeeze-palm-message-target"]
+
+- type: interaction
+  id: InteractionPatBack
+  arousalPoints: 1
+
+  category: body
+  name: interaction-pat-back
+  userMessages: ["chat-interaction-pat-back-message"]
+  targetMessages: ["chat-interaction-pat-back-message-target"]
+  interactSound: /Audio/Effects/thudswoosh.ogg
+
+- type: interaction
+  id: InteractionBoopNose
+  arousalPoints: 1
+
+  category: head
+  name: interaction-boop-nose
+  userMessages: ["chat-interaction-boop-nose-message"]
+  targetMessages: ["chat-interaction-boop-nose-message-target"]
+
+- type: interaction
+  id: InteractionAdjustCollar
+  arousalPoints: 1
+
+  category: body
+  name: interaction-adjust-collar
+  userMessages: ["chat-interaction-adjust-collar-message"]
+  targetMessages: ["chat-interaction-adjust-collar-message-target"]
+
 # Pre-ERP
 - type: interaction
   id: InteractionHug
@@ -425,6 +480,64 @@
   - mask
   blackListSpecies:
   - Resomi
+
+- type: interaction
+  id: InteractionKissHand
+  arousalPoints: 2
+
+  category: body
+  name: interaction-kiss-hand
+  userMessages: ["chat-interaction-kiss-hand-message"]
+  targetMessages: ["chat-interaction-kiss-hand-message-target"]
+  interactSound:
+    collection: Kisses
+
+- type: interaction
+  id: InteractionLeanShoulder
+  arousalPoints: 1
+
+  category: body
+  name: interaction-lean-shoulder
+  userMessages: ["chat-interaction-lean-shoulder-message"]
+  targetMessages: ["chat-interaction-lean-shoulder-message-target"]
+
+- type: interaction
+  id: InteractionTouchShoulder
+  arousalPoints: 2
+
+  category: body
+  name: interaction-touch-shoulder
+  userMessages: ["chat-interaction-touch-shoulder-message"]
+  targetMessages: ["chat-interaction-touch-shoulder-message-target"]
+
+- type: interaction
+  id: InteractionNuzzle
+  arousalPoints: 2
+
+  category: head
+  name: interaction-nuzzle
+  userMessages: ["chat-interaction-nuzzle-message"]
+  targetMessages: ["chat-interaction-nuzzle-message-target"]
+
+- type: interaction
+  parent: BaseTargetHasEars
+  id: InteractionScratchBehindEars
+  arousalPoints: 2
+
+  category: head
+  name: interaction-scratch-behind-ears
+  userMessages: ["chat-interaction-scratch-behind-ears-message"]
+  targetMessages: ["chat-interaction-scratch-behind-ears-message-target"]
+
+- type: interaction
+  parent: BaseTargetHasTail
+  id: InteractionStrokeTailSoft
+  arousalPoints: 2
+
+  category: tail
+  name: interaction-stroke-tail-soft
+  userMessages: ["chat-interaction-stroke-tail-soft-message"]
+  targetMessages: ["chat-interaction-stroke-tail-soft-message-target"]
 
 # Pre-ERP Harder
 - type: interaction
