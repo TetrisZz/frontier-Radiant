@@ -701,3 +701,16 @@
   equipment:
     head: ClothingHeadHatOr
   groupBy: "DonHeadHat"
+
+- type: loadout
+  id: ContractorClothingHeadHatPes
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    head: ClothingHeadHatPes
+  groupBy: "DonHeadHat"

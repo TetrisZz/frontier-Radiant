@@ -258,6 +258,56 @@
   targetMessages: ["chat-interaction-tickles-message-target"]
   interactSound: /Audio/Effects/thudswoosh.ogg
 
+# Solo
+- type: interaction
+  id: InteractionSoloNod
+  solo: true
+  arousalPoints: 1
+
+  category: head
+  name: interaction-solo-nod
+  userMessages: ["chat-interaction-solo-nod-message"]
+
+- type: interaction
+  id: InteractionSoloBow
+  solo: true
+  arousalPoints: 1
+
+  category: body
+  name: interaction-solo-bow
+  userMessages: ["chat-interaction-solo-bow-message"]
+
+- type: interaction
+  id: InteractionSoloWink
+  solo: true
+  arousalPoints: 1
+
+  category: head
+  name: interaction-solo-wink
+  userMessages: ["chat-interaction-solo-wink-message"]
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseFemaleOnly ]
+  id: InteractionSoloVibrator
+  solo: true
+  requiresVibrator: true
+  arousalPoints: 5
+
+  category: groin
+  name: interaction-solo-vibrator
+  userMessages: ["chat-interaction-solo-vibrator-message"]
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseCheckClothingSex, BaseFemaleOnly ]
+  id: InteractionSoloDildo
+  solo: true
+  requiresDildo: true
+  arousalPoints: 5
+
+  category: groin
+  name: interaction-solo-dildo
+  userMessages: ["chat-interaction-solo-dildo-message"]
+
 - type: interaction
   id: InteractionStrokeHead
   arousalPoints: 1
@@ -549,7 +599,7 @@
   userMessages: ["chat-interaction-intimate-touch-message"]
   targetMessages: ["chat-interaction-intimate-touch-message-target"]
   interactSound: /Audio/Effects/thudswoosh.ogg
-  arousalPoints: 1
+  arousalPoints: 3
 
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
@@ -560,7 +610,7 @@
   userMessages: ["chat-interaction-touch-breasts-message-1", "chat-interaction-touch-breasts-message-2"]
   targetMessages: ["chat-interaction-touch-breasts-message-target-1", "chat-interaction-touch-breasts-message-target-2"]
   otherMessages: ["chat-interaction-touch-breasts-message-others-1", "chat-interaction-touch-breasts-message-others-2"]
-  arousalPoints: 1
+  arousalPoints: 3
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -575,7 +625,7 @@
   userMessages: ["chat-interaction-touch-ass-message-1", "chat-interaction-touch-ass-message-2"]
   targetMessages: ["chat-interaction-touch-ass-message-target-1", "chat-interaction-touch-ass-message-target-2"]
   otherMessages: ["chat-interaction-touch-ass-message-others-1", "chat-interaction-touch-ass-message-others-2"]
-  arousalPoints: 1
+  arousalPoints: 3
 
 - type: interaction
   parent: BaseCheckErpStatus
@@ -585,7 +635,7 @@
   name: interaction-brush-lips
   userMessages: ["chat-interaction-brush-lips-message"]
   targetMessages: ["chat-interaction-brush-lips-message-target"]
-  arousalPoints: 1
+  arousalPoints: 3
 
 - type: interaction
   parent: BaseCheckErpStatus
@@ -596,7 +646,7 @@
   userMessages: ["chat-interaction-bite-lips-message"]
   targetMessages: ["chat-interaction-bite-lips-message-target"]
   otherMessages: ["chat-interaction-bite-lips-message-others"]
-  arousalPoints: 1
+  arousalPoints: 3
 
 - type: interaction
   parent: BaseCheckErpStatus
@@ -608,7 +658,7 @@
   targetMessages: ["chat-interaction-pull-close-message-target-1", "chat-interaction-pull-close-message-target-2"]
   otherMessages: ["chat-interaction-pull-close-message-others-1", "chat-interaction-pull-close-message-others-2"]
   interactSound: /Audio/Effects/thudswoosh.ogg
-  arousalPoints: 1
+  arousalPoints: 3
 
 - type: interaction
   parent: BaseCheckErpStatus
@@ -618,7 +668,7 @@
   name: interaction-slow-caress
   userMessages: ["chat-interaction-slow-caress-message"]
   targetMessages: ["chat-interaction-slow-caress-message-target"]
-  arousalPoints: 1
+  arousalPoints: 3
 
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
@@ -626,11 +676,11 @@
 
   category: groin
   name: interaction-slap
-  userMessages: ["chat-interaction-slap-message"]
-  targetMessages: ["chat-interaction-slap-message-target"]
-  otherMessages: ["chat-interaction-slap-message-others"]
+  userMessages: ["chat-interaction-slap-message", "chat-interaction-spank-playful-message"]
+  targetMessages: ["chat-interaction-slap-message-target", "chat-interaction-spank-playful-message-target"]
+  otherMessages: ["chat-interaction-slap-message-others", "chat-interaction-spank-playful-message-others"]
   interactSound: /Audio/_radiant/Interacrtions/woman-slap.ogg
-  arousalPoints: 1
+  arousalPoints: 3
 
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
@@ -658,7 +708,7 @@
   targetMessages: ["chat-interaction-anal-enter-message-target"]
   otherMessages: ["chat-interaction-anal-enter-message-others"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -672,7 +722,7 @@
   targetMessages: ["chat-interaction-trax-anal-message-target-1", "chat-interaction-trax-anal-message-target-2", "chat-interaction-trax-anal-message-target-3"]
   otherMessages: ["chat-interaction-trax-anal-message-others-1", "chat-interaction-trax-anal-message-others-2", "chat-interaction-trax-anal-message-others-3"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -686,7 +736,7 @@
   targetMessages: ["chat-interaction-trax-vag-message-target-1", "chat-interaction-trax-vag-message-target-2", "chat-interaction-trax-vag-message-target-3"]
   otherMessages: ["chat-interaction-trax-vag-message-others-1", "chat-interaction-trax-vag-message-others-2", "chat-interaction-trax-vag-message-others-3"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -700,7 +750,7 @@
   targetMessages: ["chat-interaction-anal-enter-faster-message-target"]
   otherMessages: ["chat-interaction-anal-enter-faster-message-others"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -714,7 +764,7 @@
   targetMessages: ["chat-interaction-vagina-enter-message-target"]
   otherMessages: ["chat-interaction-vagina-enter-message-others"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -730,7 +780,7 @@
   targetMessages: ["chat-interaction-vagina-enter-faster-message-target"]
   otherMessages: ["chat-interaction-vagina-enter-faster-message-others"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 5
+  arousalPoints: 6
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -745,7 +795,7 @@
   userMessages: ["chat-interaction-touch-dick-message-1", "chat-interaction-touch-dick-message-2"]
   targetMessages: ["chat-interaction-touch-dick-message-target-1", "chat-interaction-touch-dick-message-target-2"]
   otherMessages: ["chat-interaction-touch-dick-message-others-1", "chat-interaction-touch-dick-message-others-2"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -761,7 +811,7 @@
   targetMessages: ["chat-interaction-lick-dick-message-target"]
   otherMessages: ["chat-interaction-lick-dick-message-others"]
   interactSound: /Audio/_radiant/Interacrtions/lick.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -776,7 +826,7 @@
   userMessages: ["chat-interaction-kiss-dick-message-1", "chat-interaction-kiss-dick-message-2"]
   targetMessages: ["chat-interaction-kiss-dick-message-target-1", "chat-interaction-kiss-dick-message-target-2"]
   otherMessages: ["chat-interaction-kiss-dick-message-others-1", "chat-interaction-kiss-dick-message-others-2"]
-  arousalPoints: 3
+  arousalPoints: 4
   interactSound:
     collection: Kisses
   nearestAllowedGenders:
@@ -794,7 +844,7 @@
   targetMessages: ["chat-interaction-term-dick-message-target-1", "chat-interaction-term-dick-message-target-2"]
   otherMessages: ["chat-interaction-term-dick-message-others-1", "chat-interaction-term-dick-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 3
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -809,7 +859,7 @@
   userMessages: ["chat-interaction-masturbate-dick-message"]
   targetMessages: ["chat-interaction-masturbate-dick-message-target"]
   otherMessages: ["chat-interaction-masturbate-dick-message-others"]
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -825,7 +875,7 @@
   targetMessages: ["chat-interaction-suck-dick-message-target-1", "chat-interaction-suck-dick-message-target-2", "chat-interaction-suck-dick-message-target-3"]
   otherMessages: ["chat-interaction-suck-dick-message-others-1", "chat-interaction-suck-dick-message-others-2", "chat-interaction-suck-dick-message-others-3"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -840,7 +890,7 @@
   userMessages: ["chat-interaction-leg-dick-message-1", "chat-interaction-leg-dick-message-2", "chat-interaction-leg-dick-message-3"]
   targetMessages: ["chat-interaction-leg-dick-message-target-1", "chat-interaction-leg-dick-message-target-2", "chat-interaction-leg-dick-message-target-3"]
   otherMessages: ["chat-interaction-leg-dick-message-others-1", "chat-interaction-leg-dick-message-others-2", "chat-interaction-leg-dick-message-others-3"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -855,7 +905,7 @@
   userMessages: ["chat-interaction-slow-thrust-message"]
   targetMessages: ["chat-interaction-slow-thrust-message-target"]
   interactSound: /Audio/_radiant/Interacrtions/slaps.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -868,7 +918,7 @@
   userMessages: ["chat-interaction-fast-thrust-message"]
   targetMessages: ["chat-interaction-fast-thrust-message-target"]
   interactSound: /Audio/_radiant/Interacrtions/slaps.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -881,7 +931,7 @@
   userMessages: ["chat-interaction-deep-thrust-message"]
   targetMessages: ["chat-interaction-deep-thrust-message-target"]
   interactSound: /Audio/_radiant/Interacrtions/slaps.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -895,7 +945,7 @@
   targetMessages: ["chat-interaction-lick-anal-message-target"]
   otherMessages: ["chat-interaction-lick-anal-message-others"]
   interactSound: /Audio/_radiant/Interacrtions/lick.ogg
-  arousalPoints: 2
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -909,7 +959,7 @@
   targetMessages: ["chat-interaction-rubbing-dick-vagina-message-target-1", "chat-interaction-rubbing-dick-vagina-message-target-2"]
   otherMessages: ["chat-interaction-rubbing-dick-vagina-message-others-1", "chat-interaction-rubbing-dick-vagina-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -925,7 +975,7 @@
   targetMessages: ["chat-interaction-rubbing-vagina-dick-message-target-1", "chat-interaction-rubbing-vagina-dick-message-target-2"]
   otherMessages: ["chat-interaction-rubbing-vagina-dick-message-others-1", "chat-interaction-rubbing-vagina-dick-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -941,7 +991,7 @@
   targetMessages: ["chat-interaction-female-ride-dick-anal-message-target-1", "chat-interaction-female-ride-dick-anal-message-target-2"]
   otherMessages: ["chat-interaction-female-ride-dick-anal-message-others-1", "chat-interaction-female-ride-dick-anal-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/slaps.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -957,7 +1007,7 @@
   targetMessages: ["chat-interaction-female-ride-dick-vagina-message-target-1", "chat-interaction-female-ride-dick-vagina-message-target-2"]
   otherMessages: ["chat-interaction-female-ride-dick-vagina-message-others-1", "chat-interaction-female-ride-dick-vagina-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/slaps.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -972,7 +1022,7 @@
   userMessages: ["chat-interaction-rubbing-vagina-vagina-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-vagina-message-target"]
   otherMessages: ["chat-interaction-rubbing-vagina-vagina-message-others"]
-  arousalPoints: 1
+  arousalPoints: 3
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -988,7 +1038,7 @@
   targetMessages: ["chat-interaction-trax-minet-message-target-1", "chat-interaction-trax-minet-message-target-2", "chat-interaction-trax-minet-message-target-3"]
   otherMessages: ["chat-interaction-trax-minet-message-others-1", "chat-interaction-trax-minet-message-others-2", "chat-interaction-trax-minet-message-others-3"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -1002,7 +1052,7 @@
   targetMessages: ["chat-interaction-trax-sis-message-target-1", "chat-interaction-trax-sis-message-target-2", "chat-interaction-trax-sis-message-target-3"]
   otherMessages: ["chat-interaction-trax-sis-message-others-1", "chat-interaction-trax-sis-message-others-2", "chat-interaction-trax-sis-message-others-3"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 4
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -1015,7 +1065,7 @@
   userMessages: ["chat-interaction-rubbing-vagina-hand-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-hand-message-target"]
   otherMessages: ["chat-interaction-rubbing-vagina-hand-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -1028,7 +1078,7 @@
   userMessages: ["chat-interaction-rubbing-vagina-leg-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-leg-message-target"]
   otherMessages: ["chat-interaction-rubbing-vagina-leg-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -1042,7 +1092,7 @@
   targetMessages: ["chat-interaction-cunnilingus-slowly-message-target-1", "chat-interaction-cunnilingus-slowly-message-target-2"]
   otherMessages: ["chat-interaction-cunnilingus-slowly-message-others-1", "chat-interaction-cunnilingus-slowly-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/lick.ogg
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1058,7 +1108,7 @@
   targetMessages: ["chat-interaction-cunnilingus-faster-message-target"]
   otherMessages: ["chat-interaction-cunnilingus-faster-message-others"]
   interactSound: /Audio/_radiant/Interacrtions/lick.ogg
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1073,7 +1123,7 @@
   userMessages: ["chat-interaction-clitoris-message-1", "chat-interaction-clitoris-message-2"]
   targetMessages: ["chat-interaction-clitoris-message-target-1", "chat-interaction-clitoris-message-target-2"]
   otherMessages: ["chat-interaction-clitoris-message-others-1", "chat-interaction-clitoris-message-others-2"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1087,7 +1137,7 @@
   name: interaction-massage-vagina
   userMessages: ["chat-interaction-massage-vagina-message-1", "chat-interaction-massage-vagina-message-2"]
   targetMessages: ["chat-interaction-massage-vagina-message-target-1", "chat-interaction-massage-vagina-message-target-2"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedSpecies:
   - Human
   - Dwarf
@@ -1112,7 +1162,7 @@
   targetMessages: ["chat-interaction-face-breasts-message-target"]
   otherMessages: ["chat-interaction-face-breasts-message-others"]
   interactSound: /Audio/Effects/thudswoosh.ogg
-  arousalPoints: 1
+  arousalPoints: 3
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1128,7 +1178,7 @@
   targetMessages: ["chat-interaction-lick-breasts-message-target-1", "chat-interaction-lick-breasts-message-target-2"]
   otherMessages: ["chat-interaction-lick-breasts-message-others-1", "chat-interaction-lick-breasts-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/lick.ogg
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1144,7 +1194,7 @@
   targetMessages: ["chat-interaction-trax-breasts-message-target-1", "chat-interaction-trax-breasts-message-target-2", "chat-interaction-trax-breasts-message-target-2"]
   otherMessages: ["chat-interaction-trax-breasts-message-others-1", "chat-interaction-trax-breasts-message-others-2", "chat-interaction-trax-breasts-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/suck.ogg
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1159,7 +1209,7 @@
   userMessages: ["chat-interaction-bite-breasts-message-1", "chat-interaction-bite-breasts-message-2"]
   targetMessages: ["chat-interaction-bite-breasts-message-target-1", "chat-interaction-bite-breasts-message-target-2"]
   otherMessages: ["chat-interaction-bite-breasts-message-others-1", "chat-interaction-bite-breasts-message-others-2"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1174,7 +1224,7 @@
   userMessages: ["chat-interaction-touch-nippels-message-1", "chat-interaction-touch-nippels-message-2"]
   targetMessages: ["chat-interaction-touch-nippels-message-target-1", "chat-interaction-touch-nippels-message-target-2"]
   otherMessages: ["chat-interaction-touch-nippels-message-others-1", "chat-interaction-touch-nippels-message-others-2"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1190,7 +1240,7 @@
   targetMessages: ["chat-interaction-lick-nippels-message-target-1", "chat-interaction-lick-nippels-message-target-2"]
   otherMessages: ["chat-interaction-lick-nippels-message-others-1", "chat-interaction-lick-nippels-message-others-2"]
   interactSound: /Audio/_radiant/Interacrtions/lick.ogg
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1206,12 +1256,12 @@
   targetMessages: ["chat-interaction-rough-grip-message-target"]
   otherMessages: ["chat-interaction-rough-grip-message-others"]
   interactSound: /Audio/Effects/thudswoosh.ogg
-  arousalPoints: 2
+  arousalPoints: 5
 
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionChokeLightly
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: head
   name: interaction-choke-lightly
@@ -1222,7 +1272,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionBiteRough
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: body
   name: interaction-bite-rough
@@ -1236,7 +1286,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionScratchBack
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: body
   name: interaction-scratch-back
@@ -1250,7 +1300,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionBiteLip
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: lips
   name: interaction-bite-lip
@@ -1309,7 +1359,7 @@
   userMessages: ["chat-interaction-vox-enter-slowly-message"]
   targetMessages: ["chat-interaction-vox-enter-slowly-message-target"]
   otherMessages: ["chat-interaction-vox-enter-slowly-message-others"]
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedSpecies:
   - Vox
 
@@ -1322,14 +1372,14 @@
   userMessages: ["chat-interaction-vox-enter-faster-message"]
   targetMessages: ["chat-interaction-vox-enter-faster-message-target"]
   otherMessages: ["chat-interaction-vox-enter-faster-message-others"]
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedSpecies:
   - Vox
 
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
   id: InteractionRubbingVaginaVox
-  arousalPoints: 4
+  arousalPoints: 5
 
   category: groin
   name: interaction-rubbing-vagina-vox
@@ -1344,7 +1394,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionTouchFilament
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: body
   name: interaction-touch-filament
@@ -1363,7 +1413,7 @@
   userMessages: ["chat-interaction-enter-slowly-filament-message"]
   targetMessages: ["chat-interaction-enter-slowly-filament-message-target"]
   otherMessages: ["chat-interaction-enter-slowly-filament-message-others"]
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedSpecies:
   - Arachnid
 
@@ -1376,7 +1426,7 @@
   userMessages: ["chat-interaction-enter-faster-filament-message"]
   targetMessages: ["chat-interaction-enter-faster-filament-message-target"]
   otherMessages: ["chat-interaction-enter-faster-filament-message-others"]
-  arousalPoints: 4
+  arousalPoints: 5
   nearestAllowedSpecies:
   - Arachnid
 
@@ -1464,7 +1514,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasTail ]
   id: InteractionLickTail
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: tail
   name: interaction-lick-tail
@@ -1476,7 +1526,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasTail ]
   id: InteractionEatTail
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: tail
   name: interaction-eat-tail
@@ -1493,7 +1543,7 @@
   userMessages: ["chat-interaction-holds-dick-tail-message"]
   targetMessages: ["chat-interaction-holds-dick-tail-message-target"]
   otherMessages: ["chat-interaction-holds-dick-tail-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -1508,7 +1558,7 @@
   userMessages: ["chat-interaction-rubbing-vagina-tail-message"]
   targetMessages: ["chat-interaction-rubbing-vagina-tail-message-target"]
   otherMessages: ["chat-interaction-rubbing-vagina-tail-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1523,7 +1573,7 @@
   userMessages: ["chat-interaction-insert-tail-vox-message"]
   targetMessages: ["chat-interaction-insert-tail-vox-message-target"]
   otherMessages: ["chat-interaction-insert-tail-vox-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedSpecies:
   - Vox
 
@@ -1536,7 +1586,7 @@
   userMessages: ["chat-interaction-insert-tail-anal-message"]
   targetMessages: ["chat-interaction-insert-tail-anal-message-target"]
   otherMessages: ["chat-interaction-insert-tail-anal-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   blackListSpecies:
   - Resomi
 
@@ -1549,7 +1599,7 @@
   userMessages: ["chat-interaction-insert-tail-vagina-message"]
   targetMessages: ["chat-interaction-insert-tail-vagina-message-target"]
   otherMessages: ["chat-interaction-insert-tail-vagina-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1564,7 +1614,7 @@
   userMessages: ["chat-interaction-runs-tail-vagina-message"]
   targetMessages: ["chat-interaction-runs-tail-vagina-message-target"]
   otherMessages: ["chat-interaction-runs-tail-vagina-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Female
   blackListSpecies:
@@ -1579,7 +1629,7 @@
   userMessages: ["chat-interaction-massage-tail-dick-message"]
   targetMessages: ["chat-interaction-massage-tail-dick-message-target"]
   otherMessages: ["chat-interaction-massage-tail-dick-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -1594,7 +1644,7 @@
   userMessages: ["chat-interaction-hugs-tail-dick-message"]
   targetMessages: ["chat-interaction-hugs-tail-dick-message-target"]
   otherMessages: ["chat-interaction-hugs-tail-dick-message-others"]
-  arousalPoints: 1
+  arousalPoints: 3
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -1609,7 +1659,7 @@
   userMessages: ["chat-interaction-hugs-taill-dick-message"]
   targetMessages: ["chat-interaction-hugs-taill-dick-message-target"]
   otherMessages: ["chat-interaction-hugs-taill-dick-message-others"]
-  arousalPoints: 1
+  arousalPoints: 3
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -1624,7 +1674,7 @@
   userMessages: ["chat-interaction-hugs-slime-dick-message"]
   targetMessages: ["chat-interaction-hugs-slime-dick-message-target"]
   otherMessages: ["chat-interaction-hugs-slime-dick-message-others"]
-  arousalPoints: 1
+  arousalPoints: 3
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -1639,7 +1689,7 @@
   userMessages: ["chat-interaction-fondle-slime-dick-message"]
   targetMessages: ["chat-interaction-fondle-slime-dick-message-target"]
   otherMessages: ["chat-interaction-fondle-slime-dick-message-others"]
-  arousalPoints: 2
+  arousalPoints: 5
   nearestAllowedGenders:
   - Male
   blackListSpecies:
@@ -1666,14 +1716,14 @@
   userMessages: ["chat-interaction-kiss-ears-message"]
   targetMessages: ["chat-interaction-kiss-ears-message-target"]
   otherMessages: ["chat-interaction-kiss-ears-message-others"]
-  arousalPoints: 1
+  arousalPoints: 3
   interactSound:
     collection: Kisses
 
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars, BaseHumanoid ]
   id: InteractionLickEars
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: head
   name: interaction-lick-ears
@@ -1685,7 +1735,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
   id: InteractionBiteEars
-  arousalPoints: 2
+  arousalPoints: 5
 
   category: head
   name: interaction-bite-ears
@@ -1697,7 +1747,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal ]
   id: InteractionStraponEnterAnalSlowly
-  arousalPoints: 4
+  arousalPoints: 5
 
   category: groin
   name: interaction-strapon-enter-anal-slowly
@@ -1720,7 +1770,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal ]
   id: InteractionStraponEnterAnalFaster
-  arousalPoints: 4
+  arousalPoints: 5
 
   category: groin
   name: interaction-strapon-enter-anal-faster
@@ -1743,7 +1793,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex ]
   id: InteractionStraponEnterVaginaSlowly
-  arousalPoints: 4
+  arousalPoints: 5
 
   category: groin
   name: interaction-strapon-enter-vagina-slowly
@@ -1768,7 +1818,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingSex ]
   id: InteractionStraponEnterVaginaFaster
-  arousalPoints: 4
+  arousalPoints: 5
 
   category: groin
   name: interaction-strapon-enter-vagina-faster
@@ -1793,7 +1843,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionStraponEnterVoxSlowly
-  arousalPoints: 4
+  arousalPoints: 5
 
   category: groin
   name: interaction-strapon-enter-vox-slowly
@@ -1807,7 +1857,7 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionStraponEnterVoxFaster
-  arousalPoints: 4
+  arousalPoints: 5
 
   category: groin
   name: interaction-strapon-enter-vox-faster

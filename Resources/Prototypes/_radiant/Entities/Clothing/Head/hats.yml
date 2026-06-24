@@ -258,3 +258,18 @@
     tags:
     - ClothMade
     - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPes
+  name: берет 
+  description: Вроде ничего необычного?
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/b_set_pes.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/b_set_pes.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable

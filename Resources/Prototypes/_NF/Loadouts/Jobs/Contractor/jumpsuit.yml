@@ -2217,3 +2217,16 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSuitrMercRS
   groupBy: "DonJumpsuits"
+
+- type: loadout
+  id: ContractorClothingUniformJumpskirtSetDonMerc
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSetDonMerc
+  groupBy: "DonJumpsuits"

@@ -459,3 +459,14 @@
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/set.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpskirt/set.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSetDonMerc
+  name: юбка-комбинезон
+  description: Удобная юбка-комбинезон, вроде даже всё прикрывает.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/merc.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/merc.rsi
