@@ -4,8 +4,8 @@
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     x:Class="Content.Client.Interaction.Panel.Ui.InteractionPanelMenu"
     Title="{Loc 'interaction-ui-default-title'}"
-    MinSize="512 540"
-    SetSize="512 540">
+    MinSize="512 720"
+    SetSize="512 720">
 
     <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="4">
         <!-- Верхний блок информации -->
@@ -26,6 +26,9 @@
             </ProgressBar>
             <CheckBox Name="HideFromOthersCheckBox"
                       Text="Скрыть от окружающих (видим только мы)"
+                      Margin="0, 4, 0, 0"/>
+            <CheckBox Name="SoloModeCheckBox"
+                      Text="{Loc 'interaction-panel-solo-mode'}"
                       Margin="0, 4, 0, 0"/>
         </BoxContainer>
 

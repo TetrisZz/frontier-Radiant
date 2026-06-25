@@ -13,7 +13,7 @@ public sealed partial class ArousalComponent : Component
     public float MaxArousal = 44f;
 
     [DataField, AutoNetworkedField]
-    public float DecayPerSecond = 0.3f;
+    public float DecayPerSecond = 0.18f;
 
     [DataField, AutoNetworkedField]
     public TimeSpan ClimaxCooldown = TimeSpan.FromSeconds(8);

@@ -1,0 +1,528 @@
+# Additional interaction panel emotes (interactions_extra.yml)
+
+# Casual pair
+- type: interaction
+  id: InteractionPinchCheek
+  category: head
+  name: interaction-pinch-cheek
+  arousalPoints: 2
+  userMessages: ["chat-interaction-pinch-cheek-message"]
+  targetMessages: ["chat-interaction-pinch-cheek-message-target"]
+
+- type: interaction
+  id: InteractionHeadOnShoulder
+  category: body
+  name: interaction-head-on-shoulder
+  arousalPoints: 2
+  userMessages: ["chat-interaction-head-on-shoulder-message"]
+  targetMessages: ["chat-interaction-head-on-shoulder-message-target"]
+  interactSound: /Audio/Effects/thudswoosh.ogg
+
+- type: interaction
+  id: InteractionIntertwineFingers
+  category: body
+  name: interaction-intertwine-fingers
+  arousalPoints: 2
+  userMessages: ["chat-interaction-intertwine-fingers-message"]
+  targetMessages: ["chat-interaction-intertwine-fingers-message-target"]
+
+# Casual solo
+- type: interaction
+  id: InteractionSoloStretch
+  solo: true
+  category: body
+  name: interaction-solo-stretch
+  userMessages: ["chat-interaction-solo-stretch-message"]
+
+- type: interaction
+  id: InteractionSoloYawn
+  solo: true
+  category: head
+  name: interaction-solo-yawn
+  userMessages: ["chat-interaction-solo-yawn-message"]
+
+- type: interaction
+  id: InteractionSoloSigh
+  solo: true
+  category: head
+  name: interaction-solo-sigh
+  userMessages: ["chat-interaction-solo-sigh-message"]
+
+- type: interaction
+  id: InteractionSoloSmile
+  solo: true
+  category: head
+  name: interaction-solo-smile
+  userMessages: ["chat-interaction-solo-smile-message"]
+
+- type: interaction
+  id: InteractionSoloCrossArms
+  solo: true
+  category: body
+  name: interaction-solo-cross-arms
+  userMessages: ["chat-interaction-solo-cross-arms-message"]
+
+- type: interaction
+  id: InteractionSoloFacepalm
+  solo: true
+  category: head
+  name: interaction-solo-facepalm
+  userMessages: ["chat-interaction-solo-facepalm-message"]
+
+- type: interaction
+  id: InteractionSoloThink
+  solo: true
+  category: head
+  name: interaction-solo-think
+  userMessages: ["chat-interaction-solo-think-message"]
+
+- type: interaction
+  id: InteractionSoloLaugh
+  solo: true
+  category: head
+  name: interaction-solo-laugh
+  userMessages: ["chat-interaction-solo-laugh-message"]
+
+- type: interaction
+  id: InteractionSoloDance
+  solo: true
+  category: body
+  name: interaction-solo-dance
+  userMessages: ["chat-interaction-solo-dance-message"]
+
+- type: interaction
+  id: InteractionSoloSalute
+  solo: true
+  category: body
+  name: interaction-solo-salute
+  userMessages: ["chat-interaction-solo-salute-message"]
+
+- type: interaction
+  id: InteractionSoloWave
+  solo: true
+  category: body
+  name: interaction-solo-wave
+  userMessages: ["chat-interaction-solo-wave-message"]
+
+- type: interaction
+  id: InteractionSoloShrug
+  solo: true
+  category: body
+  name: interaction-solo-shrug
+  userMessages: ["chat-interaction-solo-shrug-message"]
+
+# ERP solo
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSoloBlush
+  solo: true
+  category: head
+  name: interaction-solo-blush
+  arousalPoints: 1
+  userMessages: ["chat-interaction-solo-blush-message"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSoloBiteLip
+  solo: true
+  category: lips
+  name: interaction-solo-bite-lip
+  arousalPoints: 1
+  userMessages: ["chat-interaction-solo-bite-lip-message"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSoloCaressSelf
+  solo: true
+  category: body
+  name: interaction-solo-caress-self
+  arousalPoints: 1
+  userMessages: ["chat-interaction-solo-caress-self-message"]
+
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
+  id: InteractionSoloTouchChest
+  solo: true
+  category: chest
+  name: interaction-solo-touch-chest
+  arousalPoints: 1
+  userMessages: ["chat-interaction-solo-touch-chest-message"]
+
+# ERP pair
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionMarkNeck
+  category: head
+  name: interaction-mark-neck
+  arousalPoints: 1
+  userMessages: ["chat-interaction-mark-neck-message"]
+  targetMessages: ["chat-interaction-mark-neck-message-target"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionDeepKiss
+  category: lips
+  name: interaction-deep-kiss
+  arousalPoints: 2
+  userMessages: ["chat-interaction-deep-kiss-message"]
+  targetMessages: ["chat-interaction-deep-kiss-message-target"]
+  interactSound:
+    collection: Kisses
+  requiredClothingSlots:
+  - mask
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionGropeWaist
+  category: body
+  name: interaction-grope-waist
+  arousalPoints: 2
+  userMessages: ["chat-interaction-grope-waist-message"]
+  targetMessages: ["chat-interaction-grope-waist-message-target"]
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseHumanoid ]
+  id: InteractionTeaseNipple
+  category: chest
+  name: interaction-tease-nipple
+  arousalPoints: 2
+  userMessages: ["chat-interaction-tease-nipple-message"]
+  targetMessages: ["chat-interaction-tease-nipple-message-target"]
+  nearestAllowedGenders:
+  - Female
+  blackListSpecies:
+  - Resomi
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionRubThigh
+  category: body
+  name: interaction-rub-thigh
+  arousalPoints: 2
+  userMessages: ["chat-interaction-rub-thigh-message"]
+  targetMessages: ["chat-interaction-rub-thigh-message-target"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionTongueKiss
+  category: lips
+  name: interaction-tongue-kiss
+  arousalPoints: 3
+  userMessages: ["chat-interaction-tongue-kiss-message"]
+  targetMessages: ["chat-interaction-tongue-kiss-message-target"]
+  interactSound:
+    collection: Kisses
+  requiredClothingSlots:
+  - mask
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseHumanoid ]
+  id: InteractionPinWalls
+  category: body
+  name: interaction-pin-walls
+  arousalPoints: 3
+  userMessages: ["chat-interaction-pin-walls-message"]
+  targetMessages: ["chat-interaction-pin-walls-message-target"]
+  otherMessages: ["chat-interaction-pin-walls-message-others"]
+  interactSound: /Audio/Effects/thudswoosh.ogg
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseHumanoid ]
+  id: InteractionBiteShoulder
+  category: body
+  name: interaction-bite-shoulder
+  arousalPoints: 3
+  userMessages: ["chat-interaction-bite-shoulder-message"]
+  targetMessages: ["chat-interaction-bite-shoulder-message-target"]
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseCheckClothing ]
+  id: InteractionUnbuttonShirt
+  category: body
+  name: interaction-unbutton-shirt
+  arousalPoints: 3
+  userMessages: ["chat-interaction-unbutton-shirt-message"]
+  targetMessages: ["chat-interaction-unbutton-shirt-message-target"]
+
+# ERP solo (extra)
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSoloArchBack
+  solo: true
+  category: body
+  name: interaction-solo-arch-back
+  arousalPoints: 3
+  userMessages: ["chat-interaction-solo-arch-back-message"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSoloSlideHandDown
+  solo: true
+  category: body
+  name: interaction-solo-slide-hand-down
+  arousalPoints: 4
+  userMessages: ["chat-interaction-solo-slide-hand-down-message"]
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseUserHasTail ]
+  id: InteractionSoloTailLift
+  solo: true
+  category: tail
+  name: interaction-solo-tail-lift
+  arousalPoints: 4
+  userMessages: ["chat-interaction-solo-tail-lift-message"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSoloVulpPresentNeck
+  solo: true
+  category: head
+  name: interaction-solo-vulp-present-neck
+  arousalPoints: 3
+  userMessages: ["chat-interaction-solo-vulp-present-neck-message"]
+  allowedSpecies:
+  - Vulpkanin
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSoloTajaranRollOver
+  solo: true
+  category: body
+  name: interaction-solo-tajaran-roll-over
+  arousalPoints: 3
+  userMessages: ["chat-interaction-solo-tajaran-roll-over-message"]
+  allowedSpecies:
+  - Tajaran
+
+# ERP pair (extra)
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionGrabHips
+  category: body
+  name: interaction-grab-hips
+  arousalPoints: 3
+  userMessages: ["chat-interaction-grab-hips-message"]
+  targetMessages: ["chat-interaction-grab-hips-message-target"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionKissCollarbone
+  category: head
+  name: interaction-kiss-collarbone
+  arousalPoints: 3
+  userMessages: ["chat-interaction-kiss-collarbone-message"]
+  targetMessages: ["chat-interaction-kiss-collarbone-message-target"]
+  interactSound:
+    collection: Kisses
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSqueezeInnerThigh
+  category: body
+  name: interaction-squeeze-inner-thigh
+  arousalPoints: 4
+  userMessages: ["chat-interaction-squeeze-inner-thigh-message"]
+  targetMessages: ["chat-interaction-squeeze-inner-thigh-message-target"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionLiftChin
+  category: head
+  name: interaction-lift-chin
+  arousalPoints: 3
+  userMessages: ["chat-interaction-lift-chin-message"]
+  targetMessages: ["chat-interaction-lift-chin-message-target"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionGrindAgainst
+  category: body
+  name: interaction-grind-against
+  arousalPoints: 4
+  userMessages: ["chat-interaction-grind-against-message"]
+  targetMessages: ["chat-interaction-grind-against-message-target"]
+  otherMessages: ["chat-interaction-grind-against-message-others"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionSlideHandUnder
+  category: body
+  name: interaction-slide-hand-under
+  arousalPoints: 4
+  userMessages: ["chat-interaction-slide-hand-under-message"]
+  targetMessages: ["chat-interaction-slide-hand-under-message-target"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionBitePartnerLip
+  category: lips
+  name: interaction-bite-partner-lip
+  arousalPoints: 4
+  userMessages: ["chat-interaction-bite-partner-lip-message"]
+  targetMessages: ["chat-interaction-bite-partner-lip-message-target"]
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionKissDownNeck
+  category: head
+  name: interaction-kiss-down-neck
+  arousalPoints: 4
+  userMessages: ["chat-interaction-kiss-down-neck-message"]
+  targetMessages: ["chat-interaction-kiss-down-neck-message-target"]
+  interactSound:
+    collection: Kisses
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
+  id: InteractionGropeBreastOver
+  category: chest
+  name: interaction-grope-breast-over
+  arousalPoints: 4
+  userMessages: ["chat-interaction-grope-breast-over-message"]
+  targetMessages: ["chat-interaction-grope-breast-over-message-target"]
+  nearestAllowedGenders:
+  - Female
+  blackListSpecies:
+  - Resomi
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseHumanoid ]
+  id: InteractionPullByHair
+  category: head
+  name: interaction-pull-by-hair
+  arousalPoints: 4
+  userMessages: ["chat-interaction-pull-by-hair-message"]
+  targetMessages: ["chat-interaction-pull-by-hair-message-target"]
+  allowedSpecies:
+  - Human
+  - Dwarf
+  - Felinid
+  - SlimePerson
+  - Vulpkanin
+  - Tajaran
+
+# Vulpkanin ERP
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionVulpkaninBiteScruff
+  category: head
+  name: interaction-vulpkanin-bite-scruff
+  arousalPoints: 4
+  userMessages: ["chat-interaction-vulpkanin-bite-scruff-message"]
+  targetMessages: ["chat-interaction-vulpkanin-bite-scruff-message-target"]
+  nearestAllowedSpecies:
+  - Vulpkanin
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionVulpkaninLickMuzzle
+  category: lips
+  name: interaction-vulpkanin-lick-muzzle
+  arousalPoints: 4
+  userMessages: ["chat-interaction-vulpkanin-lick-muzzle-message"]
+  targetMessages: ["chat-interaction-vulpkanin-lick-muzzle-message-target"]
+  interactSound: /Audio/_radiant/Interacrtions/lick.ogg
+  nearestAllowedSpecies:
+  - Vulpkanin
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionVulpkaninSniffNeck
+  category: head
+  name: interaction-vulpkanin-sniff-neck
+  arousalPoints: 3
+  userMessages: ["chat-interaction-vulpkanin-sniff-neck-message"]
+  targetMessages: ["chat-interaction-vulpkanin-sniff-neck-message-target"]
+  nearestAllowedSpecies:
+  - Vulpkanin
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseUserHasTail ]
+  id: InteractionVulpkaninTailWrap
+  category: tail
+  name: interaction-vulpkanin-tail-wrap
+  arousalPoints: 4
+  userMessages: ["chat-interaction-vulpkanin-tail-wrap-message"]
+  targetMessages: ["chat-interaction-vulpkanin-tail-wrap-message-target"]
+  allowedSpecies:
+  - Vulpkanin
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
+  id: InteractionVulpkaninNibbleEar
+  category: head
+  name: interaction-vulpkanin-nibble-ear
+  arousalPoints: 4
+  userMessages: ["chat-interaction-vulpkanin-nibble-ear-message"]
+  targetMessages: ["chat-interaction-vulpkanin-nibble-ear-message-target"]
+  nearestAllowedSpecies:
+  - Vulpkanin
+
+# Tajaran ERP
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionTajaranKnead
+  category: body
+  name: interaction-tajaran-knead
+  arousalPoints: 4
+  userMessages: ["chat-interaction-tajaran-knead-message"]
+  targetMessages: ["chat-interaction-tajaran-knead-message-target"]
+  nearestAllowedSpecies:
+  - Tajaran
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionTajaranBiteNape
+  category: head
+  name: interaction-tajaran-bite-nape
+  arousalPoints: 4
+  userMessages: ["chat-interaction-tajaran-bite-nape-message"]
+  targetMessages: ["chat-interaction-tajaran-bite-nape-message-target"]
+  nearestAllowedSpecies:
+  - Tajaran
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionTajaranRubCheek
+  category: head
+  name: interaction-tajaran-rub-cheek
+  arousalPoints: 3
+  userMessages: ["chat-interaction-tajaran-rub-cheek-message"]
+  targetMessages: ["chat-interaction-tajaran-rub-cheek-message-target"]
+  allowedSpecies:
+  - Tajaran
+  nearestAllowedSpecies:
+  - Tajaran
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseTargetHasTail ]
+  id: InteractionTajaranTailEntwine
+  category: tail
+  name: interaction-tajaran-tail-entwine
+  arousalPoints: 4
+  userMessages: ["chat-interaction-tajaran-tail-entwine-message"]
+  targetMessages: ["chat-interaction-tajaran-tail-entwine-message-target"]
+  nearestAllowedSpecies:
+  - Tajaran
+
+- type: interaction
+  parent: BaseCheckErpStatus
+  id: InteractionTajaranScratchBack
+  category: body
+  name: interaction-tajaran-scratch-back
+  arousalPoints: 4
+  userMessages: ["chat-interaction-tajaran-scratch-back-message"]
+  targetMessages: ["chat-interaction-tajaran-scratch-back-message-target"]
+  nearestAllowedSpecies:
+  - Tajaran
+
+- type: interaction
+  parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
+  id: InteractionTajaranGroomNeck
+  category: head
+  name: interaction-tajaran-groom-neck
+  arousalPoints: 3
+  userMessages: ["chat-interaction-tajaran-groom-neck-message"]
+  targetMessages: ["chat-interaction-tajaran-groom-neck-message-target"]
+  nearestAllowedSpecies:
+  - Tajaran

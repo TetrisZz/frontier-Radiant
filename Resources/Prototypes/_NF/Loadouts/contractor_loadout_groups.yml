@@ -237,6 +237,7 @@
   - ContractorClothingUniformJumpskirtSetDon #Radiant Sector
   - ContractorClothingUniformJumpsuitSetDon #Radiant Sector
   - ContractorClothingUniformJumpsuitSuitrMercRS #Radiant Sector
+  - ContractorClothingUniformJumpskirtSetDonMerc #Radiant Sector
   fallbacks:
   - ContractorClothingUniformJumpsuitColorGrey
   - ContractorClothingUniformJumpskirtColorGrey
@@ -503,6 +504,7 @@
   - ContractorClothingShoesBootsCombatLongBlue #Radiant Sector
   - ContractorClothingShoesBootsCombatLongRed #Radiant Sector
   - ContractorClothingShoesBootsCombatLongOr #Radiant Sector
+  - ContractorClothingShoesBootsCombatLongPes #Radiant Sector
   - ContractorClothingShoesBootsWinterChem
   - ContractorClothingShoesBootsWinterEngi
   - ContractorClothingShoesBootsWinterGenetics
@@ -598,6 +600,7 @@
   - ContractorClothingHeadHatOr #Radiant Sector
   - ContractorClothingHeadHatRed #Radiant Sector
   - ContractorClothingHeadHatBlue #Radiant Sector
+  - ContractorClothingHeadHatPes #Radiant Sector
   - ContractorClothingHeadSafari
   - ContractorClothingHeadHatJester
   - ContractorClothingHeadHatJesterAlt

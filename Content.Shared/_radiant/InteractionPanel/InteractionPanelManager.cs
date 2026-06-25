@@ -140,6 +140,16 @@ public sealed class InteractionPanelManager : IPostInjectInit
         mapping.Add("id", new ValueDataNode(prototype.ID));
         mapping.Add("name", new ValueDataNode(prototype.Name));
         mapping.Add("erp", new ValueDataNode(prototype.ERP.ToString().ToLower()));
+        mapping.Add("solo", new ValueDataNode(prototype.Solo.ToString().ToLower()));
+
+        if (prototype.RequiresStrapon)
+            mapping.Add("requiresStrapon", new ValueDataNode("true"));
+
+        if (prototype.RequiresVibrator)
+            mapping.Add("requiresVibrator", new ValueDataNode("true"));
+
+        if (prototype.RequiresDildo)
+            mapping.Add("requiresDildo", new ValueDataNode("true"));
 
         if (prototype.Icon != null)
         {

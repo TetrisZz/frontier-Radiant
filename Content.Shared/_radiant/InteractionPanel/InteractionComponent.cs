@@ -32,6 +32,9 @@ namespace Content.Shared.Chat.Prototypes
         [DataField("erp")]
         public bool ERP { get; set; } = false;
 
+        [DataField("solo")]
+        public bool Solo { get; set; } = false;
+
         [DataField("category")]
         public string Category { get; set; } = "body";
 
@@ -50,14 +53,20 @@ namespace Content.Shared.Chat.Prototypes
 
         /// <summary>
         /// Arousal added on successful panel interaction (server).
-        /// ERP / intimate protos get +1 over the YAML value when that value is positive.
+        /// Non-ERP interactions with a single point are treated as mundane (no gain).
         /// </summary>
         public int EffectiveArousal
         {
             get
             {
                 var baseVal = ArousalPoints != 0 ? ArousalPoints : Points;
-                return ERP && baseVal > 0 ? baseVal + 1 : baseVal;
+                if (baseVal <= 0)
+                    return 0;
+
+                if (!ERP && baseVal <= 1)
+                    return 0;
+
+                return baseVal;
             }
         }
 
@@ -105,6 +114,12 @@ namespace Content.Shared.Chat.Prototypes
 
         [DataField]
         public bool RequiresStrapon { get; set; } = false;
+
+        [DataField]
+        public bool RequiresVibrator { get; set; } = false;
+
+        [DataField]
+        public bool RequiresDildo { get; set; } = false;
 
         [DataField]
         public List<string>? TargetEntityId;

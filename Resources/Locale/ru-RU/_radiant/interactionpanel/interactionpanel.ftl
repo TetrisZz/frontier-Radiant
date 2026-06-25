@@ -16,6 +16,7 @@ interaction-panel-groin-collapsible = Промежность
 interaction-panel-tail-collapsible = Хвост
 interaction-panel-body-collapsible = Тело
 interaction-panel-arousal-label = Возбуждение
+interaction-panel-solo-mode = Одиночный режим (Если кто-то рядом)
 interact-player = Вы
 diona-leaves = ...имеет листья
 diona-branches = ...имеет ветки

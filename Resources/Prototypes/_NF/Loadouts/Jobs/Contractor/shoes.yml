@@ -784,3 +784,16 @@
   equipment:
     shoes: ClothingShoesBootsCombatLongOr
   groupBy: "ShoesDon"
+
+- type: loadout
+  id: ContractorClothingShoesBootsCombatLongPes
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 360000 # 100hr
+  price: 200
+  equipment:
+    shoes: ClothingShoesBootsCombatLongPes
+  groupBy: "ShoesDon"

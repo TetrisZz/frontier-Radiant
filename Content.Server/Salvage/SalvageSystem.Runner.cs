@@ -14,11 +14,13 @@ using Content.Shared.Mind.Components; //Radiant Sector
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs; //Radiant Sector
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Localizations;
 using Content.Shared.Station.Components;
 using Content.Shared.Storage.Components; //Radiant Sector
+using Content.Shared.Warps;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes; //Radiant Sector
@@ -451,6 +453,12 @@ public sealed partial class SalvageSystem
             if (!_entityStorage.Insert(playerUid, pod, podStorage))
                 continue;
 
+            if (!TryComp<MobStateComponent>(playerUid, out var currentMobState) ||
+                currentMobState.CurrentState is not (MobState.Critical or MobState.Dead))
+            {
+                continue;
+            }
+
             if (!rescuedByShuttle.TryGetValue(podShuttle, out var rescued))
             {
                 rescued = new List<string>();
@@ -507,8 +515,8 @@ public sealed partial class SalvageSystem
         }
 
         var targetShuttle = shuttles[0];
-        var offset = GetRescuePodSpawnOffset(targetShuttle, expedition.RescuePodPrototype);
-        var spawned = Spawn(expedition.RescuePodPrototype, new EntityCoordinates(targetShuttle, offset));
+        var spawnCoordinates = GetRescuePodSpawnCoordinates(targetShuttle, expedition.RescuePodPrototype);
+        var spawned = Spawn(expedition.RescuePodPrototype, spawnCoordinates);
 
         if (TryComp(spawned, out storage))
         {
@@ -522,6 +530,83 @@ public sealed partial class SalvageSystem
         storage = null;
         podShuttle = default;
         return false;
+    }
+
+    private EntityCoordinates GetRescuePodSpawnCoordinates(EntityUid shuttle, EntProtoId rescuePodPrototype)
+    {
+        var fallback = new EntityCoordinates(shuttle, GetRescuePodSpawnOffset(shuttle, rescuePodPrototype));
+
+        if (TryGetRescueWarpCoordinates(shuttle, out var warpCoordinates) &&
+            TryFindAvailableRescuePodCoordinates(shuttle, warpCoordinates.Position, out var safeWarpCoordinates))
+        {
+            return safeWarpCoordinates;
+        }
+
+        if (TryFindAvailableRescuePodCoordinates(shuttle, fallback.Position, out var safeFallbackCoordinates))
+            return safeFallbackCoordinates;
+
+        return fallback;
+    }
+
+    private bool TryGetRescueWarpCoordinates(EntityUid shuttle, out EntityCoordinates coordinates)
+    {
+        var query = EntityQueryEnumerator<WarpPointComponent, TransformComponent>();
+
+        while (query.MoveNext(out var uid, out _, out var xform))
+        {
+            if (xform.GridUid != shuttle)
+                continue;
+
+            coordinates = xform.Coordinates;
+            return true;
+        }
+
+        coordinates = default;
+        return false;
+    }
+
+    private bool TryFindAvailableRescuePodCoordinates(
+        EntityUid shuttle,
+        Vector2 preferredPosition,
+        out EntityCoordinates coordinates)
+    {
+        if (!TryComp<MapGridComponent>(shuttle, out var grid))
+        {
+            coordinates = default;
+            return false;
+        }
+
+        TileRef? bestTile = null;
+        var bestDistance = float.MaxValue;
+        var tiles = _mapSystem.GetAllTilesEnumerator(shuttle, grid);
+
+        while (tiles.MoveNext(out var tile))
+        {
+            if (tile is not { } tileRef ||
+                tileRef.Tile.IsEmpty ||
+                _turf.IsTileBlocked(tileRef, CollisionGroup.Impassable | CollisionGroup.Opaque))
+            {
+                continue;
+            }
+
+            var center = _turf.GetTileCenter(tileRef);
+            var distance = Vector2.DistanceSquared(center.Position, preferredPosition);
+
+            if (distance >= bestDistance)
+                continue;
+
+            bestTile = tileRef;
+            bestDistance = distance;
+        }
+
+        if (bestTile == null)
+        {
+            coordinates = default;
+            return false;
+        }
+
+        coordinates = _turf.GetTileCenter(bestTile.Value);
+        return true;
     }
 
     private Vector2 GetRescuePodSpawnOffset(EntityUid shuttle, EntProtoId rescuePodPrototype)
