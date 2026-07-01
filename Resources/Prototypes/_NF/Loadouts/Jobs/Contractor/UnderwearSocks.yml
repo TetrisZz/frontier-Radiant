@@ -124,3 +124,81 @@
   price: 100
   equipment:
     socks: ClothingUnderwearSocksThighCow
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN1
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN1
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN2
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN2
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN3
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN3
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN4
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN4
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN5
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN5
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN6
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN6
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN7
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN7
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN8
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN8
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN9
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN9
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN10
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN10
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN11
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN11
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN12
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN12
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksPolosN13
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksPolosN13

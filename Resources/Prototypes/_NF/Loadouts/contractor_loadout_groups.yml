@@ -1095,6 +1095,19 @@
   - ContractorClothingUnderwearSocksGarters
   - ContractorClothingUnderwearSocksThighCow
   - ContractorClothingUnderwearSocksRich
+  - ContractorClothingUnderwearSocksPolosN1
+  - ContractorClothingUnderwearSocksPolosN2
+  - ContractorClothingUnderwearSocksPolosN3
+  - ContractorClothingUnderwearSocksPolosN4
+  - ContractorClothingUnderwearSocksPolosN5
+  - ContractorClothingUnderwearSocksPolosN6
+  - ContractorClothingUnderwearSocksPolosN7
+  - ContractorClothingUnderwearSocksPolosN8
+  - ContractorClothingUnderwearSocksPolosN9
+  - ContractorClothingUnderwearSocksPolosN10
+  - ContractorClothingUnderwearSocksPolosN11
+  - ContractorClothingUnderwearSocksPolosN12
+  - ContractorClothingUnderwearSocksPolosN13
 
 - type: loadoutGroup
   id: ContractorUnderwearTop
