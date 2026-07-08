@@ -25,10 +25,25 @@ public sealed class StationBankATMMenuInterfaceState : BoundUserInterfaceState
     /// </summary>
     public int Deposit;
 
-    public StationBankATMMenuInterfaceState(int balance, bool enabled, int deposit)
+// radiant start
+    public float CargoTaxRate;
+    public float AtmDepositTaxRate;
+    public float VendorVatRate;
+    public float ShuttleSellRate;
+
+    public StationBankATMMenuInterfaceState(int balance, bool enabled, int deposit,
+        float cargoTaxRate = 0f, float atmDepositTaxRate = 0f, float vendorVatRate = 0f,
+        float shuttleSellRate = 0f)
+// radiant end
     {
         Balance = balance;
         Enabled = enabled;
         Deposit = deposit;
+// radiant start
+        CargoTaxRate = cargoTaxRate;
+        AtmDepositTaxRate = atmDepositTaxRate;
+        VendorVatRate = vendorVatRate;
+        ShuttleSellRate = shuttleSellRate;
+// radiant end
     }
 }

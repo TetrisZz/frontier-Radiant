@@ -1,8 +1,8 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
             xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-            SetSize="300 176"
-            MinSize="300 176">
+            SetSize="300 190"
+            MinSize="300 190">
     <BoxContainer Margin="10 2 10 2" Orientation="Vertical">
         <BoxContainer Orientation="Horizontal">
             <Label Text="{Loc 'bank-atm-menu-balance-label'}"
@@ -18,6 +18,12 @@
                    StyleClasses="LabelKeyText" />
             <Label Name="DepositLabel"
                    Text="{Loc 'bank-atm-menu-no-deposit'}" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc 'bank-atm-tax-label'}"
+                   StyleClasses="LabelKeyText" />
+            <Label Name="AtmTaxLabel"
+                   Text="0%" />
         </BoxContainer>
         <Button Name="DepositButton"
                 Text="{Loc 'bank-atm-menu-deposit-button'}"/>

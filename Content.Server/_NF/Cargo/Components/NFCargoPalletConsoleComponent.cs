@@ -1,4 +1,5 @@
 using Content.Server._NF.Cargo.Systems;
+using Content.Shared._NF.Bank.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -27,4 +28,12 @@ public sealed partial class NFCargoPalletConsoleComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist;
+// radiant start
+    /// <summary>
+    /// Tax rates applied to cargo sales. Maps sector accounts to tax fractions.
+    /// Can be overridden by SectorTaxRatesComponent on the sector entity for dynamic governor adjustment.
+    /// </summary>
+    [DataField]
+    public Dictionary<SectorBankAccount, float> TaxAccounts = new();
+// radiant end
 }

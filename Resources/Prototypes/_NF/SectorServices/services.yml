@@ -54,6 +54,12 @@
   - type: BountyContractData
 
 - type: sectorService
-  id: PublicTransit
+  id: TaxRates
   components:
-  - type: SectorPublicTransit
+  - type: SectorTaxRates
+    cargoSaleTaxRates:
+      Frontier: 0.1
+    atmDepositTaxRates:
+      Frontier: 0.1
+    vendorVatRate: 0.1
+    shuttleSellRate: 0.9

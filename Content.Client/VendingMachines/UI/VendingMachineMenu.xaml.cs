@@ -92,7 +92,7 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled, float priceModifier, int balance, int? cashSlotBalance) // Frontier: add priceModifier, balance, cashSlotBalance
+        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled, float priceModifier, int balance, int? cashSlotBalance, float vatRate = 0f) // Frontier: add priceModifier, balance, cashSlotBalance, radiant: vatRate
         {
             _enabled = enabled;
             _listItems.Clear();
@@ -180,12 +180,18 @@ namespace Content.Client.VendingMachines.UI
             if (balance != null)
                 CashSlotLabel.Text = BankSystemExtensions.ToSpesoString(balance.Value);
         }
+
+        public void UpdateVatRate(float rate)
+        {
+            VatLabel.Text = $"{rate * 100:F0}%";
+            VatControls.Visible = rate > 0f;
+        }
         // End Frontier
 
         /// <summary>
         /// Updates text entries for vending data in place without modifying the list controls.
         /// </summary>
-        public void UpdateAmounts(List<VendingMachineInventoryEntry> cachedInventory, float priceModifier, bool enabled) // Frontier: add priceModifier
+        public void UpdateAmounts(List<VendingMachineInventoryEntry> cachedInventory, float priceModifier, bool enabled, float vatRate = 0f) // Frontier: add priceModifier, vatRate
         {
             _enabled = enabled;
 
@@ -199,14 +205,14 @@ namespace Content.Client.VendingMachines.UI
                     continue;
                 var amount = entry.Amount;
                 // Could be better? Problem is all inventory entries get squashed.
-                var text = GetItemText(dummy, amount, priceModifier);
+                var text = GetItemText(dummy, amount, priceModifier, vatRate);
 
                 button.Item.SetText(text);
                 button.Button.Disabled = !enabled || amount == 0;
             }
         }
 
-        private string GetItemText(EntityUid dummy, uint amount, float priceModifier) // Frontier: add priceModifier
+        private string GetItemText(EntityUid dummy, uint amount, float priceModifier, float vatRate = 0f) // Frontier: add priceModifier, vatRate
         {
             // Frontier: lookup price from entity, finite output
             var cost = (int)(20 * priceModifier);

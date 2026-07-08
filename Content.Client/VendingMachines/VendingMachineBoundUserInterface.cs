@@ -73,9 +73,15 @@ namespace Content.Client.VendingMachines
             int? cashSlotValue = null;
             if (TryUpdateCashSlotBalance())
                 cashSlotValue = _cashSlotBalance;
+// radiant start
+            float vatRate = 0f;
+            if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendComp))
+                vatRate = vendComp.VatRate;
+// radiant end
             // End Frontier
 
-            _menu?.Populate(_cachedInventory, enabled, _mod, _balance, cashSlotValue); // Frontier: add _mod, _balance, cashSlotValue
+            _menu?.Populate(_cachedInventory, enabled, _mod, _balance, cashSlotValue, vatRate); // Frontier: add _mod, _balance, cashSlotValue, vatRate
+            _menu?.UpdateVatRate(vatRate); // Frontier
         }
 
         public void UpdateAmounts()
@@ -90,11 +96,17 @@ namespace Content.Client.VendingMachines
             _menu?.UpdateBalance(_balance);
             if (TryUpdateCashSlotBalance())
                 _menu?.UpdateCashSlotBalance(_cashSlotBalance);
+// radiant start
+            float vatRate = 0f;
+            if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendComp))
+                vatRate = vendComp.VatRate;
+            _menu?.UpdateVatRate(vatRate);
+// radiant end
             // End Frontier
 
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
-            _menu?.UpdateAmounts(_cachedInventory, _mod, enabled); // Frontier: add _mod
+            _menu?.UpdateAmounts(_cachedInventory, _mod, enabled, vatRate); // Frontier: add _mod, vatRate radiant
         }
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)

@@ -150,10 +150,23 @@ public sealed partial class BankSystem
         }
 
         var originalDeposit = deposit;
-        foreach (var (account, taxCoeff) in component.TaxAccounts)
+        var atmTaxRate = 0f;
+// radiant start
+        // Check for sector-wide dynamic tax rates first, fall back to per-entity TaxAccounts
+        var taxAccounts = component.TaxAccounts;
+        if (_sectorService.GetServiceEntity() is { Valid: true } sectorEntity &&
+            TryComp<SectorTaxRatesComponent>(sectorEntity, out var sectorTaxRates) &&
+            sectorTaxRates.AtmDepositTaxRates.Count > 0)
+        {
+            taxAccounts = sectorTaxRates.AtmDepositTaxRates;
+        }
+
+        foreach (var (account, taxCoeff) in taxAccounts)
+// radiant end
         {
             if (!float.IsFinite(taxCoeff) || taxCoeff <= 0.0f)
                 continue;
+            atmTaxRate = taxCoeff; // radiant 
             var tax = (int)Math.Floor(originalDeposit * taxCoeff);
             TrySectorDeposit(account, tax, LedgerEntryType.BlackMarketAtmTax);
             deposit -= tax; // Charge the user whether or not the deposit went through.
@@ -166,7 +179,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+                new BankATMMenuInterfaceState(bank.Balance, true, deposit, atmTaxRate)); // radiant 
             return;
         }
 
@@ -177,7 +190,7 @@ public sealed partial class BankSystem
         // yeet and delete the stack in the cash slot after success
         _containerSystem.CleanContainer(cashSlot);
         _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, 0));
+            new BankATMMenuInterfaceState(bank.Balance, true, 0, atmTaxRate)); // radiant 
         return;
     }
 
@@ -188,6 +201,7 @@ public sealed partial class BankSystem
 
         var uiUsers = _uiSystem.GetActors(uid, uiComp.Key);
         GetInsertedCashAmount(component, out var deposit);
+        var atmTaxRate = GetAtmTaxRate(component); // radiant 
 
         foreach (var user in uiUsers)
         {
@@ -199,9 +213,9 @@ public sealed partial class BankSystem
 
             BankATMMenuInterfaceState newState;
             if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid: true } cash)
-                newState = new BankATMMenuInterfaceState(bank.Balance, true, 0);
+                newState = new BankATMMenuInterfaceState(bank.Balance, true, 0, atmTaxRate); // radiant 
             else
-                newState = new BankATMMenuInterfaceState(bank.Balance, true, deposit);
+                newState = new BankATMMenuInterfaceState(bank.Balance, true, deposit, atmTaxRate); // radiant 
 
             _uiSystem.SetUiState(uid, uiComp.Key, newState);
         }
@@ -212,17 +226,18 @@ public sealed partial class BankSystem
         var player = args.Actor;
 
         GetInsertedCashAmount(component, out var deposit);
+        var atmTaxRate = GetAtmTaxRate(component); // radiant 
 
         if (!TryComp<BankAccountComponent>(player, out var bank))
         {
             _log.Info($"{player} has no bank account");
             _uiSystem.SetUiState(uid, args.UiKey,
-                new BankATMMenuInterfaceState(0, false, deposit));
+                new BankATMMenuInterfaceState(0, false, deposit, atmTaxRate)); // radiant 
             return;
         }
 
         _uiSystem.SetUiState(uid, args.UiKey,
-            new BankATMMenuInterfaceState(bank.Balance, true, deposit));
+            new BankATMMenuInterfaceState(bank.Balance, true, deposit, atmTaxRate)); // radiant 
     }
 
     private void GetInsertedCashAmount(BankATMComponent component, out int amount)
@@ -255,7 +270,19 @@ public sealed partial class BankSystem
     {
         _audio.PlayPvs(_audio.ResolveSound(component.ConfirmSound), uid);
     }
-
+// radiant start
+    private float GetAtmTaxRate(BankATMComponent component)
+    {
+        var taxAccounts = component.TaxAccounts;
+        if (_sectorService.GetServiceEntity() is { Valid: true } sectorEntity &&
+            TryComp<SectorTaxRatesComponent>(sectorEntity, out var sectorTaxRates) &&
+            sectorTaxRates.AtmDepositTaxRates.Count > 0)
+        {
+            taxAccounts = sectorTaxRates.AtmDepositTaxRates;
+        }
+        return taxAccounts.GetValueOrDefault(SectorBankAccount.Frontier);
+    }
+// radiant end
     private void ConsolePopup(EntityUid actor, string text)
     {
         if (actor is { Valid: true } player)

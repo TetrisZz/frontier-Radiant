@@ -29,6 +29,14 @@ public sealed partial class CargoPalletMenu : FancyWindow
     {
         CountLabel.Text = count.ToString();
     }
+
+    // radiant start
+    public void SetCargoTaxRate(float rate)
+    {
+        TaxLabel.Text = $"{rate * 100:F0}%";
+    }
+    // radiant end
+
     public void SetEnabled(bool enabled)
     {
         AppraiseButton.Disabled = !enabled;

@@ -99,10 +99,22 @@ public sealed class NFCCVars
         CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
 
     /// <summary>
-    /// Base sell rate (multiplier: 0.95 = 95%)
+    /// Base sell rate (multiplier: 0.9 = 90%). Governor-adjustable.
     /// </summary>
     public static readonly CVarDef<float> ShipyardSellRate =
-        CVarDef.Create("shuttle.shipyard_base_sell_rate", 0.95f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.shipyard_base_sell_rate", 0.9f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum sell rate the governor can set.
+    /// </summary>
+    public static readonly CVarDef<float> ShipyardSellRateMin =
+        CVarDef.Create("shuttle.shipyard_sell_rate_min", 0.7f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Maximum sell rate the governor can set.
+    /// </summary>
+    public static readonly CVarDef<float> ShipyardSellRateMax =
+        CVarDef.Create("shuttle.shipyard_sell_rate_max", 0.9f, CVar.SERVERONLY);
 
     /*
      * Salvage
@@ -292,4 +304,13 @@ public sealed class NFCCVars
     /// </summary>
     public static readonly CVarDef<string> NewPlayerStarterLoadout =
         CVarDef.Create("nf14.greeting.loadout", "NFGreenhornLoadout", CVar.REPLICATED);
+
+    /*
+    * Taxation
+    */
+    /// <summary>
+    /// Maximum tax rate that can be set via the station admin console (0-1).
+    /// </summary>
+    public static readonly CVarDef<float> TaxMaxRate =
+        CVarDef.Create("tax.max_rate", 0.9f, CVar.SERVERONLY);
 }

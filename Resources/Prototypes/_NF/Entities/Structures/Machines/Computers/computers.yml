@@ -49,6 +49,8 @@
     energy: 1.6
     color: "#b89f25"
   - type: NFCargoPalletConsole
+    taxAccounts:
+      Frontier: 0.1
   - type: ActivatableUI
     key: enum.CargoPalletConsoleUiKey.Sale
   - type: UserInterface

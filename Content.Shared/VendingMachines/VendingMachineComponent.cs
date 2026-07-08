@@ -247,6 +247,9 @@ namespace Content.Shared.VendingMachines
         /// </summary>
         [DataField]
         public int CashSlotBalance;
+
+        [DataField]
+        public float VatRate; // radiant
         // End Frontier: taxes, cash slot
     }
 
@@ -352,5 +355,6 @@ namespace Content.Shared.VendingMachines
 
         public TimeSpan? DispenseOnHitEnd;
         public int CashSlotBalance; // Frontier
+        public float VatRate; // Frontier
     }
 }

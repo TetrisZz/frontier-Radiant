@@ -25,7 +25,12 @@ public sealed partial class BankATMMenu : FancyWindow
     {
         BalanceLabel.Text = BankSystemExtensions.ToSpesoString(amount);
     }
-
+// radiant start
+    public void SetAtmTaxRate(float rate)
+    {
+        AtmTaxLabel.Text = $"{rate * 100:F0}%";
+    }
+// radiant end
     public void SetDeposit(int amount)
     {
         DepositButton.Disabled = amount <= 0;

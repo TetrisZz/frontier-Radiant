@@ -6,10 +6,11 @@ namespace Content.Shared._NF.Cargo.BUI;
 public sealed class NFCargoPalletConsoleInterfaceState(
     int appraisal,
     int count,
-    bool enabled) : BoundUserInterfaceState
+    bool enabled,
+    float cargoTaxRate = 0f) : BoundUserInterfaceState
 {
     /// <summary>
-    /// The estimated apraised value of all the entities on top of pallets on the same grid as the console.
+    /// The estimated appraised value of all the entities on top of pallets on the same grid as the console.
     /// </summary>
     public int Appraisal = appraisal;
 
@@ -22,4 +23,6 @@ public sealed class NFCargoPalletConsoleInterfaceState(
     /// True if the buttons should be enabled.
     /// </summary>
     public bool Enabled = enabled;
+
+    public float CargoTaxRate = cargoTaxRate; // radiant
 }
