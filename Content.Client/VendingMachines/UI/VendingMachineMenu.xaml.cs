@@ -143,6 +143,11 @@ namespace Content.Client.VendingMachines.UI
 
                 var cost = GetPrototypePrice(prototype, priceModifier); // Frontier: item pricing
 
+                //radiant start
+                if (vatRate > 0f)
+                    cost += (int)Math.Floor(cost * vatRate);
+                //radiant end
+
                 var itemName = Identity.Name(dummy, _entityManager);
 
                 // Frontier: unlimited vending
@@ -221,6 +226,9 @@ namespace Content.Client.VendingMachines.UI
                 cost = GetPrototypePrice(component.EntityPrototype, priceModifier);
             }
 
+            if (vatRate > 0f)
+                cost += (int)Math.Floor(cost * vatRate);
+
             var itemName = Identity.Name(dummy, _entityManager);
             if (amount != uint.MaxValue)
                 return $"[{BankSystemExtensions.ToSpesoString(cost)}] {itemName} [{amount}]";
@@ -231,7 +239,7 @@ namespace Content.Client.VendingMachines.UI
 
         private void SetSizeAfterUpdate(int longestEntryLength, int contentCount)
         {
-            SetSize = new Vector2(Math.Clamp((longestEntryLength + 2) * 12, 250, 400),
+            SetSize = new Vector2(Math.Clamp((longestEntryLength + 2) * 12, 250, 500),
                 Math.Clamp(contentCount * 50, 150, 350));
         }
 

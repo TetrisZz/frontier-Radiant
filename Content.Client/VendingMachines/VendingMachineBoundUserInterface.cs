@@ -73,15 +73,15 @@ namespace Content.Client.VendingMachines
             int? cashSlotValue = null;
             if (TryUpdateCashSlotBalance())
                 cashSlotValue = _cashSlotBalance;
-// radiant start
+            // radiant start
             float vatRate = 0f;
             if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendComp))
                 vatRate = vendComp.VatRate;
-// radiant end
+            // radiant end
             // End Frontier
 
             _menu?.Populate(_cachedInventory, enabled, _mod, _balance, cashSlotValue, vatRate); // Frontier: add _mod, _balance, cashSlotValue, vatRate
-            _menu?.UpdateVatRate(vatRate); // Frontier
+            _menu?.UpdateVatRate(vatRate); // Radiant
         }
 
         public void UpdateAmounts()
@@ -96,12 +96,12 @@ namespace Content.Client.VendingMachines
             _menu?.UpdateBalance(_balance);
             if (TryUpdateCashSlotBalance())
                 _menu?.UpdateCashSlotBalance(_cashSlotBalance);
-// radiant start
+            // radiant start
             float vatRate = 0f;
             if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendComp))
                 vatRate = vendComp.VatRate;
             _menu?.UpdateVatRate(vatRate);
-// radiant end
+            // radiant end
             // End Frontier
 
             var system = EntMan.System<VendingMachineSystem>();

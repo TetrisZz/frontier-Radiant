@@ -306,11 +306,41 @@ public sealed class NFCCVars
         CVarDef.Create("nf14.greeting.loadout", "NFGreenhornLoadout", CVar.REPLICATED);
 
     /*
-    * Taxation
-    */
+     * Taxation
+     */
     /// <summary>
-    /// Maximum tax rate that can be set via the station admin console (0-1).
+    /// Maximum cargo sale tax rate that can be set via the station admin console (0-1).
     /// </summary>
-    public static readonly CVarDef<float> TaxMaxRate =
-        CVarDef.Create("tax.max_rate", 0.9f, CVar.SERVERONLY);
+    public static readonly CVarDef<float> CargoSaleTaxMaxRate =
+        CVarDef.Create("tax.cargo_sale_max_rate", 0.3f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum cargo sale tax rate that can be set via the station admin console (>0).
+    /// </summary>
+    public static readonly CVarDef<float> CargoSaleTaxMinRate =
+        CVarDef.Create("tax.cargo_sale_min_rate", 0.01f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Maximum ATM deposit tax rate that can be set via the station admin console (0-1).
+    /// </summary>
+    public static readonly CVarDef<float> AtmDepositTaxMaxRate =
+        CVarDef.Create("tax.atm_deposit_max_rate", 0.3f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum ATM deposit tax rate that can be set via the station admin console (>0).
+    /// </summary>
+    public static readonly CVarDef<float> AtmDepositTaxMinRate =
+        CVarDef.Create("tax.atm_deposit_min_rate", 0.01f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Maximum VAT rate that can be set via the station admin console (0-1).
+    /// </summary>
+    public static readonly CVarDef<float> VendorVatMaxRate =
+        CVarDef.Create("tax.vendor_vat_max_rate", 0.3f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum VAT rate that can be set via the station admin console (>0).
+    /// </summary>
+    public static readonly CVarDef<float> VendorVatMinRate =
+        CVarDef.Create("tax.vendor_vat_min_rate", 0.01f, CVar.SERVERONLY);
 }

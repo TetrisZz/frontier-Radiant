@@ -95,7 +95,7 @@ public sealed partial class BankSystem : SharedBankSystem
         AddLedgerEntry(account, reason, amount);
         return true;
     }
-// radiant start
+    // radiant start
     [PublicAPI]
     public float GetVendorVatRate()
     {
@@ -115,7 +115,7 @@ public sealed partial class BankSystem : SharedBankSystem
             return taxRates.ShuttleSellRate;
         return fallback;
     }
-// radiant end
+    // radiant end
     /// <summary>
     /// Retrieves a character's balance via its in-game entity, if it has one.
     /// </summary>

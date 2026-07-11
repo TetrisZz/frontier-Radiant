@@ -1,8 +1,8 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
             xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-            SetSize="360 560"
-            MinSize="360 560">
+            SetSize="360 570"
+            MinSize="360 570"> <!-- Radiant SetSize="360 570" MinSize="360 570"-->
     <BoxContainer Margin="10 2 10 2" Orientation="Vertical" VerticalExpand="True">
         <GridContainer Columns="2" HorizontalExpand="True">
             <Label Text="{Loc 'bank-atm-menu-balance-label'}"
@@ -29,7 +29,7 @@
             <Button Name="WithdrawButton"
                     Text="{Loc 'bank-atm-menu-withdraw-button'}"
                     HorizontalExpand="True"/>
-
+            <!-- Radiant start-->
             <Label Text="{Loc 'bank-atm-menu-deposit-label'}"
                 StyleClasses="LabelKeyText"
                 HorizontalAlignment="Right" />
@@ -93,6 +93,7 @@
                 <LineEdit Name="ShuttleSellEdit" MinSize="60 0" HorizontalExpand="True" />
                 <Button Name="ShuttleSellButton" Text="Apply" MinSize="60 0" />
             </BoxContainer>
+            <!-- Radiant end-->
         </GridContainer>
     </BoxContainer>
 </controls:FancyWindow>

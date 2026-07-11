@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:co="clr-namespace:Content.Client.UserInterface.Controls"
-    SetSize="410 400"
-    MinSize="300 320"> <!-- Frontier: added SetSize, MinSize, remove MinHeight="210" -->
+    SetSize="450 400"
+    MinSize="450 320"> <!-- Frontier: added SetSize, MinSize, remove MinHeight="210". Radiant SetSize="450 400 MinSize="450 320".  Radiant SetSize="450 400" MinSize="450 320"  -->
     <BoxContainer Name="MainContainer" Orientation="Vertical">
         <!-- Frontier: balance -->
         <BoxContainer Margin="4 2 4 4" Orientation="Horizontal" HorizontalExpand="True">
@@ -34,7 +34,7 @@
         <BoxContainer Orientation="Vertical">
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
-                <Label Text="{Loc 'vending-machine-flavor-left'}" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc 'vending-machine-vat-included-label'}" StyleClasses="WindowFooterText" />  <!-- Radiant -->
                 <Label Text="{Loc 'vending-machine-flavor-right'}" StyleClasses="WindowFooterText"
                         HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
                 <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"

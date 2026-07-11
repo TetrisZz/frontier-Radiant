@@ -91,8 +91,8 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             DenyEnd = component.DenyEnd,
             DispenseOnHitEnd = component.DispenseOnHitEnd,
             CashSlotBalance = component.CashSlotBalance, // Frontier
-// radiant start
-            VatRate = GetVendorVatRate(), // Frontier
+        // radiant start
+            VatRate = GetVendorVatRate(),
         };
     }
 
@@ -102,7 +102,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         while (query.MoveNext(out _, out var taxComp))
             return taxComp.VendorVatRate;
         return 0f;
-// radiant end
+        // radiant end
     }
 
     public override void Update(float frameTime)

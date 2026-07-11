@@ -13,6 +13,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Coordinates;
 using Content.Shared.Database;
 using Content.Shared.Stacks;
+using Content.Shared.VendingMachines; // radiant
 using Robust.Shared.Containers;
 using Robust.Shared.Configuration;
 
@@ -134,7 +135,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, false, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));
+                new StationBankATMMenuInterfaceState(stationBank, false, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate)); //radiant
             return;
         }
 
@@ -236,7 +237,7 @@ public sealed partial class BankSystem
     private void OnCashSlotChanged(EntityUid uid, StationBankATMComponent component, ContainerModifiedMessage args)
     {
         GetInsertedCashAmount(component, out var deposit);
-        GetTaxRates(out var cargoRate, out var atmRate, out var vendorVatRate, out var shuttleRate);
+        GetTaxRates(out var cargoRate, out var atmRate, out var vendorVatRate, out var shuttleRate); //radiant
 
         if (!TryGetBalance(component.Account, out var stationBank))
         {
@@ -343,10 +344,17 @@ public sealed partial class BankSystem
             return;
 
         var taxRates = EnsureComp<SectorTaxRatesComponent>(sectorEntity);
-        var maxRate = _cfg.GetCVar(NFCCVars.TaxMaxRate);
-        var cargoRate = Math.Clamp(args.CargoTaxRate, 0f, maxRate);
-        var atmRate = Math.Clamp(args.AtmDepositTaxRate, 0f, maxRate);
-        var vendorVatRate = Math.Clamp(args.VendorVatRate, 0f, maxRate);
+        //radiant start
+        var cargoMaxRate = _cfg.GetCVar(NFCCVars.CargoSaleTaxMaxRate);
+        var cargoMinRate = _cfg.GetCVar(NFCCVars.CargoSaleTaxMinRate);
+        var atmMaxRate = _cfg.GetCVar(NFCCVars.AtmDepositTaxMaxRate);
+        var atmMinRate = _cfg.GetCVar(NFCCVars.AtmDepositTaxMinRate);
+        var vatMaxRate = _cfg.GetCVar(NFCCVars.VendorVatMaxRate);
+        var vatMinRate = _cfg.GetCVar(NFCCVars.VendorVatMinRate);
+        var cargoRate = Math.Clamp(args.CargoTaxRate, cargoMinRate, cargoMaxRate);
+        var atmRate = Math.Clamp(args.AtmDepositTaxRate, atmMinRate, atmMaxRate);
+        var vendorVatRate = Math.Clamp(args.VendorVatRate, vatMinRate, vatMaxRate);
+        //radiant end
         var shuttleSellRate = Math.Clamp(args.ShuttleSellRate, _cfg.GetCVar(NFCCVars.ShipyardSellRateMin), _cfg.GetCVar(NFCCVars.ShipyardSellRateMax));
 
         if (cargoRate > 0f)
@@ -374,6 +382,12 @@ public sealed partial class BankSystem
             new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, newCargoRate, newAtmRate, newVendorVatRate, newShuttleRate));
         ConsolePopup(args.Actor, Loc.GetString("station-bank-tax-updated"));
         PlayConfirmSound(uid, component);
+
+        // Radint start. Refresh vending machine states so clients see the new VAT rate
+        var vendingQuery = AllEntityQuery<VendingMachineComponent>();
+        while (vendingQuery.MoveNext(out var vendUid, out var vendComp))
+            Dirty(vendUid, vendComp);
+        //radiant end
     }
 
     private void GetTaxRates(out float cargoTaxRate, out float atmDepositTaxRate, out float vendorVatRate, out float shuttleSellRate)

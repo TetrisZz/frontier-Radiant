@@ -448,6 +448,13 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         if (!voucherUsed)
         {
+            //radiant start
+            var uiKey = (ShipyardConsoleUiKey)args.UiKey;
+            var isCriminalConsole = uiKey is ShipyardConsoleUiKey.Syndicate
+                or ShipyardConsoleUiKey.BlackMarket
+                or ShipyardConsoleUiKey.Separatist;
+            var shipyardEntryType = isCriminalConsole ? LedgerEntryType.BlackMarketShipyardTax : LedgerEntryType.ShipyardSellTax;
+            //radiant end
             if (!component.IgnoreBaseSaleRate)
             // radiant start
             {
@@ -456,7 +463,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 bill = (int)(bill * sellRate);
                 var cut = fullAppraisal - bill;
                 if (cut > 0)
-                    _bank.TrySectorDeposit(SectorBankAccount.Frontier, cut, LedgerEntryType.BlackMarketShipyardTax);
+                    _bank.TrySectorDeposit(SectorBankAccount.Frontier, cut, shipyardEntryType); //radiant
             }
             // radiant end
 
@@ -464,7 +471,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             foreach (var (account, taxCoeff) in component.TaxAccounts)
             {
                 var tax = CalculateSalesTax(originalBill, taxCoeff);
-                _bank.TrySectorDeposit(account, tax, LedgerEntryType.BlackMarketShipyardTax);
+                _bank.TrySectorDeposit(account, tax, shipyardEntryType); //radiant
                 bill -= tax;
             }
             bill = int.Max(0, bill);
@@ -871,7 +878,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (console.Comp.IgnoreBaseSaleRate)
             return taxRate;
         else
-            return GetEffectiveSellRate() * taxRate;
+            return GetEffectiveSellRate() * taxRate; //radiant
     }
 
     private int CalculateShipResaleValue(Entity<ShipyardConsoleComponent?> console, int baseAppraisal)
@@ -881,7 +888,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         int resaleValue = baseAppraisal;
         if (!console.Comp.IgnoreBaseSaleRate)
-            resaleValue = (int)(GetEffectiveSellRate() * resaleValue);
+            resaleValue = (int)(GetEffectiveSellRate() * resaleValue); //radiant
 
         resaleValue -= CalculateTotalSalesTax(console.Comp, resaleValue);
         return resaleValue;

@@ -44,8 +44,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     private ISawmill _sawmill = default!;
     private bool _enabled;
     private float _baseSaleRate;
-    private float _saleRateMin;
-    private float _saleRateMax;
+    private float _saleRateMin; //radiant
+    private float _saleRateMax; //radiant
 
     // The type of error from the attempted sale of a ship.
     public enum ShipyardSaleError

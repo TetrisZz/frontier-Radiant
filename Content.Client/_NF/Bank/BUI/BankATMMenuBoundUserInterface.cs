@@ -46,6 +46,6 @@ public sealed class BankATMMenuBoundUserInterface : BoundUserInterface
         _menu?.SetEnabled(bankState.Enabled);
         _menu?.SetBalance(bankState.Balance);
         _menu?.SetDeposit(bankState.Deposit);
-        _menu?.SetAtmTaxRate(bankState.AtmDepositTaxRate);
+        _menu?.SetAtmTaxRate(bankState.AtmDepositTaxRate); //radiant
     }
 }

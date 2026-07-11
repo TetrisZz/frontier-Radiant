@@ -58,8 +58,8 @@
   components:
   - type: SectorTaxRates
     cargoSaleTaxRates:
-      Frontier: 0.1
+      Frontier: 0.02
     atmDepositTaxRates:
-      Frontier: 0.1
-    vendorVatRate: 0.1
+      Frontier: 0.02
+    vendorVatRate: 0.02
     shuttleSellRate: 0.9

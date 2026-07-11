@@ -355,6 +355,6 @@ namespace Content.Shared.VendingMachines
 
         public TimeSpan? DispenseOnHitEnd;
         public int CashSlotBalance; // Frontier
-        public float VatRate; // Frontier
+        public float VatRate; // Radiant
     }
 }

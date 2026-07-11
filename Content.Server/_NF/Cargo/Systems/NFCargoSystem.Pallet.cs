@@ -265,7 +265,7 @@ public sealed partial class NFCargoSystem
             price *= priceMod.Mod;
         }
         price += noMultiplierPrice;
-// radiant start
+        // radiant start
         // Apply tax: check for sector-wide dynamic rates first, fall back to per-entity TaxAccounts
         var taxAccounts = ent.Comp.TaxAccounts;
         if (_sectorService.GetServiceEntity() is { Valid: true } sectorEntity &&
@@ -289,7 +289,7 @@ public sealed partial class NFCargoSystem
         }
         price -= totalTaxAmount;
         price = Math.Max(0, price);
-// radiant end
+        // radiant end
         var stackPrototype = _proto.Index(ent.Comp.CashType);
         var stackUid = _stack.Spawn((int)price, stackPrototype, args.Actor.ToCoordinates());
         if (!_hands.TryPickupAnyHand(args.Actor, stackUid))
@@ -305,7 +305,7 @@ public sealed partial class NFCargoSystem
         _audio.PlayPvs(ApproveSound, ent);
         UpdatePalletConsoleInterface(ent);
     }
-// radiant start
+        // radiant start
     private float GetEffectiveCargoTaxRate(Entity<NFCargoPalletConsoleComponent> ent)
     {
         var taxAccounts = ent.Comp.TaxAccounts;
@@ -317,7 +317,7 @@ public sealed partial class NFCargoSystem
         }
         return taxAccounts.GetValueOrDefault(SectorBankAccount.Frontier);
     }
-// radiant end
+        // radiant end
 
     #endregion
 }

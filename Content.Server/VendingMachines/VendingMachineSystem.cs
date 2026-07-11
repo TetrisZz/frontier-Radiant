@@ -410,14 +410,14 @@ namespace Content.Server.VendingMachines
                 totalPrice = (int)priceVend;
 
             // Apply dynamic VAT on top of the base price
-// radiant start
+            // radiant start
             var vatRate = _bankSystem.GetVendorVatRate();
             component.VatRate = vatRate;
             var vatAmount = 0;
             if (vatRate > 0f)
                 vatAmount = (int)Math.Floor(totalPrice * vatRate);
             var finalPrice = totalPrice + vatAmount;
-// radiant end
+            // radiant end
             if (IsAuthorized(uid, sender, component))
             {
                 int bankBalance = 0;
@@ -470,10 +470,10 @@ namespace Content.Server.VendingMachines
                         }
 
                         // Send the VAT amount to Frontier
-// radiant start
+                        // radiant start
                         if (vatAmount > 0)
                             _bankSystem.TrySectorDeposit(SectorBankAccount.Frontier, vatAmount, LedgerEntryType.VendorTax);
-                            // radiant end
+                        // radiant end
                     }
 
                     // Something was ejected, update the vending component's state
