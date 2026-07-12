@@ -239,7 +239,7 @@ namespace Content.Client.VendingMachines.UI
 
         private void SetSizeAfterUpdate(int longestEntryLength, int contentCount)
         {
-            SetSize = new Vector2(Math.Clamp((longestEntryLength + 2) * 12, 250, 500),
+            SetSize = new Vector2(SetSize.X,
                 Math.Clamp(contentCount * 50, 150, 350));
         }
 

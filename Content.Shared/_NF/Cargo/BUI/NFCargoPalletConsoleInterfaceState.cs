@@ -7,10 +7,11 @@ public sealed class NFCargoPalletConsoleInterfaceState(
     int appraisal,
     int count,
     bool enabled,
-    float cargoTaxRate = 0f) : BoundUserInterfaceState //radiant
+    float cargoTaxRate = 0f,
+    int netAmount = 0) : BoundUserInterfaceState //radiant
 {
     /// <summary>
-    /// The estimated appraised value of all the entities on top of pallets on the same grid as the console.
+    /// The estimated appraised value of all the entities on top of pallets on the same grid as the console (before tax).
     /// </summary>
     public int Appraisal = appraisal;
 
@@ -25,4 +26,9 @@ public sealed class NFCargoPalletConsoleInterfaceState(
     public bool Enabled = enabled;
 
     public float CargoTaxRate = cargoTaxRate; // radiant
+
+    /// <summary>
+    /// The amount after tax deduction.
+    /// </summary>
+    public int NetAmount = netAmount; // radiant
 }

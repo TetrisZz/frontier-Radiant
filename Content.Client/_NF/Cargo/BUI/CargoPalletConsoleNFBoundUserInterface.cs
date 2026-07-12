@@ -47,5 +47,6 @@ public sealed class CargoPalletConsoleNFBoundUserInterface : BoundUserInterface
         _menu?.SetAppraisal(palletState.Appraisal);
         _menu?.SetCount(palletState.Count);
         _menu?.SetCargoTaxRate(palletState.CargoTaxRate);// radiant
+        _menu?.SetNetAmount(palletState.NetAmount);// radiant
     }
 }

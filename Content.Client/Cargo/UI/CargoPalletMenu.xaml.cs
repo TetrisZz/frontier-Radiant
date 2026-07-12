@@ -35,6 +35,11 @@ public sealed partial class CargoPalletMenu : FancyWindow
     {
         TaxLabel.Text = $"{rate * 100:F0}%";
     }
+
+    public void SetNetAmount(int amount)
+    {
+        NetLabel.Text = BankSystemExtensions.ToSpesoString(amount);
+    }
     // radiant end
 
     public void SetEnabled(bool enabled)

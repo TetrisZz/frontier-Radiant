@@ -458,21 +458,12 @@ namespace Content.Server.VendingMachines
                         paidFully = _bankSystem.TryBankWithdraw(sender, finalPrice - cashSlotBalance); // radiant
                     }
 
-                    // If we paid completely, pay our station taxes
+                    // If we paid completely, send the VAT amount to Frontier
                     if (paidFully)
                     {
-                        foreach (var (account, taxCoeff) in component.TaxAccounts)
-                        {
-                            if (!float.IsFinite(taxCoeff) || taxCoeff <= 0.0f)
-                                continue;
-                            var tax = (int)Math.Floor(totalPrice * taxCoeff);
-                            _bankSystem.TrySectorDeposit(account, tax, LedgerEntryType.VendorTax);
-                        }
-
-                        // Send the VAT amount to Frontier
                         // radiant start
                         if (vatAmount > 0)
-                            _bankSystem.TrySectorDeposit(SectorBankAccount.Frontier, vatAmount, LedgerEntryType.VendorTax);
+                            _bankSystem.TrySectorDeposit(SectorBankAccount.Frontier, vatAmount, LedgerEntryType.CargoTax);
                         // radiant end
                     }
 

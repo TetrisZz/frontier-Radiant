@@ -54,9 +54,11 @@ public sealed partial class NFCargoSystem
         }
         amount += noModAmount;
         var cargoTaxRate = GetEffectiveCargoTaxRate(ent);// radiant
+        var taxAmount = (int)Math.Floor(amount * cargoTaxRate);
+        var netAmount = (int)Math.Max(0, amount - taxAmount);
 
         _ui.SetUiState(ent.Owner, CargoPalletConsoleUiKey.Sale,
-            new NFCargoPalletConsoleInterfaceState((int)amount, toSell.Count, true, cargoTaxRate)); // radiant
+            new NFCargoPalletConsoleInterfaceState((int)amount, toSell.Count, true, cargoTaxRate, netAmount)); // radiant
     }
 
     private void OnPalletUIOpen(Entity<NFCargoPalletConsoleComponent> ent, ref BoundUIOpenedEvent args)
@@ -283,7 +285,7 @@ public sealed partial class NFCargoSystem
             var tax = (int)Math.Floor(price * taxCoeff);
             if (tax > 0)
             {
-                _bank.TrySectorDeposit(account, tax, LedgerEntryType.CargoTax);
+                _bank.TrySectorDeposit(account, tax, LedgerEntryType.VendorTax);
                 totalTaxAmount += tax;
             }
         }
