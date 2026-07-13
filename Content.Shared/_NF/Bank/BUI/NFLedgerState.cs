@@ -30,6 +30,9 @@ public enum LedgerEntryType : byte
     MailDelivered,
     BlackMarketAtmTax,
     BlackMarketShipyardTax,
+    // radiant: citizen-facing tax entries
+    AtmDepositTax,
+    ShipyardSellTax,
     BluespaceReward,
     AntiSmugglingBonus,
     MedicalBountyTax,

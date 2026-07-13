@@ -40,12 +40,13 @@ public sealed class CargoPalletConsoleNFBoundUserInterface : BoundUserInterface
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
-
         if (state is not NFCargoPalletConsoleInterfaceState palletState)
             return;
 
         _menu?.SetEnabled(palletState.Enabled);
         _menu?.SetAppraisal(palletState.Appraisal);
         _menu?.SetCount(palletState.Count);
+        _menu?.SetCargoTaxRate(palletState.CargoTaxRate);// radiant
+        _menu?.SetNetAmount(palletState.NetAmount);// radiant
     }
 }

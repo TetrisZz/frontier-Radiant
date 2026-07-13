@@ -22,6 +22,21 @@ public sealed partial class StationAdminConsoleMenu : FancyWindow
     public int DepositAmount;
     public bool Enabled;
 
+    // radiant start
+    public Action? CargoTaxApply;
+    public Action? AtmTaxApply;
+    public Action? VatTaxApply;
+    public Action? ShuttleSellApply;
+    public float CargoTaxRate { get; private set; }
+    public float AtmTaxRate { get; private set; }
+    public float VatTaxRate { get; private set; }
+    public float ShuttleSellRate { get; private set; }
+    public string CargoTaxText => CargoTaxEdit.Text;
+    public string AtmTaxText => AtmTaxEdit.Text;
+    public string VatTaxText => VatTaxEdit.Text;
+    public string ShuttleSellText => ShuttleSellEdit.Text;
+    // radiant end
+
     public static (string, string)[] WithdrawalReasonArray = {
         ("default", Loc.GetString("station-bank-required")),
         ("payroll", Loc.GetString("station-bank-payroll")),
@@ -52,10 +67,62 @@ public sealed partial class StationAdminConsoleMenu : FancyWindow
         WithdrawalAmountDescription.OnTextChanged += OnWithdrawalDescChanged;
         WithdrawEdit.OnTextChanged += OnWithdrawalAmountChanged;
 
-        // Update button status to default state.
+        // radiant start
+        CargoTaxButton.OnPressed += OnCargoTaxApply;
+        AtmTaxButton.OnPressed += OnAtmTaxApply;
+        VatTaxButton.OnPressed += OnVatTaxApply;
+        ShuttleSellButton.OnPressed += OnShuttleSellApply;
+        // radiant end
+
         UpdateWithdrawalButtonStatus();
         UpdateDepositButtonStatus();
     }
+
+    // radiant start
+    public void SetCargoTaxRate(float rate)
+    {
+        CargoTaxRate = rate;
+        CargoTaxLabel.Text = $"{rate * 100:F0}%";
+    }
+
+    public void SetAtmDepositTaxRate(float rate)
+    {
+        AtmTaxRate = rate;
+        AtmTaxLabel.Text = $"{rate * 100:F0}%";
+    }
+
+    public void SetVatTaxRate(float rate)
+    {
+        VatTaxRate = rate;
+        VatLabel.Text = $"{rate * 100:F0}%";
+    }
+
+    public void SetShuttleSellRate(float rate)
+    {
+        ShuttleSellRate = rate;
+        ShuttleSellLabel.Text = $"{rate * 100:F0}%";
+    }
+
+    private void OnShuttleSellApply(BaseButton.ButtonEventArgs obj)
+    {
+        ShuttleSellApply?.Invoke();
+    }
+
+    private void OnVatTaxApply(BaseButton.ButtonEventArgs obj)
+    {
+        VatTaxApply?.Invoke();
+    }
+
+    private void OnCargoTaxApply(BaseButton.ButtonEventArgs obj)
+    {
+        CargoTaxApply?.Invoke();
+    }
+
+    private void OnAtmTaxApply(BaseButton.ButtonEventArgs obj)
+    {
+        AtmTaxApply?.Invoke();
+    }
+    // radiant end
 
     private void SetWithdrawalReasonText(int id)
     {

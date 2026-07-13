@@ -19,9 +19,9 @@ ledger-tab-Medical = Медицинский Диспансер
 # Fallback, if this displays, something's wrong.
 ledger-tab-Unknown = Неизвестно
 
-ledger-entry-type-TickingIncome = Субсидии НТ
+ledger-entry-type-TickingIncome = Субсидии Конфедерации
 ledger-entry-type-VendorTax = Налог продавца
-ledger-entry-type-CargoTax = Налог с товара
+ledger-entry-type-CargoTax = НДС
 ledger-entry-type-MailDelivered = Почтовые платежи
 ledger-entry-type-BlackMarketAtmTax = Анонимные пожертвования
 ledger-entry-type-BlackMarketShipyardTax = Перепродажа мусора

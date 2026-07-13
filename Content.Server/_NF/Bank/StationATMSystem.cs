@@ -8,22 +8,27 @@ using Content.Shared._NF.Bank;
 using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.Bank.Components;
 using Content.Shared._NF.Bank.Events;
+using Content.Shared._NF.CCVar;
 using Content.Shared.Access.Systems;
 using Content.Shared.Coordinates;
 using Content.Shared.Database;
 using Content.Shared.Stacks;
+using Content.Shared.VendingMachines; // radiant
 using Robust.Shared.Containers;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._NF.Bank;
 
 public sealed partial class BankSystem
 {
     [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // radiant
 
     private void InitializeStationATM()
     {
         SubscribeLocalEvent<StationBankATMComponent, StationBankWithdrawMessage>(OnWithdraw);
         SubscribeLocalEvent<StationBankATMComponent, StationBankDepositMessage>(OnDeposit);
+        SubscribeLocalEvent<StationBankATMComponent, StationBankSetTaxMessage>(OnSetTax); // radiant
         SubscribeLocalEvent<StationBankATMComponent, BoundUIOpenedEvent>(OnATMUIOpen);
         SubscribeLocalEvent<StationBankATMComponent, EntInsertedIntoContainerMessage>(OnCashSlotChanged);
         SubscribeLocalEvent<StationBankATMComponent, EntRemovedFromContainerMessage>(OnCashSlotChanged);
@@ -36,6 +41,7 @@ public sealed partial class BankSystem
             return;
 
         GetInsertedCashAmount(component, out var deposit);
+        GetTaxRates(out var cargoRate, out var atmRate, out var vendorVatRate, out var shuttleRate); // radiant
 
         if (!TryGetBalance(component.Account, out var stationBank))
         {
@@ -43,7 +49,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(0, false, deposit));
+                new StationBankATMMenuInterfaceState(0, false, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate)); // radiant
             return;
         }
 
@@ -54,7 +60,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("station-bank-unauthorized"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate)); // radiant
             return;
         }
 
@@ -63,7 +69,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("station-bank-requires-reason"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -73,7 +79,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-insufficient-funds"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -83,7 +89,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-withdraw-failed"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -99,7 +105,7 @@ public sealed partial class BankSystem
             _transform.SetLocalRotation(stackUid, Angle.Zero);
 
         _uiSystem.SetUiState(uid, args.UiKey,
-            new StationBankATMMenuInterfaceState(stationBank - args.Amount, hasAccess, deposit));
+            new StationBankATMMenuInterfaceState(stationBank - args.Amount, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
     }
 
     private void OnDeposit(EntityUid uid, StationBankATMComponent component, StationBankDepositMessage args)
@@ -110,6 +116,7 @@ public sealed partial class BankSystem
         // gets the money inside a cashslot of an ATM.
         // Dynamically knows what kind of cash to look for according to BankATMComponent
         GetInsertedCashAmount(component, out var deposit);
+        GetTaxRates(out var cargoRate, out var atmRate, out var vendorVatRate, out var shuttleRate);// radiant
 
         if (!TryGetBalance(component.Account, out var stationBank))
         {
@@ -117,7 +124,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(0, false, deposit));
+                new StationBankATMMenuInterfaceState(0, false, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -128,7 +135,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-no-bank"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, false, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, false, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate)); //radiant
             return;
         }
 
@@ -139,7 +146,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("station-bank-unauthorized"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -148,7 +155,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("station-bank-requires-reason"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -160,7 +167,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -171,7 +178,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-wrong-cash"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -182,7 +189,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-atm-menu-transaction-denied"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -198,7 +205,7 @@ public sealed partial class BankSystem
             ConsolePopup(args.Actor, Loc.GetString("bank-withdraw-failed"));
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate));// radiant
             return;
         }
 
@@ -215,7 +222,7 @@ public sealed partial class BankSystem
             _containerSystem.CleanContainer(cashSlot);
 
         _uiSystem.SetUiState(uid, args.UiKey,
-            new StationBankATMMenuInterfaceState(stationBank + args.Amount, hasAccess, leftAmount));
+            new StationBankATMMenuInterfaceState(stationBank + args.Amount, hasAccess, leftAmount, cargoRate, atmRate, vendorVatRate, shuttleRate)); // radiant
     }
 
     private LedgerEntryType ParseLedgerType(string name, bool isDeposit)
@@ -230,11 +237,12 @@ public sealed partial class BankSystem
     private void OnCashSlotChanged(EntityUid uid, StationBankATMComponent component, ContainerModifiedMessage args)
     {
         GetInsertedCashAmount(component, out var deposit);
+        GetTaxRates(out var cargoRate, out var atmRate, out var vendorVatRate, out var shuttleRate); //radiant
 
         if (!TryGetBalance(component.Account, out var stationBank))
         {
             _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-                new StationBankATMMenuInterfaceState(stationBank, false, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, false, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate)); // radiant
             return;
         }
 
@@ -249,11 +257,11 @@ public sealed partial class BankSystem
         if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid: true })
         {
             _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-                new StationBankATMMenuInterfaceState(stationBank, hasAccess, 0));
+                new StationBankATMMenuInterfaceState(stationBank, hasAccess, 0, cargoRate, atmRate, vendorVatRate, shuttleRate)); // radiant
         }
 
         _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-            new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit));
+            new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate)); // radiant
     }
 
     private void OnATMUIOpen(EntityUid uid, StationBankATMComponent component, BoundUIOpenedEvent args)
@@ -262,16 +270,17 @@ public sealed partial class BankSystem
             return;
 
         GetInsertedCashAmount(component, out var deposit);
+        GetTaxRates(out var cargoRate, out var atmRate, out var vendorVatRate, out var shuttleRate); // radiant
 
         if (!TryGetBalance(component.Account, out var stationBank))
         {
             _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-                new StationBankATMMenuInterfaceState(stationBank, false, deposit));
+                new StationBankATMMenuInterfaceState(stationBank, false, deposit, cargoRate, atmRate, vendorVatRate, shuttleRate)); // radiant
             return;
         }
 
         _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
-            new StationBankATMMenuInterfaceState(stationBank, _access.IsAllowed(player, uid), deposit));
+            new StationBankATMMenuInterfaceState(stationBank, _access.IsAllowed(player, uid), deposit, cargoRate, atmRate, vendorVatRate, shuttleRate)); // radiant
     }
 
     private void GetInsertedCashAmount(StationBankATMComponent component, out int amount)
@@ -317,7 +326,86 @@ public sealed partial class BankSystem
 
         return;
     }
+// radiant start
+    private void OnSetTax(EntityUid uid, StationBankATMComponent component, StationBankSetTaxMessage args)
+    {
+        if (args.Actor is not { Valid: true } player)
+            return;
 
+        var hasAccess = _access.IsAllowed(player, uid);
+        if (!hasAccess)
+        {
+            ConsolePopup(args.Actor, Loc.GetString("station-bank-unauthorized"));
+            return;
+        }
+
+        var sectorEntity = _sectorService.GetServiceEntity();
+        if (sectorEntity == EntityUid.Invalid)
+            return;
+
+        var taxRates = EnsureComp<SectorTaxRatesComponent>(sectorEntity);
+        //radiant start
+        var cargoMaxRate = _cfg.GetCVar(NFCCVars.CargoSaleTaxMaxRate);
+        var cargoMinRate = _cfg.GetCVar(NFCCVars.CargoSaleTaxMinRate);
+        var atmMaxRate = _cfg.GetCVar(NFCCVars.AtmDepositTaxMaxRate);
+        var atmMinRate = _cfg.GetCVar(NFCCVars.AtmDepositTaxMinRate);
+        var vatMaxRate = _cfg.GetCVar(NFCCVars.VendorVatMaxRate);
+        var vatMinRate = _cfg.GetCVar(NFCCVars.VendorVatMinRate);
+        var cargoRate = Math.Clamp(args.CargoTaxRate, cargoMinRate, cargoMaxRate);
+        var atmRate = Math.Clamp(args.AtmDepositTaxRate, atmMinRate, atmMaxRate);
+        var vendorVatRate = Math.Clamp(args.VendorVatRate, vatMinRate, vatMaxRate);
+        //radiant end
+        var shuttleSellRate = Math.Clamp(args.ShuttleSellRate, _cfg.GetCVar(NFCCVars.ShipyardSellRateMin), _cfg.GetCVar(NFCCVars.ShipyardSellRateMax));
+
+        if (cargoRate > 0f)
+            taxRates.CargoSaleTaxRates[SectorBankAccount.Frontier] = cargoRate;
+        else
+            taxRates.CargoSaleTaxRates.Remove(SectorBankAccount.Frontier);
+
+        if (atmRate > 0f)
+            taxRates.AtmDepositTaxRates[SectorBankAccount.Frontier] = atmRate;
+        else
+            taxRates.AtmDepositTaxRates.Remove(SectorBankAccount.Frontier);
+
+        taxRates.VendorVatRate = vendorVatRate;
+        taxRates.ShuttleSellRate = shuttleSellRate;
+
+        _log.Info($"Tax rates updated: cargo={cargoRate*100:F0}%, atm={atmRate*100:F0}%, vat={vendorVatRate*100:F0}%, shuttle={shuttleSellRate*100:F0}%");
+
+        _adminLogger.Add(LogType.ATMUsage, LogImpact.Medium,
+            $"{ToPrettyString(player):actor} set tax rates: cargo {cargoRate*100:F0}%, ATM {atmRate*100:F0}%, VAT {vendorVatRate*100:F0}%, shuttle sell {shuttleSellRate*100:F0}%");
+
+        GetTaxRates(out var newCargoRate, out var newAtmRate, out var newVendorVatRate, out var newShuttleRate);
+        GetInsertedCashAmount(component, out var deposit);
+        TryGetBalance(component.Account, out var stationBank);
+        _uiSystem.SetUiState(uid, BankATMMenuUiKey.ATM,
+            new StationBankATMMenuInterfaceState(stationBank, hasAccess, deposit, newCargoRate, newAtmRate, newVendorVatRate, newShuttleRate));
+        ConsolePopup(args.Actor, Loc.GetString("station-bank-tax-updated"));
+        PlayConfirmSound(uid, component);
+
+        // Radint start. Refresh vending machine states so clients see the new VAT rate
+        var vendingQuery = AllEntityQuery<VendingMachineComponent>();
+        while (vendingQuery.MoveNext(out var vendUid, out var vendComp))
+            Dirty(vendUid, vendComp);
+        //radiant end
+    }
+
+    private void GetTaxRates(out float cargoTaxRate, out float atmDepositTaxRate, out float vendorVatRate, out float shuttleSellRate)
+    {
+        cargoTaxRate = 0f;
+        atmDepositTaxRate = 0f;
+        vendorVatRate = 0f;
+        shuttleSellRate = 0f;
+        var sectorEntity = _sectorService.GetServiceEntity();
+        if (sectorEntity != EntityUid.Invalid && TryComp<SectorTaxRatesComponent>(sectorEntity, out var taxRates))
+        {
+            taxRates.CargoSaleTaxRates.TryGetValue(SectorBankAccount.Frontier, out cargoTaxRate);
+            taxRates.AtmDepositTaxRates.TryGetValue(SectorBankAccount.Frontier, out atmDepositTaxRate);
+            vendorVatRate = taxRates.VendorVatRate;
+            shuttleSellRate = taxRates.ShuttleSellRate;
+        }
+    }
+// radiant end
     private void PlayDenySound(EntityUid uid, StationBankATMComponent component)
     {
         _audio.PlayPvs(_audio.ResolveSound(component.ErrorSound), uid);

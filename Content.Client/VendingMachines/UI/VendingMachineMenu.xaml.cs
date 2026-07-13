@@ -92,7 +92,7 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled, float priceModifier, int balance, int? cashSlotBalance) // Frontier: add priceModifier, balance, cashSlotBalance
+        public void Populate(List<VendingMachineInventoryEntry> inventory, bool enabled, float priceModifier, int balance, int? cashSlotBalance, float vatRate = 0f) // Frontier: add priceModifier, balance, cashSlotBalance, radiant: vatRate
         {
             _enabled = enabled;
             _listItems.Clear();
@@ -143,6 +143,11 @@ namespace Content.Client.VendingMachines.UI
 
                 var cost = GetPrototypePrice(prototype, priceModifier); // Frontier: item pricing
 
+                //radiant start
+                if (vatRate > 0f)
+                    cost += (int)Math.Floor(cost * vatRate);
+                //radiant end
+
                 var itemName = Identity.Name(dummy, _entityManager);
 
                 // Frontier: unlimited vending
@@ -180,12 +185,18 @@ namespace Content.Client.VendingMachines.UI
             if (balance != null)
                 CashSlotLabel.Text = BankSystemExtensions.ToSpesoString(balance.Value);
         }
+
+        public void UpdateVatRate(float rate)
+        {
+            VatLabel.Text = $"{rate * 100:F0}%";
+            VatControls.Visible = rate > 0f;
+        }
         // End Frontier
 
         /// <summary>
         /// Updates text entries for vending data in place without modifying the list controls.
         /// </summary>
-        public void UpdateAmounts(List<VendingMachineInventoryEntry> cachedInventory, float priceModifier, bool enabled) // Frontier: add priceModifier
+        public void UpdateAmounts(List<VendingMachineInventoryEntry> cachedInventory, float priceModifier, bool enabled, float vatRate = 0f) // Frontier: add priceModifier, vatRate
         {
             _enabled = enabled;
 
@@ -199,14 +210,14 @@ namespace Content.Client.VendingMachines.UI
                     continue;
                 var amount = entry.Amount;
                 // Could be better? Problem is all inventory entries get squashed.
-                var text = GetItemText(dummy, amount, priceModifier);
+                var text = GetItemText(dummy, amount, priceModifier, vatRate);
 
                 button.Item.SetText(text);
                 button.Button.Disabled = !enabled || amount == 0;
             }
         }
 
-        private string GetItemText(EntityUid dummy, uint amount, float priceModifier) // Frontier: add priceModifier
+        private string GetItemText(EntityUid dummy, uint amount, float priceModifier, float vatRate = 0f) // Frontier: add priceModifier, vatRate
         {
             // Frontier: lookup price from entity, finite output
             var cost = (int)(20 * priceModifier);
@@ -214,6 +225,9 @@ namespace Content.Client.VendingMachines.UI
             {
                 cost = GetPrototypePrice(component.EntityPrototype, priceModifier);
             }
+
+            if (vatRate > 0f)
+                cost += (int)Math.Floor(cost * vatRate);
 
             var itemName = Identity.Name(dummy, _entityManager);
             if (amount != uint.MaxValue)
@@ -225,7 +239,7 @@ namespace Content.Client.VendingMachines.UI
 
         private void SetSizeAfterUpdate(int longestEntryLength, int contentCount)
         {
-            SetSize = new Vector2(Math.Clamp((longestEntryLength + 2) * 12, 250, 400),
+            SetSize = new Vector2(SetSize.X,
                 Math.Clamp(contentCount * 50, 150, 350));
         }
 

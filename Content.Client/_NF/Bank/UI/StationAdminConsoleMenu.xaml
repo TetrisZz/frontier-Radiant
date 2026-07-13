@@ -1,8 +1,8 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
             xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-            SetSize="360 315"
-            MinSize="360 315">
+            SetSize="360 570"
+            MinSize="360 570"> <!-- Radiant SetSize="360 570" MinSize="360 570"-->
     <BoxContainer Margin="10 2 10 2" Orientation="Vertical" VerticalExpand="True">
         <GridContainer Columns="2" HorizontalExpand="True">
             <Label Text="{Loc 'bank-atm-menu-balance-label'}"
@@ -29,7 +29,7 @@
             <Button Name="WithdrawButton"
                     Text="{Loc 'bank-atm-menu-withdraw-button'}"
                     HorizontalExpand="True"/>
-
+            <!-- Radiant start-->
             <Label Text="{Loc 'bank-atm-menu-deposit-label'}"
                 StyleClasses="LabelKeyText"
                 HorizontalAlignment="Right" />
@@ -49,6 +49,51 @@
             <Button Name="DepositButton"
                     Text="{Loc 'bank-atm-menu-deposit-button'}"
                     HorizontalExpand="True"/>
+
+            <Label Text="{Loc 'station-admin-cargo-tax-label'}"
+                StyleClasses="LabelKeyText"
+                HorizontalAlignment="Right" />
+            <Label Name="CargoTaxLabel" Text="0%" />
+
+            <Label HorizontalAlignment="Right" />
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <LineEdit Name="CargoTaxEdit" MinSize="60 0" HorizontalExpand="True" />
+                <Button Name="CargoTaxButton" Text="Apply" MinSize="60 0" />
+            </BoxContainer>
+
+            <Label Text="{Loc 'station-admin-atm-tax-label'}"
+                StyleClasses="LabelKeyText"
+                HorizontalAlignment="Right" />
+            <Label Name="AtmTaxLabel" Text="0%" />
+
+            <Label HorizontalAlignment="Right" />
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <LineEdit Name="AtmTaxEdit" MinSize="60 0" HorizontalExpand="True" />
+                <Button Name="AtmTaxButton" Text="Apply" MinSize="60 0" />
+            </BoxContainer>
+
+            <Label Text="{Loc 'station-admin-vat-label'}"
+                StyleClasses="LabelKeyText"
+                HorizontalAlignment="Right" />
+            <Label Name="VatLabel" Text="0%" />
+
+            <Label HorizontalAlignment="Right" />
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <LineEdit Name="VatTaxEdit" MinSize="60 0" HorizontalExpand="True" />
+                <Button Name="VatTaxButton" Text="Apply" MinSize="60 0" />
+            </BoxContainer>
+
+            <Label Text="{Loc 'station-admin-shuttle-sell-label'}"
+                StyleClasses="LabelKeyText"
+                HorizontalAlignment="Right" />
+            <Label Name="ShuttleSellLabel" Text="0%" />
+
+            <Label HorizontalAlignment="Right" />
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <LineEdit Name="ShuttleSellEdit" MinSize="60 0" HorizontalExpand="True" />
+                <Button Name="ShuttleSellButton" Text="Apply" MinSize="60 0" />
+            </BoxContainer>
+            <!-- Radiant end-->
         </GridContainer>
     </BoxContainer>
 </controls:FancyWindow>

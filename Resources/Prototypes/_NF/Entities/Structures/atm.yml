@@ -142,6 +142,7 @@
       enum.BankATMMenuUiKey.BlackMarket:
         type: BankATMMenuBoundUserInterface
   - type: BankATM
+    blackMarket: true
     taxAccounts:
       Frontier: 0.3 # The scandal!
 
@@ -166,6 +167,7 @@
       enum.BankATMMenuUiKey.BlackMarket:
         type: BankATMMenuBoundUserInterface
   - type: BankATM
+    blackMarket: true
     taxAccounts:
       Frontier: 0.3 # The scandal!
 

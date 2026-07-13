@@ -1,5 +1,6 @@
 using Content.Server.Cargo.Components;
 using Content.Server._NF.Cargo.Components;
+using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.Bank.Components;
 using Content.Shared._NF.Cargo.BUI;
 using Content.Shared.Cargo;
@@ -52,9 +53,12 @@ public sealed partial class NFCargoSystem
             amount *= priceMod.Mod;
         }
         amount += noModAmount;
+        var cargoTaxRate = GetEffectiveCargoTaxRate(ent);// radiant
+        var taxAmount = (int)Math.Floor(amount * cargoTaxRate);
+        var netAmount = (int)Math.Max(0, amount - taxAmount);
 
         _ui.SetUiState(ent.Owner, CargoPalletConsoleUiKey.Sale,
-            new NFCargoPalletConsoleInterfaceState((int)amount, toSell.Count, true));
+            new NFCargoPalletConsoleInterfaceState((int)amount, toSell.Count, true, cargoTaxRate, netAmount)); // radiant
     }
 
     private void OnPalletUIOpen(Entity<NFCargoPalletConsoleComponent> ent, ref BoundUIOpenedEvent args)
@@ -197,7 +201,7 @@ public sealed partial class NFCargoSystem
                     noMultiplierAmount += price;
                 else
                     amount += price;
-                
+
                 // Check for any additional currency payouts
                 if (TryComp(ent, out AdditionalPalletCurrencyComponent? currencyComponent))
                 {
@@ -263,12 +267,36 @@ public sealed partial class NFCargoSystem
             price *= priceMod.Mod;
         }
         price += noMultiplierPrice;
+        // radiant start
+        // Apply tax: check for sector-wide dynamic rates first, fall back to per-entity TaxAccounts
+        var taxAccounts = ent.Comp.TaxAccounts;
+        if (_sectorService.GetServiceEntity() is { Valid: true } sectorEntity &&
+            TryComp<SectorTaxRatesComponent>(sectorEntity, out var sectorTaxRates) &&
+            sectorTaxRates.CargoSaleTaxRates.Count > 0)
+        {
+            taxAccounts = sectorTaxRates.CargoSaleTaxRates;
+        }
 
+        var totalTaxAmount = 0;
+        foreach (var (account, taxCoeff) in taxAccounts)
+        {
+            if (!float.IsFinite(taxCoeff) || taxCoeff <= 0.0f)
+                continue;
+            var tax = (int)Math.Floor(price * taxCoeff);
+            if (tax > 0)
+            {
+                _bank.TrySectorDeposit(account, tax, LedgerEntryType.VendorTax);
+                totalTaxAmount += tax;
+            }
+        }
+        price -= totalTaxAmount;
+        price = Math.Max(0, price);
+        // radiant end
         var stackPrototype = _proto.Index(ent.Comp.CashType);
         var stackUid = _stack.Spawn((int)price, stackPrototype, args.Actor.ToCoordinates());
         if (!_hands.TryPickupAnyHand(args.Actor, stackUid))
             _transform.SetLocalRotation(stackUid, Angle.Zero); // Orient these to grid north instead of map north
-        
+
         // Iterate through additional currency payouts, putting them in hand if possible
         foreach (var (currencyId, currencyAmount) in additionalCurrency)
         {
@@ -279,6 +307,19 @@ public sealed partial class NFCargoSystem
         _audio.PlayPvs(ApproveSound, ent);
         UpdatePalletConsoleInterface(ent);
     }
+        // radiant start
+    private float GetEffectiveCargoTaxRate(Entity<NFCargoPalletConsoleComponent> ent)
+    {
+        var taxAccounts = ent.Comp.TaxAccounts;
+        if (_sectorService.GetServiceEntity() is { Valid: true } sectorEntity &&
+            TryComp<SectorTaxRatesComponent>(sectorEntity, out var sectorTaxRates) &&
+            sectorTaxRates.CargoSaleTaxRates.Count > 0)
+        {
+            taxAccounts = sectorTaxRates.CargoSaleTaxRates;
+        }
+        return taxAccounts.GetValueOrDefault(SectorBankAccount.Frontier);
+    }
+        // radiant end
 
     #endregion
 }

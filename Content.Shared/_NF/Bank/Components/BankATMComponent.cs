@@ -21,6 +21,9 @@ public sealed partial class BankATMComponent : Component
     public Dictionary<SectorBankAccount, float> TaxAccounts = new();
 
     [DataField]
+    public bool BlackMarket; //radiant
+
+    [DataField]
     public ItemSlot CashSlot = new();
 
     [DataField]

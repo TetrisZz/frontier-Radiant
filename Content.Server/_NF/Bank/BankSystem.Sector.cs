@@ -95,7 +95,27 @@ public sealed partial class BankSystem : SharedBankSystem
         AddLedgerEntry(account, reason, amount);
         return true;
     }
+    // radiant start
+    [PublicAPI]
+    public float GetVendorVatRate()
+    {
+        var sectorEntity = _sectorService.GetServiceEntity();
+        if (sectorEntity == EntityUid.Invalid || !TryComp<SectorTaxRatesComponent>(sectorEntity, out var taxRates))
+            return 0f;
+        return taxRates.VendorVatRate;
+    }
 
+    [PublicAPI]
+    public float GetShuttleSellRate(float fallback)
+    {
+        var sectorEntity = _sectorService.GetServiceEntity();
+        if (sectorEntity == EntityUid.Invalid || !TryComp<SectorTaxRatesComponent>(sectorEntity, out var taxRates))
+            return fallback;
+        if (taxRates.ShuttleSellRate > 0f)
+            return taxRates.ShuttleSellRate;
+        return fallback;
+    }
+    // radiant end
     /// <summary>
     /// Retrieves a character's balance via its in-game entity, if it has one.
     /// </summary>

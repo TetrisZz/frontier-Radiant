@@ -99,10 +99,22 @@ public sealed class NFCCVars
         CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
 
     /// <summary>
-    /// Base sell rate (multiplier: 0.95 = 95%)
+    /// Base sell rate (multiplier: 0.95 = 95%). Governor-adjustable.
     /// </summary>
     public static readonly CVarDef<float> ShipyardSellRate =
         CVarDef.Create("shuttle.shipyard_base_sell_rate", 0.95f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum sell rate the governor can set.
+    /// </summary>
+    public static readonly CVarDef<float> ShipyardSellRateMin =
+        CVarDef.Create("shuttle.shipyard_sell_rate_min", 0.7f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Maximum sell rate the governor can set.
+    /// </summary>
+    public static readonly CVarDef<float> ShipyardSellRateMax =
+        CVarDef.Create("shuttle.shipyard_sell_rate_max", 0.95f, CVar.SERVERONLY);
 
     /*
      * Salvage
@@ -292,4 +304,43 @@ public sealed class NFCCVars
     /// </summary>
     public static readonly CVarDef<string> NewPlayerStarterLoadout =
         CVarDef.Create("nf14.greeting.loadout", "NFGreenhornLoadout", CVar.REPLICATED);
+
+    /*
+     * Taxation
+     */
+    /// <summary>
+    /// Maximum cargo sale tax rate that can be set via the station admin console (0-1).
+    /// </summary>
+    public static readonly CVarDef<float> CargoSaleTaxMaxRate =
+        CVarDef.Create("tax.cargo_sale_max_rate", 0.3f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum cargo sale tax rate that can be set via the station admin console (>0).
+    /// </summary>
+    public static readonly CVarDef<float> CargoSaleTaxMinRate =
+        CVarDef.Create("tax.cargo_sale_min_rate", 0.01f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Maximum ATM deposit tax rate that can be set via the station admin console (0-1).
+    /// </summary>
+    public static readonly CVarDef<float> AtmDepositTaxMaxRate =
+        CVarDef.Create("tax.atm_deposit_max_rate", 0.3f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum ATM deposit tax rate that can be set via the station admin console (>0).
+    /// </summary>
+    public static readonly CVarDef<float> AtmDepositTaxMinRate =
+        CVarDef.Create("tax.atm_deposit_min_rate", 0.01f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Maximum VAT rate that can be set via the station admin console (0-1).
+    /// </summary>
+    public static readonly CVarDef<float> VendorVatMaxRate =
+        CVarDef.Create("tax.vendor_vat_max_rate", 0.3f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum VAT rate that can be set via the station admin console (>0).
+    /// </summary>
+    public static readonly CVarDef<float> VendorVatMinRate =
+        CVarDef.Create("tax.vendor_vat_min_rate", 0.01f, CVar.SERVERONLY);
 }

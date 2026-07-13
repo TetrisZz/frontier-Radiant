@@ -19,11 +19,14 @@ public sealed class BankATMMenuInterfaceState : BoundUserInterfaceState
     /// how much cash is inserted
     /// </summary>
     public int Deposit;
+    public float AtmDepositTaxRate;
 
-    public BankATMMenuInterfaceState(int balance, bool enabled, int deposit)
+    public BankATMMenuInterfaceState(int balance, bool enabled, int deposit,
+        float atmDepositTaxRate = 0f) // radiant
     {
         Balance = balance;
         Enabled = enabled;
         Deposit = deposit;
+        AtmDepositTaxRate = atmDepositTaxRate; // radiant
     }
 }

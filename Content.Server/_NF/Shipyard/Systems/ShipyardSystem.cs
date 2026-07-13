@@ -44,6 +44,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     private ISawmill _sawmill = default!;
     private bool _enabled;
     private float _baseSaleRate;
+    private float _saleRateMin; //radiant
+    private float _saleRateMax; //radiant
 
     // The type of error from the attempted sale of a ship.
     public enum ShipyardSaleError
@@ -72,6 +74,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         _configManager.OnValueChanged(NFCCVars.Shipyard, SetShipyardEnabled); // NOTE: run immediately set to false, see comment above
 
         _configManager.OnValueChanged(NFCCVars.ShipyardSellRate, SetShipyardSellRate, true);
+        _configManager.OnValueChanged(NFCCVars.ShipyardSellRateMin, v => _saleRateMin = v, true); // radiant
+        _configManager.OnValueChanged(NFCCVars.ShipyardSellRateMax, v => _saleRateMax = v, true); // radiant
         _sawmill = Logger.GetSawmill("shipyard");
 
         SubscribeLocalEvent<ShipyardConsoleComponent, ComponentStartup>(OnShipyardStartup);
@@ -115,7 +119,13 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
     private void SetShipyardSellRate(float value)
     {
-        _baseSaleRate = Math.Clamp(value, 0.0f, 1.0f);
+        _baseSaleRate = Math.Clamp(value, _saleRateMin, _saleRateMax); // radiant
+    }
+
+    private float GetEffectiveSellRate()
+    {
+        var sectorOverride = _bank.GetShuttleSellRate(_baseSaleRate); // radiant
+        return Math.Clamp(sectorOverride, _saleRateMin, _saleRateMax); // radiant
     }
 
     /// <summary>

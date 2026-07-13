@@ -19,6 +19,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
 using Content.Shared.Stacks; // Frontier
+using Content.Shared._NF.Bank.Components; // radiant
 
 namespace Content.Shared.VendingMachines;
 
@@ -90,7 +91,18 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             DenyEnd = component.DenyEnd,
             DispenseOnHitEnd = component.DispenseOnHitEnd,
             CashSlotBalance = component.CashSlotBalance, // Frontier
+        // radiant start
+            VatRate = GetVendorVatRate(),
         };
+    }
+
+    private float GetVendorVatRate()
+    {
+        var query = EntityQueryEnumerator<SectorTaxRatesComponent>();
+        while (query.MoveNext(out _, out var taxComp))
+            return taxComp.VendorVatRate;
+        return 0f;
+        // radiant end
     }
 
     public override void Update(float frameTime)

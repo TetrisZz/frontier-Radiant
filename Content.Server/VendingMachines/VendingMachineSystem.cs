@@ -409,6 +409,15 @@ namespace Content.Server.VendingMachines
             if (priceVend > 0.0) // if vending price exists, overwrite it.
                 totalPrice = (int)priceVend;
 
+            // Apply dynamic VAT on top of the base price
+            // radiant start
+            var vatRate = _bankSystem.GetVendorVatRate();
+            component.VatRate = vatRate;
+            var vatAmount = 0;
+            if (vatRate > 0f)
+                vatAmount = (int)Math.Floor(totalPrice * vatRate);
+            var finalPrice = totalPrice + vatAmount;
+            // radiant end
             if (IsAuthorized(uid, sender, component))
             {
                 int bankBalance = 0;
@@ -427,7 +436,7 @@ namespace Content.Server.VendingMachines
                     cashEntity = (cashSlot!.ContainerSlot!.ContainedEntity.Value, stackComp!);
                 }
 
-                if (totalPrice > bankBalance + cashSlotBalance)
+                if (finalPrice > bankBalance + cashSlotBalance) // radiant
                 {
                     Popup.PopupEntity(Loc.GetString("bank-insufficient-funds"), uid);
                     Deny((uid, component));
@@ -439,33 +448,30 @@ namespace Content.Server.VendingMachines
                 {
                     if (cashEntity != null)
                     {
-                        var newCashSlotBalance = Math.Max(cashSlotBalance - totalPrice, 0);
+                        var newCashSlotBalance = Math.Max(cashSlotBalance - finalPrice, 0); // radiant
                         _stack.SetCount(cashEntity.Value.Owner, newCashSlotBalance, cashEntity.Value.Comp);
                         component.CashSlotBalance = newCashSlotBalance;
                         paidFully = true; // Either we paid fully with cash, or we need to withdraw the remainder
                     }
-                    if (totalPrice > cashSlotBalance)
+                    if (finalPrice > cashSlotBalance)
                     {
-                        paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance);
+                        paidFully = _bankSystem.TryBankWithdraw(sender, finalPrice - cashSlotBalance); // radiant
                     }
 
-                    // If we paid completely, pay our station taxes
+                    // If we paid completely, send the VAT amount to Frontier
                     if (paidFully)
                     {
-                        foreach (var (account, taxCoeff) in component.TaxAccounts)
-                        {
-                            if (!float.IsFinite(taxCoeff) || taxCoeff <= 0.0f)
-                                continue;
-                            var tax = (int)Math.Floor(totalPrice * taxCoeff);
-                            _bankSystem.TrySectorDeposit(account, tax, LedgerEntryType.VendorTax);
-                        }
+                        // radiant start
+                        if (vatAmount > 0)
+                            _bankSystem.TrySectorDeposit(SectorBankAccount.Frontier, vatAmount, LedgerEntryType.CargoTax);
+                        // radiant end
                     }
 
                     // Something was ejected, update the vending component's state
                     Dirty(uid, component);
 
                     _adminLogger.Add(LogType.Action, LogImpact.Low,
-                        $"{ToPrettyString(sender):user} bought from [vendingMachine:{ToPrettyString(uid)}, product:{proto.Name}, cost:{totalPrice},  with ${cashSlotBalance} in the cash slot and ${bankBalance} in the bank.");
+                        $"{ToPrettyString(sender):user} bought from [vendingMachine:{ToPrettyString(uid)}, product:{proto.Name}, cost:{totalPrice}, vat:{vatAmount}, final:{finalPrice}, with ${cashSlotBalance} in the cash slot and ${bankBalance} in the bank."); // radiant
                 }
             }
         }
