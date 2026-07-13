@@ -233,3 +233,120 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/cow.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN1
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут ванилью.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n1.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN2
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут клубникой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n2.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN3
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут шоколадом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n3.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN4
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут карамелью.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n4.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN5
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут мятой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n5.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN6
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут вишней.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n6.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN7
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут черникой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n7.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN8
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут малиной.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n8.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN9
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут кокосом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n9.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN10
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут лимоном.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n10.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN11
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут апельсином.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n11.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN12
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут яблоком.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n12.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksPolosN13
+  name: полосатые чулки
+  description: Милые полосатые чулочки, пахнут персиком.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/sock_n13.rsi

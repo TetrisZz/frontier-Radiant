@@ -33,6 +33,30 @@
       "name": "on-inhand-left",
       "directions": 4
     },
+        {
+            "name": "equipped-OUTERCLOTHING-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-tajaran",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-light-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-light-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-light-tajaran",
+            "directions": 4
+        },
     {
       "name": "off-inhand-left",
       "directions": 4
