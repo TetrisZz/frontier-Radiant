@@ -458,12 +458,19 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             if (!component.IgnoreBaseSaleRate)
             // radiant start
             {
-                var sellRate = GetEffectiveSellRate();
-                var fullAppraisal = bill;
-                bill = (int)(bill * sellRate);
-                var cut = fullAppraisal - bill;
-                if (cut > 0)
-                    _bank.TrySectorDeposit(SectorBankAccount.Frontier, cut, shipyardEntryType); //radiant
+                var governorAdjustment = GetEffectiveSellRate(); // 0.70-1.0
+                var basePrice = (int)(bill * _baseSaleRate); // 95% of appraisal
+                if (governorAdjustment < _baseSaleRate)
+                {
+                    var tax = (int)(basePrice * (_baseSaleRate - governorAdjustment));
+                    if (tax > 0)
+                        _bank.TrySectorDeposit(SectorBankAccount.Frontier, tax, shipyardEntryType);
+                    bill = basePrice - tax;
+                }
+                else
+                {
+                    bill = basePrice;
+                }
             }
             // radiant end
 
@@ -877,8 +884,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         if (console.Comp.IgnoreBaseSaleRate)
             return taxRate;
-        else
-            return GetEffectiveSellRate() * taxRate; //radiant
+        //radiant
+        return GetEffectiveSellRate() * taxRate;
     }
 
     private int CalculateShipResaleValue(Entity<ShipyardConsoleComponent?> console, int baseAppraisal)
@@ -888,7 +895,16 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         int resaleValue = baseAppraisal;
         if (!console.Comp.IgnoreBaseSaleRate)
-            resaleValue = (int)(GetEffectiveSellRate() * resaleValue); //radiant
+        {
+            //radiant start
+            var basePrice = (int)(resaleValue * _baseSaleRate);
+            var gov = GetEffectiveSellRate();
+            if (gov >= _baseSaleRate)
+                resaleValue = basePrice;
+            else
+                resaleValue = basePrice - (int)(basePrice * (_baseSaleRate - gov));
+            //radiant end
+        }
 
         resaleValue -= CalculateTotalSalesTax(console.Comp, resaleValue);
         return resaleValue;

@@ -73,9 +73,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         _enabled = _configManager.GetCVar(NFCCVars.Shipyard);
         _configManager.OnValueChanged(NFCCVars.Shipyard, SetShipyardEnabled); // NOTE: run immediately set to false, see comment above
 
-        _configManager.OnValueChanged(NFCCVars.ShipyardSellRate, SetShipyardSellRate, true);
         _configManager.OnValueChanged(NFCCVars.ShipyardSellRateMin, v => _saleRateMin = v, true); // radiant
         _configManager.OnValueChanged(NFCCVars.ShipyardSellRateMax, v => _saleRateMax = v, true); // radiant
+        _configManager.OnValueChanged(NFCCVars.ShipyardSellRate, SetShipyardSellRate, true);
         _sawmill = Logger.GetSawmill("shipyard");
 
         SubscribeLocalEvent<ShipyardConsoleComponent, ComponentStartup>(OnShipyardStartup);
