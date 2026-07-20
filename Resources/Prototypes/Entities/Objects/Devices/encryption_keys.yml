@@ -23,6 +23,7 @@
   - type: EncryptionKey
     channels:
     - Common
+    - Local
     defaultChannel: Common
   - type: Sprite
     sprite: _NF/Objects/Devices/encryption_keys.rsi # Frontier
@@ -89,6 +90,7 @@
     - Traffic # Frontier
     - Navy # Radiant sector
     - Greeting # Frontier
+    - Local # Radiant sector
     defaultChannel: Command
   - type: Sprite
     layers:

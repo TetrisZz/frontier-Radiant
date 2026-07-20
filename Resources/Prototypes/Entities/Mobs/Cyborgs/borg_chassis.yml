@@ -31,6 +31,7 @@
   - type: BorgSwitchableType
     inherentRadioChannels:
     - Common
+    - Local # Radiant sector
     - Binary
   - type: FootstepModifier #Radiant Sector
     footstepSoundCollection:

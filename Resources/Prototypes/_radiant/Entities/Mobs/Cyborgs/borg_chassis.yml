@@ -18,11 +18,13 @@
     channels:
     - Binary
     - Common
+    - Local
     - Acorp
   - type: ActiveRadio
     channels:
     - Binary
     - Common
+    - Local
     - Acorp
   - type: Speech
     speechSounds: SyndieBorg
@@ -323,6 +325,7 @@
       channels:
       - Binary
       - Common
+      - Local
       - Acorp
       - Science
       - Engineering
@@ -337,6 +340,7 @@
       channels:
       - Binary
       - Common
+      - Local
       - Acorp
       - Science
       - Engineering
@@ -453,6 +457,7 @@
     - Medical
     - Traffic
     - Common
+    - Local
     - GD
   - type: ActiveRadio
     channels:
@@ -460,6 +465,7 @@
     - Medical
     - Traffic
     - Common
+    - Local
     - GD
   - type: Speech
     speechSounds: SyndieBorg

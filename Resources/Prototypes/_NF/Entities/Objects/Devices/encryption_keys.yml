@@ -47,7 +47,9 @@
     - Common
     - Medical
     - Command
-    - Emergency # Radiant_sector
+    - Emergency # Radiant sector
+    - Local # Radiant sector
+    - Security # Radiant sector
     defaultChannel: Common
   - type: Item
     sprite: _NF/Objects/Devices/encryption_keys.rsi
