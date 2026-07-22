@@ -33,7 +33,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Gun
-    fireRate: 4
+    fireRate: 3
     selectedMode: FullAuto
   - type: BallisticAmmoProvider
     proto: BulletMagnum500Ice
@@ -121,6 +121,55 @@
 #balistic_laser
 
 - type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretHostile500Magnum
+  name: турель
+  suffix: SimpleHostile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+  - type: BallisticAmmoProvider
+    proto: BulletMagnum500
+    capacity: 500
+  - type: NpcFactionMember
+    factions:
+    - RadiantAcorpTurret
+
+- type: entity
+  parent: [BaseWeaponBallisticTurret, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  id: WeaponTurretHostileLaserEMPRadiant
+  suffix: SimpleHostile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+  - type: BallisticAmmoProvider
+    proto: BulletLaserEMPRS
+    capacity: 500
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+
+- type: entity
+  parent: [BaseWeaponBallisticTurret, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  id: WeaponTurretHostileLaserSpreadNarrowRadiant
+  suffix: SimpleHostile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+  - type: BallisticAmmoProvider
+    proto: BulletLaserSpreadNarrowRS
+    capacity: 500
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+
+- type: entity
   parent: [BaseWeaponBallisticTurret, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: WeaponTurretSyndicateLaserSpreadRadiant
   suffix: Syndicate
@@ -137,6 +186,22 @@
     - NFSyndicate
 
 #balistic_BABAX
+
+- type: entity
+  parent: [BaseWeaponBallisticTurret, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  id: WeaponTurretHostileExplosionBoltRadiant
+  suffix: SimpleHostile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: FullAuto
+  - type: BallisticAmmoProvider
+    proto: CrossbowBoltExplosive
+    capacity: 500
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
 
 - type: entity
   parent: [BaseWeaponBallisticTurret, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband

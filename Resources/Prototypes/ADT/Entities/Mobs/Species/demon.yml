@@ -22,7 +22,8 @@
     requiredLegs: 2
   - type: Speech
     speechSounds: Lizard
-  - type: ArcanAccent
+  - type: ArcanAccent # Radiant sector
+  - type: TTS # Radiant sector
   - type: ArcanaAuraAbility #Radiant Sector
   - type: Vocal
     sounds:

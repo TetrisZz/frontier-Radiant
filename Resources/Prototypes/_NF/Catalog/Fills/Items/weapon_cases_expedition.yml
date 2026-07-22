@@ -130,7 +130,8 @@
       amount: 2
 
 - type: entity
-  parent: [WeaponCaseShort, RareWeaponCase]
+#  parent: [WeaponCaseShort, RareWeaponCase] # Radiant sector
+  parent: WeaponCaseShort # Radiant sector
   id: WeaponCaseShortWard45Expedition
   suffix: Dungeon, Ward-45
   categories: [ HideSpawnMenu ]

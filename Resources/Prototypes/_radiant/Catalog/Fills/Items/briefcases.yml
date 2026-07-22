@@ -56,7 +56,8 @@
       amount: 2
 
 - type: entity
-  parent: [WeaponCaseLong, RareWeaponCase]
+#  parent: [WeaponCaseLong, RareWeaponCase]
+  parent: WeaponCaseLong
   id: WeaponCaseLongAdjutant
   suffix: Dungeon, Adjutant
   categories: [ HideSpawnMenu ]

@@ -1,5 +1,6 @@
 dungeon-boss-grid-warning = Вернитесь в логово.
 
+nf-salvage-faction-zombies = Зомбированные
 nf-salvage-faction-xenos = Ксено
 nf-salvage-faction-carps = Карпы
 nf-salvage-faction-syndicate = Синдикат

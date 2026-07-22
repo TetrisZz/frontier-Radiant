@@ -357,6 +357,45 @@
         - /Maps/_radiant/Bluespace/Train.yml
 
 - type: entity
+  id: BluespaceShuttleVault
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-bluespace-generic-ftl-start-announcement
+    startAudio:
+      path: /Audio/_NF/Announcements/PocketSizedAndy/andy2_bluespace_ship_arrival.ogg
+    warningAnnouncement: station-event-bluespace-generic-ftl-warning-announcement
+    endAnnouncement: station-event-bluespace-generic-ftl-end-announcement
+    endAudio:
+      path: /Audio/_NF/Announcements/PocketSizedAndy/andy2_bluespace_ship_leave.ogg
+    earliestStart: 80
+    minimumPlayers: 10
+    weight: 1
+    duration: 1500
+    maxDuration: 1800
+    reoccurrenceDelay: 510 # Only once per shift possible
+  - type: BluespaceErrorRule
+    groups:
+      grid: !type:GridSpawnGroup
+        nameLoc:
+        - station-event-bluespace-name-UnidentifiedVessel
+        minimumDistance: 3250
+        maximumDistance: 4000
+        addComponents:
+        - type: Gravity
+          enabled: true
+          inherent: true
+        - type: IFF
+          color: "#E10F9B"
+        - type: LinkedLifecycleGridParent
+        - type: ProtectedGrid
+          preventArtifactTriggers: true
+        - type: PreventPilot
+        - type: ForceAnchor
+        paths:
+        - /Maps/_radiant/Bluespace/Shuttle_vault.yml
+
+- type: entity
   id: BluespaceVaultAcorpError
   parent: BaseStationEventShortDelay
   components:

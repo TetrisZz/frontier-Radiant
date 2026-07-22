@@ -112,6 +112,7 @@
         probability: 0.2
   - type: Rummager # DeltaV Code
   - type: AlwaysTriggerMousetrap # DeltaV Code
+  - type: TTS # Radiant sector
   - type: Inventory
     speciesId: goblin
     femaleDisplacements:

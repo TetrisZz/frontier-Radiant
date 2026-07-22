@@ -32,6 +32,67 @@
 
 # Hostile
 - type: entity
+  id: SpawnMobWeaponTurretHostileLaserSpreadNarrowRadiant
+  parent: MarkerBase
+  name: турель враждебная лазерный дробовик узкий
+  suffix: Hostile, LaserShotgun
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretHostileLaserSpreadNarrowRadiant
+
+- type: entity
+  id: SpawnMobWeaponTurretHostileLaserEMPRadiant
+  parent: MarkerBase
+  name: турель враждебная эми
+  suffix: Hostile, LaserShotgun
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretHostileLaserEMPRadiant
+
+- type: entity
+  id: SpawnMobWeaponTurretHostile500Magnum
+  parent: MarkerBase
+  name: турель враждебная 500 магнум
+  suffix: Hostile, LaserShotgun
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretHostile500Magnum
+
+- type: entity
+  id: SpawnMobWeaponTurretHostileExplosionBoltRadiant
+  parent: MarkerBase
+  name: турель враждебная взрывной болт
+  suffix: Hostile, LaserShotgun
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretHostileExplosionBoltRadiant
+
+# Syndicate
+- type: entity
   id: SpawnMobWeaponTurretRadiationSyndicateRadiant
   parent: MarkerBase
   name: турель синдиката радиационная

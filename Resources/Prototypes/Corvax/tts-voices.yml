@@ -1451,3 +1451,252 @@
   name: tts-voice-name-mitashorthairs
   sex: Female
   speaker: mitashorthairs
+
+- type: ttsVoice
+  id: chaos_marines_cultists_dow
+  name: tts-voice-name-chaos_marines_cultists_dow
+  sex: Male
+  speaker: chaos_marines_cultists_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: chaos_marines_dow
+  name: tts-voice-name-chaos_marines_dow
+  sex: Male
+  speaker: chaos_marines_dow
+
+- type: ttsVoice
+  id: chaos_marines_lord_dow
+  name: tts-voice-name-chaos_marines_lord_dow
+  sex: Male
+  speaker: chaos_marines_lord_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: chaos_marines_sorceror_dow
+  name: tts-voice-name-chaos_marines_sorceror_dow
+  sex: Male
+  speaker: chaos_marines_sorceror_dow
+
+- type: ttsVoice
+  id: dark_eldar_archon_dow
+  name: tts-voice-name-dark_eldar_archon_dow
+  sex: Male
+  speaker: dark_eldar_archon_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: dark_eldar_mandrake_dow
+  name: tts-voice-name-dark_eldar_mandrake_dow
+  sex: Male
+  speaker: dark_eldar_mandrake_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: dark_eldar_warrior_dow
+  name: tts-voice-name-dark_eldar_warrior_dow
+  sex: Male
+  speaker: dark_eldar_warrior_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: dark_eldar_wych_dow
+  name: tts-voice-name-dark_eldar_wych_dow
+  sex: Female
+  speaker: dark_eldar_wych_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: eldar_dow
+  name: tts-voice-name-eldar_dow
+  sex: Female
+  speaker: eldar_dow
+
+- type: ttsVoice
+  id: eldar_farseer_dow
+  name: tts-voice-name-eldar_farseer_dow
+  sex: Female
+  speaker: eldar_farseer_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: eldar_fire_dragon_dow
+  name: tts-voice-name-eldar_fire_dragon_dow
+  sex: Female
+  speaker: eldar_fire_dragon_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: eldar_warlock_dow
+  name: tts-voice-name-eldar_warlock_dow
+  sex: Female
+  speaker: eldar_warlock_dow
+
+- type: ttsVoice
+  id: guard_assassin_dow
+  name: tts-voice-name-guard_assassin_dow
+  sex: Male
+  speaker: guard_assassin_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: guard_captain_dow
+  name: tts-voice-name-guard_captain_dow
+  sex: Male
+  speaker: guard_captain_dow
+
+- type: ttsVoice
+  id: guard_commissar_dow
+  name: tts-voice-name-guard_commissar_dow
+  sex: Male
+  speaker: guard_commissar_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: guard_enginseer_dow
+  name: tts-voice-name-guard_enginseer_dow
+  sex: Male
+  speaker: guard_enginseer_dow
+
+- type: ttsVoice
+  id: guard_guardsman_sergeant_dow
+  name: tts-voice-name-guard_guardsman_sergeant_dow
+  sex: Male
+  speaker: guard_guardsman_sergeant_dow
+
+- type: ttsVoice
+  id: guard_heavy_weapons_platoon_dow
+  name: tts-voice-name-guard_heavy_weapons_platoon_dow
+  sex: Male
+  speaker: guard_heavy_weapons_platoon_dow
+
+- type: ttsVoice
+  id: guard_karskin_dow
+  name: tts-voice-name-guard_karskin_dow
+  sex: Male
+  speaker: guard_karskin_dow
+
+- type: ttsVoice
+  id: guard_ogryn_dow
+  name: tts-voice-name-guard_ogryn_dow
+  sex: Male
+  speaker: guard_ogryn_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: guard_priest_dow
+  name: tts-voice-name-guard_priest_dow
+  sex: Male
+  speaker: guard_priest_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: guard_psyker_dow
+  name: tts-voice-name-guard_psyker_dow
+  sex: Male
+  speaker: guard_psyker_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: orks_dow
+  name: tts-voice-name-orks_dow
+  sex: Male
+  speaker: orks_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: orks_flashgitznobs_dow
+  name: tts-voice-name-orks_flashgitznobs_dow
+  sex: Male
+  speaker: orks_flashgitznobs_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: orks_grots_dow
+  name: tts-voice-name-orks_grots_dow
+  sex: Male
+  speaker: orks_grots_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: orks_warboss_dow
+  name: tts-voice-name-orks_warboss_dow
+  sex: Male
+  speaker: orks_warboss_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: sisters_battle_sister_dow
+  name: tts-voice-name-sisters_battle_sister_dow
+  sex: Female
+  speaker: sisters_battle_sister_dow
+
+- type: ttsVoice
+  id: sisters_missionary_dow
+  name: tts-voice-name-sisters_missionary_dow
+  sex: Male
+  speaker: sisters_missionary_dow
+
+- type: ttsVoice
+  id: space_marines_2_dow
+  name: tts-voice-name-space_marines_2_dow
+  sex: Male
+  speaker: space_marines_2_dow
+
+- type: ttsVoice
+  id: space_marines_chaplain_dow
+  name: tts-voice-name-space_marines_chaplain_dow
+  sex: Male
+  speaker: space_marines_chaplain_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: space_marines_dow
+  name: tts-voice-name-space_marines_dow
+  sex: Male
+  speaker: space_marines_dow
+
+- type: ttsVoice
+  id: space_marines_force_commander_dow
+  name: tts-voice-name-space_marines_force_commander_dow
+  sex: Male
+  speaker: space_marines_force_commander_dow
+
+- type: ttsVoice
+  id: space_marines_librarian_dow
+  name: tts-voice-name-space_marines_librarian_dow
+  sex: Male
+  speaker: space_marines_librarian_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: tau_ethereal_dow
+  name: tts-voice-name-tau_ethereal_dow
+  sex: Male
+  speaker: tau_ethereal_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: tau_kroot_dow
+  name: tts-voice-name-tau_kroot_dow
+  sex: Male
+  speaker: tau_kroot_dow
+  roundStart: false
+
+- type: ttsVoice
+  id: tutorial_f_dow
+  name: tts-voice-name-tutorial_f_dow
+  sex: Female
+  speaker: tutorial_f_dow
+
+- type: ttsVoice
+  id: tutorial_m_dow
+  name: tts-voice-name-tutorial_m_dow
+  sex: Male
+  speaker: tutorial_m_dow
+
+- type: ttsVoice
+  id: kingpin
+  name: tts-voice-name-kingpin
+  sex: Male
+  speaker: kingpin

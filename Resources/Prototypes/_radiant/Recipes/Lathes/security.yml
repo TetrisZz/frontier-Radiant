@@ -60,6 +60,13 @@
   materials:
     Steel: 25
 
+#region Hardsuit
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitSecurity
+  parent: NFBaseHardSuitArmoredRecipe
+  result: ClothingOuterHardsuitSecurity
+
 #region 25 ACP
 
 - type: latheRecipe

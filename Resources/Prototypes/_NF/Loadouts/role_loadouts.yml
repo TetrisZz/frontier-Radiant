@@ -266,6 +266,9 @@
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
   - ContractorBackpackItems
   - ContractorHandItems
   - NFSpeciesSpecific

@@ -61,7 +61,7 @@ ent-NFAmmunitionBoxBigRifle10Rubber = коробка патронов (.10 ви�
 ent-NFAmmunitionBoxRifle20 = { ent-NFBaseAmmunitionBoxRifle20 }
     .desc = { ent-NFBaseAmmunitionBoxRifle20.desc }
 
-ent-NFAmmunitionBoxRifle20Overpressure = коробка патронов (.20 винтовочные усиленные)
+ent-NFAmmunitionBoxRifle20Overpressure = коробка патронов (.20 винтовочные экспансивные)
     .desc = { ent-NFBaseAmmunitionBoxRifle20.desc }
 
 ent-NFAmmunitionBoxRifle20Incendiary = коробка патронов (.20 винтовочные зажигательные)
@@ -79,7 +79,7 @@ ent-NFAmmunitionBoxRifle20Rubber = коробка патронов (.20 винт
 ent-NFAmmunitionBoxBigRifle20 = { ent-NFBaseAmmunitionBoxBigRifle20 }
     .desc = { ent-NFBaseAmmunitionBoxBigRifle20.desc }
 
-ent-NFAmmunitionBoxBigRifle20Overpressure = коробка патронов (.20 винтовочные усиленные)
+ent-NFAmmunitionBoxBigRifle20Overpressure = коробка патронов (.20 винтовочные экспансивные)
     .suffix = 200
     .desc = { ent-NFBaseAmmunitionBoxBigRifle20.desc }
 
@@ -102,7 +102,7 @@ ent-NFAmmunitionBoxBigRifle20Rubber = коробка патронов (.20 ви�
 ent-NFAmmunitionBoxRifle25 = { ent-NFBaseAmmunitionBoxRifle25 }
     .desc = { ent-NFBaseAmmunitionBoxRifle25.desc }
 
-ent-NFAmmunitionBoxRifle25Overpressure = коробка патронов (.25 безгильзовые усиленные)
+ent-NFAmmunitionBoxRifle25Overpressure = коробка патронов (.25 безгильзовые экспансивные)
     .desc = { ent-NFBaseAmmunitionBoxRifle25.desc }
 
 ent-NFAmmunitionBoxRifle25Incendiary = коробка патронов (.25 безгильзовые зажигательные)
@@ -120,7 +120,7 @@ ent-NFAmmunitionBoxRifle25Rubber = коробка патронов (.25 безг
 ent-NFAmmunitionBoxBigRifle25 = { ent-NFBaseAmmunitionBoxBigRifle25 }
     .desc = { ent-NFBaseAmmunitionBoxBigRifle25.desc }
 
-ent-NFAmmunitionBoxBigRifle25Overpressure = коробка патронов (.25 безгильзовые усиленные)
+ent-NFAmmunitionBoxBigRifle25Overpressure = коробка патронов (.25 безгильзовые экспансивные)
     .suffix = 200
     .desc = { ent-NFBaseAmmunitionBoxBigRifle25.desc }
 
@@ -143,7 +143,7 @@ ent-NFAmmunitionBoxBigRifle25Rubber = коробка патронов (.25 бе�
 ent-NFAmmunitionBoxRifle30 = { ent-NFBaseAmmunitionBoxRifle30 }
     .desc = { ent-NFBaseAmmunitionBoxRifle30.desc }
 
-ent-NFAmmunitionBoxRifle30Overpressure = коробка патронов (.30 винтовочные усиленные)
+ent-NFAmmunitionBoxRifle30Overpressure = коробка патронов (.30 винтовочные экспансивные)
     .desc = { ent-NFBaseAmmunitionBoxRifle30.desc }
 
 ent-NFAmmunitionBoxRifle30Incendiary = коробка патронов (.30 винтовочные зажигательные)
@@ -161,7 +161,7 @@ ent-NFAmmunitionBoxRifle30Rubber = коробка патронов (.30 винт
 ent-NFAmmunitionBoxBigRifle30 = { ent-NFBaseAmmunitionBoxBigRifle30 }
     .desc = { ent-NFBaseAmmunitionBoxBigRifle30.desc }
 
-ent-NFAmmunitionBoxBigRifle30Overpressure = коробка патронов (.30 винтовочные усиленные)
+ent-NFAmmunitionBoxBigRifle30Overpressure = коробка патронов (.30 винтовочные экспансивные)
     .suffix = 200
     .desc = { ent-NFBaseAmmunitionBoxBigRifle30.desc }
 

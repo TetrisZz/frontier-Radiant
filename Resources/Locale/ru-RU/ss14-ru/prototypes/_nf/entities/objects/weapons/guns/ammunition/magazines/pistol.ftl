@@ -9,7 +9,7 @@ ent-NFMagazinePistol35Empty = пистолетный магазин (.35 авт�
 ent-NFMagazinePistol35 = пистолетный магазин (.35 авто)
     .desc = { ent-BaseMagazinePistol.desc }
 
-ent-NFMagazinePistol35Overpressure = пистолетный магазин (.35 авто, усиленный)
+ent-NFMagazinePistol35Overpressure = пистолетный магазин (.35 авто, экспансивный)
     .desc = { ent-BaseMagazinePistol.desc }
 
 ent-NFMagazinePistol35Incendiary = пистолетный магазин (.35 авто, зажигательные)
@@ -39,7 +39,7 @@ ent-NFMagazineSubMachineGun35Empty = магазин ПП (.35 авто, любо
 ent-NFMagazineSubMachineGun35 = магазин ПП (.35 авто)
     .desc = { ent-BaseMagazinePistolSubMachineGun.desc }
 
-ent-NFMagazineSubMachineGun35Overpressure = магазин ПП (.35 авто, усиленный)
+ent-NFMagazineSubMachineGun35Overpressure = магазин ПП (.35 авто, экспансивный)
     .desc = { ent-BaseMagazinePistolSubMachineGun.desc }
 
 ent-NFMagazineSubMachineGun35Incendiary = магазин ПП (.35 авто, зажигательный)

@@ -48,7 +48,8 @@
   id: NFBaseWeaponLightMachineGunChamber20
   components:
   - type: Gun
-    examineCaliber: gun-examine-caliber-20
+#    examineCaliber: gun-examine-caliber-20 # Radiant sector
+    examineCaliber: gun-examine-caliber-30 # Radiant sector
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
     soundEmpty:
@@ -69,11 +70,13 @@
             - NFMagazineBoxRifle20
       gun_chamber:
         name: Chamber
-        startingItem: NFCartridgeRifle20
+#        startingItem: NFCartridgeRifle20 # Radiant sector
+        startingItem: NFCartridgeRifle30 # Radiant sector
         priority: 1
         whitelist:
           tags:
-            - NFCartridgeRifle20
+#            - NFCartridgeRifle20 # Radiant sector
+            - NFCartridgeRifle30 # Radiant sector
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

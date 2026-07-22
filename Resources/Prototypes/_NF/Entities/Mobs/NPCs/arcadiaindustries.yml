@@ -9,8 +9,13 @@
   name: Shredder
   id: MobArcIndShredder
   parent:
-  - SimpleSpaceMobBase
+#  - SimpleSpaceMobBase # Radiant sector
   #- MobArcIndTimedDespawn
+  - MobRogueSiliconDestructibleBehavior # Radiant sector
+  - MobMovementSpeedModifierMelee # Radiant sector
+  - MobRogueSiliconBase # Radiant sector
+  - MobPassiveRegen # Radiant sector
+  - MobRogueSiliconAISimpleMelee # Radiant sector
   description: A small drone meant to deconstruct both organic and non-organic structures
   components:
     - type: InputMover
@@ -50,7 +55,28 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        25: Dead
+        25: Critical # Radiant_sector
+        30: Dead # Radiant_sector
+    - type: SolutionContainerManager # Radiant sector start
+      solutions:
+        melee:
+          reagents:
+          - ReagentId: Licoxide
+            Quantity: 6
+    - type: AmbientSound
+      sound:
+        path: /Audio/_NF/Effects/silence.ogg
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/_NF/Effects/silence.ogg
+    - type: SpamEmitSound
+      minInterval: 10
+      maxInterval: 60
+      sound:
+        path: /Audio/_NF/Effects/silence.ogg
+    - type: MeleeChemicalInjector
+      solution: melee
+      transferAmount: 1 # Radiant sector end
     - type: Stamina
       critThreshold: 25
       animationThreshold: 10
@@ -83,8 +109,13 @@
   name: Hijacked Hologuardian
   id: MobArcIndHoloparasiteGuardian
   parent:
-  - SimpleSpaceMobBase
+#  - SimpleSpaceMobBase # Radiant sector
   #- MobArcIndTimedDespawn
+  - MobRogueSiliconDestructibleBehavior # Radiant sector
+  - MobMovementSpeedModifierMelee # Radiant sector
+  - MobRogueSiliconBase # Radiant sector
+  - MobPassiveRegen # Radiant sector
+  - MobRogueSiliconAISimpleMelee # Radiant sector
   description: A syndicate hologuardian that seems to have been modified by unknown means.
   components:
     - type: Sprite
@@ -109,7 +140,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        120: Dead
+        120: Critical # Radiant_sector
+        150: Dead # Radiant_sector
     - type: Stamina
       critThreshold: 100
     - type: SlowOnDamage
@@ -119,14 +151,26 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
+    - type: AmbientSound # Radiant sector
+      sound: # Radiant sector
+        path: /Audio/_NF/Effects/silence.ogg # Radiant sector
+    - type: FootstepModifier # Radiant sector
+      footstepSoundCollection: # Radiant sector
+        path: /Audio/_NF/Effects/silence.ogg # Radiant sector
+    - type: SpamEmitSound # Radiant sector
+      minInterval: 10 # Radiant sector
+      maxInterval: 60 # Radiant sector
+      sound: # Radiant sector
+        path: /Audio/_NF/Effects/silence.ogg # Radiant sector
     - type: MeleeWeapon
       angle: 30
       animation: WeaponArcClaw
       attackRate: 1
       damage:
         types:
-          Piercing: 5
-          Heat: 5
+          Piercing: 7.5
+#          Heat: 7.5 # Radiant sector
+          Shock: 7.5 # Radiant sector
     - type: Damageable
       damageContainer: Inorganic
     - type: Bloodstream
@@ -139,8 +183,12 @@
 - type: entity
   name: Mobile Blaster Unit
   parent:
-  - SimpleSpaceMobBase
+#  - SimpleSpaceMobBase # Radiant sector
   #- MobArcIndTimedDespawn
+  - MobRogueSiliconDestructibleBehavior # Radiant sector
+  - MobRogueSiliconDroneBase # Radiant sector
+  - MobPassiveRegen # Radiant sector
+  - MobRogueSiliconHitscanBatteryAmmo # Radiant sector
   id: MobArcIndBlaster
   description: A mobile energy blaster that capable of... oh god run it's spotted you!
   components:
@@ -176,15 +224,26 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        60: Dead
+        60: Critical # Radiant_sector
+        100: Dead # Radiant_sector
+    - type: SpamEmitSound # Radiant sector
+      minInterval: 10 # Radiant sector
+      maxInterval: 60 # Radiant sector
+      sound: # Radiant sector
+        path: /Audio/_NF/Effects/silence.ogg # Radiant sector
     - type: MovementSpeedModifier
       baseWalkSpeed: 2
       baseSprintSpeed: 5
     - type: Tag
       tags:
         - FootstepSound
+    - type: Reflect # Radiant sector
+    - type: AmbientSound # Radiant sector
+      sound: # Radiant sector
+        path: /Audio/_NF/Effects/silence.ogg # Radiant sector
     - type: HitscanBatteryAmmoProvider
-      proto: NFRedLightLaser
+#      proto: NFRedLightLaser # Radiant sector
+      proto: NFRedSpecialLaser
       fireCost: 50
     - type: BatterySelfRecharger
       autoRecharge: true
@@ -202,6 +261,9 @@
     - type: CombatMode
     - type: Damageable
       damageContainer: Inorganic
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepXenoborg
     - type: Bloodstream
       bloodReagent: Oil
       bloodlossDamage:

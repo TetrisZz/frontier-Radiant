@@ -13,9 +13,13 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _radiant/Objects/Weapons/Guns/SMGs/fighter.rsi
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,2
   - type: Gun
     fireRate: 6
-    minAngle: 4
+    minAngle: 5
     maxAngle: 12
     angleIncrease: 0.5
     angleDecay: 3
@@ -78,8 +82,9 @@
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk.rsi
   - type: Gun
+    fireRate: 5.7
     minAngle: 3
-    maxAngle: 12
+    maxAngle: 10
     angleIncrease: 1
     angleDecay: 3.4
     soundGunshot:
@@ -88,6 +93,9 @@
         volume: -2
     availableModes:
     - FullAuto
+  - type: GunWieldBonus
+    angleIncrease: -0.2
+    angleDecay: 1
   - type: ItemSlots
     slots:
       gun_magazine:

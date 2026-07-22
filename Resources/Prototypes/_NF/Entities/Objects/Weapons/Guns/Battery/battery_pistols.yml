@@ -164,7 +164,8 @@
 
 - type: entity
   id: NFWeaponEnergyPistolLaserAdvanced
-  parent: [ NFBaseWeaponEnergyPistolDisabler, NFBaseWeaponFrameEnergyPistolNanotrasen ]
+#  parent: [ NFBaseWeaponEnergyPistolDisabler, NFBaseWeaponFrameEnergyPistolNanotrasen ] # Radiant sector
+  parent: [ NFBaseWeaponEnergyPistolFireModes, NFBaseWeaponFrameEnergyPistolNanotrasen ] # Radiant sector
   name: advanced laser pistol
   description: |-
     An experimental civilian grade high-energy laser pistol with a self-charging nuclear battery and two settings: disable and kill.

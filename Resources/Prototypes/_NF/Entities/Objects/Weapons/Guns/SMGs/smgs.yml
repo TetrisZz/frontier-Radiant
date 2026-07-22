@@ -44,8 +44,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
-    fireRate: 5.5 # Radiant sector
-    minAngle: 6 # Radiant sector
+    fireRate: 5.7 # Radiant sector
+    minAngle: 7 # Radiant sector
     maxAngle: 24 # Radiant sector
   - type: GunWieldBonus # Radiant sector
     minAngle: -3 # Radiant sector

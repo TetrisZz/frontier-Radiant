@@ -33,7 +33,7 @@
 
 - type: entity
   name: энергетический пистолет
-  parent: [ NFBaseWeaponEnergyPistolFireModes, NFBaseWeaponFrameEnergyPistolNanotrasen ]
+  parent: NFBaseWeaponFrameEnergyPistolNanotrasen
   id: WeaponEnergyGunMiniAcorp
   description: Энергетический пистолет для самообороны, имеет два режима стрельбы.
   components:
@@ -55,10 +55,17 @@
     - suitStorage # Frontier
     sprite: _radiant/Objects/Weapons/Laser/mini_energygun.rsi
   - type: Gun
+    fireRate: 2
+    minAngle: 1
+    maxAngle: 2
+    angleIncrease: 0.5
+    angleDecay: 4
+    projectileSpeed: 25
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+    examineCaliber: gun-examine-energybolt-low-disabler-pistol
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
@@ -191,7 +198,7 @@
 
 - type: entity
   id: NFWeaponEnergySubMachineGunDeltaVBorg
-  parent: NFBaseWeaponFrameEnergySubMachineGunNanotrasen
+  parent: [ NFBaseWeaponEncumbranceSubMachineGun, NFBaseGunMeleeAttackMedium, BaseWeaponBattery ]
   name: энергетическое пп киборга
   description: Энергетическое пп способное к самозарядке.
   components:
@@ -209,9 +216,21 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Gun
+    projectileSpeed: 25
+    fireRate: 3.5
+    minAngle: 1
+    maxAngle: 2
+    angleIncrease: 0.5
+    angleDecay: 4
     examineCaliber: gun-examine-energybolt
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: NFWeaponDetails
+    manufacturer: weapon-details-manufacturer-nanotrasen-munitions
+    class: weapon-details-class-submachine-gun
   - type: ProjectileBatteryAmmoProvider
     proto: NFBulletLaserLow
     fireCost: 50
@@ -224,10 +243,23 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 35
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Battery # Default: 40 shots with 60 fireCost
+#    maxCharge: 2400 # Radiant_sector
+#    startingCharge: 2400 # Radiant_sector
+    maxCharge: 1000 # Radiant_sector
+    startingCharge: 1000 # Radiant_sector
+  - type: StaticPrice
+    price: 350
+
 
 - type: entity
   id: NFWeaponEnergySubMachineGunDisablerBorg
-  parent: NFWeaponEnergySubMachineGunDisabler
+  parent: NFWeaponEnergySubMachineGunDeltaVBorg
   name: станнер-пулемёт киборга
   suffix: Frontier
   description: Усовершенствованное оружие, которое изнуряет органические цели, пока они не свалятся с ног. Некоторые называют его автостаннер.
@@ -239,6 +271,9 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 15
+  - type: ProjectileBatteryAmmoProvider
+    proto: NFBulletDisablerLow
+    fireCost: 25
 
 - type: entity
   name: тайзер борга
@@ -283,7 +318,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 10

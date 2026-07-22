@@ -18,7 +18,7 @@
     sprite: _radiant/Objects/Weapons/Guns/Rifles/tw-44/tiny.rsi
   - type: Gun
     fireRate: 3.5
-    projectileSpeed: 40
+    projectileSpeed: 35
     angleDecay: 4
     angleIncrease: 1
     minAngle: 2
@@ -81,7 +81,7 @@
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/Rifles/akms/tiny.rsi
   - type: Gun
-    projectileSpeed: 40
+    projectileSpeed: 35
     soundGunshot:
       path: /Audio/_radiant/Weapons/vyistrelAK.ogg
       params:

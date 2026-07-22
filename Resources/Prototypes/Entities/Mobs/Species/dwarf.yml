@@ -66,6 +66,7 @@
   - type: InnateMiningScannerViewer # Frontier
     pingSound: null # Frontier
     viewRange: 5 # Frontier
+  - type: TTS # Radiant sector
 
 - type: entity
   parent: BaseSpeciesDummy

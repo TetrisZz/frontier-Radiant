@@ -82,8 +82,13 @@
   - type: Tag
     tags:
       - NFMagazineBoxRifle20
-  - type: BallisticAmmoProvider
-    proto: NFCartridgeRifle20
+  - type: BallisticAmmoProvider # Radiant sector
+    mayTransfer: true # Radiant sector
+    whitelist: # Radiant sector
+      tags: # Radiant sector
+        - NFCartridgeRifle30 # Radiant sector
+#    proto: NFCartridgeRifle20 # Radiant sector
+    proto: NFCartridgeRifle30 # Radiant sector
     capacity: 100
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi

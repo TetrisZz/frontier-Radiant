@@ -14,7 +14,7 @@
 
 - type: radioChannel
   id: Greeting
-  name: chat-radio-greeting
-  keycode: 'р'
+  name: chat-radio-greeting # Radiant_sector-Localization
+  keycode: 'у'
   frequency: 1024
   color: "#ff4fdf"
