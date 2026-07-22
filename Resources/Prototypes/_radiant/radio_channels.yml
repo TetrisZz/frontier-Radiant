@@ -21,6 +21,14 @@
   color: "#9589d6"
 
 - type: radioChannel
+  id: Local
+  name: chat-radio-local
+  keycode: 'л'
+  frequency: 1537
+  color: "#4ce087"
+  maxRange: 300
+
+- type: radioChannel
   id: Emergency
   name: chat-radio-emergency
   keycode: 'э'

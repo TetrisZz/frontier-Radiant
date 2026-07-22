@@ -9,7 +9,8 @@
     whitelist:
       tags:
       - ShellShotgun
-    capacity: 20
+#    capacity: 20 # Radiant sector
+    capacity: 16 # Radiant sector
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
 

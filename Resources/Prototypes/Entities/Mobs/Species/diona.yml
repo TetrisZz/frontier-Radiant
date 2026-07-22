@@ -116,6 +116,7 @@
   - type: Carriable # Carrying system from nyanotrasen.
   - type: ProtectedFromStepTriggers # Frontier
   - type: FTLKnockdownImmune # Frontier
+  - type: TTS # Radiant sector
 
 - type: entity
   parent: BaseSpeciesDummy

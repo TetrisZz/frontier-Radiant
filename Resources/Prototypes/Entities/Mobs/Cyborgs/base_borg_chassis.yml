@@ -95,11 +95,13 @@
     channels:
     - Binary
     - Common
+    - Local # Radiant sector
     - Science
   - type: ActiveRadio
     channels:
     - Binary
     - Common
+    - Local # Radiant sector
     - Science
   - type: ZombieImmune
   - type: Repairable

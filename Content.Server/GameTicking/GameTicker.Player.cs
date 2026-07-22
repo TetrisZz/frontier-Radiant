@@ -12,6 +12,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.ADT.Administration;
 
 namespace Content.Server.GameTicking
 {
@@ -60,11 +61,32 @@ namespace Content.Server.GameTicking
 
                     var record = await _db.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
-                                          Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 1;
+                                          Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 240; // Radiant sector
 
-                    _chatManager.SendAdminAnnouncement(firstConnection
-                        ? Loc.GetString("player-first-join-message", ("name", args.Session.Name))
-                        : Loc.GetString("player-join-message", ("name", args.Session.Name)));
+                    var firstSeenTime = record?.FirstSeenTime.ToString("dd.MM.yyyy") ?? "неизвестно"; // дата первого подключения, ADT
+
+                    // ADT-Tweak-start
+                    if (firstConnection)
+                    {
+                        var creationDate = "Не удалось получить дату создания";
+                        try
+                        {
+                            // Получаем дату создания аккаунта через API визардов
+                            creationDate = await AuthApiHelper.GetCreationDate(args.Session.UserId.ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error($"Ошибка при получении даты создания аккаунта: {ex.Message}");
+                        }
+
+                        _chatManager.SendAdminAnnouncement(firstConnection
+                            ? $"ВНИМАНИЕ!!!\nЗашёл НОВИЧОК {args.Session.Name} первый заход: {firstSeenTime}.\nДата создания аккаунта: {creationDate}\nАдминистрации быть внимательней, у данного игрока меньше 4ч на нашем сервере.\nВНИМАНИЕ!!!"
+                            : Loc.GetString("player-join-message", ("name", args.Session.Name)));
+                    }
+                    else
+                    {
+                        _chatManager.SendAdminAnnouncement(Loc.GetString("player-join-message", ("name", args.Session.Name)));
+                    }
 
                     RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
 

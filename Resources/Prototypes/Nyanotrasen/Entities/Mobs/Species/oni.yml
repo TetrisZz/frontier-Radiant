@@ -36,6 +36,7 @@
         - MobMask
         layer:
         - MobLayer
+  - type: TTS # Radiant sector
   - type: Stamina
   - type: NpcFactionMember
     factions:

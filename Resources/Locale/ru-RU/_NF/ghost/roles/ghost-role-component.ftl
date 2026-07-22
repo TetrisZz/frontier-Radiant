@@ -25,6 +25,12 @@ ghost-role-information-cult-cat-rules = Вы — [color=red][bold]Свободн
 ghost-role-information-cappy-name = Каппи
 ghost-role-information-cappy-description = Прекратите сопротивление! Сертифицированный специалист по когтистой силе и кусачей обороне.
 
+ghost-role-information-elcapo-name = Эль Капо
+ghost-role-information-elcapo-description = Оказался в тюрьме после нескольких лет кошачьих преступлений.
+
+ghost-role-information-curie-name = Кюри
+ghost-role-information-curie-description = Ходячая слизь в форме кошки.
+
 ghost-role-information-crispy-name = Подгорелыш
 ghost-role-information-crispy-description = Допустил ошибку.
 
@@ -57,8 +63,21 @@ ghost-role-information-aberrant-flesh-horror-dungeon-description = Защити�
 ghost-role-information-explorer-captain-dungeon-name = Капитан-исследователь
 ghost-role-information-explorer-captain-dungeon-description = Вы добрались до этого объекта первыми! Защитите подземелье экспедиции и свою добычу вместе с другими исследователями!
 
+ghost-role-information-mercenary-captain-dungeon-name = Капитан наемников
+ghost-role-information-mercenary-captain-dungeon-description = У вас есть работа, которую нужно выполнить. Не позволяйте никому встать у вас на пути. Защищайте объект и имущество вашего работодателя вместе с другими наемниками!
+
 ghost-role-information-punk-boss-dungeon-name = Лидер панк-банды
 ghost-role-information-punk-boss-dungeon-description = Защитите подземелье экспедиции и свою добычу вместе с другими панками из секторов NT!
+
+ghost-role-information-t-rex-dungeon-name = Тираннозавр Рекс
+ghost-role-information-t-rex-dungeon-description = Почувствуйте азарт охоты и позвольте своим инстинктам направить вас к истреблению добычи!
+
+ghost-role-information-leviathing-dungeon-name = Левиазверь
+ghost-role-information-leviathing-dungeon-description = Защитите гнездо и обеспечьте процветание своему выводку!
+
+ghost-role-information-one-star-unit-dungeon-name = Мех One Star
+ghost-role-information-guardian-unit-dungeon-name = Цитадель
+ghost-role-information-one-star-unit-dungeon-description = [11201010111002] Работайте с другими синтетиками, чтобы защитить установку и уничтожить всех нарушителей. [1110220001010002220]
 
 ghost-role-information-dungeon-boss-rules = Вы — [color=red][bold]Командный Антагонист[/bold][/color]как и все враги подземелья.
                                         Сражайтесь с игроками в подземелье, защищайте свое подземелье.
@@ -68,3 +87,14 @@ ghost-role-information-dungeon-boss-rules = Вы — [color=red][bold]Коман
                                         - [color=red]НЕ[/color] разрывайте игроков на части. После того как они погибли, оставьте их в покое.
                                         - [color=red]НЕ[/color] уничтожайте и не прячьте ценную добычу в подземелье.
                                         - [color=red]НЕ[/color] покидайте планету.
+
+nf-ghost-role-information-derelict-cyborg-description = Вы — киборг, который годами пролежал на обломке, подвергаясь воздействию бесчисленных ионных бурь.
+
+nf-ghost-role-information-buddy-name = Buddy
+nf-ghost-role-information-buddy-description = Ты был собран из набора Собери дружка. Стань сегодня лучшим другом для кого-нибудь!
+
+ghost-role-information-greenhornpai-rules = Вы [color=fuchsia][bold]{greenhornpai-system-role-name}[/bold][/color]. Направляй своего хозяина как можно лучше.
+                                        Вы не помните ничего из своей предыдущей жизни и не помните ничего из того, что узнали, будучи призраком.
+                                        Вам разрешается помнить знания об игре в целом, например, как готовить, как использовать предметы и т.д.
+                                        Вам [color=red]НЕ[/color] разрешается помнить, имя, внешность и т.д. вашего предыдущего персонажа.
+

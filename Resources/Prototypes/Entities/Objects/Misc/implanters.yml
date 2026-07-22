@@ -54,6 +54,7 @@
     - SeparatistsTrackingImplant # Radiant_sector
     - TrackingImplantNavy # Radiant_sector
     - RadioImplantSeparatists # Radiant_sector
+    - EmergencyTrackingImplant # Radiant sector
     deimplantFailureDamage:
       types:
         Cellular: 50

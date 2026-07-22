@@ -60,6 +60,6 @@ public sealed class CCCVars
     /// How many tts preview messages are allowed in a single rate limit period.
     /// </summary>
     public static readonly CVarDef<int> TTSRateLimitCount =
-        CVarDef.Create("tts.rate_limit_count", 3, CVar.SERVERONLY);
+        CVarDef.Create("tts.rate_limit_count", 2, CVar.SERVERONLY);
 
 }

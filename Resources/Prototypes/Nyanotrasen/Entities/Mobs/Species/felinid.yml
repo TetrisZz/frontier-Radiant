@@ -104,6 +104,7 @@
     cosmeticOnly: false # Frontier
   - type: Inventory # Frontier
     speciesId: felinid # Frontier
+  - type: TTS # Radiant sector
 
 - type: entity
   save: false

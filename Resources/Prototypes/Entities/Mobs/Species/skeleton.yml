@@ -103,6 +103,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: FlashImmunity
+  - type: TTS # Radiant sector
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

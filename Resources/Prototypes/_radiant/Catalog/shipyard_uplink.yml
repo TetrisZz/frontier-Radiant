@@ -277,27 +277,27 @@
         - SeparatistsWarden
         - SeparatistsRecruit
 
-- type: listing
-  id: UplinkSeparatistShipyard220mm
-  name: uplink-separatist-220mm-name
-  description: uplink-separatist-220mm-desc
-  productEntity: CartridgeGunnery220mm
-  icon: { sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi, state: base }
-  cost:
-    SeparatistToken: 2
-  categories:
-    - UplinkSeparatistShipyard
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SeparatistShipyard
-    - !type:BuyerJobCondition
-      whitelist:
-        - SeparatistsCommander
-        - SeparatistsOperative
-        - SeparatistsWarden
-        - SeparatistsRecruit
+#- type: listing
+#  id: UplinkSeparatistShipyard220mm
+#  name: uplink-separatist-220mm-name
+#  description: uplink-separatist-220mm-desc
+#  productEntity: CartridgeGunnery220mm
+#  icon: { sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi, state: base }
+#  cost:
+#    SeparatistToken: 2
+#  categories:
+#    - UplinkSeparatistShipyard
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - SeparatistShipyard
+#    - !type:BuyerJobCondition
+#      whitelist:
+#        - SeparatistsCommander
+#        - SeparatistsOperative
+#        - SeparatistsWarden
+#        - SeparatistsRecruit
 
 - type: listing
   id: UplinkSeparatistShipyardASM302Empty

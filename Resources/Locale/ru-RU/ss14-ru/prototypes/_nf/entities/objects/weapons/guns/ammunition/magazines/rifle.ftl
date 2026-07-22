@@ -6,7 +6,7 @@ ent-NFMagazineRifle20Empty = магазин (.20 винтовочный, люб�
 ent-NFMagazineRifle20 = магазин (.20 винтовочный)
     .desc = { ent-BaseMagazineRifle.desc }
 
-ent-NFMagazineRifle20Overpressure = магазин (.20 винтовочный усиленный)
+ent-NFMagazineRifle20Overpressure = магазин (.20 винтовочный экспансивный)
     .desc = { ent-BaseMagazineRifle.desc }
 
 ent-NFMagazineRifle20Incendiary = магазин (.20 винтовочный зажигательный)
@@ -18,10 +18,10 @@ ent-NFMagazineRifle20Uranium = магазин (.20 винтовочный ура
 ent-NFMagazineRifle20Practice = магазин (.20 винтовочный тренировочный)
     .desc = { ent-BaseMagazineRifle.desc }
 
-ent-NFMagazineBoxRifle20 = коробчатый магазин (.20 винтовочный)
+ent-NFMagazineBoxRifle20 = коробчатый магазин (.30 винтовочный)
     .desc = { ent-BaseMagazineRifle.desc }
 
-ent-NFMagazineBoxRifle20Empty = коробчатый магазин (.20 винтовочный)
+ent-NFMagazineBoxRifle20Empty = коробчатый магазин (.30 винтовочный)
     .suffix = пустой
     .desc = { ent-NFMagazineBoxRifle20.desc }
 
@@ -44,7 +44,7 @@ ent-NFMagazineRifle30Empty = магазин (.30 винтовочный, люб�
 ent-NFMagazineRifle30 = магазин (.30 винтовочный)
     .desc = { ent-BaseMagazineLightRifle.desc }
 
-ent-NFMagazineRifle30Overpressure = магазин (.30 винтовочный усиленный)
+ent-NFMagazineRifle30Overpressure = магазин (.30 винтовочный экспансивный)
     .desc = { ent-BaseMagazineLightRifle.desc }
 
 ent-NFMagazineRifle30Incendiary = магазин (.30 винтовочный зажигательный)

@@ -99,6 +99,7 @@
       Male: MaleResomi
       Female: FemaleResomi
       Unsexed: MaleResomi
+  - type: TTS # Radiant sector
   - type: Respirator
     damage:
       types:

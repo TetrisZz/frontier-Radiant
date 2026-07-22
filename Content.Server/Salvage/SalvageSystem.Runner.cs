@@ -38,7 +38,7 @@ public sealed partial class SalvageSystem
      * Handles actively running a salvage expedition.
      */
 
-    private static readonly TimeSpan ManualFinishCooldown = TimeSpan.FromMinutes(4.5); ///radiant sector
+    private static readonly TimeSpan ManualFinishCooldown = TimeSpan.FromMinutes(4); ///radiant sector
     private static readonly ProtoId<RadioChannelPrototype> RescueMedicalChannel = "Medical"; ///Radiant Sector
     private const string SeparatistRadioImplantPrototype = "SeparatistsTrackingImplant"; ///Radiant Sector
 

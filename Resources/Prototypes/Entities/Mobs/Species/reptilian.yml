@@ -69,6 +69,7 @@
       295: 0.8
       285: 0.7
   - type: Wagging
+  - type: TTS # Radiant sector
   - type: Inventory
     speciesId: reptilian
 # radiant sector

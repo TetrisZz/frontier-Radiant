@@ -61,5 +61,5 @@
       Frontier: 0.02
     atmDepositTaxRates:
       Frontier: 0.02
-    vendorVatRate: 0.02
+    vendorVatRate: 0.04
     shuttleSellRate: 0.90

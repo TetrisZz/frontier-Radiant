@@ -582,7 +582,7 @@
   description: uplink-phoenix-computer_iff-desc
   productEntity: ComputerIFFFlatpack
   cost:
-    Speso: 40000
+    Speso: 35000
   categories:
     - UplinkPhoenixMachine
   conditions:

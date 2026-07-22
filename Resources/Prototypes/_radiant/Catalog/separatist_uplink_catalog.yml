@@ -522,7 +522,7 @@
 
 - type: listing
   id: UplinkSeparatistMedkitCombat
-  name:  uplink-separatist-medkitcombat-name
+  name: uplink-separatist-medkitcombat-name
   description: uplink-separatist-medkitcombat-desc
   productEntity: MedkitCombatFilled
   icon: { sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi, state: blackkit }
@@ -537,8 +537,23 @@
           - SeparatistUplink
 
 - type: listing
+  id: UplinkSeparatistRadioJammer
+  name: uplink-separatist-jammer-name
+  description: uplink-separatist-jammer-desc
+  productEntity: RadioJammer
+  cost:
+    BlackMoney: 2
+  categories:
+    - UplinkSeparatistUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SeparatistUplink
+
+- type: listing
   id: UplinkSeparatistRadioImplanter
-  name:  uplink-separatist-radioimplanter-name
+  name: uplink-separatist-radioimplanter-name
   description: uplink-separatist-radioimplanter-desc
   productEntity: RadioImplanterSeparatists
   icon: { sprite: /Textures/_radiant/Objects/Devices/encryption_keys.rsi, state: sep_label }

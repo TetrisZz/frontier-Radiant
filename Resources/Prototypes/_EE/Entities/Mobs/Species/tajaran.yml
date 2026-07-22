@@ -178,6 +178,7 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+  - type: TTS # Radiant sector
   - type: JumpAbility #Radiant Sector
     action: ActionVulpkaninLeap
     jumpDistance: 3.5

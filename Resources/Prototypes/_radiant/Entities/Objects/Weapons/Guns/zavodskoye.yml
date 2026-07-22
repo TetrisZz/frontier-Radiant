@@ -44,6 +44,9 @@
   - type: RareWeapon
     rarity: Unique
   - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,2
     sprite: _radiant/Objects/Weapons/Guns/SMGs/veresk_blue/tiny.rsi
   - type: Wieldable
     unwieldOnUse: false
@@ -194,6 +197,10 @@
         volume: -5
     availableModes:
     - FullAuto
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,2
   - type: ChamberMagazineAmmoProvider
     soundBoltOpened: /Audio/_radiant/Weapons/WPN_GG_Reload_BoltOpen_01.ogg
   - type: ItemSlots
@@ -283,7 +290,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    projectileSpeed: 25
+    projectileSpeed: 30
     fireRate: 5
     minAngle: 1
     maxAngle: 2
@@ -416,7 +423,7 @@
     steps: 3
     zeroVisible: true
   - type: Gun
-    projectileSpeed: 25
+    projectileSpeed: 30
     fireRate: 5
     minAngle: 1
     maxAngle: 2
@@ -446,7 +453,7 @@
     steps: 3
     zeroVisible: true
   - type: Gun
-    projectileSpeed: 25
+    projectileSpeed: 30
     fireRate: 3.5
     minAngle: 1
     maxAngle: 24
@@ -495,6 +502,7 @@
   - type: Clothing
     sprite: _radiant/Objects/Weapons/Guns/Rifles/m.rsi
   - type: Gun
+    projectileSpeed: 30
     fireRate: 4.5
     minAngle: 1
     maxAngle: 5
@@ -619,7 +627,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi
   - type: Gun
-    projectileSpeed: 25
+    projectileSpeed: 30
     fireRate: 8
     minAngle: 4
     maxAngle: 25

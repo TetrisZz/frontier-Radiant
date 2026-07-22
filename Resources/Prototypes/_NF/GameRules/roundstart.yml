@@ -30,6 +30,7 @@
     - id: BluespaceBloodMoon
     - id: BluespaceCentComTrain # Radiant sector
     - id: BluespaceVaultAcorpError # Radiant sector
+    - id: BluespaceShuttleVault # Radiant sector
 
 - type: entity
   id: BluespaceDungeonEventScheduler

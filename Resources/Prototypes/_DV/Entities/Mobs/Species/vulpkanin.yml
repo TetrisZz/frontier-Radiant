@@ -146,6 +146,7 @@
     density: 140
     pseudoItem: true
     cosmeticOnly: false
+  - type: TTS # Radiant sector
   - type: TallWhitelist
     scale: 1.2
   # End Frontier

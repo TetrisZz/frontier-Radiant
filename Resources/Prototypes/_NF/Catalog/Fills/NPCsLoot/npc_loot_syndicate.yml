@@ -8,7 +8,7 @@
     offset: 0.1
     table: !type:GroupSelector
       children:
-#      - id: WeaponCaseShortRitland45Expedition # Radiant sector
+      - id: WeaponCaseShortRitland45Expedition
       - id: WeaponRevolverPythonAPRS # Radiant sector
         weight: 0.2
       - id: WeaponCaseShortViper
@@ -62,7 +62,7 @@
         range: 1, 3
       children:
       - id: NFAmmunitionBoxPistol35
-#      - id: NFAmmunitionBoxPistol45 # Radiant sector
+      - id: NFAmmunitionBoxPistol45
       - id: SpeedLoaderMagnumAPRS # Radiant sector
     # +P+
     - !type:GroupSelector

@@ -13,7 +13,7 @@
     state: leash
     size: Small
   - type: Leash
-    attachDelaySeconds: 10
+#    attachDelaySeconds: 10
     maxForce: 9000
     frequency: 18
     dampingRatio: 1.8

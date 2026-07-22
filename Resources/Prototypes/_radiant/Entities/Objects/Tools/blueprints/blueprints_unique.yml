@@ -1,0 +1,33 @@
+- type: entity
+  parent: NFBlueprintArsenalMercenary
+  id: NFBlueprintClothingOuterHardsuitSecurity
+  name: чертеж брони
+  description: Чертеж со схемой боевого скафандра. Его можно вставить в любой ТехФаб, автолат или протолат.
+  components:
+  - type: Sprite
+    layers:
+      - state: icon-base
+        color: "#D13636"
+      - state: icon-text
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_stamp-generic
+        offset: 0.15,-0.1
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_words
+        map: ["enum.PaperVisualLayers.Writing"]
+        visible: false
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#D13636"
+      - state: inhand-left-text
+      right:
+      - state: inhand-right-base
+        color: "#D13636"
+      - state: inhand-right-text
+  - type: Blueprint
+    providedRecipes:
+    - ClothingOuterHardsuitSecurity
