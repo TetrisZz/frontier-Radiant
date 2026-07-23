@@ -20,7 +20,7 @@ public sealed partial class PathfindingSystem
 
     // What relevant collision groups we track for pathfinding.
     // Stuff like chairs have collision but aren't relevant for mobs.
-    public const int PathfindingCollisionMask = (int) CollisionGroup.MobMask;
+    public const int PathfindingCollisionMask = (int) (CollisionGroup.MobMask & ~CollisionGroup.NpcPassable);
     public const int PathfindingCollisionLayer = (int) CollisionGroup.MobLayer;
 
     /// <summary>

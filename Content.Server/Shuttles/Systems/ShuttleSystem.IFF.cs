@@ -110,5 +110,7 @@ public sealed partial class ShuttleSystem
                 Flags = component.Flags,
             });
         }
+
+        _console.RefreshShuttleConsoles(gridUid);
     }
 }

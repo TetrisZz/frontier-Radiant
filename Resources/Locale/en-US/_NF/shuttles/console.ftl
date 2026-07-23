@@ -1,6 +1,9 @@
 shuttle-console-designation = Designation:
 shuttle-console-designation-unknown = Unknown
 shuttle-console-maximum-iff-distance = Maximum IFF Distance
+shuttle-console-identification-system = Identification System
+shuttle-console-identification-hidden = Identification hidden
+shuttle-console-identification-enabled = Identification enabled
 
 shuttle-console-iff-search = Search IFF
 shuttle-console-inertia-dampener-off = Cruise

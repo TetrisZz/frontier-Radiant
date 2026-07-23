@@ -167,6 +167,7 @@
   - type: SSDIndicator
   - type: StandingState
   - type: Crawler
+  - type: HeavyWounded
   - type: Dna
   - type: MindContainer
     showExamineInfo: true

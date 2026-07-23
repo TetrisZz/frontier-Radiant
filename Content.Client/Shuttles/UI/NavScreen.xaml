@@ -54,6 +54,14 @@
                        HorizontalExpand="True"
                        Align="Right"/>
             </controls:GridContainer>
+            <controls1:StripeBack MinSize="48 32">
+                <controls:Label Text="{controls:Loc 'shuttle-console-identification-system'}"
+                                VerticalExpand="True"
+                                HorizontalAlignment="Center"/>
+            </controls1:StripeBack>
+            <controls:Label Name="IffStatus"
+                            HorizontalAlignment="Center"
+                            Margin="0 3"/>
             <controls1:StripeBack
                 MinSize="48 48">
                 <controls:Label Name="NavSettingsLabel" Text="{controls:Loc 'shuttle-console-nav-settings'}"

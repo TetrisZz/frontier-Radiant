@@ -15,6 +15,7 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Paper;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Station.Components;
@@ -33,6 +34,7 @@ namespace Content.Server._NF.Smuggling;
 public sealed class DeadDropSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
@@ -416,7 +418,8 @@ public sealed class DeadDropSystem : EntitySystem
 
     private void AddSearchVerb(EntityUid uid, DeadDropComponent component, GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess || args.Hands == null || _timing.CurTime < component.NextDrop)
+        if (!args.CanInteract || !args.CanAccess || args.Hands == null || _timing.CurTime < component.NextDrop ||
+            IsMindShieldNearby(args.User, component.MindShieldExclusionRadius))
             return;
 
         var xform = Transform(uid);
@@ -438,7 +441,7 @@ public sealed class DeadDropSystem : EntitySystem
     private void SendDeadDrop(EntityUid uid, DeadDropComponent component, EntityUid user, HandsComponent hands)
     {
         //simple check to make sure we dont allow multiple activations from a desynced verb window.
-        if (_timing.CurTime < component.NextDrop)
+        if (_timing.CurTime < component.NextDrop || IsMindShieldNearby(user, component.MindShieldExclusionRadius))
             return;
 
         //relying entirely on shipyard capabilities, including using the shipyard map to spawn the items and ftl to bring em in
@@ -631,6 +634,14 @@ public sealed class DeadDropSystem : EntitySystem
                 }
             }
         }
+    }
+
+    /// <summary>
+    ///     Dead drop coordinates must not be given to a mindshielded user or to anyone near one.
+    /// </summary>
+    private bool IsMindShieldNearby(EntityUid user, float radius)
+    {
+        return _lookup.GetEntitiesInRange<MindShieldComponent>(Transform(user).Coordinates, radius).Any();
     }
 
     // Generates a random hint from a given set of entities (grabs the first N, N randomly generated between min/max),

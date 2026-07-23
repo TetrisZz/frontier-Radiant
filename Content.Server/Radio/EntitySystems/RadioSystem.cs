@@ -115,12 +115,20 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
+        var sourceTransform = Transform(messageSource);
+        var locationTooltip = IsCoordinateJammed(sourceTransform)
+            ? Loc.GetString("chat-radio-location-interference")
+            : Loc.GetString("chat-radio-location-coordinates",
+                ("x", (int) MathF.Round(sourceTransform.WorldPosition.X)),
+                ("y", (int) MathF.Round(sourceTransform.WorldPosition.Y)));
+        var locationMarker = $"[radiolocation=\"?\" tooltip=\"{FormattedMessage.EscapeText(locationTooltip)}\"/]";
+
         // Frontier: append frequency if the channel requests it
         string channelText;
         if (channel.ShowFrequency)
-            channelText = $"\\[{channel.LocalizedName} ({frequency})\\]";
+            channelText = $"\\[{channel.LocalizedName} ({frequency}) {locationMarker}\\]";
         else
-            channelText = $"\\[{channel.LocalizedName}\\]";
+            channelText = $"\\[{channel.LocalizedName} {locationMarker}\\]";
         // End Frontier
 
         var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
@@ -205,6 +213,22 @@ public sealed class RadioSystem : EntitySystem
 
         _replay.RecordServerMessage(chat);
         _messages.Remove(message);
+    }
+
+    private bool IsCoordinateJammed(TransformComponent sourceTransform)
+    {
+        var jammers = EntityQueryEnumerator<RadioCoordinateJammerComponent, TransformComponent>();
+        while (jammers.MoveNext(out _, out var jammer, out var jammerTransform))
+        {
+            if (jammerTransform.MapID != sourceTransform.MapID)
+                continue;
+
+            var radius = jammer.Radius;
+            if ((jammerTransform.WorldPosition - sourceTransform.WorldPosition).LengthSquared() <= radius * radius)
+                return true;
+        }
+
+        return false;
     }
 
     /// <inheritdoc cref="TelecomServerComponent"/>

@@ -27,6 +27,7 @@ namespace Content.Server.NPC.Systems
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
         [Dependency] private readonly HTNSystem _htn = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
+        [Dependency] private readonly NpcPassableSystem _npcPassable = default!;
 
         /// <summary>
         /// Whether any NPCs are allowed to run at all.
@@ -108,6 +109,7 @@ namespace Content.Server.NPC.Systems
 
             Log.Debug($"Waking {ToPrettyString(uid)}");
             EnsureComp<ActiveNPCComponent>(uid);
+            _npcPassable.SetNpcCollision(uid, false);
         }
 
         public void SleepNPC(EntityUid uid, HTNComponent? component = null)
@@ -130,6 +132,7 @@ namespace Content.Server.NPC.Systems
             }
 
             Log.Debug($"Sleeping {ToPrettyString(uid)}");
+            _npcPassable.SetNpcCollision(uid, true);
             RemComp<ActiveNPCComponent>(uid);
         }
 

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -186,6 +187,10 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             id = null;
             return false;
         }
+
+        // Conscious but heavily wounded mobs can still act, albeit at half speed.
+        if (TryComp<HeavyWoundedComponent>(args.User, out var wounded) && wounded.Active)
+            args.Delay *= 2;
 
         // Duplicate blocking & cancellation.
         if (!ProcessDuplicates(args, comp))
