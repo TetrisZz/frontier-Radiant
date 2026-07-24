@@ -20,10 +20,14 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
     /// <summary>
     ///     Collision masks that get removed when the storage gets opened.
     /// </summary>
+    // Radiant Sector: open crates must not block players.
     public readonly int MasksToRemove = (int)(
+        CollisionGroup.Impassable |
         CollisionGroup.MidImpassable |
         CollisionGroup.HighImpassable |
-        CollisionGroup.LowImpassable);
+        CollisionGroup.LowImpassable |
+        CollisionGroup.NpcPassable |
+        CollisionGroup.PronePassable);
 
     /// <summary>
     ///     Collision masks that were removed from ANY layer when the storage was opened;

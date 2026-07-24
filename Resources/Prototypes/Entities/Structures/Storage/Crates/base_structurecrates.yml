@@ -39,6 +39,7 @@
         - CrateMask #this is so they can go under plastic flaps
         layer:
         - MachineLayer
+        - Impassable # Radiant Sector: closed crates must collide with one another.
   - type: EntityStorage
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.

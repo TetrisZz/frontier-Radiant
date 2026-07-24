@@ -36,6 +36,7 @@
   name: полноразмерная гарнитура КФ 
   description: По ней вы можете рассказывать анекдоты со своими колегами.
   components:
+  - type: HideRadioCoordinates
   - type: Sprite
     sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
   - type: Clothing
@@ -53,6 +54,7 @@
   name: полноразмерная гарнитура капитана КФ 
   description: По ней вы можете отдавать приказы и слушать тишину в ответ.
   components:
+  - type: HideRadioCoordinates
   - type: Sprite
     sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
   - type: Clothing
@@ -70,6 +72,7 @@
   name: полноразмерная гарнитура командора КФ
   description: По вы можете услышать как ДВБ просит помощи.
   components:
+  - type: HideRadioCoordinates
   - type: Sprite
     sprite: _radiant/Clothing/Ears/Headsets/headset_fleet.rsi
   - type: Clothing
@@ -85,6 +88,7 @@
   name: подозрительная полноразмерная гарнитура
   description: Она странная...
   components:
+    - type: HideRadioCoordinates
     - type: Headset
     - type: EncryptionKeyHolder
       keySlots: 5

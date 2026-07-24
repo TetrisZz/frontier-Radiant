@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Gravity;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mobs.Components;
@@ -22,6 +23,7 @@ public sealed class HeavyWoundedSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<HeavyWoundedComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<HeavyWoundedComponent, WeightlessnessChangedEvent>(OnWeightlessnessChanged);
         SubscribeLocalEvent<HeavyWoundedComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HeavyWoundedComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<HeavyWoundedComponent, UpdateMobStateEvent>(OnUpdateMobState, after: [typeof(MobThresholdSystem)]);
@@ -46,6 +48,18 @@ public sealed class HeavyWoundedSystem : EntitySystem
         }
 
         UpdateState(ent, args.Damageable);
+    }
+
+    private void OnWeightlessnessChanged(Entity<HeavyWoundedComponent> ent, ref WeightlessnessChangedEvent args)
+    {
+        if (!ent.Comp.Active)
+            return;
+
+        // Radiant Sector: pre-critical condition remains active in space, but a weightless person cannot be forced prone.
+        if (args.Weightless)
+            _standing.Stand(ent, force: true);
+        else
+            _standing.Down(ent);
     }
 
     private void OnMobStateChanged(Entity<HeavyWoundedComponent> ent, ref MobStateChangedEvent args)
@@ -103,7 +117,10 @@ public sealed class HeavyWoundedSystem : EntitySystem
         if (active)
         {
             // Reaching the crawling damage threshold causes all held items to be dropped.
-            _standing.Down(ent);
+            if (IsWeightless(ent))
+                _standing.Stand(ent, force: true);
+            else
+                _standing.Down(ent);
             UnwieldHeldItems(ent);
         }
         else if (mob.CurrentState == MobState.Alive)
@@ -126,9 +143,12 @@ public sealed class HeavyWoundedSystem : EntitySystem
 
     private void OnStandAttempt(Entity<HeavyWoundedComponent> ent, ref StandAttemptEvent args)
     {
-        if (ent.Comp.Active)
+        if (ent.Comp.Active && !IsWeightless(ent))
             args.Cancel();
     }
+
+    private bool IsWeightless(EntityUid uid) =>
+        TryComp<GravityAffectedComponent>(uid, out var gravity) && gravity.Weightless;
 
     private void OnWieldAttempt(Entity<HeavyWoundedComponent> ent, ref WieldAttemptEvent args)
     {

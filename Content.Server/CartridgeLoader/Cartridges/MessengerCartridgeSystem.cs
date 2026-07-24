@@ -1,7 +1,10 @@
 using Content.Server.Access.Systems;
+using Content.Server.Administration.Logs;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
+using Content.Shared.Database;
+using Content.Shared.Ghost;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Robust.Server.Player;
@@ -23,8 +26,10 @@ public sealed class MessengerCartridgeSystem : EntitySystem
     [Dependency] private readonly IdCardSystem _idCards = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     private readonly Dictionary<int, MessengerUser> _users = new();
+    private readonly HashSet<int> _activeUsers = new();
     private readonly Dictionary<EntityUid, int> _loaderAccounts = new();
     private readonly Dictionary<int, HashSet<int>> _contacts = new();
     private readonly Dictionary<int, HashSet<int>> _requests = new();
@@ -82,7 +87,7 @@ public sealed class MessengerCartridgeSystem : EntitySystem
                 DeclineContact(user.Id, message.TargetId);
                 break;
             case MessengerUiAction.SendMessage:
-                SendMessage(user.Id, message.TargetId, message.Text);
+                SendMessage(user.Id, message.TargetId, message.Text, args.Actor);
                 break;
             case MessengerUiAction.ReadChat:
                 MarkRead(user.Id, message.TargetId);
@@ -98,6 +103,21 @@ public sealed class MessengerCartridgeSystem : EntitySystem
                 break;
             case MessengerUiAction.CreateGroup:
                 CreateGroup(user.Id, message.Text, message.Members);
+                break;
+            case MessengerUiAction.SelectProfilePhoto:
+                SelectProfilePhoto(loader, user.Id, message.TargetId);
+                break;
+            case MessengerUiAction.CaptureProfilePhoto:
+                CaptureProfilePhoto(loader, user.Id);
+                break;
+            case MessengerUiAction.RemoveProfilePhoto:
+                RemoveProfilePhoto(user.Id);
+                break;
+            case MessengerUiAction.SendPhoto:
+                SendStoredPhoto(loader, user.Id, message.TargetId, message.PhotoIndex, args.Actor);
+                break;
+            case MessengerUiAction.CaptureChatPhoto:
+                CaptureChatPhoto(loader, user.Id, message.TargetId);
                 break;
         }
 
@@ -146,26 +166,14 @@ public sealed class MessengerCartridgeSystem : EntitySystem
     /// <summary>Builds the directory from actual connected players, without station or PDA dependencies.</summary>
     private void RefreshKnownUsers()
     {
+        _activeUsers.Clear();
         foreach (var session in _playerManager.Sessions)
         {
-            if (session.AttachedEntity is not { Valid: true } player)
+            if (session.AttachedEntity is not { Valid: true } player ||
+                HasComp<GhostComponent>(player))
                 continue;
 
-            RegisterPlayer(player);
-        }
-
-        // On Frontier the ID card often lives inside a PDA in a belt or pocket slot.
-        // Register those accounts too, even when the session entity is temporarily unavailable.
-        var pdaQuery = EntityQueryEnumerator<PdaComponent>();
-        while (pdaQuery.MoveNext(out var pdaUid, out var pda))
-        {
-            if (pda.ContainedId is not { } idCardUid || !TryComp(idCardUid, out IdCardComponent? idCard))
-                continue;
-
-            RegisterUser(
-                idCardUid,
-                idCard.FullName ?? pda.OwnerName ?? Name(pdaUid),
-                idCard.LocalizedJobTitle ?? string.Empty);
+            _activeUsers.Add(RegisterPlayer(player)!.Id);
         }
     }
 
@@ -217,7 +225,7 @@ public sealed class MessengerCartridgeSystem : EntitySystem
             return updated;
         }
 
-        var user = new MessengerUser(owner.Id, name, jobTitle);
+        var user = new MessengerUser(owner.Id, name, jobTitle, null);
         _users[user.Id] = user;
         return user;
     }
@@ -270,7 +278,8 @@ public sealed class MessengerCartridgeSystem : EntitySystem
                 message.SenderName,
                 message.Content,
                 message.Timestamp,
-                message.GroupId);
+                message.GroupId,
+                message.ImageData);
         }
 
         foreach (var group in _groups.Values)
@@ -337,6 +346,15 @@ public sealed class MessengerCartridgeSystem : EntitySystem
 
         AddContact(recipientId, senderId);
         AddContact(senderId, recipientId);
+
+        // Radiant Sector: notify the requester when their friend request is accepted.
+        if (!_notificationsMuted.Contains(senderId) && FindPdaForIdCard(senderId) is { } senderPda)
+        {
+            _cartridgeLoader.SendNotification(
+                senderPda,
+                Loc.GetString("messenger-contact-accepted-title"),
+                Loc.GetString("messenger-contact-accepted-message", ("name", _users[recipientId].Name)));
+        }
     }
 
     private void DeclineContact(int recipientId, int senderId)
@@ -345,24 +363,29 @@ public sealed class MessengerCartridgeSystem : EntitySystem
             requests.Remove(senderId);
     }
 
-    private void SendMessage(int senderId, int receiverId, string? text)
+    private void SendMessage(int senderId, int receiverId, string? text, EntityUid senderActor, byte[]? imageData = null)
     {
         var content = text?.Trim();
-        if (string.IsNullOrEmpty(content) || content.Length > 512)
+        if ((string.IsNullOrEmpty(content) && imageData == null) || content?.Length > 512)
             return;
 
         if (receiverId < 0)
         {
-            SendGroupMessage(senderId, -receiverId, content);
+            SendGroupMessage(senderId, -receiverId, content ?? string.Empty, senderActor, imageData);
             return;
         }
 
         if (!AreContacts(senderId, receiverId))
             return;
 
-        _messages.Add(new MessengerMessageEntry(senderId, receiverId, _users[senderId].Name, content, _timing.CurTime));
+        _messages.Add(new MessengerMessageEntry(senderId, receiverId, _users[senderId].Name, content ?? string.Empty, _timing.CurTime, imageData: imageData));
         if (_messages.Count > 500)
             _messages.RemoveRange(0, _messages.Count - 500);
+
+        var sender = _users[senderId];
+        var receiver = _users[receiverId];
+        _adminLogger.Add(LogType.Chat, LogImpact.Low,
+            $"Messenger message from {ToPrettyString(senderActor):user} ({sender.Name}) to {receiver.Name}: {content ?? "[photo]"}");
 
         if (!_notificationsMuted.Contains(receiverId) && FindPdaForIdCard(receiverId) is { } receiverPda)
         {
@@ -388,14 +411,21 @@ public sealed class MessengerCartridgeSystem : EntitySystem
         _nextGroupId++;
     }
 
-    private void SendGroupMessage(int senderId, int groupId, string content)
+    private void SendGroupMessage(int senderId, int groupId, string content, EntityUid senderActor, byte[]? imageData = null)
     {
         if (!_groups.TryGetValue(groupId, out var group) || !group.Members.Contains(senderId))
             return;
 
-        _messages.Add(new MessengerMessageEntry(senderId, -groupId, _users[senderId].Name, content, _timing.CurTime, groupId));
+        _messages.Add(new MessengerMessageEntry(senderId, -groupId, _users[senderId].Name, content, _timing.CurTime, groupId, imageData));
         if (_messages.Count > 500)
             _messages.RemoveRange(0, _messages.Count - 500);
+
+        var sender = _users[senderId];
+        var recipients = string.Join(", ", group.Members
+            .Where(member => member != senderId && _users.ContainsKey(member))
+            .Select(member => _users[member].Name));
+        _adminLogger.Add(LogType.Chat, LogImpact.Low,
+            $"Messenger group message from {ToPrettyString(senderActor):user} ({sender.Name}) to '{group.Name}' ({recipients}): {content}{(imageData == null ? string.Empty : " [photo]")}");
 
         foreach (var member in group.Members.Where(member => member != senderId))
         {
@@ -436,32 +466,96 @@ public sealed class MessengerCartridgeSystem : EntitySystem
         }
     }
 
+    /// <summary>Radiant Sector: assigns a saved PDA-camera image as the account profile photo.</summary>
+    public void SetProfilePhoto(int accountId, byte[] imageData)
+    {
+        if (!_users.TryGetValue(accountId, out var user))
+            return;
+
+        _users[accountId] = user with { ProfilePhoto = imageData };
+        RefreshOpenMessengers();
+    }
+
+    private void RemoveProfilePhoto(int accountId)
+    {
+        if (!_users.TryGetValue(accountId, out var user))
+            return;
+
+        // Radiant Sector: removing an avatar only clears the profile selection, never the PDA gallery.
+        _users[accountId] = user with { ProfilePhoto = null };
+        RefreshOpenMessengers();
+    }
+
+    private void SelectProfilePhoto(EntityUid loader, int accountId, int photoIndex)
+    {
+        if (!_cartridgeLoader.TryGetProgram<PdaCameraCartridgeComponent>(loader, out _, out var camera) ||
+            photoIndex < 0 || photoIndex >= camera.Photos.Count)
+            return;
+
+        SetProfilePhoto(accountId, camera.Photos[photoIndex]);
+    }
+
+    private void CaptureProfilePhoto(EntityUid loader, int accountId)
+    {
+        if (!_cartridgeLoader.TryGetProgram<PdaCameraCartridgeComponent>(loader, out var cameraUid, out var camera))
+            return;
+
+        camera.PendingProfileAccountId = accountId;
+        _cartridgeLoader.ActivateProgram(loader, cameraUid.Value);
+    }
+
+    /// <summary>Radiant Sector: sends a selected photo from the current PDA's internal camera library.</summary>
+    private void SendStoredPhoto(EntityUid loader, int senderId, int targetId, int photoIndex, EntityUid senderActor)
+    {
+        if (!_cartridgeLoader.TryGetProgram<PdaCameraCartridgeComponent>(loader, out _, out var camera) ||
+            photoIndex < 0 || photoIndex >= camera.Photos.Count)
+            return;
+
+        SendPhoto(senderId, targetId, senderActor, camera.Photos[photoIndex]);
+    }
+
+    /// <summary>Radiant Sector: validates and stores a photo message through the normal contact/group restrictions.</summary>
+    public void SendPhoto(int senderId, int targetId, EntityUid senderActor, byte[] imageData)
+    {
+        SendMessage(senderId, targetId, null, senderActor, imageData);
+    }
+
+    private void CaptureChatPhoto(EntityUid loader, int senderId, int targetId)
+    {
+        if (!_cartridgeLoader.TryGetProgram<PdaCameraCartridgeComponent>(loader, out var cameraUid, out var camera))
+            return;
+
+        camera.PendingMessageSenderId = senderId;
+        camera.PendingMessageTargetId = targetId;
+        _cartridgeLoader.ActivateProgram(loader, cameraUid.Value);
+    }
+
     private void UpdateUiState(EntityUid loader, MessengerUser? currentUser = null)
     {
         RefreshKnownUsers();
         if (currentUser == null && !TryGetUser(loader, out currentUser))
             // The first UI-ready event has no actor. Still show the player directory;
             // subsequent button presses use the actor supplied by the UI relay.
-            currentUser = new MessengerUser(loader.Id, string.Empty, string.Empty);
+            currentUser = new MessengerUser(loader.Id, string.Empty, string.Empty, null);
 
         var user = currentUser!;
 
         var contacts = _contacts.GetValueOrDefault(user.Id, [])
-            .Where(_users.ContainsKey)
+            .Where(id => _users.ContainsKey(id) && _activeUsers.Contains(id))
             .Select(id => ToEntry(user.Id, _users[id]))
             .OrderByDescending(entry => entry.UnreadCount)
             .ThenBy(entry => entry.Name)
             .ToList();
         var supersededAccounts = GetSupersededAccountIds();
         var available = _users.Values
-            .Where(candidate => candidate.Id != user.Id && !supersededAccounts.Contains(candidate.Id))
+            .Where(candidate => candidate.Id != user.Id && _activeUsers.Contains(candidate.Id) && !supersededAccounts.Contains(candidate.Id))
             .Where(candidate => !AreContacts(user.Id, candidate.Id))
             .Where(candidate => !_requests.GetValueOrDefault(candidate.Id, []).Contains(user.Id))
             .Select(candidate => ToEntry(user.Id, candidate))
             .OrderBy(entry => entry.Name)
             .ToList();
         var requests = _requests.GetValueOrDefault(user.Id, [])
-            .Where(_users.ContainsKey)
+            .Where(id => _users.ContainsKey(id) && _activeUsers.Contains(id))
             .Select(id => ToEntry(user.Id, _users[id]))
             .OrderBy(entry => entry.Name)
             .ToList();
@@ -471,6 +565,9 @@ public sealed class MessengerCartridgeSystem : EntitySystem
             _messages.Count(message => message.GroupId == group.Id && message.SenderId != user.Id && message.Timestamp > _lastRead.GetValueOrDefault((user.Id, -group.Id), TimeSpan.Zero)))).ToList();
         var groupIds = groups.Select(group => group.Id).ToHashSet();
         var messages = _messages.Where(message => message.SenderId == user.Id || message.ReceiverId == user.Id || groupIds.Contains(message.GroupId)).ToList();
+        var cameraPhotos = _cartridgeLoader.TryGetProgram<PdaCameraCartridgeComponent>(loader, out _, out var camera)
+            ? camera.Photos.ToList()
+            : [];
 
         _cartridgeLoader.UpdateCartridgeUiState(loader, new MessengerUiState(
             user.Id,
@@ -479,14 +576,23 @@ public sealed class MessengerCartridgeSystem : EntitySystem
             requests,
             messages,
             groups,
-            !_notificationsMuted.Contains(user.Id)));
+            !_notificationsMuted.Contains(user.Id),
+            cameraPhotos.Count,
+            cameraPhotos));
+    }
+
+    /// <summary>Radiant Sector: refreshes the just-activated messenger after a camera action completes.</summary>
+    public void RefreshUi(EntityUid loader, int accountId)
+    {
+        if (_users.TryGetValue(accountId, out var user))
+            UpdateUiState(loader, user);
     }
 
     private MessengerContactEntry ToEntry(int ownerId, MessengerUser user)
     {
         var readTime = _lastRead.GetValueOrDefault((ownerId, user.Id), TimeSpan.Zero);
         var unread = _messages.Count(message => message.SenderId == user.Id && message.ReceiverId == ownerId && message.Timestamp > readTime);
-        return new MessengerContactEntry(user.Id, user.Name, user.JobTitle, unread);
+        return new MessengerContactEntry(user.Id, user.Name, user.JobTitle, unread, user.ProfilePhoto);
     }
 
     private bool AreContacts(int first, int second) => _contacts.GetValueOrDefault(first, []).Contains(second);
@@ -500,12 +606,25 @@ public sealed class MessengerCartridgeSystem : EntitySystem
 
     private void RemoveContact(int owner, int contact)
     {
-        if (_contacts.TryGetValue(owner, out var ownerContacts))
-            ownerContacts.Remove(contact);
+        var removed = _contacts.TryGetValue(owner, out var ownerContacts) && ownerContacts.Remove(contact);
         if (_contacts.TryGetValue(contact, out var contactContacts))
             contactContacts.Remove(owner);
+
+        // Radiant Sector: notify the other participant about a real contact removal.
+        if (!removed ||
+            _notificationsMuted.Contains(contact) ||
+            !_users.TryGetValue(owner, out var ownerUser) ||
+            FindPdaForIdCard(contact) is not { } contactPda)
+        {
+            return;
+        }
+
+        _cartridgeLoader.SendNotification(
+            contactPda,
+            Loc.GetString("messenger-contact-removed-title"),
+            Loc.GetString("messenger-contact-removed-message", ("name", ownerUser.Name)));
     }
 
-    private sealed record MessengerUser(int Id, string Name, string JobTitle);
+    private sealed record MessengerUser(int Id, string Name, string JobTitle, byte[]? ProfilePhoto);
     private sealed record MessengerGroup(int Id, string Name, HashSet<int> Members);
 }

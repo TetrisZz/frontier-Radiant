@@ -8628,7 +8628,8 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 179
-- proto: SpawnPointBrigmedic
+# Radiant Sector: replace the removed brigmedic spawn point.
+- proto: SpawnPointNavyBrigmedic
   entities:
   - uid: 1483
     components:

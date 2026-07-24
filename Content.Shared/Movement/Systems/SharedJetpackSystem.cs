@@ -1,10 +1,14 @@
 using Content.Shared.Actions;
 using Content.Shared._EE.CCVar; // EE
 using Content.Shared._NF.Radar; // Frontier
+using Content.Shared.Damage;
 using Content.Shared.Gravity;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Configuration; // EE
 using Robust.Shared.Containers;
@@ -35,6 +39,9 @@ public abstract partial class SharedJetpackSystem : EntitySystem // Frontier: ad
         SubscribeLocalEvent<JetpackUserComponent, CanWeightlessMoveEvent>(OnJetpackUserCanWeightless);
         SubscribeLocalEvent<JetpackUserComponent, EntParentChangedMessage>(OnJetpackUserEntParentChanged);
         SubscribeLocalEvent<JetpackComponent, EntGotInsertedIntoContainerMessage>(OnJetpackMoved);
+        // Radiant Sector: disable jetpacks for critical and pre-critical users.
+        SubscribeLocalEvent<JetpackUserComponent, MobStateChangedEvent>(OnJetpackUserMobStateChanged);
+        SubscribeLocalEvent<JetpackUserComponent, DamageChangedEvent>(OnJetpackUserDamageChanged, after: [typeof(HeavyWoundedSystem)]);
 
         SubscribeLocalEvent<GravityChangedEvent>(OnJetpackUserGravityChanged);
         SubscribeLocalEvent<JetpackComponent, MapInitEvent>(OnMapInit);
@@ -106,6 +113,25 @@ public abstract partial class SharedJetpackSystem : EntitySystem // Frontier: ad
 
             _popup.PopupClient(Loc.GetString("jetpack-to-grid"), uid, uid);
         }
+    }
+
+    private void OnJetpackUserMobStateChanged(Entity<JetpackUserComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Critical ||
+            !TryComp<JetpackComponent>(ent.Comp.Jetpack, out var jetpack))
+            return;
+
+        SetEnabled(ent.Comp.Jetpack, jetpack, false, ent);
+    }
+
+    private void OnJetpackUserDamageChanged(Entity<JetpackUserComponent> ent, ref DamageChangedEvent args)
+    {
+        if (!TryComp<HeavyWoundedComponent>(ent, out var heavyWounded) ||
+            !heavyWounded.Active ||
+            !TryComp<JetpackComponent>(ent.Comp.Jetpack, out var jetpack))
+            return;
+
+        SetEnabled(ent.Comp.Jetpack, jetpack, false, ent);
     }
 
     private void SetupUser(EntityUid user, EntityUid jetpackUid, JetpackComponent component)
@@ -229,7 +255,13 @@ public abstract partial class SharedJetpackSystem : EntitySystem // Frontier: ad
 
     protected virtual bool CanEnable(EntityUid uid, JetpackComponent component)
     {
-        return true;
+        if (!Container.TryGetContainingContainer((uid, null, null), out var container))
+            return true;
+
+        if (TryComp<MobStateComponent>(container.Owner, out var mobState) && mobState.CurrentState == MobState.Critical)
+            return false;
+
+        return !TryComp<HeavyWoundedComponent>(container.Owner, out var heavyWounded) || !heavyWounded.Active;
     }
 
     // EE: check parent

@@ -35,6 +35,26 @@
       state: nano_max
   - type: MessengerCartridge
 # Radiant Sector end
+
+# Radiant Sector start
+- type: entity
+  parent: NFBasePDACartridge
+  id: PdaCameraCartridge
+  name: PDA camera cartridge
+  description: A program for taking and storing photographs on a PDA.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-y
+  - type: UIFragment
+    ui: !type:PdaCameraUi
+  - type: Cartridge
+    programName: pda-camera-program-name
+    icon:
+      sprite: Interface/Misc/program_icons.rsi
+      state: nano_max # Radiant Sector: temporary icon matching Messenger.
+  - type: PdaCameraCartridge
+# Radiant Sector end
   
 - type: entity
   parent: BaseItem

@@ -116,7 +116,8 @@ public sealed class RadioSystem : EntitySystem
             : message;
 
         var sourceTransform = Transform(messageSource);
-        var locationTooltip = hideCoordinates || IsCoordinateJammed(sourceTransform)
+        // Radiant Sector: faction headsets can permanently conceal radio coordinates.
+        var locationTooltip = hideCoordinates || HasComp<HideRadioCoordinatesComponent>(radioSource) || IsCoordinateJammed(sourceTransform)
             ? Loc.GetString("chat-radio-location-interference")
             : Loc.GetString("chat-radio-location-coordinates",
                 ("x", (int) MathF.Round(sourceTransform.WorldPosition.X)),

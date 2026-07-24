@@ -14,6 +14,9 @@ public sealed class MessengerUiState : BoundUserInterfaceState
     public List<MessengerMessageEntry> Messages;
     public List<MessengerGroupEntry> Groups;
     public bool NotificationsEnabled;
+    public int CameraPhotoCount;
+    // Radiant Sector: photo thumbnails shown by the messenger's PDA-camera gallery.
+    public List<byte[]> CameraPhotos;
 
     public MessengerUiState(
         int ownerId,
@@ -22,7 +25,9 @@ public sealed class MessengerUiState : BoundUserInterfaceState
         List<MessengerContactEntry> incomingRequests,
         List<MessengerMessageEntry> messages,
         List<MessengerGroupEntry> groups,
-        bool notificationsEnabled)
+        bool notificationsEnabled,
+        int cameraPhotoCount,
+        List<byte[]> cameraPhotos)
     {
         OwnerId = ownerId;
         Contacts = contacts;
@@ -31,6 +36,8 @@ public sealed class MessengerUiState : BoundUserInterfaceState
         Messages = messages;
         Groups = groups;
         NotificationsEnabled = notificationsEnabled;
+        CameraPhotoCount = cameraPhotoCount;
+        CameraPhotos = cameraPhotos;
     }
 }
 
@@ -41,13 +48,15 @@ public sealed class MessengerContactEntry
     public string Name;
     public string JobTitle;
     public int UnreadCount;
+    public byte[]? ProfilePhoto;
 
-    public MessengerContactEntry(int id, string name, string jobTitle, int unreadCount = 0)
+    public MessengerContactEntry(int id, string name, string jobTitle, int unreadCount = 0, byte[]? profilePhoto = null)
     {
         Id = id;
         Name = name;
         JobTitle = jobTitle;
         UnreadCount = unreadCount;
+        ProfilePhoto = profilePhoto;
     }
 }
 
@@ -60,8 +69,10 @@ public sealed class MessengerMessageEntry
     public string Content;
     public TimeSpan Timestamp;
     public int GroupId;
+    // Radiant Sector: optional PNG stored with a messenger image message.
+    public byte[]? ImageData;
 
-    public MessengerMessageEntry(int senderId, int receiverId, string senderName, string content, TimeSpan timestamp, int groupId = 0)
+    public MessengerMessageEntry(int senderId, int receiverId, string senderName, string content, TimeSpan timestamp, int groupId = 0, byte[]? imageData = null)
     {
         SenderId = senderId;
         ReceiverId = receiverId;
@@ -69,6 +80,7 @@ public sealed class MessengerMessageEntry
         Content = content;
         Timestamp = timestamp;
         GroupId = groupId;
+        ImageData = imageData;
     }
 }
 

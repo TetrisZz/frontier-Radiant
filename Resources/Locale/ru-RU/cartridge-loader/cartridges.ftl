@@ -127,3 +127,23 @@ messenger-group-title = Новая беседа
 messenger-group-name = Название беседы
 messenger-contact-request-title = Заявка в друзья
 messenger-contact-request-message = { $name } хочет добавить вас в друзья.
+# Radiant Sector
+messenger-contact-accepted-title = Заявка принята
+messenger-contact-accepted-message = { $name } принял(а) вашу заявку в друзья.
+messenger-contact-removed-title = Удалён из друзей
+messenger-contact-removed-message = { $name } удалил(а) вас из друзей.
+# Radiant Sector
+messenger-profile-photo = Фото профиля
+messenger-profile-photo-tooltip = Выбрать фото профиля с этого КПК
+messenger-profile-photo-entry = Сохранённое фото { $number }
+messenger-profile-photo-capture = Сфоткать для профиля
+# Radiant Sector
+messenger-profile-photo-remove = Удалить фото профиля
+# Radiant Sector
+pda-camera-program-name = Камера КПК
+pda-camera-capture = Сделать фото
+pda-camera-capture-tooltip = Сохранить фото на этот КПК
+pda-camera-mode-normal = Основная камера
+pda-camera-mode-selfie = Селфи-камера
+pda-camera-mode-tooltip = Переключить основную и селфи-камеру
+pda-camera-photo-count = Сохранено фото: { $count }
