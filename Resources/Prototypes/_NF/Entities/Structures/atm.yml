@@ -144,7 +144,7 @@
   - type: BankATM
     blackMarket: true
     taxAccounts:
-      Frontier: 0.3 # The scandal!
+      Frontier: 0.15 # The scandal! Radiant: 0.3 -> 0.15
 
 - type: entity
   suffix: Wallmount, BlackMarket
@@ -169,7 +169,7 @@
   - type: BankATM
     blackMarket: true
     taxAccounts:
-      Frontier: 0.3 # The scandal!
+      Frontier: 0.15 # The scandal! Radiant: 0.3 -> 0.15
 
 - type: entity
   name: station administration console

@@ -8092,7 +8092,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,36.5
       parent: 1
-- proto: ComputerBankATM
+- proto: ComputerBlackMarketBankATM
   entities:
   - uid: 952
     components:
