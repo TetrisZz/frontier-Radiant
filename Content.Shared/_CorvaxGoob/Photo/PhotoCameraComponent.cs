@@ -1,11 +1,12 @@
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 using System.Numerics;
 
 namespace Content.Shared._CorvaxGoob.Photo;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PhotoCameraComponent : Component
 {
     [DataField]
@@ -27,6 +28,10 @@ public sealed partial class PhotoCameraComponent : Component
 
     [ViewVariables]
     public EntityUid? User;
+
+    // Radiant Sector: the selected view mode belongs to the camera item, not to its UI window.
+    [DataField, AutoNetworkedField]
+    public bool SelfieMode;
 }
 
 [Serializable, NetSerializable]
@@ -36,10 +41,13 @@ public sealed class PhotoCameraUiState : BoundUserInterfaceState
 
     public bool HasPaper { get; }
 
-    public PhotoCameraUiState(NetEntity cameraEntity, bool hasPaper)
+    public bool SelfieMode { get; }
+
+    public PhotoCameraUiState(NetEntity cameraEntity, bool hasPaper, bool selfieMode)
     {
         CameraEntity = cameraEntity;
         HasPaper = hasPaper;
+        SelfieMode = selfieMode;
     }
 }
 

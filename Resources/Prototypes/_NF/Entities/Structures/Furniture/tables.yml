@@ -19,6 +19,7 @@
         Blunt: 25
     tableMassLimit: 60
   - type: PlaceableSurface
+  - type: NpcPassable # Radiant Sector
   - type: Physics
     bodyType: Dynamic
     fixedRotation: true
@@ -34,6 +35,7 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable
         hard: true
       item: # For the folded, carriable table
         shape:

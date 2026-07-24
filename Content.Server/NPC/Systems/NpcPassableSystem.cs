@@ -15,7 +15,10 @@ public sealed class NpcPassableSystem : EntitySystem
 
     private const CollisionGroup MobBlockingLayers =
         CollisionGroup.Impassable | CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable;
-
+ // Radiant Sector    
+    private const CollisionGroup NpcPassThroughLayers =
+        CollisionGroup.NpcPassable | CollisionGroup.PronePassable;
+ // Radiant Sector    
     public override void Initialize()
     {
         SubscribeLocalEvent<NpcPassableComponent, MapInitEvent>(OnPassableMapInit);
@@ -29,10 +32,16 @@ public sealed class NpcPassableSystem : EntitySystem
         foreach (var (id, fixture) in fixtures.Fixtures)
         {
             var layer = fixture.CollisionLayer & ~(int) MobBlockingLayers;
-            _physics.SetCollisionLayer(uid, id, fixture, layer | (int) CollisionGroup.NpcPassable, fixtures);
+             // Radiant Sector    
+            // Tables and railings retain PronePassable instead of NpcPassable: standing
+            // creatures are blocked, prone players can crawl through, and active NPCs can still pass.
+            if ((fixture.CollisionLayer & (int) CollisionGroup.PronePassable) == 0)
+                layer |= (int) CollisionGroup.NpcPassable;
+
+            _physics.SetCollisionLayer(uid, id, fixture, layer, fixtures);
         }
     }
-
+ // Radiant Sector    
     public void SetNpcCollision(EntityUid uid, bool collideWithPassableStructures)
     {
         if (!TryComp(uid, out FixturesComponent? fixtures))
@@ -41,8 +50,8 @@ public sealed class NpcPassableSystem : EntitySystem
         foreach (var (id, fixture) in fixtures.Fixtures)
         {
             var mask = collideWithPassableStructures
-                ? fixture.CollisionMask | (int) CollisionGroup.NpcPassable
-                : fixture.CollisionMask & ~(int) CollisionGroup.NpcPassable;
+                ? fixture.CollisionMask | (int) NpcPassThroughLayers  // Radiant Sector    
+                : fixture.CollisionMask & ~(int) NpcPassThroughLayers;  // Radiant Sector    
             _physics.SetCollisionMask(uid, id, fixture, mask, fixtures);
         }
     }

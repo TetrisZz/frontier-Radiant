@@ -18,6 +18,25 @@
 
 
 - type: entity
+  parent: NFBasePDACartridge # Radiant Sector start
+  id: MessengerCartridge
+  name: messenger cartridge
+  description: A PDA messenger that requires mutual contact confirmation.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-y
+  - type: UIFragment
+    ui: !type:MessengerUi
+  - type: Cartridge
+    programName: messenger-program-name
+    icon:
+      sprite: Interface/Misc/program_icons.rsi
+      state: nano_max
+  - type: MessengerCartridge
+# Radiant Sector end
+  
+- type: entity
   parent: BaseItem
   id: NanoTaskCartridge
   name: NanoTask cartridge

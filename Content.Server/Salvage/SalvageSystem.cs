@@ -67,7 +67,7 @@ namespace Content.Server.Salvage
         {
             var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
             var channel = _prototypeManager.Index<RadioChannelPrototype>(channelName);
-            _radioSystem.SendRadioMessage(source, message, channel, source);
+            _radioSystem.SendRadioMessage(source, message, channel, source, hideCoordinates: true);  // Radiant Sector 
         }
 
         public override void Update(float frameTime)

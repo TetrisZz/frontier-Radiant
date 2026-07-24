@@ -43,7 +43,9 @@ public sealed partial class ClimbSystem : VirtualController
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
 
     private const string ClimbingFixtureName = "climb";
-    private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
+    // NpcPassable structures replace their blocking layer for active NPCs.
+    // Keep that layer in the temporary climbing fixture so players can still stand on them.
+    private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable | CollisionGroup.NpcPassable | CollisionGroup.PronePassable);
 
     private EntityQuery<ClimbableComponent> _climbableQuery;
     private EntityQuery<FixturesComponent> _fixturesQuery;

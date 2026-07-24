@@ -26,8 +26,8 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
 
     private Vector2 _zoomPos = Vector2.Zero;
     private float _zoomValue = 1f;
+    private bool _selfieMode; // Radiant Sector
 
-    private float _controlVolume;
     private IAudioSource? _controlSound;
 
     public PhotoCameraBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
@@ -66,6 +66,7 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
             return;
 
         _cameraEntity = EntMan.GetEntity(cast.CameraEntity);
+        _selfieMode = cast.SelfieMode; // Radiant Sector
 
         if (EntMan.TryGetComponent<PhotoCameraComponent>(_cameraEntity, out var component))
         {
@@ -117,7 +118,7 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
         if (grid != null)
             localAngle = angle - _transform.GetWorldRotation(grid.Value);
 
-        var delta = new System.Numerics.Vector3(_zoomPos - pos, _zoomValue - zoom);
+        var cameraIsMoving = _window.MoveInput != Vector2.Zero || Math.Abs(_window.ZoomInput) > 0.001f;
         _zoomPos = pos;
         _zoomValue = zoom;
 
@@ -125,18 +126,23 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
 
         var rotateAngle = angle.Opposite() - (localAngle - localAngle.RoundToCardinalAngle());
 
-        _eyeSystem.SetOffset(_cameraEntity.Value, rotateAngle.RotateVec(pos));
+        // Radiant Sector: selfie uses an offset eye without changing the camera window layout.
+        var eyeOffset = rotateAngle.RotateVec(pos);
+        var eyeRotation = -rotateAngle;
+        if (_selfieMode)
+        {
+            eyeOffset += rotateAngle.RotateVec(new Vector2(0f, 1.4f));
+            eyeRotation += Angle.FromDegrees(180);
+        }
+
+        _eyeSystem.SetOffset(_cameraEntity.Value, eyeOffset);
         _eyeSystem.SetZoom(_cameraEntity.Value, new Vector2(zoom));
-        _eyeSystem.SetRotation(_cameraEntity.Value, -rotateAngle);
+        _eyeSystem.SetRotation(_cameraEntity.Value, eyeRotation);
 
         if (_controlSound == null)
             return;
 
-        var targetVolume = delta != System.Numerics.Vector3.Zero ? 2f : -20f;
-        _controlVolume = delta.Z != 0 ? 2f : _controlVolume;
-        _controlVolume = Math.Clamp(_controlVolume + (targetVolume - _controlVolume) * frameTime, -20f, 2f);
-
-        _controlSound.Volume = _controlVolume > -20f ? _controlVolume : float.NegativeInfinity;
+        _controlSound.Volume = cameraIsMoving ? 2f : float.NegativeInfinity;
     }
 
     private void AttemptTakeImage()

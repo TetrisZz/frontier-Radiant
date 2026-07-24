@@ -18,6 +18,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: FlimsyMetallic
   - type: Climbable
+  - type: NpcPassable # Radiant Sector
   - type: Construction
     graph: Railing
   - type: RCDDeconstructable
@@ -44,6 +45,7 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable
   - type: Destructible
     thresholds:
     - trigger:
@@ -90,6 +92,7 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable
       fix2:
         shape:
           !type:PhysShapeAabb
@@ -99,6 +102,7 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable
   - type: Destructible
     thresholds:
     - trigger:
@@ -145,6 +149,7 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable
   - type: Destructible
     thresholds:
     - trigger:
@@ -191,6 +196,7 @@
           - TableMask
         layer:
           - TableLayer
+          - PronePassable
       fix2:
         shape:
           !type:PhysShapeAabb
@@ -200,6 +206,7 @@
           - TableMask
         layer:
           - TableLayer
+          - PronePassable
       fix3:
         shape:
           !type:PhysShapeAabb
@@ -209,6 +216,7 @@
           - TableMask
         layer:
           - TableLayer
+          - PronePassable
   - type: Destructible
     thresholds:
     - trigger:
