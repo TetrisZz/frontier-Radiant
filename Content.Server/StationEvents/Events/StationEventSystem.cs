@@ -57,7 +57,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         {
             var message = Loc.GetString(stationEvent.StartRadioAnnouncement);
             var mapUid = MapSystem.GetMap(GameTicker.DefaultMap); // Hack: need a reference to a valid entity on the default map - the map itself works.
-            RadioSystem.SendRadioMessage(uid, message, stationEvent.StartRadioAnnouncementChannel, mapUid, escapeMarkup: false);
+            RadioSystem.SendRadioMessage(uid, message, stationEvent.StartRadioAnnouncementChannel, mapUid, escapeMarkup: false, hideCoordinates: true);  // Radiant Sector 
         }
 
         Audio.PlayGlobal(stationEvent.StartAudio, allPlayersInGame, true);
@@ -104,7 +104,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         {
             var message = Loc.GetString(stationEvent.EndRadioAnnouncement);
             var mapUid = MapSystem.GetMap(GameTicker.DefaultMap); // Hack: need a reference to a valid entity on the default map - the map itself works.
-            RadioSystem.SendRadioMessage(uid, message, stationEvent.EndRadioAnnouncementChannel, mapUid, escapeMarkup: false);
+            RadioSystem.SendRadioMessage(uid, message, stationEvent.EndRadioAnnouncementChannel, mapUid, escapeMarkup: false, hideCoordinates: true);  // Radiant Sector 
         }
         // End Frontier
 
@@ -144,7 +144,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
                 {
                     var message = Loc.GetString(stationEvent.WarningRadioAnnouncement);
                     var mapUid = MapSystem.GetMap(GameTicker.DefaultMap); // Hack: need a reference to a valid entity on the default map - the map itself works.
-                    RadioSystem.SendRadioMessage(uid, message, stationEvent.WarningRadioAnnouncementChannel, mapUid, escapeMarkup: false);
+                    RadioSystem.SendRadioMessage(uid, message, stationEvent.WarningRadioAnnouncementChannel, mapUid, escapeMarkup: false, hideCoordinates: true);
                 }
                 Audio.PlayGlobal(stationEvent.WarningAudio, allPlayersInGame, true);
                 stationEvent.WarningAnnounced = true;

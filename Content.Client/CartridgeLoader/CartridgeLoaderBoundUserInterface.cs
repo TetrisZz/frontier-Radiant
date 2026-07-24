@@ -53,15 +53,18 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
         if (_activeUiFragment is not null)
             DetachCartridgeUI(_activeUiFragment);
 
+        // Register the fragment before requesting its first state. On a local server the
+        // response can arrive immediately; previously it was dropped because this field
+        // was still null, leaving dynamic PDA programs (including Messenger) empty.
+        _activeUiFragment?.Dispose();
+        _activeCartridgeUI = ui;
+        _activeUiFragment = control;
+
         if (control is not null && _activeProgram.HasValue)
         {
             AttachCartridgeUI(control, Loc.GetString(comp?.ProgramName ?? "default-program-name"));
             SendCartridgeUiReadyEvent(_activeProgram.Value);
         }
-
-        _activeCartridgeUI = ui;
-        _activeUiFragment?.Dispose();
-        _activeUiFragment = control;
     }
 
     protected void ActivateCartridge(EntityUid cartridgeUid)

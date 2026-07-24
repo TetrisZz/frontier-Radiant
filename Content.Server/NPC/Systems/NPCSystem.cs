@@ -8,6 +8,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Physics.Components;  // Radiant Sector    
 using Prometheus;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
@@ -27,6 +28,7 @@ namespace Content.Server.NPC.Systems
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
         [Dependency] private readonly HTNSystem _htn = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
+        [Dependency] private readonly NpcPassableSystem _npcPassable = default!;
 
         /// <summary>
         /// Whether any NPCs are allowed to run at all.
@@ -108,6 +110,9 @@ namespace Content.Server.NPC.Systems
 
             Log.Debug($"Waking {ToPrettyString(uid)}");
             EnsureComp<ActiveNPCComponent>(uid);
+            // Pets and other simple animals should respect railings and tables.  // Radiant Sector    
+            // Other active NPCs retain the requested ability to pass marked structures.
+            _npcPassable.SetNpcCollision(uid, HasComp<AnimalObstacleComponent>(uid));
         }
 
         public void SleepNPC(EntityUid uid, HTNComponent? component = null)
@@ -130,6 +135,7 @@ namespace Content.Server.NPC.Systems
             }
 
             Log.Debug($"Sleeping {ToPrettyString(uid)}");
+            _npcPassable.SetNpcCollision(uid, true);
             RemComp<ActiveNPCComponent>(uid);
         }
 

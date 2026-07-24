@@ -48,3 +48,16 @@
       state: lastwords
   - type: InstantAction
     event: !type:CritLastWordsEvent
+
+- type: entity
+  parent: BaseCritAction
+  id: ActionFightForLife
+  name: Fight for Life
+  description: Force yourself to stand and act for 10 seconds while remaining in critical condition.
+  components:
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_crit.rsi
+      state: fakedeath
+  - type: InstantAction
+    event: !type:FightForLifeEvent

@@ -94,6 +94,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+      - MessengerCartridge # Radiant Sector
       - BountyContractsCartridge # Frontier
       - AstroNavCartridge # Frontier
     cartridgeSlot:
@@ -177,6 +178,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - MessengerCartridge # Radiant Sector
     - BountyContractsCartridge # Frontier
     - AstroNavCartridge # Frontier
     - WantedListCartridge
@@ -519,6 +521,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - MessengerCartridge # Radiant Sector
     - AstroNavCartridge
 
 - type: entity
@@ -916,6 +919,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - MessengerCartridge # Radiant Sector
     - WantedListCartridge
     - LogProbeCartridge
 
@@ -986,6 +990,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+      - MessengerCartridge # Radiant Sector
       - MedTekCartridge
       - WantedListCartridge
       - LogProbeCartridge

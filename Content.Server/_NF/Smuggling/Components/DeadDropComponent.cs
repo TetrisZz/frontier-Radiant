@@ -60,6 +60,12 @@ public sealed partial class DeadDropComponent : Component
     public int MaximumDistance = 6500;
 
     /// <summary>
+    ///     Distance in meters within which a mindshield prevents receiving a dead drop hint.
+    /// </summary>
+    [DataField]
+    public float MindShieldExclusionRadius = 5f;
+
+    /// <summary>
     ///     The paper prototype to spawn.
     /// </summary>
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]

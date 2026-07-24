@@ -22,3 +22,10 @@ public sealed partial class CritFakeDeathEvent : InstantActionEvent
 public sealed partial class CritLastWordsEvent : InstantActionEvent
 {
 }
+
+/// <summary>
+/// Temporarily allows a critical mob to act normally without curing critical condition.
+/// </summary>
+public sealed partial class FightForLifeEvent : InstantActionEvent
+{
+}

@@ -19,7 +19,6 @@ public sealed partial class PhotoCameraWindow : FancyWindow
 
     public Vector2 MoveInput = Vector2.Zero;
     public float ZoomInput = 0;
-
     public event Action? OnTakeImageAttempt;
 
     public PhotoCameraWindow()
@@ -42,7 +41,6 @@ public sealed partial class PhotoCameraWindow : FancyWindow
             OnTakeImageAttempt?.Invoke();
         };
     }
-
     //region Control
     protected override void MouseWheel(GUIMouseWheelEventArgs args)
     {

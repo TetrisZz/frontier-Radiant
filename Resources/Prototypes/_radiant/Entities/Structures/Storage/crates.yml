@@ -41,6 +41,7 @@
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
+  - type: NpcPassable
   - type: Transform
     noRot: true
   - type: Icon

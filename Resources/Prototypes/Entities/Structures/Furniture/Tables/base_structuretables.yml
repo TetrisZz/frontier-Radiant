@@ -10,6 +10,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: PlaceableSurface
+  - type: NpcPassable # Radiant Sector
   - type: Fixtures
     fixtures:
       fix1:
@@ -21,6 +22,7 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable
   - type: SpriteFade
   - type: Sprite
   - type: Icon
@@ -58,3 +60,4 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable

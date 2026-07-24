@@ -57,6 +57,8 @@ entities:
     - type: Transform
       pos: -14.180054,-34.769775
       parent: invalid
+    - type: RadioCoordinateJammer
+      radius: 300
     - type: MapGrid
       chunks:
         0,0:

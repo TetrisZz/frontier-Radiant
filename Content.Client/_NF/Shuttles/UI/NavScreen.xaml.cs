@@ -57,6 +57,10 @@ namespace Content.Client.Shuttles.UI
 
         private void NfUpdateState(NavInterfaceState state)
         {
+            IffStatus.Text = Loc.GetString(state.IffHidden
+                ? "shuttle-console-identification-hidden"
+                : "shuttle-console-identification-enabled");
+
             if (NavRadar.DampeningMode == InertiaDampeningMode.Station)
             {
                 DampenerModeButtons.Visible = false;

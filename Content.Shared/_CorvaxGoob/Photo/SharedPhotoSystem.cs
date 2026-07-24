@@ -49,5 +49,7 @@ public abstract partial class SharedPhotoSystem : EntitySystem
         string message = Loc.GetString("photo-camera-examined-paper-left", ("count", paperLeft));
 
         args.PushMarkup(message);
+        // Radiant Sector: show the mode saved on this particular camera.
+        args.PushMarkup(Loc.GetString(component.SelfieMode ? "photo-camera-mode-selfie" : "photo-camera-mode-normal"));
     }
 }

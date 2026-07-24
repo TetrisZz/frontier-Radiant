@@ -27,6 +27,7 @@
     - Adrenaline
   - type: Buckle
   - type: StandingState
+  - type: AnimalObstacle
   - type: Tag
     tags:
     - DoorBumpOpener

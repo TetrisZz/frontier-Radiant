@@ -60,6 +60,11 @@ public sealed class NavInterfaceState
     /// Frontier: whether or not to show the target coords
     /// </summary>
     public bool HideTarget = true;
+
+    /// <summary>
+    /// Whether this shuttle's IFF identification is hidden.
+    /// </summary>
+    public bool IffHidden;
     // End Frontier fields
     public NavInterfaceState(
         float maxRange,
@@ -70,7 +75,8 @@ public sealed class NavInterfaceState
         ServiceFlags serviceFlags, // Frontier
         Vector2? target, // Frontier
         NetEntity? targetEntity, // Frontier
-        bool hideTarget) // Frontier
+        bool hideTarget, // Frontier
+        bool iffHidden)
     {
         MaxRange = maxRange;
         Coordinates = coordinates;
@@ -81,6 +87,7 @@ public sealed class NavInterfaceState
         Target = target; // Frontier
         TargetEntity = targetEntity; // Frontier
         HideTarget = hideTarget; // Frontier
+        IffHidden = iffHidden;
     }
 }
 

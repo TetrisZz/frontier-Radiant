@@ -26,6 +26,8 @@ public enum CollisionGroup
     DoorPassable       = 1 << 8, // 256 Allows door to close over top, Like blast doors over conveyors for disposals rooms/cargo.
 
     MapGrid = MapGridHelpers.CollisionGroup, // Map grids, like shuttles. This is the actual grid itself, not the walls or other entities connected to the grid.
+    NpcPassable = 1 << 9, // Blocks players, but not active NPCs.
+    PronePassable = 1 << 10, // Blocks standing creatures; a prone humanoid can crawl beneath it.
 
     // 32 possible groups
     // Why dis exist
@@ -34,17 +36,17 @@ public enum CollisionGroup
     SingularityLayer = Opaque | Impassable | MidImpassable | HighImpassable | LowImpassable | BulletImpassable | InteractImpassable | DoorPassable,
 
     // Humanoids, etc.
-    MobMask = Impassable | HighImpassable | MidImpassable | LowImpassable,
+    MobMask = Impassable | HighImpassable | MidImpassable | LowImpassable | NpcPassable | PronePassable,
     MobLayer = Opaque | BulletImpassable,
     // Mice, drones
-    SmallMobMask = Impassable | LowImpassable,
+    SmallMobMask = Impassable | LowImpassable | NpcPassable | PronePassable,
     SmallMobLayer = Opaque | BulletImpassable,
     // Birds/other small flyers
-    FlyingMobMask = Impassable | HighImpassable,
+    FlyingMobMask = Impassable | HighImpassable | NpcPassable,
     FlyingMobLayer = Opaque | BulletImpassable,
 
     // Mechs
-    LargeMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable,
+    LargeMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable | NpcPassable | PronePassable,
     LargeMobLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable,
 
     // Machines, computers

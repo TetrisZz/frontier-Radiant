@@ -21,6 +21,9 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable
+  - type: NpcPassable # Radiant Sector
+  - type: Climbable # Radiant Sector
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -78,6 +81,9 @@
         - TableMask
         layer:
         - TableLayer
+        - PronePassable
+  - type: NpcPassable
+  - type: Climbable
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood

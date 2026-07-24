@@ -483,7 +483,7 @@ public sealed partial class SalvageSystem
                 ("patients", string.Join(", ", rescued)),
                 ("coordinates", GetRescueCoordinatesText(shuttle)));
 
-            _radioSystem.SendRadioMessage(source, message, RescueMedicalChannel, shuttle);
+            _radioSystem.SendRadioMessage(source, message, RescueMedicalChannel, shuttle, hideCoordinates: true); // Radiant Sector 
         }
     }
 
@@ -734,7 +734,7 @@ public sealed partial class SalvageSystem
                 ("shuttle", string.IsNullOrWhiteSpace(rescueImplant.ShuttleName) ? Loc.GetString("salvage-expedition-rescue-unknown-shuttle") : rescueImplant.ShuttleName),
                 ("coordinates", GetRescueCoordinatesText(target)));
 
-            _radioSystem.SendRadioMessage(implantUid, message, RescueMedicalChannel, target);
+            _radioSystem.SendRadioMessage(implantUid, message, RescueMedicalChannel, target, hideCoordinates: true);
 
             rescueImplant.Activated = true;
             Dirty(implantUid, rescueImplant);

@@ -12,6 +12,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Item; // Delta-V: Felinids in duffelbags can't shoot.
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
@@ -269,6 +270,9 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (gun.SelectedMode == SelectiveFire.Burst || gun.BurstActivated)
             fireRate = TimeSpan.FromSeconds(1f / gun.BurstFireRate);
+
+        if (TryComp<HeavyWoundedComponent>(user, out var wounded) && wounded.Active)
+            fireRate *= 2;
 
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once

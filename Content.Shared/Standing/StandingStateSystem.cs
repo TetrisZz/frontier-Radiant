@@ -18,8 +18,9 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
-    // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
-    public const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
+    // These layers are removed while prone. MidImpassable covers normal mob collisions;
+    // PronePassable is used by low structures such as tables and railings.
+    public const int StandingCollisionLayer = (int) (CollisionGroup.MidImpassable | CollisionGroup.PronePassable);
 
     public override void Initialize()
     {

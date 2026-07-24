@@ -27,3 +27,7 @@ shuttle-console-hide-target = Show
 shuttle-console-hide-target-description = Переключает видимость целевой точки на консоли радара.
 shuttle-console-target-name = Цель
 shuttle-console-map-track = ⌖
+
+shuttle-console-identification-system = Система опознавания
+shuttle-console-identification-hidden = Опознавание скрыто
+shuttle-console-identification-enabled = Опознавание включено

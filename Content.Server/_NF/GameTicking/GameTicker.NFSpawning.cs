@@ -83,7 +83,8 @@ public sealed partial class GameTicker
                     ("character", MetaData(mob).EntityName),
                     ("station", station)),
                     _newPlayerRadioChannel,
-                    _greetingEntity);
+                    _greetingEntity,
+                    hideCoordinates: true);  // Radiant Sector    
         }
     }
 }

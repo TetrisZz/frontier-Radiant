@@ -5,6 +5,7 @@ using Content.Shared._CorvaxGoob.Photo;
 using Content.Shared.Materials;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
+using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 
@@ -34,6 +35,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
             subs.Event<PhotoCameraTakeImageMessage>(OnTakeImageMessage);
         });
         SubscribeLocalEvent<PhotoCameraComponent, MaterialAmountChangedEvent>(OnPaperInserted);
+        SubscribeLocalEvent<PhotoCameraComponent, GetVerbsEvent<AlternativeVerb>>(OnGetCameraVerbs); // Radiant Sector
 
         SubscribeLocalEvent<PhotoCardComponent, AfterActivatableUIOpenEvent>(OnOpenCardInterface);
     }
@@ -71,8 +73,33 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     {
         bool hasPaper = _material.CanChangeMaterialAmount(uid, component.CardMaterial, -component.CardCost);
 
-        var state = new PhotoCameraUiState(GetNetEntity(uid), hasPaper);
+        var state = new PhotoCameraUiState(GetNetEntity(uid), hasPaper, component.SelfieMode);
         _userInterface.SetUiState(uid, PhotoCameraUiKey.Key, state);
+    }
+
+    // Radiant Sector: choose the view mode from the camera's right-click menu.
+    private void OnGetCameraVerbs(Entity<PhotoCameraComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString(entity.Comp.SelfieMode
+                ? "photo-camera-verb-switch-normal"
+                : "photo-camera-verb-switch-selfie"),
+            Act = () => SetSelfieMode(entity, !entity.Comp.SelfieMode),
+        });
+    }
+
+    private void SetSelfieMode(Entity<PhotoCameraComponent> entity, bool selfieMode)
+    {
+        if (entity.Comp.SelfieMode == selfieMode)
+            return;
+
+        entity.Comp.SelfieMode = selfieMode;
+        Dirty(entity);
+        UpdateCameraInterface(entity, entity.Comp);
     }
 
     private void OnPaperInserted(EntityUid uid, PhotoCameraComponent component, MaterialAmountChangedEvent args)
