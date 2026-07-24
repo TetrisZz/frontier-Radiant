@@ -75,6 +75,7 @@
     - banged
     - стреляет
     - бах
+    - взрыв
 
 - type: emote
   id: HarpyBeep
@@ -95,6 +96,7 @@
     - beeped
     - бип
     - бипает
+    - бупает
 
 - type: emote
   id: HarpyRev
@@ -113,6 +115,8 @@
     - revs
     - revving
     - revved
+    - заводится
+    - вибрирует
 
 - type: emote
   id: HarpyCaw
@@ -132,6 +136,7 @@
     - cawing
     - cawed
     - каркает
+    - воркует
 
 #Vulpkanin
 - type: emote
