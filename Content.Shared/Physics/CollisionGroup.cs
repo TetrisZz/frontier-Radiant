@@ -28,6 +28,7 @@ public enum CollisionGroup
     MapGrid = MapGridHelpers.CollisionGroup, // Map grids, like shuttles. This is the actual grid itself, not the walls or other entities connected to the grid.
     NpcPassable = 1 << 9, // Blocks players, but not active NPCs.
     PronePassable = 1 << 10, // Blocks standing creatures; a prone humanoid can crawl beneath it.
+    CrateImpassable = 1 << 11, // Radiant Sector: collision used exclusively between closed crates.
 
     // 32 possible groups
     // Why dis exist

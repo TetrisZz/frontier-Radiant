@@ -1,6 +1,8 @@
 ﻿using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Damage;
+using Content.Shared.Stunnable;
 using Robust.Shared.Player;
 
 namespace Content.Shared.Mobs.Systems;
@@ -80,6 +82,23 @@ public partial class MobStateSystem
     protected virtual void OnStateChanged(EntityUid entity, MobStateComponent component, MobState oldState,
         MobState newState)
     {
+        // Radiant Sector: critical recovery above 100 damage uses the normal knockdown cooldown.
+        if (oldState != MobState.Critical ||
+            !TryComp<KnockedDownComponent>(entity, out var knockedDown))
+            return;
+
+        if (newState != MobState.Alive ||
+            !TryComp<DamageableComponent>(entity, out var damageable) ||
+            damageable.TotalDamage <= 100f ||
+            !TryComp<CrawlerComponent>(entity, out var crawler))
+        {
+            RemComp<KnockedDownComponent>(entity);
+            return;
+        }
+
+        _stun.SetAutoStand((entity, knockedDown), true);
+        _stun.SetKnockdownTime((entity, knockedDown), crawler.DefaultKnockedDuration);
+        _standing.Down(entity);
     }
 
     /// <summary>

@@ -24,6 +24,10 @@
                         Text="{Loc messenger-refresh-players}"
                         ToolTip="{Loc messenger-refresh-players}"
                         Margin="4,0,0,0" />
+                <Button Name="ProfileButton"
+                        Text="{Loc messenger-profile-photo}"
+                        ToolTip="{Loc messenger-profile-photo-tooltip}"
+                        Margin="4,0,0,0" />
             </BoxContainer>
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="7,4,7,4">
                 <Button Name="FriendsTabButton" Text="{Loc messenger-friends}" HorizontalExpand="True" />
@@ -89,10 +93,22 @@
                         </PanelContainer.PanelOverride>
                         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="7,5">
                             <Button Name="BackButton" Text="‹" MinWidth="28" ToolTip="{Loc messenger-back}" />
-                            <PanelContainer MinWidth="28" MinHeight="28" Margin="6,0">
+                            <PanelContainer Name="PartnerAvatar"
+                                            MinWidth="28" MinHeight="28"
+                                            MaxWidth="28" MaxHeight="28"
+                                            RectClipContent="True"
+                                            VerticalAlignment="Center"
+                                            Margin="6,0">
                                 <PanelContainer.PanelOverride>
                                     <gfx:StyleBoxFlat BackgroundColor="#527DA3" BorderColor="#73A9D9" BorderThickness="1" />
                                 </PanelContainer.PanelOverride>
+                                <TextureRect Name="PartnerPhoto"
+                                             Visible="False"
+                                             Stretch="Scale"
+                                             MinWidth="24" MinHeight="24"
+                                             MaxWidth="24" MaxHeight="24"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center" />
                                 <Label Name="PartnerInitial" Align="Center" VerticalAlignment="Center" />
                             </PanelContainer>
                             <BoxContainer Orientation="Vertical" HorizontalExpand="True">
@@ -121,6 +137,10 @@
                             <LineEdit Name="MessageInput"
                                       HorizontalExpand="True"
                                       PlaceHolder="{Loc messenger-placeholder}" />
+                            <Button Name="PhotoButton"
+                                    Text="+"
+                                    ToolTip="{Loc messenger-send-photo}"
+                                    MinWidth="34" />
                             <Button Name="SendButton"
                                     Text="➤"
                                     ToolTip="{Loc messenger-send}"

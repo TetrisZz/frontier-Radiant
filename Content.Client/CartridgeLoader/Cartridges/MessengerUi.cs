@@ -16,6 +16,8 @@ public sealed partial class MessengerUi : UIFragment
     {
         _fragment = new MessengerUiFragment();
         _fragment.OnAction += (action, target, text, members) => userInterface.SendMessage(new CartridgeUiMessage(new MessengerUiMessageEvent(action, target, text, members)));
+        // Radiant Sector: photo sends need an explicit library index in addition to the chat target.
+        _fragment.OnPhotoAction += (action, target, photoIndex) => userInterface.SendMessage(new CartridgeUiMessage(new MessengerUiMessageEvent(action, target, photoIndex: photoIndex)));
     }
 
     public override void UpdateState(BoundUserInterfaceState state)

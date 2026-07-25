@@ -15,6 +15,7 @@ using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
@@ -110,6 +111,8 @@ public partial class MobStateSystem
                 break;
             case MobState.Critical:
                 _standing.Down(target);
+                // Radiant Sector: standard knockdown supplies the alert and delayed stand-up. It is cancelled in weightlessness.
+                _stun.TryCrawling(target, time: null, autoStand: false, drop: false);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.Dead:

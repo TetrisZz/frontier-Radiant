@@ -8,6 +8,8 @@ using Content.Shared.Hands;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -69,6 +71,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, SirenActionEvent>(OnSiren);
 
         SubscribeLocalEvent<VehicleRiderComponent, PullAttemptEvent>(OnRiderPull); // Frontier
+        // Radiant Sector: critical riders cannot use hover vehicles.
+        SubscribeLocalEvent<VehicleRiderComponent, MobStateChangedEvent>(OnRiderMobStateChanged);
     }
 
     private void OnInit(EntityUid uid, VehicleComponent component, ComponentInit args)
@@ -187,6 +191,12 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     {
         var driver = args.Buckle.Owner; // i dont want to re write this shit 100 fucking times
 
+        if (TryComp<MobStateComponent>(driver, out var mobState) && mobState.CurrentState == MobState.Critical)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         if (ent.Comp.Driver != null)
         {
             args.Cancelled = true;
@@ -216,6 +226,16 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         }
 
         // AddHorns(driver, ent); // Frontier: delay until mounted
+    }
+
+    private void OnRiderMobStateChanged(Entity<VehicleRiderComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Critical ||
+            !TryComp<BuckleComponent>(ent, out var buckle) ||
+            !HasComp<VehicleComponent>(buckle.BuckledTo))
+            return;
+
+        _buckle.Unbuckle((ent.Owner, buckle), null);
     }
 
     protected virtual void OnStrapped(Entity<VehicleComponent> ent, ref StrappedEvent args) // Frontier: private<protected virtual

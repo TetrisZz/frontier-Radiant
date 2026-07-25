@@ -78,6 +78,7 @@
     falloff: 3
     softness: 5
     autoRot: true
+  - type: Eye # Radiant Sector: dedicated eye for the embedded camera preview.
   - type: Ringer
   - type: RingerUplink
   - type: DeviceNetwork
@@ -95,6 +96,7 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MessengerCartridge # Radiant Sector
+      - PdaCameraCartridge # Radiant Sector
       - BountyContractsCartridge # Frontier
       - AstroNavCartridge # Frontier
     cartridgeSlot:

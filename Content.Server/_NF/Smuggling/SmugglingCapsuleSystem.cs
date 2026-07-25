@@ -100,7 +100,8 @@ namespace Content.Server._NF.Smuggling
 
             var initialMessage = Loc.GetString(comp.InitialNotifyLoc);
 
-            _radio.SendRadioMessage(uid, initialMessage, comp.ChannelNotify, user);
+            // Radiant Sector: contraband reports must not disclose their coordinates.
+            _radio.SendRadioMessage(uid, initialMessage, comp.ChannelNotify, user, hideCoordinates: true);
 
             var spawnDelaySec = _random.Next(comp.MinSpawnDelaySeconds, comp.MaxSpawnDelaySeconds + 1);
 
@@ -159,9 +160,11 @@ namespace Content.Server._NF.Smuggling
 
             EnsureComp<ContrabandPodGridComponent>(grid);
 
-            var arrivalMessage = Loc.GetString(comp.ArrivalLoc, ("x", $"{dropLocation.X:F0}"), ("y", $"{dropLocation.Y:F0}"));
+            // Radiant Sector: suppress the arrival position in both message text and tooltip.
+            var unknown = Loc.GetString("chat-radio-location-interference");
+            var arrivalMessage = Loc.GetString(comp.ArrivalLoc, ("x", unknown), ("y", unknown));
 
-            _radio.SendRadioMessage(grid, arrivalMessage, comp.ChannelNotify, user);
+            _radio.SendRadioMessage(grid, arrivalMessage, comp.ChannelNotify, user, hideCoordinates: true);
 
             EnforceOwnCapsuleLimit();
 

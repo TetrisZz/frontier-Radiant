@@ -23,6 +23,8 @@
   id: ClothingHeadsetAltNfsdBrown
   name: NFSD over-ear headset
   components:
+  # Radiant Sector
+  - type: HideRadioCoordinates
   - type: ContainerFill
     containers:
       key_slots:
@@ -58,6 +60,8 @@
   name: sheriff's over-ear headset
   categories: [ HideSpawnMenu ]
   components:
+  # Radiant Sector
+  - type: HideRadioCoordinates
   - type: ContainerFill
     containers:
       key_slots:

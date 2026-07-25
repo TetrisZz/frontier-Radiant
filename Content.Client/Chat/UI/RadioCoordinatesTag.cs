@@ -30,6 +30,10 @@ public sealed class RadioCoordinatesTag : IMarkupTagHandler
             Text = text,
             ToolTip = tooltipText,
             TooltipDelay = 0f,
+            // Radiant Sector: keep the hover area limited to the location marker.
+            HorizontalExpand = false,
+            VerticalExpand = false,
+            HorizontalAlignment = Control.HAlignment.Left,
             MouseFilter = Control.MouseFilterMode.Stop,
             DefaultCursorShape = Control.CursorShape.Hand,
         };

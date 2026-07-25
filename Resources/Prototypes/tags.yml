@@ -1000,6 +1000,10 @@
 - type: Tag
   id: FakeNukeDisk
 
+# Radiant Sector
+- type: Tag
+  id: Nonmetallic
+
 - type: Tag
   id: NukeOpsUplink
 

@@ -114,7 +114,8 @@ public sealed class FightForLifeSystem : EntitySystem
             if (MetaData(action).EntityPrototype?.ID != "ActionFightForLife")
                 continue;
 
-            _actions.SetCooldown((action, (ActionComponent?) action.Comp), TimeSpan.FromSeconds(_random.Next(20, 101)));
+            // Radiant Sector: extended fight-for-life recovery cooldown.
+            _actions.SetCooldown((action, (ActionComponent?) action.Comp), TimeSpan.FromSeconds(_random.Next(25, 121)));
             break;
         }
     }
