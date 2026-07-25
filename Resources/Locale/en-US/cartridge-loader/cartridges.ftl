@@ -3,60 +3,6 @@ device-pda-slot-component-slot-name-cartridge = Cartridge
 default-program-name = Program
 notekeeper-program-name = Notekeeper
 nano-task-program-name = NanoTask
-messenger-program-name = Messenger
-# Radiant Sector
-messenger-profile-photo = Profile photo
-messenger-profile-photo-tooltip = Choose a profile photo from this PDA
-messenger-profile-photo-entry = Saved photo { $number }
-messenger-profile-photo-capture = Take profile photo now
-# Radiant Sector
-messenger-profile-photo-remove = Remove profile photo
-# Radiant Sector
-pda-camera-program-name = PDA camera
-pda-camera-capture = Take photo
-pda-camera-capture-tooltip = Save a photo to this PDA
-pda-camera-mode-normal = Rear camera
-pda-camera-mode-selfie = Selfie camera
-pda-camera-mode-tooltip = Switch between rear and selfie cameras
-pda-camera-photo-count = Saved photos: { $count }
-messenger-contacts = Contacts
-messenger-requests = Contact requests
-messenger-discover = People in the network
-messenger-add-contact = Add friend
-messenger-find-players = Find players
-messenger-refresh-players = Refresh
-messenger-notifications-on = Alerts: on
-messenger-notifications-off = Alerts: off
-messenger-notifications-tooltip = Turn message alerts on or off for this ID card
-messenger-notification-title = New message
-messenger-notification-message = New message
-messenger-select-chat = Select a chat to start messaging
-messenger-no-messages = No messages yet
-messenger-friends = Friends
-messenger-dialogs = Dialogs
-messenger-empty-friends = No friends yet.
-messenger-open-chat = Open chat
-messenger-remove-friend = Remove
-messenger-create-group = Create chat
-messenger-group-title = New group chat
-messenger-group-name = Chat name
-messenger-contact-request-title = Friend request
-messenger-contact-request-message = { $name } wants to add you as a friend.
-# Radiant Sector
-messenger-contact-accepted-title = Friend request accepted
-messenger-contact-accepted-message = { $name } accepted your friend request.
-messenger-contact-removed-title = Friend removed
-messenger-contact-removed-message = { $name } removed you from friends.
-messenger-accept = Accept
-messenger-decline = Decline
-messenger-back = Back
-messenger-send = Send
-messenger-placeholder = Write a message…
-messenger-chats = Chats
-messenger-contact = Contact
-messenger-group = Group chat
-messenger-empty-chats = No dialogs yet.
-messenger-no-users = No users online.
 news-read-program-name = Station news
 
 crew-manifest-program-name = Crew manifest
@@ -156,23 +102,3 @@ wanted-list-status-label = [color=darkgray]status:[/color] {$status ->
 wanted-list-history-table-time-col = Time
 wanted-list-history-table-reason-col = Crime
 wanted-list-history-table-initiator-col = Initiator
-# Radiant Sector
-messenger-send-photo = Send photo
-messenger-send-photo-capture = Take and send photo
-# Radiant Sector
-pda-camera-gallery = Gallery
-pda-camera-camera = Camera
-pda-camera-gallery-tooltip = View photos stored on this PDA
-# Radiant Sector
-pda-camera-pan-left = Move frame left
-pda-camera-pan-up = Move frame up
-pda-camera-pan-down = Move frame down
-pda-camera-pan-right = Move frame right
-pda-camera-zoom-out = Zoom out
-pda-camera-zoom-in = Zoom in
-# Radiant Sector
-pda-camera-gallery-grid = Grid
-pda-camera-gallery-open = Open photo
-pda-camera-gallery-previous = Previous photo
-pda-camera-gallery-next = Next photo
-pda-camera-gallery-delete = Delete photo
