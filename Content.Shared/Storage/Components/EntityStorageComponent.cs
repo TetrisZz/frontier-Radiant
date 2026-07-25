@@ -27,7 +27,8 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
         CollisionGroup.HighImpassable |
         CollisionGroup.LowImpassable |
         CollisionGroup.NpcPassable |
-        CollisionGroup.PronePassable);
+        CollisionGroup.PronePassable |
+        CollisionGroup.CrateImpassable);
 
     /// <summary>
     ///     Collision masks that were removed from ANY layer when the storage was opened;

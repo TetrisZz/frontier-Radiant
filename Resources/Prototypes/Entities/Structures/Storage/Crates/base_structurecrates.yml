@@ -37,9 +37,11 @@
         density: 50
         mask:
         - CrateMask #this is so they can go under plastic flaps
+        - CrateImpassable # Radiant Sector: only other closed crates collide with this layer.
         layer:
         - MachineLayer
-        - Impassable # Radiant Sector: closed crates must collide with one another.
+        - Impassable # Radiant Sector: closed crates block players.
+        - CrateImpassable
   - type: EntityStorage
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
