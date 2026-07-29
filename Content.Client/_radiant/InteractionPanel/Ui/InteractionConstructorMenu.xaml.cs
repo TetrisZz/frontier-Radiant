@@ -18,6 +18,7 @@ namespace Content.Client.Interaction.Panel.Ui
         public Button AddButton => this.FindControl<Button>("AddButton");
 
         private ErrorLevel _errorLevel = ErrorLevel.None;
+        private bool _soloMode;
 
         public InteractionConstructorMenu()
         {
@@ -38,6 +39,11 @@ namespace Content.Client.Interaction.Panel.Ui
             AddButton.OnPressed += OnAddButtonPressed;
             UpdatePreview();
             UpdateButtonState();
+        }
+
+        public void SetSoloMode(bool soloMode)
+        {
+            _soloMode = soloMode;
         }
 
         private void UpdatePreview()
@@ -111,10 +117,11 @@ namespace Content.Client.Interaction.Panel.Ui
             {
                 ID = BuildInteractionId(displayName),
                 Name = displayName,
-                // Keep constructor simple: one action phrase generates all channels.
-                UserMessages = new List<string> { $"{actionText} $target" },
-                TargetMessages = new List<string> { "$user " + actionText },
-                OtherMessages = new List<string> { "$user " + actionText + " $target" },
+                Solo = _soloMode,
+                // Names are substituted only when the player explicitly uses $user or $target.
+                UserMessages = new List<string> { actionText },
+                TargetMessages = new List<string> { actionText },
+                OtherMessages = new List<string> { actionText },
                 Icon = "/Textures/_radiant/Interface/InteractionPanel/heart.png",
                 Category = "body",
                 AllowedGenders = new List<string> { "all" },

@@ -460,10 +460,20 @@ namespace Content.Client.Interaction.Panel.Ui
 
             var interactionPrototype = new InteractionPrototype
             {
+                ID = _prototype.ID,
                 Name = name,
                 UserMessages = new List<string> { message },
+                TargetMessages = new List<string> { message },
+                OtherMessages = new List<string> { message },
                 Icon = spritePath,
                 ERP = _erpCheckbox.Pressed,
+                Solo = _prototype.Solo,
+                Category = _prototype.Category,
+                DoAfterDelay = _prototype.DoAfterDelay,
+                Points = _prototype.Points,
+                ArousalPoints = _prototype.ArousalPoints,
+                PartnerArousalMultiplier = _prototype.PartnerArousalMultiplier,
+                UseDelay = _prototype.UseDelay,
                 AllowedGenders = new List<string> { GetSexString(GetSelectedId(_sexButton) ?? 0) },
                 AllowedSpecies = new List<string> { GetSpeciesString(GetSelectedId(_speciesButton) ?? 0) },
                 NearestAllowedGenders = new List<string> { GetSexString(GetSelectedId(_targetSexButton) ?? 0) },
@@ -471,6 +481,12 @@ namespace Content.Client.Interaction.Panel.Ui
                 BlackListSpecies = _blackCheckbox.Pressed
                     ? new List<string> { GetSpeciesString(GetSelectedId(_blackListButton) ?? 0) }
                     : null,
+                OneRequiredClothingSlots = _prototype.OneRequiredClothingSlots,
+                RequiredClothingSlots = _prototype.RequiredClothingSlots,
+                RequiresStrapon = _prototype.RequiresStrapon,
+                RequiresVibrator = _prototype.RequiresVibrator,
+                RequiresDildo = _prototype.RequiresDildo,
+                TargetEntityId = _prototype.TargetEntityId,
                 SoundPerceivedByOthers = _soundCheckbox.Pressed,
                 InteractSound = GetInteractSound()
             };

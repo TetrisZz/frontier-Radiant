@@ -299,7 +299,7 @@ namespace Content.Client.Interaction.Panel.Ui
 
         private void HandleConstructor()
         {
-            _interactionConstructorController.ToggleWindow();
+            _interactionConstructorController.ToggleWindow(_soloModeEnabled);
         }
 
         public void HandleAddConstructor(InteractionPrototype prototype)
