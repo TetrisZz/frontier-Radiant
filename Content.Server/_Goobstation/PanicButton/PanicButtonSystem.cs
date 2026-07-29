@@ -10,7 +10,6 @@ using Content.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server.Station.Systems;
-using Content.Server.Station.Components;
 
 public sealed partial class PanicButtonSystem : EntitySystem
 {
@@ -44,29 +43,19 @@ public sealed partial class PanicButtonSystem : EntitySystem
         _useDelaySystem.TryResetDelay((uid, useDelay));
 
         var xform = Transform(uid);
-        var coordinates = xform.Coordinates;
-
         var grid = xform.GridUid;
-        var gridName = grid.HasValue ? _stationSystem.GetOwningStation(grid.Value)?.ToString() ?? "" : "";
 
-        var pos = xform.MapPosition;
+        var pos = _transformSystem.GetMapCoordinates(uid);
         var x = (int)pos.X;
         var y = (int)pos.Y;
         var posText = $"({x}, {y})";
 
         var station = _stationSystem.GetOwningStation(uid);
-        
-        string stationText = "";
-        if (station.HasValue)
-        {
-            if (EntityManager.TryGetComponent(station.Value, out StationNameSetupComponent? stationComponent))
-            {
-                stationText = stationComponent.StationNameTemplate ?? "Unnamed Station";
-            }
-        }
-
-        var coordinatesText = $"Coordinates: {coordinates.X}, {coordinates.Y}";
-        var gridText = gridName;
+        var stationText = station.HasValue
+            ? Name(station.Value)
+            : grid.HasValue
+                ? Name(grid.Value)
+                : "";
 
         var distressMessage = Loc.GetString(comp.DistressMessage, 
             ("position", posText), 

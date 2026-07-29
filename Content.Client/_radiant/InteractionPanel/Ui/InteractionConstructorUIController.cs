@@ -7,12 +7,13 @@ public sealed class InteractionConstructorUIController : UIController
 {
     private InteractionConstructorMenu? _window;
 
-    public void ToggleWindow()
+    public void ToggleWindow(bool soloMode)
     {
         if (_window == null)
         {
             _window = UIManager.CreateWindow<InteractionConstructorMenu>();
             _window.OnClose += OnWindowClosed;
+            _window.SetSoloMode(soloMode);
 
             _window.OpenCenteredLeft();
         }

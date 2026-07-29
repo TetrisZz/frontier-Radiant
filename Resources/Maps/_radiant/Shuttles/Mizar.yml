@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 05/11/2026 13:04:54
-  entityCount: 1998
+  time: 07/29/2026 15:11:08
+  entityCount: 2002
 maps: []
 grids:
 - 1
@@ -2649,6 +2649,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 11.5,17.5
+      parent: 1
+  - uid: 2000
+    components:
+    - type: Transform
+      pos: 3.5,30.5
       parent: 1
 - proto: ButtonFrameCautionSecurity
   entities:
@@ -10018,6 +10023,13 @@ entities:
     - type: Transform
       pos: -1.5,7.5
       parent: 1
+- proto: PlushieRSScuf
+  entities:
+  - uid: 1999
+    components:
+    - type: Transform
+      pos: 10.504284,8.558409
+      parent: 1
 - proto: PlushieXeno
   entities:
   - uid: 1987
@@ -10940,6 +10952,27 @@ entities:
       parent: 1
 - proto: SignalButton
   entities:
+  - uid: 579
+    components:
+    - type: Transform
+      pos: -0.5,12.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        613:
+        - - Pressed
+          - Toggle
+        612:
+        - - Pressed
+          - Toggle
+        611:
+        - - Pressed
+          - Toggle
+        610:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
   - uid: 678
     components:
     - type: Transform
@@ -11274,6 +11307,18 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
+  - uid: 2001
+    components:
+    - type: Transform
+      pos: 3.5,30.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        964:
+        - - Pressed
+          - DoorBolt
+    - type: Fixtures
+      fixtures: {}
 - proto: SignalSwitch
   entities:
   - uid: 578
@@ -11309,27 +11354,6 @@ entities:
           - Forward
         - - Off
           - Off
-    - type: Fixtures
-      fixtures: {}
-  - uid: 579
-    components:
-    - type: Transform
-      pos: -0.5,12.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        610:
-        - - On
-          - Toggle
-        611:
-        - - On
-          - Toggle
-        612:
-        - - On
-          - Toggle
-        613:
-        - - On
-          - Toggle
     - type: Fixtures
       fixtures: {}
   - uid: 580
@@ -14061,6 +14085,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 16.5,-16.5
+      parent: 1
+- proto: WallWeaponCapacitorRechargerOmnidirectional
+  entities:
+  - uid: 2002
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,15.5
       parent: 1
 - proto: WarpPoint
   entities:

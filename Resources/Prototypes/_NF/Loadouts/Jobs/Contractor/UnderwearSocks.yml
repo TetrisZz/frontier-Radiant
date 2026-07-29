@@ -52,54 +52,63 @@
   price: 100
   equipment:
     socks: ClothingUnderwearSocksThighRedStrip
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksRadiantStriped
   price: 100
   equipment:
     socks: ClothingUnderwearSocksRadiantStriped
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksThighPinkStrip
   price: 100
   equipment:
     socks: ClothingUnderwearSocksThighPinkStrip
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksRadiantPink
   price: 100
   equipment:
     socks: ClothingUnderwearSocksRadiantPink
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksRadiantThighblue
   price: 100
   equipment:
     socks: ClothingUnderwearSocksRadiantThighblue
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksGreenStrip
   price: 100
   equipment:
     socks: ClothingUnderwearSocksGreenStrip
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksRadiantBlack
   price: 100
   equipment:
     socks: ClothingUnderwearSocksRadiantBlack
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksRadiantSocksBlack
   price: 100
   equipment:
     socks: ClothingUnderwearSocksRadiantSocksBlack
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksThigh
   price: 100
   equipment:
     socks: ClothingUnderwearSocksThigh
+
 
 - type: loadout
   id: ContractorClothingUnderwearSocksFishnettights
@@ -130,75 +139,88 @@
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN1
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN2
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN2
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN3
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN3
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN4
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN4
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN5
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN5
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN6
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN6
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN7
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN7
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN8
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN8
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN9
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN9
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN10
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN10
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN11
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN11
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN12
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN12
+  groupBy: "SocksPolos"
 
 - type: loadout
   id: ContractorClothingUnderwearSocksPolosN13
   price: 100
   equipment:
     socks: ClothingUnderwearSocksPolosN13
+  groupBy: "SocksPolos"

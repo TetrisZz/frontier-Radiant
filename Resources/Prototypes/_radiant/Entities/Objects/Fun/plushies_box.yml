@@ -37,5 +37,7 @@
         orGroup: PlushiesBox
       - id: PlushieVulpRS
         orGroup: PlushiesBox
+      - id: PlushieRSScuf
+        orGroup: PlushiesBox
       - id: PlushieHomka
         orGroup: PlushiesBox

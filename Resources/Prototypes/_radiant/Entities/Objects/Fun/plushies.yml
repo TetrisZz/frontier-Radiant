@@ -150,3 +150,27 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieRSScuf
+  name: плюшевый унатх
+  description: Мягкий на ощупьи пахнет пивом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Plushies/vulp.rsi
+    state: scuf
+  - type: EmitSoundOnUse
+    sound: &PlushieRSScufSound
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound: *PlushieRSScufSound
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound: *PlushieRSScufSound
