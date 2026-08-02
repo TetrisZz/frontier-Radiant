@@ -15,4 +15,10 @@ public sealed partial class DatasetVocalizerComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> Dataset;
+
+    /// <summary>
+    /// Chance to provide a message for each vocalization attempt.
+    /// </summary>
+    [DataField]
+    public float Chance = 1f;
 }

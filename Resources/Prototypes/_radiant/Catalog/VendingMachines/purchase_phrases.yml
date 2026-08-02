@@ -1,0 +1,18 @@
+- type: localizedDataset
+  id: NudomatPurchasePhrases
+  values:
+    prefix: nudomat-purchase-
+    count: 12
+
+- type: localizedDataset
+  id: HomkomatPurchasePhrases
+  values:
+    prefix: homkomat-purchase-
+    count: 12
+
+- type: localizedDataset
+  id: SexShopPurchasePhrases
+  values:
+    prefix: sexshop-purchase-
+    count: 12
+

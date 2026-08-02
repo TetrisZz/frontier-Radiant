@@ -1,0 +1,39 @@
+nudomat-purchase-1 = Purchase dispensed. Confidence is sold separately!
+nudomat-purchase-2 = Less fabric, more freedom!
+nudomat-purchase-3 = The fitting room is on the left. Courage is within you.
+nudomat-purchase-4 = Excellent choice! The security cameras agree.
+nudomat-purchase-5 = Your new look hides almost nothing. That is intentional!
+nudomat-purchase-6 = NudoMat approves of your determination.
+nudomat-purchase-7 = Item dispensed. You may leave your embarrassment here.
+nudomat-purchase-8 = Comfortable, light, and suspiciously revealing!
+nudomat-purchase-9 = Does it fit? The mood is what matters!
+nudomat-purchase-10 = Purchase complete. Your dramatic entrance starts now.
+nudomat-purchase-11 = Wear it proudly. Or at least with a robe.
+nudomat-purchase-12 = Thank you! NudoMat promises not to tell anyone.
+
+homkomat-purchase-1 = HomkoMat picked something cozy just for you!
+homkomat-purchase-2 = Purchase dispensed. Cuteness level increased!
+homkomat-purchase-3 = Every size deserves beautiful clothing.
+homkomat-purchase-4 = A perfect fit! According to my calculations, anyway.
+homkomat-purchase-5 = Comfort activated. No need to turn it off.
+homkomat-purchase-6 = HomkoMat says it looks wonderful on you!
+homkomat-purchase-7 = Another satisfied customer. Presumably satisfied.
+homkomat-purchase-8 = Softness verified by highly qualified hamsters.
+homkomat-purchase-9 = Item dispensed! Remember to twirl in front of a mirror.
+homkomat-purchase-10 = Style has no size. The item does, so check the label.
+homkomat-purchase-11 = A cozy purchase for a cozy person!
+homkomat-purchase-12 = Thanks for shopping! HomkoMat believes in your look.
+
+sexshop-purchase-1 = Purchase dispensed. You can take it from here.
+sexshop-purchase-2 = Thank you! You should probably read the instructions.
+sexshop-purchase-3 = Your secret is safe. The machine saw nothing.
+sexshop-purchase-4 = Item dispensed. Remember to close the door behind you.
+sexshop-purchase-5 = Excellent choice! Bold. Very bold.
+sexshop-purchase-6 = No returns after use. Do not even ask.
+sexshop-purchase-7 = Purchase complete. Have a pleasant... evening.
+sexshop-purchase-8 = Opaque packaging provided. Reputation preserved.
+sexshop-purchase-9 = The machine recommends checking the batteries first.
+sexshop-purchase-10 = Thank you! Your curiosity supports small business.
+sexshop-purchase-11 = Item dispensed. Observe safety and personal boundaries.
+sexshop-purchase-12 = No receipt will be printed. That may be for the best.
+

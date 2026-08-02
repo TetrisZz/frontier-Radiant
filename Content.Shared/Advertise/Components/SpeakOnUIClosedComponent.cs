@@ -25,6 +25,12 @@ public sealed partial class SpeakOnUIClosedComponent : Component
     public bool Enabled = true;
 
     /// <summary>
+    /// Chance to speak when the UI is closed.
+    /// </summary>
+    [DataField]
+    public float SpeakChance = 1f;
+
+    /// <summary>
     /// Should messages be spoken only if the <see cref="Flag"/> is set (true), or every time the UI is closed (false)?
     /// </summary>
     [DataField]

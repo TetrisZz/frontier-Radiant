@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 05/08/2026 03:59:04
+  time: 08/02/2026 23:00:10
   entityCount: 1304
 maps: []
 grids:
@@ -6091,17 +6091,36 @@ entities:
     - type: Transform
       pos: -13.5,2.5
       parent: 2
+- proto: RadiantSpaceVillainArcade
+  entities:
+  - uid: 401
+    components:
+    - type: Transform
+      pos: 2.5,2.5
+      parent: 2
+  - uid: 404
+    components:
+    - type: Transform
+      pos: -1.5,2.5
+      parent: 2
+  - uid: 1093
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,-2.5
+      parent: 2
+  - uid: 1123
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 14.5,0.5
+      parent: 2
 - proto: RandomArcade
   entities:
   - uid: 400
     components:
     - type: Transform
       pos: -2.5,2.5
-      parent: 2
-  - uid: 401
-    components:
-    - type: Transform
-      pos: -1.5,2.5
       parent: 2
   - uid: 402
     components:
@@ -6112,11 +6131,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,2.5
-      parent: 2
-  - uid: 404
-    components:
-    - type: Transform
-      pos: 2.5,2.5
       parent: 2
   - uid: 405
     components:
@@ -6135,23 +6149,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 14.5,-0.5
       parent: 2
-  - uid: 1093
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 14.5,0.5
-      parent: 2
   - uid: 1118
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 14.5,1.5
-      parent: 2
-  - uid: 1123
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 10.5,-2.5
       parent: 2
 - proto: RandomDrinkBottle
   entities:

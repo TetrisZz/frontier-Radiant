@@ -22,7 +22,7 @@
   - Expedition
   - Civilian
   engine:
-  - AME
+  - Bananium
 
 - type: gameMap
   id: Anchor

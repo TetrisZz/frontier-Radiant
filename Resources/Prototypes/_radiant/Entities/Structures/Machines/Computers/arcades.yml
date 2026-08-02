@@ -1,0 +1,37 @@
+- type: entity
+  id: RadiantSpaceVillainArcade
+  parent: ArcadeBase
+  name: Lucky Seven arcade
+  description: A slot machine connected directly to your bank account. What could go wrong?
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/arcade.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: arcade
+    - map: ["computerLayerScreen"]
+      state: screen_spacevillain
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: panel
+      visible: false
+  - type: PointLight
+    color: "#d42b2b"
+  - type: CasinoMachine
+  - type: ActivatableUI
+    key: enum.CasinoMachineUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: StationAiWhitelist
+  - type: UserInterface
+    interfaces:
+      enum.CasinoMachineUiKey.Key:
+        type: CasinoMachineBoundUserInterface
+  - type: Vocalizer
+    minVocalizeInterval: 1m
+    maxVocalizeInterval: 4m
+    hideChat: true
+  - type: DatasetVocalizer
+    dataset: RadiantArcadeAds
+    chance: 0.5
+  - type: SpeakOnUIClosed
+    pack: RadiantArcadeGoodbyes
+    speakChance: 0.5
