@@ -1,0 +1,9 @@
+- type: guideEntry
+  id: Resomi
+  name: species-name-resomi
+  text: "/ServerInfo/_radiant/Guidebook/Mobs/Resomi.xml"
+
+- type: guideEntry
+  id: Arcana
+  name: species-name-demon
+  text: "/ServerInfo/_radiant/Guidebook/Mobs/Arcana.xml"

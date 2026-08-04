@@ -1,32 +1,22 @@
 <Document>
-  # Felinids
+# Фелиниды
 
-  <Box>
-    <GuideEntityEmbed Entity="MobFelinidDummy" Caption=""/>
-  </Box>
+## Питание
+- Могут есть сырое мясо.
+- Теобромин из шоколада, чая и кофе, а также аллицин из лука и чеснока вызывают отравление.
 
-  Small and mischievous cat-eared people. Being small in itself has lots of upsides and downsides. They can hide inside duffelbags.
+## Преимущества
+- Меньше людей, поэтому по ним сложнее попасть.
+- Могут помещаться в вещмешках.
+- Могут выплюнуть комок шерсти и вывести часть химикатов из крови.
+- Поедание мышей и крыс насыщает и восстанавливает способность выплёвывать шерсть.
+- Когти наносят режущий и колющий урон.
+- Без обуви ходят совершенно бесшумно.
+- Невосприимчивы к заболеванию OwOnavirus.
 
-  ## Diet
-
-  - Can eat raw meat.
-  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
-
-  ## Benefits
-
-  - They are smaller than Humans, making them harder to hit.
-  - Can fit in duffelbags.
-  - Have the ability to throw up an hairball to get rid of some of the chemicals from their bloodstream.
-  - Able to eat mice and rats after picking them up. This has the benefit of regenerating the hairball ability and feeding them.
-  - Uses their claws to do Slashing damage and Piercing damage.
-  - Can walk completely silently, but only while barefooted.
-  - Immunity to the OwOnavirus disease.
-
-  ## Drawbacks
-
-  - Takes 15% more Blunt, Slash and Piercing damage.
-  - Are easily shoved, pushed and carried around by every other morphotypes due to their small size.
-  - They are weaker and struggle to carry and pull things due to their small size. They are unable to carry an Oni.
-  - They have slightly less stamina than Humans.
-
+## Недостатки
+- Получают на [color=#ffa500]15% больше дробящего, режущего и колющего урона[/color].
+- Из-за небольшого размера их легче толкать и переносить.
+- Им сложнее тащить тяжёлые предметы и крупных существ; они не могут переносить Они.
+- Имеют немного меньший запас выносливости, чем люди.
 </Document>

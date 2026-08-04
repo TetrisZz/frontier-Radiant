@@ -14,28 +14,28 @@
 
   [color=#a4885c]Тип электрогенератора:[/color] Плазма
 
-  # Shuttle Brief
+  # Краткое описание
 
-  "A small botany vessel dedicated to horticultural experimentation."
+  "Небольшое ботаническое судно для экспериментов в области растениеводства."
 
-  # Ship Functions
+  # Оснащение корабля
 
-  [textlink="Botany" link="Botany"/]
+  [textlink="Ботаника" link="Botany"/]
 
-  # Piloting
+  # Пилотирование
 
-  [textlink="Piloting" link="Piloting"/]
+  [textlink="Пилотирование" link="Piloting"/]
 
-  [textlink="Sector Topology" link="SectorTopology"/]
+  [textlink="Топология сектора" link="SectorTopology"/]
 
-  # Hiring crew
+  # Наём экипажа
 
-  [textlink="Hiring" link="Hiring"/]
+  [textlink="Наём экипажа" link="Hiring"/]
 
-  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+  Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-  # PREFLIGHT CHECKLIST
+  # ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+  [textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 </Document>

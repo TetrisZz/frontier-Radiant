@@ -3,18 +3,18 @@
   <Box>
   <GuideEntityEmbed Entity="NFPosterContrabandSsfLogo" Caption=""/>
   <GuideEntityEmbed Entity="KitchenDeepFryer" Caption="Frying"/>
-  <GuideEntityEmbed Entity="KitchenElectricRange" Caption="Cooking"/>
+  <GuideEntityEmbed Entity="KitchenElectricRange" Caption="Готовить"/>
   <GuideEntityEmbed Entity="VendingMachineBooze" Caption="Bartendry"/>
   <GuideEntityEmbed Entity="NFPosterContrabandSsfLogo" Caption=""/>
   </Box>
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapIzakaya" Caption=""/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Medium
+  [color=#a4885c]Размер корабля:[/color] Средний
 
-  [color=#a4885c]Recommended Crew:[/color] 4-8
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 4-8
 
-  [color=#a4885c]Power Gen Type:[/color] Uranium
+  [color=#a4885c]Тип генератора:[/color] Урановый
 
   "A medium-size, japanese-inspired restaurant/pub ship with a large dining area, and equally large kitchen."
 
@@ -27,29 +27,29 @@
 
   [italic]Brought to you by Settler's Spacecraft Firm.[/italic]
 
-  # Ship Functions
+  # Оснащение корабля
 
-  # Entertainment
+  # Развлечения
 
-  [textlink="Food Recipes" link="FoodRecipes"/]
+  [textlink="Рецепты еды" link="FoodRecipes"/]
 
-  [textlink="Drinks" link="Drinks"/]
+  [textlink="Напитки" link="Drinks"/]
 
-  [textlink="Botany" link="Botany"/]
+  [textlink="Ботаника" link="Botany"/]
 
-  # Piloting
+  # Пилотирование
 
-  [textlink="Piloting" link="Piloting"/]
+  [textlink="Пилотирование" link="Piloting"/]
 
-  [textlink="Sector Topology" link="SectorTopology"/]
+  [textlink="Топология сектора" link="SectorTopology"/]
 
-  # Hiring crew
+  # Наём экипажа
 
-  [textlink="Hiring" link="Hiring"/]
+  [textlink="Наём экипажа" link="Hiring"/]
 
-  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+  Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-  # PREFLIGHT CHECKLIST
+  # ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+  [textlink="Предполётная проверка" link="PreflightChecklist"/]
 </Document>

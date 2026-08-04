@@ -13,11 +13,11 @@
 
 - Чтобы переместить шаттл, по умолчанию (для QWERTY-клавиатуры) используются следующие элементы управления:
 
--[color=#028ed9][keybind=«ShuttleStrafeUp»/][/color] и [color=#028ed9][keybind=«ShuttleStrafeDown»/][/color]: Перемещение вперед и назад.
--[color=#028ed9][keybind=«ShuttleStrafeLeft»/][/color] & [color=#028ed9][keybind=«ShuttleStrafeRight»/][/color]: Перемещение влево и вправо.
--[color=#028ed9][keybind=«ShuttleRotateLeft»/][/color] & [color=#028ed9][keybind=«ShuttleRotateRight»/][/color]: Поворот влево и вправо.
--[color=#028ed9][keybind=«ShuttleBrake»/][/color]: Замедление.
--[color=#028ed9][keybind=«ShuttleBrake»/][/color] + [color=#028ed9]любой ввод[/color]: Медленное движение и вращение.
+- [color=#028ed9][keybind="ShuttleStrafeUp"/][/color] и [color=#028ed9][keybind="ShuttleStrafeDown"/][/color]: движение вперёд и назад.
+- [color=#028ed9][keybind="ShuttleStrafeLeft"/][/color] и [color=#028ed9][keybind="ShuttleStrafeRight"/][/color]: движение влево и вправо.
+- [color=#028ed9][keybind="ShuttleRotateLeft"/][/color] и [color=#028ed9][keybind="ShuttleRotateRight"/][/color]: поворот влево и вправо.
+- [color=#028ed9][keybind="ShuttleBrake"/][/color]: торможение.
+- [color=#028ed9][keybind="ShuttleBrake"/][/color] вместе с клавишей движения: медленное движение и вращение.
 
 # Стыковка
   <Box>

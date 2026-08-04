@@ -49,3 +49,5 @@ ent-ClothingHeadHelmetMercenaryBlack = шлем наемника
     .desc = Боевой шлем, который обычно используют наёмники, прочный, лёгкий и пахнет порохом и суетой.
 ent-ClothingHeadHelmetMercenary = { ent-ClothingHeadHelmetMercenaryBlack }
     .desc = Боевой шлем, который обычно используют наёмники, прочный, лёгкий и пахнет порохом и джунглями.
+ent-ClothingHeadHatArcadia = берет Arcadia
+    .desc = Берет производства Arcadia Industries.

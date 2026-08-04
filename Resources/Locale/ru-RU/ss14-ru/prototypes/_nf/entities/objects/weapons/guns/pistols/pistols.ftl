@@ -5,6 +5,6 @@ ent-WeaponPistolN1984Nonlethal = N1984
     .suffix = Травматический
     .desc = { ent-WeaponPistolN1984.desc }
 ent-WeaponPistolUniversal = Мk32 "Универсальный"
-    .desc = Боевой пистолет Mark 32, выпускаемый NanoTrasen's Small Arms Division. Использует патроны калибра .35 авто.
+    .desc = Боевой пистолет Mark 32, выпускаемый подразделением стрелкового оружия Конфедерации. Использует патроны калибра .35 авто.
 ent-WeaponPistolPollock = Поллок
     .desc = Компактный гражданский пистолет массового производства. Использует патроны калибра .35 авто.

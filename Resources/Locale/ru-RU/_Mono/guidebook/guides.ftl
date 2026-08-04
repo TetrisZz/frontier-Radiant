@@ -1,7 +1,7 @@
 # Gunnery Guides
-guide-entry-gunnery = Ship Warfare
-guide-entry-l85 = L85 Autocannon
-guide-entry-ak570 = AK570 Heavy Autocannon
-guide-entry-marauder = MARAUDER-type Plasma Launcher
-guide-entry-charon = M381 CHARON Mass Driver
-guide-entry-asm302 = ASM-302 "Vanyk" Missile Launcher
+guide-entry-gunnery = Корабельный бой
+guide-entry-l85 = Автопушка L85
+guide-entry-ak570 = Тяжёлая автопушка AK570
+guide-entry-marauder = Плазменная пусковая установка MARAUDER
+guide-entry-charon = Ускоритель масс M381 CHARON
+guide-entry-asm302 = Ракетная установка ASM-302 «Vanyk»

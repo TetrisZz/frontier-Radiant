@@ -1,5 +1,5 @@
 ent-ClothingUniformJumpskirtArcadia = аркадианская юбка
-    .desc = Униформа произведенная Arcadia Industries. Предназначен для уменьшения натирания кожи, слизи, чешуи, пуха и древесины в промежности.
+    .desc = Униформа производства Arcadia Industries. Её крой уменьшает натирание и подходит обладателям кожи, слизи, чешуи, шерсти и древесной коры.
 ent-ClothingUniformJumpskirtValet = юбка камердинера
     .desc = Красивая и опрятная униформа.
 ent-ClothingUniformJumpskirtBH = поношенная юбка

@@ -12,7 +12,7 @@ ghost-role-information-clugg-name = Клагг
 ghost-role-information-clugg-description = Урргг! Клагг любит есть мясо. Найди новый дом в космическом камне, устрой большую охоту.
 
 ghost-role-information-clarpy-name = Кларпи
-ghost-role-information-clarpy-description = Аргх! Разыскивается Nanotrasen за преступления против мышей.
+ghost-role-information-clarpy-description = Аргх! Разыскивается Конфедерацией за преступления против мышей.
 ghost-role-information-clarpy-rules = Вы [color=red][bold]Командный Антагонист[/bold][/color] вместе со всеми остальными пиратами.
 
 ghost-role-information-cult-cat-name = Кот культа крови

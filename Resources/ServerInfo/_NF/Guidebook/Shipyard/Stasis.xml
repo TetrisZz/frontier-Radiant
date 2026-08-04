@@ -1,58 +1,58 @@
 <Document>
 # STASIS-CLASS MEDICAL RESPONSE SHUTTLE
 <Box>
-  <GuideEntityEmbed Entity="ComputerCrewMonitoring" Caption="Rescue"/>
-  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Research"/>
-  <GuideEntityEmbed Entity="SignCryogenics" Caption="Restore"/>
+  <GuideEntityEmbed Entity="ComputerCrewMonitoring" Caption="Спасать"/>
+  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Исследовать"/>
+  <GuideEntityEmbed Entity="SignCryogenics" Caption="Восстанавливать"/>
 </Box>
 <Box>
   <GuideEntityEmbed Entity="ShuttleMapStasis" Caption=""/>
 </Box>
 
-  [color=#a4885c]Ship Size:[/color] Medium
+  [color=#a4885c]Размер корабля:[/color] Средний
 
   [color=#a4885c]Рекомендуемый экипаж:[/color] 1-4
 
-  [color=#a4885c]Power Gen Type:[/color] Bananium
+  [color=#a4885c]Тип генератора:[/color] Бананиумный
 
-# Shuttle Brief
+# Краткое описание
 
-"A cryogenic medical response cruiser. The Stasis is produced by the Far Star Corporation to act as a technically advanced shuttle designed to thrive in environments that cripple the crafts and crew they rescue."
+"Криогенный медицинский крейсер быстрого реагирования. Stasis создан корпорацией Far Star как технологичный спасательный шаттл, способный работать в условиях, губительных для судов и экипажей, которым он приходит на помощь."
 
-# Ship Functions
+# Оснащение корабля
 
 <Box>
-  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Bolt Exterior Airlocks"/>
+  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Болты внешних шлюзов"/>
   <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Actuate Blast Doors"/>
   <GuideEntityEmbed Entity="ButtonFrameGrey" Caption="Actuate Shutters"/>
 </Box>
 
-# Medical
+# Медицина
 
-[textlink="Medicine" link="Medical Doctor"/]
+[textlink="Медицина" link="Medical Doctor"/]
 
-[textlink="Chemistry" link="Chemist"/]
+[textlink="Химия" link="Chemist"/]
 
-[textlink="Chemicals" link="Chemicals"/]
+[textlink="Химические вещества" link="Chemicals"/]
 
-[textlink="Cryogenics" link="Cryogenics"/]
+[textlink="Криогеника" link="Cryogenics"/]
 
-[textlink="Botany" link="Botany"/]
+[textlink="Ботаника" link="Botany"/]
 
-# Piloting
+# Пилотирование
 
-[textlink="Piloting" link="Piloting"/]
+[textlink="Пилотирование" link="Piloting"/]
 
-[textlink="Sector Topology" link="SectorTopology"/]
+[textlink="Топология сектора" link="SectorTopology"/]
 
-# Hiring crew
+# Наём экипажа
 
-[textlink="Hiring" link="Hiring"/]
+[textlink="Наём экипажа" link="Hiring"/]
 
-As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-# PREFLIGHT CHECKLIST
+# ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-[textlink="Preflight Checklist" link="PreflightChecklist"/]
+[textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 </Document>

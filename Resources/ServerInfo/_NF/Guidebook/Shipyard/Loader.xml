@@ -11,36 +11,36 @@
 	
 	[color=#a4885c]Рекомендуемый экипаж:[/color] 1-2
 
-	[color=#a4885c]Power Gen Type:[/color] Plasma
+	[color=#a4885c]Тип генератора:[/color] Плазменный
 
-  # Shuttle Brief
+  # Краткое описание
 	
-  "A budget-friendly cargo shuttle with just enough room for the bare essentials. Perfect for moving cargo: no hassle, no fuss, and no paper trail."
+  "Недорогой грузовой шаттл, в котором поместилось лишь самое необходимое. Идеален для перевозок: без хлопот, без суеты и без бумажного следа."
 
-  # Ship Functions
+  # Оснащение корабля
 
   <Box>
-    <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Bolt Exterior Airlocks"/>
+    <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Болты внешних шлюзов"/>
     <GuideEntityEmbed Entity="ButtonFrameGrey" Caption="Toggle Shutters/Blast Doors"/>
   </Box>
 
-  # Cargo
+  # Грузовой отсек
 
-  [textlink="Cargo Hauling" link="CargoHauling"/]
+  [textlink="Грузоперевозки" link="CargoHauling"/]
 
-  # Piloting
+  # Пилотирование
 
-  [textlink="Piloting" link="Piloting"/]
+  [textlink="Пилотирование" link="Piloting"/]
 
-  [textlink="Sector Topology" link="SectorTopology"/]
+  [textlink="Топология сектора" link="SectorTopology"/]
 
-  # Hiring crew
+  # Наём экипажа
 
-  [textlink="Hiring" link="Hiring"/]
+  [textlink="Наём экипажа" link="Hiring"/]
 
-  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+  Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-  # PREFLIGHT CHECKLIST
+  # ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+  [textlink="Предполётная проверка" link="PreflightChecklist"/]
 </Document>

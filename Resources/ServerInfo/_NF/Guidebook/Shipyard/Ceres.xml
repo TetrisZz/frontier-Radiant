@@ -8,7 +8,7 @@
   <Box>
     <GuideEntityEmbed Entity="ShuttleMapCeres" Caption=""/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Medium
+  [color=#a4885c]Размер корабля:[/color] Средний
 
   [color=#a4885c]Рекомендуемый экипаж:[/color] 2-4
 
@@ -16,7 +16,7 @@
 
   "A medium-size, high-class restaurant ship with ample seating, integrated botany and a dining room for VIP guests."
 
-  [italic]Предоставлено компанией BlueBird Starship Design & Construction.[/italic]
+  [italic]Предоставлено компанией BlueBird Starship Design &amp; Construction.[/italic]
 
   # GETTING THE MOST OUT OF THE CERES
 

@@ -1,47 +1,47 @@
 <Document>
-# Preflight Checklist and Troubleshooting
+# Предполётная проверка и устранение неисправностей
 
-## 1. Power supply
+## 1. Электроснабжение
 
-## 1.1. Battery units
+## 1.1. Аккумуляторные блоки
 <Box>
   <GuideEntityEmbed Entity="SubstationBasic"/>
   <GuideEntityEmbed Entity="APCBasic"/>
 </Box>
 
-- Check if the APC unit's Main Breaker is toggled on.
-- Check the APC unit's current Load* (W).
+- Убедитесь, что главный выключатель ЛКП включён.
+- Проверьте текущую нагрузку ЛКП* (Вт).
 
-For additional information consult [textlink="Powerstorage" link="PowerStorage"/].
+Дополнительная информация приведена в разделе [textlink="Хранение энергии" link="PowerStorage"/].
 
-## 1.2. Generator
+## 1.2. Генератор
 <Box>
 <GuideEntityEmbed Entity="AmeController" Caption=""/>
 <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption=""/>
 </Box>
 
-- Check if the generator is anchored to the floor.
-- Check if the generator has fuel. For extended flights make sure that you have enough fuel stockpiled to sustain prolonged power generation during flight.
-- Check if the generator is set to HV output.
-- Start the generator unit.
-- Set Target Power for the through power amount indicated by your substation.
-- Power draw may seem excessively high while power storage systems recharge.
+- Убедитесь, что генератор закреплён на полу.
+- Проверьте наличие топлива. Перед длительным полётом подготовьте запас, достаточный для непрерывной выработки энергии.
+- Убедитесь, что генератор настроен на выход высокого напряжения (HV).
+- Запустите генератор.
+- Установите целевую мощность в соответствии с нагрузкой, указанной на подстанции.
+- Пока аккумуляторы заряжаются, энергопотребление может казаться чрезмерно высоким.
 
-## 1.3. Solar panels
+## 1.3. Солнечные панели
 <Box>
   <GuideEntityEmbed Entity="ComputerSolarControl"/>
   <GuideEntityEmbed Entity="SolarTracker"/>
   <GuideEntityEmbed Entity="SolarPanel"/>
 </Box>
 
-- Inspect solar control computer.
-- Adjust panel angular velocity.
-- Adjust panel angle.
-- There may be a slight lag period before power generation is reported.
+- Проверьте консоль управления солнечными панелями.
+- Настройте угловую скорость панелей.
+- Настройте угол поворота панелей.
+- Данные о выработке энергии могут отображаться с небольшой задержкой.
 
-## 2. Atmospherics
+## 2. Атмосферика
 
-## 2.1. Distribution Loop
+## 2.1. Распределительный контур
 <Box>
   <GuideEntityEmbed Entity="OxygenCanister"/>
   <GuideEntityEmbed Entity="NitrogenCanister"/>
@@ -49,19 +49,19 @@ For additional information consult [textlink="Powerstorage" link="PowerStorage"/
   <GuideEntityEmbed Entity="GasMixer"/>
 </Box>
 
-- Check that the oxygen and nitrogen canisters are anchored to the connector port.
-- Check that the distribution mixer is set to 101kPa.
-- Enable the distribution mixer.
-- A standard gas mix is 79% nitrogen, 21% oxygen. Adjust for crew need.
+- Убедитесь, что баллоны с кислородом и азотом закреплены на соединительных портах.
+- Установите на распределительном смесителе давление 101 кПа.
+- Включите распределительный смеситель.
+- Стандартная смесь содержит 79% азота и 21% кислорода. При необходимости измените соотношение с учётом особенностей экипажа.
 
-## 3. Other checks
+## 3. Прочие проверки
 <Box>
   <GuideEntityEmbed Entity="Gyroscope"/>
   <GuideEntityEmbed Entity="GravityGeneratorMini"/>
 </Box>
 
-- Check that the gyroscope is anchored, powered, and enabled.
-- Gyroscopes can be powered down. If your gyroscope appears non functional ensure it has not been deactivated.
-- Check that the mini gravity generator is anchored, powered, and enabled.
+- Убедитесь, что гироскоп закреплён, получает питание и включён.
+- Гироскоп можно отключить. Если он не работает, проверьте, не был ли он деактивирован.
+- Убедитесь, что мини-генератор гравитации закреплён, получает питание и включён.
 
 </Document>

@@ -7,31 +7,31 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapTide" Caption="A small map of the Tide Shuttle"/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Small
+  [color=#a4885c]Размер корабля:[/color] Малый
 
-  [color=#a4885c]Recommended Crew:[/color] 1-3
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 1-3
 
-  [color=#a4885c]Power Gen Type:[/color] Plasma
+  [color=#a4885c]Тип генератора:[/color] Плазменный
 
-  # Shuttle Brief
+  # Краткое описание
 
-  "A flying pile of scrap for the seasoned assistant."
+  "Летающая груда металлолома для опытного ассистента."
 
-  # Ship Functions
+  # Оснащение корабля
 
-  # Piloting
+  # Пилотирование
 
-  [textlink="Piloting" link="Piloting"/]
+  [textlink="Пилотирование" link="Piloting"/]
 
-  [textlink="Sector Topology" link="SectorTopology"/]
+  [textlink="Топология сектора" link="SectorTopology"/]
 
-  # Hiring crew
+  # Наём экипажа
 
-  [textlink="Hiring" link="Hiring"/]
+  [textlink="Наём экипажа" link="Hiring"/]
 
-  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+  Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-  # PREFLIGHT CHECKLIST
+  # ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+  [textlink="Предполётная проверка" link="PreflightChecklist"/]
 </Document>

@@ -1,47 +1,47 @@
 <Document>
 # ANCHOR-CLASS EXPEDITION CRUISER
 <Box>
-<GuideEntityEmbed Entity="DiceBag" Caption="Play"/>
-<GuideEntityEmbed Entity="VendingMachineBooze" Caption="Drink"/>
-<GuideEntityEmbed Entity="MercenaryTechFab" Caption="Shoot"/>
+<GuideEntityEmbed Entity="DiceBag" Caption="Играть"/>
+<GuideEntityEmbed Entity="VendingMachineBooze" Caption="Пить"/>
+<GuideEntityEmbed Entity="MercenaryTechFab" Caption="Стрелять"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="ShuttleMapAnchor" Caption=""/>
 </Box>
-[color=#a4885c]Ship Size:[/color] Large
+[color=#a4885c]Размер корабля:[/color] Большой
 
-[color=#a4885c]Recommended Crew:[/color] 3-6
+[color=#a4885c]Рекомендуемый экипаж:[/color] 3-6
 
-[color=#a4885c]Power Gen Type:[/color] AME
+[color=#a4885c]Тип генератора:[/color] AME
 
-[color=#a4885c]Base Power Draw:[/color] 54 kW
+[color=#a4885c]Базовое энергопотребление:[/color] 54 kW
 
-[color=#a4885c]Expeditions:[/color] Yes
+[color=#a4885c]Экспедиции:[/color] Да
 
-[color=#a4885c]IFF Console:[/color] None
+[color=#a4885c]Консоль опознавания:[/color] Нет
 
-[color=#a4885c]Available Roles:[/color] Contractor, Pilot, Mercenary
+[color=#a4885c]Доступные роли:[/color] авантюрист, пилот, наёмник
 
 "A large luxury cruiser capable of long ranged travel acrossed the sector, expedition capable."
 
-# Expeditions
+# Экспедиции
 
-[textlink="Expeditions" link="Expeditions"/]
+[textlink="Экспедиции" link="Expeditions"/]
 
-# Piloting
+# Пилотирование
 
-[textlink="Piloting" link="Piloting"/]
+[textlink="Пилотирование" link="Piloting"/]
 
-[textlink="Sector Topology" link="SectorTopology"/]
+[textlink="Топология сектора" link="SectorTopology"/]
 
-# Hiring crew
+# Наём экипажа
 
-[textlink="Hiring" link="Hiring"/]
+[textlink="Наём экипажа" link="Hiring"/]
 
-As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-# PREFLIGHT CHECKLIST
+# ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-[textlink="Preflight Checklist" link="PreflightChecklist"/]
+[textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 </Document>

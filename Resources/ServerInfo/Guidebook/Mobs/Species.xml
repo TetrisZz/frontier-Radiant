@@ -1,32 +1,12 @@
 <Document>
-  # Species
+# Виды
+Выбранный вид влияет не только на внешность персонажа. Различаются питание, дыхание, температура тела, устойчивость к урону, метаболизм и доступные способности.
 
-  Конфедерация нанимает разнообразные разумные виды.
+Перед началом игры ознакомьтесь со страницей своего вида. Некоторые персонажи нуждаются в специальном газе, защитной одежде или особых лекарствах.
 
-  <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-  <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
-  </Box>
-  <Box>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-  <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
-  </Box>
-
-  # Frontier specific species
-  <Box>
-  <GuideEntityEmbed Entity="MobGoblin" Caption="Goblin"/>
-  <GuideEntityEmbed Entity="MobSheleg" Caption="Sheleg"/>
-  </Box>
-  # Delta-V specific species
-  <Box>
-  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vulpkanin"/>
-  <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/>
-  <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
-  <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
-  </Box>
-
+## Важные замечания
+- Видовые преимущества не отменяют необходимость пользоваться защитным снаряжением.
+- Проверяйте совместимость лекарств с физиологией персонажа.
+- Следите за газом в баллонах и допустимой температурой среды.
+- Активные видовые способности находятся на панели действий.
 </Document>

@@ -231,7 +231,7 @@
         emptyLabel: borg-slot-food-or-ingredients-empty
         whitelist:
           components:
-          - Food
+          - Edible
           - Produce
           - NFIngredient
           tags:
@@ -241,7 +241,7 @@
         emptyLabel: borg-slot-food-or-ingredients-empty
         whitelist:
           components:
-          - Food
+          - Edible
           - Produce
           - NFIngredient
           tags:
