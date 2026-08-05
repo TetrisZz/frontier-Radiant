@@ -1,0 +1,6 @@
+- type: localizedDataset
+  id: RadiantArcadeGoodbyes
+  values:
+    prefix: thankyou-radiant-arcade-
+    count: 12
+

@@ -1,0 +1,120 @@
+# Restock crates available through cargo order computers.
+- type: cargoProduct
+  id: RadiantCrateVendingMachineRestockNutriMax
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockNutriMaxFilled
+  cost: 4000
+  category: cargoproduct-category-name-hydroponics
+  group: market
+
+- type: cargoProduct
+  id: RadiantCrateVendingMachineRestockCondimentStation
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockCondimentStationFilled
+  cost: 4000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: RadiantCrateVendingMachineRestockSmokes
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockSmokesFilled
+  cost: 4000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: RadiantCrateVendingMachineRestockAutoDrobe
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockAutoDrobeFilled
+  cost: 4000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: RadiantCrateVendingMachineRestockChefvend
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: CrateVendingMachineRestockChefvendFilled
+  cost: 4000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: RadiantFunLizardPlushies
+  icon:
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    state: icon
+  product: CrateFunLizardPlushieBulk
+  cost: 2000
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: RadiantFunSharkPlushies
+  icon:
+    sprite: Objects/Fun/Plushies/shark.rsi
+    state: blue
+  product: CrateFunSharkPlushieBulk
+  cost: 2000
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: RadiantLivestockChicken
+  icon:
+    sprite: Mobs/Animals/chicken.rsi
+    state: icon-1
+  product: CrateNPCChicken
+  cost: 3000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: RadiantLivestockCrab
+  icon:
+    sprite: Mobs/Animals/crab.rsi
+    state: crab
+  product: CrateNPCCrab
+  cost: 3000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: RadiantLivestockGoat
+  icon:
+    sprite: Mobs/Animals/goat.rsi
+    state: goat
+  product: CrateNPCGoat
+  cost: 2000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: RadiantLivestockCow
+  icon:
+    sprite: Mobs/Animals/cow.rsi
+    state: cow
+  product: CrateNPCCow
+  cost: 2000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: RadiantLivestockPig
+  icon:
+    sprite: Mobs/Animals/pig.rsi
+    state: pig
+  product: CrateNPCPig
+  cost: 2000
+  category: cargoproduct-category-name-livestock
+  group: market

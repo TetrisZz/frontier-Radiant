@@ -1,5 +1,8 @@
+ent-ClothingWebbingArcadia = разгрузка Arcadia
+    .desc = Разгрузочная система производства Arcadia Industries, способная вместить множество предметов.
+
 ent-ClothingBeltArcadia = аркадианский пояс
-    .desc = Пояс созданный Arcadia Industries. Кажется, что в него поместится много всего.
+    .desc = Пояс производства Arcadia Industries, способный вместить множество предметов.
 ent-ClothingBeltChaplainSash = пояс священника
     .desc = Кто бы мог подумать, что шарфы можно еще и повязать вокруг талии?
 ent-ClothingBeltPilot = пояс пилота

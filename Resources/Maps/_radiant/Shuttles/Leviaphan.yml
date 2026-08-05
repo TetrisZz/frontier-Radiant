@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 01/22/2026 21:24:30
-  entityCount: 1302
+  time: 08/02/2026 16:51:19
+  entityCount: 1345
 maps: []
 grids:
 - 1
@@ -28,9 +28,12 @@ tilemap:
   12: FloorSteelCheckerDark
   8: FloorSteelMono
   19: FloorTechMaint
+  30: FloorVersaillesWood
   2: FloorWhite
   4: FloorWhiteMono
   3: FloorWhitePlastic
+  28: FloorWood
+  29: FloorWoodLarge
   14: Lattice
   27: LatticeCornerNE
   24: LatticeCornerNW
@@ -55,15 +58,15 @@ entities:
       chunks:
         0,0:
           ind: 0,0
-          tiles: AAAAAAAAAAAAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA4AAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAA4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAFQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAVAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAQAAAAAAAADAAAAAAAAAwAAAAAAAAQAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAABQAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAUAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAYAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAFAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAHAAAAAAAABgAAAAAAAAYAAAAAAAAHAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAYAAAAAAAAGAAAAAAAABwAAAAAAAAcAAAAAAAAGAAAAAAAABwAAAAAAAAcAAAAAAAAIAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAYAAAAAAAAGAAAAAAAACAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAABgAAAAAAAAcAAAAAAAAHAAAAAAAABgAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAgAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAABwAAAAAAAAYAAAAAAAAGAAAAAAAABwAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAAAoAAAAAAAAKAAAAAAAACgAAAAAAAAoAAAAAAAAAAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAKAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAJAAAAAAAACgAAAAAAAAkAAAAAAAAHAAAAAAAABwAAAAAAAAkAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAcAAAAAAAAHAAAAAAAAAMAAAAAAAADAAAAAAAAHAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA4AAAAAAAAAAAAAAAAAHAAAAAAAABwAAAAAAAADAAAAAAAAAwAAAAAAABwAAAAAAAAcAAAAAAAAAAAAAAAAAA4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAFQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAVAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAQAAAAAAAADAAAAAAAAAwAAAAAAAAQAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAABQAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAUAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAYAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAFAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAHAAAAAAAABgAAAAAAAAYAAAAAAAAHAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAYAAAAAAAAGAAAAAAAABwAAAAAAAAcAAAAAAAAGAAAAAAAABwAAAAAAAAcAAAAAAAAIAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAYAAAAAAAAGAAAAAAAACAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAABgAAAAAAAAcAAAAAAAAHAAAAAAAABgAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAYAAAAAAAAHAAAAAAAABwAAAAAAAAgAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAABwAAAAAAAAYAAAAAAAAGAAAAAAAABwAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAAAoAAAAAAAAKAAAAAAAACgAAAAAAAAoAAAAAAAAAAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAKAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAJAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
           version: 7
         0,1:
           ind: 0,1
-          tiles: BwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAJAAAAAAAACgAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAoAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAKAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAAKAAAAAAAACgAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAADAAAAAAAAAsAAAAAAAANAAAAAAAADQAAAAAAAA0AAAAAAAANAAAAAAAADQAAAAAAAA0AAAAAAAALAAAAAAAACgAAAAAAAAoAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAwAAAAAAAALAAAAAAAADQAAAAAAAA0AAAAAAAAHAAAAAAAABwAAAAAAAA0AAAAAAAANAAAAAAAACwAAAAAAAAoAAAAAAAAKAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAACwAAAAAAAA0AAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAADQAAAAAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAABcAAAAAAAAAAAAAAAAADQAAAAAAAAcAAAAAAAAHAAAAAAAADQAAAAAAAAAAAAAAAAAWAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAA0AAAAAAAANAAAAAAAADQAAAAAAAA0AAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAABcAAAAAAAAAAAAAAAAADQAAAAAAAA0AAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          tiles: BwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAJAAAAAAAACgAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAoAAAAAAAAdAAAAAAAAHQAAAAAAAAkAAAAAAAAdAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAKAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAALAAAAAAAACwAAAAAAAAsAAAAAAAAKAAAAAAAACgAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAADAAAAAAAAAsAAAAAAAANAAAAAAAADQAAAAAAAA0AAAAAAAANAAAAAAAADQAAAAAAAA0AAAAAAAALAAAAAAAACgAAAAAAAAoAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAwAAAAAAAALAAAAAAAADQAAAAAAAA0AAAAAAAAHAAAAAAAABwAAAAAAAA0AAAAAAAANAAAAAAAACwAAAAAAAAoAAAAAAAAKAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAACwAAAAAAAA0AAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAADQAAAAAAAAsAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAABcAAAAAAAAAAAAAAAAADQAAAAAAAAcAAAAAAAAHAAAAAAAADQAAAAAAAAAAAAAAAAAWAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAA0AAAAAAAANAAAAAAAADQAAAAAAAA0AAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAABcAAAAAAAAAAAAAAAAADQAAAAAAAA0AAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
           version: 7
         0,-1:
           ind: 0,-1
-          tiles: DwAAAAAAAAAAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACgAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAoAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAACQAAAAAAAAkAAAAAAAAKAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAA8AAAAAAAAPAAAAAAAAAAAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAJAAAAAAAACQAAAAAAAAAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAACQAAAAAAAAkAAAAAAAAAAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAAAAAAAAAAAAVAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAA8AAAAAAAAPAAAAAAAAAAAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAAAoAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAAAAAAAAAADgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAKAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAAAAAAAAAAA4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAKAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACgAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAAAAAAAAAAAAOAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAoAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAAAAAAAAAAEQAAAAAAABEAAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAACgAAAAAAAAoAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAADAAAAAAAAAwAAAAAAABIAAAAAAAADAAAAAAAAEgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAAAAAAAAAAYAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAADgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAMAAAAAAAADAAAAAAAAEgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAA4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          tiles: DwAAAAAAAAAAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACgAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAoAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAACQAAAAAAAAkAAAAAAAAKAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAA8AAAAAAAAPAAAAAAAAAAAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAcAAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAJAAAAAAAACQAAAAAAAAAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAHAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAACQAAAAAAAAkAAAAAAAAAAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAAAAAAAAAAAAVAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABwAAAAAAAA8AAAAAAAAPAAAAAAAAAAAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAAAoAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAAAAAAAAAADgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAKAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAAAAAAAAAAA4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAKAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACgAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAAAAAAAAAAAAOAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAoAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAAAACQAAAAAAAAkAAAAAAAAAAAAAAAAAEQAAAAAAABEAAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAACgAAAAAAAAoAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAAAMAAAAAAAADAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAcAAAAAAAAHgAAAAAAABwAAAAAAAADAAAAAAAAAwAAAAAAABwAAAAAAAAeAAAAAAAAHAAAAAAAAAAAAAAAAAAYAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAHAAAAAAAAB4AAAAAAAAcAAAAAAAAAwAAAAAAAAMAAAAAAAAcAAAAAAAAHgAAAAAAABwAAAAAAAAAAAAAAAAADgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAAAMAAAAAAAADAAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAAAAAAAAAAAAAAA4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
           version: 7
         0,-2:
           ind: 0,-2
@@ -121,55 +124,43 @@ entities:
             id: BrickTileDarkCornerNe
           decals:
             27: 5,17
-            379: 7,1
-            380: 8,-1
-            423: 4,-2
-            424: 5,-1
+            477: 8,17
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkCornerNw
           decals:
             26: -1,17
-            378: 2,1
-            381: 1,-1
-            417: 3,-1
+            474: 7,17
+            480: 10,17
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkCornerSe
           decals:
             28: 1,13
             30: 5,14
-            382: 8,-4
-            416: 5,-3
+            469: 10,13
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkCornerSw
           decals:
             29: -1,13
-            383: 1,-4
-            425: 3,-3
+            466: 7,14
+            467: 8,13
         - node:
             color: '#FFFFFFFF'
-            id: BrickTileDarkEndS
+            id: BrickTileDarkEndN
           decals:
-            433: 4,-3
-        - node:
-            color: '#FFFFFFFF'
-            id: BrickTileDarkEndW
-          decals:
-            434: 3,-2
+            489: 10,17
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerNe
           decals:
-            397: 7,-1
-            409: 5,1
+            484: 8,16
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerNw
           decals:
-            398: 2,-1
-            410: 4,1
+            483: 10,16
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerSe
@@ -179,7 +170,7 @@ entities:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerSw
           decals:
-            435: 4,-2
+            496: 8,14
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineE
@@ -188,14 +179,19 @@ entities:
             41: 5,16
             52: 4,16
             53: 4,15
-            386: 8,-3
-            387: 8,-2
-            396: 7,0
             405: 5,5
             406: 5,4
             407: 5,3
             408: 5,2
-            431: 5,-2
+            448: 5,-3
+            449: 5,-4
+            450: 5,-2
+            451: 5,-1
+            452: 5,0
+            453: 5,1
+            492: 10,16
+            493: 10,15
+            494: 10,14
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineN
@@ -206,10 +202,8 @@ entities:
             37: 2,17
             38: 4,17
             39: 3,17
-            395: 6,1
-            400: 3,1
             429: 0,-2
-            430: 4,-1
+            481: 9,16
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineS
@@ -229,15 +223,7 @@ entities:
             59: 1,15
             60: 0,15
             61: 2,15
-            388: 2,-4
-            389: 3,-4
-            390: 4,-4
-            391: 5,-4
-            392: 6,-4
-            393: 6,-4
-            394: 7,-4
-            427: 5,-2
-            428: 4,-3
+            495: 9,13
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineW
@@ -247,22 +233,23 @@ entities:
             33: -1,14
             57: 0,16
             58: 0,15
-            384: 1,-3
-            385: 1,-2
-            399: 2,0
             401: 4,2
-            402: 4,3
             403: 4,4
             404: 4,5
-            426: 4,-1
-            432: 3,-2
+            438: 4,3
+            439: 4,1
+            440: 4,0
+            441: 4,-1
+            442: 4,-2
+            443: 4,-3
+            444: 4,-4
+            497: 7,15
+            498: 7,16
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelCornerNe
           decals:
-            62: 8,15
             73: 10,20
-            88: 10,17
             182: 9,9
             183: -1,9
             200: 2,8
@@ -273,10 +260,8 @@ entities:
             color: '#FFFFFFFF'
             id: BrickTileSteelCornerNw
           decals:
-            63: 9,15
             72: 9,20
             83: 6,17
-            84: 7,17
             184: 0,9
             185: 10,9
             202: 6,7
@@ -288,7 +273,6 @@ entities:
             id: BrickTileSteelCornerSe
           decals:
             74: 10,18
-            82: 10,13
             186: 9,11
             187: -1,11
             198: 2,12
@@ -299,7 +283,6 @@ entities:
             id: BrickTileSteelCornerSw
           decals:
             75: 9,18
-            89: 7,14
             188: 0,11
             189: 10,11
             199: 7,12
@@ -321,14 +304,12 @@ entities:
             color: '#FFFFFFFF'
             id: BrickTileSteelInnerNe
           decals:
-            69: 7,14
             216: 5,11
             217: 6,10
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelInnerNw
           decals:
-            68: 10,14
             214: 3,10
             215: 4,11
         - node:
@@ -341,28 +322,18 @@ entities:
             color: '#FFFFFFFF'
             id: BrickTileSteelInnerSw
           decals:
-            95: 8,14
             219: 4,9
             221: 3,10
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelLineE
           decals:
-            67: 7,15
             77: 10,19
-            78: 10,16
-            79: 10,17
-            80: 10,14
-            81: 10,15
         - node:
             color: '#FFFFFFFF'
             id: BrickTileSteelLineN
           decals:
-            64: 9,14
-            65: 8,14
-            85: 8,17
             86: 9,17
-            87: 10,17
             190: 0,10
             191: -1,10
             192: 9,10
@@ -373,8 +344,6 @@ entities:
           decals:
             70: 9,18
             71: 10,18
-            92: 9,13
-            93: 8,13
             194: 10,10
             195: 9,10
             196: 0,10
@@ -383,11 +352,7 @@ entities:
             color: '#FFFFFFFF'
             id: BrickTileSteelLineW
           decals:
-            66: 10,15
             76: 9,19
-            90: 7,15
-            91: 7,16
-            94: 8,13
         - node:
             color: '#FF9821FF'
             id: BrickTileWhiteCornerNe
@@ -582,6 +547,12 @@ entities:
             246: 5,-16
             247: 4,-18
             277: 5,-13
+            455: 3,-3
+            456: 3,-2
+            457: 3,-1
+            458: 3,1
+            459: 3,0
+            482: 3,-4
         - node:
             color: '#FFFFFFFF'
             id: MiniTileDarkLineN
@@ -628,26 +599,16 @@ entities:
             263: 4,-11
             264: 4,-9
             266: 4,-8
+            460: 6,-4
+            462: 6,-2
+            463: 6,-1
+            464: 6,0
+            465: 6,1
         - node:
             color: '#5E7C1696'
             id: MiniTileInnerOverlayNE
           decals:
             333: 9,-11
-        - node:
-            color: '#52B4E9C7'
-            id: MiniTileInnerOverlayNW
-          decals:
-            139: 9,4
-            140: 9,4
-        - node:
-            color: '#52B4E9C7'
-            id: MiniTileLineOverlayE
-          decals:
-            122: 9,7
-            123: 9,6
-            124: 9,5
-            125: 9,5
-            126: 9,4
         - node:
             color: '#5E7C1696'
             id: MiniTileLineOverlayE
@@ -655,34 +616,10 @@ entities:
             326: 9,-9
             327: 9,-8
         - node:
-            color: '#52B4E9C7'
-            id: MiniTileLineOverlayN
-          decals:
-            131: 8,4
-            132: 7,4
-        - node:
             color: '#5E7C1696'
             id: MiniTileLineOverlayN
           decals:
             332: 10,-11
-        - node:
-            color: '#52B4E9C7'
-            id: MiniTileLineOverlayS
-          decals:
-            133: 7,4
-            134: 7,4
-            135: 8,4
-            136: 9,4
-            137: 8,4
-            138: 9,4
-        - node:
-            color: '#52B4E9C7'
-            id: MiniTileLineOverlayW
-          decals:
-            127: 9,5
-            128: 9,6
-            129: 9,6
-            130: 9,7
         - node:
             color: '#5E7C1696'
             id: MiniTileLineOverlayW
@@ -769,11 +706,21 @@ entities:
             308: -1,-18
             309: -1,-19
         - node:
+            color: '#51B3E9FF'
+            id: MiniTileWhiteCornerSe
+          decals:
+            553: 9,4
+        - node:
             color: '#FA7500BD'
             id: MiniTileWhiteInnerNe
           decals:
             169: -1,4
             170: -1,4
+        - node:
+            color: '#51B3E9FF'
+            id: MiniTileWhiteInnerNw
+          decals:
+            558: 9,4
         - node:
             color: '#FA7500BD'
             id: MiniTileWhiteInnerSe
@@ -781,13 +728,12 @@ entities:
             171: -1,6
             172: -1,6
         - node:
-            color: '#52B4E9C7'
+            color: '#51B3E9FF'
             id: MiniTileWhiteLineE
           decals:
-            118: 9,7
-            119: 9,6
-            120: 9,5
-            121: 9,4
+            547: 9,7
+            548: 9,6
+            549: 9,5
         - node:
             color: '#FA7500BD'
             id: MiniTileWhiteLineE
@@ -795,16 +741,11 @@ entities:
             167: -1,5
             168: -1,5
         - node:
-            color: '#52B4E996'
+            color: '#51B3E9FF'
             id: MiniTileWhiteLineN
           decals:
-            112: 7,4
-        - node:
-            color: '#52B4E9C7'
-            id: MiniTileWhiteLineN
-          decals:
-            113: 7,4
-            114: 8,4
+            556: 7,4
+            557: 8,4
         - node:
             color: '#FA7500BD'
             id: MiniTileWhiteLineN
@@ -820,6 +761,12 @@ entities:
             163: 0,6
             164: 0,6
         - node:
+            color: '#51B3E9FF'
+            id: MiniTileWhiteLineS
+          decals:
+            554: 8,4
+            555: 7,4
+        - node:
             color: '#FA7500BD'
             id: MiniTileWhiteLineS
           decals:
@@ -834,12 +781,12 @@ entities:
             165: 0,6
             166: 0,6
         - node:
-            color: '#52B4E9C7'
+            color: '#51B3E9FF'
             id: MiniTileWhiteLineW
           decals:
-            115: 9,5
-            116: 9,6
-            117: 9,7
+            550: 9,5
+            551: 9,6
+            552: 9,7
         - node:
             color: '#FA7500BD'
             id: MiniTileWhiteLineW
@@ -854,12 +801,12 @@ entities:
             color: '#52B4E996'
             id: WarnFullGreyscale
           decals:
-            106: 7,4
-            107: 8,4
-            108: 9,4
-            109: 9,5
-            110: 9,6
-            111: 9,7
+            541: 9,7
+            542: 9,6
+            543: 9,5
+            544: 9,4
+            545: 8,4
+            546: 7,4
         - node:
             color: '#FA7500BA'
             id: WarnFullGreyscale
@@ -871,6 +818,89 @@ entities:
             102: -1,5
             103: -1,6
             104: 0,6
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinCornerNe
+          decals:
+            499: 8,17
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinCornerNw
+          decals:
+            502: 7,17
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinCornerSe
+          decals:
+            508: 10,13
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinCornerSw
+          decals:
+            504: 7,14
+            505: 8,13
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinEndN
+          decals:
+            500: 10,17
+            506: 7,-2
+            507: 2,-2
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinEndS
+          decals:
+            512: 2,-3
+            516: 7,-3
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinInnerNe
+          decals:
+            515: 8,16
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinInnerNw
+          decals:
+            514: 10,16
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinInnerSw
+          decals:
+            519: 8,14
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinLineE
+          decals:
+            485: 3,-4
+            486: 3,-3
+            487: 3,-2
+            488: 3,-1
+            490: 3,0
+            491: 3,1
+            509: 10,14
+            510: 10,15
+            511: 10,16
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinLineN
+          decals:
+            501: 9,16
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinLineS
+          decals:
+            520: 9,13
+        - node:
+            color: '#FFFFFFFF'
+            id: WoodTrimThinLineW
+          decals:
+            470: 6,-4
+            472: 6,-2
+            473: 6,-1
+            475: 6,0
+            476: 6,1
+            517: 7,16
+            518: 7,15
     - type: GridAtmosphere
       version: 2
       data:
@@ -880,7 +910,7 @@ entities:
             1: 28876
           -1,0:
             0: 8
-            1: 18432
+            2: 18432
           0,1:
             1: 46975
           -1,1:
@@ -910,8 +940,9 @@ entities:
           1,4:
             1: 62395
           2,0:
-            1: 46080
+            1: 12288
             0: 36
+            2: 33792
           2,1:
             1: 30583
           2,2:
@@ -926,17 +957,21 @@ entities:
           -1,4:
             1: 32904
           0,5:
-            1: 35533
+            1: 35021
+            2: 512
           -1,5:
-            1: 72
+            1: 8
+            2: 64
           0,6:
-            1: 132
+            2: 132
           1,5:
             1: 30719
           1,6:
-            1: 75
+            1: 3
+            2: 72
           2,5:
-            1: 390
+            2: 384
+            1: 6
           0,-4:
             1: 30653
           0,-5:
@@ -952,9 +987,9 @@ entities:
           0,-2:
             1: 4081
           -1,-2:
-            1: 33920
+            1: 128
+            2: 33824
             0: 2
-            2: 32
           -1,-1:
             0: 34944
           1,-4:
@@ -970,7 +1005,8 @@ entities:
           2,-3:
             1: 30583
           2,-2:
-            1: 19319
+            1: 887
+            2: 18432
           3,-3:
             2: 16
             0: 4352
@@ -1338,23 +1374,31 @@ entities:
     - type: Transform
       pos: 4.5,-19.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 45
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,-12.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 46
     components:
     - type: Transform
       pos: 7.5,2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 47
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,16.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 48
@@ -1631,6 +1675,86 @@ entities:
     - type: Transform
       pos: 10.5,0.5
       parent: 1
+  - uid: 911
+    components:
+    - type: Transform
+      pos: 10.5,2.5
+      parent: 1
+  - uid: 1330
+    components:
+    - type: Transform
+      pos: 11.5,3.5
+      parent: 1
+  - uid: 1331
+    components:
+    - type: Transform
+      pos: 11.5,21.5
+      parent: 1
+  - uid: 1332
+    components:
+    - type: Transform
+      pos: 8.5,22.5
+      parent: 1
+  - uid: 1333
+    components:
+    - type: Transform
+      pos: 7.5,24.5
+      parent: 1
+  - uid: 1334
+    components:
+    - type: Transform
+      pos: 6.5,25.5
+      parent: 1
+  - uid: 1335
+    components:
+    - type: Transform
+      pos: 3.5,25.5
+      parent: 1
+  - uid: 1336
+    components:
+    - type: Transform
+      pos: 2.5,24.5
+      parent: 1
+  - uid: 1337
+    components:
+    - type: Transform
+      pos: 1.5,22.5
+      parent: 1
+  - uid: 1338
+    components:
+    - type: Transform
+      pos: -1.5,21.5
+      parent: 1
+  - uid: 1339
+    components:
+    - type: Transform
+      pos: -1.5,3.5
+      parent: 1
+  - uid: 1340
+    components:
+    - type: Transform
+      pos: -0.5,2.5
+      parent: 1
+  - uid: 1341
+    components:
+    - type: Transform
+      pos: -0.5,-4.5
+      parent: 1
+  - uid: 1342
+    components:
+    - type: Transform
+      pos: -1.5,-5.5
+      parent: 1
+  - uid: 1343
+    components:
+    - type: Transform
+      pos: 10.5,-4.5
+      parent: 1
+  - uid: 1344
+    components:
+    - type: Transform
+      pos: 11.5,-5.5
+      parent: 1
 - proto: BaseChemistryEmptyVial
   entities:
   - uid: 101
@@ -1645,16 +1769,6 @@ entities:
       parent: 1
 - proto: Bed
   entities:
-  - uid: 103
-    components:
-    - type: Transform
-      pos: 10.5,20.5
-      parent: 1
-  - uid: 104
-    components:
-    - type: Transform
-      pos: 10.5,19.5
-      parent: 1
   - uid: 105
     components:
     - type: Transform
@@ -1664,6 +1778,20 @@ entities:
     components:
     - type: Transform
       pos: 10.5,-18.5
+      parent: 1
+- proto: BedDouble
+  entities:
+  - uid: 104
+    components:
+    - type: Transform
+      pos: 10.5,19.5
+      parent: 1
+- proto: BedDoubleDown
+  entities:
+  - uid: 103
+    components:
+    - type: Transform
+      pos: 10.5,19.5
       parent: 1
 - proto: BedsheetCMO
   entities:
@@ -1679,18 +1807,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 10.5,7.5
       parent: 1
-- proto: BedsheetSpawner
-  entities:
-  - uid: 109
-    components:
-    - type: Transform
-      pos: 10.5,20.5
-      parent: 1
-  - uid: 110
-    components:
-    - type: Transform
-      pos: 10.5,19.5
-      parent: 1
 - proto: BedsheetUSA
   entities:
   - uid: 111
@@ -1703,6 +1819,22 @@ entities:
     components:
     - type: Transform
       pos: 10.5,-14.5
+      parent: 1
+- proto: BenchSofaLeft
+  entities:
+  - uid: 1305
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,14.5
+      parent: 1
+- proto: BenchSofaRight
+  entities:
+  - uid: 1307
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,13.5
       parent: 1
 - proto: BookshelfFilled
   entities:
@@ -1723,6 +1855,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,-3.5
+      parent: 1
+- proto: ButtonFrameCaution
+  entities:
+  - uid: 1304
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,14.5
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -3185,14 +3325,6 @@ entities:
     - type: Transform
       pos: 1.4872208,-0.30460358
       parent: 1
-- proto: CargoPallet
-  entities:
-  - uid: 408
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 10.5,17.5
-      parent: 1
 - proto: CarpetBlue
   entities:
   - uid: 409
@@ -3437,6 +3569,26 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 10.5,18.5
       parent: 1
+  - uid: 894
+    components:
+    - type: Transform
+      pos: 9.5,14.5
+      parent: 1
+  - uid: 910
+    components:
+    - type: Transform
+      pos: 10.5,14.5
+      parent: 1
+  - uid: 1327
+    components:
+    - type: Transform
+      pos: 9.5,13.5
+      parent: 1
+  - uid: 1328
+    components:
+    - type: Transform
+      pos: 10.5,13.5
+      parent: 1
 - proto: Catwalk
   entities:
   - uid: 452
@@ -3676,6 +3828,13 @@ entities:
     - type: Transform
       pos: 1.5,7.5
       parent: 1
+- proto: CigarGoldSpent
+  entities:
+  - uid: 1320
+    components:
+    - type: Transform
+      pos: 10.736824,14.825035
+      parent: 1
 - proto: ClosetJanitorFilled
   entities:
   - uid: 486
@@ -3683,6 +3842,24 @@ entities:
     - type: Transform
       pos: 0.5,20.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14923
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -3935,17 +4112,6 @@ entities:
     - type: InsideEntityStorage
 - proto: ComfyChair
   entities:
-  - uid: 524
-    components:
-    - type: Transform
-      pos: 7.5,17.5
-      parent: 1
-  - uid: 525
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,15.5
-      parent: 1
   - uid: 526
     components:
     - type: Transform
@@ -3985,6 +4151,25 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,-15.5
+      parent: 1
+- proto: ComfyChairBrown
+  entities:
+  - uid: 408
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,16.5
+      parent: 1
+  - uid: 524
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,15.5
+      parent: 1
+  - uid: 1175
+    components:
+    - type: Transform
+      pos: 8.5,17.5
       parent: 1
 - proto: ComputerSurveillanceCameraMonitor
   entities:
@@ -4087,12 +4272,6 @@ entities:
       parent: 1
 - proto: CurtainsBlackOpen
   entities:
-  - uid: 547
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,13.5
-      parent: 1
   - uid: 548
     components:
     - type: Transform
@@ -4194,13 +4373,32 @@ entities:
     - type: Transform
       pos: 8.5,5.5
       parent: 1
-- proto: Dresser
+- proto: DefibrillatorCabinetFilled
   entities:
-  - uid: 563
+  - uid: 1270
+    components:
+    - type: Transform
+      pos: 9.5,8.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: DogBed
+  entities:
+  - uid: 1309
     components:
     - type: Transform
       pos: 8.5,13.5
       parent: 1
+- proto: DoubleBedsheetNT
+  entities:
+  - uid: 1151
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,19.5
+      parent: 1
+- proto: Dresser
+  entities:
   - uid: 564
     components:
     - type: Transform
@@ -4210,6 +4408,13 @@ entities:
     components:
     - type: Transform
       pos: 10.5,-13.5
+      parent: 1
+- proto: DresserCaptainFilled
+  entities:
+  - uid: 589
+    components:
+    - type: Transform
+      pos: 10.5,17.5
       parent: 1
 - proto: DrinkCanPack
   entities:
@@ -4222,6 +4427,25 @@ entities:
     components:
     - type: Transform
       pos: -0.7677994,-16.863983
+      parent: 1
+- proto: DrinkWineBottleFull
+  entities:
+  - uid: 1316
+    components:
+    - type: Transform
+      pos: 10.796272,13.791191
+      parent: 1
+- proto: DrinkWineGlass
+  entities:
+  - uid: 525
+    components:
+    - type: Transform
+      pos: 10.231522,13.553329
+      parent: 1
+  - uid: 1317
+    components:
+    - type: Transform
+      pos: 10.513901,13.835785
       parent: 1
 - proto: FaxMachineShip
   entities:
@@ -4354,10 +4578,10 @@ entities:
       parent: 1
 - proto: Fireplace
   entities:
-  - uid: 589
+  - uid: 563
     components:
     - type: Transform
-      pos: 8.5,17.5
+      pos: 7.5,17.5
       parent: 1
 - proto: FloorDrain
   entities:
@@ -4380,6 +4604,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-18.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 1345
+    components:
+    - type: Transform
+      pos: 0.5,6.5
       parent: 1
     - type: Fixtures
       fixtures: {}
@@ -6272,13 +6503,6 @@ entities:
     - type: Transform
       pos: 0.5,-18.5
       parent: 1
-- proto: LockerCaptainFilledNoLaser
-  entities:
-  - uid: 849
-    components:
-    - type: Transform
-      pos: 10.5,13.5
-      parent: 1
 - proto: LockerChemistryFilled
   entities:
   - uid: 850
@@ -6534,20 +6758,6 @@ entities:
     - type: Transform
       pos: 10.5,6.5
       parent: 1
-- proto: MedkitFilled
-  entities:
-  - uid: 863
-    components:
-    - type: Transform
-      parent: 862
-    - type: Physics
-      canCollide: False
-  - uid: 864
-    components:
-    - type: Transform
-      parent: 862
-    - type: Physics
-      canCollide: False
 - proto: MercenaryTechFab
   entities:
   - uid: 1301
@@ -6562,10 +6772,21 @@ entities:
     - type: Transform
       pos: 10.5,-12.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 866
     components:
     - type: Transform
       pos: 10.5,-16.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: NapkinDrum5
+  entities:
+  - uid: 1306
+    components:
+    - type: Transform
+      pos: 8.237862,16.71901
       parent: 1
 - proto: NFAmmunitionBoxShellShotgunSlug
   entities:
@@ -6578,6 +6799,13 @@ entities:
     components:
     - type: Transform
       pos: 7.479347,-10.702087
+      parent: 1
+- proto: NFAshtray
+  entities:
+  - uid: 1319
+    components:
+    - type: Transform
+      pos: 10.528763,14.572311
       parent: 1
 - proto: NFHolopadShip
   entities:
@@ -6657,6 +6885,8 @@ entities:
     - type: Transform
       pos: 10.5,-5.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: PosterContrabandRealExomorph
   entities:
   - uid: 877
@@ -6664,6 +6894,8 @@ entities:
     - type: Transform
       pos: 11.5,-8.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: PottedPlant10
   entities:
   - uid: 878
@@ -6708,6 +6940,26 @@ entities:
     - type: Transform
       pos: -0.5,13.5
       parent: 1
+  - uid: 1312
+    components:
+    - type: Transform
+      pos: 10.5,15.5
+      parent: 1
+  - uid: 1313
+    components:
+    - type: Transform
+      pos: -0.5,17.5
+      parent: 1
+  - uid: 1314
+    components:
+    - type: Transform
+      pos: 7.5,19.5
+      parent: 1
+  - uid: 1315
+    components:
+    - type: Transform
+      pos: 2.5,19.5
+      parent: 1
 - proto: PottedPlantRandomPlastic
   entities:
   - uid: 886
@@ -6717,12 +6969,6 @@ entities:
       parent: 1
 - proto: Poweredlight
   entities:
-  - uid: 889
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.5,0.5
-      parent: 1
   - uid: 890
     components:
     - type: Transform
@@ -6746,12 +6992,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,-14.5
-      parent: 1
-  - uid: 894
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 2.5,0.5
       parent: 1
   - uid: 895
     components:
@@ -6842,19 +7082,19 @@ entities:
       rot: 3.141592653589793 rad
       pos: 9.5,-11.5
       parent: 1
-  - uid: 910
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 7.5,17.5
-      parent: 1
-  - uid: 911
-    components:
-    - type: Transform
-      pos: 9.5,20.5
-      parent: 1
 - proto: PoweredlightOrange
   entities:
+  - uid: 849
+    components:
+    - type: Transform
+      pos: 10.5,20.5
+      parent: 1
+  - uid: 864
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,13.5
+      parent: 1
   - uid: 912
     components:
     - type: Transform
@@ -6865,6 +7105,20 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,-24.5
+      parent: 1
+- proto: PoweredlightSodium
+  entities:
+  - uid: 862
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,0.5
+      parent: 1
+  - uid: 863
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,-2.5
       parent: 1
 - proto: PoweredSmallLight
   entities:
@@ -8107,11 +8361,6 @@ entities:
       parent: 1
 - proto: Railing
   entities:
-  - uid: 1136
-    components:
-    - type: Transform
-      pos: 10.5,18.5
-      parent: 1
   - uid: 1137
     components:
     - type: Transform
@@ -8126,11 +8375,24 @@ entities:
       parent: 1
 - proto: RailingCorner
   entities:
+  - uid: 889
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,17.5
+      parent: 1
   - uid: 1139
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,-16.5
+      parent: 1
+- proto: RailingCornerSmall
+  entities:
+  - uid: 1310
+    components:
+    - type: Transform
+      pos: 10.5,16.5
       parent: 1
 - proto: RandomDrinkBottle
   entities:
@@ -8138,16 +8400,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-0.5
-      parent: 1
-  - uid: 1141
-    components:
-    - type: Transform
-      pos: 6.5,-2.5
-      parent: 1
-  - uid: 1142
-    components:
-    - type: Transform
-      pos: 6.5,-3.5
       parent: 1
 - proto: RandomDrinkGlass
   entities:
@@ -8195,10 +8447,40 @@ entities:
     - type: Transform
       pos: -0.5,8.5
       parent: 1
-  - uid: 1151
+  - uid: 1318
     components:
     - type: Transform
-      pos: 10.5,3.5
+      pos: 3.5,13.5
+      parent: 1
+  - uid: 1321
+    components:
+    - type: Transform
+      pos: 7.5,-4.5
+      parent: 1
+  - uid: 1322
+    components:
+    - type: Transform
+      pos: 8.5,10.5
+      parent: 1
+  - uid: 1323
+    components:
+    - type: Transform
+      pos: 3.5,-9.5
+      parent: 1
+  - uid: 1324
+    components:
+    - type: Transform
+      pos: 8.5,-16.5
+      parent: 1
+  - uid: 1325
+    components:
+    - type: Transform
+      pos: 10.5,-20.5
+      parent: 1
+  - uid: 1326
+    components:
+    - type: Transform
+      pos: 2.5,-19.5
       parent: 1
 - proto: RandomVendingSnacks
   entities:
@@ -8279,13 +8561,17 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 9.5,-2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ShelfChemistry
   entities:
-  - uid: 1160
+  - uid: 1329
     components:
     - type: Transform
       pos: 0.5,8.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: ShelfKitchen
   entities:
   - uid: 597
@@ -8330,30 +8616,64 @@ entities:
           - 598
           - 599
           - 600
+    - type: Fixtures
+      fixtures: {}
 - proto: ShelfRGlass
   entities:
-  - uid: 862
+  - uid: 1136
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 11.5,4.5
+      pos: 7.5,7.5
       parent: 1
-    - type: Storage
-      storedItems:
-        863:
-          position: 0,0
-          _rotation: South
-        864:
-          position: 0,3
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 863
-          - 864
+    - type: Fixtures
+      fixtures: {}
+- proto: ShuttersNormalOpen
+  entities:
+  - uid: 109
+    components:
+    - type: Transform
+      pos: 11.5,15.5
+      parent: 1
+  - uid: 110
+    components:
+    - type: Transform
+      pos: 11.5,14.5
+      parent: 1
+  - uid: 1168
+    components:
+    - type: Transform
+      pos: 11.5,18.5
+      parent: 1
+  - uid: 1271
+    components:
+    - type: Transform
+      pos: 11.5,19.5
+      parent: 1
+- proto: SignalButtonDirectional
+  entities:
+  - uid: 1303
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,14.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        1271:
+        - - Pressed
+          - Toggle
+        1168:
+        - - Pressed
+          - Toggle
+        109:
+        - - Pressed
+          - Toggle
+        110:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
 - proto: SinkWide
   entities:
   - uid: 1161
@@ -8402,9 +8722,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 8.5,-18.5
       parent: 1
-- proto: StairStageDark
+- proto: StairStageWood
   entities:
-  - uid: 1168
+  - uid: 1141
     components:
     - type: Transform
       pos: 9.5,17.5
@@ -8481,11 +8801,11 @@ entities:
       parent: 1
 - proto: SuitStorageWallmountCaptain
   entities:
-  - uid: 1175
+  - uid: 1311
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,13.5
+      rot: -1.5707963267948966 rad
+      pos: 11.5,17.5
       parent: 1
 - proto: SuitStorageWallmountMercenary
   entities:
@@ -8748,6 +9068,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-24.5
       parent: 1
+- proto: TableCarpet
+  entities:
+  - uid: 1142
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,16.5
+      parent: 1
 - proto: TableFancyBlue
   entities:
   - uid: 1207
@@ -8892,6 +9220,18 @@ entities:
       parent: 1
 - proto: TableWood
   entities:
+  - uid: 547
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,13.5
+      parent: 1
+  - uid: 1160
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,14.5
+      parent: 1
   - uid: 1230
     components:
     - type: Transform
@@ -9037,6 +9377,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,0.5
+      parent: 1
+- proto: TrashNapkin
+  entities:
+  - uid: 1308
+    components:
+    - type: Transform
+      pos: 7.9627686,17.754448
       parent: 1
 - proto: UniformSchoolgirlBlack
   entities:
@@ -9191,20 +9538,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,24.5
-      parent: 1
-- proto: WindowFrostedDirectional
-  entities:
-  - uid: 1270
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,13.5
-      parent: 1
-  - uid: 1271
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 8.5,13.5
       parent: 1
 - proto: WindowRadiant
   entities:

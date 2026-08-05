@@ -3,7 +3,7 @@ ent-ClothingUnderSocksBee = носки с пчёлами
 ent-ClothingUnderSocksCoder = носки для программистов
     .desc = Пришло время кодить, сёстры!!11!
 ent-ClothingUnderwearBottomBoxersWhite = белые боксеры
-    .desc = Стандартное нижнее белье Nanotrasen для персонала станции. Окрашено в белый цвет.
+    .desc = Стандартное нижнее бельё Конфедерации для персонала станции. Окрашено в белый цвет.
 ent-ClothingUnderwearBottomBoxersSpaceNinja = космическая набедренная повязка ниндзя
     .desc = Обычный кусок ткани. Похоже, сделано только для парней.
 ent-ClothingUnderwearBottomBoxersDeathSquad = боксеры эскадрона смерти
@@ -14,7 +14,7 @@ ent-ClothingUnderwearBottomRadiantBoxersBlack = черные боксеры
     .desc = Стандартные черные боксеры.
 
 ent-ClothingUnderwearBottomPantiesWhite = белые трусики
-    .desc = Стандартное белое нижнее белье NanoTrasen для персонала станции.
+    .desc = Стандартное белое нижнее бельё Конфедерации для персонала станции.
 ent-ClothingUnderwearBottomPantiesThong = стринги
     .desc = Для рисковых девушек.
 ent-ClothingUnderwearBottomPantiesNeko = неко трусики

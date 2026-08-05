@@ -1,0 +1,7 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+               xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+               xmlns:casino="clr-namespace:Content.Client._radiant.Casino"
+               Title="{Loc 'casino-title'}"
+               SetSize="500 520">
+    <casino:CasinoUiFragment Name="CasinoFragment"/>
+</ui:FancyWindow>

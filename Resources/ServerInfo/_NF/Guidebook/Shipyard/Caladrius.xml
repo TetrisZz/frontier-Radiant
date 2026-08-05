@@ -1,40 +1,40 @@
 <Document>
 # CALADRIUS-CLASS HOSPITAL SHUTTLE
 <Box>
-  <GuideEntityEmbed Entity="BannerMedical" Caption="Restore"/>
-  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Research"/>
-  <GuideEntityEmbed Entity="BannerEngineering" Caption="Recover"/>
+  <GuideEntityEmbed Entity="BannerMedical" Caption="Восстанавливать"/>
+  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Исследовать"/>
+  <GuideEntityEmbed Entity="BannerEngineering" Caption="Спасать"/>
 </Box>
 <Box>
 <GuideEntityEmbed Entity="ShuttleMapCaladrius" Caption=""/>
 </Box>
-[color=#a4885c]Ship Size:[/color] Large - Carrier
+[color=#a4885c]Размер корабля:[/color] Большой — авианосец
 
-[color=#a4885c]Recommended Crew:[/color] 4-10
+[color=#a4885c]Рекомендуемый экипаж:[/color] 4-10
 
-[color=#a4885c]Power Gen Type:[/color] Bananium
+[color=#a4885c]Тип генератора:[/color] Бананиумный
 
-# Shuttle Brief
+# Краткое описание
 
-"The Caladrius is the Far Star Corporations's premier expeditionary medical carrier. Designed for large scale colonization support, humanitarian relief, post-disaster investigation and recovery operations."
+"Caladrius — флагманский экспедиционный медицинский авианосец корпорации Far Star. Предназначен для поддержки масштабной колонизации, гуманитарных операций, исследования последствий катастроф и спасательных работ."
 
-# Ship Functions
+# Оснащение корабля
 
 <Box>
-  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Bolt Exterior Airlocks"/>
+  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Болты внешних шлюзов"/>
   <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Actuate Blast Doors"/>
   <GuideEntityEmbed Entity="ButtonFrameGrey" Caption="Actuate Shutters"/>
 </Box>
 
-# Medical
+# Медицина
 
-[textlink="Medicine" link="Medical Doctor"/]
+[textlink="Медицина" link="Medical Doctor"/]
 
-[textlink="Chemistry" link="Chemist"/]
+[textlink="Химия" link="Chemist"/]
 
-[textlink="Chemicals" link="Chemicals"/]
+[textlink="Химические вещества" link="Chemicals"/]
 
-[textlink="Cryogenics" link="Cryogenics"/]
+[textlink="Криогеника" link="Cryogenics"/]
 
 # CALADRIUS STAFFING
 
@@ -60,31 +60,31 @@
   <GuideEntityEmbed Entity="RandomHumanoidVisitorChaplain" Caption=""/>
 </Box>
 
-# PREFLIGHT CHECKLIST
+# ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
 Thruster Power Systems
 <Box>
- <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Toggle Thruster Power"/>
+ <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Переключить питание двигателей"/>
 </Box>
 
 - Adjacent to the power monitoring station in the primary power nacelle are the controls to toggle thruster power.
 - Engineers are advised to power down thrusters for maintenance or by commander directive.
 
-# Piloting
+# Пилотирование
 
-[textlink="Piloting" link="Piloting"/]
+[textlink="Пилотирование" link="Piloting"/]
 
-[textlink="Sector Topology" link="SectorTopology"/]
+[textlink="Топология сектора" link="SectorTopology"/]
 
-# Hiring crew
+# Наём экипажа
 
-[textlink="Hiring" link="Hiring"/]
+[textlink="Наём экипажа" link="Hiring"/]
 
-As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-# PREFLIGHT CHECKLIST
+# ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-[textlink="Preflight Checklist" link="PreflightChecklist"/]
+[textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 - To utilize the Caladrius waste gas capture system the outboard pump must be deactivated and gasses routed into appropriate capture systems.
 - This system is best maintained by a trained atmospherics technician.

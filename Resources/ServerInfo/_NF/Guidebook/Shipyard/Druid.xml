@@ -1,54 +1,54 @@
 <Document>
 # DRUID-CLASS BOTANICAL SHUTTLE
 <Box>
-  <GuideEntityEmbed Entity="hydroponicsTray" Caption="Produce"/>
-  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Research"/>
-  <GuideEntityEmbed Entity="ChemMaster" Caption="Refine"/>
+  <GuideEntityEmbed Entity="hydroponicsTray" Caption="Производить"/>
+  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Исследовать"/>
+  <GuideEntityEmbed Entity="ChemMaster" Caption="Обрабатывать"/>
 </Box>
 <Box>
   <GuideEntityEmbed Entity="ShuttleMapDruid" Caption=""/>
 </Box>
 
-  [color=#a4885c]Ship Size:[/color] Medium
+  [color=#a4885c]Размер корабля:[/color] Средний
 
-  [color=#a4885c]Recommended Crew:[/color] 1-3
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 1-3
 
-  [color=#a4885c]Power Gen Type:[/color] Solar/Uranium
+  [color=#a4885c]Тип генератора:[/color] Солнечный/урановый
 
-  # Shuttle Brief
+  # Краткое описание
 
-  "A hydroponics production shuttle. The Druid is the Far Star Biotech's deep space botanical research vessel. Designed for experimentation, production and refinement of common and exotic botanicals in a setting designed to waylay suspicion or concern."
+  "Гидропонный производственный шаттл. Druid — ботаническое исследовательское судно Far Star Biotech для глубокого космоса, рассчитанное на эксперименты, выращивание и улучшение обычных и экзотических растений вдали от посторонних глаз."
 
-  # Ship Functions
+  # Оснащение корабля
 
   <Box>
-  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Bolt Exterior Airlocks"/>
-  <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Toggle Thrusters"/>
+  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Болты внешних шлюзов"/>
+  <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Переключить двигатели"/>
   <GuideEntityEmbed Entity="ButtonFrameGrey" Caption="Actuate Shutters"/>
 </Box>
 
-# Medical
+# Медицина
 
-[textlink="Chemistry" link="Chemist"/]
+[textlink="Химия" link="Chemist"/]
 
-[textlink="Chemicals" link="Chemicals"/]
+[textlink="Химические вещества" link="Chemicals"/]
 
-[textlink="Botany" link="Botany"/]
+[textlink="Ботаника" link="Botany"/]
 
-# Piloting
+# Пилотирование
 
-[textlink="Piloting" link="Piloting"/]
+[textlink="Пилотирование" link="Piloting"/]
 
-[textlink="Sector Topology" link="SectorTopology"/]
+[textlink="Топология сектора" link="SectorTopology"/]
 
-# Hiring crew
+# Наём экипажа
 
-[textlink="Hiring" link="Hiring"/]
+[textlink="Наём экипажа" link="Hiring"/]
 
-As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-# PREFLIGHT CHECKLIST
+# ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-[textlink="Preflight Checklist" link="PreflightChecklist"/]
+[textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 </Document>

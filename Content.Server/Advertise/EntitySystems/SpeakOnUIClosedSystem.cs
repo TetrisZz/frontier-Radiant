@@ -38,6 +38,12 @@ public sealed partial class SpeakOnUIClosedSystem : SharedSpeakOnUIClosedSystem
         if (!entity.Comp.Enabled)
             return false;
 
+        if (!_random.Prob(entity.Comp.SpeakChance))
+        {
+            entity.Comp.Flag = false;
+            return false;
+        }
+
         if (!_prototypeManager.TryIndex(entity.Comp.Pack, out var messagePack))
             return false;
 

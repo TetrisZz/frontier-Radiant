@@ -50,3 +50,5 @@ ent-ClothingHeadHelmetHardsuitFSA = шлем скафандра EVA FSA
     .desc = { ent-ClothingHeadEVAHelmetBase.desc }
 ent-ClothingHeadHelmetHardsuitFSC = шлем скафандра EVA FSC
     .desc = { ent-ClothingHeadEVAHelmetBase.desc }
+ent-ClothingHeadEVAHelmetArcadia = EVA-шлем Arcadia
+    .desc = Герметичный шлем производства Arcadia Industries со встроенным фонарём.

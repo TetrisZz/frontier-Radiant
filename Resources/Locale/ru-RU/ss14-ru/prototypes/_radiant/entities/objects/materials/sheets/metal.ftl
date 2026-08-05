@@ -1,0 +1,9 @@
+ent-SheetBarCryoladinne = слитки криоладина
+    .suffix = Полная
+    .desc = Холодные на ощупь слитки. Если долго держать их без перчаток, можно почувствовать, как они тают и обжигают кожу холодом.
+ent-SheetBarCryoladinne10 = { ent-SheetBarCryoladinne }
+    .suffix = 10
+    .desc = { ent-SheetBarCryoladinne.desc }
+ent-SheetBarCryoladinne1 = слиток криоладина
+    .suffix = 1
+    .desc = { ent-SheetBarCryoladinne.desc }

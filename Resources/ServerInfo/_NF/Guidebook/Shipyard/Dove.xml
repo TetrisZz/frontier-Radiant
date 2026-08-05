@@ -1,41 +1,41 @@
 <Document>
   # DOVE-CLASS EXPEDITION SHUTTLE
   <Box>
-    <GuideEntityEmbed Entity="NFWeaponRifleAssaultGestio" Caption="Explore"/>
+    <GuideEntityEmbed Entity="NFWeaponRifleAssaultGestio" Caption="Исследовать"/>
   </Box>
   <Box>
     <GuideEntityEmbed Entity="ShuttleMapDove" Caption=""/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Large
+  [color=#a4885c]Размер корабля:[/color] Большой
 
-  [color=#a4885c]Recommended Crew:[/color] 2-5
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 2-5
 
-  [color=#a4885c]Power Gen Type:[/color] AME
+  [color=#a4885c]Тип генератора:[/color] AME
 
-  # Shuttle Brief
+  # Краткое описание
 
-  "The Dove is a versatile expedition-capable multi-purpose light freighter."
+  "Dove — универсальный лёгкий грузовой корабль, пригодный для экспедиций."
 
-  # Ship Functions
+  # Оснащение корабля
 
-  # Expeditions
+  # Экспедиции
 
-  [textlink="Expeditions" link="Expeditions"/]
+  [textlink="Экспедиции" link="Expeditions"/]
 
-  # Piloting
+  # Пилотирование
 
-  [textlink="Piloting" link="Piloting"/]
+  [textlink="Пилотирование" link="Piloting"/]
 
-  [textlink="Sector Topology" link="SectorTopology"/]
+  [textlink="Топология сектора" link="SectorTopology"/]
 
-  # Hiring crew
+  # Наём экипажа
 
-  [textlink="Hiring" link="Hiring"/]
+  [textlink="Наём экипажа" link="Hiring"/]
 
-  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+  Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-  # PREFLIGHT CHECKLIST
+  # ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+  [textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 </Document>

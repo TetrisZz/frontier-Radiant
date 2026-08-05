@@ -1,22 +1,22 @@
 <Document>
   # TYNE-CLASS MEDICAL SHUTTLE
   <Box>
-    <GuideEntityEmbed Entity="ComputerCrewMonitoring" Caption="Search"/>
-    <GuideEntityEmbed Entity="StasisBed" Caption="Stabilize"/>
-    <GuideEntityEmbed Entity="MedicalTechFab" Caption="Rescue"/>
+    <GuideEntityEmbed Entity="ComputerCrewMonitoring" Caption="Искать"/>
+    <GuideEntityEmbed Entity="StasisBed" Caption="Стабилизировать"/>
+    <GuideEntityEmbed Entity="MedicalTechFab" Caption="Спасать"/>
   </Box>
   <Box>
     <GuideEntityEmbed Entity="ShuttleMapTyne" Caption=""/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Small
+  [color=#a4885c]Размер корабля:[/color] Малый
 
-  [color=#a4885c]Recommended Crew:[/color] 1-2
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 1-2
 
-  [color=#a4885c]Power Gen Type:[/color] Plasma
+  [color=#a4885c]Тип генератора:[/color] Плазменный
 
   "A small, agile lifeboat with an exterior deck and survivor cabin for search and rescue operations."
 
-  [italic]Brought to you by BlueBird Starship Design & Construction.[/italic]
+  [italic]Brought to you by BlueBird Starship Design &amp; Construction.[/italic]
 
   # GETTING THE MOST OUT OF THE TYNE
 

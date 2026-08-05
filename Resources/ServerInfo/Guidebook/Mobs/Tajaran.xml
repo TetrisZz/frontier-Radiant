@@ -1,5 +1,5 @@
 <Document>
-  # Tajaran
+  # Таяраны
   All Information included in this document is licensed under CC BY-SA 4.0, and is taken from https://wiki.aurorastation.org/index.php?title=Tajaran with some modifications by SX-7(Github).
   <Box>
     <GuideEntityEmbed Entity="MobTajaran" Caption=""/>
@@ -102,6 +102,12 @@
   - [color=#1e90ff]Маленькое тело[/color]: Таяраны могут помещаться в сумках для вещей.
 
   - [color=#1e90ff]Легкий шаг[/color]: Благодаря своим подушечкам на лапах, Таяраны могут ходить бесшумно без обуви.
+
+  ## Видовые способности
+
+  - [color=#1e90ff]Прыжок[/color]: Таяраны могут совершить быстрый прыжок вперёд примерно на 3,5 метра. Повторное использование доступно после перезарядки.
+
+  - [color=#1e90ff]Комок шерсти[/color]: Таяран может очистить организм от части находящихся в крови веществ, выплюнув комок шерсти. Получившийся комок можно бросить, а удерживание его другим существом способно вызвать рвоту.
 
 </Document>
 

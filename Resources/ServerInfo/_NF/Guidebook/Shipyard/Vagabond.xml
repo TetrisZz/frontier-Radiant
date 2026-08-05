@@ -9,36 +9,36 @@
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapVagabond" Caption=""/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Medium
+  [color=#a4885c]Размер корабля:[/color] Средний
 
-  [color=#a4885c]Recommended Crew:[/color] 2-4
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 2-4
 
-  [color=#a4885c]Power Gen Type:[/color] Uranium
+  [color=#a4885c]Тип генератора:[/color] Урановый
 
-  # Shuttle Brief
+  # Краткое описание
 
-  "An adaptable long-haul industrial freighter that pilots have adapted to many different purposes."
+  "Универсальный промышленный дальнобойный грузовик, который пилоты приспособили для множества задач."
 
-  # Ship Functions
+  # Оснащение корабля
 
-  # Cargo
+  # Грузовой отсек
 
-  [textlink="Cargo Hauling" link="CargoHauling"/]
+  [textlink="Грузоперевозки" link="CargoHauling"/]
 
-  # Piloting
+  # Пилотирование
 
-  [textlink="Piloting" link="Piloting"/]
+  [textlink="Пилотирование" link="Piloting"/]
 
-  [textlink="Sector Topology" link="SectorTopology"/]
+  [textlink="Топология сектора" link="SectorTopology"/]
 
-  # Hiring crew
+  # Наём экипажа
 
-  [textlink="Hiring" link="Hiring"/]
+  [textlink="Наём экипажа" link="Hiring"/]
 
-  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+  Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-  # PREFLIGHT CHECKLIST
+  # ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+  [textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 </Document>

@@ -19,6 +19,7 @@ using Content.Shared.Power;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
+using Content.Server._radiant.VendingMachines;
 using Content.Shared.Wall;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -472,6 +473,8 @@ namespace Content.Server.VendingMachines
 
                     _adminLogger.Add(LogType.Action, LogImpact.Low,
                         $"{ToPrettyString(sender):user} bought from [vendingMachine:{ToPrettyString(uid)}, product:{proto.Name}, cost:{totalPrice}, vat:{vatAmount}, final:{finalPrice}, with ${cashSlotBalance} in the cash slot and ${bankBalance} in the bank."); // radiant
+
+                    RaiseLocalEvent(uid, new VendingMachinePurchaseEvent(sender)); // Radiant
                 }
             }
         }

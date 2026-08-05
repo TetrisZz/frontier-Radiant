@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Homka for the Radiant sector",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cherry"
+    },
+    {
+      "name": "clover"
+    },
+    {
+      "name": "diamond"
+    },
+    {
+      "name": "horseshoe"
+    },
+    {
+      "name": "lemon"
+    },
+    {
+      "name": "plum"
+    },
+    {
+      "name": "seven"
+    },
+    {
+      "name": "winning"
+    }
+  ]
+}

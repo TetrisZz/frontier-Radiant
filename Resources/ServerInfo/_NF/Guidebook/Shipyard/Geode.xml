@@ -5,20 +5,20 @@
     <GuideEntityEmbed Entity="BannerGoblin01" Caption="LEGITIMATE"/>
     <GuideEntityEmbed Entity="WallRock" Caption="UNDERTAKINGS"/>
   </Box>
-  [color=#a4885c]Ship Size:[/color] Medium
+  [color=#a4885c]Размер корабля:[/color] Средний
 
-  [color=#a4885c]Recommended Crew:[/color] 1-2
+  [color=#a4885c]Рекомендуемый экипаж:[/color] 1-2
 
-  [color=#a4885c]Power Gen Type:[/color] Uranium
+  [color=#a4885c]Тип генератора:[/color] Урановый
 
-  # Shuttle Brief
+  # Краткое описание
 
-  "Built into a rock by the finest goblin engineers, this vessel has all the discrete trader needs to conduct business. When you need a place to stash your goods, ask a cousin!"
+  "Построенное внутри астероида лучшими гоблинскими инженерами, это судно располагает всем необходимым для незаметной торговли. Нужно спрятать товар — спросите кузена!"
 
-  # Ship Functions
+  # Оснащение корабля
 
   <Box>
-    <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Bolt Exterior Airlocks"/>
+    <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Болты внешних шлюзов"/>
     <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Open/Shut Shutters"/>
   </Box>
   "The bar, bridge and engineering areas feature shutter lockdown buttons, marked with the yellow frame. An extra button, up by the starboard docking port, closes the shutters over the docking port windows."
@@ -30,21 +30,21 @@
   </Box>
   "As the Geode-class shuttle is built into the core of an actual asteroid, users are encouraged to make the most of the available space. Using start of the art Goblinate technology, all exterior rock is supported by a layer of deck-plating, to avoid unfortunate spacing accidents."
 
-  # Ship Functions
+  # Оснащение корабля
 
-  # Piloting
+  # Пилотирование
 
-  [textlink="Piloting" link="Piloting"/]
+  [textlink="Пилотирование" link="Piloting"/]
 
-  [textlink="Sector Topology" link="SectorTopology"/]
+  [textlink="Топология сектора" link="SectorTopology"/]
 
-  # Hiring crew
+  # Наём экипажа
 
-  [textlink="Hiring" link="Hiring"/]
+  [textlink="Наём экипажа" link="Hiring"/]
 
-  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+  Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-  # PREFLIGHT CHECKLIST
+  # ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+  [textlink="Предполётная проверка" link="PreflightChecklist"/]
 </Document>

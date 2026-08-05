@@ -23,6 +23,8 @@
     radius: 1.5
     energy: 1.6
     color: "#ce89d6"
+  - type: VendingPurchaseSpeech
+    pack: NudomatPurchasePhrases
 
 - type: entity
   parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
@@ -49,6 +51,8 @@
     radius: 1.5
     energy: 1.6
     color: "#ce89d6"
+  - type: VendingPurchaseSpeech
+    pack: SexShopPurchasePhrases
 
 - type: entity
   parent: VendingMachineSec
@@ -134,6 +138,8 @@
     radius: 1.5
     energy: 1.6
     color: "#7fad72"
+  - type: VendingPurchaseSpeech
+    pack: HomkomatPurchasePhrases
 
 - type: entity
   parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier

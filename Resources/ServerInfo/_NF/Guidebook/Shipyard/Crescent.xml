@@ -1,45 +1,45 @@
 <Document>
 # CRESCENT-CLASS MOBILE STATION SHUTTLE
 <Box>
-  <GuideEntityEmbed Entity="BannerMedical" Caption="Recover"/>
-  <GuideEntityEmbed Entity="BannerNanotrasen" Caption="Research"/>
-  <GuideEntityEmbed Entity="BannerScience" Caption="Restore"/>
+  <GuideEntityEmbed Entity="BannerMedical" Caption="Спасать"/>
+  <GuideEntityEmbed Entity="BannerNanotrasen" Caption="Исследовать"/>
+  <GuideEntityEmbed Entity="BannerScience" Caption="Восстанавливать"/>
 </Box>
   <Box>
     <GuideEntityEmbed Entity="ShuttleMapCrescent" Caption=""/>
   </Box>
 
-[color=#a4885c]Ship Size:[/color] Large - Carrier
+[color=#a4885c]Размер корабля:[/color] Большой — авианосец
 
-[color=#a4885c]Recommended Crew:[/color] 4-10
+[color=#a4885c]Рекомендуемый экипаж:[/color] 4-10
 
-[color=#a4885c]Power Gen Type:[/color] Bananium
+[color=#a4885c]Тип генератора:[/color] Бананиумный
 
-# Shuttle Brief
+# Краткое описание
 
-"The Crescent is the crown jewel of Nanotrasen's outbound exploratory efforts. Serving as the anchor for any deep space venture, the Crescent is an entirely self sufficient deep space exploratory carrier."
+"Crescent — венец дальней исследовательской программы Конфедерации. Этот полностью автономный исследовательский авианосец служит опорой любой экспедиции в глубокий космос."
 
-# Ship Functions
+# Оснащение корабля
 
 <Box>
-  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Bolt Exterior Airlocks"/>
+  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Болты внешних шлюзов"/>
   <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Actuate Blast Doors"/>
   <GuideEntityEmbed Entity="ButtonFrameGrey" Caption="Actuate Shutters"/>
 </Box>
 
-# Special Controls
+# Особые элементы управления
 
 "Thruster power controls are located in the primary substation closets in the port and starboard nacelles."
 
-# Medical
+# Медицина
 
-[textlink="Medicine" link="Medical Doctor"/]
+[textlink="Медицина" link="Medical Doctor"/]
 
-[textlink="Chemistry" link="Chemist"/]
+[textlink="Химия" link="Chemist"/]
 
-[textlink="Chemicals" link="Chemicals"/]
+[textlink="Химические вещества" link="Chemicals"/]
 
-[textlink="Cryogenics" link="Cryogenics"/]
+[textlink="Криогеника" link="Cryogenics"/]
 
 # CRESCENT STAFFING
 
@@ -65,46 +65,46 @@
   <GuideEntityEmbed Entity="RandomHumanoidVisitorChaplain" Caption=""/>
 </Box>
 
-# PREFLIGHT CHECKLIST
+# ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-# Science
+# Наука
 
-[textlink="Science" link="Science"/]
+[textlink="Наука" link="Science"/]
 
-# Medical
+# Медицина
 
-[textlink="Medicine" link="Medical Doctor"/]
+[textlink="Медицина" link="Medical Doctor"/]
 
-[textlink="Chemistry" link="Chemist"/]
+[textlink="Химия" link="Chemist"/]
 
-[textlink="Chemicals" link="Chemicals"/]
+[textlink="Химические вещества" link="Chemicals"/]
 
-[textlink="Cryogenics" link="Cryogenics"/]
+[textlink="Криогеника" link="Cryogenics"/]
 
-[textlink="Botany" link="Botany"/]
+[textlink="Ботаника" link="Botany"/]
 
-# Entertainment
+# Развлечения
 
-[textlink="Food Recipes" link="FoodRecipes"/]
+[textlink="Рецепты еды" link="FoodRecipes"/]
 
-[textlink="Drinks" link="Drinks"/]
+[textlink="Напитки" link="Drinks"/]
 
-[textlink="Botany" link="Botany"/]
+[textlink="Ботаника" link="Botany"/]
 
-# Piloting
+# Пилотирование
 
-[textlink="Piloting" link="Piloting"/]
+[textlink="Пилотирование" link="Piloting"/]
 
-[textlink="Sector Topology" link="SectorTopology"/]
+[textlink="Топология сектора" link="SectorTopology"/]
 
-# Hiring crew
+# Наём экипажа
 
-[textlink="Hiring" link="Hiring"/]
+[textlink="Наём экипажа" link="Hiring"/]
 
-As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-# PREFLIGHT CHECKLIST
+# ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-[textlink="Preflight Checklist" link="PreflightChecklist"/]
+[textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 </Document>

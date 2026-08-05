@@ -17,31 +17,31 @@
 
   [color=#a4885c]Тип электрогенератора:[/color] Урановый
 
-  # Shuttle Brief
+  # Краткое описание
 
   "Средний полнофункциональный биодом для ботанических исследований, который поможет ботанику полноценно взаимодействовать со своими растениями практически всеми возможными способами."
 
-  # Medical
+  # Медицина
 
-  [textlink="Chemistry" link="Chemist"/]
+  [textlink="Химия" link="Chemist"/]
 
-  [textlink="Chemicals" link="Chemicals"/]
+  [textlink="Химические вещества" link="Chemicals"/]
 
-  [textlink="Botany" link="Botany"/]
+  [textlink="Ботаника" link="Botany"/]
 
-  # Piloting
+  # Пилотирование
 
-  [textlink="Piloting" link="Piloting"/]
+  [textlink="Пилотирование" link="Piloting"/]
 
-  [textlink="Sector Topology" link="SectorTopology"/]
+  [textlink="Топология сектора" link="SectorTopology"/]
 
-  # Hiring crew
+  # Наём экипажа
 
-  [textlink="Hiring" link="Hiring"/]
+  [textlink="Наём экипажа" link="Hiring"/]
 
-  As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+  Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-  # PREFLIGHT CHECKLIST
+  # ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-  [textlink="Preflight Checklist" link="PreflightChecklist"/]
+  [textlink="Предполётная проверка" link="PreflightChecklist"/]
 </Document>

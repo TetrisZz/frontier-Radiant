@@ -1,56 +1,56 @@
 <Document>
 # APOTHECARY-CLASS MEDICAL SHUTTLE
 <Box>
-  <GuideEntityEmbed Entity="ComputerCrewMonitoring" Caption="Rescue"/>
-  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Research"/>
-  <GuideEntityEmbed Entity="ChemMaster" Caption="Provide"/>
+  <GuideEntityEmbed Entity="ComputerCrewMonitoring" Caption="Спасать"/>
+  <GuideEntityEmbed Entity="NFPosterContrabandFsbLogo" Caption="Исследовать"/>
+  <GuideEntityEmbed Entity="ChemMaster" Caption="Обеспечивать"/>
 </Box>
 <Box>
   <GuideEntityEmbed Entity="ShuttleMapApothecary" Caption=""/>
 </Box>
 
-[color=#a4885c]Ship Size:[/color] Small
+[color=#a4885c]Размер корабля:[/color] Малый
 
-[color=#a4885c]Recommended Crew:[/color] 1-3
+[color=#a4885c]Рекомендуемый экипаж:[/color] 1-3
 
-[color=#a4885c]Power Gen Type:[/color] Uranium
+[color=#a4885c]Тип генератора:[/color] Урановый
 
-# Shuttle Brief
+# Краткое описание
 
-"A medical response and chemical production shuttle. Produced by the Far Star Corporation, the Apothecary is as comfortable navigating the mineral fields of the Frontier as it is serving as the medical clinic of a station." 
+"Шаттл медицинского реагирования и химического производства. Apothecary, созданный корпорацией Far Star, одинаково уверенно чувствует себя как среди минеральных полей Фронтира, так и в роли станционной клиники."
 
-# Ship Functions
+# Оснащение корабля
 
 <Box>
-  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Bolt Exterior Airlocks"/>
-  <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Toggle Thrusters"/>
+  <GuideEntityEmbed Entity="ButtonFrameCautionSecurity" Caption="Болты внешних шлюзов"/>
+  <GuideEntityEmbed Entity="ButtonFrameCaution" Caption="Переключить двигатели"/>
   <GuideEntityEmbed Entity="ButtonFrameGrey" Caption="Actuate Shutters"/>
 </Box>
 
-# Medical
+# Медицина
 
-[textlink="Medicine" link="Medical Doctor"/]
+[textlink="Медицина" link="Medical Doctor"/]
 
-[textlink="Chemistry" link="Chemist"/]
+[textlink="Химия" link="Chemist"/]
 
-[textlink="Chemicals" link="Chemicals"/]
+[textlink="Химические вещества" link="Chemicals"/]
 
-[textlink="Botany" link="Botany"/]
+[textlink="Ботаника" link="Botany"/]
 
-# Piloting
+# Пилотирование
 
-[textlink="Piloting" link="Piloting"/]
+[textlink="Пилотирование" link="Piloting"/]
 
-[textlink="Sector Topology" link="SectorTopology"/]
+[textlink="Топология сектора" link="SectorTopology"/]
 
-# Hiring crew
+# Наём экипажа
 
-[textlink="Hiring" link="Hiring"/]
+[textlink="Наём экипажа" link="Hiring"/]
 
-As a Captain of a Nanotrasen vessel, you have the authority to hire, fire, demote, or promote crew members at will.
+Как капитан судна Конфедерации, вы вправе нанимать, увольнять, понижать и повышать членов экипажа.
 
-# PREFLIGHT CHECKLIST
+# ПРЕДПОЛЁТНАЯ ПРОВЕРКА
 
-[textlink="Preflight Checklist" link="PreflightChecklist"/]
+[textlink="Предполётная проверка" link="PreflightChecklist"/]
 
 </Document>

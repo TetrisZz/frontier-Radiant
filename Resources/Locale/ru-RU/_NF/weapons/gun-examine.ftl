@@ -50,8 +50,8 @@ weapon-details-manufacturer-cybersun-industries = Cybersun Industries
 weapon-details-manufacturer-foam-force-llc = Foam Force LLC
 weapon-details-manufacturer-frontier-gunsmith-consortium = Frontier Gunsmith Consortium
 weapon-details-manufacturer-gorlex-steel-works = Gorlex Steel Works
-weapon-details-manufacturer-nanotrasen-munitions = NanoTrasen Munitions
-weapon-details-manufacturer-nanotrasen-technologies = NanoTrasen Technologies
+weapon-details-manufacturer-nanotrasen-munitions = Боеприпасы Конфедерации
+weapon-details-manufacturer-nanotrasen-technologies = Технологии Конфедерации
 weapon-details-manufacturer-steelbolt-tool-forge = Steelbolt Tool Forge
 
 # Classes (alphabetical please)

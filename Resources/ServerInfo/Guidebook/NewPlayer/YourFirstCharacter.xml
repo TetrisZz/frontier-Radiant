@@ -1,54 +1,46 @@
 <Document>
-# The Captains and the Clowns
-This is a guide for editing your character's appearance. Make sure you read Character Creation first.
-Upon creating your character, you may be intimidated by your vast range of options.
-  
-It's okay to make your first character [color=#a4885c]randomized[/color] and roll with it, even experienced players do it.
-Making your first character doesn't have to be precise, either. You can [color=#a4885c]wing it[/color] and see what happens.
-  
-If you'd like to be [color=#a4885c]methodical[/color], though, creating a character is easy to do one step at a time.
+# Капитаны и клоуны
+Это руководство посвящено внешности персонажа. Сначала прочитайте раздел «Создание персонажа».
+Большое количество настроек поначалу может показаться пугающим.
 
-## Choosing a Species
-Most species have minor differences, which you can read about under the [color=#a4885c]Species[/color] entry.
-However, you may find that it's easier to make your first character as a human, moth, dwarf or reptilian.
+Первого персонажа вполне можно [color=#a4885c]создать случайным образом[/color] и начать играть — так поступают даже опытные игроки.
+Необязательно сразу настраивать всё идеально. Попробуйте разные варианты и посмотрите, что получится.
 
-This shouldn't discourage you from getting creative with your character, though.
+Если вы предпочитаете [color=#a4885c]последовательный подход[/color], настраивайте персонажа шаг за шагом.
 
-This guide will assume you are creating a human, but the process is similar across all species.
+## Выбор вида
+Большинство видов имеет небольшие различия, описанные в разделе [color=#a4885c]«Виды»[/color].
+Для первого персонажа проще выбрать человека, ниану, дворфа или унатха.
 
-## Minor Characteristics
-These include:
-- Age (18-29 for young, 30-59 for middle-aged, 60+ for old)
-- Sex (your sprite, as seen by toggling "Show clothing")
-- Pronouns (what the game will refer to you as)
-- Skin color (may be a slider or RGB depending on species)
-- Eye color (RGB)
-- Hair color (RGB)
+Это не должно мешать вам проявлять фантазию. Далее в руководстве рассматривается человек, но для остальных видов процесс почти такой же.
 
-These are minor changes and have little effect on gameplay. This is what players will read when they [color=#a4885c]examine you[/color]. ("young man")
+## Основные характеристики
+К ним относятся:
+- возраст: 18–29 — молодой, 30–59 — среднего возраста, 60 и более — пожилой;
+- пол, влияющий на спрайт персонажа;
+- местоимения, которыми игра называет персонажа;
+- цвет кожи;
+- цвет глаз;
+- цвет волос.
 
-## Hair and Facial Hair
-Again, you may be intimidated by the vast range of options. That's okay.
+Эти настройки почти не влияют на игру, но отображаются при [color=#a4885c]осмотре персонажа[/color].
 
-[color=#a4885c]Take your time with it.[/color] You can skim or click through each of the options and find which one you like.
-Sometimes it's easier to set your desired hair color before looking at the options.
+## Волосы и растительность на лице
+Не торопитесь: просмотрите варианты и выберите понравившийся. Иногда удобнее сначала настроить цвет волос.
 
-If you really can't decide, some popular haircut options include Floorlength Bedhead, Modern, Business, CIA or simply bald.
-Alternatively, [color=#a4885c]randomize[/color] a separate character and see what kind of haircuts they're rocking with. Suprise yourself.
+Если выбрать сложно, создайте отдельного случайного персонажа и посмотрите на получившиеся сочетания.
+Использовать популярные варианты необязательно — выбирайте то, что подходит именно вашему персонажу.
 
-Don't feel obligated to use any of these, though.
-  
-## Markings
-Markings range from [color=#a4885c]scars and snouts[/color] to [color=#a4885c]tattoos and tails[/color].
-Think of them like [color=#a4885c]accessories[/color] that are a part of your body, for giving your character some extra flair and uniqueness. They cannot be changed during the round.
+## Метки
+Метки включают [color=#a4885c]шрамы, морды, татуировки и хвосты[/color].
+Это части внешности, которые делают персонажа уникальнее. Во время раунда их нельзя свободно изменить.
 
-Some species have more marking options than others. Humans are more limited in terms of markings than moths or reptilians.
+У разных видов доступно разное количество меток. У людей их меньше, чем у ниан или унатхов.
+Каждая [color=#a4885c]категория[/color] имеет ограничение на количество выбранных меток.
+Все они являются [color=#a4885c]косметическими[/color] и не влияют на игровой процесс.
 
-You can have a set number of markings in each '[color=#a4885c]category[/color]', as seen at the top. For example, reptilians can have one chest marking but two markings on the top of their heads.
-These are [color=#a4885c]cosmetic[/color] and have no effect on gameplay.
+## Как выделиться
+Запоминающихся персонажей обычно любят за характер, поступки и [color=#a4885c]умение действовать в сложных ситуациях[/color], а не только за яркую внешность.
 
-## How to stand out
-Memorable characters are usually remembered for their personality, their deeds and their [color=#a4885c]robustness[/color], but that doesn't mean you have to be some sort of hotshot.
-
-Don't sweat having a big, flashy and memorable character. Make your own story that you'll be remembered for.
+Не пытайтесь сразу создать самого эффектного героя. Играйте и создавайте собственную историю, за которую персонажа запомнят.
 </Document>

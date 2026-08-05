@@ -1,5 +1,5 @@
 ent-ClothingUniformJumpsuitArcadia = аркадианский комбинезон
-    .desc = Униформа произведенная Arcadia Industries. Предназначен для уменьшения натирания кожи, слизи, чешуи, пуха и древесины в промежности.
+    .desc = Униформа производства Arcadia Industries. Её крой уменьшает натирание и подходит обладателям кожи, слизи, чешуи, шерсти и древесной коры.
 ent-ClothingUniformJumpsuitValet = комбинезон камердинера
     .desc = Красивая и опрятная униформа.
 ent-ClothingUniformJumpsuitBH = поношенный костюм
@@ -51,6 +51,6 @@ ent-ClothingUniformJumpsuitPirateSlops = Потрёпанная пиратска
 ent-ClothingUniformJumpsuitPublicAffairsLiaison = костюм специалиста ПСсО
     .desc = Накрахмаленный и отглаженный костюм для специалиста по связям с общественностью.
 ent-ClothingUniformJumpsuitMilitaryArcadiaTac = аркадианский тактический комбинезон
-    .desc = Тактический комбинезон произведенный Arcadia Industries.
+    .desc = Тактический комбинезон производства Arcadia Industries.
 ent-ClothingUniformLittleGuyOveralls = комбинезон
     .desc = Маленький и красивый комбинезон.

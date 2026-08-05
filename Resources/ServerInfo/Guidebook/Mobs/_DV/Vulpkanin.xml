@@ -1,28 +1,27 @@
 <Document>
-  # Vulpkanin
+# Вульпканины
+Вульпканины — покрытые шерстью гуманоиды с лисьими чертами, когтями и хорошей устойчивостью к холоду.
 
-  <Box>
-    <GuideEntityEmbed Entity="MobVulpkaninDummy" Caption=""/>
-  </Box>
+## Питание
+- Могут есть сырое мясо.
+- Теобромин из шоколада, чая и кофе, а также аллицин из лука и чеснока вызывают отравление.
 
-  The Vulpkanin (vulp-ka-nin) are a race of humanoid canine-like beings.
+## Преимущества
+- Когти наносят режущий и дробящий урон.
+- Шерсть позволяет дольше находиться на холоде без тёплой одежды.
+- Имеют развитые видовые эмоции и собственные звуки речи.
 
-  ## Diet
+## Видовая способность
+- [color=#1e90ff]Звериный порыв[/color] на 10 секунд высвобождает звериные инстинкты.
+- Во время действия скорость передвижения увеличивается на [color=#1e90ff]12%[/color].
+- Безоружные атаки дополнительно наносят [color=#1e90ff]3 режущего и 2 дробящего урона[/color].
+- Повторно использовать способность можно через 45 секунд.
 
-  - Can eat raw meat.
-  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
+## Особенности
+- По умолчанию имеют дейтеранопию. Её визуальное отображение можно отключить в настройках доступности.
+- Имеют хвост, уши и большой набор видовых меток внешности.
 
-  ## Benefits
-
-  - Uses their claws to do some Slashing and Blunt damage.
-  - Their fur makes them able to withstand cold environments without the need of a coat.
-
-  ## Special
-
-  - Comes with the Deuteranopia trait by default. This can be disabled via accessibility options.
-
-  ## Drawbacks
-
-  - They take 15% more Heat damage.
-
+## Недостатки
+- Получают [color=#ffa500]на 15% больше урона жаром[/color].
+- Теобромин и аллицин для них токсичны.
 </Document>

@@ -1,0 +1,71 @@
+<casino:CasinoUiFragment xmlns:casino="clr-namespace:Content.Client._radiant.Casino"
+                         xmlns="https://spacestation14.io"
+                         Margin="4">
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True"
+                  Margin="8"
+                  SeparationOverride="5">
+        <Label Text="{Loc 'casino-title'}"
+               StyleClasses="LabelHeading"
+               HorizontalAlignment="Center"/>
+        <Label Name="BankBalanceLabel"
+               HorizontalAlignment="Center"/>
+
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalAlignment="Center"
+                      SeparationOverride="12">
+            <TextureRect Name="FirstReel" SetSize="64 64" Stretch="KeepAspectCentered"/>
+            <TextureRect Name="SecondReel" SetSize="64 64" Stretch="KeepAspectCentered"/>
+            <TextureRect Name="ThirdReel" SetSize="64 64" Stretch="KeepAspectCentered"/>
+        </BoxContainer>
+
+        <Label Name="ResultLabel"
+               HorizontalAlignment="Center"
+               MinHeight="24"/>
+
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalAlignment="Center"
+                      SeparationOverride="6">
+            <Label Text="{Loc 'casino-bet-label'}" VerticalAlignment="Center"/>
+            <LineEdit Name="BetLine"
+                      Text="1000"
+                      PlaceHolder="{Loc 'casino-amount-placeholder'}"
+                      MinWidth="110"/>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalAlignment="Center"
+                      SeparationOverride="5">
+            <Button Name="Bet100Button" Text="100"/>
+            <Button Name="Bet1KButton" Text="1к"/>
+            <Button Name="Bet10KButton" Text="10к"/>
+            <Button Name="Bet100KButton" Text="100к"/>
+        </BoxContainer>
+
+        <Button Name="SpinButton"
+                Text="{Loc 'casino-spin'}"
+                HorizontalAlignment="Center"
+                MinWidth="220"/>
+
+        <Label Text="{Loc 'casino-payout-table'}"
+               HorizontalAlignment="Center"
+               StyleClasses="LabelHeading"/>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalAlignment="Center"
+                      SeparationOverride="28">
+            <GridContainer Columns="2" HSeparationOverride="10" VSeparationOverride="1">
+                <Label Text="{Loc 'casino-symbol-diamond'}" MinWidth="125"/><Label Text="×75" Modulate="#FFD700"/>
+                <Label Text="{Loc 'casino-symbol-seven'}" MinWidth="125"/><Label Text="×15" Modulate="#FF4A4A"/>
+                <Label Text="{Loc 'casino-symbol-plum'}" MinWidth="125"/><Label Text="×6"/>
+                <Label Text="{Loc 'casino-symbol-cherry'}" MinWidth="125"/><Label Text="×4"/>
+            </GridContainer>
+            <GridContainer Columns="2" HSeparationOverride="10" VSeparationOverride="1">
+                <Label Text="{Loc 'casino-symbol-horseshoe'}" MinWidth="125"/><Label Text="×10"/>
+                <Label Text="{Loc 'casino-symbol-clover'}" MinWidth="125"/><Label Text="×8"/>
+                <Label Text="{Loc 'casino-symbol-lemon'}" MinWidth="125"/><Label Text="×5"/>
+                <Label Text="{Loc 'casino-any-pair'}" MinWidth="125"/><Label Text="×2"/>
+            </GridContainer>
+        </BoxContainer>
+    </BoxContainer>
+</casino:CasinoUiFragment>
