@@ -1068,9 +1068,10 @@
   entityIcon: AdvMopItem
   discipline: NFService
   tier: 1
-  cost: 7500
+  cost: 10000 # Radiant Sector
   recipeUnlocks:
   - AdvMopItem
+  - BagOfSummoningGarbage # Radiant Sector
   technologyPrerequisites:
   - NFAdvancedSpray
   position: 2, 21

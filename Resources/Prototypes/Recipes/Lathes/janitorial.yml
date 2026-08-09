@@ -41,12 +41,23 @@
   materials:
     Plastic: 100
 
+# Radiant Sector
 - type: latheRecipe
   id: TrashBag
   result: TrashBag
   completetime: 1.2
   materials:
     Plastic: 100
+
+- type: latheRecipe
+  id: BagOfSummoningGarbage
+  result: BagOfSummoningGarbage
+  completetime: 5
+  materials:
+    Plastic: 1000
+    Steel: 500
+    Bluespace: 30
+# End Radiant Sector
 
 - type: latheRecipe
   id: LightReplacer

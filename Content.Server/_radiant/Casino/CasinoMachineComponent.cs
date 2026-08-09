@@ -9,5 +9,8 @@ public sealed partial class CasinoMachineComponent : Component
     [DataField]
     public TimeSpan SpinCooldown = TimeSpan.FromSeconds(2);
 
+    [DataField]
+    public float LossSongChance = 0.05f;
+
     public TimeSpan NextSpinTime;
 }

@@ -57,6 +57,7 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         // End wizden#42210
 
         _menu.SetTime += SetTime;
+        _menu.SetVolume += volume => SendMessage(new JukeboxSetVolumeMessage(volume)); // Radiant Sector
         _menu.TrackQueueAction += track => // wizden#42210
         {
             SendMessage(new JukeboxQueueTrackMessage(track)); // wizden#42210
@@ -91,6 +92,7 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         _menu.PopulateQueueList(jukebox.Queue); // wizden#42210
         _menu.UpdateButtons(jukebox.RepeatTracks, jukebox.ShuffleTracks); // wizden#42210
+        _menu.UpdateVolume(jukebox.Volume); // Radiant Sector
     }
 
     public void PopulateMusic()

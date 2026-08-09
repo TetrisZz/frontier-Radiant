@@ -56,6 +56,13 @@
         <BoxContainer Orientation="Vertical">
             <Slider Name="PlaybackSlider" HorizontalExpand="True" />
         </BoxContainer>
+        <!-- Radiant Sector: per-machine volume control. -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc 'jukebox-menu-volume'}" Margin="0 0 8 0" />
+            <Slider Name="VolumeSlider" MinValue="0" MaxValue="100" HorizontalExpand="True" />
+            <Label Name="VolumeLabel" MinWidth="42" HorizontalAlignment="Right" />
+        </BoxContainer>
+        <!-- End Radiant Sector -->
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
         VerticalExpand="False" SizeFlagsStretchRatio="1">
             <Button Name="PlayButton" Text="{Loc 'jukebox-menu-buttonplay'}" />

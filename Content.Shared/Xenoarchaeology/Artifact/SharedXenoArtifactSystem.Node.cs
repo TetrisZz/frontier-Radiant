@@ -410,6 +410,9 @@ public abstract partial class SharedXenoArtifactSystem
             nodeComponent.ResearchValue = (int)Math.Pow(nodeComponent.ResearchValue - 700, 0.9);
         // End Frontier: remove value from using artifexium, different value sets
 
+        // Radiant Sector: artifacts provide twice as many research points.
+        nodeComponent.ResearchValue *= 2;
+
     }
 
     // Frontier: ensure single use nodes

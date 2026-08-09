@@ -45,6 +45,7 @@
   id: Janitor
   recipes:
   - AdvMopItem
+  - BagOfSummoningGarbage # Radiant Sector
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   - MegaSprayBottle

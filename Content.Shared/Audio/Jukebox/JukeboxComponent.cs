@@ -39,6 +39,14 @@ public sealed partial class JukeboxComponent : Component
     [DataField, AutoNetworkedField]
     public bool ShuffleTracks; // wizden#42210
 
+    // Radiant Sector
+    /// <summary>
+    /// Playback gain selected on the jukebox itself.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Volume = 1f;
+    // End Radiant Sector
+
     /// <summary>
     /// RSI state for the jukebox being on.
     /// </summary>
