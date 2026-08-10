@@ -1,0 +1,110 @@
+- type: microwaveMealRecipe # Radiant
+  id: RecipeFriedEggRS
+  name: рецепт жареного яйца
+  result: FoodMealFriedegg
+  time: 5
+  group: Breakfast
+  reagents:
+    Egg: 6
+    TableSalt: 1
+    Blackpepper: 1
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeBaconEggRS
+  name: рецепт яичницы с беконом
+  result: FoodMealBaconEggRS
+  time: 5
+  group: Breakfast
+  solids:
+    FoodMealFriedegg: 1
+    FoodMeatBacon: 1
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeKebabRS
+  name: рецепт кебаба
+  result: FoodMealKebabRS
+  time: 10
+  group: Savory
+  solids:
+    FoodKebabSkewer: 1
+    FoodMeatCutlet: 2
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeDogTreatCookieRS
+  name: рецепт печенья-косточки
+  result: FoodBakedDogTreatRS
+  time: 10
+  group: BarsAndCookies
+  reagents:
+    Flour: 5
+    Sugar: 5
+  solids:
+    FoodButterSlice: 1
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeSushiEggRS
+  name: рецепт тобико
+  result: FoodMealSushiEggRS
+  time: 5
+  group: Savory
+  reagents:
+    Egg: 6
+    Soysauce: 5
+  solids:
+    FoodRiceBoiled: 1
+    FoodCabbage: 1
+  recipeType: Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeRiceBallRS
+  name: рецепт онигири
+  result: FoodMealRiceBallRS
+  time: 5
+  group: Savory
+  reagents:
+    Soysauce: 2
+  solids:
+    FoodRiceBoiled: 1
+    FoodCabbage: 1
+  recipeType: Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeSushiAdvRS
+  name: рецепт нигири с карпом
+  result: FoodMealSushiAdvRS
+  time: 10
+  group: Savory
+  reagents:
+    Soysauce: 5
+  solids:
+    FoodRiceBoiled: 1
+    FoodMeatFish: 1
+  recipeType: Microwave
+
+- type: microwaveMealRecipe
+  id: RecipeSushiProRS
+  name: рецепт отборного нигири
+  result: FoodMealSushiProRS
+  time: 10
+  group: Savory
+  reagents:
+    Soysauce: 10
+  solids:
+    FoodRiceBoiled: 2
+    FoodMeatFish: 2
+    FoodCabbage: 1
+  recipeType: Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeReispanRS
+  name: рецепт рейспана
+  result: FoodBreadReispanRS
+  time: 15
+  group: Breads
+  solids:
+    FoodRiceDough: 1
+  recipeType: Assembler

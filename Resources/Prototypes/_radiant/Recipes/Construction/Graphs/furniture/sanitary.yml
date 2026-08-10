@@ -1,0 +1,63 @@
+- type: constructionGraph
+  id: RadiantShowerGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: shower
+      completed:
+      - !type:SnapToGrid {}
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 1
+      - tag: Bucket
+        name: construction-graph-tag-bucket
+        icon:
+          sprite: Objects/Tools/bucket.rsi
+          state: icon
+        doAfter: 1
+  - node: shower
+    entity: RadiantShower
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 3
+      - !type:SpawnPrototype
+        prototype: Bucket
+        amount: 1
+      - !type:DestroyEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+- type: constructionGraph
+  id: RadiantFloorDrainGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: floorDrain
+      completed:
+      - !type:SnapToGrid {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+  - node: floorDrain
+    entity: FloorDrain
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DestroyEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 2

@@ -140,3 +140,7 @@ uplink-hom-plushies-desc = Небольшая подарочная коробк�
 
 uplink-hom-crypt-name = Ключ шифрования частного канала
 uplink-hom-crypt-desc = Ключ шифрования приватного канала связи для таких почетных лиц, как вы. 
+uplink-hom-syndicate-cool-mask-name = Тактический противогаз Каткрин
+uplink-hom-syndicate-cool-mask-desc = Противогаз с красным визором, защищающим владельца от ярких вспышек.
+uplink-hom-corvus-pendant-name = плащ Корвуса
+uplink-hom-corvus-pendant-desc = Необычный плащ с серебристой подвеской и узором вороньих перьев.

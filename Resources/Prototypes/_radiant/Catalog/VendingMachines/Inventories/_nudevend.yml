@@ -11,6 +11,8 @@
     ClothingUnderwearBottomBoxersCE: 4294967295 # Infinite
     ClothingUnderwearBottomRadiantBoxersBlack: 4294967295 # Infinite
 # Panties
+    ClothingUnderwearBottomPantiesKladmen: 4294967295 # Infinite
+    ClothingUnderwearBottomPantiesTroubleneko: 4294967295 # Infinite
     ClothingUnderwearBottomPantiesNeko: 4294967295 # Infinite
     ClothingUnderwearBottomPantiesCE: 4294967295 # Infinite
     ClothingUnderwearBottomPantiesLace: 4294967295 # Infinite
@@ -33,6 +35,8 @@
     ClothingUnderwearBottomPantiesCow: 4294967295 # Infinite
     ClothingUnderwearBottomPantiesSexsi: 4294967295 # Infinite
 # Top
+    ClothingUnderwearTopBraKladmen: 4294967295 # Infinite
+    ClothingUnderwearTopBraTroubleneko: 4294967295 # Infinite
     ClothingUnderwearTopBraCMO: 4294967295 # Infinite
     ClothingUnderwearTopBraHOP: 4294967295 # Infinite
     ClothingUnderwearTopBraHOS: 4294967295 # Infinite
@@ -53,6 +57,7 @@
     ClothingUnderwearTopBraSexsi: 4294967295 # Infinite
     ClothingUnderwearTopBraCow: 4294967295 # Infinite
 # Socks
+    ClothingUnderwearSocksTroubleneko: 4294967295 # Infinite
     ClothingUnderwearSocksHigh: 4294967295 # Infinite
     ClothingUnderwearSocksPantyhose: 4294967295 # Infinite
     ClothingUnderwearSocksShort: 4294967295 # Infinite

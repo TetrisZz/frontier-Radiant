@@ -1,0 +1,94 @@
+# Дополнительная одежда общего лодаута.
+
+- type: loadout
+  id: ContractorClothingUniformBoomaTurtleneck
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformBoomaTurtleneck
+  groupBy: "dresses"
+
+- type: loadout
+  id: ContractorClothingUniformSheyaDress
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformSheyaDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ContractorClothingUniformGothicLaceDress
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformGothicLaceDress
+  groupBy: "dresses"
+
+- type: loadout
+  id: ContractorClothingUniformTuxedo
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformTuxedo
+  groupBy: "dresses"
+
+- type: loadout
+  id: ContractorClothingUniformJumpskirtKimonoRS
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtKimonoRS
+  groupBy: "dresses"
+
+- type: loadout
+  id: ContractorClothingEyesHypnoPink
+  price: 200
+  equipment:
+    eyes: ClothingEyesHypnoPink
+
+- type: loadout
+  id: ContractorClothingEyesHypnoTeal
+  price: 200
+  equipment:
+    eyes: ClothingEyesHypnoTeal
+
+- type: loadout
+  id: ContractorClothingEyesNiceGoggles
+  price: 200
+  equipment:
+    eyes: ClothingEyesNiceGoggles
+
+- type: loadout
+  id: ContractorClothingNeckBlackSoulCoat
+  price: 200
+  equipment:
+    neck: ClothingNeckBlackSoulCoat
+  groupBy: "NeckCloaks"
+
+- type: loadout
+  id: ContractorClothingOuterSweaterFlower
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterSweaterFlower
+  groupBy: "OuterSweaters"
+
+- type: loadout
+  id: ContractorClothingOuterFormalBlackCoat
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+        role: JobBoxer
+        time: 360000 # 100 hours
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterFormalBlackCoat
+  groupBy: "RespectedSocietyOuterwear"
+
+- type: loadout
+  id: ContractorClothingOuterElegantTrenchcloak
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+        role: JobBoxer
+        time: 360000 # 100 hours
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterElegantTrenchcloak
+  groupBy: "RespectedSocietyOuterwear"

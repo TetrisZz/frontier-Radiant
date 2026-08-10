@@ -1,0 +1,89 @@
+- type: reagent # Radiant
+  id: WizzFizz
+  name: reagent-name-wizz-fizz
+  parent: BaseAlcohol
+  desc: reagent-desc-wizz-fizz
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: radiantWizzFizz
+  color: "#8fd7ff"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/wizz_fizz.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: Narsour
+  name: reagent-name-narsour
+  parent: BaseAlcohol
+  desc: reagent-desc-narsour
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: radiantNarsour
+  color: "#741515"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/narsour.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: LavalSpit
+  name: reagent-name-laval-spit
+  parent: BaseAlcohol
+  desc: reagent-desc-laval-spit
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: radiantLavalSpit
+  color: "#de3009"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/laval_spit.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: PinotMort
+  name: reagent-name-pinot-mort
+  parent: BaseAlcohol
+  desc: reagent-desc-pinot-mort
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: radiantPinotMort
+  color: "#382846"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/pinotmort.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: StrawberryShakeAlt
+  name: reagent-name-strawberry-shake-alt
+  parent: BaseDrink
+  desc: reagent-desc-strawberry-shake-alt
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: radiantStrawberryShake
+  color: "#f58ca7"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/strawberryshake_alt.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: PlanetCracker
+  name: reagent-name-planet-cracker
+  parent: BaseAlcohol
+  desc: reagent-desc-planet-cracker
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: radiantPlanetCracker
+  color: "#e8d38d"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/planet_cracker.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

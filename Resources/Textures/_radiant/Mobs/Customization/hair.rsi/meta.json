@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ported from BlueMoon Station",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "violet_ponytail", "directions": 4 },
+    { "name": "unique_fluffy_tail", "directions": 4 },
+    { "name": "unique_spiky", "directions": 4 },
+    { "name": "unique_spiky_cowlick_alt2", "directions": 4 },
+    { "name": "unique_spiky_cowlick", "directions": 4 },
+    { "name": "fortuneteller", "directions": 4 }
+  ]
+}

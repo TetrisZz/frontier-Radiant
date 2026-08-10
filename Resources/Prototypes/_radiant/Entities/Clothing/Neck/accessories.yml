@@ -1,0 +1,40 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBoomaPatch
+  name: нарукавная нашивка
+  description: Небольшая декоративная нашивка, которую можно закрепить на рукаве.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Clothing/Neck/booma_patch.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/booma_patch.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckHateredsoulDogtagOne
+  name: боевые жетоны
+  description: Пара лёгких и прочных боевых жетонов с резиновыми ободками. На них выбиты имя владельца, группа крови и принадлежность к подразделению.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Clothing/Neck/hateredsoul_dogtag_1.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/hateredsoul_dogtag_1.rsi
+  - type: Engraveable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckHateredsoulDogtagTwo
+  name: боевые жетоны с цепочкой
+  description: Другой вариант пары лёгких и прочных боевых жетонов с данными владельца.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Clothing/Neck/hateredsoul_dogtag_2.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/hateredsoul_dogtag_2.rsi
+  - type: Engraveable

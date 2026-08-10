@@ -7,13 +7,14 @@
     - Omnizine
     - Nocturine
     - Lexorin
-    - Honk
     - BuzzochloricBees
     - Stimulants
+    - Excitement # Radiant Sector
   - quantity: 5
     weight: 1
     reagents:
     - Cognizine
+    - Honk
     - Toxin
     - Leporazine
     - Epinephrine

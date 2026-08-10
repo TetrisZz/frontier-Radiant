@@ -303,3 +303,20 @@
   - type: Sprite
     scale: 0.5, 0.5
     sprite: _radiant/Clothing/Underwear/top/xeno.rsi
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraKladmen
+  name: бюстгальтер
+  description: Удобный бюстгальтер с необычным дизайном.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/kladmen_bra.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopBraTroubleneko
+  name: кружевной бюстгальтер
+  description: Изящный кружевной бюстгальтер.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/troubleneko_bra.rsi

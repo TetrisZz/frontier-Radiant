@@ -18,6 +18,8 @@
   gridPath: /Maps/_radiant/POI/Beach.yml
   addComponents:
   - type: StationTransit
+    routes:
+      MinorPointsOfInterest: 60
   - type: IFF
     color: "#00b7eb"
   - type: SolarPoweredGrid

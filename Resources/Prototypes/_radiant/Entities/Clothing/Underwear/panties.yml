@@ -281,3 +281,20 @@
   - type: Sprite
     scale: 0.5, 0.5
     sprite: _radiant/Clothing/Underwear/bottom/xeno.rsi
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesKladmen
+  name: трусики
+  description: Удобные трусики с необычным дизайном.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/kladmen_panties.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesTroubleneko
+  name: кружевные трусики
+  description: Изящные кружевные трусики.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/troubleneko_panties.rsi

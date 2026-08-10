@@ -1,0 +1,61 @@
+- type: reaction # Radiant
+  id: WizzFizz
+  requiredMixerCategories: [Stir]
+  reactants:
+    Champagne: { amount: 1 }
+    SodaWater: { amount: 1 }
+    JuiceLime: { amount: 1 }
+  products:
+    WizzFizz: 3
+
+- type: reaction
+  id: Narsour
+  requiredMixerCategories: [Stir]
+  reactants:
+    Blood: { amount: 1 }
+    JuiceLemon: { amount: 1 }
+    DemonsBlood: { amount: 1 }
+  products:
+    Narsour: 3
+
+- type: reaction
+  id: LavalSpit
+  requiredMixerCategories: [Stir]
+  reactants:
+    Iron: { amount: 1 }
+    Sulfur: { amount: 1 }
+    WeldingFuel: { amount: 1 }
+  products:
+    LavalSpit: 3
+
+- type: reaction
+  id: PinotMort
+  requiredMixerCategories: [Stir]
+  reactants:
+    Ash: { amount: 1 }
+    Wine: { amount: 2 }
+    Vitamin: { amount: 1 }
+  products:
+    PinotMort: 4
+
+- type: reaction
+  id: StrawberryShakeAlt
+  requiredMixerCategories: [Shake]
+  reactants:
+    Milk: { amount: 2 }
+    Cream: { amount: 1 }
+    JuiceBerry: { amount: 1 }
+    Sugar: { amount: 1 }
+  products:
+    StrawberryShakeAlt: 5
+
+- type: reaction
+  id: PlanetCracker
+  requiredMixerCategories: [Shake]
+  reactants:
+    Champagne: { amount: 2 }
+    Wine: { amount: 2 }
+    Egg: { amount: 1 }
+    Gold: { amount: 1 }
+  products:
+    PlanetCracker: 6

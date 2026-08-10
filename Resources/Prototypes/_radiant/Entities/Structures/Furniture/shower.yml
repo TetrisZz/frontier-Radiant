@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseStructure
+  id: RadiantShower
+  name: душ
+  description: Настенный душ. Нажмите, чтобы включить или выключить воду.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/shower.rsi
+    layers:
+    - state: shower
+    - state: water
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Rotatable
+  - type: Anchorable
+  - type: InteractionOutline
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Effects/Fluids/watersplash.ogg
+    soundDeactivate:
+      path: /Audio/Effects/Fluids/watersplash.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Ambience/Objects/flowing_water_open.ogg
+      params:
+        volume: -5
+        maxDistance: 6
+  - type: ShowerWater
+    spillInterval: 5
+    waterPerTile: 0.5
+    spillTiles: 3
+  - type: Construction
+    graph: RadiantShowerGraph
+    node: shower

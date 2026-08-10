@@ -1,0 +1,174 @@
+- type: entity # Radiant
+  parent: FoodMealBase
+  id: FoodMealBaconEggRS
+  name: яичница с беконом
+  description: Жареное яйцо с хрустящим беконом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: baconegg
+  - type: FlavorProfile
+    flavors: [radiantBaconEgg]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 2
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealKebabRS
+  name: кебаб
+  description: Кусочки сочного мяса на шпажке.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: kebab
+  - type: FlavorProfile
+    flavors: [radiantKebab]
+  - type: Edible
+    trash: [FoodKebabSkewer]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+
+- type: entity
+  parent: FoodBakedBase
+  id: FoodBakedDogTreatRS
+  name: печенье-косточка
+  description: Обычное хрустящее печенье в форме косточки.
+  components:
+  - type: Sprite
+    scale: 0.5, 0.5
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: dogtreat
+  - type: FlavorProfile
+    flavors: [radiantDogTreat]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Sugar
+          Quantity: 1
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealSushiEggRS
+  name: тобико
+  description: Рис и яйцо в тонкой овощной обёртке.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: sushie_egg
+  - type: FlavorProfile
+    flavors: [radiantSushiEgg]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 2
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealRiceBallRS
+  name: онигири
+  description: Рисовый шарик с лёгкой солёной начинкой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: riceball
+  - type: FlavorProfile
+    flavors: [radiantRiceBall]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: TableSalt
+          Quantity: 1
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealSushiProRS
+  name: отборное нигири
+  description: Аккуратно приготовленное нигири из лучшего филе карпа. Полностью очищено от карпотоксина.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: sushie_pro
+  - type: FlavorProfile
+    flavors: [radiantSushiPro]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Vitamin
+          Quantity: 3
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealSushiAdvRS
+  name: нигири с карпом
+  description: Ломтик карпа на приправленном рисе. Не содержит карпотоксина.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: sushie_adv
+  - type: FlavorProfile
+    flavors: [radiantSushiAdv]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 2
+
+- type: entity
+  parent: FoodBreadBase
+  id: FoodBreadReispanRS
+  name: рейспан
+  description: Плотный рисовый хлеб, ставший популярным в марсианских поселениях.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: reispan
+  - type: FlavorProfile
+    flavors: [radiantReispan]
+  - type: SliceableFood
+    slice: FoodBreadReispanSliceRS
+    count: 5
+
+- type: entity
+  parent: FoodBreadSliceBase
+  id: FoodBreadReispanSliceRS
+  name: ломтик рейспана
+  description: Ломтик рисового хлеба для сэндвичей.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/food.rsi
+    state: reispan_slice
+  - type: FlavorProfile
+    flavors: [radiantReispan]

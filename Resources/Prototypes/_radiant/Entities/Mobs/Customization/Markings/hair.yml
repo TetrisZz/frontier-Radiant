@@ -1,0 +1,47 @@
+- type: marking # Radiant
+  id: HairVioletPonytailRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/hair.rsi
+    state: violet_ponytail
+
+- type: marking
+  id: HairUniqueFluffyTailRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/hair.rsi
+    state: unique_fluffy_tail
+
+- type: marking
+  id: HairUniqueSpikyRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/hair.rsi
+    state: unique_spiky
+
+- type: marking
+  id: HairUniqueSpikyCowlickAltRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/hair.rsi
+    state: unique_spiky_cowlick_alt2
+
+- type: marking
+  id: HairUniqueSpikyCowlickRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/hair.rsi
+    state: unique_spiky_cowlick
+
+- type: marking
+  id: HairFortunetellerRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/hair.rsi
+    state: fortuneteller

@@ -350,3 +350,11 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/sock_n13.rsi
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksTroubleneko
+  name: декоративные чулки
+  description: Высокие чулки с декоративной отделкой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/socks/troubleneko_socks.rsi
