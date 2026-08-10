@@ -24,7 +24,7 @@
   id: MinorPointsOfInterest
   routeNumber: 3
   stationsPerBus: 4
-  dockTag: DockTransitMinorPOIs
+  # Radiant Sector: allow transit to select any compatible docking airlock.
   busVessels:
   - Cheetah
   - Cheetah
