@@ -9,6 +9,7 @@ jukebox-menu-buttonpause = Pause
 jukebox-menu-buttonstop = Stop
 jukebox-menu-buttonrepeat = Repeat
 jukebox-menu-buttonshuffle = Shuffle
+jukebox-menu-volume = Volume: # Radiant Sector
 
 jukebox-menu-move-up-tooltip = Move this track ahead in the queue.
 jukebox-menu-move-down-tooltip = Move this track back in the queue.

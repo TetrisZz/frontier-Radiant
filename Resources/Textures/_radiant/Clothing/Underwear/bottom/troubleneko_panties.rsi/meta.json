@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from BlueMoon Station modular_bluemoon/fluffs/icons/obj/clothing/underwear.dmi and modular_bluemoon/fluffs/icons/mob/clothing/underwear.dmi, state troubleneko_panties; original artist not specified",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "icon" },
+    { "name": "equipped-UNDERWEARB", "directions": 4 }
+  ]
+}

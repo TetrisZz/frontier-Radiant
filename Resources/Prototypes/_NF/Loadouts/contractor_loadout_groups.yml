@@ -2,6 +2,11 @@
   id: ContractorJumpsuit
   name: loadout-group-contractor-jumpsuit
   loadouts:
+  - ContractorClothingUniformBoomaTurtleneck # Radiant Sector
+  - ContractorClothingUniformSheyaDress # Radiant Sector
+  - ContractorClothingUniformGothicLaceDress # Radiant Sector
+  - ContractorClothingUniformTuxedo # Radiant Sector
+  - ContractorClothingUniformJumpskirtKimonoRS # Radiant Sector
   - ContractorClothingUniformJumpsuitColorGrey
   - ContractorClothingUniformJumpskirtColorGrey
   - ContractorClothingUniformJumpsuitMilitaryContractor
@@ -429,6 +434,9 @@
   - ContractorWetFloorSign
   - ContractorClothingOuterCoatExpensive
   - ContractorClothingOuterCoatSpaceAsshole
+  - ContractorClothingOuterSweaterFlower # Radiant Sector
+  - ContractorClothingOuterFormalBlackCoat # Radiant Sector
+  - ContractorClothingOuterElegantTrenchcloak # Radiant Sector
 
 - type: loadoutGroup
   id: ContractorBelt
@@ -702,6 +710,7 @@
   name: loadout-group-contractor-neck
   minLimit: 0
   loadouts:
+  - ContractorClothingNeckBlackSoulCoat # Radiant Sector
   - ContractorClothingNeckScarfStripedBlack
   - ContractorClothingNeckScarfStripedBlue
   - ContractorClothingNeckScarfStripedBrown
@@ -714,6 +723,9 @@
   - ContractorClothingNeckCrucifix
   - ContractorClothingNeckBellCollar
   - ContractorCDDogtags
+  - ContractorClothingNeckBoomaPatch # Radiant Sector
+  - ContractorClothingNeckHateredsoulDogtagOne # Radiant Sector
+  - ContractorClothingNeckHateredsoulDogtagTwo # Radiant Sector
   - ContractorClothingNeckChokerBlack2
   - ContractorClothingNeckChokerBlack
   - ContractorClothingNeckChokerBlackShaped
@@ -806,6 +818,9 @@
   name: loadout-group-contractor-glasses
   minLimit: 0
   loadouts:
+  - ContractorClothingEyesHypnoPink # Radiant Sector
+  - ContractorClothingEyesHypnoTeal # Radiant Sector
+  - ContractorClothingEyesNiceGoggles # Radiant Sector
   - ContractorClothingEyesGlasses
   - ContractorClothingEyesGlassesCheapSunglasses
   - ContractorClothingEyesBlindfold
@@ -1068,6 +1083,8 @@
   - ContractorClothingUnderwearBottomPantiesBlack
   - ContractorClothingUnderwearBottomPantiesCow
   - ContractorClothingUnderwearBottomPantiesSexsi
+  - ContractorClothingUnderwearBottomPantiesKladmen # Radiant Sector
+  - ContractorClothingUnderwearBottomPantiesTroubleneko # Radiant Sector
   fallbacks:
   - ContractorClothingUnderwearBottomBoxersWhiteOnlyMaleBoxers
   - ContractorClothingUnderwearBottomOnlyFemaleBottom
@@ -1112,6 +1129,7 @@
   - ContractorClothingUnderwearSocksPolosN11
   - ContractorClothingUnderwearSocksPolosN12
   - ContractorClothingUnderwearSocksPolosN13
+  - ContractorClothingUnderwearSocksTroubleneko # Radiant Sector
 
 - type: loadoutGroup
   id: ContractorUnderwearTop
@@ -1134,5 +1152,7 @@
   - ContractorClothingUnderwearTopBraCorset
   - ContractorClothingUnderwearTopBraCow
   - ContractorClothingUnderwearTopBraSexsi
+  - ContractorClothingUnderwearTopBraKladmen # Radiant Sector
+  - ContractorClothingUnderwearTopBraTroubleneko # Radiant Sector
   fallbacks:
   - ClothingUnderwearTopBraWhiteOnlyFemaleBra

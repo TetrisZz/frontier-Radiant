@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ported from BlueMoon Station",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "baconegg" },
+    { "name": "kebab" },
+    { "name": "dogtreat" },
+    { "name": "sushie_egg" },
+    { "name": "riceball" },
+    { "name": "sushie_pro" },
+    { "name": "sushie_adv" },
+    { "name": "reispan" },
+    { "name": "reispan_slice" }
+  ]
+}

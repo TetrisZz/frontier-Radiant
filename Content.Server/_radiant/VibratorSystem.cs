@@ -1,14 +1,22 @@
 using Content.Shared.DoAfter;
+using Content.Server.Chat.Systems;
+using Content.Server.Speech.Components;
+using Content.Server.Speech.EntitySystems;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceLinking.Events;
 using Content.Shared.ERP.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
+using Content.Shared.Speech;
 using Content.Server.Popups;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Server.Vibrator.System
 {
@@ -18,12 +26,56 @@ namespace Content.Server.Vibrator.System
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
+        [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
+        [Dependency] private readonly StutteringSystem _stuttering = default!;
+        [Dependency] private readonly ChatSystem _chat = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+
+        private readonly StutteringAccentComponent _plugStutter = new();
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<VibratorComponent, AfterInteractEvent>(OnInteract);
             SubscribeLocalEvent<VibratorComponent, VibratorDoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<VibratorComponent, ComponentInit>(OnComponentInit);
+            SubscribeLocalEvent<VibratorComponent, SignalReceivedEvent>(OnSignalReceived);
+            SubscribeLocalEvent<AccentGetEvent>(OnAccentGet);
+        }
+
+        private void OnAccentGet(AccentGetEvent args)
+        {
+            if (!_inventorySystem.TryGetSlotEntity(args.Entity, "plug", out var plug) ||
+                !TryComp<VibratorComponent>(plug, out var vibrator) ||
+                !TryComp<ItemToggleComponent>(plug, out var toggle) ||
+                !toggle.Activated)
+            {
+                return;
+            }
+
+            args.Message = _stuttering.Accentuate(args.Message, _plugStutter);
+
+            if (_random.Prob(vibrator.MoanChance))
+                _chat.TryEmoteWithChat(args.Entity, "Ston");
+        }
+
+        private void OnComponentInit(Entity<VibratorComponent> entity, ref ComponentInit args)
+        {
+            _deviceLink.EnsureSinkPorts(entity.Owner,
+                entity.Comp.TogglePort,
+                entity.Comp.OnPort,
+                entity.Comp.OffPort);
+        }
+
+        private void OnSignalReceived(Entity<VibratorComponent> entity, ref SignalReceivedEvent args)
+        {
+            if (args.Port == entity.Comp.OnPort)
+                _itemToggle.TryActivate(entity.Owner, predicted: false, showPopup: false);
+            else if (args.Port == entity.Comp.OffPort)
+                _itemToggle.TryDeactivate(entity.Owner, predicted: false, showPopup: false);
+            else if (args.Port == entity.Comp.TogglePort)
+                _itemToggle.Toggle(entity.Owner, predicted: false, showPopup: false);
         }
 
         private void OnInteract(Entity<VibratorComponent> entity, ref AfterInteractEvent args)

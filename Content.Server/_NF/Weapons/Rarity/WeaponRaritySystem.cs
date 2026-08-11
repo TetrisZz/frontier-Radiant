@@ -48,8 +48,13 @@ public sealed partial class WeaponRaritySystem : SharedWeaponRaritySystem
             rarity = (WeaponRarity)_random.Next(0, (int)rarity + 1);
         }
 
-        if (rarity == 0)
+        if (rarity == WeaponRarity.Common)
         {
+            // A weapon placed in a case may already have a fixed rarity, such as
+            // Unique ("factory-made"). A Common roll must clear it instead of preserving it.
+            if (RemComp<RareWeaponComponent>(gun))
+                _gunSystem.RefreshModifiers(gun);
+
             // Don't add unnecessary components for common rarity
             return;
         }

@@ -123,3 +123,25 @@
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Neck/Cloaks/hom.rsi
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCorvusPendant
+  name: плащ Корвуса
+  description: Чёрные вороны с зоркими глазами крадут яркие подвески с серебряным блеском.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/corvus_pendant.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/corvus_pendant.rsi
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBlackSoulCoat
+  name: чёрное пальто
+  description: Старое на вид чёрное пальто из высококачественного материала. Оно всё ещё приятно выглядит и ощущается, хотя слишком длинное для обычного ношения. Во внутреннем кармане видны эмблема чёрной розы и надпись «Black Rose atelier».
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/black_soul_coat.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/black_soul_coat.rsi

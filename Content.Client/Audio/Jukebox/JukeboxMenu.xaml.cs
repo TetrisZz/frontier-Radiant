@@ -36,6 +36,7 @@ public sealed partial class JukeboxMenu : FancyWindow
     public event Action<bool>? OnShuffleToggled; // wizden#42210
     public event Action<ProtoId<JukeboxPrototype>>? TrackQueueAction; // wizden#42210
     public event Action<float>? SetTime;
+    public event Action<float>? SetVolume; // Radiant Sector
     public event Action<int>? QueueDeleteAction; // wizden#42210
     public event Action<int>? QueueMoveUpAction; // wizden#42210
     public event Action<int>? QueueMoveDownAction; // wizden#42210
@@ -77,6 +78,13 @@ public sealed partial class JukeboxMenu : FancyWindow
         };
 
         PlaybackSlider.OnReleased += PlaybackSliderKeyUp;
+        // Radiant Sector: per-machine volume control.
+        VolumeSlider.OnValueChanged += args =>
+        {
+            VolumeLabel.Text = $"{MathF.Round(args.Value):0}%";
+        };
+        VolumeSlider.OnReleased += args => SetVolume?.Invoke(args.Value / 100f);
+        // End Radiant Sector
 
         SetPlayPauseButton(_audioSystem.IsPlaying(_audio), force: true);
     }
@@ -235,6 +243,15 @@ public sealed partial class JukeboxMenu : FancyWindow
         RepeatButton.Pressed = repeat;
         ShuffleButton.Pressed = shuffle;
     }
+
+    // Radiant Sector
+    public void UpdateVolume(float volume)
+    {
+        var percentage = Math.Clamp(volume, 0f, 1f) * 100f;
+        VolumeSlider.SetValueWithoutEvent(percentage);
+        VolumeLabel.Text = $"{MathF.Round(percentage):0}%";
+    }
+    // End Radiant Sector
 
     public void SetSelectedSong(JukeboxPrototype? prototype, float length)
     {

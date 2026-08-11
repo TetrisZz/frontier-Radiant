@@ -34,6 +34,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxRepeatMessage>(OnJukeboxRepeatMessage); // wizden#42210
         SubscribeLocalEvent<JukeboxComponent, JukeboxShuffleMessage>(OnJukeboxShuffleMessage); // wizden#42210
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetTimeMessage>(OnJukeboxSetTime);
+        SubscribeLocalEvent<JukeboxComponent, JukeboxSetVolumeMessage>(OnJukeboxSetVolume); // Radiant Sector
         SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
 
@@ -86,7 +87,11 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
                 return;
             }
 
-            ent.Comp.AudioStream = Audio.PlayPvs(jukeboxProto.Path, ent.Owner, AudioParams.Default.WithMaxDistance(10f))?.Entity;
+            // Radiant Sector: apply the volume selected on this machine.
+            var audioParams = AudioParams.Default
+                .WithMaxDistance(10f)
+                .WithVolume(SharedAudioSystem.GainToVolume(ent.Comp.Volume));
+            ent.Comp.AudioStream = Audio.PlayPvs(jukeboxProto.Path, ent.Owner, audioParams)?.Entity;
 
             // Frontier: wallmount jukebox
             if (TryComp<TransformComponent>(ent.Comp.AudioStream, out var xform))
@@ -115,6 +120,15 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             Audio.SetPlaybackPosition(ent.Comp.AudioStream, args.SongTime + offset);
         }
     }
+
+    // Radiant Sector
+    private void OnJukeboxSetVolume(Entity<JukeboxComponent> ent, ref JukeboxSetVolumeMessage args)
+    {
+        ent.Comp.Volume = Math.Clamp(args.Volume, 0f, 1f);
+        Audio.SetVolume(ent.Comp.AudioStream, SharedAudioSystem.GainToVolume(ent.Comp.Volume));
+        Dirty(ent);
+    }
+    // End Radiant Sector
 
     private void OnPowerChanged(Entity<JukeboxComponent> entity, ref PowerChangedEvent args)
     {

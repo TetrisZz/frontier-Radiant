@@ -572,3 +572,25 @@
   equipment:
     neck: ClothingNeckBling
   groupBy: "NeckMisc"
+# region Radiant Sector - neck accessories
+- type: loadout
+  id: ContractorClothingNeckBoomaPatch
+  price: 100
+  equipment:
+    neck: ClothingNeckBoomaPatch
+  groupBy: "NeckMisc"
+
+- type: loadout
+  id: ContractorClothingNeckHateredsoulDogtagOne
+  price: 100
+  equipment:
+    neck: ClothingNeckHateredsoulDogtagOne
+  groupBy: "NeckMisc"
+
+- type: loadout
+  id: ContractorClothingNeckHateredsoulDogtagTwo
+  price: 100
+  equipment:
+    neck: ClothingNeckHateredsoulDogtagTwo
+  groupBy: "NeckMisc"
+# endregion Radiant Sector - neck accessories

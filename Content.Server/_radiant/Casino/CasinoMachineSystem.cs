@@ -70,7 +70,7 @@ public sealed class CasinoMachineSystem : EntitySystem
         var payout = Math.Min(GetMultiplier(first, second, third) * args.Bet, 7_500_000);
         if (payout > 0)
             _bank.TryBankDeposit(args.Actor, payout);
-        else if (_random.Prob(0.1f))
+        else if (_random.Prob(ent.Comp.LossSongChance))
             _audio.PlayPvs(LossSong, ent.Owner, AudioParams.Default.WithVolume(-4f).WithMaxDistance(12f));
 
         SpeakAfterSpin(ent, payout > 0);
@@ -114,8 +114,8 @@ public sealed class CasinoMachineSystem : EntitySystem
             };
         }
 
-        // Pairs are common with seven symbols, so only some of them pay out.
-        return (first == second || first == third || second == third) && _random.Prob(0.3f) ? 2 : 0;
+        // Every pair pays out, regardless of the symbol positions.
+        return first == second || first == third || second == third ? 2 : 0;
     }
 
     private void UpdateState(

@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.DeviceLinking;
 using Content.Shared.Inventory;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -18,6 +19,20 @@ namespace Content.Shared.ERP.Components
     [ComponentProtoName("Vibrator")]
     public sealed partial class VibratorComponent : Component
     {
+        /// <summary>
+        /// Chance to involuntarily moan after speaking while this vibrator is active in the plug slot.
+        /// </summary>
+        [DataField]
+        public float MoanChance = 0.1f;
+
+        [DataField]
+        public ProtoId<SinkPortPrototype> TogglePort = "Toggle";
+
+        [DataField]
+        public ProtoId<SinkPortPrototype> OnPort = "On";
+
+        [DataField]
+        public ProtoId<SinkPortPrototype> OffPort = "Off";
     }
 
     [RegisterComponent]

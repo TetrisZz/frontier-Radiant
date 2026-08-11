@@ -1,0 +1,229 @@
+# Дополнительные прототипы одежды Radiant.
+
+- type: entity
+  id: ClothingUniformBoomaTurtleneck
+  parent: ClothingUniformBase
+  name: водолазка «Бума»
+  description: Удобная тёмная водолазка с выразительным стилем.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/booma_turtleneck.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/booma_turtleneck.rsi
+
+- type: entity
+  id: ClothingUniformSheyaDress
+  parent: ClothingUniformBase
+  name: открытое готическое платье
+  description: Готическое платье, почти не закрывающее спину.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/sheya_dress.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/sheya_dress.rsi
+
+- type: entity
+  id: ClothingUniformGothicLaceDress
+  parent: ClothingUniformBase
+  name: кружевное готическое платье
+  description: Длинное готическое платье, украшенное кружевными узорами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/gothic_lace_dress.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/gothic_lace_dress.rsi
+
+- type: entity
+  id: ClothingUniformTuxedo
+  parent: ClothingUniformBase
+  name: смокинг
+  description: Элегантный смокинг для особенно торжественных случаев.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
+
+- type: entity
+  id: ClothingUniformSyBlackSwimsuit
+  parent: ClothingUniformBase
+  name: чёрный открытый купальник
+  description: Открытый чёрный купальник для смелого пляжного образа.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Special/syclothing_swimsuit.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Special/syclothing_swimsuit.rsi
+
+- type: entity
+  id: ClothingHeadSunflowerCrown
+  parent: ClothingHeadBase
+  name: венок из подсолнухов
+  description: Яркий венок из солнечных цветов.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/sunflower_crown.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/sunflower_crown.rsi
+  - type: Construction
+    graph: SunflowerCrown
+    node: SunflowerCrown
+
+- type: entity
+  id: ClothingHeadPoppyCrown
+  parent: ClothingHeadBase
+  name: венок из маков
+  description: Венок из ярко-красных маков.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/poppy_crown.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/poppy_crown.rsi
+  - type: Construction
+    graph: PoppyCrown
+    node: PoppyCrown
+
+- type: entity
+  id: ClothingHeadLilyCrown
+  parent: ClothingHeadBase
+  name: венок из лилий
+  description: Лиственный венок с крупными белыми лилиями.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/lily_crown.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/lily_crown.rsi
+  - type: Construction
+    graph: LilyCrown
+    node: LilyCrown
+
+- type: entity
+  id: ClothingHeadGeraniumCrown
+  parent: ClothingHeadBase
+  name: венок из герани
+  description: Венок из насыщенно-фиолетовых цветов герани.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/geranium_crown.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/geranium_crown.rsi
+  - type: Construction
+    graph: GeraniumCrown
+    node: GeraniumCrown
+
+- type: entity
+  id: ClothingMaskCatcrinOne
+  parent: ClothingMaskGasSyndicateCool
+  name: тактическая маска Кэткрин
+  description: Боевая газовая маска со специальным визором и фильтрами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/catcrin_one.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/catcrin_one.rsi
+
+- type: entity
+  id: ClothingEyesHypnoPink
+  parent: ClothingEyesHudMedical
+  name: розовые гипноочки
+  description: Розовые очки с медицинским визором.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Eyes/hypnogoggles_pink.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Eyes/hypnogoggles_pink.rsi
+
+- type: entity
+  id: ClothingEyesHypnoTeal
+  parent: ClothingEyesHudMedical
+  name: бирюзовые гипноочки
+  description: Бирюзовые очки с медицинским визором.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Eyes/hypnogoggles_teal.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Eyes/hypnogoggles_teal.rsi
+
+- type: entity
+  id: ClothingEyesKBlindfoldPink
+  parent: ClothingEyesBlindfold
+  name: розовая повязка на глаза
+  description: Плотная розовая повязка, полностью закрывающая обзор.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Eyes/kblindfold_pink.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Eyes/kblindfold_pink.rsi
+
+- type: entity
+  id: ClothingEyesKBlindfoldTeal
+  parent: ClothingEyesBlindfold
+  name: бирюзовая повязка на глаза
+  description: Плотная бирюзовая повязка, полностью закрывающая обзор.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Eyes/kblindfold_teal.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Eyes/kblindfold_teal.rsi
+- type: entity
+  id: ClothingEyesNiceGoggles
+  parent: ClothingEyesGlasses
+  name: аккуратные очки
+  description: Обычные аккуратные очки без лишних функций.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Eyes/nice_goggles.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Eyes/nice_goggles.rsi
+
+- type: entity
+  id: ClothingOuterSweaterFlower
+  parent: ClothingOuterBase
+  name: свитер с цветами
+  description: Уютный светлый свитер с нежным цветочным узором.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/sweater_flower.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/sweater_flower.rsi
+
+- type: entity
+  id: ClothingOuterFormalBlackCoat
+  parent: ClothingOuterBase
+  name: строгий чёрный сюртук
+  description: Элегантный чёрный двубортный сюртук строгого кроя.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/formal_black_coat.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/formal_black_coat.rsi
+
+- type: entity
+  id: ClothingOuterElegantTrenchcloak
+  parent: ClothingOuterBase
+  name: элегантный плащ
+  description: Длинный тёмный плащ строгого кроя для тех, кто ценит сдержанный стиль.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/elegant_trenchcloak.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/elegant_trenchcloak.rsi
+

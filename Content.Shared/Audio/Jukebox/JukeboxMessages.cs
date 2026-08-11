@@ -39,6 +39,14 @@ public sealed class JukeboxSetTimeMessage(float songTime) : BoundUserInterfaceMe
     public float SongTime { get; } = songTime;
 }
 
+// Radiant Sector
+[Serializable, NetSerializable]
+public sealed class JukeboxSetVolumeMessage(float volume) : BoundUserInterfaceMessage
+{
+    public float Volume { get; } = volume;
+}
+// End Radiant Sector
+
 /// <summary>
 ///     Sent to the server to delete an item in the queue.
 /// </summary>

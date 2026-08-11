@@ -94,3 +94,21 @@
   - type: Sprite
     scale: 0.9, 0.9
     state: poster9
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterContrabandStockingsRS
+  name: постер «Чулки»
+  description: Рекламный постер с эффектной парой чулок.
+  components:
+  - type: Sprite
+    state: stockings
+
+- type: entity
+  parent: PosterLegitAcorp
+  id: PosterContrabandDuffyRS
+  name: постер Даффи
+  description: Стильный постер с загадочной Даффи.
+  components:
+  - type: Sprite
+    state: poster_sr_duffy

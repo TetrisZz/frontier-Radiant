@@ -125,6 +125,10 @@
       - NFPosterContrabandEms
       - NFPosterContrabandSsfLogo
       # End Frontier
+      # Radiant Sector
+      - PosterContrabandStockingsRS
+      - PosterContrabandDuffyRS
+      # End Radiant Sector
     chance: 1
 
 - type: entity
@@ -201,4 +205,8 @@
       - NFPosterLegitHaveYouSeenThisEgg
       - NFPosterLegitGunTurnIn
         # End Frontier
+      # Radiant Sector
+      - PosterContrabandStockingsRS
+      - PosterContrabandDuffyRS
+      # End Radiant Sector
     chance: 1

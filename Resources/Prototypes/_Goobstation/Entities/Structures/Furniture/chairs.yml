@@ -58,6 +58,7 @@
         density: 75
         mask:
         - TableMask
+        - PronePassable # Radiant Sector: rolling chairs must collide with tables and railings.
   - type: StaticPrice
     price: 50
   - type: ItemSlots # Frontier: remove key slot

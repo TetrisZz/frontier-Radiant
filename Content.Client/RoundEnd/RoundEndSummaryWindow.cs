@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
 using Content.Shared.GameTicking;
@@ -11,14 +10,11 @@ namespace Content.Client.RoundEnd
 {
     public sealed class RoundEndSummaryWindow : DefaultWindow
     {
-        private readonly IEntityManager _entityManager;
         public int RoundId;
 
         public RoundEndSummaryWindow(string gm, string roundEnd, TimeSpan roundTimeSpan, int roundId,
             RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager, string customObjective) // Frontier: add customObjective
         {
-            _entityManager = entityManager;
-
             MinSize = SetSize = new Vector2(520, 580);
 
             Title = Loc.GetString("round-end-summary-window-title");
@@ -33,7 +29,7 @@ namespace Content.Client.RoundEnd
             var roundEndTabs = new TabContainer();
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakeCustomObjectiveTab(customObjective)); // Frontier
-            roundEndTabs.AddChild(MakePlayerManifestTab(info));
+            // Radiant Sector: the end-of-round player manifest is intentionally hidden.
 
             Contents.AddChild(roundEndTabs);
 
@@ -88,84 +84,6 @@ namespace Content.Client.RoundEnd
             roundEndSummaryTab.AddChild(roundEndSummaryContainerScrollbox);
 
             return roundEndSummaryTab;
-        }
-
-        private BoxContainer MakePlayerManifestTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
-        {
-            var playerManifestTab = new BoxContainer
-            {
-                Orientation = LayoutOrientation.Vertical,
-                Name = Loc.GetString("round-end-summary-window-player-manifest-tab-title")
-            };
-
-            var playerInfoContainerScrollbox = new ScrollContainer
-            {
-                VerticalExpand = true,
-                Margin = new Thickness(10)
-            };
-            var playerInfoContainer = new BoxContainer
-            {
-                Orientation = LayoutOrientation.Vertical
-            };
-
-            //Put observers at the bottom of the list. Put antags on top.
-            var sortedPlayersInfo = playersInfo.OrderBy(p => p.Observer).ThenBy(p => !p.Antag);
-
-            //Create labels for each player info.
-            foreach (var playerInfo in sortedPlayersInfo)
-            {
-                var hBox = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Horizontal,
-                };
-
-                var playerInfoText = new RichTextLabel
-                {
-                    VerticalAlignment = VAlignment.Center,
-                    VerticalExpand = true,
-                };
-
-                if (playerInfo.PlayerNetEntity != null)
-                {
-                    hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
-                        {
-                            OverrideDirection = Direction.South,
-                            VerticalAlignment = VAlignment.Center,
-                            SetSize = new Vector2(32, 32),
-                            VerticalExpand = true,
-                        });
-                }
-
-                if (playerInfo.PlayerICName != null)
-                {
-                    if (playerInfo.Observer)
-                    {
-                        playerInfoText.SetMarkup(
-                            Loc.GetString("round-end-summary-window-player-info-if-observer-text",
-                                          ("playerOOCName", playerInfo.PlayerOOCName),
-                                          ("playerICName", playerInfo.PlayerICName)));
-                    }
-                    else
-                    {
-                        //TODO: On Hover display a popup detailing more play info.
-                        //For example: their antag goals and if they completed them sucessfully.
-                        var icNameColor = playerInfo.Antag ? "red" : "white";
-                        playerInfoText.SetMarkup(
-                            Loc.GetString("round-end-summary-window-player-info-if-not-observer-text",
-                                ("playerOOCName", playerInfo.PlayerOOCName),
-                                ("icNameColor", icNameColor),
-                                ("playerICName", playerInfo.PlayerICName),
-                                ("playerRole", Loc.GetString(playerInfo.Role))));
-                    }
-                }
-                hBox.AddChild(playerInfoText);
-                playerInfoContainer.AddChild(hBox);
-            }
-
-            playerInfoContainerScrollbox.AddChild(playerInfoContainer);
-            playerManifestTab.AddChild(playerInfoContainerScrollbox);
-
-            return playerManifestTab;
         }
 
         // Frontier: custom objective tab

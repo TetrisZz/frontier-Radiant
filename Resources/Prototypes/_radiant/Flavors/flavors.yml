@@ -1,0 +1,69 @@
+- type: flavor
+  id: radiantWizzFizz
+  flavorType: Complex
+  description: flavor-complex-radiantWizzFizz
+
+- type: flavor
+  id: radiantNarsour
+  flavorType: Complex
+  description: flavor-complex-radiantNarsour
+
+- type: flavor
+  id: radiantLavalSpit
+  flavorType: Complex
+  description: flavor-complex-radiantLavalSpit
+
+- type: flavor
+  id: radiantPinotMort
+  flavorType: Complex
+  description: flavor-complex-radiantPinotMort
+
+- type: flavor
+  id: radiantStrawberryShake
+  flavorType: Complex
+  description: flavor-complex-radiantStrawberryShake
+
+- type: flavor
+  id: radiantPlanetCracker
+  flavorType: Complex
+  description: flavor-complex-radiantPlanetCracker
+
+- type: flavor
+  id: radiantBaconEgg
+  flavorType: Complex
+  description: flavor-complex-radiantBaconEgg
+
+- type: flavor
+  id: radiantKebab
+  flavorType: Complex
+  description: flavor-complex-radiantKebab
+
+- type: flavor
+  id: radiantDogTreat
+  flavorType: Complex
+  description: flavor-complex-radiantDogTreat
+
+- type: flavor
+  id: radiantSushiEgg
+  flavorType: Complex
+  description: flavor-complex-radiantSushiEgg
+
+- type: flavor
+  id: radiantRiceBall
+  flavorType: Complex
+  description: flavor-complex-radiantRiceBall
+
+- type: flavor
+  id: radiantSushiPro
+  flavorType: Complex
+  description: flavor-complex-radiantSushiPro
+
+- type: flavor
+  id: radiantSushiAdv
+  flavorType: Complex
+  description: flavor-complex-radiantSushiAdv
+
+- type: flavor
+  id: radiantReispan
+  flavorType: Complex
+  description: flavor-complex-radiantReispan

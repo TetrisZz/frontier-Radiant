@@ -1,0 +1,29 @@
+- type: loadout # Radiant
+  id: ContractorClothingUnderwearTopBraKladmen
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopBraKladmen
+
+- type: loadout
+  id: ContractorClothingUnderwearTopBraTroubleneko
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopBraTroubleneko
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesKladmen
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesKladmen
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesTroubleneko
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesTroubleneko
+
+- type: loadout
+  id: ContractorClothingUnderwearSocksTroubleneko
+  price: 100
+  equipment:
+    socks: ClothingUnderwearSocksTroubleneko

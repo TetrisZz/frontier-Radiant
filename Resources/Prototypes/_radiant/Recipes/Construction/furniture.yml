@@ -113,3 +113,23 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  id: RadiantShower
+  graph: RadiantShowerGraph
+  startNode: start
+  targetNode: shower
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: FloorDrain
+  graph: RadiantFloorDrainGraph
+  startNode: start
+  targetNode: floorDrain
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

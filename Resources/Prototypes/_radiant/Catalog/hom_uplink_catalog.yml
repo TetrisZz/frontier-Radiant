@@ -910,3 +910,82 @@
 ##      whitelist:
 ##        tags:
 ##          - HomUplink
+# Tactical mask
+- type: listing
+  id: UplinkHomClothingMaskGasSyndicateCool
+  name: uplink-hom-syndicate-cool-mask-name
+  description: uplink-hom-syndicate-cool-mask-desc
+  productEntity: ClothingMaskGasSyndicateCool
+  icon: { sprite: _radiant/Clothing/Mask/syndicate_cool.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+  - UplinkHomUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+- type: listing
+  id: UplinkHomClothingNeckCorvusPendant
+  name: uplink-hom-corvus-pendant-name
+  description: uplink-hom-corvus-pendant-desc
+  productEntity: ClothingNeckCorvusPendant
+  icon: { sprite: _radiant/Clothing/Neck/corvus_pendant.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories:
+  - UplinkHomUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomClothingMaskCatcrinOne
+  name: uplink-hom-catcrin-mask-name
+  description: uplink-hom-catcrin-mask-desc
+  productEntity: ClothingMaskCatcrinOne
+  icon: { sprite: _radiant/Clothing/Mask/catcrin_one.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+  - UplinkHomUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomClothingOuterFormalBlackCoat
+  name: строгий чёрный сюртук
+  description: Элегантный сюртук для создания безупречного образа.
+  productEntity: ClothingOuterFormalBlackCoat
+  icon: { sprite: _radiant/Clothing/OuterClothing/Coats/formal_black_coat.rsi, state: icon }
+  cost:
+    Cristalhom: 3
+  categories:
+  - UplinkHomUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomClothingOuterElegantTrenchcloak
+  name: элегантный плащ
+  description: Длинный плащ с выразительным силуэтом и сдержанной отделкой.
+  productEntity: ClothingOuterElegantTrenchcloak
+  icon: { sprite: _radiant/Clothing/OuterClothing/Coats/elegant_trenchcloak.rsi, state: icon }
+  cost:
+    Cristalhom: 3
+  categories:
+  - UplinkHomUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink

@@ -89,6 +89,27 @@
         Heat: 0.95
 
 - type: entity
+  parent: [ClothingMaskGas, BaseC1Contraband, ContrabandClothing]
+  id: ClothingMaskGasSyndicateCool
+  name: тактический противогаз Каткрин
+  description: Тактическая маска с красным визором, специальными фильтрами и декоративными кошачьими усами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/syndicate_cool.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/syndicate_cool.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
   parent: ClothingMaskBandanaBase
   id: ClothingMaskBalaclavaSeparatist
   name: балаклава с черепом

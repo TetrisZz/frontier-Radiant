@@ -53,6 +53,12 @@
   components:
   - type: BountyContractData
 
+# Radiant Sector: restored after the tax service accidentally replaced public transit.
+- type: sectorService
+  id: PublicTransit
+  components:
+  - type: SectorPublicTransit
+
 - type: sectorService
   id: TaxRates
   components:

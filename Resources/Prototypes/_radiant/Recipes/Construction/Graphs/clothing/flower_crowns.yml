@@ -1,0 +1,147 @@
+- type: constructionGraph
+  id: SunflowerCrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: SunflowerCrown
+      steps:
+      - tag: Flower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Flower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Flower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Flower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: Flower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+        doAfter: 5
+  - node: SunflowerCrown
+    entity: ClothingHeadSunflowerCrown
+
+- type: constructionGraph
+  id: PoppyCrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: PoppyCrown
+      steps:
+      - tag: PoppyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: PoppyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: PoppyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: PoppyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+      - tag: PoppyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/poppy.rsi
+          state: produce
+        doAfter: 5
+  - node: PoppyCrown
+    entity: ClothingHeadPoppyCrown
+
+- type: constructionGraph
+  id: LilyCrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: LilyCrown
+      steps:
+      - tag: lilyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/lily.rsi
+          state: produce
+      - tag: lilyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/lily.rsi
+          state: produce
+      - tag: lilyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/lily.rsi
+          state: produce
+      - tag: lilyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/lily.rsi
+          state: produce
+      - tag: lilyFlower
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/lily.rsi
+          state: produce
+        doAfter: 5
+  - node: LilyCrown
+    entity: ClothingHeadLilyCrown
+
+- type: constructionGraph
+  id: GeraniumCrown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: GeraniumCrown
+      steps:
+      - tag: SpacemansTrumpet
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
+          state: produce
+      - tag: SpacemansTrumpet
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
+          state: produce
+      - tag: SpacemansTrumpet
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
+          state: produce
+      - tag: SpacemansTrumpet
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
+          state: produce
+      - tag: SpacemansTrumpet
+        name: construction-graph-tag-flower
+        icon:
+          sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
+          state: produce
+        doAfter: 5
+  - node: GeraniumCrown
+    entity: ClothingHeadGeraniumCrown

@@ -114,6 +114,7 @@
       - EncryptionKeyEmergency
       - EncryptionKeyCommon
       - EncryptionKeySecurity
+      - EncryptionKeyMedical
   - type: Sprite
     sprite: Clothing/Ears/Headsets/brigmedic.rsi
   - type: Clothing
