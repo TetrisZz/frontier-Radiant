@@ -1,0 +1,91 @@
+- type: entity
+  id: BeachUmbrella
+  name: beach umbrella
+  description: A broad umbrella that provides a little shade and a lot of holiday spirit.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: GravityAffected
+  - type: Pullable
+  - type: Tag
+    tags:
+    - Structure
+  - type: Sprite
+    sprite: _radiant/Structures/Decoration/beach_umbrellas.rsi
+    state: brella
+    drawdepth: Overdoors
+  - type: Anchorable
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      base:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 60
+        mask:
+        - MachineMask
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Construction
+    graph: BeachUmbrellas
+    node: umbrella
+
+- type: entity
+  parent: BeachUmbrella
+  id: BeachUmbrellaPurple
+  name: purple beach umbrella
+  components:
+  - type: Sprite
+    state: rd_brella
+  - type: Construction
+    graph: BeachUmbrellas
+    node: umbrellaPurple
+
+- type: entity
+  parent: BeachUmbrella
+  id: BeachUmbrellaRed
+  name: red beach umbrella
+  components:
+  - type: Sprite
+    state: hos_brella
+  - type: Construction
+    graph: BeachUmbrellas
+    node: umbrellaRed
+
+- type: entity
+  parent: BeachUmbrella
+  id: BeachUmbrellaBlue
+  name: blue beach umbrella
+  components:
+  - type: Sprite
+    state: cap_brella
+  - type: Construction
+    graph: BeachUmbrellas
+    node: umbrellaBlue
+
+- type: entity
+  parent: BeachUmbrella
+  id: BeachUmbrellaGreen
+  name: green beach umbrella
+  components:
+  - type: Sprite
+    state: ce_brella
+  - type: Construction
+    graph: BeachUmbrellas
+    node: umbrellaGreen
+
+- type: entity
+  parent: BeachUmbrella
+  id: BeachUmbrellaBlackRed
+  name: black-and-red beach umbrella
+  components:
+  - type: Sprite
+    state: syndi_brella
+  - type: Construction
+    graph: BeachUmbrellas
+    node: umbrellaBlackRed

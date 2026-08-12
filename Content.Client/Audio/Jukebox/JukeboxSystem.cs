@@ -1,6 +1,11 @@
+using Content.Client._radiant.CCVar;
 using Content.Shared.Audio.Jukebox;
 using Robust.Client.Animations;
+using Robust.Client.Audio; // Radiant Sector
 using Robust.Client.GameObjects;
+using Robust.Shared.Audio.Components; // Radiant Sector
+using Robust.Shared.Audio.Systems; // Radiant Sector
+using Robust.Shared.Configuration; // Radiant Sector
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers; // Frontier
 
@@ -9,18 +14,26 @@ namespace Content.Client.Audio.Jukebox;
 
 public sealed class JukeboxSystem : SharedJukeboxSystem
 {
+    private bool _clientMusicEnabled = true; // Radiant Sector
+
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!; // Radiant Sector
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Radiant Sector
 
     public override void Initialize()
     {
+        UpdatesAfter.Add(typeof(AudioSystem)); // Radiant Sector: keep locally muted music silent after audio updates.
         base.Initialize();
         SubscribeLocalEvent<JukeboxComponent, AppearanceChangeEvent>(OnAppearanceChange);
         SubscribeLocalEvent<JukeboxComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<JukeboxComponent, AfterAutoHandleStateEvent>(OnJukeboxAfterState);
         SubscribeLocalEvent<JukeboxComponent, EntInsertedIntoContainerMessage>(OnRecordInserted); // Frontier
+
+        // Radiant Sector: allow this client to mute jukebox and boombox music.
+        Subs.CVar(_configuration, RadiantClientCCVars.JukeboxMusicEnabled, OnJukeboxMusicChanged, true);
 
         _protoManager.PrototypesReloaded += OnProtoReload;
     }
@@ -49,12 +62,69 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     private void OnJukeboxAfterState(Entity<JukeboxComponent> ent, ref AfterAutoHandleStateEvent args)
     {
+        // Radiant Sector: reapply the local mute after the server changes this machine or its stream.
+        ApplyClientAudibility(ent.Comp);
+
         if (!_uiSystem.TryGetOpenUi<JukeboxBoundUserInterface>(ent.Owner, JukeboxUiKey.Key, out var bui))
             return;
 
         bui.PopulateMusic(); // Frontier
         bui.Reload();
     }
+
+    // Radiant Sector start
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+
+        if (!_clientMusicEnabled)
+            MuteAllClientStreams();
+    }
+
+    private void OnJukeboxMusicChanged(bool enabled)
+    {
+        _clientMusicEnabled = enabled;
+
+        if (enabled)
+            ApplyClientAudibilityToAll();
+        else
+            MuteAllClientStreams();
+    }
+
+    private void MuteAllClientStreams()
+    {
+        var query = EntityQueryEnumerator<JukeboxComponent>();
+        while (query.MoveNext(out _, out var jukebox))
+        {
+            if (jukebox.AudioStream is not { } stream || !TryComp<AudioComponent>(stream, out var audio))
+                continue;
+
+            audio.Gain = 0f;
+        }
+    }
+
+    private void ApplyClientAudibilityToAll()
+    {
+        var query = EntityQueryEnumerator<JukeboxComponent>();
+        while (query.MoveNext(out _, out var jukebox))
+            ApplyClientAudibility(jukebox);
+    }
+
+    private void ApplyClientAudibility(JukeboxComponent jukebox)
+    {
+        if (jukebox.AudioStream is not { } stream || !TryComp<AudioComponent>(stream, out var audio))
+            return;
+
+        if (!_clientMusicEnabled)
+        {
+            audio.Gain = 0f;
+            return;
+        }
+
+        var volume = SharedAudioSystem.GainToVolume(Math.Clamp(jukebox.Volume, 0f, 1f));
+        _audio.SetVolume(audio.Owner, volume, audio);
+    }
+    // Radiant Sector end
 
     // Frontier
     public void OnRecordInserted(Entity<JukeboxComponent> ent, ref EntInsertedIntoContainerMessage args)

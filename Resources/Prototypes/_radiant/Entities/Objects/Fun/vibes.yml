@@ -28,8 +28,6 @@
   - type: UseDelay
     delay: 1.0
   - type: Appearance 
-  - type: ToggleableVisuals # Add support for multiple layers
-    spriteLayer: on
 
 - type: entity
   parent: [BaseVibe, ClothingButtPlugBase]
@@ -40,11 +38,16 @@
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/Vibes/magic_wand.rsi
     layers:
-      - state: magicwand_off
-        map: ["base"]
-      - state: magicwand_medium
-        map: ["on"]
-        visible: false
+    - state: magicwand_off
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Color:
+        enum.ToggleableVisuals.Layer:
+          Off: { state: magicwand_off }
+          Low: { state: magicwand_low }
+          Medium: { state: magicwand_medium }
+          Hard: { state: magicwand_hard }
 
 - type: entity
   parent: [BaseVibe, ClothingButtPlugBase]
@@ -55,11 +58,16 @@
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_green.rsi
     layers:
-      - state: vibrator_green_off
-        map: ["base"]
-      - state: vibrator_green_medium
-        map: ["on"]
-        visible: false
+    - state: vibrator_green_off
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Color:
+        enum.ToggleableVisuals.Layer:
+          Off: { state: vibrator_green_off }
+          Low: { state: vibrator_green_low }
+          Medium: { state: vibrator_green_medium }
+          Hard: { state: vibrator_green_hard }
 
 - type: entity
   parent: [BaseVibe, ClothingButtPlugBase]
@@ -70,11 +78,16 @@
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_teal.rsi
     layers:
-      - state: vibrator_teal_off
-        map: ["base"]
-      - state: vibrator_teal_medium
-        map: ["on"]
-        visible: false
+    - state: vibrator_teal_off
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Color:
+        enum.ToggleableVisuals.Layer:
+          Off: { state: vibrator_teal_off }
+          Low: { state: vibrator_teal_low }
+          Medium: { state: vibrator_teal_medium }
+          Hard: { state: vibrator_teal_hard }
 
 - type: entity
   parent: [BaseVibe, ClothingButtPlugBase]
@@ -85,11 +98,16 @@
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_pink.rsi
     layers:
-      - state: vibrator_pink_off
-        map: ["base"]
-      - state: vibrator_pink_medium
-        map: ["on"]
-        visible: false
+    - state: vibrator_pink_off
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Color:
+        enum.ToggleableVisuals.Layer:
+          Off: { state: vibrator_pink_off }
+          Low: { state: vibrator_pink_low }
+          Medium: { state: vibrator_pink_medium }
+          Hard: { state: vibrator_pink_hard }
 
 - type: entity
   parent: [BaseVibe, ClothingButtPlugBase]
@@ -100,11 +118,16 @@
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_red.rsi
     layers:
-      - state: vibrator_red_off
-        map: ["base"]
-      - state: vibrator_red_medium
-        map: ["on"]
-        visible: false
+    - state: vibrator_red_off
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Color:
+        enum.ToggleableVisuals.Layer:
+          Off: { state: vibrator_red_off }
+          Low: { state: vibrator_red_low }
+          Medium: { state: vibrator_red_medium }
+          Hard: { state: vibrator_red_hard }
 
 - type: entity
   parent: [BaseVibe, ClothingButtPlugBase]
@@ -115,11 +138,16 @@
   - type: Sprite
     sprite: _radiant/Objects/Fun/Erp/Vibes/vibrator_yellow.rsi
     layers:
-      - state: vibrator_yellow_off
-        map: ["base"]
-      - state: vibrator_yellow_medium
-        map: ["on"]
-        visible: false
+    - state: vibrator_yellow_off
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Color:
+        enum.ToggleableVisuals.Layer:
+          Off: { state: vibrator_yellow_off }
+          Low: { state: vibrator_yellow_low }
+          Medium: { state: vibrator_yellow_medium }
+          Hard: { state: vibrator_yellow_hard }
 
 - type: entity
   parent: BaseItem

@@ -158,6 +158,92 @@
         color: "#3e3e48"
 
 - type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskBallGagRS
+  name: шариковый кляп
+  description: Кляп с ремешком и шариком, который превращает разборчивую речь в невнятное мычание.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/ball_gag.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/ball_gag.rsi
+    equipDelay: 3
+    unequipDelay: 3
+  - type: IngestionBlocker
+  - type: AddAccentClothing
+    accent: MumbleAccent
+  - type: EmoteBlocker
+    blocksCategories:
+    - Vocal
+
+- type: entity
+  abstract: true
+  parent: ClothingMaskPullableBase
+  id: ClothingMaskHalfToggleBase
+  components:
+  - type: Sprite
+    state: icon
+
+- type: entity
+  parent: ClothingMaskHalfToggleBase
+  id: ClothingMaskHalf
+  name: чёрная полумаска
+  description: Лаконичная защитная полумаска, которую можно опустить.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/half_mask.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/half_mask.rsi
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasAlt2
+  name: альтернативный противогаз
+  description: Компактный противогаз необычной формы с надёжными фильтрами.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/gas_alt2.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/gas_alt2.rsi
+
+- type: entity
+  parent: ClothingMaskHalfToggleBase
+  id: ClothingMaskHalfFlektarn
+  name: полумаска «флектарн»
+  description: Полумаска с пятнистым камуфляжным рисунком, которую можно опустить.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/half_mask_flektarn.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/half_mask_flektarn.rsi
+
+- type: entity
+  parent: ClothingMaskHalfToggleBase
+  id: ClothingMaskHalfTan
+  name: песочная полумаска
+  description: Полумаска спокойного песочного оттенка, которую можно опустить.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/half_mask_tan.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/half_mask_tan.rsi
+
+- type: entity
+  parent: ClothingMaskHalfToggleBase
+  id: ClothingMaskFir22
+  name: защитная маска FIR-22
+  description: Закрытая тактическая маска со встроенной защитой глаз; её можно опустить.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Mask/fir22.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Mask/fir22.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+
+- type: entity
   parent: ClothingMaskBandanaBase
   id: ClothingMaskBalaclavaDon
   name: балаклава

@@ -1,0 +1,59 @@
+- type: barSign
+  id: RSEvaHumanSpace
+  name: barsign-rs-name-eva-human-space
+  description: barsign-rs-desc-eva-human-space
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: evahumanspace }
+
+- type: barSign
+  id: RSMeowMix
+  name: barsign-rs-name-meow-mix
+  description: barsign-rs-desc-meow-mix
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: meow_mix }
+
+- type: barSign
+  id: RSPourAndThatsIt
+  name: barsign-rs-name-pour-and-thats-it
+  description: barsign-rs-desc-pour-and-thats-it
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: pourndot }
+
+- type: barSign
+  id: RSShitcur
+  name: barsign-rs-name-shitcur
+  description: barsign-rs-desc-shitcur
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: shitcur }
+
+- type: barSign
+  id: RSMooniverse
+  name: barsign-rs-name-mooniverse
+  description: barsign-rs-desc-mooniverse
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: mooni }
+
+- type: barSign
+  id: RSSaucyClown
+  name: barsign-rs-name-saucy-clown
+  description: barsign-rs-desc-saucy-clown
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: thesaucyclown }
+
+- type: barSign
+  id: RSClownsHead
+  name: barsign-rs-name-clowns-head
+  description: barsign-rs-desc-clowns-head
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: theclownshead }
+
+- type: barSign
+  id: RSCyberSylph
+  name: barsign-rs-name-cyber-sylph
+  description: barsign-rs-desc-cyber-sylph
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: cybersylph }
+
+- type: barSign
+  id: RSTopMen
+  name: barsign-rs-name-top-men
+  description: barsign-rs-desc-top-men
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: topmen }
+
+- type: barSign
+  id: RSLimbo
+  name: barsign-rs-name-limbo
+  description: barsign-rs-desc-limbo
+  icon: { sprite: _radiant/Structures/Wallmounts/bar_signs.rsi, state: limbo }

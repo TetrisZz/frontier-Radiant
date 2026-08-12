@@ -437,6 +437,11 @@
   - ContractorClothingOuterSweaterFlower # Radiant Sector
   - ContractorClothingOuterFormalBlackCoat # Radiant Sector
   - ContractorClothingOuterElegantTrenchcloak # Radiant Sector
+  - ContractorClothingOuterDraculaCoat # Radiant Sector
+  - ContractorClothingOuterGothCoat # Radiant Sector
+  - ContractorClothingOuterTailcoat # Radiant Sector
+  - ContractorClothingOuterGothicCoat # Radiant Sector
+  - ContractorClothingOuterWinterVSR93 # Radiant Sector
 
 - type: loadoutGroup
   id: ContractorBelt
@@ -711,6 +716,8 @@
   minLimit: 0
   loadouts:
   - ContractorClothingNeckBlackSoulCoat # Radiant Sector
+  - ContractorClothingNeckNinjaScarfClassic # Radiant Sector
+  - ContractorClothingNeckNinjaScarfNew # Radiant Sector
   - ContractorClothingNeckScarfStripedBlack
   - ContractorClothingNeckScarfStripedBlue
   - ContractorClothingNeckScarfStripedBrown
@@ -971,6 +978,11 @@
   - ContractorClothingMaskBreathMedical
   - ContractorClothingMaskSterile
   - ContractorClothingMaskGas
+  - ContractorClothingMaskHalf # Radiant Sector
+  - ContractorClothingMaskGasAlt2 # Radiant Sector
+  - ContractorClothingMaskHalfFlektarn # Radiant Sector
+  - ContractorClothingMaskHalfTan # Radiant Sector
+  - ContractorClothingMaskFir22 # Radiant Sector
   - ContractorClothingMaskPunkHalf # Punkish (Randomized visuals)
   - ContractorClothingMaskGasExplorer
   - ContractorClothingMaskGasCaptain

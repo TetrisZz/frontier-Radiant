@@ -9,6 +9,11 @@ public sealed class ShowerWaterSystem : EntitySystem
 {
     [Dependency] private readonly PuddleSystem _puddle = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);

@@ -92,3 +92,109 @@
   equipment:
     outerClothing: ClothingOuterElegantTrenchcloak
   groupBy: "RespectedSocietyOuterwear"
+
+- type: loadout
+  id: ContractorClothingOuterDraculaCoat
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterDraculaCoat
+  groupBy: "OuterCoats"
+
+- type: loadout
+  id: ContractorClothingOuterGothCoat
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterGothCoat
+  groupBy: "OuterCoats"
+
+- type: loadout
+  id: ContractorClothingOuterTailcoat
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterTailcoat
+  groupBy: "OuterCoats"
+
+- type: loadout
+  id: ContractorClothingOuterGothicCoat
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterGothicCoat
+  groupBy: "OuterCoats"
+
+- type: loadout
+  id: ContractorClothingOuterWinterVSR93
+  price: 200
+  equipment:
+    outerClothing: ClothingOuterWinterVSR93
+  groupBy: "OuterCoats"
+
+- type: loadout
+  id: ContractorClothingNeckNinjaScarfClassic
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+        role: JobBoxer
+        time: 360000 # 100 hours
+  price: 200
+  equipment:
+    neck: ClothingNeckNinjaScarfClassic
+  groupBy: "RespectedSocietyNeckwear"
+
+- type: loadout
+  id: ContractorClothingNeckNinjaScarfNew
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+        role: JobBoxer
+        time: 360000 # 100 hours
+  price: 200
+  equipment:
+    neck: ClothingNeckNinjaScarfNew
+  groupBy: "RespectedSocietyNeckwear"
+
+- type: loadout
+  id: ContractorClothingMaskHalf
+  effects: &RespectedSocietyMaskRequirement
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+        role: JobBoxer
+        time: 360000 # 100 hours
+  price: 200
+  equipment:
+    mask: ClothingMaskHalf
+  groupBy: "RespectedSocietyMasks"
+
+- type: loadout
+  id: ContractorClothingMaskGasAlt2
+  effects: *RespectedSocietyMaskRequirement
+  price: 200
+  equipment:
+    mask: ClothingMaskGasAlt2
+  groupBy: "RespectedSocietyMasks"
+
+- type: loadout
+  id: ContractorClothingMaskHalfFlektarn
+  effects: *RespectedSocietyMaskRequirement
+  price: 200
+  equipment:
+    mask: ClothingMaskHalfFlektarn
+  groupBy: "RespectedSocietyMasks"
+
+- type: loadout
+  id: ContractorClothingMaskHalfTan
+  effects: *RespectedSocietyMaskRequirement
+  price: 200
+  equipment:
+    mask: ClothingMaskHalfTan
+  groupBy: "RespectedSocietyMasks"
+
+- type: loadout
+  id: ContractorClothingMaskFir22
+  effects: *RespectedSocietyMaskRequirement
+  price: 200
+  equipment:
+    mask: ClothingMaskFir22
+  groupBy: "RespectedSocietyMasks"

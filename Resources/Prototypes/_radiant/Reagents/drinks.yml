@@ -87,3 +87,58 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: HoneystonesLove
+  name: reagent-name-honeystones-love
+  parent: BaseAlcohol
+  desc: reagent-desc-honeystones-love
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: radiantHoneystonesLove
+  color: "#e6a83c"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/honeystones_love.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type:ModifyArousal
+        amount: 0.12
+      - !type:Emote
+        emote: Ston
+        probability: 0.015
+        showInChat: true
+
+- type: reagent
+  id: Skullfucker
+  name: reagent-name-skullfucker
+  parent: BaseAlcohol
+  desc: reagent-desc-skullfucker
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: radiantSkullfucker
+  color: "#4c2730"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/skullfucker.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: MothInChief
+  name: reagent-name-moth-in-chief
+  parent: BaseAlcohol
+  desc: reagent-desc-moth-in-chief
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: radiantMothInChief
+  color: "#84abc0"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/mothinchief.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

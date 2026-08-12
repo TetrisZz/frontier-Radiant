@@ -96,7 +96,6 @@
     price: 100
     vendPrice: 9999 
 
-
 - type: entity
   parent: BoxWRS
   id: BoxRSSexSoloW

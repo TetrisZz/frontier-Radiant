@@ -13,3 +13,6 @@ flavor-complex-radiantRiceBall = как тёплый рис с лёгкой со
 flavor-complex-radiantSushiPro = как нежное филе карпа на приправленном уксусом рисе
 flavor-complex-radiantSushiAdv = как жирный карп, плотный рис и лёгкая острота
 flavor-complex-radiantReispan = как плотный, слегка сладковатый рисовый хлеб
+flavor-complex-radiantHoneystonesLove = как тёплый мёд, пряный ром и обжигающее желание
+flavor-complex-radiantSkullfucker = как горький кофе, крепкая водка и металлическое послевкусие
+flavor-complex-radiantMothInChief = как сливочный абсент с лаймом и едва заметной пыльцой

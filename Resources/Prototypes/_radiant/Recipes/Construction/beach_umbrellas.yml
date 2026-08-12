@@ -1,0 +1,59 @@
+- type: construction
+  id: BeachUmbrella
+  graph: BeachUmbrellas
+  startNode: start
+  targetNode: umbrella
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  icon: { sprite: _radiant/Structures/Decoration/beach_umbrellas.rsi, state: brella }
+
+- type: construction
+  id: BeachUmbrellaPurple
+  graph: BeachUmbrellas
+  startNode: start
+  targetNode: umbrellaPurple
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  icon: { sprite: _radiant/Structures/Decoration/beach_umbrellas.rsi, state: rd_brella }
+
+- type: construction
+  id: BeachUmbrellaRed
+  graph: BeachUmbrellas
+  startNode: start
+  targetNode: umbrellaRed
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  icon: { sprite: _radiant/Structures/Decoration/beach_umbrellas.rsi, state: hos_brella }
+
+- type: construction
+  id: BeachUmbrellaBlue
+  graph: BeachUmbrellas
+  startNode: start
+  targetNode: umbrellaBlue
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  icon: { sprite: _radiant/Structures/Decoration/beach_umbrellas.rsi, state: cap_brella }
+
+- type: construction
+  id: BeachUmbrellaGreen
+  graph: BeachUmbrellas
+  startNode: start
+  targetNode: umbrellaGreen
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  icon: { sprite: _radiant/Structures/Decoration/beach_umbrellas.rsi, state: ce_brella }
+
+- type: construction
+  id: BeachUmbrellaBlackRed
+  graph: BeachUmbrellas
+  startNode: start
+  targetNode: umbrellaBlackRed
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  icon: { sprite: _radiant/Structures/Decoration/beach_umbrellas.rsi, state: syndi_brella }

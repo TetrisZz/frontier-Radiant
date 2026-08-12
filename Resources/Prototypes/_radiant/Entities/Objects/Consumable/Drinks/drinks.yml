@@ -93,3 +93,51 @@
   - type: Icon
     sprite: _radiant/Objects/Consumable/Drinks/planet_cracker.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkHoneystonesLoveGlass
+  suffix: honeystones love
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HoneystonesLove
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/honeystones_love.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSkullfuckerGlass
+  suffix: skullfucker
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Skullfucker
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/skullfucker.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkMothInChiefGlass
+  suffix: moth in chief
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MothInChief
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/mothinchief.rsi
+    state: icon

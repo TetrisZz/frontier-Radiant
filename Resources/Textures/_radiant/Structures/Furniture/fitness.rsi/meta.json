@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Ported from BlueMoon Station: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station",
+  "states": [
+    {
+      "name": "benchpress"
+    },
+    {
+      "name": "benchpress-u"
+    },
+    {
+      "name": "benchpress-o",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "punchingbag"
+    },
+    {
+      "name": "punchingbag-punch",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "exercise-bike",
+      "directions": 4
+    },
+    {
+      "name": "exercise-bike-low",
+      "directions": 4
+    },
+    {
+      "name": "exercise-bike-high",
+      "directions": 4
+    },
+    {
+      "name": "exercise-bike-active",
+      "directions": 4,
+      "delays": [
+        [0.25, 0.25],
+        [0.25, 0.25],
+        [0.25, 0.25],
+        [0.25, 0.25]
+      ]
+    }
+  ]
+}

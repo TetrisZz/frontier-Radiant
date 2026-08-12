@@ -13,3 +13,6 @@ flavor-complex-radiantRiceBall = like warm rice with a lightly salted filling
 flavor-complex-radiantSushiPro = like tender carp fillet on vinegared rice
 flavor-complex-radiantSushiAdv = like rich carp, firm rice, and a touch of heat
 flavor-complex-radiantReispan = like dense, mildly sweet rice bread
+flavor-complex-radiantHoneystonesLove = like warm honey, spiced rum, and burning desire
+flavor-complex-radiantSkullfucker = like bitter coffee, harsh vodka, and a metallic aftertaste
+flavor-complex-radiantMothInChief = like creamy absinthe with lime and a hint of pollen

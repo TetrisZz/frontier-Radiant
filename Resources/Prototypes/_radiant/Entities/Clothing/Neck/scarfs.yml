@@ -25,3 +25,25 @@
     sprite: _radiant/Clothing/Neck/Scarfs/mercapl.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Neck/Scarfs/mercapl.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckNinjaScarfClassic
+  name: классический боевой шарф
+  description: Длинный тёмный шарф, подчёркивающий стремительность каждого движения.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/ninja_scarf_classic.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/ninja_scarf_classic.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckNinjaScarfNew
+  name: современный боевой шарф
+  description: Обновлённый вариант лёгкого шарфа с выразительным силуэтом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/ninja_scarf_new.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/ninja_scarf_new.rsi

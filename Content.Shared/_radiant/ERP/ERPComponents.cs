@@ -1,6 +1,7 @@
 using Content.Shared.DoAfter;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Inventory;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -19,6 +20,34 @@ namespace Content.Shared.ERP.Components
     [ComponentProtoName("Vibrator")]
     public sealed partial class VibratorComponent : Component
     {
+        [DataField]
+        public VibratorMode Mode = VibratorMode.Medium;
+
+        [DataField]
+        public bool Muted;
+
+        [DataField]
+        public SoundSpecifier ActiveSound = new SoundPathSpecifier("/Audio/_radiant/Lewd/vibrate_loop.ogg");
+
+        [DataField]
+        public float PassiveArousalAmount = 2f;
+
+        [DataField]
+        public TimeSpan MediumArousalInterval = TimeSpan.FromSeconds(30);
+
+        [DataField]
+        public TimeSpan HardArousalInterval = TimeSpan.FromSeconds(15);
+
+        public TimeSpan NextPassiveArousal = TimeSpan.Zero;
+
+        [DataField]
+        public TimeSpan MediumMoanInterval = TimeSpan.FromSeconds(60);
+
+        [DataField]
+        public TimeSpan HardMoanInterval = TimeSpan.FromSeconds(30);
+
+        public TimeSpan NextPassiveMoan = TimeSpan.Zero;
+
         /// <summary>
         /// Chance to involuntarily moan after speaking while this vibrator is active in the plug slot.
         /// </summary>
@@ -55,4 +84,12 @@ public sealed partial class SexToyDoAfterEvent : SimpleDoAfterEvent
 [Serializable, NetSerializable]
 public sealed partial class VibratorDoAfterEvent : SimpleDoAfterEvent
 {
+}
+
+public enum VibratorMode : byte
+{
+    Off,
+    Low,
+    Medium,
+    Hard,
 }

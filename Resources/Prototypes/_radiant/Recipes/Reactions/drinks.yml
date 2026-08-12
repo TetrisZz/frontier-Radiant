@@ -59,3 +59,33 @@
     Gold: { amount: 1 }
   products:
     PlanetCracker: 6
+
+- type: reaction
+  id: HoneystonesLove
+  requiredMixerCategories: [Shake]
+  reactants:
+    Honey: { amount: 2 }
+    Aphrodisiac: { amount: 1 }
+    Rum: { amount: 1 }
+  products:
+    HoneystonesLove: 4
+
+- type: reaction
+  id: Skullfucker
+  requiredMixerCategories: [Shake]
+  reactants:
+    Vodka: { amount: 2 }
+    CoffeeLiqueur: { amount: 1 }
+    Blood: { amount: 1 }
+  products:
+    Skullfucker: 4
+
+- type: reaction
+  id: MothInChief
+  requiredMixerCategories: [Shake]
+  reactants:
+    Absinthe: { amount: 1 }
+    Cream: { amount: 1 }
+    JuiceLime: { amount: 1 }
+  products:
+    MothInChief: 3

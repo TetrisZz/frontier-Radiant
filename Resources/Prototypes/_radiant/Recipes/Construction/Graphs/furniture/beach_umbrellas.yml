@@ -1,0 +1,60 @@
+- type: constructionGraph
+  id: BeachUmbrellas
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: umbrella
+      steps:
+      - material: Steel
+        amount: 2
+      - material: Cloth
+        amount: 5
+        doAfter: 5
+    - to: umbrellaPurple
+      steps:
+      - material: Steel
+        amount: 2
+      - material: Cloth
+        amount: 5
+        doAfter: 5
+    - to: umbrellaRed
+      steps:
+      - material: Steel
+        amount: 2
+      - material: Cloth
+        amount: 5
+        doAfter: 5
+    - to: umbrellaBlue
+      steps:
+      - material: Steel
+        amount: 2
+      - material: Cloth
+        amount: 5
+        doAfter: 5
+    - to: umbrellaGreen
+      steps:
+      - material: Steel
+        amount: 2
+      - material: Cloth
+        amount: 5
+        doAfter: 5
+    - to: umbrellaBlackRed
+      steps:
+      - material: Steel
+        amount: 2
+      - material: Cloth
+        amount: 5
+        doAfter: 5
+  - node: umbrella
+    entity: BeachUmbrella
+  - node: umbrellaPurple
+    entity: BeachUmbrellaPurple
+  - node: umbrellaRed
+    entity: BeachUmbrellaRed
+  - node: umbrellaBlue
+    entity: BeachUmbrellaBlue
+  - node: umbrellaGreen
+    entity: BeachUmbrellaGreen
+  - node: umbrellaBlackRed
+    entity: BeachUmbrellaBlackRed
