@@ -480,6 +480,96 @@
           - HomUplink
 
 - type: listing
+  id: UplinkHomWeaponMultiverseSword
+  name: uplink-hom-multiverse-sword-name
+  description: uplink-hom-multiverse-sword-desc
+  productEntity: WeaponMultiverseSword
+  icon: { sprite: _radiant/Objects/Weapons/Melee/multiverse_sword.rsi, state: icon }
+  cost:
+    Cristalhom: 7
+  categories:
+  - UplinkHomWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomClothingNeckNinjaScarfClassic
+  name: классический боевой шарф
+  description: Длинный тёмный шарф для стремительных и уважаемых покупателей.
+  productEntity: ClothingNeckNinjaScarfClassic
+  icon: { sprite: _radiant/Clothing/Neck/ninja_scarf_classic.rsi, state: icon }
+  cost:
+    Cristalhom: 1
+  categories: [ UplinkHomUtility ]
+  conditions: &HomUplinkConditionRS
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [ HomUplink ]
+
+- type: listing
+  id: UplinkHomClothingNeckNinjaScarfNew
+  name: современный боевой шарф
+  description: Обновлённый боевой шарф с выразительным силуэтом.
+  productEntity: ClothingNeckNinjaScarfNew
+  icon: { sprite: _radiant/Clothing/Neck/ninja_scarf_new.rsi, state: icon }
+  cost: { Cristalhom: 1 }
+  categories: [ UplinkHomUtility ]
+  conditions: *HomUplinkConditionRS
+
+- type: listing
+  id: UplinkHomClothingMaskHalf
+  name: чёрная полумаска
+  description: Полумаска, которую можно опустить.
+  productEntity: ClothingMaskHalf
+  icon: { sprite: _radiant/Clothing/Mask/half_mask.rsi, state: icon }
+  cost: { Cristalhom: 1 }
+  categories: [ UplinkHomUtility ]
+  conditions: *HomUplinkConditionRS
+
+- type: listing
+  id: UplinkHomClothingMaskGasAlt2
+  name: альтернативный противогаз
+  description: Компактный противогаз необычной формы.
+  productEntity: ClothingMaskGasAlt2
+  icon: { sprite: _radiant/Clothing/Mask/gas_alt2.rsi, state: icon }
+  cost: { Cristalhom: 1 }
+  categories: [ UplinkHomUtility ]
+  conditions: *HomUplinkConditionRS
+
+- type: listing
+  id: UplinkHomClothingMaskHalfFlektarn
+  name: полумаска «флектарн»
+  description: Камуфляжная полумаска, которую можно опустить.
+  productEntity: ClothingMaskHalfFlektarn
+  icon: { sprite: _radiant/Clothing/Mask/half_mask_flektarn.rsi, state: icon }
+  cost: { Cristalhom: 1 }
+  categories: [ UplinkHomUtility ]
+  conditions: *HomUplinkConditionRS
+
+- type: listing
+  id: UplinkHomClothingMaskHalfTan
+  name: песочная полумаска
+  description: Полумаска песочного оттенка, которую можно опустить.
+  productEntity: ClothingMaskHalfTan
+  icon: { sprite: _radiant/Clothing/Mask/half_mask_tan.rsi, state: icon }
+  cost: { Cristalhom: 1 }
+  categories: [ UplinkHomUtility ]
+  conditions: *HomUplinkConditionRS
+
+- type: listing
+  id: UplinkHomClothingMaskFir22
+  name: защитная маска FIR-22
+  description: Тактическая маска со встроенной защитой от вспышек.
+  productEntity: ClothingMaskFir22
+  icon: { sprite: _radiant/Clothing/Mask/fir22.rsi, state: icon }
+  cost: { Cristalhom: 1 }
+  categories: [ UplinkHomUtility ]
+  conditions: *HomUplinkConditionRS
+
+- type: listing
   id: UplinkHomWeaponHyperEutacticBlade2
   name:  uplink-hom-blade-name
   description: uplink-hom-blade-desc

@@ -1,0 +1,51 @@
+- type: entity
+  parent: Candle
+  id: CandleTealRS
+  name: бирюзовая свеча
+  description: Большая бирюзовая свеча с мягким и уютным пламенем.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _radiant/Objects/Misc/colored_candles.rsi
+    layers:
+    - state: candle_teal_off
+  - type: FireVisuals
+    sprite: _radiant/Objects/Misc/colored_candles.rsi
+    normalState: candle_teal_lit
+    lightColor: "#29d9d5"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#168fa3"
+        sprite: Objects/Misc/candles.rsi
+      right:
+      - state: inhand-right
+        color: "#168fa3"
+        sprite: Objects/Misc/candles.rsi
+
+- type: entity
+  parent: Candle
+  id: CandlePinkRS
+  name: розовая свеча
+  description: Большая розовая свеча, создающая тёплую и романтичную атмосферу.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _radiant/Objects/Misc/colored_candles.rsi
+    layers:
+    - state: candle_pink_off
+  - type: FireVisuals
+    sprite: _radiant/Objects/Misc/colored_candles.rsi
+    normalState: candle_pink_lit
+    lightColor: "#ff6faf"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#854ca8"
+        sprite: Objects/Misc/candles.rsi
+      right:
+      - state: inhand-right
+        color: "#854ca8"
+        sprite: Objects/Misc/candles.rsi

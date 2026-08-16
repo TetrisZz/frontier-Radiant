@@ -1,0 +1,28 @@
+- type: entity
+  parent: [BaseSword, BaseC2Contraband]
+  id: WeaponMultiverseSword
+  name: extradimensional blade
+  description: Once the harbinger of an interdimensional war, its sharpness still seems to fluctuate.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/multiverse_sword.rsi
+    state: icon
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Melee/multiverse_sword.rsi
+    size: Large
+    shape:
+    - 0,0,1,3
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Melee/multiverse_sword.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - SuitStorage
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Slash: 21
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DisarmMalus

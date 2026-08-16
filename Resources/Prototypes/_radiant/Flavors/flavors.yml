@@ -67,3 +67,18 @@
   id: radiantReispan
   flavorType: Complex
   description: flavor-complex-radiantReispan
+
+- type: flavor
+  id: radiantHoneystonesLove
+  flavorType: Complex
+  description: flavor-complex-radiantHoneystonesLove
+
+- type: flavor
+  id: radiantSkullfucker
+  flavorType: Complex
+  description: flavor-complex-radiantSkullfucker
+
+- type: flavor
+  id: radiantMothInChief
+  flavorType: Complex
+  description: flavor-complex-radiantMothInChief

@@ -221,6 +221,8 @@
   - CandleGreenSmall
   - CandlePurpleSmall
   - CandleRedSmall
+  - CandleTealRS # Radiant Sector
+  - CandlePinkRS # Radiant Sector
 
 - type: latheRecipePack
   id: NFPhotoCameraStatic

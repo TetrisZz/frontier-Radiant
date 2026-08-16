@@ -16,6 +16,11 @@
   - type: Transform
     anchored: true
     noRot: false
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: WallMount
+    arc: 360
   - type: Rotatable
   - type: Anchorable
   - type: InteractionOutline

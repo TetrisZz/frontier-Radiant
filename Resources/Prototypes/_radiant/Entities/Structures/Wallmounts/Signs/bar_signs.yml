@@ -1,0 +1,89 @@
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSEvaHumanSpace
+  name: EVA Human in Space
+  description: Safety is a privilege.
+  components:
+  - type: BarSign
+    current: RSEvaHumanSpace
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSMeowMix
+  name: Meow Mix
+  description: No, we do not serve catnip here.
+  components:
+  - type: BarSign
+    current: RSMeowMix
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSPourAndThatsIt
+  name: Pour and That's It
+  description: Hard times call for strong drinks.
+  components:
+  - type: BarSign
+    current: RSPourAndThatsIt
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSShitcur
+  name: Shitcur
+  description: Innocence proves nothing.
+  components:
+  - type: BarSign
+    current: RSShitcur
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSMooniverse
+  name: Mooniverse Pub
+  description: A completely new pub. At least, that is what the sign says.
+  components:
+  - type: BarSign
+    current: RSMooniverse
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSSaucyClown
+  name: The Saucy Clown
+  description: A known gathering site for annual clown courtship rituals.
+  components:
+  - type: BarSign
+    current: RSSaucyClown
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSClownsHead
+  name: The Clown's Head
+  description: Home of Headdy, the honking clown head!
+  components:
+  - type: BarSign
+    current: RSClownsHead
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSCyberSylph
+  name: Cyber Sylph's
+  description: A cafe renowned for its out-of-bounds futuristic insignia.
+  components:
+  - type: BarSign
+    current: RSCyberSylph
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSTopMen
+  name: Top Men
+  description: The best people work here. Their identities are classified.
+  components:
+  - type: BarSign
+    current: RSTopMen
+
+- type: entity
+  parent: BaseBarSign
+  id: BarSignRSLimbo
+  name: The Limbo
+  description: A popular haunt for lost souls. The mood lighting is killer.
+  components:
+  - type: BarSign
+    current: RSLimbo

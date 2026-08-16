@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Candle sprites taken from SPLURT Station (https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13); in-hand flame sprites created by TheShuEd for Space Station 14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "candle_teal_off"
+    },
+    {
+      "name": "candle_teal_lit",
+      "delays": [
+        [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+      ]
+    },
+    {
+      "name": "candle_pink_off"
+    },
+    {
+      "name": "candle_pink_lit",
+      "delays": [
+        [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+      ]
+    },
+    {
+      "name": "inhand-left-flame",
+      "directions": 4,
+      "delays": [
+        [0.2, 0.2],
+        [0.2, 0.2],
+        [0.2, 0.2],
+        [0.2, 0.2]
+      ]
+    },
+    {
+      "name": "inhand-right-flame",
+      "directions": 4,
+      "delays": [
+        [0.2, 0.2],
+        [0.2, 0.2],
+        [0.2, 0.2],
+        [0.2, 0.2]
+      ]
+    }
+  ]
+}

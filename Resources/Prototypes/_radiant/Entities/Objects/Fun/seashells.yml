@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseItem
+  id: SeashellRS
+  name: ракушка
+  description: Небольшая морская ракушка, хранящая тихий шум далёкого прибоя.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/seashells.rsi
+    state: shell1
+    snapCardinals: true
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 2
+
+- type: entity
+  parent: SeashellRS
+  id: SeashellSpiralRS
+  suffix: Spiral
+  components:
+  - type: Sprite
+    state: shell2
+
+- type: entity
+  parent: SeashellRS
+  id: SeashellClamRS
+  suffix: Clam
+  components:
+  - type: Sprite
+    state: shell3
+
+- type: entity
+  parent: MarkerBase
+  id: RandomSeashellSpawnerRS
+  name: спавнер случайной ракушки
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _radiant/Objects/Fun/seashells.rsi
+      state: shell1
+  - type: RandomSpawner
+    prototypes:
+    - SeashellRS
+    - SeashellSpiralRS
+    - SeashellClamRS

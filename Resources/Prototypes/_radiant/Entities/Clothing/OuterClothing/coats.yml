@@ -182,6 +182,61 @@
 #end Navy
 
 - type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterDraculaCoat
+  name: пальто в стиле Дракулы
+  description: Длинное тёмное пальто с выразительным готическим силуэтом.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/dracula_coat.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/dracula_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterGothCoat
+  name: готическое пальто
+  description: Мрачное пальто для тех, кому чёрного цвета всегда недостаточно.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/goth_coat.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/goth_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterTailcoat
+  name: фрак
+  description: Элегантный фрак с длинными фалдами для особенно торжественных выходов.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/tailcoat.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/tailcoat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterGothicCoat
+  name: строгое готическое пальто
+  description: Строго скроенное тёмное пальто с изящными готическими деталями.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/gothic_coat.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/gothic_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterWinterVSR93
+  name: зимнее пальто
+  description: Тёплое зимнее пальто, которое можно носить застёгнутым или расстёгнутым.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/winter_vsr93.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/winter_vsr93.rsi
+
+- type: entity
   parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
   id: ClothingOuterCoatSeparatist
   name: бронекуртка надзирателя

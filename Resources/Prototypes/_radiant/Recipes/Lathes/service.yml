@@ -1,0 +1,9 @@
+- type: latheRecipe
+  parent: BaseServiceItemsRecipeCandle
+  id: CandleTealRS
+  result: CandleTealRS
+
+- type: latheRecipe
+  parent: BaseServiceItemsRecipeCandle
+  id: CandlePinkRS
+  result: CandlePinkRS

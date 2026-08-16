@@ -1,0 +1,104 @@
+- type: entity
+  parent: BaseStructure
+  id: FitnessPunchingBag
+  name: punching bag
+  description: A sturdy punching bag for exercise and harmless stress relief.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/fitness.rsi
+    layers:
+    - state: punchingbag
+      map: ["bagLayer"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FitnessVisuals.Active:
+        bagLayer:
+          True: { state: punchingbag-punch }
+          False: { state: punchingbag }
+  - type: PunchingBag
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Anchorable
+
+- type: entity
+  parent: BaseStructure
+  id: FitnessBenchPress
+  name: bench press
+  description: A weight bench for working on your strength and determination.
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.05"
+        density: 190
+        mask:
+        - TableMask
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/fitness.rsi
+    layers:
+    - state: benchpress
+      map: ["benchBase"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FitnessVisuals.Active:
+        benchBase:
+          True: { state: benchpress-u }
+          False: { state: benchpress }
+  - type: BenchPress
+  - type: Strap
+    position: Down
+    rotation: 0
+    buckleOffset: "0,0"
+    unbuckleDistanceSquared: 0.09
+  - type: Anchorable
+
+- type: entity
+  id: FitnessBenchPressBarbellVisual
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/fitness.rsi
+    state: benchpress-o
+    drawdepth: Effects
+
+- type: entity
+  parent: SeatBase
+  id: FitnessExerciseBike
+  name: велотренажёр
+  description: Стационарный велосипед для тренировки выносливости. Колёса никуда не уедут, зато ноги постараются.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/fitness.rsi
+    noRot: false
+    layers:
+    - state: exercise-bike
+      map: ["bikeLayer"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FitnessVisuals.Active:
+        bikeLayer:
+          True: { state: exercise-bike-active }
+          False: { state: exercise-bike }
+  - type: ExerciseBike
+    exerciseDuration: 8
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,0.2"
+  - type: Anchorable
+  - type: Rotatable

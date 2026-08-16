@@ -1,5 +1,6 @@
 using Content.Client.Administration.Managers;
 using Content.Client.Audio;
+using Content.Client._radiant.CCVar; // Radiant Sector
 using Content.Shared._NF.CCVar; // Frontier
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.CCCVars;
@@ -80,6 +81,7 @@ public sealed partial class AudioTab : Control
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.BwoinkSoundEnabled, BwoinkSoundCheckBox);
+        Control.AddOptionCheckBox(RadiantClientCCVars.JukeboxMusicEnabled, JukeboxMusicCheckBox); // Radiant Sector
 
         Control.Initialize();
     }
