@@ -191,7 +191,7 @@
   name: gas station sushi
   parent: [FoodBaseSushi, FoodInjectableBase]
   id: FoodMealGasSafeSushiSlice
-  suffix: Safe
+  suffix: Безопасные # Radiant Sector
   description: Is it worth the risk?
   components:
   - type: FlavorProfile
@@ -222,7 +222,7 @@
 - type: entity
   parent: [FoodBaseSushi, FoodMealGasSafeSushiSlice]
   id: FoodMealGasBadSushiSlice
-  suffix: Bad
+  suffix: Плохие # Radiant Sector
   components:
   - type: SolutionContainerManager
     solutions:

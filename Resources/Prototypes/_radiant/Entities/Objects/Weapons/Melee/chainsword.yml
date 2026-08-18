@@ -1,0 +1,90 @@
+- type: entity
+  parent: [BaseItem, BaseC2Contraband]
+  id: WeaponChainswordRS
+  name: chain sword
+  description: A brutal sword whose chain blade comes alive at the press of a button.
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/chainsword.rsi
+    layers:
+    - state: chainswordoff
+      map: [ "chainsword" ]
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Melee/chainsword.rsi
+    size: Normal
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 8
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+    soundDeactivate:
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Slash: 20
+        Structural: 5
+    activatedSoundOnHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: -3
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/chainsawidle.ogg
+      params:
+        volume: -8
+        maxDistance: 5
+  - type: ItemTogglePrefix
+    prefixOn: on
+  - type: ToggleableVisuals
+    spriteLayer: null
+    inhandVisuals: {}
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        chainsword:
+          True: { state: chainswordon }
+          False: { state: chainswordoff }
+  - type: UseDelay
+    delay: 0.5
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
+  parent: [BaseSword, BaseC2Contraband]
+  id: WeaponTalkingSwordRS
+  name: possessed blade
+  description: When everything falls into chaos, it is nice to have a companion at your side.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/talking_sword.rsi
+    state: icon
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Melee/talking_sword.rsi
+    size: Large
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Melee/talking_sword.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - SuitStorage
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 22
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: StaticPrice
+    price: 2500

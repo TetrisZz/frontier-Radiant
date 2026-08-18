@@ -82,3 +82,88 @@
   id: radiantMothInChief
   flavorType: Complex
   description: flavor-complex-radiantMothInChief
+
+- type: flavor
+  id: radiantHivemindEraser
+  flavorType: Complex
+  description: flavor-complex-radiantHivemindEraser
+
+- type: flavor
+  id: radiantCrimsonIchor
+  flavorType: Complex
+  description: flavor-complex-radiantCrimsonIchor
+
+- type: flavor
+  id: radiantItalianCocoa
+  flavorType: Complex
+  description: flavor-complex-radiantItalianCocoa
+
+- type: flavor
+  id: radiantDuplex
+  flavorType: Complex
+  description: flavor-complex-radiantDuplex
+
+- type: flavor
+  id: radiantMiamiVice
+  flavorType: Complex
+  description: flavor-complex-radiantMiamiVice
+
+- type: flavor
+  id: radiantHotLimeMiami
+  flavorType: Complex
+  description: flavor-complex-radiantHotLimeMiami
+
+- type: flavor
+  id: radiantHellfire
+  flavorType: Complex
+  description: flavor-complex-radiantHellfire
+
+- type: flavor
+  id: radiantGunfire
+  flavorType: Complex
+  description: flavor-complex-radiantGunfire
+
+- type: flavor
+  id: radiantPinkMilk
+  flavorType: Complex
+  description: flavor-complex-radiantPinkMilk
+
+- type: flavor
+  id: radiantPinkTea
+  flavorType: Complex
+  description: flavor-complex-radiantPinkTea
+
+- type: flavor
+  id: radiantFriskyKitty
+  flavorType: Complex
+  description: flavor-complex-radiantFriskyKitty
+
+- type: flavor
+  id: radiantStrawberryDaiquiri
+  flavorType: Complex
+  description: flavor-complex-radiantStrawberryDaiquiri
+
+- type: flavor
+  id: radiantBooger
+  flavorType: Complex
+  description: flavor-complex-radiantBooger
+
+- type: flavor
+  id: radiantMaunaLoa
+  flavorType: Complex
+  description: flavor-complex-radiantMaunaLoa
+
+- type: flavor
+  id: radiantBastionBourbon
+  flavorType: Complex
+  description: flavor-complex-radiantBastionBourbon
+
+- type: flavor
+  id: radiantNeuralStorm
+  flavorType: Complex
+  description: flavor-complex-radiantNeuralStorm
+
+- type: flavor
+  id: radiantRussianNight
+  flavorType: Complex
+  description: flavor-complex-radiantRussianNight

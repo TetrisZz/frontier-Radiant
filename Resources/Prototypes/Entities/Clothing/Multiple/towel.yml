@@ -6,9 +6,9 @@
   parent: [ UnsensoredClothingUniformBase, ClothingHeadBase, ClothingBeltBase ]
   components:
   - type: Sprite
-    sprite: Clothing/Multiple/towel.rsi
+    sprite: _radiant/Clothing/Multiple/towel.rsi # Radiant Sector
   - type: Clothing
-    sprite: Clothing/Multiple/towel.rsi
+    sprite: _radiant/Clothing/Multiple/towel.rsi # Radiant Sector
     slots:
     - BELT
     - INNERCLOTHING
@@ -37,6 +37,21 @@
   - type: DnaSubstanceTrace
   - type: Item
     size: Small
+  - type: Foldable # Radiant Sector
+    folded: true
+  - type: Appearance # Radiant Sector
+  - type: GenericVisualizer # Radiant Sector
+    visuals:
+      enum.FoldedVisuals.State:
+        towelLayer:
+          True: { state: icon }
+          False: { state: towel_flat }
+        towelDecor:
+          True: { visible: true }
+          False: { visible: false }
+        towelLogo:
+          True: { visible: true }
+          False: { visible: false }
 
 - type: entity
   id: TowelColorWhite
@@ -46,6 +61,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#EAE8E8"
   - type: Item
     inhandVisuals:
@@ -77,6 +93,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#9C0DE1"
   - type: Item
     inhandVisuals:
@@ -108,6 +125,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#940000"
   - type: Item
     inhandVisuals:
@@ -139,6 +157,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#0089EF"
   - type: Item
     inhandVisuals:
@@ -170,6 +189,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#3285ba"
   - type: Item
     inhandVisuals:
@@ -201,6 +221,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#58abcc"
   - type: Item
     inhandVisuals:
@@ -232,6 +253,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#3CB57C"
   - type: Item
     inhandVisuals:
@@ -263,6 +285,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#723A02"
   - type: Item
     inhandVisuals:
@@ -294,6 +317,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#c59431"
   - type: Item
     inhandVisuals:
@@ -325,6 +349,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#999999"
   - type: Item
     inhandVisuals:
@@ -356,6 +381,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#5ABF2F"
   - type: Item
     inhandVisuals:
@@ -387,6 +413,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#79CC26"
   - type: Item
     inhandVisuals:
@@ -418,8 +445,10 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#F7C430"
     - state: iconstripe
+      map: [ "towelDecor" ] # Radiant Sector
       color: "#535353"
   - type: Item
     inhandVisuals:
@@ -451,6 +480,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#EF8100"
   - type: Item
     inhandVisuals:
@@ -482,6 +512,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#535353"
   - type: Item
     inhandVisuals:
@@ -513,6 +544,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#ffa69b"
   - type: Item
     inhandVisuals:
@@ -544,6 +576,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#ffe14d"
   - type: Item
     inhandVisuals:
@@ -575,6 +608,7 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#cc295f"
   - type: Item
     inhandVisuals:
@@ -606,8 +640,10 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#d0d0d0"
     - state: iconstripe
+      map: [ "towelDecor" ] # Radiant Sector
       color: "#F7C430"
   - type: Item
     inhandVisuals:
@@ -639,8 +675,10 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#EAE8E8"
     - state: iconstripe
+      map: [ "towelDecor" ] # Radiant Sector
       color: "#535353"
   - type: Item
     inhandVisuals:
@@ -672,10 +710,13 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#004787"
     - state: iconstripe
+      map: [ "towelDecor" ] # Radiant Sector
       color: "#EAE8E8"
     - state: NTmono
+      map: [ "towelLogo" ] # Radiant Sector
       color: "#EAE8E8"
   - type: Item
     inhandVisuals:
@@ -707,8 +748,10 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#29722e"
     - state: iconstripe
+      map: [ "towelDecor" ] # Radiant Sector
       color: "#F7C430"
   - type: Item
     inhandVisuals:
@@ -740,8 +783,10 @@
   - type: Sprite
     layers:
     - state: icon
+      map: [ "towelLayer" ] # Radiant Sector
       color: "#535353"
     - state: iconstripe
+      map: [ "towelDecor" ] # Radiant Sector
       color: "#940000"
   - type: Item
     inhandVisuals:

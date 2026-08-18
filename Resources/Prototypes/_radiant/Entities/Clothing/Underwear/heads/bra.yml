@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraCap
-  name: бра капитана
-  description: Вам мало золота на трусах? Мы добавим вам еще, чтобы ваш вес явно увеличился на 1-2 килограмма.
+  name: капитанский бюстгальтер
+  description: Роскошный бюстгальтер с золотистой отделкой, достойный капитанского гардероба.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/heads/capitan/bra.rsi
@@ -10,8 +10,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraCE
-  name: бра СИ
-  description: Лифчик для настоящих мужчин.
+  name: инженерный бюстгальтер
+  description: Практичный бюстгальтер в цветах инженерного отдела.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/heads/ce/bra.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraCMO
-  name: бра ГВ
-  description: Нужно положить сюда гипоспрей, чтобы агенты его не нашли. Ведь все мы знаем, что делают с некрофилами...
+  name: медицинский бюстгальтер
+  description: Аккуратный бюстгальтер в спокойной медицинской расцветке.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/heads/cmo/bra.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraHOP
-  name: бра ГП
-  description: Если у ваших трусиков нет кармана для карт, то почему бы и не положить карту в лифчик?
+  name: бюстгальтер главы персонала
+  description: Элегантный бюстгальтер в деловой расцветке главы персонала.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/heads/hop/bra.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraHOS
-  name: бра ГСБ
-  description: Вам жмёт, почему бы не обвинить в этом случайного заключенного?
+  name: бюстгальтер главы службы безопасности
+  description: Строгий форменный бюстгальтер с красной отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/heads/hos/bra.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraQM
-  name: бра КМ
-  description: Познайте искусство автономного отдела, но для начала переложите всю ответственность на крепкого мужчину.
+  name: бюстгальтер квартирмейстера
+  description: Удобный бюстгальтер в практичной грузовой расцветке.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/heads/qm/bra.rsi
@@ -55,8 +55,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraRD
-  name: бра НР
-  description: Аномально разных размеров для каждой научной руководительницы.
+  name: научный бюстгальтер
+  description: Необычный бюстгальтер в цветах научного отдела с аккуратной фиолетовой отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/heads/rd/bra.rsi

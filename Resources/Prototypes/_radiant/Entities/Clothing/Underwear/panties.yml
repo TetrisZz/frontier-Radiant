@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesWhite
-  name: трусики
-  description: Стандартное нижнее бельё белого цвета от NanoTrasen для сотрудниц станции.
+  name: белые хлопковые трусики
+  description: Удобные повседневные трусики из мягкого белого хлопка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/panties.rsi
@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesThong
-  name: стринги
-  description: Для рисковых девушек.
+  name: классические стринги
+  description: Лаконичные стринги с лёгкой и удобной посадкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/thong.rsi
@@ -24,8 +24,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesNeko
-  name: неко трусики
-  description: Для "кошко" девочек.
+  name: трусики «Кошачьи лапки»
+  description: Мягкие трусики с игривым кошачьим узором.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/nekopanties.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesLace
-  name: кружевные трусики
-  description: Для серьёзных леди.
+  name: белые кружевные трусики
+  description: Нежные белые трусики с тонкой кружевной отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/lacepanties.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesSpaceNinja
-  name: повязка на пах
-  description: Кусок обычной ткани. Вроде бы сделано только для девушек.
+  name: поясная повязка
+  description: Простая тканевая повязка с плотной и надёжной посадкой.
   components:
   - type: StaticPrice # Frontier
     vendPrice: 300 # Frontier
@@ -61,8 +61,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesDeathSquad
-  name: трусики эскадрона смерти
-  description: Самые технологичные трусики в галактике.
+  name: тактические трусики
+  description: Прочное технологичное бельё, рассчитанное на самые суровые условия.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/deathpanties.rsi
@@ -76,8 +76,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomRadiantPantiesTrusikiblack
-  name: черные трусики
-  description: Трусики чёрного цвета с подвязками, на которые вы можете закрепить чулки, чтоб те не сползали с вас во время особо важных дел.
+  name: чёрные трусики с подвязками
+  description: Элегантные чёрные трусики с креплениями для чулок.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/trusikiblack.rsi
@@ -88,8 +88,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomRadiantPantiesRed
-  name: красные трусики
-  description: Трусики красного цвета, хорошо сочетаются с лифчиком того же оттенка.
+  name: алые трусики
+  description: Яркие алые трусики, созданные в пару к бюстгальтеру того же оттенка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/red.rsi
@@ -100,8 +100,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomRadiantPantiesPink
-  name: розовые трусики
-  description: Стандартное нижнее бельё розового цвета.
+  name: нежно-розовые трусики
+  description: Мягкие повседневные трусики нежного розового оттенка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/pink.rsi
@@ -112,8 +112,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomRadiantPantiesNFSD
-  name: зеленые трусики
-  description: Вам может показаться что это бельё ДШ, но на самом деле это просто трусики зеленого цвета.
+  name: изумрудные трусики
+  description: Удобные трусики насыщенного изумрудного оттенка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/NFSDw.rsi
@@ -125,7 +125,7 @@
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesAcorp
   name: трусики акорп
-  description: Стандартное нижнее бельё чёрно-белого цвета.
+  description: Фирменные трусики Acorp в строгой чёрно-белой расцветке.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/acorpw.rsi
@@ -136,7 +136,7 @@
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesAcorpSecurity
   name: трусики акорп секьюрити
-  description: Стандартное нижнее бельё для сотрудниц акорп секьюрити.
+  description: Практичные форменные трусики службы безопасности Acorp.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/secacorpw.rsi
@@ -147,7 +147,7 @@
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesAcorpRnd
   name: трусики ученого акорп
-  description: Стандартное нижнее бельё для учёновиц акорп
+  description: Удобные форменные трусики исследовательского подразделения Acorp.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/rndacorp.rsi
@@ -157,8 +157,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesBlack
-  name: черные стринги
-  description: Стандартное нижнее бельё чёрного цвета.
+  name: чёрные стринги
+  description: Классические чёрные стринги с аккуратной посадкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/blackpanties.rsi
@@ -166,8 +166,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesBlackFlur
-  name: черные кружевные трусики
-  description: Стандартное нижнее бельё чёрного цвета цвета.
+  name: чёрные кружевные трусики
+  description: Изысканные чёрные трусики с полупрозрачной кружевной отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/blaclaceunderpants.rsi
@@ -175,8 +175,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesRed
-  name: красные стринги
-  description: Стандартное нижнее бельё красного цвета.
+  name: алые стринги
+  description: Яркие стринги глубокого алого оттенка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/redthong.rsi
@@ -184,8 +184,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesWhiteFlur
-  name: белые стринги
-  description: Стандартное нижнее бельё белого цвета.
+  name: белые ажурные стринги
+  description: Светлые стринги с мягкой ажурной отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/whiteunderpantssss.rsi
@@ -193,8 +193,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesMaid
-  name: неко трусики
-  description: Для "кошко" девочек.
+  name: трусики горничной
+  description: Кокетливые трусики с контрастной отделкой в стиле горничной.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/maidpanties.rsi
@@ -202,8 +202,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesRedGarters
-  name: красно-черные трусики
-  description: Стандартное нижнее бельё красно-черного цвета.
+  name: красно-чёрные трусики с подвязками
+  description: Выразительные двухцветные трусики с декоративными подвязками.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/redgarters.rsi
@@ -211,8 +211,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesCow
-  name: трусики
-  description: А корова делает Му-у-у
+  name: пятнистые трусики
+  description: Забавные трусики с контрастным пятнистым принтом.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/cow.rsi
@@ -220,8 +220,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesSexsi
-  name: сексуальные трусики
-  description: Ох уж эти кружева...
+  name: ажурные трусики
+  description: Изящные трусики со сложным кружевным узором.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/sexsi.rsi
@@ -230,7 +230,7 @@
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesNavy
   name: трусики КФ
-  description: Красивое и дорогое белье.
+  description: Парадные трусики КФ с аккуратной золотистой отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/navy1.rsi
@@ -239,7 +239,7 @@
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesNav
   name: трусики КФ
-  description: Красивое и дорогое белье.
+  description: Повседневные форменные трусики КФ в сдержанной расцветке.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/navy.rsi
@@ -248,7 +248,7 @@
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesDVB
   name: трусики ДВБ
-  description: Красивое и дорогое белье.
+  description: Форменные трусики ДВБ из прочной и приятной к телу ткани.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/dvbp1.rsi
@@ -257,7 +257,7 @@
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesDVBB
   name: трусики ДВБ
-  description: Красивое и дорогое белье.
+  description: Альтернативная модель форменных трусиков ДВБ.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/dvbp.rsi
@@ -265,8 +265,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesAngel
-  name: ангельские трусики
-  description: Красивое и дорогое белье.
+  name: ангельские кружевные трусики
+  description: Светлые воздушные трусики с нежной золотистой отделкой.
   components:
   - type: Sprite
     scale: 0.5, 0.5
@@ -275,8 +275,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesXeno
-  name: трусики ксено
-  description: Красивое и дорогое белье.
+  name: трусики «Ксеноморф»
+  description: Необычные тёмные трусики с биоморфным узором.
   components:
   - type: Sprite
     scale: 0.5, 0.5
@@ -284,8 +284,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesKladmen
-  name: трусики
-  description: Удобные трусики с необычным дизайном.
+  name: повседневные трусики
+  description: Удобные повседневные трусики с необычной декоративной вставкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/kladmen_panties.rsi
@@ -293,8 +293,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesTroubleneko
-  name: кружевные трусики
-  description: Изящные кружевные трусики.
+  name: изящные кружевные трусики
+  description: Тонкие кружевные трусики с мягкой посадкой и изысканным узором.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/troubleneko_panties.rsi

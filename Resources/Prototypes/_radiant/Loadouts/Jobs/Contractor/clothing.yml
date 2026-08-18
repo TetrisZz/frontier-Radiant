@@ -198,3 +198,48 @@
   equipment:
     mask: ClothingMaskFir22
   groupBy: "RespectedSocietyMasks"
+
+- type: loadout
+  id: ContractorClothingMaskGasSyndicateCool
+  effects: *RespectedSocietyMaskRequirement
+  price: 200
+  equipment:
+    mask: ClothingMaskGasSyndicateCool
+  groupBy: "RespectedSocietyMasks"
+
+- type: loadout
+  id: ContractorClothingMaskCatcrinOne
+  effects: *RespectedSocietyMaskRequirement
+  price: 200
+  equipment:
+    mask: ClothingMaskCatcrinOne
+  groupBy: "RespectedSocietyMasks"
+
+- type: loadout
+  id: ContractorClothingNeckCloakRS
+  effects: &HomUplinkNeckCloakRequirement
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+        role: JobBoxer
+        time: 360000 # 100 hours
+  price: 200
+  equipment:
+    neck: ClothingNeckCloakRS
+  groupBy: "NeckCloaks"
+
+- type: loadout
+  id: ContractorClothingNeckCloakHomRS
+  effects: *HomUplinkNeckCloakRequirement
+  price: 200
+  equipment:
+    neck: ClothingNeckCloakHomRS
+  groupBy: "NeckCloaks"
+
+- type: loadout
+  id: ContractorClothingNeckCorvusPendant
+  effects: *HomUplinkNeckCloakRequirement
+  price: 200
+  equipment:
+    neck: ClothingNeckCorvusPendant
+  groupBy: "NeckCloaks"

@@ -1,0 +1,22 @@
+- type: entity
+  id: BorgChargerRadiantCircuitboard
+  parent: BaseMachineCircuitboard
+  name: плата ремонтно-зарядной капсулы боргов
+  description: Машинная печатная плата для сборки капсулы зарядки и ремонта киборгов.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: charger_APC
+  - type: MachineBoard
+    prototype: BorgChargerRadiant
+    requirements:
+      Capacitor: 2
+      Manipulator: 2
+    stackRequirements:
+      Cable: 5
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 30
+      Plastic: 30
+  - type: StaticPrice
+    price: 30

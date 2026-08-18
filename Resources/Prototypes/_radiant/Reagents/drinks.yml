@@ -142,3 +142,258 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+- type: reagent
+  id: HivemindEraserRS
+  name: reagent-name-hivemind-eraser-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-hivemind-eraser-rs
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: radiantHivemindEraser
+  color: "#8fd8df"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/hivemind_eraser.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: CrimsonIchorRS
+  name: reagent-name-crimson-ichor-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-crimson-ichor-rs
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: radiantCrimsonIchor
+  color: "#7c1018"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/crimson_ichor.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ItalianCocoaRS
+  name: reagent-name-italian-cocoa-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-italian-cocoa-rs
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: radiantItalianCocoa
+  color: "#6b3826"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/italian_cocoa.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: DuplexRS
+  name: reagent-name-duplex-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-duplex-rs
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: radiantDuplex
+  color: "#d9b96f"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/duplex.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: MiamiViceRS
+  name: reagent-name-miami-vice-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-miami-vice-rs
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: radiantMiamiVice
+  color: "#ed768c"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/miami_vice.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: HotLimeMiamiRS
+  name: reagent-name-hot-lime-miami-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-hot-lime-miami-rs
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: radiantHotLimeMiami
+  color: "#8eca4c"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/hot_lime_miami.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: HellfireRS
+  name: reagent-name-hellfire-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-hellfire-rs
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: radiantHellfire
+  color: "#e22b10"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/hellfire.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: GunfireRS
+  name: reagent-name-gunfire-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-gunfire-rs
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: radiantGunfire
+  color: "#4a261c"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/gunfire.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: PinkMilkRS
+  name: reagent-name-pink-milk-rs
+  parent: BaseDrink
+  desc: reagent-desc-pink-milk-rs
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: radiantPinkMilk
+  color: "#f2a8bd"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/pink_milk.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: PinkTeaRS
+  name: reagent-name-pink-tea-rs
+  parent: BaseDrink
+  desc: reagent-desc-pink-tea-rs
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: radiantPinkTea
+  color: "#de8ca3"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/pink_tea.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: FriskyKittyRS
+  name: reagent-name-frisky-kitty-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-frisky-kitty-rs
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: radiantFriskyKitty
+  color: "#e48ca9"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/frisky_kitty.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: StrawberryDaiquiriRS
+  name: reagent-name-strawberry-daiquiri-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-strawberry-daiquiri-rs
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: radiantStrawberryDaiquiri
+  color: "#e8495f"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/strawberry_daiquiri.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: BoogerRS
+  name: reagent-name-booger-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-booger-rs
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: radiantBooger
+  color: "#78a93d"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/booger.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: MaunaLoaRS
+  name: reagent-name-mauna-loa-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-mauna-loa-rs
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: radiantMaunaLoa
+  color: "#e78221"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/mauna_loa.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: BastionBourbonRS
+  name: reagent-name-bastion-bourbon-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-bastion-bourbon-rs
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: radiantBastionBourbon
+  color: "#b66c24"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/bastion_bourbon.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: NeuralStormRS
+  name: reagent-name-neural-storm-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-neural-storm-rs
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: radiantNeuralStorm
+  color: "#526c83"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/neural_storm.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: RussianNightRS
+  name: reagent-name-russian-night-rs
+  parent: BaseAlcohol
+  desc: reagent-desc-russian-night-rs
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: radiantRussianNight
+  color: "#321b24"
+  metamorphicSprite:
+    sprite: _radiant/Objects/Consumable/Drinks/russian_night.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

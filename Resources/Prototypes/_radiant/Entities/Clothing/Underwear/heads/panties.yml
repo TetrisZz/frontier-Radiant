@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesCap
-  name: трусики капитана
-  description: В них ещё больше золота, чем в боксерах капитана.
+  name: капитанские трусики
+  description: Роскошные трусики с золотистой отделкой, достойные капитанского гардероба.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/heads/capitan/panties.rsi
@@ -10,8 +10,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesCE
-  name: трусики СИ
-  description: Эти трусики носят либо фембои, либо женщины, реально хотевшие получить столь сложную для них должность. Вы явно заслужили носить это.
+  name: инженерные трусики
+  description: Практичные трусики в цветах инженерного отдела.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/heads/ce/panties.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesCMO
-  name: трусики ГВ
-  description: Шесть уколов гипоспрея явно стоят того, чтобы успеть украсть, либо понюхать их.
+  name: медицинские трусики
+  description: Аккуратные трусики в спокойной медицинской расцветке.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/heads/cmo/panties.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesHOP
-  name: трусики ГП
-  description: На этот раз без кармана.
+  name: трусики главы персонала
+  description: Элегантные трусики в деловой расцветке главы персонала.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/heads/hop/panties.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesHOS
-  name: трусики ГСБ
-  description: Тут нет ни красного красителя, ни крови особо буйных заключенных. Тогда что-же это?
+  name: трусики главы службы безопасности
+  description: Строгие форменные трусики с красной отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/heads/hos/panties.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesQM
-  name: трусики КМ
-  description: О да! Они очень сильно пропитаны потом от столь сильных нагрузок, если вы, конечно, лидер, а не босс.
+  name: трусики квартирмейстера
+  description: Удобные трусики в практичной грузовой расцветке.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/heads/qm/panties.rsi
@@ -55,8 +55,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesRD
-  name: трусики НР
-  description: Может стать артефактом для изучения вашим любимым ученым.
+  name: научные трусики
+  description: Необычные трусики в цветах научного отдела с аккуратной фиолетовой отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/heads/rd/panties.rsi

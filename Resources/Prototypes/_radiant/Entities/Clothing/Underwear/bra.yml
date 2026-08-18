@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraWhite
-  name: бра
-  description: Только наши лифчики Nanotrasen могут легко сниматься и надеваться.
+  name: белый хлопковый бюстгальтер
+  description: Простая и удобная классика из мягкого белого хлопка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/bra.rsi
@@ -10,8 +10,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraSports
-  name: спортивное бра
-  description: Лифчик для занятий спортом. Ведь бег от ухажеров является спортом?
+  name: спортивный бюстгальтер
+  description: Эластичный бюстгальтер с надёжной поддержкой для тренировок и активного отдыха.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/sportsbra.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraSportsAlternative
-  name: альтернативное спортивное бра
-  description: Лифчик для занятий спортом. Альтернативная версия. На этот раз будут не ухажеры, а насильники. Пойдёт?
+  name: спортивный топ
+  description: Лёгкий спортивный топ свободного кроя, не стесняющий движений.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/sportsbraalt.rsi
@@ -29,8 +29,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopNekoBra
-  name: неко бра
-  description: Для тех кто любит "кошек".
+  name: бюстгальтер «Кошачьи лапки»
+  description: Мягкий бюстгальтер с игривым кошачьим узором.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/nekobra.rsi
@@ -38,8 +38,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearToplaceBra
-  name: кружевное бра
-  description: Для ваших массивных документов.
+  name: белый кружевной бюстгальтер
+  description: Нежный бюстгальтер с тонкой кружевной отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/lacebra.rsi
@@ -48,8 +48,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopSpaceNinja
-  name: повязка на грудь
-  description: Кусок обычной ткани.
+  name: нагрудная повязка
+  description: Плотная тканевая повязка, аккуратно облегающая грудь.
   components:
   - type: StaticPrice # Frontier
     vendPrice: 300 # Frontier
@@ -60,8 +60,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopDeathBra
-  name: бра эскадрона смерти
-  description: Самые технологичные бра в галактике.
+  name: тактический бюстгальтер
+  description: Прочное технологичное бельё, рассчитанное на самые суровые условия.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/deathbra.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopRadiantBlack
-  name: чёрное бра
-  description: Лифчик чёрного цвета для любителей классики.
+  name: классический чёрный бюстгальтер
+  description: Сдержанный чёрный бюстгальтер с лаконичным силуэтом.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/black.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopRadiantNeeeekoUwU
-  name: бра горничной
-  description: Лифчик тёмного цвета для тех, кто знает себе цену. Дзиньк!
+  name: бюстгальтер горничной
+  description: Тёмный бюстгальтер с аккуратной белой отделкой в классическом стиле горничной.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/neeeekoUwU.rsi
@@ -93,8 +93,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopRadiantPink
-  name: розовый топ
-  description: Топ розового цвета, который элегантно подчеркивает ваши плечи. 
+  name: нежно-розовый топ
+  description: Мягкий розовый топ, изящно подчёркивающий линию плеч.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/pink.rsi
@@ -103,8 +103,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopRadiantSeeeexsi
-  name: сексуальное бра
-  description: Бра тёмного цвета, которое сложно надевается, но снимается довольно легко.
+  name: ажурный чёрный бюстгальтер
+  description: Смелый чёрный бюстгальтер со сложным переплетением тонких ремешков.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/seeeexsi.rsi
@@ -113,8 +113,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopRadiantRed
-  name: красное бра
-  description: Сексуальное бра красного цвета, которое подчеркнет не только красивую грудь, но и отличный вкус владелицы этого бра! В нём можно спрятать ID-карту Представителя.
+  name: алый бюстгальтер
+  description: Яркий алый бюстгальтер с выразительной отделкой и уверенным силуэтом.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/red.rsi
@@ -123,7 +123,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorp
   name: бра акорп
-  description: Лифчик акорп, зачем корпорации уникальное бельё?
+  description: Фирменный бюстгальтер Acorp в строгой корпоративной расцветке.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/acorp.rsi
@@ -134,7 +134,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorp2
   name: бра акорп
-  description: Лифчик акорп, зачем корпорации уникальное бельё?
+  description: Альтернативная модель фирменного белья Acorp с удобной посадкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/acorp1.rsi
@@ -145,7 +145,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorpScience
   name: бра учёного акорп
-  description: Лифчик акорп но для учёных или учёниц.
+  description: Практичный бюстгальтер исследовательского подразделения Acorp.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/brarnd.rsi
@@ -156,7 +156,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorpScience2
   name: бра учёного акорп
-  description: Этот лифчик может носить только очень смелая сотрудница акорп, что справилась не с одним артефактом.
+  description: Выразительная модель для сотрудниц исследовательского подразделения Acorp.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/brasexsirnd.rsi
@@ -167,7 +167,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorpSecurity
   name: бра акорп секьюрити
-  description: Лифчик для бравых защитниц исследований.
+  description: Удобный бюстгальтер службы безопасности Acorp.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/brasec.rsi
@@ -178,7 +178,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAcorpSecurity2
   name: бра акорп секьюрити
-  description: Лифчик что поможет тебе не замерзнуть холодными ночами.
+  description: Утеплённая модель белья службы безопасности Acorp.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/кbraacorp.rsi
@@ -188,8 +188,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraBlack
-  name: кружевной лифчик
-  description: Ох-х...А какие кружева...
+  name: чёрный кружевной бюстгальтер
+  description: Изысканный чёрный бюстгальтер с тонким кружевным узором.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/blacklacebodice.rsi
@@ -197,8 +197,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraCorset
-  name: черно-белый корсет
-  description: Корсет, который скроет недостатки и выделит ваши плюсы.
+  name: чёрно-белый корсет
+  description: Контрастный корсет, подчёркивающий талию и сохраняющий строгий силуэт.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/corset.rsi
@@ -206,8 +206,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraRed
-  name: красный лифчик
-  description: Лифчик, что поможет тебе не замерзнуть холодными ночами.
+  name: бордовый бюстгальтер
+  description: Мягкий бюстгальтер глубокого бордового оттенка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/redbodice.rsi
@@ -215,8 +215,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraWhiteFur
-  name: бело-черный корсет
-  description: Корсет, который скроет недостатки и выделит ваши плюсы.
+  name: белый корсет с чёрной отделкой
+  description: Светлый корсет с контрастной отделкой и изящной шнуровкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/whitecorset.rsi
@@ -224,8 +224,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraRedGarters
-  name: красно-черный лифчик
-  description: Лифчик, что поможет тебе не замерзнуть холодными ночами.
+  name: красно-чёрный бюстгальтер с ремешками
+  description: Эффектный двухцветный бюстгальтер с декоративными ремешками.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/redgarters.rsi
@@ -233,8 +233,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraSexsi
-  name: сексуальный лифчик
-  description: Ох уж эти кружева...
+  name: ажурный бюстгальтер
+  description: Воздушный бюстгальтер с выразительным кружевным узором.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/sexsi.rsi
@@ -242,8 +242,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraCow
-  name: пятнистый лифчик
-  description: Лифчик, что поможет тебе не замерзнуть холодными ночами.
+  name: пятнистый бюстгальтер
+  description: Забавный бюстгальтер с контрастным пятнистым принтом.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/cow.rsi
@@ -252,7 +252,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraNavy
   name: бюстгальтер КФ
-  description: Бюстгальтер, что поможет тебе не замерзнуть холодными ночами.
+  description: Парадный бюстгальтер КФ с аккуратной золотистой отделкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/navy1.rsi
@@ -261,7 +261,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraNan
   name: бюстгальтер КФ
-  description: Бюстгальтер, что поможет тебе не замерзнуть холодными ночами.
+  description: Повседневный бюстгальтер КФ в сдержанной служебной расцветке.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/navy.rsi
@@ -270,7 +270,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraDVBB
   name: бюстгальтер ДВБ
-  description: Бюстгальтер, что поможет тебе не замерзнуть холодными ночами.
+  description: Форменный бюстгальтер ДВБ из прочной и приятной к телу ткани.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/dvbb1.rsi
@@ -279,7 +279,7 @@
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraDVB
   name: бюстгальтер ДВБ
-  description: Бюстгальтер, что поможет тебе не замерзнуть холодными ночами.
+  description: Альтернативная модель форменного бюстгальтера ДВБ.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/dvbb.rsi
@@ -287,8 +287,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraAngel
-  name: ангельский бюстгальтер
-  description: Бюстгальтер, что поможет тебе не замерзнуть холодными ночами.
+  name: ангельский кружевной бюстгальтер
+  description: Светлый воздушный бюстгальтер с нежной золотистой отделкой.
   components:
   - type: Sprite
     scale: 0.5, 0.5
@@ -297,8 +297,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraXeno
-  name: бюстгальтер ксено
-  description: Бюстгальтер, что поможет тебе не замерзнуть холодными ночами.
+  name: бюстгальтер «Ксеноморф»
+  description: Необычный тёмный бюстгальтер с биоморфным узором.
   components:
   - type: Sprite
     scale: 0.5, 0.5
@@ -306,8 +306,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraKladmen
-  name: бюстгальтер
-  description: Удобный бюстгальтер с необычным дизайном.
+  name: повседневный бюстгальтер
+  description: Удобный повседневный бюстгальтер с необычной декоративной вставкой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/kladmen_bra.rsi
@@ -315,8 +315,8 @@
 - type: entity
   parent: ClothingUnderwearTopBase
   id: ClothingUnderwearTopBraTroubleneko
-  name: кружевной бюстгальтер
-  description: Изящный кружевной бюстгальтер.
+  name: изящный кружевной бюстгальтер
+  description: Тонкий кружевной бюстгальтер с мягкой посадкой и изысканным узором.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/top/troubleneko_bra.rsi

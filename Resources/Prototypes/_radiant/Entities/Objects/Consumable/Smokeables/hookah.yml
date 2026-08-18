@@ -1,0 +1,106 @@
+- type: entity
+  parent: BaseStructure
+  id: HookahRS
+  name: кальян
+  description: Напольный кальян с вместительной колбой. Заполните его жидкостью и взаимодействуйте пустой рукой, чтобы сделать затяжку.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/hookah.rsi
+    layers:
+    - state: kalik_truba
+      map: ["body"]
+    - state: hookah_liquid
+      map: ["liquid"]
+    - state: hookah_liquid_active
+      map: ["liquidActive"]
+      visible: false
+    - state: hookah_fire
+      map: ["fire"]
+      visible: false
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.HookahVisuals.Active:
+        body:
+          True: { state: kalik }
+          False: { state: kalik_truba }
+        liquid:
+          True: { visible: false }
+          False: { visible: true }
+        liquidActive:
+          True: { visible: true }
+          False: { visible: false }
+        fire:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Hookah
+    useDelay: 2.5
+    puffAmount: 2
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 90
+        - ReagentId: Nicotine
+          Quantity: 10
+  - type: RefillableSolution
+    solution: smokable
+  - type: DrainableSolution
+    solution: smokable
+  - type: ExaminableSolution
+    solution: smokable
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 80
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseItem
+  id: HookahHoseRS
+  name: шланг кальяна
+  description: Мундштук со шлангом, соединённым с кальяном.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/hookah.rsi
+    state: hookah_hose
+  - type: Item
+    size: Tiny
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: BaseFlatpack
+  id: HookahKitRS
+  name: набор с кальяном
+  description: Компактный набор с готовым к установке и уже заправленным кальяном.
+  components:
+  - type: Flatpack
+    entity: HookahRS
+  - type: StaticPrice
+    price: 500
+    vendPrice: 3000

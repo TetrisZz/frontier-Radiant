@@ -124,6 +124,7 @@
   - HonkerTargetingElectronics
   - HamtrCentralElectronics
   - HamtrPeripheralsElectronics
+  - BorgChargerRadiantCircuitboard # Radiant Sector
 
 - type: latheRecipePack
   id: ShuttleBoards

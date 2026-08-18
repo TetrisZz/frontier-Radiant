@@ -1,0 +1,38 @@
+- type: entity
+  parent: [BaseMeleeWeaponEnergy, BaseC2Contraband]
+  id: WeaponEnergySwordoff
+  name: energy sword
+  description: An unusual sword with an energy amplifier that changes the blade when activated.
+  components:
+  - type: EnergySword
+    activatedColor: white
+    colorOptions: []
+    blockHacking: true
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/swordoff.rsi
+    layers:
+    - state: swordoff
+      map: [ "sword" ]
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Melee/swordoff.rsi
+    size: Small
+  - type: Clothing
+    sprite: _radiant/Objects/Weapons/Melee/swordoff.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: Reflect
+    reflectProb: 0.15
+  - type: ItemTogglePrefix
+    prefixOn: on
+  - type: ToggleableVisuals
+    spriteLayer: null
+    inhandVisuals: {}
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        sword:
+          True: { state: swordon }
+          False: { state: swordoff }
+  - type: StaticPrice
+    price: 2500

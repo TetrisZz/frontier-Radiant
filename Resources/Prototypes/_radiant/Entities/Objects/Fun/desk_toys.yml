@@ -1,0 +1,51 @@
+- type: entity
+  parent: BaseItem
+  id: DeskFanRS
+  name: desk fan
+  description: A small fan that provides more moral support than cool air.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/desk_toys.rsi
+    noRot: true
+    layers:
+    - state: fan
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Item
+    sprite: _radiant/Objects/Fun/desk_toys.rsi
+    storedRotation: -90
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: fan-on }
+          False: { state: fan }
+  - type: ItemToggle
+  - type: UseDelay
+    delay: 0.5
+
+- type: entity
+  parent: BaseItem
+  id: DippyBirdRS
+  name: drinking bird
+  description: A tireless desk bird that dips its beak again and again when activated.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/desk_toys.rsi
+    noRot: true
+    layers:
+    - state: dippybird
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Item
+    sprite: _radiant/Objects/Fun/desk_toys.rsi
+    storedRotation: -90
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: dippybird-on }
+          False: { state: dippybird }
+  - type: ItemToggle
+  - type: UseDelay
+    delay: 0.5

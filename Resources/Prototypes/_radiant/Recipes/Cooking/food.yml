@@ -108,3 +108,326 @@
   solids:
     FoodRiceDough: 1
   recipeType: Assembler
+
+# Missing upstream dishes and guidebook entries
+
+- type: microwaveMealRecipe
+  id: RecipeDonutUncookedRS
+  name: рецепт сырого пончика
+  result: FoodDonutUncooked
+  time: 5
+  group: Dessert
+  reagents:
+    Sugar: 5
+  solids:
+    FoodDough: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeDonutPlainRS
+  name: рецепт обычного пончика
+  result: FoodDonutPlain
+  time: 10
+  group: Dessert
+  solids:
+    FoodDonutUncooked: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMozzarellaRS
+  name: рецепт моцареллы
+  result: FoodMozzarella
+  time: 5
+  group: Savory
+  solids:
+    FoodCurdCheese: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeMothHerbyCheeseRS
+  name: рецепт сыра с травами
+  result: FoodMothHerbyCheese
+  time: 5
+  group: Moth
+  solids:
+    FoodCurdCheese: 1
+    FoodAmbrosiaVulgaris: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeEggsBenedictRS
+  name: рецепт яиц Бенедикт
+  result: FoodMealEggsbenedict
+  time: 5
+  group: Breakfast
+  reagents:
+    Egg: 6
+  solids:
+    FoodBreadPlainSlice: 1
+    FoodMeatBaconCooked: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeEggplantParmRS
+  name: рецепт баклажана пармиджана
+  result: FoodMealEggplantParm
+  time: 15
+  group: Savory
+  reagents:
+    TomatoSauce: 5
+  solids:
+    FoodEggplant: 1
+    FoodCheeseSlice: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMothBakedCheesePlatterRS
+  name: рецепт блюда с запечённым сыром
+  result: FoodMothBakedCheesePlatter
+  time: 5
+  group: Moth
+  solids:
+    FoodMothBakedCheese: 1
+    FoodBreadPlainSlice: 3
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeVolcanicBreadRS
+  name: рецепт вулканического хлеба
+  result: FoodBreadVolcanic
+  time: 15
+  group: Breads
+  reagents:
+    Plasma: 5
+  solids:
+    FoodDough: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeSassysagePizzaRS
+  name: рецепт дерзкой колбасной пиццы
+  result: FoodPizzaSassysage
+  time: 20
+  group: Pizza
+  reagents:
+    TomatoSauce: 10
+  solids:
+    FoodDoughFlat: 1
+    FoodSausageRaw: 1
+    FoodCheeseSlice: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeCannoliRS
+  name: рецепт канноли
+  result: FoodBakedCannoli
+  time: 10
+  group: Dessert
+  reagents:
+    Cream: 5
+    Sugar: 5
+  solids:
+    FoodDoughFlatPastry: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMothGreenLasagneRS
+  name: рецепт зелёной лазаньи
+  result: FoodMothGreenLasagne
+  time: 20
+  group: Moth
+  reagents:
+    Bechamel: 10
+    Pesto: 5
+  solids:
+    FoodNoodlesBoiled: 1
+    FoodCheeseSlice: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMothCornmealPorridgeRS
+  name: рецепт кукурузной каши
+  result: FoodMothCornmealPorridge
+  time: 10
+  group: Moth
+  reagents:
+    Water: 10
+    Cornmeal: 10
+  solids:
+    FoodBowlBig: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeSpacemanCakeRS
+  name: рецепт торта космонавта
+  result: FoodCakeSpaceman
+  time: 10
+  group: Cake
+  reagents:
+    PolypyryliumOligomers: 5
+  solids:
+    FoodCakePlain: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeMilkApeRS
+  name: рецепт молочной обезьяны
+  result: FoodMealMilkape
+  time: 5
+  group: Dessert
+  reagents:
+    Milk: 10
+    CocoaPowder: 5
+  solids:
+    FoodBanana: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeMisoSoupRS
+  name: рецепт мисо-супа
+  result: FoodSoupMiso
+  time: 10
+  group: Soup
+  reagents:
+    Water: 10
+    Soysauce: 5
+  solids:
+    FoodBowlBig: 1
+    FoodTofuSlice: 1
+    FoodCabbage: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMothMozzarellaSticksRS
+  name: рецепт палочек из моцареллы
+  result: FoodMothMozzarellaSticks
+  time: 15
+  group: Moth
+  reagents:
+    TomatoSauce: 10
+  solids:
+    FoodMozzarella: 1
+    FoodBreadPlainSlice: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeLibertyDuffRS
+  name: рецепт космического пудинга
+  result: FoodJellyDuff
+  time: 10
+  group: Dessert
+  reagents:
+    Sugar: 10
+  solids:
+    FoodBowlBig: 1
+    FoodFlyAmanita: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMothFleetSaladRS
+  name: рецепт флотского салата
+  result: FoodMothFleetSalad
+  time: 5
+  group: Moth
+  reagents:
+    Vinaigrette: 5
+  solids:
+    FoodBowlBig: 1
+    FoodCabbage: 1
+    FoodCarrot: 1
+    FoodBreadPlainSlice: 1
+    FoodCheeseSlice: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeMothKachumbariSaladRS
+  name: рецепт салата качумбари
+  result: FoodMothKachumbariSalad
+  time: 5
+  group: Moth
+  reagents:
+    JuiceLime: 5
+  solids:
+    FoodBowlBig: 1
+    FoodTomato: 1
+    FoodChiliPepper: 1
+    FoodOnionRed: 1
+    FoodAmbrosiaVulgaris: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeCornedBeefRS
+  name: рецепт солонины с капустой
+  result: FoodMealCornedbeef
+  time: 15
+  group: Savory
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodMeatCooked: 1
+    FoodCabbage: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeElectronSoupRS
+  name: рецепт электронного супа
+  result: FoodSoupElectron
+  time: 10
+  group: Soup
+  reagents:
+    Water: 10
+    Licoxide: 5
+  solids:
+    FoodBowlBig: 1
+    FoodMushroom: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeMothHeartburnSoupRS
+  name: рецепт обжигающего супа
+  result: FoodMothHeartburnSoup
+  time: 10
+  group: Moth
+  reagents:
+    Vinegar: 5
+    Milk: 5
+    Cream: 5
+  solids:
+    FoodBowlBig: 1
+    FoodTofuSlice: 1
+    FoodChiliPepper: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
+  id: RecipeBearSteakRS
+  name: рецепт медвежьего стейка
+  result: FoodMealBearsteak
+  time: 15
+  group: Savory
+  solids:
+    FoodMeatBear: 1
+    FoodMeatFish: 1
+  recipeType:
+  - Oven

@@ -2,16 +2,16 @@
   id: RadiantArcadeAds
   values:
     prefix: advertisement-radiant-arcade-
-    count: 15
+    count: 30
 
 - type: localizedDataset
   id: RadiantArcadeWin
   values:
     prefix: radiant-arcade-win-
-    count: 6
+    count: 14
 
 - type: localizedDataset
   id: RadiantArcadeLoss
   values:
     prefix: radiant-arcade-loss-
-    count: 6
+    count: 14

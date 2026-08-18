@@ -1,0 +1,276 @@
+- type: entity
+  parent: BaseVehicle
+  id: VehicleSkateboardRS
+  name: skateboard
+  description: A small board on four wheels for fast trips and spectacular falls.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    noRot: true
+    layers:
+    - state: skateboard
+      map: [ "enum.VehicleVisualLayers.AutoAnimate" ]
+      autoAnimated: false
+  - type: Vehicle
+    requiredHands: 0
+    engineRunning: true
+    renderOver: North, South
+    radarBlip: false
+    southOffset: 0, -0.1
+    northOffset: 0, -0.1
+    eastOffset: 0, -0.1
+    westOffset: 0, -0.1
+  - type: VehicleTrick
+    gripPrototype: VehicleTrickSkateboardGripRS
+  - type: AnimatedEmotes
+  - type: Item
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    size: Huge
+    inhandVisuals:
+      left:
+      - state: skateboard
+      right:
+      - state: skateboard
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 8
+        Structural: 2
+    soundHit:
+      collection: MetalThud
+  - type: MovementSpeedModifier
+    acceleration: 8
+    friction: 4
+    baseSprintSpeed: 5.5
+    baseWalkSpeed: 4
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 60
+        mask:
+        - MobMask
+        hard: true
+  - type: StaticPrice
+    price: 3000
+
+- type: entity
+  parent: VehicleSkateboardRS
+  id: VehicleSkateboardAltRS
+  name: patterned skateboard
+  description: A skateboard with a brighter deck for riders who prefer to fall in style.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    noRot: true
+    layers:
+    - state: skateboard-alt
+      map: [ "enum.VehicleVisualLayers.AutoAnimate" ]
+      autoAnimated: false
+  - type: Item
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    size: Huge
+    inhandVisuals:
+      left:
+      - state: skateboard-alt
+      right:
+      - state: skateboard-alt
+  - type: VehicleTrick
+    gripPrototype: VehicleTrickSkateboardAltGripRS
+
+- type: entity
+  parent: BaseVehicle
+  id: VehicleHoverboardRS
+  name: red hoverboard
+  description: A fast antigravity board that glides just above the floor.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    noRot: true
+    layers:
+    - state: hoverboard-red
+      map: [ "enum.VehicleVisualLayers.AutoAnimate" ]
+      autoAnimated: false
+  - type: Vehicle
+    requiredHands: 1
+    engineRunning: true
+    renderOver: North, South
+    radarBlip: true
+    southOffset: 0, -0.1
+    northOffset: 0, -0.1
+    eastOffset: 0, -0.1
+    westOffset: 0, -0.1
+  - type: VehicleTrick
+    gripPrototype: VehicleTrickHoverboardGripRS
+  - type: AnimatedEmotes
+  - type: Item
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    size: Huge
+    inhandVisuals:
+      left:
+      - state: hoverboard-red
+      right:
+      - state: hoverboard-red
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 9
+        Structural: 2
+    soundHit:
+      collection: MetalThud
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - DemagImmune
+  - type: MovementIgnoreGravity
+  - type: AmbientSound
+    sound: /Audio/Effects/shuttle_thruster.ogg
+    range: 8
+    volume: 5
+    enabled: false
+  - type: MovementSpeedModifier
+    acceleration: 10
+    friction: 5
+    baseSprintSpeed: 7
+    baseWalkSpeed: 5.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 60
+        mask:
+        - MobMask
+        hard: true
+  - type: StaticPrice
+    price: 15000
+
+- type: entity
+  id: VehicleTrickSkateboardGripRS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    state: skateboard
+  - type: Item
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    inhandVisuals:
+      left:
+      - state: skateboard
+      right:
+      - state: skateboard
+
+- type: entity
+  id: VehicleTrickHoverboardGripRS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    state: hoverboard-red
+  - type: Item
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    inhandVisuals:
+      left:
+      - state: hoverboard-red
+      right:
+      - state: hoverboard-red
+
+- type: entity
+  parent: VehicleHoverboardRS
+  id: VehicleHoverboardCorporateRS
+  name: corporate hoverboard
+  description: A polished corporate hoverboard with a suspiciously expensive finish.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    noRot: true
+    layers:
+    - state: hoverboard-corporate
+      map: [ "enum.VehicleVisualLayers.AutoAnimate" ]
+      autoAnimated: false
+  - type: Item
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    size: Huge
+    inhandVisuals:
+      left:
+      - state: hoverboard-corporate
+      right:
+      - state: hoverboard-corporate
+  - type: VehicleTrick
+    gripPrototype: VehicleTrickHoverboardCorporateGripRS
+
+- type: entity
+  id: VehicleTrickSkateboardAltGripRS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    state: skateboard-alt
+  - type: Item
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    inhandVisuals:
+      left:
+      - state: skateboard-alt
+      right:
+      - state: skateboard-alt
+
+- type: entity
+  id: VehicleTrickHoverboardCorporateGripRS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    state: hoverboard-corporate
+  - type: Item
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    inhandVisuals:
+      left:
+      - state: hoverboard-corporate
+      right:
+      - state: hoverboard-corporate
+
+- type: entity
+  parent: MarkerBase
+  id: RandomSkateboardCargoRS
+  name: skateboard
+  description: One of two skateboard designs, selected at delivery.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+    - VehicleSkateboardRS
+    - VehicleSkateboardAltRS
+
+- type: entity
+  parent: MarkerBase
+  id: RandomHoverboardCargoRS
+  name: hoverboard
+  description: One of two hoverboard designs, selected at delivery.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+    - VehicleHoverboardRS
+    - VehicleHoverboardCorporateRS
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateFunHoverboardRS
+  name: hoverboard crate
+  description: A transport crate containing one of two hoverboard models.
+  components:
+  - type: StorageFill
+    contents:
+    - id: VehicleHoverboardRS
+      prob: 1
+      orGroup: HoverboardRS
+    - id: VehicleHoverboardCorporateRS
+      prob: 1
+      orGroup: HoverboardRS

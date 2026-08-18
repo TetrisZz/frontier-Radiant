@@ -75,7 +75,7 @@
   requiredMixerCategories: [Shake]
   reactants:
     Vodka: { amount: 2 }
-    CoffeeLiqueur: { amount: 1 }
+    Coffee: { amount: 1 }
     Blood: { amount: 1 }
   products:
     Skullfucker: 4
@@ -89,3 +89,174 @@
     JuiceLime: { amount: 1 }
   products:
     MothInChief: 3
+
+- type: reaction
+  id: HivemindEraserRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    Vodka: { amount: 1 }
+    Absinthe: { amount: 1 }
+    MindbreakerToxin: { amount: 1 }
+  products:
+    HivemindEraserRS: 3
+
+- type: reaction
+  id: CrimsonIchorRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    Rum: { amount: 1 }
+    Blood: { amount: 1 }
+    JuiceLime: { amount: 1 }
+    Sugar: { amount: 1 }
+  products:
+    CrimsonIchorRS: 4
+
+- type: reaction
+  id: ItalianCocoaRS
+  requiredMixerCategories: [Stir]
+  reactants:
+    HotCocoa: { amount: 2 }
+    CoffeeLiqueur: { amount: 1 }
+    Cream: { amount: 1 }
+  products:
+    ItalianCocoaRS: 4
+
+- type: reaction
+  id: DuplexRS
+  requiredMixerCategories: [Stir]
+  reactants:
+    Gin: { amount: 1 }
+    Vermouth: { amount: 1 }
+    Wine: { amount: 1 }
+  products:
+    DuplexRS: 3
+
+- type: reaction
+  id: StrawberryDaiquiriRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    Rum: { amount: 2 }
+    JuiceLime: { amount: 1 }
+    JuiceBerry: { amount: 1 }
+    Sugar: { amount: 1 }
+  products:
+    StrawberryDaiquiriRS: 5
+
+- type: reaction
+  id: MiamiViceRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    PinaColada: { amount: 2 }
+    StrawberryDaiquiriRS: { amount: 2 }
+  products:
+    MiamiViceRS: 4
+
+- type: reaction
+  id: HotLimeMiamiRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    MiamiViceRS: { amount: 2 }
+    JuiceLime: { amount: 1 }
+    Hotsauce: { amount: 1 }
+  products:
+    HotLimeMiamiRS: 4
+
+- type: reaction
+  id: HellfireRS
+  requiredMixerCategories: [Stir]
+  reactants:
+    Whiskey: { amount: 2 }
+    Hotsauce: { amount: 1 }
+    CapsaicinOil: { amount: 1 }
+  products:
+    HellfireRS: 4
+
+- type: reaction
+  id: GunfireRS
+  requiredMixerCategories: [Stir]
+  reactants:
+    Whiskey: { amount: 1 }
+    CoffeeLiqueur: { amount: 1 }
+    Coffee: { amount: 1 }
+  products:
+    GunfireRS: 3
+
+- type: reaction
+  id: PinkMilkRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    Milk: { amount: 2 }
+    Cream: { amount: 1 }
+    JuiceBerry: { amount: 1 }
+  products:
+    PinkMilkRS: 4
+
+- type: reaction
+  id: PinkTeaRS
+  requiredMixerCategories: [Stir]
+  reactants:
+    Tea: { amount: 2 }
+    PinkMilkRS: { amount: 1 }
+    JuiceBerry: { amount: 1 }
+  products:
+    PinkTeaRS: 4
+
+- type: reaction
+  id: FriskyKittyRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    Vodka: { amount: 1 }
+    Cream: { amount: 1 }
+    JuiceBerry: { amount: 1 }
+  products:
+    FriskyKittyRS: 3
+
+- type: reaction
+  id: BoogerRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    Absinthe: { amount: 1 }
+    Cream: { amount: 1 }
+    JuiceLime: { amount: 1 }
+    SpaceDrugs: { amount: 1 }
+  products:
+    BoogerRS: 4
+
+- type: reaction
+  id: MaunaLoaRS
+  requiredMixerCategories: [Shake]
+  reactants:
+    Rum: { amount: 2 }
+    JuicePineapple: { amount: 1 }
+    Hotsauce: { amount: 1 }
+  products:
+    MaunaLoaRS: 4
+
+- type: reaction
+  id: BastionBourbonRS
+  requiredMixerCategories: [Stir]
+  reactants:
+    Whiskey: { amount: 2 }
+    Mead: { amount: 1 }
+    Sugar: { amount: 1 }
+  products:
+    BastionBourbonRS: 4
+
+- type: reaction
+  id: NeuralStormRS
+  requiredMixerCategories: [Stir]
+  reactants:
+    GargleBlaster: { amount: 1 }
+    MindbreakerToxin: { amount: 1 }
+  products:
+    NeuralStormRS: 2
+
+- type: reaction
+  id: RussianNightRS
+  requiredMixerCategories: [Stir]
+  reactants:
+    Vodka: { amount: 1 }
+    CoffeeLiqueur: { amount: 1 }
+    Cola: { amount: 1 }
+  products:
+    RussianNightRS: 3

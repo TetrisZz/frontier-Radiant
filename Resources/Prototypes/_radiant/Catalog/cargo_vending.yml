@@ -118,3 +118,13 @@
   cost: 2000
   category: cargoproduct-category-name-livestock
   group: market
+
+- type: cargoProduct
+  id: RadiantSkateboard
+  icon:
+    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    state: skateboard
+  product: RandomSkateboardCargoRS
+  cost: 3000
+  category: cargoproduct-category-name-fun
+  group: market

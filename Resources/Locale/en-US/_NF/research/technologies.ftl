@@ -141,3 +141,4 @@ nf-research-technology-syringe-gun = Syringe Gun
 nf-research-technology-trash-power-generators = Combustion Power Generators
 nf-research-technology-vim = Vim
 nf-research-technology-wireless-audio-visual-communication = Wireless Telecommunications
+nf-research-technology-borg-restoration = Cyborg Restoration Systems # Radiant Sector
