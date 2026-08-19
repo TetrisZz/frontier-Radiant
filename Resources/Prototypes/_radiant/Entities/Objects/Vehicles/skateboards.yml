@@ -24,13 +24,15 @@
     gripPrototype: VehicleTrickSkateboardGripRS
   - type: AnimatedEmotes
   - type: Item
-    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    sprite: _radiant/Objects/Vehicles/skateboard_item.rsi
     size: Huge
     inhandVisuals:
       left:
-      - state: skateboard
+      - state: inhand-left
+        sprite: _radiant/Objects/Vehicles/skateboard_item.rsi
       right:
-      - state: skateboard
+      - state: inhand-right
+        sprite: _radiant/Objects/Vehicles/skateboard_item.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -71,13 +73,15 @@
       map: [ "enum.VehicleVisualLayers.AutoAnimate" ]
       autoAnimated: false
   - type: Item
-    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    sprite: _radiant/Objects/Vehicles/skateboard_alt_item.rsi
     size: Huge
     inhandVisuals:
       left:
-      - state: skateboard-alt
+      - state: inhand-left
+        sprite: _radiant/Objects/Vehicles/skateboard_alt_item.rsi
       right:
-      - state: skateboard-alt
+      - state: inhand-right
+        sprite: _radiant/Objects/Vehicles/skateboard_alt_item.rsi
   - type: VehicleTrick
     gripPrototype: VehicleTrickSkateboardAltGripRS
 
@@ -107,13 +111,15 @@
     gripPrototype: VehicleTrickHoverboardGripRS
   - type: AnimatedEmotes
   - type: Item
-    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    sprite: _radiant/Objects/Vehicles/hoverboard_red_item.rsi
     size: Huge
     inhandVisuals:
       left:
-      - state: hoverboard-red
+      - state: inhand-left
+        sprite: _radiant/Objects/Vehicles/hoverboard_red_item.rsi
       right:
-      - state: hoverboard-red
+      - state: inhand-right
+        sprite: _radiant/Objects/Vehicles/hoverboard_red_item.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -158,12 +164,14 @@
     sprite: _radiant/Objects/Vehicles/skateboards.rsi
     state: skateboard
   - type: Item
-    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    sprite: _radiant/Objects/Vehicles/skateboard_item.rsi
     inhandVisuals:
       left:
-      - state: skateboard
+      - state: inhand-left
+        sprite: _radiant/Objects/Vehicles/skateboard_item.rsi
       right:
-      - state: skateboard
+      - state: inhand-right
+        sprite: _radiant/Objects/Vehicles/skateboard_item.rsi
 
 - type: entity
   id: VehicleTrickHoverboardGripRS
@@ -173,12 +181,14 @@
     sprite: _radiant/Objects/Vehicles/skateboards.rsi
     state: hoverboard-red
   - type: Item
-    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    sprite: _radiant/Objects/Vehicles/hoverboard_red_item.rsi
     inhandVisuals:
       left:
-      - state: hoverboard-red
+      - state: inhand-left
+        sprite: _radiant/Objects/Vehicles/hoverboard_red_item.rsi
       right:
-      - state: hoverboard-red
+      - state: inhand-right
+        sprite: _radiant/Objects/Vehicles/hoverboard_red_item.rsi
 
 - type: entity
   parent: VehicleHoverboardRS
@@ -194,13 +204,15 @@
       map: [ "enum.VehicleVisualLayers.AutoAnimate" ]
       autoAnimated: false
   - type: Item
-    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    sprite: _radiant/Objects/Vehicles/hoverboard_corporate_item.rsi
     size: Huge
     inhandVisuals:
       left:
-      - state: hoverboard-corporate
+      - state: inhand-left
+        sprite: _radiant/Objects/Vehicles/hoverboard_corporate_item.rsi
       right:
-      - state: hoverboard-corporate
+      - state: inhand-right
+        sprite: _radiant/Objects/Vehicles/hoverboard_corporate_item.rsi
   - type: VehicleTrick
     gripPrototype: VehicleTrickHoverboardCorporateGripRS
 
@@ -212,12 +224,14 @@
     sprite: _radiant/Objects/Vehicles/skateboards.rsi
     state: skateboard-alt
   - type: Item
-    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    sprite: _radiant/Objects/Vehicles/skateboard_alt_item.rsi
     inhandVisuals:
       left:
-      - state: skateboard-alt
+      - state: inhand-left
+        sprite: _radiant/Objects/Vehicles/skateboard_alt_item.rsi
       right:
-      - state: skateboard-alt
+      - state: inhand-right
+        sprite: _radiant/Objects/Vehicles/skateboard_alt_item.rsi
 
 - type: entity
   id: VehicleTrickHoverboardCorporateGripRS
@@ -227,12 +241,14 @@
     sprite: _radiant/Objects/Vehicles/skateboards.rsi
     state: hoverboard-corporate
   - type: Item
-    sprite: _radiant/Objects/Vehicles/skateboards.rsi
+    sprite: _radiant/Objects/Vehicles/hoverboard_corporate_item.rsi
     inhandVisuals:
       left:
-      - state: hoverboard-corporate
+      - state: inhand-left
+        sprite: _radiant/Objects/Vehicles/hoverboard_corporate_item.rsi
       right:
-      - state: hoverboard-corporate
+      - state: inhand-right
+        sprite: _radiant/Objects/Vehicles/hoverboard_corporate_item.rsi
 
 - type: entity
   parent: MarkerBase
