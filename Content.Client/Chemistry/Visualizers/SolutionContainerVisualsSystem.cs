@@ -7,7 +7,6 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Hands;
 using Content.Shared.Item;
 using Content.Shared.Rounding;
-using Content.Shared._radiant.Chemistry; // Radiant Sector
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -106,16 +105,6 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
                         if (component.MetamorphicDefaultSprite != null)
                             SpriteSystem.LayerSetSprite((uid, args.Sprite), baseLayer, component.MetamorphicDefaultSprite);
                     }
-                }
-                else if (HasComp<RadiantMetamorphicGlassComponent>(uid)) // Radiant Sector: restore custom glasses after the last sip.
-                {
-                    if (component.MetamorphicDefaultSprite != null)
-                        SpriteSystem.LayerSetSprite((uid, args.Sprite), baseLayer, component.MetamorphicDefaultSprite);
-
-                    SpriteSystem.LayerSetVisible((uid, args.Sprite), baseLayer, true);
-                    SpriteSystem.LayerSetVisible((uid, args.Sprite), fillLayer, true);
-                    if (hasOverlay)
-                        SpriteSystem.LayerSetVisible((uid, args.Sprite), overlayLayer, true);
                 }
             }
         }

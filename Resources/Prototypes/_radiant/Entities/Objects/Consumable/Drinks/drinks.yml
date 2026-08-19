@@ -19,7 +19,8 @@
   parent: DrinkGlass
   id: BaseRadiantDrinkGlass
   components:
-  - type: RadiantMetamorphicGlass
+  - type: SolutionContainerVisuals
+    emptySpriteName: empty
 
 - type: entity
   parent: BaseRadiantDrinkGlass
