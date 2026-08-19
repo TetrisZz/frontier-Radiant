@@ -10,6 +10,10 @@
     chargeRate: 30
   - type: BorgRepairPod
     repairInterval: 1
+    repairSound:
+      path: /Audio/Items/welder.ogg
+      params:
+        volume: -8
     damage:
       types:
         Blunt: -1.5

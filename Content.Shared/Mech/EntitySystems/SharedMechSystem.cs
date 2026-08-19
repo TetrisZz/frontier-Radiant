@@ -460,7 +460,9 @@ public abstract partial class SharedMechSystem : EntitySystem
 
     private void OnAttackAttempt(EntityUid uid, MechPilotComponent component, AttackAttemptEvent args)
     {
-        if (args.Target == component.Mech)
+        if (args.Target == component.Mech ||
+            // Radiant Sector: pilots cannot operate mech weapons without a charged cell.
+            TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
             args.Cancel();
     }
 

@@ -1,0 +1,66 @@
+# Radiant Sector - Clarke construction and equipment recipes.
+- type: latheRecipe
+  parent: BaseMechPartRecipe
+  id: ClarkeHarness
+  result: ClarkeHarness
+  materials: { Steel: 2000, Glass: 1500 }
+
+- type: latheRecipe
+  parent: BaseMechPartRecipe
+  id: ClarkeHead
+  result: ClarkeHead
+  materials: { Steel: 1550, Glass: 950 }
+
+- type: latheRecipe
+  parent: BaseMechPartRecipe
+  id: ClarkeLArm
+  result: ClarkeLArm
+  materials: { Steel: 900, Glass: 800 }
+
+- type: latheRecipe
+  parent: BaseMechPartRecipe
+  id: ClarkeRArm
+  result: ClarkeRArm
+  materials: { Steel: 900, Glass: 800 }
+
+- type: latheRecipe
+  parent: BaseMechPartRecipe
+  id: ClarkeTreads
+  result: ClarkeTreads
+  materials: { Steel: 950 }
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMechRecipeCategory ]
+  id: ClarkeCentralElectronics
+  result: ClarkeCentralElectronics
+  categories: [ Mech ]
+
+- type: latheRecipe
+  parent: ClarkeCentralElectronics
+  id: ClarkePeripheralsElectronics
+  result: ClarkePeripheralsElectronics
+  categories: [ Mech ]
+
+- type: latheRecipe
+  parent: BaseMechPartRecipe
+  id: MechThruster
+  result: MechThruster
+  materials: { Steel: 1000, Glass: 150 }
+
+- type: latheRecipe
+  parent: BaseMechEquipmentRecipe
+  id: MechEquipmentDrill
+  result: WeaponMechMeleeDrill
+  materials: { Steel: 1000, Glass: 250 }
+
+- type: latheRecipe
+  parent: MechEquipmentDrill
+  id: MechEquipmentDrillDiamond
+  result: WeaponMechMeleeDrillDiamond
+  materials: { Steel: 1000, Plastic: 150, Silver: 350, Diamond: 150 }
+
+- type: latheRecipe
+  parent: BaseMechEquipmentRecipe
+  id: MechEquipmentKineticAccelerator
+  result: WeaponMechIndustrialKineticAccelerator
+  materials: { Steel: 1500, Glass: 750, Silver: 150 }

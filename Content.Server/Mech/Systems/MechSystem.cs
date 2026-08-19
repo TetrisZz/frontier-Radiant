@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
+using Content.Server._radiant.Mech.Components;
 using Content.Server.Mech.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -84,7 +85,9 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, UpdateCanMoveEvent args)
     {
-        if (component.Broken || component.Integrity <= 0 || component.Energy <= 0)
+        // Radiant Sector: a discharged Clarke can still crawl on a surface, but its flight system is disabled separately.
+        if (component.Broken || component.Integrity <= 0 ||
+            (component.Energy <= 0 && !HasComp<ClarkeFlightComponent>(uid)))
             args.Cancel();
     }
 
@@ -160,6 +163,10 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
         // End Frontier: mechs with fixed equipment
 
+        // Radiant Sector: prevent pilots from removing Clarke equipment from inside the cockpit.
+        if (!component.PilotCanRemoveEquipment && component.PilotSlot.ContainedEntity == args.Actor)
+            return;
+
         // Frontier: snails and other simple mobs shouldn't manipulate mech equipment
         if (!_actionBlocker.CanComplexInteract(args.Actor))
             return;
@@ -184,7 +191,9 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnToolUseAttempt(EntityUid uid, MechPilotComponent component, ref ToolUserAttemptUseEvent args)
     {
-        if (args.Target == component.Mech)
+        if (args.Target == component.Mech ||
+            // Radiant Sector: an unpowered mech cannot operate installed tool modules.
+            TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
             args.Cancelled = true;
     }
 

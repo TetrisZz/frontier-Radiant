@@ -1,0 +1,24 @@
+# Clarke equipment and construction tags.  The feature lives in the Radiant Sector namespace.
+- type: Tag
+  id: IndustrialMech
+
+- type: Tag
+  id: ClarkeCentralControlModule
+
+- type: Tag
+  id: ClarkePeripheralsControlModule
+
+- type: Tag
+  id: ClarkeHead
+
+- type: Tag
+  id: ClarkeLArm
+
+- type: Tag
+  id: ClarkeRArm
+
+- type: Tag
+  id: ClarkeTreads
+
+- type: Tag
+  id: MechThruster

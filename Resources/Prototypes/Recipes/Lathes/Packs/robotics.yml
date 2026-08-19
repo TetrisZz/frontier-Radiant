@@ -77,6 +77,13 @@
   - HamtrLLeg
   - HamtrRLeg
   - VimHarness
+  # Radiant Sector - Clarke mining exosuit parts.
+  - ClarkeHarness
+  - ClarkeHead
+  - ClarkeLArm
+  - ClarkeRArm
+  - ClarkeTreads
+  - MechThruster
 
 - type: latheRecipePack
   id: MechEquipment
@@ -85,3 +92,7 @@
     - MechEquipmentHorn
     - MechEquipmentGrabberSmall
     - MechEquipmentFork # Frontier
+    # Radiant Sector - Clarke mining equipment.
+    - MechEquipmentDrill
+    - MechEquipmentDrillDiamond
+    - MechEquipmentKineticAccelerator

@@ -166,6 +166,13 @@ public sealed partial class MechComponent : Component
     [DataField]
     public bool CanRemoveEquipment = true;
 
+    /// <summary>
+    /// Radiant Sector: whether the pilot can remove installed equipment through the mech interface.
+    /// This does not prevent another character from servicing the mech from outside.
+    /// </summary>
+    [DataField]
+    public bool PilotCanRemoveEquipment = true;
+
     [DataField(serverOnly: true)]
     public bool MobStateAdded = false;
 

@@ -1,0 +1,9 @@
+{
+  "copyright": "Taken from tgstation/tgstation commit da4d61210600269aaf56a2e309dd31c056252d84 via Monolith-Station/Monolith",
+  "license": "CC-BY-SA-3.0",
+  "version": 1,
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "mecha_bin" }
+  ]
+}

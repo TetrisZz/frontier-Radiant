@@ -119,6 +119,9 @@
   recipes:
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
+  # Radiant Sector - Clarke mining exosuit electronics.
+  - ClarkeCentralElectronics
+  - ClarkePeripheralsElectronics
   - HonkerCentralElectronics
   - HonkerPeripheralsElectronics
   - HonkerTargetingElectronics
