@@ -1,0 +1,46 @@
+# Author Info
+# GitHub: 
+# Discord: ???
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Inkub
+  parent: BaseVessel
+  name: HOM Инкуб
+  description: Судно большого размера, для отдыха, оборудованный баней, бассейном, баром и кухней. На нем есть все, о чем можно мечтать.
+  price: 174500
+  category: Large
+  group: Shipyard
+  shuttlePath: /Maps/_radiant/Shuttles/Inkub.yml
+  guidebookPage: Null
+  class:
+  - Kitchen
+  - Medical
+  - Civilian
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Inkub
+  mapName: 'HOM Инкуб'
+  mapPath: /Maps/_radiant/Shuttles/Inkub.yml
+  minPlayers: 0
+  stations:
+    Inkub:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Инкуб {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 0, 0 ]
+            PilotInterview: [ 0, 0 ]
+            MercenaryInterview: [ 0, 0 ]
