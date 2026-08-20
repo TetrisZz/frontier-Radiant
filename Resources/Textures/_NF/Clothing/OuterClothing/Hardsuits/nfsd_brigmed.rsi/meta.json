@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by какой-то чел(джовелин), Homka was made equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran, for the Radiant Sector",
+  "copyright": "Made by какой-то чел(джовелин), Homka was made equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran, for the Radiant Sector Feroxi overlay added for Radiant Sector.",
   "size": {
     "x": 32,
     "y": 32
@@ -36,6 +36,10 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-feroxi",
       "directions": 4
     }
   ]

@@ -1,27 +1,27 @@
 {
-    "version": 1,
-    "license": "CC-BY-NC-SA-4.0",
-    "copyright": "Content created by GhostPrince for Frontier Server,Homka ( DS hommkka) was made for rezomi, Resprited by Homka  - for the Radiant Sector",
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Content created by GhostPrince for Frontier Server,Homka ( DS hommkka) was made for rezomi, Resprited by Homka  - for the Radiant Sector Feroxi overlay added for Radiant Sector.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
     },
-    "states": [
-        {
-            "name": "icon"
-        },
-        {
-            "name": "equipped-OUTERCLOTHING",
-            "directions": 4
-        },   
-        {
-            "name": "equipped-OUTERCLOTHING-resomi",
-            "directions": 4
-         },
-        {
-            "name": "inhand-left",
-            "directions": 4
-        },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
     {
       "name": "equipped-OUTERCLOTHING-reptilian",
       "directions": 4
@@ -34,9 +34,13 @@
       "name": "equipped-OUTERCLOTHING-tajaran",
       "directions": 4
     },
-        {
-            "name": "inhand-right",
-            "directions": 4
-        }
-    ]
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-feroxi",
+      "directions": 4
+    }
+  ]
 }

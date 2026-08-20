@@ -2,7 +2,7 @@
   id: SharkTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [ Human, Reptilian, DemonSpecies ] 
+  speciesRestriction: [ Human, Reptilian, DemonSpecies, Feroxi ]
   coloring:
     default:
       type:

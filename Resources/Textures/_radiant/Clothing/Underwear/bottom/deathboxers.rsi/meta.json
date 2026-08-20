@@ -1,6 +1,6 @@
 {
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13",
+  "copyright": "Taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13 Feroxi overlay added for Radiant Sector.",
   "version": 1,
   "size": {
     "x": 32,
@@ -14,16 +14,20 @@
     {
       "name": "icon"
     },
- {
+    {
       "name": "equipped-UNDERWEARB-vulpkanin",
       "directions": 4
-    },  
-  {
+    },
+    {
       "name": "equipped-UNDERWEARB-tajaran",
       "directions": 4
     },
     {
       "name": "equipped-UNDERWEARB-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-UNDERWEARB-feroxi",
       "directions": 4
     }
   ]
