@@ -88,6 +88,8 @@
     angle: 30
     animation: WeaponArcBite
     damage: { types: { Piercing: 7 } }
+  - type: Tag
+    tags: [CanPilot, FootstepSound, DoorBumpOpener, AnomalyHost, FeroxiEmotes]
   - type: Perishable
 
 - type: entity
