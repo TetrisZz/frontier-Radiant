@@ -1,61 +1,65 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from paradise station git at commit https://github.com/ParadiseSS13/Paradise/commit/e5e584804b4b0b373a6a69d23afb73fd3c094365, redrawn by Ubaser. Vox state made by Flareguy for SS14. Siren Icon made by Velen based of the helmet's colours, equipped-OUTERCLOTHING-resomi made by Homka. equipped-OUTERCLOTHING-dog modified from equipped-OUTERCLOTHING by Sparlight (GitHub),  equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran made by Hommkka, equipped-OUTERCLOTHING-cat made by Zalindae (Github/Discord).",
+  "copyright": "Taken from paradise station git at commit https://github.com/ParadiseSS13/Paradise/commit/e5e584804b4b0b373a6a69d23afb73fd3c094365, redrawn by Ubaser. Vox state made by Flareguy for SS14. Siren Icon made by Velen based of the helmet's colours, equipped-OUTERCLOTHING-resomi made by Homka. equipped-OUTERCLOTHING-dog modified from equipped-OUTERCLOTHING by Sparlight (GitHub),  equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran made by Hommkka, equipped-OUTERCLOTHING-cat made by Zalindae (Github/Discord). Feroxi overlay added for Radiant Sector.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
-        {
-            "name": "icon"
-        },
-        {
-            "name": "icon-siren"
-        },
-        {
-            "name": "equipped-OUTERCLOTHING",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-vox",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-resomi",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-dog",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-reptilian",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-tajaran",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-cat",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-harpy",
-            "directions": 4
-        },
-        {
-            "name": "inhand-left",
-            "directions": 4
-        },
-        {
-            "name": "inhand-right",
-            "directions": 4
-        }
-    ]
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-siren"
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-dog",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-tajaran",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-cat",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-harpy",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-feroxi",
+      "directions": 4
+    }
+  ]
 }

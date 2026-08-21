@@ -1,6 +1,6 @@
 {
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Homka for the Radiant sector - Frontier",
+  "copyright": "Made by Homka for the Radiant sector - Frontier Feroxi overlay added for Radiant Sector.",
   "version": 1,
   "size": {
     "x": 32,
@@ -14,8 +14,8 @@
     {
       "name": "equipped-UNDERWEARB-vulpkanin",
       "directions": 4
-    },  
-  {
+    },
+    {
       "name": "equipped-UNDERWEARB-tajaran",
       "directions": 4
     },
@@ -25,6 +25,10 @@
     },
     {
       "name": "icon"
+    },
+    {
+      "name": "equipped-UNDERWEARB-feroxi",
+      "directions": 4
     }
   ]
 }

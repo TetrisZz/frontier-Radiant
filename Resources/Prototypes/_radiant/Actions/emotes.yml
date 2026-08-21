@@ -1,0 +1,5 @@
+- type: emote
+  id: VehicleTrickFlip
+  name: vehicle-trick-flip-emote-name
+  chatMessages: ["vehicle-trick-flip-emote-message"]
+  event: !type:AnimationFlipEmoteEvent

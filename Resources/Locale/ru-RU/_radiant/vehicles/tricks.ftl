@@ -1,0 +1,12 @@
+vehicle-trick-verb = Выполнить трюк
+vehicle-trick-hands-busy = Для трюка необходимо освободить обе руки.
+vehicle-trick-self = Вы выполняете трюк на доске!
+vehicle-trick-others = { $user } выполняет трюк на доске!
+vehicle-trick-flip-self = Вы выполняете сальто вместе с доской!
+vehicle-trick-flip-others = { $user } выполняет сальто вместе с доской!
+vehicle-trick-failure-self = Вы теряете равновесие, но удерживаетесь на доске.
+vehicle-trick-failure-others = { $user } едва не падает, но удерживается на доске.
+vehicle-trick-fall-self = Трюк не удаётся, и вы падаете с доски!
+vehicle-trick-fall-others = { $user } не справляется с трюком и падает с доски!
+vehicle-trick-flip-emote-name = сальто на доске
+vehicle-trick-flip-emote-message = выполняет сальто на доске

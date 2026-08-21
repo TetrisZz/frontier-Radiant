@@ -1,0 +1,10 @@
+uplink-hom-swordoff-name = energy sword
+uplink-hom-swordoff-desc = An unusual sword with an energy amplifier and a shifting blade state.
+uplink-hom-chainsword-name = chain sword
+uplink-hom-chainsword-desc = A heavy blade with an activatable chain capable of tearing through flesh and structures.
+uplink-hom-talking-sword-name = possessed blade
+uplink-hom-talking-sword-desc = An animated blade that will never leave its owner without company.
+uplink-hom-spectral-blade-name = spectral blade
+uplink-hom-spectral-blade-desc = A translucent blade with a cold, flickering edge.
+uplink-hom-crimson-bastard-name = crimson bastard sword
+uplink-hom-crimson-bastard-desc = A heavy crimson blade designed for especially powerful two-handed strikes.

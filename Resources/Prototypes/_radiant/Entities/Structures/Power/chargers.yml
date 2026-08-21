@@ -1,84 +1,25 @@
 - type: entity
-  parent: BaseRecharger
+  parent: BorgCharger
   id: BorgChargerRadiant
-  name: cyborg recharging station
-  description: A stationary charger for various robotic and cyborg entities. Surprisingly spacious.
+  name: ремонтно-зарядная капсула боргов
+  description: Закрытая станция для одновременной зарядки и постепенного ремонта киборгов.
   components:
   - type: Sprite
     sprite: _radiant/Structures/Power/borg_charger.rsi
-    layers:
-      - state: borgcharger-u1
-        map: ["base"]
-      - state: borgcharger0
-        map: ["enum.PowerDeviceVisualLayers.Powered"]
-        shader: "unshaded"
-      - state: borgcharger1
-        map: ["charged"]
-        shader: "unshaded"
-        visible: false
-      - state: borgdecon1
-        map: ["enum.WiresVisualLayers.MaintenancePanel"]
-        visible: false
   - type: Charger
-    chargeRate: 35
-    slotId: entity_storage
-    whitelist:
-      components:
-      - BorgChassis
-  - type: DamageMarkerOnCollide
-    Amount: 2
+    chargeRate: 30
+  - type: BorgRepairPod
+    repairInterval: 1
+    repairSound:
+      path: /Audio/Items/welder.ogg
+      params:
+        volume: -8
     damage:
       types:
-        Blunt: 20
-        Slash: 5
-#    whitelist:
-#      components:
-#      - BorgChassis
-  - type: Construction
-    containers:
-    - machine_parts
-    - machine_board
-    - entity_storage
-  - type: WiresPanel
-  - type: WiresVisuals
+        Blunt: -1.5
+        Slash: -1.5
+        Piercing: -1.5
+        Heat: -1.5
+        Shock: -1.5
   - type: Machine
-    board: BorgChargerCircuitboard
-  - type: GenericVisualizer
-    visuals:
-      enum.StorageVisuals.Open:
-        base:
-          True: { state: borgcharger-u0 }
-          False: { state: borgcharger-u1 }
-        enum.PowerDeviceVisualLayers.Powered:
-          True: { state: borgcharger0 }
-          False: { state: borgcharger2 }
-        charged:
-          True: { visible: false }
-          False: { visible: true }
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: { visible: true }
-          False: { visible: false }
-        charged:
-          True: { visible: true }
-          False: { visible: false }
-      enum.CellVisual.Light:
-        charged:
-          Off: { visible: false }
-          Empty: { visible: false }
-          Charging:
-            visible: true
-            state: borgcharger3
-          Charged:
-            visible: true
-            state: borgcharger1
-  - type: EntityStorage
-    capacity: 1
-    whitelist:
-      components:
-      - BorgChassis
-  - type: ContainerContainer
-    containers:
-      entity_storage: !type:Container
-      machine_board: !type:Container
-      machine_parts: !type:Container
+    board: BorgChargerRadiantCircuitboard

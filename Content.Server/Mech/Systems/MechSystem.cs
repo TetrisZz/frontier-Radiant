@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
+using Content.Server._radiant.Mech.Components;
 using Content.Server.Mech.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -29,6 +30,8 @@ using Content.Shared.NPC.Components; // Frontier
 using Content.Shared.Mobs; // Frontier
 using Content.Shared.NPC.Systems; // Frontier
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Mech.Systems;
 
@@ -36,6 +39,7 @@ namespace Content.Server.Mech.Systems;
 public sealed partial class MechSystem : SharedMechSystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Radiant Sector: mech critical-damage warning sound.
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -84,7 +88,9 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, UpdateCanMoveEvent args)
     {
-        if (component.Broken || component.Integrity <= 0 || component.Energy <= 0)
+        // Radiant Sector: a discharged Clarke can still crawl on a surface, but its flight system is disabled separately.
+        if (component.Broken || component.Integrity <= 0 ||
+            (component.Energy <= 0 && !HasComp<ClarkeFlightComponent>(uid)))
             args.Cancel();
     }
 
@@ -160,6 +166,10 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
         // End Frontier: mechs with fixed equipment
 
+        // Radiant Sector: prevent pilots from removing Clarke equipment from inside the cockpit.
+        if (!component.PilotCanRemoveEquipment && component.PilotSlot.ContainedEntity == args.Actor)
+            return;
+
         // Frontier: snails and other simple mobs shouldn't manipulate mech equipment
         if (!_actionBlocker.CanComplexInteract(args.Actor))
             return;
@@ -184,7 +194,9 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnToolUseAttempt(EntityUid uid, MechPilotComponent component, ref ToolUserAttemptUseEvent args)
     {
-        if (args.Target == component.Mech)
+        if (args.Target == component.Mech ||
+            // Radiant Sector: an unpowered mech cannot operate installed tool modules.
+            TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
             args.Cancelled = true;
     }
 
@@ -379,6 +391,16 @@ public sealed partial class MechSystem : SharedMechSystem
 
     public override void BreakMech(EntityUid uid, MechComponent? component = null)
     {
+        if (!Resolve(uid, ref component))
+            return;
+
+        // Radiant Sector: integrity reached zero; warn once, rather than replaying on every later damage event.
+        if (!component.Broken)
+        {
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_radiant/Mech/mech_critical_damage.ogg"), uid,
+                AudioParams.Default.WithVolume(-6f));
+        }
+
         base.BreakMech(uid, component);
 
         _ui.CloseUi(uid, MechUiKey.Key);

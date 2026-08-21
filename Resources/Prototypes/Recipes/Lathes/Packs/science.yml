@@ -119,11 +119,15 @@
   recipes:
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
+  # Radiant Sector - Clarke mining exosuit electronics.
+  - ClarkeCentralElectronics
+  - ClarkePeripheralsElectronics
   - HonkerCentralElectronics
   - HonkerPeripheralsElectronics
   - HonkerTargetingElectronics
   - HamtrCentralElectronics
   - HamtrPeripheralsElectronics
+  - BorgChargerRadiantCircuitboard # Radiant Sector
 
 - type: latheRecipePack
   id: ShuttleBoards

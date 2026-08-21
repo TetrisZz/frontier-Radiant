@@ -12,6 +12,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Item; // Delta-V: Felinids in duffelbags can't shoot.
+using Content.Shared.Mech.Components; // Radiant Sector: installed mech gun modules.
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -184,6 +185,19 @@ public abstract partial class SharedGunSystem : EntitySystem
             return true;
         }
 
+        // Radiant Sector: a selected weapon module is held by the mech, not by its pilot's hands.
+        if (TryComp<MechPilotComponent>(entity, out var pilot) &&
+            TryComp<MechComponent>(pilot.Mech, out var mech) &&
+            // Radiant Sector: an unpowered mech cannot fire its installed equipment.
+            mech.Energy > 0 &&
+            mech.CurrentSelectedEquipment is { } selectedEquipment &&
+            TryComp(selectedEquipment, out gun))
+        {
+            gunEntity = selectedEquipment;
+            gunComp = gun;
+            return true;
+        }
+
         // Last resort is check if the entity itself is a gun.
         if (TryComp(entity, out gun))
         {
@@ -330,6 +344,19 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         var fromCoordinates = Transform(user).Coordinates;
+
+        // Radiant Sector: a mech module fires from just beyond the mech hull, not from its pilot.
+        if (TryComp<MechPilotComponent>(user, out var mechPilot) &&
+            TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
+            mech.CurrentSelectedEquipment == gunUid)
+        {
+            var targetCoordinates = TransformSystem.ToCoordinates(
+                mechPilot.Mech,
+                TransformSystem.ToMapCoordinates(toCoordinates.Value));
+            var muzzleOffset = targetCoordinates.Position.Normalized() * 0.7f;
+            fromCoordinates = new EntityCoordinates(mechPilot.Mech, muzzleOffset);
+        }
+
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, new List<(EntityUid? Entity, IShootable Shootable)>(), fromCoordinates, user, true); // Frontier: add intent to fire
 

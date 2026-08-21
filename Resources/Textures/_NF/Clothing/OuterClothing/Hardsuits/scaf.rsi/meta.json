@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Artist`s : maksgab, finalized TetrisZz. Homka was made for rezomi, for the Radiant Sector",
+  "copyright": "Artist`s : maksgab, finalized TetrisZz. Homka was made for rezomi, for the Radiant Sector Feroxi overlay added for Radiant Sector.",
   "size": {
     "x": 32,
     "y": 32
@@ -33,30 +33,30 @@
       "name": "on-inhand-left",
       "directions": 4
     },
-        {
-            "name": "equipped-OUTERCLOTHING-reptilian",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-tajaran",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-light-reptilian",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-light-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-light-tajaran",
-            "directions": 4
-        },
+    {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-tajaran",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-light-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-light-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-light-tajaran",
+      "directions": 4
+    },
     {
       "name": "off-inhand-left",
       "directions": 4
@@ -67,6 +67,14 @@
     },
     {
       "name": "off-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-feroxi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-light-feroxi",
       "directions": 4
     }
   ]

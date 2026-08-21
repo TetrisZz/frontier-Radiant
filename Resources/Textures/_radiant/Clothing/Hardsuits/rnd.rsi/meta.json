@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by Aserovich, equipped-OUTERCLOTHING-resomi equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran Created by Homka",
+  "copyright": "Created by Aserovich, equipped-OUTERCLOTHING-resomi equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran Created by Homka Feroxi overlay added for Radiant Sector.",
   "size": {
     "x": 32,
     "y": 32
@@ -33,9 +33,13 @@
     {
       "name": "equipped-OUTERCLOTHING-tajaran",
       "directions": 4
-    }, 
+    },
     {
       "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-feroxi",
       "directions": 4
     }
   ]

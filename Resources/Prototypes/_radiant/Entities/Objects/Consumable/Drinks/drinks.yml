@@ -1,5 +1,5 @@
 - type: entity # Radiant
-  parent: DrinkGlass
+  parent: BaseRadiantDrinkGlass
   id: DrinkWizzFizzGlass
   suffix: wizz fizz
   components:
@@ -15,7 +15,15 @@
     state: icon
 
 - type: entity
+  abstract: true
   parent: DrinkGlass
+  id: BaseRadiantDrinkGlass
+  components:
+  - type: SolutionContainerVisuals
+    emptySpriteName: empty
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
   id: DrinkNarsourGlass
   suffix: narsour
   components:
@@ -31,7 +39,7 @@
     state: icon
 
 - type: entity
-  parent: DrinkGlass
+  parent: BaseRadiantDrinkGlass
   id: DrinkLavalSpitGlass
   suffix: laval spit
   components:
@@ -47,7 +55,7 @@
     state: icon
 
 - type: entity
-  parent: DrinkGlass
+  parent: BaseRadiantDrinkGlass
   id: DrinkPinotMortGlass
   suffix: pinot mort
   components:
@@ -63,7 +71,7 @@
     state: icon
 
 - type: entity
-  parent: DrinkGlass
+  parent: BaseRadiantDrinkGlass
   id: DrinkStrawberryShakeAltGlass
   suffix: strawberry shake
   components:
@@ -79,7 +87,7 @@
     state: icon
 
 - type: entity
-  parent: DrinkGlass
+  parent: BaseRadiantDrinkGlass
   id: DrinkPlanetCrackerGlass
   suffix: planet cracker
   components:
@@ -95,7 +103,7 @@
     state: icon
 
 - type: entity
-  parent: DrinkGlass
+  parent: BaseRadiantDrinkGlass
   id: DrinkHoneystonesLoveGlass
   suffix: honeystones love
   components:
@@ -111,7 +119,7 @@
     state: icon
 
 - type: entity
-  parent: DrinkGlass
+  parent: BaseRadiantDrinkGlass
   id: DrinkSkullfuckerGlass
   suffix: skullfucker
   components:
@@ -127,7 +135,7 @@
     state: icon
 
 - type: entity
-  parent: DrinkGlass
+  parent: BaseRadiantDrinkGlass
   id: DrinkMothInChiefGlass
   suffix: moth in chief
   components:
@@ -140,4 +148,276 @@
           Quantity: 30
   - type: Icon
     sprite: _radiant/Objects/Consumable/Drinks/mothinchief.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkHivemindEraserGlassRS
+  suffix: hivemind eraser
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HivemindEraserRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/hivemind_eraser.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkCrimsonIchorGlassRS
+  suffix: crimson ichor
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CrimsonIchorRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/crimson_ichor.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkItalianCocoaGlassRS
+  suffix: italian cocoa
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ItalianCocoaRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/italian_cocoa.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkDuplexGlassRS
+  suffix: duplex
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DuplexRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/duplex.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkMiamiViceGlassRS
+  suffix: miami vice
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MiamiViceRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/miami_vice.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkHotLimeMiamiGlassRS
+  suffix: hot lime miami
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HotLimeMiamiRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/hot_lime_miami.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkHellfireGlassRS
+  suffix: hellfire
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: HellfireRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/hellfire.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkGunfireGlassRS
+  suffix: gunfire
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: GunfireRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/gunfire.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkPinkMilkGlassRS
+  suffix: pink milk
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PinkMilkRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/pink_milk.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkPinkTeaGlassRS
+  suffix: pink tea
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PinkTeaRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/pink_tea.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkFriskyKittyGlassRS
+  suffix: frisky kitty
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FriskyKittyRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/frisky_kitty.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkStrawberryDaiquiriGlassRS
+  suffix: strawberry daiquiri
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: StrawberryDaiquiriRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/strawberry_daiquiri.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkBoogerGlassRS
+  suffix: booger
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BoogerRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/booger.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkMaunaLoaGlassRS
+  suffix: mauna loa
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MaunaLoaRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/mauna_loa.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkBastionBourbonGlassRS
+  suffix: bastion bourbon
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BastionBourbonRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/bastion_bourbon.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkNeuralStormGlassRS
+  suffix: neural storm
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: NeuralStormRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/neural_storm.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRadiantDrinkGlass
+  id: DrinkRussianNightGlassRS
+  suffix: russian night
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RussianNightRS
+          Quantity: 30
+  - type: Icon
+    sprite: _radiant/Objects/Consumable/Drinks/russian_night.rsi
     state: icon

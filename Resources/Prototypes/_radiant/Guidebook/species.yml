@@ -4,6 +4,6 @@
   text: "/ServerInfo/_radiant/Guidebook/Mobs/Resomi.xml"
 
 - type: guideEntry
-  id: Arcana
+  id: DemonSpecies # Radiant Sector: must match the Arcana species prototype ID for the lobby guide button.
   name: species-name-demon
   text: "/ServerInfo/_radiant/Guidebook/Mobs/Arcana.xml"

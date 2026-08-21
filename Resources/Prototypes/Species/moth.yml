@@ -11,6 +11,9 @@
   maleFirstNames: NamesMothFirstMale
   femaleFirstNames: NamesMothFirstFemale
   lastNames: NamesMothLast
+  minHeight: 0.88018 # Radiant Sector: 155 cm
+  defaultHeight: 0.93697 # Radiant Sector: 165 cm
+  maxHeight: 0.99375 # Radiant Sector: 175 cm
 
 - type: speciesBaseSprites
   id: MobMothSprites

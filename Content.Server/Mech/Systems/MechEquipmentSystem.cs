@@ -4,6 +4,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Mech.Systems;
 
@@ -13,6 +15,7 @@ namespace Content.Server.Mech.Systems;
 public sealed class MechEquipmentSystem : EntitySystem
 {
     [Dependency] private readonly MechSystem _mech = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Radiant Sector: quiet confirmation sound for all mech module installations.
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
@@ -62,6 +65,9 @@ public sealed class MechEquipmentSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("mech-equipment-finish-install", ("item", uid)), args.Args.Target.Value);
         _mech.InsertEquipment(args.Args.Target.Value, uid);
+        // Radiant Sector: quiet confirmation for a module installed through the normal interaction.
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_radiant/Mech/mech_module_install.ogg"), args.Args.Target.Value,
+            AudioParams.Default.WithVolume(-12f));
 
         args.Handled = true;
     }

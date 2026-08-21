@@ -11,6 +11,7 @@ research-technology-hardsuits-experimental-rd = Экспериментальны
 research-technology-construction-bags = Строительные сумки
 research-technology-bounty-hunting = Контракты
 research-technology-arsenal-style = Панк прикил
+nf-research-technology-borg-restoration = Ремонтные системы киборгов
 research-techology-advanced-topicals = Продвинутое 
 research-technology-magnets-tech-advanced = Продвинутый магнетизм
 research-technology-magnets-tech-combat = Боевой магнетизм

@@ -1,0 +1,36 @@
+# Radiant Sector - Frontier research-tree integration for Clarke and its mining equipment.
+- type: technology
+  id: NFClarke
+  name: nf-research-technology-clarke
+  entityIcon: MechClarke
+  discipline: NFSalvage
+  tier: 1
+  cost: 12500
+  recipeUnlocks:
+  - ClarkeHarness
+  - ClarkeHead
+  - ClarkeLArm
+  - ClarkeRArm
+  - ClarkeTreads
+  - ClarkeCentralElectronics
+  - ClarkePeripheralsElectronics
+  - MechThruster
+  - MechEquipmentDrill
+  - MechEquipmentKineticAccelerator
+  technologyPrerequisites:
+  - NFIndustrialOreProcessor
+  - NFAdvancedSalvageCyborg
+  position: 4, 37
+
+- type: technology
+  id: NFClarkeAdvancedMining
+  name: nf-research-technology-clarke-advanced-mining
+  entityIcon: WeaponMechMeleeDrillDiamond
+  discipline: NFSalvage
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - MechEquipmentDrillDiamond
+  technologyPrerequisites:
+  - NFClarke
+  position: 5, 37

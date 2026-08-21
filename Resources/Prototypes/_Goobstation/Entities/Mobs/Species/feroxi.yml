@@ -1,0 +1,125 @@
+# Goob Station: Feroxi species, adapted for Radiant Sector.
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobFeroxi
+  name: Урист МакФин
+  abstract: true
+  save: false
+  components:
+  - type: HumanoidAppearance
+    species: Feroxi
+    hideLayersOnEquip: [Snout]
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi
+    state: full
+  - type: Body
+    prototype: Feroxi
+    requiredLegs: 2
+  - type: Speech
+    speechSounds: Tenor
+    speechVerb: Feroxi
+    allowedEmotes: [Gnash, Ston]
+  - type: TTS # Radiant Sector
+  - type: Vocal
+    sounds: { Male: MaleFeroxi, Female: FemaleFeroxi, Unsexed: MaleFeroxi }
+  - type: Inventory
+    speciesId: feroxi
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32: { sprite: _White/Mobs/Species/displacement.rsi, state: jumpsuit-female }
+      shoes:
+        sizeMaps:
+          32: { sprite: _White/Mobs/Species/displacement.rsi, state: shoes }
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32: { sprite: _White/Mobs/Species/displacement.rsi, state: jumpsuit }
+      shoes:
+        sizeMaps:
+          32: { sprite: _White/Mobs/Species/displacement.rsi, state: shoes }
+  - type: Carriable
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.HumanoidVisualLayers.Chest"]
+    - map: ["enum.HumanoidVisualLayers.Head"]
+    - map: ["enum.HumanoidVisualLayers.Snout"]
+    - map: ["enum.HumanoidVisualLayers.Eyes"]
+    - map: ["enum.HumanoidVisualLayers.RArm"]
+    - map: ["enum.HumanoidVisualLayers.LArm"]
+    - map: ["enum.HumanoidVisualLayers.RLeg"]
+    - map: ["enum.HumanoidVisualLayers.LLeg"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["underwearb"]
+    - map: ["underweart"]
+    - map: ["socks"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentTop"]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["id"]
+    - map: ["gloves"]
+    - map: ["shoes"]
+    - map: ["ears"]
+    - map: ["outerClothing"]
+    - map: ["belt"]
+    - map: ["eyes"]
+    - map: ["neck"]
+    - map: ["back"]
+    - map: ["enum.HumanoidVisualLayers.FacialHair"]
+    - map: ["enum.HumanoidVisualLayers.Hair"]
+    - map: ["enum.HumanoidVisualLayers.HeadSide"]
+    - map: ["enum.HumanoidVisualLayers.HeadTop"]
+    - map: ["enum.HumanoidVisualLayers.Tail"]
+    - map: ["mask"]
+    - map: ["head"]
+    - map: ["pocket1"]
+    - map: ["pocket2"]
+  - type: MeleeWeapon
+    hidden: true
+    soundHit: { path: /Audio/Effects/bite.ogg }
+    angle: 30
+    animation: WeaponArcBite
+    damage: { types: { Piercing: 7 } }
+  - type: Tag
+    tags: [CanPilot, FootstepSound, DoorBumpOpener, AnomalyHost, FeroxiEmotes]
+  - type: Perishable
+
+- type: entity
+  parent: BaseMobFeroxi
+  id: MobFeroxi
+  name: Урист МакФин
+  save: false
+
+- type: entity
+  parent: MobHumanDummy
+  id: MobFeroxiDummy
+  name: Feroxi Dummy
+  save: false
+  categories: [HideSpawnMenu]
+  components:
+  - type: HumanoidAppearance
+    species: Feroxi
+  - type: Inventory
+    speciesId: feroxi
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32: { sprite: _White/Mobs/Species/displacement.rsi, state: jumpsuit-female }
+      shoes:
+        sizeMaps:
+          32: { sprite: _White/Mobs/Species/displacement.rsi, state: shoes }
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32: { sprite: _White/Mobs/Species/displacement.rsi, state: jumpsuit }
+      shoes:
+        sizeMaps:
+          32: { sprite: _White/Mobs/Species/displacement.rsi, state: shoes }

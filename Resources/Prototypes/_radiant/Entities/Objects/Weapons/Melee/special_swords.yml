@@ -1,0 +1,45 @@
+- type: entity
+  parent: [BaseSword, BaseC2Contraband]
+  id: WeaponSpectralBladeRS
+  name: spectral blade
+  description: A translucent blade whose edge flickers with a cold, ghostly light.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/spectral_blade.rsi
+    state: icon
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Melee/spectral_blade.rsi
+    size: Normal
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 20
+        Cold: 2
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
+  parent: [BaseSword, BaseC2Contraband]
+  id: WeaponCrimsonBastardSwordRS
+  name: crimson bastard sword
+  description: A massive crimson blade with a heavy edge and a comfortable one-handed grip.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Melee/crimson_bastard_sword.rsi
+    state: icon
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Melee/crimson_bastard_sword_inhands.rsi
+    size: Large
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+        Slash: 14
+    soundHit:
+      collection: MetalThud
+  - type: StaticPrice
+    price: 2500

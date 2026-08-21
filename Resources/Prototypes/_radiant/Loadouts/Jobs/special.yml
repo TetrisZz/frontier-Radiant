@@ -11,16 +11,3 @@
     back:
     - BaseHomUplinkRadio100
   groupBy: "towels"
-
-- type: loadout
-  id: ClothingNeckClokRS
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
-  storage:
-    back:
-    - ClothingNeckCloakRS
-  groupBy: "towels"

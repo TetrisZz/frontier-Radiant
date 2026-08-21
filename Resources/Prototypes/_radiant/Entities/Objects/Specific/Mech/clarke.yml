@@ -1,0 +1,380 @@
+# Radiant Sector - Clarke mining exosuit, ported from Monolith's Goobstation mech content.
+
+- type: entity
+  id: MechClarke
+  parent: BaseMech
+  name: Clarke
+  description: A fast mining exosuit for work in space. It has built-in thrusters and an ore hold.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: Objects/Specific/Mech/mecha.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: clarke
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_radiant/Mech/clarke_step.ogg
+      params:
+        volume: -10
+  - type: PointLight
+    enabled: true
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 5
+    energy: 1.5
+    color: "#d9edff"
+    netsync: false
+  - type: Mech
+    baseState: clarke
+    openState: clarke-open
+    brokenState: clarke-broken
+    mechToPilotDamageMultiplier: 0.25
+    # Clarke is not a sealed life-support vehicle; its pilot still needs a spacesuit in vacuum.
+    airtight: false
+    pilotCanRemoveEquipment: false
+    # Radiant Sector: four hardpoints let the mining loadout carry its tools alongside utility equipment.
+    maxEquipmentAmount: 4
+    equipmentWhitelist:
+      # Accept the actual equipment component as well as the Clarke-specific tag. This keeps both
+      # the regular and diamond drills installable even if an inherited tag is overridden later.
+      components:
+      - MechEquipment
+      tags:
+      - IndustrialMech
+    pilotWhitelist:
+      components:
+      - HumanoidAppearance
+  # Keep both the mech controls and the ore-hold window registered on the same entity.
+  - type: UserInterface
+    interfaces:
+      enum.MechUiKey.Key:
+        type: MechBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ClarkePressureProtection
+  - type: ClarkeTemperatureProtection
+  # The cockpit insulates its occupant from atmospheric heat and cold, but remains unsealed.
+  - type: ContainerTemperatureDamageThresholds
+    heatDamageThreshold: 1000
+    coldDamageThreshold: 0
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 26
+  # Radiant Sector: lets equipment attacks use the mech itself as their damage source.
+  - type: CombatMode
+    isInCombatMode: true
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 4.5
+    baseWeightlessModifier: 10
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: CanMoveInAir
+  - type: MovementAlwaysTouching
+  - type: ClarkeFlight
+    energyUsePerSecond: 25
+  - type: ClarkeMagboots
+  # Clarke's space-flight signature: visible on mass scanners only while off-grid.
+  - type: RadarBlip
+    radarColor: Cyan
+    scale: 1
+    visibleFromOtherGrids: true
+    requireNoGrid: true
+  - type: StaticPrice
+    price: 1500
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: Prying
+    pryPowered: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
+  - type: MagnetPickup
+    magnetEnabled: false
+    range: 2
+  - type: Storage
+    maxItemSize: Normal
+    # Modules must reach the mech-equipment interaction instead of being rejected by the ore hold.
+    clickInsert: false
+    openOnActivate: true
+    grid:
+    - 0,0,15,7
+    whitelist:
+      tags:
+      - ArtifactFragment
+      - Ore
+      - Ingot
+      - Sheet
+      components:
+      - ConstructionMaterials
+  - type: Dumpable
+    multiplier: 2
+
+- type: entity
+  id: MechClarkeBattery
+  parent: MechClarke
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellHigh
+
+- type: entity
+  id: BaseClarkePart
+  parent: BaseMechPart
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Items
+    noRot: false
+    sprite: _radiant/Objects/Specific/Mech/clarke_construction.rsi
+
+- type: entity
+  id: BaseClarkePartItem
+  parent: BaseClarkePart
+  abstract: true
+  components:
+  - type: Item
+    size: Ginormous
+
+- type: entity
+  id: ClarkeHarness
+  parent: BaseClarkePart
+  name: clarke harness
+  description: The core of the Clarke.
+  components:
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      clarke_head+o:
+        whitelist:
+          tags: [ ClarkeHead ]
+      clarke_r_arm+o:
+        whitelist:
+          tags: [ ClarkeLArm ]
+      clarke_l_arm+o:
+        whitelist:
+          tags: [ ClarkeRArm ]
+      clarke_treads+o:
+        whitelist:
+          tags: [ ClarkeTreads ]
+    sprite: _radiant/Objects/Specific/Mech/clarke_construction.rsi
+  - type: ContainerContainer
+    containers:
+      mech-assembly-container: !type:Container
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: clarke
+  - type: Sprite
+    state: clarke_harness+o
+    noRot: true
+  - type: PartAssembly
+    parts:
+      Clarke:
+      - ClarkeHead
+      - ClarkeLArm
+      - ClarkeRArm
+      - ClarkeTreads
+    containerId: mech-assembly-container
+  - type: Construction
+    graph: Clarke
+    node: start
+
+- type: entity
+  id: ClarkeHead
+  parent: BaseClarkePartItem
+  name: clarke head
+  description: The head of the Clarke. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: clarke_head
+  - type: Tag
+    tags: [ ClarkeHead ]
+
+- type: entity
+  id: ClarkeRArm
+  parent: BaseClarkePartItem
+  name: clarke right arm
+  description: The right arm of the Clarke. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: clarke_l_arm
+  - type: Tag
+    tags: [ ClarkeRArm ]
+
+- type: entity
+  id: ClarkeLArm
+  parent: BaseClarkePartItem
+  name: clarke left arm
+  description: The left arm of the Clarke. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: clarke_r_arm
+  - type: Tag
+    tags: [ ClarkeLArm ]
+
+- type: entity
+  id: ClarkeTreads
+  parent: BaseClarkePartItem
+  name: clarke treads
+  description: The treads of the Clarke. They belong on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: clarke_treads
+  - type: Tag
+    tags: [ ClarkeTreads ]
+
+- type: entity
+  id: ClarkeCentralElectronics
+  parent: BaseElectronics
+  name: clarke central control module
+  description: The electrical control center for the Clarke mech.
+  components:
+  - type: Item
+    storedRotation: 0
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: mainboard
+  - type: Tag
+    tags: [ ClarkeCentralControlModule ]
+  - type: GuideHelp
+    guides: [ Robotics ]
+
+- type: entity
+  id: ClarkePeripheralsElectronics
+  parent: BaseElectronics
+  name: clarke peripherals control module
+  description: The electrical peripherals controller for the Clarke mech.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: id_mod
+  - type: Tag
+    tags: [ ClarkePeripheralsControlModule ]
+  - type: GuideHelp
+    guides: [ Robotics ]
+
+- type: entity
+  id: MechThruster
+  parent: BaseItem
+  name: exosuit thruster
+  description: A thruster that lets an exosuit move safely in zero gravity.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Mech/clarke_components.rsi
+    state: mecha_bin
+  - type: Item
+    sprite: _radiant/Objects/Specific/Mech/clarke_components.rsi
+    storedRotation: 0
+  - type: Tag
+    tags: [ MechThruster ]
+
+- type: entity
+  id: BaseClarkeEquipment
+  parent: BaseMechEquipment
+  abstract: true
+  components:
+  - type: ClarkeMechEquipment
+  - type: Tag
+    tags: [ IndustrialMech ]
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  id: WeaponMechMeleeDrill
+  parent: BaseClarkeEquipment
+  name: exosuit drill
+  description: Mining equipment for an exosuit. It will pierce rock.
+  components:
+  - type: Sprite
+    state: mecha_drill
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: MeleeWeapon
+    canWideSwing: true
+    heavyStaminaCost: 0
+    autoAttack: true
+    range: 1.5
+    angle: 120
+    wideAnimationRotation: -90
+    soundHit:
+      path: /Audio/_radiant/Mech/clarke_drill.ogg
+      params:
+        volume: -12
+    attackRate: 3.5
+    damage:
+      groups:
+        Brute: 9
+      types:
+        Structural: 40
+  - type: ClarkeMechDrill
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+
+- type: entity
+  id: WeaponMechMeleeDrillDiamond
+  parent: WeaponMechMeleeDrill
+  name: diamond-tipped exosuit drill
+  description: An upgraded exosuit drill that pierces even tougher rock.
+  components:
+  - type: Sprite
+    state: mecha_diamond_drill
+  - type: MeleeWeapon
+    attackRate: 4.5
+    damage:
+      groups:
+        Brute: 18
+      types:
+        Structural: 70
+
+- type: entity
+  id: BulletKineticClarke
+  parent: BulletKineticShuttle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    noDamageDelete: false
+  - type: GatheringProjectile
+    amount: 8
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+
+- type: entity
+  id: WeaponMechIndustrialKineticAccelerator
+  parent: BaseClarkeEquipment
+  name: exosuit proto-kinetic accelerator
+  description: Fires rapid kinetic bolts at a short range.
+  components:
+  - type: Sprite
+    state: mecha_kineticgun
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: Gun
+    projectileSpeed: 40
+    fireRate: 1.5
+    selectedMode: FullAuto
+    availableModes: [ FullAuto ]
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.75
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletKineticClarke
+    capacity: 1
+    count: 1
+  - type: Appearance
+  - type: AmmoCounter

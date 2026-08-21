@@ -21,9 +21,8 @@
   class:
   - Kitchen
   - Civilian
-  - Botany
   engine:
-  - Uranium
+  - Bananium
 
 - type: gameMap
   id: Sukkub

@@ -1,0 +1,8 @@
+- type: loadout
+  id: ContractorSkateboardFlatpackRS
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 3000
+  inhand:
+  - SkateboardFlatpackRS

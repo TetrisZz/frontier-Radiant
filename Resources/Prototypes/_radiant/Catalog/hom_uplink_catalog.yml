@@ -496,6 +496,86 @@
       - HomUplink
 
 - type: listing
+  id: UplinkHomWeaponEnergySwordoff
+  name: uplink-hom-swordoff-name
+  description: uplink-hom-swordoff-desc
+  productEntity: WeaponEnergySwordoff
+  icon: { sprite: _radiant/Objects/Weapons/Melee/swordoff.rsi, state: swordon }
+  cost:
+    Cristalhom: 20
+  categories:
+  - UplinkHomWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponChainswordRS
+  name: uplink-hom-chainsword-name
+  description: uplink-hom-chainsword-desc
+  productEntity: WeaponChainswordRS
+  icon: { sprite: _radiant/Objects/Weapons/Melee/chainsword.rsi, state: chainswordoff }
+  cost:
+    Cristalhom: 7
+  categories:
+  - UplinkHomWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponTalkingSwordRS
+  name: uplink-hom-talking-sword-name
+  description: uplink-hom-talking-sword-desc
+  productEntity: WeaponTalkingSwordRS
+  icon: { sprite: _radiant/Objects/Weapons/Melee/talking_sword.rsi, state: icon }
+  cost:
+    Cristalhom: 7
+  categories:
+  - UplinkHomWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponSpectralBladeRS
+  name: uplink-hom-spectral-blade-name
+  description: uplink-hom-spectral-blade-desc
+  productEntity: WeaponSpectralBladeRS
+  icon: { sprite: _radiant/Objects/Weapons/Melee/spectral_blade.rsi, state: icon }
+  cost:
+    Cristalhom: 7
+  categories:
+  - UplinkHomWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponCrimsonBastardSwordRS
+  name: uplink-hom-crimson-bastard-name
+  description: uplink-hom-crimson-bastard-desc
+  productEntity: WeaponCrimsonBastardSwordRS
+  icon: { sprite: _radiant/Objects/Weapons/Melee/crimson_bastard_sword.rsi, state: icon }
+  cost:
+    Cristalhom: 7
+  categories:
+  - UplinkHomWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
   id: UplinkHomClothingNeckNinjaScarfClassic
   name: классический боевой шарф
   description: Длинный тёмный шарф для стремительных и уважаемых покупателей.
@@ -1074,6 +1154,38 @@
     Cristalhom: 3
   categories:
   - UplinkHomUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomVehicleHoverboard
+  name: uplink-hom-hoverboard-name
+  description: uplink-hom-hoverboard-desc
+  productEntity: CrateFunHoverboardRS
+  icon: { sprite: _radiant/Objects/Vehicles/skateboards.rsi, state: hoverboard-red }
+  cost:
+    Cristalhom: 5
+  categories:
+  - UplinkHomHardsuits
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  id: UplinkHomVehicleHoverbike
+  name: uplink-hom-hoverbike-name
+  description: uplink-hom-hoverbike-desc
+  productEntity: CrateFunHoverbikeNF
+  icon: { sprite: _NF/Objects/Vehicles/hoverbike.rsi, state: hull }
+  cost:
+    Cristalhom: 5
+  categories:
+  - UplinkHomHardsuits
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:

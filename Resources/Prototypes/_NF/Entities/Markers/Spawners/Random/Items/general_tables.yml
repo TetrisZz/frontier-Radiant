@@ -553,6 +553,7 @@
       - id: SpaceVillainArcade
       - id: SpaceVillainArcadeFilled
       - id: BlockGameArcade
+      - id: RadiantSpaceVillainArcade # Radiant Sector
       - id: VendingMachineBooze
       - id: VendingMachineCigs
       - id: VendingMachineCoffee

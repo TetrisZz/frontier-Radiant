@@ -75,6 +75,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Moth
   - Reptilian
   - SlimePerson
@@ -99,6 +101,8 @@
   abstract: true
   allowedSpecies:
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Reptilian
   - Vulpkanin
   - Vox
@@ -111,6 +115,8 @@
   abstract: true
   nearestAllowedSpecies:
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Reptilian
   - Vulpkanin
   - Vox
@@ -123,6 +129,8 @@
   abstract: true
   nearestAllowedSpecies:
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Vulpkanin
   - Resomi
   - Tajaran
@@ -137,6 +145,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Moth
   - Reptilian
   - SlimePerson
@@ -159,6 +169,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Moth
   - Reptilian
   - Tajaran
@@ -457,6 +469,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - SlimePerson
   - Vulpkanin
   - Skrell
@@ -694,6 +708,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - SlimePerson
   - Vulpkanin
 
@@ -1142,6 +1158,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Moth
   - Reptilian
   - SlimePerson
@@ -1759,6 +1777,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Moth
   - Reptilian
   - SlimePerson
@@ -1782,6 +1802,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Moth
   - Reptilian
   - SlimePerson
@@ -1807,6 +1829,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Moth
   - Reptilian
   - SlimePerson
@@ -1832,6 +1856,8 @@
   - Human
   - Dwarf
   - Felinid
+  - Feroxi
+  - Shadowkin
   - Moth
   - Reptilian
   - SlimePerson

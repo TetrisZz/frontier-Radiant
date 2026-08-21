@@ -65,5 +65,31 @@
   conditions:
   - !type:TileNotBlocked
 
+- type: construction
+  id: RadiantWallPlastitanium
+  graph: Girder
+  startNode: start
+  targetNode: radiantWallPlastitanium
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantWallPlastitaniumDiagonal
+  graph: Girder
+  startNode: start
+  targetNode: radiantWallPlastitaniumDiagonal
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
 
 

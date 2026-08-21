@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "NES-Station. Artist`s : maksgab. Homka was made for rezomi equipped-OUTERCLOTHING-resomi equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran, for the Radiant Sector",
+  "copyright": "NES-Station. Artist`s : maksgab. Homka was made for rezomi equipped-OUTERCLOTHING-resomi equipped-OUTERCLOTHING-reptilian equipped-OUTERCLOTHING-vulpkanin equipped-OUTERCLOTHING-tajaran, for the Radiant Sector Feroxi overlay added for Radiant Sector.",
   "size": {
     "x": 32,
     "y": 32
@@ -29,13 +29,17 @@
     {
       "name": "equipped-OUTERCLOTHING-tajaran",
       "directions": 4
-    },     
+    },
     {
       "name": "inhand-left",
       "directions": 4
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-feroxi",
       "directions": 4
     }
   ]

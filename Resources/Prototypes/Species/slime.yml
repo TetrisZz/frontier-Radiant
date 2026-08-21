@@ -8,9 +8,9 @@
   markingLimits: MobSlimeMarkingLimits
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
-  minHeight: 0.75 # Radiant sector ↓
+  minHeight: 0.79444 # Radiant Sector: 140 cm
   defaultHeight: 0.95
-  maxHeight: 1.15
+  maxHeight: 0.99375 # Radiant Sector: 175 cm
   minWidth: 0.7
   defaultWidth: 0.95
   maxWidth: 1.2 # Radiant sector ↑

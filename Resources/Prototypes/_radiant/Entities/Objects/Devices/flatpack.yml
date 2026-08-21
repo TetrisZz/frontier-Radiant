@@ -98,3 +98,14 @@
   components:
   - type: Flatpack
     entity: Pole
+
+- type: entity
+  parent: HoverbikeFlatpack
+  id: SkateboardFlatpackRS
+  name: упакованный скейтборд
+  description: Упаковка, при помощи которой можно собрать скейтборд.
+  components:
+  - type: Flatpack
+    entity: VehicleSkateboardRS
+  - type: StaticPrice
+    price: 3000

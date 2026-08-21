@@ -2,13 +2,71 @@
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Ported from BlueMoon Station",
-  "size": { "x": 32, "y": 32 },
+  "size": {
+    "x": 32,
+    "y": 32
+  },
   "states": [
-    { "name": "icon", "delays": [[0.6, 0.1, 0.1, 0.2]] },
-    { "name": "icon_empty" },
-    { "name": "fill-1", "delays": [[0.6, 0.1, 0.1, 0.2]] },
-    { "name": "fill-2", "delays": [[0.6, 0.1, 0.1, 0.2]] },
-    { "name": "fill-3", "delays": [[0.6, 0.1, 0.1, 0.2]] },
-    { "name": "fill-4", "delays": [[0.6, 0.1, 0.1, 0.2]] }
+    {
+      "name": "icon",
+      "delays": [
+        [
+          0.6,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "icon_empty"
+    },
+    {
+      "name": "fill-1",
+      "delays": [
+        [
+          0.6,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fill-2",
+      "delays": [
+        [
+          0.6,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fill-3",
+      "delays": [
+        [
+          0.6,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fill-4",
+      "delays": [
+        [
+          0.6,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "empty"
+    }
   ]
 }

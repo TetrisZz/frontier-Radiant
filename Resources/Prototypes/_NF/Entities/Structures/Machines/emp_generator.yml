@@ -32,6 +32,7 @@
   - type: EmpGenerator
     lightRadiusMin: 0.75
     lightRadiusMax: 2.5
+    activationDelay: 3.5 # Radiant Sector: give the EMP discharge a short warning window.
   - type: EmpDescription
     range: 100
     energyConsumption: 1000000

@@ -63,6 +63,9 @@
     sprite: _radiant/Structures/Walls/plastic.rsi
   - type: StaticPrice
     price: 140 # radiant: 150<140
+  - type: Construction
+    graph: Girder
+    node: radiantWallPlastitanium
 
 - type: entity
   parent: WallShuttleInterior
@@ -232,6 +235,9 @@
   - type: Icon
     sprite: _radiant/Structures/Walls/plastic_diagonal.rsi
     state: state0
+  - type: Construction
+    graph: Girder
+    node: radiantWallPlastitaniumDiagonal
 
 #navy
 
