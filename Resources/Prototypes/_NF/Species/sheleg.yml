@@ -15,7 +15,7 @@
   youngAge: 80
   oldAge: 400
   maxAge: 800
-  minHeight: 0.90857 # Radiant Sector: 160 cm; maximum remains unchanged.
+  minHeight: 0.9 # Radiant sector ↓
   defaultHeight: 1.2
   maxHeight: 1.3
   minWidth: 0.85

@@ -11,9 +11,9 @@
   maleFirstNames: NamesReptilianMale
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
-  minHeight: 0.79444 # Radiant Sector: Unathi, 140 cm
+  minHeight: 0.75 # Radiant sector ↓
   defaultHeight: 1
-  maxHeight: 1.05054 # Radiant Sector: Unathi, 185 cm
+  maxHeight: 1.25
   minWidth: 0.7
   defaultWidth: 1
   maxWidth: 1.35 # Radiant sector ↑

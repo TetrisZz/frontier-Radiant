@@ -12,8 +12,6 @@
   maleFirstNames: NamesVulpkaninMale
   femaleFirstNames: NamesVulpkaninFemale
   lastNames: NamesVulpkaninLast
-  minHeight: 0.90857
-  maxHeight: 1.07893
 
 - type: speciesBaseSprites
   id: MobFeroxiSprites

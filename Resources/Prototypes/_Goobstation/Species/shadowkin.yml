@@ -12,8 +12,6 @@
   maleFirstNames: NamesVulpkaninMale
   femaleFirstNames: NamesVulpkaninFemale
   lastNames: NamesVulpkaninLast
-  minHeight: 0.79444
-  maxHeight: 1.05054
 
 - type: speciesBaseSprites
   id: MobShadowkinSprites
