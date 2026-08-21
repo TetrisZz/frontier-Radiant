@@ -1,0 +1,17 @@
+- type: reaction
+  id: CookingTomatoSauceCornRS
+  reactants:
+    JuiceTomato: { amount: 1 }
+    TableSalt: { amount: 1 }
+    Cornoil: { amount: 1 }
+  products:
+    TomatoSauce: 3
+
+- type: reaction
+  id: CookingTomatoSauceOliveRS
+  reactants:
+    JuiceTomato: { amount: 1 }
+    TableSalt: { amount: 1 }
+    OilOlive: { amount: 1 }
+  products:
+    TomatoSauce: 3

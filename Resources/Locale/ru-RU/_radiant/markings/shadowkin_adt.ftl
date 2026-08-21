@@ -1,0 +1,16 @@
+marking-RadiantEarsShadekinElegant = Изящные уши шадовкина
+marking-RadiantEarsShadekinFluffy = Пушистые уши шадовкина
+marking-RadiantEarsShadekinBull = Широкие уши шадовкина
+marking-RadiantEarsShadekinAqua = Водные уши шадовкина
+marking-RadiantEarsShadekinAlpha = Высокие уши шадовкина
+marking-RadiantEarsShadekinExperiment = Экспериментальные уши шадовкина
+marking-RadiantTailShadekinDragon = Драконий хвост шадовкина
+marking-RadiantTailShadekinBigOrbit = Орбитальный хвост шадовкина
+marking-RadiantTailShadekinBigSkeleton = Скелетный хвост шадовкина
+marking-RadiantTailShadekinSnail = Улиточный хвост шадовкина
+marking-RadiantTailShadekinFluffy = Пушистый хвост шадовкина
+marking-RadiantTailShadekinHook = Крючковатый хвост шадовкина
+marking-RadiantTailShadekinShorterBrush = Короткий хвост-кисть шадовкина
+marking-RadiantTailShadekinExperiment = Экспериментальный хвост шадовкина
+marking-RadiantBodyShadekinInk = Чернильный рисунок шадовкина
+marking-RadiantEyesShadekinSceptic = Скептические глаза шадовкина

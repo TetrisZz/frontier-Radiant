@@ -1,0 +1,159 @@
+- type: marking
+  id: RadiantEarsShadekinElegant
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_ears_32x32.rsi
+    state: shadekin
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_ears_32x32.rsi
+    state: elegant_secondary
+
+- type: marking
+  id: RadiantEarsShadekinFluffy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_ears_32x32.rsi
+    state: fluffy_default
+
+- type: marking
+  id: RadiantEarsShadekinBull
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_ears_32x32.rsi
+    state: bull_default
+
+- type: marking
+  id: RadiantEarsShadekinAqua
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_ears_32x32.rsi
+    state: aqua_default
+
+- type: marking
+  id: RadiantEarsShadekinAlpha
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_ears_32x64.rsi
+    state: alpha_default
+
+- type: marking
+  id: RadiantEarsShadekinExperiment
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_ears_32x32.rsi
+    state: experiment_default
+
+- type: marking
+  id: RadiantTailShadekinDragon
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_tails_64x32.rsi
+    state: default_dragon
+
+- type: marking
+  id: RadiantTailShadekinBigOrbit
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_tails_64x32.rsi
+    state: big_orbit
+
+- type: marking
+  id: RadiantTailShadekinBigSkeleton
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_tails_64x32.rsi
+    state: big_skeleton
+
+- type: marking
+  id: RadiantTailShadekinSnail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_tails_64x32.rsi
+    state: tail_snail
+
+- type: marking
+  id: RadiantTailShadekinFluffy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_tails_64x32.rsi
+    state: tail_fluffy
+
+- type: marking
+  id: RadiantTailShadekinHook
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_tails_64x32.rsi
+    state: tail_hook
+
+- type: marking
+  id: RadiantTailShadekinShorterBrush
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_tails_32x32.rsi
+    state: shorter_brush
+
+- type: marking
+  id: RadiantTailShadekinExperiment
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadowkin]
+  forcedColoring: true
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_tails_64x32.rsi
+    state: default_experiment
+
+- type: marking
+  id: RadiantBodyShadekinInk
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_overlay.rsi
+    state: body_ink
+
+- type: marking
+  id: RadiantEyesShadekinSceptic
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadowkin]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/ShadekinADT/shadekin_eyes.rsi
+    state: eyes_sceptic

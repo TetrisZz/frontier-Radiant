@@ -187,6 +187,17 @@
   - Oven
 
 - type: microwaveMealRecipe
+  id: RecipeMothBakedCheeseRS
+  name: рецепт запечённого сырного рулета
+  result: FoodMothBakedCheese
+  time: 15
+  group: Moth
+  solids:
+    FoodCheese: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
   id: RecipeMothBakedCheesePlatterRS
   name: рецепт блюда с запечённым сыром
   result: FoodMothBakedCheesePlatter
@@ -236,7 +247,7 @@
     Cream: 5
     Sugar: 5
   solids:
-    FoodDoughFlatPastry: 1
+    FoodDoughFlat: 1
   recipeType:
   - Oven
 
