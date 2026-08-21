@@ -12,6 +12,7 @@
   femaleFirstNames: NamesDionaFirst
   lastNames: NamesDionaLast
   naming: TheFirstofLast
+  minHeight: 0.93697 # Radiant Sector: 165 cm; maximum remains unchanged.
 
 - type: speciesBaseSprites
   id: MobDionaSprites

@@ -1,0 +1,53 @@
+# Goob Station: Shadowkin body parts, adapted for Radiant Sector.
+- type: entity
+  parent: BasePart
+  abstract: true
+  id: PartShadowkinBase
+  name: shadowkin body part
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Shadowkin/parts.rsi
+
+- type: entity
+  parent: [PartShadowkinBase, BaseTorso]
+  id: TorsoShadowkin
+  name: shadowkin torso
+  components:
+  - type: Sprite
+    state: torso_m
+- type: entity
+  parent: [PartShadowkinBase, BaseHead]
+  id: HeadShadowkin
+  name: shadowkin head
+- type: entity
+  parent: [PartShadowkinBase, BaseLeftArm]
+  id: LeftArmShadowkin
+  name: left shadowkin arm
+- type: entity
+  parent: [PartShadowkinBase, BaseRightArm]
+  id: RightArmShadowkin
+  name: right shadowkin arm
+- type: entity
+  parent: [PartShadowkinBase, BaseLeftHand]
+  id: LeftHandShadowkin
+  name: left shadowkin hand
+- type: entity
+  parent: [PartShadowkinBase, BaseRightHand]
+  id: RightHandShadowkin
+  name: right shadowkin hand
+- type: entity
+  parent: [PartShadowkinBase, BaseLeftLeg]
+  id: LeftLegShadowkin
+  name: left shadowkin leg
+- type: entity
+  parent: [PartShadowkinBase, BaseRightLeg]
+  id: RightLegShadowkin
+  name: right shadowkin leg
+- type: entity
+  parent: [PartShadowkinBase, BaseLeftFoot]
+  id: LeftFootShadowkin
+  name: left shadowkin foot
+- type: entity
+  parent: [PartShadowkinBase, BaseRightFoot]
+  id: RightFootShadowkin
+  name: right shadowkin foot

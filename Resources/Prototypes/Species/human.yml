@@ -7,6 +7,8 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  minHeight: 0.85179 # Radiant Sector: 150 cm
+  maxHeight: 1.10733 # Radiant Sector: 195 cm
 
 # The lack of a layer means that
 # this person cannot have round-start anything

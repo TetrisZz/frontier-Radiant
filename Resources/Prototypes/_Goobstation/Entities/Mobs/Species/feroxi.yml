@@ -40,6 +40,7 @@
       shoes:
         sizeMaps:
           32: { sprite: _White/Mobs/Species/displacement.rsi, state: shoes }
+  - type: Carriable
   - type: Sprite
     netsync: false
     noRot: true

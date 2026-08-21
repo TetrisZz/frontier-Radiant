@@ -1,0 +1,155 @@
+# Goob Station: Shadowkin species, adapted for Radiant Sector.
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobShadowkin
+  name: Урист МакШадоу
+  abstract: true
+  save: false
+  components:
+  - type: HumanoidAppearance
+    species: Shadowkin
+  - type: Hunger
+  - type: Thirst
+  - type: Carriable
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/Shadowkin/parts.rsi
+    state: full
+  - type: Body
+    prototype: Shadowkin
+    requiredLegs: 2
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 2
+  - type: Flammable
+    damage: { types: { Heat: 1.5 } }
+  - type: Barotrauma
+    damage: { types: { Blunt: 0.35 } }
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 46
+    heatDamageThreshold: 330
+    coldDamageThreshold: 195
+    coldDamage: { types: { Cold: 0.05 } }
+    heatDamage: { types: { Heat: 0.25 } }
+  - type: UltraVision
+  - type: Speech
+    allowedEmotes: [Mars, Wurble, Ston]
+  - type: TTS
+  - type: Vocal
+    sounds: { Male: MaleShadowkin, Female: FemaleShadowkin, Unsexed: MaleShadowkin }
+  - type: Inventory
+    speciesId: shadowkin
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.HumanoidVisualLayers.Chest"]
+    - map: ["enum.HumanoidVisualLayers.Head"]
+    - map: ["enum.HumanoidVisualLayers.Snout"]
+    - map: ["enum.HumanoidVisualLayers.Eyes"]
+      shader: unshaded
+    - map: ["enum.HumanoidVisualLayers.RArm"]
+    - map: ["enum.HumanoidVisualLayers.LArm"]
+    - map: ["enum.HumanoidVisualLayers.RLeg"]
+    - map: ["enum.HumanoidVisualLayers.LLeg"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["underwearb"]
+    - map: ["underweart"]
+    - map: ["socks"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentTop"]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["id"]
+    - map: ["gloves"]
+    - map: ["shoes"]
+    - map: ["ears"]
+    - map: ["outerClothing"]
+    - map: ["belt"]
+    - map: ["eyes"]
+    - map: ["neck"]
+    - map: ["back"]
+    - map: ["enum.HumanoidVisualLayers.FacialHair"]
+    - map: ["enum.HumanoidVisualLayers.Hair"]
+    - map: ["enum.HumanoidVisualLayers.HeadSide"]
+    - map: ["enum.HumanoidVisualLayers.HeadTop"]
+    - map: ["enum.HumanoidVisualLayers.Tail"]
+    - map: ["mask"]
+    - map: ["head"]
+    - map: ["pocket1"]
+    - map: ["pocket2"]
+  - type: MeleeWeapon
+    hidden: true
+    soundHit: { collection: AlienClaw }
+    angle: 30
+    animation: WeaponArcClaw
+    damage: { types: { Slash: 5 } }
+  - type: Tag
+    tags: [CanPilot, FootstepSound, DoorBumpOpener, AnomalyHost, ShadowkinEmotes]
+  - type: Perishable
+
+- type: entity
+  parent: BaseMobShadowkin
+  id: MobShadowkin
+  name: Урист МакШадоу
+  save: false
+
+- type: entity
+  parent: MobHumanDummy
+  id: MobShadowkinDummy
+  name: Shadowkin Dummy
+  categories: [HideSpawnMenu]
+  save: false
+  components:
+  - type: HumanoidAppearance
+    species: Shadowkin
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.HumanoidVisualLayers.Chest"]
+    - map: ["enum.HumanoidVisualLayers.Head"]
+    - map: ["enum.HumanoidVisualLayers.Snout"]
+    - map: ["enum.HumanoidVisualLayers.Eyes"]
+      shader: unshaded
+    - map: ["enum.HumanoidVisualLayers.RArm"]
+    - map: ["enum.HumanoidVisualLayers.LArm"]
+    - map: ["enum.HumanoidVisualLayers.RLeg"]
+    - map: ["enum.HumanoidVisualLayers.LLeg"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["underwearb"]
+    - map: ["underweart"]
+    - map: ["socks"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentTop"]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["id"]
+    - map: ["gloves"]
+    - map: ["shoes"]
+    - map: ["ears"]
+    - map: ["outerClothing"]
+    - map: ["belt"]
+    - map: ["eyes"]
+    - map: ["neck"]
+    - map: ["back"]
+    - map: ["enum.HumanoidVisualLayers.FacialHair"]
+    - map: ["enum.HumanoidVisualLayers.Hair"]
+    - map: ["enum.HumanoidVisualLayers.HeadSide"]
+    - map: ["enum.HumanoidVisualLayers.HeadTop"]
+    - map: ["enum.HumanoidVisualLayers.Tail"]
+    - map: ["mask"]
+    - map: ["head"]
+    - map: ["pocket1"]
+    - map: ["pocket2"]

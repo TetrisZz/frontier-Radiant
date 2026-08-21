@@ -8,9 +8,9 @@
   markingLimits: MobDemonMarkingLimits
   dollPrototype: MobDemonDummy
   skinColoration: Hues
-  minHeight: 0.75
+  minHeight: 0.85179 # Radiant Sector: Arcana, 150 cm
   defaultHeight: 1
-  maxHeight: 1.25
+  maxHeight: 1.10733 # Radiant Sector: Arcana, 195 cm
   minWidth: 0.7
   defaultWidth: 1
   maxWidth: 1.3

@@ -7,9 +7,9 @@
   markingLimits: MobTajaranMarkingLimits
   dollPrototype: MobTajaranDummy
   skinColoration: Hues
-  minHeight: 0.7
+  minHeight: 0.74957 # Radiant Sector: 132 cm
   defaultHeight: 0.9
-  maxHeight: 1.20
+  maxHeight: 0.99375 # Radiant Sector: 175 cm
   minWidth: 0.65
   defaultWidth: 0.9
   maxWidth: 1.25

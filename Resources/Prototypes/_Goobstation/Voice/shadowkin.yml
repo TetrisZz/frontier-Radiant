@@ -1,0 +1,76 @@
+# Goob Station: Shadowkin vocal sounds and emotes, adapted for Radiant Sector.
+- type: soundCollection
+  id: ShadowkinMars
+  files: [/Audio/_Goobstation/Voice/Shadowkin/mar.ogg]
+- type: soundCollection
+  id: ShadowkinWurbles
+  files: [/Audio/_Goobstation/Voice/Shadowkin/wurble.ogg]
+
+- type: emote
+  id: Mars
+  name: chat-emote-name-mars
+  category: Vocal
+  whitelist:
+    tags: [ShadowkinEmotes]
+  blacklist:
+    components: [BorgChassis]
+  chatMessages: ["chat-emote-msg-mars"]
+  chatTriggers: [mars, marsing, marsed, мурлычет]
+- type: emote
+  id: Wurble
+  name: chat-emote-name-wurble
+  category: Vocal
+  whitelist:
+    tags: [ShadowkinEmotes]
+  blacklist:
+    components: [BorgChassis]
+  chatMessages: ["chat-emote-msg-wurble"]
+  chatTriggers: [wurble, wurbles, урчит]
+
+- type: emoteSounds
+  id: MaleShadowkin
+  params: { variation: 0.125 }
+  sounds:
+    Scream: { collection: MaleScreams }
+    Laugh: { collection: MaleLaugh }
+    Sneeze: { collection: MaleSneezes }
+    Cough: { collection: MaleCoughs }
+    Yawn: { collection: MaleYawn }
+    Snore: { collection: Snores }
+    Honk: { collection: BikeHorn }
+    Sigh: { collection: MaleSigh }
+    Crying: { collection: MaleCry }
+    Whistle: { collection: Whistles }
+    Hiss: { collection: FelinidHisses }
+    Meow: { collection: FelinidMeows }
+    Mew: { collection: FelinidMews }
+    Growl: { collection: FelinidGrowls }
+    Purr: { collection: FelinidPurrs }
+    Mars: { collection: ShadowkinMars }
+    Wurble: { collection: ShadowkinWurbles }
+    Ston: { collection: MaleSton }
+    DefaultDeathgasp: { collection: MaleDeathGasp }
+
+- type: emoteSounds
+  id: FemaleShadowkin
+  params: { variation: 0.125 }
+  sounds:
+    Scream: { collection: FemaleScreams }
+    Laugh: { collection: FemaleLaugh }
+    Sneeze: { collection: FemaleSneezes }
+    Cough: { collection: FemaleCoughs }
+    Yawn: { collection: FemaleYawn }
+    Snore: { collection: Snores }
+    Honk: { collection: BikeHorn }
+    Sigh: { collection: FemaleSigh }
+    Crying: { collection: FemaleCry }
+    Whistle: { collection: Whistles }
+    Hiss: { collection: FelinidHisses }
+    Meow: { collection: FelinidMeows }
+    Mew: { collection: FelinidMews }
+    Growl: { collection: FelinidGrowls }
+    Purr: { collection: FelinidPurrs }
+    Mars: { collection: ShadowkinMars }
+    Wurble: { collection: ShadowkinWurbles }
+    Ston: { collection: FemaleSton }
+    DefaultDeathgasp: { collection: FemaleDeathGasp }

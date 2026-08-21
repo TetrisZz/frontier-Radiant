@@ -1,0 +1,3 @@
+- files: ["clarke_step.ogg", "mech_module_install.ogg", "mech_critical_damage.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Ported from CHOMPStation2 (https://github.com/CHOMPStation2/CHOMPStation2): sound/effects/mech/hightechstep1.ogg and sound/mecha/{bigmech_lturn,critnano}.ogg. No more specific attribution is provided by the source repository."

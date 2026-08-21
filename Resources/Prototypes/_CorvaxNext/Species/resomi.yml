@@ -11,9 +11,9 @@
   naming: First
   dollPrototype: MobResomiDummy
   skinColoration: Hues
-  minHeight: 0.8
-  defaultHeight: 1
-  maxHeight: 1.1
+  minHeight: 0.74957 # Radiant Sector: 132 cm
+  defaultHeight: 0.85747 # Radiant Sector: 151 cm, midpoint of the permitted range.
+  maxHeight: 0.96536 # Radiant Sector: 170 cm
   minWidth: 0.75
   defaultWidth: 1
   maxWidth: 1.15

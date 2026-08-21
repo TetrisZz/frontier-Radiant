@@ -30,6 +30,8 @@ using Content.Shared.NPC.Components; // Frontier
 using Content.Shared.Mobs; // Frontier
 using Content.Shared.NPC.Systems; // Frontier
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Mech.Systems;
 
@@ -37,6 +39,7 @@ namespace Content.Server.Mech.Systems;
 public sealed partial class MechSystem : SharedMechSystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Radiant Sector: mech critical-damage warning sound.
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -388,6 +391,16 @@ public sealed partial class MechSystem : SharedMechSystem
 
     public override void BreakMech(EntityUid uid, MechComponent? component = null)
     {
+        if (!Resolve(uid, ref component))
+            return;
+
+        // Radiant Sector: integrity reached zero; warn once, rather than replaying on every later damage event.
+        if (!component.Broken)
+        {
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_radiant/Mech/mech_critical_damage.ogg"), uid,
+                AudioParams.Default.WithVolume(-6f));
+        }
+
         base.BreakMech(uid, component);
 
         _ui.CloseUi(uid, MechUiKey.Key);

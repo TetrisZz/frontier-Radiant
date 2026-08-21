@@ -19,7 +19,9 @@
     - Oni # DeltaV
     - Tajaran # EE
     - Resomi # Radiant
-    - Arcana # Radiant
+    - DemonSpecies # Radiant: Arcana guide entry uses the species prototype ID
+    - Feroxi # Radiant Sector
+    - Shadowkin # Radiant Sector
 
 - type: guideEntry
   id: Arachnid
@@ -65,3 +67,13 @@
   id: Tajaran
   name: species-name-tajaran
   text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"
+
+- type: guideEntry
+  id: Feroxi
+  name: species-name-feroxi
+  text: "/ServerInfo/Guidebook/Mobs/Feroxi.xml"
+
+- type: guideEntry
+  id: Shadowkin
+  name: species-name-shadowkin
+  text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"

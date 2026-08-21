@@ -8,6 +8,8 @@ using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Server._radiant.Mech.Systems;
@@ -20,10 +22,13 @@ public sealed class ClarkeMechDrillSystem : EntitySystem
     private const float CursorTargetRadius = 0.75f;
 
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly MeleeWeaponSystem _melee = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+
+    private readonly SoundSpecifier _drillSound = new SoundPathSpecifier("/Audio/_radiant/Mech/clarke_drill.ogg");
 
     public override void Initialize()
     {
@@ -175,6 +180,9 @@ public sealed class ClarkeMechDrillSystem : EntitySystem
 
         weapon.NextAttack = _timing.CurTime + TimeSpan.FromSeconds(1f / weapon.AttackRate);
         Dirty(drill, weapon);
+
+        // Radiant Sector: the custom right-click drill route bypasses the stock melee sound handler.
+        _audio.PlayPvs(_drillSound, mech, AudioParams.Default.WithVolume(-12f));
 
         var damage = _melee.GetDamage(drill, mech, weapon);
         var hitEvent = new MeleeHitEvent([target], mech, drill, damage, null);
