@@ -81,14 +81,19 @@ namespace Content.Shared.Chat
         AdminChat = 1 << 13,
 
         /// <summary>
+        ///     Private long-range empathy link used by shadowkin.
+        /// </summary>
+        ShadowkinEmpathy = 1 << 14,
+
+        /// <summary>
         ///     Unspecified.
         /// </summary>
-        Unspecified = 1 << 14,
+        Unspecified = 1 << 15,
 
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications,
+        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications | ShadowkinEmpathy,
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }

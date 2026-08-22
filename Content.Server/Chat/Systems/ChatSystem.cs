@@ -15,12 +15,16 @@ using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared._radiant.Abilities.Shadowkin; // Radiant Sector
+using Content.Shared.Humanoid; // Radiant Sector
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
+using Content.Shared.Popups; // Radiant Sector
 using Content.Shared.Station.Components;
+using Content.Shared.Tag; // Radiant Sector
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -59,6 +63,10 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // Radiant Sector
+    [Dependency] private readonly TagSystem _tagSystem = default!; // Radiant Sector
+
+    private static readonly ProtoId<TagPrototype> ShadowkinEmotesTag = "ShadowkinEmotes"; // Radiant Sector
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -209,6 +217,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
+        // Radiant Sector: +э is a shadowkin-only empathy link. This has to run before
+        // radio-prefix sanitization because the keycode is also used by a radio channel.
+        if (desiredType == InGameICChatType.Speak && TrySendShadowkinEmpathy(source, message, nameOverride))
+            return;
+
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
         bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
         // Capitalizing the word I only happens in English, so we check language here
@@ -250,6 +263,61 @@ public sealed partial class ChatSystem : SharedChatSystem
                 SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
                 break;
         }
+    }
+
+    /// <summary>
+    /// Handles the private communication channel shared by living shadowkin.
+    /// </summary>
+    private bool TrySendShadowkinEmpathy(EntityUid source, string input, string? nameOverride)
+    {
+        if (input.Length < 2 || input[0] != '+' || char.ToLowerInvariant(input[1]) != 'э')
+            return false;
+
+        if (!IsShadowkin(source))
+        {
+            // Preserve the existing +э radio behaviour for every other species.
+            return false;
+        }
+
+        var message = SanitizeMessageReplaceWords(input[2..].Trim());
+        message = SanitizeMessageCapital(message);
+        if (_configurationManager.GetCVar(CCVars.ChatPunctuation))
+            message = SanitizeMessagePeriod(message);
+
+        if (string.IsNullOrWhiteSpace(message))
+            return true;
+
+        var name = FormattedMessage.EscapeText(nameOverride ?? Name(source));
+        var cleanMessage = FormattedMessage.EscapeText(message);
+        var wrapped = Loc.GetString("shadowkin-empathy-chat-wrap", ("name", name), ("message", cleanMessage));
+        var recipients = new List<INetChannel>();
+
+        foreach (var session in _playerManager.Sessions)
+        {
+            if (session.AttachedEntity is not { Valid: true } target || !IsShadowkin(target))
+            {
+                continue;
+            }
+
+            recipients.Add(session.Channel);
+        }
+
+        _chatManager.ChatMessageToMany(ChatChannel.ShadowkinEmpathy, message, wrapped, source, false, true, recipients);
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Shadowkin empathy from {ToPrettyString(source):player}: {message}");
+        return true;
+    }
+
+    // Radiant Sector: retain all three identifiers so the channel works for profiles
+    // created before the ability component was added as well as newly spawned shadowkin.
+    private bool IsShadowkin(EntityUid entity)
+    {
+        if (HasComp<ShadowkinShadeStepComponent>(entity))
+            return true;
+
+        if (TryComp(entity, out HumanoidAppearanceComponent? humanoid) && humanoid.Species == "Shadowkin")
+            return true;
+
+        return _tagSystem.HasTag(entity, ShadowkinEmotesTag);
     }
 
     public void TrySendInGameOOCMessage(
@@ -411,6 +479,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool ignoreActionBlocker = false
         )
     {
+        // Radiant Sector: this is the final ordinary-speech path. Keep the empathy
+        // interception here as well so +э can never be emitted as nearby speech.
+        if (TrySendShadowkinEmpathy(source, originalMessage, nameOverride))
+            return;
+
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
             return;
 

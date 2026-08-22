@@ -37,6 +37,7 @@
     coldDamage: { types: { Cold: 0.05 } }
     heatDamage: { types: { Heat: 0.25 } }
   - type: UltraVision
+  - type: ShadowkinShadeStep # Radiant Sector
   - type: Speech
     allowedEmotes: [Mars, Wurble, Ston]
   - type: TTS
