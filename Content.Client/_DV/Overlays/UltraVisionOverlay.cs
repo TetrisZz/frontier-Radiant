@@ -3,6 +3,8 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Content.Shared.Abilities;
+using Content.Shared._radiant.Abilities.Shadowkin; // Radiant Sector
+using Content.Shared.Humanoid; // Radiant Sector
 using System.Numerics;
 
 namespace Content.Client._DV.Overlays;
@@ -41,6 +43,17 @@ public sealed partial class UltraVisionOverlay : Overlay
             return;
 
         _ultraVisionShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+
+        // Radiant Sector: shadowkin ultraviolet vision takes the selected eye colour.
+        var tint = Color.White;
+        if (_playerManager.LocalEntity is { Valid: true } player &&
+            _entityManager.HasComponent<ShadowkinUltravisionTintComponent>(player) &&
+            _entityManager.TryGetComponent(player, out HumanoidAppearanceComponent? humanoid))
+        {
+            tint = humanoid.EyeColor;
+        }
+
+        _ultraVisionShader.SetParameter("tintColor", new Vector3(tint.R, tint.G, tint.B));
 
         var worldHandle = args.WorldHandle;
         var viewport = args.WorldBounds;

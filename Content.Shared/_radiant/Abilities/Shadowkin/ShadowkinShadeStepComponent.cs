@@ -32,8 +32,6 @@ public sealed partial class ShadowkinShadeStepComponent : Component
     [DataField]
     public float Range = 5f;
 
-    [DataField]
-    public float ExhaustionDamage = 80f;
 }
 
 public sealed partial class ShadowkinShadeStepEvent : InstantActionEvent;

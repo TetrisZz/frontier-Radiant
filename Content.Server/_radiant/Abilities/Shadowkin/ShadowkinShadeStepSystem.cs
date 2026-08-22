@@ -3,7 +3,6 @@ using Content.Server.Tiles;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared._radiant.Abilities.Shadowkin;
-using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -22,7 +21,6 @@ namespace Content.Server._radiant.Abilities.Shadowkin;
 public sealed class ShadowkinShadeStepSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -71,9 +69,6 @@ public sealed class ShadowkinShadeStepSystem : EntitySystem
 
         if (entity.Comp.Energy < entity.Comp.EnergyCost)
         {
-            _damageable.TryChangeDamage(entity.Owner,
-                new DamageSpecifier { DamageDict = { ["Cellular"] = entity.Comp.ExhaustionDamage } },
-                origin: entity.Owner);
             _popup.PopupEntity(Loc.GetString("shadowkin-shade-step-exhausted"), entity, args.Performer);
             return;
         }
@@ -91,8 +86,9 @@ public sealed class ShadowkinShadeStepSystem : EntitySystem
         _transform.SetCoordinates(entity.Owner, destination);
         _transform.AttachToGridOrMap(entity.Owner);
 
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/phasein.ogg"), original);
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/phasein.ogg"), destination);
+        var teleportSound = new SoundPathSpecifier("/Audio/_radiant/Effects/teleport1_Cw1ot9l.ogg"); // Radiant Sector
+        _audio.PlayPvs(teleportSound, original);
+        _audio.PlayPvs(teleportSound, destination);
         _popup.PopupEntity(Loc.GetString("shadowkin-shade-step-success",
             ("energy", MathF.Floor(entity.Comp.Energy)),
             ("maxEnergy", entity.Comp.MaxEnergy)), entity, args.Performer);

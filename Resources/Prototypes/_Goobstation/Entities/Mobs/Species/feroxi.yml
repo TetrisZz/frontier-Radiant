@@ -41,6 +41,7 @@
         sizeMaps:
           32: { sprite: _White/Mobs/Species/displacement.rsi, state: shoes }
   - type: Carriable
+  - type: FeroxiWaterAffinity # Radiant Sector
   - type: Sprite
     netsync: false
     noRot: true
@@ -89,7 +90,7 @@
     animation: WeaponArcBite
     damage: { types: { Piercing: 7 } }
   - type: Tag
-    tags: [CanPilot, FootstepSound, DoorBumpOpener, AnomalyHost, FeroxiEmotes]
+    tags: [CanPilot, FootstepSound, DoorBumpOpener, AnomalyHost, FeroxiEmotes, FeroxiWaterAffinity] # Radiant Sector
   - type: Perishable
 
 - type: entity
