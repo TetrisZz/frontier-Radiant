@@ -2,7 +2,8 @@
     xmlns="https://spacestation14.io"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
     <PanelContainer.PanelOverride>
-        <graphics:StyleBoxFlat BackgroundColor="#2F2F35"
+        <!-- Radiant Sector: profile-editor panels use the same graphite-black surface as the lobby theme. -->
+        <graphics:StyleBoxFlat BackgroundColor="#101317"
                                ContentMarginTopOverride="10"
                                ContentMarginBottomOverride="10"
                                ContentMarginLeftOverride="10"

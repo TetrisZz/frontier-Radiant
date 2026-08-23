@@ -59,7 +59,9 @@
                                     <TextureButton Name="SpeciesInfoButton" Scale="0.3 0.3"
                                                    VerticalAlignment="Center"
                                                    ToolTip="{Loc 'humanoid-profile-editor-guidebook-button-tooltip'}"/>
-                                    <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
+                                    <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" Visible="False" /> <!-- Radiant Sector: replaced by species selection window -->
+                                    <Button Name="SpeciesPickerButton" HorizontalAlignment="Right"
+                                            Text="{Loc 'species-selection-open'}" /> <!-- Radiant Sector -->
                                 </BoxContainer>
                                 <!-- Age -->
                                 <BoxContainer HorizontalExpand="True">

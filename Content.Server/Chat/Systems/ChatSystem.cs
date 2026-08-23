@@ -16,6 +16,7 @@ using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared._radiant.Abilities.Shadowkin; // Radiant Sector
+using Content.Shared._Goobstation.Languages; // Radiant Sector
 using Content.Shared.Humanoid; // Radiant Sector
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
@@ -68,6 +69,10 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private static readonly ProtoId<TagPrototype> ShadowkinEmotesTag = "ShadowkinEmotes"; // Radiant Sector
 
+    // Radiant Sector: language choice belongs to the current character, not to a player account.
+    // It is deliberately server-side only: a language setting must not be able to stop a client from loading.
+    private readonly HashSet<EntityUid> _nativeLanguageSelected = new();
+
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
     private bool _critLoocEnabled;
@@ -82,6 +87,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         Subs.CVar(_configurationManager, CCVars.CritLoocEnabled, OnCritLoocEnabledChanged, true);
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
+        SubscribeNetworkEvent<LanguageMenuRequestEvent>(OnLanguageMenuRequest); // Radiant Sector
+        SubscribeNetworkEvent<LanguageMenuSelectEvent>(OnLanguageMenuSelect); // Radiant Sector
     }
 
     private void OnLoocEnabledChanged(bool val)
@@ -492,6 +499,28 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (message.Length == 0)
             return;
 
+        // Radiant Sector: native speech is selected through the top-panel language menu.
+        // "##" remains a one-message native-language override.
+        var nativeLanguage = TryGetNativeLanguage(source);
+        var requestedNativeLanguage = TryStripNativeLanguagePrefix(ref message);
+        var canUseNativeLanguage = nativeLanguage != null && !HasComp<NativeLanguageUnfamiliarComponent>(source);
+        var canUseGalactic = !HasComp<NativeLanguageOnlyComponent>(source);
+
+        if (requestedNativeLanguage && !canUseNativeLanguage)
+        {
+            _popup.PopupEntity("Вы не знаете родной язык своего вида.", source, source);
+            return;
+        }
+
+        var speaksNativeLanguage = canUseNativeLanguage
+            && (HasComp<NativeLanguageOnlyComponent>(source) || _nativeLanguageSelected.Contains(source) || requestedNativeLanguage);
+
+        if (!speaksNativeLanguage && !canUseGalactic)
+        {
+            _popup.PopupEntity("Вы не знаете общегалактический язык.", source, source);
+            return;
+        }
+
         var speech = GetSpeechVerb(source, message);
 
         // get the entity's apparent name (if no override provided).
@@ -519,9 +548,12 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("fontSize", speech.FontSize),
             ("message", FormattedMessage.EscapeText(message)));
 
-        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, range);
+        if (speaksNativeLanguage)
+            SendNativeLanguageInVoiceRange(nativeLanguage!, message, wrappedMessage, source, range);
+        else
+            SendGalacticLanguageInVoiceRange(message, wrappedMessage, source, range);
 
-        var ev = new EntitySpokeEvent(source, message, null, null);
+        var ev = new EntitySpokeEvent(source, message, null, null, speaksNativeLanguage ? nativeLanguage : null);
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
@@ -564,7 +596,30 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (message.Length == 0)
             return;
 
+        // Radiant Sector: language knowledge restrictions apply to whispers as well.
+        var nativeLanguage = TryGetNativeLanguage(source);
+        var requestedNativeLanguage = TryStripNativeLanguagePrefix(ref message);
+        var canUseNativeLanguage = nativeLanguage != null && !HasComp<NativeLanguageUnfamiliarComponent>(source);
+        var canUseGalactic = !HasComp<NativeLanguageOnlyComponent>(source);
+
+        if (requestedNativeLanguage && !canUseNativeLanguage)
+        {
+            _popup.PopupEntity("Вы не знаете родной язык своего вида.", source, source);
+            return;
+        }
+
+        var speaksNativeLanguage = canUseNativeLanguage
+            && (HasComp<NativeLanguageOnlyComponent>(source) || _nativeLanguageSelected.Contains(source) || requestedNativeLanguage);
+
+        if (!speaksNativeLanguage && !canUseGalactic)
+        {
+            _popup.PopupEntity("Вы не знаете общегалактический язык.", source, source);
+            return;
+        }
         var obfuscatedMessage = ObfuscateMessageReadability(message, 0.2f);
+        var languageObfuscatedMessage = speaksNativeLanguage
+            ? ObfuscateNativeLanguage(nativeLanguage!, message)
+            : message;
 
         // get the entity's name by visual identity (if no override provided).
         string nameIdentity = FormattedMessage.EscapeText(nameOverride ?? Identity.Name(source, EntityManager));
@@ -591,6 +646,18 @@ public sealed partial class ChatSystem : SharedChatSystem
         var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
             ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
+        var wrappedLanguageMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
+            ("entityName", nameIdentity), ("message", FormattedMessage.EscapeText(languageObfuscatedMessage)));
+
+        if (speaksNativeLanguage)
+        {
+            // Radiant Sector: native whispers use the same language colour as ordinary speech.
+            wrappedMessage = ApplyLanguageColor(nativeLanguage!, wrappedMessage, FormattedMessage.EscapeText(message));
+            wrappedobfuscatedMessage = ApplyLanguageColor(nativeLanguage!, wrappedobfuscatedMessage, FormattedMessage.EscapeText(obfuscatedMessage));
+            wrappedUnknownMessage = ApplyLanguageColor(nativeLanguage!, wrappedUnknownMessage, FormattedMessage.EscapeText(obfuscatedMessage));
+            wrappedLanguageMessage = ApplyLanguageColor(nativeLanguage!, wrappedLanguageMessage, FormattedMessage.EscapeText(languageObfuscatedMessage));
+        }
+
 
         foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
         {
@@ -603,7 +670,13 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
-            if (data.Range <= WhisperClearRange || data.Observer)
+            var understandsLanguage = data.Observer || (speaksNativeLanguage
+                ? TryGetNativeLanguage(listener) == nativeLanguage && !HasComp<NativeLanguageUnfamiliarComponent>(listener)
+                : !HasComp<NativeLanguageOnlyComponent>(listener));
+
+            if (!understandsLanguage)
+                _chatManager.ChatMessageToOne(ChatChannel.Whisper, languageObfuscatedMessage, wrappedLanguageMessage, source, false, session.Channel);
+            else if (data.Range <= WhisperClearRange || data.Observer)
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, message, wrappedMessage, source, false, session.Channel);
 
             //If listener is too far, they only hear fragments of the message
@@ -616,7 +689,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
-        var ev = new EntitySpokeEvent(source, message, channel, obfuscatedMessage);
+        var ev = new EntitySpokeEvent(source, message, channel, obfuscatedMessage, speaksNativeLanguage ? nativeLanguage : null);
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)
@@ -801,6 +874,353 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 
         _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+    }
+
+    /// <summary>
+    /// Radiant Sector: relays a radio speaker into nearby chat without losing the language
+    /// spoken by the original sender. Handheld radios use this path because their speaker is
+    /// a separate entity rather than the listener's headset.
+    /// </summary>
+    public void SendRadioRelayInVoiceRange(
+        EntityUid radioSpeaker,
+        string message,
+        InGameICChatType outputType,
+        string speakerName,
+        string? language)
+    {
+        var channel = outputType == InGameICChatType.Whisper ? ChatChannel.Whisper : ChatChannel.Local;
+        var wrapper = outputType == InGameICChatType.Whisper
+            ? "chat-manager-entity-whisper-wrap-message"
+            : "chat-manager-entity-say-wrap-message";
+        var speech = GetSpeechVerb(radioSpeaker, message);
+        var wrapped = outputType == InGameICChatType.Whisper
+            ? Loc.GetString(wrapper, ("entityName", speakerName), ("message", FormattedMessage.EscapeText(message)))
+            : Loc.GetString(wrapper,
+                ("entityName", speakerName),
+                ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
+                ("fontType", speech.FontId),
+                ("fontSize", speech.FontSize),
+                ("message", FormattedMessage.EscapeText(message)));
+
+        var obfuscated = language == null
+            ? ObfuscateNativeLanguage("Общегалактический", message)
+            : ObfuscateNativeLanguage(language, message);
+        var escapedMessage = FormattedMessage.EscapeText(message);
+        var escapedObfuscated = FormattedMessage.EscapeText(obfuscated);
+        var readableWrapped = language == null ? wrapped : ApplyLanguageColor(language, wrapped, escapedMessage);
+        var garbledWrapped = wrapped.Replace(escapedMessage, escapedObfuscated);
+        if (language != null)
+            garbledWrapped = ApplyLanguageColor(language, garbledWrapped, escapedObfuscated);
+
+        foreach (var (session, data) in GetRecipients(radioSpeaker, VoiceRange))
+        {
+            var entRange = MessageRangeCheck(session, data, ChatTransmitRange.GhostRangeLimitNoAdminCheck);
+            if (entRange == MessageRangeCheckResult.Disallowed)
+                continue;
+
+            var understands = data.Observer;
+            if (!understands && session.AttachedEntity is { Valid: true } listener)
+            {
+                understands = language == null
+                    ? !HasComp<NativeLanguageOnlyComponent>(listener)
+                    : TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
+            }
+
+            _chatManager.ChatMessageToOne(
+                channel,
+                understands ? message : obfuscated,
+                understands ? readableWrapped : garbledWrapped,
+                radioSpeaker,
+                entRange == MessageRangeCheckResult.HideChat,
+                session.Channel);
+        }
+    }
+
+    /// <summary>
+    /// Radiant Sector: sends Galactic Common. Native-only characters receive it as unreadable speech.
+    /// </summary>
+    private void SendGalacticLanguageInVoiceRange(string message, string wrappedMessage, EntityUid source, ChatTransmitRange range)
+    {
+        var obfuscated = ObfuscateNativeLanguage("Общегалактический", message);
+        var escapedMessage = FormattedMessage.EscapeText(message);
+        var escapedObfuscated = FormattedMessage.EscapeText(obfuscated);
+        var wrappedObfuscated = wrappedMessage.Replace(escapedMessage, escapedObfuscated);
+
+        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        {
+            var entRange = MessageRangeCheck(session, data, range);
+            if (entRange == MessageRangeCheckResult.Disallowed)
+                continue;
+
+            var understands = data.Observer;
+            if (!understands && session.AttachedEntity is { Valid: true } listener)
+                understands = !HasComp<NativeLanguageOnlyComponent>(listener);
+            _chatManager.ChatMessageToOne(
+                ChatChannel.Local,
+                understands ? message : obfuscated,
+                understands ? wrappedMessage : wrappedObfuscated,
+                source,
+                entRange == MessageRangeCheckResult.HideChat,
+                session.Channel);
+        }
+
+        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Local, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+    }
+
+    /// <summary>
+    /// Radiant Sector: sends native racial speech as readable text only to characters of the same language.
+    /// </summary>
+    private void SendNativeLanguageInVoiceRange(string language, string message, string wrappedMessage, EntityUid source, ChatTransmitRange range)
+    {
+        var obfuscated = ObfuscateNativeLanguage(language, message);
+        var escapedMessage = FormattedMessage.EscapeText(message);
+        var wrappedReadable = ApplyLanguageColor(language, wrappedMessage, escapedMessage);
+        var escapedObfuscated = FormattedMessage.EscapeText(obfuscated);
+        var wrappedObfuscated = ApplyLanguageColor(language, wrappedMessage.Replace(escapedMessage, escapedObfuscated), escapedObfuscated);
+
+        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        {
+            var entRange = MessageRangeCheck(session, data, range);
+            if (entRange == MessageRangeCheckResult.Disallowed)
+                continue;
+
+            var understands = data.Observer;
+            if (!understands && session.AttachedEntity is { Valid: true } listener)
+            {
+                var listenerLanguage = TryGetNativeLanguage(listener);
+                understands = listenerLanguage == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
+            }
+            _chatManager.ChatMessageToOne(
+                ChatChannel.Local,
+                understands ? message : obfuscated,
+                understands ? wrappedReadable : wrappedObfuscated,
+                source,
+                entRange == MessageRangeCheckResult.HideChat,
+                session.Channel);
+        }
+
+        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Local, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+    }
+
+    /// <summary>
+    /// Radiant Sector: returns the native spoken language for playable humanoid species.
+    /// </summary>
+    internal string? TryGetNativeLanguage(EntityUid entity)
+    {
+        if (!TryComp(entity, out HumanoidAppearanceComponent? humanoid))
+            return null;
+
+        return humanoid.Species.Id switch
+        {
+            "Reptilian" => "Синта'Унати",
+            "Vox" => "Вокс-пиджин",
+            "Diona" => "Корневой язык",
+            "SlimePerson" => "Бабблилиш",
+            "Moth" => "Моффик",
+            "Arachnid" => "Щёлкающий",
+            "Vulpkanin" => "Канилунц",
+            "Tajaran" => "Сиик'тайр",
+            "Resomi" => "Счечи",
+            "Feroxi" => "Нехина",
+            "Shadowkin" => "Сумеречный",
+            "Dwarf" => "Кхаздар",
+            "Oni" => "Кансэй",
+            "Harpy" => "Аэрийский",
+            "Goblin" => "Крикли",
+            "Sheleg" => "Шелар",
+            "DemonSpecies" => "Арканийский",
+            "Felinid" => "НекоМетрический", // Radiant Sector: feline native language.
+            _ => null,
+        };
+    }
+
+    /// <summary>
+    /// Radiant Sector: creates the radio line appropriate for one listener's language knowledge.
+    /// </summary>
+    internal MsgChatMessage GetRadioMessageForListener(MsgChatMessage radioMessage, EntityUid listener, string? language)
+    {
+        // Radiant Sector: a missing language means Galactic Common. Native-only characters must
+        // receive it garbled even over radio, just like they do in local speech.
+        var understands = language == null
+            ? !HasComp<NativeLanguageOnlyComponent>(listener)
+            : TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
+
+        if (language == null && understands)
+            return radioMessage;
+
+        var original = radioMessage.Message;
+        var visibleLanguage = language ?? "Общегалактический";
+        var visibleMessage = understands ? original.Message : ObfuscateNativeLanguage(visibleLanguage, original.Message);
+        var escapedOriginal = FormattedMessage.EscapeText(original.Message);
+        var escapedVisible = FormattedMessage.EscapeText(visibleMessage);
+        var wrapped = original.WrappedMessage.Replace(escapedOriginal, escapedVisible);
+        if (language != null)
+            wrapped = ApplyLanguageColor(language, wrapped, escapedVisible);
+
+        return new MsgChatMessage
+        {
+            Message = new ChatMessage(
+                original.Channel,
+                visibleMessage,
+                wrapped,
+                original.SenderEntity,
+                original.SenderKey,
+                original.HideChat,
+                original.MessageColorOverride,
+                original.AudioPath,
+                original.AudioVolume),
+        };
+    }
+
+    /// <summary>
+    /// Radiant Sector: opens the language window from the top HUD button.
+    /// </summary>
+    private void OnLanguageMenuRequest(LanguageMenuRequestEvent ev, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not { Valid: true } speaker)
+            return;
+
+        SendLanguageMenuState(speaker, args.SenderSession);
+    }
+
+    /// <summary>
+    /// Radiant Sector: validates the player's language selection and then refreshes the window state.
+    /// </summary>
+    private void OnLanguageMenuSelect(LanguageMenuSelectEvent ev, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not { Valid: true } speaker || TryGetNativeLanguage(speaker) == null)
+            return;
+
+        SetNativeLanguageSelected(speaker, speaker, ev.Native);
+        SendLanguageMenuState(speaker, args.SenderSession);
+    }
+
+    /// <summary>
+    /// Radiant Sector: sends the single native language available to this character to its client.
+    /// </summary>
+    private void SendLanguageMenuState(EntityUid speaker, ICommonSession recipient)
+    {
+        if (TryGetNativeLanguage(speaker) is not { } nativeLanguage)
+            return;
+
+        var canUseNative = !HasComp<NativeLanguageUnfamiliarComponent>(speaker);
+        var canUseGalactic = !HasComp<NativeLanguageOnlyComponent>(speaker);
+        var nativeSelected = canUseNative && (!canUseGalactic || _nativeLanguageSelected.Contains(speaker));
+        RaiseNetworkEvent(new LanguageMenuStateEvent(nativeLanguage, nativeSelected, canUseNative, canUseGalactic), recipient);
+    }
+
+    /// <summary>
+    /// Radiant Sector: changes the speech language and confirms it privately to the character.
+    /// </summary>
+    private void SetNativeLanguageSelected(EntityUid speaker, EntityUid user, bool native)
+    {
+        if (speaker != user || TryGetNativeLanguage(speaker) is not { } nativeLanguage)
+            return;
+
+        if (native && HasComp<NativeLanguageUnfamiliarComponent>(speaker))
+            return;
+
+        if (!native && HasComp<NativeLanguageOnlyComponent>(speaker))
+            return;
+
+        if (native)
+            _nativeLanguageSelected.Add(speaker);
+        else
+            _nativeLanguageSelected.Remove(speaker);
+
+        var selected = native ? nativeLanguage : "Общегалактический";
+        _popup.PopupEntity($"Выбран язык: {selected}", speaker, user);
+    }
+
+    /// <summary>
+    /// Radiant Sector: removes the language marker. Example: "## привет".
+    /// </summary>
+    private static bool TryStripNativeLanguagePrefix(ref string message)
+    {
+        if (!message.StartsWith("##"))
+            return false;
+
+        message = message[2..].TrimStart();
+        return message.Length > 0;
+    }
+
+    /// <summary>
+    /// Radiant Sector: preserves word count while making an unknown language unreadable.
+    /// </summary>
+    internal static string ObfuscateNativeLanguage(string language, string message)
+    {
+        // Radiant Sector: each language has a distinct pool so unreadable speech still sounds recognisably alien.
+        string[] fragments = language switch
+        {
+            "Общегалактический" => ["эм", "ах", "тс", "мм"],
+            "Канилунц" => ["раур", "веф", "шай", "фур", "айо", "вис", "эрель", "линц", "касари", "тайвас", "эйик", "аррей"], // Radiant Sector: adapted from Vulpkanin naming and language references.
+            "Сиик'тайр" => ["мяу", "мяк", "мя", "миу", "ау", "мяв", "мрау", "миау", "мурррр", "ххссс", "мяф"], // Radiant Sector: Tajaran howls and meows.
+            "Счечи" => ["чи", "ри", "ше", "ти", "ка", "ра", "ма", "са", "на", "та", "ла", "ши", "счи", "крр", "трек", "пии"], // Radiant Sector: Resomi croaks, cracks and squeaks.
+            "Синта'Унати" => ["ссссс", "щщщщ", "сщщ", "сщщщ", "щщщхх", "хщщ", "ххххх", "щхххх", "схххх", "счхххх", "чхххсхч"], // Radiant Sector: Unathi hissing and rattling speech.
+            "Вокс-пиджин" => ["кри", "чир", "тви", "скра", "крак", "врии", "трак", "кшш", "скав", "грак", "кхр", "тш"], // Radiant Sector: adapted from Vox Pidgin descriptions.
+            "Корневой язык" => ["пффпффпуфпуфпффпфф", "пфф", "пуф", "пффффф", "пфффпуф", "пфффффпуфпуфпуфпффффф", "пффпуф", "пуфпуф", "пффпифпафпфпуф"], // Radiant Sector: Diona root-language voice chords.
+            "Бабблилиш" => ["блюмп", "блюф", "бульк", "баблпаф", "бламп", "бабл", "блимпаф", "блааамп", "блабл-бламп"], // Radiant Sector: Slimeperson bubbling speech.
+            "Щёлкающий" => ["цк", "тцк", "шш", "крр", "клак", "тк", "цирр", "клик", "щелк", "скр", "трр", "кш"], // Radiant Sector: Arachnid click-and-hiss speech.
+            "Моффик" => ["sekygglitomånkönvii", "detdetdår", "møtmå", "ån", "gårköndagint", "viitehjaomköntyclaviinæbraånhönledetygglithankäytokmo", "sek"], // Radiant Sector: intentionally difficult Nian speech.
+            "Нехина" => ["бульк", "гррл", "хаар", "шарк", "глур", "рррак", "трал", "фирр", "карр", "брул", "хра", "гарр"], // Radiant Sector: Feroxi aquatic speech.
+            "Сумеречный" => ["мрр", "вум", "ши", "нх", "сум", "тень", "вэй", "лум", "шор", "мрак", "эха", "нур"], // Radiant Sector: Shadowkin twilight speech.
+            "Кхаздар" => ["грум", "кхаз", "дор", "бар", "кам", "рун", "молот", "сталь", "горн", "брон", "грим", "двар"], // Radiant Sector: Dwarven craft language.
+            "Кансэй" => ["ка", "сэй", "но", "раи", "они", "дзэн", "кай", "мори", "хира", "сора", "такэ", "юми"], // Radiant Sector: Japanese-Oni contact language.
+            "Аэрийский" => ["три", "лии", "кьи", "фью", "чир", "сви", "айра", "крыл", "пев", "вью", "рии", "лаи"], // Radiant Sector: Harpy song-like speech.
+            "Крикли" => ["зик", "кек", "трик", "грак", "рык", "тыгдык", "варилмбик", "лек", "мик", "лык", "сик", "лысын", "тирмик", "хыхык", "тикмик"], // Radiant Sector: goblin speech pool.
+            "Шелар" => ["араваар", "сингмасир", "налливаддд", "неввас", "галллипер", "имабил", "забимммил", "увввалим", "нафффис", "хеливвван"], // Radiant Sector: Sheleg speech pool.
+            "Арканийский" => ["авациа", "егул", "ар", "гаисиуваи", "оумико", "эледон", "ли", "асхииди", "вэ", "декипаа", "опрес", "аздил"], // Radiant Sector: Arcanian speech pool.
+            "НекоМетрический" => ["ня", "каничива", "нья", "кия", "некочуу", "отто", "нянмунядесунуняича", "ухуху", "каваимунячуу", "китдесу", "ньябооп", "кьяа", "бооп", "со"], // Radiant Sector: intentionally broken Japanese-like Felinid speech.
+            _ => ["а", "эм", "хм", "тс"],
+        };
+
+        var words = message.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        for (var index = 0; index < words.Length; index++)
+        {
+            var seed = index;
+            foreach (var character in words[index])
+                seed += character;
+
+            var count = 1 + (seed % 3);
+            var pieces = new string[count];
+            for (var piece = 0; piece < count; piece++)
+                pieces[piece] = fragments[(seed + piece) % fragments.Length];
+
+            words[index] = string.Concat(pieces);
+        }
+
+        return string.Join(' ', words);
+    }
+
+    /// <summary>
+    /// Radiant Sector: reproduces Goob-style coloured native speech while keeping Galactic Common white.
+    /// </summary>
+    internal static string ApplyLanguageColor(string language, string wrappedMessage, string escapedMessage) // Radiant Sector: also used by radio delivery.
+    {
+        var color = language switch
+        {
+            "Синта'Унати" => "#2ACA2A",
+            "Вокс-пиджин" => "#A489A0",
+            "Корневой язык" => "#A64E14",
+            "Бабблилиш" => "#24D1B9",
+            "Моффик" => "#C7DF2E",
+            "Щёлкающий" => "#B0B0B0",
+            "Канилунц" => "#D69B3D",
+            "Сиик'тайр" => "#D6A36E",
+            "Счечи" => "#4DBFD9",
+            "Нехина" => "#5FAEE3",
+            "Сумеречный" => "#C29EFF",
+            "Кхаздар" => "#C78E42",
+            "Кансэй" => "#D95B67",
+            "Аэрийский" => "#8ED5E8",
+            "Крикли" => "#A7C746",
+            "Шелар" => "#B5B9DF",
+            "Арканийский" => "#D888E8",
+            "НекоМетрический" => "#E5A1C7", // Radiant Sector
+            _ => "#FFFFFF",
+        };
+
+        return wrappedMessage.Replace(escapedMessage, $"[color={color}]{escapedMessage}[/color]");
     }
 
     /// <summary>
@@ -1065,17 +1485,23 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     public readonly string? ObfuscatedMessage; // not null if this was a whisper
 
     /// <summary>
+    ///     Radiant Sector: native language selected by the speaker, if any.
+    /// </summary>
+    public readonly string? Language;
+
+    /// <summary>
     ///     If the entity was trying to speak into a radio, this was the channel they were trying to access. If a radio
     ///     message gets sent on this channel, this should be set to null to prevent duplicate messages.
     /// </summary>
     public RadioChannelPrototype? Channel;
 
-    public EntitySpokeEvent(EntityUid source, string message, RadioChannelPrototype? channel, string? obfuscatedMessage)
+    public EntitySpokeEvent(EntityUid source, string message, RadioChannelPrototype? channel, string? obfuscatedMessage, string? language = null)
     {
         Source = source;
         Message = message;
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
+        Language = language;
     }
 }
 

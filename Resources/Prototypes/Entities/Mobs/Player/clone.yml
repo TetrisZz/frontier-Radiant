@@ -71,6 +71,8 @@
   - SizeAttribute # Frontier
   - NFSalvageMobRestrictions # Frontier
   - TTS # Corvax-TTS
+  - NativeLanguageUnfamiliar # Radiant Sector
+  - NativeLanguageOnly # Radiant Sector
 
 # for job-specific traits etc.
 - type: cloningSettings

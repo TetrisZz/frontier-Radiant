@@ -5,6 +5,7 @@ using Content.Client.UserInterface.Systems.Character;
 using Content.Client.UserInterface.Systems.Crafting;
 using Content.Client.UserInterface.Systems.Emotes;
 using Content.Client.UserInterface.Systems.Interaction; /// RS
+using Content.Client._Goobstation.Languages.UI; // Radiant Sector
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -26,6 +27,7 @@ public sealed class GameTopMenuBarUIController : UIController
     [Dependency] private readonly GuidebookUIController _guidebook = default!;
     [Dependency] private readonly EmotesUIController _emotes = default!;
     [Dependency] private readonly InteractionUIController _interaction = default!; ///RS
+    [Dependency] private readonly LanguageMenuUIController _language = default!; // Radiant Sector
 
     private GameTopMenuBar? GameTopMenuBar => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>();
 
@@ -50,6 +52,7 @@ public sealed class GameTopMenuBarUIController : UIController
         _sandbox.UnloadButton();
         _emotes.UnloadButton();
         _interaction.UnloadButton(); /// RS
+        _language.UnloadButton(); // Radiant Sector
     }
 
     public void LoadButtons()
@@ -64,5 +67,6 @@ public sealed class GameTopMenuBarUIController : UIController
         _sandbox.LoadButton();
         _emotes.LoadButton();
         _interaction.LoadButton(); /// RS
+        _language.LoadButton(); // Radiant Sector
     }
 }

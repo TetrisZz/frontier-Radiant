@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
+using Content.Shared._Goobstation.Languages;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.GameTicking;
@@ -19,6 +20,7 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly TTSManager _ttsManager = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!; // Radiant Sector: native language TTS routing.
 
     private readonly List<string> _sampleText =
         new()
@@ -92,21 +94,39 @@ public sealed partial class TTSSystem : EntitySystem
 
         if (args.ObfuscatedMessage != null)
         {
-            HandleWhisper(uid, args.Message, args.ObfuscatedMessage, protoVoice.Speaker);
+            HandleWhisper(uid, args.Message, args.ObfuscatedMessage, args.Language, protoVoice.Speaker);
             return;
         }
 
-        HandleSay(uid, args.Message, protoVoice.Speaker);
+        HandleSay(uid, args.Message, args.Language, protoVoice.Speaker);
     }
 
-    private async void HandleSay(EntityUid uid, string message, string speaker)
+    /// <summary>
+    /// Radiant Sector: never send intelligible or replacement TTS to a listener who cannot understand the speech.
+    /// </summary>
+    private async void HandleSay(EntityUid uid, string message, string? language, string speaker)
     {
         var soundData = await GenerateTTS(message, speaker);
         if (soundData is null) return;
-        RaiseNetworkEvent(new PlayTTSEvent(soundData, GetNetEntity(uid)), Filter.Pvs(uid));
+
+        foreach (var session in Filter.Pvs(uid).Recipients)
+        {
+            if (session.AttachedEntity is not { Valid: true } listener)
+                continue;
+
+            var understands = language == null
+                ? !HasComp<NativeLanguageOnlyComponent>(listener)
+                : _chatSystem.TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
+
+            if (understands)
+                RaiseNetworkEvent(new PlayTTSEvent(soundData, GetNetEntity(uid)), session);
+        }
     }
 
-    private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string speaker)
+    /// <summary>
+    /// Radiant Sector: preserves both ordinary whisper falloff and native language comprehension for TTS.
+    /// </summary>
+    private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string? language, string speaker)
     {
         var fullSoundData = await GenerateTTS(message, speaker, true);
         if (fullSoundData is null) return;
@@ -127,6 +147,14 @@ public sealed partial class TTSSystem : EntitySystem
             var xform = xformQuery.GetComponent(session.AttachedEntity.Value);
             var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
             if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
+                continue;
+
+            var listener = session.AttachedEntity.Value;
+            var understands = language == null
+                ? !HasComp<NativeLanguageOnlyComponent>(listener)
+                : _chatSystem.TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
+
+            if (!understands)
                 continue;
 
             RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);

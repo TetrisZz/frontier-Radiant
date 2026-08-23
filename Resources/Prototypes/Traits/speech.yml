@@ -2,6 +2,25 @@
 
 # Free
 
+# Radiant Sector: voluntary language limitations. Negative cost grants one speech-trait point.
+- type: trait
+  id: NativeLanguageUnfamiliar
+  name: trait-native-language-unfamiliar-name
+  description: trait-native-language-unfamiliar-desc
+  category: SpeechTraits
+  cost: -1
+  components:
+  - type: NativeLanguageUnfamiliar
+
+- type: trait
+  id: NativeLanguageOnly
+  name: trait-native-language-only-name
+  description: trait-native-language-only-desc
+  category: SpeechTraits
+  cost: -1
+  components:
+  - type: NativeLanguageOnly
+
 - type: trait
   id: Accentless
   name: trait-accentless-name

@@ -80,3 +80,9 @@ trait-lactation-desc = Allows the character to produce milk.
 
 trait-emotional-restraint-name = Emotionally restrained
 trait-emotional-restraint-desc = You keep your composure under pain and will not automatically scream or cry when hurt.
+
+# Radiant Sector: language knowledge traits.
+trait-native-language-unfamiliar-name = Does not know native language
+trait-native-language-unfamiliar-desc = You only know Galactic Common and cannot understand even your species' native speech. Grants 1 speech-trait point.
+trait-native-language-only-name = Native language only
+trait-native-language-only-desc = You can speak and understand only your species' native language. Galactic Common is garbled to you. Grants 1 speech-trait point.
