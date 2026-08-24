@@ -35,6 +35,10 @@
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
+    ignoreWhitelist: # Radiant Sector
+      tags:
+      - FeroxiWaterAffinity
+  - type: FeroxiWaterSource # Radiant Sector
   - type: Physics
     bodyType: Static
   - type: Fixtures

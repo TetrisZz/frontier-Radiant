@@ -1,0 +1,40 @@
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    x:Class="Content.Client._Goobstation.Languages.UI.LanguageMenuWindow"
+    Title="Язык"
+    MinSize="360 0">
+
+    <PanelContainer Margin="6">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#192331" BorderColor="#3B5B75" BorderThickness="1" /> <!-- Radiant Sector: match the primary lobby-panel surface. -->
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" Margin="14" SeparationOverride="8">
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" SeparationOverride="8">
+                <!-- Radiant Sector: visible language emblem for the selector header. -->
+                <TextureRect SetSize="38 38" Stretch="KeepAspectCentered"
+                             TexturePath="/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png"
+                             ModulateSelfOverride="#8FB9D8" />
+                <Label Text="ЯЗЫК ОБЩЕНИЯ" VerticalAlignment="Center" FontColorOverride="#F2F6FB" />
+            </BoxContainer>
+            <Label Name="CurrentLanguageLabel" HorizontalAlignment="Center" FontColorOverride="#8FB9D8" />
+            <PanelContainer SetHeight="1">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#315D7D" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+            <Label Text="Выберите язык для обычной речи." HorizontalAlignment="Center" />
+            <!-- Radiant Sector: language help now sits beside the language it describes. -->
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <Button Name="CommonButton" Text="Общегалактический" MinHeight="34" HorizontalExpand="True" />
+                <Button Name="CommonInfoButton" Text="?" ToolTip="Об общегалактическом языке" MinSize="34 34" />
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <Button Name="NativeButton" MinHeight="34" HorizontalExpand="True" />
+                <Button Name="NativeInfoButton" Text="?" ToolTip="О родном языке" MinSize="34 34" />
+            </BoxContainer>
+            <Label Text="Для других рас речь искажается." HorizontalAlignment="Center" StyleClasses="LabelSubText" />
+        </BoxContainer>
+    </PanelContainer>
+</DefaultWindow>

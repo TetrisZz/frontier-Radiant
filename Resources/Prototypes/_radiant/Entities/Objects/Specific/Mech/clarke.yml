@@ -37,10 +37,7 @@
     # Radiant Sector: four hardpoints let the mining loadout carry its tools alongside utility equipment.
     maxEquipmentAmount: 4
     equipmentWhitelist:
-      # Accept the actual equipment component as well as the Clarke-specific tag. This keeps both
-      # the regular and diamond drills installable even if an inherited tag is overridden later.
-      components:
-      - MechEquipment
+      # Clarke accepts only its dedicated industrial equipment; hydraulic clamps remain Ripley-only.
       tags:
       - IndustrialMech
     pilotWhitelist:
@@ -71,7 +68,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 4.5
-    baseWeightlessModifier: 10
+    baseWeightlessModifier: 5
   - type: Damageable
     damageModifierSet: Metallic
   - type: ExplosionResistance
@@ -79,7 +76,7 @@
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: ClarkeFlight
-    energyUsePerSecond: 25
+    energyUsePerSecond: 12.5
   - type: ClarkeMagboots
   # Clarke's space-flight signature: visible on mass scanners only while off-grid.
   - type: RadarBlip

@@ -28,6 +28,16 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
+        // Radiant Sector: these are the playable species that have a selectable native language.
+        private static readonly HashSet<string> NativeLanguageSpecies = new()
+        {
+            "Reptilian", "Vox", "Diona", "SlimePerson", "Moth", "Arachnid",
+            "Vulpkanin", "Tajaran", "Resomi", "Feroxi", "Shadowkin", "Dwarf",
+            "Oni", "Harpy", "Goblin", "Sheleg", "DemonSpecies", "Felinid", // Radiant Sector
+        };
+
+        // Radiant Sector: shared with the character-editor filtering for language traits.
+        public static bool HasNativeLanguage(string species) => NativeLanguageSpecies.Contains(species);
         private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // Corvax-Localization
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
@@ -481,6 +491,13 @@ namespace Content.Shared.Preferences
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
 
+            // Radiant Sector: the two language-knowledge traits describe opposite states.
+            // Selecting one replaces the other instead of granting points for an unusable combination.
+            if (traitId.Id == "NativeLanguageUnfamiliar")
+                list.Remove(new ProtoId<TraitPrototype>("NativeLanguageOnly"));
+            else if (traitId.Id == "NativeLanguageOnly")
+                list.Remove(new ProtoId<TraitPrototype>("NativeLanguageUnfamiliar"));
+
             if (traitCategory == null || traitCategory.MaxTraitPoints < 0)
             {
                 return new(this)
@@ -805,6 +822,11 @@ namespace Content.Shared.Preferences
 
         private bool CanHaveTrait(TraitPrototype trait)
         {
+            // Radiant Sector: language-limit traits make no sense for species without a native language.
+            if ((trait.ID == "NativeLanguageUnfamiliar" || trait.ID == "NativeLanguageOnly") &&
+                !NativeLanguageSpecies.Contains(Species))
+                return false;
+
             return trait.AllowedSexes.Count == 0 || trait.AllowedSexes.Contains(Sex);
         }
 

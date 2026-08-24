@@ -1,0 +1,6 @@
+<!-- Radiant Sector: compact speech-and-translation icon for the language menu. -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#E8EEF5" d="M4 5h17v14H11l-5 5v-5H4V5zm3 3v8h3v2l2-2h6V8H7z"/>
+  <path fill="#E8EEF5" d="M22 11h6v13h-2v4l-4-4h-4v-5h3v2h2l2 2v-2h1v-7h-4v-3z"/>
+  <path fill="#7CB3D9" d="M10 10h5v2h-1v4h-2v-4h-2v-2zm12 4h3v2h-3v-2z"/>
+</svg>

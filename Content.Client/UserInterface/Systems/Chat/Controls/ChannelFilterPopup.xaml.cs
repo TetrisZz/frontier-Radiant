@@ -19,6 +19,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.Whisper,
         ChatChannel.Emotes,
         ChatChannel.Radio,
+        ChatChannel.ShadowkinEmpathy, // Radiant Sector
         ChatChannel.Notifications,
         ChatChannel.LOOC,
         ChatChannel.OOC,

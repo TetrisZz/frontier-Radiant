@@ -13,9 +13,6 @@
   naming: First
   sexes:
   - Unsexed
-  minHeight: 0.79444 # Radiant Sector: 140 cm
-  defaultHeight: 0.88018 # Radiant Sector: 155 cm, midpoint of the permitted range.
-  maxHeight: 0.96536 # Radiant Sector: 170 cm
 
 - type: speciesBaseSprites
   id: MobVoxSprites

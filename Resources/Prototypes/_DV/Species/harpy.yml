@@ -7,9 +7,9 @@
   markingLimits: MobHarpyMarkingLimits
   dollPrototype: MobHarpyDummy
   skinColoration: HumanToned
-  minHeight: 0.85179 # Radiant Sector: 150 cm
+  minHeight: 0.75 # Radiant sector ↓
   defaultHeight: 0.9
-  maxHeight: 1.05054 # Radiant Sector: 185 cm
+  maxHeight: 1.1
   minWidth: 0.65
   defaultWidth: 0.9
   maxWidth: 1.05 # Radiant sector ↑

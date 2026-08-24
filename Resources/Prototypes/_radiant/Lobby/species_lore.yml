@@ -1,0 +1,543 @@
+- type: speciesLore
+  id: Human
+  species: Human
+  category: species-lore-category-core
+  lore: species-lore-human-lore
+  biology: [species-lore-human-biology]
+  diet: [species-lore-human-diet]
+  culture: [species-lore-human-culture]
+  loreHeight: species-lore-height-human
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  abilities: [species-lore-human-ability-1]
+  languages: [species-lore-language-galactic]
+  features:
+  - species-lore-human-feature-1
+  interactionTips:
+  - species-lore-human-interaction-1
+  roleplayTips:
+  - species-lore-human-roleplay-1
+
+- type: speciesLore
+  id: Reptilian
+  species: Reptilian
+  category: species-lore-category-core
+  lore: species-lore-reptilian-lore
+  biology: [species-lore-reptilian-biology]
+  diet: [species-lore-reptilian-diet]
+  culture: [species-lore-reptilian-culture]
+  loreHeight: species-lore-height-reptilian
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-reptilian-cold
+  - species-lore-stat-reptilian-melee
+  abilities: [species-lore-reptilian-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-draconic]
+  features:
+  - species-lore-reptilian-feature-1
+  communication:
+  - species-lore-reptilian-communication-1
+  - species-lore-reptilian-communication-2
+  interactionTips:
+  - species-lore-reptilian-interaction-1
+  roleplayTips:
+  - species-lore-reptilian-roleplay-1
+  - species-lore-reptilian-roleplay-naming
+  - species-lore-reptilian-roleplay-appearance
+  - species-lore-reptilian-roleplay-gestures
+  - species-lore-reptilian-roleplay-selfreliance
+  - species-lore-reptilian-roleplay-contact
+  - species-lore-reptilian-roleplay-footwear
+  - species-lore-reptilian-roleplay-traditions
+
+- type: speciesLore
+  id: SlimePerson
+  species: SlimePerson
+  category: species-lore-category-core
+  lore: species-lore-slime-lore
+  biology: [species-lore-slime-biology]
+  diet: [species-lore-slime-diet]
+  culture: [species-lore-slime-culture]
+  loreHeight: species-lore-height-slime
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-nitrogen
+  - species-lore-stat-slime-blunt
+  - species-lore-stat-slime-poison
+  - species-lore-stat-slime-slash
+  - species-lore-stat-slime-piercing
+  - species-lore-stat-slime-cold
+  - species-lore-stat-slime-regen
+  abilities: [species-lore-slime-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-bubblish] # Radiant Sector: display name matches the implemented Bubbles language.
+  features:
+  - species-lore-slime-feature-1
+  - species-lore-slime-feature-2
+  interactionTips:
+  - species-lore-slime-interaction-1
+  roleplayTips:
+  - species-lore-slime-roleplay-1
+
+- type: speciesLore
+  id: Dwarf
+  species: Dwarf
+  category: species-lore-category-core
+  lore: species-lore-dwarf-lore
+  biology: [species-lore-dwarf-biology]
+  diet: [species-lore-dwarf-diet]
+  culture: [species-lore-dwarf-culture]
+  loreHeight: species-lore-height-dwarf
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  abilities: [species-lore-dwarf-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-khazdar]
+  features:
+  - species-lore-dwarf-feature-1
+  interactionTips:
+  - species-lore-dwarf-interaction-1
+  roleplayTips:
+  - species-lore-dwarf-roleplay-1
+  - species-lore-dwarf-roleplay-community
+  - species-lore-dwarf-roleplay-craft
+
+- type: speciesLore
+  id: Diona
+  species: Diona
+  category: species-lore-category-core
+  lore: species-lore-diona-lore
+  biology: [species-lore-diona-biology]
+  diet: [species-lore-diona-diet]
+  culture: [species-lore-diona-culture]
+  loreHeight: species-lore-height-diona
+  gameplayStats:
+  - species-lore-stat-metabolism-diona
+  - species-lore-stat-oxygen
+  - species-lore-stat-diona-blunt
+  - species-lore-stat-diona-slash
+  - species-lore-stat-diona-heat
+  - species-lore-stat-diona-shock
+  - species-lore-stat-diona-herbicide
+  - species-lore-stat-diona-death
+  abilities: [species-lore-diona-ability-1, species-lore-diona-ability-2]
+  languages: [species-lore-language-galactic, species-lore-language-rootspeak] # Radiant Sector: display name matches the implemented Rootspeak language.
+  features:
+  - species-lore-diona-feature-1
+  communication:
+  - species-lore-diona-communication-1
+  - species-lore-diona-communication-2
+  interactionTips:
+  - species-lore-diona-interaction-1
+  roleplayTips:
+  - species-lore-diona-roleplay-1
+  - species-lore-diona-roleplay-naming
+  - species-lore-diona-roleplay-unified
+  - species-lore-diona-roleplay-chorus
+  - species-lore-diona-roleplay-melody
+  - species-lore-diona-roleplay-chaos
+  - species-lore-diona-roleplay-ancient
+  - species-lore-diona-roleplay-survival
+
+- type: speciesLore
+  id: Vox
+  species: Vox
+  category: species-lore-category-core
+  lore: species-lore-vox-lore
+  biology: [species-lore-vox-biology]
+  diet: [species-lore-vox-diet]
+  culture: [species-lore-vox-culture]
+  loreHeight: species-lore-height-vox
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-nitrogen
+  - species-lore-stat-vox
+  abilities: [species-lore-vox-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-vox]
+  features:
+  - species-lore-vox-feature-1
+  communication:
+  - species-lore-vox-communication-1
+  - species-lore-vox-communication-2
+  interactionTips:
+  - species-lore-vox-interaction-1
+  roleplayTips:
+  - species-lore-vox-roleplay-1
+  - species-lore-vox-roleplay-naming
+  - species-lore-vox-roleplay-code
+  - species-lore-vox-roleplay-space
+  - species-lore-vox-roleplay-solitude
+  - species-lore-vox-roleplay-nitrogen
+  - species-lore-vox-roleplay-work
+
+- type: speciesLore
+  id: Moth
+  species: Moth
+  category: species-lore-category-unusual
+  lore: species-lore-moth-lore
+  biology: [species-lore-moth-biology]
+  diet: [species-lore-moth-diet]
+  culture: [species-lore-moth-culture]
+  loreHeight: species-lore-height-moth
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-moth-cold
+  - species-lore-stat-moth-heat
+  - species-lore-stat-moth-flammable
+  - species-lore-stat-moth-space
+  abilities: [species-lore-moth-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-nian]
+  features:
+  - species-lore-moth-feature-1
+  communication:
+  - species-lore-moth-communication-1
+  interactionTips:
+  - species-lore-moth-interaction-1
+  roleplayTips:
+  - species-lore-moth-roleplay-1
+  - species-lore-moth-roleplay-naming
+  - species-lore-moth-roleplay-cleanliness
+  - species-lore-moth-roleplay-cocoon
+  - species-lore-moth-roleplay-wings
+  - species-lore-moth-roleplay-trust
+  - species-lore-moth-roleplay-gestures
+
+- type: speciesLore
+  id: Arachnid
+  species: Arachnid
+  category: species-lore-category-unusual
+  lore: species-lore-arachnid-lore
+  biology: [species-lore-arachnid-biology]
+  diet: [species-lore-arachnid-diet]
+  culture: [species-lore-arachnid-culture]
+  loreHeight: species-lore-height-arachnid
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-arachnid
+  abilities: [species-lore-arachnid-ability-1, species-lore-arachnid-ability-2]
+  languages: [species-lore-language-galactic, species-lore-language-chittin]
+  features:
+  - species-lore-arachnid-feature-1
+  interactionTips:
+  - species-lore-arachnid-interaction-1
+  roleplayTips:
+  - species-lore-arachnid-roleplay-1
+  - species-lore-arachnid-roleplay-darkness
+  - species-lore-arachnid-roleplay-silk
+
+- type: speciesLore
+  id: Vulpkanin
+  species: Vulpkanin
+  category: species-lore-category-unusual
+  lore: species-lore-vulpkanin-lore
+  biology: [species-lore-vulpkanin-biology]
+  diet: [species-lore-vulpkanin-diet]
+  culture: [species-lore-vulpkanin-culture]
+  loreHeight: species-lore-height-vulpkanin
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-vulpkanin-heat
+  - species-lore-stat-vulpkanin-melee
+  - species-lore-stat-vulpkanin-feral
+  abilities: [species-lore-vulpkanin-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-canilunzt]
+  features:
+  - species-lore-vulpkanin-feature-1
+  communication:
+  - species-lore-vulpkanin-communication-1
+  interactionTips:
+  - species-lore-vulpkanin-interaction-1
+  roleplayTips:
+  - species-lore-vulpkanin-roleplay-1
+  - species-lore-vulpkanin-roleplay-naming
+  - species-lore-vulpkanin-roleplay-diet
+
+- type: speciesLore
+  id: Tajaran
+  species: Tajaran
+  category: species-lore-category-unusual
+  lore: species-lore-tajaran-lore
+  biology: [species-lore-tajaran-biology]
+  diet: [species-lore-tajaran-diet]
+  culture: [species-lore-tajaran-culture]
+  loreHeight: species-lore-height-tajaran
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-tajaran-cold
+  - species-lore-stat-tajaran-heat
+  - species-lore-stat-tajaran-melee
+  abilities: [species-lore-tajaran-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-siikmaas]
+  features:
+  - species-lore-tajaran-feature-1
+  communication:
+  - species-lore-tajaran-communication-1
+  - species-lore-tajaran-communication-2
+  interactionTips:
+  - species-lore-tajaran-interaction-1
+  roleplayTips:
+  - species-lore-tajaran-roleplay-1
+  - species-lore-tajaran-roleplay-naming
+  - species-lore-tajaran-roleplay-colors
+  - species-lore-tajaran-roleplay-culture
+  - species-lore-tajaran-roleplay-etiquette
+  - species-lore-tajaran-roleplay-you
+  - species-lore-tajaran-roleplay-footwear
+  - species-lore-tajaran-roleplay-cleanliness
+  - species-lore-tajaran-roleplay-diet
+
+- type: speciesLore
+  id: Oni
+  species: Oni
+  category: species-lore-category-unusual
+  lore: species-lore-oni-lore
+  biology: [species-lore-oni-biology]
+  diet: [species-lore-oni-diet]
+  culture: [species-lore-oni-culture]
+  loreHeight: species-lore-height-oni
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-oni-blunt
+  - species-lore-stat-oni-slash
+  - species-lore-stat-oni-piercing
+  - species-lore-stat-oni-asphyxiation
+  abilities: [species-lore-oni-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-kansei]
+  features:
+  - species-lore-oni-feature-1
+  interactionTips:
+  - species-lore-oni-interaction-1
+  roleplayTips:
+  - species-lore-oni-roleplay-1
+  - species-lore-oni-roleplay-order
+  - species-lore-oni-roleplay-cleanliness
+  - species-lore-oni-roleplay-honor
+  - species-lore-oni-roleplay-discipline
+
+- type: speciesLore
+  id: Felinid
+  species: Felinid
+  category: species-lore-category-unusual
+  lore: species-lore-felinid-lore
+  biology: [species-lore-felinid-biology]
+  diet: [species-lore-felinid-diet]
+  culture: [species-lore-felinid-culture]
+  loreHeight: species-lore-height-felinid
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-felinid-blunt
+  - species-lore-stat-felinid-slash
+  - species-lore-stat-felinid-piercing
+  abilities: [species-lore-felinid-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-nekomimetic]
+  features:
+  - species-lore-felinid-feature-1
+  interactionTips:
+  - species-lore-felinid-interaction-1
+  roleplayTips:
+  - species-lore-felinid-roleplay-1
+  - species-lore-felinid-roleplay-boundaries
+  - species-lore-felinid-roleplay-culture
+
+- type: speciesLore
+  id: Harpy
+  species: Harpy
+  category: species-lore-category-unusual
+  lore: species-lore-harpy-lore
+  biology: [species-lore-harpy-biology]
+  diet: [species-lore-harpy-diet]
+  culture: [species-lore-harpy-culture]
+  loreHeight: species-lore-height-harpy
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-harpy-blunt
+  - species-lore-stat-harpy-slash
+  - species-lore-stat-harpy-piercing
+  abilities: [species-lore-harpy-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-aerian]
+  features:
+  - species-lore-harpy-feature-1
+  interactionTips:
+  - species-lore-harpy-interaction-1
+  roleplayTips:
+  - species-lore-harpy-roleplay-1
+  - species-lore-harpy-roleplay-voice
+  - species-lore-harpy-roleplay-wings
+
+- type: speciesLore
+  id: Resomi
+  species: Resomi
+  category: species-lore-category-unusual
+  lore: species-lore-resomi-lore
+  biology: [species-lore-resomi-biology]
+  diet: [species-lore-resomi-diet]
+  culture: [species-lore-resomi-culture]
+  loreHeight: species-lore-height-resomi
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-resomi-cold
+  - species-lore-stat-resomi-heat
+  - species-lore-stat-resomi-blunt
+  - species-lore-stat-resomi-slash
+  - species-lore-stat-resomi-piercing
+  abilities: [species-lore-resomi-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-schechi]
+  features:
+  - species-lore-resomi-feature-1
+  communication:
+  - species-lore-resomi-communication-1
+  - species-lore-resomi-communication-2
+  - species-lore-resomi-communication-3
+  interactionTips:
+  - species-lore-resomi-interaction-1
+  - species-lore-resomi-interaction-2
+  roleplayTips:
+  - species-lore-resomi-roleplay-1
+  - species-lore-resomi-roleplay-names
+  - species-lore-resomi-roleplay-orders
+  - species-lore-resomi-roleplay-conflict
+  - species-lore-resomi-roleplay-xenophobia
+
+- type: speciesLore
+  id: Goblin
+  species: Goblin
+  category: species-lore-category-unusual
+  lore: species-lore-goblin-lore
+  biology: [species-lore-goblin-biology]
+  diet: [species-lore-goblin-diet]
+  culture: [species-lore-goblin-culture]
+  loreHeight: species-lore-height-goblin
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-goblin-blunt
+  - species-lore-stat-goblin-slash
+  - species-lore-stat-goblin-piercing
+  - species-lore-stat-goblin-poison
+  - species-lore-stat-goblin-caustic
+  abilities: [species-lore-goblin-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-krikli]
+  features:
+  - species-lore-goblin-feature-1
+  interactionTips:
+  - species-lore-goblin-interaction-1
+  roleplayTips:
+  - species-lore-goblin-roleplay-1
+  - species-lore-goblin-roleplay-practicality
+  - species-lore-goblin-roleplay-status
+
+- type: speciesLore
+  id: Sheleg
+  species: Sheleg
+  category: species-lore-category-unusual
+  lore: species-lore-sheleg-lore
+  biology: [species-lore-sheleg-biology]
+  diet: [species-lore-sheleg-diet]
+  culture: [species-lore-sheleg-culture]
+  loreHeight: species-lore-height-sheleg
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-sheleg-cold
+  - species-lore-stat-sheleg-blunt
+  - species-lore-stat-sheleg-slash
+  - species-lore-stat-sheleg-piercing
+  - species-lore-stat-sheleg-heat
+  - species-lore-stat-sheleg-shock
+  abilities: [species-lore-sheleg-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-shelar]
+  features:
+  - species-lore-sheleg-feature-1
+  interactionTips:
+  - species-lore-sheleg-interaction-1
+  roleplayTips:
+  - species-lore-sheleg-roleplay-1
+  - species-lore-sheleg-roleplay-time
+  - species-lore-sheleg-roleplay-people
+
+- type: speciesLore
+  id: Feroxi
+  species: Feroxi
+  category: species-lore-category-rare
+  lore: species-lore-feroxi-lore
+  biology: [species-lore-feroxi-biology]
+  diet: [species-lore-feroxi-diet]
+  culture: [species-lore-feroxi-culture]
+  loreHeight: species-lore-height-feroxi
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-feroxi
+  abilities: [species-lore-feroxi-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-nehina]
+  features:
+  - species-lore-feroxi-feature-1
+  - species-lore-feroxi-feature-2
+  - species-lore-feroxi-feature-anatomy
+  interactionTips:
+  - species-lore-feroxi-interaction-1
+  roleplayTips:
+  - species-lore-feroxi-roleplay-1
+  - species-lore-feroxi-roleplay-family
+  - species-lore-feroxi-roleplay-culture
+  - species-lore-feroxi-roleplay-city
+  - species-lore-feroxi-roleplay-diplomacy
+
+- type: speciesLore
+  id: Shadowkin
+  species: Shadowkin
+  category: species-lore-category-rare
+  lore: species-lore-shadowkin-lore
+  biology: [species-lore-shadowkin-biology]
+  diet: [species-lore-shadowkin-diet]
+  culture: [species-lore-shadowkin-culture]
+  loreHeight: species-lore-height-shadowkin
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  - species-lore-stat-shadowkin
+  abilities: [species-lore-shadowkin-ability-1, species-lore-shadowkin-ability-2, species-lore-shadowkin-ability-3]
+  languages: [species-lore-language-galactic, species-lore-language-shadowkin]
+  features:
+  - species-lore-shadowkin-feature-1
+  - species-lore-shadowkin-feature-2
+  communication:
+  - species-lore-shadowkin-communication-1
+  interactionTips:
+  - species-lore-shadowkin-interaction-1
+  roleplayTips:
+  - species-lore-shadowkin-roleplay-1
+  - species-lore-shadowkin-roleplay-link
+  - species-lore-shadowkin-roleplay-light
+
+- type: speciesLore
+  id: DemonSpecies
+  species: DemonSpecies
+  category: species-lore-category-rare
+  lore: species-lore-demon-lore
+  biology: [species-lore-demon-biology]
+  diet: [species-lore-demon-diet]
+  culture: [species-lore-demon-culture]
+  loreHeight: species-lore-height-arcana
+  gameplayStats:
+  - species-lore-stat-metabolism-standard
+  - species-lore-stat-oxygen
+  abilities: [species-lore-demon-ability-1]
+  languages: [species-lore-language-galactic, species-lore-language-arcanian]
+  features:
+  - species-lore-demon-feature-1
+  interactionTips:
+  - species-lore-demon-interaction-1
+  roleplayTips:
+  - species-lore-demon-roleplay-1
+  - species-lore-demon-roleplay-aura
+  - species-lore-demon-roleplay-identity

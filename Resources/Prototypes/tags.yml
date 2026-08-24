@@ -597,6 +597,12 @@
   id: FootstepSound
 
 - type: Tag
+  id: ShadowkinEmotes # Radiant Sector
+
+- type: Tag
+  id: FeroxiWaterAffinity # Radiant Sector
+
+- type: Tag
   id: ForceableFollow
 
 - type: Tag

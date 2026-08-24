@@ -46,6 +46,16 @@
         />
     <!-- RS-end -->
     <ui:MenuButton
+        Name="LanguageButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png'}"
+        ToolTip="Выбрать язык речи"
+        FooterText="ЯЗ"
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        /> <!-- Radiant Sector -->
+    <ui:MenuButton
         Name="CharacterButton"
         Access="Internal"
         Icon="{xe:Tex '/Textures/Interface/character.svg.192dpi.png'}"

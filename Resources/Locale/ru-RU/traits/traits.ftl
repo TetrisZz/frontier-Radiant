@@ -53,3 +53,9 @@ trait-lactation-desc = Позволяет персонажу вырабатыв�
 
 trait-emotional-restraint-name = Устойчивость к боли
 trait-emotional-restraint-desc = Вы сохраняете самообладание при боли и не кричите и не плачете автоматически при ранении.
+
+# Radiant Sector: language knowledge traits.
+trait-native-language-unfamiliar-name = Не знает родной язык
+trait-native-language-unfamiliar-desc = Вы знаете только общегалактический язык и не понимаете даже родную речь своего вида. Даёт 1 очко черт речи.
+trait-native-language-only-name = Только родной язык
+trait-native-language-only-desc = Вы говорите и понимаете только родной язык своего вида. Общегалактическая речь для вас искажена. Даёт 1 очко черт речи.

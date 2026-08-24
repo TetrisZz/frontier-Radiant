@@ -12,8 +12,6 @@
   maleFirstNames: NamesVulpkaninMale
   femaleFirstNames: NamesVulpkaninFemale
   lastNames: NamesVulpkaninLast
-  minHeight: 0.90857
-  maxHeight: 1.07893
 
 - type: speciesBaseSprites
   id: MobFeroxiSprites
@@ -26,6 +24,7 @@
     UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobFeroxiChest
     HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobFeroxiLArm
@@ -43,7 +42,7 @@
     Hair: { points: 1, required: false }
     FacialHair: { points: 1, required: false }
     Head: { points: 3, required: false }
-    HeadTop: { points: 1, required: true, defaultMarkings: [FeroxiEars] }
+    HeadSide: { points: 1, required: true, defaultMarkings: [FeroxiEars] }
     Snout: { points: 1, required: true, defaultMarkings: [FeroxiSnout] }
     Chest: { points: 3, required: false }
     Arms: { points: 4, required: false }

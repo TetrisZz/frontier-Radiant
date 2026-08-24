@@ -1,0 +1,24 @@
+<!-- Radiant Sector: reference window limited to the player's own available languages. -->
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    x:Class="Content.Client._Goobstation.Languages.UI.LanguageInfoWindow"
+    Title="Язык"
+    MinSize="440 320"
+    SetSize="440 400"
+    MaxWidth="440">
+
+    <PanelContainer Margin="6">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#192331" BorderColor="#3B5B75" BorderThickness="1" /> <!-- Radiant Sector: match the primary lobby-panel surface. -->
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" Margin="14" SeparationOverride="8">
+            <!-- Radiant Sector: constrain the text to the window and wrap long descriptions vertically. -->
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True"
+                             HScrollEnabled="False" ReturnMeasure="True">
+                <RichTextLabel Name="InfoText" HorizontalExpand="True" MaxWidth="380" />
+            </ScrollContainer>
+        </BoxContainer>
+    </PanelContainer>
+</DefaultWindow>

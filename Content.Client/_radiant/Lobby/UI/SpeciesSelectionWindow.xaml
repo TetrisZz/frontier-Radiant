@@ -1,0 +1,48 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                      xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      SetSize="940 640"
+                      MinSize="720 440">
+    <BoxContainer Orientation="Horizontal" SeparationOverride="8" Margin="8" VerticalExpand="True">
+        <PanelContainer SetWidth="250" MinWidth="200" VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#192331" BorderColor="#3b5b75" BorderThickness="1" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Vertical" Margin="8" VerticalExpand="True">
+                <Label Text="{Loc 'species-selection-list-title'}" StyleClasses="LabelHeading" />
+                <Label Text="{Loc 'species-selection-list-hint'}" FontColorOverride="#F2F6FB" />
+                <cc:HSeparator Margin="0 6" />
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="SpeciesList" Orientation="Vertical" />
+                </ScrollContainer>
+            </BoxContainer>
+        </PanelContainer>
+        <PanelContainer HorizontalExpand="True" VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#141d27" BorderColor="#3b5b75" BorderThickness="1" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Vertical" Margin="12" VerticalExpand="True">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <PanelContainer SetSize="150 150" MinSize="150 150" MaxSize="150 150">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#0f151d" BorderColor="#4a7798" BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
+                        <SpriteView Name="Preview" Scale="3 3" />
+                    </PanelContainer>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="12 0 0 0">
+                        <Label Name="SpeciesName" StyleClasses="LabelHeading" />
+                        <Label Name="Category" FontColorOverride="#F2F6FB" />
+                        <Control VerticalExpand="True" />
+                        <Button Name="Choose" Text="{Loc 'species-selection-choose'}" HorizontalExpand="True" />
+                    </BoxContainer>
+                </BoxContainer>
+                <cc:HSeparator Margin="0 10" />
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Orientation="Vertical" Name="Details" />
+                </ScrollContainer>
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>

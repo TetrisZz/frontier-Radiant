@@ -15,6 +15,7 @@ public static class ChatChannelExtensions
             ChatChannel.AdminAlert => Color.Red,
             ChatChannel.AdminChat => Color.HotPink,
             ChatChannel.Whisper => Color.DarkGray,
+            ChatChannel.ShadowkinEmpathy => Color.FromHex("#7f32a8"), // Radiant Sector
             _ => Color.LightGray
         };
     }

@@ -533,6 +533,7 @@ public sealed partial class ChatUIController : UIController
             FilterableChannels |= ChatChannel.Local;
             FilterableChannels |= ChatChannel.Whisper;
             FilterableChannels |= ChatChannel.Radio;
+            FilterableChannels |= ChatChannel.ShadowkinEmpathy; // Radiant Sector
             FilterableChannels |= ChatChannel.Emotes;
             FilterableChannels |= ChatChannel.Notifications;
 
