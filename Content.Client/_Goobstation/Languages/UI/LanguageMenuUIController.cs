@@ -1,9 +1,11 @@
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
-using Content.Shared.Humanoid;
+using Content.Shared._Goobstation.Languages;
+using Content.Shared.Input;
 using Robust.Client.Player;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Input.Binding;
 using Robust.Client.UserInterface.Controllers;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
@@ -25,10 +27,17 @@ public sealed class LanguageMenuUIController : UIController, IOnStateChanged<Gam
         // Radiant Sector: EntitySystems are only guaranteed to exist after gameplay has started.
         _languageMenu = EntitySystemManager.GetEntitySystem<LanguageMenuSystem>();
         _languageMenu.OnLanguageMenuState += OpenOrUpdate;
+
+        CommandBinds.Builder
+            .Bind(ContentKeyFunctions.OpenLanguageMenu,
+                InputCmdHandler.FromDelegate(_ => ToggleLanguageMenu()))
+            .Register<LanguageMenuUIController>();
     }
 
     public void OnStateExited(GameplayState state)
     {
+        CommandBinds.Unregister<LanguageMenuUIController>();
+
         if (_languageMenu != null)
             _languageMenu.OnLanguageMenuState -= OpenOrUpdate;
 
@@ -50,6 +59,11 @@ public sealed class LanguageMenuUIController : UIController, IOnStateChanged<Gam
     }
 
     private void OnLanguageButtonPressed(ButtonEventArgs args)
+    {
+        ToggleLanguageMenu();
+    }
+
+    private void ToggleLanguageMenu()
     {
         if (_window != null)
         {
@@ -99,32 +113,10 @@ public sealed class LanguageMenuUIController : UIController, IOnStateChanged<Gam
     private bool TryGetLocalNativeLanguage(out string language)
     {
         language = string.Empty;
-        if (_playerManager.LocalEntity is not { Valid: true } player ||
-            !_entityManager.TryGetComponent(player, out HumanoidAppearanceComponent? humanoid))
+        if (_playerManager.LocalEntity is not { Valid: true } player)
             return false;
 
-        language = humanoid.Species.Id switch
-        {
-            "Reptilian" => "Синта'Унати",
-            "Vox" => "Вокс-пиджин",
-            "Diona" => "Корневой язык",
-            "SlimePerson" => "Бабблилиш",
-            "Moth" => "Моффик",
-            "Arachnid" => "Щёлкающий",
-            "Vulpkanin" => "Канилунц",
-            "Tajaran" => "Сиик'тайр",
-            "Resomi" => "Счечи",
-            "Feroxi" => "Нехина",
-            "Shadowkin" => "Сумеречный",
-            "Dwarf" => "Кхаздар",
-            "Oni" => "Кансэй",
-            "Harpy" => "Аэрийский",
-            "Goblin" => "Крикли",
-            "Sheleg" => "Шелар",
-            "DemonSpecies" => "Арканийский",
-            "Felinid" => "НекоМетрический",
-            _ => string.Empty,
-        };
+        language = SpeciesLanguageUtility.GetNativeLanguage(_entityManager, player) ?? string.Empty;
 
         return language.Length > 0;
     }

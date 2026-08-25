@@ -617,9 +617,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
         var obfuscatedMessage = ObfuscateMessageReadability(message, 0.2f);
-        var languageObfuscatedMessage = speaksNativeLanguage
-            ? ObfuscateNativeLanguage(nativeLanguage!, message)
-            : message;
+        var spokenLanguage = speaksNativeLanguage ? nativeLanguage! : "Общегалактический";
+        var languageObfuscatedMessage = ObfuscateNativeLanguage(spokenLanguage, message);
 
         // get the entity's name by visual identity (if no override provided).
         string nameIdentity = FormattedMessage.EscapeText(nameOverride ?? Identity.Name(source, EntityManager));
@@ -670,9 +669,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
-            var understandsLanguage = data.Observer || (speaksNativeLanguage
-                ? TryGetNativeLanguage(listener) == nativeLanguage && !HasComp<NativeLanguageUnfamiliarComponent>(listener)
-                : !HasComp<NativeLanguageOnlyComponent>(listener));
+            var understandsLanguage = data.Observer || UnderstandsLanguage(listener, speaksNativeLanguage ? nativeLanguage : null);
 
             if (!understandsLanguage)
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, languageObfuscatedMessage, wrappedLanguageMessage, source, false, session.Channel);
@@ -921,9 +918,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             var understands = data.Observer;
             if (!understands && session.AttachedEntity is { Valid: true } listener)
             {
-                understands = language == null
-                    ? !HasComp<NativeLanguageOnlyComponent>(listener)
-                    : TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
+                understands = UnderstandsLanguage(listener, language);
             }
 
             _chatManager.ChatMessageToOne(
@@ -954,7 +949,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             var understands = data.Observer;
             if (!understands && session.AttachedEntity is { Valid: true } listener)
-                understands = !HasComp<NativeLanguageOnlyComponent>(listener);
+                understands = UnderstandsLanguage(listener, null);
             _chatManager.ChatMessageToOne(
                 ChatChannel.Local,
                 understands ? message : obfuscated,
@@ -986,10 +981,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             var understands = data.Observer;
             if (!understands && session.AttachedEntity is { Valid: true } listener)
-            {
-                var listenerLanguage = TryGetNativeLanguage(listener);
-                understands = listenerLanguage == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
-            }
+                understands = UnderstandsLanguage(listener, language);
             _chatManager.ChatMessageToOne(
                 ChatChannel.Local,
                 understands ? message : obfuscated,
@@ -1007,31 +999,20 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// </summary>
     internal string? TryGetNativeLanguage(EntityUid entity)
     {
-        if (!TryComp(entity, out HumanoidAppearanceComponent? humanoid))
-            return null;
+        return SpeciesLanguageUtility.GetNativeLanguage(EntityManager, entity);
+    }
 
-        return humanoid.Species.Id switch
-        {
-            "Reptilian" => "Синта'Унати",
-            "Vox" => "Вокс-пиджин",
-            "Diona" => "Корневой язык",
-            "SlimePerson" => "Бабблилиш",
-            "Moth" => "Моффик",
-            "Arachnid" => "Щёлкающий",
-            "Vulpkanin" => "Канилунц",
-            "Tajaran" => "Сиик'тайр",
-            "Resomi" => "Счечи",
-            "Feroxi" => "Нехина",
-            "Shadowkin" => "Сумеречный",
-            "Dwarf" => "Кхаздар",
-            "Oni" => "Кансэй",
-            "Harpy" => "Аэрийский",
-            "Goblin" => "Крикли",
-            "Sheleg" => "Шелар",
-            "DemonSpecies" => "Арканийский",
-            "Felinid" => "НекоМетрический", // Radiant Sector: feline native language.
-            _ => null,
-        };
+    /// <summary>
+    /// Radiant Sector: checks whether a listener understands a spoken language. Borgs understand every language.
+    /// </summary>
+    private bool UnderstandsLanguage(EntityUid listener, string? language)
+    {
+        if (TryGetNativeLanguage(listener) == "Двоичный")
+            return true;
+
+        return language == null
+            ? !HasComp<NativeLanguageOnlyComponent>(listener)
+            : TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
     }
 
     /// <summary>
@@ -1039,11 +1020,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// </summary>
     internal MsgChatMessage GetRadioMessageForListener(MsgChatMessage radioMessage, EntityUid listener, string? language)
     {
+        // Radiant Sector: ghosts observe the original radio line; language filtering is only for living listeners.
+        if (HasComp<GhostComponent>(listener))
+            return radioMessage;
+
         // Radiant Sector: a missing language means Galactic Common. Native-only characters must
         // receive it garbled even over radio, just like they do in local speech.
-        var understands = language == null
-            ? !HasComp<NativeLanguageOnlyComponent>(listener)
-            : TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
+        var understands = UnderstandsLanguage(listener, language);
 
         if (language == null && understands)
             return radioMessage;
@@ -1171,6 +1154,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             "Шелар" => ["араваар", "сингмасир", "налливаддд", "неввас", "галллипер", "имабил", "забимммил", "увввалим", "нафффис", "хеливвван"], // Radiant Sector: Sheleg speech pool.
             "Арканийский" => ["авациа", "егул", "ар", "гаисиуваи", "оумико", "эледон", "ли", "асхииди", "вэ", "декипаа", "опрес", "аздил"], // Radiant Sector: Arcanian speech pool.
             "НекоМетрический" => ["ня", "каничива", "нья", "кия", "некочуу", "отто", "нянмунядесунуняича", "ухуху", "каваимунячуу", "китдесу", "ньябооп", "кьяа", "бооп", "со"], // Radiant Sector: intentionally broken Japanese-like Felinid speech.
+            "Двоичный" => ["0101", "1010", "0011", "1100", "0110", "1001", "пик", "бип", "трр", "клик", "11010000", "404", "1P0", "rn0"],
             _ => ["а", "эм", "хм", "тс"],
         };
 
@@ -1217,6 +1201,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             "Шелар" => "#B5B9DF",
             "Арканийский" => "#D888E8",
             "НекоМетрический" => "#E5A1C7", // Radiant Sector
+            "Двоичный" => "#7FD8FF",
             _ => "#FFFFFF",
         };
 

@@ -1,4 +1,5 @@
 using Content.Shared.Humanoid;
+using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Shared._Goobstation.Languages;
 
@@ -9,6 +10,9 @@ public static class SpeciesLanguageUtility
 {
     public static string? GetNativeLanguage(IEntityManager entityManager, EntityUid entity)
     {
+        if (entityManager.HasComponent<BorgChassisComponent>(entity))
+            return "Двоичный";
+
         if (!entityManager.TryGetComponent(entity, out HumanoidAppearanceComponent? humanoid))
             return null;
 

@@ -64,7 +64,11 @@ public sealed class ClarkeFlightSystem : EntitySystem
             EnsureComp<CanMoveInAirComponent>(uid);
             EnsureComp<MovementAlwaysTouchingComponent>(uid);
 
+            // Radiant Sector: Clarke only uses its slow flight mode in open space.
+            // If it is standing on any grid, including asteroids and planet chunks without gravity,
+            // the integrated magboots keep it moving at its normal surface speed.
             var flying = mech.PilotSlot.ContainedEntity != null &&
+                         transform.GridUid == null &&
                          !_gravity.EntityGridOrMapHaveGravity((uid, transform));
 
             if (flight.WasFlying != flying)
@@ -124,7 +128,8 @@ public sealed class ClarkeFlightSystem : EntitySystem
     private void OnIsWeightless(Entity<ClarkeMagbootsComponent> entity, ref IsWeightlessEvent args)
     {
         var transform = Transform(entity);
-        if (!_gravity.EntityOnGravitySupportingGridOrMap((entity, transform)))
+        // Radiant Sector: treat every grid as a magnetic surface for Clarke, even non-gravity asteroids.
+        if (transform.GridUid == null && !_gravity.EntityOnGravitySupportingGridOrMap((entity, transform)))
             return;
 
         args.IsWeightless = false;

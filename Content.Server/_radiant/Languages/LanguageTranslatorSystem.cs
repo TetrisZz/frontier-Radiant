@@ -3,6 +3,7 @@ using Content.Server.DoAfter;
 using Content.Shared._radiant.Languages;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
@@ -33,6 +34,15 @@ public sealed class LanguageTranslatorSystem : EntitySystem
             return;
 
         args.Handled = true;
+        if (!TryComp<ItemToggleComponent>(ent.Owner, out var toggle) || !toggle.Activated)
+        {
+            _popup.PopupEntity("Переводчик выключен.", ent.Owner, args.User);
+            return;
+        }
+
+        if (!_powerCell.HasCharge(ent.Owner, ent.Comp.ChargePerScan, user: args.User))
+            return;
+
         var doAfter = new DoAfterArgs(EntityManager, args.User, ent.Comp.ScanDelay,
             new LanguageTranslatorScanDoAfterEvent(), ent.Owner, target: target, used: ent.Owner)
         {
@@ -50,6 +60,12 @@ public sealed class LanguageTranslatorSystem : EntitySystem
             return;
 
         args.Handled = true;
+        if (!TryComp<ItemToggleComponent>(ent.Owner, out var toggle) || !toggle.Activated)
+        {
+            _popup.PopupEntity("Переводчик выключен.", ent.Owner, args.User);
+            return;
+        }
+
         if (!_powerCell.TryUseCharge(ent.Owner, ent.Comp.ChargePerScan, user: args.User))
             return;
 

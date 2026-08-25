@@ -505,6 +505,7 @@
   - species-lore-stat-metabolism-standard
   - species-lore-stat-oxygen
   - species-lore-stat-shadowkin
+  - species-lore-stat-shadowkin-razg
   abilities: [species-lore-shadowkin-ability-1, species-lore-shadowkin-ability-2, species-lore-shadowkin-ability-3]
   languages: [species-lore-language-galactic, species-lore-language-shadowkin]
   features:
