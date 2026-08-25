@@ -5,6 +5,12 @@
 - type: soundCollection
   id: ShadowkinWurbles
   files: [/Audio/_Goobstation/Voice/Shadowkin/wurble.ogg]
+- type: soundCollection
+  id: ShadowkinMrrps # Radiant Sector
+  files:
+  - /Audio/_Goobstation/Voice/Shadowkin/mrrp2.ogg
+  - /Audio/_Goobstation/Voice/Shadowkin/speak_mrrp_ask.ogg
+  - /Audio/_Goobstation/Voice/Shadowkin/speak_mrrp_say.ogg
 
 - type: emote
   id: Mars
@@ -26,10 +32,20 @@
     components: [BorgChassis]
   chatMessages: ["chat-emote-msg-wurble"]
   chatTriggers: [wurble, wurbles, урчит]
+- type: emote
+  id: ShadowkinMrrp # Radiant Sector
+  name: chat-emote-name-shadowkin-mrrp
+  category: Vocal
+  whitelist:
+    tags: [ShadowkinEmotes]
+  blacklist:
+    components: [BorgChassis]
+  chatMessages: ["chat-emote-msg-shadowkin-mrrp"]
+  chatTriggers: [mrrp, mrrps, мурчит, мурчать]
 
 - type: emoteSounds
   id: MaleShadowkin
-  params: { variation: 0.125 }
+  # Radiant Sector: no general params here, otherwise they overwrite per-emote volume.
   sounds:
     Scream: { collection: MaleScreams }
     Laugh: { collection: MaleLaugh }
@@ -46,14 +62,15 @@
     Mew: { collection: FelinidMews }
     Growl: { collection: FelinidGrowls }
     Purr: { collection: FelinidPurrs }
-    Mars: { collection: ShadowkinMars }
-    Wurble: { collection: ShadowkinWurbles }
+    Mars: { collection: ShadowkinMars, params: { volume: -4, variation: 0.125 } } # Radiant Sector: quieter purring.
+    Wurble: { collection: ShadowkinWurbles, params: { volume: 6, variation: 0.125 } } # Radiant Sector: louder rumbling.
+    ShadowkinMrrp: { collection: ShadowkinMrrps, params: { volume: 1, variation: 0.125 } } # Radiant Sector
     Ston: { collection: MaleSton }
     DefaultDeathgasp: { collection: MaleDeathGasp }
 
 - type: emoteSounds
   id: FemaleShadowkin
-  params: { variation: 0.125 }
+  # Radiant Sector: no general params here, otherwise they overwrite per-emote volume.
   sounds:
     Scream: { collection: FemaleScreams }
     Laugh: { collection: FemaleLaugh }
@@ -70,7 +87,8 @@
     Mew: { collection: FelinidMews }
     Growl: { collection: FelinidGrowls }
     Purr: { collection: FelinidPurrs }
-    Mars: { collection: ShadowkinMars }
-    Wurble: { collection: ShadowkinWurbles }
+    Mars: { collection: ShadowkinMars, params: { volume: -4, variation: 0.125 } } # Radiant Sector: quieter purring.
+    Wurble: { collection: ShadowkinWurbles, params: { volume: 6, variation: 0.125 } } # Radiant Sector: louder rumbling.
+    ShadowkinMrrp: { collection: ShadowkinMrrps, params: { volume: 1, variation: 0.125 } } # Radiant Sector
     Ston: { collection: FemaleSton }
     DefaultDeathgasp: { collection: FemaleDeathGasp }

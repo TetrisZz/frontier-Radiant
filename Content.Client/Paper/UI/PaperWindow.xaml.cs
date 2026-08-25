@@ -259,6 +259,9 @@ namespace Content.Client.Paper.UI
         /// </summary>
         public void Populate(PaperComponent.PaperBoundUserInterfaceState state)
         {
+            // Radiant Sector: the BUI already hides the real language from readers who do not understand it.
+            LanguageLabel.Text = Loc.GetString("paper-ui-language-label", ("language", state.Language ?? Loc.GetString("paper-ui-language-common")));
+            LanguageLabel.Visible = state.Text.Length > 0;
             bool isEditing = state.Mode == PaperComponent.PaperAction.Write;
             bool wasEditing = InputContainer.Visible;
             InputContainer.Visible = isEditing;

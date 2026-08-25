@@ -67,6 +67,12 @@ public sealed class ClarkeFlightSystem : EntitySystem
             var flying = mech.PilotSlot.ContainedEntity != null &&
                          !_gravity.EntityGridOrMapHaveGravity((uid, transform));
 
+            if (flight.WasFlying != flying)
+            {
+                flight.WasFlying = flying;
+                _movementSpeed.RefreshMovementSpeedModifiers(uid);
+            }
+
             if (!flying)
             {
                 RemComp<ActiveJetpackComponent>(uid);
@@ -102,8 +108,17 @@ public sealed class ClarkeFlightSystem : EntitySystem
     private void OnRefreshMovementSpeed(Entity<ClarkeFlightComponent> entity,
         ref RefreshMovementSpeedModifiersEvent args)
     {
-        if (TryComp<MechComponent>(entity, out var mech) && mech.Energy <= 0)
+        if (!TryComp<MechComponent>(entity, out var mech))
+            return;
+
+        if (mech.Energy <= 0)
+        {
             args.ModifySpeed(0.15f);
+            return;
+        }
+
+        if (entity.Comp.WasFlying)
+            args.ModifySpeed(entity.Comp.SpaceSpeedModifier);
     }
 
     private void OnIsWeightless(Entity<ClarkeMagbootsComponent> entity, ref IsWeightlessEvent args)

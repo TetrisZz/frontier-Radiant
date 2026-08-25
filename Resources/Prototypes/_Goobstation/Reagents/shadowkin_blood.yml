@@ -1,0 +1,10 @@
+- type: reagent
+  parent: Blood
+  id: ShadowkinBlood
+  name: reagent-name-shadowkin-blood
+  desc: reagent-desc-shadowkin-blood
+  flavor: metallic
+  color: "#09070d"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-viscous
+

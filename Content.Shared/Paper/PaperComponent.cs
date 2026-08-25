@@ -11,6 +11,12 @@ public sealed partial class PaperComponent : Component
     [DataField("content"), AutoNetworkedField]
     public string Content { get; set; } = "";
 
+    /// <summary>
+    /// Radiant Sector: null means Galactic Common; otherwise this is the native language used to write the document.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? Language { get; set; }
+
     [DataField("contentSize")]
     public int ContentSize { get; set; } = 10000;
 
@@ -49,12 +55,14 @@ public sealed partial class PaperComponent : Component
         public readonly string Text;
         public readonly List<StampDisplayInfo> StampedBy;
         public readonly PaperAction Mode;
+        public readonly string? Language;
 
-        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read)
+        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read, string? language = null)
         {
             Text = text;
             StampedBy = stampedBy;
             Mode = mode;
+            Language = language;
         }
     }
 
@@ -62,10 +70,12 @@ public sealed partial class PaperComponent : Component
     public sealed class PaperInputTextMessage : BoundUserInterfaceMessage
     {
         public readonly string Text;
+        public readonly bool NativeLanguage;
 
-        public PaperInputTextMessage(string text)
+        public PaperInputTextMessage(string text, bool nativeLanguage = false)
         {
             Text = text;
+            NativeLanguage = nativeLanguage;
         }
     }
 

@@ -5,6 +5,7 @@ using Content.Shared.Humanoid;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.Rejuvenate;
 
 namespace Content.Server._radiant.Arousal;
 
@@ -30,6 +31,15 @@ public sealed class ArousalSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<HumanoidAppearanceComponent, EmoteEvent>(OnEmotePerformed);
         SubscribeLocalEvent<ArousalComponent, ApplyArousalFromMetabolismEvent>(OnApplyArousalFromMetabolism);
+        SubscribeLocalEvent<ArousalComponent, RejuvenateEvent>(OnRejuvenate);
+    }
+
+    private void OnRejuvenate(Entity<ArousalComponent> ent, ref RejuvenateEvent args)
+    {
+        ent.Comp.CurrentArousal = 0f;
+        ent.Comp.State = ArousalState.Calm;
+        ent.Comp.NextClimaxAt = TimeSpan.Zero;
+        Dirty(ent);
     }
 
     private void OnApplyArousalFromMetabolism(Entity<ArousalComponent> ent, ref ApplyArousalFromMetabolismEvent args)

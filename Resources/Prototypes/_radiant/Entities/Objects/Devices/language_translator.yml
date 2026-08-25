@@ -1,0 +1,27 @@
+- type: entity
+  id: HandheldLanguageTranslator
+  parent: [BaseItem, PowerCellSlotSmallItem]
+  name: портативный переводчик
+  description: Карманное устройство для машинного перевода письменных документов.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/language_translator.rsi
+    state: icon
+    layers:
+    - state: icon
+    - state: adv-o
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+    sprite: _radiant/Objects/Devices/language_translator.rsi
+    heldPrefix: inhand
+    storedRotation: -90
+  - type: LanguageTranslator
+    scanDelay: 2
+    chargePerScan: 25
+  - type: UserInterface
+    interfaces:
+      enum.LanguageTranslatorUiKey.Key:
+        type: LanguageTranslatorBoundUserInterface
+  - type: StaticPrice
+    price: 500

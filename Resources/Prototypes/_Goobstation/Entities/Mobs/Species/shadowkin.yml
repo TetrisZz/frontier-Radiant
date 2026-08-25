@@ -28,7 +28,8 @@
   - type: Flammable
     damage: { types: { Heat: 1.5 } }
   - type: Barotrauma
-    damage: { types: { Blunt: 0.35 } }
+    # Radiant Sector: pressure causes internal damage without opening bleeding wounds.
+    damage: { types: { Cellular: 0.35 } }
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 46
@@ -36,11 +37,20 @@
     coldDamageThreshold: 195
     coldDamage: { types: { Cold: 0.05 } }
     heatDamage: { types: { Heat: 0.25 } }
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#09070d"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Bloodstream
+    bloodReagent: ShadowkinBlood
   - type: UltraVision
   - type: ShadowkinUltravisionTint # Radiant Sector
   - type: ShadowkinShadeStep # Radiant Sector
   - type: Speech
-    allowedEmotes: [Mars, Wurble, Ston]
+    allowedEmotes: [Mars, Wurble, ShadowkinMrrp, Ston] # Radiant Sector: separate mrrp emote.
   - type: TTS
   - type: Vocal
     sounds: { Male: MaleShadowkin, Female: FemaleShadowkin, Unsexed: MaleShadowkin }

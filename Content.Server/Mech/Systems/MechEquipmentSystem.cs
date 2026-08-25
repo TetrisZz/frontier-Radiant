@@ -65,9 +65,9 @@ public sealed class MechEquipmentSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("mech-equipment-finish-install", ("item", uid)), args.Args.Target.Value);
         _mech.InsertEquipment(args.Args.Target.Value, uid);
-        // Radiant Sector: quiet confirmation for a module installed through the normal interaction.
+        // Radiant Sector: audible confirmation for a module installed through the normal interaction.
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/_radiant/Mech/mech_module_install.ogg"), args.Args.Target.Value,
-            AudioParams.Default.WithVolume(-12f));
+            AudioParams.Default.WithVolume(-6f));
 
         args.Handled = true;
     }

@@ -17,7 +17,7 @@
     footstepSoundCollection:
       path: /Audio/_radiant/Mech/clarke_step.ogg
       params:
-        volume: -10
+        volume: -4
   - type: PointLight
     enabled: true
     mask: /Textures/Effects/LightMasks/cone.png
@@ -308,7 +308,7 @@
     soundHit:
       path: /Audio/_radiant/Mech/clarke_drill.ogg
       params:
-        volume: -12
+        volume: -6
     attackRate: 3.5
     damage:
       groups:

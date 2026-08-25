@@ -7,6 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -34,6 +35,13 @@ public sealed class ShadowkinShadeStepSystem : EntitySystem
         SubscribeLocalEvent<ShadowkinShadeStepComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ShadowkinShadeStepComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ShadowkinShadeStepComponent, ShadowkinShadeStepEvent>(OnShadeStep);
+        SubscribeLocalEvent<ShadowkinShadeStepComponent, RejuvenateEvent>(OnRejuvenate);
+    }
+
+    private void OnRejuvenate(Entity<ShadowkinShadeStepComponent> entity, ref RejuvenateEvent args)
+    {
+        entity.Comp.Energy = entity.Comp.MaxEnergy;
+        Dirty(entity);
     }
 
     public override void Update(float frameTime)
@@ -86,7 +94,7 @@ public sealed class ShadowkinShadeStepSystem : EntitySystem
         _transform.SetCoordinates(entity.Owner, destination);
         _transform.AttachToGridOrMap(entity.Owner);
 
-        var teleportSound = new SoundPathSpecifier("/Audio/_radiant/Effects/teleport1_Cw1ot9l.ogg"); // Radiant Sector
+        var teleportSound = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Shadowkin/shadeskip.ogg");
         _audio.PlayPvs(teleportSound, original);
         _audio.PlayPvs(teleportSound, destination);
         _popup.PopupEntity(Loc.GetString("shadowkin-shade-step-success",
