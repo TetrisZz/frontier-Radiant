@@ -1,0 +1,12 @@
+- type: technology
+  id: NFDocumentTranslation
+  name: research-technology-document-translation
+  entityIcon: HandheldLanguageTranslator
+  discipline: NFService
+  tier: 1
+  cost: 3000
+  recipeUnlocks:
+  - HandheldLanguageTranslator
+  technologyPrerequisites:
+  - NFJournalism
+  position: 2, 20

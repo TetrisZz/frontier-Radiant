@@ -75,6 +75,8 @@ public sealed partial class CloningSystem
         if (TryComp<PaperComponent>(args.CloneUid, out var clonePaperComp))
         {
             _paper.SetContent((args.CloneUid, clonePaperComp), ent.Comp.Content);
+            clonePaperComp.Language = ent.Comp.Language; // Radiant Sector: preserve the document language when copying paper.
+            Dirty(args.CloneUid, clonePaperComp); // Radiant Sector
             _paper.CopyStamps(ent.AsNullable(), (args.CloneUid, clonePaperComp));
         }
     }

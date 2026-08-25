@@ -19,3 +19,9 @@ paper-ui-fill-level = {$currentLength}/{$maxLength}
 paper-ui-save-button = Save ({$keybind})
 
 paper-tamper-proof-modified-message = This page was written using tamper-proof ink.
+paper-language-cannot-write = You cannot understand this document's language and cannot edit it.
+paper-language-native-unavailable = You do not know your species' native language.
+paper-language-common-unavailable = You do not know Galactic Common.
+paper-ui-language-label = Language: { $language }
+paper-ui-language-common = Galactic Common
+paper-ui-language-unknown = Unknown language

@@ -106,8 +106,6 @@
     Narcotic:
       metabolismRate: 0.2
       effects:
-      - !type:ModifyArousal
-        amount: 0.12
       - !type:Emote
         emote: Ston
         probability: 0.015

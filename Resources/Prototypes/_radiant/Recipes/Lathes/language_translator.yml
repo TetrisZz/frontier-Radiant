@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: HandheldLanguageTranslator
+  result: HandheldLanguageTranslator
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 200
+    Plastic: 200
+    Silver: 50

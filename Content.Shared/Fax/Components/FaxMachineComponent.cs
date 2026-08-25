@@ -185,6 +185,9 @@ public sealed partial class FaxPrintout
     [DataField(required: true)]
     public string Content { get; private set; } = default!;
 
+    [DataField]
+    public string? Language { get; private set; } // Radiant Sector: written document language.
+
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>), required: true)]
     public string PrototypeId { get; private set; } = default!;
 
@@ -210,7 +213,7 @@ public sealed partial class FaxPrintout
     {
     }
 
-    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, EntityUid? entityUid = null, bool stampProtected = false, HashSet<ProtoId<LatheRecipePrototype>>? blueprintRecipes = null)
+    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, EntityUid? entityUid = null, bool stampProtected = false, HashSet<ProtoId<LatheRecipePrototype>>? blueprintRecipes = null, string? language = null)
     {
         Content = content;
         Name = name;
@@ -222,5 +225,6 @@ public sealed partial class FaxPrintout
         EntityUid = entityUid; // CorvaxGoob-PhotoCamera
         StampProtected = stampProtected; // Frontier
         BlueprintRecipes = blueprintRecipes ?? new(); // Frontier
+        Language = language; // Radiant Sector
     }
 }

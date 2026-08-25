@@ -182,7 +182,7 @@ public sealed class ClarkeMechDrillSystem : EntitySystem
         Dirty(drill, weapon);
 
         // Radiant Sector: the custom right-click drill route bypasses the stock melee sound handler.
-        _audio.PlayPvs(_drillSound, mech, AudioParams.Default.WithVolume(-12f));
+        _audio.PlayPvs(_drillSound, mech, AudioParams.Default.WithVolume(-6f));
 
         var damage = _melee.GetDamage(drill, mech, weapon);
         var hitEvent = new MeleeHitEvent([target], mech, drill, damage, null);

@@ -351,10 +351,11 @@ public sealed class FaxSystem : EntitySystem
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampedByData, out List<StampDisplayInfo>? stampedBy);
                     args.Data.TryGetValue(FaxConstants.FaxPaperPrototypeData, out string? prototypeId);
                     args.Data.TryGetValue(FaxConstants.FaxPaperLockedData, out bool? locked);
+                    args.Data.TryGetValue(FaxConstants.FaxPaperLanguageData, out string? language); // Radiant Sector
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampProtectedData, out bool? stampProtected); // Frontier
                     args.Data.TryGetValue(FaxConstants.FaxBlueprintRecipes, out HashSet<ProtoId<LatheRecipePrototype>>? blueprintRecipes); // Frontier
 
-                    var Printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, entityUid: null, stampProtected: stampProtected ?? false, blueprintRecipes: blueprintRecipes); // Frontier: add stampProtected, blueprintRecipes, Port-Photo
+                    var Printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, entityUid: null, stampProtected: stampProtected ?? false, blueprintRecipes: blueprintRecipes, language: language); // Frontier: add stampProtected, blueprintRecipes, Port-Photo; Radiant Sector: language
                     Receive(uid, Printout, args.SenderAddress);
 
                     break;
@@ -537,8 +538,9 @@ public sealed class FaxSystem : EntitySystem
                 paper.StampedBy,
                 paper.EditingDisabled,
                 entityUid: null,
-                stampProtected: _tag.HasTag(sendEntity.Value, NFPaperStampProtectedTag), // Frontier
-                blueprintRecipes: blueprintRecipes // Frontier
+                 stampProtected: _tag.HasTag(sendEntity.Value, NFPaperStampProtectedTag), // Frontier
+                 blueprintRecipes: blueprintRecipes, // Frontier
+                 language: paper.Language // Radiant Sector
             );
         }
         else if (TryComp<PhotoCardComponent>(sendEntity, out var photo) )
@@ -642,7 +644,8 @@ public sealed class FaxSystem : EntitySystem
             { DeviceNetworkConstants.Command, FaxConstants.FaxPrintCommand },
             { FaxConstants.FaxPaperNameData, nameMod?.BaseName ?? metadata.EntityName },
             { FaxConstants.FaxPaperLabelData, labelComponent?.CurrentLabel },
-            { FaxConstants.FaxPaperContentData, paper.Content },
+             { FaxConstants.FaxPaperContentData, paper.Content },
+             { FaxConstants.FaxPaperLanguageData, paper.Language }, // Radiant Sector
             { FaxConstants.FaxPaperLockedData, paper.EditingDisabled },
             { FaxConstants.FaxPaperStampProtectedData, _tag.HasTag(sendEntity.Value, NFPaperStampProtectedTag) }, // Frontier
         };
@@ -727,6 +730,8 @@ public sealed class FaxSystem : EntitySystem
         if (TryComp<PaperComponent>(printed, out var paper))
         {
             _paperSystem.SetContent((printed, paper), printout.Content);
+            paper.Language = printout.Language; // Radiant Sector
+            Dirty(printed, paper); // Radiant Sector
 
             // Apply stamps
             if (printout.StampState != null)

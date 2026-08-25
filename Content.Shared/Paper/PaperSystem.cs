@@ -16,6 +16,7 @@ using Content.Shared.Timing; // Frontier
 using Content.Shared.Access.Systems; // Frontier
 using Content.Shared.Verbs; // Frontier
 using Content.Shared.Ghost; // Frontier
+using Content.Shared._Goobstation.Languages; // Radiant Sector
 
 namespace Content.Shared.Paper;
 
@@ -253,6 +254,37 @@ public sealed class PaperSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        // Radiant Sector: do not allow an unknown-language document to be overwritten through its garbled client view.
+        if (!string.IsNullOrWhiteSpace(entity.Comp.Content) && !UnderstandsLanguage(args.Actor, entity.Comp.Language))
+        {
+            _popupSystem.PopupClient(Loc.GetString("paper-language-cannot-write"), entity, args.Actor);
+            entity.Comp.Mode = PaperAction.Read;
+            UpdateUserInterface(entity);
+            return;
+        }
+
+        var nativeLanguage = SpeciesLanguageUtility.GetNativeLanguage(EntityManager, args.Actor);
+        if (args.NativeLanguage)
+        {
+            if (nativeLanguage == null || HasComp<NativeLanguageUnfamiliarComponent>(args.Actor))
+            {
+                _popupSystem.PopupClient(Loc.GetString("paper-language-native-unavailable"), entity, args.Actor);
+                return;
+            }
+
+            entity.Comp.Language = nativeLanguage;
+        }
+        else
+        {
+            if (HasComp<NativeLanguageOnlyComponent>(args.Actor))
+            {
+                _popupSystem.PopupClient(Loc.GetString("paper-language-common-unavailable"), entity, args.Actor);
+                return;
+            }
+
+            entity.Comp.Language = null;
+        }
+
         if (args.Text.Length <= entity.Comp.ContentSize)
         {
             SetContent(entity, args.Text);
@@ -480,7 +512,23 @@ public sealed class PaperSystem : EntitySystem
 
     private void UpdateUserInterface(Entity<PaperComponent> entity)
     {
-        _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+        _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key,
+            new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode, entity.Comp.Language));
+    }
+
+    /// <summary>
+    /// Radiant Sector: checks written-language knowledge independently of the currently selected speech language.
+    /// </summary>
+    private bool UnderstandsLanguage(EntityUid reader, string? language)
+    {
+        if (HasComp<GhostComponent>(reader))
+            return true;
+
+        if (language == null)
+            return !HasComp<NativeLanguageOnlyComponent>(reader);
+
+        return !HasComp<NativeLanguageUnfamiliarComponent>(reader)
+            && SpeciesLanguageUtility.GetNativeLanguage(EntityManager, reader) == language;
     }
 }
 

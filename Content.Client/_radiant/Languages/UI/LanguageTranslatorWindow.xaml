@@ -1,0 +1,23 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               x:Class="Content.Client._radiant.Languages.UI.LanguageTranslatorWindow"
+               Title="Перевод текста"
+               MinSize="480 360" SetSize="540 440">
+    <PanelContainer Margin="8">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#192331" BorderColor="#3B5B75" BorderThickness="1" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" Margin="14" SeparationOverride="8">
+            <Label Name="LanguageLabel" Text="Язык: Неизвестный язык" FontColorOverride="#8CC8F2" />
+            <PanelContainer MinHeight="1">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#3B5B75" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <RichTextLabel Name="TranslatedText" HorizontalExpand="True" />
+            </ScrollContainer>
+        </BoxContainer>
+    </PanelContainer>
+</DefaultWindow>

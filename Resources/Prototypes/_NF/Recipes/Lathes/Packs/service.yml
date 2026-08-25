@@ -184,6 +184,7 @@
   - JanicartFlatpack # Frontier
   - PlantBagOfHolding # Delta-V
   - NFCookingBag
+  - HandheldLanguageTranslator # Radiant Sector
 
 - type: latheRecipePack
   id: NFPietyStatic

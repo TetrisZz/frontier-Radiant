@@ -398,7 +398,7 @@ public sealed partial class MechSystem : SharedMechSystem
         if (!component.Broken)
         {
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/_radiant/Mech/mech_critical_damage.ogg"), uid,
-                AudioParams.Default.WithVolume(-6f));
+                AudioParams.Default.WithVolume(0f));
         }
 
         base.BreakMech(uid, component);

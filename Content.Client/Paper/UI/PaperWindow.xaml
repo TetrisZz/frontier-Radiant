@@ -13,6 +13,8 @@
                     <BoxContainer Orientation="Vertical" VerticalAlignment="Stretch">
                         <TextureButton Name="HeaderImage" HorizontalAlignment="Center" VerticalAlignment="Top" MouseFilter="Ignore"/>
                         <Control Name="TextAlignmentPadding" VerticalAlignment="Top"/>
+                        <!-- Radiant Sector: language is shown above the written document. -->
+                        <Label Name="LanguageLabel" HorizontalAlignment="Center" FontColorOverride="#555555" Margin="0 0 0 6" />
                         <RichTextLabel Name="BlankPaperIndicator" StyleClasses="LabelSecondaryColor" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                         <RichTextLabel StyleClasses="PaperWrittenText" Name="WrittenTextLabel" VerticalAlignment="Top"/>
                         <BoxContainer Name="InputContainer" Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Stretch">

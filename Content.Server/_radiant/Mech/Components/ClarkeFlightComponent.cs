@@ -13,9 +13,20 @@ public sealed partial class ClarkeFlightComponent : Component
     public float EnergyUsePerSecond = 25f;
 
     /// <summary>
+    /// Movement multiplier applied only while flying in zero gravity.
+    /// </summary>
+    [DataField]
+    public float SpaceSpeedModifier = 0.1f;
+
+    /// <summary>
     /// Tracks the previous power state so movement modifiers are refreshed only when it changes.
     /// </summary>
     public bool WasPowered = true;
+
+    /// <summary>
+    /// Tracks whether the Clarke was flying so its movement speed is refreshed on gravity transitions.
+    /// </summary>
+    public bool WasFlying;
 }
 
 /// <summary>
