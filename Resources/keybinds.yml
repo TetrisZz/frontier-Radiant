@@ -642,4 +642,7 @@ binds:
 - function: OpenInteractionMenu
   type: State
   key: J
+- function: OpenLanguageMenu
+  type: State
+  key: O
 # endregion RS

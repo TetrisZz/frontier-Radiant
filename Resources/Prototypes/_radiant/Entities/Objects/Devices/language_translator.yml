@@ -6,16 +6,34 @@
   components:
   - type: Sprite
     sprite: _radiant/Objects/Devices/language_translator.rsi
-    state: icon
     layers:
     - state: icon
     - state: adv-o
       shader: unshaded
-      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      visible: false
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Item
     sprite: _radiant/Objects/Devices/language_translator.rsi
     heldPrefix: inhand
     storedRotation: -90
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.125
+    soundDeactivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.125
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.125
+  - type: PowerCellDraw
+    drawRate: 0
+    useRate: 25
+  - type: ToggleCellDraw
   - type: LanguageTranslator
     scanDelay: 2
     chargePerScan: 25
@@ -23,5 +41,12 @@
     interfaces:
       enum.LanguageTranslatorUiKey.Key:
         type: LanguageTranslatorBoundUserInterface
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: StaticPrice
     price: 500

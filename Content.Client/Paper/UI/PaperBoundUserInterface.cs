@@ -90,6 +90,9 @@ public sealed partial class PaperBoundUserInterface : BoundUserInterface // Delt
         if (EntMan.HasComponent<GhostComponent>(reader))
             return true;
 
+        if (SpeciesLanguageUtility.GetNativeLanguage(EntMan, reader) == "Двоичный")
+            return true;
+
         if (language == null)
             return !EntMan.HasComponent<NativeLanguageOnlyComponent>(reader);
 
@@ -121,6 +124,7 @@ public sealed partial class PaperBoundUserInterface : BoundUserInterface // Delt
             "Шелар" => new[] { "араваар", "сингмасир", "налливаддд", "неввас", "галллипер", "имабил", "забимммил", "увввалим", "нафффис", "хеливвван" },
             "Арканийский" => new[] { "авациа", "егул", "ар", "гаисиуваи", "оумико", "эледон", "ли", "асхииди", "вэ", "декипаа", "опрес", "аздил" },
             "НекоМетрический" => new[] { "ня", "каничива", "нья", "кия", "некочуу", "отто", "нянмунядесунуняича", "ухуху", "каваимунячуу", "китдесу", "ньябооп", "кьяа", "бооп", "со" },
+            "Двоичный" => new[] { "0101", "1010", "0011", "1100", "0110", "1001", "пик", "бип", "трр", "клик" },
             _ => new[] { "эм", "ах", "тс", "мм" },
         };
 

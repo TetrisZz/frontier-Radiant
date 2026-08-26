@@ -68,7 +68,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 4.5
-    baseWeightlessModifier: 5
+    baseWeightlessModifier: 1
   - type: Damageable
     damageModifierSet: Metallic
   - type: ExplosionResistance
@@ -77,6 +77,8 @@
   - type: MovementAlwaysTouching
   - type: ClarkeFlight
     energyUsePerSecond: 12.5
+    # Radiant Sector: 4.5 sprint speed becomes roughly 0.7 in open space, i.e. 45 surface speed vs 7 flight speed.
+    spaceSpeedModifier: 0.1556
   - type: ClarkeMagboots
   # Clarke's space-flight signature: visible on mass scanners only while off-grid.
   - type: RadarBlip

@@ -50,7 +50,7 @@
         Access="Internal"
         Icon="{xe:Tex '/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png'}"
         ToolTip="Выбрать язык речи"
-        FooterText="ЯЗ"
+        BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
