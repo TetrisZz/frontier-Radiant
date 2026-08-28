@@ -50,6 +50,7 @@
   - type: ShadowkinUltravisionTint # Radiant Sector
   - type: ShadowkinShadeStep # Radiant Sector
   - type: Speech
+    speechSounds: ShadowkinSpeech # Radiant Sector
     allowedEmotes: [Mars, Wurble, ShadowkinMrrp, Ston] # Radiant Sector: separate mrrp emote.
   - type: TTS
   - type: Vocal

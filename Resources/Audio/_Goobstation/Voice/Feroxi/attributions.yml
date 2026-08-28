@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Radiant Sector: Feroxi cry and scream sounds supplied by Homka.
+- files: ["crying.ogg", "crying_1.ogg", "scream.ogg", "scream_1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Provided by Homka for Radiant Sector"

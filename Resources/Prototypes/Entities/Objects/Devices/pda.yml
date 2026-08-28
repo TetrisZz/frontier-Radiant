@@ -43,6 +43,8 @@
       startingItem: NFHyperlinkBookSpaceLaw
       priority: -2
       whitelist:
+        components:
+        - LanguageTranslator # Radiant Sector: portable translators can be carried in the PDA book slot.
         tags:
         - BookSpaceLaw
         - BookNfsdSop
