@@ -92,3 +92,15 @@
   - type: Construction
     graph: BlueSpaceBagSkinCrafting
     node: start
+
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseCentcommContraband]
+  id: ClothingBackpackDuffelProsecutor
+  name: прокурорский вещмешок
+  description: Большой вещмешок прокурора. Сколько работы у прокурора, что обычная сумка ему стало не хватать.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Duffels/prosecutor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

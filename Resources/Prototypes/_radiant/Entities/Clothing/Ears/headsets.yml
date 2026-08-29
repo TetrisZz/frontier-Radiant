@@ -33,7 +33,7 @@
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetNavy
-  name: полноразмерная гарнитура КФ 
+  name: полноразмерная гарнитура КФ
   description: По ней вы можете рассказывать анекдоты со своими колегами.
   components:
   - type: HideRadioCoordinates
@@ -51,7 +51,7 @@
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetNavyCaptain
-  name: полноразмерная гарнитура капитана КФ 
+  name: полноразмерная гарнитура капитана КФ
   description: По ней вы можете отдавать приказы и слушать тишину в ответ.
   components:
   - type: HideRadioCoordinates
@@ -119,3 +119,18 @@
     sprite: Clothing/Ears/Headsets/brigmedic.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/brigmedic.rsi
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCentcommCommandContraband]
+  id: ClothingHeadsetAltProsecutor
+  name: гарнитура прокурора
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: _radiant/Clothing/Ears/Headsets/prosecutor.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Ears/Headsets/prosecutor.rsi

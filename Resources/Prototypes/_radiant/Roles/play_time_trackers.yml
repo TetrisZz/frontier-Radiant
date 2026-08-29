@@ -67,3 +67,6 @@
   id: JobPhoenixAgent
 
 # Special
+
+- type: playTimeTracker
+  id: JobProsecutor

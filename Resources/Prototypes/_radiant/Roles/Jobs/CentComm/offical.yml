@@ -1,0 +1,32 @@
+- type: job
+  id: Prosecutor
+  name: job-name-prosecutor
+  description: job-name-prosecutor
+  playTimeTracker: JobProsecutor
+  setPreference: false
+  startingGear: ProsecutorGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ProsecutorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitProsecutor
+    back: ClothingBackpackSatchelProsecutor # Frontier
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatProsecutor # Frontier: ClothingHeadHatCentcom<ClothingHeadHatCentcomcap
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat # Frontier: ClothingHandsGlovesColorBlack<ClothingHandsGlovesCombat
+    outerClothing: ClothingLongcoatProsecutorArmored
+    id: ProsecutorPDA
+    ears: ClothingHeadsetAltProsecutor
+    pocket1: NFWeaponPistolN1984 # Frontier: BoxFolderBlack<NFWeaponPistolN1984
+    #pocket2: PenCentcom # Frontier: commented out

@@ -2,7 +2,7 @@
   parent: [ClothingBackpackSatchel, BaseC2Contraband] # Frontier: BaseRestrictedContraband<BaseC2Contraband
   id: ClothingBackpackSatchelAcorpSecurity
   name: сумка секьюрити
-  description: Сумка сотрудника акорп секьюрити, в неё помещается все необходимое, как настоящий представитель секьюрити, не забудьте взять одну или пару бутылок коньяка. 
+  description: Сумка сотрудника акорп секьюрити, в неё помещается все необходимое, как настоящий представитель секьюрити, не забудьте взять одну или пару бутылок коньяка.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Satchels/sec.rsi
@@ -11,7 +11,7 @@
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelAcorp
   name: черно-белая сумка
-  description: Чёрно-белая сумка для элегантных сотрудников акорп, в неё вы можете спрятать трусики директора исследований. 
+  description: Чёрно-белая сумка для элегантных сотрудников акорп, в неё вы можете спрятать трусики директора исследований.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Satchels/acorp.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelNavy
-  name: золотая сумка флота 
-  description: Выглядит дорого и богато, но вряд ли внутри соответствующие внешности вещи. 
+  name: золотая сумка флота
+  description: Выглядит дорого и богато, но вряд ли внутри соответствующие внешности вещи.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Satchels/flot.rsi
@@ -29,7 +29,7 @@
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelNavyGold
   name: золотая сумка флота
-  description: Выглядит дорого и богато, но вряд ли внутри соответствующие внешности вещи. 
+  description: Выглядит дорого и богато, но вряд ли внутри соответствующие внешности вещи.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Back/Satchels/flot1.rsi
@@ -66,3 +66,15 @@
   - type: Construction
     graph: BlueSpaceBagSkinCrafting
     node: start
+
+- type: entity
+  parent: [ClothingBackpackSatchel, BaseCentcommContraband]
+  id: ClothingBackpackSatchelProsecutor
+  name: сумка прокурора
+  description: Внутри лежит папка с делом. Твоим делом. Адвокат сказал не разговаривать со следователем, так что просто молчи и кивай.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Satchels/prosecutor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

@@ -380,7 +380,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: PDANavyCaptain
-  name: КПК капитана 
+  name: КПК капитана
   description: Дорого ли он стоит? Хм...
   components:
   - type: Sprite
@@ -464,3 +464,40 @@
     accentHColor: "#b2b4b5"
   - type: Icon
     state: pda-medikkkkf
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: ProsecutorPDA
+  name: КПК прокурора
+  description: КПК большой шишки. Если он оказался у вас, то возможно большой шишки уже нет... В живых..
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pda_vanilla.rsi
+  - type: Pda
+    id: ProsecutorIDCard
+    penSlot:
+      startingItem: PenCentcom
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-prosecutor
+  - type: PdaBorderColor
+    borderColor: "#2b4e95"
+  - type: Icon
+    state: pda-prosecutor
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge

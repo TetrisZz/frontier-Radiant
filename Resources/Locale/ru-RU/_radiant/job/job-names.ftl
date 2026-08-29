@@ -22,3 +22,5 @@ job-name-navy-cadet = Курсант
 
 job-name-phoenix-agent = Агент поддержки
 job-name-phoenix-medic = Медик-интервент
+
+job-name-prosecutor = Прокурор

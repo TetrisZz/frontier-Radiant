@@ -260,3 +260,19 @@
     layers:
     - state: mediki
     - state: idmedikkf
+
+# Special
+
+- type: entity
+  parent: PassengerIDCard
+  id: ProsecutorIDCard
+  name: ID-карта прокурора
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: idcentcom
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: Prosecutor
