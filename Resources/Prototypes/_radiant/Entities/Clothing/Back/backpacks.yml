@@ -57,3 +57,15 @@
   - type: Construction
     graph: BlueSpaceBagSkinCrafting
     node: start
+
+- type: entity
+  parent: [ClothingBackpack, BaseCentcommContraband]
+  id: ClothingBackpackProsecutor
+  name: рюкзак прокурора
+  description: В нём явно хранятся ордера или три килограмма конфискованного коньяка. Прокурор всё отрицает, но внутри подозрительно звенит.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Back/Backpacks/prosecutor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

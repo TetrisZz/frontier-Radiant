@@ -167,7 +167,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyCaptain
   name: повседневный комбинезон капитана
-  description: Хоть это и повседневная одежда капитана, это не отменяет то, какой комбенезон удобный и дорогой. 
+  description: Хоть это и повседневная одежда капитана, это не отменяет то, какой комбенезон удобный и дорогой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleet_captain.rsi
@@ -189,7 +189,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNavyCommander
   name: повседневный комбинезон командора
-  description: Хоть это и повседневная одежда командора, это не отменяет то, какой комбенезон удобный и дорогой. 
+  description: Хоть это и повседневная одежда командора, это не отменяет то, какой комбенезон удобный и дорогой.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/fleet_commander.rsi
@@ -266,7 +266,7 @@
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitSeparatistSlave
   name: форма раба
-  description: Выглядит очень старой, можно заметить дыры и потёртости. 
+  description: Выглядит очень старой, можно заметить дыры и потёртости.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/slave.rsi
@@ -421,3 +421,14 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/set.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/set.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpsuitProsecutor
+  name: костюм прокурора
+  description: В этом костюме даже «доброе утро» звучит как «пять лет строгого режима». Ткань не пропускает слёзы адвоката и контраргументы.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/prosecutor.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/prosecutor.rsi

@@ -1,0 +1,22 @@
+- type: entity
+  parent: [ClothingOuterArmorBaseCarapace, ClothingOuterWinterCoat, BaseCentcommContraband]
+  id: ClothingLongcoatProsecutorArmored
+  categories: [ DoNotMap ]
+  name: пальто прокурора
+  description: Усилено спецсплавом «Обвинение» — не пропускает пули, холод и слёзы оправданных. В карманах только ордера и разочарования.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Longcoats/prosecutor.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Longcoats/prosecutor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.6
+  - type: Tag
+    tags:
+    - WhitelistChameleon

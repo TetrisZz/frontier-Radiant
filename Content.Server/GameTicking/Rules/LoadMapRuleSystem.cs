@@ -40,7 +40,8 @@ public sealed class LoadMapRuleSystem : StationEventSystem<LoadMapRuleComponent>
             DebugTools.AssertNull(comp.PreloadedGrid);
 
             var gameMap = _prototypeManager.Index(comp.GameMap.Value);
-            grids = GameTicker.LoadGameMap(gameMap, out mapId, null);
+            var opts = DeserializationOptions.Default with { InitializeMaps = true }; //Radiant
+            grids = GameTicker.LoadGameMap(gameMap, out mapId, opts); //Radiant
             Log.Info($"Created map {mapId} for {ToPrettyString(uid):rule}");
         }
         else if (comp.MapPath is {} path)

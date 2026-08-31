@@ -147,7 +147,17 @@
       - MindRoleNFPirate
       # no whitelist, catchall
       briefing: *pirateBriefing
-
+#Radiant start
+# Loads the CentComm (Central Command) grid as its own map at round start.
+# Useful for admin testing / emergency shuttle destinations.
+- type: entity
+  parent: BaseGameRule
+  id: LoadCentComm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LoadMapRule
+    gameMap: CentComm
+#Radiant end
 # Concrete ignored upstream definitions
 - type: entity
   id: NFSandbox

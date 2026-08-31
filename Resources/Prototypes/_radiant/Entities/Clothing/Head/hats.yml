@@ -217,7 +217,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBlue
-  name: берет 
+  name: берет
   description: Вроде ничего необычного?
   components:
   - type: Sprite
@@ -232,7 +232,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRed
-  name: берет 
+  name: берет
   description: Вроде ничего необычного?
   components:
   - type: Sprite
@@ -247,7 +247,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatOr
-  name: берет 
+  name: берет
   description: Вроде ничего необычного?
   components:
   - type: Sprite
@@ -262,7 +262,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPes
-  name: берет 
+  name: берет
   description: Вроде ничего необычного?
   components:
   - type: Sprite
@@ -272,4 +272,25 @@
   - type: Tag
     tags:
     - ClothMade
+    - HamsterWearable
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: ClothingHeadHatProsecutor
+  name: фуражка прокурора
+  description: Строгая фуражка прокурора. Сидит как влитая и придаёт владельцу серьёзный вид.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/prosecutor.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/prosecutor.rsi
+  - type: Item
+    sprite: _radiant/Clothing/Head/Hats/prosecutor.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
     - HamsterWearable

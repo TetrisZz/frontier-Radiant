@@ -27,10 +27,10 @@
     },
     {
       "name": "light_overlay"
-    },   
+    },
     {
       "name": "pda-medikkkkf"
-    },    
+    },
     {
       "name": "pda-operative",
       "delays": [
@@ -143,6 +143,17 @@
         },
         {
             "name": "pda-fleetofficer",
+            "delays": [
+                [
+                    1.2,
+                    1.2,
+                    1.2,
+                    1.2
+                ]
+            ]
+        },
+        {
+            "name": "pda-prosecutor",
             "delays": [
                 [
                     1.2,
