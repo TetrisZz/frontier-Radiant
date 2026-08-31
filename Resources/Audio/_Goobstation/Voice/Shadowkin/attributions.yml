@@ -5,7 +5,7 @@
   copyright: "Taken from CHOMPStation"
   source: "https://github.com/CHOMPStation2/CHOMPStation2"
 
-# Radiant Sector: mrrp emote sounds imported from Space Erida.
+# Radiant Sector: mrrp and speech sounds imported from Space Erida.
 - files: ["mrrp2.ogg", "speak_mrrp_ask.ogg", "speak_mrrp_say.ogg"]
   license: "CC0-1.0"
   copyright: "Taken from https://free-sound-effects.net"

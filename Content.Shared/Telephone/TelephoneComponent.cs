@@ -167,13 +167,13 @@ public record struct TelephoneCallEndedEvent();
 /// Raised when a chat message is sent by a telephone to another
 /// </summary>
 [ByRefEvent]
-public readonly record struct TelephoneMessageSentEvent(string Message, MsgChatMessage ChatMsg, EntityUid MessageSource);
+public readonly record struct TelephoneMessageSentEvent(string Message, MsgChatMessage ChatMsg, EntityUid MessageSource, string? Language = null);
 
 /// <summary>
 /// Raised when a chat message is received by a telephone from another
 /// </summary>
 [ByRefEvent]
-public readonly record struct TelephoneMessageReceivedEvent(string Message, MsgChatMessage ChatMsg, EntityUid MessageSource, Entity<TelephoneComponent> TelephoneSource);
+public readonly record struct TelephoneMessageReceivedEvent(string Message, MsgChatMessage ChatMsg, EntityUid MessageSource, Entity<TelephoneComponent> TelephoneSource, string? Language = null);
 
 #endregion
 

@@ -10,7 +10,15 @@
   files:
   - /Audio/_Goobstation/Voice/Shadowkin/mrrp2.ogg
   - /Audio/_Goobstation/Voice/Shadowkin/speak_mrrp_ask.ogg
-  - /Audio/_Goobstation/Voice/Shadowkin/speak_mrrp_say.ogg
+
+- type: speechSounds
+  id: ShadowkinSpeech # Radiant Sector
+  saySound:
+    path: /Audio/_Goobstation/Voice/Shadowkin/speak_mrrp_say.ogg
+  askSound:
+    path: /Audio/_Goobstation/Voice/Shadowkin/speak_mrrp_ask.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Voice/Shadowkin/wurble.ogg
 
 - type: emote
   id: Mars

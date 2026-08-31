@@ -13,6 +13,18 @@
   files:
   - /Audio/Effects/bite.ogg
 
+- type: soundCollection
+  id: FeroxiScreams # Radiant Sector
+  files:
+  - /Audio/_Goobstation/Voice/Feroxi/scream.ogg
+  - /Audio/_Goobstation/Voice/Feroxi/scream_1.ogg
+
+- type: soundCollection
+  id: FeroxiCry # Radiant Sector
+  files:
+  - /Audio/_Goobstation/Voice/Feroxi/crying.ogg
+  - /Audio/_Goobstation/Voice/Feroxi/crying_1.ogg
+
 - type: emote
   id: Gnash
   name: chat-emote-name-gnash
@@ -28,7 +40,7 @@
   id: FemaleFeroxi
   params: { variation: 0.125 }
   sounds:
-    Scream: { collection: FemaleScreams }
+    Scream: { collection: FeroxiScreams, params: { volume: -10, variation: 0.125 } } # Radiant Sector
     Laugh: { collection: FemaleLaugh }
     Sneeze: { collection: FemaleSneezes }
     Cough: { collection: FemaleCoughs }
@@ -36,7 +48,7 @@
     Snore: { collection: Snores }
     Honk: { collection: CluwneHorn }
     Sigh: { collection: FemaleSigh }
-    Crying: { collection: FemaleCry }
+    Crying: { collection: FeroxiCry, params: { volume: -10, variation: 0.125 } } # Radiant Sector
     Whistle: { collection: Whistles }
     Hiss: { path: /Audio/Animals/snake_hiss.ogg }
     Gasp: { collection: FemaleGasp }
@@ -48,7 +60,7 @@
   id: MaleFeroxi
   params: { variation: 0.125 }
   sounds:
-    Scream: { collection: MaleScreams }
+    Scream: { collection: FeroxiScreams, params: { volume: -10, variation: 0.125 } } # Radiant Sector
     Laugh: { collection: MaleLaugh }
     Sneeze: { collection: MaleSneezes }
     Cough: { collection: MaleCoughs }
@@ -56,7 +68,7 @@
     Snore: { collection: Snores }
     Honk: { collection: BikeHorn }
     Sigh: { collection: MaleSigh }
-    Crying: { collection: MaleCry }
+    Crying: { collection: FeroxiCry, params: { volume: -10, variation: 0.125 } } # Radiant Sector
     Whistle: { collection: Whistles }
     Hiss: { path: /Audio/Animals/snake_hiss.ogg }
     Gasp: { collection: MaleGasp }

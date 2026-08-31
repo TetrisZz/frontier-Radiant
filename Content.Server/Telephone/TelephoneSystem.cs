@@ -89,7 +89,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         if (!_recentChatMessages.Add((args.Source, args.Message, entity)))
             return;
 
-        SendTelephoneMessage(args.Source, args.Message, entity);
+        SendTelephoneMessage(args.Source, args.Message, entity, language: args.Language); // Radiant Sector: holopads/telephones must preserve the spoken language.
     }
 
     private void OnTelephoneMessageReceived(Entity<TelephoneComponent> entity, ref TelephoneMessageReceivedEvent args)
@@ -128,7 +128,8 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         }
         // Corvax-TTS-End
 
-        _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false);
+        // Radiant Sector: relay the original language instead of re-speaking as the holopad/speaker entity.
+        _chat.SendRadioRelayInVoiceRange(speaker, args.Message, volume, name, args.Language);
     }
 
     #endregion
@@ -341,7 +342,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         SetTelephoneMicrophoneState(entity, false);
     }
 
-    private void SendTelephoneMessage(EntityUid messageSource, string message, Entity<TelephoneComponent> source, bool escapeMarkup = true)
+    private void SendTelephoneMessage(EntityUid messageSource, string message, Entity<TelephoneComponent> source, bool escapeMarkup = true, string? language = null)
     {
         // This method assumes that you've already checked that this
         // telephone is able to transmit messages and that it can
@@ -380,11 +381,11 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
 
         var chatMsg = new MsgChatMessage { Message = chat };
 
-        var evSentMessage = new TelephoneMessageSentEvent(message, chatMsg, messageSource);
+        var evSentMessage = new TelephoneMessageSentEvent(message, chatMsg, messageSource, language);
         RaiseLocalEvent(source, ref evSentMessage);
         source.Comp.StateStartTime = _timing.CurTime;
 
-        var evReceivedMessage = new TelephoneMessageReceivedEvent(message, chatMsg, messageSource, source);
+        var evReceivedMessage = new TelephoneMessageReceivedEvent(message, chatMsg, messageSource, source, language);
 
         foreach (var receiver in source.Comp.LinkedTelephones)
         {
