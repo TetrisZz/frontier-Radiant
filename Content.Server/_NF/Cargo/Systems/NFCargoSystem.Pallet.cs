@@ -57,7 +57,6 @@ public sealed partial class NFCargoSystem
         }
         amount += noModAmount;
         var taxableAmount = Math.Max(0, amount - exciseExempt);
-        _popup.PopupEntity($"Excise: exempt={exciseExempt} amount={amount} taxable={taxableAmount}", ent); // radiant debug
         var cargoTaxRate = GetEffectiveCargoTaxRate(ent);// radiant
         var taxAmount = (int)Math.Floor(taxableAmount * cargoTaxRate);
         var netAmount = (int)Math.Max(0, amount - taxAmount);
@@ -279,7 +278,6 @@ public sealed partial class NFCargoSystem
         // radiant start
         // Excise stamps: stamped-and-closed crates are exempt from tax.
         var taxablePrice = Math.Max(0, price - exciseExempt);
-        Log.Info($"Excise: price={price} exempt={exciseExempt} taxable={taxablePrice}"); // radiant
         // Apply tax: check for sector-wide dynamic rates first, fall back to per-entity TaxAccounts
         var taxAccounts = ent.Comp.TaxAccounts;
         if (_sectorService.GetServiceEntity() is { Valid: true } sectorEntity &&

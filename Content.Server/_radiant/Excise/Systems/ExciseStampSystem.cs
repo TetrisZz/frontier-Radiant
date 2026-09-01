@@ -24,19 +24,13 @@ public sealed class ExciseStampSystem : EntitySystem
     {
         var consoleXform = Transform(consoleUid);
         if (consoleXform.GridUid is not EntityUid gridUid)
-        {
-            Log.Warning($"Excise: console {consoleUid} not on a grid, exempt=0");
             return 0;
-        }
 
         double total = 0;
-        var crates = 0;
-        var closed = 0;
-        var stamped = 0;
         var query = AllEntityQuery<EntityStorageComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var storage, out var xform))
         {
-            crates++;
+            // Only crates on the same grid as the console, within pallet distance.
             if (xform.ParentUid != gridUid)
                 continue;
 
@@ -46,17 +40,14 @@ public sealed class ExciseStampSystem : EntitySystem
 
             if (storage.Open)
                 continue;
-            closed++;
 
             if (!_labels.TryGetLabel<ExciseStampComponent>((uid, null), out _))
                 continue;
-            stamped++;
 
             // Crate + everything inside its containers is exempt.
             total += GetCrateAndContentsPrice(uid);
         }
 
-        Log.Warning($"Excise: crates={crates} closed={closed} stamped={stamped} exempt={total}");
         return total;
     }
 
