@@ -1,0 +1,321 @@
+# Governor bounty paper manifest, spawned when a bounty is accepted.
+- type: entity
+  id: PaperGovernorBountyManifest
+  parent: PaperCargoInvoice
+  name: governor bounty reminder
+  description: A paper reminding you of the bounty you agreed to fulfill.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cfe3f5"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cfe3f5"
+
+# Governor bounty console: accept bounties and drop the goods into the slot.
+- type: entity
+  id: ComputerGovernorBounty
+  parent: BaseComputer
+  name: governor bounty computer
+  description: Accept yer governor bounties here, then drop the goods into the slot and redeem them.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_blackmarket
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: piratebounty
+    - map: ["computerLayerKeys"]
+      state: blackmarket_key
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: generic_panel_open
+  - type: GovernorBountyConsole
+    itemContainer: governor_item_slot
+  - type: ItemSlots
+    slots:
+      governor_item_slot:
+        insertOnInteract: true
+        ejectOnUse: true
+  - type: ActivatableUI
+    key: enum.GovernorConsoleUiKey.Bounty
+  - type: UserInterface
+    interfaces:
+      enum.GovernorConsoleUiKey.Bounty:
+        type: GovernorBountyConsoleBoundUserInterface
+  - type: Computer
+    board: Null
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+
+# --- Liquid bounties ---
+- type: governorBounty
+  id: GovernorBountyOmnizine
+  reward: 27000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 2
+  description: governor-bounty-desc-generic
+  entries:
+  - id: Omnizine
+    reagent: Omnizine
+    reagentAmount: 100
+    name: омнизин
+
+- type: governorBounty
+  id: GovernorBountyOligomers
+  reward: 30000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 3
+  description: governor-bounty-desc-generic
+  entries:
+  - id: PolypyryliumOligomers
+    reagent: PolypyryliumOligomers
+    reagentAmount: 200
+    name: олигомеры-полимеры
+
+- type: governorBounty
+  id: GovernorBountyAmbuzolPlus
+  reward: 55000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 5
+  description: governor-bounty-desc-generic
+  entries:
+  - id: AmbuzolPlus
+    reagent: AmbuzolPlus
+    reagentAmount: 150
+    name: амбузол+
+
+- type: governorBounty
+  id: GovernorBountyNecrosol
+  reward: 37000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 4
+  description: governor-bounty-desc-generic
+  entries:
+  - id: Necrosol
+    reagent: Necrosol
+    reagentAmount: 150
+    name: некрозол
+
+- type: governorBounty
+  id: GovernorBountyVestine
+  reward: 80000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 8
+  description: governor-bounty-desc-generic
+  entries:
+  - id: Vestine
+    reagent: Vestine
+    reagentAmount: 30
+    name: вестин
+
+- type: governorBounty
+  id: GovernorBountyAphrodisiac
+  reward: 35000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 3
+  description: governor-bounty-desc-generic
+  entries:
+  - id: Aphrodisiac
+    reagent: Aphrodisiac
+    reagentAmount: 100
+    name: афродизиак
+
+# --- Food bounties ---
+- type: governorBounty
+  id: GovernorBountyBrownies
+  reward: 18000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 1
+  description: governor-bounty-desc-generic
+  entries:
+  - id: FoodBakedCannabisBrownieBatch
+    amount: 1
+    name: особые брауни
+
+- type: governorBounty
+  id: GovernorBountyBearsteak
+  reward: 12000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 1
+  description: governor-bounty-desc-generic
+  entries:
+  - id: FoodMealBearsteak
+    amount: 1
+    name: филе-медведьона
+
+- type: governorBounty
+  id: GovernorBountyCarpSushi
+  reward: 10000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 1
+  description: governor-bounty-desc-generic
+  entries:
+  - id: FoodMealSushiAdvRS
+    amount: 1
+    name: нигири с карпом
+
+- type: governorBounty
+  id: GovernorBountyAnomalySteak
+  reward: 22000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 2
+  description: governor-bounty-desc-generic
+  entries:
+  - id: FoodMeatAnomalyCooked
+    amount: 1
+    name: аномальный стейк
+
+- type: governorBounty
+  id: GovernorBountyPoutine
+  reward: 8000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 1
+  description: governor-bounty-desc-generic
+  entries:
+  - id: FoodMealPoutine
+    amount: 1
+    name: путин
+
+- type: governorBounty
+  id: GovernorBountySashimi
+  reward: 15000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 1
+  description: governor-bounty-desc-generic
+  entries:
+  - id: FoodMealSashimi
+    amount: 1
+    name: сашими
+
+- type: governorBounty
+  id: GovernorBountyDragonOmelette
+  reward: 27000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 2
+  description: governor-bounty-desc-generic
+  entries:
+  - id: FoodMealDragonOmelette
+    amount: 1
+    name: драконий омлет
+
+# --- Misc bounties ---
+- type: governorBounty
+  id: GovernorBountyTrophy
+  reward: 10000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 1
+  description: governor-bounty-desc-generic
+  entries:
+  - id: AnyTrophy
+    prefix: NFTreasureTrophy
+    amount: 1
+    name: любой трофей
+
+- type: governorBounty
+  id: GovernorBountyOrePlasma
+  reward: 22000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 2
+  description: governor-bounty-desc-generic
+  entries:
+  - id: PlasmaOre
+    amount: 100
+    name: плазма
+
+- type: governorBounty
+  id: GovernorBountyOreUranium
+  reward: 22000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 2
+  description: governor-bounty-desc-generic
+  entries:
+  - id: OreUranium
+    amount: 100
+    name: уран
+
+- type: governorBounty
+  id: GovernorBountyOreSilver
+  reward: 22000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 2
+  description: governor-bounty-desc-generic
+  entries:
+  - id: OreSilver
+    amount: 100
+    name: серебро
+
+- type: governorBounty
+  id: GovernorBountyOreGold
+  reward: 22000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 2
+  description: governor-bounty-desc-generic
+  entries:
+  - id: GoldOre
+    amount: 100
+    name: золото
+
+- type: governorBounty
+  id: GovernorBountySteelOre
+  reward: 8000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 1
+  description: governor-bounty-desc-generic
+  entries:
+  - id: SteelOre
+    amount: 100
+    name: железная руда
+
+- type: governorBounty
+  id: GovernorBountyBananium
+  reward: 11000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 1
+  description: governor-bounty-desc-generic
+  entries:
+  - id: AnyBananium
+    prefix: MaterialBananium
+    amount: 10
+    name: бананиум
+
+- type: governorBounty
+  id: GovernorBountyDiamond
+  reward: 31500
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 3
+  description: governor-bounty-desc-generic
+  entries:
+  - id: AnyDiamond
+    prefix: MaterialDiamond
+    amount: 30
+    name: алмазы
+
+- type: governorBounty
+  id: GovernorBountyBluespace
+  reward: 31000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 3
+  description: governor-bounty-desc-generic
+  entries:
+  - id: AnyBluespace
+    prefix: MaterialBluespace
+    amount: 5
+    name: блюспейс руда
+
+- type: governorBounty
+  id: GovernorBountyScaf
+  reward: 22000
+  tokenReward: FrontierUplinkCoin
+  tokenRewardCount: 2
+  description: governor-bounty-desc-generic
+  entries:
+  - id: ClothingOuterHardsuitScaf
+    amount: 1
+    name: СКУФАНДР
+
