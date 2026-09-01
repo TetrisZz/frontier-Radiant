@@ -19,6 +19,7 @@ governor-bounty-redeem-no-container = ОШИБКА: слот задания от
 governor-bounty-redeem-no-match = Этот предмет не подходит ни под одно принятое задание.
 governor-bounty-redeem-success = Задание выполнено!
 governor-bounty-desc-generic = Принесите требуемое к консоли заданий губернатора и выполните задание.
+excise-stamp-name = Акцизная марка
 governor-bounty-rum-description = У губернатора страсть к хорошему рому. Принесите его к консоли.
 governor-bounty-rum-item-name = ром
 governor-bounty-water-description = Губернатору нужна чистая вода. Принесите тару минимум со 100u.

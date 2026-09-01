@@ -19,6 +19,7 @@ governor-bounty-redeem-no-container = ERROR: bounty slot missing on this console
 governor-bounty-redeem-no-match = This item matches no accepted bounty.
 governor-bounty-redeem-success = Bounty redeemed!
 governor-bounty-desc-generic = Bring the requested goods to the governor bounty console and redeem them.
+excise-stamp-name = Excise Stamp
 governor-bounty-rum-description = The governor has a taste for fine rum. Bring some to the console.
 governor-bounty-rum-item-name = rum
 governor-bounty-water-description = The governor needs fresh water. Deliver a container holding at least 100u.

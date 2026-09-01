@@ -48,13 +48,18 @@ public sealed partial class NFCargoSystem
 
         // Modify prices based on modifier.
         GetPalletGoods(ent, gridUid, out var toSell, out var amount, out var noModAmount, out Dictionary<string, double> additionalCurrency);
+        // radiant: excise stamps exempt stamped-and-closed crates from tax
+        var exciseExempt = _excise.CalculateTaxExemptAmount(ent);
         if (TryComp<MarketModifierComponent>(ent, out var priceMod))
         {
             amount *= priceMod.Mod;
+            exciseExempt *= priceMod.Mod; // radiant: scale exempt by the same modifier
         }
         amount += noModAmount;
+        var taxableAmount = Math.Max(0, amount - exciseExempt);
+        _popup.PopupEntity($"Excise: exempt={exciseExempt} amount={amount} taxable={taxableAmount}", ent); // radiant debug
         var cargoTaxRate = GetEffectiveCargoTaxRate(ent);// radiant
-        var taxAmount = (int)Math.Floor(amount * cargoTaxRate);
+        var taxAmount = (int)Math.Floor(taxableAmount * cargoTaxRate);
         var netAmount = (int)Math.Max(0, amount - taxAmount);
 
         _ui.SetUiState(ent.Owner, CargoPalletConsoleUiKey.Sale,
@@ -258,6 +263,9 @@ public sealed partial class NFCargoSystem
             return;
         }
 
+        // radiant: excise exempt must be calculated BEFORE SellPallets deletes the goods.
+        var exciseExempt = _excise.CalculateTaxExemptAmount(ent);
+
         if (!SellPallets(ent, gridUid, out var price, out var noMultiplierPrice, out Dictionary<string, double> additionalCurrency))
             return;
 
@@ -265,9 +273,13 @@ public sealed partial class NFCargoSystem
         if (TryComp<MarketModifierComponent>(ent, out var priceMod))
         {
             price *= priceMod.Mod;
+            exciseExempt *= priceMod.Mod; // radiant: scale exempt by the same modifier
         }
         price += noMultiplierPrice;
         // radiant start
+        // Excise stamps: stamped-and-closed crates are exempt from tax.
+        var taxablePrice = Math.Max(0, price - exciseExempt);
+        Log.Info($"Excise: price={price} exempt={exciseExempt} taxable={taxablePrice}"); // radiant
         // Apply tax: check for sector-wide dynamic rates first, fall back to per-entity TaxAccounts
         var taxAccounts = ent.Comp.TaxAccounts;
         if (_sectorService.GetServiceEntity() is { Valid: true } sectorEntity &&
@@ -282,7 +294,8 @@ public sealed partial class NFCargoSystem
         {
             if (!float.IsFinite(taxCoeff) || taxCoeff <= 0.0f)
                 continue;
-            var tax = (int)Math.Floor(price * taxCoeff);
+            // radiant: tax is computed from the excise-exempted amount
+            var tax = (int)Math.Floor(taxablePrice * taxCoeff);
             if (tax > 0)
             {
                 _bank.TrySectorDeposit(account, tax, LedgerEntryType.VendorTax);
