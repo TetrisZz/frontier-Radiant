@@ -1,0 +1,195 @@
+# Governor uplink listings
+
+#region Utility
+- type: listing
+  id: GovernorUplinkCapsuleCaller
+  name: governor-uplink-capsulecaller-name
+  description: governor-uplink-capsulecaller-desc
+  productEntity: GovernorCapsuleCaller
+  cost:
+    GovernorUplinkCoin: 6
+  categories:
+  - UplinkGovernorUtility
+
+- type: listing
+  id: GovernorUplinkRadarConsoleCircuitboardPlus
+  name: governor-uplink-radarconsolecircuitboardplus-name
+  description: governor-uplink-radarconsolecircuitboardplus-desc
+  productEntity: RadarConsoleCircuitboardPlus
+  cost:
+    GovernorUplinkCoin: 7
+  categories:
+  - UplinkGovernorUtility
+
+- type: listing
+  id: GovernorUplinkExciseStamp
+  name: governor-uplink-excisestamp-name
+  description: governor-uplink-excisestamp-desc
+  productEntity: ExciseStamp
+  cost:
+    GovernorUplinkCoin: 8
+  categories:
+  - UplinkGovernorUtility
+
+- type: listing
+  id: GovernorUplinkNFVehicleSkeletonMotorcycle
+  name: governor-uplink-skeletonmotorcycle-name
+  description: governor-uplink-skeletonmotorcycle-desc
+  productEntity: NFVehicleSkeletonMotorcycle
+  cost:
+    GovernorUplinkCoin: 4
+  categories:
+  - UplinkGovernorUtility
+
+- type: listing
+  id: GovernorUplinkKeySkeletonMotorcycle
+  name: governor-uplink-keyskeletonmotorcycle-name
+  description: governor-uplink-keyskeletonmotorcycle-desc
+  productEntity: VehicleKeySkeletonMotorcycle
+  cost:
+    GovernorUplinkCoin: 2
+  categories:
+  - UplinkGovernorUtility
+
+- type: listing
+  id: GovernorUplinkComputerIFFCircuitboard
+  name: governor-uplink-computerIFFcircuitboard-name
+  description: governor-uplink-computerIFFcircuitboard-desc
+  productEntity: ComputerIFFCircuitboard
+  cost:
+    GovernorUplinkCoin: 8
+  categories:
+  - UplinkGovernorUtility
+
+#region Propaganda
+- type: listing
+  id: GovernorUplinkHandyFlag
+  name: governor-uplink-handy-flag-name
+  description: governor-uplink-handy-flag-desc
+  productEntity: ConfederationHandyFlag
+  cost:
+    GovernorUplinkCoin: 1
+  categories:
+  - UplinkGovernorPropaganda
+
+- type: listing
+  id: GovernorUplinkHandyFlag2
+  name: governor-uplink-handy-flag-2-name
+  description: governor-uplink-handy-flag-2-desc
+  productEntity: ConfederationHandyFlag2
+  cost:
+    GovernorUplinkCoin: 1
+  categories:
+  - UplinkGovernorPropaganda
+
+- type: listing
+  id: GovernorUplinkLongcoatNanoTrasen
+  name: governor-uplink-longcoat-name
+  description: governor-uplink-longcoat-desc
+  productEntity: ClothingLongcoatNanoTrasen
+  cost:
+    GovernorUplinkCoin: 1
+  categories:
+  - UplinkGovernorPropaganda
+
+- type: listing
+  id: GovernorUplinkOffsetCaneNT
+  name: governor-uplink-offset-cane-name
+  description: governor-uplink-offset-cane-desc
+  productEntity: OffsetCaneNT
+  cost:
+    GovernorUplinkCoin: 1
+  categories:
+  - UplinkGovernorPropaganda
+
+- type: listing
+  id: GovernorUplinkJumpsuitNanotrasen
+  name: governor-uplink-jumpsuit-name
+  description: governor-uplink-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitNanotrasen
+  cost:
+    GovernorUplinkCoin: 1
+  categories:
+  - UplinkGovernorPropaganda
+
+- type: listing
+  id: GovernorUplinkClothingNeckCloakNanotrasen
+  name: governor-uplink-cloak-name
+  description: governor-uplink-cloak-desc
+  productEntity: ClothingNeckCloakNanotrasen
+  cost:
+    GovernorUplinkCoin: 1
+  categories:
+  - UplinkGovernorPropaganda
+
+- type: listing
+  id: GovernorUplinkNanotrasenFlippo
+  name: governor-uplink-flippo-name
+  description: governor-uplink-flippo-desc
+  productEntity: NanotrasenFlippo
+  cost:
+    GovernorUplinkCoin: 1
+  categories:
+  - UplinkGovernorPropaganda
+
+- type: listing
+  id: GovernorUplinkBalloonNT
+  name: governor-uplink-balloon-name
+  description: governor-uplink-balloon-desc
+  productEntity: BalloonNT
+  cost:
+    GovernorUplinkCoin: 1
+  categories:
+  - UplinkGovernorPropaganda
+
+#region Written off
+
+- type: listing
+  id: WeaponRifleGuardianWrittenoff
+  name: governor-uplink-guardian-rifle-name
+  description: governor-uplink-guardian-rifle-desc
+  productEntity: WeaponRifleGuardianWrittenoff
+  cost:
+    GovernorUplinkCoin: 12
+  categories:
+  - UplinkGovernorWrittenoff
+
+- type: listing
+  id: NFWeaponSubMachineGunWt550RSWrittenoff
+  name: governor-uplink-wt550-rs-smg-name
+  description: governor-uplink-wt550-rs-smg-desc
+  productEntity: NFWeaponSubMachineGunWt550RSWrittenoff
+  cost:
+    GovernorUplinkCoin: 9
+  categories:
+  - UplinkGovernorWrittenoff
+
+- type: listing
+  id: NFWeaponShotgunEnforcerRSWrittenoff
+  name: governor-uplink-enforcer-rs-shotgun-name
+  description: governor-uplink-enforcer-rs-shotgun-desc
+  productEntity: NFWeaponShotgunEnforcerRSWrittenoff
+  cost:
+    GovernorUplinkCoin: 8
+  categories:
+  - UplinkGovernorWrittenoff
+
+- type: listing
+  id: NFWeaponRifleAssaultVulcanRSWrittenoff
+  name: governor-uplink-vulcan-rs-ar-name
+  description: governor-uplink-vulcan-rs-ar-desc
+  productEntity: NFWeaponRifleAssaultVulcanRSWrittenoff
+  cost:
+    GovernorUplinkCoin: 11
+  categories:
+  - UplinkGovernorWrittenoff
+
+- type: listing
+  id: NFWeaponRifleAssaultLecterRSWrittenoff
+  name: governor-uplink-lecter-rs-ar-name
+  description: governor-uplink-lecter-rs-ar-desc
+  productEntity: NFWeaponRifleAssaultLecterRSWrittenoff
+  cost:
+    GovernorUplinkCoin: 10
+  categories:
+  - UplinkGovernorWrittenoff

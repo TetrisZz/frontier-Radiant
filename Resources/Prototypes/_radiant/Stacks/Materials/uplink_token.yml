@@ -21,3 +21,9 @@
   name: Cristalhom
   icon: _radiant/Objects/Specific/cristal.rsi
   spawn: Cristalhom1
+
+- type: stack
+  id: GovernorUplinkCoin
+  name: stack-governor-uplink-coin
+  icon: _radiant/Objects/Specific/governor/governorcoin.rsi
+  spawn: GovernorUplinkCoin1

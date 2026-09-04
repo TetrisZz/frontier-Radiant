@@ -40,6 +40,7 @@
     - Flash
     - RubberStampSr
     - DoorRemoteCommand
+    - GovernorUplinkRadio0
   encryptionKeys:
   - EncryptionKeyStationMaster
 

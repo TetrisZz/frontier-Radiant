@@ -44,6 +44,7 @@
       - id: CommsComputerCircuitboard # Frontier
       - id: MedalCase # Frontier
       - id: Demag # Frontier
+      - id: GovernorBountyFlatpack # Radiant
 
 - type: entity
   id: LockerNfsdSheriffFilled

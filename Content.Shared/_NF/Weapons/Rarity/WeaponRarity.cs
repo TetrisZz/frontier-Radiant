@@ -17,4 +17,5 @@ public enum WeaponRarity : byte
     /// Admeme-level gun, preposterously upgraded.
     /// </summary>
     Unique = 5,
+    UniqueWrittenoff = 6,
 }

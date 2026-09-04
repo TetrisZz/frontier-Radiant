@@ -1,8 +1,0 @@
-# Excise stamp: a paper label that exempts a closed crate's contents from cargo tax.
-- type: entity
-  parent: Paper
-  id: ExciseStamp
-  name: excise-stamp-name
-  description: Attach this to a crate, fill it and close it to exempt its contents from cargo tax.
-  components:
-  - type: ExciseStamp

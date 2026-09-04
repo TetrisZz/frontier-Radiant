@@ -22,16 +22,16 @@ public sealed partial class GovernorBountyConsoleComponent : Component
     public List<GovernorBountyData> Bounties = new();
 
     [DataField]
-    public int MaxBounties = 5;                 // сколько заданий максимум
+    public int MaxBounties = 5;
 
     [DataField]
-    public int TotalBounties;                   // счётчик: сколько всего заданий создано (для номеров)
+    public int TotalBounties;
 
     [DataField]
-    public TimeSpan NextSkipTime = TimeSpan.Zero;   // когда можно снова пропускать
+    public TimeSpan NextSkipTime = TimeSpan.Zero;
 
     [DataField]
-    public TimeSpan SkipDelay = TimeSpan.FromMinutes(15);   // задержка между скипами
+    public TimeSpan SkipDelay = TimeSpan.FromMinutes(30);
 
     [DataField]
     public SoundSpecifier AcceptSound = new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");

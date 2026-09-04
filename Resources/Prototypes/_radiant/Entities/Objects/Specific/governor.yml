@@ -1,0 +1,105 @@
+- type: Tag
+  id: GovernorUplink
+
+- type: currency
+  id: GovernorUplinkCoin
+  displayName: store-currency-display-governor-telecrystal
+  cash:
+    1: GovernorUplinkCoin1
+  canWithdraw: true
+
+- type: entity
+  name: "кредит лояльности"
+  parent: BaseItem
+  id: GovernorUplinkCoin
+  suffix: 20 КЛ
+  description: Кредит выдаваемым конфедеративным командованием. Если их у вас слишком много, то мои поздравления! Вы лояльный жополиз! Ой, точнее лояльный чиновник.
+  components:
+  - type: WarnOnCryoSleep
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/governor/governorcoin.rsi
+    state: governoruplinkcoin
+  - type: Item
+    sprite: _radiant/Objects/Specific/governor/governorcoin.rsi
+    size: Tiny
+  - type: Stack
+    count: 20
+    stackType: GovernorUplinkCoin
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      GovernorUplinkCoin: 1
+
+- type: entity
+  parent: GovernorUplinkCoin
+  id: GovernorUplinkCoin1
+  suffix: 1 КЛ
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: GovernorUplinkCoin
+  id: GovernorUplinkCoin5
+  suffix: 5 КЛ
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: GovernorUplinkCoin
+  id: GovernorUplinkCoin10
+  suffix: 10 КЛ
+  components:
+  - type: Stack
+    count: 10
+
+# Uplinks
+- type: entity
+  parent: [ BaseItem, StorePresetGovernor ]
+  id: GovernorUplinkRadio
+  name: аплинк губернатора
+  description: Обычный аплинк губернатора, где он может тратить свои кредиты.
+  suffix: Empty
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: old-radio
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Tag
+    tags:
+    - GovernorUplink
+  - type: Store
+    balance:
+      GovernorUplinkCoin: 1
+
+- type: entity
+  parent: GovernorUplinkRadio
+  id: GovernorUplinkRadioDebug
+  suffix: DEBUG
+  components:
+  - type: Store
+    balance:
+      GovernorUplinkCoin: 99999
+
+- type: entity
+  parent: GovernorUplinkRadio
+  id: GovernorUplinkRadio0
+  suffix: 0 КЛ
+  components:
+  - type: Store
+    balance:
+      GovernorUplinkCoin: 0
