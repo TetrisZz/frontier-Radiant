@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseAction
+  id: ActionToggleSniff
+  name: Toggle smelling
+  description: Start or stop perceiving lingering scent trails.
+  components:
+  - type: Action
+    useDelay: 0.5
+    icon: { sprite: _Starlight/Interface/Actions/actions_scent.rsi, state: smell-off }
+    iconOn: { sprite: _Starlight/Interface/Actions/actions_scent.rsi, state: smell-on }
+  - type: InstantAction
+    event: !type:ToggleSniffActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionTrackScent
+  name: Track scent
+  description: Select a living target whose scent trail you want to follow.
+  components:
+  - type: Action
+    useDelay: 0.5
+    icon: { sprite: _Starlight/Interface/Actions/actions_scent.rsi, state: smell-target }
+    itemIconStyle: BigAction
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:TrackScentActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionClearTrackedScent
+  name: Clear tracked scent
+  description: Stop following the selected scent and show every nearby trail again.
+  components:
+  - type: Action
+    useDelay: 0.5
+    icon: { sprite: _Starlight/Interface/Actions/actions_scent.rsi, state: sneeze }
+  - type: InstantAction
+    event: !type:ClearTrackedScentActionEvent

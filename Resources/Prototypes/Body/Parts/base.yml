@@ -6,6 +6,13 @@
   name: "body part"
   abstract: true
   components:
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  # Radiant sector end
   - type: Damageable
     damageContainer: Biological
   - type: BodyPart
@@ -53,6 +60,7 @@
   - type: BodyPart
     partType: Arm
     symmetry: Left
+  - type: LeftArm # Radiant sector: lets Starlight surgery recognize organic and cybernetic left arms as the required limb.
 
 - type: entity
   id: BaseRightArm
@@ -63,6 +71,7 @@
   - type: BodyPart
     partType: Arm
     symmetry: Right
+  - type: RightArm # Radiant sector: lets Starlight surgery recognize organic and cybernetic right arms as the required limb.
 
 - type: entity
   id: BaseLeftHand

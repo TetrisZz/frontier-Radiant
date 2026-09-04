@@ -7,6 +7,10 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Server.Popups;
 using Robust.Shared.Player;
+using Content.Shared._radiant;
+using Content.Shared._radiant.ERP;
+using Content.Shared.DetailExaminable;
+using Content.Shared.Verbs;
 
 namespace Content.Server.SexToy.System
 {
@@ -22,6 +26,7 @@ namespace Content.Server.SexToy.System
             base.Initialize();
             SubscribeLocalEvent<SexToyComponent, AfterInteractEvent>(OnInteract);
             SubscribeLocalEvent<SexToyComponent, SexToyDoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<CondomWornComponent, GetVerbsEvent<AlternativeVerb>>(OnCondomVerbs);
         }
 
         private void OnInteract(Entity<SexToyComponent> entity, ref AfterInteractEvent args)
@@ -40,6 +45,10 @@ namespace Content.Server.SexToy.System
 
         private void StartDoAfter(EntityUid toyEntity, EntityUid user, EntityUid target)
         {
+            // Radiant sector: physical ERP items obey the same opt-out as the interaction panel.
+            if (IsErpDenied(user) || IsErpDenied(target))
+                return;
+
             var requiredClothingSlots = new[] { "jumpsuit", "outerClothing", "underwearb" };
 
             if (TryComp<InventoryComponent>(target, out var inventory))
@@ -170,10 +179,16 @@ namespace Content.Server.SexToy.System
                         break;
 
                     case "condom":
-                        if (targetAppearance.Sex == Sex.Male)
+                        if (TryComp<AdultAnatomyComponent>(target.Value, out var anatomy)
+                            && anatomy.HasPenis
+                            && !HasComp<CondomWornComponent>(target.Value))
                         {
                             messageUser = Loc.GetString("interaction-condom");
                             messageTarget = Loc.GetString("interaction-condom-target", ("user", userName));
+                            var worn = EnsureComp<CondomWornComponent>(target.Value);
+                            worn.ItemPrototype = MetaData(toyEntity).EntityPrototype?.ID ?? "Condom";
+                            worn.Used = false;
+                            Dirty(target.Value, worn);
                             _entManager.DeleteEntity(toyEntity);
                         }
                         else
@@ -216,6 +231,45 @@ namespace Content.Server.SexToy.System
                 if (_entManager.TryGetComponent<ActorComponent>(user, out var actor))
                     _popupSystem.PopupEntity(noHumanoidMessage, user, actor.PlayerSession, PopupType.Small);
             }
+        }
+
+        private void OnCondomVerbs(Entity<CondomWornComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+        {
+            // Radiant sector: opting out must never trap an already worn item.
+            if (!args.CanAccess || !args.CanInteract || args.User != ent.Owner)
+                return;
+
+            args.Verbs.Add(new AlternativeVerb
+            {
+                Text = Loc.GetString("erp-condom-remove-verb"),
+                Act = () => RemoveCondom(ent),
+            });
+        }
+
+        private void RemoveCondom(Entity<CondomWornComponent> ent)
+        {
+            // Radiant sector: cache state before removing the networked component.
+            var used = ent.Comp.Used;
+            var prototype = used
+                ? ent.Comp.ItemPrototype switch
+                {
+                    "PinkCondom" => "UsedPinkCondom",
+                    "TealCondom" => "UsedTealCondom",
+                    _ => "UsedCondom",
+                }
+                : ent.Comp.ItemPrototype;
+
+            Spawn(prototype, Transform(ent.Owner).Coordinates);
+            RemComp<CondomWornComponent>(ent.Owner);
+            _popupSystem.PopupEntity(Loc.GetString(used
+                ? "erp-condom-remove-used"
+                : "erp-condom-remove-unused"), ent.Owner, ent.Owner, PopupType.Small);
+        }
+
+        private bool IsErpDenied(EntityUid uid)
+        {
+            return TryComp<DetailExaminableComponent>(uid, out var detail)
+                && detail.ERPStatus == EnumERPStatus.NO;
         }
     }
 }

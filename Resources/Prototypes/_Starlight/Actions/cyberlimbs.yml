@@ -1,0 +1,77 @@
+- type: entity
+  id: ActionToggleCyberLimb
+  name: Toggle Limb
+  description: Toggle Limb.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Starlight/Interface/Actions/actions_cyber.rsi
+      state: cyber-hand-left
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleLimbEvent
+
+- type: entity
+  id: ActionToggleCyberHandLeft
+  name: Toggle Hand
+  description: Toggle the left hand.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Starlight/Interface/Actions/actions_cyber.rsi
+      state: cyber-hand-left
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleLimbEvent
+
+- type: entity
+  id: ActionToggleCyberHandRight
+  name: Toggle Hand
+  description: Toggle the right hand.
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: _Starlight/Interface/Actions/actions_cyber.rsi
+      state: cyber-hand-right
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleLimbEvent
+
+# Radiant sector start - actions required by cargo cyberlegs.
+- type: entity
+  parent: BaseAction
+  id: ActionOpenStorageLeftLeg
+  name: открыть хранилище левой ноги
+  description: Открывает хранилище в левой киберноге.
+  components:
+    - type: Action
+      itemIconStyle: BigAction
+      priority: -20
+      icon:
+        sprite: Clothing/Back/Satchels/smuggler.rsi
+        state: icon
+      useDelay: 1
+    - type: InstantAction
+      event: !type:OpenStorageOrganEvent
+        key: LeftLeg
+
+- type: entity
+  parent: BaseAction
+  id: ActionOpenStorageRightLeg
+  name: открыть хранилище правой ноги
+  description: Открывает хранилище в правой киберноге.
+  components:
+    - type: Action
+      itemIconStyle: BigAction
+      priority: -20
+      icon:
+        sprite: Clothing/Back/Satchels/smuggler.rsi
+        state: icon
+      useDelay: 1
+    - type: InstantAction
+      event: !type:OpenStorageOrganEvent
+        key: RightLeg
+# Radiant sector end

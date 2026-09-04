@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
+using Content.Client.Humanoid;
 using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Alert;
@@ -9,6 +10,10 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared._Starlight.Medical.Surgery.Components;
+using Content.Shared._radiant.ERP;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.MedicalScanner;
@@ -24,6 +29,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 namespace Content.Client.HealthAnalyzer.UI
@@ -35,6 +41,10 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly SpriteSystem _spriteSystem;
         private readonly IPrototypeManager _prototypes;
         private readonly IResourceCache _cache;
+        private readonly SharedBodySystem _bodySystem;
+        private readonly HumanoidAppearanceSystem _humanoidAppearance;
+        private bool _detailedMode;
+        private EntityUid? _previewDummy;
 
         public Action? OnPrintPatientRecord; // Frontier: Allow printing hardcopy of patient information
 
@@ -47,8 +57,19 @@ namespace Content.Client.HealthAnalyzer.UI
             _spriteSystem = _entityManager.System<SpriteSystem>();
             _prototypes = dependencies.Resolve<IPrototypeManager>();
             _cache = dependencies.Resolve<IResourceCache>();
+            _bodySystem = _entityManager.System<SharedBodySystem>();
+            _humanoidAppearance = _entityManager.System<HumanoidAppearanceSystem>();
 
             PrintRecordButton.OnPressed += (_) => OnPrintPatientRecord?.Invoke(); // Frontier
+        }
+
+        // Radiant sector: handheld analyzer shows visible trauma; console shows full anatomy.
+        public void SetDetailedMode(bool detailed)
+        {
+            _detailedMode = detailed;
+            SurgeryDiagnosticsTitle.Text = Loc.GetString(detailed
+                ? "health-analyzer-surgery-diagnostics-title"
+                : "health-analyzer-visible-trauma-title");
         }
 
         public void Populate(HealthAnalyzerScannedUserMessage msg)
@@ -79,7 +100,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Patient Information
 
-            SpriteView.SetEntity(target.Value);
+            SetPatientSprite(target.Value);
             SpriteView.Visible = msg.ScanMode.HasValue && msg.ScanMode.Value;
             NoDataTex.Visible = !SpriteView.Visible;
 
@@ -160,7 +181,186 @@ namespace Content.Client.HealthAnalyzer.UI
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
             DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+            DrawSurgeryDiagnostics(target.Value);
         }
+
+        // Radiant sector: show visible surgical state and installed body parts.
+        private void DrawSurgeryDiagnostics(EntityUid target)
+        {
+            SurgeryDiagnosticsContainer.RemoveAllChildren();
+            var found = false;
+            var torsoOpenReported = false;
+            var presentLayers = new HashSet<HumanoidVisualLayers>();
+
+            if (_entityManager.TryGetComponent<Content.Shared.Body.Components.BodyComponent>(target, out var body))
+            {
+                foreach (var (partId, part) in _bodySystem.GetBodyChildren(target, body))
+                {
+                    if (part.ToHumanoidLayers() is { } visualLayer)
+                        presentLayers.Add(visualLayer);
+
+                    if (_entityManager.TryGetComponent<SurgicalCavityStateComponent>(partId, out var cavities))
+                    {
+                        if (_detailedMode)
+                        {
+                            found |= AddCavityWarning(cavities.RibcageOpen, "health-analyzer-cavity-ribcage-open");
+                            found |= AddCavityWarning(cavities.AbdomenOpen, "health-analyzer-cavity-abdomen-open");
+                            found |= AddCavityWarning(cavities.GroinOpen, "health-analyzer-cavity-groin-open");
+                        }
+                        else
+                        {
+                            if (!torsoOpenReported
+                                && AddCavityWarning(cavities.RibcageOpen || cavities.AbdomenOpen || cavities.GroinOpen,
+                                    "health-analyzer-torso-open"))
+                            {
+                                torsoOpenReported = true;
+                                found = true;
+                            }
+                        }
+
+                        if (!cavities.RibcageOpen && !cavities.AbdomenOpen && !cavities.GroinOpen
+                            && _entityManager.HasComponent<IncisionOpenComponent>(partId)
+                            && (!torsoOpenReported || _detailedMode))
+                        {
+                            found |= AddCavityWarning(true, "health-analyzer-torso-open");
+                            torsoOpenReported = true;
+                        }
+                    }
+                    else if (_entityManager.HasComponent<IncisionOpenComponent>(partId)
+                             && (!torsoOpenReported || _detailedMode))
+                    {
+                        found |= AddCavityWarning(true, "health-analyzer-torso-open");
+                        if (!_detailedMode)
+                            torsoOpenReported = true;
+                    }
+
+                    if (_detailedMode
+                        && _entityManager.TryGetComponent<MetaDataComponent>(partId, out var metadata)
+                        && metadata.EntityPrototype?.ID.Contains("Cyber", StringComparison.OrdinalIgnoreCase) == true)
+                    {
+                        AddDiagnostic(Loc.GetString("health-analyzer-cyber-part", ("part", GetPartName(part)), ("name", metadata.EntityName)), Color.Cyan);
+                        found = true;
+                    }
+
+                    var organs = _bodySystem.GetPartOrgans(partId, part).ToList();
+                    if (_detailedMode && organs.Count > 0 && part.PartType is BodyPartType.Hand or BodyPartType.Arm or BodyPartType.Leg or BodyPartType.Foot)
+                    {
+                        var names = string.Join(", ", organs.Select(x => _entityManager.GetComponent<MetaDataComponent>(x.Id).EntityName));
+                        AddDiagnostic(Loc.GetString("health-analyzer-part-implants", ("part", GetPartName(part)), ("implants", names)), Color.LightBlue);
+                        found = true;
+                    }
+                }
+
+                found |= AddMissingPart(presentLayers, HumanoidVisualLayers.LArm, "health-analyzer-missing-left-arm");
+                found |= AddMissingPart(presentLayers, HumanoidVisualLayers.RArm, "health-analyzer-missing-right-arm");
+                found |= AddMissingPart(presentLayers, HumanoidVisualLayers.LLeg, "health-analyzer-missing-left-leg");
+                found |= AddMissingPart(presentLayers, HumanoidVisualLayers.RLeg, "health-analyzer-missing-right-leg");
+                if (_detailedMode)
+                {
+                    found |= AddMissingPart(presentLayers, HumanoidVisualLayers.LHand, "health-analyzer-missing-left-hand");
+                    found |= AddMissingPart(presentLayers, HumanoidVisualLayers.RHand, "health-analyzer-missing-right-hand");
+                    found |= AddMissingPart(presentLayers, HumanoidVisualLayers.LFoot, "health-analyzer-missing-left-foot");
+                    found |= AddMissingPart(presentLayers, HumanoidVisualLayers.RFoot, "health-analyzer-missing-right-foot");
+                }
+            }
+
+            if (_detailedMode && _entityManager.TryGetComponent<AdultAnatomyComponent>(target, out var anatomy) && anatomy.HasBreasts)
+            {
+                AddDiagnostic(Loc.GetString("health-analyzer-breast-size", ("size", Loc.GetString($"adult-anatomy-size-{anatomy.BreastSize.ToString().ToLowerInvariant()}"))), Color.LightPink);
+                found = true;
+            }
+
+            if (!found)
+                AddDiagnostic(Loc.GetString("health-analyzer-no-surgical-findings"), Color.LightGray);
+
+            SurgeryDiagnosticsDivider.Visible = true;
+            SurgeryDiagnosticsTitle.Visible = true;
+            SurgeryDiagnosticsContainer.Visible = true;
+        }
+
+        private bool AddCavityWarning(bool open, string locKey)
+        {
+            if (!open)
+                return false;
+            AddDiagnostic(Loc.GetString(locKey), Color.Red);
+            return true;
+        }
+
+        private bool AddMissingPart(HashSet<HumanoidVisualLayers> present, HumanoidVisualLayers layer, string locKey)
+        {
+            if (present.Contains(layer))
+                return false;
+            AddDiagnostic(Loc.GetString(locKey), Color.OrangeRed);
+            return true;
+        }
+
+        private void AddDiagnostic(string text, Color color)
+        {
+            SurgeryDiagnosticsContainer.AddChild(new Label { Text = text, FontColorOverride = color });
+        }
+
+        private void SetPatientSprite(EntityUid target)
+        {
+            if (!_detailedMode
+                || !_entityManager.TryGetComponent<HumanoidAppearanceComponent>(target, out var sourceHumanoid)
+                || !_prototypes.TryIndex<SpeciesPrototype>(sourceHumanoid.Species, out var species))
+            {
+                if (_previewDummy is { } oldDummy && !_entityManager.Deleted(oldDummy))
+                    _entityManager.DeleteEntity(oldDummy);
+                _previewDummy = null;
+                SpriteView.SetEntity(target);
+                return;
+            }
+
+            // The species doll has no equipment; cloning appearance preserves sex,
+            // markings and cybernetic replacement layers without showing clothing.
+            var dummy = _previewDummy;
+            if (dummy is not { } existing
+                || _entityManager.Deleted(existing)
+                || !_entityManager.TryGetComponent<HumanoidAppearanceComponent>(existing, out var existingHumanoid)
+                || existingHumanoid.Species != sourceHumanoid.Species)
+            {
+                if (dummy is { } mismatched && !_entityManager.Deleted(mismatched))
+                    _entityManager.DeleteEntity(mismatched);
+                dummy = _entityManager.SpawnEntity(species.DollPrototype, MapCoordinates.Nullspace);
+                _previewDummy = dummy;
+            }
+
+            var activeDummy = dummy.Value;
+            _humanoidAppearance.CloneAppearance(target, activeDummy, sourceHumanoid);
+            if (_entityManager.TryGetComponent<HumanoidAppearanceComponent>(activeDummy, out var dummyHumanoid))
+            {
+                dummyHumanoid.Height = sourceHumanoid.Height;
+                dummyHumanoid.Width = sourceHumanoid.Width;
+                // Missing body parts are permanent hidden layers. Do not copy
+                // HiddenLayers: those come from clothing and the console preview is naked.
+                dummyHumanoid.PermanentlyHidden = new(sourceHumanoid.PermanentlyHidden);
+            }
+            _humanoidAppearance.RefreshAppearance(activeDummy);
+            SpriteView.SetEntity(activeDummy);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            if (disposing && _previewDummy is { } dummy && !_entityManager.Deleted(dummy))
+                _entityManager.DeleteEntity(dummy);
+            _previewDummy = null;
+        }
+
+        private static string GetPartName(BodyPartComponent part) => (part.PartType, part.Symmetry) switch
+        {
+            (BodyPartType.Arm, BodyPartSymmetry.Left) => Loc.GetString("health-analyzer-part-left-arm"),
+            (BodyPartType.Arm, BodyPartSymmetry.Right) => Loc.GetString("health-analyzer-part-right-arm"),
+            (BodyPartType.Hand, BodyPartSymmetry.Left) => Loc.GetString("health-analyzer-part-left-hand"),
+            (BodyPartType.Hand, BodyPartSymmetry.Right) => Loc.GetString("health-analyzer-part-right-hand"),
+            (BodyPartType.Leg, BodyPartSymmetry.Left) => Loc.GetString("health-analyzer-part-left-leg"),
+            (BodyPartType.Leg, BodyPartSymmetry.Right) => Loc.GetString("health-analyzer-part-right-leg"),
+            (BodyPartType.Foot, BodyPartSymmetry.Left) => Loc.GetString("health-analyzer-part-left-foot"),
+            (BodyPartType.Foot, BodyPartSymmetry.Right) => Loc.GetString("health-analyzer-part-right-foot"),
+            (BodyPartType.Head, _) => Loc.GetString("health-analyzer-part-head"),
+            _ => Loc.GetString("health-analyzer-part-torso"),
+        };
 
         private static string GetStatus(MobState mobState)
         {

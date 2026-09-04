@@ -1,6 +1,7 @@
 using Content.Server.Administration;
 using Content.Server.Body.Systems;
 using Content.Server.Cargo.Components;
+using Content.Server.Storage.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;
@@ -11,6 +12,7 @@ using Content.Shared.Materials;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Stacks;
+using Content.Shared.Storage;
 using Robust.Shared.Console;
 using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
@@ -210,7 +212,50 @@ public sealed class PricingSystem : EntitySystem
             price += GetStaticPrice(prototype);
         }
 
+        // Radiant sector: single-use packages (for example surgical organ packs) must be
+        // appraised by their future contents without turning that value into a vend-price override.
+        price += GetSpawnItemsOnUsePrice(prototype);
+
         // TODO: Proper container support.
+
+        return price;
+    }
+
+    // Radiant sector: prototype-only counterpart of SpawnItemsOnUseSystem's runtime calculation.
+    private double GetSpawnItemsOnUsePrice(EntityPrototype prototype)
+    {
+        var componentName = Factory.GetComponentName<SpawnItemsOnUseComponent>();
+        if (!prototype.Components.TryGetValue(componentName, out var componentRegistration))
+            return 0;
+
+        var component = (SpawnItemsOnUseComponent) componentRegistration.Component;
+        var ungrouped = EntitySpawnCollection.CollectOrGroups(component.Items, out var orGroups);
+        var price = 0.0;
+
+        foreach (var entry in ungrouped)
+        {
+            if (entry.PrototypeId is not { } prototypeId)
+                continue;
+
+            var spawnedPrototype = _prototypeManager.Index<EntityPrototype>(prototypeId);
+            price += GetEstimatedPrice(spawnedPrototype) *
+                     entry.SpawnProbability *
+                     entry.GetAmount(getAverage: true);
+        }
+
+        foreach (var group in orGroups)
+        {
+            foreach (var entry in group.Entries)
+            {
+                if (entry.PrototypeId is not { } prototypeId)
+                    continue;
+
+                var spawnedPrototype = _prototypeManager.Index<EntityPrototype>(prototypeId);
+                price += GetEstimatedPrice(spawnedPrototype) *
+                         (entry.SpawnProbability / group.CumulativeProbability) *
+                         entry.GetAmount(getAverage: true);
+            }
+        }
 
         return price;
     }

@@ -1,0 +1,322 @@
+# Radiant sector: consent-gated, surgically mutable ERP anatomy.
+
+- type: entity
+  parent: BaseItem
+  id: AdultOrganBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: muscle
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: AdultOrganBase
+  id: AdultOrganPenis
+  name: penis and testicles
+  components:
+  - type: AdultOrganItem
+    organ: Penis
+
+- type: entity
+  parent: AdultOrganBase
+  id: AdultOrganVagina
+  name: vagina
+  components:
+  - type: AdultOrganItem
+    organ: Vagina
+
+- type: entity
+  parent: AdultOrganBase
+  id: AdultOrganBreasts
+  name: breast tissue
+  components:
+  - type: AdultOrganItem
+    organ: Breasts
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryAdultBase
+  abstract: true
+  components:
+  - type: Surgery
+    requirement:
+    - SurgeryOpenGroin
+  - type: SurgeryErpConsentCondition
+  - type: SurgeryPartCondition
+    parts: [ Torso ]
+
+# Radiant sector: breast procedures belong behind the ribcage operation, not
+# the abdominal operation used by reproductive organs.
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryAdultBreastBase
+  abstract: true
+  components:
+  - type: Surgery
+    requirement:
+    - SurgeryOpenRibcage
+  - type: SurgeryErpConsentCondition
+  - type: SurgeryPartCondition
+    parts: [ Torso ]
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepAdultLocate
+  name: Locate reproductive organ
+  components:
+  - type: SurgeryStep
+    duration: 2
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: muscle
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepAdultClamp
+  name: Clamp reproductive vessels
+  components:
+  - type: SurgeryStep
+    duration: 3
+    tools:
+    - type: Hemostat
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/scissors.rsi
+    state: hemostat
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepAdultExtractBase
+  abstract: true
+  components:
+  - type: SurgeryStep
+    duration: 4
+    tools:
+    - type: Scalpel
+  - type: SurgeryStepEmoteEffect
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepAdultInsertBase
+  abstract: true
+  components:
+  - type: SurgeryStep
+    duration: 4
+    # Radiant sector: SurgeryStepAdultOrgan performs the exact held-organ
+    # validation. Treating it as a generic tool as well stalled this step.
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: muscle
+
+- type: entity
+  parent: SurgeryStepAdultExtractBase
+  id: SurgeryStepExtractPenis
+  name: Remove penis
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: Extract
+    organ: Penis
+
+- type: entity
+  parent: SurgeryStepAdultInsertBase
+  id: SurgeryStepInsertPenis
+  name: Install penis
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: Insert
+    organ: Penis
+
+- type: entity
+  parent: SurgeryStepAdultExtractBase
+  id: SurgeryStepExtractVagina
+  name: Remove vagina
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: Extract
+    organ: Vagina
+
+- type: entity
+  parent: SurgeryStepAdultInsertBase
+  id: SurgeryStepInsertVagina
+  name: Install vagina
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: Insert
+    organ: Vagina
+
+- type: entity
+  parent: SurgeryStepAdultExtractBase
+  id: SurgeryStepExtractBreasts
+  name: Remove breast tissue
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: Extract
+    organ: Breasts
+
+- type: entity
+  parent: SurgeryStepAdultInsertBase
+  id: SurgeryStepInsertBreasts
+  name: Install breast tissue
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: Insert
+    organ: Breasts
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepEnlargeBreasts
+  name: Enlarge breasts
+  components:
+  - type: SurgeryStep
+    duration: 5
+    tools:
+    - type: Scalpel
+  - type: SurgeryStepAdultOrgan
+    operation: EnlargeBreasts
+    organ: Breasts
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+
+- type: entity
+  parent: SurgeryStepEnlargeBreasts
+  id: SurgeryStepReduceBreasts
+  name: Reduce breasts
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: ReduceBreasts
+    organ: Breasts
+
+- type: entity
+  parent: SurgeryStepAdultExtractBase
+  id: SurgeryStepRemoveLactation
+  name: Remove lactation tissue
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: RemoveLactation
+    organ: Breasts
+
+- type: entity
+  parent: SurgeryStepAdultExtractBase
+  id: SurgeryStepDenervatePenis
+  name: Excise penile sensory nerve
+  components:
+  - type: SurgeryStepAdultOrgan
+    operation: DenervatePenis
+    organ: Penis
+
+- type: entity
+  parent: SurgeryAdultBase
+  id: SurgeryExtractPenis
+  name: Extract penis
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepAdultClamp, SurgeryStepExtractPenis ]
+  - type: SurgeryAdultOrganCondition
+    organ: Penis
+
+- type: entity
+  parent: SurgeryAdultBase
+  id: SurgeryImplantPenis
+  name: Implant penis
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepInsertPenis, SurgeryStepAdultClamp ]
+  - type: SurgeryAdultOrganCondition
+    organ: Penis
+    present: false
+  - type: SurgeryPenisInstallationCondition
+
+- type: entity
+  parent: SurgeryAdultBase
+  id: SurgeryExtractVagina
+  name: Extract vagina
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepAdultClamp, SurgeryStepExtractVagina ]
+  - type: SurgeryAdultOrganCondition
+    organ: Vagina
+
+- type: entity
+  parent: SurgeryAdultBase
+  id: SurgeryImplantVagina
+  name: Implant vagina
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepInsertVagina, SurgeryStepAdultClamp ]
+  - type: SurgeryAdultOrganCondition
+    organ: Vagina
+    present: false
+
+- type: entity
+  parent: SurgeryAdultBreastBase
+  id: SurgeryExtractBreasts
+  name: Extract breasts
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepAdultClamp, SurgeryStepExtractBreasts ]
+  - type: SurgeryAdultOrganCondition
+    organ: Breasts
+
+- type: entity
+  parent: SurgeryAdultBreastBase
+  id: SurgeryImplantBreasts
+  name: Implant breasts
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepInsertBreasts, SurgeryStepAdultClamp ]
+  - type: SurgeryAdultOrganCondition
+    organ: Breasts
+    present: false
+
+- type: entity
+  parent: SurgeryAdultBreastBase
+  id: SurgeryEnlargeBreasts
+  name: Enlarge breasts
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepEnlargeBreasts ]
+  - type: SurgeryAdultOrganCondition
+    organ: Breasts
+  - type: SurgeryAdultBreastSizeCondition
+    disallowedSize: Large
+
+- type: entity
+  parent: SurgeryAdultBreastBase
+  id: SurgeryReduceBreasts
+  name: Reduce breasts
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepReduceBreasts ]
+  - type: SurgeryAdultOrganCondition
+    organ: Breasts
+  - type: SurgeryAdultBreastSizeCondition
+    disallowedSize: Small
+
+- type: entity
+  parent: SurgeryAdultBreastBase
+  id: SurgeryRemoveLactation
+  name: Remove lactation
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepAdultClamp, SurgeryStepRemoveLactation ]
+  - type: SurgeryAdultOrganCondition
+    organ: Breasts
+  - type: SurgeryHasCompCondition
+    component:
+    - type: Udder
+
+- type: entity
+  parent: SurgeryAdultBase
+  id: SurgeryDenervatePenis
+  name: Penile sensory denervation
+  components:
+  - type: Surgery
+    steps: [ SurgeryStepAdultLocate, SurgeryStepAdultClamp, SurgeryStepDenervatePenis ]
+  - type: SurgeryAdultOrganCondition
+    organ: Penis
+  - type: SurgeryPenisNerveCondition

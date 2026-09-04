@@ -32,6 +32,13 @@ namespace Content.Shared.Chat.Prototypes
         [DataField("erp")]
         public bool ERP { get; set; } = false;
 
+        /// <summary>
+        /// Radiant sector: this interaction places the initiator's climax fluid on/in the partner.
+        /// Legacy penetration interactions are also recognized by their IDs on the server.
+        /// </summary>
+        [DataField("penetrative")]
+        public bool Penetrative { get; set; }
+
         [DataField("solo")]
         public bool Solo { get; set; } = false;
 

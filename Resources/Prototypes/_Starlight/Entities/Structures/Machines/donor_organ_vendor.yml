@@ -1,0 +1,20 @@
+# Radiant sector: donor organ and unmodified cyberlimb dispenser ported to Frontier's vending system.
+- type: entity
+  parent: VendingMachineMedical
+  id: VendingMachineDonorOrganStarlight
+  name: donor organ dispenser
+  description: A refrigerated medical dispenser stocked with donor organs and basic, unmodified cybernetic limbs.
+  components:
+  - type: VendingMachine
+    pack: StarlightDonorOrganInventory
+    taxAccounts:
+      Medical: 0.4
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    ejectDelay: 0.6
+  # Radiant sector: deliberately public, but substantially more expensive than NanoMed.
+  - type: MarketModifier
+    mod: 15

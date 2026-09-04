@@ -30,6 +30,8 @@
   parent: OrganAnimalStomach
   description: "Gross. This is hard to stomach."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganStomach
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
     state: stomach
@@ -56,6 +58,8 @@
   name: lungs
   description: "Filters oxygen from an atmosphere... just more greedily."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganLungs
   - type: Sprite
     layers:
       - state: lung-l
@@ -91,6 +95,8 @@
   name: heart
   description: "A disgustingly persistent little biological pump made for spiders."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganHeart
   - type: Sprite
     state: heart-on
   - type: Item
@@ -113,6 +119,8 @@
   description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganLiver
   - type: Item
     size: Small
     heldPrefix: liver
@@ -133,6 +141,8 @@
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganKidneys
   - type: Sprite
     layers:
       - state: kidney-l
@@ -153,6 +163,8 @@
   name: eyes
   description: "Two was already too many."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganEyes
   - type: Sprite
     layers:
       - state: eyeball-l
@@ -167,5 +179,7 @@
   name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganTongue
   - type: Sprite
     state: tongue

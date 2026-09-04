@@ -1,0 +1,205 @@
+# Starlight surgical implants compatible with Frontier-Radiant.
+# They intentionally have no lathe recipes or technology prototypes.
+
+- type: entity
+  id: BaseStarlightSurgicalImplant
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/implants.rsi
+  - type: Organ
+  - type: FunctionalOrgan
+  - type: Damageable
+    damageContainer: Inorganic
+
+- type: entity
+  id: BaseStarlightEyeImplant
+  abstract: true
+  parent: BaseStarlightSurgicalImplant
+  components:
+  - type: EyeImplant
+
+- type: entity
+  id: EyeImplantMedical
+  parent: BaseStarlightEyeImplant
+  name: медицинский глазной имплант
+  description: Показывает состояние здоровья живых существ.
+  components:
+  - type: Sprite
+    state: eye_implant_medical
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-eye-medical
+    visibility: Subtle
+  - type: FunctionalOrgan
+    comps:
+    - type: ShowHealthBars
+      damageContainers: [Biological, Hybrid]
+    - type: ShowHealthIcons
+
+- type: entity
+  id: EyeImplantChemistry
+  parent: BaseStarlightEyeImplant
+  name: химический глазной имплант
+  description: Позволяет анализировать растворы без химических очков.
+  components:
+  - type: Sprite
+    state: eye_implant_chemistry
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-eye-chemistry
+    visibility: Subtle
+  - type: FunctionalOrgan
+    comps:
+    - type: SolutionScanner
+
+- type: entity
+  id: EyeImplantSecurity
+  parent: BaseStarlightEyeImplant
+  name: охранный глазной имплант
+  description: Показывает служебные и криминальные данные экипажа.
+  components:
+  - type: Sprite
+    state: eye_implant_security
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-eye-security
+    visibility: Subtle
+  - type: FunctionalOrgan
+    comps:
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+
+- type: entity
+  id: BaseStarlightHandImplant
+  abstract: true
+  parent: BaseStarlightSurgicalImplant
+  components:
+  - type: HandImplant
+
+- type: entity
+  id: HandImplantInsulated
+  parent: BaseStarlightHandImplant
+  name: изолирующий имплант руки
+  description: Защищает владельца от электрического тока.
+  components:
+  - type: Sprite
+    state: hand_implant_insulated
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-hand-insulated
+    visibility: Concealed
+  - type: FunctionalOrgan
+    comps:
+    - type: Insulated
+      coefficient: 0 # Radiant sector: complete electrical insulation while implanted.
+
+- type: entity
+  id: HandImplantForensics
+  parent: BaseStarlightHandImplant
+  name: криминалистический имплант руки
+  description: Не оставляет отпечатков пальцев.
+  components:
+  - type: Sprite
+    state: hand_implant_forensics
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-hand-forensics
+    visibility: Concealed
+  - type: FunctionalOrgan
+    comps:
+    - type: FingerprintMask
+
+- type: entity
+  id: HandImplantThrusters
+  parent: BaseStarlightHandImplant
+  name: имплант микродвигателей
+  description: Помогает передвигаться в невесомости.
+  components:
+  - type: Sprite
+    state: hand_implant_thrusters
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-hand-thrusters
+    visibility: Noticeable
+  - type: FunctionalOrgan
+    comps:
+    - type: MovementAlwaysTouching
+
+- type: entity
+  id: HandImplantClaws
+  parent: BaseStarlightHandImplant
+  name: retractable claws implant
+  description: Conceals a pair of retractable plasteel claws inside the hand.
+  components:
+  - type: Sprite
+    state: hand_implant_claws
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-hand-claws
+    visibility: Combat
+  # Radiant sector: target-compatible installed-organ action lifecycle.
+  - type: ActionOrgan
+    action: ActionRetractableItemAdvancedClaws
+
+- type: entity
+  id: BaseStarlightNoseImplant
+  abstract: true
+  parent: BaseStarlightSurgicalImplant
+  components:
+  - type: NoseImplant
+
+- type: entity
+  id: NoseImplantOlfactory
+  parent: BaseStarlightNoseImplant
+  name: olfactory implant
+  description: Enables its owner to perceive and follow scent trails.
+  components:
+  - type: Sprite
+    state: nose_implant_scent
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-nose-olfactory
+    visibility: Concealed
+  - type: FunctionalOrgan
+    comps:
+    - type: Smeller
+      perception: Partial
+
+- type: entity
+  id: BaseStarlightBrainImplant
+  abstract: true
+  parent: BaseStarlightSurgicalImplant
+  components:
+  - type: BrainImplant
+
+- type: entity
+  id: BrainImplantComms
+  parent: BaseStarlightBrainImplant
+  name: мозговой имплант связи
+  description: Встроенная радиосвязь с четырьмя слотами ключей шифрования.
+  components:
+  - type: Sprite
+    state: brain_implant_comms
+  # Radiant sector: installed implant examine hint.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-brain-comms
+    visibility: Subtle
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  # Radiant sector: keys can be loaded before surgery and follow the implant through installation/extraction.
+  - type: EncryptionKeyHolder
+    keySlots: 4
+  - type: FunctionalOrgan
+    comps:
+    - type: SurgicalCommsImplant
+    - type: ActiveRadio
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels: []
+    - type: EncryptionKeyHolder
+      keySlots: 4
+      canBeExamined: false

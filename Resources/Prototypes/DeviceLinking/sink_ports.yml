@@ -78,6 +78,13 @@
   name: signal-port-name-med-scanner-receiver
   description: signal-port-description-med-scanner-receiver
 
+# Radiant sector start - surgical operating table link
+- type: sinkPort
+  id: BodyScannerReceiver
+  name: signal-port-name-med-scanner-receiver
+  description: signal-port-description-med-scanner-receiver
+# Radiant sector end
+
 - type: sinkPort
   id: ArtifactAnalyzerReceiver
   name: signal-port-name-artifact-analyzer-receiver

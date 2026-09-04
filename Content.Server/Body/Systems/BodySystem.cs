@@ -1,18 +1,22 @@
 using System.Numerics;
+using System.Linq;
 using Content.Server.Ghost;
 using Content.Server.Humanoid;
+using Content.Shared._Starlight.Medical.Limbs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Body.Systems;
 
@@ -23,6 +27,7 @@ public sealed class BodySystem : SharedBodySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Radiant sector: cyberlimb visuals.
 
     public override void Initialize()
     {
@@ -73,6 +78,35 @@ public sealed class BodySystem : SharedBodySystem
             var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
             _humanoidSystem.SetLayersVisibility(bodyEnt.Owner, layers, visible: true);
         }
+
+        // Radiant sector start: Starlight cyberlimbs provide replacement base-layer
+        // prototypes. Frontier's body system only restored layer visibility, leaving
+        // the old organic sprite in place after surgery.
+        if (TryComp<HumanoidAppearanceComponent>(bodyEnt, out var humanoid))
+        {
+            foreach (var attachedPart in GetBodyPartAdjacentParts(partEnt, partEnt.Comp).Concat([partEnt]))
+            {
+                if (!TryComp<BodyPartComponent>(attachedPart, out var attachedBodyPart)
+                    || !TryComp<BaseLayerIdComponent>(attachedPart, out var layerIds)
+                    || attachedBodyPart.ToHumanoidLayers() is not { } visualLayer
+                    || !(layerIds.Layers.TryGetValue(humanoid.Species, out var layerId)
+                         || layerIds.Layers.TryGetValue("Default", out layerId))
+                    || layerId is null)
+                    continue;
+
+                _humanoidSystem.SetBaseLayerId(bodyEnt.Owner, visualLayer, layerId.Value, false, humanoid);
+                var layerPrototype = _prototypeManager.Index<HumanoidSpeciesSpriteLayer>(layerId.Value);
+                _humanoidSystem.SetBaseLayerColor(
+                    bodyEnt.Owner,
+                    visualLayer,
+                    layerPrototype.MatchSkin ? humanoid.SkinColor : Color.White,
+                    false,
+                    humanoid);
+            }
+
+            Dirty(bodyEnt.Owner, humanoid);
+        }
+        // Radiant sector end
     }
 
     protected override void RemovePart(

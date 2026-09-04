@@ -27,6 +27,11 @@
         ents: []
   - type: UserInterface
     interfaces:
+      # Radiant sector start - Starlight surgery: the slime-specific UI list
+      # replaces the inherited one, so surgery has to be registered here too.
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      # Radiant sector end
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:

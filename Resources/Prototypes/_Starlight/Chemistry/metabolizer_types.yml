@@ -1,0 +1,4 @@
+# Radiant sector: retained so the budget liver can use Starlight's harsher ethanol metabolism.
+- type: metabolizerType
+  id: BudgetCyber
+  name: metabolizer-type-budget-cyber

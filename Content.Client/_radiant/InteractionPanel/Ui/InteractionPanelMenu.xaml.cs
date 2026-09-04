@@ -11,6 +11,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Panel;
 using Content.Shared._radiant.Arousal.Components;
+using Content.Shared._radiant.ERP;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -378,7 +379,7 @@ namespace Content.Client.Interaction.Panel.Ui
                 _targetLabel.Text = Identity.Name(target.Value, _entManager, session.AttachedEntity);
 
                 var appearanceComponent = _entManager.GetComponentOrNull<HumanoidAppearanceComponent>(target.Value);
-                UpdateGender(user, appearanceComponent, _targetGenderLabel);
+                UpdateGender(target.Value, appearanceComponent, _targetGenderLabel);
             }
             else
             {
@@ -391,7 +392,7 @@ namespace Content.Client.Interaction.Panel.Ui
             }
         }
 
-        private void UpdateGender(EntityUid user, HumanoidAppearanceComponent? appearanceComponent, Label genderLabel)
+        private void UpdateGender(EntityUid entity, HumanoidAppearanceComponent? appearanceComponent, Label genderLabel)
         {
             genderLabel.Orphan();
 
@@ -412,7 +413,9 @@ namespace Content.Client.Interaction.Panel.Ui
             var arachnidSpecies = new ProtoId<SpeciesPrototype>("Arachnid");
             var voxSpecies = new ProtoId<SpeciesPrototype>("Vox");
 
-            genderLabel.Text = appearanceComponent.Species switch
+            genderLabel.Text = TryBuildAdultAnatomyText(entity, false, out var anatomyText)
+                ? anatomyText
+                : appearanceComponent.Species switch
             {
                 var species when species == dionaSpecies => string.Join("\n", Loc.GetString("diona-leaves"), Loc.GetString("diona-branches")),
                 var species when species == arachnidSpecies => Loc.GetString("arachnid-nearestplayer"),
@@ -439,9 +442,11 @@ namespace Content.Client.Interaction.Panel.Ui
             var voxSpecies = new ProtoId<SpeciesPrototype>("Vox");
             var appearanceComponent = _entManager.GetComponentOrNull<HumanoidAppearanceComponent>(user);
 
-            if (appearanceComponent == null)
-
-            _userGenderLabel.Text = appearanceComponent?.Species switch
+            // Radiant sector: refresh this text for every anatomy state, not only
+            // when HumanoidAppearance is missing.
+            _userGenderLabel.Text = TryBuildAdultAnatomyText(user, true, out var anatomyText)
+                ? anatomyText
+                : appearanceComponent?.Species switch
             {
                 var species when species == dionaSpecies => string.Join("\n", Loc.GetString("diona-leaves-player"), Loc.GetString("diona-branches-player")),
                 var species when species == arachnidSpecies => Loc.GetString("arachnid-player"),
@@ -457,6 +462,30 @@ namespace Content.Client.Interaction.Panel.Ui
 
             _userGenderLabel.Orphan();
             UserModel.AddChild(_userGenderLabel);
+        }
+
+        // Radiant sector: the panel follows surgically installed anatomy instead of immutable profile sex.
+        private bool TryBuildAdultAnatomyText(EntityUid entity, bool self, out string text)
+        {
+            text = string.Empty;
+            if (!_entManager.TryGetComponent<AdultAnatomyComponent>(entity, out var anatomy) || !anatomy.AnatomyInitialized)
+                return false;
+
+            var suffix = self ? "-player" : string.Empty;
+            var parts = new List<string> { Loc.GetString($"adult-anatomy-anal{suffix}") };
+            if (anatomy.HasPenis)
+            {
+                parts.Add(Loc.GetString($"adult-anatomy-penis{suffix}"));
+                if (!anatomy.PenisNervesIntact)
+                    parts.Add(Loc.GetString($"adult-anatomy-penis-denervated{suffix}"));
+            }
+            if (anatomy.HasVagina)
+                parts.Add(Loc.GetString($"adult-anatomy-vagina{suffix}"));
+            if (anatomy.HasBreasts)
+                parts.Add(Loc.GetString($"adult-anatomy-breasts{suffix}", ("size", Loc.GetString($"adult-anatomy-size-{anatomy.BreastSize.ToString().ToLowerInvariant()}"))));
+
+            text = string.Join("\n", parts);
+            return true;
         }
 
         private void PopulateInteractions()
@@ -855,9 +884,9 @@ namespace Content.Client.Interaction.Panel.Ui
 
             bool isSpeciesAllowed = prototype.AllowedSpecies?.Contains("all") == true || prototype.AllowedSpecies?.Contains(userAppearance.Species) == true;
             bool isSpeciesBlacklisted = prototype.BlackListSpecies?.Contains(userAppearance.Species) == true || prototype.BlackListSpecies?.Contains(targetAppearance.Species) == true;
-            bool isGenderAllowed = prototype.AllowedGenders?.Contains("all") == true || prototype.AllowedGenders?.Contains(userAppearance.Sex.ToString()) == true;
+            bool isGenderAllowed = IsUserAnatomyAllowed(prototype, userAppearance);
             bool isNearestSpeciesAllowed = prototype.NearestAllowedSpecies?.Contains("all") == true || prototype.NearestAllowedSpecies?.Contains(targetAppearance.Species) == true;
-            bool isNearestGenderAllowed = prototype.NearestAllowedGenders?.Contains("all") == true || prototype.NearestAllowedGenders?.Contains(targetAppearance.Sex.ToString()) == true;
+            bool isNearestGenderAllowed = IsTargetAnatomyAllowed(prototype, targetAppearance, target);
             bool isTargetEntityAllowed = prototype.TargetEntityId == null || prototype.TargetEntityId.Contains(target.ToString());
 
 
@@ -872,13 +901,46 @@ namespace Content.Client.Interaction.Panel.Ui
             return !prototype.Solo && IsInteractionAllowed(prototype, userAppearance, target.Value);
         }
 
-        private static bool IsSoloInteractionAllowed(InteractionPrototype prototype, HumanoidAppearanceComponent userAppearance)
+        private bool IsSoloInteractionAllowed(InteractionPrototype prototype, HumanoidAppearanceComponent userAppearance)
         {
             var isSpeciesAllowed = prototype.AllowedSpecies?.Contains("all") == true || prototype.AllowedSpecies?.Contains(userAppearance.Species) == true;
             var isSpeciesBlacklisted = prototype.BlackListSpecies?.Contains(userAppearance.Species) == true;
-            var isGenderAllowed = prototype.AllowedGenders?.Contains("all") == true || prototype.AllowedGenders?.Contains(userAppearance.Sex.ToString()) == true;
+            var isGenderAllowed = IsUserAnatomyAllowed(prototype, userAppearance);
 
             return isSpeciesAllowed && !isSpeciesBlacklisted && isGenderAllowed;
+        }
+
+        private bool IsUserAnatomyAllowed(InteractionPrototype prototype, HumanoidAppearanceComponent appearance)
+        {
+            var genders = prototype.AllowedGenders;
+            if (genders?.Contains("all") == true)
+                return true;
+            var uid = _playerManager.LocalSession?.AttachedEntity;
+            if (uid == null || !_entManager.TryGetComponent<AdultAnatomyComponent>(uid.Value, out var anatomy))
+                return genders?.Contains(appearance.Sex.ToString()) == true;
+            if (genders?.Contains("Male") == true && anatomy.HasPenis)
+                return true;
+            if (genders?.Contains("Female") == true)
+                return prototype.Category.Equals("chest", StringComparison.OrdinalIgnoreCase)
+                    ? anatomy.HasBreasts
+                    : anatomy.HasVagina;
+            return false;
+        }
+
+        private bool IsTargetAnatomyAllowed(InteractionPrototype prototype, HumanoidAppearanceComponent appearance, EntityUid uid)
+        {
+            var genders = prototype.NearestAllowedGenders;
+            if (genders?.Contains("all") == true)
+                return true;
+            if (!_entManager.TryGetComponent<AdultAnatomyComponent>(uid, out var anatomy))
+                return genders?.Contains(appearance.Sex.ToString()) == true;
+            if (genders?.Contains("Male") == true && anatomy.HasPenis)
+                return true;
+            if (genders?.Contains("Female") == true)
+                return prototype.Category.Equals("chest", StringComparison.OrdinalIgnoreCase)
+                    ? anatomy.HasBreasts
+                    : anatomy.HasVagina;
+            return false;
         }
 
         private void OnInteractionPressed(string interactionId)

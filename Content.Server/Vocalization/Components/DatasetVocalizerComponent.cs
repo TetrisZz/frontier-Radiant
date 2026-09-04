@@ -14,7 +14,8 @@ public sealed partial class DatasetVocalizerComponent : Component
     /// ID of the <see cref="LocalizedDatasetPrototype"/> that will provide messages.
     /// </summary>
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> Dataset;
+    // Radiant sector: some inherited Frontier prototypes clear this field.
+    public ProtoId<LocalizedDatasetPrototype>? Dataset;
 
     /// <summary>
     /// Chance to provide a message for each vocalization attempt.

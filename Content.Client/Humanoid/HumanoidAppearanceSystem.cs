@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.DisplacementMap;
+using Content.Client.Damage;
 using Content.Shared._radiant.Humanoid;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
@@ -22,6 +23,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly DamageVisualsSystem _damageVisuals = default!; // Radiant sector: limb-aware wounds.
 
     public override void Initialize()
     {
@@ -51,6 +53,10 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         UpdateLayers(entity);
         ApplyMarkingSet(entity);
 
+        // Radiant sector: limb removal/replacement can happen without a damage delta,
+        // so explicitly refresh the matching segmented wound overlays here.
+        _damageVisuals.RefreshHumanoidDamageLayers(entity.Owner);
+
         var humanoidAppearance = entity.Comp1;
         var sprite = entity.Comp2;
 
@@ -63,6 +69,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
         _sprite.SetScale((entity, sprite), new Vector2(width, height));
         sprite[_sprite.LayerMapReserve((entity.Owner, sprite), HumanoidVisualLayers.Eyes)].Color = humanoidAppearance.EyeColor;
+    }
+
+    // Radiant sector: refresh a client-side naked preview after cloning patient appearance.
+    public void RefreshAppearance(EntityUid uid)
+    {
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid)
+            && TryComp<SpriteComponent>(uid, out var sprite))
+            UpdateSprite((uid, humanoid, sprite));
     }
 
     private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)
@@ -125,7 +139,13 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         if (sexMorph)
             protoId = HumanoidVisualLayersExtension.GetSexMorph(key, component.Sex, protoId);
 
-        var proto = _prototypeManager.Index<HumanoidSpeciesSpriteLayer>(protoId);
+        // Radiant sector: a missing custom limb layer must not abort the entire
+        // game-state application and leave unrelated networked components stale.
+        if (!_prototypeManager.TryIndex<HumanoidSpeciesSpriteLayer>(protoId, out var proto))
+        {
+            Log.Error($"Missing humanoid base sprite layer prototype '{protoId}' for {ToPrettyString(entity.Owner)}");
+            return;
+        }
         component.BaseLayers[key] = proto;
 
         if (proto.MatchSkin)

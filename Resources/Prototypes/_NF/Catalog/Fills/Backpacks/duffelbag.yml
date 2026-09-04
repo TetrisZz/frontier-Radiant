@@ -22,6 +22,10 @@
       - id: WelderMini
       - id: SawImprov
       - id: ClothingHandsGlovesFingerless
+      # Radiant sector start - Starlight surgery
+      - id: BoneGelRipper
+      - id: BoneSetter
+      # Radiant sector end
       - id: PillSpaceDrugs
         amount: 3
       - id: Plunger
@@ -46,6 +50,10 @@
       - id: Drill
       - id: Hemostat
       - id: Retractor
+      # Radiant sector start - Starlight surgery
+      - id: BoneGelRipper
+      - id: BoneSetter
+      # Radiant sector end
 
 - type: entity
   parent: ClothingBackpackDuffelNfsdBrown

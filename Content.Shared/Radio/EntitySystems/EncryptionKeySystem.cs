@@ -172,7 +172,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
 
     private void OnHolderExamined(EntityUid uid, EncryptionKeyHolderComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange)
+        if (!args.IsInDetailsRange || !component.CanBeExamined)
             return;
 
         if (component.KeyContainer.ContainedEntities.Count == 0)

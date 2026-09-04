@@ -11,6 +11,9 @@
   - type: Tag
     tags:
     - SurgeryTool
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  # Radiant sector end
 
 # Cautery
 
@@ -32,6 +35,14 @@
         Heat: 5
     soundHit:
       path: /Audio/Effects/lightburn.ogg
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  - type: Cautery
+    startSound:
+      path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
+    endSound:
+      path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
+  # Radiant sector end
 
 # Drill
 
@@ -57,6 +68,12 @@
       path: /Audio/Items/drill_hit.ogg
   - type: StaticPrice
     price: 40
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  - type: SurgicalDrill
+    startSound:
+      path: /Audio/_Starlight/Medical/Surgery/saw.ogg
+  # Radiant sector end
 
 # Scalpel
 
@@ -90,6 +107,14 @@
         Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  - type: Scalpel
+    startSound:
+      path: /Audio/_Starlight/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Starlight/Medical/Surgery/scalpel2.ogg
+  # Radiant sector end
 
 - type: entity
   name: shiv
@@ -142,18 +167,34 @@
   - type: Item
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     storedRotation: 90
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  - type: Retractor
+    startSound:
+      path: /Audio/_Starlight/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Starlight/Medical/Surgery/retractor2.ogg
+  # Radiant sector end
 
 - type: entity
   name: hemostat
   id: Hemostat
-  parent: Retractor
+  parent: BaseToolSurgery
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
   - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
   - type: Item
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     heldPrefix: hemostat
     storedRotation: 90
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  - type: Hemostat
+    endSound:
+      path: /Audio/_Starlight/Medical/Surgery/hemostat1.ogg
+  # Radiant sector end
 
   # - type: entity
   #   name: bone setter
@@ -183,6 +224,12 @@
   - type: Tool
     qualities:
       - Sawing
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  - type: BoneSaw
+    startSound:
+      path: /Audio/_Starlight/Medical/Surgery/bone_saw.ogg
+  # Radiant sector end
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity

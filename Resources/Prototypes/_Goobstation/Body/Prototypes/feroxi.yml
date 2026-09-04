@@ -4,7 +4,7 @@
   name: species-name-feroxi
   root: torso
   slots:
-    head: { part: HeadFeroxi, connections: [torso], organs: { brain: OrganHumanBrain, eyes: OrganHumanEyes } }
+    head: { part: HeadFeroxi, connections: [torso], organs: { brain: OrganHumanBrain, eyes: OrganHumanEyes, tongue: OrganHumanTongue } } # Radiant sector - surgery support for every playable species.
     torso: { part: TorsoFeroxi, connections: [right arm, left arm, right leg, left leg, head], organs: { heart: OrganHumanHeart, lungs: OrganHumanLungs, stomach: OrganHumanStomach, liver: OrganHumanLiver, kidneys: OrganHumanKidneys } }
     right arm: { part: RightArmFeroxi, connections: [right hand] }
     left arm: { part: LeftArmFeroxi, connections: [left hand] }

@@ -1,0 +1,17 @@
+- type: entity
+  id: ScentMarker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: ScentMarker
+  - type: Transform
+    gridTraversal: false
+  - type: Visibility
+    layer: 64
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - sprite: Effects/chemsmoke.rsi
+      state: chemsmoke
+      shader: unshaded

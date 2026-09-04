@@ -4,6 +4,14 @@
   name: operating table
   description: Special medical table for surgery. This one just seems to be a useless prop, though.
   components:
+  # Radiant sector start - Starlight surgery
+  - type: OperatingTable
+  - type: DeviceLinkSink
+    ports:
+    - BodyScannerReceiver
+  - type: HealOnBuckle
+    damage: {}
+  # Radiant sector end
   - type: Sprite
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table
@@ -11,4 +19,3 @@
   - type: Icon
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table
-  - type: NpcPassable # Radiant Sector

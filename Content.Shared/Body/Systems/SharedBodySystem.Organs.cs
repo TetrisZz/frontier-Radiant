@@ -74,7 +74,13 @@ public partial class SharedBodySystem
 
         Containers.EnsureContainer<ContainerSlot>(parent.Value, GetOrganContainerId(slotId));
         slot = new OrganSlot(slotId);
-        return part.Organs.TryAdd(slotId, slot.Value);
+        if (!part.Organs.TryAdd(slotId, slot.Value))
+            return false;
+
+        // Radiant sector: dynamically created surgical slots must be networked
+        // and remain available for later extraction/reimplantation operations.
+        Dirty(parent.Value, part);
+        return true;
     }
 
     /// <summary>

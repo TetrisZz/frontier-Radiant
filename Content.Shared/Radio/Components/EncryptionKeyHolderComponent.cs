@@ -30,6 +30,12 @@ public sealed partial class EncryptionKeyHolderComponent : Component
     [DataField("keySlots")]
     public int KeySlots = 2;
 
+    /// <summary>
+    /// Radiant sector: allows integrated key holders to move their channel list into a dedicated examine window.
+    /// </summary>
+    [DataField]
+    public bool CanBeExamined = true;
+
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("keyExtractionSound")]
     public SoundSpecifier KeyExtractionSound = new SoundPathSpecifier("/Audio/Items/pistol_magout.ogg");

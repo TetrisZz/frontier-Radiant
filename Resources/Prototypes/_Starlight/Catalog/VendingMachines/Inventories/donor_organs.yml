@@ -1,0 +1,74 @@
+# Radiant sector: target-compatible replacement for Starlight's surgery store listings.
+- type: vendingMachineInventory
+  id: StarlightDonorOrganInventory
+  startingInventory:
+    SurgicalPackageOrganHumanBrain: 1
+    SurgicalPackageOrganHumanEyes: 2
+    SurgicalPackageOrganHumanTongue: 2
+    SurgicalPackageOrganHumanLungs: 2
+    SurgicalPackageOrganHumanHeart: 2
+    SurgicalPackageOrganHumanStomach: 2
+    SurgicalPackageOrganHumanLiver: 2
+    SurgicalPackageOrganHumanKidneys: 2
+
+    # Radiant sector: non-human donor organs actually referenced by playable body prototypes.
+    SurgicalPackageOrganAnimalHeart: 1
+    SurgicalPackageOrganAnimalLungs: 1
+    SurgicalPackageOrganAnimalStomach: 1
+    SurgicalPackageOrganAnimalLiver: 1
+    SurgicalPackageOrganAnimalKidneys: 1
+    SurgicalPackageOrganArachnidEyes: 1
+    SurgicalPackageOrganArachnidTongue: 1
+    SurgicalPackageOrganArachnidHeart: 1
+    SurgicalPackageOrganArachnidStomach: 1
+    SurgicalPackageOrganArachnidLiver: 1
+    SurgicalPackageOrganArachnidKidneys: 1
+    SurgicalPackageOrganDionaBrainNymph: 1
+    SurgicalPackageOrganDionaEyes: 1
+    SurgicalPackageOrganDionaStomachNymph: 1
+    SurgicalPackageOrganDionaLungsNymph: 1
+    SurgicalPackageOrganDwarfHeart: 1
+    SurgicalPackageOrganDwarfStomach: 1
+    SurgicalPackageOrganDwarfLiver: 1
+    SurgicalPackageOrganGoblinBrain: 1
+    SurgicalPackageOrganGoblinEyes: 1
+    SurgicalPackageOrganGoblinTongue: 1
+    SurgicalPackageOrganGoblinHeart: 1
+    SurgicalPackageOrganGoblinLungs: 1
+    SurgicalPackageOrganGoblinStomach: 1
+    SurgicalPackageOrganGoblinLiver: 1
+    SurgicalPackageOrganGoblinKidneys: 1
+    SurgicalPackageOrganHarpyLungs: 1
+    SurgicalPackageOrganMothStomach: 1
+    SurgicalPackageOrganReptilianStomach: 1
+    SurgicalPackageOrganShelegBrain: 1
+    SurgicalPackageOrganShelegEyes: 1
+    SurgicalPackageOrganShelegTongue: 1
+    SurgicalPackageOrganShelegHeart: 1
+    SurgicalPackageOrganShelegLungs: 1
+    SurgicalPackageOrganShelegStomach: 1
+    SurgicalPackageOrganShelegLiver: 1
+    SurgicalPackageOrganShelegKidneys: 1
+    SurgicalPackageSentientSlimeCore: 1
+    SurgicalPackageOrganSlimeLungs: 1
+    SurgicalPackageOrganSyntheticHeart: 1
+    SurgicalPackageOrganSyntheticLiver: 1
+    SurgicalPackageOrganSyntheticKidneys: 1
+    SurgicalPackageOrganVoxLungs: 2
+    SurgicalPackageOrganVoxHeart: 1
+    SurgicalPackageOrganVoxStomach: 1
+    SurgicalPackageOrganVoxLiver: 1
+    SurgicalPackageOrganVulpkaninStomach: 1
+    SurgicalPackageOrganDemonHeart: 1
+    SurgicalPackageOrganDemonStomach: 1
+
+    # Radiant sector: basic cyberlimbs without deployed tools or combat abilities.
+    SurgicalPackageLeftArmCyber: 2
+    SurgicalPackageRightArmCyber: 2
+    SurgicalPackageLeftHandCyber: 3
+    SurgicalPackageRightHandCyber: 3
+    # The regular Starlight cyberlegs have a small speed bonus; budget legs are the no-buff iron analogue.
+    SurgicalPackageLeftLegCyberBudget: 2
+    SurgicalPackageRightLegCyberBudget: 2
+    SurgicalPackageLeftFootCyber: 3
+    SurgicalPackageRightFootCyber: 3

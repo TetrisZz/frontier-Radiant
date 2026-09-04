@@ -1,0 +1,12 @@
+# Radiant sector: minimal Frontier-compatible pack for the integrated cyber-printer.
+- type: latheRecipePack
+  id: StarlightDocs
+  recipes:
+    - CyberBlankPaper
+
+- type: latheRecipe
+  id: CyberBlankPaper
+  result: Paper
+  completetime: 0.5
+  materials:
+    Paper: 100

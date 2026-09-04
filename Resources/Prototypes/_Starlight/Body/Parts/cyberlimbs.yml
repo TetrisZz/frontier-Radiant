@@ -1,0 +1,2209 @@
+- type: entity
+  id: PartCyber
+  parent: [BaseItem, BasePart]
+  name: "cyber body part"
+  abstract: true
+  components:
+  # Radiant sector: installed cyberlimbs leave model-specific examine clues.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-cyberlimb-hint-standard
+    visibility: Noticeable
+    prototypeHints:
+      CyberReaper: starlight-surgery-cyberlimb-hint-reaper
+      CyberMechwright: starlight-surgery-cyberlimb-hint-mechwright
+      CyberEngineer: starlight-surgery-cyberlimb-hint-engineer
+      CyberBulwark: starlight-surgery-cyberlimb-hint-bulwark
+      CyberMantisBlade: starlight-surgery-cyberlimb-hint-mantis
+      CyberRipper: starlight-surgery-cyberlimb-hint-ripper
+      CyberSpacer: starlight-surgery-cyberlimb-hint-spacer
+      CyberGorilla: starlight-surgery-cyberlimb-hint-gorilla
+      CyberAngel: starlight-surgery-cyberlimb-hint-angel
+      CyberZeus: starlight-surgery-cyberlimb-hint-zeus
+      CyberRiplet: starlight-surgery-cyberlimb-hint-riplet
+      CyberPersephone: starlight-surgery-cyberlimb-hint-persephone
+      CyberScribe: starlight-surgery-cyberlimb-hint-scribe
+      CyberHerakles: starlight-surgery-cyberlimb-hint-herakles
+      CyberInvestigator: starlight-surgery-cyberlimb-hint-investigator
+      CyberSpeed: starlight-surgery-cyberlimb-hint-speed
+      CyberBudget: starlight-surgery-cyberlimb-hint-budget
+      CyberHydraulic: starlight-surgery-cyberlimb-hint-hydraulic
+      CyberPilebunker: starlight-surgery-cyberlimb-hint-pilebunker
+      CyberCargo: starlight-surgery-cyberlimb-hint-cargo
+    # Radiant sector: color conveys how obvious the augmentation and its purpose are.
+    prototypeVisibilities:
+      CyberReaper: Noticeable
+      CyberMechwright: Obvious
+      CyberEngineer: Obvious
+      CyberBulwark: Combat
+      CyberMantisBlade: Combat
+      CyberRipper: Combat
+      CyberSpacer: Noticeable
+      CyberGorilla: Combat
+      CyberAngel: Noticeable
+      CyberZeus: Combat
+      CyberRiplet: Obvious
+      CyberPersephone: Noticeable
+      CyberScribe: Noticeable
+      CyberHerakles: Combat
+      CyberInvestigator: Noticeable
+      CyberSpeed: Obvious
+      CyberBudget: Obvious
+      CyberHydraulic: Obvious
+      CyberPilebunker: Combat
+      CyberCargo: Obvious
+  # Radiant sector start - a loose cyberlimb can be converted for the opposite side.
+  - type: ReversibleCyberLimb
+  - type: SimpleToolUsage
+    quality: Screwing
+    doAfter: 1
+    usageVerb: cyber-limb-reverse-verb
+  # Radiant sector end
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 30
+  - type: Item
+    size: Large
+    shape:
+      - 0,0,0,1
+
+- type: entity
+  id: LeftArmCyber
+  name: "left cyber arm"
+  parent: [PartCyber, BaseLeftArm]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArm
+        Rodentia: RodentiaCyberLArm
+        Resomi: ResomiCyberLArm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyber
+    - type: RoundstartImplantable
+      cost: 1
+- type: entity
+  id: RightArmCyber
+  name: "right cyber arm"
+  parent: [PartCyber, BaseRightArm]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArm
+        Rodentia: RodentiaCyberRArm
+        Resomi: ResomiCyberRArm
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyber
+    - type: RoundstartImplantable
+      cost: 1
+- type: entity
+  id: LeftHandCyber
+  name: "left cyber hand"
+  parent: [PartCyber, BaseLeftHand]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHand
+        Rodentia: RodentiaCyberLHand
+        Resomi: ResomiCyberLHand
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_hand"
+    - type: RoundstartImplantable
+      cost: 1
+- type: entity
+  id: RightHandCyber
+  name: "right cyber hand"
+  parent: [PartCyber, BaseRightHand]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHand
+        Rodentia: RodentiaCyberRHand
+        Resomi: ResomiCyberRHand
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_hand"
+    - type: RoundstartImplantable
+      cost: 1
+- type: entity
+  id: LeftLegCyberBase
+  name: "left base cyber leg"
+  parent: BaseLeftLeg
+  abstract: true
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLLeg
+        Rodentia: RodentiaCyberLLeg
+        Resomi: ResomiCyberLLeg
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_leg"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_leg"
+    - type: WithAttachedBodyParts
+      parts:
+        left foot: LeftFootCyber
+- type: entity
+  id: LeftLegCyber
+  name: "left cyber leg"
+  parent: [PartCyber, LeftLegCyberBase]
+  components:
+    - type: MovementBodyPart
+      sprintSpeed : 4.725 # +5%
+      maxDensity: 155
+    - type: MovementBodyPartHinderedByShoes
+      hinderModifier: 0.1111
+
+- type: entity
+  id: LeftLegCyberBudget
+  name: "left budget cyber leg"
+  parent: [PartCyber, LeftLegCyberBase]
+  components:
+    - type: RoundstartImplantable
+      cost: 2
+- type: entity
+  id: RightLegCyberBase
+  name: "right base cyber leg"
+  parent: BaseRightLeg
+  abstract: true
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRLeg
+        Rodentia: RodentiaCyberRLeg
+        Resomi: ResomiCyberRLeg
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_leg"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_leg"
+    - type: WithAttachedBodyParts
+      parts:
+        right foot: RightFootCyber
+- type: entity
+  id: RightLegCyber
+  name: "right cyber leg"
+  parent: [PartCyber, RightLegCyberBase]
+  components:
+    - type: MovementBodyPart
+      sprintSpeed : 4.725 # +5%
+      maxDensity: 155
+    - type: MovementBodyPartHinderedByShoes
+      hinderModifier: 0.1111
+
+- type: entity
+  id: RightLegCyberBudget
+  name: "right budget cyber leg"
+  parent: [PartCyber, RightLegCyberBase]
+  components:
+    - type: RoundstartImplantable
+      cost: 2
+- type: entity
+  id: LeftFootCyber
+  name: "left cyber foot"
+  parent: [PartCyber, BaseLeftFoot]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLFoot
+        Rodentia: RodentiaCyberLFoot
+        Resomi: ResomiCyberLFoot
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_foot"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_foot"
+    - type: RoundstartImplantable
+      cost: 1
+- type: entity
+  id: RightFootCyber
+  name: "right cyber foot"
+  parent: [PartCyber, BaseRightFoot]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRFoot
+        Rodentia: RodentiaCyberRFoot
+        Resomi: ResomiCyberRFoot
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_foot"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_foot"
+    - type: RoundstartImplantable
+      cost: 1
+- type: entity
+  id: LeftLegCyberSpeed
+  name: "left speed leg"
+  parent: [PartCyber, LeftLegCyberBase]
+  description: Gotta Go Fast!
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLLegSpeed
+        Rodentia: RodentiaCyberLLegSpeed
+        Resomi: ResomiCyberLLegSpeed
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/speedlegs.rsi
+      state: "l_leg"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/speedlegs.rsi
+      state: "l_leg"
+    - type: MovementBodyPart
+      walkSpeed: 3.75 # 1.5x of base
+      sprintSpeed: 6.75 # 1.5x of base
+      maxDensity: 155
+    - type: MovementBodyPartHinderedByShoes
+      hinderModifier: 0.1667
+
+- type: entity
+  id: RightLegCyberSpeed
+  name: "right speed leg"
+  parent: [PartCyber, RightLegCyberBase]
+  description: Gotta Go Fast!
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRLegSpeed
+        Rodentia: RodentiaCyberRLegSpeed
+        Resomi: ResomiCyberRLegSpeed
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/speedlegs.rsi
+      state: "r_leg"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/speedlegs.rsi
+      state: "r_leg"
+    - type: MovementBodyPart
+      walkSpeed: 3.75 # 1.5x of base
+      sprintSpeed: 6.75 # 1.5x of base
+      maxDensity: 155
+    - type: MovementBodyPartHinderedByShoes
+      hinderModifier: 0.1667
+
+#reaper
+- type: entity
+  id: LeftArmCyberReaper
+  name: "left reaper arm"
+  parent: [PartCyber, BaseLeftArm]
+  description: Augmented arm for the surgeons of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmSilver
+        Rodentia: RodentiaCyberLArmSilver
+        Resomi: ResomiCyberLArmSilver
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_silver_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_silver_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberReaper
+
+- type: entity
+  id: LeftHandCyberReaper
+  name: "left reaper hand"
+  parent: [PartCyber, BaseLeftHand]
+  description: Augmented hand for the surgeons of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandSilver
+        Rodentia: RodentiaCyberLHandSilver
+        Resomi: ResomiCyberLHandSilver
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandSilverReaper
+        Rodentia: RodentiaCyberLHandSilverReaper
+        Resomi: ResomiCyberLHandSilverReaper
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_silver_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_silver_hand"
+    - type: LimbItemStorage
+      items:
+        - ScalpelCyber
+        - HemostatCyber
+        - RetractorCyber
+        - BoneSetterCyber
+        - BoneGelCyber
+        - CauteryCyber
+        - DrillCyber
+        - SawCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+- type: entity
+  id: RightArmCyberReaper
+  name: "right reaper arm"
+  parent: [PartCyber, BaseRightArm]
+  description: Augmented arm for the surgeons of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmSilver
+        Rodentia: RodentiaCyberRArmSilver
+        Resomi: ResomiCyberRArmSilver
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_silver_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_silver_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberReaper
+- type: entity
+  id: RightHandCyberReaper
+  name: "right reaper hand"
+  parent: [PartCyber, BaseRightHand]
+  description: Augmented hand for the surgeons of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandSilver
+        Rodentia: RodentiaCyberRHandSilver
+        Resomi: ResomiCyberRHandSilver
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandSilverReaper
+        Rodentia: RodentiaCyberRHandSilverReaper
+        Resomi: ResomiCyberRHandSilverReaper
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_silver_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_silver_hand"
+    - type: LimbItemStorage
+      items:
+        - ScalpelCyber
+        - HemostatCyber
+        - RetractorCyber
+        - BoneSetterCyber
+        - BoneGelCyber
+        - CauteryCyber
+        - DrillCyber
+        - SawCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+#Mechwright
+- type: entity
+  id: LeftArmCyberMechwright
+  name: "left mechwright arm"
+  parent: [PartCyber, BaseLeftArm]
+  description: Augmented arm for the tiders of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmSteel
+        Rodentia: RodentiaCyberLArmSteel
+        Resomi: ResomiCyberLArmSteel
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_steel_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_steel_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberMechwright
+- type: entity
+  id: LeftHandCyberMechwright
+  name: "left mechwright hand"
+  parent: [PartCyber, BaseLeftHand]
+  description: Augmented hand for the tiders of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandSteel
+        Rodentia: RodentiaCyberLHandSteel
+        Resomi: ResomiCyberLHandSteel
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandSteelMechwright
+        Rodentia: RodentiaCyberLHandSteelMechwright
+        Resomi: ResomiCyberLHandSteelMechwright
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_steel_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_steel_hand"
+    - type: LimbItemStorage
+      items:
+        - WrenchCyber
+        - ScrewdriverCyber
+        - CrowbarCyber
+        - WirecutterCyber
+        - WelderCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberMechwright
+  name: "right mechwright arm"
+  parent: [PartCyber, BaseRightArm]
+  description: Augmented arm for the tiders of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmSteel
+        Rodentia: RodentiaCyberRArmSteel
+        Resomi: ResomiCyberRArmSteel
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_steel_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_steel_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberMechwright
+- type: entity
+  id: RightHandCyberMechwright
+  name: "right mechwright hand"
+  parent: [PartCyber, BaseRightHand]
+  description: Augmented hand for the tiders of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandSteel
+        Rodentia: RodentiaCyberRHandSteel
+        Resomi: ResomiCyberRHandSteel
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandSteelMechwright
+        Rodentia: RodentiaCyberRHandSteelMechwright
+        Resomi: ResomiCyberRHandSteelMechwright
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_steel_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_steel_hand"
+    - type: LimbItemStorage
+      items:
+        - WrenchCyber
+        - ScrewdriverCyber
+        - CrowbarCyber
+        - WirecutterCyber
+        - WelderCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+#Engineer
+- type: entity
+  id: LeftArmCyberEngineer
+  name: "left engineer arm"
+  parent: [PartCyber, BaseLeftArm]
+  description: Augmented arm for the engineers of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmEngineer
+        Rodentia: RodentiaCyberLArmEngineer
+        Resomi: ResomiCyberLArmEngineer
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_engineer_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_engineer_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberEngineer
+
+- type: entity
+  id: LeftHandCyberEngineer
+  name: "left engineer hand"
+  parent: [PartCyber, BaseLeftHand]
+  description: Augmented hand for the engineers of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandEngineer
+        Rodentia: RodentiaCyberLHandEngineer
+        Resomi: ResomiCyberLHandEngineer
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandEngineerTools
+        Rodentia: RodentiaCyberLHandEngineerTools
+        Resomi: ResomiCyberLHandEngineerTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_engineer_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_engineer_hand"
+    - type: LimbItemStorage
+      items:
+        - JawsOfLifeCyber
+        - PowerDrillCyber
+        - WelderExperimentalCyber
+        - RCDCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberEngineer
+  name: "right engineer arm"
+  parent: [PartCyber, BaseRightArm]
+  description: Augmented arm for the engineers of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmEngineer
+        Rodentia: RodentiaCyberRArmEngineer
+        Resomi: ResomiCyberRArmEngineer
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_engineer_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_engineer_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberEngineer
+
+- type: entity
+  id: RightHandCyberEngineer
+  name: "right engineer hand"
+  parent: [PartCyber, BaseRightHand]
+  description: Augmented hand for the engineers of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandEngineer
+        Rodentia: RodentiaCyberRHandEngineer
+        Resomi: ResomiCyberRHandEngineer
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandEngineerTools
+        Rodentia: RodentiaCyberRHandEngineerTools
+        Resomi: ResomiCyberRHandEngineerTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_engineer_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_engineer_hand"
+    - type: LimbItemStorage
+      items:
+        - JawsOfLifeCyber
+        - PowerDrillCyber
+        - WelderExperimentalCyber
+        - RCDCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+#Bulwark
+- type: entity
+  id: LeftArmCyberBulwark
+  name: "left bulwark arm"
+  parent: [PartCyber, BaseLeftArm, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmBulwark
+        Rodentia: RodentiaCyberLArmBulwark
+        Resomi: ResomiCyberLArmBulwark
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_bulwark_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_bulwark_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberBulwark
+- type: entity
+  id: LeftHandCyberBulwark
+  name: "left bulwark hand"
+  parent: [PartCyber, BaseLeftHand, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandBulwark
+        Rodentia: RodentiaCyberLHandBulwark
+        Resomi: ResomiCyberLHandBulwark
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandBulwarkToggled
+        Rodentia: RodentiaCyberLHandBulwarkToggled
+        Resomi: ResomiCyberLHandBulwarkToggled
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_bulwark_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_bulwark_hand"
+    - type: LimbItemStorage
+      items:
+        - EnergyShieldCyber
+        - CyberEnergyChainsword
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberBulwark
+  name: "right bulwark arm"
+  parent: [PartCyber, BaseRightArm, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmBulwark
+        Rodentia: RodentiaCyberRArmBulwark
+        Resomi: ResomiCyberRArmBulwark
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_bulwark_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_bulwark_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberBulwark
+- type: entity
+  id: RightHandCyberBulwark
+  name: "right bulwark hand"
+  parent: [PartCyber, BaseRightHand, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandBulwark
+        Rodentia: RodentiaCyberRHandBulwark
+        Resomi: ResomiCyberRHandBulwark
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandBulwarkToggled
+        Rodentia: RodentiaCyberRHandBulwarkToggled
+        Resomi: ResomiCyberRHandBulwarkToggled
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_bulwark_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_bulwark_hand"
+    - type: LimbItemStorage
+      items:
+        - EnergyShieldCyber
+        - CyberEnergyChainsword
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+#Mantis Blade
+- type: entity
+  id: LeftArmCyberMantisBlade
+  name: "left mantis blade arm"
+  parent: [PartCyber, BaseLeftArm, BaseC3SyndicateContraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmMantisBlade
+        Rodentia: RodentiaCyberLArmMantisBlade
+        Resomi: ResomiCyberLArmMantisBlade
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_mantis_blade_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_mantis_blade_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberMantisBlade
+- type: entity
+  id: LeftHandCyberMantisBlade
+  name: "left mantis blade hand"
+  parent: [PartCyber, BaseLeftHand, BaseC3SyndicateContraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandMantisBlade
+        Rodentia: RodentiaCyberLHandMantisBlade
+        Resomi: ResomiCyberLHandMantisBlade
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandMantisBladeToggled
+        Rodentia: RodentiaCyberLHandMantisBladeToggled
+        Resomi: ResomiCyberLHandMantisBladeToggled
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_mantis_blade_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_mantis_blade_hand"
+    - type: LimbItemStorage
+      items:
+        - CyberMantisBlade
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/Effects/metal_scrape1.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberMantisBlade
+  name: "right mantis blade arm"
+  parent: [PartCyber, BaseRightArm, BaseC3SyndicateContraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmMantisBlade
+        Rodentia: RodentiaCyberRArmMantisBlade
+        Resomi: ResomiCyberRArmMantisBlade
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_mantis_blade_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_mantis_blade_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberMantisBlade
+- type: entity
+  id: RightHandCyberMantisBlade
+  name: "right mantis blade hand"
+  parent: [PartCyber, BaseRightHand, BaseC3SyndicateContraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandMantisBlade
+        Rodentia: RodentiaCyberRHandMantisBlade
+        Resomi: ResomiCyberRHandMantisBlade
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandMantisBladeToggled
+        Rodentia: RodentiaCyberRHandMantisBladeToggled
+        Resomi: ResomiCyberRHandMantisBladeToggled
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_mantis_blade_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_mantis_blade_hand"
+    - type: LimbItemStorage
+      items:
+        - CyberMantisBlade
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/Effects/metal_scrape1.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+#ripperdoc
+- type: entity
+  id: LeftArmCyberRipper
+  name: "left ripperdoc arm"
+  parent: [PartCyber, BaseLeftArm]
+  description: Augmented arm for the surgeons of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmRipper
+        Rodentia: RodentiaCyberLArmRipper
+        Resomi: ResomiCyberLArmRipper
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_ripper_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_ripper_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberRipper
+    - type: Construction
+      graph: RipperLeftGraph
+      node: left
+- type: entity
+  id: LeftHandCyberRipper
+  name: "left ripperdoc hand"
+  parent: [PartCyber, BaseLeftHand]
+  description: Augmented hand for the surgeons of the modern age.
+
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandRipper
+        Rodentia: RodentiaCyberLHandRipper
+        Resomi: ResomiCyberLHandRipper
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandRipperRipping
+        Rodentia: RodentiaCyberLHandRipperRipping
+        Resomi: ResomiCyberLHandRipperRipping
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_ripper_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_ripper_hand"
+    - type: LimbItemStorage
+      items:
+        - ScalpelRipper
+        - RetractorRipper
+        - CauteryRipper
+        - DrillRipper
+        - SawRipper
+        - HemostatRipper
+        - BoneSetterRipper
+        - BoneGelRipper
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/Effects/metal_scrape1.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberRipper
+  name: "right ripperdoc arm"
+  parent: [PartCyber, BaseRightArm]
+  description: Augmented arm for the surgeons of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmRipper
+        Rodentia: RodentiaCyberRArmRipper
+        Resomi: ResomiCyberRArmRipper
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_ripper_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_ripper_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberRipper
+    - type: Construction
+      graph: RipperRightGraph
+      node: right
+- type: entity
+  id: RightHandCyberRipper
+  name: "right ripperdoc hand"
+  parent: [PartCyber, BaseRightHand]
+  description: Augmented hand for the surgeons of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandRipper
+        Rodentia: RodentiaCyberRHandRipper
+        Resomi: ResomiCyberRHandRipper
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandRipperRipping
+        Rodentia: RodentiaCyberRHandRipperRipping
+        Resomi: ResomiCyberRHandRipperRipping
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_ripper_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_ripper_hand"
+    - type: LimbItemStorage
+      items:
+        - ScalpelRipper
+        - RetractorRipper
+        - CauteryRipper
+        - DrillRipper
+        - SawRipper
+        - HemostatRipper
+        - BoneSetterRipper
+        - BoneGelRipper
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/Effects/metal_scrape1.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+          - BoneGel
+
+# Spacer
+- type: entity
+  id: LeftArmCyberSpacer
+  name: "left spacer arm"
+  parent: [PartCyber, BaseLeftArm]
+  description: Augmented arm for the salvagers of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmSpacer
+        Rodentia: RodentiaCyberLArmSpacer
+        Resomi: ResomiCyberLArmSpacer
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_spacer_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_spacer_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberSpacer
+
+- type: entity
+  id: LeftHandCyberSpacer
+  name: "left spacer hand"
+  parent: [PartCyber, BaseLeftHand]
+  description: Augmented hand for the salvagers of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandSpacer
+        Rodentia: RodentiaCyberLHandSpacer
+        Resomi: ResomiCyberLHandSpacer
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandSpacerTools
+        Rodentia: RodentiaCyberLHandSpacerTools
+        Resomi: ResomiCyberLHandSpacerTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_spacer_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_spacer_hand"
+    - type: LimbItemStorage
+      items:
+        - ProtokineticAcceleratorCyber
+        - WeaponGrapplingGunCyber
+        - WeaponCrusherDaggerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberSpacer
+  name: "right spacer arm"
+  parent: [PartCyber, BaseRightArm]
+  description: Augmented arm for the salvagers of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmSpacer
+        Rodentia: RodentiaCyberRArmSpacer
+        Resomi: ResomiCyberRArmSpacer
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_spacer_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_spacer_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberSpacer
+
+- type: entity
+  id: RightHandCyberSpacer
+  name: "right spacer hand"
+  parent: [PartCyber, BaseRightHand]
+  description: Augmented hand for the salvagers of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandSpacer
+        Rodentia: RodentiaCyberRHandSpacer
+        Resomi: ResomiCyberRHandSpacer
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandSpacerTools
+        Rodentia: RodentiaCyberRHandSpacerTools
+        Resomi: ResomiCyberRHandSpacerTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_spacer_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_spacer_hand"
+    - type: LimbItemStorage
+      items:
+        - ProtokineticAcceleratorCyber
+        - WeaponGrapplingGunCyber
+        - WeaponCrusherDaggerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# GORILLA
+- type: entity
+  id: LeftArmCyberGorilla
+  name: "left G.O.R.I.L.L.A arm"
+  parent: [PartCyber, BaseLeftArm, BaseC2Contraband]
+  description: Augmented arm for the scientists of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmGorilla
+        Rodentia: RodentiaCyberLArmGorilla
+        Resomi: ResomiCyberLArmGorilla
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_gorilla_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_gorilla_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberGorilla
+
+- type: entity
+  id: LeftHandCyberGorilla
+  name: "left G.O.R.I.L.L.A hand"
+  parent: [PartCyber, BaseLeftHand, BaseC2Contraband]
+  description: Augmented hand for the scientists of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandGorilla
+        Rodentia: RodentiaCyberLHandGorilla
+        Resomi: ResomiCyberLHandGorilla
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandGorillaTools
+        Rodentia: RodentiaCyberLHandGorillaTools
+        Resomi: ResomiCyberLHandGorillaTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_gorilla_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_gorilla_hand"
+    - type: LimbItemStorage
+      items:
+        - WeaponGauntletGorillaCyber
+        - WeaponPistolCHIMPCyber
+        - AnomalyScannerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberGorilla
+  name: "right G.O.R.I.L.L.A arm"
+  parent: [PartCyber, BaseRightArm, BaseC2Contraband]
+  description: Augmented arm for the scientists of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmGorilla
+        Rodentia: RodentiaCyberRArmGorilla
+        Resomi: ResomiCyberRArmGorilla
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_gorilla_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_gorilla_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberGorilla
+
+- type: entity
+  id: RightHandCyberGorilla
+  name: "right G.O.R.I.L.L.A hand"
+  parent: [PartCyber, BaseRightHand, BaseC2Contraband]
+  description: Augmented hand for the scientists of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandGorilla
+        Rodentia: RodentiaCyberRHandGorilla
+        Resomi: ResomiCyberRHandGorilla
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandGorillaTools
+        Rodentia: RodentiaCyberRHandGorillaTools
+        Resomi: ResomiCyberRHandGorillaTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_gorilla_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_gorilla_hand"
+    - type: LimbItemStorage
+      items:
+        - WeaponGauntletGorillaCyber
+        - WeaponPistolCHIMPCyber
+        - AnomalyScannerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# Angel
+- type: entity
+  id: LeftArmCyberAngel
+  name: "left angel arm"
+  parent: [PartCyber, BaseLeftArm]
+  description: Augmented arm for the doctors of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmAngel
+        Rodentia: RodentiaCyberLArmAngel
+        Resomi: ResomiCyberLArmAngel
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_angel_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_angel_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberAngel
+
+- type: entity
+  id: LeftHandCyberAngel
+  name: "left angel hand"
+  parent: [PartCyber, BaseLeftHand]
+  description: Augmented hand for the doctors of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandAngel
+        Rodentia: RodentiaCyberLHandAngel
+        Resomi: ResomiCyberLHandAngel
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandAngelTools
+        Rodentia: RodentiaCyberLHandAngelTools
+        Resomi: ResomiCyberLHandAngelTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_angel_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_angel_hand"
+    - type: LimbItemStorage
+      items:
+        - AdvancedJetInjectorCyber
+        - AutoinjectorCyberTricordrazine
+        - AutoinjectorCyberInaprovaline
+        - DefibrillatorCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberAngel
+  name: "right angel arm"
+  parent: [PartCyber, BaseRightArm]
+  description: Augmented arm for the doctors of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmAngel
+        Rodentia: RodentiaCyberRArmAngel
+        Resomi: ResomiCyberRArmAngel
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_angel_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_angel_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberAngel
+
+- type: entity
+  id: RightHandCyberAngel
+  name: "right angel hand"
+  parent: [PartCyber, BaseRightHand]
+  description: Augmented hand for the doctors of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandAngel
+        Rodentia: RodentiaCyberRHandAngel
+        Resomi: ResomiCyberRHandAngel
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandAngelTools
+        Rodentia: RodentiaCyberRHandAngelTools
+        Resomi: ResomiCyberRHandAngelTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_angel_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_angel_hand"
+    - type: LimbItemStorage
+      items:
+        - AdvancedJetInjectorCyber
+        - AutoinjectorCyberTricordrazine
+        - AutoinjectorCyberInaprovaline
+        - DefibrillatorCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# Zeus
+- type: entity
+  id: LeftArmCyberZeus
+  name: "left zeus arm"
+  parent: [PartCyber, BaseLeftArm, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmZeus
+        Rodentia: RodentiaCyberLArmZeus
+        Resomi: ResomiCyberLArmZeus
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_zeus_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_zeus_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberZeus
+
+- type: entity
+  id: LeftHandCyberZeus
+  name: "left zeus hand"
+  parent: [PartCyber, BaseLeftHand, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandZeus
+        Rodentia: RodentiaCyberLHandZeus
+        Resomi: ResomiCyberLHandZeus
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandZeus
+        Rodentia: RodentiaCyberLHandZeus
+        Resomi: ResomiCyberLHandZeus
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_zeus_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_zeus_hand"
+    - type: LimbItemStorage
+      items:
+        - MeleeWeaponCyberStunFist
+        - MeleeWeaponCyberEmpFist
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberZeus
+  name: "right zeus arm"
+  parent: [PartCyber, BaseRightArm, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmZeus
+        Rodentia: RodentiaCyberRArmZeus
+        Resomi: ResomiCyberRArmZeus
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_zeus_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_zeus_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberZeus
+
+- type: entity
+  id: RightHandCyberZeus
+  name: "right zeus hand"
+  parent: [PartCyber, BaseRightHand, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandZeus
+        Rodentia: RodentiaCyberRHandZeus
+        Resomi: ResomiCyberRHandZeus
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandZeus
+        Rodentia: RodentiaCyberRHandZeus
+        Resomi: ResomiCyberRHandZeus
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_zeus_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_zeus_hand"
+    - type: LimbItemStorage
+      items:
+        - MeleeWeaponCyberStunFist
+        - MeleeWeaponCyberEmpFist
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# Riplet
+- type: entity
+  id: LeftArmCyberRiplet
+  name: "left riplet arm"
+  parent: [PartCyber, BaseLeftArm]
+  description: Augmented arm for the cargo techs of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmRiplet
+        Rodentia: RodentiaCyberLArmRiplet
+        Resomi: ResomiCyberLArmRiplet
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_riplet_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_riplet_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberRiplet
+
+- type: entity
+  id: LeftHandCyberRiplet
+  name: "left riplet hand"
+  parent: [PartCyber, BaseLeftHand]
+  description: Augmented hand for the cargo techs of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandRiplet
+        Rodentia: RodentiaCyberLHandRiplet
+        Resomi: ResomiCyberLHandRiplet
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandRipletTools
+        Rodentia: RodentiaCyberLHandRipletTools
+        Resomi: ResomiCyberLHandRipletTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_riplet_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_riplet_hand"
+    - type: LimbItemStorage
+      items:
+        - CyberEquipmentGrabber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberRiplet
+  name: "right riplet arm"
+  parent: [PartCyber, BaseRightArm]
+  description: Augmented arm for the cargo techs of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmRiplet
+        Rodentia: RodentiaCyberRArmRiplet
+        Resomi: ResomiCyberRArmRiplet
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_riplet_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_riplet_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberRiplet
+
+- type: entity
+  id: RightHandCyberRiplet
+  name: "right riplet hand"
+  parent: [PartCyber, BaseRightHand]
+  description: Augmented hand for the cargo techs of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandRiplet
+        Rodentia: RodentiaCyberRHandRiplet
+        Resomi: ResomiCyberRHandRiplet
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandRipletTools
+        Rodentia: RodentiaCyberRHandRipletTools
+        Resomi: ResomiCyberRHandRipletTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_riplet_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_riplet_hand"
+    - type: LimbItemStorage
+      items:
+        - CyberEquipmentGrabber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# Persephone
+- type: entity
+  id: LeftArmCyberPersephone
+  name: "left persephone arm"
+  parent: [PartCyber, BaseLeftArm]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmPersephone
+        Rodentia: RodentiaCyberLArmPersephone
+        Resomi: ResomiCyberLArmPersephone
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_persephone_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_persephone_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberPersephone
+
+- type: entity
+  id: LeftHandCyberPersephone
+  name: "left persephone hand"
+  parent: [PartCyber, BaseLeftHand]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandPersephone
+        Rodentia: RodentiaCyberLHandPersephone
+        Resomi: ResomiCyberLHandPersephone
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandPersephoneTools
+        Rodentia: RodentiaCyberLHandPersephoneTools
+        Resomi: ResomiCyberLHandPersephoneTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_persephone_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_persephone_hand"
+    - type: LimbItemStorage
+      items:
+        - CyberToolMiniHoe
+        - CyberToolClippers
+        - CyberToolDropper
+        - CyberToolHatchet
+        - CyberToolScythe
+        - CyberToolSpade
+        - CyberReagentGrinder
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberPersephone
+  name: "right persephone arm"
+  parent: [PartCyber, BaseRightArm]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmPersephone
+        Rodentia: RodentiaCyberRArmPersephone
+        Resomi: ResomiCyberRArmPersephone
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_persephone_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_persephone_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberPersephone
+
+- type: entity
+  id: RightHandCyberPersephone
+  name: "right persephone hand"
+  parent: [PartCyber, BaseRightHand]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandPersephone
+        Rodentia: RodentiaCyberRHandPersephone
+        Resomi: ResomiCyberRHandPersephone
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandPersephoneTools
+        Rodentia: RodentiaCyberRHandPersephoneTools
+        Resomi: ResomiCyberRHandPersephoneTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_persephone_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_persephone_hand"
+    - type: LimbItemStorage
+      items:
+        - CyberToolMiniHoe
+        - CyberToolClippers
+        - CyberToolDropper
+        - CyberToolHatchet
+        - CyberToolScythe
+        - CyberToolSpade
+        - CyberReagentGrinder
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# Scribe
+- type: entity
+  id: LeftArmCyberScribe
+  name: "left scribe arm"
+  parent: [PartCyber, BaseLeftArm]
+  description: Augmented arm for the bureaucrats of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmScribe
+        Rodentia: RodentiaCyberLArmScribe
+        Resomi: ResomiCyberLArmScribe
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_scribe_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_scribe_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberScribe
+
+- type: entity
+  id: LeftHandCyberScribe
+  name: "left scribe hand"
+  parent: [PartCyber, BaseLeftHand]
+  description: Augmented hand for the bureaucrats of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandScribe
+        Rodentia: RodentiaCyberLHandScribe
+        Resomi: ResomiCyberLHandScribe
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandScribeTools
+        Rodentia: RodentiaCyberLHandScribeTools
+        Resomi: ResomiCyberLHandScribeTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_scribe_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_scribe_hand"
+    - type: LimbItemStorage
+      items:
+        - PenCyber
+        - StampCyber
+        - PrinterCyber
+        - FilingCabinetCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberScribe
+  name: "right scribe arm"
+  parent: [PartCyber, BaseRightArm]
+  description: Augmented arm for the bureaucrats of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmScribe
+        Rodentia: RodentiaCyberRArmScribe
+        Resomi: ResomiCyberRArmScribe
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_scribe_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_scribe_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberScribe
+
+- type: entity
+  id: RightHandCyberScribe
+  name: "right scribe hand"
+  parent: [PartCyber, BaseRightHand]
+  description: Augmented hand for the bureaucrats of the modern age.
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandScribe
+        Rodentia: RodentiaCyberRHandScribe
+        Resomi: ResomiCyberRHandScribe
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandScribeTools
+        Rodentia: RodentiaCyberRHandScribeTools
+        Resomi: ResomiCyberRHandScribeTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_scribe_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_scribe_hand"
+    - type: LimbItemStorage
+      items:
+        - PenCyber
+        - StampCyber
+        - PrinterCyber
+        - FilingCabinetCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# Herakles
+- type: entity
+  id: LeftArmCyberHerakles
+  name: "left herakles arm"
+  parent: [PartCyber, BaseLeftArm, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmHerakles
+        Rodentia: RodentiaCyberLArmHerakles
+        Resomi: ResomiCyberLArmHerakles
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_bulwark_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_bulwark_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberHerakles
+
+- type: entity
+  id: LeftHandCyberHerakles
+  name: "left herakles hand"
+  parent: [PartCyber, BaseLeftHand, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandHerakles
+        Rodentia: RodentiaCyberLHandHerakles
+        Resomi: ResomiCyberLHandHerakles
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandHeraklesTools
+        Rodentia: RodentiaCyberLHandHeraklesTools
+        Resomi: ResomiCyberLHandHeraklesTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_bulwark_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_bulwark_hand"
+    - type: LimbItemStorage
+      items:
+        - MeleeWeaponCyberHerakles
+        - HoloRestrainerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberHerakles
+  name: "right herakles arm"
+  parent: [PartCyber, BaseRightArm, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmHerakles
+        Rodentia: RodentiaCyberRArmHerakles
+        Resomi: ResomiCyberRArmHerakles
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_bulwark_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_bulwark_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberHerakles
+
+- type: entity
+  id: RightHandCyberHerakles
+  name: "right herakles hand"
+  parent: [PartCyber, BaseRightHand, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandHerakles
+        Rodentia: RodentiaCyberRHandHerakles
+        Resomi: ResomiCyberRHandHerakles
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandHeraklesTools
+        Rodentia: RodentiaCyberRHandHeraklesTools
+        Resomi: ResomiCyberRHandHeraklesTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_bulwark_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_bulwark_hand"
+    - type: LimbItemStorage
+      items:
+        - MeleeWeaponCyberHerakles
+        - HoloRestrainerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# Investigator
+- type: entity
+  id: LeftArmCyberInvestigator
+  name: "left investigator arm"
+  parent: [PartCyber, BaseLeftArm, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLArmInvestigator
+        Rodentia: RodentiaCyberLArmInvestigator
+        Resomi: ResomiCyberLArmInvestigator
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_investigator_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_investigator_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        left hand: LeftHandCyberInvestigator
+
+- type: entity
+  id: LeftHandCyberInvestigator
+  name: "left investigator hand"
+  parent: [PartCyber, BaseLeftHand, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLHandInvestigator
+        Rodentia: RodentiaCyberLHandInvestigator
+        Resomi: ResomiCyberLHandInvestigator
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberLHandInvestigatorTools
+        Rodentia: RodentiaCyberLHandInvestigatorTools
+        Resomi: ResomiCyberLHandInvestigatorTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_investigator_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_investigator_hand"
+    - type: LimbItemStorage
+      items:
+        - RadcasterCyber
+        - FreezeRayCyber
+        - VialCyberEmpty
+        - VialCyberWater
+        - VialCyberBlood
+        - NodeScannerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandLeft
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+- type: entity
+  id: RightArmCyberInvestigator
+  name: "right investigator arm"
+  parent: [PartCyber, BaseRightArm, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRArmInvestigator
+        Rodentia: RodentiaCyberRArmInvestigator
+        Resomi: ResomiCyberRArmInvestigator
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_investigator_arm"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_investigator_arm"
+    - type: WithAttachedBodyParts
+      parts:
+        right hand: RightHandCyberInvestigator
+
+- type: entity
+  id: RightHandCyberInvestigator
+  name: "right investigator hand"
+  parent: [PartCyber, BaseRightHand, BaseC2Contraband]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRHandInvestigator
+        Rodentia: RodentiaCyberRHandInvestigator
+        Resomi: ResomiCyberRHandInvestigator
+    - type: BaseLayerIdToggled
+      layers:
+        Default: CyberRHandInvestigatorTools
+        Rodentia: RodentiaCyberRHandInvestigatorTools
+        Resomi: ResomiCyberRHandInvestigatorTools
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_investigator_hand"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_investigator_hand"
+    - type: LimbItemStorage
+      items:
+        - RadcasterCyber
+        - FreezeRayCyber
+        - VialCyberEmpty
+        - VialCyberWater
+        - VialCyberBlood
+        - NodeScannerCyber
+    - type: LimbItemDeployer
+      action: ActionToggleCyberHandRight
+      sound:
+        path: /Audio/_Starlight/Medical/Cyber/deploy.ogg
+      handWhitelist:
+        tags:
+          - CyberHandItem
+
+# Hydraulic Legs
+- type: entity
+  id: LeftLegCyberHydraulic
+  name: "left hydraulic cyber leg"
+  parent: [PartCyber, LeftLegCyberBase]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLLegHydraulic
+        Rodentia: RodentiaCyberLLegHydraulic
+        Resomi: ResomiCyberLLegHydraulic
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_leg_hydraulic"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_leg_hydraulic"
+    - type: MovementBodyPart
+      sprintSpeed : 3.4
+      maxDensity: 10000 #Lift the Planet!
+      minSpeedMod: 1.0
+      maxSpeedMod: 1.0
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+
+- type: entity
+  id: RightLegCyberHydraulic
+  name: "right hydraulic cyber leg"
+  parent: [PartCyber, RightLegCyberBase]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRLegHydraulic
+        Rodentia: RodentiaCyberRLegHydraulic
+        Resomi: ResomiCyberRLegHydraulic
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_leg_hydraulic"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_leg_hydraulic"
+    - type: MovementBodyPart
+      sprintSpeed : 3.4
+      maxDensity: 10000 #Lift the Planet!
+      minSpeedMod: 1.0
+      maxSpeedMod: 1.0
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+
+# Pilebunker Legs
+- type: entity
+  id: LeftLegCyberPilebunker
+  name: "left pilebunker leg"
+  parent: [PartCyber, LeftLegCyberBase]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLLegPilebunker
+        Rodentia: RodentiaCyberLLegPilebunker
+        Resomi: ResomiCyberLLegPilebunker
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_leg_pilebunker"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_leg_pilebunker"
+    - type: MovementBodyPart
+      sprintSpeed : 4.5
+      maxDensity: 155
+    - type: LimbWithAction
+      action: JumpPilebunkerLeg
+
+- type: entity
+  id: RightLegCyberPilebunker
+  name: "right pilebunker leg"
+  parent: [PartCyber, RightLegCyberBase]
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRLegPilebunker
+        Rodentia: RodentiaCyberRLegPilebunker
+        Resomi: ResomiCyberRLegPilebunker
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_leg_pilebunker"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_leg_pilebunker"
+    - type: MovementBodyPart
+      sprintSpeed : 4.5
+      maxDensity: 155
+    - type: LimbWithAction
+      action: JumpPilebunkerLeg
+
+# Cargo Legs
+- type: entity
+  id: LeftLegCyberCargo
+  name: "left cargo cyber leg"
+  parent: [PartCyber, LeftLegCyberBase]
+  description: Wait a moment... This is just an older model of cyberleg someone strapped a pouch to!
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberLLegCargo
+        Rodentia: RodentiaCyberLLegCargo
+        Resomi: ResomiCyberLLegCargo
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_leg_cargo"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "l_leg_cargo"
+    - type: MovementBodyPart
+      sprintSpeed : 4.05
+      maxDensity: 155
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+        params:
+          volume: 0.1
+    - type: LimbWithAction
+      action: ActionOpenStorageLeftLeg
+    - type: StorageOrgan
+      organAction: ActionOpenStorageLeftLeg
+      actionKey: LeftLeg
+    - type: Storage
+      clickInsert: false
+      showVerb: false
+      openOnActivate: false
+      grid:
+      - 0,0,1,2
+      maxItemSize: Large
+      blacklist:
+        components:
+          - BodyPart
+          - Organ
+    - type: PrivateStorage
+      accessDelay: 3.0
+      accessPopup: "cargo-leg-left-storage-accessing"
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: []
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+
+- type: entity
+  id: RightLegCyberCargo
+  name: "right cargo cyber leg"
+  parent: [PartCyber, RightLegCyberBase]
+  description: Wait a moment... This is just an older model of cyberleg someone strapped a pouch to!
+  components:
+    - type: BaseLayerId
+      layers:
+        Default: CyberRLegCargo
+        Rodentia: RodentiaCyberRLegCargo
+        Resomi: ResomiCyberRLegCargo
+    - type: Sprite
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_leg_cargo"
+    - type: Icon
+      sprite: _Starlight/Mobs/Species/Cyberlimbs/parts.rsi
+      state: "r_leg_cargo"
+    - type: MovementBodyPart
+      sprintSpeed : 4.05
+      maxDensity: 155
+    - type: FootstepModifier
+      footstepSoundCollection:
+        path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+        params:
+          volume: 0.1
+    - type: LimbWithAction
+      action: ActionOpenStorageRightLeg
+    - type: StorageOrgan
+      organAction: ActionOpenStorageRightLeg
+      actionKey: RightLeg
+    - type: Storage
+      clickInsert: false
+      showVerb: false
+      openOnActivate: false
+      grid:
+      - 0,0,1,2
+      maxItemSize: Large
+      blacklist:
+        components:
+          - BodyPart
+          - Organ
+    - type: PrivateStorage
+      accessDelay: 3.0
+      accessPopup: "cargo-leg-right-storage-accessing"
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: []
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface

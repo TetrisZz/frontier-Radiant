@@ -169,9 +169,23 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
+        # Radiant sector: ordinary ethanol poisoning is replaced by the harsher budget-cyber reaction below.
+        - !type:OrganType
+          type: BudgetCyber
+          shouldHave: false
         damage:
           types:
             Poison: 1
+      # Radiant sector: the cheap cyber liver starts causing severe poisoning at a lower dose.
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: BudgetCyber
+        damage:
+          types:
+            Poison: 1.2
       # dwarves take less toxin damage and heal a marginal amount of brute
       - !type:HealthChange
         conditions:
@@ -212,6 +226,11 @@
           shouldHave: false
       - !type:Drunk
         boozePower: 2
+        conditions:
+        # Radiant sector: this liver poisons instead of producing the normal drunkenness effect.
+        - !type:OrganType
+          type: BudgetCyber
+          shouldHave: false
 
 - type: reagent
   id: Gin

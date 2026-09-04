@@ -37,6 +37,8 @@
   name: animal lungs
   categories: [ HideSpawnMenu ]
   components:
+  # Radiant sector: Starlight surgery organ type compatibility for species using animal organs.
+  - type: OrganLungs
   - type: Sprite
     layers:
     - state: lung-l
@@ -71,6 +73,8 @@
   name: animal stomach
   categories: [ HideSpawnMenu ]
   components:
+  # Radiant sector: Starlight surgery organ type compatibility for species using animal organs.
+  - type: OrganStomach
   - type: Sprite
     state: stomach
   - type: Organ
@@ -113,6 +117,8 @@
   name: animal liver
   categories: [ HideSpawnMenu ]
   components:
+  # Radiant sector: Starlight surgery organ type compatibility for species using animal organs.
+  - type: OrganLiver
   - type: Sprite
     state: liver
   - type: Organ
@@ -132,6 +138,8 @@
   name: animal heart
   categories: [ HideSpawnMenu ]
   components:
+  # Radiant sector: Starlight surgery organ type compatibility for species using animal organs.
+  - type: OrganHeart
   - type: Sprite
     state: heart-on
   - type: Organ
@@ -153,6 +161,8 @@
   name: animal kidneys
   categories: [ HideSpawnMenu ]
   components:
+  # Radiant sector: Starlight surgery organ type compatibility for species using animal organs.
+  - type: OrganKidneys
   - type: Sprite
     layers:
     - state: kidney-l

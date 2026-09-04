@@ -7,6 +7,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Movement.Components;
+using Content.Shared.Stunnable;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -23,6 +24,17 @@ public partial class SharedBodySystem
         // If you modify this also see the Body partial for root parts.
         SubscribeLocalEvent<BodyPartComponent, EntInsertedIntoContainerMessage>(OnBodyPartInserted);
         SubscribeLocalEvent<BodyPartComponent, EntRemovedFromContainerMessage>(OnBodyPartRemoved);
+        // Radiant sector: a humanoid with no legs may crawl, but may not stand.
+        SubscribeLocalEvent<BodyComponent, StandUpAttemptEvent>(OnLeglessStandAttempt);
+    }
+
+    private void OnLeglessStandAttempt(Entity<BodyComponent> ent, ref StandUpAttemptEvent args)
+    {
+        if (ent.Comp.RequiredLegs <= 0 || ent.Comp.LegEntities.Count > 0)
+            return;
+
+        args.Cancelled = true;
+        args.Autostand = false;
     }
 
     private void OnBodyPartInserted(Entity<BodyPartComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -476,9 +488,21 @@ public partial class SharedBodySystem
             sprintSpeed += legModifier.SprintSpeed;
             acceleration += legModifier.Acceleration;
         }
-        walkSpeed /= body.RequiredLegs;
-        sprintSpeed /= body.RequiredLegs;
-        acceleration /= body.RequiredLegs;
+        if (body.LegEntities.Count == 0)
+        {
+            // Radiant sector: zero used to make a downed legless player completely
+            // immobile. Retain a deliberately slow crawl speed instead.
+            walkSpeed = MovementSpeedModifierComponent.DefaultBaseWalkSpeed * 0.35f;
+            sprintSpeed = walkSpeed;
+            acceleration = MovementSpeedModifierComponent.DefaultAcceleration;
+            Standing.Down(bodyId, playSound: false, dropHeldItems: false);
+        }
+        else
+        {
+            walkSpeed /= body.RequiredLegs;
+            sprintSpeed /= body.RequiredLegs;
+            acceleration /= body.RequiredLegs;
+        }
         Movement.ChangeBaseSpeed(bodyId, walkSpeed, sprintSpeed, acceleration, movement);
     }
 

@@ -87,6 +87,10 @@
         Blunt: 1
   - type: Shovel
     speedModifier: 0.1 # you can try
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  - type: Hemostat
+  # Radiant sector end
   - type: ReactionMixer
     mixMessage: "spoon-mixing-success"
     timeToMix: 0.5

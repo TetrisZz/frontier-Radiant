@@ -19,6 +19,7 @@ using Content.Shared.ERP.Components;
 using Content.Server.Chat.Systems;
 using Content.Server._radiant.Arousal;
 using Content.Server.Popups;
+using Content.Shared._radiant.ERP;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -120,6 +121,11 @@ namespace Content.Server.Interaction.Panel
             }
 
             if (IsErpDenied(userEntity))
+                return;
+
+            // Radiant sector: never trust only the client-side list. Surgery can
+            // change ERP anatomy, so the server validates the actual organs too.
+            if (!IsInteractionAnatomyAllowed(userEntity, targetEntity, interactionPrototype))
                 return;
 
             var delayKey = target ?? user;
@@ -315,6 +321,7 @@ namespace Content.Server.Interaction.Panel
             var arousal = interactionPrototype.EffectiveArousal;
             if (arousal <= 0 && arousalHint > 0)
                 arousal = Math.Clamp(arousalHint, 0, 12);
+            _arousal.RecordErpInteraction(user, target, interactionPrototype);
             _arousal.AddArousal(user, arousal);
 
             if (arousal > 0 && interactionPrototype.PartnerArousalMultiplier > 0f)
@@ -444,6 +451,36 @@ namespace Content.Server.Interaction.Panel
         {
             return _entManager.TryGetComponent<DetailExaminableComponent>(uid, out var detail) &&
                    detail.ERPStatus == EnumERPStatus.NO;
+        }
+
+        private bool IsInteractionAnatomyAllowed(EntityUid user, EntityUid? target, InteractionPrototype prototype)
+        {
+            if (!TryComp<HumanoidAppearanceComponent>(user, out var userAppearance))
+                return false;
+
+            if (!IsAnatomyAllowed(user, userAppearance, prototype.AllowedGenders, prototype.Category))
+                return false;
+
+            if (target == null)
+                return prototype.Solo;
+
+            return TryComp<HumanoidAppearanceComponent>(target.Value, out var targetAppearance)
+                && IsAnatomyAllowed(target.Value, targetAppearance, prototype.NearestAllowedGenders, prototype.Category);
+        }
+
+        private bool IsAnatomyAllowed(EntityUid uid, HumanoidAppearanceComponent appearance, List<string>? genders, string category)
+        {
+            if (genders?.Contains("all") == true)
+                return true;
+            if (!TryComp<AdultAnatomyComponent>(uid, out var anatomy))
+                return genders?.Contains(appearance.Sex.ToString()) == true;
+            if (genders?.Contains("Male") == true && anatomy.HasPenis)
+                return true;
+            if (genders?.Contains("Female") == true)
+                return category.Equals("chest", StringComparison.OrdinalIgnoreCase)
+                    ? anatomy.HasBreasts
+                    : anatomy.HasVagina;
+            return false;
         }
     }
 }

@@ -141,7 +141,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             _toggle.TryDeactivate(uid.Owner);
     }
 
-    private void OpenUserInterface(EntityUid user, EntityUid analyzer)
+    // Radiant sector start - allow the linked body scanner console to reuse analyzer UI.
+    public void OpenUserInterface(EntityUid user, EntityUid analyzer)
     {
         if (!_uiSystem.HasUi(analyzer, HealthAnalyzerUiKey.Key))
             return;
@@ -154,7 +155,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that should receive the updates</param>
     /// <param name="target">The entity to start analyzing</param>
-    private void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
+    public void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
     {
         //Link the health analyzer to the scanned entity
         healthAnalyzer.Comp.ScannedEntity = target;
@@ -169,7 +170,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
     /// <param name="target">The entity to analyze</param>
-    private void StopAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
+    public void StopAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
     {
         //Unlink the analyzer
         healthAnalyzer.Comp.ScannedEntity = null;
@@ -178,6 +179,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         UpdateScannedUser(healthAnalyzer, target, false);
     }
+    // Radiant sector end
 
     /// <summary>
     /// Send an update for the target to the healthAnalyzer

@@ -9,6 +9,8 @@
       - torso
       organs:
         brain: OrganDionaBrainNymph
+        eyes: OrganDionaEyes # Radiant sector - eye extraction must affect vision for every playable species.
+        tongue: OrganHumanTongue # Radiant sector - surgery support for every playable species.
     torso:
       part: TorsoDiona
       connections:

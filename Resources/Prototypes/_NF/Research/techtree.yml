@@ -349,7 +349,8 @@
   technologyPrerequisites:
   - NFAdvancedToolsTechnology
   - NFAdvancedAnomalyResearch
-  position: 3, 5
+  # Radiant sector: keep the time manipulator one cell to the right for a cleaner tree.
+  position: 4, 5
 
 - type: technology
   id: NFSuperParts
@@ -631,7 +632,7 @@
   prerequisiteLineType: Diagonal
   technologyPrerequisites:
   - NFBasicMedicine
-  position: 2, 12
+  position: 3, 10 # Radiant sector: raise the syringe gun while keeping NFBasicMedicine as its prerequisite.
 
 - type: technology
   id: NFAppliedBiochemicalStasis
@@ -1143,9 +1144,10 @@
   entityIcon: hydroponicsTray
   discipline: NFService
   tier: 1
-  cost: 10000
+  cost: 12500 # Radiant sector: includes seed extractor research (+2500).
   recipeUnlocks:
   - HydroponicsTrayMachineCircuitboard
+  - SeedExtractorMachineCircuitboard # Radiant sector
   technologyPrerequisites:
   - NFAdvancedHydroponicsEquipment
   position: 0, 25
@@ -1182,20 +1184,8 @@
   - NFAdvancedHydroponicsEquipment
   position: 1, 24
 
-- type: technology
-  id: NFSeedExtractor
-  name: nf-research-technology-seed-extractor
-  entityIcon: SeedExtractor
-  discipline: NFService
-  tier: 1
-  cost: 2500
-  recipeUnlocks:
-  - SeedExtractorMachineCircuitboard
-  prerequisiteLineType: Diagonal
-  technologyPrerequisites:
-  - NFAdvancedHydroponicsEquipment
-  position: 1, 25
-
+# Radiant sector: the former NFSeedExtractor node is replaced by
+# StarlightBotanistCyberarms; the extractor itself is now part of NFHydroponics.
 - type: technology
   id: NFDeepFryer
   name: nf-research-technology-deep-fryer

@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseAction
+  id: ActionRetractableItemAdvancedClaws
+  name: Extend or retract claws
+  description: Deploy or conceal the claws implanted in your hand.
+  components:
+  - type: Action
+    useDelay: 1
+    raiseOnAction: true
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Starlight/Actions/implants.rsi
+      state: toggle_claws
+  - type: InstantAction
+    event: !type:OnRetractableItemActionEvent
+  # Radiant sector: Frontier's retractable-item system deploys into the active hand.
+  - type: RetractableItemAction
+    spawnedPrototype: AdvancedClaws
+
