@@ -41,6 +41,26 @@ interaction-dildo-target-vagina-2 = { $user } быстро долбит вашу
 interaction-fleshlight = Вы помассировали член вагиной
 interaction-fleshlight-target = { $user } помассировать ваш член
 interaction-condom = Вы надели презерватив
-interaction-condom-target = { $user } одеть презерватив на ваш член
+interaction-condom-target = { $user } надел презерватив на ваш член
+
+# Radiant sector: real anatomy and climax-fluid feedback.
+erp-condom-remove-verb = Снять презерватив
+erp-condom-remove-unused = Вы снимаете неиспользованный презерватив.
+erp-condom-remove-used = Вы снимаете использованный презерватив.
+erp-condom-catches-fluid = Презерватив наполняется, не позволяя жидкости пролиться.
+erp-climax-target-filled = Вы чувствуете себя наполненно.
+adult-anatomy-anal = ...имеет анал
+adult-anatomy-anal-player = ...имеете анал
+adult-anatomy-penis = ...имеет член и яички
+adult-anatomy-penis-player = ...имеете член и яички
+adult-anatomy-penis-denervated = ...имеет иссечённый чувствительный нерв члена
+adult-anatomy-penis-denervated-player = ...имеете иссечённый чувствительный нерв члена
+adult-anatomy-vagina = ...имеет вагину
+adult-anatomy-vagina-player = ...имеете вагину
+adult-anatomy-breasts = ...имеет грудь ({ $size })
+adult-anatomy-breasts-player = ...имеете грудь ({ $size })
+adult-anatomy-size-small = маленькая
+adult-anatomy-size-medium = средняя
+adult-anatomy-size-large = большая
 interaction-vibrator-off = Вибратор выключен
 interaction-nothing = Ничего не происходит

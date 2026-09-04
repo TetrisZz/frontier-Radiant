@@ -25,6 +25,11 @@
     onlySetBySelf: true
   - type: UserInterface
     interfaces:
+      # Radiant sector start - Starlight surgery: this species overrides the
+      # inherited UI registry, so keep the surgery interface available.
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      # Radiant sector end
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:

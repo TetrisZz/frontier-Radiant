@@ -9,6 +9,9 @@
   id: BaseMobSpecies
   abstract: true
   components:
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTarget
+  # Radiant sector end
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -185,6 +188,10 @@
   - type: Stripping
   - type: UserInterface
     interfaces:
+      # Radiant sector start - Starlight surgery
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      # Radiant sector end
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
@@ -264,6 +271,7 @@
       groups:
         Brute: -0.07
   - type: Fingerprint
+  - type: Scent # Radiant sector: organic characters leave trails for olfactory implants.
   - type: Blindable
   # Other
   - type: Temperature

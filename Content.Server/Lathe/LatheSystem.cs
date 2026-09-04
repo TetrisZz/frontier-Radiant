@@ -36,6 +36,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Construction.Components; // Frontier
 using Content.Shared.Cargo.Components; // Frontier
 using Content.Server._NF.Contraband.Systems; // Frontier
+using Content.Shared._Starlight.Lathe; // Radiant sector
 using Robust.Shared.Containers; // Frontier
 
 namespace Content.Server.Lathe
@@ -259,7 +260,12 @@ namespace Content.Server.Lathe
                 var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
                 if (currentRecipe.Result is { } resultProto)
                 {
-                    var result = Spawn(resultProto, Transform(uid).Coordinates);
+                    // Radiant sector: a cyber printer is nested in an installed limb.
+                    // Spawn at the outer mover's coordinates so paper lands on the
+                    // floor/grid rather than becoming parented to the wearer.
+                    var result = HasComp<CyberPrinterComponent>(uid)
+                        ? SpawnAtPosition(resultProto, _transform.GetMoverCoordinates(uid))
+                        : Spawn(resultProto, Transform(uid).Coordinates);
 
                     // Frontier: adjust price before merge (stack prices changed once)
                     if (result.Valid)

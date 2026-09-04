@@ -20,6 +20,7 @@ namespace Content.Client.HealthAnalyzer.UI
             base.Open();
 
             _window = this.CreateWindow<HealthAnalyzerWindow>();
+            _window.SetDetailedMode(false); // Radiant sector: console diagnostics use their own interface.
 
             _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 

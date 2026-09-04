@@ -10,6 +10,7 @@
       organs:
         brain: OrganGoblinBrain
         eyes: OrganGoblinEyes
+        tongue: OrganGoblinTongue # Radiant sector: Starlight surgery
     torso:
       part: TorsoGoblin
       connections:

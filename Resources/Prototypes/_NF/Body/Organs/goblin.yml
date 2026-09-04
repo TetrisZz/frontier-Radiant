@@ -72,6 +72,8 @@
   suffix: Goblin
   description: "They breathe business."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganLungs
   - type: Sprite
     sprite: _NF/Mobs/Species/Goblin/organs.rsi
     layers:

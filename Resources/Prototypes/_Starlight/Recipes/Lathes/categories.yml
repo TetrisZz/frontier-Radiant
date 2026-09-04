@@ -1,0 +1,12 @@
+# Radiant sector: categories used by the Starlight surgery research pack.
+- type: latheCategory
+  id: Surgery
+  name: lathe-category-surgery
+
+- type: latheCategory
+  id: Cyberlimbs
+  name: lathe-category-cyberlimbs
+
+- type: latheCategory
+  id: Implants
+  name: lathe-category-implants

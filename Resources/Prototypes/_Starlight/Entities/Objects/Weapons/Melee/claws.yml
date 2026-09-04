@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseItem
+  id: AdvancedClaws
+  name: advanced claws
+  description: Sharp retractable plasteel claws embedded in your hand.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sharp
+  - type: MeleeWeapon
+    mustBeEquippedToUse: false
+    wideAnimationRotation: 90
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    attackRate: 2
+    damage:
+      types:
+        Slash: 8
+  - type: Sprite
+    sprite: _Starlight/Objects/Weapons/Melee/claws.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Utensil
+    types:
+    - Knife
+  - type: Tool
+    qualities:
+    - Slicing
+

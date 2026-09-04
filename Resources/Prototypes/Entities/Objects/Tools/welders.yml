@@ -200,6 +200,14 @@
     enabled: false
     radius: 1.0
     color: orange
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTool
+  - type: Cautery
+    startSound:
+      path: /Audio/_Starlight/Medical/Surgery/cautery1.ogg
+    endSound:
+      path: /Audio/_Starlight/Medical/Surgery/cautery2.ogg
+  # Radiant sector end
 
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]

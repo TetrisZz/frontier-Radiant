@@ -1,0 +1,79 @@
+# Portable surgery cases ported from Starlight. They are intentionally not added to research.
+- type: entity
+  id: BaseStarlightSurgicalKit
+  parent: BaseStorageItem
+  abstract: true
+  name: surgical kit
+  description: A compact case for a complete set of surgical tools.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/cases.rsi
+    state: surgerykit
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,4,3
+    whitelist:
+      tags:
+      - Brutepack
+      components:
+      - SurgeryTool
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    sprite: _Starlight/Objects/Specific/Medical/cases.rsi
+
+- type: entity
+  id: SurgicalKitMedical
+  parent: BaseStarlightSurgicalKit
+  name: medical surgical kit
+  description: A compact medical case for surgical tools.
+
+- type: entity
+  id: SurgicalKitRobotics
+  parent: BaseStarlightSurgicalKit
+  name: robotic surgical kit
+  description: A compact roboticist's case for surgical tools.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Robotics/cases.rsi
+    state: surgerykit
+  - type: Item
+    sprite: _Starlight/Objects/Specific/Robotics/cases.rsi
+
+- type: entity
+  id: SurgicalKitMedicalFilled
+  parent: SurgicalKitMedical
+  name: medical surgical kit
+  suffix: Filled
+  components:
+  # Radiant sector: use explicit container fill for compatibility with this branch.
+  - type: StorageFill
+    contents:
+    - id: Hemostat
+    - id: Saw
+    - id: Drill
+    - id: Cautery
+    - id: Retractor
+    - id: Scalpel
+    - id: BoneGel
+    - id: BoneSetter
+
+- type: entity
+  id: SurgicalKitRoboticsFilled
+  parent: SurgicalKitRobotics
+  name: robotic surgical kit
+  suffix: Filled
+  components:
+  # Radiant sector: robotic and organic surgery share the ported tool qualities.
+  - type: StorageFill
+    contents:
+    - id: Hemostat
+    - id: Saw
+    - id: Drill
+    - id: Cautery
+    - id: Retractor
+    - id: Scalpel
+    - id: BoneGel
+    - id: BoneSetter

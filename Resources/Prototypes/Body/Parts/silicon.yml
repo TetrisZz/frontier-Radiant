@@ -3,6 +3,13 @@
   parent: BaseItem
   abstract: true
   components:
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  # Radiant sector end
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
   - type: Icon

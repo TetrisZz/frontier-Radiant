@@ -81,6 +81,12 @@
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
+    # Radiant sector: restraints must render above the body/hands, but below hand clothing.
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
     - map: ["id"]
     - map: ["gloves"]
     - map: ["shoes"]
@@ -166,3 +172,9 @@
     - map: ["head"]
     - map: ["pocket1"]
     - map: ["pocket2"]
+    # Radiant sector: keep the Shadowkin preview entity compatible with cuff visuals.
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false

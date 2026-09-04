@@ -10,6 +10,7 @@
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
+        tongue: OrganHumanTongue # Radiant sector: native tongue must exist before it can be surgically extracted.
     torso:
       part: TorsoHuman
       connections:

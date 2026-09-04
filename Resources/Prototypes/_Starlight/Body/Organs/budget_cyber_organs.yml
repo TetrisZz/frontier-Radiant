@@ -1,0 +1,127 @@
+# Budget cyber organs ported from Starlight. No lathe recipes or research are intentionally included.
+- type: entity
+  id: BudgetCyberEyes
+  name: budget cyber eyes
+  description: Cold, soulless replacements that only show the world in shades of grey.
+  parent: OrganHumanEyes
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/budget_cyber_organs.rsi
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: FunctionalOrgan
+    comps:
+    - type: NoirOverlay
+  - type: OrganVisualization
+    layer: Eyes
+    prototypes:
+      Default: MobHumanoidEyes
+      Resomi: MobResomiEyes
+      Moth: MobMothEyes
+      Tajaran: MobTajaranEyes
+      Shadekin: MobShadowkinEyes
+      Arachnid: MobArachnidEyes
+      Diona: MobDionaEyes
+      Goblin: MobGoblinEyes
+      Vox: MobVoxEyes
+  # Radiant sector: installed-organ examine clue.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-budget-eyes
+    visibility: Subtle
+
+- type: entity
+  id: BudgetCyberTongue
+  name: budget cyber tongue
+  description: An artificial tongue with full movement but no taste receptors.
+  parent: OrganHumanTongue
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/budget_cyber_organs.rsi
+    state: tongue
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: FunctionalOrgan
+    comps:
+    - type: UnableToTaste
+  # Radiant sector: installed-organ examine clue.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-budget-tongue
+    visibility: Subtle
+
+- type: entity
+  id: BudgetCyberLiver
+  name: budget cyber liver
+  description: A cheap artificial liver that handles alcohol dangerously poorly.
+  parent: OrganHumanLiver
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/budget_cyber_organs.rsi
+    state: liver
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [BudgetCyber]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+  # Radiant sector: installed-organ examine clue.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-budget-liver
+    visibility: Concealed
+
+- type: entity
+  id: BudgetCyberStomach
+  name: budget cyber stomach
+  description: A rigid artificial stomach with very little capacity.
+  parent: OrganHumanStomach
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/budget_cyber_organs.rsi
+    state: stomach
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 30
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [BudgetCyber]
+    groups:
+    - id: Food
+    - id: Drink
+  # Radiant sector: installed-organ examine clue.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-budget-stomach
+    visibility: Concealed
+
+- type: entity
+  id: BudgetCyberKidneys
+  name: budget cyber kidneys
+  description: Cheap artificial kidneys that waste considerably more water.
+  parent: OrganHumanKidneys
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/budget_cyber_organs.rsi
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: FunctionalOrgan
+    comps:
+    - type: ThirstRateMultiplier
+      multiplier: 1.25
+  # Radiant sector: installed-organ examine clue.
+  - type: SurgicalImplantExamine
+    text: starlight-surgery-implant-hint-budget-kidneys
+    visibility: Concealed

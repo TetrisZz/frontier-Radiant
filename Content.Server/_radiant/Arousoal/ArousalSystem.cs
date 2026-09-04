@@ -6,6 +6,11 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Rejuvenate;
+using Content.Shared.Chat.Prototypes;
+using Content.Shared._radiant;
+using Content.Shared._radiant.ERP;
+using Content.Shared.DetailExaminable;
+using Content.Server.Popups;
 
 namespace Content.Server._radiant.Arousal;
 
@@ -20,6 +25,10 @@ public sealed class ArousalSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+
+    // Radiant sector: short-lived destination from the latest penetrative ERP interaction.
+    private readonly Dictionary<EntityUid, (EntityUid Target, TimeSpan Expires)> _climaxTargets = new();
 
     /// <summary>
     /// Prevents re-entrancy: climax plays the configured emote, which must not grant arousal again.
@@ -144,6 +153,18 @@ public sealed class ArousalSystem : EntitySystem
     /// </summary>
     private void ProcessAtMaxArousal(EntityUid uid, ArousalComponent arousal, ArousalGenderConfig genderConfig)
     {
+        // Radiant sector: penile sensory denervation leaves arousal intact but
+        // prevents the climax emote, fluid effect and partner feedback.
+        if (TryComp<AdultAnatomyComponent>(uid, out var anatomy)
+            && anatomy.HasPenis
+            && !anatomy.PenisNervesIntact)
+        {
+            arousal.CurrentArousal = arousal.MaxArousal;
+            arousal.State = ArousalState.Rising;
+            _climaxTargets.Remove(uid);
+            return;
+        }
+
         if (_timing.CurTime < arousal.NextClimaxAt)
         {
             arousal.CurrentArousal = arousal.MaxArousal;
@@ -166,17 +187,83 @@ public sealed class ArousalSystem : EntitySystem
             _suppressEmoteArousal = false;
         }
 
-        if (genderConfig.EnableFluidEffect)
-            TriggerMaleFluidEffect(uid);
+        // Radiant sector: keep the nullable component explicit because the
+        // release packager promotes nullable warnings to build errors.
+        if (TryComp<AdultAnatomyComponent>(uid, out var anatomy) && anatomy != null)
+        {
+            if (anatomy.HasPenis)
+                TriggerFluidEffect(uid);
+        }
+        else if (genderConfig.EnableFluidEffect)
+        {
+            TriggerFluidEffect(uid);
+        }
 
         arousal.NextClimaxAt = _timing.CurTime + arousal.ClimaxCooldown;
         arousal.CurrentArousal = arousal.MaxArousal * 0.35f;
         arousal.State = ArousalState.ClimaxCooldown;
     }
 
-    private void TriggerMaleFluidEffect(EntityUid uid)
+    public void RecordErpInteraction(EntityUid user, EntityUid? target, InteractionPrototype interaction)
+    {
+        if (!interaction.ERP)
+            return;
+
+        _climaxTargets.Remove(user);
+        if (target == null || !IsPenetrative(interaction))
+            return;
+
+        _climaxTargets[user] = (target.Value, _timing.CurTime + TimeSpan.FromSeconds(30));
+    }
+
+    private static bool IsPenetrative(InteractionPrototype interaction)
+    {
+        // Radiant sector: a strapon does not use the wearer's penis/condom.
+        if (interaction.RequiresStrapon)
+            return false;
+
+        if (interaction.Penetrative)
+            return true;
+
+        if (!interaction.Category.Equals("groin", StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        // Compatibility for the existing Radiant interactions. Do not treat
+        // thigh/breast rubbing as internal penetration just because its old ID
+        // contains "Trax".
+        return interaction.ID.Contains("Anal", StringComparison.OrdinalIgnoreCase)
+            || interaction.ID.Contains("Vag", StringComparison.OrdinalIgnoreCase)
+            || interaction.ID.Contains("Minet", StringComparison.OrdinalIgnoreCase)
+            || interaction.ID.Contains("VoxEnter", StringComparison.OrdinalIgnoreCase)
+            || interaction.ID.Contains("EnterSlowlyFilament", StringComparison.OrdinalIgnoreCase)
+            || interaction.ID.Contains("EnterFasterFilament", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private void TriggerFluidEffect(EntityUid uid)
     {
         var coordinates = Transform(uid).Coordinates;
+        // Radiant sector: consume the destination even when a condom catches
+        // this climax, so it can never leak into a later one.
+        var hasContext = _climaxTargets.Remove(uid, out var context);
+        if (TryComp<CondomWornComponent>(uid, out var condom))
+        {
+            condom.Used = true;
+            Dirty(uid, condom);
+            _popup.PopupEntity(Loc.GetString("erp-condom-catches-fluid"), uid, uid);
+            var caughtSound = new SoundPathSpecifier("/Audio/_radiant/Voice/Human/male_moan_2.ogg");
+            _audio.PlayPvs(caughtSound, uid);
+            return;
+        }
+
+        if (hasContext
+            && context.Expires >= _timing.CurTime
+            && !TerminatingOrDeleted(context.Target)
+            && (!TryComp<DetailExaminableComponent>(context.Target, out var detail) || detail.ERPStatus != EnumERPStatus.NO))
+        {
+            coordinates = Transform(context.Target).Coordinates;
+            _popup.PopupEntity(Loc.GetString("erp-climax-target-filled"), context.Target, context.Target);
+        }
+
         var puddleEnt = Spawn("PuddleCum", coordinates);
         var sound = new SoundPathSpecifier("/Audio/_radiant/Voice/Human/male_moan_2.ogg");
         _audio.PlayPvs(sound, puddleEnt);

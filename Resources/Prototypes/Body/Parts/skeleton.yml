@@ -5,6 +5,13 @@
   name: "skeleton body part"
   abstract: true
   components:
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  # Radiant sector end
   - type: Damageable
     damageContainer: Biological
   - type: BodyPart

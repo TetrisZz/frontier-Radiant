@@ -1,0 +1,286 @@
+# Radiant sector: Frontier-compatible recipes for ported Starlight surgery content.
+
+- type: latheRecipe
+  abstract: true
+  id: StarlightAdvancedSurgeryRecipe
+  categories: [ Surgery ]
+  completetime: 4
+  materials: { Steel: 300, Plastic: 100 }
+
+- type: latheRecipe
+  parent: StarlightAdvancedSurgeryRecipe
+  id: ScalpelAdvanced
+  result: ScalpelAdvanced
+
+- type: latheRecipe
+  parent: StarlightAdvancedSurgeryRecipe
+  id: RetractorAdvanced
+  result: RetractorAdvanced
+
+- type: latheRecipe
+  parent: StarlightAdvancedSurgeryRecipe
+  id: SawAdvanced
+  result: SawAdvanced
+  completetime: 5
+  materials: { Steel: 500, Plastic: 100 }
+
+- type: latheRecipe
+  parent: StarlightAdvancedSurgeryRecipe
+  id: HemostatAdvanced
+  result: HemostatAdvanced
+
+- type: latheRecipe
+  parent: StarlightAdvancedSurgeryRecipe
+  id: BoneSetterAdvanced
+  result: BoneSetterAdvanced
+
+- type: latheRecipe
+  id: BoneGel
+  result: BoneGel
+  categories: [ Surgery ]
+  completetime: 2
+  materials: { Plastic: 200, Steel: 200 }
+
+- type: latheRecipe
+  id: BoneSetter
+  result: BoneSetter
+  categories: [ Surgery ]
+  completetime: 2
+  materials: { Steel: 200 }
+
+- type: latheRecipe
+  id: SurgicalKitMedical
+  result: SurgicalKitMedical
+  categories: [ Surgery ]
+  completetime: 3
+  materials: { Steel: 300, Plastic: 300 }
+
+- type: latheRecipe
+  id: SurgicalKitRobotics
+  result: SurgicalKitRobotics
+  categories: [ Surgery ]
+  completetime: 3
+  materials: { Steel: 400, Plastic: 200 }
+
+- type: latheRecipe
+  abstract: true
+  id: StarlightCyberarmRecipe
+  categories: [ Cyberlimbs ]
+  completetime: 10
+  materials: { Plastic: 450, Steel: 550, Silver: 100, Glass: 100 }
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberEngineer
+  result: SurgicalPackageLeftArmCyberEngineer
+  materials: { Steel: 2000, Glass: 700, Plastic: 500, Plasma: 500, Silver: 100, Gold: 100 }
+- type: latheRecipe
+  parent: LeftArmCyberEngineer
+  id: RightArmCyberEngineer
+  result: SurgicalPackageRightArmCyberEngineer
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberGorilla
+  result: SurgicalPackageLeftArmCyberGorilla
+  materials: { Plasma: 250, Plastic: 450, Steel: 550, Silver: 100, Glass: 100 }
+- type: latheRecipe
+  parent: LeftArmCyberGorilla
+  id: RightArmCyberGorilla
+  result: SurgicalPackageRightArmCyberGorilla
+
+- type: latheRecipe
+  parent: LeftArmCyberGorilla
+  id: LeftArmCyberInvestigator
+  result: SurgicalPackageLeftArmCyberInvestigator
+- type: latheRecipe
+  parent: LeftArmCyberGorilla
+  id: RightArmCyberInvestigator
+  result: SurgicalPackageRightArmCyberInvestigator
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberRipper
+  result: SurgicalPackageLeftArmCyberRipper
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: RightArmCyberRipper
+  result: SurgicalPackageRightArmCyberRipper
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberAngel
+  result: SurgicalPackageLeftArmCyberAngel
+  materials: { Gold: 250, Plastic: 450, Steel: 550, Silver: 100, Glass: 100 }
+- type: latheRecipe
+  parent: LeftArmCyberAngel
+  id: RightArmCyberAngel
+  result: SurgicalPackageRightArmCyberAngel
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberReaper
+  result: SurgicalPackageLeftArmCyberReaper
+  materials: { Plastic: 550, Steel: 100, Silver: 450, Glass: 100 }
+- type: latheRecipe
+  parent: LeftArmCyberReaper
+  id: RightArmCyberReaper
+  result: SurgicalPackageRightArmCyberReaper
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberMechwright
+  result: SurgicalPackageLeftArmCyberMechwright
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: RightArmCyberMechwright
+  result: SurgicalPackageRightArmCyberMechwright
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberRiplet
+  result: SurgicalPackageLeftArmCyberRiplet
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: RightArmCyberRiplet
+  result: SurgicalPackageRightArmCyberRiplet
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberScribe
+  result: SurgicalPackageLeftArmCyberScribe
+  materials: { Plastic: 550, Steel: 400, Silver: 50, Glass: 100 }
+- type: latheRecipe
+  parent: LeftArmCyberScribe
+  id: RightArmCyberScribe
+  result: SurgicalPackageRightArmCyberScribe
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberPersephone
+  result: SurgicalPackageLeftArmCyberPersephone
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: RightArmCyberPersephone
+  result: SurgicalPackageRightArmCyberPersephone
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberSpacer
+  result: SurgicalPackageLeftArmCyberSpacer
+  materials: { Plasteel: 250, Plastic: 450, Steel: 550, Silver: 100, Glass: 100 }
+- type: latheRecipe
+  parent: LeftArmCyberSpacer
+  id: RightArmCyberSpacer
+  result: SurgicalPackageRightArmCyberSpacer
+
+- type: latheRecipe
+  parent: StarlightCyberarmRecipe
+  id: LeftArmCyberBulwark
+  result: LeftArmCyberBulwark
+  materials: { Plastic: 450, Steel: 450, Silver: 100, Glass: 100, Plasma: 100 }
+- type: latheRecipe
+  parent: LeftArmCyberBulwark
+  id: RightArmCyberBulwark
+  result: RightArmCyberBulwark
+
+- type: latheRecipe
+  parent: LeftArmCyberBulwark
+  id: LeftArmCyberMantisBlade
+  result: SurgicalPackageLeftArmCyberMantisBlade
+- type: latheRecipe
+  parent: LeftArmCyberBulwark
+  id: RightArmCyberMantisBlade
+  result: SurgicalPackageRightArmCyberMantisBlade
+
+- type: latheRecipe
+  parent: LeftArmCyberBulwark
+  id: LeftArmCyberZeus
+  result: LeftArmCyberZeus
+- type: latheRecipe
+  parent: LeftArmCyberBulwark
+  id: RightArmCyberZeus
+  result: RightArmCyberZeus
+
+- type: latheRecipe
+  parent: LeftArmCyberBulwark
+  id: LeftArmCyberHerakles
+  result: SurgicalPackageLeftArmCyberHerakles
+- type: latheRecipe
+  parent: LeftArmCyberBulwark
+  id: RightArmCyberHerakles
+  result: SurgicalPackageRightArmCyberHerakles
+
+- type: latheRecipe
+  abstract: true
+  id: StarlightBudgetOrganRecipe
+  categories: [ Implants ]
+  completetime: 2
+  materials: { Plastic: 150, Steel: 100, Glass: 100 }
+
+- type: latheRecipe
+  parent: StarlightBudgetOrganRecipe
+  id: BudgetCyberEyes
+  result: SurgicalPackageBudgetCyberEyes
+- type: latheRecipe
+  parent: StarlightBudgetOrganRecipe
+  id: BudgetCyberTongue
+  result: SurgicalPackageBudgetCyberTongue
+- type: latheRecipe
+  parent: StarlightBudgetOrganRecipe
+  id: BudgetCyberLiver
+  result: SurgicalPackageBudgetCyberLiver
+  materials: { Plastic: 200, Steel: 150, Glass: 100 }
+- type: latheRecipe
+  parent: StarlightBudgetOrganRecipe
+  id: BudgetCyberStomach
+  result: SurgicalPackageBudgetCyberStomach
+  materials: { Plastic: 200, Steel: 100, Glass: 150 }
+- type: latheRecipe
+  parent: StarlightBudgetOrganRecipe
+  id: BudgetCyberKidneys
+  result: SurgicalPackageBudgetCyberKidneys
+  materials: { Plastic: 150, Steel: 50, Glass: 150 }
+
+- type: latheRecipe
+  abstract: true
+  id: StarlightImplantRecipe
+  categories: [ Implants ]
+  completetime: 4
+  materials: { Steel: 200, Plasma: 300, Glass: 100 }
+
+- type: latheRecipe
+  parent: StarlightImplantRecipe
+  id: EyeImplantMedical
+  result: SurgicalPackageEyeImplantMedical
+- type: latheRecipe
+  parent: StarlightImplantRecipe
+  id: EyeImplantChemistry
+  result: SurgicalPackageEyeImplantChemistry
+- type: latheRecipe
+  parent: StarlightImplantRecipe
+  id: EyeImplantSecurity
+  result: SurgicalPackageEyeImplantSecurity
+  materials: { Steel: 200, Plasma: 300, Glass: 150 }
+- type: latheRecipe
+  parent: StarlightImplantRecipe
+  id: NoseImplantOlfactory
+  result: SurgicalPackageNoseImplantOlfactory
+  completetime: 5
+  materials: { Plastic: 500, Steel: 500, Gold: 200, Glass: 100 }
+- type: latheRecipe
+  parent: StarlightImplantRecipe
+  id: BrainImplantComms
+  result: SurgicalPackageBrainImplantComms
+  completetime: 5
+  materials: { Plastic: 300, Steel: 500, Gold: 100, Glass: 200 }
+- type: latheRecipe
+  parent: StarlightImplantRecipe
+  id: HandImplantInsulated
+  result: SurgicalPackageHandImplantInsulated
+  materials: { Steel: 200, Plasma: 300, Glass: 150 }
+- type: latheRecipe
+  parent: StarlightImplantRecipe
+  id: HandImplantClaws
+  result: SurgicalPackageHandImplantClaws
+  materials: { Plasteel: 200, Steel: 200, Plasma: 300, Glass: 150 }

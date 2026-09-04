@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Starlight.Cybernetics.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Nutrition.Components;
@@ -16,11 +17,16 @@ public sealed class FlavorProfileSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _configManager = default!;
 
     private const string BackupFlavorMessage = "flavor-profile-unknown";
+    private const string BlandFlavorMessage = "flavor-profile-bland"; // Radiant sector: budget cyber tongue.
 
     private int FlavorLimit => _configManager.GetCVar(CCVars.FlavorLimit);
 
     public string GetLocalizedFlavorsMessage(Entity<FlavorProfileComponent?> entity, EntityUid user, Solution? solution)
     {
+        // Radiant sector: the budget cyber tongue can move and speak, but has no taste receptors.
+        if (HasComp<UnableToTasteComponent>(user))
+            return Loc.GetString(BlandFlavorMessage);
+
         HashSet<string> flavors = new();
         HashSet<string>? ignore = null;
 
@@ -48,6 +54,10 @@ public sealed class FlavorProfileSystem : EntitySystem
 
     public string GetLocalizedFlavorsMessage(EntityUid user, Solution solution)
     {
+        // Radiant sector: keep both flavour-query overloads consistent.
+        if (HasComp<UnableToTasteComponent>(user))
+            return Loc.GetString(BlandFlavorMessage);
+
         var flavors = GetFlavorsFromReagents(solution, FlavorLimit);
         var ev = new FlavorProfileModificationEvent(user, flavors);
         RaiseLocalEvent(user, ev, true);

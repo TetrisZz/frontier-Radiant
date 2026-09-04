@@ -12,6 +12,10 @@
       - id: Cautery
       - id: Retractor
       - id: Scalpel
+      # Radiant sector start - Starlight surgery
+      - id: BoneGelRipper
+      - id: BoneSetter
+      # Radiant sector end
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -27,6 +31,10 @@
       - id: Cautery
       - id: Retractor
       - id: ScalpelAdvanced
+      # Radiant sector start - Starlight surgery
+      - id: BoneGelRipper
+      - id: BoneSetter
+      # Radiant sector end
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
 

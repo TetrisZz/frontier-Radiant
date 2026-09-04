@@ -10,6 +10,7 @@
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
+        tongue: OrganHumanTongue # Radiant sector - surgery support for every playable species.
     torso:
       part: TorsoDemon
       organs:

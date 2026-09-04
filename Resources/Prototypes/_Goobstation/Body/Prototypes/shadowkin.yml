@@ -4,7 +4,7 @@
   name: species-name-shadowkin
   root: torso
   slots:
-    head: { part: HeadShadowkin, connections: [torso], organs: { brain: OrganHumanBrain, eyes: OrganHumanEyes } }
+    head: { part: HeadShadowkin, connections: [torso], organs: { brain: OrganHumanBrain, eyes: OrganHumanEyes, tongue: OrganHumanTongue } } # Radiant sector - surgery support for every playable species.
     torso: { part: TorsoShadowkin, connections: [right arm, left arm, right leg, left leg, head], organs: { heart: OrganHumanHeart, lungs: OrganHumanLungs, stomach: OrganHumanStomach, liver: OrganHumanLiver, kidneys: OrganHumanKidneys } }
     right arm: { part: RightArmShadowkin, connections: [right hand] }
     left arm: { part: LeftArmShadowkin, connections: [left hand] }

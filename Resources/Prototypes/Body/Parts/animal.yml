@@ -8,6 +8,13 @@
   name: "animal body part"
   abstract: true
   components:
+  # Radiant sector start - Starlight surgery
+  - type: SurgeryTarget
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  # Radiant sector end
   # yes these sprites dont make sense i dont care its better than them being invisible
   - type: Sprite
     sprite: Mobs/Species/Reptilian/parts.rsi

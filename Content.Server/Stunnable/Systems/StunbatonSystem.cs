@@ -1,6 +1,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Events;
+using Content.Server.PowerCell;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -16,6 +17,7 @@ namespace Content.Server.Stunnable.Systems
         [Dependency] private readonly RiggableSystem _riggableSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
+        [Dependency] private readonly PowerCellSystem _powerCell = default!; // Radiant sector: support replaceable-cell stun weapons.
         [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
 
         public override void Initialize()
@@ -31,7 +33,8 @@ namespace Content.Server.Stunnable.Systems
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
             if (!_itemToggle.IsActivated(entity.Owner) ||
-            !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge(entity.Owner, entity.Comp.EnergyPerUse, battery))
+                !TryGetBattery(entity.Owner, out var batteryUid, out var battery) ||
+                !_battery.TryUseCharge(batteryUid, entity.Comp.EnergyPerUse, battery))
             {
                 args.Cancelled = true;
             }
@@ -44,7 +47,7 @@ namespace Content.Server.Stunnable.Systems
             : Loc.GetString("comp-stunbaton-examined-off");
             args.PushMarkup(onMsg);
 
-            if (TryComp<BatteryComponent>(entity.Owner, out var battery))
+            if (TryGetBattery(entity.Owner, out _, out var battery))
             {
                 var count = (int) (battery.CurrentCharge / entity.Comp.EnergyPerUse);
                 args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
@@ -55,7 +58,7 @@ namespace Content.Server.Stunnable.Systems
         {
             base.TryTurnOn(entity, ref args);
 
-            if (!TryComp<BatteryComponent>(entity, out var battery) || battery.CurrentCharge < entity.Comp.EnergyPerUse)
+            if (!TryGetBattery(entity.Owner, out _, out var battery) || battery.CurrentCharge < entity.Comp.EnergyPerUse)
             {
                 args.Cancelled = true;
                 if (args.User != null)
@@ -100,5 +103,31 @@ namespace Content.Server.Stunnable.Systems
                 _itemToggle.TryDeactivate(entity.Owner, predicted: false);
             }
         }
+
+        // Radiant sector start - cyber stun fists use a normal replaceable power cell,
+        // while vanilla stun batons keep their battery directly on the weapon.
+        private bool TryGetBattery(EntityUid uid, out EntityUid batteryUid, out BatteryComponent battery)
+        {
+            if (TryComp<BatteryComponent>(uid, out var directBattery))
+            {
+                battery = directBattery;
+                batteryUid = uid;
+                return true;
+            }
+
+            if (_powerCell.TryGetBatteryFromSlot(uid, out var cellUid, out var cellBattery)
+                && cellUid is { } resolvedCellUid
+                && cellBattery is not null)
+            {
+                batteryUid = resolvedCellUid;
+                battery = cellBattery;
+                return true;
+            }
+
+            batteryUid = default;
+            battery = default!;
+            return false;
+        }
+        // Radiant sector end
     }
 }

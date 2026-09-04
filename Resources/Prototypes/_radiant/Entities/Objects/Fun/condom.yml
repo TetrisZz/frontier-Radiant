@@ -45,3 +45,44 @@
   - type: Sprite
     state: condom_teal
 
+# Radiant sector: used condoms are physical evidence/containers and cannot be equipped again.
+- type: entity
+  parent: BaseItem
+  id: UsedCondom
+  name: used condom
+  description: A tied-off condom containing bodily fluid.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/condom.rsi
+    state: condom
+  - type: Item
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      condom:
+        maxVol: 10
+        reagents:
+        - ReagentId: Cum
+          Quantity: 1.5
+  - type: ExaminableSolution
+    solution: condom
+    exactVolume: true
+
+- type: entity
+  parent: UsedCondom
+  id: UsedPinkCondom
+  name: used pink condom
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/condom.rsi
+    state: condom_pink
+
+- type: entity
+  parent: UsedCondom
+  id: UsedTealCondom
+  name: used teal condom
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Erp/condom.rsi
+    state: condom_teal
+

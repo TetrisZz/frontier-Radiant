@@ -68,6 +68,14 @@
   description: signal-port-description-med-scanner-sender
   defaultLinks: [ MedicalScannerReceiver ]
 
+# Radiant sector start - surgical body scanner console
+- type: sourcePort
+  id: BodyScannerSender
+  name: signal-port-name-med-scanner-sender
+  description: signal-port-description-med-scanner-sender
+  defaultLinks: [ BodyScannerReceiver ]
+# Radiant sector end
+
 - type: sourcePort
   id: ArtifactAnalyzerSender
   name: signal-port-name-artifact-analyzer-sender

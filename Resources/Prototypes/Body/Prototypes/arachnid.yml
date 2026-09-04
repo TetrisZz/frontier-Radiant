@@ -10,6 +10,7 @@
       organs:
         brain: OrganHumanBrain
         eyes: OrganArachnidEyes
+        tongue: OrganArachnidTongue # Radiant sector: Starlight surgery
     torso:
       part: TorsoArachnid
       organs:

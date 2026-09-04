@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -639,10 +640,18 @@ public sealed class DamageVisualsSystem : VisualizerSystem<DamageVisualsComponen
 
         if (damageVisComp.Overlay && damageVisComp.DamageOverlayGroups != null)
         {
-            if (damageVisComp.DamageOverlayGroups.ContainsKey(damageGroup) && !damageVisComp.DisabledLayers[layerMapKey])
+            if (damageVisComp.DamageOverlayGroups.ContainsKey(damageGroup))
             {
                 var layerState = damageVisComp.LayerMapKeyStates[layerMapKey];
                 SpriteSystem.LayerMapTryGet((entity, spriteComponent), $"{layerMapKey}{damageGroup}", out var spriteLayer, false);
+
+                // Radiant sector: damage overlays are separate sprite layers, so hiding or
+                // replacing a body layer did not hide the matching wound segment.
+                if (!CanShowDamageOnLayer(entity.Owner, spriteComponent, damageVisComp, layerMapKey))
+                {
+                    SpriteSystem.LayerSetVisible((entity.Owner, spriteComponent), spriteLayer, false);
+                    return;
+                }
 
                 UpdateDamageLayerState(
                     (entity, spriteComponent),
@@ -662,6 +671,61 @@ public sealed class DamageVisualsSystem : VisualizerSystem<DamageVisualsComponen
                 $"{layerState}_{damageGroup}",
                 threshold);
         }
+    }
+
+    /// <summary>
+    /// Radiant sector: refreshes the independently drawn humanoid wound segments after
+    /// surgery changes a limb, even when the entity's damage amount did not change.
+    /// </summary>
+    public void RefreshHumanoidDamageLayers(EntityUid uid)
+    {
+        if (!TryComp(uid, out SpriteComponent? sprite)
+            || !TryComp(uid, out DamageVisualsComponent? visuals)
+            || visuals.TargetLayers == null
+            || visuals.DamageOverlayGroups == null)
+            return;
+
+        foreach (var layerMapKey in visuals.TargetLayerMapKeys)
+        {
+            var canShow = CanShowDamageOnLayer(uid, sprite, visuals, layerMapKey);
+
+            foreach (var damageGroup in visuals.DamageOverlayGroups.Keys)
+            {
+                if (!SpriteSystem.LayerMapTryGet((uid, sprite), $"{layerMapKey}{damageGroup}", out var spriteLayer, false))
+                    continue;
+
+                var threshold = visuals.LastThresholdPerGroup.GetValueOrDefault(damageGroup);
+                SpriteSystem.LayerSetVisible((uid, sprite), spriteLayer, canShow && threshold != FixedPoint2.Zero);
+            }
+        }
+    }
+
+    private bool CanShowDamageOnLayer(
+        EntityUid uid,
+        SpriteComponent sprite,
+        DamageVisualsComponent visuals,
+        object layerMapKey)
+    {
+        if (visuals.DisabledLayers.GetValueOrDefault(layerMapKey))
+            return false;
+
+        if (layerMapKey is not HumanoidVisualLayers humanoidLayer
+            || !TryComp(uid, out HumanoidAppearanceComponent? humanoid))
+            return true;
+
+        if (humanoid.PermanentlyHidden.Contains(humanoidLayer))
+            return false;
+
+        // Every Starlight cyberlimb uses a Cyber* humanoid layer prototype. Organic
+        // transplants may also use a custom layer, so checking merely for a custom
+        // layer would incorrectly hide wounds on transplanted biological limbs.
+        if (humanoid.CustomBaseLayers.TryGetValue(humanoidLayer, out var customLayer)
+            && customLayer.Id is { } layerId
+            && layerId.Id.Contains("Cyber", StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        return SpriteSystem.LayerMapTryGet((uid, sprite), humanoidLayer, out var baseLayer, false)
+               && sprite[baseLayer].Visible;
     }
 
     /// <summary>

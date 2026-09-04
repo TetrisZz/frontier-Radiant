@@ -42,6 +42,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Rounding;
+using Content.Shared._Starlight.Medical.Surgery.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Enumerators;
 using Content.Shared.Nyanotrasen.Item.PseudoItem; // Frontier
@@ -147,6 +148,9 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeLocalEvent<StorageComponent, InteractUsingEvent>(OnInteractUsing, after: new[] { typeof(ItemSlotsSystem) });
         SubscribeLocalEvent<StorageComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<StorageComponent, OpenStorageImplantEvent>(OnImplantActivate);
+        // Radiant sector start - Starlight storage cyberlegs.
+        SubscribeLocalEvent<StorageComponent, OpenStorageOrganEvent>(OnOrganActivate);
+        // Radiant sector end
         SubscribeLocalEvent<StorageComponent, AfterInteractEvent>(AfterInteract);
         SubscribeLocalEvent<StorageComponent, DestructionEventArgs>(OnDestroy);
         SubscribeLocalEvent<StorageComponent, BoundUserInterfaceMessageAttempt>(OnBoundUIAttempt);
@@ -604,6 +608,23 @@ public abstract class SharedStorageSystem : EntitySystem
 
         args.Handled = true;
     }
+
+    // Radiant sector start - open only the storage organ that owns the invoked action.
+    private void OnOrganActivate(EntityUid uid, StorageComponent storageComp, OpenStorageOrganEvent args)
+    {
+        if (args.Handled ||
+            !TryComp<StorageOrganComponent>(uid, out var organ) ||
+            organ.ActionKey != args.Key)
+            return;
+
+        // Radiant sector: the instant action can be predicted and then confirmed by
+        // the server. Treat both deliveries as "open" instead of toggling open/closed.
+        if (!UI.IsUiOpen(uid, StorageComponent.StorageUiKey.Key, args.Performer))
+            OpenStorageUI(uid, args.Performer, storageComp, false);
+
+        args.Handled = true;
+    }
+    // Radiant sector end
 
     /// <summary>
     /// Allows a user to pick up entities by clicking them, or pick up all entities in a certain radius

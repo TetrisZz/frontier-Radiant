@@ -71,6 +71,10 @@
       - id: NitrousOxideTankFilled # Frontier
       - id: ClothingMaskBreathMedical # Frontier
       - id: SawElectric # Frontier
+      # Radiant sector start - Starlight surgery
+      - id: BoneGelRipper
+      - id: BoneSetter
+      # Radiant sector end
 
 - type: entity
   id: CrateMedicalScrubs

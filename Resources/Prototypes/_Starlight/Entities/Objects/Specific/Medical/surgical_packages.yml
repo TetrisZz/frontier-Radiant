@@ -1,0 +1,958 @@
+# Radiant sector: single-use sterile packaging for surgical organs, implants and cyberlimbs.
+# Use a package in hand to unwrap its contents; pricing includes the contained prototype.
+- type: entity
+  id: BaseStarlightSurgicalPackage
+  parent: BaseItem
+  abstract: true
+  description: Одноразовая стерильная упаковка. Используйте её в руке, чтобы извлечь содержимое.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/cases.rsi
+    state: bottlecase
+  - type: Item
+    size: Small
+    sprite: _Starlight/Objects/Specific/Medical/cases.rsi
+  - type: SpawnItemsOnUse
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  id: BaseStarlightCyberlimbPackage
+  parent: BaseStarlightSurgicalPackage
+  abstract: true
+  description: Одноразовый транспортный футляр. Используйте его в руке, чтобы извлечь киберконечность.
+  components:
+  - type: Sprite
+    state: surgerykit
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+
+- type: entity
+  id: SurgicalPackageOrganHumanBrain
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - человеческий мозг
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHumanBrain
+
+- type: entity
+  id: SurgicalPackageOrganHumanEyes
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - человеческие глаза
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHumanEyes
+
+- type: entity
+  id: SurgicalPackageOrganHumanTongue
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - человеческий язык
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHumanTongue
+
+- type: entity
+  id: SurgicalPackageOrganHumanLungs
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - человеческие лёгкие
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHumanLungs
+
+- type: entity
+  id: SurgicalPackageOrganHumanHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - человеческое сердце
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHumanHeart
+
+- type: entity
+  id: SurgicalPackageOrganHumanStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - человеческий желудок
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHumanStomach
+
+- type: entity
+  id: SurgicalPackageOrganHumanLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - человеческая печень
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHumanLiver
+
+- type: entity
+  id: SurgicalPackageOrganHumanKidneys
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - человеческие почки
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHumanKidneys
+
+- type: entity
+  id: SurgicalPackageOrganAnimalHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - сердце животного
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganAnimalHeart
+
+- type: entity
+  id: SurgicalPackageOrganAnimalLungs
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - лёгкие животного
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganAnimalLungs
+
+- type: entity
+  id: SurgicalPackageOrganAnimalStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок животного
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganAnimalStomach
+
+- type: entity
+  id: SurgicalPackageOrganAnimalLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - печень животного
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganAnimalLiver
+
+- type: entity
+  id: SurgicalPackageOrganAnimalKidneys
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - почки животного
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganAnimalKidneys
+
+- type: entity
+  id: SurgicalPackageOrganArachnidEyes
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - глаза арахнида
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganArachnidEyes
+
+- type: entity
+  id: SurgicalPackageOrganArachnidTongue
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - язык арахнида
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganArachnidTongue
+
+- type: entity
+  id: SurgicalPackageOrganArachnidHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - сердце арахнида
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganArachnidHeart
+
+- type: entity
+  id: SurgicalPackageOrganArachnidStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок арахнида
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganArachnidStomach
+
+- type: entity
+  id: SurgicalPackageOrganArachnidLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - печень арахнида
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganArachnidLiver
+
+- type: entity
+  id: SurgicalPackageOrganArachnidKidneys
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - почки арахнида
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganArachnidKidneys
+
+- type: entity
+  id: SurgicalPackageOrganDionaBrainNymph
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - мозг дионы
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDionaBrainNymph
+
+- type: entity
+  id: SurgicalPackageOrganDionaEyes
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - глаза дионы
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDionaEyes
+
+- type: entity
+  id: SurgicalPackageOrganDionaStomachNymph
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок дионы
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDionaStomachNymph
+
+- type: entity
+  id: SurgicalPackageOrganDionaLungsNymph
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - лёгкие дионы
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDionaLungsNymph
+
+- type: entity
+  id: SurgicalPackageOrganDwarfHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - сердце дворфа
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDwarfHeart
+
+- type: entity
+  id: SurgicalPackageOrganDwarfStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок дворфа
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDwarfStomach
+
+- type: entity
+  id: SurgicalPackageOrganDwarfLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - печень дворфа
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDwarfLiver
+
+- type: entity
+  id: SurgicalPackageOrganGoblinBrain
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - мозг гоблина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganGoblinBrain
+
+- type: entity
+  id: SurgicalPackageOrganGoblinEyes
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - глаза гоблина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganGoblinEyes
+
+- type: entity
+  id: SurgicalPackageOrganGoblinTongue
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - язык гоблина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganGoblinTongue
+
+- type: entity
+  id: SurgicalPackageOrganGoblinHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - сердце гоблина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganGoblinHeart
+
+- type: entity
+  id: SurgicalPackageOrganGoblinLungs
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - лёгкие гоблина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganGoblinLungs
+
+- type: entity
+  id: SurgicalPackageOrganGoblinStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок гоблина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganGoblinStomach
+
+- type: entity
+  id: SurgicalPackageOrganGoblinLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - печень гоблина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganGoblinLiver
+
+- type: entity
+  id: SurgicalPackageOrganGoblinKidneys
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - почки гоблина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganGoblinKidneys
+
+- type: entity
+  id: SurgicalPackageOrganHarpyLungs
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - лёгкие гарпии
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganHarpyLungs
+
+- type: entity
+  id: SurgicalPackageOrganMothStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок нианы
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganMothStomach
+
+- type: entity
+  id: SurgicalPackageOrganReptilianStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок унатха
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganReptilianStomach
+
+- type: entity
+  id: SurgicalPackageOrganShelegBrain
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - мозг шелега
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganShelegBrain
+
+- type: entity
+  id: SurgicalPackageOrganShelegEyes
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - глаза шелега
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganShelegEyes
+
+- type: entity
+  id: SurgicalPackageOrganShelegTongue
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - язык шелега
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganShelegTongue
+
+- type: entity
+  id: SurgicalPackageOrganShelegHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - сердце шелега
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganShelegHeart
+
+- type: entity
+  id: SurgicalPackageOrganShelegLungs
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - лёгкие шелега
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganShelegLungs
+
+- type: entity
+  id: SurgicalPackageOrganShelegStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок шелега
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganShelegStomach
+
+- type: entity
+  id: SurgicalPackageOrganShelegLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - печень шелега
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganShelegLiver
+
+- type: entity
+  id: SurgicalPackageOrganShelegKidneys
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - почки шелега
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganShelegKidneys
+
+- type: entity
+  id: SurgicalPackageSentientSlimeCore
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - ядро слайма
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: SentientSlimeCore
+
+- type: entity
+  id: SurgicalPackageOrganSlimeLungs
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - лёгкие слайма
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganSlimeLungs
+
+- type: entity
+  id: SurgicalPackageOrganSyntheticHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - синтетическое сердце
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganSyntheticHeart
+
+- type: entity
+  id: SurgicalPackageOrganSyntheticLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - синтетическая печень
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganSyntheticLiver
+
+- type: entity
+  id: SurgicalPackageOrganSyntheticKidneys
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - синтетические почки
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganSyntheticKidneys
+
+- type: entity
+  id: SurgicalPackageOrganVoxLungs
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - лёгкие вокса
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganVoxLungs
+
+- type: entity
+  id: SurgicalPackageOrganVoxHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - сердце вокса
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganVoxHeart
+
+- type: entity
+  id: SurgicalPackageOrganVoxStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок вокса
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganVoxStomach
+
+- type: entity
+  id: SurgicalPackageOrganVoxLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - печень вокса
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganVoxLiver
+
+- type: entity
+  id: SurgicalPackageOrganVulpkaninStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок вульпканина
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganVulpkaninStomach
+
+- type: entity
+  id: SurgicalPackageOrganDemonHeart
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - сердце они
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDemonHeart
+
+- type: entity
+  id: SurgicalPackageOrganDemonStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - желудок они
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OrganDemonStomach
+
+- type: entity
+  id: SurgicalPackageBudgetCyberEyes
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - бюджетные киберглаза
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: BudgetCyberEyes
+
+- type: entity
+  id: SurgicalPackageBudgetCyberTongue
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - бюджетный киберязык
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: BudgetCyberTongue
+
+- type: entity
+  id: SurgicalPackageBudgetCyberLiver
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - бюджетная киберпечень
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: BudgetCyberLiver
+
+- type: entity
+  id: SurgicalPackageBudgetCyberStomach
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - бюджетный кибержелудок
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: BudgetCyberStomach
+
+- type: entity
+  id: SurgicalPackageBudgetCyberKidneys
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - бюджетные киберпочки
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: BudgetCyberKidneys
+
+- type: entity
+  id: SurgicalPackageEyeImplantMedical
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - медицинский глазной имплант
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: EyeImplantMedical
+
+- type: entity
+  id: SurgicalPackageEyeImplantChemistry
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - химический глазной имплант
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: EyeImplantChemistry
+
+- type: entity
+  id: SurgicalPackageEyeImplantSecurity
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - охранный глазной имплант
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: EyeImplantSecurity
+
+- type: entity
+  id: SurgicalPackageNoseImplantOlfactory
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - обонятельный имплант
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: NoseImplantOlfactory
+
+- type: entity
+  id: SurgicalPackageBrainImplantComms
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - мозговой имплант связи
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: BrainImplantComms
+
+- type: entity
+  id: SurgicalPackageHandImplantInsulated
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - изолирующий имплант кисти
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: HandImplantInsulated
+
+- type: entity
+  id: SurgicalPackageHandImplantClaws
+  parent: BaseStarlightSurgicalPackage
+  name: стерильная упаковка - имплант выдвижных когтей
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: HandImplantClaws
+
+- type: entity
+  id: SurgicalPackageLeftArmCyber
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая базовая киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyber
+
+- type: entity
+  id: SurgicalPackageRightArmCyber
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая базовая киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyber
+
+- type: entity
+  id: SurgicalPackageLeftHandCyber
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберкисть
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftHandCyber
+
+- type: entity
+  id: SurgicalPackageRightHandCyber
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберкисть
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightHandCyber
+
+- type: entity
+  id: SurgicalPackageLeftLegCyberBudget
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая бюджетная кибернога
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftLegCyberBudget
+
+- type: entity
+  id: SurgicalPackageRightLegCyberBudget
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая бюджетная кибернога
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightLegCyberBudget
+
+- type: entity
+  id: SurgicalPackageLeftFootCyber
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберстопа
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftFootCyber
+
+- type: entity
+  id: SurgicalPackageRightFootCyber
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберстопа
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightFootCyber
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberEngineer
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая инженерная киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberEngineer
+
+- type: entity
+  id: SurgicalPackageRightArmCyberEngineer
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая инженерная киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberEngineer
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberGorilla
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберрука «Горилла»
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberGorilla
+
+- type: entity
+  id: SurgicalPackageRightArmCyberGorilla
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберрука «Горилла»
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberGorilla
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberInvestigator
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая исследовательская киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberInvestigator
+
+- type: entity
+  id: SurgicalPackageRightArmCyberInvestigator
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая исследовательская киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberInvestigator
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberRipper
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберрука риппердока
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberRipper
+
+- type: entity
+  id: SurgicalPackageRightArmCyberRipper
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберрука риппердока
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberRipper
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberAngel
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберрука «Ангел»
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberAngel
+
+- type: entity
+  id: SurgicalPackageRightArmCyberAngel
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберрука «Ангел»
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberAngel
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberReaper
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберрука хирурга
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberReaper
+
+- type: entity
+  id: SurgicalPackageRightArmCyberReaper
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберрука хирурга
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberReaper
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberMechwright
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберрука механика
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberMechwright
+
+- type: entity
+  id: SurgicalPackageRightArmCyberMechwright
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберрука механика
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberMechwright
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberRiplet
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая грузовая киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberRiplet
+
+- type: entity
+  id: SurgicalPackageRightArmCyberRiplet
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая грузовая киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberRiplet
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberScribe
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберрука «Скриб»
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberScribe
+
+- type: entity
+  id: SurgicalPackageRightArmCyberScribe
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберрука «Скриб»
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberScribe
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberPersephone
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберрука ботаника
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberPersephone
+
+- type: entity
+  id: SurgicalPackageRightArmCyberPersephone
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберрука ботаника
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberPersephone
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberSpacer
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая космическая киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberSpacer
+
+- type: entity
+  id: SurgicalPackageRightArmCyberSpacer
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая космическая киберрука
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberSpacer
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberMantisBlade
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая киберрука с клинком богомола
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberMantisBlade
+
+- type: entity
+  id: SurgicalPackageRightArmCyberMantisBlade
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая киберрука с клинком богомола
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberMantisBlade
+
+- type: entity
+  id: SurgicalPackageLeftArmCyberHerakles
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - левая силовая киберрука «Геракл»
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: LeftArmCyberHerakles
+
+- type: entity
+  id: SurgicalPackageRightArmCyberHerakles
+  parent: BaseStarlightCyberlimbPackage
+  name: транспортный футляр - правая силовая киберрука «Геракл»
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: RightArmCyberHerakles
+

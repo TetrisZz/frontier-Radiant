@@ -5,6 +5,8 @@
   name: synthetic heart
   description: "Whirrs and pumps blood."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganHeart
   - type: Sprite
     state: heart-on
   - type: Metabolizer
@@ -23,6 +25,8 @@
   name: synthetic liver
   description: "Filters toxins from the bloodstream at higher rate than old 'ganic liver."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganLiver
   - type: Sprite
     state: liver
   - type: Metabolizer
@@ -44,6 +48,8 @@
   name: synthetic kidneys
   description: "Filters toxins from the bloodstream at higher rate than old 'ganic liver."
   components:
+  # Radiant sector: Starlight surgery organ type compatibility.
+  - type: OrganKidneys
   - type: Sprite
     layers:
       - state: kidney-l

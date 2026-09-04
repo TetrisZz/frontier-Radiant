@@ -26,7 +26,10 @@ public sealed class DatasetVocalizationSystem : EntitySystem
         if (!_random.Prob(ent.Comp.Chance))
             return;
 
-        var dataset = _protoMan.Index(ent.Comp.Dataset);
+        // Radiant sector start - do not crash the entity-system tick on an empty dataset.
+        if (ent.Comp.Dataset is not { } datasetId || !_protoMan.TryIndex(datasetId, out var dataset))
+            return;
+        // Radiant sector end
 
         args.Message = _random.Pick(dataset);
         args.Handled = true;

@@ -1,0 +1,216 @@
+# Radiant sector: Frontier research layout for the ported Starlight surgery and cybernetics.
+
+- type: technology
+  id: StarlightEngineeringCyberarms
+  name: starlight-research-engineering-cyberarms
+  entityIcon: LeftArmCyberEngineer
+  discipline: NFEngineering
+  tier: 1
+  cost: 10000
+  recipeUnlocks: [ LeftArmCyberEngineer, RightArmCyberEngineer ]
+  technologyPrerequisites: [ NFAdvancedCyborgToolsTechnology, NFMatterEnergyConversion ]
+  prerequisiteLineType: Tree
+  position: 5, 3
+
+- type: technology
+  id: StarlightGorillaCyberarms
+  name: starlight-research-gorilla-cyberarms
+  entityIcon: LeftArmCyberGorilla
+  discipline: NFScience
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ LeftArmCyberGorilla, RightArmCyberGorilla ]
+  technologyPrerequisites: [ NFAnomalyCoreHarnessing ]
+  position: 2, 5
+
+- type: technology
+  id: StarlightInvestigatorCyberarms
+  name: starlight-research-investigator-cyberarms
+  entityIcon: LeftArmCyberInvestigator
+  discipline: NFScience
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ LeftArmCyberInvestigator, RightArmCyberInvestigator ]
+  technologyPrerequisites: [ NFAdvancedAnomalyResearch ]
+  position: 2, 7
+
+- type: technology
+  id: StarlightBasicSurgery
+  name: starlight-research-basic-surgery
+  entityIcon: Scalpel
+  discipline: NFMedical
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - Scalpel
+  - Retractor
+  - Cautery
+  - Drill
+  - Saw
+  - Hemostat
+  - BoneSetter
+  - BoneGel
+  - SurgicalKitMedical
+  - SurgicalKitRobotics
+  technologyPrerequisites: [ NFBasicMedicine ] # Radiant sector: separate lower branch; do not stretch it through the syringe gun.
+  prerequisiteLineType: Diagonal
+  position: 4, 12 # Radiant sector: keep surgery clear of the magnetic-technology branch below.
+
+- type: technology
+  id: StarlightAdvancedSurgery
+  name: starlight-research-advanced-surgery
+  entityIcon: ScalpelAdvanced
+  discipline: NFMedical
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ScalpelAdvanced
+  - RetractorAdvanced
+  - SawAdvanced
+  - HemostatAdvanced
+  - BoneSetterAdvanced
+  - LeftArmCyberRipper
+  - RightArmCyberRipper
+  technologyPrerequisites: [ StarlightBasicSurgery ]
+  prerequisiteLineType: LShape # Radiant sector: keep the surgery branch compact and connected to basic surgery.
+  position: 5, 12
+
+- type: technology
+  id: StarlightAngelCyberarms
+  name: starlight-research-angel-cyberarms
+  entityIcon: LeftArmCyberAngel
+  discipline: NFMedical
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ LeftArmCyberAngel, RightArmCyberAngel ]
+  technologyPrerequisites: [ StarlightAdvancedSurgery ]
+  position: 6, 12
+
+- type: technology
+  id: StarlightSurgeonCyberarms
+  name: starlight-research-surgeon-cyberarms
+  entityIcon: LeftArmCyberReaper
+  discipline: NFMedical
+  tier: 1
+  cost: 10000
+  recipeUnlocks: [ LeftArmCyberReaper, RightArmCyberReaper ]
+  technologyPrerequisites: [ StarlightAngelCyberarms ]
+  position: 7, 12
+
+- type: technology
+  id: StarlightBudgetCyberOrgans
+  name: starlight-research-budget-cyber-organs
+  entityIcon: BudgetCyberLiver
+  discipline: NFMedical
+  tier: 1
+  cost: 5000
+  recipeUnlocks: [ BudgetCyberEyes, BudgetCyberTongue, BudgetCyberLiver, BudgetCyberStomach, BudgetCyberKidneys ]
+  technologyPrerequisites: [ StarlightBasicSurgery ] # Radiant sector: budget organs branch from basic, not advanced surgery.
+  prerequisiteLineType: LShape
+  position: 4, 13 # Radiant sector: directly below basic surgery and separated from all magnetic technologies.
+
+- type: technology
+  id: StarlightEyeImplants
+  name: starlight-research-eye-implants
+  entityIcon: EyeImplantMedical
+  discipline: NFMedical
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ EyeImplantMedical, EyeImplantChemistry, EyeImplantSecurity ]
+  technologyPrerequisites: [ StarlightBudgetCyberOrgans ]
+  position: 5, 13
+
+- type: technology
+  id: StarlightCommsImplant
+  name: starlight-research-comms-implant
+  entityIcon: BrainImplantComms
+  discipline: NFMedical
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ BrainImplantComms ]
+  technologyPrerequisites: [ StarlightEyeImplants ] # Radiant sector: communications implant branches downward from eye implants.
+  position: 5, 14
+
+- type: technology
+  id: StarlightOlfactoryImplant
+  name: starlight-research-olfactory-implant
+  entityIcon: NoseImplantOlfactory
+  discipline: NFMedical
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ NoseImplantOlfactory ]
+  technologyPrerequisites: [ StarlightEyeImplants ]
+  position: 6, 13
+
+- type: technology
+  id: StarlightInsulatedImplant
+  name: starlight-research-insulated-implant
+  entityIcon: HandImplantInsulated
+  discipline: NFMedical
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ HandImplantInsulated ]
+  technologyPrerequisites: [ StarlightOlfactoryImplant ] # Radiant sector: the olfactory implant is the sole prerequisite.
+  prerequisiteLineType: LShape
+  position: 6, 14 # Radiant sector: insulated implant goes directly below olfactory implants.
+
+- type: technology
+  id: StarlightMechanicCargoCyberarms
+  name: starlight-research-mechanic-cargo-cyberarms
+  entityIcon: LeftArmCyberMechwright
+  discipline: NFEngineering
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ LeftArmCyberMechwright, RightArmCyberMechwright, LeftArmCyberRiplet, RightArmCyberRiplet ]
+  technologyPrerequisites: [ NFAdvancedRoboticsEquipment ]
+  position: 3, 14
+
+- type: technology
+  id: StarlightScribeCyberarms
+  name: starlight-research-scribe-cyberarms
+  entityIcon: LeftArmCyberScribe
+  discipline: NFService
+  tier: 1
+  cost: 5000
+  recipeUnlocks: [ LeftArmCyberScribe, RightArmCyberScribe ]
+  technologyPrerequisites: [ NFDocumentTranslation ]
+  position: 3, 20
+
+- type: technology
+  id: StarlightBotanistCyberarms
+  name: starlight-research-botanist-cyberarms
+  entityIcon: LeftArmCyberPersephone
+  discipline: NFService
+  tier: 1
+  cost: 5000
+  recipeUnlocks: [ LeftArmCyberPersephone, RightArmCyberPersephone ]
+  technologyPrerequisites: [ NFHydroponics ]
+  prerequisiteLineType: Diagonal
+  position: 1, 25
+
+- type: technology
+  id: StarlightSpacerCyberarms
+  name: starlight-research-spacer-cyberarms
+  entityIcon: LeftArmCyberSpacer
+  discipline: NFSalvage
+  tier: 1
+  cost: 7500
+  recipeUnlocks: [ LeftArmCyberSpacer, RightArmCyberSpacer ]
+  technologyPrerequisites: [ NFImprovedSalvageWeapons ]
+  position: 4, 39
+
+- type: technology
+  id: StarlightCombatCyberarms
+  name: starlight-research-combat-cyberarms
+  entityIcon: LeftArmCyberMantisBlade
+  discipline: NFArsenalMercenary
+  tier: 1
+  cost: 12500 # Radiant sector: increased combat cyberarm research cost.
+  recipeUnlocks:
+  - LeftArmCyberMantisBlade
+  - RightArmCyberMantisBlade
+  - LeftArmCyberHerakles
+  - RightArmCyberHerakles
+  - HandImplantClaws
+  technologyPrerequisites: [ NFAdvancedRiotControl ]
+  position: 2, 41

@@ -1,0 +1,21 @@
+# Radiant sector: real anatomy and climax-fluid feedback.
+erp-condom-remove-verb = Remove condom
+erp-condom-remove-unused = You remove the unused condom.
+erp-condom-remove-used = You remove the used condom.
+erp-condom-catches-fluid = The condom fills and prevents the fluid from spilling.
+erp-climax-target-filled = You feel filled.
+adult-anatomy-anal = ...has an anal area
+adult-anatomy-anal-player = ...have an anal area
+adult-anatomy-penis = ...has a penis and testicles
+adult-anatomy-penis-player = ...have a penis and testicles
+adult-anatomy-penis-denervated = ...has an excised penile sensory nerve
+adult-anatomy-penis-denervated-player = ...have an excised penile sensory nerve
+adult-anatomy-vagina = ...has a vagina
+adult-anatomy-vagina-player = ...have a vagina
+adult-anatomy-breasts = ...has breasts ({ $size })
+adult-anatomy-breasts-player = ...have breasts ({ $size })
+adult-anatomy-size-small = small
+adult-anatomy-size-medium = medium
+adult-anatomy-size-large = large
+interaction-condom = You put on a condom.
+interaction-condom-target = { $user } puts a condom on you.

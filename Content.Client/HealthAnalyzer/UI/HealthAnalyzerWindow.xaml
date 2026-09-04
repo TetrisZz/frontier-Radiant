@@ -54,6 +54,11 @@
                 </GridContainer>
             </BoxContainer>
 
+            <!-- Radiant sector: visible anatomy and surgery diagnostics. -->
+            <PanelContainer Name="SurgeryDiagnosticsDivider" StyleClasses="LowDivider" />
+            <Label Name="SurgeryDiagnosticsTitle" Text="{Loc health-analyzer-surgery-diagnostics-title}" StyleClasses="LabelHeading" />
+            <BoxContainer Name="SurgeryDiagnosticsContainer" Orientation="Vertical" />
+
             <PanelContainer Name="AlertsDivider" Visible="False" StyleClasses="LowDivider" />
 
             <BoxContainer Name="AlertsContainer" Visible="False" Margin="0 5" Orientation="Vertical" HorizontalAlignment="Center">

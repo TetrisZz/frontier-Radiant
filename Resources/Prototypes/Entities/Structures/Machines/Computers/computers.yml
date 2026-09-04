@@ -657,6 +657,20 @@
   name: body scanner computer
   description: A body scanner.
   components:
+  # Radiant sector start - linked surgical body scanner console
+  - type: BodyScanner
+  - type: DeviceLinkSource
+    range: 8
+    ports:
+    - BodyScannerSender
+  - type: ActivatableUI
+    key: enum.BodyScannerUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.BodyScannerUiKey.Key:
+        type: BodyScannerBoundUserInterface
+  # Radiant sector end
   - type: ApcPowerReceiver
     powerLoad: 500
   - type: Computer
