@@ -129,7 +129,7 @@
     manufacturer: weapon-details-manufacturer-nanotrasen-munitions
   - type: Gun
     projectileSpeed: 22
-    fireRate: 1.6
+    fireRate: 1.5
     minAngle: 2
     maxAngle: 9
     angleIncrease: 0.7

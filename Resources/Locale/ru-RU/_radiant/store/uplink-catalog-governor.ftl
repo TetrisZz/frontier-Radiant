@@ -5,7 +5,7 @@ store-category-governor-utility = Утилиты
 store-category-governor-propaganda = Пропаганда
 
 governor-uplink-capsulecaller-name = Пульт вызова капсулы конфедерации
-governor-uplink-capsulecaller-desc = Пульт вызывает капсулу конфдерации. А вы что думали?
+governor-uplink-capsulecaller-desc = Пульт вызывает капсулу конфедерации. А вы что думали?
 
 governor-uplink-handy-flag-name = Флаг Конфедерации
 governor-uplink-handy-flag-desc = Красный флаг с символикой Конфедерации. Покажи всем, кто здесь хозяин!
