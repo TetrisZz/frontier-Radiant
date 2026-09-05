@@ -148,7 +148,7 @@ namespace Content.Server._NF.Smuggling
             }
 
             var meta = EnsureComp<MetaDataComponent>(grid);
-            _meta.SetEntityName(grid, Loc.GetString("smuggling-capsule-grid-name"), meta);
+            _meta.SetEntityName(grid, Loc.GetString(comp.GridName), meta);
 
             if (TryComp<ShuttleComponent>(grid, out var shuttle))
             {
@@ -160,9 +160,8 @@ namespace Content.Server._NF.Smuggling
 
             EnsureComp<ContrabandPodGridComponent>(grid);
 
-            // Radiant Sector: suppress the arrival position in both message text and tooltip.
-            var unknown = Loc.GetString("chat-radio-location-interference");
-            var arrivalMessage = Loc.GetString(comp.ArrivalLoc, ("x", unknown), ("y", unknown));
+
+            var arrivalMessage = Loc.GetString(comp.ArrivalLoc, ("x", $"{dropLocation.X:F0}"), ("y", $"{dropLocation.Y:F0}"));
 
             _radio.SendRadioMessage(grid, arrivalMessage, comp.ChannelNotify, user, hideCoordinates: true);
 
@@ -175,9 +174,9 @@ namespace Content.Server._NF.Smuggling
                 var completeMsg = Loc.GetString(comp.CompleteNotifyLoc);
 
                 if (EntityManager.EntityExists(spawnedGrid))
-                    _radio.SendRadioMessage(spawnedGrid, completeMsg, comp.ChannelNotifyOpponent, user);
+                    _radio.SendRadioMessage(spawnedGrid, completeMsg, comp.ChannelNotifyOpponent, user, hideCoordinates: true);
                 else
-                    _radio.SendRadioMessage(user, completeMsg, comp.ChannelNotifyOpponent, user);
+                    _radio.SendRadioMessage(user, completeMsg, comp.ChannelNotifyOpponent, user, hideCoordinates: true);
             });
         }
 

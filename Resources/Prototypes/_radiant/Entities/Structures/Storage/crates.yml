@@ -143,3 +143,49 @@
   - type: Contraband
     turnInValues:
       FrontierUplinkCoin: 3
+
+#Governor
+
+- type: entity
+  parent: CrateTradeBaseSecure
+  id: конфедеративный экспресс торговый ящик
+  name: express cargo trading crate
+  description: Ящик конфедеративеного образца. Доставьте его до пункта назначения и получите вознаграждение.
+  components:
+  - type: TradeCrate
+    valueAtDestination: 12500
+    valueElsewhere: 5200
+    expressDeliveryDuration: 2000
+    expressOnTimeBonus: 8500
+    expressLatePenalty: 8500 # 0/1000
+  - type: Icon
+    sprite: _NF/Structures/Storage/Crates/tradelight.rsi
+  - type: Sprite
+    sprite: _NF/Structures/Storage/Crates/tradelight.rsi
+    layers:
+    - state: icon
+    - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
+      state: cargo_other
+      offset: 0.275,-0.265
+      map: ["enum.TradeCrateVisualLayers.Icon"]
+      visible: false
+    - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
+      state: cargo_priority_inactive
+      offset: 0.025,-0.265
+      map: ["enum.TradeCrateVisualLayers.Priority"]
+      visible: false
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.5,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 400 # Very heavy
+        mask:
+        - SmallMobMask
+        layer:
+        - MachineLayer

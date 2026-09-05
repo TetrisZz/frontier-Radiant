@@ -1,7 +1,7 @@
 - type: entity
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputerShuttle]
   id: ComputerShuttleAcorp
-  name: консоль управления 
+  name: консоль управления
   description: Массивная консоль управления кораблем, изготовленная чтобы управляться с действительно большими кораблями.
   components:
   - type: SpriteFade
@@ -39,3 +39,39 @@
         - WallLayer
   - type: Computer
     board: SyndicateShuttleConsoleCircuitboard
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerRadarPlus
+  name: продвинутая консоль сканера масс
+  description: Консоль "спешл эдишен". На одну сотню метра точно больше, чем обычная, не так ли?
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: solar_screen
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: RadarConsole
+    maxRange: 368 # Frontier
+    maxIffRange: 512 # Frontier
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.RadarConsoleUiKey.Key:
+          type: RadarConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: Computer
+    board: RadarConsoleCircuitboardPlus
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#e6e227"

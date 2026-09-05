@@ -88,3 +88,25 @@
         prob: 0.2
       - id: TreasureTechnicalDocument
         prob: 0.1
+
+- type: entity
+  parent: PaperAcquisitionSlip
+  id: ExciseStamp
+  name: таможенная марка
+  description: Таможенная марка, благодаря которой можно освободиться от часть налогов. Прикрепляйте на любой ящик и содержимое не будет облагаться налогом.
+  suffix: Таможенная марка
+  components:
+  - type: Sprite
+    layers:
+    - state: acquisition_form
+    - state: acquisition_form_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: acquisition_form_header
+      color: "#0075FF"
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_radiant/Interface/Paper/AcquisitionSlips/CustomsMark.svg.192dpi.png"
+  - type: ExciseStamp

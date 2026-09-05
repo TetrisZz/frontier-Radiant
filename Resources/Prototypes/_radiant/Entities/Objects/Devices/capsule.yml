@@ -6,7 +6,29 @@
   components:
   - type: Sprite
     sprite: _radiant/Objects/Devices/signaller.rsi
-    state: icon
+    state: icon_sep
   - type: Item
     sprite: _radiant/Objects/Devices/signaller.rsi
   - type: SmugglingCapsuleItem
+
+- type: entity
+  parent: BaseItem
+  id: GovernorCapsuleCaller
+  name: конфедеративный пульт
+  description: Пульт который вызывает конфедеративную капсулу.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/signaller.rsi
+    state: icon_con
+  - type: Item
+    sprite: _radiant/Objects/Devices/signaller.rsi
+  - type: SmugglingCapsuleItem
+    completeNotifyLoc: "smuggling-capsule-confederation-complete"
+    arrivalLoc: "smuggling-capsule-confederation-arrived"
+    initialNotifyLoc: "smuggling-capsule-confederation-initiated"
+    channelNotify: Command
+    channelNotifyOpponent: Separatist
+    MinimumDistance: 4000
+    MaximumDistance: 4500
+    dropGrid: "/Maps/_radiant/DeadDrop/kapsyla_Conf.yml"
+    gridName: "Конфедеративная капсула"

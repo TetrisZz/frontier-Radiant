@@ -7,6 +7,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
+using Content.Server._radiant.Excise.Systems;
 using Content.Shared._NF.Cargo;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
@@ -40,6 +41,7 @@ public sealed partial class NFCargoSystem : SharedNFCargoSystem
     [Dependency] private readonly PaperSystem _paper = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
+    [Dependency] private readonly ExciseStampSystem _excise = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;

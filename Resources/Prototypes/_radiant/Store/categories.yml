@@ -79,3 +79,18 @@
 - type: storeCategory
   id: UplinkHomShuttle
   name: store-category-hom-shuttle
+
+#Governor
+
+- type: storeCategory
+  id: UplinkGovernorWrittenoff
+  name: store-category-governor-Written-off
+
+- type: storeCategory
+  id: UplinkGovernorUtility
+  name: store-category-governor-utility
+
+- type: storeCategory
+  id: UplinkGovernorPropaganda
+  name: store-category-governor-propaganda
+

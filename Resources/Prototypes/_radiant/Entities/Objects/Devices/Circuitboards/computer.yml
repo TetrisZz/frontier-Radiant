@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: RadarConsoleCircuitboardPlus
+  name: продвинутая консоль сканера масс
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerRadarPlus

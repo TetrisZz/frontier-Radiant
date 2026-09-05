@@ -82,9 +82,9 @@
   parent: BaseFlatpack
   id: BaseRadiantFlatpackSexShop
   components:
-  - type: StaticPrice 
+  - type: StaticPrice
     price: 100
-    vendPrice: 1500 
+    vendPrice: 1500
   - type: Sprite
     sprite: _radiant/Objects/Devices/flatpack.rsi
     layers:
@@ -109,3 +109,12 @@
     entity: VehicleSkateboardRS
   - type: StaticPrice
     price: 3000
+
+- type: entity
+  parent: UniformPrinterFlatpack
+  id: GovernorBountyFlatpack
+  name: упаковнная консоль губернаторских заданий
+  description: Упаковнная консоль губернаторских заданий.
+  components:
+  - type: Flatpack
+    entity: ComputerGovernorBounty

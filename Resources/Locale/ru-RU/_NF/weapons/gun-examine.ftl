@@ -74,4 +74,5 @@ weapon-description-rarity-epic = Это [bold][color=#CC66FF]эпическое[
 weapon-description-rarity-legendary = Это [bold][color=#FFCC00]легендарное[/color][/bold] оружие.
 # Radiant sector start
 weapon-description-rarity-unique = Это [bold][color=#584FB3]заводское[/color][/bold] оружие.
+weapon-description-rarity-uniqueWrittenoff = Это [bold][color=#CE8151]списанное[/color][/bold] оружие.
 # Radiant sector end

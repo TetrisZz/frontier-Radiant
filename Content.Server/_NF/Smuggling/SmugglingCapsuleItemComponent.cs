@@ -39,5 +39,8 @@ namespace Content.Server._NF.Smuggling.Components
 
         [DataField("gridColor")]
         public Color GridColor = new(121, 85, 61);
+
+        [DataField("gridName")]
+        public string GridName = "smuggling-capsule-grid-name";
     }
 }
