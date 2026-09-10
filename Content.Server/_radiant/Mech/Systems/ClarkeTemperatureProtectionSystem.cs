@@ -41,7 +41,7 @@ public sealed class ClarkeTemperatureProtectionSystem : EntitySystem
         temperature.ColdDamageThreshold = component.ColdDamageThreshold;
         temperature.ParentHeatDamageThreshold = component.HeatDamageThreshold;
         temperature.ParentColdDamageThreshold = component.ColdDamageThreshold;
-        Dirty(args.Entity, temperature);
+        // TemperatureComponent is server-only; these thresholds are not network state.
 
         // Stop further heat transfer while inside and reset any temperature damage accumulated outside.
         protection.AddedTemperatureProtection = !HasComp<TemperatureProtectionComponent>(args.Entity);
@@ -63,7 +63,6 @@ public sealed class ClarkeTemperatureProtectionSystem : EntitySystem
         temperature.ColdDamageThreshold = protection.ColdDamageThreshold;
         temperature.ParentHeatDamageThreshold = protection.ParentHeatDamageThreshold;
         temperature.ParentColdDamageThreshold = protection.ParentColdDamageThreshold;
-        Dirty(args.Entity, temperature);
 
         if (protection.AddedTemperatureProtection)
             RemComp<TemperatureProtectionComponent>(args.Entity);

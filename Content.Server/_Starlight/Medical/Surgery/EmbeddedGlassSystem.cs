@@ -40,6 +40,8 @@ public sealed class EmbeddedGlassSystem : EntitySystem
     private void OnStep(Entity<GlassShardEmbedComponent> ent, ref StepTriggeredOffEvent args)
     {
         if (TerminatingOrDeleted(ent) || ent.Comp.Embedded || _standing.IsDown(args.Tripper)
+            || HasComp<Content.Shared.Mech.Components.MechPilotComponent>(args.Tripper)
+            || HasComp<Content.Shared.Mech.Components.MechComponent>(args.Tripper)
             || _inventory.TryGetSlotEntity(args.Tripper, "shoes", out _)
             || MetaData(ent).EntityPrototype is not { } prototype)
             return;

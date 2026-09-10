@@ -27,7 +27,10 @@ public sealed partial class SurgerySystem
             if (TerminatingOrDeleted(uid))
                 continue;
             if (HasComp<PuddleComponent>(uid))
-                puddles++;
+            {
+                if (IsSurgicalPuddleHazard(uid))
+                    puddles++;
+            }
             else if (_sterilityTags.HasTag(uid, "Trash"))
                 trash++;
             if (HasComp<SurgicalSterilizerComponent>(uid) && Transform(uid).Anchored
@@ -35,5 +38,32 @@ public sealed partial class SurgerySystem
                 sterilizer = true;
         }
         return SurgicalSterilityRules.EnvironmentRisk(trash, puddles, sterilizer);
+    }
+
+    public bool IsSurgicalPuddleHazard(EntityUid uid)
+    {
+        if (TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid)
+            || !TryComp<PuddleComponent>(uid, out var puddle))
+            return false;
+        var puddleSolution = puddle.Solution;
+        if (!_sterilitySolutions.ResolveSolution(uid, puddle.SolutionName, ref puddleSolution, out var liquid)
+            || liquid.Volume <= 0)
+            return false;
+
+        var drains = EntityQueryEnumerator<DrainComponent>();
+        while (drains.MoveNext(out var drainId, out var drain))
+        {
+            if (TerminatingOrDeleted(drainId) || EntityManager.IsQueuedForDeletion(drainId)
+                || MetaData(drainId).EntityPaused || !drain.AutoDrain || drain.UnitsPerSecond <= 0)
+                continue;
+            var buffer = drain.Solution;
+            if (!_sterilitySolutions.ResolveSolution(drainId, DrainComponent.SolutionName, ref buffer, out var solution)
+                || solution.AvailableVolume <= 0)
+                continue;
+            // Match the actual drain system's area, including drains just outside the operating room radius.
+            if (_sterilityLookup.GetEntitiesInRange(Transform(drainId).Coordinates, drain.Range).Contains(uid))
+                return false;
+        }
+        return true;
     }
 }

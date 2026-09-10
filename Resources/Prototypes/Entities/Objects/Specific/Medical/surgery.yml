@@ -127,6 +127,9 @@
     state: shiv
   - type: Item
     heldPrefix: shiv
+  - type: Scalpel
+    speed: 1.75
+    successRate: 0.8
 
 - type: entity
   name: advanced scalpel
@@ -183,9 +186,6 @@
   parent: BaseToolSurgery
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
-  - type: Scalpel
-    speed: 1.75
-    successRate: 0.8
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat

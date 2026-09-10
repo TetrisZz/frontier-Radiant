@@ -27,6 +27,7 @@
         </PanelContainer>
 
         <PanelContainer HorizontalExpand="True" VerticalExpand="True" StyleClasses="AngleRect">
+          <TabContainer Name="ReportTabs" HorizontalExpand="True" VerticalExpand="True">
             <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="14">
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <Label Text="{Loc body-scanner-overview-title}" StyleClasses="LabelHeading" />
@@ -51,6 +52,14 @@
                     <BoxContainer Name="SurgicalDiagnostics" Orientation="Vertical" SeparationOverride="5" />
                 </BoxContainer>
             </ScrollContainer>
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="14">
+                <BoxContainer Orientation="Vertical" SeparationOverride="10">
+                    <RichTextLabel Name="PlanDescription" SetWidth="370" />
+                    <PanelContainer StyleClasses="LowDivider" />
+                    <BoxContainer Name="OperationPlan" Orientation="Vertical" SeparationOverride="12" />
+                </BoxContainer>
+            </ScrollContainer>
+          </TabContainer>
         </PanelContainer>
     </BoxContainer>
 </controls:FancyWindow>

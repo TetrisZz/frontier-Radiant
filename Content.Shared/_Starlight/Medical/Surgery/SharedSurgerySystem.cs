@@ -139,7 +139,10 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         return cavities.IsOpen(cavityRequirement.Cavity);
     }
 
-    protected List<EntityUid> GetTools(EntityUid surgeon) => [.. _hands.EnumerateHeld(surgeon)];
+    protected List<EntityUid> GetTools(EntityUid surgeon)
+        => _hands.TryGetActiveItem(surgeon, out var item)
+            ? new List<EntityUid> { item.Value }
+            : new List<EntityUid>();
 
     public bool IsLyingDown(EntityUid entity)
     {

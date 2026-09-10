@@ -45,19 +45,22 @@ public sealed class BodyScannerBoundUserInterfaceState : BoundUserInterfaceState
     public float BloodLevel { get; }
     public bool Bleeding { get; }
     public List<BodyScannerDiagnosticEntry> Diagnostics { get; }
+    public List<BodyScannerDiagnosticEntry> OperationPlan { get; }
 
     public BodyScannerBoundUserInterfaceState(
         NetEntity? target,
         float temperature,
         float bloodLevel,
         bool bleeding,
-        List<BodyScannerDiagnosticEntry>? diagnostics = null)
+        List<BodyScannerDiagnosticEntry>? diagnostics = null,
+        List<BodyScannerDiagnosticEntry>? operationPlan = null)
     {
         Target = target;
         Temperature = temperature;
         BloodLevel = bloodLevel;
         Bleeding = bleeding;
         Diagnostics = diagnostics ?? new();
+        OperationPlan = operationPlan ?? new();
     }
 }
 // Radiant sector end

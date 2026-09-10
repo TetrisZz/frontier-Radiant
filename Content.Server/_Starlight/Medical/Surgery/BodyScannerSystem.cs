@@ -140,7 +140,8 @@ public sealed partial class BodyScannerSystem : SharedBodyScannerSystem
                 temperature,
                 bloodLevel,
                 bleeding,
-                diagnostics));
+                diagnostics,
+                target is { } planPatient ? BuildOperationPlan(planPatient) : null));
     }
 
     private List<BodyScannerDiagnosticEntry> BuildDiagnostics(EntityUid patient)

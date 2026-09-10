@@ -33,6 +33,9 @@ public sealed partial class BodyScannerWindow : FancyWindow
     public BodyScannerWindow()
     {
         RobustXamlLoader.Load(this);
+        ReportTabs.SetTabTitle(0, Loc.GetString("body-scanner-tab-report"));
+        ReportTabs.SetTabTitle(1, Loc.GetString("body-scanner-tab-plan"));
+        PlanDescription.SetMessage(Loc.GetString("body-scanner-plan-description"));
         _entities = IoCManager.Resolve<IEntityManager>();
         _prototypes = IoCManager.Resolve<IPrototypeManager>();
         _appearance = _entities.System<HumanoidAppearanceSystem>();
@@ -79,10 +82,12 @@ public sealed partial class BodyScannerWindow : FancyWindow
 
         SetPatientSprite(patient);
         DrawSurgicalDiagnostics(state.Diagnostics);
+        DrawOperationPlan(state.OperationPlan);
     }
 
     private void ShowNoPatient()
     {
+        _planText = null;
         PatientSprite.Visible = false;
         NoPatientTexture.Visible = true;
         PatientRotationControls.Visible = false;
@@ -96,6 +101,8 @@ public sealed partial class BodyScannerWindow : FancyWindow
         DamageLabel.Text = "—";
         BleedingAlert.Visible = false;
         SurgicalDiagnostics.RemoveAllChildren();
+        OperationPlan.RemoveAllChildren();
+        AddPlanEntry(Loc.GetString("body-scanner-awaiting-patient"), Color.Gray);
         AddDiagnostic(Loc.GetString("body-scanner-awaiting-patient"), Color.Gray);
     }
 
@@ -111,6 +118,32 @@ public sealed partial class BodyScannerWindow : FancyWindow
 
         foreach (var entry in diagnostics)
             AddDiagnostic(entry.Text, GetDiagnosticColor(entry.Severity));
+    }
+
+    private void DrawOperationPlan(List<BodyScannerDiagnosticEntry> plan)
+    {
+        // Avoid rebuilding unchanged controls on the scanner's one-second updates.
+        var text = string.Join("\n", plan.Select(entry => $"{entry.Severity}:{entry.Text}"));
+        if (_planText == text && OperationPlan.ChildCount > 0)
+            return;
+        _planText = text;
+        OperationPlan.RemoveAllChildren();
+        if (plan.Count == 0)
+            AddPlanEntry(Loc.GetString("body-scanner-plan-empty"), Color.LightGray);
+        for (var i = 0; i < plan.Count; i++)
+            AddPlanEntry($"{i + 1}. {plan[i].Text}", GetDiagnosticColor(plan[i].Severity));
+    }
+
+    private string? _planText;
+
+    private void AddPlanEntry(string text, Color color)
+    {
+        var message = new FormattedMessage();
+        message.PushColor(color);
+        message.AddText(text);
+        var label = new RichTextLabel { SetWidth = 370 };
+        label.SetMessage(message);
+        OperationPlan.AddChild(label);
     }
 
     private void AddDiagnostic(string text, Color color)
