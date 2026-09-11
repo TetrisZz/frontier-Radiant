@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260302171302_AddLibraryBook")]
+    partial class AddLibraryBook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -661,36 +664,32 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("job", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.NFLibraryBook", b =>
+            modelBuilder.Entity("Content.Server.Database.LibraryBook", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
-                        .HasColumnName("nf_library_book_id");
+                        .HasColumnName("library_book_id");
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT")
                         .HasColumnName("author");
 
-                    b.Property<Guid>("AuthorPlayerUserId")
+                    b.Property<string>("AuthorCKey")
+                        .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasColumnName("author_player_user_id");
+                        .HasColumnName("author_ckey");
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasMaxLength(32768)
                         .HasColumnType("TEXT")
                         .HasColumnName("content");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<string>("Date")
+                        .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("date");
-
-                    b.Property<int>("RoundId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("round_id");
 
                     b.Property<int>("ServerId")
                         .HasColumnType("INTEGER")
@@ -698,20 +697,16 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT")
                         .HasColumnName("title");
 
                     b.HasKey("Id")
-                        .HasName("PK_nf_library_book");
-
-                    b.HasIndex("RoundId")
-                        .HasDatabaseName("IX_nf_library_book_round_id");
+                        .HasName("PK_library_book");
 
                     b.HasIndex("ServerId")
-                        .HasDatabaseName("IX_nf_library_book_server_id");
+                        .HasDatabaseName("IX_library_book_server_id");
 
-                    b.ToTable("nf_library_book", (string)null);
+                    b.ToTable("library_book", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.PlayTime", b =>
@@ -844,10 +839,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
-                    b.Property<int>("ERPStatus")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("erpstatus");
-
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -857,19 +848,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("facial_hair_color");
-
-                    b.Property<int>("FacialHairColoringMode")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("facial_hair_coloring_mode");
-
-                    b.Property<string>("FacialHairGradientColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("facial_hair_gradient_color");
-
-                    b.Property<int>("FacialHairGradientDirection")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("facial_hair_gradient_direction");
 
                     b.Property<string>("FacialHairName")
                         .IsRequired()
@@ -891,27 +869,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_color");
 
-                    b.Property<int>("HairColoringMode")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("hair_coloring_mode");
-
-                    b.Property<string>("HairGradientColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("hair_gradient_color");
-
-                    b.Property<int>("HairGradientDirection")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("hair_gradient_direction");
-
                     b.Property<string>("HairName")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_name");
-
-                    b.Property<float>("Height")
-                        .HasColumnType("REAL")
-                        .HasColumnName("height");
 
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
@@ -947,15 +908,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
-
-                    b.Property<string>("Voice")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("voice");
-
-                    b.Property<float>("Width")
-                        .HasColumnType("REAL")
-                        .HasColumnName("width");
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
@@ -1735,23 +1687,14 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.NFLibraryBook", b =>
+            modelBuilder.Entity("Content.Server.Database.LibraryBook", b =>
                 {
-                    b.HasOne("Content.Server.Database.Round", "Round")
-                        .WithMany()
-                        .HasForeignKey("RoundId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_nf_library_book_round_round_id");
-
                     b.HasOne("Content.Server.Database.Server", "Server")
                         .WithMany()
                         .HasForeignKey("ServerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_nf_library_book_server_server_id");
-
-                    b.Navigation("Round");
+                        .HasConstraintName("FK_library_book_server_server_id");
 
                     b.Navigation("Server");
                 });

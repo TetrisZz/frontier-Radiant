@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260716121914_LibraryBookLengthLimits")]
+    partial class LibraryBookLengthLimits
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -844,10 +847,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
-                    b.Property<int>("ERPStatus")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("erpstatus");
-
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -857,19 +856,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("facial_hair_color");
-
-                    b.Property<int>("FacialHairColoringMode")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("facial_hair_coloring_mode");
-
-                    b.Property<string>("FacialHairGradientColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("facial_hair_gradient_color");
-
-                    b.Property<int>("FacialHairGradientDirection")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("facial_hair_gradient_direction");
 
                     b.Property<string>("FacialHairName")
                         .IsRequired()
@@ -891,27 +877,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_color");
 
-                    b.Property<int>("HairColoringMode")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("hair_coloring_mode");
-
-                    b.Property<string>("HairGradientColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("hair_gradient_color");
-
-                    b.Property<int>("HairGradientDirection")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("hair_gradient_direction");
-
                     b.Property<string>("HairName")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_name");
-
-                    b.Property<float>("Height")
-                        .HasColumnType("REAL")
-                        .HasColumnName("height");
 
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
@@ -947,15 +916,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
-
-                    b.Property<string>("Voice")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("voice");
-
-                    b.Property<float>("Width")
-                        .HasColumnType("REAL")
-                        .HasColumnName("width");
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
