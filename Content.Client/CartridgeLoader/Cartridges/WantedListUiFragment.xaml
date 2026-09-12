@@ -9,7 +9,6 @@
     <BoxContainer Name="WantedPage" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <LineEdit Name="SearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'wanted-list-search-placeholder'}"/>
-            <Button Name="RegistryNavButton" Text="{Loc 'weapon-registry-nav-button'}"/>
         </BoxContainer>
 
         <BoxContainer Name="MainContainer" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
@@ -53,35 +52,5 @@
             </ScrollContainer>
         </BoxContainer>
     </BoxContainer>
-    </BoxContainer>
-
-    <!-- OSK weapon registry page -->
-    <BoxContainer Name="RegistryPage" Orientation="Vertical" Visible="False" VerticalExpand="True" HorizontalExpand="True">
-        <BoxContainer Orientation="Horizontal">
-            <Button Name="RegistryBackButton" Text="{Loc 'weapon-registry-back'}"/>
-            <Label Text="{Loc 'weapon-registry-title'}" StyleClasses="LabelBig" HorizontalExpand="True" HorizontalAlignment="Center"/>
-        </BoxContainer>
-        <LineEdit Name="RegistrySearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'weapon-registry-search-placeholder'}"/>
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
-            <Label Name="NoRegistryEntries" Text="{Loc 'weapon-registry-no-entries'}" Visible="False" Align="Center" VAlign="Center" HorizontalExpand="True" FontColorOverride="DarkGray"/>
-            <Label Name="NoRegistryMatches" Text="{Loc 'weapon-registry-no-matches'}" Visible="False" Align="Center" VAlign="Center" HorizontalExpand="True" FontColorOverride="DarkGray"/>
-            <controls:ListContainer
-                Name="RegistryList"
-                HorizontalAlignment="Left"
-                VerticalExpand="True"
-                Visible="False"
-                Toggle="True"
-                Group="True"
-                SetWidth="192" />
-            <BoxContainer Name="RegistryDetail" Orientation="Vertical" Visible="False" HorizontalExpand="True" Margin="8 0 0 0">
-                <RichTextLabel Name="DetailWeapon" />
-                <RichTextLabel Name="DetailSerial" />
-                <RichTextLabel Name="DetailRarity" />
-                <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5"/>
-                <RichTextLabel Name="DetailOwner" />
-                <LineEdit Name="OwnerEdit" PlaceHolder="{Loc 'weapon-registry-owner-placeholder'}"/>
-                <Button Name="SaveOwnerButton" Text="{Loc 'weapon-registry-owner-save'}"/>
-            </BoxContainer>
-        </BoxContainer>
     </BoxContainer>
 </cartridges:WantedListUiFragment>

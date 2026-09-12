@@ -71,7 +71,7 @@ nano-task-printed-medium-priority = [bold]Priority[/bold]: Medium
 nano-task-printed-low-priority = [bold]Priority[/bold]: Low
 
 # Wanted list cartridge
-wanted-list-program-name = OSK Database
+wanted-list-program-name = Wanted list
 wanted-list-label-no-records = It's all right, cowboy
 wanted-list-search-placeholder = Search by name and status
 
@@ -104,9 +104,10 @@ wanted-list-history-table-reason-col = Crime
 wanted-list-history-table-initiator-col = Initiator
 
 # Radiant: OSK weapon registry page
-weapon-registry-nav-button = Registered weapons
+weapon-registry-program-name = Registered weapons
 weapon-registry-title = OSK Database
-weapon-registry-back = Back
+weapon-registry-refresh-button = Refresh
+
 weapon-registry-no-entries = No registered weapons
 weapon-registry-search-placeholder = Search: serial, name, owner
 weapon-registry-no-matches = No matches

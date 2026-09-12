@@ -1,5 +1,5 @@
-﻿# Консоль регистрации оружия: выдаёт серийный номер и вносит оружие
-# в локальную базу данных текущего раунда. (Radiant sector)
+﻿# Weapon registration console: issues a serial number and enters the weapon
+# into the local database of the current round. (Radiant sector)
 - type: entity
   parent: BaseComputer
   id: ComputerWeaponRegistration
@@ -16,3 +16,12 @@
       whitelist:
         components:
         - Gun
+  # Console window: summary of the weapon in the slot + an "Owner" field + a
+  # "Save" button. Its own UI key (WeaponRegistrationConsoleUiKey), client-side
+  # window class.
+  - type: ActivatableUI
+    key: enum.WeaponRegistrationConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.WeaponRegistrationConsoleUiKey.Key:
+        type: WeaponRegistrationConsoleBoundUserInterface

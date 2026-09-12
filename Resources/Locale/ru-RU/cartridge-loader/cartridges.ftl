@@ -95,10 +95,11 @@ wanted-list-history-table-reason-col = Преступление
 wanted-list-history-table-initiator-col = Инициатор
 
 # Radiant: OSK weapon registry page
-weapon-registry-nav-button = Зарегистрированное оружие
+weapon-registry-program-name = Зареге-ое оружие
 weapon-registry-title = База данных ОСК
-weapon-registry-back = Назад
 weapon-registry-no-entries = Нет зарегистрированного оружия
+weapon-registry-refresh-button = Обновить
+
 weapon-registry-search-placeholder = Поиск: серийник, название, владелец
 weapon-registry-no-matches = Ничего не найдено
 weapon-registry-detail-weapon = [color=darkgray]Оружие:[/color] [color=white]{$name}[/color]

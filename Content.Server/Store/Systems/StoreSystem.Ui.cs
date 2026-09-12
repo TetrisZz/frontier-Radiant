@@ -184,10 +184,11 @@ public sealed partial class StoreSystem
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
-            // Radiant: only the NFSD security uplink issues a serial number to weapons.
-            // The seller (this store entity) carries the inherited SecurityUplink tag
-            // (see BaseSecurityUplinkRadio), so weapons bought anywhere else stay serial-less.
-            if (_tags.HasTag(uid, "SecurityUplink"))
+            // Radiant: security and governor uplinks issue a serial number to bought
+            // weapons. The seller (this store entity) carries the inherited
+            // SecurityUplink / GovernorUplink tag (see BaseSecurityUplinkRadio and
+            // GovernorUplinkRadio), so weapons bought anywhere else stay serial-less.
+            if (_tags.HasTag(uid, "SecurityUplink") || _tags.HasTag(uid, "GovernorUplink"))
                 _weaponSerial.RegisterWeapon(product);
             _hands.PickupOrDrop(buyer, product);
 
