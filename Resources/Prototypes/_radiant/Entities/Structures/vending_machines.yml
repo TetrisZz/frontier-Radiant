@@ -298,6 +298,8 @@
   - type: Tag
     tags:
     - PhoenixUplink
+  # Radiant: weapons bought here automatically get a serial number.
+  - type: WeaponSerialVendor
 
 - type: entity
   parent: VendingMachineSec

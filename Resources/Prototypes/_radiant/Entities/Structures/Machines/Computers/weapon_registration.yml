@@ -4,7 +4,7 @@
   parent: BaseComputer
   id: ComputerWeaponRegistration
   name: консоль регистрации оружия
-  description: Вставьте огнестрельное оружие, чтобы зарегистрировать его и получить серийный номер. Данные хранятся только до конца раунда.
+  description: Вставьте огнестрельное оружие, чтобы зарегистрировать его и получить серийный номер.
   components:
   - type: WeaponRegistrationConsole
     weaponSlot:

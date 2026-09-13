@@ -22,7 +22,7 @@
       - BountyContractsCartridge
       - AstroNavCartridge
       - WantedListCartridge
-      - WeaponRegistryCartridge
+      - WeaponRegistryCartridge # Radiant
       - LedgerCartridge
       - LogProbeCartridge
       - MailMetricsCartridge
@@ -160,7 +160,7 @@
     - BountyContractsCartridge
     - AstroNavCartridge
     - WantedListCartridge
-    - WeaponRegistryCartridge
+    - WeaponRegistryCartridge # Radiant
     - LedgerCartridge
 
 - type: entity

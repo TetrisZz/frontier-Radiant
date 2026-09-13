@@ -67,7 +67,7 @@ nano-task-printed-high-priority = [bold]Приоритет[/bold]: [color=red]В
 nano-task-printed-medium-priority = [bold]Приоритет[/bold]: Средний
 nano-task-printed-low-priority = [bold]Приоритет[/bold]: Низкий
 # Wanted list cartridge
-wanted-list-program-name = База данных ОСК
+wanted-list-program-name = Список разыскиваемых
 wanted-list-label-no-records = Всё спокойно, ковбой.
 wanted-list-search-placeholder = Поиск по имени и статусу
 wanted-list-age-label = [color=darkgray]Возраст:[/color] [color=white]{ $age }[/color]
@@ -95,7 +95,7 @@ wanted-list-history-table-reason-col = Преступление
 wanted-list-history-table-initiator-col = Инициатор
 
 # Radiant: OSK weapon registry page
-weapon-registry-program-name = Зареге-ое оружие
+weapon-registry-program-name = Реестр оружия
 weapon-registry-title = База данных ОСК
 weapon-registry-no-entries = Нет зарегистрированного оружия
 weapon-registry-refresh-button = Обновить

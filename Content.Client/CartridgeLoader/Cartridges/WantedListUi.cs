@@ -25,4 +25,3 @@ public sealed partial class WantedListUi : UIFragment
             _fragment?.UpdateState(cast.Records);
     }
 }
-

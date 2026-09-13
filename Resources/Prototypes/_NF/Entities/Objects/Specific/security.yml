@@ -72,6 +72,8 @@
   - type: Tag
     tags:
     - SecurityUplink
+  # Radiant: weapons bought here automatically get a serial number.
+  - type: WeaponSerialVendor
 
 - type: entity
   parent: BaseSecurityUplinkRadio

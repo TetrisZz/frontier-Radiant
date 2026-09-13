@@ -13,7 +13,7 @@ using Content.Shared.PDA.Ringer;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
-using Content.Shared.Tag;
+using Content.Shared._radiant.WeaponSerial.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -33,7 +33,6 @@ public sealed partial class StoreSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly WeaponSerialSystem _weaponSerial = default!; // Radiant
-    [Dependency] private readonly TagSystem _tags = default!; // Radiant
 
     private void InitializeUi()
     {
@@ -184,11 +183,14 @@ public sealed partial class StoreSystem
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
-            // Radiant: security and governor uplinks issue a serial number to bought
-            // weapons. The seller (this store entity) carries the inherited
-            // SecurityUplink / GovernorUplink tag (see BaseSecurityUplinkRadio and
-            // GovernorUplinkRadio), so weapons bought anywhere else stay serial-less.
-            if (_tags.HasTag(uid, "SecurityUplink") || _tags.HasTag(uid, "GovernorUplink"))
+            // Radiant: a store carrying the WeaponSerialVendor marker issues a serial
+            // number to bought weapons and enters them into the round registry. The
+            // marker is declared in prototypes (see BaseSecurityUplinkRadio,
+            // GovernorUplinkRadio, BaseNavyUplinkRadio, VendingMachinePhoenix), so the
+            // list of "issuing" sellers is data, not hardcoded C# — adding a new one
+            // is a one-line yml change. Uplink tags (SecurityUplink etc.) stay for
+            // the catalog listing conditions only.
+            if (HasComp<WeaponSerialVendorComponent>(uid))
                 _weaponSerial.RegisterWeapon(product);
             _hands.PickupOrDrop(buyer, product);
 

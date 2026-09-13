@@ -82,6 +82,8 @@
   - type: Tag
     tags:
     - GovernorUplink
+  # Radiant: weapons bought here automatically get a serial number.
+  - type: WeaponSerialVendor
   - type: Store
     balance:
       GovernorUplinkCoin: 1
