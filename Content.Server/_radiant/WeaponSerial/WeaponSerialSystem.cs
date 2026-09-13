@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using Content.Server.CartridgeLoader;
 using Content.Server.Popups;
-using Content.Shared._NF.Weapons.Rarity;
+using Content.Shared._NF.Weapons.Components;
 using Content.Shared.CartridgeLoader;
-using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Components;
@@ -13,6 +12,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Localization;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -20,11 +20,12 @@ namespace Content.Server._radiant.WeaponSerial;
 
 /// <summary>
 ///     Server side of the weapon serial number system.
-///     - Weapons from vending machines and uplinks automatically get a serial
-///       number via TryAssignSerial. It is called from the sale points.
+///     - Vendors carrying GiveSerialNumberComponent stamp a serial number
+///       (plus an origin note) onto bought weapons via RegisterWeapon.
 ///     - The database is stored only in server memory and only for the round.
 ///       It is cleared on RoundRestartCleanupEvent. The full SQL database is untouched.
-///     - The registration console automatically registers weapons inserted into it.
+///     - The registration console: the number is stamped by a one-time
+///       button, the owner is rewritten by the "change owner" button.
 /// </summary>
 public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
 {
@@ -43,7 +44,15 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         base.Initialize();
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<WeaponSerialComponent, ExaminedEvent>(OnExamined);
+        // Every firearm gets the serial component when its Gun component starts.
+        // The _NF base gun prototype already declares it, but vanilla (upstream)
+        // guns are not parented to those bases — this fallback covers them, so
+        // the "wiped" examine note exists on every gun, no exceptions.
+        // The directed pair (GunComponent, ComponentStartup) is free; MapInit
+        // on GunComponent is already taken by SharedGunSystem (the directed bus
+        // allows only ONE handler per component/event pair), and ComponentInit
+        // is taken by GunSystem and GunUpgradeSystem.
+        SubscribeLocalEvent<GunComponent, ComponentStartup>(OnGunStartup);
 
         // OSK weapon registry cartridge (a standalone program, separate from the
         // wanted list cartridge). Subscribed through its own component: the
@@ -68,6 +77,7 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
             subs =>
             {
                 subs.Event<BoundUIOpenedEvent>(OnConsoleUiOpened);
+                subs.Event<WeaponRegistrationStampSerial>(OnConsoleStampSerial);
                 subs.Event<WeaponRegistrationSetOwner>(OnConsoleSetOwner);
         });
         SubscribeLocalEvent<WeaponRegistrationConsoleComponent, EntInsertedIntoContainerMessage>(OnConsoleSlotInserted);
@@ -92,21 +102,12 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         if (ent.Comp.WeaponSlot.ID != args.Container.ID)
             return;
 
-        if (ent.Comp.WeaponSlot.Item is not { } weapon)
+        if (ent.Comp.WeaponSlot.Item == null)
             return;
 
-        // Registration: serial number + registry entry. RegisterWeapon internally
-        // calls RaiseRegistryChanged, so every open PDA gets a fresh list.
-        var serial = RegisterWeapon(weapon);
-        if (serial == null)
-        {
-            _popup.PopupEntity(Loc.GetString("weapon-registration-not-weapon"), ent);
-            return;
-        }
-
-        _popup.PopupEntity(Loc.GetString("weapon-registration-success", ("serial", serial)), ent);
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/printer.ogg"), ent);
-
+        // The number is NOT stamped automatically on insert anymore: stamping
+        // happens only via the one-time button (OnConsoleStampSerial).
+        // Here we just refresh the summary.
         UpdateConsoleUi(ent);
     }
 
@@ -138,7 +139,12 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
             return;
 
         if (!_registry.TryGetValue(serialComp.SerialNumber, out var entry))
+        {
+            // The weapon has a number, but there is no registry entry for it:
+            // nothing to rewrite. E.g. a number that was not issued this round.
+            _popup.PopupEntity(Loc.GetString("weapon-registration-serial-not-found"), ent, msg.Actor);
             return;
+        }
 
         var owner = string.IsNullOrWhiteSpace(msg.Owner) ? null : msg.Owner.Trim();
         _registry[entry.SerialNumber] = entry with { Owner = owner };
@@ -162,41 +168,39 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
     {
         string? serial = null;
         string? weaponName = null;
-        string? rarity = null;
+        string? weaponClass = null;
+        string? origin = null;
         string? owner = null;
 
         if (ent.Comp.WeaponSlot.Item is { } weapon)
         {
-            // Name and rarity come from the weapon itself (what the player sees),
-            // while serial and owner come from the registry entry (the server is
-            // the source of truth).
+            // Name and class come from the weapon itself (what the player sees),
+            // serial/origin/owner — from the registry entry (the server is the
+            // source of truth). If there is no entry yet, the origin stamped on
+            // the weapon by its issuing vendor is still shown.
             weaponName = MetaData(weapon).EntityName;
-            rarity = RarityKey(TryComp<RareWeaponComponent>(weapon, out var rare)
-                ? rare.Rarity
-                : WeaponRarity.Common);
+            weaponClass = TryComp<NFWeaponDetailsComponent>(weapon, out var details)
+                ? details.Class
+                : null;
 
             if (TryComp<WeaponSerialComponent>(weapon, out var serialComp)
-                && serialComp.SerialNumber is { } sn
-                && _registry.TryGetValue(sn, out var entry))
+                && serialComp.SerialNumber is { } sn)
             {
-                serial = entry.SerialNumber;
-                owner = entry.Owner;
+                serial = sn;
+                if (_registry.TryGetValue(sn, out var entry))
+                {
+                    origin = entry.Origin ?? serialComp.Origin;
+                    owner = entry.Owner;
+                }
+                else
+                {
+                    origin = serialComp.Origin;
+                }
             }
         }
 
         _ui.SetUiState(ent.Owner, WeaponRegistrationConsoleUiKey.Key,
-            new WeaponRegistrationConsoleState(serial, weaponName, rarity, owner));
-    }
-
-    /// <summary>
-    ///     The rarity localization key is written in camelCase ("uniqueWrittenoff")
-    ///     while the enum is PascalCase, so only the first letter is lowered.
-    ///     Same trick as in the PDA fragment (WeaponRegistryUiFragment).
-    /// </summary>
-    private static string RarityKey(WeaponRarity rarity)
-    {
-        var name = rarity.ToString();
-        return string.Concat(name.Substring(0, 1).ToLowerInvariant(), name.Substring(1));
+            new WeaponRegistrationConsoleState(serial, weaponName, weaponClass, origin, owner));
     }
 
 
@@ -206,30 +210,45 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         _registry.Clear();
     }
     /// <summary>
-    ///     Shows the serial number when the weapon is examined, if any.
+    ///     Fallback: every firearm gets the serial component when its Gun
+    ///     component starts up — see Initialize for why MapInit/ComponentInit
+    ///     are unavailable for (GunComponent, ...).
     /// </summary>
-    private void OnExamined(EntityUid uid, WeaponSerialComponent component, ExaminedEvent args)
-    {
-        if (component.SerialNumber != null)
-            args.PushMarkup(Loc.GetString("weapon-serial-examine", ("serial", component.SerialNumber)));
-    }
+    private void OnGunStartup(EntityUid uid, GunComponent component, ComponentStartup args)
+        => EnsureComp<WeaponSerialComponent>(uid);
 
     /// <summary>
-    ///     Issues a serial number to the weapon, if it does not have one yet.
-    ///     Called from vending machines and uplinks when an item is sold.
+    ///     The one-time "stamp the number and enter it into the database" button.
+    ///     The console does NOT stamp an origin note: the origin belongs to the
+    ///     vendor that sold the weapon.
     /// </summary>
-    public bool TryAssignSerial(EntityUid uid)
+    private void OnConsoleStampSerial(Entity<WeaponRegistrationConsoleComponent> ent, ref WeaponRegistrationStampSerial msg)
     {
-        // Only work with firearms, i.e. GunComponent.
-        if (!HasComp<GunComponent>(uid))
-            return false;
-        if (TryComp<WeaponSerialComponent>(uid, out var comp) && comp.SerialNumber != null)
-            return false; // already has a number, do not reissue
-        comp = EnsureComp<WeaponSerialComponent>(uid);
-        comp.SerialNumber = GenerateSerial();
-        Dirty(uid, comp);
-        return true;
+        if (ent.Comp.WeaponSlot.Item is not { } weapon)
+            return;
 
+        // One-shot guarantee: a weapon that already has a number is ignored.
+        // The button is hidden on the client, but the message itself could be
+        // crafted, so the server checks the weapon, not the UI. A popup is
+        // still shown so a stale client (button visible while the server
+        // already stamped the number) does not look like a silent failure.
+        if (TryComp<WeaponSerialComponent>(weapon, out var existing) && existing.SerialNumber != null)
+        {
+            _popup.PopupEntity(Loc.GetString("weapon-registration-already-stamped"), ent);
+            return;
+        }
+
+        var serial = RegisterWeapon(weapon);
+        if (serial == null)
+        {
+            _popup.PopupEntity(Loc.GetString("weapon-registration-not-weapon"), ent);
+            return;
+        }
+
+        _popup.PopupEntity(Loc.GetString("weapon-registration-stamp-success", ("serial", serial)), ent);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/printer.ogg"), ent);
+
+        UpdateConsoleUi(ent);
     }
 
     /// <summary>
@@ -239,7 +258,7 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
 
 
     /// </summary>
-    public string? RegisterWeapon(EntityUid weaponUid)
+    public string? RegisterWeapon(EntityUid weaponUid, LocId? origin = null)
     {
         if (!HasComp<GunComponent>(weaponUid))
             return null;
@@ -247,26 +266,34 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         if (comp.SerialNumber == null)
             comp.SerialNumber = GenerateSerial();
         // The number is guaranteed to exist below.
-
-
-
         var serial = comp.SerialNumber!;
-        // Write the weapon into the round-scoped local database.
 
+        // The origin note is stamped together with the number by the issuing
+        // vendor; re-registration must not wipe a note stamped earlier.
+        if (origin != null)
+            comp.Origin ??= origin;
 
-
-        // Rarity comes from the existing NF system; weapons without it count as Common.
-        var rarity = TryComp<RareWeaponComponent>(weaponUid, out var rare)
-            ? rare.Rarity
-            : WeaponRarity.Common;
-
-        // Re-registering must not wipe an owner name entered by a player earlier.
-        _registry[serial] = new WeaponSerialEntry(serial,
-            MetaData(weaponUid).EntityPrototype?.ID ?? "unknown",
-            MetaData(weaponUid).EntityName,
-            _timing.CurTime,
-            rarity,
-            _registry.TryGetValue(serial, out var old) ? old.Owner : null);
+        // Write the weapon into the round-scoped local database. Re-registering
+        // must not wipe an owner name entered by a player earlier, nor the origin.
+        var meta = MetaData(weaponUid);
+        if (_registry.TryGetValue(serial, out var old))
+        {
+            _registry[serial] = new WeaponSerialEntry(serial,
+                meta.EntityPrototype?.ID ?? "unknown",
+                meta.EntityName,
+                _timing.CurTime,
+                old.Origin ?? comp.Origin,
+                old.Owner);
+        }
+        else
+        {
+            _registry[serial] = new WeaponSerialEntry(serial,
+                meta.EntityPrototype?.ID ?? "unknown",
+                meta.EntityName,
+                _timing.CurTime,
+                comp.Origin,
+                null);
+        }
         Dirty(weaponUid, comp);
 
         // Push the fresh registry to every OSK database cartridge so the list updates live.
@@ -307,7 +334,7 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
     {
         return _registry.Values
             .OrderBy(e => e.SerialNumber, StringComparer.Ordinal)
-            .Select(e => new WeaponRegistryEntry(e.SerialNumber, e.PrototypeId, e.WeaponName, e.Rarity, e.Owner))
+            .Select(e => new WeaponRegistryEntry(e.SerialNumber, e.PrototypeId, e.WeaponName, e.Origin, e.Owner))
             .ToList();
     }
 
@@ -382,13 +409,15 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
 public record struct WeaponRegistryChangedEvent;
 
 /// <summary>
-///     Entry about a registered weapon in the round local database.
+///     Entry about a registered weapon in the round local database. The origin
+///     (fluent id) replaced the old rarity field: where the weapon came from is
+///     what the registry is actually about.
 /// </summary>
 public sealed record WeaponSerialEntry(
     string SerialNumber,
     string PrototypeId,
     string WeaponName,
     TimeSpan RegisteredAt,
-    WeaponRarity Rarity = WeaponRarity.Common,
+    string? Origin = null,
     string? Owner = null);
 

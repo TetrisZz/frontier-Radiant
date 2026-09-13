@@ -1,22 +1,33 @@
 ﻿using Robust.Shared.GameStates;
+using Robust.Shared.Localization;
 
 namespace Content.Shared._radiant.WeaponSerial.Components;
 
 
 
 /// <summary>
-///     Weapon serial number. This component is only added to a weapon once
-///     a serial number has been issued (vending machine / uplink) or the weapon
-///     has been registered (registration console).
-///     The absence of this component means the weapon has no serial number.
-
+///     Weapon serial number. The component is present on EVERY firearm (it comes
+///     with the base gun parent prototype), but the number itself is only stamped
+///     later — by a vendor/uplink on sale or manually at the registration console.
+///     A null SerialNumber means the number has not been stamped yet: examine
+///     shows the honest "wiped" note instead of a number.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WeaponSerialComponent : Component
 {
     /// <summary>
-    ///     The weapon's serial number, null means no number has been issued yet.
+    ///     The weapon's serial number, null means the number has not been stamped yet.
     /// </summary>
     [DataField, AutoNetworkedField]
     public string? SerialNumber;
+
+    /// <summary>
+    ///     Where this weapon came from (fluent id): "service weapon of the DVB",
+    ///     "civilian weapon (bought on the Lodge)" etc. Stamped together with the
+    ///     number by the issuing vendor/uplink; shown on examine and stored in
+    ///     the round registry. Null means the origin is unknown (e.g. the number
+    ///     was stamped at the console).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public LocId? Origin;
 }

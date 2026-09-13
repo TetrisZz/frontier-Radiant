@@ -25,7 +25,8 @@
     tags:
     - NavyUplink
   # Radiant: weapons bought here automatically get a serial number.
-  - type: WeaponSerialVendor
+    - type: GiveSerialNumber
+      examineDepartment: gun-examine-department-civilian
 
 - type: entity
   parent: BaseNavyUplinkRadio

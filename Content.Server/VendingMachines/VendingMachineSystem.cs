@@ -21,6 +21,7 @@ using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
 using Content.Server._radiant.VendingMachines;
 using Content.Server._radiant.WeaponSerial;
+using Content.Shared._radiant.WeaponSerial.Components;
 using Content.Shared.Wall;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -289,7 +290,8 @@ namespace Content.Server.VendingMachines
 
             var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
 
-            _weaponSerial.RegisterWeapon(ent); // Radiant: serial + registry for vended weapons
+            if (TryComp<GiveSerialNumberComponent>(uid, out var giveSerial))
+                _weaponSerial.RegisterWeapon(ent, giveSerial.ExamineDepartment); // Radiant: serial + origin + registry for vended weapons
             _contraband.ClearContrabandValue(ent); // Frontier
 
             if (vendComponent.ThrowNextItem)

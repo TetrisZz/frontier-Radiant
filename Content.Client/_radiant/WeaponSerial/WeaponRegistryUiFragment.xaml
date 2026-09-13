@@ -27,7 +27,7 @@
         <BoxContainer Name="RegistryDetail" Orientation="Vertical" Visible="False" HorizontalExpand="True" Margin="8 0 0 0">
             <RichTextLabel Name="DetailWeapon" />
             <RichTextLabel Name="DetailSerial" />
-            <RichTextLabel Name="DetailRarity" />
+            <RichTextLabel Name="DetailOrigin" />
             <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5"/>
             <RichTextLabel Name="DetailOwner" />
             <!-- Read-only: the owner is entered in the weapon registration console; the PDA only displays it. -->

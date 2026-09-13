@@ -104,14 +104,11 @@ weapon-registry-search-placeholder = Поиск: серийник, назван�
 weapon-registry-no-matches = Ничего не найдено
 weapon-registry-detail-weapon = [color=darkgray]Оружие:[/color] [color=white]{$name}[/color]
 weapon-registry-detail-serial = [color=darkgray]Серийный номер:[/color] [color=white]{$serial}[/color]
-weapon-registry-detail-owner-set = [color=darkgray]Владелец:[/color] [color=white]{$owner}[/color]
-weapon-registry-detail-owner-unset = [color=darkgray]Владелец:[/color] [color=white]не указан[/color]
-weapon-registry-owner-placeholder = Имя владельца (необязательно)
-weapon-registry-owner-save = Сохранить владельца
-weapon-registry-rarity-common = [color=darkgray]Обычное[/color]
-weapon-registry-rarity-uncommon = [color=#33FF44]Необычное[/color]
-weapon-registry-rarity-rare = [color=#33CCFF]Редкое[/color]
-weapon-registry-rarity-epic = [color=#CC66FF]Эпическое[/color]
-weapon-registry-rarity-legendary = [color=#FFCC00]Легендарное[/color]
-weapon-registry-rarity-unique = [color=#584FB3]Заводское[/color]
-weapon-registry-rarity-uniqueWrittenoff = [color=#CE8151]Списанное[/color]
+weapon-registry-detail-class = [color=darkgray]Тип:[/color] [color=white]{$class}[/color]
+weapon-registry-detail-class-unset = [color=darkgray]Тип:[/color] [color=white]не установлен[/color]
+weapon-registry-detail-origin = [color=darkgray]Происхождение:[/color] [color=white]{$origin}[/color]
+weapon-registry-detail-origin-unset = [color=darkgray]Происхождение:[/color] [color=white]не установлено[/color]
+weapon-registry-detail-owner-set = [color=darkgray]Владелец и данные:[/color] [color=white]{$owner}[/color]
+weapon-registry-detail-owner-unset = [color=darkgray]Владелец и данные:[/color] [color=white]не указаны[/color]
+weapon-registry-owner-placeholder = Владелец и данные (необязательно)
+weapon-registry-owner-save = Изменить владельца

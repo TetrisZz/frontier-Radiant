@@ -9,48 +9,67 @@ namespace Content.Client._radiant.WeaponSerial;
 
 /// <summary>
 ///     Weapon registration console window: a short summary of the weapon in the
-///     slot (serial / name / rarity / owner) + owner editing.
+///     slot (serial / name / class / origin / owner), a one-time "stamp the
+///     number" button for weapons without a number, and the "change owner" edit.
 ///     Like a clerk's counter: you see the weapon's card and type the owner
-///     name right into it, then press "Save".
-///     The PDA stays read-only: it only displays the owner from the server
+///     name right into it.
+///     The PDA stays read-only: it only displays the data from the server
 ///     snapshot.
 /// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class WeaponRegistrationConsoleWindow : FancyWindow
 {
     /// <summary>
-    ///     The "Save" button was pressed: the BUI sends WeaponRegistrationSetOwner
-    ///     to the server. The serial is not sent — the server reads the slot itself.
+    ///     The "Change owner" button was pressed: the BUI sends
+    ///     WeaponRegistrationSetOwner to the server. The serial is not sent —
+    ///     the server reads the slot itself.
     /// </summary>
     public event Action<string?>? OnOwnerSave;
+
+    /// <summary>
+    ///     The one-time "stamp the number" button was pressed: the BUI sends
+    ///     WeaponRegistrationStampSerial. Only shown while the number is null.
+    /// </summary>
+    public event Action? OnStamp;
 
     public WeaponRegistrationConsoleWindow()
     {
         RobustXamlLoader.Load(this);
         SaveOwnerButton.OnPressed += _ => OnOwnerSave?.Invoke(NormalizeOwner(OwnerEdit.Text));
         OwnerEdit.OnTextEntered += args => OnOwnerSave?.Invoke(NormalizeOwner(args.Text));
+        StampButton.OnPressed += _ => OnStamp?.Invoke();
     }
 
     /// <summary>
-    ///     Show the summary. Serial == null means the slot is empty — show the hint.
+    ///     Show the summary.
+    ///     WeaponName == null — the slot is empty, show the "insert a weapon" hint.
+    ///     Serial == null — the weapon has no number yet: show the one-time
+    ///     "stamp the number" button instead of the serial line and owner edit.
     ///     The edit field is pre-filled with the current owner; an empty field +
     ///     Save clears the owner.
     /// </summary>
     public void UpdateState(WeaponRegistrationConsoleState state)
     {
-        var hasWeapon = state.Serial != null;
+        var hasWeapon = state.WeaponName != null;
+        var hasSerial = state.Serial != null;
         EmptyHint.Visible = !hasWeapon;
         SummaryBox.Visible = hasWeapon;
+        StampButton.Visible = hasWeapon && !hasSerial;
+        OwnerEdit.Visible = hasSerial;
+        SaveOwnerButton.Visible = hasSerial;
         if (!hasWeapon)
             return;
 
         DetailWeapon.SetMessage(BuildMessage("weapon-registry-detail-weapon", ("name", state.WeaponName ?? string.Empty)));
-        DetailSerial.SetMessage(BuildMessage("weapon-registry-detail-serial", ("serial", state.Serial ?? string.Empty)));
-
-        // The rarity localization key arrives from the server already in the
-        // right case (common / uniqueWrittenoff), so no ToString is needed here.
-        DetailRarity.SetMessage(BuildMessage($"weapon-registry-rarity-{state.WeaponRarity ?? "common"}"));
-
+        DetailSerial.SetMessage(hasSerial
+            ? BuildMessage("weapon-registry-detail-serial", ("serial", state.Serial ?? string.Empty))
+            : BuildMessage("weapon-serial-wiped"));
+        DetailClass.SetMessage(state.WeaponClass == null
+            ? BuildMessage("weapon-registry-detail-class-unset")
+            : BuildMessage("weapon-registry-detail-class", ("class", Loc.GetString(state.WeaponClass))));
+        DetailOrigin.SetMessage(state.Origin == null
+            ? BuildMessage("weapon-registry-detail-origin-unset")
+            : BuildMessage("weapon-registry-detail-origin", ("origin", Loc.GetString(state.Origin))));
         DetailOwner.SetMessage(state.Owner == null
             ? BuildMessage("weapon-registry-detail-owner-unset")
             : BuildMessage("weapon-registry-detail-owner-set", ("owner", state.Owner)));

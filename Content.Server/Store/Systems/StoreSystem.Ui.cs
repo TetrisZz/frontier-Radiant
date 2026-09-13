@@ -183,15 +183,13 @@ public sealed partial class StoreSystem
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
-            // Radiant: a store carrying the WeaponSerialVendor marker issues a serial
-            // number to bought weapons and enters them into the round registry. The
-            // marker is declared in prototypes (see BaseSecurityUplinkRadio,
-            // GovernorUplinkRadio, BaseNavyUplinkRadio, VendingMachinePhoenix), so the
-            // list of "issuing" sellers is data, not hardcoded C# — adding a new one
-            // is a one-line yml change. Uplink tags (SecurityUplink etc.) stay for
-            // the catalog listing conditions only.
-            if (HasComp<WeaponSerialVendorComponent>(uid))
-                _weaponSerial.RegisterWeapon(product);
+            // Radiant: a store carrying the GiveSerialNumber marker stamps a serial
+            // number AND an origin note ("service weapon of the DVB", "civilian
+            // weapon bought on the Lodge", ...) onto bought weapons, then enters
+            // them into the round registry. The seller list is data (yml), not
+            // hardcoded C# — adding a new seller is a one-line yml change.
+            if (TryComp<GiveSerialNumberComponent>(uid, out var giveSerial))
+                _weaponSerial.RegisterWeapon(product, giveSerial.ExamineDepartment);
             _hands.PickupOrDrop(buyer, product);
 
             HandleRefundComp(uid, component, product);

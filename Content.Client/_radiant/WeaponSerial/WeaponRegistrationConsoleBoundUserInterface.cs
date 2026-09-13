@@ -25,6 +25,7 @@ public sealed class WeaponRegistrationConsoleBoundUserInterface : BoundUserInter
         _window.OpenCentered();
         _window.OnClose += Close;
         _window.OnOwnerSave += owner => SendMessage(new WeaponRegistrationSetOwner(owner));
+        _window.OnStamp += () => SendMessage(new WeaponRegistrationStampSerial());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

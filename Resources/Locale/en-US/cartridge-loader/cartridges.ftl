@@ -113,14 +113,11 @@ weapon-registry-search-placeholder = Search: serial, name, owner
 weapon-registry-no-matches = No matches
 weapon-registry-detail-weapon = [color=darkgray]Weapon:[/color] [color=white]{$name}[/color]
 weapon-registry-detail-serial = [color=darkgray]Serial number:[/color] [color=white]{$serial}[/color]
-weapon-registry-detail-owner-set = [color=darkgray]Owner:[/color] [color=white]{$owner}[/color]
-weapon-registry-detail-owner-unset = [color=darkgray]Owner:[/color] [color=white]not specified[/color]
-weapon-registry-owner-placeholder = Owner name (optional)
-weapon-registry-owner-save = Save owner
-weapon-registry-rarity-common = [color=darkgray]Common[/color]
-weapon-registry-rarity-uncommon = [color=#33FF44]Uncommon[/color]
-weapon-registry-rarity-rare = [color=#33CCFF]Rare[/color]
-weapon-registry-rarity-epic = [color=#CC66FF]Epic[/color]
-weapon-registry-rarity-legendary = [color=#FFCC00]Legendary[/color]
-weapon-registry-rarity-unique = [color=#584FB3]Factory[/color]
-weapon-registry-rarity-uniqueWrittenoff = [color=#CE8151]Written off[/color]
+weapon-registry-detail-class = [color=darkgray]Class:[/color] [color=white]{$class}[/color]
+weapon-registry-detail-class-unset = [color=darkgray]Class:[/color] [color=white]unknown[/color]
+weapon-registry-detail-origin = [color=darkgray]Origin:[/color] [color=white]{$origin}[/color]
+weapon-registry-detail-origin-unset = [color=darkgray]Origin:[/color] [color=white]unknown[/color]
+weapon-registry-detail-owner-set = [color=darkgray]Owner and details:[/color] [color=white]{$owner}[/color]
+weapon-registry-detail-owner-unset = [color=darkgray]Owner and details:[/color] [color=white]not specified[/color]
+weapon-registry-owner-placeholder = Owner and details (optional)
+weapon-registry-owner-save = Change owner

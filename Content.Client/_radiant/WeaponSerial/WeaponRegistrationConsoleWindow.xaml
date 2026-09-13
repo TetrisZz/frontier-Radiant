@@ -18,11 +18,13 @@
         <BoxContainer Name="SummaryBox" Orientation="Vertical" Visible="False" HorizontalExpand="True">
             <RichTextLabel Name="DetailWeapon" />
             <RichTextLabel Name="DetailSerial" />
-            <RichTextLabel Name="DetailRarity" />
+            <RichTextLabel Name="DetailClass" />
+            <RichTextLabel Name="DetailOrigin" />
             <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5"/>
             <RichTextLabel Name="DetailOwner" />
-            <LineEdit Name="OwnerEdit" PlaceHolder="{Loc 'weapon-registry-owner-placeholder'}"/>
-            <Button Name="SaveOwnerButton" Text="{Loc 'weapon-registry-owner-save'}" Margin="0 5 0 0"/>
+            <LineEdit Name="OwnerEdit" Visible="False" PlaceHolder="{Loc 'weapon-registry-owner-placeholder'}"/>
+            <Button Name="SaveOwnerButton" Visible="False" Text="{Loc 'weapon-registry-owner-save'}" Margin="0 5 0 0"/>
+            <Button Name="StampButton" Visible="False" Text="{Loc 'weapon-registration-stamp'}" Margin="0 5 0 0"/>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

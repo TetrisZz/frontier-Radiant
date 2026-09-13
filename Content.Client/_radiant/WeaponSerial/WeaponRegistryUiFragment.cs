@@ -74,8 +74,7 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
         return _registryEntries.FindAll(e =>
             e.Serial.Contains(text, StringComparison.OrdinalIgnoreCase) ||
             e.Name.Contains(text, StringComparison.OrdinalIgnoreCase) ||
-            (e.Owner != null && e.Owner.Contains(text, StringComparison.OrdinalIgnoreCase)) ||
-            e.Rarity.ToString().Contains(text, StringComparison.OrdinalIgnoreCase));
+            (e.Owner != null && e.Owner.Contains(text, StringComparison.OrdinalIgnoreCase)));
     }
 
     private void OnRegistrySearchTextChanged(LineEdit.LineEditEventArgs args)
@@ -123,12 +122,9 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
     {
         DetailWeapon.SetMessage(BuildMessage("weapon-registry-detail-weapon", ("name", entry.Name)));
         DetailSerial.SetMessage(BuildMessage("weapon-registry-detail-serial", ("serial", entry.Serial)));
-        // The loc keys are lowercase-first while enum members start with an upper-case
-        // letter (e.g. UniqueWrittenoff -> uniqueWrittenoff), so fold the first character.
-        var rarity = entry.Rarity.ToString();
-        var rarityName = string.Concat(rarity.Substring(0, 1).ToLowerInvariant(), rarity.Substring(1));
-        var rarityKey = string.Concat("weapon-registry-rarity-", rarityName);
-        DetailRarity.SetMessage(BuildMessage(rarityKey));
+        DetailOrigin.SetMessage(entry.Origin == null
+            ? BuildMessage("weapon-registry-detail-origin-unset")
+            : BuildMessage("weapon-registry-detail-origin", ("origin", Loc.GetString(entry.Origin))));
         DetailOwner.SetMessage(entry.Owner == null
             ? BuildMessage("weapon-registry-detail-owner-unset")
             : BuildMessage("weapon-registry-detail-owner-set", ("owner", entry.Owner)));

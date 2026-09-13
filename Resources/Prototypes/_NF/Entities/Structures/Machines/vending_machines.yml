@@ -264,6 +264,8 @@
   components:
     - type: VendingMachine
       pack: LessLethalVendPOIInventory
+    - type: GiveSerialNumber
+      examineDepartment: gun-examine-department-civilian
 
 - type: entity
   parent: VendingMachine
@@ -273,6 +275,8 @@
   components:
     - type: VendingMachine
       pack: NonLethalVendInventory
+    - type: GiveSerialNumber
+      examineDepartment: gun-examine-department-civilian
       dispenseOnHitChance: 0.25
       dispenseOnHitThreshold: 2
       offState: off
@@ -743,6 +747,8 @@
   components:
   - type: VendingMachine
     pack: WeaponryWorksVendPOIInventory
+  - type: GiveSerialNumber
+    examineDepartment: gun-examine-department-civilian
 
 - type: entity
   parent: [VendingMachineEngivend, BaseStructureDisableAnchoring]
@@ -843,6 +849,8 @@
   components:
   - type: VendingMachine
     pack: PickNPackPOIInventory
+  - type: GiveSerialNumber
+    examineDepartment: gun-examine-department-civilian
   - type: AccessReader
     access: [["Mercenary"], ["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]]
   - type: ActivatableUIRequiresAccess
