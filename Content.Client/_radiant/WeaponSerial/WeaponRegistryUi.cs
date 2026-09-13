@@ -1,10 +1,10 @@
 using Content.Client.UserInterface.Fragments;
 using Content.Shared.CartridgeLoader;
-using Content.Shared.CartridgeLoader.Cartridges;
+using Content.Shared._radiant.WeaponSerial;
 using Robust.Client.UserInterface;
 using Robust.Shared.GameObjects;
 
-namespace Content.Client.CartridgeLoader.Cartridges;
+namespace Content.Client._radiant.WeaponSerial;
 
 /// <summary>
 ///     OSK weapon registry program UI. A standalone UIFragment wrapper for

@@ -1,7 +1,7 @@
 using Content.Shared._NF.Weapons.Rarity;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.CartridgeLoader.Cartridges;
+namespace Content.Shared._radiant.WeaponSerial;
 
 /// <summary>
 ///     One entry of the round-scoped weapon registry, shown in the OSK database cartridge page.

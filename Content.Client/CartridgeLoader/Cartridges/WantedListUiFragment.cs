@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Client.UserInterface.Controls;
-using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.CriminalRecords.Systems;
 using Content.Shared.Security;
 using Content.Shared.StatusIcon;
@@ -244,7 +243,6 @@ public sealed partial class WantedListUiFragment : BoxContainer
                 data);
         }
     }
-
 }
 
 internal record StatusListData(WantedRecord Record) : ListData;

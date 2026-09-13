@@ -3,7 +3,6 @@ using Content.Server.CartridgeLoader;
 using Content.Server.Popups;
 using Content.Shared._NF.Weapons.Rarity;
 using Content.Shared.CartridgeLoader;
-using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;

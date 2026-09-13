@@ -1,4 +1,5 @@
-<cartridges:WeaponRegistryUiFragment xmlns:cartridges="clr-namespace:Content.Client.CartridgeLoader.Cartridges"
+<ui:WeaponRegistryUiFragment
+        xmlns:ui="clr-namespace:Content.Client._radiant.WeaponSerial"
         xmlns="https://spacestation14.io"
         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
         Orientation="Vertical"
@@ -32,4 +33,4 @@
             <!-- Read-only: the owner is entered in the weapon registration console; the PDA only displays it. -->
         </BoxContainer>
     </BoxContainer>
-</cartridges:WeaponRegistryUiFragment>
+</ui:WeaponRegistryUiFragment>

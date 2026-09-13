@@ -5,13 +5,9 @@
         VerticalExpand="True"
         HorizontalExpand="True">
 
-    <!-- Wanted list page -->
-    <BoxContainer Name="WantedPage" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <LineEdit Name="SearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'wanted-list-search-placeholder'}"/>
-        </BoxContainer>
+    <LineEdit Name="SearchBar" PlaceHolder="{Loc 'wanted-list-search-placeholder'}"/>
 
-        <BoxContainer Name="MainContainer" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+    <BoxContainer Name="MainContainer" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
         <Label Name="NoRecords" Text="{Loc 'wanted-list-label-no-records'}" Align="Center" VAlign="Center" HorizontalExpand="True" FontColorOverride="DarkGray"/>
 
         <!-- Any attempts to set dimensions for ListContainer breaks the renderer, I have to roughly set sizes and margins in other controllers. -->
@@ -51,6 +47,5 @@
                 </BoxContainer>
             </ScrollContainer>
         </BoxContainer>
-    </BoxContainer>
     </BoxContainer>
 </cartridges:WantedListUiFragment>

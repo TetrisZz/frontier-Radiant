@@ -139,28 +139,6 @@
 
 - type: entity
   parent: NFBasePDACartridge # Frontier: BaseItem<NFBasePDACartridge
-  id: WeaponRegistryCartridge
-  name: Weapon registry cartridge
-  description: A program that shows every weapon registered in the OSK database.
-  components:
-  - type: Sprite
-    sprite: Objects/Devices/cartridge.rsi
-    state: cart-sec
-  - type: Icon
-    sprite: Objects/Devices/cartridge.rsi
-    state: cart-sec
-  - type: UIFragment
-    ui: !type:WeaponRegistryUi
-  - type: Cartridge
-    programName: weapon-registry-program-name
-    icon:
-      sprite: Objects/Misc/books.rsi
-      state: icon_magnifier
-    readonly: true # Frontier
-  - type: WeaponRegistryCartridge
-
-- type: entity
-  parent: NFBasePDACartridge # Frontier: BaseItem<NFBasePDACartridge
   id: MedTekCartridge
   name: MedTek cartridge
   description: A program that provides medical diagnostic tools.
