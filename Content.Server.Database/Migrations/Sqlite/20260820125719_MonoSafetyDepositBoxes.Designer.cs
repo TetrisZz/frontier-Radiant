@@ -3,6 +3,7 @@ using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,12 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    partial class SqliteServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260820125719_MonoSafetyDepositBoxes")]
+    partial class MonoSafetyDepositBoxes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -328,6 +331,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("name");
 
+                    b.Property<string>("ShortName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("short_name");
+
                     b.HasKey("Id")
                         .HasName("PK_admin_rank");
 
@@ -545,6 +553,26 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CompanyMember", b =>
+                {
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<string>("CompanyId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("company_id");
+
+                    b.Property<bool>("Owner")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("owner");
+
+                    b.HasKey("PlayerUserId", "CompanyId")
+                        .HasName("PK_company_members");
+
+                    b.ToTable("company_members", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -661,59 +689,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("job", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.NFLibraryBook", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("nf_library_book_id");
-
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("author");
-
-                    b.Property<Guid>("AuthorPlayerUserId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("author_player_user_id");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(32768)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("content");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("date");
-
-                    b.Property<int>("RoundId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("round_id");
-
-                    b.Property<int>("ServerId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("server_id");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("title");
-
-                    b.HasKey("Id")
-                        .HasName("PK_nf_library_book");
-
-                    b.HasIndex("RoundId")
-                        .HasDatabaseName("IX_nf_library_book_round_id");
-
-                    b.HasIndex("ServerId")
-                        .HasDatabaseName("IX_nf_library_book_server_id");
-
-                    b.ToTable("nf_library_book", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.PlayTime", b =>
                 {
                     b.Property<int>("Id")
@@ -802,10 +777,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
 
-                    b.PrimitiveCollection<string>("ConstructionFavorites")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("construction_favorites");
+                    b.Property<long>("MonoCoins")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("mono_coins");
 
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
@@ -844,9 +818,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
-                    b.Property<int>("ERPStatus")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("erpstatus");
+                    b.Property<string>("Company")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("company");
 
                     b.Property<string>("EyeColor")
                         .IsRequired()
@@ -857,19 +832,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("facial_hair_color");
-
-                    b.Property<int>("FacialHairColoringMode")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("facial_hair_coloring_mode");
-
-                    b.Property<string>("FacialHairGradientColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("facial_hair_gradient_color");
-
-                    b.Property<int>("FacialHairGradientDirection")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("facial_hair_gradient_direction");
 
                     b.Property<string>("FacialHairName")
                         .IsRequired()
@@ -890,19 +852,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_color");
-
-                    b.Property<int>("HairColoringMode")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("hair_coloring_mode");
-
-                    b.Property<string>("HairGradientColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("hair_gradient_color");
-
-                    b.Property<int>("HairGradientDirection")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("hair_gradient_direction");
 
                     b.Property<string>("HairName")
                         .IsRequired()
@@ -947,11 +896,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
-
-                    b.Property<string>("Voice")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("voice");
 
                     b.Property<float>("Width")
                         .HasColumnType("REAL")
@@ -1768,6 +1712,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CompanyMember", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany("CompanyMembers")
+                        .HasForeignKey("PlayerUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_company_members_player_player_user_id");
+
+                    b.Navigation("Player");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Server", "Server")
@@ -1818,27 +1775,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_job_profile_profile_id");
 
                     b.Navigation("Profile");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.NFLibraryBook", b =>
-                {
-                    b.HasOne("Content.Server.Database.Round", "Round")
-                        .WithMany()
-                        .HasForeignKey("RoundId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_nf_library_book_round_round_id");
-
-                    b.HasOne("Content.Server.Database.Server", "Server")
-                        .WithMany()
-                        .HasForeignKey("ServerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_nf_library_book_server_server_id");
-
-                    b.Navigation("Round");
-
-                    b.Navigation("Server");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
@@ -2200,6 +2136,8 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("AdminWatchlistsLastEdited");
 
                     b.Navigation("AdminWatchlistsReceived");
+
+                    b.Navigation("CompanyMembers");
 
                     b.Navigation("JobWhitelists");
                 });
