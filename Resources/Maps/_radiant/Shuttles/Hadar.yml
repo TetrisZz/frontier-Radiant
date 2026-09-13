@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 05/17/2026 05:36:22
+  time: 09/12/2026 21:42:27
   entityCount: 2371
 maps: []
 grids:
@@ -6428,11 +6428,6 @@ entities:
     - type: Transform
       pos: -5.5,52.5
       parent: 1
-  - uid: 2351
-    components:
-    - type: Transform
-      pos: -5.5,51.5
-      parent: 1
 - proto: DefaultStationBeaconBridge
   entities:
   - uid: 2357
@@ -6526,6 +6521,14 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: DippyBirdRS
+  entities:
+  - uid: 2351
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5267305,10.7312
+      parent: 1
 - proto: DisposalBend
   entities:
   - uid: 1467
@@ -10927,21 +10930,24 @@ entities:
     - type: Transform
       pos: -8.5,38.5
       parent: 1
-- proto: HydroponicsTrayEmpty
+- proto: hydroponicsTray
   entities:
+  - uid: 413
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,54.5
+      parent: 1
   - uid: 1526
     components:
     - type: Transform
-      pos: -5.5,54.5
+      rot: 1.5707963267948966 rad
+      pos: -5.5,53.5
       parent: 1
   - uid: 1527
     components:
     - type: Transform
-      pos: -5.5,53.5
-      parent: 1
-  - uid: 1528
-    components:
-    - type: Transform
+      rot: 1.5707963267948966 rad
       pos: -5.5,52.5
       parent: 1
 - proto: ImpCoffeeMachine
@@ -14487,9 +14493,9 @@ entities:
     - type: Transform
       pos: 6.5,7.5
       parent: 1
-- proto: VendingMachineSnack
+- proto: VendingMachineRadiantWater
   entities:
-  - uid: 413
+  - uid: 1528
     components:
     - type: Transform
       pos: 0.5,3.5
