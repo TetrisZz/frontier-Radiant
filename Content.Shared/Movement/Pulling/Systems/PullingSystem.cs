@@ -86,6 +86,9 @@ public sealed class PullingSystem : EntitySystem
 
         SubscribeLocalEvent<PullableComponent, PreventCollideEvent>(OnPreventCollision);
 
+        SubscribeLocalEvent<StrapComponent, StrappedEvent>(OnVehicleDriverStrapped);
+        SubscribeLocalEvent<StrapComponent, UnstrappedEvent>(OnVehicleDriverUnstrapped);
+
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
@@ -188,9 +191,32 @@ public sealed class PullingSystem : EntitySystem
     {
         if (args.Handled)
             return;
-        if (!TryComp<PullableComponent>(ent.Comp.Pulling, out var pullable))
+
+        // --- ПЕРЕХВАТ КЛИКА ПО АЛЕРТУ ДЛЯ ТРАНСПОРТА ---
+        var pullerUid = ent.Owner;
+        var pullerComp = ent.Comp;
+
+        // Если по значку кликнул игрок (у него есть руки), но сам он ничего не тащит руками (Pulling == null)
+        if (HasComp<HandsComponent>(pullerUid) && pullerComp.Pulling == null)
+        {
+            var xform = Transform(pullerUid);
+            var parentUid = xform.ParentUid;
+
+            // Проверяем, сидит ли он в транспорте, у которого активен пуллинг безрук
+            if (parentUid.Valid && TryComp<PullerComponent>(parentUid, out var parentPuller) && !parentPuller.NeedsHands)
+            {
+                // Перенаправляем логику клика на саму машину
+                pullerUid = parentUid;
+                pullerComp = parentPuller;
+            }
+        }
+        // --- КОНЕЦ ПЕРЕХВАТА ---
+
+        if (!TryComp<PullableComponent>(pullerComp.Pulling, out var pullable))
             return;
-        args.Handled = TryStopPull(ent.Comp.Pulling.Value, pullable, ent);
+
+        // Передаем в TryStopPull обновленный pullerUid (машину) и сущность игрока (ent) как инициатора
+        args.Handled = TryStopPull(pullerComp.Pulling.Value, pullable, pullerUid);
     }
 
     private void OnPullerContainerInsert(Entity<PullerComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -377,6 +403,18 @@ public sealed class PullingSystem : EntitySystem
         {
             var pullerUid = oldPuller.Value;
             _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
+
+            // --- ОЧИСТКА АЛЕРТА У ВОДИТЕЛЯ ---
+            // Если объект тащил транспорт, принудительно гасим значок пуллинга в HUD у пристёгнутых игроков
+            if (!pullerComp.NeedsHands && TryComp<Shared.Buckle.Components.StrapComponent>(pullerUid, out var strap))
+            {
+                foreach (var buckledEntity in strap.BuckledEntities)
+                {
+                    _alertsSystem.ClearAlert(buckledEntity, pullerComp.PullingAlert);
+                }
+            }
+            // --- КОНЕЦ ОЧИСТКИ АЛЕРТА ---
+
             pullerComp.Pulling = null;
             Dirty(oldPuller.Value, pullerComp);
 
@@ -613,6 +651,17 @@ public sealed class PullingSystem : EntitySystem
         _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert);
         _alertsSystem.ShowAlert(pullableUid, pullableComp.PulledAlert);
 
+        // --- ДИНАМИЧЕСКИЙ ВЫВОД АЛЕРТА ВОДИТЕЛЮ ---
+        // Если объект тащит транспорт (безрукая сущность), зажигаем алерт пуллинга у пристёгнутого водителя
+        if (!pullerComp.NeedsHands && TryComp<Shared.Buckle.Components.StrapComponent>(pullerUid, out var strap))
+        {
+            foreach (var buckledEntity in strap.BuckledEntities)
+            {
+                _alertsSystem.ShowAlert(buckledEntity, pullerComp.PullingAlert);
+            }
+        }
+        // --- КОНЕЦ ИЗМЕНЕНИЙ АЛЕРТА ---
+
         RaiseLocalEvent(pullerUid, message);
         RaiseLocalEvent(pullableUid, message);
 
@@ -647,4 +696,24 @@ public sealed class PullingSystem : EntitySystem
         StopPulling(pullableUid, pullable);
         return true;
     }
+    private void OnVehicleDriverStrapped(Entity<StrapComponent> ent, ref StrappedEvent args)
+    {
+        // Проверяем, есть ли у транспорта компонент пуллера, и тащит ли он что-то прямо сейчас
+        if (!TryComp<PullerComponent>(ent.Owner, out var pullerComp) || pullerComp.NeedsHands || pullerComp.Pulling == null)
+            return;
+
+        // Новый водитель сел в машину с прицепом — принудительно зажигаем ему алерт в HUD
+        _alertsSystem.ShowAlert(args.Buckle.Owner, pullerComp.PullingAlert);
+    }
+
+    private void OnVehicleDriverUnstrapped(Entity<StrapComponent> ent, ref UnstrappedEvent args)
+    {
+        // Проверяем, есть ли у транспорта компонент пуллера
+        if (!TryComp<PullerComponent>(ent.Owner, out var pullerComp) || pullerComp.NeedsHands)
+            return;
+
+        // Водитель встал из-за руля — принудительно гасим у него алерт пуллинга, чтобы значок не залипал
+        _alertsSystem.ClearAlert(args.Buckle.Owner, pullerComp.PullingAlert);
+    }
+
 }
