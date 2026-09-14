@@ -299,8 +299,8 @@
     tags:
     - PhoenixUplink
   # Radiant: weapons bought here automatically get a serial number.
-    - type: GiveSerialNumber
-      examineDepartment: gun-examine-department-civilian
+  - type: GiveSerialNumber
+    examineDepartment: gun-examine-department-phoenix
 
 - type: entity
   parent: VendingMachineSec

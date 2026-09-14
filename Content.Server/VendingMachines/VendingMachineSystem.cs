@@ -291,7 +291,7 @@ namespace Content.Server.VendingMachines
             var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
 
             if (TryComp<GiveSerialNumberComponent>(uid, out var giveSerial))
-                _weaponSerial.RegisterWeapon(ent, giveSerial.ExamineDepartment); // Radiant: serial + origin + registry for vended weapons
+                _weaponSerial.RegisterWeaponWithContents(ent, giveSerial.ExamineDepartment); // Radiant: serial + origin + registry for vended weapons, including guns packed in a container
             _contraband.ClearContrabandValue(ent); // Frontier
 
             if (vendComponent.ThrowNextItem)

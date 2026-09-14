@@ -84,7 +84,7 @@
     - GovernorUplink
   # Radiant: weapons bought here get a serial number + the DVB service note.
   - type: GiveSerialNumber
-    examineDepartment: gun-examine-department-dvb
+    examineDepartment: gun-examine-department-writtenoff
   - type: Store
     balance:
       GovernorUplinkCoin: 1

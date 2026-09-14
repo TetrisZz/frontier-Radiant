@@ -5,13 +5,12 @@ using Robust.Shared.Localization;
 
 namespace Content.Shared._radiant.WeaponSerial;
 
-
 /// <summary>
-///     Shared-часть системы серийных номеров: слот консоли регистрации
-///     (клик-вставка / клик-извлечение) и строки осмотра.
-///     Осмотр живёт именно здесь, в shared: строку видит игрок, поэтому её
-///     рисуют и клиент, и сервер (клиенту не нужен запрос к серверу, чтобы
-///     увидеть номер на оружии в руках).
+/// Shared part of the weapon serial-number system: registration-console slot
+/// (click-to-insert / click-to-eject) and examine strings.
+/// Examine is implemented in shared code: the string is visible to the player
+/// on both client and server, so the client does not need a server request
+/// to see the weapon serial while it is held in hand.
 /// </summary>
 public abstract partial class SharedWeaponSerialSystem : EntitySystem
 {
@@ -19,6 +18,7 @@ public abstract partial class SharedWeaponSerialSystem : EntitySystem
     public const string WeaponSlotId = "WeaponRegistrationConsole-weaponSlot";
 
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -33,10 +33,10 @@ public abstract partial class SharedWeaponSerialSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Осмотр оружия: серийник (или надпись "номер стёрт", если его ещё
-    ///     не набили) + строка происхождения, если оно известно.
-    ///     Аналогия: клеймо на стволе — по нему видно, легальное ли оружие;
-    ///     клейма нет — так и пишем, что стёрт.
+    /// Examine a weapon: show the serial number (or the line "number wiped" if it
+    /// has not been stamped yet) + an origin line when known.
+    /// Analogy: a serial-stamp on the barrel — by it you can tell legal vs. unmarked
+    /// weapon; if no stamp is present, we explicitly write that it is wiped.
     /// </summary>
     private void OnSerialExamined(Entity<WeaponSerialComponent> ent, ref ExaminedEvent args)
     {

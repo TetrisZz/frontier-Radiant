@@ -301,6 +301,33 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
 
         return serial;
     }
+
+    /// <summary>
+    ///     Registers a bought item together with everything packed inside it.
+    ///     Some sellers (uplinks in particular) hand weapons out inside containers -
+    ///     a pistol in a weapon case, a launcher in a duffel bag - and the store
+    ///     spawns only the container, so the gun itself would otherwise never be
+    ///     stamped.
+    ///
+    ///     Items inside a container are children of the container in the transform
+    ///     hierarchy (Container.Insert parents them to the container owner), which
+    ///     is why a walk over children reaches the gun in the case. Non-weapons
+    ///     (magazines, ammo, attachments) are filtered out by RegisterWeapon, which
+    ///     only handles entities with a GunComponent.
+    /// </summary>
+    public void RegisterWeaponWithContents(EntityUid root, LocId? origin = null)
+    {
+        RegisterWeapon(root, origin);
+
+        // Safe to recurse while iterating: registration only adds (and dirties) a
+        // component, it never reparents or deletes children.
+        var childEnumerator = Transform(root).ChildEnumerator;
+        while (childEnumerator.MoveNext(out var child))
+        {
+            RegisterWeaponWithContents(child, origin);
+        }
+    }
+
     /// <summary>
     ///     The OSK database cartridge UI is ready: send it the current registry.
     ///     Mirrors CriminalRecordsSystem.OnCartridgeUiReady — no extra checks,
@@ -310,20 +337,20 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         UpdateReaderUi(ent, args.Loader);
 
     /// <summary>
-    ///     Сообщение от КПК-картриджа. КПК read-only: единственное, что он может
-    ///     попросить — свежий снепшот реестра (пустой serial = "пришли список").
-    ///     Владелец из клиентского сообщения сознательно НЕ принимается: клиент
-    ///     может прислать что угодно. Владельца меняет только консоль регистрации
-    ///     (OnConsoleSetOwner), которая берёт серийник со слота, а не из сети.
+    /// A message from the PDA cartridge. A read-only PDA: the only thing it can do
+    /// ask for a fresh snapshot of the registry (empty serial = "sent the list").
+    /// The owner of the client's message is deliberately NOT accepted: the client
+    /// can send anything. The owner is changed only by the registration console
+    /// (OnConsoleSetOwner), which takes the serial number from the slot, not from the network.
     /// </summary>
     private void OnRegistryMessage(EntityUid uid, WeaponRegistryCartridgeComponent component, WeaponRegistryUiMessageEvent args)
     {
-        // Всё, кроме запроса на обновление, игнорируем — реестр правится только в консоли.
+        // Everything except the update request is ignored — the registry is only modified in the console.
         if (!string.IsNullOrWhiteSpace(args.Serial))
             return;
 
-        // Картридж знает свой загрузчик (тот же источник, что и StateChanged);
-        // LoaderUid из сообщения — запасной вариант.
+        // The cartridge knows its loader (the same source as StateChanged);
+        // LoaderUid from the message is a backup option.
         if (TryComp<CartridgeComponent>(uid, out var cartridge) && cartridge.LoaderUid is { } loaderUid)
             UpdateReaderUi(uid, loaderUid);
         else

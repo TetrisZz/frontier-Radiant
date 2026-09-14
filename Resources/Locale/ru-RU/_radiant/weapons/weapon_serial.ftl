@@ -4,8 +4,12 @@ weapon-registration-slot-name = Слот для оружия
 weapon-registration-success = Оружие зарегистрировано. Серийный номер: {$serial}
 weapon-registration-not-weapon = Это не оружие!
 # Происхождение оружия (fluent id пробивается продавцом на оружие вместе с номером).
-gun-examine-department-dvb = Служебное оружие Департамента Внутренней Безопасности
-gun-examine-department-civilian = Гражданское оружие (купленное на лоджии)
+gun-examine-department-dvb = Служебное оружие ДВБ
+gun-examine-department-cf = Служебное оружие КФ
+gun-examine-department-civilian = Гражданское оружие
+gun-examine-department-phoenix = Служебное оружие корпуса "Феникс"
+gun-examine-department-writtenoff = Списанное оружие из аплинка губернатора
+gun-examine-department-meow = Личное оружие с аплинка "meow"
 # Окно консоли регистрации: сводка по оружию в слоте + поле владельца.
 weapon-registration-window-title = Регистрация оружия
 weapon-registration-empty-hint = Вставьте оружие в слот консоли

@@ -188,8 +188,11 @@ public sealed partial class StoreSystem
             // weapon bought on the Lodge", ...) onto bought weapons, then enters
             // them into the round registry. The seller list is data (yml), not
             // hardcoded C# — adding a new seller is a one-line yml change.
+            // Radiant: RegisterWeaponWithContents also stamps weapons that are packed
+            // inside the bought container (weapon cases, duffel bags), not only the
+            // container itself - some uplinks sell guns that way.
             if (TryComp<GiveSerialNumberComponent>(uid, out var giveSerial))
-                _weaponSerial.RegisterWeapon(product, giveSerial.ExamineDepartment);
+                _weaponSerial.RegisterWeaponWithContents(product, giveSerial.ExamineDepartment);
             _hands.PickupOrDrop(buyer, product);
 
             HandleRefundComp(uid, component, product);
