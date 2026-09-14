@@ -428,7 +428,8 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
     {
         if (!_handLookup.TryGetValue(handName, out handButton))
             return false;
-        if (handButton.Parent is HandsContainer handContainer)
+        // Hand buttons belong to the container's inner grid.
+        if (handButton.Parent?.Parent is HandsContainer handContainer)
         {
             handContainer.RemoveButton(handButton);
         }
@@ -437,9 +438,12 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             _statusHandLeft = null;
         if (_statusHandRight == handButton)
             _statusHandRight = null;
+        if (_activeHand == handButton)
+            _activeHand = null;
 
         _handLookup.Remove(handName);
-        handButton.Orphan();
+        if (!handButton.Disposed)
+            handButton.Dispose();
         UpdateVisibleStatusPanels();
         return true;
     }

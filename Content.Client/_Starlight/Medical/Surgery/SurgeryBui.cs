@@ -39,6 +39,9 @@ public sealed partial class SurgeryBui : BoundUserInterface
     private EntityUid? _part;
     private (EntityUid Ent, EntProtoId Proto)? _surgery;
     private readonly List<EntProtoId> _previousSurgeries = new();
+    private TimeSpan _nextRefresh;
+    private string? _lastActiveHand;
+    private EntityUid? _lastTool;
 
     public SurgeryBui(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -46,11 +49,25 @@ public sealed partial class SurgeryBui : BoundUserInterface
         _hands = _entities.System<HandsSystem>();
         _entitySystem = _entities.System<StarlightEntitySystem>();
 
-        _hands.OnPlayerItemAdded += OnPlayerItemAdded;
     }
-    private void OnPlayerItemAdded(string k1, EntityUid k2)
+
+    public override void Update()
     {
-        if (!_game.IsFirstTimePredicted) return;
+        base.Update();
+        if (_window is not { IsOpen: true })
+            return;
+
+        // Read settled client state, including drops, hand switches and prediction corrections.
+        var activeHand = _hands.TryGetPlayerHands(out var hands) ? hands.Value.Comp.ActiveHandId : null;
+        var tool = _hands.GetActiveHandEntity();
+        var now = _game.RealTime;
+        if (activeHand == _lastActiveHand && tool == _lastTool && now < _nextRefresh)
+            return;
+
+        _lastActiveHand = activeHand;
+        _lastTool = tool;
+        // Catch reagent quantities, tool toggles and other changed requirements too.
+        _nextRefresh = now + TimeSpan.FromMilliseconds(150);
         RefreshUI();
     }
     protected override void Open()
@@ -152,6 +169,7 @@ public sealed partial class SurgeryBui : BoundUserInterface
     {
         if (_window != null) return;
         _window = new SurgeryWindow();
+        _window.OnFrameRefresh += Update;
         _window.OnClose += Close;
         _window.Title = Loc.GetString("starlight-surgery-ui-title");
 
@@ -567,8 +585,10 @@ public sealed partial class SurgeryBui : BoundUserInterface
     {
         base.Dispose(disposing);
 
-        if (disposing)
-            _window?.Dispose();
-        _hands.OnPlayerItemAdded -= OnPlayerItemAdded;
+        if (disposing && _window != null)
+        {
+            _window.OnFrameRefresh -= Update;
+            _window.Dispose();
+        }
     }
 }
