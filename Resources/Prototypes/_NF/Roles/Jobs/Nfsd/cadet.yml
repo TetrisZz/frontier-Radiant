@@ -11,6 +11,7 @@
       time: 64800 # 18 hours
       inverted: true # Leave slots open for newer, less confident players.
   startingGear: CadetGear
+  weaponSerialOrigin: gun-examine-department-dvb # Radiant_Sector
   icon: JobIconCadetNF
   supervisors: job-supervisors-cadet
   weight: 70

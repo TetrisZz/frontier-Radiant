@@ -142,6 +142,15 @@ namespace Content.Shared.Roles
         public ProtoId<StartingGearPrototype>? StartingGear { get; private set; }
 
         /// <summary>
+        /// Radiant_sector: fluent id of the origin label stamped onto the firearms
+        /// issued with this job's starting gear (handled by WeaponSerialSystem on
+        /// PlayerSpawnCompleteEvent), e.g. gun-examine-department-dvb.
+        /// Null = weapons issued by this job are not serialized.
+        /// </summary>
+        [DataField("weaponSerialOrigin")]
+        public LocId? WeaponSerialOrigin { get; private set; }
+
+        /// <summary>
         /// Use this to spawn in as a non-humanoid (borg, test subject, etc.)
         /// Starting gear will be ignored.
         /// If you want to just add special attributes to a humanoid, use AddComponentSpecial instead.

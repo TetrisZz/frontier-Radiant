@@ -10,6 +10,7 @@ gun-examine-department-civilian = Civilian weapon (bought on the Lodge)
 gun-examine-department-phoenix = Service weapon of the "Phoenix" corps
 gun-examine-department-writtenoff = Written-off weapon from the Governor's uplink
 gun-examine-department-meow = Personal weapon from the "meow" uplink
+gun-examine-department-centcomm = Service weapon of Central Command
 # Registration console window: inserted-weapon summary + owner field.
 weapon-registration-window-title = Weapon registration
 weapon-registration-empty-hint = Insert a weapon into the console slot

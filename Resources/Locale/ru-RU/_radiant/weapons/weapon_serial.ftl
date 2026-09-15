@@ -10,6 +10,7 @@ gun-examine-department-civilian = Гражданское оружие
 gun-examine-department-phoenix = Служебное оружие корпуса "Феникс"
 gun-examine-department-writtenoff = Списанное оружие из аплинка губернатора
 gun-examine-department-meow = Личное оружие с аплинка "meow"
+gun-examine-department-centcomm = Служебное оружие Центрального командования
 # Окно консоли регистрации: сводка по оружию в слоте + поле владельца.
 weapon-registration-window-title = Регистрация оружия
 weapon-registration-empty-hint = Вставьте оружие в слот консоли

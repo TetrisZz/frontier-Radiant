@@ -5,6 +5,7 @@ using Content.Shared._NF.Weapons.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared._radiant.WeaponSerial;
 using Content.Shared._radiant.WeaponSerial.Components;
@@ -14,6 +15,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Localization;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 namespace Content.Server._radiant.WeaponSerial;
@@ -35,6 +37,7 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     // Round-scoped database. Serial number -> entry about the registered weapon.
     private readonly Dictionary<string, WeaponSerialEntry> _registry = new();
@@ -82,6 +85,10 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         });
         SubscribeLocalEvent<WeaponRegistrationConsoleComponent, EntInsertedIntoContainerMessage>(OnConsoleSlotInserted);
         SubscribeLocalEvent<WeaponRegistrationConsoleComponent, EntRemovedFromContainerMessage>(OnConsoleSlotRemoved);
+
+        // Job-issued firearms: when the GameTicker finishes spawning a player,
+        // every gun the job declares via weaponSerialOrigin gets stamped.
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
     }
 
     /// <summary>
@@ -326,6 +333,30 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         {
             RegisterWeaponWithContents(child, origin);
         }
+    }
+
+    /// <summary>
+    ///     A player finished spawning. The event fires at the very end of
+    ///     GameTicker.SpawnPlayerMob: starting gear and loadouts are already
+    ///     equipped, so every issued firearm exists and is packed somewhere on
+    ///     the mob (pocket, belt, backpack...).
+    /// </summary>
+    private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
+    {
+        // The origin comes from the JOB, not from the gun prototype: the same
+        // NFWeaponPistolUniversalNfsd is issued to NFSD, the Confederate Fleet
+        // and Phoenix, so only the job knows whose service weapon this is.
+        if (args.JobId is not { } jobId
+            || !_proto.TryIndex<JobPrototype>(jobId, out var job)
+            || job.WeaponSerialOrigin is not { } origin)
+        {
+            return;
+        }
+
+        // Pockets/belt/backpack are containers parented to the mob in the
+        // transform hierarchy, so the recursive walk reaches the pistol without
+        // caring where exactly the starting gear packed it.
+        RegisterWeaponWithContents(args.Mob, origin);
     }
 
     /// <summary>
