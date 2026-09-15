@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Server._NF.Bank;
 using System.Numerics;
 using Content.Server.Cargo.Systems;
@@ -20,6 +20,8 @@ using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
 using Content.Server._radiant.VendingMachines;
+using Content.Server._radiant.WeaponSerial;
+using Content.Shared._radiant.WeaponSerial.Components;
 using Content.Shared.Wall;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -51,6 +53,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
         [Dependency] private readonly ContrabandTurnInSystem _contraband = default!; // Frontier
         [Dependency] private readonly StackSystem _stack = default!; // Frontier
+        [Dependency] private readonly WeaponSerialSystem _weaponSerial = default!; // Radiant
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -287,6 +290,8 @@ namespace Content.Server.VendingMachines
 
             var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
 
+            if (TryComp<GiveSerialNumberComponent>(uid, out var giveSerial))
+                _weaponSerial.RegisterWeaponWithContents(ent, giveSerial.ExamineDepartment); // Radiant: serial + origin + registry for vended weapons, including guns packed in a container
             _contraband.ClearContrabandValue(ent); // Frontier
 
             if (vendComponent.ThrowNextItem)

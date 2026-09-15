@@ -6,6 +6,7 @@
   playTimeTracker: JobERTLeader
   setPreference: false
   startingGear: ERTLeaderGearEVA
+  weaponSerialOrigin: gun-examine-department-centcomm # Radiant_Sector
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -108,6 +109,7 @@
   playTimeTracker: JobERTChaplain
   setPreference: false
   startingGear: ERTChaplainGear
+  weaponSerialOrigin: gun-examine-department-centcomm # Radiant_Sector
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -203,6 +205,7 @@
   playTimeTracker: JobERTEngineer
   setPreference: false
   startingGear: ERTEngineerGearEVA
+  weaponSerialOrigin: gun-examine-department-centcomm # Radiant_Sector
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -287,6 +290,7 @@
   playTimeTracker: JobERTSecurity
   setPreference: false
   startingGear: ERTSecurityGearEVA
+  weaponSerialOrigin: gun-examine-department-centcomm # Radiant_Sector
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -389,6 +393,7 @@
   playTimeTracker: JobERTMedical
   setPreference: false
   startingGear: ERTMedicalGearEVA
+  weaponSerialOrigin: gun-examine-department-centcomm # Radiant_Sector
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -465,6 +470,7 @@
   playTimeTracker: JobERTJanitor
   setPreference: false
   startingGear: ERTJanitorGearEVA
+  weaponSerialOrigin: gun-examine-department-centcomm # Radiant_Sector
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false

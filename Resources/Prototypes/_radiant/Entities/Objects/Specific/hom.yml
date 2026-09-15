@@ -72,6 +72,8 @@
   - type: Tag
     tags:
     - HomUplink
+  - type: GiveSerialNumber
+    examineDepartment: gun-examine-department-meow
 
 - type: entity
   parent: BaseHomUplinkRadio

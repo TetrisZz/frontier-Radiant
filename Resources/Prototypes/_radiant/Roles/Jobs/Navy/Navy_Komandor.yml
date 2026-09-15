@@ -14,6 +14,7 @@
       time: 21600 # 6 hours
   whitelisted: true
   startingGear: NavyKomandorGear
+  weaponSerialOrigin: gun-examine-department-cf # Radiant_Sector
   icon: "JobIconNavyKomandor" 
   supervisors: job-supervisors-navy-cc
   weight: 190

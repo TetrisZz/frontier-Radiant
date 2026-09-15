@@ -10,6 +10,7 @@
       department: Navy
       time: 3600 # 1 hours Radiant_Sector
   startingGear: NavyBrigmedicGear
+  weaponSerialOrigin: gun-examine-department-cf # Radiant_Sector
   icon: "JobIconNavyBrigmedic"
   supervisors: job-supervisors-navy-captain
   weight: 125

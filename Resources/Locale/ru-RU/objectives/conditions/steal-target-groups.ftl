@@ -41,7 +41,7 @@ steal-target-groups-clothing-eyes-hud-beer = пивные очки
 steal-target-groups-bible = библия
 steal-target-groups-clothing-neck-goldmedal = золотая медаль мастерства экипажа
 steal-target-groups-clothing-neck-clownmedal = медаль клоуна
-steal-target-groups-wanted-list-cartridge = картридж Список разыскиваемых
+steal-target-groups-wanted-list-cartridge = картридж База данных ОСК
 steal-target-groups-belt-ce = пояс для инструментов старшего инженера
 steal-target-groups-captain-sword = сабля капитана
 # Thief structures

@@ -102,3 +102,22 @@ wanted-list-status-label = [color=darkgray]status:[/color] {$status ->
 wanted-list-history-table-time-col = Time
 wanted-list-history-table-reason-col = Crime
 wanted-list-history-table-initiator-col = Initiator
+
+# Radiant: OSK weapon registry page
+weapon-registry-program-name = Registered weapons
+weapon-registry-title = OSK Database
+weapon-registry-refresh-button = Refresh
+
+weapon-registry-no-entries = No registered weapons
+weapon-registry-search-placeholder = Search: serial, name, owner
+weapon-registry-no-matches = No matches
+weapon-registry-detail-weapon = [color=darkgray]Weapon:[/color] [color=white]{$name}[/color]
+weapon-registry-detail-serial = [color=darkgray]Serial number:[/color] [color=white]{$serial}[/color]
+weapon-registry-detail-class = [color=darkgray]Class:[/color] [color=white]{$class}[/color]
+weapon-registry-detail-class-unset = [color=darkgray]Class:[/color] [color=white]unknown[/color]
+weapon-registry-detail-origin = [color=darkgray]Origin:[/color] [color=white]{$origin}[/color]
+weapon-registry-detail-origin-unset = [color=darkgray]Origin:[/color] [color=white]unknown[/color]
+weapon-registry-detail-owner-set = [color=darkgray]Owner and details:[/color] [color=white]{$owner}[/color]
+weapon-registry-detail-owner-unset = [color=darkgray]Owner and details:[/color] [color=white]not specified[/color]
+weapon-registry-owner-placeholder = Owner and details (optional)
+weapon-registry-owner-save = Change owner

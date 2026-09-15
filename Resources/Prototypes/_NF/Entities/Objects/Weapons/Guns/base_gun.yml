@@ -11,6 +11,7 @@
         map: ["enum.GunVisualLayers.Base"]
   - type: Gun
   - type: AmmoCounter
+  - type: WeaponSerial
   - type: Appearance
   - type: StaticPrice
     price: 500

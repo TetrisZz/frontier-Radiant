@@ -24,6 +24,7 @@
       time: 72000 # 20 hours Radiant_Sector
   whitelisted: true
   startingGear: SheriffGear
+  weaponSerialOrigin: gun-examine-department-dvb # Radiant_Sector
   alwaysUseSpawner: true
   icon: JobIconSheriff
   requireAdminNotify: true

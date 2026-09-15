@@ -11,6 +11,7 @@
       time: 64800 # 18 hours
       inverted: true # Leave slots open for newer, less confident players.
   startingGear: NavyCadetGear
+  weaponSerialOrigin: gun-examine-department-cf # Radiant_Sector
   icon: "JobIconNavyCadet" 
   supervisors: job-supervisors-hire
   weight: 60
