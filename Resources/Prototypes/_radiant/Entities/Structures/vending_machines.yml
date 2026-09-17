@@ -117,7 +117,7 @@
   parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
   id: VendingMachineHomka
   name: ХомкоМат
-  description: Специальный автомат с инклюзивной одеждой. 
+  description: Специальный автомат с инклюзивной одеждой.
   components:
   - type: VendingMachine
     pack: XomkaVendInventory
@@ -145,7 +145,7 @@
   parent: [BaseStructureDisableAnchoring, VendingMachine] # Frontier
   id: VendingMachineSeparatist
   name: одеждо-мат сепаратистов
-  description: Специальный автомат с инклюзивной одеждой. 
+  description: Специальный автомат с инклюзивной одеждой.
   components:
   - type: VendingMachine
     pack: SeparatistVendInventory
@@ -298,6 +298,9 @@
   - type: Tag
     tags:
     - PhoenixUplink
+  # Radiant: weapons bought here automatically get a serial number.
+  - type: GiveSerialNumber
+    examineDepartment: gun-examine-department-phoenix
 
 - type: entity
   parent: VendingMachineSec

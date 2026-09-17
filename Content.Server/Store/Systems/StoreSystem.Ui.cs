@@ -1,8 +1,9 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
+using Content.Server._radiant.WeaponSerial;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
@@ -12,6 +13,7 @@ using Content.Shared.PDA.Ringer;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
+using Content.Shared._radiant.WeaponSerial.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -30,6 +32,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly WeaponSerialSystem _weaponSerial = default!; // Radiant
 
     private void InitializeUi()
     {
@@ -180,6 +183,16 @@ public sealed partial class StoreSystem
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
+            // Radiant: a store carrying the GiveSerialNumber marker stamps a serial
+            // number AND an origin note ("service weapon of the DVB", "civilian
+            // weapon bought on the Lodge", ...) onto bought weapons, then enters
+            // them into the round registry. The seller list is data (yml), not
+            // hardcoded C# — adding a new seller is a one-line yml change.
+            // Radiant: RegisterWeaponWithContents also stamps weapons that are packed
+            // inside the bought container (weapon cases, duffel bags), not only the
+            // container itself - some uplinks sell guns that way.
+            if (TryComp<GiveSerialNumberComponent>(uid, out var giveSerial))
+                _weaponSerial.RegisterWeaponWithContents(product, giveSerial.ExamineDepartment);
             _hands.PickupOrDrop(buyer, product);
 
             HandleRefundComp(uid, component, product);

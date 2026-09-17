@@ -182,6 +182,7 @@
     - BountyContractsCartridge # Frontier
     - AstroNavCartridge # Frontier
     - WantedListCartridge
+    - WeaponRegistryCartridge # Radiant
 
 - type: entity
   parent: BasePDA
@@ -919,6 +920,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
+    - WeaponRegistryCartridge # Radiant
     - LogProbeCartridge
 
 - type: entity
@@ -990,6 +992,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - WantedListCartridge
+      - WeaponRegistryCartridge # Radiant
       - LogProbeCartridge
       - AstroNavCartridge
 
@@ -1017,6 +1020,7 @@
       - NewsReaderCartridge
       - LogProbeCartridge
       - WantedListCartridge
+      - WeaponRegistryCartridge # Radiant
       - MedTekCartridge
       - AstroNavCartridge
   - type: Tag #  Ignore Chameleon tags
@@ -1171,6 +1175,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - WantedListCartridge
+      - WeaponRegistryCartridge # Radiant
       - LogProbeCartridge
       - AstroNavCartridge
       - MailMetricsCartridge # Frontier
@@ -1343,6 +1348,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
+    - WeaponRegistryCartridge # Radiant
     - LogProbeCartridge
 
 - type: entity
@@ -1371,6 +1377,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
+    - WeaponRegistryCartridge # Radiant
     - MedTekCartridge
 
 - type: entity

@@ -13,6 +13,7 @@
       role: JobNavyOfficer
       time: 10800 # 3 hours
   startingGear: NavyCaptainGear
+  weaponSerialOrigin: gun-examine-department-cf # Radiant_Sector
   icon: "JobIconNavyCaptain" 
   supervisors: job-supervisors-navy-komandor
   weight: 154

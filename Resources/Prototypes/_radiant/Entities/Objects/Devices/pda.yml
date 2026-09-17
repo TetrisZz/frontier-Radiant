@@ -499,5 +499,6 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - WantedListCartridge
+      - WeaponRegistryCartridge # Radiant
       - LogProbeCartridge
       - AstroNavCartridge

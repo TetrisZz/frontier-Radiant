@@ -17,6 +17,7 @@
     - !type:OverallPlaytimeRequirement
       time: 360000 # 100 hours Radiant_Sector
   startingGear: SeniorOfficerGear
+  weaponSerialOrigin: gun-examine-department-dvb # Radiant_Sector
   icon: JobIconSergeant
   supervisors: job-supervisors-bailiff
   weight: 140

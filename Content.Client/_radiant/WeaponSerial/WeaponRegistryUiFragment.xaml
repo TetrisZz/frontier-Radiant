@@ -1,0 +1,36 @@
+<ui:WeaponRegistryUiFragment
+        xmlns:ui="clr-namespace:Content.Client._radiant.WeaponSerial"
+        xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        Orientation="Vertical"
+        VerticalExpand="True"
+        HorizontalExpand="True">
+
+    <!-- OSK weapon registry program (a standalone cartridge, separate from the wanted list) -->
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <Label Text="{Loc 'weapon-registry-title'}" StyleClasses="LabelBig" HorizontalExpand="True" HorizontalAlignment="Left"/>
+        <Button Name="RegistryRefreshButton" Text="{Loc 'weapon-registry-refresh-button'}"/>
+    </BoxContainer>
+    <LineEdit Name="RegistrySearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'weapon-registry-search-placeholder'}"/>
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+        <Label Name="NoRegistryEntries" Text="{Loc 'weapon-registry-no-entries'}" Visible="False" Align="Center" VAlign="Center" HorizontalExpand="True" FontColorOverride="DarkGray"/>
+        <Label Name="NoRegistryMatches" Text="{Loc 'weapon-registry-no-matches'}" Visible="False" Align="Center" VAlign="Center" HorizontalExpand="True" FontColorOverride="DarkGray"/>
+        <!-- Any attempts to set dimensions for ListContainer breaks the renderer, sizes/margins are set here. -->
+        <controls:ListContainer
+            Name="RegistryList"
+            HorizontalAlignment="Left"
+            VerticalExpand="True"
+            Visible="False"
+            Toggle="True"
+            Group="True"
+            SetWidth="192" />
+        <BoxContainer Name="RegistryDetail" Orientation="Vertical" Visible="False" HorizontalExpand="True" Margin="8 0 0 0">
+            <RichTextLabel Name="DetailWeapon" />
+            <RichTextLabel Name="DetailSerial" />
+            <RichTextLabel Name="DetailOrigin" />
+            <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5"/>
+            <RichTextLabel Name="DetailOwner" />
+            <!-- Read-only: the owner is entered in the weapon registration console; the PDA only displays it. -->
+        </BoxContainer>
+    </BoxContainer>
+</ui:WeaponRegistryUiFragment>

@@ -17,6 +17,7 @@
       role: JobSecurityOfficer
       time: 10800 # 3 hours as deputy
   startingGear: NFDetectiveGear
+  weaponSerialOrigin: gun-examine-department-dvb # Radiant_Sector
   icon: JobIconNFDetective
   supervisors: job-supervisors-bailiff
   weight: 110

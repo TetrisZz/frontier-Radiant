@@ -20,6 +20,7 @@
       department: Security
       time: 43200 # 12 hours
   startingGear: BailiffGear
+  weaponSerialOrigin: gun-examine-department-dvb # Radiant_Sector
   icon: JobIconBailiff
   supervisors: job-supervisors-sheriff
   weight: 150

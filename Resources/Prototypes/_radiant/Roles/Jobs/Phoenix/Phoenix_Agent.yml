@@ -17,6 +17,7 @@
       department: MedicalPhoenix
       time: 18000 # 5 hours
   startingGear: PhoenixAgentGear
+  weaponSerialOrigin: gun-examine-department-phoenix # Radiant_Sector
   icon: "JobIconPhoenixAgent" 
   supervisors: job-supervisors-phoenix-cmo
   weight: 61

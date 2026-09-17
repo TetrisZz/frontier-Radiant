@@ -72,6 +72,9 @@
   - type: Tag
     tags:
     - SecurityUplink
+  # Radiant: weapons bought here get a serial number + the DVB service note.
+  - type: GiveSerialNumber
+    examineDepartment: gun-examine-department-dvb
 
 - type: entity
   parent: BaseSecurityUplinkRadio

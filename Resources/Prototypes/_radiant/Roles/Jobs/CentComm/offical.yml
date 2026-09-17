@@ -5,6 +5,7 @@
   playTimeTracker: JobProsecutor
   setPreference: false
   startingGear: ProsecutorGear
+  weaponSerialOrigin: gun-examine-department-centcomm # Radiant_Sector
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-hos
   canBeAntag: false
