@@ -35,6 +35,14 @@ public sealed partial class WeaponRegistrationConsoleWindow : FancyWindow
     public WeaponRegistrationConsoleWindow()
     {
         RobustXamlLoader.Load(this);
+
+        // Cap the owner name at the source: IsValid makes LineEdit throw away any
+        // edit that would exceed the limit, so an over-long name cannot even
+        // appear in the field — neither typed nor pasted. The same constant is
+        // checked again on the server (WeaponSerialSystem.OnConsoleSetOwner),
+        // because a client can always lie.
+        OwnerEdit.IsValid = text => text.Length <= SharedWeaponSerialSystem.MaxOwnerLength;
+
         SaveOwnerButton.OnPressed += _ => OnOwnerSave?.Invoke(NormalizeOwner(OwnerEdit.Text));
         OwnerEdit.OnTextEntered += args => OnOwnerSave?.Invoke(NormalizeOwner(args.Text));
         StampButton.OnPressed += _ => OnStamp?.Invoke();

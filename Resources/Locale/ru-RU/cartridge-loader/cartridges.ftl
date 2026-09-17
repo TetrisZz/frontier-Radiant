@@ -112,3 +112,7 @@ weapon-registry-detail-owner-set = [color=darkgray]Владелец и данн�
 weapon-registry-detail-owner-unset = [color=darkgray]Владелец и данные:[/color] [color=white]не указаны[/color]
 weapon-registry-owner-placeholder = Владелец и данные (необязательно)
 weapon-registry-owner-save = Изменить владельца
+# Постраничный список реестра: 10 записей на страницу, порядок — от новых к старым.
+weapon-registry-page = Страница {$page} / {$total}
+weapon-registry-page-prev = <
+weapon-registry-page-next = >

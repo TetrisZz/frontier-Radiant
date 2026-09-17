@@ -15,22 +15,48 @@
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
         <Label Name="NoRegistryEntries" Text="{Loc 'weapon-registry-no-entries'}" Visible="False" Align="Center" VAlign="Center" HorizontalExpand="True" FontColorOverride="DarkGray"/>
         <Label Name="NoRegistryMatches" Text="{Loc 'weapon-registry-no-matches'}" Visible="False" Align="Center" VAlign="Center" HorizontalExpand="True" FontColorOverride="DarkGray"/>
-        <!-- Any attempts to set dimensions for ListContainer breaks the renderer, sizes/margins are set here. -->
-        <controls:ListContainer
-            Name="RegistryList"
-            HorizontalAlignment="Left"
-            VerticalExpand="True"
-            Visible="False"
-            Toggle="True"
-            Group="True"
-            SetWidth="192" />
-        <BoxContainer Name="RegistryDetail" Orientation="Vertical" Visible="False" HorizontalExpand="True" Margin="8 0 0 0">
-            <RichTextLabel Name="DetailWeapon" />
-            <RichTextLabel Name="DetailSerial" />
-            <RichTextLabel Name="DetailOrigin" />
-            <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5"/>
-            <RichTextLabel Name="DetailOwner" />
-            <!-- Read-only: the owner is entered in the weapon registration console; the PDA only displays it. -->
+        <!-- Left column: the weapon list with the pager right under it.
+             HorizontalExpand="False" is load-bearing: ListContainer forces
+             HorizontalExpand=true in its own constructor, and a stretched list
+             eats the free space, leaving an empty gap between the row text and
+             the detail pane. With the flag off the list keeps exactly its 192px
+             and the detail pane starts right next to it.
+             Any attempts to set dimensions for ListContainer breaks the renderer,
+             sizes/margins are set here. -->
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" SetWidth="192">
+            <controls:ListContainer
+                Name="RegistryList"
+                HorizontalExpand="False"
+                HorizontalAlignment="Left"
+                VerticalExpand="True"
+                Visible="False"
+                Toggle="True"
+                Group="True"
+                SetWidth="192" />
+            <!-- Pager: the list is sliced into pages of PageSize entries. -->
+            <BoxContainer Name="RegistryPager" Orientation="Horizontal" HorizontalExpand="True" Visible="False">
+                <Button Name="RegistryPrevPageButton" Text="{Loc 'weapon-registry-page-prev'}"/>
+                <Label Name="RegistryPageLabel" HorizontalExpand="True" Align="Center" StyleClasses="LabelSmall"/>
+                <Button Name="RegistryNextPageButton" Text="{Loc 'weapon-registry-page-next'}"/>
+            </BoxContainer>
+        </BoxContainer>
+        <!-- Right pane: the selected entry.
+             The pane itself expands, but its content sits inside a scroll
+             container with HScrollEnabled="False": that makes the labels measure
+             against the REAL pane width, so a long owner name wraps onto the next
+             line and the pane grows DOWNWARDS instead of pushing the window to
+             the right (same pattern the wanted list uses). -->
+        <BoxContainer Name="RegistryDetail" Orientation="Vertical" Visible="False" HorizontalExpand="True">
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Orientation="Vertical">
+                    <RichTextLabel Name="DetailWeapon" />
+                    <RichTextLabel Name="DetailSerial" />
+                    <RichTextLabel Name="DetailOrigin" />
+                    <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5"/>
+                    <!-- Read-only: the owner is entered in the weapon registration console; the PDA only displays it. -->
+                    <RichTextLabel Name="DetailOwner" />
+                </BoxContainer>
+            </ScrollContainer>
         </BoxContainer>
     </BoxContainer>
 </ui:WeaponRegistryUiFragment>
