@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Client.UserInterface.Systems.Inventory.Controls;
+using Content.Shared.Hands.Components;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.UserInterface.Systems.Hands.Controls;
@@ -39,6 +40,17 @@ public sealed class HandsContainer : ItemSlotUIContainer<HandButton>
         }
 
         _grid.Columns = Math.Min(_grid.ChildCount, MaxButtonsPerRow);
+        // Keep anatomical order regardless of the order limbs were attached.
+        // Stable sorting preserves the order of extra hands on the same side.
+        var ordered = GetButtons().OrderBy(button => button.HandLocation switch
+        {
+            HandLocation.Right => 0,
+            HandLocation.Middle => 1,
+            HandLocation.Left => 2,
+            _ => 1,
+        }).ToArray();
+        for (var i = 0; i < ordered.Length; i++)
+            ordered[i].SetPositionInParent(i);
         return base.AddButton(newButton);
     }
 
@@ -47,8 +59,13 @@ public sealed class HandsContainer : ItemSlotUIContainer<HandButton>
         var button = GetButton(handName);
         if (button == null)
             return;
+        RemoveButton(button);
+    }
+
+    public override void RemoveButton(HandButton button)
+    {
         base.RemoveButton(button);
-        _grid.RemoveChild(button);
+        _grid.Columns = Math.Max(1, Math.Min(_grid.ChildCount, MaxButtonsPerRow));
     }
 
     public bool TryGetLastButton(out HandButton? control)
