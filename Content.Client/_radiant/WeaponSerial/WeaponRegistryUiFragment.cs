@@ -20,8 +20,31 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
+    // How many entries one page holds. The whole registry already lives in memory,
+    // so paging is pure client-side slicing; 10 keeps the page readable inside the
+    // PDA program area.
+    private const int PageSize = 10;
+
+    // Side of the square icon box of a list row: the DEFAULT icon size. Every
+    // weapon sprite is normalised into it, whatever its source texture is — a
+    // bigger one is scaled down, a smaller one is scaled up, and a sprite drawn
+    // with a scale factor (TextureScale 1.8f and the like) still lands exactly
+    // here. Two reasons it must be this strict:
+    //   1. ListContainer measures the height of the FIRST row and reuses it for
+    //      all the others, so one row with a bigger icon would overlap its
+    //      neighbours.
+    //   2. Rows then all look the same, instead of mixing huge and tiny icons.
+    private const float IconBoxSize = 32f;
+
+    // Third line of a row when the weapon has no owner yet. It must not be an
+    // empty string: an empty Label measures as ZERO height (the font metrics are
+    // skipped for empty text), and then rows with and without an owner would end
+    // up different heights — the very thing the fixed icon box prevents.
+    private const string NoOwnerPlaceholder = "—";
+
     private string? _selectedSerial;
     private List<WeaponRegistryEntry> _registryEntries = new();
+    private int _page;
 
     // Raised when the player hits the refresh button, so the wrapper can ask
     // the server to re-send the current registry snapshot.
@@ -35,6 +58,8 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
         IoCManager.InjectDependencies(this);
 
         RegistrySearchBar.OnTextChanged += OnRegistrySearchTextChanged;
+        RegistryPrevPageButton.OnPressed += _ => ChangePage(-1);
+        RegistryNextPageButton.OnPressed += _ => ChangePage(1);
         RegistryRefreshButton.OnPressed += _ => OnRegistryRefresh?.Invoke();
     }
 
@@ -81,19 +106,31 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
     {
         // args.Text, not RegistrySearchBar.Text: the event args carry the exact
         // value at the moment of the event, which is the honest source here.
+        // A new filter means a new result list, so we always go back to its first page.
+        _page = 0;
         RenderRegistry(FilterRegistry(args.Text));
     }
 
     /// <summary>
-    ///     Draws the given subset of entries and picks the right "empty" message:
-    ///     the registry has no weapons at all vs. the filter matched nothing.
+    ///     Draws the CURRENT PAGE of the given subset of entries and picks the right
+    ///     "empty" message: the registry has no weapons at all vs. the filter
+    ///     matched nothing.
     /// </summary>
     private void RenderRegistry(List<WeaponRegistryEntry> toShow)
     {
         RegistryList.GenerateItem = GenerateRegistryItem;
         RegistryList.ItemPressed = OnRegistryItemSelected;
+
+        // Pagination is a plain slice of the received order: the server already
+        // sorted the snapshot by the moment a weapon appeared in the registry
+        // (newest first), so paging can never shuffle anything.
+        var pageCount = Math.Max(1, (int) Math.Ceiling(toShow.Count / (double) PageSize));
+        _page = Math.Clamp(_page, 0, pageCount - 1);
+        var pageStart = _page * PageSize;
+        var pageEntries = toShow.GetRange(pageStart, Math.Min(PageSize, toShow.Count - pageStart));
+
         var dataList = new List<ListData>();
-        foreach (var entry in toShow)
+        foreach (var entry in pageEntries)
             dataList.Add(new WeaponRegistryListData(entry));
         RegistryList.PopulateList(dataList);
 
@@ -102,11 +139,31 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
         NoRegistryEntries.Visible = empty && !filterActive;
         NoRegistryMatches.Visible = empty && filterActive;
         RegistryList.Visible = !empty;
+
+        // The pager is shown for any non-empty list (so the player can always see
+        // which page they are on) and the arrows are greyed out at the edges.
+        RegistryPager.Visible = !empty;
+        RegistryPrevPageButton.Disabled = _page <= 0;
+        RegistryNextPageButton.Disabled = _page >= pageCount - 1;
+        RegistryPageLabel.Text = Loc.GetString("weapon-registry-page",
+            ("page", _page + 1),
+            ("total", pageCount));
+
         if (empty)
         {
             RegistryDetail.Visible = false;
             _selectedSerial = null;
         }
+    }
+
+    /// <summary>
+    ///     Moves the current page. RenderRegistry clamps the result and refreshes
+    ///     the pager, so this method needs no bounds check of its own.
+    /// </summary>
+    private void ChangePage(int delta)
+    {
+        _page += delta;
+        RenderRegistry(FilterRegistry(RegistrySearchBar.Text));
     }
 
     private void OnRegistryItemSelected(BaseButton.ButtonEventArgs args, ListData data)
@@ -140,13 +197,17 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
 
         // Weapon icon on the left, taken from the entity prototype (same pattern
         // the market menu uses). The icon lives INSIDE the row button, so clicking
-        // it selects the entry — the whole row is one clickable button. The scale
-        // is small enough that the serial number still fits in the 192px row.
+        // it selects the entry — the whole row is one clickable button.
+        // The box is ALWAYS IconBoxSize and the texture is stretched to fill it
+        // exactly: a weapon whose sprite is bigger than the default one (a grenade
+        // launcher) is scaled down, a smaller sprite is scaled up, a scaled sprite
+        // is drawn at the default size regardless. SetSize wins over the texture's
+        // own size, so the row height never depends on the sprite.
         var icon = new TextureRect
         {
-            TextureScale = new(1.8f),
+            Stretch = TextureRect.StretchMode.Scale,
+            SetSize = new(IconBoxSize, IconBoxSize),
             VerticalAlignment = VAlignment.Center,
-            HorizontalAlignment = HAlignment.Center,
             Margin = new(2f, 2f, 6f, 2f),
         };
         if (_prototypeManager.TryIndex<EntityPrototype>(entry.PrototypeId, out var prototype)
@@ -155,9 +216,10 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
             icon.Texture = sprite.Icon?.Default;
         }
 
-        // Show the serial number and the weapon name as TWO stacked lines so both
-        // stay readable inside the 192px row: line 1 = serial, line 2 = weapon name.
-        // The owner (when set) is a small third line, kept out of the way.
+        // Show the serial number and the weapon name as stacked lines so both stay
+        // readable inside the 192px row: line 1 = serial, line 2 = weapon name,
+        // line 3 = owner (or a placeholder dash when there is none).
+        // The third line is unconditional on purpose — see NoOwnerPlaceholder.
         var texts = new BoxContainer
         {
             Orientation = LayoutOrientation.Vertical,
@@ -174,19 +236,17 @@ public sealed partial class WeaponRegistryUiFragment : BoxContainer
         nameLabel.AddStyleClass("LabelSmall");
         texts.AddChild(nameLabel);
 
-        // Optional 3rd line: owner, small gray.
-        if (entry.Owner is { } owner)
+        // 3rd line: owner, small gray. The tooltip carries the full name because
+        // the row is only 192px wide and the label clips.
+        var ownerLabel = new Label()
         {
-            var ownerLabel = new Label()
-            {
-                Text = owner,
-                ClipText = true,
-                ToolTip = owner,
-                StyleClasses = { "LabelSmall" },
-                FontColorOverride = Color.DarkGray,
-            };
-            texts.AddChild(ownerLabel);
-        }
+            Text = entry.Owner ?? NoOwnerPlaceholder,
+            ClipText = true,
+            ToolTip = entry.Owner,
+            StyleClasses = { "LabelSmall" },
+            FontColorOverride = Color.DarkGray,
+        };
+        texts.AddChild(ownerLabel);
 
         var row = new BoxContainer
         {

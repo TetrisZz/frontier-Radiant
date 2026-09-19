@@ -8,8 +8,14 @@
         but the owner is EDITABLE here: LineEdit + Save button.
         The PDA stays read-only — it only displays the owner from the server
         snapshot.
+        SetWidth on the content box is load-bearing: a control's own SetWidth
+        also caps the width it offers to its children, so the RichTextLabels
+        below measure against 360px and WRAP. Without it they would be measured
+        with unlimited width, and since the window only has MinSize (no upper
+        bound) a long owner name would stretch the window to the right instead of
+        wrapping onto the next line.
     -->
-    <BoxContainer Orientation="Vertical" Margin="8" HorizontalExpand="True" VerticalExpand="True">
+    <BoxContainer Orientation="Vertical" Margin="8" SetWidth="360" HorizontalExpand="True" VerticalExpand="True">
         <Label Name="EmptyHint"
                Text="{Loc 'weapon-registration-empty-hint'}"
                Align="Center" VAlign="Center"

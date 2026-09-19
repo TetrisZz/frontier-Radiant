@@ -121,3 +121,7 @@ weapon-registry-detail-owner-set = [color=darkgray]Owner and details:[/color] [c
 weapon-registry-detail-owner-unset = [color=darkgray]Owner and details:[/color] [color=white]not specified[/color]
 weapon-registry-owner-placeholder = Owner and details (optional)
 weapon-registry-owner-save = Change owner
+# Paged registry list: 10 entries per page, newest entries first.
+weapon-registry-page = Page {$page} / {$total}
+weapon-registry-page-prev = <
+weapon-registry-page-next = >

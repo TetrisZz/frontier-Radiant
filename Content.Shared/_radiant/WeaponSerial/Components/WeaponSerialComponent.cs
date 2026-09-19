@@ -24,9 +24,10 @@ public sealed partial class WeaponSerialComponent : Component
     /// <summary>
     ///     Where this weapon came from (fluent id): "service weapon of the DVB",
     ///     "civilian weapon (bought on the Lodge)" etc. Stamped together with the
-    ///     number by the issuing vendor/uplink; shown on examine and stored in
-    ///     the round registry. Null means the origin is unknown (e.g. the number
-    ///     was stamped at the console).
+    ///     number by the issuing vendor/uplink and stored in the round registry,
+    ///     which is the ONLY place it is shown: the weapon's own examine output
+    ///     carries the stamped number alone. Null means the origin is unknown
+    ///     (e.g. the number was stamped at the registration console).
     /// </summary>
     [DataField, AutoNetworkedField]
     public LocId? Origin;

@@ -153,7 +153,15 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
             return;
         }
 
-        var owner = string.IsNullOrWhiteSpace(msg.Owner) ? null : msg.Owner.Trim();
+        // The console input field is capped as well, but a client can lie: this
+        // message arrives from the network, and the owner ends up in the round
+        // database and in every open PDA with the snapshot. So the cut is made
+        // here too, on the authoritative side.
+        var raw = msg.Owner ?? string.Empty;
+        if (raw.Length > MaxOwnerLength)
+            raw = raw[..MaxOwnerLength];
+
+        var owner = string.IsNullOrWhiteSpace(raw) ? null : raw.Trim();
         _registry[entry.SerialNumber] = entry with { Owner = owner };
 
         // Refresh the console window (summary) and all open PDAs (list).
@@ -285,10 +293,13 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         var meta = MetaData(weaponUid);
         if (_registry.TryGetValue(serial, out var old))
         {
+            // Re-registration keeps the moment the weapon FIRST appeared in the
+            // registry: the list is sorted by that date, and re-issuing a weapon
+            // must not push it back to the top of the database.
             _registry[serial] = new WeaponSerialEntry(serial,
                 meta.EntityPrototype?.ID ?? "unknown",
                 meta.EntityName,
-                _timing.CurTime,
+                old.RegisteredAt,
                 old.Origin ?? comp.Origin,
                 old.Owner);
         }
@@ -388,10 +399,17 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
             UpdateReaderUi(uid, GetEntity(args.LoaderUid));
     }
 
+    /// <summary>
+    ///     Builds the snapshot the PDA program shows. The order is the DEFAULT
+    ///     order of the list: newest entry first, by the moment the weapon
+    ///     appeared in the registry. Sorting here (and not on the client) keeps
+    ///     the client dumb: it only filters and slices pages, so no re-ordering
+    ///     can ever diverge from the server.
+    /// </summary>
     private List<WeaponRegistryEntry> BuildRegistrySnapshot()
     {
         return _registry.Values
-            .OrderBy(e => e.SerialNumber, StringComparer.Ordinal)
+            .OrderByDescending(e => e.RegisteredAt)
             .Select(e => new WeaponRegistryEntry(e.SerialNumber, e.PrototypeId, e.WeaponName, e.Origin, e.Owner))
             .ToList();
     }
