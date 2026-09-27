@@ -148,8 +148,8 @@
 
 - type: entity
   parent: CrateTradeBaseSecure
-  id: конфедеративный экспресс торговый ящик
-  name: express cargo trading crate
+  id: CrateTradeSecureHighConfederation
+  name: конфедеративный экспресс торговый ящик
   description: Ящик конфедеративеного образца. Доставьте его до пункта назначения и получите вознаграждение.
   components:
   - type: TradeCrate

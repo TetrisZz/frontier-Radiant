@@ -11,7 +11,8 @@ namespace Content.Client._radiant.WeaponSerial;
 ///     <see cref="WeaponRegistryUiFragment"/>, living on its own cartridge
 ///     (separate from the wanted list cartridge owned by CriminalRecordsSystem).
 ///     The PDA is read-only: the owner is entered in the weapon registration
-///     console, the server only pushes registry snapshots here.
+///     console, the server only pushes registry snapshots here. Searching and
+///     sorting happen entirely on the client — the whole registry is in memory.
 /// </summary>
 public sealed partial class WeaponRegistryUi : UIFragment
 {
@@ -22,15 +23,6 @@ public sealed partial class WeaponRegistryUi : UIFragment
     public override void Setup(BoundUserInterface userInterface, EntityUid? fragmentOwner)
     {
         _fragment = new WeaponRegistryUiFragment();
-
-        _fragment.OnRegistryRefresh += () =>
-        {
-            // Ask the server to re-send the current registry snapshot.
-            // An empty serial means "send me the current registry"; the loader
-            // relays the CartridgeUiMessage to the server-side cartridge system.
-            var refreshMessage = new CartridgeUiMessage(new WeaponRegistryUiMessageEvent(string.Empty, null));
-            userInterface.SendMessage(refreshMessage);
-        };
 
         // Every time the program UI is (re)shown, ask the server for the current
         // snapshot. This covers a brand-new window open and the loader re-sending

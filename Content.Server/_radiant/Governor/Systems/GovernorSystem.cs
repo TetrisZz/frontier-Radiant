@@ -3,8 +3,10 @@ using Content.Server._radiant.Governor.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Stack;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Paper;
 using Content.Shared.Stacks;
 using Content.Shared._radiant.Governor;
@@ -278,13 +280,11 @@ public sealed partial class GovernorSystem : SharedGovernorSystem
                 }
             }
 
-            // Tagged item, but matches no accepted bounty.
-            _popup.PopupEntity(Loc.GetString("governor-bounty-redeem-no-match"), args.Actor);
-            _audio.PlayPvs(component.DenySound, uid);
-            return;
+            // Item bounties did not match. Do NOT return here: the item may still be a
+            // container holding the required reagent (step 4 below).
         }
 
-        // 4. No tag: try liquid bounties (the item is a container of liquid).
+        // 4. Liquid bounties: the item is a container with a solution.
         if (TryComp<SolutionContainerManagerComponent>(item, out var solutionMan))
         {
             for (var i = 0; i < component.Bounties.Count; i++)
@@ -302,17 +302,20 @@ public sealed partial class GovernorSystem : SharedGovernorSystem
                         continue;
 
                     // Find a solution that holds enough of the reagent.
-                    var reagentId = new ReagentId(entry.Reagent, null);
                     foreach (var solutionName in solutionMan.Containers)
                     {
-                        if (!_solutionContainer.TryGetSolution(item, solutionName, out _, out var solution))
+                        if (!_solutionContainer.TryGetSolution(item, solutionName, out var soln, out var solution))
                             continue;
 
-                        if (solution.GetReagentQuantity(reagentId) < entry.ReagentAmount)
+                        // Reagents are matched by prototype only: the same reagent may carry
+                        // different ReagentData (e.g. DNA), which a data-less ReagentId misses.
+                        if (!TryFindReagent(solution, entry.Reagent, entry.ReagentAmount, out var reagentId))
                             continue;
 
                         // 4a. Take the required amount of liquid out of the container.
-                        solution.RemoveReagent(reagentId, entry.ReagentAmount);
+                        // Removing through the solution system also dirties the networked
+                        // solution state, so the client sees the container become empty.
+                        _solutionContainer.RemoveReagent(soln.Value, reagentId, entry.ReagentAmount);
 
                         // 4b. Pay out the reward.
                         var stackUid = _stack.Spawn(proto.Reward, "Credit", Transform(uid).Coordinates);
@@ -346,8 +349,34 @@ public sealed partial class GovernorSystem : SharedGovernorSystem
             return;
         }
 
-        // 5. The item is neither a tagged item nor a container of liquid.
+        // 5. The item is neither a matching item nor a matching container of liquid.
         _popup.PopupEntity(Loc.GetString("governor-bounty-redeem-no-match"), args.Actor);
         _audio.PlayPvs(component.DenySound, uid);
+    }
+
+    /// <summary>
+    /// Looks for a reagent prototype inside a solution and, if at least <paramref name="amount"/>
+    /// units of it are present, returns the exact <see cref="ReagentId"/> stored in that solution.
+    /// </summary>
+    /// <remarks>
+    /// The stored id is returned instead of building a new data-less one, because reagents such as
+    /// DNA-carrying ones are only removable with their own <see cref="ReagentData"/>.
+    /// </remarks>
+    private static bool TryFindReagent(Solution solution, ProtoId<ReagentPrototype> prototype, FixedPoint2 amount, out ReagentId reagentId)
+    {
+        foreach (var reagent in solution.Contents)
+        {
+            if (reagent.Reagent.Prototype != prototype)
+                continue;
+
+            if (reagent.Quantity < amount)
+                continue;
+
+            reagentId = reagent.Reagent;
+            return true;
+        }
+
+        reagentId = default;
+        return false;
     }
 }

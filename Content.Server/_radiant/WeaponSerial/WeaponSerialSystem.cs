@@ -408,6 +408,10 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
     /// </summary>
     private List<WeaponRegistryEntry> BuildRegistrySnapshot()
     {
+        // Plain key ordering: no explicit comparer in the IL, which keeps this
+        // method inside the sandbox whitelist (StringComparer is not allowed).
+        // RegisteredAt is a plain numeric timestamp, so key ordering needs no
+        // comparer at all; the newest weapon comes first.
         return _registry.Values
             .OrderByDescending(e => e.RegisteredAt)
             .Select(e => new WeaponRegistryEntry(e.SerialNumber, e.PrototypeId, e.WeaponName, e.Origin, e.Owner))

@@ -9,7 +9,7 @@
     <!-- OSK weapon registry program (a standalone cartridge, separate from the wanted list) -->
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
         <Label Text="{Loc 'weapon-registry-title'}" StyleClasses="LabelBig" HorizontalExpand="True" HorizontalAlignment="Left"/>
-        <Button Name="RegistryRefreshButton" Text="{Loc 'weapon-registry-refresh-button'}"/>
+        <Button Name="RegistryFilterButton" Text="{Loc 'weapon-registry-filter-button'}"/>
     </BoxContainer>
     <LineEdit Name="RegistrySearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'weapon-registry-search-placeholder'}"/>
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
@@ -51,6 +51,7 @@
                 <BoxContainer Orientation="Vertical">
                     <RichTextLabel Name="DetailWeapon" />
                     <RichTextLabel Name="DetailSerial" />
+                    <RichTextLabel Name="DetailCaliber" />
                     <RichTextLabel Name="DetailOrigin" />
                     <PanelContainer StyleClasses="LowDivider" Margin="0 5 0 5"/>
                     <!-- Read-only: the owner is entered in the weapon registration console; the PDA only displays it. -->

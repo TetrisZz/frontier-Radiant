@@ -7,7 +7,7 @@
   description: governor-uplink-capsulecaller-desc
   productEntity: GovernorCapsuleCaller
   cost:
-    GovernorUplinkCoin: 6
+    GovernorUplinkCoin: 4
   categories:
   - UplinkGovernorUtility
 
@@ -27,7 +27,7 @@
   description: governor-uplink-excisestamp-desc
   productEntity: ExciseStamp
   cost:
-    GovernorUplinkCoin: 8
+    GovernorUplinkCoin: 2
   categories:
   - UplinkGovernorUtility
 

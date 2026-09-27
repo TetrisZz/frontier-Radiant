@@ -106,13 +106,30 @@ wanted-list-history-table-initiator-col = Initiator
 # Radiant: OSK weapon registry page
 weapon-registry-program-name = Registered weapons
 weapon-registry-title = OSK Database
-weapon-registry-refresh-button = Refresh
+weapon-registry-filter-button = Filter
+weapon-registry-filter-title = List filter
+weapon-registry-filter-sort-title = Sorting
+weapon-registry-filter-origin-title = Origin
+weapon-registry-filter-tooltip = Sorting: {$mode}; showing: {$show}
+# Origin filter: all / no stamp / a concrete source (an uplink, a department).
+weapon-registry-filter-show-all = all
+weapon-registry-filter-origin-all = All
+weapon-registry-filter-origin-none = No origin
+# Sort orders of the list (one line = one entry in the filter window).
+weapon-registry-sort-date = Newest first
+weapon-registry-sort-owner-asc = Owner: A → Z
+weapon-registry-sort-owner-desc = Owner: Z → A
+weapon-registry-sort-caliber = By caliber
+weapon-registry-sort-class = By weapon type
+weapon-registry-sort-serial = By serial number
 
 weapon-registry-no-entries = No registered weapons
 weapon-registry-search-placeholder = Search: serial, name, owner
 weapon-registry-no-matches = No matches
 weapon-registry-detail-weapon = [color=darkgray]Weapon:[/color] [color=white]{$name}[/color]
 weapon-registry-detail-serial = [color=darkgray]Serial number:[/color] [color=white]{$serial}[/color]
+weapon-registry-detail-caliber = [color=darkgray]Caliber:[/color] [color=white]{$caliber}[/color]
+weapon-registry-detail-caliber-unset = [color=darkgray]Caliber:[/color] [color=white]unknown[/color]
 weapon-registry-detail-class = [color=darkgray]Class:[/color] [color=white]{$class}[/color]
 weapon-registry-detail-class-unset = [color=darkgray]Class:[/color] [color=white]unknown[/color]
 weapon-registry-detail-origin = [color=darkgray]Origin:[/color] [color=white]{$origin}[/color]

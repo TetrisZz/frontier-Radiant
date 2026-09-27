@@ -98,12 +98,29 @@ wanted-list-history-table-initiator-col = Инициатор
 weapon-registry-program-name = Реестр оружия
 weapon-registry-title = База данных ОСК
 weapon-registry-no-entries = Нет зарегистрированного оружия
-weapon-registry-refresh-button = Обновить
+weapon-registry-filter-button = Фильтр
+weapon-registry-filter-title = Фильтр списка
+weapon-registry-filter-sort-title = Сортировка
+weapon-registry-filter-origin-title = Происхождение
+weapon-registry-filter-tooltip = Сортировка: {$mode}; показ: {$show}
+# Фильтр по происхождению: все / без метки / конкретный источник (аплинк, служба).
+weapon-registry-filter-show-all = всё
+weapon-registry-filter-origin-all = Все
+weapon-registry-filter-origin-none = Без происхождения
+# Пункты сортировки: одна строка = один пункт в окошке фильтра.
+weapon-registry-sort-date = Сначала новые
+weapon-registry-sort-owner-asc = Владелец: А → Я
+weapon-registry-sort-owner-desc = Владелец: Я → А
+weapon-registry-sort-caliber = По калибру
+weapon-registry-sort-class = По типу оружия
+weapon-registry-sort-serial = По серийному номеру
 
 weapon-registry-search-placeholder = Поиск: серийник, название, владелец
 weapon-registry-no-matches = Ничего не найдено
 weapon-registry-detail-weapon = [color=darkgray]Оружие:[/color] [color=white]{$name}[/color]
 weapon-registry-detail-serial = [color=darkgray]Серийный номер:[/color] [color=white]{$serial}[/color]
+weapon-registry-detail-caliber = [color=darkgray]Калибр:[/color] [color=white]{$caliber}[/color]
+weapon-registry-detail-caliber-unset = [color=darkgray]Калибр:[/color] [color=white]не определён[/color]
 weapon-registry-detail-class = [color=darkgray]Тип:[/color] [color=white]{$class}[/color]
 weapon-registry-detail-class-unset = [color=darkgray]Тип:[/color] [color=white]не установлен[/color]
 weapon-registry-detail-origin = [color=darkgray]Происхождение:[/color] [color=white]{$origin}[/color]

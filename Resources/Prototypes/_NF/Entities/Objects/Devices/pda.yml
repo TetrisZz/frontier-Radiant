@@ -397,6 +397,7 @@
     - AstroNavCartridge
     - LedgerCartridge
     - MailMetricsCartridge
+    - WeaponRegistryCartridge # Radiant
 
 - type: entity
   parent: PiratePDA
