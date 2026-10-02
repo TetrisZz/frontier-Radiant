@@ -1,5 +1,6 @@
 using Content.Shared.Examine;
 using Content.Shared._NF.Bank.Components;
+using Content.Shared._radint.Cargo.Components;
 using Content.Shared.VendingMachines;
 
 namespace Content.Shared._NF.Bank;
@@ -16,6 +17,9 @@ public sealed partial class MarketModifierSystem : EntitySystem
     // This code is licensed under AGPLv3. See AGPLv3.txt
     private void OnExamined(Entity<MarketModifierComponent> ent, ref ExaminedEvent args)
     {
+        if (HasComp<DynamicCargoMarketComponent>(ent)) // radiant
+            return;
+
         // If the machine is a vendor, don't print out rates
         if (HasComp<VendingMachineComponent>(ent))
             return;
