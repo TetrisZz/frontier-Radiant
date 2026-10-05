@@ -83,18 +83,19 @@
   - type: SolutionContainerManager
     solutions:
       udder:
-        maxVol: 250
+        maxVol: 75
         reagents:
         - ReagentId: MilkArcana #Radiant Sector
           Quantity: 30
   - type: Udder
     reagentId: MilkArcana #Radiant Sector
-    quantityPerUpdate: 25
-    growthDelay: 30
+    quantityPerUpdate: 5
+    growthDelay: 60
     sexRestriction: Female
     requiredEmptySlots:
     - jumpsuit
     - outerClothing
+    - underweart
 
 - type: entity
   save: false

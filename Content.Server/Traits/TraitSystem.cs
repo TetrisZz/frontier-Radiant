@@ -65,7 +65,7 @@ public sealed class TraitSystem : EntitySystem
                     udder.SolutionName,
                     out _,
                     out _,
-                    FixedPoint2.New(250));
+                    FixedPoint2.New(75));
             }
 
             // Add item required by the trait

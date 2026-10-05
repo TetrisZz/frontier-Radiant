@@ -19,9 +19,10 @@
     - Diona
     - Reptilian
     - Arachnid
-    quantityPerUpdate: 25
-    growthDelay: 30
+    quantityPerUpdate: 5
+    growthDelay: 60
     sexRestriction: Female
     requiredEmptySlots:
     - jumpsuit
     - outerClothing
+    - underweart
