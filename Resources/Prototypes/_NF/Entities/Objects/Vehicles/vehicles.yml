@@ -848,7 +848,6 @@
   name: dumpster
   description: It only has one wheel!
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - SpawnGoblinMadeToolMalfunction

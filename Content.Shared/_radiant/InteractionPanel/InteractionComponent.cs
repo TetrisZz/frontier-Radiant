@@ -13,12 +13,12 @@ namespace Content.Shared.Chat.Prototypes
 
         /// <inheritdoc />
         [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<InteractionPrototype>))]
-        public string[]? Parents { get; }
+        public string[]? Parents { get; private set; }
 
         /// <inheritdoc />
         [NeverPushInheritance]
         [AbstractDataField]
-        public bool Abstract { get; }
+        public bool Abstract { get; private set; }
 
         [DataField(required: true)]
         public string Name = default!;

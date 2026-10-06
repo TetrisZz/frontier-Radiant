@@ -3,7 +3,7 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client._radiant.Casino;
 
-public sealed class CasinoMachineBoundUserInterface : BoundUserInterface
+public sealed partial class CasinoMachineBoundUserInterface : BoundUserInterface
 {
     private CasinoMachineWindow? _window;
 
