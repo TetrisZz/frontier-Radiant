@@ -18,14 +18,14 @@ namespace Content.Server._Starlight.Medical.Surgery;
 /// An EMP affects electronics implanted inside a patient as well as devices worn on them.
 /// Organs are container children, so they are not otherwise found by a spatial EMP pulse.
 /// </summary>
-public sealed class SurgicalImplantEmpSystem : EntitySystem
+public sealed partial class SurgicalImplantEmpSystem : EntitySystem
 {
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private EmpSystem _emp = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
 
     public override void Initialize()
     {

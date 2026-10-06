@@ -25,10 +25,10 @@ public sealed partial class SurgicalSterilizerComponent : Component
     [ViewVariables] public float Remaining;
 }
 
-public sealed class SurgicalSterilizerSystem : EntitySystem
+public sealed partial class SurgicalSterilizerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

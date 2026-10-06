@@ -19,13 +19,13 @@ namespace Content.Server._Starlight.Medical.Surgery;
 /// Installs the compatible components supplied by Starlight surgical implants.
 /// Kept independent from Starlight's language, abductor and cybernetics subsystems.
 /// </summary>
-public sealed class FunctionalOrganSystem : EntitySystem
+public sealed partial class FunctionalOrganSystem : EntitySystem
 {
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly SharedSurgerySystem _surgery = default!;
-    [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EncryptionKeySystem _encryption = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private SharedSurgerySystem _surgery = default!;
+    [Dependency] private SharedElectrocutionSystem _electrocution = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EncryptionKeySystem _encryption = default!;
 
     public override void Initialize()
     {

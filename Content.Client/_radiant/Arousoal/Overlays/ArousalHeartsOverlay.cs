@@ -9,10 +9,10 @@ using Robust.Shared.Utility;
 namespace Content.Client._radiant.Arousal.Overlays;
 
 /// <summary> Pet-style floating hearts (EffectHearts sprite) around screen edges and corners. </summary>
-public sealed class ArousalHeartsOverlay : Overlay
+public sealed partial class ArousalHeartsOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 

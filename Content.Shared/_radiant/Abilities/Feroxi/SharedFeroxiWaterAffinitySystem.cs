@@ -10,11 +10,11 @@ namespace Content.Shared._radiant.Abilities.Feroxi;
 /// <summary>
 /// Handles the predicted portion of the feroxi water affinity on both client and server.
 /// </summary>
-public sealed class SharedFeroxiWaterAffinitySystem : EntitySystem
+public sealed partial class SharedFeroxiWaterAffinitySystem : EntitySystem
 {
     private static readonly ProtoId<ReagentPrototype> WaterReagent = "Water";
 
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
 
     public override void Initialize()
     {

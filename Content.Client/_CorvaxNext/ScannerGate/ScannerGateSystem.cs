@@ -3,9 +3,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client._CorvaxNext.ScannerGate;
 
-public sealed class ScannerGateSystem : EntitySystem
+public sealed partial class ScannerGateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

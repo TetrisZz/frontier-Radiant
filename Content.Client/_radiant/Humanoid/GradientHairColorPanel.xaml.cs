@@ -11,8 +11,8 @@ namespace Content.Client._radiant.Humanoid;
 [GenerateTypedNameReferences]
 public sealed partial class GradientHairColorPanel : BoxContainer
 {
-    [Dependency] private readonly MarkingManager _markingManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private MarkingManager _markingManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public HumanoidVisualLayers TargetLayer { get; set; } = HumanoidVisualLayers.Hair;
 
