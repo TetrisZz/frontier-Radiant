@@ -9,9 +9,9 @@ namespace Content.Server.NPC.Systems;
 /// <summary>
 /// Makes marked structures non-blocking for active NPCs without changing their collision for players.
 /// </summary>
-public sealed class NpcPassableSystem : EntitySystem
+public sealed partial class NpcPassableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
 
     private const CollisionGroup MobBlockingLayers =
         CollisionGroup.Impassable | CollisionGroup.HighImpassable | CollisionGroup.MidImpassable | CollisionGroup.LowImpassable;

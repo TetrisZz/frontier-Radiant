@@ -6,9 +6,9 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Clock;
 
-public sealed class ClockSystem : SharedClockSystem
+public sealed partial class ClockSystem : SharedClockSystem
 {
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
     // [Dependency] private readonly IRobustRandom _robustRandom = default!; // Frontier: predictable shift times
 
     /// <inheritdoc/>

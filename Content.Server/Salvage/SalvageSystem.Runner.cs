@@ -42,10 +42,10 @@ public sealed partial class SalvageSystem
     private static readonly ProtoId<RadioChannelPrototype> RescueMedicalChannel = "Medical"; ///Radiant Sector
     private const string SeparatistRadioImplantPrototype = "SeparatistsTrackingImplant"; ///Radiant Sector
 
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!; // Frontier
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!; ///Radiant Sector
-    [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!; ///Radiant Sector
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private GameTicker _gameTicker = default!; // Frontier
+    [Dependency] private EntityStorageSystem _entityStorage = default!; ///Radiant Sector
+    [Dependency] private SharedSubdermalImplantSystem _subdermalImplant = default!; ///Radiant Sector
 
     private void InitializeRunner()
     {

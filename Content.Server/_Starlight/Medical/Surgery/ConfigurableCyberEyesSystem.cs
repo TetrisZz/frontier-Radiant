@@ -6,9 +6,9 @@ using Content.Shared.Verbs;
 namespace Content.Server._Starlight.Medical.Surgery;
 
 /// <summary>Configures the iris colour stored by a loose decorative cyber-eye organ.</summary>
-public sealed class ConfigurableCyberEyesSystem : EntitySystem
+public sealed partial class ConfigurableCyberEyesSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

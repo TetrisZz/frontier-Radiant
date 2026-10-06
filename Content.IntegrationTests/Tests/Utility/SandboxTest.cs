@@ -1,3 +1,5 @@
+using System.IO;
+using System.Reflection;
 using Content.Client.IoC;
 using Content.Client.Parallax.Managers;
 using Robust.Client;
@@ -30,8 +32,25 @@ public sealed class SandboxTest
         };
         using var client = new RobustIntegrationTest.ClientIntegrationInstance(options);
         await client.WaitIdleAsync();
-        await client.CheckSandboxed(typeof(Shared.IoC.SharedContentIoC).Assembly);
-        await client.CheckSandboxed(typeof(Client.Entry.EntryPoint).Assembly);
+        await CheckContentAssembly(client, typeof(Shared.IoC.SharedContentIoC).Assembly);
+        await CheckContentAssembly(client, typeof(Client.Entry.EntryPoint).Assembly);
+    }
+
+    // Optional path lets this same check verify the actual Release/FullRelease DLLs,
+    // rather than only the Debug assemblies linked to the test project.
+    private static async Task CheckContentAssembly(RobustIntegrationTest.ClientIntegrationInstance client,
+        Assembly assembly)
+    {
+        var directory = Environment.GetEnvironmentVariable("RADIANT_SANDBOX_ASSEMBLY_DIRECTORY");
+        if (string.IsNullOrWhiteSpace(directory))
+        {
+            await client.CheckSandboxed(assembly);
+            return;
+        }
+
+        var path = Path.Combine(directory, assembly.GetName().Name + ".dll");
+        Assert.That(File.Exists(path), Is.True, $"Missing packaged assembly: {path}");
+        await client.CheckSandboxed(Assembly.LoadFile(Path.GetFullPath(path)));
     }
 
     [Test]

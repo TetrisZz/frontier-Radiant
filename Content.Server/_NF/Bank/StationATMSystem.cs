@@ -21,8 +21,8 @@ namespace Content.Server._NF.Bank;
 
 public sealed partial class BankSystem
 {
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // radiant
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private IConfigurationManager _cfg = default!; // radiant
 
     private void InitializeStationATM()
     {

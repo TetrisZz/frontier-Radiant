@@ -5,9 +5,9 @@ using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Server._radiant.Shower;
 
-public sealed class ShowerWaterSystem : EntitySystem
+public sealed partial class ShowerWaterSystem : EntitySystem
 {
-    [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
 
     public override void Initialize()
     {

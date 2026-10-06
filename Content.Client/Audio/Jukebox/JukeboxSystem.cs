@@ -12,16 +12,16 @@ using Robust.Shared.Containers; // Frontier
 namespace Content.Client.Audio.Jukebox;
 
 
-public sealed class JukeboxSystem : SharedJukeboxSystem
+public sealed partial class JukeboxSystem : SharedJukeboxSystem
 {
     private bool _clientMusicEnabled = true; // Radiant Sector
 
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!; // Radiant Sector
-    [Dependency] private readonly SharedAudioSystem _audio = default!; // Radiant Sector
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IConfigurationManager _configuration = default!; // Radiant Sector
+    [Dependency] private SharedAudioSystem _audio = default!; // Radiant Sector
 
     public override void Initialize()
     {

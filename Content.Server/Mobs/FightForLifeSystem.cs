@@ -16,15 +16,15 @@ namespace Content.Server.Mobs;
 /// <summary>
 /// Handles the short burst of activity a player can make while in critical condition.
 /// </summary>
-public sealed class FightForLifeSystem : EntitySystem
+public sealed partial class FightForLifeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _expires = new();
     private readonly HashSet<EntityUid> _pendingCooldowns = new();

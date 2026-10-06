@@ -13,9 +13,9 @@ using YamlDotNet.RepresentationModel;
 
 namespace Content.Shared.Interaction.Panel;
 
-public sealed class InteractionPanelManager : IPostInjectInit
+public sealed partial class InteractionPanelManager : IPostInjectInit
 {
-    [Dependency] private readonly ISerializationManager _serManager = default!;
+    [Dependency] private ISerializationManager _serManager = default!;
     private ISawmill _sawmill = default!;
 
     public void PostInject()

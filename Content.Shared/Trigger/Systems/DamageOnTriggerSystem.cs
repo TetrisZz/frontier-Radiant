@@ -4,10 +4,10 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class DamageOnTriggerSystem : EntitySystem
+public sealed partial class DamageOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!; // Radiant add TargetContainer
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!; // Radiant add TargetContainer
+    [Dependency] private DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {

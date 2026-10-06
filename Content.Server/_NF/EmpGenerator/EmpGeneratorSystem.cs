@@ -11,16 +11,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._NF.EmpGenerator;
 
-public sealed class EmpGeneratorSystem : EntitySystem
+public sealed partial class EmpGeneratorSystem : EntitySystem
 {
     // Radiant Sector: plays the EMP grenade priming sound when the generator starts its countdown.
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedPointLightSystem _lights = default!;
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private SharedPointLightSystem _lights = default!;
+    [Dependency] private EmpSystem _emp = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private StationSystem _station = default!;
     // Radiant Sector: schedules the delayed EMP pulse.
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

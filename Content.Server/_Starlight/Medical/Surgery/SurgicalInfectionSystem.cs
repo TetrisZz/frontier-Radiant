@@ -15,14 +15,14 @@ using Content.Shared.Movement.Systems;
 namespace Content.Server._Starlight.Medical.Surgery;
 
 /// <summary>Progresses infections on attached living tissue, never on severed parts or paused patients.</summary>
-public sealed class SurgicalInfectionSystem : EntitySystem
+public sealed partial class SurgicalInfectionSystem : EntitySystem
 {
-    [Dependency] private readonly SurgerySystem _surgery = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private SurgerySystem _surgery = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
 
     public override void Initialize()
         => SubscribeLocalEvent<SlimeSurgicalInstabilityComponent, RefreshMovementSpeedModifiersEvent>(OnSlimeSpeed);

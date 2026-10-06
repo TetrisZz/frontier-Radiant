@@ -14,11 +14,11 @@ namespace Content.Shared.Mobs.Systems;
 /// <summary>
 /// Implements the conscious, crawling state immediately before critical condition.
 /// </summary>
-public sealed class HeavyWoundedSystem : EntitySystem
+public sealed partial class HeavyWoundedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedWieldableSystem _wieldable = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedWieldableSystem _wieldable = default!;
 
     public override void Initialize()
     {

@@ -8,10 +8,10 @@ namespace Content.Shared._Starlight.Medical.Limbs;
 /// <summary>
 /// Radiant sector: converts loose Starlight cyberlimbs between their left and right prototypes.
 /// </summary>
-public sealed class ReversibleCyberLimbSystem : EntitySystem
+public sealed partial class ReversibleCyberLimbSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

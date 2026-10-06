@@ -7,10 +7,10 @@ namespace Content.Shared._Starlight.Scent.Systems;
 /// <summary>
 /// Radiant-compatible subset of Starlight's scent controls.
 /// </summary>
-public abstract class SharedScentSystem : EntitySystem
+public abstract partial class SharedScentSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {

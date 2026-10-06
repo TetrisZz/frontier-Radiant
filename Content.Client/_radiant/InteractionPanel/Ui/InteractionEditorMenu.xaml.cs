@@ -14,8 +14,8 @@ namespace Content.Client.Interaction.Panel.Ui
 {
     public sealed partial class InteractionEditorMenu : DefaultWindow
     {
-        [Dependency] private readonly EntityManager _entManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private EntityManager _entManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
         private readonly InteractionUIController _interactionPanelController;
         private SharedPopupSystem _popup;
 

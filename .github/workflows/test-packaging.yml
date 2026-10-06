@@ -7,6 +7,7 @@ on:
       - '**.cs'
       - '**.csproj'
       - '**.sln'
+      - '**.slnx'
       - '**.git**'
       - '**.yml'
       # no docs on which one of these is supposed to work, so
@@ -21,6 +22,7 @@ on:
       - '**.cs'
       - '**.csproj'
       - '**.sln'
+      - '**.slnx'
       - '**.git**'
       - '**.yml'
       - 'RobustToolbox'

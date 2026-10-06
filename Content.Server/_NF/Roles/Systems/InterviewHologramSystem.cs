@@ -26,7 +26,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._NF.Roles.Systems;
 
-public sealed class InterviewHologramSystem : SharedInterviewHologramSystem
+public sealed partial class InterviewHologramSystem : SharedInterviewHologramSystem
 {
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private IChatManager _chat = default!;

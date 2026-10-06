@@ -4,7 +4,7 @@ using Robust.Shared.Network;
 
 namespace Content.Server._NF.Whitelist;
 
-public sealed class GlobalWhitelistCheck : IGlobalWhitelistCheck
+public sealed partial class GlobalWhitelistCheck : IGlobalWhitelistCheck
 {
     [Dependency] private JobWhitelistManager _jobWhitelistManager = default!;
 

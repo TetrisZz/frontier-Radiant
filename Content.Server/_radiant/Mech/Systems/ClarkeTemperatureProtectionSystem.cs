@@ -11,9 +11,9 @@ namespace Content.Server._radiant.Mech.Systems;
 /// Applies Clarke's thermal insulation directly to the pilot. This remains reliable for occupants
 /// held in a container, where parent threshold propagation can otherwise be delayed.
 /// </summary>
-public sealed class ClarkeTemperatureProtectionSystem : EntitySystem
+public sealed partial class ClarkeTemperatureProtectionSystem : EntitySystem
 {
-    [Dependency] private readonly TemperatureSystem _temperatureSystem = default!;
+    [Dependency] private TemperatureSystem _temperatureSystem = default!;
 
     public override void Initialize()
     {

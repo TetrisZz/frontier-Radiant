@@ -13,9 +13,9 @@ namespace Content.Server.Humanoid;
 
 public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 {
-    [Dependency] private readonly MarkingManager _markingManager = default!;
-	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedPseudoItemSystem _pseudoItem = default!;
+    [Dependency] private MarkingManager _markingManager = default!;
+	[Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedPseudoItemSystem _pseudoItem = default!;
 
     public override void Initialize()
     {

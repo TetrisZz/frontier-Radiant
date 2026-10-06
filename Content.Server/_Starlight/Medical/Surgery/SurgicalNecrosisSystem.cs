@@ -25,18 +25,18 @@ public sealed partial class SurgicalCardiacWeaknessComponent : Component
     public float Speed = 1;
 }
 
-public sealed class SurgicalNecrosisSystem : EntitySystem
+public sealed partial class SurgicalNecrosisSystem : EntitySystem
 {
-    [Dependency] private readonly SurgerySystem _surgery = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly MobStateSystem _mobs = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MetaDataSystem _necrosisMetadata = default!;
-    [Dependency] private readonly BlindableSystem _blindable = default!;
+    [Dependency] private SurgerySystem _surgery = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private MobStateSystem _mobs = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MetaDataSystem _necrosisMetadata = default!;
+    [Dependency] private BlindableSystem _blindable = default!;
     private float _elapsed;
     private int _symptoms;
 

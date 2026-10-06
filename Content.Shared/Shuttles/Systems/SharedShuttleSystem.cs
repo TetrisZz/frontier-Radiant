@@ -23,7 +23,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     [Dependency] protected SharedMapSystem Maps = default!;
     [Dependency] protected SharedPhysicsSystem Physics = default!;
     [Dependency] protected SharedTransformSystem XformSystem = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private SharedPowerReceiverSystem _powerReceiverSystem = default!;
 
     public const float FTLRange = 0f;
     public const float FTLBufferRange = 8f;

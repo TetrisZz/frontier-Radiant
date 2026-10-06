@@ -42,7 +42,7 @@ namespace Content.Server.Salvage
         [Dependency] private ShuttleConsoleSystem _shuttleConsoles = default!;
         [Dependency] private StationSystem _station = default!;
         [Dependency] private UserInterfaceSystem _ui = default!;
-        [Dependency] private readonly TurfSystem _turf = default!;
+        [Dependency] private TurfSystem _turf = default!;
 
         private EntityQuery<MapGridComponent> _gridQuery;
         private EntityQuery<TransformComponent> _xformQuery;

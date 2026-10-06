@@ -9,7 +9,7 @@ namespace Content.Server.Administration.Managers;
 
 public sealed partial class BanManager
 {
-    [Dependency] private readonly DiscordWebhook _discord = default!;
+    [Dependency] private DiscordWebhook _discord = default!;
     private WebhookData? _webhook;
 
     private void InitializeDiscord()

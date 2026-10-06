@@ -16,15 +16,15 @@ namespace Content.Server._radiant.Abilities.Feroxi;
 /// <summary>
 /// Applies the feroxi water bonus only while standing in a puddle containing water.
 /// </summary>
-public sealed class FeroxiWaterAffinitySystem : EntitySystem
+public sealed partial class FeroxiWaterAffinitySystem : EntitySystem
 {
     private static readonly ProtoId<ReagentPrototype> WaterReagent = "Water";
 
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly PuddleSystem _puddles = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private PuddleSystem _puddles = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     private float _updateAccumulator;
 

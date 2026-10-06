@@ -12,13 +12,13 @@ using Content.Shared.Stunnable;
 
 namespace Content.Server.Stunnable.Systems
 {
-    public sealed class StunbatonSystem : SharedStunbatonSystem
+    public sealed partial class StunbatonSystem : SharedStunbatonSystem
     {
-        [Dependency] private readonly RiggableSystem _riggableSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly BatterySystem _battery = default!;
-        [Dependency] private readonly PowerCellSystem _powerCell = default!; // Radiant sector: support replaceable-cell stun weapons.
-        [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
+        [Dependency] private RiggableSystem _riggableSystem = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private BatterySystem _battery = default!;
+        [Dependency] private PowerCellSystem _powerCell = default!; // Radiant sector: support replaceable-cell stun weapons.
+        [Dependency] private ItemToggleSystem _itemToggle = default!;
 
         public override void Initialize()
         {

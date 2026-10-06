@@ -16,13 +16,13 @@ namespace Content.Server._Starlight.Medical.Surgery;
 /// Radiant sector: keeps externally visible augmentation clues out of the ordinary examine text
 /// and exposes them through their own button next to health and stripping.
 /// </summary>
-public sealed class SurgicalImplantExamineSystem : EntitySystem
+public sealed partial class SurgicalImplantExamineSystem : EntitySystem
 {
     private const string Icon = "/Textures/Interface/VerbIcons/information.svg.192dpi.png";
 
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

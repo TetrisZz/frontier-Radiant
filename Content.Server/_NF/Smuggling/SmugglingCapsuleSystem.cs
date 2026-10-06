@@ -32,21 +32,21 @@ using Content.Server._NF.Smuggling.Components;
 
 namespace Content.Server._NF.Smuggling
 {
-    public sealed class SmugglingCapsuleSystem : EntitySystem
+    public sealed partial class SmugglingCapsuleSystem : EntitySystem
     {
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly ShipyardSystem _shipyard = default!;
-        [Dependency] private readonly MapLoaderSystem _map = default!;
-        [Dependency] private readonly ShuttleSystem _shuttle = default!;
-        [Dependency] private readonly SharedMapSystem _mapManager = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly RadioSystem _radio = default!;
-        [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
-        [Dependency] private readonly MetaDataSystem _meta = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private ShipyardSystem _shipyard = default!;
+        [Dependency] private MapLoaderSystem _map = default!;
+        [Dependency] private ShuttleSystem _shuttle = default!;
+        [Dependency] private SharedMapSystem _mapManager = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private RadioSystem _radio = default!;
+        [Dependency] private StationSystem _station = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedHandsSystem _hands = default!;
+        [Dependency] private MetaDataSystem _meta = default!;
 
         private ISawmill _sawmill = default!;
         private int _maxSimultaneousPods = 5;

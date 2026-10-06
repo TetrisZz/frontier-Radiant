@@ -27,9 +27,9 @@ public sealed class EmbeddedGlassTest
         var entities = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {
-            var maps = server.ResolveDependency<IMapManager>();
+            var maps = entities.System<SharedMapSystem>();
             var map = maps.CreateMap();
-            var coordinates = new MapCoordinates(0, 0, map);
+            var coordinates = new EntityCoordinates(map, 0, 0);
             var patient = entities.SpawnEntity("MobHuman", coordinates);
             var anatomy = entities.System<SharedBodySystem>();
             var feet = anatomy.GetBodyChildren(patient).Where(part => part.Component.PartType == BodyPartType.Foot).ToArray();
