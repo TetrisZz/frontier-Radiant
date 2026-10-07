@@ -686,6 +686,17 @@
       state: generic_panel_open
 
 - type: entity
+  # radiant
+  parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerPalletConsoleNFNormalMarket]
+  id: ComputerTabletopPalletConsoleNFDynamicMarket
+  suffix: Dynamic market, Tabletop
+  components:
+  - type: DynamicCargoMarket
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers: *cargoPalletSprite
+
+- type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerPalletConsoleNFNormalMarket]
   id: ComputerTabletopPalletConsoleNFNormalMarket
   suffix: Normal, Tabletop

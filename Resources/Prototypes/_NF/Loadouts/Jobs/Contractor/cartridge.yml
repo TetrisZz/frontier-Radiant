@@ -34,3 +34,12 @@
   price: 1000
   cartridges:
   - LogProbeCartridge
+
+- type: loadout
+  id: ContractorDynamicCargoMarketCartridge
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 100000
+  cartridges:
+  - DynamicCargoMarketCartridge
