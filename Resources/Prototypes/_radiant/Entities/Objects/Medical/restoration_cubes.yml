@@ -1,0 +1,45 @@
+- type: entity
+  parent: RehydratableItem
+  id: RestorationBodyCube
+  name: restoration body cube
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: cube
+  - type: Rehydratable
+    possibleSpawns: [MobHuman]
+  - type: RestorationBodyCube
+
+- type: entity
+  parent: BoxCardboard
+  id: RestorationBodyCubeBox
+  name: restoration body cube box
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: box
+  - type: Storage
+    grid:
+    - 0,0,11,7
+    whitelist:
+      components:
+      - RestorationBodyCube
+  - type: RestorationBodyCubeBox
+  - type: StaticPrice
+    price: 10000
+
+- type: listing
+  id: UplinkPhoenixRestorationBodyCubeBox
+  name: restoration-box-uplink-name
+  description: restoration-box-uplink-desc
+  productEntity: RestorationBodyCubeBox
+  cost:
+    Speso: 10000
+  categories:
+  - UplinkPhoenixUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [PhoenixUplink]
+  - !type:BuyerJobCondition
+    whitelist: [DirectorOfCare, PhoenixAgent, PhoenixMedic]

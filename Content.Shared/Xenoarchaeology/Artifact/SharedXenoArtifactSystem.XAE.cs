@@ -62,6 +62,11 @@ public abstract partial class SharedXenoArtifactSystem
         bool consumeDurability = true
     )
     {
+        if (user is { } actor
+            && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(actor, Content.Shared._radiant.Skills.ProfessionalSkill.Science, 1))
+            return false;
+
         XenoArtifactComponent xenoArtifactComponent = artifact;
         if (xenoArtifactComponent.Suppressed)
             return false;

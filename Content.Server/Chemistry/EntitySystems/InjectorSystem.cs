@@ -34,6 +34,10 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
     private bool TryUseInjector(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+            return false;
+
         var isOpenOrIgnored = injector.Comp.IgnoreClosed || !_openable.IsClosed(target);
         // Handle injecting/drawing for solutions
         if (injector.Comp.ToggleState == InjectorToggleMode.Inject)
@@ -109,6 +113,10 @@ public sealed class InjectorSystem : SharedInjectorSystem
     /// </summary>
     private void InjectDoAfter(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+            return;
+
         if (TryComp<BlockInjectionComponent>(target, out var blockInjection) && blockInjection.BlockSyringe) // DeltaV
         {
             Popup.PopupEntity(Loc.GetString("injector-component-deny-user"), target, user);
@@ -280,6 +288,13 @@ public sealed class InjectorSystem : SharedInjectorSystem
             return false;
         }
 
+        // Droppers and syringes transfer directly, bypassing SolutionTransferSystem.
+        // Validate before splitting liquid or applying injection reactions.
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .CanTransferSolutions(user, targetEntity, solution, targetSolution.Comp.Solution,
+                FixedPoint2.Min(realTransferAmount, solution.Volume)))
+            return false;
+
         // Move units from attackSolution to targetSolution
         Solution removedSolution;
         if (TryComp<StackComponent>(targetEntity, out var stack))
@@ -428,6 +443,8 @@ public sealed class InjectorSystem : SharedInjectorSystem
                 ref target.Comp.BloodSolution))
         {
             var bloodTemp = SolutionContainers.SplitSolution(target.Comp.BloodSolution.Value, drawAmount);
+            EntityManager.System<Content.Server._radiant.Medical.Virology.VirologySystem>()
+                .Contaminate(target.Owner, bloodTemp, "blood");
             SolutionContainers.TryAddSolution(injectorSolution, bloodTemp);
         }
 

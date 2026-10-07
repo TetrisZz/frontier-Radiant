@@ -1,0 +1,185 @@
+- type: entity
+  id: GeneticBodyGrower
+  parent: [BaseMachinePowered, SmallConstructibleMachine]
+  name: genetic body grower
+  description: A sealed biocapsule for growing donor bodies. Behind the thick glass, the nutrient medium gradually takes on a human shape. Or something close to one.
+  components:
+  - type: GeneticBodyGrower
+    analysisSeconds: 30
+    growthSeconds: 600
+    biomassCost: 100
+    powerFailureSeconds: 180
+    organGrowthSeconds: 180
+    organBiomassCost: 20
+    researchSeconds: 90
+    therapySeconds: 60
+    therapyBiomassCost: 30
+    finishSound:
+      path: /Audio/Machines/ding.ogg
+      params:
+        volume: -5
+  - type: AmbientSound
+    enabled: false
+    range: 5
+    volume: -15
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+  - type: DeviceLinkSink
+    ports: [GeneticCapsuleReceiver]
+  - type: ActivatableUI
+    key: enum.GeneticBodyUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GeneticBodyUiKey.Key:
+        type: GeneticBodyBoundUserInterface
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/body_grower.rsi
+    offset: 0, 0.5
+    layers:
+    - state: pod_0
+      map: ["base"]
+    - state: cover-on
+      visible: false
+      map: ["cover"]
+    - state: panel
+      visible: false
+      map: ["panel"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GeneticBodyVisuals.State:
+        base:
+          Off: { state: pod_0 }
+          Idle: { state: pod_0 }
+          Analyzing: { state: pod_0 }
+          Researching: { state: pod_0 }
+          Sequencing: { state: pod_0 }
+          Spectrometry: { state: pod_0 }
+          Growing: { state: pod_1 }
+          Ready: { state: pod_1 }
+        cover:
+          Off: { visible: false }
+          Idle: { visible: false }
+          Analyzing: { visible: false }
+          Researching: { visible: false }
+          Sequencing: { visible: false }
+          Spectrometry: { visible: false }
+          Growing: { visible: true }
+          Ready: { visible: false }
+        panel:
+          Off: { visible: false }
+          Idle: { visible: false }
+          Analyzing: { visible: true }
+          Researching: { visible: true }
+          Sequencing: { visible: true }
+          Spectrometry: { visible: true }
+          Growing: { visible: true }
+          Ready: { visible: true }
+  - type: MaterialStorage
+    materialWhiteList: [Biomass]
+  - type: Machine
+    board: GeneticBodyGrowerMachineCircuitboard
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers: [machine_board, machine_parts, genetic-sample, genetic-research-disk]
+  - type: EmptyOnMachineDeconstruct
+    containers: [genetic-sample, genetic-research-disk]
+  - type: GuideHelp
+    guides: [RadiantGenetics]
+
+- type: entity
+  id: GeneticBodyGrowerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: genetic body grower machine board
+  description: A biocapsule control board. Its circuitry maintains the delicate conditions in which a few cells can develop into an entire body.
+  components:
+  - type: MachineBoard
+    prototype: GeneticBodyGrower
+    stackRequirements:
+      Steel: 10
+      Glass: 5
+      Cable: 5
+
+- type: entity
+  id: GeneticSampleCartridge
+  parent: BaseItem
+  name: genetic sample cartridge
+  description: A sealed cartridge with a built-in sampler. Its protective casing keeps foreign material out of the cell sample, with space on the label for the donor's name.
+  components:
+  - type: GeneticSample
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Misc/sample_tubes.rsi
+    layers:
+    - state: blank
+      map: ["sample"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GeneticSampleVisuals.Filled:
+        sample:
+          True: { state: power }
+          False: { state: blank }
+  - type: GuideHelp
+    guides: [RadiantGenetics]
+
+- type: entity
+  id: GeneticResearchConsole
+  parent: BaseComputer
+  name: genetics research console
+  description: A laboratory terminal surrounded by sample readers and shielded data ports. Long strings of nucleotides flicker across its screen.
+  components:
+  - type: GeneticBodyGrower
+  - type: GeneticResearchConsole
+  - type: AmbientSound
+    enabled: false
+    range: 3
+    volume: -18
+    sound:
+      path: /Audio/Machines/scan_loop.ogg
+  - type: DeviceLinkSource
+    range: 16
+    ports: [GeneticCapsuleSender]
+  - type: Computer
+    board: GeneticResearchConsoleCircuitboard
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: dna
+    - map: ["computerLayerKeys"]
+      state: med_key
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: generic_panel_open
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: ActivatableUI
+    key: enum.GeneticBodyUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GeneticBodyUiKey.Key:
+        type: GeneticResearchBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: EmptyOnMachineDeconstruct
+    containers: [genetic-sample, genetic-research-disk]
+  - type: GuideHelp
+    guides: [RadiantGenetics]
+
+- type: entity
+  id: GeneticResearchConsoleCircuitboard
+  parent: BaseComputerCircuitboard
+  name: genetics research console board
+  description: A densely etched laboratory computer board with a shielded sample-reader interface.
+  components:
+  - type: Sprite
+    state: cpu_medical
+  - type: ComputerBoard
+    prototype: GeneticResearchConsole

@@ -90,6 +90,17 @@ public sealed partial class GunSystem : SharedGunSystem
         var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates);
         var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var mapDirection = toMap - fromMap.Position;
+        if (user is { } spreadShooter)
+        {
+            var spread = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .GunSkillSpreadDegrees(spreadShooter, (gunUid, gun));
+            if (spread > 0)
+                mapDirection = (mapDirection.ToAngle() + Angle.FromDegrees((Random.NextDouble() * 2 - 1) * spread))
+                    .ToVec() * mapDirection.Length();
+        }
+        if (user is { } skillShooter && Random.NextDouble() < EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .GunMisfireChance(skillShooter, (gunUid, gun)))
+            mapDirection = new Angle(Random.NextDouble() * Math.Tau).ToVec() * mapDirection.Length();
         var mapAngle = mapDirection.ToAngle();
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
 

@@ -260,7 +260,8 @@ public sealed partial class SurgerySystem
         var state = EnsureComp<SurgicalItemSterilityComponent>(item);
         var gloves = HasComp<SurgicalProtectionComponent>(item) && !HasComp<MaskComponent>(item);
         var transferred = SurgicalSterilityRules.Contact(state, patient, contamination,
-            HasComp<SurgeryToolComponent>(item) || gloves,
+            HasComp<SurgeryToolComponent>(item) || gloves
+                || EntityManager.GetComponents(item).OfType<ISurgeryToolComponent>().Any(),
             gloves ? SurgicalSterilityRules.GloveUsesBeforeDirty : SurgicalSterilityRules.ToolUsesBeforeDirty);
         Dirty(item, state);
         return transferred;
@@ -302,9 +303,11 @@ public sealed partial class SurgerySystem
             _popup.PopupEntity(string.Join("\n", warnings), user, user, PopupType.MediumCaution);
     }
 
-    private bool CanDisinfectItem(EntityUid item)
+    public bool CanDisinfectItem(EntityUid item)
         => !HasComp<MaskComponent>(item)
             && (HasComp<SurgeryToolComponent>(item) || HasComp<SurgicalProtectionComponent>(item)
+            // Improvised tools (e.g. a pen used as a drill) lack SurgeryTool.
+            || EntityManager.GetComponents(item).OfType<ISurgeryToolComponent>().Any()
             || HasComp<OrganComponent>(item) || HasComp<BodyPartComponent>(item))
             && !(TryComp<OrganComponent>(item, out var organ) && organ.Body != null)
             && !(TryComp<BodyPartComponent>(item, out var part) && part.Body != null);

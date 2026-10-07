@@ -11,6 +11,8 @@
   id: PhoenixAgentJumpsuit
   name: униформа
   loadouts:
+  - PhoenixClothingUniformRadiantParamedicDark
+  - PhoenixClothingUniformRadiantParamedicDarkSkirt
   - PhoenixClothingUniformJumpsuitMedicalBlack
   - PhoenixClothingUniformJumpsuitMedicalBlue
   - PhoenixClothingUniformJumpsuitMedicalWhite

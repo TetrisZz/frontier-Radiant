@@ -23,10 +23,11 @@ public sealed partial class SurgeryChangeVoiceComponent : Component;
 public enum SurgicalVoiceUiKey : byte { Key }
 
 [Serializable, NetSerializable]
-public sealed class SurgicalVoiceState(Sex sex, string currentVoice) : BoundUserInterfaceState
+public sealed class SurgicalVoiceState(Sex sex, string currentVoice, string? originalVoice = null) : BoundUserInterfaceState
 {
     public readonly Sex Sex = sex;
     public readonly string CurrentVoice = currentVoice;
+    public readonly string? OriginalVoice = originalVoice;
 }
 
 [Serializable, NetSerializable]

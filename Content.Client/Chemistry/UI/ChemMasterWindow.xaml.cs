@@ -206,7 +206,7 @@ namespace Content.Client.Chemistry.UI
 
             var reagent = state.BufferReagents.OrderBy(r => r.Quantity).First().Reagent;
             _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? proto);
-            return proto?.LocalizedName ?? "";
+            return Content.Client._radiant.Skills.SkillPresentation.ChemicalName(proto?.LocalizedName ?? "", proto?.ID);
         }
 
         /// <summary>
@@ -264,8 +264,8 @@ namespace Content.Client.Chemistry.UI
             {
                 var reagentId = reagent;
                 _prototypeManager.TryIndex(reagentId.Prototype, out ReagentPrototype? proto);
-                var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
-                var reagentColor = proto?.SubstanceColor ?? default(Color);
+                var name = Content.Client._radiant.Skills.SkillPresentation.ChemicalName(proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text"), proto?.ID);
+                var reagentColor = Content.Client._radiant.Skills.SkillPresentation.ChemicalColor(proto?.SubstanceColor ?? default(Color), proto?.ID);
                 reagentList.Add(new (reagentId, name, reagentColor, quantity));
             }
 
@@ -343,8 +343,8 @@ namespace Content.Client.Chemistry.UI
                 foreach (var reagent in info.Reagents)
                 {
                     _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
-                    var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
-                    var reagentColor = proto?.SubstanceColor ?? default(Color);
+                    var name = Content.Client._radiant.Skills.SkillPresentation.ChemicalName(proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text"), proto?.ID);
+                    var reagentColor = Content.Client._radiant.Skills.SkillPresentation.ChemicalColor(proto?.SubstanceColor ?? default(Color), proto?.ID);
 
                     control.Children.Add(BuildReagentRow(reagentColor, rowCount++, name, reagent.Reagent, reagent.Quantity, false, addReagentButtons));
                 }

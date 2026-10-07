@@ -61,7 +61,7 @@ public partial class MobStateSystem
 
     private void CheckConcious(Entity<MobStateComponent> ent, ref ConsciousAttemptEvent args)
     {
-        if (HasComp<FightingForLifeComponent>(ent))
+        if (ent.Comp.CurrentState == MobState.Critical && HasComp<FightingForLifeComponent>(ent))
             return;
 
         switch (ent.Comp.CurrentState)
@@ -158,7 +158,7 @@ public partial class MobStateSystem
 
     private void CheckAct(EntityUid target, MobStateComponent component, CancellableEntityEventArgs args)
     {
-        if (HasComp<FightingForLifeComponent>(target))
+        if (component.CurrentState == MobState.Critical && HasComp<FightingForLifeComponent>(target))
             return;
 
         switch (component.CurrentState)

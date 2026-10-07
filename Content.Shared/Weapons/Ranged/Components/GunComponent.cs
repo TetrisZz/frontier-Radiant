@@ -12,6 +12,19 @@ namespace Content.Shared.Weapons.Ranged.Components;
 // [Access(typeof(SharedGunSystem))] Radiant_sector
 public sealed partial class GunComponent : Component
 {
+    // Explicit per-weapon override; otherwise category rules apply, with level 1 as the safe default.
+    [DataField, AutoNetworkedField]
+    public int? SkillRequiredLevel;
+
+    [DataField, AutoNetworkedField]
+    public Content.Shared._radiant.Skills.ProfessionalSkill RequiredSkill = Content.Shared._radiant.Skills.ProfessionalSkill.Shooting;
+
+    [DataField, AutoNetworkedField]
+    public int? InaccurateAtSkillLevel;
+
+    [DataField, AutoNetworkedField]
+    public float SkillMisfireChance = 0.1f;
+
     #region Sound
 
     /// <summary>

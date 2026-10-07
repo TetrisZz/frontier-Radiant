@@ -45,6 +45,7 @@
         </GridContainer>
     </BoxContainer>
 
+    <RichTextLabel Name="VirologyWarning" Visible="False" />
     <!-- Radiant sector: visible anatomy and surgery diagnostics. -->
     <PanelContainer Name="SurgeryDiagnosticsDivider" StyleClasses="LowDivider" />
     <Label Name="SurgeryDiagnosticsTitle" Text="{Loc health-analyzer-surgery-diagnostics-title}" StyleClasses="LabelHeading" />

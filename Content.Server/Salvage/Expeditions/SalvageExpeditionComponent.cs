@@ -30,6 +30,12 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
     public TimeSpan EndTime;
 
     /// <summary>
+    /// Prevents repeating the delayed-departure announcement every update tick.
+    /// </summary>
+    [ViewVariables]
+    public bool RechargeDelayAnnounced;
+
+    /// <summary>
     ///     Has the emergency rescue sweep already run for this expedition.///Radiant Sector
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]

@@ -149,42 +149,17 @@ namespace Content.Server.Interaction.Panel
                 }
             }
 
-            _lastInteractionTimes[delayKey] = DateTime.UtcNow;
-            if (interactionPrototype.RequiredClothingSlots != null)
+            if (_entManager.System<Content.Shared.Interaction.Panel.InteractionClothingSystem>()
+                .IsBlocked(userEntity, targetEntity, interactionPrototype, out var targetClothingBlocked))
             {
-                if (TryComp<InventoryComponent>(userEntity, out var inventory))
+                if (_entManager.TryGetComponent<ActorComponent>(userEntity, out var actor))
                 {
-                    foreach (var slot in interactionPrototype.RequiredClothingSlots)
-                    {
-                        if (_inventorySystem.TryGetSlotEntity(userEntity, slot, out _, inventory))
-                        {
-                            var message = Loc.GetString("interaction-hasclothing-message");
-                            if (_entManager.TryGetComponent<ActorComponent>(userEntity, out var actor))
-                                _popupSystem.PopupEntity(message, userEntity, actor.PlayerSession, PopupType.Small);
-                            return;
-                        }
-                    }
+                    var message = targetClothingBlocked && targetEntity is { } clothedTarget
+                        ? Loc.GetString("interaction-target-hasclothing-message", ("target", Identity.Entity(clothedTarget, _entManager)))
+                        : Loc.GetString("interaction-hasclothing-message");
+                    _popupSystem.PopupEntity(message, userEntity, actor.PlayerSession, PopupType.Small);
                 }
-
-                if (targetEntity != null && TryComp<InventoryComponent>(targetEntity.Value, out var targetInventory))
-                {
-                    var requiredSlots = interactionPrototype.RequiredClothingSlots ?? Enumerable.Empty<string>();
-                    var oneRequiredSlots = interactionPrototype.OneRequiredClothingSlots ?? Enumerable.Empty<string>();
-
-                    var allSlots = requiredSlots.Concat(oneRequiredSlots);
-
-                    foreach (var slot in allSlots)
-                    {
-                        if (_inventorySystem.TryGetSlotEntity(targetEntity.Value, slot, out _, targetInventory))
-                        {
-                            var messageForUser = Loc.GetString("interaction-target-hasclothing-message", ("target", Identity.Entity(targetEntity.Value, _entManager)));
-
-                            if (_entManager.TryGetComponent<ActorComponent>(userEntity, out var actor))
-                                _popupSystem.PopupEntity(messageForUser, userEntity, actor.PlayerSession, PopupType.Small);
-                            return;
-                        }
-                    }
-                }
+                return;
             }
 
             bool hasStrapon = true;
@@ -222,6 +197,7 @@ namespace Content.Server.Interaction.Panel
                 }
             }
 
+            _lastInteractionTimes[delayKey] = DateTime.UtcNow;
             if (interactionPrototype.DoAfterDelay > 0f)
             {
                 TriggerDoAfter(userEntity, targetEntity ?? userEntity, interactionId, interactionPrototype.DoAfterDelay);
@@ -307,7 +283,7 @@ namespace Content.Server.Interaction.Panel
                             source: user,
                             message: emoteCommand,
                             desiredType: InGameICChatType.Emote,
-                            range: ChatTransmitRange.Normal,
+                            range: ChatTransmitRange.NoGhosts,
                             hideLog: false,
                             player: playerSession
                         );

@@ -90,7 +90,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             // Radiant Sector: apply the volume selected on this machine.
             var audioParams = AudioParams.Default
                 .WithMaxDistance(10f)
-                .WithVolume(SharedAudioSystem.GainToVolume(ent.Comp.Volume));
+                .WithVolume(ent.Comp.Volume <= 0f ? -80f : SharedAudioSystem.GainToVolume(ent.Comp.Volume));
             ent.Comp.AudioStream = Audio.PlayPvs(jukeboxProto.Path, ent.Owner, audioParams)?.Entity;
 
             // Frontier: wallmount jukebox
@@ -125,7 +125,9 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     private void OnJukeboxSetVolume(Entity<JukeboxComponent> ent, ref JukeboxSetVolumeMessage args)
     {
         ent.Comp.Volume = Math.Clamp(args.Volume, 0f, 1f);
-        Audio.SetVolume(ent.Comp.AudioStream, SharedAudioSystem.GainToVolume(ent.Comp.Volume));
+        // GainToVolume(0) is negative infinity; do not send that to the audio backend.
+        Audio.SetVolume(ent.Comp.AudioStream,
+            ent.Comp.Volume <= 0f ? -80f : SharedAudioSystem.GainToVolume(ent.Comp.Volume));
         Dirty(ent);
     }
     // End Radiant Sector

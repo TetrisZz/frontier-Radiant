@@ -28,12 +28,10 @@ public static class SurgicalSterilityRules
         var transferred = crossContaminated ? 15 : item.ContainerContamination;
         item.Used = true;
         item.LastPatient = patient;
-        if (countUses)
-            item.UsesSinceCleaning = Math.Min(usesBeforeDirty,
-                item.UsesSinceCleaning + (contamination >= ContaminatedSite ? 2 : 1));
-        item.Dirty |= crossContaminated || (countUses
-            ? item.UsesSinceCleaning >= usesBeforeDirty
-            : contamination >= ContaminatedSite);
+        // Tools and gloves remain safe for the same patient for the whole operation.
+        // External dirt and cross-patient contact persist until disinfection.
+        // Extracted organs still carry contamination from their original tissue.
+        item.Dirty |= crossContaminated || !countUses && contamination >= ContaminatedSite;
         return transferred;
     }
 

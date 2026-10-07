@@ -64,6 +64,9 @@ public sealed class MagnetPickupSystem : EntitySystem
         {
             Act = () =>
             {
+                if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .CanUse(args.User, uid, Content.Shared._radiant.Skills.SkillAction.Use))
+                    return;
                 ToggleMagnet(uid, component);
             },
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
@@ -141,6 +144,10 @@ public sealed class MagnetPickupSystem : EntitySystem
             // End Frontier
 
             var parentUid = xform.ParentUid;
+            if (HasComp<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(parentUid)
+                && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .CanUse(parentUid, uid, Content.Shared._radiant.Skills.SkillAction.Use, false))
+                continue;
             var playedSound = false;
             var finalCoords = xform.Coordinates;
             var moverCoords = _transform.GetMoverCoordinates(uid, xform);

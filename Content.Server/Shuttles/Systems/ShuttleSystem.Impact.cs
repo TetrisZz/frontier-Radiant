@@ -20,6 +20,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
+using System.Linq;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -60,6 +61,39 @@ public sealed partial class ShuttleSystem
     private HashSet<EntityUid> _intersecting = new();
     // for _adminLogSpacing
     private Dictionary<EntityUid, TimeSpan> _impactedAt = new();
+    private readonly Dictionary<(EntityUid, EntityUid), (TimeSpan Until, bool Ignore)> _skillImpacts = new();
+
+    private bool IgnoreImpactForPilot(EntityUid first, EntityUid second)
+    {
+        var now = _gameTiming.CurTime;
+        if (_skillImpacts.TryGetValue((first, second), out var previous) && previous.Until > now)
+            return previous.Ignore;
+        foreach (var (key, value) in _skillImpacts.ToArray())
+            if (value.Until <= now)
+                _skillImpacts.Remove(key);
+
+        var experienced = false;
+        var pilots = EntityQueryEnumerator<Content.Shared.Shuttles.Components.PilotComponent,
+            Content.Shared._radiant.Skills.ProfessionalSkillsComponent>();
+        while (pilots.MoveNext(out var pilotUid, out var pilot, out _))
+        {
+            if (pilot.Console is not { } console || !TryComp<TransformComponent>(console, out var xform)
+                || xform.GridUid != first && xform.GridUid != second)
+                continue;
+            if (EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .Level(pilotUid, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting) >= 3)
+            {
+                experienced = true;
+                break;
+            }
+        }
+        var ignore = experienced && _random.Prob(0.75f);
+        var result = (now + TimeSpan.FromMilliseconds(500), ignore);
+        // Both grid callbacks and contact points share one roll, rather than retrying until damage occurs.
+        _skillImpacts[(first, second)] = result;
+        _skillImpacts[(second, first)] = result;
+        return ignore;
+    }
 
     private void InitializeImpact()
     {
@@ -140,6 +174,8 @@ public sealed partial class ShuttleSystem
             }
 
             // Play impact sound
+            if (IgnoreImpactForPilot(args.OurEntity, args.OtherEntity))
+                return;
             var coordinates = new EntityCoordinates(ourXform.MapUid.Value, worldPoint);
 
             var volume = MathF.Min(10f, MathF.Pow(jungleDiff, 0.5f) - 5f);

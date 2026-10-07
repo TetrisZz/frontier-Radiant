@@ -3,4 +3,4 @@ ent-DiseaseSwab = sterile swab
 ent-BoxMouthSwab = sterile swab dispenser
     .desc = Dispenses 30 sterile swabs, extremely useful for botany.
 ent-Vaccine = vaccine
-    .desc = Prevents people who DON'T already have a disease from catching it.
+    .desc = A sealed laboratory injector with a recessed needle and a prescription label.

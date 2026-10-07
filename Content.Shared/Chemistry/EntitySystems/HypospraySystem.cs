@@ -85,6 +85,9 @@ public sealed class HypospraySystem : EntitySystem
     #region Draw/Inject
     private bool TryUseHypospray(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+            return false;
         // if target is ineligible but is a container, try to draw from the container if allowed
         if (entity.Comp.CanContainerDraw
             && !EligibleEntity(target, entity)
@@ -123,6 +126,9 @@ public sealed class HypospraySystem : EntitySystem
 
     public bool TryDoInject(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+            return false;
         var (uid, component) = entity;
 
         if (!EligibleEntity(target, component))

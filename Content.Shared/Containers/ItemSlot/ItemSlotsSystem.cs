@@ -322,6 +322,10 @@ namespace Content.Shared.Containers.ItemSlots
             if (slot.ContainerSlot == null)
                 return false;
 
+            if (user is { } loader && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .CanUse(loader, uid, Content.Shared._radiant.Skills.SkillAction.Reload))
+                return false;
+
             if (slot.HasItem && (!swap || swap && !CanEject(uid, user, slot)))
                 return false;
 

@@ -4,3 +4,8 @@ ent-JetpackNfsd = джетпак ДВБ
 ent-JetpackNfsdFilled = джетпак ДВБ
     .suffix = Заполненный
     .desc = { ent-JetpackNfsd.desc }
+
+ent-JetpackPirate = пиратский джетпак
+    .suffix = Пустой
+ent-JetpackPirateFilled = { ent-JetpackPirate }
+    .suffix = Заполненный

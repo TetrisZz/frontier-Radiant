@@ -1,0 +1,26 @@
+- type: latheRecipe
+  id: VirologySwab
+  result: DiseaseSwab
+  completetime: 2
+  materials:
+    Plastic: 25
+    Cloth: 25
+
+- type: latheRecipe
+  id: DiagnoserMachineCircuitboard
+  parent: BaseMedicalMachineRecipeCategory
+  result: DiagnoserMachineCircuitboard
+  completetime: 5
+  materials: {Glass: 1000, Gold: 500}
+
+- type: latheRecipe
+  id: VaccinatorMachineCircuitboard
+  parent: BaseMedicalMachineRecipeCategory
+  result: VaccinatorMachineCircuitboard
+  completetime: 5
+  materials: {Glass: 1000, Gold: 500}
+
+- type: guideEntry
+  id: RadiantVirology
+  name: guide-entry-radiant-virology
+  text: /ServerInfo/_radiant/Guidebook/Virology.xml

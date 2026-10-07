@@ -23,6 +23,9 @@ public partial struct StampDisplayInfo
     [DataField("stampedColor")]
     public Color StampedColor;
 
+    [DataField]
+    public string? StampSprite;
+
     [DataField("stampType")]
     public StampType Type = StampType.RubberStamp;
 
@@ -51,6 +54,14 @@ public sealed partial class StampComponent : Component
     /// </summary>
     [DataField("stampState")]
     public string StampState { get; set; } = "paper_stamp-generic";
+
+    /// <summary>Optional full-size impression texture for the paper UI.</summary>
+    [DataField]
+    public string? StampSprite;
+
+    /// <summary>Optional RSI containing the small impression on the paper entity.</summary>
+    [DataField]
+    public string? StampRsiPath;
 
     /// <summary>
     /// The color of the ink used by the stamp in UIs

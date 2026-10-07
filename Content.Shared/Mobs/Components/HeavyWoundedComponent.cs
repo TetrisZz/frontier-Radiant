@@ -14,6 +14,15 @@ public sealed partial class HeavyWoundedComponent : Component
     [DataField]
     public float CriticalThreshold = 110f;
 
+    [DataField]
+    public float SkipChance = 0.25f;
+
+    [AutoNetworkedField]
+    public bool EntryRolled;
+
+    [AutoNetworkedField]
+    public bool Skipped;
+
     [AutoNetworkedField]
     public bool Active;
 

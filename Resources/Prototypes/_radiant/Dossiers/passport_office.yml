@@ -1,0 +1,54 @@
+- type: entity
+  parent: BaseComputer
+  id: RadiantPassportOfficeConsole
+  name: passport registration console
+  description: A secure workstation for issuing personal documents.
+  components:
+  - type: PassportOffice
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: id
+    - map: ["computerLayerKeys"]
+      state: id_key
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: generic_panel_open
+  - type: AccessReader
+    access: [["Command"], ["Captain"], ["HeadOfPersonnel"], ["HeadOfSecurity"], ["ChiefMedicalOfficer"], ["ChiefEngineer"], ["ResearchDirector"], ["AcorpCommand"], ["Governor"]]
+  - type: ActivatableUI
+    key: enum.PassportOfficeUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PassportOfficeUiKey.Key:
+        type: PassportOfficeBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: RadiantPassportOfficeCircuitboard
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: RadiantPassportOfficeCircuitboard
+  name: passport registration computer board
+  description: A circuit board for a document registration workstation.
+  components:
+  - type: Sprite
+    state: cpu_command
+  - type: ComputerBoard
+    prototype: RadiantPassportOfficeConsole
+
+- type: latheRecipe
+  id: RadiantPassportOfficeCircuitboard
+  parent: [BaseCircuitboardRecipe, BaseServiceComputerRecipeCategory]
+  result: RadiantPassportOfficeCircuitboard
+
+- type: entity
+  id: RadiantPassportRegistrySignal
+  name: registration system
+  description: An automated registry transmission.
+  components:
+  - type: TelecomExempt

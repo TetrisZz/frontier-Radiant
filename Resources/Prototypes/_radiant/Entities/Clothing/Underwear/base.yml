@@ -58,6 +58,11 @@
   parent: Clothing
   id: ClothingPlugBase
   components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Trash
+    - Recyclable
   - type: Sprite
     state: icon
   - type: StaticPrice 
@@ -74,5 +79,15 @@
   - type: Clothing
     slots:
     - plug
+
+- type: entity
+  abstract: true
+  parent: ClothingButtPlugBase
+  id: ClothingButtPlugMeleeBase
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1
 
 

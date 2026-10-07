@@ -41,3 +41,15 @@ ent-NFDetectivePDA = КПК детектива
     .desc = Пахнет дождём... стекающим по крышам...
 ent-NFPrisonerPDA = КПК заключённого
     .desc = Этот КПK — символ вашего падения и надежды на искупление. Он хранит в себе воспоминания о прошлом и мечты о будущем. Используйте его, чтобы найти путь к свободе.
+
+ent-DocPDA = КПК главного врача
+ent-NFPirateCaptainPDA = КПК капитана пиратов
+    .suffix = Фронтир
+ent-NFPirateFirstMatePDA = КПК первого помощника пиратов
+    .suffix = Фронтир
+ent-NFPiratePDA = КПК пирата
+    .suffix = Фронтир
+ent-NFShantymanPDA = КПК шантиста
+    .suffix = Фронтир
+ent-PlantManagerPDA = КПК руководителя электростанции
+ent-PlantTechnicianPDA = КПК техника электростанции

@@ -1,0 +1,130 @@
+- type: geneticModification
+  id: RadiantUltravision
+  name: genetics-modification-ultravision
+  load: 35
+  adaptationSeconds: 120
+  bloodPerSecond: 0
+  researchHint: genetics-hint-ultravision
+  complicationChance: 0.15
+  complications: [poorvision, monochromacy]
+  examineHint: genetics-examine-eyes
+
+- type: entity
+  id: GeneticUltravisionInjector
+  parent: GeneticHematopoiesisInjector
+  name: ultravision gene activator
+  components:
+  - type: Sprite
+    color: "#d5adff"
+  - type: GeneticTherapy
+    modification: RadiantUltravision
+    remove: false
+
+- type: entity
+  id: GeneticUltravisionRemover
+  parent: GeneticHematopoiesisRemover
+  name: ultravision gene suppressor
+  components:
+  - type: Sprite
+    color: "#d5adff"
+  - type: GeneticTherapy
+    modification: RadiantUltravision
+    remove: true
+
+- type: geneticModification
+  id: RadiantStrength
+  name: genetics-modification-strength
+  load: 35
+  adaptationSeconds: 120
+  bloodPerSecond: 0
+  researchHint: genetics-hint-strength
+  complicationChance: 0.15
+  complications: [weakness, tics]
+  examineHint: genetics-examine-muscles
+
+- type: entity
+  id: GeneticStrengthInjector
+  parent: GeneticHematopoiesisInjector
+  name: strength gene activator
+  components:
+  - type: Sprite
+    color: "#ffcb87"
+  - type: GeneticTherapy
+    modification: RadiantStrength
+    remove: false
+
+- type: entity
+  id: GeneticStrengthRemover
+  parent: GeneticHematopoiesisRemover
+  name: strength gene suppressor
+  components:
+  - type: Sprite
+    color: "#ffcb87"
+  - type: GeneticTherapy
+    modification: RadiantStrength
+    remove: true
+
+- type: geneticModification
+  id: RadiantSobriety
+  name: genetics-modification-sobriety
+  load: 25
+  adaptationSeconds: 120
+  bloodPerSecond: 0
+  researchHint: genetics-hint-sobriety
+  complicationChance: 0.15
+  complications: [slurred, scrambled, mixedaccent, paracusia]
+
+- type: entity
+  id: GeneticSobrietyInjector
+  parent: GeneticHematopoiesisInjector
+  name: sobriety gene activator
+  components:
+  - type: Sprite
+    color: "#a5f0e4"
+  - type: GeneticTherapy
+    modification: RadiantSobriety
+    remove: false
+
+- type: entity
+  id: GeneticSobrietyRemover
+  parent: GeneticHematopoiesisRemover
+  name: sobriety gene suppressor
+  components:
+  - type: Sprite
+    color: "#a5f0e4"
+  - type: GeneticTherapy
+    modification: RadiantSobriety
+    remove: true
+
+- type: geneticModification
+  id: RadiantInsulation
+  name: genetics-modification-insulation
+  load: 40
+  adaptationSeconds: 120
+  bloodPerSecond: 0
+  researchHint: genetics-hint-insulation
+  complicationChance: 0.15
+  complications: [weakness, tics]
+  examineHint: genetics-examine-skin
+
+- type: entity
+  id: GeneticInsulationInjector
+  parent: GeneticHematopoiesisInjector
+  name: insulation gene activator
+  components:
+  - type: Sprite
+    color: "#eee69b"
+  - type: GeneticTherapy
+    modification: RadiantInsulation
+    remove: false
+
+- type: entity
+  id: GeneticInsulationRemover
+  parent: GeneticHematopoiesisRemover
+  name: insulation gene suppressor
+  components:
+  - type: Sprite
+    color: "#eee69b"
+  - type: GeneticTherapy
+    modification: RadiantInsulation
+    remove: true

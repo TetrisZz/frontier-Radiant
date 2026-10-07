@@ -7,6 +7,10 @@
     materialComposition:
       Plastic: 75
       Steel: 25
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1
   - type: Vibrator
   - type: DeviceNetwork
     deviceNetId: Wireless

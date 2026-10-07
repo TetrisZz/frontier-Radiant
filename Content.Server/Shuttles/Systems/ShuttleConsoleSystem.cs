@@ -158,6 +158,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     private void OnConsoleUIOpenAttempt(EntityUid uid, ShuttleConsoleComponent component,
         ActivatableUIOpenAttemptEvent args)
     {
+        // Reading the navigation console does not put an untrained character into pilot mode.
+        if (EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Level(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting) == 0)
+            return;
         if (!TryPilot(args.User, uid))
             args.Cancel();
     }
@@ -178,7 +182,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
     private bool TryPilot(EntityUid user, EntityUid uid)
     {
-        if (!_tags.HasTag(user, CanPilotTag) ||
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1))
+            return false;
+        if ((!HasComp<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(user) && !_tags.HasTag(user, CanPilotTag)) ||
             !TryComp<ShuttleConsoleComponent>(uid, out var component) ||
             !this.IsPowered(uid, EntityManager) ||
             !Transform(uid).Anchored ||
@@ -247,6 +254,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
             var gridDocks = result.GetOrNew(GetNetEntity(xform.GridUid.Value));
 
+            var labelName = string.IsNullOrWhiteSpace(comp.Name)
+                ? null
+                : Loc.TryGetString(comp.Name, out var translatedName) ? translatedName : comp.Name;
+
             var state = new DockingPortState()
             {
                 Name = metadata.EntityName,
@@ -257,7 +268,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
                     _xformQuery.TryGetComponent(comp.DockedWith, out var otherDockXform) ?
                     GetNetEntity(otherDockXform.GridUid) :
                     null,
-                LabelName = comp.Name != null ? Loc.GetString(comp.Name) : null, // Frontier: docking labels
+                LabelName = labelName, // Frontier: localized prototype label or literal VV name
                 DockType = comp.DockType, // Frontier
                 ReceiveOnly = comp.ReceiveOnly, // Frontier
                 Color = comp.RadarColor,

@@ -188,6 +188,16 @@
   parent: [BaseStructureComputerTabletop, ComputerStationRecords]
   id: ComputerTabletopStationRecords
   components:
+  - type: DossierConsole
+    kind: Personal
+  - type: UserInterface
+    interfaces:
+      enum.GeneralStationRecordConsoleKey.Key:
+        type: GeneralStationRecordConsoleBoundUserInterface
+      enum.DossierUiKey.Key:
+        type: DossierBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Sprite
     drawdepth: SmallObjects
     layers:

@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: JudaHappySounds
+  files:
+  - /Audio/_Impstation/Voice/Slime/s_bubble.ogg
+  - /Audio/Animals/small_dog_bark_happy.ogg

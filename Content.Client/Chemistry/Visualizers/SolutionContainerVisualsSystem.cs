@@ -60,6 +60,21 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
         var changeColor = component.ChangeColor;
         var fillSprite = component.MetamorphicDefaultSprite;
 
+        // Radiant drink sprites use a transparent base while filled. Once empty, show the
+        // glass itself; keep the reagent sprite untouched so refilling restores its appearance.
+        if (fraction <= 0f && component.RestoreDefaultWhenEmpty &&
+            component.MetamorphicDefaultSprite is { } emptyGlass &&
+            SpriteSystem.LayerMapTryGet((uid, args.Sprite), component.BaseLayer, out var emptyBaseLayer, false))
+        {
+            SpriteSystem.LayerSetSprite((uid, args.Sprite), emptyBaseLayer, emptyGlass);
+            SpriteSystem.LayerSetVisible((uid, args.Sprite), fillLayer, false);
+            if (SpriteSystem.LayerMapTryGet((uid, args.Sprite), component.OverlayLayer, out var emptyOverlayLayer, false))
+                SpriteSystem.LayerSetVisible((uid, args.Sprite), emptyOverlayLayer, true);
+
+            _itemSystem.VisualsChanged(uid);
+            return;
+        }
+
         // Currently some solution methods such as overflowing will try to update appearance with a
         // volume greater than the max volume. We'll clamp it so players don't see
         // a giant error sign and error for debug.

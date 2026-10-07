@@ -7,6 +7,7 @@ using Content.Shared._NF.CCVar;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Preferences;
+using Content.Shared._radiant.Dossiers;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -78,7 +79,23 @@ namespace Content.Server.Preferences.Managers
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
-                await _db.SaveSelectedCharacterIndexAsync(message.MsgChannel.UserId, message.SelectedCharacterIndex);
+                prefsData.PendingPreferenceWrites++;
+                try
+                {
+                    await prefsData.PreferenceSaveLock.WaitAsync();
+                    try
+                    {
+                        await _db.SaveSelectedCharacterIndexAsync(userId, index);
+                    }
+                    finally
+                    {
+                        prefsData.PreferenceSaveLock.Release();
+                    }
+                }
+                finally
+                {
+                    prefsData.PendingPreferenceWrites--;
+                }
             }
         }
 
@@ -90,10 +107,27 @@ namespace Content.Server.Preferences.Managers
             if (message.Profile == null)
                 _sawmill.Error($"User {userId} sent a {nameof(MsgUpdateCharacter)} with a null profile in slot {message.Slot}.");
             else
-                await SetProfile(userId, message.Slot, message.Profile);
+            {
+                await SetProfile(userId, message.Slot, message.Profile, replaceCharacter: message.ReplaceCharacter);
+
+                // The client updates its lobby preview optimistically. Confirm the profile that
+                // the server will actually use when this player spawns.
+                if (_cachedPlayerPrefs.TryGetValue(userId, out var prefsData) && prefsData.PrefsLoaded &&
+                    prefsData.PendingPreferenceWrites == 0)
+                {
+                    _netManager.ServerSendMessage(new MsgPreferencesAndSettings
+                    {
+                        Preferences = prefsData.Prefs!,
+                        Settings = new GameSettings { MaxCharacterSlots = MaxCharacterSlots }
+                    }, message.MsgChannel);
+                }
+            }
         }
 
-        public async Task SetProfile(NetUserId userId, int slot, ICharacterProfile profile, bool validateFields = true) // Frontier: add validateFields
+        private static string KeepRecorded(string recorded, string requested)
+            => string.IsNullOrWhiteSpace(recorded) ? requested : recorded;
+
+        public async Task SetProfile(NetUserId userId, int slot, ICharacterProfile profile, bool validateFields = true, bool replaceCharacter = false) // Frontier: add validateFields
         {
             if (!_cachedPlayerPrefs.TryGetValue(userId, out var prefsData) || !prefsData.PrefsLoaded)
             {
@@ -105,6 +139,7 @@ namespace Content.Server.Preferences.Managers
                 return;
 
             var curPrefs = prefsData.Prefs!;
+            var hadCharacter = curPrefs.Characters.ContainsKey(slot);
             var session = _playerManager.GetSessionById(userId);
 
             profile.EnsureValid(session, _dependencies);
@@ -115,6 +150,28 @@ namespace Content.Server.Preferences.Managers
                 if (curPrefs.Characters.TryGetValue(slot, out var existingProfile) &&
                     existingProfile is HumanoidCharacterProfile humanoidEditingTarget)
                 {
+                    if (!replaceCharacter && humanoidEditingTarget.CitizenshipLocked)
+                        humanProfile.Citizenship = humanoidEditingTarget.Citizenship;
+                    // A filled personal dossier field belongs to this character. Marriage is the
+                    // one personal detail that can be corrected after the first save.
+                    if (!replaceCharacter)
+                    {
+                        humanProfile.Residence = KeepRecorded(humanoidEditingTarget.Residence, humanProfile.Residence);
+                        humanProfile.EmergencyContact = KeepRecorded(humanoidEditingTarget.EmergencyContact, humanProfile.EmergencyContact);
+                        humanProfile.DistinguishingFeatures = KeepRecorded(humanoidEditingTarget.DistinguishingFeatures, humanProfile.DistinguishingFeatures);
+                        humanProfile.Birthplace = KeepRecorded(humanoidEditingTarget.Birthplace, humanProfile.Birthplace);
+                        humanProfile.Occupation = KeepRecorded(humanoidEditingTarget.Occupation, humanProfile.Occupation);
+                        humanProfile.Education = KeepRecorded(humanoidEditingTarget.Education, humanProfile.Education);
+                        humanProfile.Allergies = KeepRecorded(humanoidEditingTarget.Allergies, humanProfile.Allergies);
+                        humanProfile.MedicalHistory = KeepRecorded(humanoidEditingTarget.MedicalHistory, humanProfile.MedicalHistory);
+                        humanProfile.BloodGroup = DossierBloodGroup.IsValid(humanoidEditingTarget.BloodGroup)
+                            ? humanoidEditingTarget.BloodGroup
+                            : DossierBloodGroup.Roll(Random.Shared.Next(100));
+                    }
+                    else
+                    {
+                        humanProfile.BloodGroup = DossierBloodGroup.Roll(Random.Shared.Next(100));
+                    }
                     if (humanProfile.BankBalance != humanoidEditingTarget.BankBalance)
                     {
                         _sawmill.Info($"{session.Name} has tried to modify a character's money (expected: {humanoidEditingTarget.BankBalance} requested: {humanProfile.BankBalance}). They may be using a modified client!");
@@ -123,6 +180,8 @@ namespace Content.Server.Preferences.Managers
                 }
                 else
                 {
+                    if (!DossierBloodGroup.IsValid(humanProfile.BloodGroup))
+                        humanProfile.BloodGroup = DossierBloodGroup.Roll(Random.Shared.Next(100));
                     if (humanProfile.BankBalance != HumanoidCharacterProfile.DefaultBalance)
                     {
                         _sawmill.Info($"{session.Name} tried to create a character with a non-default balance (expected: {HumanoidCharacterProfile.DefaultBalance} requested: {humanProfile.BankBalance}). They may be using a modified client!");
@@ -132,15 +191,46 @@ namespace Content.Server.Preferences.Managers
             }
             // End Frontier: check for profile modifications (based on Monolith's impl)
 
+            if (profile is HumanoidCharacterProfile savedProfile)
+                savedProfile.CitizenshipLocked = hadCharacter;
+
             var profiles = new Dictionary<int, ICharacterProfile>(curPrefs.Characters)
             {
                 [slot] = profile
             };
 
-            prefsData.Prefs = new PlayerPreferences(profiles, slot, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
+            var updatedPrefs = new PlayerPreferences(profiles, slot, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
+            prefsData.Prefs = updatedPrefs;
 
             if (ShouldStorePrefs(session.Channel.AuthType))
-                await _db.SaveCharacterSlotAsync(userId, profile, slot);
+            {
+                // Several rapid saves (including bank balance changes) must reach the DB in
+                // the same order as the cache. A concurrent lobby refresh must not reload an
+                // older DB snapshot while one of these writes is still pending.
+                prefsData.PendingPreferenceWrites++;
+                try
+                {
+                    await prefsData.PreferenceSaveLock.WaitAsync();
+                    try
+                    {
+                        await _db.SaveCharacterSlotAsync(userId, profile, slot, replaceCharacter);
+                    }
+                    finally
+                    {
+                        prefsData.PreferenceSaveLock.Release();
+                    }
+                }
+                catch (Exception e)
+                {
+                    _sawmill.Error($"Failed to save character profile for user {userId} in slot {slot}: {e}");
+                    if (ReferenceEquals(prefsData.Prefs, updatedPrefs))
+                        prefsData.Prefs = curPrefs;
+                }
+                finally
+                {
+                    prefsData.PendingPreferenceWrites--;
+                }
+            }
         }
 
         public async Task SetConstructionFavorites(NetUserId userId, List<ProtoId<ConstructionPrototype>> favorites)
@@ -374,33 +464,28 @@ namespace Content.Server.Preferences.Managers
             if (!_cachedPlayerPrefs.TryGetValue(session.UserId, out var prefsData))
                 return;
 
-            var loadTask = LoadPrefs();
-            _cachedPlayerPrefs[session.UserId] = prefsData;
+            if (prefsData.PendingPreferenceWrites > 0)
+                return;
 
-            await loadTask;
-            return;
+            var originalPrefs = prefsData.Prefs;
+            var prefs = await _db.GetPlayerPreferencesAsync(session.UserId, cancel);
 
-            async Task LoadPrefs()
+            // A save may have started after the DB read began. Do not replace the newer
+            // in-memory character (or send the stale copy back to the lobby).
+            if (prefs == null || prefsData.PendingPreferenceWrites > 0 ||
+                !ReferenceEquals(prefsData.Prefs, originalPrefs) ||
+                !_cachedPlayerPrefs.TryGetValue(session.UserId, out var currentData) ||
+                !ReferenceEquals(currentData, prefsData))
+                return;
+
+            prefsData.Prefs = prefs;
+            prefsData.PrefsLoaded = true;
+
+            _netManager.ServerSendMessage(new MsgPreferencesAndSettings
             {
-                var prefs = await _db.GetPlayerPreferencesAsync(session.UserId, cancel);
-
-                if (prefs != null)
-                {
-                    prefsData.Prefs = prefs;
-                    prefsData.PrefsLoaded = true;
-
-                    var msg = new MsgPreferencesAndSettings
-                    {
-                        Preferences = prefs,
-                        Settings = new GameSettings
-                        {
-                            MaxCharacterSlots = MaxCharacterSlots
-                        }
-                    };
-
-                    _netManager.ServerSendMessage(msg, session.Channel);
-                }
-            }
+                Preferences = prefs,
+                Settings = new GameSettings { MaxCharacterSlots = MaxCharacterSlots }
+            }, session.Channel);
         }
 
 
@@ -433,6 +518,8 @@ namespace Content.Server.Preferences.Managers
         {
             public bool PrefsLoaded;
             public PlayerPreferences? Prefs;
+            public int PendingPreferenceWrites;
+            public readonly SemaphoreSlim PreferenceSaveLock = new(1, 1);
         }
 
         void IPostInjectInit.PostInject()

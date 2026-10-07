@@ -70,11 +70,7 @@
 - type: loadout
   id: ContractorClothingOuterFormalBlackCoat
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-        role: JobBoxer
-        time: 360000 # 100 hours
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     outerClothing: ClothingOuterFormalBlackCoat
@@ -83,11 +79,7 @@
 - type: loadout
   id: ContractorClothingOuterElegantTrenchcloak
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-        role: JobBoxer
-        time: 360000 # 100 hours
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     outerClothing: ClothingOuterElegantTrenchcloak
@@ -131,11 +123,7 @@
 - type: loadout
   id: ContractorClothingNeckNinjaScarfClassic
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-        role: JobBoxer
-        time: 360000 # 100 hours
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     neck: ClothingNeckNinjaScarfClassic
@@ -144,11 +132,7 @@
 - type: loadout
   id: ContractorClothingNeckNinjaScarfNew
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-        role: JobBoxer
-        time: 360000 # 100 hours
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     neck: ClothingNeckNinjaScarfNew
@@ -157,11 +141,7 @@
 - type: loadout
   id: ContractorClothingMaskHalf
   effects: &RespectedSocietyMaskRequirement
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-        role: JobBoxer
-        time: 360000 # 100 hours
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     mask: ClothingMaskHalf
@@ -218,11 +198,7 @@
 - type: loadout
   id: ContractorClothingNeckCloakRS
   effects: &HomUplinkNeckCloakRequirement
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-        role: JobBoxer
-        time: 360000 # 100 hours
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     neck: ClothingNeckCloakRS
@@ -243,3 +219,38 @@
   equipment:
     neck: ClothingNeckCorvusPendant
   groupBy: "NeckCloaks"
+
+- type: loadout
+  id: ContractorClothingUniformRadiantBraskirt
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformRadiantBraskirt
+  groupBy: "dresses"
+
+- type: loadout
+  id: ContractorClothingUniformRadiantReallyBlackSuit
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformRadiantReallyBlackSuit
+  groupBy: "FormalJumpsuits"
+
+- type: loadout
+  id: ContractorClothingUniformRadiantBlackSuitFem
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformRadiantBlackSuitFem
+  groupBy: "FormalJumpsuits"
+
+- type: loadout
+  id: ContractorClothingUniformRadiantReallyBlackSuitSkirt
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformRadiantReallyBlackSuitSkirt
+  groupBy: "FormalJumpskirts"
+
+- type: loadout
+  id: ContractorClothingUniformRadiantBlackSuitFemSkirt
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformRadiantBlackSuitFemSkirt
+  groupBy: "FormalJumpskirts"

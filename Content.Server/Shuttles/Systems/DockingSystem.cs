@@ -358,6 +358,10 @@ namespace Content.Server.Shuttles.Systems
 
         private void OnRequestUndock(EntityUid uid, ShuttleConsoleComponent component, UndockRequestMessage args)
         {
+            if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.Actor, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1))
+                return;
+
             if (!TryGetEntity(args.DockEntity, out var dockEnt) ||
                 !TryComp(dockEnt, out DockingComponent? dockComp))
             {
@@ -378,6 +382,10 @@ namespace Content.Server.Shuttles.Systems
 
         private void OnRequestDock(EntityUid uid, ShuttleConsoleComponent component, DockRequestMessage args)
         {
+            if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.Actor, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1))
+                return;
+
             var console = _console.GetDroneConsole(uid);
 
             if (console == null)
@@ -472,6 +480,10 @@ namespace Content.Server.Shuttles.Systems
         // Frontier
         private void OnRequestUndockAll(EntityUid uid, ShuttleConsoleComponent component, UndockAllRequestMessage args)
         {
+            if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.Actor, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1))
+                return;
+
             if (args.DockEntities.Count == 0)
                 return;
 

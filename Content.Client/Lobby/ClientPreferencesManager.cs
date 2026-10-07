@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared._radiant.Dossiers;
 using Content.Shared.Preferences;
 using Robust.Client;
 using Robust.Client.Player;
@@ -21,6 +22,7 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public event Action? OnServerDataLoaded;
+        public event Action<int, DossierRecord>? OnDossierReceived;
 
         public GameSettings Settings { get; private set; } = default!;
         public PlayerPreferences Preferences { get; private set; } = default!;
@@ -31,6 +33,8 @@ namespace Content.Client.Lobby
             _netManager.RegisterNetMessage<MsgUpdateCharacter>();
             _netManager.RegisterNetMessage<MsgSelectCharacter>();
             _netManager.RegisterNetMessage<MsgDeleteCharacter>();
+            _netManager.RegisterNetMessage<MsgDossierRequest>();
+            _netManager.RegisterNetMessage<MsgDossierResponse>(HandleDossierResponse);
 
             _baseClient.RunLevelChanged += BaseClientOnRunLevelChanged;
         }
@@ -49,6 +53,20 @@ namespace Content.Client.Lobby
             SelectCharacter(Preferences.IndexOfCharacter(profile));
         }
 
+        public void RequestDossier(int slot)
+        {
+            if (Preferences?.Characters.ContainsKey(slot) != true)
+                return;
+            _netManager.ClientSendMessage(new MsgDossierRequest { Slot = slot });
+        }
+
+        private void HandleDossierResponse(MsgDossierResponse message)
+        {
+            if (Preferences?.Characters.ContainsKey(message.Slot) != true)
+                return;
+            OnDossierReceived?.Invoke(message.Slot, message.Staff);
+        }
+
         public void SelectCharacter(int slot)
         {
             Preferences = new PlayerPreferences(Preferences.Characters, slot, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
@@ -59,16 +77,28 @@ namespace Content.Client.Lobby
             _netManager.ClientSendMessage(msg);
         }
 
-        public void UpdateCharacter(ICharacterProfile profile, int slot)
+        public void UpdateCharacter(ICharacterProfile profile, int slot, bool replaceCharacter = false)
+            => UpdateCharacter(profile, slot, finalizeCitizenship: true, replaceCharacter);
+
+        private void UpdateCharacter(ICharacterProfile profile, int slot, bool finalizeCitizenship, bool replaceCharacter)
         {
             var collection = IoCManager.Instance!;
             profile.EnsureValid(_playerManager.LocalSession!, collection);
+            if (profile is HumanoidCharacterProfile humanoid)
+            {
+                if (!replaceCharacter && Preferences.Characters.TryGetValue(slot, out var saved) &&
+                    saved is HumanoidCharacterProfile { CitizenshipLocked: true } old)
+                    humanoid.Citizenship = old.Citizenship;
+                humanoid.CitizenshipLocked = finalizeCitizenship;
+            }
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
+            // Saving (or creating) a character also selects that slot, matching the server.
+            Preferences = new PlayerPreferences(characters, slot, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
             var msg = new MsgUpdateCharacter
             {
                 Profile = profile,
-                Slot = slot
+                Slot = slot,
+                ReplaceCharacter = replaceCharacter
             };
             _netManager.ClientSendMessage(msg);
         }
@@ -85,11 +115,7 @@ namespace Content.Client.Lobby
                 throw new InvalidOperationException("Out of character slots!");
             }
 
-            var l = lowest.Value;
-            characters.Add(l, profile);
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
-
-            UpdateCharacter(profile, l);
+            UpdateCharacter(profile, lowest.Value, finalizeCitizenship: false, replaceCharacter: false);
         }
 
         public void DeleteCharacter(ICharacterProfile profile)

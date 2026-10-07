@@ -52,6 +52,14 @@ public sealed class MachineFrameSystem : EntitySystem
         if (args.Handled)
             return;
 
+        var boardId = MetaData(args.Used).EntityPrototype?.ID ?? "";
+        if (component.HasBoard && component.BoardContainer.ContainedEntities.Count > 0)
+            boardId = MetaData(component.BoardContainer.ContainedEntities[0]).EntityPrototype?.ID ?? boardId;
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering,
+                    Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem.ConstructionLevel(boardId), serverPopup: true))
+            return;
+
         if (!component.HasBoard)
         {
             if (TryInsertBoard(uid, args.Used, component))

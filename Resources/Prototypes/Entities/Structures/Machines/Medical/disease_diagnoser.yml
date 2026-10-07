@@ -6,6 +6,17 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: VirologyMachine
+  - type: ActivatableUI
+    key: enum.VirologyUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.VirologyUiKey.Key:
+        type: VirologyBoundUserInterface
+  - type: EmptyOnMachineDeconstruct
+    containers: [virology-sample]
+  - type: GuideHelp
+    guides: [RadiantVirology]
   - type: Sprite
     sprite: Structures/Machines/diagnoser.rsi
     layers:
@@ -15,6 +26,22 @@
       shader: unshaded
       map: ["enum.DiseaseMachineVisualLayers.IsOn"]
   - type: Appearance
+  - type: AmbientSound
+    enabled: false
+    range: 3
+    volume: -18
+    sound:
+      path: /Audio/Machines/scan_loop.ogg
+  - type: GenericVisualizer
+    visuals:
+      enum.VirologyMachineVisuals.Running:
+        enum.DiseaseMachineVisualLayers.IsRunning:
+          True: { state: running }
+          False: { state: icon }
+      enum.VirologyMachineVisuals.Powered:
+        enum.DiseaseMachineVisualLayers.IsOn:
+          True: { visible: true }
+          False: { visible: false }
   - type: Machine
     board: DiagnoserMachineCircuitboard
 
@@ -41,5 +68,5 @@
     backgroundImageTile: true
     backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
     contentMargin: 12.0, 0.0, 12.0, 0.0
-    # This is a narrow piece of paper
-    maxWritableArea: 128.0, 0.0
+    # The report includes multi-line findings; a receipt-width content area clips them.
+    maxWritableArea: 400.0, 0.0

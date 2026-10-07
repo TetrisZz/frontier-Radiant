@@ -1,0 +1,59 @@
+- type: entity
+  id: RadiantPrintedDossier
+  parent: PaperOffice
+  name: printed dossier
+  description: A single printed dossier in a folder.
+  components:
+  - type: DossierPrintout
+    kind: Personal
+  - type: Paper
+    editingDisabled: true
+    contentSize: 20000
+  - type: Sprite
+    sprite: Objects/Misc/folders.rsi
+    layers:
+    - state: folder-colormap
+      color: "#bd9b65"
+    - state: folder-base
+  - type: Item
+    sprite: Objects/Misc/folders.rsi
+    size: Small
+    shape: null
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 28.0, 24.0, 28.0, 28.0
+
+- type: entity
+  id: RadiantPrintedMedicalDossier
+  parent: RadiantPrintedDossier
+  name: printed medical dossier
+  components:
+  - type: DossierPrintout
+    kind: Medical
+  - type: Sprite
+    sprite: Objects/Misc/folders.rsi
+    layers:
+    - state: folder-colormap
+      color: "#638796"
+    - state: folder-base
+
+- type: entity
+  id: RadiantPrintedSecurityDossier
+  parent: RadiantPrintedDossier
+  name: printed security dossier
+  components:
+  - type: DossierPrintout
+    kind: Security
+  - type: Sprite
+    sprite: Objects/Misc/folders.rsi
+    layers:
+    - state: folder-colormap
+      color: "#343c49"
+    - state: folder-base
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundModulate: "#e7d9c1"
+    contentImageModulate: "#f5f0e6"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 28.0, 24.0, 28.0, 28.0

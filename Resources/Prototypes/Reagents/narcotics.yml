@@ -17,6 +17,7 @@
 #            Poison: 0.75
             Poison: 0.55
             Blunt: 1.1 # meant to be slightly more than tricordrazine heals
+        toleranceAffectsDamage: true # Ordinary side effects only; overdose below stays unchanged.
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -218,6 +219,10 @@
   flavor: bitter
   color: "#C0C0C0"
   physicalDesc: reagent-physical-desc-strong-smelling
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.05
+      effects: []
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5

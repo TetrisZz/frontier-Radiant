@@ -19,11 +19,9 @@ public sealed partial class SalvageExpeditionWindow : FancyWindow,
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    public Action? OnFinishPressed;
-
     public bool Claimed;
+    public Action? OnFinishPressed;
     public TimeSpan NextOffer;
-    public TimeSpan ManualFinishAvailableAt; ///radiant sector
     private TimeSpan? _progression;
 
     /// <summary>
@@ -69,6 +67,11 @@ public sealed partial class SalvageExpeditionWindow : FancyWindow,
         Finish.OnPressed += _ => OnFinishPressed?.Invoke();
     }
 
+    public void SetFinishDisabled(bool disabled)
+    {
+        Finish.Disabled = disabled;
+    }
+
     public void AddOption(OfferingWindowOption option)
     {
         Container.AddChild(option);
@@ -77,11 +80,6 @@ public sealed partial class SalvageExpeditionWindow : FancyWindow,
     public void ClearOptions()
     {
         Container.DisposeAllChildren();
-    }
-
-    public void SetFinishDisabled(bool disabled)
-    {
-        Finish.Disabled = disabled;
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -109,20 +107,9 @@ public sealed partial class SalvageExpeditionWindow : FancyWindow,
             NextOfferBar.Value = 1f;
             NextOfferText.Text = "00:00";
 
-            var remaining = ManualFinishAvailableAt - _timing.CurTime; ///radiant sector
-            if (Finish.Disabled && remaining > TimeSpan.Zero)
-            {
-                var remainingSeconds = (int)Math.Ceiling(remaining.TotalSeconds);
-                Finish.Text = $"{Loc.GetString("salvage-expedition-window-finish")} ({remainingSeconds / 60:00}:{remainingSeconds % 60:00})";
-            }
-            else
-            {
-                Finish.Text = Loc.GetString("salvage-expedition-window-finish"); 
-            }
         }
         else
         {
-            Finish.Text = Loc.GetString("salvage-expedition-window-finish");
             var remaining = NextOffer - _timing.CurTime;
 
             if (remaining < TimeSpan.Zero)

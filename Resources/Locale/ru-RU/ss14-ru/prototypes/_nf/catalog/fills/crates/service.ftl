@@ -2,3 +2,6 @@ ent-CrateServiceJanitorialSupplies2 = ящик с уборочными прин�
     .desc = Боритесь с грязью и мусором с помощью конфедеративных уборочных средств Essentials™! Содержит две коробки мусорных пакетов, одну коробку знаков «Мокрый пол» и два чистящих спрея.
 ent-CrateVehicleJanicart = ящик с уборочной тележкой
     .desc = Верный конь уборщика.
+
+ent-CrateServiceReplacementConstructionLights = ящик строительных ламп
+ent-CrateServiceReplacementCoolLights = ящик холодных ламп

@@ -78,3 +78,6 @@ ent-ClothingBackpackMessengerPrivateSecurity = мессенджер частно
     .desc = Прочная сумка-мессенджер для совершения военных преступлений за зарплату.
 ent-ClothingBackpackMessengerColorRandom = панковский мессенджер
     .desc = Модная сумка-мессенджер в стильных цветах.
+
+ent-ClothingBackpackMessengerWizardBlue = синяя сумка через плечо волшебника
+ent-ClothingBackpackMessengerWizardRed = красная сумка волшебника

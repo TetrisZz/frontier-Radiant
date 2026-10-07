@@ -11,6 +11,8 @@
   id: PhoenixMedicJumpsuit
   name: униформа
   loadouts:
+  - PhoenixClothingUniformRadiantParamedicDark
+  - PhoenixClothingUniformRadiantParamedicDarkSkirt
   - PhoenixClothingUniformJumpsuitVirology
   - PhoenixClothingUniformJumpsuitMedicalDoctor
   - PhoenixClothingUniformJumpsuitGenetics

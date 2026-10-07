@@ -48,3 +48,10 @@ ent-ScrollCultStaffRechargerAltar = свиток культа для алтар�
 ent-ScrollCultForge = свиток для кузницы культа крови
     .desc = Странное сочетание волшебства и машинной платы. Каким-то образом у него есть несколько портов, соответствующих стандартному корпусу создания машины.
     .suffix = Машинная Плата
+
+ent-PirateStitcherCircuitboard = плата пиратской швейной машины
+    .suffix = Плата машины
+ent-PirateTechFabCircuitboardNF = плата пиратского техфаба
+    .suffix = Плата машины
+ent-SkrunglerMachineCircuitboard = плата скранглера
+    .suffix = Плата машины

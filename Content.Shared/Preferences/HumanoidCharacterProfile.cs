@@ -9,6 +9,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared._radiant;
+using Content.Shared._radiant.Dossiers;
+using Content.Shared._radiant.Passports;
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
@@ -82,6 +84,20 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         public string FlavorText { get; set; } = string.Empty;
+
+        [DataField] public string Residence { get; set; } = string.Empty;
+        [DataField] public RadiantCitizenship Citizenship { get; set; } = RadiantCitizenship.Asgard;
+        [DataField] public bool CitizenshipLocked { get; set; }
+        [DataField] public string FamilyStatus { get; set; } = string.Empty;
+        [DataField] public string Children { get; set; } = string.Empty;
+        [DataField] public string EmergencyContact { get; set; } = string.Empty;
+        [DataField] public string DistinguishingFeatures { get; set; } = string.Empty;
+        [DataField] public string Birthplace { get; set; } = string.Empty;
+        [DataField] public string Occupation { get; set; } = string.Empty;
+        [DataField] public string Education { get; set; } = string.Empty;
+        [DataField] public string Allergies { get; set; } = string.Empty;
+        [DataField] public string MedicalHistory { get; set; } = string.Empty;
+        [DataField] public string BloodGroup { get; set; } = string.Empty;
 
         [DataField]
         public EnumERPStatus ERPStatus { get; set; } = 0;
@@ -170,7 +186,8 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            int[]? skillLevels = null)
         {
             Name = name;
             FlavorText = flavortext;
@@ -190,6 +207,7 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            SkillLevels = Content.Shared._radiant.Skills.ProfessionalSkillRules.Normalize(skillLevels);
         }
 
         /// <summary>Copy constructor but with overridable references (to prevent useless copies)</summary>
@@ -200,8 +218,21 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts)
             : this(other.Name, other.FlavorText, (int)other.ERPStatus, other.Species, other.Height, other.Width, other.Voice, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
-                jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, loadouts)
+                jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, loadouts, other.SkillLevels)
         {
+            Residence = other.Residence;
+            Citizenship = other.Citizenship;
+            CitizenshipLocked = other.CitizenshipLocked;
+            FamilyStatus = other.FamilyStatus;
+            Children = other.Children;
+            EmergencyContact = other.EmergencyContact;
+            DistinguishingFeatures = other.DistinguishingFeatures;
+            Birthplace = other.Birthplace;
+            Occupation = other.Occupation;
+            Education = other.Education;
+            Allergies = other.Allergies;
+            MedicalHistory = other.MedicalHistory;
+            BloodGroup = other.BloodGroup;
         }
 
         /// <summary>Copy constructor</summary>
@@ -223,8 +254,21 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts), other.SkillLevels)
         {
+            Residence = other.Residence;
+            Citizenship = other.Citizenship;
+            CitizenshipLocked = other.CitizenshipLocked;
+            FamilyStatus = other.FamilyStatus;
+            Children = other.Children;
+            EmergencyContact = other.EmergencyContact;
+            DistinguishingFeatures = other.DistinguishingFeatures;
+            Birthplace = other.Birthplace;
+            Occupation = other.Occupation;
+            Education = other.Education;
+            Allergies = other.Allergies;
+            MedicalHistory = other.MedicalHistory;
+            BloodGroup = other.BloodGroup;
         }
 
         /// <summary>
@@ -316,6 +360,7 @@ namespace Content.Shared.Preferences
                 Width = width,
 				Voice = voiceId, // Corvax-TTS
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
+                BloodGroup = DossierBloodGroup.Roll(random.Next(100)),
             };
         }
 
@@ -324,10 +369,31 @@ namespace Content.Shared.Preferences
             return new(this) { Name = name };
         }
 
+        public HumanoidCharacterProfile WithCitizenship(RadiantCitizenship citizenship)
+        {
+            return new(this) { Citizenship = RadiantCitizenships.Normalize(citizenship) };
+        }
+
         public HumanoidCharacterProfile WithFlavorText(string flavorText)
         {
             return new(this) { FlavorText = flavorText };
         }
+
+        public HumanoidCharacterProfile WithPersonalDetails(string residence, string familyStatus,
+            string emergencyContact, string distinguishingFeatures, string birthplace,
+            string occupation, string education, string allergies, string medicalHistory)
+            => new(this)
+            {
+                Residence = residence,
+                FamilyStatus = familyStatus,
+                EmergencyContact = emergencyContact,
+                DistinguishingFeatures = distinguishingFeatures,
+                Birthplace = birthplace,
+                Occupation = occupation,
+                Education = education,
+                Allergies = allergies,
+                MedicalHistory = medicalHistory,
+            };
 
         public HumanoidCharacterProfile WithERPStatus(EnumERPStatus state)
         {
@@ -498,6 +564,12 @@ namespace Content.Shared.Preferences
             else if (traitId.Id == "NativeLanguageOnly")
                 list.Remove(new ProtoId<TraitPrototype>("NativeLanguageUnfamiliar"));
 
+            // A person can either lack a passport or carry a forged one, not both.
+            if (traitId.Id == "EEUndocumentedImmigrant")
+                list.Remove(new ProtoId<TraitPrototype>("EEForgedPassport"));
+            else if (traitId.Id == "EEForgedPassport")
+                list.Remove(new ProtoId<TraitPrototype>("EEUndocumentedImmigrant"));
+
             if (traitCategory == null || traitCategory.MaxTraitPoints < 0)
             {
                 return new(this)
@@ -556,6 +628,7 @@ namespace Content.Shared.Preferences
         {
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
+            if (!SkillLevels.SequenceEqual(other.SkillLevels)) return false;
             if (Age != other.Age) return false;
             if (Height != other.Height) return false;
             if (Width != other.Width) return false;
@@ -570,11 +643,29 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (Citizenship != other.Citizenship || CitizenshipLocked != other.CitizenshipLocked || Residence != other.Residence || FamilyStatus != other.FamilyStatus || Children != other.Children ||
+                EmergencyContact != other.EmergencyContact || DistinguishingFeatures != other.DistinguishingFeatures) return false;
+            if (Birthplace != other.Birthplace || Occupation != other.Occupation || Education != other.Education ||
+                Allergies != other.Allergies || MedicalHistory != other.MedicalHistory || BloodGroup != other.BloodGroup) return false;
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
         public void EnsureValid(ICommonSession session, IDependencyCollection collection)
         {
+            Citizenship = RadiantCitizenships.Normalize(Citizenship);
+            Residence = (Residence ?? "")[..Math.Min(Residence?.Length ?? 0, 256)];
+            FamilyStatus = Content.Shared._radiant.Dossiers.DossierFamilyStatus.Normalize(FamilyStatus);
+            Children = (Children ?? "")[..Math.Min(Children?.Length ?? 0, 256)];
+            EmergencyContact = (EmergencyContact ?? "")[..Math.Min(EmergencyContact?.Length ?? 0, 256)];
+            DistinguishingFeatures = (DistinguishingFeatures ?? "")[..Math.Min(DistinguishingFeatures?.Length ?? 0, 256)];
+            Birthplace = (Birthplace ?? "")[..Math.Min(Birthplace?.Length ?? 0, 256)];
+            Occupation = (Occupation ?? "")[..Math.Min(Occupation?.Length ?? 0, 256)];
+            Education = (Education ?? "")[..Math.Min(Education?.Length ?? 0, 256)];
+            Allergies = (Allergies ?? "")[..Math.Min(Allergies?.Length ?? 0, 256)];
+            MedicalHistory = (MedicalHistory ?? "")[..Math.Min(MedicalHistory?.Length ?? 0, 512)];
+            if (!DossierBloodGroup.IsValid(BloodGroup))
+                BloodGroup = "";
+            SkillLevels = Content.Shared._radiant.Skills.ProfessionalSkillRules.Normalize(SkillLevels);
             var configManager = collection.Resolve<IConfigurationManager>();
             var prototypeManager = collection.Resolve<IPrototypeManager>();
 

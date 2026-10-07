@@ -1,6 +1,7 @@
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Cabinet;
 
@@ -16,11 +17,26 @@ public sealed partial class ItemCabinetComponent : Component
     /// </summary>
     [DataField]
     public string Slot = "ItemCabinet";
+
+    // Optional whole-cabinet states for sprites that include both the frame and its contents.
+    // Cabinets with separate item/door layers retain their existing visuals when these are unset.
+    [DataField] public string? EmptyOpenState;
+    [DataField] public string? EmptyClosedState;
+    [DataField] public ItemCabinetSpriteStates? DefaultItemStates;
+    [DataField] public Dictionary<EntProtoId, ItemCabinetSpriteStates> ItemStateOverrides = new();
+}
+
+[DataDefinition]
+public sealed partial class ItemCabinetSpriteStates
+{
+    [DataField(required: true)] public string Open = default!;
+    [DataField(required: true)] public string Closed = default!;
 }
 
 [Serializable, NetSerializable]
 public enum ItemCabinetVisuals : byte
 {
     ContainsItem,
-    Layer
+    Layer,
+    State
 }

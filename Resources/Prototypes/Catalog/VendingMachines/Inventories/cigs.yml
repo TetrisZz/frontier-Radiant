@@ -1,6 +1,14 @@
 - type: vendingMachineInventory
   id: CigaretteMachineInventory
   startingInventory:
+    DisposableVapeBlack: 4 # Radiant Sector
+    DisposableVapeBlue: 4 # Radiant Sector
+    DisposableVapeGreen: 4 # Radiant Sector
+    DisposableVapeOrange: 4 # Radiant Sector
+    DisposableVapePurple: 4 # Radiant Sector
+    DisposableVapeRed: 4 # Radiant Sector
+    DisposableVapeWhite: 4 # Radiant Sector
+    DisposableVapeYellow: 4 # Radiant Sector
     CigPackGreen: 2
     CigPackRed: 2
     CigPackBlue: 2

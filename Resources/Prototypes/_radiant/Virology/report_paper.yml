@@ -1,0 +1,8 @@
+- type: entity
+  id: RadiantVirologyReportPaper
+  parent: PaperOffice
+  name: infectious disease laboratory report
+  description: A printed laboratory report on the analyzed sample.
+  components:
+  - type: Paper
+    editingDisabled: true

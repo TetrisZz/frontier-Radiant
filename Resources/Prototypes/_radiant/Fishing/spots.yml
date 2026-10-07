@@ -1,0 +1,85 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseFishingSpot
+  abstract: true
+  name: suspicious waves
+  description: Something is floating here...
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: WaterFishingLootTable
+    naturalBaitFishList: !type:NestedSelector
+      tableId: WaterNaturalBaitFishTable
+    luminousBaitFishList: !type:NestedSelector
+      tableId: WaterLuminousBaitFishTable
+    fishDefaultTimer: 25.0
+    fishTimerVariety: 15.0
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        layer:
+        - ItemMask
+        mask:
+        - HighImpassable
+        density: 1000
+        hard: false
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  # TODO: change visuals when it's active
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Fishing/fishing_spot.rsi
+    state: water
+  - type: Icon
+    sprite: _radiant/Objects/Specific/Fishing/fishing_spot.rsi
+    state: water
+
+- type: entity
+  id: FishingSpotWater
+  parent: BaseFishingSpot
+
+- type: entity
+  id: FishingSpotPolluted
+  parent: BaseFishingSpot
+  name: polluted water
+  description: A film of residue covers the disturbed surface.
+  components:
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: PollutedFishingLootTable
+    naturalBaitFishList: !type:NestedSelector
+      tableId: PollutedNaturalBaitFishTable
+    luminousBaitFishList: !type:NestedSelector
+      tableId: PollutedLuminousBaitFishTable
+    fishDefaultTimer: 30.0
+    fishTimerVariety: 10.0
+  - type: Sprite
+    color: "#89A66B"
+
+- type: entity
+  id: FishingSpotExpedition
+  parent: BaseFishingSpot
+  name: unfamiliar waters
+  description: Strange ripples pass over an unfamiliar body of water.
+  components:
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: ExpeditionFishingLootTable
+    naturalBaitFishList: !type:NestedSelector
+      tableId: ExpeditionNaturalBaitFishTable
+    luminousBaitFishList: !type:NestedSelector
+      tableId: ExpeditionLuminousBaitFishTable
+    fishDefaultTimer: 30.0
+    fishTimerVariety: 12.0
+  - type: Sprite
+    color: "#9BA5D6"

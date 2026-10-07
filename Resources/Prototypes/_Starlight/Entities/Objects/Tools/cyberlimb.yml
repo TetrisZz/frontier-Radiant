@@ -571,6 +571,13 @@
       currentTransferAmount: 15
       reagentWhitelist:
         - Tricordrazine
+    - type: SolutionRegeneration
+      solution: hypospray
+      duration: 1
+      generated:
+        reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 0.5
 
 - type: entity
   name: inaprovaline cyber autoinjector
@@ -593,6 +600,13 @@
       currentTransferAmount: 15
       reagentWhitelist:
         - Inaprovaline
+    - type: SolutionRegeneration
+      solution: hypospray
+      duration: 1
+      generated:
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 0.5
     - type: Tag
       tags:
         - CyberHandItem

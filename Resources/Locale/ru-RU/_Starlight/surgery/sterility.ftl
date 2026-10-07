@@ -1,5 +1,5 @@
 surgical-item-clean = [color=lightblue]Обработано для хирургического использования.[/color]
-surgical-item-used = [color=yellow]Использовано. Перед другим пациентом требуется обработка.[/color]
+surgical-item-used = [color=yellow]Следы пациента. Для него повторная обработка не нужна; перед другим пациентом обработайте предмет.[/color]
 surgical-item-dirty = [color=orange]Загрязнено. Требуется обработка антисептиком.[/color]
 surgical-antiseptic-empty = Для обработки нужно не менее 5 единиц этанола в антисептике.
 surgical-antiseptic-done = Хирургическая обработка завершена.

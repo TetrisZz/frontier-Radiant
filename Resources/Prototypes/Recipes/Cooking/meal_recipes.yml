@@ -148,6 +148,7 @@
 
 - type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeChickenSandwich
+  cookingSkillLevel: 1
   name: chicken sandwich recipe
   result: FoodBurgerChicken
   time: 10
@@ -494,6 +495,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBread
+  cookingSkillLevel: 1
   name: bread recipe
   result: FoodBreadPlain
   time: 10
@@ -504,6 +506,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBreadCotton
+  cookingSkillLevel: 1
   name: cotton bread recipe
   result: FoodBreadCotton
   time: 10
@@ -2652,6 +2655,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeGrilledCheeseSandwich
+  cookingSkillLevel: 1
   name: grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwich
   time: 10
@@ -2663,6 +2667,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeGrilledCheeseSandwichCotton
+  cookingSkillLevel: 1
   name: cotton grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwichCotton
   time: 10

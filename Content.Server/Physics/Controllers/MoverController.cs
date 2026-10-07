@@ -156,6 +156,9 @@ public sealed class MoverController : SharedMoverController
 
     protected override void HandleShuttleInput(EntityUid uid, ShuttleButtons button, ushort subTick, bool state)
     {
+        if (state && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(uid, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, button == ShuttleButtons.Brake ? 2 : 1))
+            return;
         if (!TryComp<PilotComponent>(uid, out var pilot) || pilot.Console == null)
             return;
 

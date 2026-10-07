@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "license": "AGPL-3.0-or-later",
+  "copyright": "Ported from BlueMoon Station, icons/obj/basketball.dmi",
+  "states": [
+    {
+      "name": "hoop",
+      "directions": 4
+    }
+  ]
+}

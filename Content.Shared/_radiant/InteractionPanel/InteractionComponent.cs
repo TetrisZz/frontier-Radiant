@@ -119,6 +119,13 @@ namespace Content.Shared.Chat.Prototypes
         [DataField]
         public List<string>? RequiredClothingSlots;
 
+        /// <summary>Occupied slots that prevent access for the initiator or partner.</summary>
+        [DataField]
+        public List<string>? UserBlockedClothingSlots;
+
+        [DataField]
+        public List<string>? TargetBlockedClothingSlots;
+
         [DataField]
         public bool RequiresStrapon { get; set; } = false;
 

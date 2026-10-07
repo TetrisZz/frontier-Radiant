@@ -16,6 +16,8 @@ public sealed partial class StampWidget : PanelContainer
 
     private StyleBoxTexture _borderTexture;
     private ShaderInstance? _stampShader;
+    private Texture? _stampTexture;
+    private const float ImageScale = 2f;
 
     public float Orientation
     {
@@ -25,10 +27,16 @@ public sealed partial class StampWidget : PanelContainer
 
     public StampDisplayInfo StampInfo {
         set {
+            _stampTexture = value.Type != StampType.Signature && value.StampSprite != null
+                ? IoCManager.Resolve<IResourceCache>().GetResource<TextureResource>(value.StampSprite).Texture
+                : null;
+            StampedByLabel.Visible = _stampTexture == null;
             StampedByLabel.Text = value.Type is StampType.Signature ? value.StampedName : Loc.GetString(value.StampedName);
             StampedByLabel.FontColorOverride = value.StampedColor;
-            ModulateSelfOverride = value.StampedColor;
-            PanelOverride = value.Type is StampType.Signature ? null : _borderTexture;
+            ModulateSelfOverride = _stampTexture == null ? value.StampedColor : Color.White;
+            PanelOverride = _stampTexture != null || value.Type is StampType.Signature ? null : _borderTexture;
+            ToolTip = StampedByLabel.Text;
+            InvalidateMeasure();
         }
     }
 
@@ -48,8 +56,23 @@ public sealed partial class StampWidget : PanelContainer
         _stampShader = prototypes.Index(PaperStamp).InstanceUnique();
     }
 
+    protected override Vector2 MeasureOverride(Vector2 availableSize)
+    {
+        return _stampTexture != null ? (Vector2) _stampTexture.Size * ImageScale : base.MeasureOverride(availableSize);
+    }
+
     protected override void Draw(DrawingHandleScreen handle)
     {
+        if (_stampTexture != null)
+        {
+            // Match the centre-based rotation used when placing impressions on the sheet.
+            var halfSize = (Vector2) PixelSize * 0.5f;
+            var rotatedHalf = Vector2.Transform(halfSize, Matrix3x2.CreateRotation(Orientation));
+            handle.SetTransform(GlobalPixelPosition + halfSize - rotatedHalf, Orientation, Vector2.One);
+            handle.DrawTextureRect(_stampTexture, UIBox2.FromDimensions(Vector2.Zero, PixelSize));
+            handle.SetTransform(Matrix3x2.Identity);
+            return;
+        }
         _stampShader?.SetParameter("objCoord", GlobalPosition * UIScale * new Vector2(1, -1));
         handle.UseShader(_stampShader);
         handle.SetTransform(GlobalPosition * UIScale, Orientation, Vector2.One);

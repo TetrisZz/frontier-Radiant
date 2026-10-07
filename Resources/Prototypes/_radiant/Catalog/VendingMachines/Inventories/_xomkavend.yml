@@ -1,6 +1,13 @@
 - type: vendingMachineInventory
   id: XomkaVendInventory
   startingInventory:
+    ClothingUniformRadiantBraskirt: 4294967295
+    ClothingUniformRadiantReallyBlackSuit: 4294967295
+    ClothingUniformRadiantBlackSuitFem: 4294967295
+    ClothingUniformRadiantReallyBlackSuitSkirt: 4294967295
+    ClothingUniformRadiantBlackSuitFemSkirt: 4294967295
+    ClothingUnderwearBottomRadiantStriped: 4294967295
+    ClothingUnderwearBottomRadiantBee: 4294967295
 
     ClothingUniformJumpskirtDressRedTango: 4294967295 # Infinite
     ClothingUniformJumpskirtBlackDress: 4294967295 # Infinite

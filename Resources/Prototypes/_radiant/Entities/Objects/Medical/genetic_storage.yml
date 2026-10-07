@@ -1,0 +1,30 @@
+- type: Tag
+  id: GeneticResearchDisk
+
+- type: entity
+  parent: BaseStorageItem
+  id: GeneticResearchDiskBox
+  name: genetic archive case
+  description: A sturdy laboratory case with soft-lined recesses for archival discs.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/diskcases.rsi
+    state: icon_base
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Tiny
+    whitelist:
+      tags: [GeneticResearchDisk]
+    storageOpenSound: /Audio/Machines/screwdriveropen.ogg
+    storageCloseSound: /Audio/Machines/screwdriverclose.ogg
+  - type: GuideHelp
+    guides: [RadiantGenetics]
+
+- type: latheRecipe
+  id: GeneticResearchDiskBox
+  result: GeneticResearchDiskBox
+  completetime: 3
+  materials: {Plastic: 300, Steel: 100}

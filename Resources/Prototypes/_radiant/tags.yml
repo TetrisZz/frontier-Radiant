@@ -9,3 +9,12 @@
 
 - type: Tag
   id: PoppyFlower
+
+- type: Tag
+  id: MagazinePistolSubMachineGun25ACP
+
+- type: Tag
+  id: CartridgePistol25ACP
+
+- type: Tag
+  id: GrenadeM203

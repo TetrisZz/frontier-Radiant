@@ -42,6 +42,11 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         if (args.Target == null || !args.CanReach || !_cell.HasActivatableCharge(ent, user: args.User))
             return;
 
+        var skills = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+        if (!skills.Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, ent.Comp.Settings.AdvancedScan ? 3 : 2))
+            return;
+        const float speed = 1f;
+
         _doAfterSystem.Cancel(ent.Comp.DoAfter); //This might log an error if we were assigned an Id but the DoAfter was never queued
 
         if (HasComp<SeedComponent>(args.Target) || TryComp<PlantHolderComponent>(args.Target, out var plantHolder) && plantHolder.Seed != null)
@@ -49,7 +54,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
 
             if (ent.Comp.Settings.AdvancedScan)
             {
-                var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.Settings.AdvScanDelay, new PlantAnalyzerDoAfterEvent(), ent, target: args.Target, used: ent)
+                var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.Settings.AdvScanDelay * speed, new PlantAnalyzerDoAfterEvent(), ent, target: args.Target, used: ent)
                 {
                     NeedHand = true,
                     BreakOnDamage = true,
@@ -60,7 +65,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             }
             else
             {
-                var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.Settings.ScanDelay, new PlantAnalyzerDoAfterEvent(), ent, target: args.Target, used: ent)
+                var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.Settings.ScanDelay * speed, new PlantAnalyzerDoAfterEvent(), ent, target: args.Target, used: ent)
                 {
                     NeedHand = true,
                     BreakOnDamage = true,
@@ -75,6 +80,9 @@ public sealed class PlantAnalyzerSystem : EntitySystem
     private void OnDoAfter(Entity<PlantAnalyzerComponent> ent, ref PlantAnalyzerDoAfterEvent args)
     {
         ent.Comp.DoAfter = null;
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, ent.Comp.Settings.AdvancedScan ? 3 : 2))
+            return;
         // Double charge use for advanced scan.
         if (ent.Comp.Settings.AdvancedScan)
         {

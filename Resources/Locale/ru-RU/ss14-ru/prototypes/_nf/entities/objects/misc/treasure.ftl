@@ -1,0 +1,12 @@
+ent-GoldLeaf = золотой листок
+ent-NFTreasureOrganicSamples = органические образцы
+ent-NFTreasureOrganicSamplesArgocyte = органические образцы аргоцита
+ent-NFTreasureTrophyArgocyteEnforcer = голова аргоцита-силовика
+ent-NFTreasureTrophyArgocyteGlider = головная пластина аргоцита-планера
+ent-NFTreasureTrophyArgocyteLeviathing = голова левиафинга
+ent-NFTreasureTrophyDinosaurAnki = голова анкилозавра
+ent-NFTreasureTrophyDinosaurCompy = голова компсогната
+ent-NFTreasureTrophyDinosaurDilo = голова дилофозавра
+ent-NFTreasureTrophyDinosaurKentro = голова кентрозавра
+ent-NFTreasureTrophyXenoBurrower = голова землероя
+ent-NFTreasureTrophyXenoRavager = когти опустошителя

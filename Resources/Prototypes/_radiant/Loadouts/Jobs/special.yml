@@ -2,11 +2,7 @@
 - type: loadout
   id: HomUplinkRadio100
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   storage:
     back:
     - BaseHomUplinkRadio100

@@ -13,6 +13,7 @@ namespace Content.Shared.Preferences
         public override MsgGroups MsgGroup => MsgGroups.Command;
 
         public int Slot;
+        public bool ReplaceCharacter;
         public ICharacterProfile Profile = default!;
 
         public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
@@ -22,6 +23,9 @@ namespace Content.Shared.Preferences
             using var stream = new MemoryStream(length);
             buffer.ReadAlignedMemory(stream, length);
             Profile = serializer.Deserialize<ICharacterProfile>(stream);
+            // Older clients sent only the slot and profile. Keep that layout intact so
+            // their character edits are still accepted while the client is updating.
+            ReplaceCharacter = buffer.Position < buffer.LengthBits && buffer.ReadBoolean();
         }
 
         public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
@@ -34,6 +38,9 @@ namespace Content.Shared.Preferences
                 stream.TryGetBuffer(out var segment);
                 buffer.Write(segment);
             }
+            // Appended rather than inserted before the profile: older servers can still
+            // deserialize the character even though they ignore replacement semantics.
+            buffer.Write(ReplaceCharacter);
         }
     }
 }

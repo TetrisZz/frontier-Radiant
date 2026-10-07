@@ -1,4 +1,4 @@
-﻿ent-BaseMeleeWeaponEnergy = { ent-BaseItem }
+ent-BaseMeleeWeaponEnergy = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
 ent-EnergySword = энергетический меч
     .desc = Очень громкий и опасный меч с лучом чистой, концентрированной плазмы. Разрезает небронированные объекты как масло.
@@ -27,3 +27,5 @@ ent-CyborgEnergySwordDouble = { ent-EnergySwordDouble }
 ent-EnergyDaggerLoudBlue = { ent-EnergyDaggerLoud }
     .suffix = синий
     .desc = { ent-EnergyDaggerLoud.desc }
+
+ent-EnergyCutlass1 = энергетическая абордажная сабля

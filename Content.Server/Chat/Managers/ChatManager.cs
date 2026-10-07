@@ -8,6 +8,7 @@ using Content.Server.Discord.DiscordLink;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
+using Content.Shared._radiant.Supporters;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -273,22 +274,33 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         Color? colorOverride = null;
-        var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message", ("playerName",player.Name), ("message", FormattedMessage.EscapeText(message)));
-        if (_adminManager.HasAdminFlag(player, AdminFlags.NameColor))
+        var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message", ("playerName", FormattedMessage.EscapeText(player.Name)), ("message", FormattedMessage.EscapeText(message)));
+        var hasAdminColor = _adminManager.HasAdminFlag(player, AdminFlags.NameColor);
+        if (hasAdminColor)
         {
             var prefs = _preferencesManager.GetPreferences(player.UserId);
             colorOverride = prefs.AdminOOCColor;
         }
-        if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) && player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor))
+        string? patronColor = null;
+        if (_netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) &&
+            player.Channel.UserData.PatronTier is { } patron)
+            PatronOocColors.TryGetValue(patron, out patronColor);
+        var nameColor = SelectOocNameColor(hasAdminColor,
+            _entityManager.System<SharedSupporterSystem>().HasAccess(player.UserId), patronColor);
+        if (nameColor != null)
         {
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", nameColor), ("playerName", FormattedMessage.EscapeText(player.Name)), ("message", FormattedMessage.EscapeText(message)));
         }
 
-        //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
         ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
         _discordLink.SendMessage(message, player.Name, ChatChannel.OOC);
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"OOC from {player:Player}: {message}");
     }
+
+    // Admin color remains authoritative. Subscription colors affect only the nickname,
+    // not the message text, and are resolved afresh from persisted access for each message.
+    internal static string? SelectOocNameColor(bool hasAdminColor, bool hasSupporterAccess, string? patronColor)
+        => hasAdminColor ? null : hasSupporterAccess ? "#9370D8" : patronColor;
 
     private void SendAdminChat(ICommonSession player, string message)
     {

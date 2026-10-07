@@ -121,15 +121,13 @@ public sealed partial class SalvageSystem
         UpdateConsoles((station.Value, data));
     }
 
-    // Frontier: early expedition end
     private void OnSalvageFinishMessage(EntityUid entity, SalvageExpeditionConsoleComponent component, FinishSalvageMessage e)
     {
         var station = _station.GetOwningStation(entity);
         if (!TryComp<SalvageExpeditionDataComponent>(station, out var data) || !data.CanFinish)
             return;
 
-        // Based on SalvageSystem.Runner:OnConsoleFTLAttempt
-        if (!TryComp(entity, out TransformComponent? xform)) // Get the console's grid (if you move it, rip you)
+        if (!TryComp(entity, out TransformComponent? xform))
         {
             PlayDenySound((entity, component));
             _popupSystem.PopupEntity(Loc.GetString("salvage-expedition-shuttle-not-found"), entity, PopupType.MediumCaution);
@@ -137,61 +135,49 @@ public sealed partial class SalvageSystem
             return;
         }
 
-        // Frontier: check if any player characters or friendly ghost roles are outside
+        // Nobody with an active mind may be left behind on the expedition map.
         var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var mindContainer, out var _, out var mobXform))
         {
-            if (mobXform.MapUid != xform.MapUid)
+            if (mobXform.MapUid != xform.MapUid || !mindContainer.HasMind)
                 continue;
 
-            // Not player controlled (ghosted)
-            if (!mindContainer.HasMind)
-                continue;
-
-            // NPC, definitely not a person
             if (HasComp<ActiveNPCComponent>(uid) || HasComp<NFSalvageMobRestrictionsComponent>(uid))
                 continue;
 
-            // Hostile ghost role, continue
             if (TryComp(uid, out NpcFactionMemberComponent? npcFaction))
             {
                 var hostileFactions = npcFaction.HostileFactions;
-                if (hostileFactions.Contains("NanoTrasen")) // TODO: move away from hardcoded faction
+                if (hostileFactions.Contains("NanoTrasen"))
                     continue;
             }
 
-            // Okay they're on salvage, so are they on the shuttle.
-            if (mobXform.GridUid != xform.GridUid)
-            {
-                PlayDenySound((entity, component));
-                _popupSystem.PopupEntity(Loc.GetString("salvage-expedition-not-everyone-aboard", ("target", uid)), entity, PopupType.MediumCaution);
-                UpdateConsoles((station.Value, data));
-                return;
-            }
+            if (mobXform.GridUid == xform.GridUid)
+                continue;
+
+            PlayDenySound((entity, component));
+            _popupSystem.PopupEntity(Loc.GetString("salvage-expedition-not-everyone-aboard", ("target", uid)), entity, PopupType.MediumCaution);
+            UpdateConsoles((station.Value, data));
+            return;
         }
-        // End SalvageSystem.Runner:OnConsoleFTLAttempt
 
-        data.CanFinish = false;
-        UpdateConsoles((station.Value, data));
-
-        var map = Transform(entity).MapUid;
-
+        var map = xform.MapUid;
         if (!TryComp<SalvageExpeditionComponent>(map, out var expedition))
             return;
 
         const int departTime = 20;
         var newEndTime = _timing.CurTime + TimeSpan.FromSeconds(departTime);
-
         if (expedition.EndTime <= newEndTime)
             return;
+
+        data.CanFinish = false;
+        UpdateConsoles((station.Value, data));
 
         expedition.Stage = ExpeditionStage.FinalCountdown;
         expedition.EndTime = newEndTime;
         Dirty(map.Value, expedition);
-
         Announce(map.Value, Loc.GetString("salvage-expedition-announcement-early-finish", ("departTime", departTime)));
     }
-    // End Frontier: early expedition end
 
     private void OnSalvageConsoleInit(Entity<SalvageExpeditionConsoleComponent> console, ref ComponentInit args)
     {
@@ -230,7 +216,7 @@ public sealed partial class SalvageSystem
         }
         else
         {
-            state = new SalvageExpeditionConsoleState(TimeSpan.Zero, false, true, 0, new List<SalvageMissionParams>(), false, TimeSpan.Zero, TimeSpan.FromSeconds(1)); // Frontier: add false, zero finish cooldown, 1 second timespan as last args (cannot finish, not on a mission)
+            state = new SalvageExpeditionConsoleState(TimeSpan.Zero, false, true, 0, new List<SalvageMissionParams>(), false, TimeSpan.FromSeconds(1));
         }
 
         // Frontier: if we have a lingering FTL component, we cannot start a new mission

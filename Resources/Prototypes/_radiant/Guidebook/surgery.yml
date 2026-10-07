@@ -10,6 +10,11 @@
   - RadiantSurgeryGlass
 
 - type: guideEntry
+  id: RadiantGenetics
+  name: guide-entry-radiant-genetics
+  text: /ServerInfo/_radiant/Guidebook/Surgery/Genetics.xml
+
+- type: guideEntry
   id: RadiantSurgeryOperations
   name: guide-entry-radiant-surgery-operations
   text: /ServerInfo/_radiant/Guidebook/Surgery/Operations.xml

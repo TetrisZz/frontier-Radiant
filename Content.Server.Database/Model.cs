@@ -46,7 +46,8 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
-        public DbSet<NFLibraryBook> NFLibraryBook { get; set; } = null!; //Frontier
+        public DbSet<RadiantDiscordLink> RadiantDiscordLinks { get; set; } = null!;
+        public DbSet<NFLibraryBook> NFLibraryBook { get; set; } = null!;
         public DbSet<WayfarerSafetyDepositBox> WayfarerSafetyDepositBox { get; set; } = null!;
         public DbSet<WayfarerSafetyDepositBoxItem> WayfarerSafetyDepositBoxItem { get; set; } = null!;
 
@@ -422,6 +423,20 @@ namespace Content.Server.Database
         public int Slot { get; set; }
         [Column("char_name")] public string CharacterName { get; set; } = null!;
         public string FlavorText { get; set; } = null!;
+        public string SkillLevels { get; set; } = "[]";
+        public string DossierJson { get; set; } = "{}";
+        public string Residence { get; set; } = "";
+        public string Citizenship { get; set; } = "Asgard";
+        public string FamilyStatus { get; set; } = "";
+        public string Children { get; set; } = "";
+        public string EmergencyContact { get; set; } = "";
+        public string DistinguishingFeatures { get; set; } = "";
+        public string Birthplace { get; set; } = "";
+        public string Occupation { get; set; } = "";
+        public string Education { get; set; } = "";
+        public string Allergies { get; set; } = "";
+        public string MedicalHistory { get; set; } = "";
+        public string BloodGroup { get; set; } = "";
         public int ERPStatus { get; set; }
         public int Age { get; set; }
         public int BankBalance { get; set; }
@@ -626,6 +641,16 @@ namespace Content.Server.Database
         public List<ServerRoleBan> AdminServerRoleBansCreated { get; set; } = null!;
         public List<ServerRoleBan> AdminServerRoleBansLastEdited { get; set; } = null!;
         public List<RoleWhitelist> JobWhitelists { get; set; } = null!;
+    }
+
+    [Table("radiant_discord_link")]
+    [Index(nameof(DiscordUserId), IsUnique = true)]
+    public sealed class RadiantDiscordLink
+    {
+        [Key] public Guid UserId { get; set; }
+        [Required, MaxLength(20)] public string DiscordUserId { get; set; } = "";
+        // Empty means no verified access. Store the role ID to invalidate access when configuration changes.
+        [Required, MaxLength(20)] public string SupporterRoleId { get; set; } = "";
     }
 
     [Table("whitelist")]

@@ -260,6 +260,27 @@ public abstract partial class SharedSurgerySystem
 
     private void OnCanPerformStep(Entity<SurgeryStepComponent> ent, ref SurgeryCanPerformStepEvent args)
     {
+        var skillSystem = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+        var medicalLevel = ent.Comp.MedicalSkillLevel;
+        if (HasComp<SurgeryDisinfectionComponent>(ent) || HasComp<SurgeryExtractGlassComponent>(ent))
+            medicalLevel = 3;
+        if (HasComp<SurgerySiteTreatmentComponent>(ent))
+            medicalLevel = 3;
+        if (HasComp<SurgeryStepOrganInsertComponent>(ent) || HasComp<SurgeryStepOrganExtractComponent>(ent))
+            medicalLevel = Math.Max(medicalLevel, 4);
+        if (TryComp<SurgeryStepOrganInsertComponent>(ent, out var insertion)
+            && insertion.Slot.Contains("implant", StringComparison.OrdinalIgnoreCase)
+            || TryComp<SurgeryStepOrganExtractComponent>(ent, out var extraction)
+            && extraction.Slot != null && extraction.Slot.Contains("implant", StringComparison.OrdinalIgnoreCase))
+            medicalLevel = Math.Max(medicalLevel, 4);
+        if (HasComp<SurgeryStepAdultOrganComponent>(ent))
+            medicalLevel = Math.Max(medicalLevel, 4);
+        if (!skillSystem.Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, medicalLevel, false))
+        {
+            args.Invalid = StepInvalidReason.Skill;
+            args.Popup = skillSystem.Message(Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, medicalLevel);
+            return;
+        }
         if (HasComp<SurgeryOperatingTableConditionComponent>(ent)
             && (!TryComp(args.Body, out BuckleComponent? buckle) || !HasComp<OperatingTableComponent>(buckle.BuckledTo)))
         {

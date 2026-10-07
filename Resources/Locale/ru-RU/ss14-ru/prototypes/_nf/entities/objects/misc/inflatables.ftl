@@ -1,0 +1,12 @@
+ent-NFInflatableCrate = надувной ящик
+    .suffix = Фронтир
+ent-NFInflatableDock = надувной стыковочный шлюз
+    .suffix = Фронтир
+ent-NFInflatableDoor = надувная дверь
+    .suffix = Фронтир
+ent-NFInflatableDoorWindow = надувная дверь с окном
+    .suffix = Фронтир
+ent-NFInflatableWall = надувная стена
+    .suffix = Фронтир
+ent-NFInflatableWindow = надувное окно
+    .suffix = Фронтир

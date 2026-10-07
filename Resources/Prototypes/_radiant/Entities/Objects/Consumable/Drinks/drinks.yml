@@ -20,7 +20,7 @@
   id: BaseRadiantDrinkGlass
   components:
   - type: SolutionContainerVisuals
-    emptySpriteName: empty
+    restoreDefaultWhenEmpty: true
 
 - type: entity
   parent: BaseRadiantDrinkGlass

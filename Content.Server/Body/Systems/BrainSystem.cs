@@ -26,6 +26,13 @@ public sealed class BrainSystem : EntitySystem
         if (TerminatingOrDeleted(newEntity) || TerminatingOrDeleted(oldEntity))
             return;
 
+        if (HasComp<BrainComponent>(newEntity))
+            EntityManager.System<Content.Server._radiant.Medical.Surgery.BrainRestorationSystem>()
+                .CaptureCareer(newEntity, oldEntity);
+        else if (HasComp<BrainComponent>(oldEntity))
+            EntityManager.System<Content.Server._radiant.Medical.Surgery.BrainRestorationSystem>()
+                .RestoreCareer(oldEntity, newEntity, overwriteSkills: true);
+
         EnsureComp<MindContainerComponent>(newEntity);
         EnsureComp<MindContainerComponent>(oldEntity);
 
@@ -36,6 +43,9 @@ public sealed class BrainSystem : EntitySystem
             return;
 
         _mindSystem.TransferTo(mindId, newEntity, mind: mind);
+        // Account balance comes from the player's existing profile after attachment, never a saved amount.
+        if (HasComp<Content.Shared._NF.Bank.Components.BankAccountComponent>(newEntity))
+            EntityManager.System<Content.Server._NF.Bank.BankSystem>().RestoreCharacterAccount(newEntity);
     }
 
     private void OnPointAttempt(Entity<BrainComponent> ent, ref PointAttemptEvent args)

@@ -180,7 +180,11 @@ namespace Content.Server.Chemistry.EntitySystems
                     reagentColor = sol.GetColor(_prototypeManager);
                 }
 
-                inventory.Add(new ReagentInventoryItem(storageLocation, reagentLabel, quantity, reagentColor));
+                var entry = new ReagentInventoryItem(storageLocation, reagentLabel, quantity, reagentColor);
+                if (sol != null)
+                    foreach (var reagent in sol.Contents)
+                        entry.Reagents.Add(reagent.Reagent.Prototype);
+                inventory.Add(entry);
             }
 
             return inventory;

@@ -117,6 +117,10 @@ public sealed partial class AnchorableSystem : EntitySystem
         if (args.Cancelled || args.Used is not { } used)
             return;
 
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .CanUse(args.User, uid, Content.Shared._radiant.Skills.SkillAction.Anchor))
+            return;
+
         var xform = Transform(uid);
 
         RaiseLocalEvent(uid, new BeforeUnanchoredEvent(args.User, used));
@@ -135,6 +139,10 @@ public sealed partial class AnchorableSystem : EntitySystem
     private void OnAnchorComplete(EntityUid uid, AnchorableComponent component, TryAnchorCompletedEvent args)
     {
         if (args.Cancelled || args.Used is not { } used)
+            return;
+
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .CanUse(args.User, uid, Content.Shared._radiant.Skills.SkillAction.Anchor))
             return;
 
         var xform = Transform(uid);
@@ -196,6 +204,10 @@ public sealed partial class AnchorableSystem : EntitySystem
         ToolComponent? usingTool = null)
     {
         if (!Resolve(uid, ref transform))
+            return;
+
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .CanUse(userUid, uid, Content.Shared._radiant.Skills.SkillAction.Anchor))
             return;
 
         if (transform.Anchored)

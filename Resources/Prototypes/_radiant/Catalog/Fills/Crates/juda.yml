@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateEmotionalSupportJuda
+  parent: PetCarrier
+  name: переноска Джуды
+  description: Внутри ждёт Джуда — ручная акула для эмоциональной поддержки.
+  components:
+  - type: ContainerFill
+    containers:
+      entity_storage:
+      - MobJudaEmotionalSupport

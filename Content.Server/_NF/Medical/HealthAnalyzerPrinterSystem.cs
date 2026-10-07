@@ -157,7 +157,28 @@ public sealed class HealthAnalyzerPrinterSystem : EntitySystem
                 return match.Value;
             });
 
-        _paper.SetContent((uid, paper), content);
+        var infection = TryComp<Content.Shared._radiant.Medical.Virology.VirologySymptomsComponent>(patient, out var symptoms)
+            && symptoms.Severity > 0 ? "\n" + Loc.GetString("virology-screen-positive") : "";
+        _paper.SetContent((uid, paper), content + ComposeSurgicalReport(patient) + infection);
+    }
+
+    // Share the scanner's findings rather than maintain a separate diagnosis list.
+    public string ComposeSurgicalReport(EntityUid patient)
+    {
+        var findings = EntityManager.System<Content.Server._Starlight.Medical.Surgery.BodyScannerSystem>()
+            .BuildDiagnostics(patient);
+        if (findings.Count == 0)
+            return string.Empty;
+        var report = new FormattedMessage();
+        report.PushNewline();
+        report.PushNewline();
+        report.AddText(Loc.GetString("health-analyzer-surgery-diagnostics-title"));
+        foreach (var finding in findings)
+        {
+            report.PushNewline();
+            report.AddText(finding.Text);
+        }
+        return report.ToMarkup();
     }
 
     private string ComposeDamageList(DamageableComponent damageable)

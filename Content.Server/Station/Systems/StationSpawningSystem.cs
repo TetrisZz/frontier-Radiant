@@ -13,6 +13,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
+using Content.Shared._radiant.Supporters;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Station;
@@ -213,6 +214,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
                     }
 
                     // Handle any extra data here.
+
+                    // A saved donor selection can outlive its subscription. Check again before issuing any items.
+                    if (loadoutProto.Effects.Any(effect => effect is SupporterLoadoutEffect &&
+                            !effect.Validate(profile!, loadout, session, _dependencyCollection, out _)))
+                        continue;
 
                     //Frontier - we handle bank stuff so we are wrapping each item spawn inside our own cached check.
                     //If the user's preferences haven't been loaded, only give them free items or fallbacks.

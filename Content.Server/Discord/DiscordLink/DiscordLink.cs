@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Content.Shared.CCVar;
+using System.Net;
+using System.Linq;
 using NetCord;
 using NetCord.Gateway;
 using NetCord.Rest;
@@ -65,6 +67,8 @@ public sealed class DiscordLink : IPostInjectInit
     ///     Event that is raised when a message is received from Discord. This is raised for every message, including commands.
     /// </summary>
     public event Action<Message>? OnMessageReceived;
+    public event Action<ulong, ulong[]>? OnGuildRolesChanged;
+    public event Action? OnGatewayReady;
 
     public void RegisterCommandCallback(Action<CommandReceivedEventArgs> callback, string command)
     {
@@ -109,6 +113,24 @@ public sealed class DiscordLink : IPostInjectInit
         });
         _client.MessageCreate += OnCommandReceivedInternal;
         _client.MessageCreate += OnMessageReceivedInternal;
+        _client.GuildUserUpdate += OnGuildUserChanged;
+        _client.GuildUserAdd += OnGuildUserChanged;
+        // Deleting the donor role itself may not emit a member update for every member.
+        _client.RoleDelete += args =>
+        {
+            if (args.GuildId == _guildId) OnGatewayReady?.Invoke();
+            return default;
+        };
+        _client.GuildUserRemove += args =>
+        {
+            if (args.GuildId == _guildId) OnGuildRolesChanged?.Invoke(args.User.Id, []);
+            return default;
+        };
+        _client.Resume += () =>
+        {
+            OnGatewayReady?.Invoke();
+            return default;
+        };
 
         _botToken = token;
         // Since you cannot change the token while the server is running / the DiscordLink is initialized,
@@ -117,6 +139,7 @@ public sealed class DiscordLink : IPostInjectInit
         _client.Ready += _ =>
         {
             _sawmill.Info("Discord client ready.");
+            OnGatewayReady?.Invoke();
             return default;
         };
 
@@ -209,7 +232,52 @@ public sealed class DiscordLink : IPostInjectInit
         return ValueTask.CompletedTask;
     }
 
+    private ValueTask OnGuildUserChanged(GuildUser user)
+    {
+        if (user.GuildId == _guildId) OnGuildRolesChanged?.Invoke(user.Id, user.RoleIds.ToArray());
+        return ValueTask.CompletedTask;
+    }
+
     #region Proxy methods
+
+    public async Task UpdatePlayerPresenceAsync(int? players)
+    {
+        if (_client == null) return;
+        await _client.UpdatePresenceAsync(CreatePlayerPresence(players));
+    }
+
+    public static PresenceProperties CreatePlayerPresence(int? players)
+        => new(UserStatusType.Online)
+        {
+            Activities = players is { } count
+                ? new[] { new UserActivityProperties($"Онлайн сервера: {count}", UserActivityType.Watching) }
+                : Array.Empty<UserActivityProperties>(),
+        };
+
+    /// <summary>Null means unavailable; false is a confirmed missing role or guild member.</summary>
+    public async Task<bool?> HasGuildRoleAsync(ulong userId, ulong roleId)
+    {
+        if (_client == null || _guildId == 0) return null;
+        try
+        {
+            var member = await _client.Rest.GetGuildUserAsync(_guildId, userId);
+            return member.RoleIds.Contains(roleId);
+        }
+        catch (RestException error) when (error.StatusCode == HttpStatusCode.NotFound)
+        {
+            return false;
+        }
+    }
+
+    public async Task ReplyAsync(ulong channelId, string message)
+    {
+        if (_client == null) return;
+        await _client.Rest.SendMessageAsync(channelId, new MessageProperties
+        {
+            Content = message,
+            AllowedMentions = AllowedMentionsProperties.None,
+        });
+    }
 
     /// <summary>
     /// Sends a message to a Discord channel with the specified ID. Without any mentions.

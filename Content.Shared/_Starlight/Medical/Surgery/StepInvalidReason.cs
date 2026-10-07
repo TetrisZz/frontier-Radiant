@@ -12,4 +12,6 @@ public enum StepInvalidReason
     NotEnoughReagent,
     MissingLimb,
     DirtyDrape,
+    Skill,
+    IdentityMismatch,
 }

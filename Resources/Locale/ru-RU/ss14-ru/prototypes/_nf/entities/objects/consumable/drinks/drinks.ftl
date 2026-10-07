@@ -13,3 +13,17 @@ ent-DrinkPineappleBlast = { ent-DrinkGlass }
 ent-DrinkTorpedoJuice = { ent-DrinkGlass }
     .desc = Радости от выпивки и неограниченной подводной войны в одном флаконе!
     .suffix = Сок торпеды
+
+ent-CondimentCup = стаканчик для приправ
+    .suffix = Пустой
+ent-DrinkDisposableCup = одноразовый стаканчик
+ent-DrinkPumpkinSpiceLatte = метаморфный стакан
+    .suffix = Тыквенный латте с пряностями
+ent-NanoCoftea = метаморфный стакан
+    .suffix = Кофечай
+ent-NanoColdBrew = метаморфный стакан
+    .suffix = Колд-брю
+ent-Nanodepresso = метаморфный стакан
+    .suffix = Депрессо
+ent-TheMadgob = метаморфный стакан
+    .suffix = Безумный гоблин

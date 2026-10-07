@@ -1,0 +1,5 @@
+ent-ClothingOuterArmorBasicAcorp = бронежилет
+ent-ClothingOuterArmorBulletproofAcorp = пуленепробиваемый жилет
+ent-ClothingOuterArmorCommandAcorp = бронежилет
+ent-ClothingOuterArmorHeavyAcorp = бронежилет
+ent-ClothingOuterArmorPlatecarrierfAcorp = пуленепробиваемый жилет

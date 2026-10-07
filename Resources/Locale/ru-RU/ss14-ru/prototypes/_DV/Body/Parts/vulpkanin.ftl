@@ -1,0 +1,11 @@
+ent-HeadVulpkanin = голова вульпканина
+ent-LeftArmVulpkanin = левая рука вульпканина
+ent-LeftFootVulpkanin = левая стопа вульпканина
+ent-LeftHandVulpkanin = левая кисть вульпканина
+ent-LeftLegVulpkanin = левая нога вульпканина
+ent-PartVulpkanin = часть тела вульпканина
+ent-RightArmVulpkanin = правая рука вульпканина
+ent-RightFootVulpkanin = правая стопа вульпканина
+ent-RightHandVulpkanin = правая кисть вульпканина
+ent-RightLegVulpkanin = правая нога вульпканина
+ent-TorsoVulpkanin = торс вульпканина

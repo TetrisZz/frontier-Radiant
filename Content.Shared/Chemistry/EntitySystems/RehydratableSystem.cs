@@ -34,6 +34,13 @@ public sealed class RehydratableSystem : EntitySystem
         }
     }
 
+    /// <summary>Configure the spawn for a dynamically prepared cube.</summary>
+    public void SetSpawn(EntityUid cube, Robust.Shared.Prototypes.EntProtoId prototype)
+    {
+        if (TryComp<RehydratableComponent>(cube, out var component))
+            component.PossibleSpawns = new() { prototype };
+    }
+
     // Try not to make this public if you can help it.
     private void Expand(Entity<RehydratableComponent> ent)
     {

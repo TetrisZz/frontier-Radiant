@@ -85,6 +85,10 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     private void OnAfterInteract(Entity<HealthAnalyzerComponent> uid, ref AfterInteractEvent args)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+            return;
+
         if (args.Target == null || !args.CanReach || !HasComp<MobStateComponent>(args.Target) || !_cell.HasDrawCharge(uid, user: args.User))
             return;
 
@@ -106,6 +110,10 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     private void OnDoAfter(Entity<HealthAnalyzerComponent> uid, ref HealthAnalyzerDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled || args.Target == null || !_cell.HasDrawCharge(uid, user: args.User))
+            return;
+
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
             return;
 
         if (!uid.Comp.Silent)

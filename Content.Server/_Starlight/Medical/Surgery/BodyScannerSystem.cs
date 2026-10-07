@@ -144,7 +144,7 @@ public sealed partial class BodyScannerSystem : SharedBodyScannerSystem
                 target is { } planPatient ? BuildOperationPlan(planPatient) : null));
     }
 
-    private List<BodyScannerDiagnosticEntry> BuildDiagnostics(EntityUid patient)
+    public List<BodyScannerDiagnosticEntry> BuildDiagnostics(EntityUid patient)
     {
         var diagnostics = new List<BodyScannerDiagnosticEntry>();
 

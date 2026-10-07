@@ -11,6 +11,8 @@ using Content.Server.Database;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
+using Content.Server.Preferences.Managers;
+using Content.Shared._radiant.Supporters;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -33,16 +35,17 @@ namespace Content.Server.Administration.Systems
     {
         private const string RateLimitKey = "AdminHelp";
 
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IConfigurationManager _config = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-        [Dependency] private readonly GameTicker _gameTicker = default!;
-        [Dependency] private readonly SharedMindSystem _minds = default!;
-        [Dependency] private readonly IAfkManager _afkManager = default!;
-        [Dependency] private readonly IServerDbManager _dbManager = default!;
-        [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private IConfigurationManager _config = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IPlayerLocator _playerLocator = default!;
+        [Dependency] private GameTicker _gameTicker = default!;
+        [Dependency] private SharedMindSystem _minds = default!;
+        [Dependency] private IAfkManager _afkManager = default!;
+        [Dependency] private IServerDbManager _dbManager = default!;
+        [Dependency] private PlayerRateLimitManager _rateLimit = default!;
+        [Dependency] private IServerPreferencesManager _preferences = default!;
 
         [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
         private static partial Regex DiscordRegex();
@@ -727,23 +730,19 @@ namespace Content.Server.Administration.Systems
             //Getting an administrator position
             if (_config.GetCVar(CCVars.AhelpAdminPrefix) && senderAdmin is not null && senderAdmin.Title is not null)
             {
-                adminPrefix = $"[bold]\\[{senderAdmin.Title}\\][/bold] ";
+                adminPrefix = $"[bold]\\[{FormattedMessage.EscapeText(senderAdmin.Title)}\\][/bold] ";
             }
 
-            if (senderAdmin is not null &&
-                senderAdmin.Flags ==
-                AdminFlags.Adminhelp) // Mentor. Not full admin. That's why it's colored differently.
-            {
-                bwoinkText = $"[color=purple]{adminPrefix}{senderName}[/color]";
-            }
-            else if (fromWebhook || senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp)) // Frontier: anything sent via webhooks are from an admin.
-            {
-                bwoinkText = $"[color=red]{adminPrefix}{senderName}[/color]";
-            }
-            else
-            {
-                bwoinkText = $"{senderName}";
-            }
+            // Resolve on the server, never from client-supplied markup. Discord webhook senders
+            // have no authenticated in-game account from which to load a custom OOC color.
+            var customAdminColor = !fromWebhook && senderAdmin?.HasFlag(AdminFlags.NameColor) == true
+                ? _preferences.GetPreferences(senderId).AdminOOCColor.ToHex()
+                : null;
+            var nameColor = SelectAhelpNameColor(customAdminColor,
+                senderAdmin?.Flags == AdminFlags.Adminhelp,
+                fromWebhook || senderAdmin?.HasFlag(AdminFlags.Adminhelp) == true,
+                EntityManager.System<SharedSupporterSystem>().HasAccess(senderId));
+            bwoinkText = FormatAhelpSender(adminPrefix, senderName, nameColor);
 
             bwoinkText = $"{(message.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : !message.PlaySound ? Loc.GetString("bwoink-message-silent") : "")}{(fromWebhook ? Loc.GetString("bwoink-message-discord") : "")} {bwoinkText}: {escapedText}";
 
@@ -769,7 +768,7 @@ namespace Content.Server.Administration.Systems
 
             if (_config.GetCVar(CCVars.AhelpAdminPrefixWebhook) && senderAdmin is not null && senderAdmin.Title is not null)
             {
-                adminPrefixWebhook = $"[bold]\\[{senderAdmin.Title}\\][/bold] ";
+                adminPrefixWebhook = $"[bold]\\[{FormattedMessage.EscapeText(senderAdmin.Title)}\\][/bold] ";
             }
 
             // Notify player
@@ -780,22 +779,11 @@ namespace Content.Server.Administration.Systems
                     // If _overrideClientName is set, we generate a new message with the override name. The admins name will still be the original name for the webhooks.
                     if (_overrideClientName != string.Empty)
                     {
-                        string overrideMsgText;
-                        // Doing the same thing as above, but with the override name. Theres probably a better way to do this.
-                        if (senderAdmin is not null &&
-                            senderAdmin.Flags ==
-                            AdminFlags.Adminhelp) // Mentor. Not full admin. That's why it's colored differently.
-                        {
-                            overrideMsgText = $"[color=purple]{adminPrefixWebhook}{_overrideClientName}[/color]";
-                        }
-                        else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp))
-                        {
-                            overrideMsgText = $"[color=red]{adminPrefixWebhook}{_overrideClientName}[/color]";
-                        }
-                        else
-                        {
-                            overrideMsgText = $"{senderName}"; // Not an admin, name is not overridden.
-                        }
+                        var overrideName = senderAdmin?.HasFlag(AdminFlags.Adminhelp) == true
+                            ? _overrideClientName : senderName;
+                        var overridePrefix = senderAdmin?.HasFlag(AdminFlags.Adminhelp) == true
+                            ? adminPrefixWebhook : "";
+                        var overrideMsgText = FormatAhelpSender(overridePrefix, overrideName, nameColor);
 
                         if (fromWebhook)
                             overrideMsgText = $"(DC) {overrideMsgText}";
@@ -854,6 +842,15 @@ namespace Content.Server.Administration.Systems
             }
         }
         // End Frontier: webhook text messages
+
+        internal static string? SelectAhelpNameColor(string? customAdminColor, bool mentor, bool admin, bool supporter)
+            => customAdminColor ?? (mentor ? "purple" : admin ? "red" : supporter ? "#9370D8" : null);
+
+        internal static string FormatAhelpSender(string prefix, string name, string? color)
+        {
+            var escapedName = FormattedMessage.EscapeText(name);
+            return color == null ? escapedName : $"[color={color}]{prefix}{escapedName}[/color]";
+        }
 
         private IList<INetChannel> GetNonAfkAdmins()
         {

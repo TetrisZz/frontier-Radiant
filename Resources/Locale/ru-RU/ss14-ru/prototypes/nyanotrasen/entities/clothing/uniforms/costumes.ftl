@@ -46,3 +46,6 @@ ent-ClothingUniformMNKBlackShoulder = наряд MNK с открытыми пл�
     .desc = Наряд MNK с открытыми плечами.
 ent-ClothingUniformMNKTracksuitBlack = чёрный спортивный костюм MNK
     .desc = Лёгкий спортивный комплект от MNK.
+
+ent-ClothingKimonoGreen = морское зелёное кимоно
+ent-ClothingKimonoSky = небесно-голубое кимоно

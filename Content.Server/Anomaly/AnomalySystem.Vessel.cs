@@ -86,6 +86,10 @@ public sealed partial class AnomalySystem
         if (!TryComp<AnomalyComponent>(anomaly, out var anomalyComponent) || anomalyComponent.ConnectedVessel != null)
             return;
 
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(args.User, uid, Content.Shared._radiant.Skills.SkillAction.Interface))
+            return;
+
         // Frontier: check anomaly is on the same grid
         if (!TryComp(uid, out TransformComponent? xform)
             || !TryComp(anomaly, out TransformComponent? anomXform)

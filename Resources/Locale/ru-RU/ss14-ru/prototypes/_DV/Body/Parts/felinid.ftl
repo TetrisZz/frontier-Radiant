@@ -1,0 +1,11 @@
+ent-HeadFelinid = голова фелинида
+ent-LeftArmFelinid = левая рука фелинида
+ent-LeftFootFelinid = левая стопа фелинида
+ent-LeftHandFelinid = левая кисть фелинида
+ent-LeftLegFelinid = левая нога фелинида
+ent-PartFelinidBase = часть тела фелинида
+ent-RightArmFelinid = правая рука фелинида
+ent-RightFootFelinid = правая стопа фелинида
+ent-RightHandFelinid = правая кисть фелинида
+ent-RightLegFelinid = правая нога фелинида
+ent-TorsoFelinid = торс фелинида

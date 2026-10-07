@@ -9,10 +9,6 @@
   - type: StaticPrice 
     price: 100
     vendPrice: 1500 
-  - type: Edible
-    edible: Drink
-    solution: fleshlight
-    ignoreEmpty: true
   - type: SolutionContainerManager
     solutions:
       fleshlight:
@@ -39,6 +35,8 @@
   - type: Tag
     tags:
      - Fleshlight
+     - Trash
+     - Recyclable
   - type: SexToy
     prototype:
     - fleshlight

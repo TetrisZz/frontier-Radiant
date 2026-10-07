@@ -47,7 +47,17 @@ namespace Content.Client.Chemistry.UI
 
             foreach (var item in inventory)
             {
-                var card = new ReagentCardControl(item);
+                var known = Content.Client._radiant.Skills.SkillPresentation.CanIdentifyChemicals;
+                if (!known && item.Reagents.Count > 0)
+                {
+                    known = true;
+                    foreach (var id in item.Reagents)
+                        known &= Content.Client._radiant.Skills.SkillPresentation.CanIdentifyReagent(id);
+                }
+                var displayItem = new ReagentInventoryItem(item.StorageLocation,
+                    known ? item.ReagentLabel : Loc.GetString("professional-skills-unknown-reagent"), item.Quantity,
+                    known ? item.ReagentColor : Color.Gray);
+                var card = new ReagentCardControl(displayItem);
                 card.OnPressed += OnDispenseReagentButtonPressed;
                 card.OnEjectButtonPressed += OnEjectJugButtonPressed;
                 ReagentList.Children.Add(card);
@@ -103,7 +113,7 @@ namespace Content.Client.Chemistry.UI
                     ? p.LocalizedName
                     : Loc.GetString("reagent-dispenser-window-reagent-name-not-found-text");
 
-                var nameLabel = new Label { Text = $"{localizedName}: " };
+                var nameLabel = new Label { Text = Content.Client._radiant.Skills.SkillPresentation.ChemicalName(localizedName, reagent.Prototype) + ": " };
                 var quantityLabel = new Label
                 {
                     Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", quantity)),

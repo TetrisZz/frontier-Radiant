@@ -764,7 +764,7 @@
   name: construction-recipe-stair-stage-steel
   graph: StairsGraph
   startNode: start
-  targetNode: stairStage
+  targetNode: stairsStage
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
@@ -777,7 +777,7 @@
   name: construction-recipe-stairs-white
   graph: StairsGraph
   startNode: start
-  targetNode: stairWhite
+  targetNode: stairsWhite
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
@@ -790,7 +790,7 @@
   name: construction-recipe-stair-stage-white
   graph: StairsGraph
   startNode: start
-  targetNode: stairStageWhite
+  targetNode: stairsStageWhite
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
@@ -803,7 +803,7 @@
   name: construction-recipe-stairs-dark
   graph: StairsGraph
   startNode: start
-  targetNode: stairDark
+  targetNode: stairsDark
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
@@ -816,7 +816,7 @@
   name: construction-recipe-stair-stage-dark
   graph: StairsGraph
   startNode: start
-  targetNode: stairStageDark
+  targetNode: stairsStageDark
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
@@ -829,7 +829,7 @@
   name: construction-recipe-stairs-wood
   graph: StairsGraph
   startNode: start
-  targetNode: stairWood
+  targetNode: stairsWood
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
@@ -842,7 +842,7 @@
   name: construction-recipe-stair-stage-wood
   graph: StairsGraph
   startNode: start
-  targetNode: stairStageWood
+  targetNode: stairsStageWood
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter

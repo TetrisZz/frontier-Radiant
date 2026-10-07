@@ -455,6 +455,14 @@ namespace Content.Server.Construction
                 return;
             }
 
+            var skillSystem = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+            if (!skillSystem.Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering,
+                    Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem.ConstructionLevel(constructionPrototype.Graph), serverPopup: true))
+            {
+                RaiseNetworkEvent(new AckStructureConstructionMessage(ev.Ack));
+                return;
+            }
+
             if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user))
             {
                 _popup.PopupEntity(Loc.GetString("construction-system-cannot-start"), user, user);

@@ -1,0 +1,10 @@
+radiant-citizenship-label = Registered sector
+radiant-citizenship-asgard = Asgard
+radiant-citizenship-hesperia = Hesperia
+radiant-citizenship-aurum = Aurum
+radiant-citizenship-zon = Zon
+radiant-citizenship-midgard = Midgard
+radiant-citizenship-avrelia = Avrelia
+radiant-citizenship-nt = NanoTrasen
+ee-passport-citizenship = Registered sector: {$citizenship}
+ee-passport-verify-citizenship = The document's sector does not match the registry.

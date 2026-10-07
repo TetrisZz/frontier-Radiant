@@ -7,7 +7,7 @@ ent-NFClothingWristsetSr = наручная рация губернатора
 ent-NFClothingWristsetSheriff = наручная рация шерифа
     .desc = { ent-NFBaseClothingWristset.desc }
 
-ent-NFClothingWristsetPlantManager = наручная рация управляющего производством
+ent-NFClothingWristsetPlantManager = наручная рация руководителя электростанции
     .desc = { ent-NFBaseClothingWristset.desc }
 
 ent-NFClothingWristsetDoc = наручная рация СМО

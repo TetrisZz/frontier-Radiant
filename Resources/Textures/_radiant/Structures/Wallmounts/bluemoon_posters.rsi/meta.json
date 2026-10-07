@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "BlueMoon Station / tgstation icons/obj/contraband.dmi; converted to RSI for Radiant.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "poster_bread"
+    },
+    {
+      "name": "poster_dymai"
+    }
+  ]
+}

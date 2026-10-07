@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: JudaChatter
+  values:
+    prefix: juda-chatter-
+    count: 4

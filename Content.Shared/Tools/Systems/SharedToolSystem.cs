@@ -173,6 +173,8 @@ public abstract partial class SharedToolSystem : EntitySystem
             return false;
 
         var toolEvent = new ToolDoAfterEvent(fuel, doAfterEv, GetNetEntity(target));
+        delay = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .ToolDelay(user, tool, delay, toolComponent.SpeedModifier);
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay / toolComponent.SpeedModifier, toolEvent, tool, target: target, used: tool)
         {
             BreakOnDamage = true,
@@ -246,6 +248,10 @@ public abstract partial class SharedToolSystem : EntitySystem
 
         // check if the tool can do what's required
         if (!toolComponent.Qualities.ContainsAll(toolQualitiesNeeded))
+            return false;
+
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(user, tool, Content.Shared._radiant.Skills.SkillAction.Use))
             return false;
 
         // check if the user allows using the tool

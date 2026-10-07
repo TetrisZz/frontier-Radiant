@@ -32,3 +32,16 @@ ent-NFSpawnPointSeniorOfficer = сержант
     .desc = { ent-SpawnPointDetective.desc }
 ent-SpawnPointPublicAffairsLiaison = специалист пссо
     .desc = { ent-SpawnPointDetective.desc }
+
+ent-SpawnPointCadet = кадет
+    .suffix = Точка появления профессии
+ent-SpawnPointContractorInterview = кандидат в подрядчики
+    .suffix = Точка появления профессии
+ent-SpawnPointNFPirateInterview = кандидат в пираты
+    .suffix = Фронтир
+ent-SpawnPointPilotInterview = кандидат в пилоты
+    .suffix = Точка появления
+ent-SpawnPointPlantManager = руководитель электростанции
+    .suffix = Точка появления
+ent-SpawnPointPlantTechnician = техник электростанции
+    .suffix = Точка появления

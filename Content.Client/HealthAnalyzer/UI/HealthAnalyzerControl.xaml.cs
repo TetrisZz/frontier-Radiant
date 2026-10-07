@@ -70,6 +70,10 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
     public void Populate(HealthAnalyzerUiState state)
     {
         var target = _entityManager.GetEntity(state.TargetEntity);
+        VirologyWarning.Visible = target != null
+            && _entityManager.TryGetComponent<Content.Shared._radiant.Medical.Virology.VirologySymptomsComponent>(target, out var infection)
+            && infection.Severity > 0;
+        VirologyWarning.SetMessage(Loc.GetString("virology-screen-positive"));
 
         if (target == null
             || !_entityManager.TryGetComponent<DamageableComponent>(target, out var damageable))
@@ -259,18 +263,16 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             }
         }
 
-        if (_detailedMode && _entityManager.TryGetComponent<AdultAnatomyComponent>(target, out var anatomy) && anatomy.HasBreasts)
+        if (_detailedMode && _entityManager.TryGetComponent<AdultAnatomyComponent>(target, out var anatomy)
+            && anatomy.HasBreasts && anatomy.BreastSizeSurgicallyChanged)
         {
             AddDiagnostic(Loc.GetString("health-analyzer-breast-size", ("size", Loc.GetString($"adult-anatomy-size-{anatomy.BreastSize.ToString().ToLowerInvariant()}"))), Color.LightPink);
             found = true;
         }
 
-        if (!found)
-            AddDiagnostic(Loc.GetString("health-analyzer-no-surgical-findings"), Color.LightGray);
-
-        SurgeryDiagnosticsDivider.Visible = true;
-        SurgeryDiagnosticsTitle.Visible = true;
-        SurgeryDiagnosticsContainer.Visible = true;
+        SurgeryDiagnosticsDivider.Visible = found;
+        SurgeryDiagnosticsTitle.Visible = found;
+        SurgeryDiagnosticsContainer.Visible = found;
     }
 
     private bool AddCavityWarning(bool open, string locKey)

@@ -400,6 +400,7 @@
   name: basketball
   description: Where dah courts at?
   components:
+  - type: BasketballBall
   - type: Sprite
     sprite: Objects/Fun/Balls/basketball.rsi
     state: icon

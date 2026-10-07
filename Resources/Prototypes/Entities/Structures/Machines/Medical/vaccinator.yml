@@ -6,6 +6,20 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: VirologyMachine
+    producer: true
+  - type: ActivatableUI
+    key: enum.VirologyUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.VirologyUiKey.Key:
+        type: VirologyBoundUserInterface
+  - type: EmptyOnMachineDeconstruct
+    containers: [virology-sample]
+  - type: GuideHelp
+    guides: [RadiantVirology]
+  - type: MaterialStorage
+    materialWhiteList: [Biomass]
   - type: Sprite
     sprite: Structures/Machines/vaccinator.rsi
     layers:
@@ -15,9 +29,22 @@
       shader: unshaded
       map: ["enum.DiseaseMachineVisualLayers.IsOn"]
   - type: Appearance
-  - type: DiseaseMachineVisuals
-    idleState: icon
-    runningState: running
+  - type: AmbientSound
+    enabled: false
+    range: 3
+    volume: -18
+    sound:
+      path: /Audio/Machines/scan_loop.ogg
+  - type: GenericVisualizer
+    visuals:
+      enum.VirologyMachineVisuals.Running:
+        enum.DiseaseMachineVisualLayers.IsRunning:
+          True: { state: running }
+          False: { state: icon }
+      enum.VirologyMachineVisuals.Powered:
+        enum.DiseaseMachineVisualLayers.IsOn:
+          True: { visible: true }
+          False: { visible: false }
   - type: Machine
     board: VaccinatorMachineCircuitboard
   - type: ContainerContainer

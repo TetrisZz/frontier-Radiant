@@ -1,0 +1,147 @@
+- type: geneticModification
+  id: RadiantHematopoiesis
+  name: genetics-modification-hematopoiesis
+  load: 40
+  adaptationSeconds: 120
+  bloodPerSecond: 0.05
+  nutritionPerBlood: 0.5
+  conflicts: [RadiantCoagulation]
+  researchHint: genetics-hint-blood
+
+- type: geneticModification
+  id: RadiantCoagulation
+  name: genetics-modification-coagulation
+  load: 35
+  adaptationSeconds: 120
+  bloodPerSecond: 0
+  clottingPerSecond: 0.02
+  nutritionPerSecond: 0.03
+  conflicts: [RadiantHematopoiesis]
+  researchHint: genetics-hint-clotting
+
+- type: geneticModification
+  id: RadiantRegeneration
+  name: genetics-modification-regeneration
+  load: 55
+  adaptationSeconds: 180
+  bloodPerSecond: 0
+  healingPerSecond: 0.015
+  nutritionPerSecond: 0.08
+  researchHint: genetics-hint-tissue
+
+- type: entity
+  id: GeneticHematopoiesisInjector
+  parent: BaseItem
+  name: hematopoietic gene activator
+  description: A sealed injector containing a vector for blood-forming tissue. A red band marks the narrow window between a carefully chosen treatment and an ill-advised experiment.
+  components:
+  - type: GeneticTherapy
+    modification: RadiantHematopoiesis
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _radiant/Objects/Medical/genetic_injector.rsi
+    color: "#ffa8a8"
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GeneticTherapyVisuals.Used:
+        base:
+          True: { state: used }
+          False: { state: icon }
+  - type: GuideHelp
+    guides: [RadiantGenetics]
+
+- type: entity
+  id: GeneticHematopoiesisRemover
+  parent: BaseItem
+  name: hematopoietic gene suppressor
+  description: A sealed dose of a targeted genetic suppressor. Its pale label bears the designation of the blood-forming complex it is intended to silence.
+  components:
+  - type: GeneticTherapy
+    modification: RadiantHematopoiesis
+    remove: true
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    color: "#ffa8a8"
+    layers:
+    - state: medipen
+      map: ["base"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GeneticTherapyVisuals.Used:
+        base:
+          True: { state: medipen_empty }
+          False: { state: medipen }
+  - type: GuideHelp
+    guides: [RadiantGenetics]
+
+- type: entity
+  id: GeneticCoagulationInjector
+  parent: GeneticHematopoiesisInjector
+  name: coagulation gene activator
+  description: A sealed dose of a vector targeting the body's clotting mechanisms.
+  components:
+  - type: Sprite
+    color: "#a8d8ff"
+  - type: GeneticTherapy
+    modification: RadiantCoagulation
+
+- type: entity
+  id: GeneticCoagulationRemover
+  parent: GeneticHematopoiesisRemover
+  name: coagulation gene suppressor
+  description: A precision suppressor intended to quiet an altered clotting complex.
+  components:
+  - type: Sprite
+    color: "#a8d8ff"
+  - type: GeneticTherapy
+    modification: RadiantCoagulation
+    remove: true
+
+- type: entity
+  id: GeneticRegenerationInjector
+  parent: GeneticHematopoiesisInjector
+  name: tissue repair gene activator
+  description: A sealed vector designed to awaken dormant tissue repair pathways.
+  components:
+  - type: Sprite
+    color: "#b5efab"
+  - type: GeneticTherapy
+    modification: RadiantRegeneration
+
+- type: entity
+  id: GeneticRegenerationRemover
+  parent: GeneticHematopoiesisRemover
+  name: tissue repair gene suppressor
+  description: A targeted corrective preparation for altered tissue repair pathways.
+  components:
+  - type: Sprite
+    color: "#b5efab"
+  - type: GeneticTherapy
+    modification: RadiantRegeneration
+    remove: true
+
+- type: entity
+  id: GeneticResearchDisk
+  parent: BaseItem
+  name: genetics research disk
+  description: A compact laboratory archive with a write-protected identification strip and room for a researcher's notes.
+  components:
+  - type: GeneticResearchDisk
+  - type: Sprite
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+    sprite: Objects/Misc/cd.rsi
+  - type: Tag
+    tags: [GeneticResearchDisk]
+  - type: GuideHelp
+    guides: [RadiantGenetics]

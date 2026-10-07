@@ -19,35 +19,62 @@
   parent: [PartShadowkinBase, BaseHead]
   id: HeadShadowkin
   name: shadowkin head
+  components:
+  - type: Sprite
+    state: head_m
 - type: entity
   parent: [PartShadowkinBase, BaseLeftArm]
   id: LeftArmShadowkin
   name: left shadowkin arm
+  components:
+  - type: Sprite
+    state: l_arm
 - type: entity
   parent: [PartShadowkinBase, BaseRightArm]
   id: RightArmShadowkin
   name: right shadowkin arm
+  components:
+  - type: Sprite
+    state: r_arm
 - type: entity
   parent: [PartShadowkinBase, BaseLeftHand]
   id: LeftHandShadowkin
   name: left shadowkin hand
+  components:
+  - type: Sprite
+    state: l_hand
 - type: entity
   parent: [PartShadowkinBase, BaseRightHand]
   id: RightHandShadowkin
   name: right shadowkin hand
+  components:
+  - type: Sprite
+    state: r_hand
 - type: entity
   parent: [PartShadowkinBase, BaseLeftLeg]
   id: LeftLegShadowkin
   name: left shadowkin leg
+  components:
+  - type: Sprite
+    state: l_leg
 - type: entity
   parent: [PartShadowkinBase, BaseRightLeg]
   id: RightLegShadowkin
   name: right shadowkin leg
+  components:
+  - type: Sprite
+    state: r_leg
 - type: entity
   parent: [PartShadowkinBase, BaseLeftFoot]
   id: LeftFootShadowkin
   name: left shadowkin foot
+  components:
+  - type: Sprite
+    state: l_foot
 - type: entity
   parent: [PartShadowkinBase, BaseRightFoot]
   id: RightFootShadowkin
   name: right shadowkin foot
+  components:
+  - type: Sprite
+    state: r_foot

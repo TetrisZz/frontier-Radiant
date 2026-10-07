@@ -68,6 +68,10 @@ public sealed partial class SurgicalImplantExamineSystem : EntitySystem
         foreach (var (part, _) in _body.GetBodyChildren(uid))
             AddAugment(part);
 
+        foreach (var hint in EntityManager.System<Content.Server._radiant.Medical.Genetics.GeneticModificationSystem>().VisibleChanges(uid))
+            if (shown.Add(hint))
+                entries.Add((hint, SurgicalAugmentVisibility.Subtle));
+
         if (entries.Count == 0)
             return FormattedMessage.Empty;
 

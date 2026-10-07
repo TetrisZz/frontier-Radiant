@@ -483,6 +483,8 @@ namespace Content.Client.Interaction.Panel.Ui
                     : null,
                 OneRequiredClothingSlots = _prototype.OneRequiredClothingSlots,
                 RequiredClothingSlots = _prototype.RequiredClothingSlots,
+                UserBlockedClothingSlots = _prototype.UserBlockedClothingSlots,
+                TargetBlockedClothingSlots = _prototype.TargetBlockedClothingSlots,
                 RequiresStrapon = _prototype.RequiresStrapon,
                 RequiresVibrator = _prototype.RequiresVibrator,
                 RequiresDildo = _prototype.RequiresDildo,

@@ -50,6 +50,10 @@ public abstract partial class SharedGunSystem
         if (_whitelistSystem.IsWhitelistFailOrNull(component.Whitelist, args.Used))
             return;
 
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(args.User, uid, Content.Shared._radiant.Skills.SkillAction.Reload))
+            return;
+
         if (GetBallisticShots(component) >= component.Capacity)
             return;
 

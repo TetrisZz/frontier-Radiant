@@ -1,0 +1,581 @@
+- type: entity
+  id: RadiantDepartmentalClosetBase
+  parent: ClosetSteelBase
+  abstract: true
+  name: шкафчик
+  description: Высокий металлический шкаф для хранения снаряжения.
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/departmental_lockers.rsi
+    state: med
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/departmental_lockers.rsi
+    layers:
+    - state: med
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: med_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      visible: false
+      offset: "0,0.375"
+      map: ["enum.LockVisualLayers.Lock"]
+    - state: paper
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: med
+    stateDoorClosed: med_door
+    stateDoorOpen: med_open
+
+- type: entity
+  id: RadiantDepartmentalSecureClosetBase
+  parent: LockerBase
+  abstract: true
+  name: запираемый шкафчик
+  description: Высокий металлический шкаф для хранения снаряжения.
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/departmental_lockers.rsi
+    state: med
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/departmental_lockers.rsi
+    layers:
+    - state: med
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: med_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      offset: "0,0.375"
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: med
+    stateDoorClosed: med_door
+    stateDoorOpen: med_open
+
+- type: entity
+  parent: RadiantDepartmentalSecureClosetBase
+  id: RadiantDepartmentalClosetMedical
+  name: медицинский шкафчик
+  components:
+  - type: Icon
+    state: med
+  - type: EntityStorageVisuals
+    stateBaseClosed: med
+    stateDoorClosed: med_door
+    stateDoorOpen: med_open
+
+- type: entity
+  parent: RadiantDepartmentalSecureClosetBase
+  id: RadiantDepartmentalClosetFreezer
+  name: шкаф-холодильник
+  components:
+  - type: Icon
+    state: freezer
+  - type: EntityStorageVisuals
+    stateBaseClosed: freezer
+    stateDoorClosed: freezer_door
+    stateDoorOpen: freezer_open
+  - type: AntiRottingContainer
+
+- type: entity
+  parent: RadiantDepartmentalClosetBase
+  id: RadiantDepartmentalClosetCabinet
+  name: деревянный шкафчик
+  components:
+  - type: Icon
+    state: cabinet
+  - type: EntityStorageVisuals
+    stateBaseClosed: cabinet
+    stateDoorClosed: cabinet_door
+    stateDoorOpen: cabinet_open
+
+- type: entity
+  parent: RadiantDepartmentalClosetBase
+  id: RadiantDepartmentalClosetMiniFridge
+  name: мини-холодильник
+  components:
+  - type: Icon
+    state: mini_fridge
+  - type: EntityStorageVisuals
+    stateBaseClosed: mini_fridge
+    stateDoorClosed: mini_fridge_door
+    stateDoorOpen: mini_fridge_open
+  - type: AntiRottingContainer
+
+- type: entity
+  parent: RadiantDepartmentalSecureClosetBase
+  id: RadiantDepartmentalClosetEngineering
+  name: инженерный шкафчик
+  components:
+  - type: Icon
+    state: eng
+  - type: EntityStorageVisuals
+    stateBaseClosed: eng
+    stateDoorClosed: eng_tool_door
+    stateDoorOpen: eng_open
+
+- type: entity
+  parent: RadiantDepartmentalSecureClosetBase
+  id: RadiantDepartmentalClosetScience
+  name: научный шкафчик
+  components:
+  - type: Icon
+    state: science
+  - type: EntityStorageVisuals
+    stateBaseClosed: science
+    stateDoorClosed: science_door
+    stateDoorOpen: science_open
+
+- type: entity
+  parent: RadiantDepartmentalSecureClosetBase
+  id: RadiantDepartmentalClosetSecurity
+  name: шкафчик службы безопасности
+  components:
+  - type: Icon
+    state: sec
+  - type: EntityStorageVisuals
+    stateBaseClosed: sec
+    stateDoorClosed: sec_door
+    stateDoorOpen: sec_open
+
+- type: entity
+  parent: RadiantDepartmentalSecureClosetBase
+  id: RadiantDepartmentalClosetCargo
+  name: грузовой шкафчик
+  components:
+  - type: Icon
+    state: cargo
+  - type: EntityStorageVisuals
+    stateBaseClosed: cargo
+    stateDoorClosed: cargo_door
+    stateDoorOpen: cargo_open
+
+- type: entity
+  parent: RadiantDepartmentalSecureClosetBase
+  id: RadiantDepartmentalClosetBiohazard
+  name: шкафчик биозащиты
+  components:
+  - type: Icon
+    state: bio
+  - type: EntityStorageVisuals
+    stateBaseClosed: bio
+    stateDoorClosed: bio_door
+    stateDoorOpen: bio_open
+
+- type: entity
+  parent: NFBaseLockerGridInvWallColor
+  id: RadiantDepartmentalClosetRiot
+  name: защищённый шкафчик снаряжения
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/departmental_lockers.rsi
+    state: riot
+  - type: Sprite
+    drawdepth: WallMountedItems
+    noRot: false
+    sprite: _radiant/Structures/Storage/departmental_lockers.rsi
+    layers:
+    - state: riot
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: riot_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: transparent
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: riot
+    stateDoorClosed: riot_door
+    stateDoorOpen: riot_open
+  - type: LockVisuals
+    stateLocked: transparent
+    stateUnlocked: transparent
+
+- type: entity
+  id: RadiantDepartmentalClassicCrateBase
+  parent: CrateGenericSteel
+  abstract: true
+  name: ящик
+  description: Прочный грузовой ящик.
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/departmental_crates.rsi
+    state: medicalcrate
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/departmental_crates.rsi
+    layers:
+    - state: medicalcrate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: transparent
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: transparent
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: medicalcrate
+    stateBaseOpen: medicalcrateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  id: RadiantDepartmentalClassicSecureCrateBase
+  parent: CrateBaseSecure
+  abstract: true
+  name: защищённый ящик
+  description: Прочный запираемый грузовой ящик.
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/departmental_crates.rsi
+    state: medical_secure_crate
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/departmental_crates.rsi
+    layers:
+    - state: medical_secure_crate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: transparent
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: transparent
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - sprite: Structures/Storage/Crates/secure.rsi
+      state: locked
+      offset: "0,0.375"
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.5,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: medical_secure_crate
+    stateBaseOpen: medical_secure_crateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalClassicCrateBase
+  id: RadiantDepartmentalCrateMedical
+  name: медицинский ящик
+  components:
+  - type: Icon
+    state: medicalcrate
+  - type: EntityStorageVisuals
+    stateBaseClosed: medicalcrate
+    stateBaseOpen: medicalcrateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  id: RadiantDepartmentalClassicSecureCrateHiddenLockBase
+  parent: RadiantDepartmentalClassicSecureCrateBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/departmental_crates.rsi
+    layers:
+    - state: medical_secure_crate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: transparent
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: transparent
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: transparent
+      offset: "0,0.375"
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.5,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+
+- type: entity
+  parent: RadiantDepartmentalClassicSecureCrateBase
+  id: RadiantDepartmentalCrateMedicalSecure
+  name: защищённый медицинский ящик
+  components:
+  - type: Icon
+    state: medical_secure_crate
+  - type: EntityStorageVisuals
+    stateBaseClosed: medical_secure_crate
+    stateBaseOpen: medical_secure_crateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalClassicCrateBase
+  id: RadiantDepartmentalCrateScience
+  name: научный ящик
+  components:
+  - type: Icon
+    state: scicrate
+  - type: EntityStorageVisuals
+    stateBaseClosed: scicrate
+    stateBaseOpen: scicrateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalClassicSecureCrateHiddenLockBase
+  id: RadiantDepartmentalCrateScienceSecure
+  name: защищённый научный ящик
+  components:
+  - type: Icon
+    state: scisecurecrate
+  - type: EntityStorageVisuals
+    stateBaseClosed: scisecurecrate
+    stateBaseOpen: scisecurecrateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalClassicSecureCrateHiddenLockBase
+  id: RadiantDepartmentalCrateSecurityGear
+  name: ящик охранного снаряжения
+  components:
+  - type: Icon
+    state: secgearcrate
+  - type: EntityStorageVisuals
+    stateBaseClosed: secgearcrate
+    stateBaseOpen: secgearcrateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalCrateSecurityGear
+  id: RadiantDepartmentalCrateSecurityGearBrig
+  suffix: Бриг
+  components:
+  - type: AccessReader
+    access: [["Brig"]]
+
+- type: entity
+  parent: RadiantDepartmentalClassicCrateBase
+  id: RadiantDepartmentalCrateEngineering
+  name: инженерный ящик
+  components:
+  - type: Icon
+    state: engi_crate
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_crate
+    stateBaseOpen: engi_crateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalClassicSecureCrateBase
+  id: RadiantDepartmentalCrateEngineeringSecure
+  name: защищённый инженерный ящик
+  components:
+  - type: Icon
+    state: engi_secure_crate
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_secure_crate
+    stateBaseOpen: engi_secure_crateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  id: RadiantDepartmentalTallCrateBase
+  parent: CrateGenericSteel
+  abstract: true
+  name: высокий ящик
+  description: Высокий грузовой ящик.
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
+    state: engi_crate
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
+    layers:
+    - state: engi_crate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: transparent
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: transparent
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_crate
+    stateBaseOpen: engi_crateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  id: RadiantDepartmentalTallSecureCrateBase
+  parent: CrateBaseSecure
+  abstract: true
+  name: высокий защищённый ящик
+  description: Высокий запираемый грузовой ящик.
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
+    state: secgearcrate
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
+    layers:
+    - state: secgearcrate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: transparent
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: transparent
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - sprite: Structures/Storage/Crates/secure.rsi
+      state: locked
+      offset: "0,0.375"
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.5,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: secgearcrate
+    stateBaseOpen: secgearcrateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalTallCrateBase
+  id: RadiantDepartmentalTallCrateElectrical
+  name: высокий ящик электротехники
+  components:
+  - type: Icon
+    state: engi_e_crate
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
+    layers:
+    - state: engi_e_crate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: transparent
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: transparent
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_e_crate
+    stateBaseOpen: engi_e_crateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalTallCrateBase
+  id: RadiantDepartmentalTallCrateEngineering
+  name: высокий инженерный ящик
+  components:
+  - type: Icon
+    state: engi_crate
+  - type: EntityStorageVisuals
+    stateBaseClosed: engi_crate
+    stateBaseOpen: engi_crateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalTallCrateBase
+  id: RadiantDepartmentalTallCrateFreezer
+  name: высокий ящик-холодильник
+  components:
+  - type: Icon
+    state: freezer
+  - type: EntityStorageVisuals
+    stateBaseClosed: freezer
+    stateBaseOpen: freezeropen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+  - type: AntiRottingContainer
+
+- type: entity
+  parent: RadiantDepartmentalTallCrateBase
+  id: RadiantDepartmentalTallCrateMedical
+  name: высокий медицинский ящик
+  components:
+  - type: Icon
+    state: medicalcrate
+  - type: EntityStorageVisuals
+    stateBaseClosed: medicalcrate
+    stateBaseOpen: medicalcrateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalTallCrateBase
+  id: RadiantDepartmentalTallCrateRadiation
+  name: высокий ящик радиационной защиты
+  components:
+  - type: Icon
+    state: radiation
+  - type: EntityStorageVisuals
+    stateBaseClosed: radiation
+    stateBaseOpen: radiationopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalTallSecureCrateBase
+  id: RadiantDepartmentalTallCrateSecurityGear
+  name: высокий ящик охранного снаряжения
+  components:
+  - type: Icon
+    state: secgearcrate
+  - type: EntityStorageVisuals
+    stateBaseClosed: secgearcrate
+    stateBaseOpen: secgearcrateopen
+    stateDoorClosed: transparent
+    stateDoorOpen: transparent
+
+- type: entity
+  parent: RadiantDepartmentalTallCrateSecurityGear
+  id: RadiantDepartmentalTallCrateSecurityGearBrig
+  suffix: Бриг
+  components:
+  - type: AccessReader
+    access: [["Brig"]]
+
+- type: entity
+  parent: RadiantDepartmentalCrateMedicalSecure
+  id: RadiantDepartmentalCrateMedicalSecurePhoenix
+  suffix: Феникс
+  components:
+  - type: AccessReader
+    access: [["MedicalPhoenix"]]
+
+- type: entity
+  parent: RadiantDepartmentalClosetMedical
+  id: RadiantDepartmentalClosetMedicalPhoenix
+  suffix: Феникс
+  components:
+  - type: AccessReader
+    access: [["MedicalPhoenix"]]
+
+- type: entity
+  parent: RadiantDepartmentalClosetSecurity
+  id: RadiantDepartmentalClosetSecurityBrig
+  suffix: Бриг
+  components:
+  - type: AccessReader
+    access: [["Brig"]]

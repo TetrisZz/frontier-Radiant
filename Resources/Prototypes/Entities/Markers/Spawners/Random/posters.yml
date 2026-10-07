@@ -139,6 +139,8 @@
       # Radiant Sector
       - PosterContrabandStockingsRS
       - PosterContrabandDuffyRS
+      - PosterContrabandBreadRS
+      - PosterContrabandDymaiRS
       # End Radiant Sector
     chance: 1
 

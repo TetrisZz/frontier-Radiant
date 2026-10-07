@@ -37,7 +37,7 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
         base.Open();
         _window = this.CreateWindowCenteredLeft<SalvageExpeditionWindow>(); // Frontier: OfferingWindow<SalvageExpeditionWindow
         _window.Title = Loc.GetString("salvage-expedition-window-title");
-        _window.OnFinishPressed += () => SendMessage(new FinishSalvageMessage()); // Frontier
+        _window.OnFinishPressed += () => SendMessage(new FinishSalvageMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -50,9 +50,8 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
         _window.Progression = null;
         _window.Cooldown = current.CooldownTime;
         _window.NextOffer = current.NextOffer;
-        _window.ManualFinishAvailableAt = current.ManualFinishAvailableAt; ///radiant sector
         _window.Claimed = current.Claimed;
-        _window.SetFinishDisabled(!current.CanFinish); // Frontier
+        _window.SetFinishDisabled(!current.CanFinish);
         _window.ClearOptions();
         var salvage = _entManager.System<SalvageSystem>();
 

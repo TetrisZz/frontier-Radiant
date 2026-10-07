@@ -164,6 +164,19 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (!Resolve(source, ref sourceHumanoid, false) || !Resolve(target, ref targetHumanoid, false))
             return;
 
+        ApplyAppearanceSnapshot(target, sourceHumanoid, targetHumanoid);
+    }
+
+    /// <summary>
+    /// Applies saved appearance data without treating the snapshot as a component
+    /// attached to a source entity. Used when the original body no longer exists.
+    /// </summary>
+    public void ApplyAppearanceSnapshot(EntityUid target, HumanoidAppearanceComponent sourceHumanoid,
+        HumanoidAppearanceComponent? targetHumanoid = null)
+    {
+        if (!Resolve(target, ref targetHumanoid, false))
+            return;
+
         targetHumanoid.Species = sourceHumanoid.Species;
         targetHumanoid.SkinColor = sourceHumanoid.SkinColor;
         targetHumanoid.EyeColor = sourceHumanoid.EyeColor;

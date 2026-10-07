@@ -49,8 +49,10 @@ public sealed partial class MovespeedModifier : EntityEffect
         var modified = !status.WalkSpeedModifier.Equals(WalkSpeedModifier) ||
                        !status.SprintSpeedModifier.Equals(SprintSpeedModifier);
 
-        status.WalkSpeedModifier = WalkSpeedModifier;
-        status.SprintSpeedModifier = SprintSpeedModifier;
+        var strength = args is EntityEffectReagentArgs effectArgs ? effectArgs.AddictionSlowdown : 1f;
+        status.WalkSpeedModifier = WalkSpeedModifier < 1 ? 1 + (WalkSpeedModifier - 1) * strength : WalkSpeedModifier;
+        status.SprintSpeedModifier = SprintSpeedModifier < 1 ? 1 + (SprintSpeedModifier - 1) * strength : SprintSpeedModifier;
+        modified |= strength != 1f;
 
         // only going to scale application time
         var statusLifetime = StatusLifetime;

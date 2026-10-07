@@ -353,6 +353,9 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     /// <returns>True if attack successful</returns>
     private bool AttemptAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, AttackEvent attack, ICommonSession? session)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(user, weaponUid, Content.Shared._radiant.Skills.SkillAction.Use))
+            return false;
         var curTime = Timing.CurTime;
 
         if (weapon.NextAttack > curTime)

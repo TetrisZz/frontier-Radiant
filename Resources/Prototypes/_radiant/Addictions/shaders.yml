@@ -1,0 +1,4 @@
+- type: shader
+  id: RadiantWithdrawal
+  kind: source
+  path: "/Textures/_radiant/Shaders/withdrawal.swsl"

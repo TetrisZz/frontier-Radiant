@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Made by homka for Radiant Sector using OpenAI image generation, 2026",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "card" }
+  ]
+}

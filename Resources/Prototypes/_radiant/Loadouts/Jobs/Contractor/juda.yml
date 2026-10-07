@@ -1,0 +1,10 @@
+- type: loadout
+  id: ContractorCrateEmotionalSupportJuda
+  name: Джуда — питомец эмоциональной поддержки
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT3
+  price: 30000
+  inhand:
+  - CrateEmotionalSupportJuda
+  groupBy: "ESPDogs"

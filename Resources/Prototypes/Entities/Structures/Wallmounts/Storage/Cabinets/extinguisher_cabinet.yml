@@ -5,15 +5,36 @@
   description: A small wall mounted cabinet designed to hold a fire extinguisher.
   components:
     - type: Sprite
-      sprite: Structures/Wallmounts/extinguisher_cabinet.rsi
+      sprite: _radiant/Structures/Wallmounts/extinguisher_cabinet.rsi
       snapCardinals: true
       layers:
-      - state: frame
-      - state: extinguisher
-        map: ["enum.ItemCabinetVisuals.Layer"]
-        visible: true
-      - state: closed
-        map: ["enum.OpenableVisuals.Layer"]
+      - state: extinguisher_empty_closed
+        map: ["cabinet"]
+    - type: ItemCabinet
+      emptyOpenState: extinguisher_empty_open
+      emptyClosedState: extinguisher_empty_closed
+      defaultItemStates:
+        open: extinguisher_standard_open
+        closed: extinguisher_closed
+      itemStateOverrides:
+        FireExtinguisherMini:
+          open: extinguisher_mini_open
+          closed: extinguisher_mini_closed
+        FireExtinguisherBluespace:
+          open: extinguisher_advanced_open
+          closed: extinguisher_advanced_closed
+    - type: GenericVisualizer
+      visuals:
+        enum.ItemCabinetVisuals.State:
+          cabinet:
+            extinguisher_empty_closed: { state: extinguisher_empty_closed, visible: true }
+            extinguisher_empty_open: { state: extinguisher_empty_open, visible: true }
+            extinguisher_mini_open: { state: extinguisher_mini_open, visible: true }
+            extinguisher_standard_open: { state: extinguisher_standard_open, visible: true }
+            extinguisher_advanced_open: { state: extinguisher_advanced_open, visible: true }
+            extinguisher_mini_closed: { state: extinguisher_mini_closed, visible: true }
+            extinguisher_closed: { state: extinguisher_closed, visible: true }
+            extinguisher_advanced_closed: { state: extinguisher_advanced_closed, visible: true }
     - type: ItemSlots
       slots:
         ItemCabinet:

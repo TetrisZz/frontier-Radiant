@@ -319,7 +319,6 @@
         Structural: 40
   - type: ClarkeMechDrill
   - type: MiningGatheringSoft
-  - type: MiningGatheringHard
 
 - type: entity
   id: WeaponMechMeleeDrillDiamond
@@ -336,6 +335,7 @@
         Brute: 18
       types:
         Structural: 70
+  - type: MiningGatheringHard
 
 - type: entity
   id: BulletKineticClarke

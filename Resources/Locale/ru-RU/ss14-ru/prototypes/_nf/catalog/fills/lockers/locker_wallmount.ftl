@@ -100,3 +100,10 @@ ent-LockerWallEVAColorPrivateSecFilled = { ent-LockerWallEVAColorPrivateSec }
 ent-LockerWallEVAColorNfsdFilled = { ent-LockerWallEVAColorNfsd }
     .desc = { ent-LockerWallEVAColorNfsd .desc }
     .suffix = Заполненный
+
+ent-ClosetWallO2N2Filled = { ent-ClosetWallO2N2 }
+    .suffix = Заполнен
+ent-ClosetWallO2N2FilledRandom = { ent-ClosetWallO2N2 }
+    .suffix = Заполнен, случайное содержимое
+ent-LockerWallEVAColorParamedicAltFilled = настенный шкаф скафандра парамедика
+    .suffix = Заполненный

@@ -1,0 +1,1 @@
+ent-PanicButton = тревожная кнопка

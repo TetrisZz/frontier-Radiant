@@ -1,0 +1,15 @@
+- type: trait
+  id: EEUndocumentedImmigrant
+  name: ee-trait-undocumented-name
+  description: ee-trait-undocumented-desc
+  category: Quirks
+  components:
+  - type: UndocumentedImmigrant
+
+- type: trait
+  id: EEForgedPassport
+  name: ee-trait-forged-name
+  description: ee-trait-forged-desc
+  category: Quirks
+  components:
+  - type: ForgedPassport

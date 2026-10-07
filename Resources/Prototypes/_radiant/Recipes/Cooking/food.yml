@@ -41,6 +41,7 @@
   reagents:
     Flour: 5
     Sugar: 5
+    Milk: 5
   solids:
     FoodButterSlice: 1
   recipeType: Oven
@@ -252,15 +253,43 @@
   - Oven
 
 - type: microwaveMealRecipe
+  id: RecipeMothPestoRS
+  name: рецепт соуса песто
+  result: FoodMothPesto
+  time: 5
+  group: Moth
+  reagents:
+    OilOlive: 5
+    TableSalt: 1
+  solids:
+    FoodGarlic: 1
+    FoodAmbrosiaVulgaris: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeMothBechamelRS
+  name: рецепт соуса бешамель
+  result: FoodMothBechamel
+  time: 10
+  group: Moth
+  reagents:
+    Milk: 5
+    Flour: 5
+  solids:
+    FoodButterSlice: 1
+  recipeType:
+  - Oven
+
+- type: microwaveMealRecipe
   id: RecipeMothGreenLasagneRS
   name: рецепт зелёной лазаньи
   result: FoodMothGreenLasagne
   time: 20
   group: Moth
-  reagents:
-    Bechamel: 10
-    Pesto: 5
   solids:
+    FoodMothBechamel: 1
+    FoodMothPesto: 1
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
   recipeType:

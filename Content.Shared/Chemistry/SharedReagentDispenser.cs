@@ -115,6 +115,7 @@ namespace Content.Shared.Chemistry
         public string ReagentLabel = reagentLabel;
         public FixedPoint2 Quantity = quantity;
         public Color ReagentColor = reagentColor;
+        public List<string> Reagents = new();
     }
 
     [Serializable, NetSerializable]

@@ -38,6 +38,8 @@
 - type: latheRecipePack
   id: MedicalStatic
   recipes:
+  - GeneticSampleCartridge
+  - GeneticResearchDisk
   - Implanter
   - Defibrillator
   - HandheldHealthAnalyzer
@@ -77,6 +79,8 @@
 - type: latheRecipePack
   id: MedicalBoardsStatic
   recipes:
+  - DiagnoserMachineCircuitboard
+  - VaccinatorMachineCircuitboard
   # - ElectrolysisUnitMachineCircuitboard # Frontier: dynamic
   # - CentrifugeMachineCircuitboard # Frontier: dynamic
   # - ChemDispenserMachineCircuitboard # Frontier: dynamic
@@ -101,6 +105,8 @@
 - type: latheRecipePack
   id: MedicalBoards
   recipes:
+  - GeneticBodyGrowerMachineCircuitboard
+  - GeneticResearchConsoleCircuitboard
   - SurgicalSterilizerMachineCircuitboard # Radiant: unlocked by basic surgery.
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard

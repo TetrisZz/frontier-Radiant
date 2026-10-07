@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: RadiantFishingBaitNatural
+  parent: BaseItem
+  name: jar of live bait
+  description: A small jar of bait for bottom-feeding fish.
+  components:
+  - type: FishingBait
+    kind: Natural
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/jar.rsi
+    layers:
+    - state: icon
+    - state: fill-7
+      color: "#92714E"
+    - state: icon-front
+  - type: Item
+    sprite: Objects/Consumable/Drinks/jar.rsi
+    size: Tiny
+
+- type: entity
+  id: RadiantFishingBaitLuminous
+  parent: BaseItem
+  name: luminous fishing lure
+  description: A small capsule that glows in dark water.
+  components:
+  - type: FishingBait
+    kind: Luminous
+  - type: Sprite
+    sprite: Objects/Misc/glowstick.rsi
+    state: glowstick_lit
+  - type: Item
+    size: Tiny

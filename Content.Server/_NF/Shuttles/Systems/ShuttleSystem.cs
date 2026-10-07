@@ -59,6 +59,11 @@ public sealed partial class ShuttleSystem
 
     private void OnSetInertiaDampening(EntityUid uid, ShuttleConsoleComponent component, SetInertiaDampeningRequest args)
     {
+        if (args.Mode != InertiaDampeningMode.Query &&
+            !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.Actor, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting,
+                    args.Mode == InertiaDampeningMode.Dampen ? 1 : 2))
+            return;
         // Ensure that the entity requested is a valid shuttle (stations should not be togglable)
         if (!EntityManager.TryGetComponent(uid, out TransformComponent? transform) ||
             !transform.GridUid.HasValue ||

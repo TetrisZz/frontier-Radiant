@@ -39,8 +39,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
     public Action<SecurityStatus>? OnStatusSelected;
     public Action<uint>? OnCheckStatus;
-    public Action<CriminalRecord, bool, bool>? OnHistoryUpdated;
-    public Action? OnHistoryClosed;
+    public Action? OnDossierRequested;
     public Action<SecurityStatus, string>? OnDialogConfirmed;
 
     public Action<SecurityStatus>? OnStatusFilterPressed;
@@ -140,11 +139,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             SetStatus((SecurityStatus)args.Id);
         };
 
-        HistoryButton.OnPressed += _ =>
-        {
-            if (_selectedRecord is { } record)
-                OnHistoryUpdated?.Invoke(record, _access, true);
-        };
+        DossierButton.OnPressed += _ => OnDossierRequested?.Invoke();
     }
 
     public void StatusFilterPressed(SecurityStatus statusSelected)
@@ -190,17 +185,16 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         // hide access-required editing parts when no access
         var editing = _access && selected;
         StatusOptionButton.Disabled = !editing;
+        DossierButton.Disabled = !editing;
 
         if (state is { CriminalRecord: not null, StationRecord: not null })
         {
             PopulateRecordContainer(state.StationRecord, state.CriminalRecord);
-            OnHistoryUpdated?.Invoke(state.CriminalRecord, _access, false);
             _selectedRecord = state.CriminalRecord;
         }
         else
         {
             _selectedRecord = null;
-            OnHistoryClosed?.Invoke();
         }
     }
 

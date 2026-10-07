@@ -1,0 +1,1 @@
+ent-NFConcealedMineTrash = выброшенная обёртка

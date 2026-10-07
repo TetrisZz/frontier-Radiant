@@ -122,6 +122,15 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (!_proto.Resolve(elementProto, out var elementIndexed))
             return false;
 
+        if (user is { } cook)
+        {
+            var ingredients = start.Comp.FoodLayers.Count + (elementIndexed.Final ? 0 : 1);
+            var required = Content.Shared._radiant.Skills.ProfessionalSkillRules.CookingLevel(ingredients);
+            if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(cook, Content.Shared._radiant.Skills.ProfessionalSkill.Cooking, required))
+                return false;
+        }
+
         //if we run out of space, we can still put in one last, final finishing element.
         if (start.Comp.FoodLayers.Count >= start.Comp.MaxLayers && !elementIndexed.Final || start.Comp.Finished)
         {

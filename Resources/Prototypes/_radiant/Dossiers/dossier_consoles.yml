@@ -1,0 +1,16 @@
+- type: entity
+  parent: ComputerCriminalRecords
+  id: RadiantSecurityDossierConsole
+  name: security dossier terminal
+  description: A workstation for security records.
+  components:
+  - type: DossierConsole
+    kind: Security
+  - type: UserInterface
+    interfaces:
+      enum.DossierUiKey.Key:
+        type: DossierBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActivatableUI
+    key: enum.DossierUiKey.Key

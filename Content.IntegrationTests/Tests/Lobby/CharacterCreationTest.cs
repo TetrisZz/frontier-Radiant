@@ -110,5 +110,45 @@ namespace Content.IntegrationTests.Tests.Lobby
             });
             await pair.CleanReturnAsync();
         }
+
+        [Test]
+        public async Task EditingSavedSlotUpdatesSpawnProfile()
+        {
+            await using var pair = await PoolManager.GetServerClient(new PoolSettings { InLobby = true });
+            var server = pair.Server;
+            var client = pair.Client;
+            var clientNetManager = client.ResolveDependency<IClientNetManager>();
+            var clientStateManager = client.ResolveDependency<IStateManager>();
+            var clientPrefs = client.ResolveDependency<IClientPreferencesManager>();
+            var serverPrefs = server.ResolveDependency<IServerPreferencesManager>();
+
+            await pair.RunTicksSync(1);
+            await PoolManager.WaitUntil(client, () => clientStateManager.CurrentState is LobbyState, 600);
+
+            var userId = clientNetManager.ServerChannel!.UserId;
+            HumanoidCharacterProfile edited = null!;
+            await client.WaitAssertion(() =>
+            {
+                var original = (HumanoidCharacterProfile) clientPrefs.Preferences.SelectedCharacter;
+                var species = original.Species.Id == "Human" ? "SlimePerson" : "Human";
+                edited = original.WithName("Aileen Abbott").WithSpecies(species);
+                clientPrefs.UpdateCharacter(edited, clientPrefs.Preferences.SelectedCharacterIndex);
+            });
+
+            await PoolManager.WaitUntil(server, () =>
+            {
+                var profile = (HumanoidCharacterProfile) serverPrefs.GetPreferences(userId).SelectedCharacter;
+                return profile.Name == edited.Name && profile.Species == edited.Species;
+            }, maxTicks: 120);
+
+            await server.WaitAssertion(() =>
+            {
+                var profile = (HumanoidCharacterProfile) serverPrefs.GetPreferences(userId).SelectedCharacter;
+                Assert.That(profile.Name, Is.EqualTo(edited.Name));
+                Assert.That(profile.Species, Is.EqualTo(edited.Species));
+            });
+
+            await pair.CleanReturnAsync();
+        }
     }
 }

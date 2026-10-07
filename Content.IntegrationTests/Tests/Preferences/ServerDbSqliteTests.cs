@@ -96,6 +96,73 @@ namespace Content.IntegrationTests.Tests.Preferences
         }
 
         [Test]
+        public async Task TestProfessionalSkillPersistence()
+        {
+            var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
+            using var server = instance;
+            var db = GetDb(server);
+            Assert.That(await db.HasPendingModelChanges(), Is.False);
+            var user = NewUserId();
+            var profile = CharlieCharlieson()
+                .WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 4)
+                .WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 3);
+            await db.InitPrefsAsync(user, profile);
+            var prefs = await db.GetPlayerPreferencesAsync(user);
+            Assert.That(((HumanoidCharacterProfile) prefs!.Characters[0]).SkillLevels, Is.EqualTo(profile.SkillLevels));
+            profile = profile.WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1);
+            await db.SaveCharacterSlotAsync(user, profile, 0);
+            prefs = await db.GetPlayerPreferencesAsync(user);
+            Assert.That(((HumanoidCharacterProfile) prefs!.Characters[0]).SkillLevels, Is.EqualTo(profile.SkillLevels));
+            await server.WaitAssertion(() =>
+            {
+                var entities = server.ResolveDependency<Robust.Shared.GameObjects.IEntityManager>();
+                var system = entities.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+                var userEntity = entities.SpawnEntity(null, Robust.Shared.Map.MapCoordinates.Nullspace);
+                var welder = entities.SpawnEntity("PowerDrill", Robust.Shared.Map.MapCoordinates.Nullspace);
+                Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.True);
+                var skills = entities.AddComponent<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(userEntity);
+                Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.False);
+                skills.Levels[(int) Content.Shared._radiant.Skills.ProfessionalSkill.Engineering] = 1;
+                Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.True);
+                entities.DeleteEntity(welder);
+                entities.DeleteEntity(userEntity);
+            });
+        }
+
+        [Test]
+        public async Task TestDossierPersistence()
+        {
+            var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
+            using var server = instance;
+            var db = GetDb(server);
+            var user = NewUserId();
+            var profile = CharlieCharlieson().WithPersonalDetails("Prospekt, 13", "Married", "One child",
+                "NT-5755", "Scar above left brow", "", "", "", "");
+            await db.InitPrefsAsync(user, profile);
+            await db.SaveCharacterDossierAsync(user, 0, "{\"MedicalNotes\":\"Allergy\"}");
+
+            // Updating the player-controlled profile must not overwrite staff records.
+            await db.SaveCharacterSlotAsync(user, profile.WithPersonalDetails("Prospekt, 14", "Married", "One child",
+                "NT-5755", "Scar above left brow", "", "", "", ""), 0);
+            var reloaded = await db.GetPlayerPreferencesAsync(user);
+            Assert.That(((HumanoidCharacterProfile) reloaded!.Characters[0]).Residence, Is.EqualTo("Prospekt, 14"));
+            Assert.That(await db.GetCharacterDossierAsync(user, 0), Does.Contain("Allergy"));
+
+            // A randomized replacement in the same slot must not inherit the former identity.
+            var replacement = CharlieCharlieson().WithName("Aileen Abbott").WithSpecies("SlimePerson")
+                .WithPersonalDetails("New address", "Single", "",
+                "", "", "", "", "", "").WithCitizenship(Content.Shared._radiant.Passports.RadiantCitizenship.NT);
+            await db.SaveCharacterSlotAsync(user, replacement, 0, replaceCharacter: true);
+            reloaded = await db.GetPlayerPreferencesAsync(user);
+            var replaced = (HumanoidCharacterProfile) reloaded!.Characters[0];
+            Assert.That(replaced.Name, Is.EqualTo("Aileen Abbott"));
+            Assert.That(replaced.Species.Id, Is.EqualTo("SlimePerson"));
+            Assert.That(replaced.Citizenship, Is.EqualTo(replacement.Citizenship));
+            Assert.That(replaced.Residence, Is.EqualTo("New address"));
+            Assert.That(await db.GetCharacterDossierAsync(user, 0), Is.EqualTo("{}"));
+        }
+
+        [Test]
         public async Task TestDeleteCharacter()
         {
             var pair = await PoolManager.GetServerClient();
@@ -104,6 +171,9 @@ namespace Content.IntegrationTests.Tests.Preferences
             var username = new NetUserId(new Guid("640bd619-fc8d-4fe2-bf3c-4a5fb17d6ddd"));
             await db.InitPrefsAsync(username, new HumanoidCharacterProfile());
             await db.SaveCharacterSlotAsync(username, CharlieCharlieson(), 1);
+            var selected = await db.GetPlayerPreferencesAsync(username);
+            Assert.That(selected!.SelectedCharacterIndex, Is.EqualTo(1),
+                "Saving a new character must select it for the next spawn and reconnect.");
             await db.SaveSelectedCharacterIndexAsync(username, 1);
             await db.SaveCharacterSlotAsync(username, null, 1);
             var prefs = await db.GetPlayerPreferencesAsync(username);

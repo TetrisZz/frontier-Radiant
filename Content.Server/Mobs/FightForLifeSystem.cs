@@ -70,7 +70,12 @@ public sealed class FightForLifeSystem : EntitySystem
     private void OnMobStateChanged(EntityUid uid, FightingForLifeComponent component, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Critical)
-            RemCompDeferred<FightingForLifeComponent>(uid);
+        {
+            RemComp<FightingForLifeComponent>(uid);
+            _blocker.UpdateCanMove(uid);
+            if (args.NewMobState == MobState.Dead)
+                _standing.Down(uid, force: true);
+        }
     }
 
     private void OnShutdown(EntityUid uid, FightingForLifeComponent component, ComponentShutdown args)

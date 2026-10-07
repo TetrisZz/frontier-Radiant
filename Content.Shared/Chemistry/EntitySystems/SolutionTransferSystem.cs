@@ -199,6 +199,10 @@ public sealed class SolutionTransferSystem : EntitySystem
 
         var actualAmount = FixedPoint2.Min(amount, FixedPoint2.Min(sourceSolution.Volume, targetSolution.AvailableVolume));
 
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanTransferSolutions(user, targetEntity, sourceSolution, targetSolution, actualAmount))
+            return FixedPoint2.Zero;
+
         var solution = _solution.SplitSolution(source, actualAmount);
         _solution.AddSolution(target, solution);
 

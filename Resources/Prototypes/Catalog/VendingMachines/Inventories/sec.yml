@@ -21,6 +21,7 @@
     RiotBulletShield: 1 # Frontier 2<1
     LogProbeCartridge: 1 # Frontier
     ForensicScanner: 1 # Frontier
+    EEPassportVerifier: 1
     BoxForensicPad: 1 # Frontier
     ContrabandAppraisalTool: 1 # Frontier
 #    RadioHandheldSecurity: 5 # Frontier

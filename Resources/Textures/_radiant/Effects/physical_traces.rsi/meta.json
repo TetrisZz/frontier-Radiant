@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Adapted from the footprints.dmi and blood.dmi effect sprites in BlueMoon Station (derived from tgstation assets).",
+  "states": [
+    { "name": "footstep_1" },
+    { "name": "footstep_2" },
+    { "name": "crawl_1" },
+    { "name": "crawl_2" },
+    { "name": "blood_crawl_1" },
+    { "name": "blood_crawl_2" },
+    { "name": "blood_splatter_1" },
+    { "name": "blood_splatter_2" }
+  ]
+}

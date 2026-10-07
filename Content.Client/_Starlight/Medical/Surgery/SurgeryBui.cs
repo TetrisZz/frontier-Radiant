@@ -435,6 +435,10 @@ public sealed partial class SurgeryBui : BoundUserInterface
                         case StepInvalidReason.MissingTool:
                             stepName.AddMarkupOrThrow(Loc.GetString("starlight-surgery-ui-missing-tool"));
                             break;
+                        case StepInvalidReason.Skill:
+                        case StepInvalidReason.IdentityMismatch:
+                            stepName.AddText(" — " + popup);
+                            break;
                         case StepInvalidReason.DisabledTool:
                             stepName.AddMarkupOrThrow(Loc.GetString("starlight-surgery-ui-disabled-tool"));
                             break;

@@ -115,8 +115,8 @@
                     <RichTextLabel Name="WantedReason"
                                    Visible="False"
                                    MaxWidth="425" />
-                    <Button Name="HistoryButton"
-                            Text="{Loc 'criminal-records-console-crime-history'}"
+                    <Button Name="DossierButton"
+                            Text="{Loc 'radiant-dossier-open-button'}"
                             Margin="0 5" />
                 </BoxContainer>
             </BoxContainer>

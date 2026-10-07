@@ -1,0 +1,1 @@
+ent-ClothingHeadHatCentcommCavalier = шляпа Центрального командования

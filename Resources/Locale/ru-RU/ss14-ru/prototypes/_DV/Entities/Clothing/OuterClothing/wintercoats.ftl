@@ -1,0 +1,1 @@
+ent-ClothingOuterArmoredWinterCoatCentComm = бронированное зимнее пальто Центрального командования

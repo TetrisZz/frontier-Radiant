@@ -47,6 +47,10 @@ public abstract class SharedGasValveSystem : EntitySystem
         if (args.Handled || !args.Complex)
             return;
 
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering, 2))
+            return;
+
         Toggle(ent.Owner, ent.Comp);
         _audio.PlayPredicted(ent.Comp.ValveSound, ent.Owner, args.User, AudioParams.Default.WithVariation(0.25f));
         args.Handled = true;

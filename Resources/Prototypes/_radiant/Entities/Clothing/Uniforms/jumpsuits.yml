@@ -471,3 +471,36 @@
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/pajamas_b.rsi
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/Jumpsuit/pajamas_b.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformRadiantReallyBlackSuit
+  name: чёрный деловой костюм
+  description: Строгий чёрный костюм для тех, кто ценит сдержанный стиль.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/really_black_suit.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/really_black_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformRadiantBlackSuitFem
+  name: чёрный приталенный костюм
+  description: Строгий чёрный костюм для тех, кто ценит сдержанный стиль.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/black_suit_fem.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/black_suit_fem.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformRadiantParamedicDark
+  name: тёмная форма парамедика
+  description: Практичная тёмная униформа с медицинской символикой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/paramedic_dark.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/paramedic_dark.rsi

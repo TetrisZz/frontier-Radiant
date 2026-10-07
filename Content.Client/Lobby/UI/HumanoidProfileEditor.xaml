@@ -3,6 +3,7 @@
          xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
          xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
          xmlns:ui="clr-namespace:Content.Client.Lobby.UI"
+         xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
          HorizontalExpand="True">
         <!-- Left side -->
         <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
@@ -175,6 +176,68 @@
                     <ScrollContainer VerticalExpand="True">
                         <humanoid:MarkingPicker Name="Markings" IgnoreCategories="Hair,FacialHair" />
                     </ScrollContainer>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+                    <Label Name="DossierIdentity" StyleClasses="LabelHeading" FontColorOverride="#8CC8F2" />
+                    <Label Name="DossierSummary" FontColorOverride="#AEBFCC" />
+                    <Button Name="DossierRefresh" Text="{Loc 'radiant-dossier-refresh'}" HorizontalExpand="True" />
+                    <TabContainer Name="DossierTabs" HorizontalExpand="True" VerticalExpand="True">
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                            <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="9" HorizontalExpand="True">
+                                <Label Text="{Loc 'radiant-dossier-identity-section'}" StyleClasses="LabelHeading" FontColorOverride="#66BDD9" />
+                                <Label Text="{Loc 'radiant-citizenship-label'}" />
+                                <OptionButton Name="DossierCitizenship" HorizontalExpand="True" />
+                                <Label Text="{Loc 'radiant-dossier-birthplace'}" />
+                                <PanelContainer HorizontalExpand="True"><PanelContainer.PanelOverride><graphics:StyleBoxFlat BackgroundColor="#101820" BorderColor="#4C7991" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginTopOverride="5" ContentMarginRightOverride="8" ContentMarginBottomOverride="5" /></PanelContainer.PanelOverride><TextEdit Name="DossierBirthplace" HorizontalExpand="True" MinHeight="54" /></PanelContainer>
+                                <Label Text="{Loc 'radiant-dossier-residence'}" />
+                                <PanelContainer HorizontalExpand="True"><PanelContainer.PanelOverride><graphics:StyleBoxFlat BackgroundColor="#101820" BorderColor="#4C7991" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginTopOverride="5" ContentMarginRightOverride="8" ContentMarginBottomOverride="5" /></PanelContainer.PanelOverride><TextEdit Name="DossierResidence" HorizontalExpand="True" MinHeight="72" /></PanelContainer>
+                                <Label Text="{Loc 'radiant-dossier-family'}" />
+                                <OptionButton Name="DossierFamily" HorizontalExpand="True" />
+                                <Label Text="{Loc 'radiant-dossier-emergency'}" />
+                                <PanelContainer HorizontalExpand="True"><PanelContainer.PanelOverride><graphics:StyleBoxFlat BackgroundColor="#101820" BorderColor="#4C7991" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginTopOverride="5" ContentMarginRightOverride="8" ContentMarginBottomOverride="5" /></PanelContainer.PanelOverride><TextEdit Name="DossierEmergency" HorizontalExpand="True" MinHeight="54" /></PanelContainer>
+                                <Label Text="{Loc 'radiant-dossier-occupation'}" />
+                                <PanelContainer HorizontalExpand="True"><PanelContainer.PanelOverride><graphics:StyleBoxFlat BackgroundColor="#101820" BorderColor="#4C7991" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginTopOverride="5" ContentMarginRightOverride="8" ContentMarginBottomOverride="5" /></PanelContainer.PanelOverride><TextEdit Name="DossierOccupation" HorizontalExpand="True" MinHeight="54" /></PanelContainer>
+                                <Label Text="{Loc 'radiant-dossier-education'}" />
+                                <PanelContainer HorizontalExpand="True"><PanelContainer.PanelOverride><graphics:StyleBoxFlat BackgroundColor="#101820" BorderColor="#4C7991" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginTopOverride="5" ContentMarginRightOverride="8" ContentMarginBottomOverride="5" /></PanelContainer.PanelOverride><TextEdit Name="DossierEducation" HorizontalExpand="True" MinHeight="54" /></PanelContainer>
+                                <Label Text="{Loc 'radiant-dossier-features'}" />
+                                <PanelContainer HorizontalExpand="True"><PanelContainer.PanelOverride><graphics:StyleBoxFlat BackgroundColor="#101820" BorderColor="#4C7991" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginTopOverride="5" ContentMarginRightOverride="8" ContentMarginBottomOverride="5" /></PanelContainer.PanelOverride><TextEdit Name="DossierFeatures" HorizontalExpand="True" MinHeight="72" /></PanelContainer>
+                                <Label Text="{Loc 'radiant-dossier-self-reported-section'}" StyleClasses="LabelHeading" FontColorOverride="#66BDD9" />
+                                <Label Text="{Loc 'radiant-dossier-blood-group'}" />
+                                <Label Name="DossierBloodGroup" FontColorOverride="#AEBFCC" />
+                                <Label Text="{Loc 'radiant-dossier-allergies'}" />
+                                <PanelContainer HorizontalExpand="True"><PanelContainer.PanelOverride><graphics:StyleBoxFlat BackgroundColor="#101820" BorderColor="#4C7991" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginTopOverride="5" ContentMarginRightOverride="8" ContentMarginBottomOverride="5" /></PanelContainer.PanelOverride><TextEdit Name="DossierAllergies" HorizontalExpand="True" MinHeight="72" /></PanelContainer>
+                                <Label Text="{Loc 'radiant-dossier-medical-history'}" />
+                                <PanelContainer HorizontalExpand="True"><PanelContainer.PanelOverride><graphics:StyleBoxFlat BackgroundColor="#101820" BorderColor="#4C7991" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginTopOverride="5" ContentMarginRightOverride="8" ContentMarginBottomOverride="5" /></PanelContainer.PanelOverride><TextEdit Name="DossierMedicalHistory" HorizontalExpand="True" MinHeight="96" /></PanelContainer>
+                                <Button Name="DossierSave" Text="{Loc 'radiant-dossier-save-profile'}" HorizontalExpand="True" />
+                            </BoxContainer>
+                        </ScrollContainer>
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                            <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8" HorizontalExpand="True">
+                                <Label Text="{Loc 'radiant-dossier-instructions'}" />
+                                <RichTextLabel Name="DossierMedicalInstructions" HorizontalExpand="True" />
+                                <Label Text="{Loc 'radiant-dossier-restrictions'}" />
+                                <RichTextLabel Name="DossierMedicalRestrictions" HorizontalExpand="True" />
+                                <Label Text="{Loc 'radiant-dossier-physiology'}" />
+                                <RichTextLabel Name="DossierMedicalPhysiology" HorizontalExpand="True" />
+                                <Label Text="{Loc 'radiant-dossier-psychology'}" />
+                                <RichTextLabel Name="DossierMedicalPsychology" HorizontalExpand="True" />
+                                <Label Text="{Loc 'radiant-dossier-medical-notes'}" />
+                                <RichTextLabel Name="DossierMedicalNotes" HorizontalExpand="True" />
+                                <Label Name="DossierMedicalEditor" />
+                            </BoxContainer>
+                        </ScrollContainer>
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                            <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8" HorizontalExpand="True">
+                                <Label Text="{Loc 'radiant-dossier-permissions'}" />
+                                <RichTextLabel Name="DossierSecurityPermissions" HorizontalExpand="True" />
+                                <Label Text="{Loc 'radiant-dossier-arrests'}" />
+                                <RichTextLabel Name="DossierSecurityArrests" HorizontalExpand="True" />
+                                <Label Text="{Loc 'radiant-dossier-convictions'}" />
+                                <RichTextLabel Name="DossierSecurityConvictions" HorizontalExpand="True" />
+                                <Label Name="DossierSecurityEditor" />
+                            </BoxContainer>
+                        </ScrollContainer>
+                    </TabContainer>
                 </BoxContainer>
             </TabContainer>
         </BoxContainer>

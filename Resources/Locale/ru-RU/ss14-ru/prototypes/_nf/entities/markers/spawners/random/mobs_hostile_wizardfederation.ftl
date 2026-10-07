@@ -28,3 +28,10 @@ ent-SpawnMobWizFedWizardVioletHardsuit = спавнер фиолетового �
 ent-SpawnMobWizFedWizardSoapHardsuit = спавнер мыльного  волшебника
     .suffix = AI, Скафандр
     .desc = { ent-MarkerBase.desc }
+
+ent-SpawnNFMobWizardBlueMaster = спавнер мастера синего волшебника
+    .suffix = ИИ, враждебный, уровень 1
+ent-SpawnNFMobWizardRedAdept = генератор красного волшебника-адепта
+    .suffix = ИИ, враждебный, тир 1
+ent-SpawnNFMobWizardRedMaster = генератор красного волшебника-мастера
+    .suffix = ИИ, враждебный, тир 1

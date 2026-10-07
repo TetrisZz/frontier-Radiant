@@ -16,19 +16,17 @@ public sealed class SalvageExpeditionConsoleState : BoundUserInterfaceState
     public bool Cooldown;
     public ushort ActiveMission;
     public List<SalvageMissionParams> Missions;
-    public bool CanFinish; // Frontier
-    public TimeSpan ManualFinishAvailableAt; ///radiant sector
+    public bool CanFinish;
     public TimeSpan CooldownTime; // Frontier: separate fail vs. success time
 
-    public SalvageExpeditionConsoleState(TimeSpan nextOffer, bool claimed, bool cooldown, ushort activeMission, List<SalvageMissionParams> missions, bool canFinish, TimeSpan manualFinishAvailableAt, TimeSpan cooldownTime) // Frontier: add canFinish, manualFinishAvailableAt, cooldownTime
+    public SalvageExpeditionConsoleState(TimeSpan nextOffer, bool claimed, bool cooldown, ushort activeMission, List<SalvageMissionParams> missions, bool canFinish, TimeSpan cooldownTime)
     {
         NextOffer = nextOffer;
         Claimed = claimed;
         Cooldown = cooldown;
         ActiveMission = activeMission;
         Missions = missions;
-        CanFinish = canFinish; // Frontier
-        ManualFinishAvailableAt = manualFinishAvailableAt; ///radiant sector
+        CanFinish = canFinish;
         CooldownTime = cooldownTime; // Frontier
     }
 }
@@ -66,10 +64,8 @@ public sealed class ClaimSalvageMessage : BoundUserInterfaceMessage
     public ushort Index;
 }
 
-// Frontier: early expedition finish
 [Serializable, NetSerializable]
 public sealed class FinishSalvageMessage : BoundUserInterfaceMessage;
-// End Frontier: early expedition finish
 
 /// <summary>
 /// Added per station to store data on their available salvage missions.
@@ -89,8 +85,8 @@ public sealed partial class SalvageExpeditionDataComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("cooldown")]
     public bool Cooldown = false;
 
-    // Frontier: early expedition finish
-    // End Frontier: early expedition finish
+    [ViewVariables]
+    public bool CanFinish;
 
     /// <summary>
     /// Nexy time salvage missions are offered.
@@ -106,25 +102,12 @@ public sealed partial class SalvageExpeditionDataComponent : Component
 
     public ushort NextIndex = 1;
 
-    // Frontier: early finish, failure vs. success cooldowns
-    /// <summary>
-    /// Allow early finish.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
-    public bool CanFinish = false;
-
-    /// <summary>
-    /// The earliest time at which the expedition may be manually finished.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
-    public TimeSpan ManualFinishAvailableAt = TimeSpan.Zero;
-
+    // Frontier: separate failure and success offer cooldowns.
     /// <summary>
     /// The total cooldown time that we had to wait.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public TimeSpan CooldownTime;
-    // End Frontier: early finish, failure vs. success cooldowns
 }
 
 [Serializable, NetSerializable]

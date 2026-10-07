@@ -1,0 +1,1 @@
+ent-AntiMatterFabricator = фабрикатор антиматерии

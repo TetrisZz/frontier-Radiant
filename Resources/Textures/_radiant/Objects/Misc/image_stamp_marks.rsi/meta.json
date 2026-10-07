@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Reduced paper-entity impressions from BlueMoon Station, icons/stamp_icons/legit; original artwork by BlueMoon Station and upstream contributors. Converted to RSI for Radiant Sector.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "feline"
+    },
+    {
+      "name": "horny"
+    },
+    {
+      "name": "centcom"
+    },
+    {
+      "name": "clown"
+    },
+    {
+      "name": "denied"
+    },
+    {
+      "name": "mime"
+    },
+    {
+      "name": "granted"
+    },
+    {
+      "name": "pepe"
+    }
+  ]
+}

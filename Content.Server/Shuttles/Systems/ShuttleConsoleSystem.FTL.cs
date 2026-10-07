@@ -46,6 +46,9 @@ public sealed partial class ShuttleConsoleSystem
 
     private void OnBeaconFTLMessage(Entity<ShuttleConsoleComponent> ent, ref ShuttleConsoleFTLBeaconMessage args)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.Actor, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1))
+            return;
         var beaconEnt = GetEntity(args.Beacon);
         if (!_xformQuery.TryGetComponent(beaconEnt, out var targetXform))
         {
@@ -72,6 +75,9 @@ public sealed partial class ShuttleConsoleSystem
 
     private void OnPositionFTLMessage(Entity<ShuttleConsoleComponent> entity, ref ShuttleConsoleFTLPositionMessage args)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.Actor, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1))
+            return;
         var mapUid = _mapSystem.GetMap(args.Coordinates.MapId);
 
         // If it's beacons only block all position messages.

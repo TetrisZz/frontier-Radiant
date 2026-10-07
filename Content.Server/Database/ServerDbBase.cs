@@ -11,6 +11,7 @@ using Content.Server.Administration.Managers;
 using Content.Shared._NF.Library;
 using Content.Shared.Administration.Logs;
 using Content.Shared._radiant.Humanoid;
+using Content.Shared._radiant.Dossiers;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Ghost.Roles;
@@ -62,6 +63,17 @@ namespace Content.Server.Database
             if (prefs is null)
                 return null;
 
+            var assignedBloodGroups = false;
+            foreach (var profile in prefs.Profiles)
+            {
+                if (DossierBloodGroup.IsValid(profile.BloodGroup))
+                    continue;
+                profile.BloodGroup = DossierBloodGroup.Roll(Random.Shared.Next(100));
+                assignedBloodGroups = true;
+            }
+            if (assignedBloodGroups)
+                await db.DbContext.SaveChangesAsync(cancel);
+
             var maxSlot = prefs.Profiles.Max(p => p.Slot) + 1;
             var profiles = new Dictionary<int, ICharacterProfile>(maxSlot);
             foreach (var profile in prefs.Profiles)
@@ -85,7 +97,7 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
-        public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
+        public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot, bool replaceCharacter = false)
         {
             await using var db = await GetDb();
 
@@ -114,6 +126,20 @@ namespace Content.Server.Database
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
+            humanoid.BloodGroup = !replaceCharacter && oldProfile is { BloodGroup: var previousBloodGroup } &&
+                                   DossierBloodGroup.IsValid(previousBloodGroup)
+                ? previousBloodGroup
+                : DossierBloodGroup.IsValid(humanoid.BloodGroup)
+                    ? humanoid.BloodGroup
+                    : DossierBloodGroup.Roll(Random.Shared.Next(100));
+            // Existing unmarked values (including the generated default slot) get one choice.
+            // Marked values are authoritative even if a modified client resends another one.
+            if (!replaceCharacter && oldProfile != null && oldProfile.Citizenship.StartsWith("Locked:", StringComparison.Ordinal) &&
+                !Content.Shared._radiant.Passports.RadiantCitizenships.IsLegacy(oldProfile.Citizenship))
+                humanoid.Citizenship = Content.Shared._radiant.Passports.RadiantCitizenships.Parse(oldProfile.Citizenship[7..]);
+            humanoid.CitizenshipLocked = oldProfile != null;
+            if (replaceCharacter && oldProfile != null)
+                oldProfile.DossierJson = "{}";
             var newProfile = ConvertProfiles(humanoid, slot, oldProfile);
             if (oldProfile == null)
             {
@@ -123,8 +149,93 @@ namespace Content.Server.Database
                     .SingleAsync(p => p.UserId == userId.UserId);
 
                 prefs.Profiles.Add(newProfile);
+                prefs.SelectedCharacterSlot = slot;
+            }
+            else
+            {
+                oldProfile.Preference.SelectedCharacterSlot = slot;
             }
 
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<string?> GetCharacterDossierAsync(NetUserId userId, int slot)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.Profile
+                .Where(p => p.Preference.UserId == userId.UserId && p.Slot == slot)
+                .Select(p => p.DossierJson)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task SaveCharacterDossierAsync(NetUserId userId, int slot, string dossierJson)
+        {
+            await using var db = await GetDb();
+            var profile = await db.DbContext.Profile
+                .SingleOrDefaultAsync(p => p.Preference.UserId == userId.UserId && p.Slot == slot);
+            if (profile == null)
+                return;
+            profile.DossierJson = dossierJson;
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<Dictionary<NetUserId, (string DiscordId, string RoleId)>> GetSupporterLinksAsync()
+        {
+            await using var db = await GetDb();
+            var links = await db.DbContext.RadiantDiscordLinks.AsNoTracking().ToListAsync();
+            return links.ToDictionary(p => new NetUserId(p.UserId), p => (p.DiscordUserId, p.SupporterRoleId));
+        }
+
+        public async Task<NetUserId?> SetSupporterRoleAsync(string discordId, string roleId)
+        {
+            await using var db = await GetDb();
+            var link = await db.DbContext.RadiantDiscordLinks.SingleOrDefaultAsync(p => p.DiscordUserId == discordId);
+            if (link == null) return null;
+            link.SupporterRoleId = roleId;
+            await db.DbContext.SaveChangesAsync();
+            return new NetUserId(link.UserId);
+        }
+
+        public async Task<string?> GetDiscordLinkAsync(NetUserId userId)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.RadiantDiscordLinks.Where(p => p.UserId == userId.UserId)
+                .Select(p => p.DiscordUserId).SingleOrDefaultAsync();
+        }
+
+        public async Task<bool> TryLinkDiscordAsync(NetUserId userId, string discordUserId)
+        {
+            await using var db = await GetDb();
+            var existing = await db.DbContext.RadiantDiscordLinks
+                .Where(p => p.UserId == userId.UserId || p.DiscordUserId == discordUserId).ToListAsync();
+            if (existing.Count > 0)
+                return existing.Count == 1 && existing[0].UserId == userId.UserId && existing[0].DiscordUserId == discordUserId;
+            db.DbContext.RadiantDiscordLinks.Add(new RadiantDiscordLink
+            {
+                UserId = userId.UserId,
+                DiscordUserId = discordUserId,
+            });
+            try
+            {
+                await db.DbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateException)
+            {
+                // Unique constraints also protect against two simultaneous link attempts.
+                if (await db.DbContext.RadiantDiscordLinks.AnyAsync(p =>
+                        p.UserId == userId.UserId || p.DiscordUserId == discordUserId))
+                    return false;
+                throw;
+            }
+        }
+
+        public async Task RemoveDiscordLinkAsync(NetUserId userId)
+        {
+            await using var db = await GetDb();
+            var link = await db.DbContext.RadiantDiscordLinks.SingleOrDefaultAsync(p => p.UserId == userId.UserId);
+            if (link == null) return;
+            db.DbContext.RadiantDiscordLinks.Remove(link);
             await db.DbContext.SaveChangesAsync();
         }
 
@@ -307,8 +418,27 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
-            );
+                loadouts,
+                JsonSerializer.Deserialize<int[]>(profile.SkillLevels)
+            )
+            {
+                Residence = profile.Residence,
+                Citizenship = Content.Shared._radiant.Passports.RadiantCitizenships.Parse(
+                    profile.Citizenship.StartsWith("Locked:", StringComparison.Ordinal)
+                        ? profile.Citizenship[7..] : profile.Citizenship),
+                CitizenshipLocked = profile.Citizenship.StartsWith("Locked:", StringComparison.Ordinal) &&
+                    !Content.Shared._radiant.Passports.RadiantCitizenships.IsLegacy(profile.Citizenship),
+                FamilyStatus = profile.FamilyStatus,
+                Children = profile.Children,
+                EmergencyContact = profile.EmergencyContact,
+                DistinguishingFeatures = profile.DistinguishingFeatures,
+                Birthplace = profile.Birthplace,
+                Occupation = profile.Occupation,
+                Education = profile.Education,
+                Allergies = profile.Allergies,
+                MedicalHistory = profile.MedicalHistory,
+                BloodGroup = profile.BloodGroup,
+            };
         }
 
         private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
@@ -324,6 +454,21 @@ namespace Content.Server.Database
 
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
+            profile.Residence = humanoid.Residence;
+            profile.Citizenship = humanoid.CitizenshipLocked
+                ? $"Locked:{humanoid.Citizenship}" : humanoid.Citizenship.ToString();
+            profile.FamilyStatus = humanoid.FamilyStatus;
+            profile.Children = humanoid.Children;
+            profile.EmergencyContact = humanoid.EmergencyContact;
+            profile.DistinguishingFeatures = humanoid.DistinguishingFeatures;
+            profile.Birthplace = humanoid.Birthplace;
+            profile.Occupation = humanoid.Occupation;
+            profile.Education = humanoid.Education;
+            profile.Allergies = humanoid.Allergies;
+            profile.MedicalHistory = humanoid.MedicalHistory;
+            profile.BloodGroup = humanoid.BloodGroup;
+            profile.SkillLevels = JsonSerializer.Serialize(
+                Content.Shared._radiant.Skills.ProfessionalSkillRules.Normalize(humanoid.SkillLevels));
             profile.ERPStatus = (int)humanoid.ERPStatus;
             profile.Species = humanoid.Species;
 			profile.Voice = humanoid.Voice; // Corvax-TTS

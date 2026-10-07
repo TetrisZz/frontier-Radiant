@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "DNA injector sprites from BlueMoon Station (tgstation-derived), icons/obj/syringe.dmi, dnainjector and dnainjector0. Source repository named in source README: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station . Asset license as stated in source README; extracted without pixel changes.",
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "used"
+    }
+  ]
+}

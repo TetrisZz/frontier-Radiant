@@ -4,17 +4,36 @@
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     x:Class="Content.Client.Interaction.Panel.Ui.InteractionPanelMenu"
     Title="{Loc 'interaction-ui-default-title'}"
-    MinSize="512 720"
-    SetSize="512 720">
+    MinSize="620 620"
+    SetSize="640 740">
 
     <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="4">
         <!-- Верхний блок информации -->
-        <BoxContainer Name="Names" HorizontalExpand="True">
-        </BoxContainer>
-        <BoxContainer Name="UpperBlock" HorizontalExpand="True">
-            <BoxContainer Name="UserSpriteView" />
-            <Control HorizontalExpand="True" />
-            <BoxContainer Name="TargetSpriteView" />
+        <BoxContainer Name="UpperBlock" HorizontalExpand="True" Margin="0, 2, 0, 6">
+            <PanelContainer Name="UserCard" HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#202C36" BorderColor="#344958" BorderThickness="1" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+                    <BoxContainer Name="UserNameRow" HorizontalExpand="True" />
+                    <PanelContainer MinHeight="1">
+                        <PanelContainer.PanelOverride><gfx:StyleBoxFlat BackgroundColor="#344958" /></PanelContainer.PanelOverride>
+                    </PanelContainer>
+                    <BoxContainer Name="UserSpriteView" Orientation="Horizontal" SeparationOverride="10" />
+                </BoxContainer>
+            </PanelContainer>
+            <PanelContainer Name="TargetCard" HorizontalExpand="True" Margin="8, 0, 0, 0" Visible="False">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#202C36" BorderColor="#344958" BorderThickness="1" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+                    <BoxContainer Name="TargetNameRow" HorizontalExpand="True" />
+                    <PanelContainer MinHeight="1">
+                        <PanelContainer.PanelOverride><gfx:StyleBoxFlat BackgroundColor="#344958" /></PanelContainer.PanelOverride>
+                    </PanelContainer>
+                    <BoxContainer Name="TargetSpriteView" Orientation="Horizontal" SeparationOverride="10" />
+                </BoxContainer>
+            </PanelContainer>
         </BoxContainer>
 
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4, 2, 4, 4">
@@ -33,13 +52,30 @@
         </BoxContainer>
 
         <!-- Специальный блок -->
-        <BoxContainer HorizontalExpand="True">
-            <Button Name="ImportButton" MinWidth="320" Text="{Loc 'interaction-panel-import-button'}"/>
+        <BoxContainer Margin="0, 4">
+            <Button Name="FavoritesOnlyButton" Text="{Loc 'interaction-panel-filter-favorites'}" ToggleMode="True" />
+            <CheckBox Name="AvailableOnlyCheckBox" Text="{Loc 'interaction-panel-filter-available'}" Margin="8, 0" />
             <Control HorizontalExpand="True" />
-            <Button Name="ConstructorButton" Text="{Loc 'interaction-panel-constructor-button'}"/>
+            <Button Name="ManagementButton" Text="{Loc 'interaction-panel-management'}" ToggleMode="True" />
+        </BoxContainer>
+        <BoxContainer Name="ManagementPanel" Orientation="Vertical" Visible="False">
+            <BoxContainer HorizontalExpand="True">
+                <Button Name="ImportButton" HorizontalExpand="True" Text="{Loc 'interaction-panel-import-button'}"/>
+                <Button Name="ConstructorButton" HorizontalExpand="True" Text="{Loc 'interaction-panel-constructor-button'}"/>
+            </BoxContainer>
+            <Label Text="{Loc 'interaction-panel-edit-imported'}" />
+            <ScrollContainer MaxHeight="160" HScrollEnabled="False">
+                <BoxContainer Name="EditorsContainer" Orientation="Vertical" />
+            </ScrollContainer>
         </BoxContainer>
 
-        <LineEdit Name="SearchBar" Margin="4" PlaceHolder="Search"/>
+        <BoxContainer Margin="4">
+            <LineEdit Name="SearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'interaction-panel-search-placeholder'}"/>
+            <Button Name="ClearSearchButton" Text="{Loc 'interaction-panel-search-clear'}" />
+        </BoxContainer>
+        <Label Name="SearchResults" StyleClasses="LabelSubText" />
+        <Label Text="{Loc 'interaction-panel-unavailable-hint'}" StyleClasses="LabelSubText" />
+        <Label Name="EmptyResults" Text="{Loc 'interaction-panel-search-empty'}" Visible="False" />
 
         <!-- Контейнер для взаимодействия -->
         <PanelContainer VerticalExpand="True">
@@ -74,6 +110,13 @@
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="LipsContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
+                        </CollapsibleBody>
+                    </Collapsible>
+
+                    <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
+                        <CollapsibleHeading Name="Hands" Title="{Loc 'interaction-panel-hands-collapsible'}" MinWidth="480" MinHeight="32" HorizontalExpand="True" />
+                        <CollapsibleBody Margin="0, 5, 0, 0">
+                            <BoxContainer Name="HandsContainer" Orientation="Vertical" SeparationOverride="5" />
                         </CollapsibleBody>
                     </Collapsible>
 

@@ -4,3 +4,5 @@ ent-ClothingEyesGlassesPilot = очки пилота
     .desc = Я конечно извиняюсь, но нельзя быть пилотом без этих крутых очков. Имеют встроенный GPS.
 ent-ClothingEyesGlassesNfsd = очки ДВБ
     .desc = Модернизированные солнцезащитные очки с функцией защиты от вспышек и визором СБ.
+
+ent-ClothingEyesGlassesMesonPlantManager = мезонные очки руководителя электростанции
