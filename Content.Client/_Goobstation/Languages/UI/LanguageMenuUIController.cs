@@ -14,10 +14,10 @@ namespace Content.Client._Goobstation.Languages.UI;
 /// <summary>
 /// Radiant Sector: opens the language selector from the button in the top gameplay panel.
 /// </summary>
-public sealed class LanguageMenuUIController : UIController, IOnStateChanged<GameplayState>
+public sealed partial class LanguageMenuUIController : UIController, IOnStateChanged<GameplayState>
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
     private LanguageMenuWindow? _window;
     private LanguageMenuSystem? _languageMenu;
     private MenuButton? LanguageButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.LanguageButton;

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Shared._NF.Library;
 using Content.Shared.Administration.Logs;
 using Content.Shared._radiant.Humanoid;
 using Content.Shared.Construction.Prototypes;
@@ -1910,6 +1911,66 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
+        #region Library
+
+        public async Task AddNFLibraryBookAsync(
+            int roundId,
+            int serverId,
+            string title,
+            string author,
+            string content,
+            DateTime date,
+            Guid authorPlayerUserId)
+        {
+            if (title.Length > LibraryBookLimits.MaxTitleLength)
+                throw new ArgumentException($"Title exceeds max length of {LibraryBookLimits.MaxTitleLength}.", nameof(title));
+
+            if (author.Length > LibraryBookLimits.MaxAuthorLength)
+                throw new ArgumentException($"Author exceeds max length of {LibraryBookLimits.MaxAuthorLength}.", nameof(author));
+
+            if (content.Length > LibraryBookLimits.MaxContentLength)
+                throw new ArgumentException($"Content exceeds max length of {LibraryBookLimits.MaxContentLength}.", nameof(content));
+
+            await using var db = await GetDb();
+
+            db.DbContext.NFLibraryBook.Add(new NFLibraryBook
+            {
+                RoundId = roundId,
+                ServerId = serverId,
+                Title = title,
+                Author = author,
+                Content = content,
+                Date = date,
+                AuthorPlayerUserId = authorPlayerUserId,
+            });
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<NFLibraryBook>> GetNFLibraryBooksAsync()
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.NFLibraryBook
+                .ToListAsync();
+        }
+
+        public async Task<bool> DeleteNFLibraryBookAsync(int bookId)
+        {
+            await using var db = await GetDb();
+
+            var book = await db.DbContext.NFLibraryBook
+                .SingleOrDefaultAsync(b => b.Id == bookId);
+
+            if (book == null)
+                return false;
+
+            db.DbContext.NFLibraryBook.Remove(book);
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        #endregion Library
+
         public abstract Task SendNotification(DatabaseNotification notification);
 
         // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.
@@ -1953,5 +2014,173 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         {
 
         }
+
+        #region Wayfarer Safety Deposit Box
+
+        public async Task<WayfarerSafetyDepositBox> PurchaseSafetyDepositBox(
+            Guid ownerUserId,
+            int characterIndex,
+            string ownerName,
+            EntProtoId protoId,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var box = new WayfarerSafetyDepositBox
+            {
+                BoxId = Guid.NewGuid(),
+                OwnerUserId = ownerUserId,
+                CharacterIndex = characterIndex,
+                OwnerName = ownerName,
+                ProtoId = protoId,
+                PurchaseDate = DateTime.UtcNow
+            };
+
+            db.DbContext.WayfarerSafetyDepositBox.Add(box);
+            await db.DbContext.SaveChangesAsync(cancel);
+
+            return box;
+        }
+
+        public async Task<List<WayfarerSafetyDepositBox>> GetPlayerSafetyDepositBoxes(
+            Guid ownerUserId,
+            int characterIndex,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.WayfarerSafetyDepositBox
+                .Include(b => b.Items)
+                .Where(b => b.OwnerUserId == ownerUserId && b.CharacterIndex == characterIndex)
+                .ToListAsync(cancel);
+        }
+
+        public async Task<WayfarerSafetyDepositBox?> GetSafetyDepositBox(
+            Guid boxId,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.WayfarerSafetyDepositBox
+                .Include(b => b.Items)
+                .FirstOrDefaultAsync(b => b.BoxId == boxId, cancel);
+        }
+
+        public async Task DepositSafetyDepositBoxItems(
+            Guid boxId,
+            List<string> entityDataList,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var box = await db.DbContext.WayfarerSafetyDepositBox
+                .Include(b => b.Items)
+                .FirstOrDefaultAsync(b => b.BoxId == boxId, cancel);
+
+            if (box == null)
+                return;
+
+            // Clear existing items
+            db.DbContext.WayfarerSafetyDepositBoxItem.RemoveRange(box.Items);
+
+            // Add new items
+            foreach (var entityData in entityDataList)
+            {
+                box.Items.Add(new WayfarerSafetyDepositBoxItem
+                {
+                    BoxId = box.Id,
+                    EntityData = entityData,
+                    DepositDate = DateTime.UtcNow
+                });
+            }
+
+            // Clear LastWithdrawn since the box is now safely stored
+            box.LastWithdrawn = null;
+            box.LastWithdrawnRoundId = null;
+
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task UpdateSafetyDepositBoxNickname(
+            Guid boxId,
+            string? nickname,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var box = await db.DbContext.WayfarerSafetyDepositBox
+                .FirstOrDefaultAsync(b => b.BoxId == boxId, cancel);
+
+            if (box == null)
+                return;
+
+            box.Nickname = nickname;
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task ClearSafetyDepositBoxItems(
+            Guid boxId,
+            int roundId,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var box = await db.DbContext.WayfarerSafetyDepositBox
+                .Include(b => b.Items)
+                .FirstOrDefaultAsync(b => b.BoxId == boxId, cancel);
+
+            if (box == null)
+                return;
+
+            db.DbContext.WayfarerSafetyDepositBoxItem.RemoveRange(box.Items);
+
+            // Set LastWithdrawn to indicate the box is now in the world
+            box.LastWithdrawn = DateTime.UtcNow;
+            box.LastWithdrawnRoundId = roundId;
+
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task<int> DeleteStaleSafetyDepositBoxes(
+            int daysStale,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var cutoffDate = DateTime.UtcNow.AddDays(-daysStale);
+
+            // Find boxes that have been withdrawn and have no items for longer than the cutoff period
+            var staleBoxes = await db.DbContext.WayfarerSafetyDepositBox
+                .Include(b => b.Items)
+                .Where(b => b.LastWithdrawn != null &&
+                            b.LastWithdrawn < cutoffDate &&
+                            b.Items.Count == 0)
+                .ToListAsync(cancel);
+
+            var count = staleBoxes.Count;
+            db.DbContext.WayfarerSafetyDepositBox.RemoveRange(staleBoxes);
+            await db.DbContext.SaveChangesAsync(cancel);
+
+            return count;
+        }
+
+        public async Task DeleteSafetyDepositBox(
+            Guid boxId,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var box = await db.DbContext.WayfarerSafetyDepositBox
+                .Include(b => b.Items)
+                .FirstOrDefaultAsync(b => b.BoxId == boxId, cancel);
+
+            if (box == null)
+                return;
+
+            db.DbContext.WayfarerSafetyDepositBox.Remove(box);
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        #endregion
     }
 }

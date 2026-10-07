@@ -9,14 +9,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._radiant.Power.Systems;
 
-public sealed class BorgRepairPodSystem : EntitySystem
+public sealed partial class BorgRepairPodSystem : EntitySystem
 {
     private const string StorageContainer = "entity_storage";
 
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Update(float frameTime)
     {

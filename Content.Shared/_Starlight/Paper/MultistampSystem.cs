@@ -8,7 +8,7 @@ namespace Content.Shared._Starlight.Paper;
 // Radiant sector: Starlight multistamp behaviour port.
 public abstract partial class SharedMultistampSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

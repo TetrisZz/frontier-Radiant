@@ -18,11 +18,11 @@ public sealed class VendingMachinePurchaseEvent(EntityUid buyer) : EntityEventAr
     public EntityUid Buyer { get; } = buyer;
 }
 
-public sealed class VendingPurchaseSpeechSystem : EntitySystem
+public sealed partial class VendingPurchaseSpeechSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

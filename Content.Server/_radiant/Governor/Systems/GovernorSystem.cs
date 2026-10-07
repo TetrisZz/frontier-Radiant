@@ -26,19 +26,19 @@ namespace Content.Server._radiant.Governor.Systems;
 
 public sealed partial class GovernorSystem : SharedGovernorSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

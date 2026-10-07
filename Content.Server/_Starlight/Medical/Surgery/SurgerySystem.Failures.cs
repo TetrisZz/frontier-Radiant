@@ -8,7 +8,7 @@ namespace Content.Server._Starlight.Medical.Surgery;
 
 public sealed partial class SurgerySystem
 {
-    [Dependency] private readonly IRobustRandom _failureRandom = default!;
+    [Dependency] private IRobustRandom _failureRandom = default!;
     protected override void OnSurgicalFailure(EntityUid user, EntityUid body, EntityUid part, float successRate)
     {
         // The failed step is never marked complete. Do not rewind successful organ removal/insertion.

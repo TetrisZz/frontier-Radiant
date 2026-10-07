@@ -17,16 +17,16 @@ namespace Content.Server._radiant.Mech.Systems;
 /// <summary>
 /// Allows Clarke drills to mine with right-click while keeping the mech as the attack source.
 /// </summary>
-public sealed class ClarkeMechDrillSystem : EntitySystem
+public sealed partial class ClarkeMechDrillSystem : EntitySystem
 {
     private const float CursorTargetRadius = 0.75f;
 
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly MeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private MeleeWeaponSystem _melee = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly SoundSpecifier _drillSound = new SoundPathSpecifier("/Audio/_radiant/Mech/clarke_drill.ogg");
 

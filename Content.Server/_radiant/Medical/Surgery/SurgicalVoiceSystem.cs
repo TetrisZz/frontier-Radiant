@@ -20,13 +20,13 @@ public sealed partial class SurgicalVoicePermissionComponent : Component
 }
 
 /// <summary>A short-lived, surgeon-bound permission issued only by a completed surgery.</summary>
-public sealed class SurgicalVoiceSystem : EntitySystem
+public sealed partial class SurgicalVoiceSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedSurgerySystem _surgery = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private SharedHumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedSurgerySystem _surgery = default!;
 
     public override void Initialize()
     {

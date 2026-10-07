@@ -16,15 +16,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._radiant.Vehicles;
 
-public sealed class VehicleTrickSystem : EntitySystem
+public sealed partial class VehicleTrickSystem : EntitySystem
 {
-    [Dependency] private readonly AnimatedEmotesSystem _animatedEmotes = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItems = default!;
+    [Dependency] private AnimatedEmotesSystem _animatedEmotes = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualItems = default!;
 
     public override void Initialize()
     {

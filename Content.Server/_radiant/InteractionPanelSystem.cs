@@ -27,17 +27,17 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Interaction.Panel
 {
-    public sealed class InteractionPanelSystem : EntitySystem
+    public sealed partial class InteractionPanelSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IEntityManager _entManager = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly InventorySystem _inventorySystem = default!;
-        [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
-        [Dependency] private readonly ArousalSystem _arousal = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IEntityManager _entManager = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private ChatSystem _chatSystem = default!;
+        [Dependency] private InventorySystem _inventorySystem = default!;
+        [Dependency] private SharedInteractionSystem _interaction = default!;
+        [Dependency] private SharedHandsSystem _hands = default!;
+        [Dependency] private ArousalSystem _arousal = default!;
 
         private readonly Dictionary<NetEntity, DateTime> _lastInteractionTimes = new();
 

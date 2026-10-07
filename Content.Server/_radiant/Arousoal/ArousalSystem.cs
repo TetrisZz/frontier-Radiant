@@ -20,12 +20,12 @@ namespace Content.Server._radiant.Arousal;
 /// - handles decay
 /// - triggers climax effects
 /// </summary>
-public sealed class ArousalSystem : EntitySystem
+public sealed partial class ArousalSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     // Radiant sector: short-lived destination from the latest penetrative ERP interaction.
     private readonly Dictionary<EntityUid, (EntityUid Target, TimeSpan Expires)> _climaxTargets = new();

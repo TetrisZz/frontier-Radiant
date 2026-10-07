@@ -19,9 +19,9 @@ namespace Content.Server._Starlight.Medical.Surgery;
 
 public sealed partial class SurgerySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _sterilitySolutions = default!;
-    [Dependency] private readonly SharedDoAfterSystem _sterilityDoAfter = default!;
-    [Dependency] private readonly PlaceableSurfaceSystem _sterilitySurfaces = default!;
+    [Dependency] private SharedSolutionContainerSystem _sterilitySolutions = default!;
+    [Dependency] private SharedDoAfterSystem _sterilityDoAfter = default!;
+    [Dependency] private PlaceableSurfaceSystem _sterilitySurfaces = default!;
 
     private void InitializeSterility()
     {

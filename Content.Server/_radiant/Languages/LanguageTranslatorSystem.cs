@@ -14,12 +14,12 @@ namespace Content.Server._radiant.Languages;
 /// <summary>
 /// Scans paper documents and displays a machine translation to the user.
 /// </summary>
-public sealed class LanguageTranslatorSystem : EntitySystem
+public sealed partial class LanguageTranslatorSystem : EntitySystem
 {
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

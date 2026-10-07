@@ -30,19 +30,19 @@ using Robust.Shared.Network; // ДОБАВЬ ЭТО!
 
 namespace Content.Server._radiant.GridWanted.Systems;
 
-public sealed class GridWantedSystem : EntitySystem
+public sealed partial class GridWantedSystem : EntitySystem
 {
-    [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
-    [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private CriminalRecordsSystem _criminalRecords = default!;
+    [Dependency] private StationRecordsSystem _stationRecords = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private SharedIdCardSystem _idCardSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedGameTicker _gameTicker = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private ILogManager _logManager = default!;
 
     private ISawmill _sawmill = default!;
 

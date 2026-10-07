@@ -13,7 +13,7 @@ namespace Content.Client._radiant.Governor.UI;
 [GenerateTypedNameReferences]
 public sealed partial class GovernorBountyEntry : BoxContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public Action? OnAcceptButtonPressed;
     public Action? OnSkipButtonPressed;

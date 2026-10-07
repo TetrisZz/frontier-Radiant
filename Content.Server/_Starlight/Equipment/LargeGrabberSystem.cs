@@ -16,16 +16,16 @@ using Robust.Shared.Utility;
 namespace Content.Server._Starlight.Equipment;
 
 // Radiant sector: portable variant of the mech grabber logic.
-public sealed class LargeGrabberSystem : EntitySystem
+public sealed partial class LargeGrabberSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private InteractionSystem _interaction = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
