@@ -9,8 +9,8 @@ namespace Content.Server._Starlight.Medical.Surgery;
 
 public sealed partial class SurgerySystem
 {
-    [Dependency] private readonly EntityLookupSystem _sterilityLookup = default!;
-    [Dependency] private readonly TagSystem _sterilityTags = default!;
+    [Dependency] private EntityLookupSystem _sterilityLookup = default!;
+    [Dependency] private TagSystem _sterilityTags = default!;
 
     private int EnvironmentRisk(EntityUid patient)
     {

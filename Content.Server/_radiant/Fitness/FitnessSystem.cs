@@ -12,14 +12,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._radiant.Fitness;
 
-public sealed class FitnessSystem : EntitySystem
+public sealed partial class FitnessSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private StunSystem _stun = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly SoundSpecifier _punchSound = new SoundCollectionSpecifier("BoxingHit");
     private readonly SoundSpecifier _benchStartSound = new SoundPathSpecifier("/Audio/Effects/metal_scrape1.ogg");

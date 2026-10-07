@@ -25,20 +25,20 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Vibrator.System
 {
-    public class VibratorUsageSystem : EntitySystem
+    public partial class VibratorUsageSystem : EntitySystem
     {
-        [Dependency] private readonly IEntityManager _entManager = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-        [Dependency] private readonly InventorySystem _inventorySystem = default!;
-        [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
-        [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
-        [Dependency] private readonly StutteringSystem _stuttering = default!;
-        [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly ArousalSystem _arousal = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private IEntityManager _entManager = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private SharedDoAfterSystem _doAfter = default!;
+        [Dependency] private InventorySystem _inventorySystem = default!;
+        [Dependency] private SharedDeviceLinkSystem _deviceLink = default!;
+        [Dependency] private ItemToggleSystem _itemToggle = default!;
+        [Dependency] private StutteringSystem _stuttering = default!;
+        [Dependency] private ChatSystem _chat = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private ArousalSystem _arousal = default!;
+        [Dependency] private IGameTiming _timing = default!;
 
         private readonly StutteringAccentComponent _plugStutter = new();
 

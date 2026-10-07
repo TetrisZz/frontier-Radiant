@@ -11,10 +11,10 @@ namespace Content.Server._Starlight.Scent;
 /// <summary>
 /// Emits personal scent trails and lets an olfactory implant select one to follow.
 /// </summary>
-public sealed class ScentSystem : SharedScentSystem
+public sealed partial class ScentSystem : SharedScentSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

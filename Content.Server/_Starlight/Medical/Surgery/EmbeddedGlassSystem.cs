@@ -16,16 +16,16 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Starlight.Medical.Surgery;
 
-public sealed class EmbeddedGlassSystem : EntitySystem
+public sealed partial class EmbeddedGlassSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SurgerySystem _surgery = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SurgerySystem _surgery = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
     private HashSet<EntityUid> _alerted = new();
     private float _elapsed;
 

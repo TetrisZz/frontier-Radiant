@@ -11,14 +11,14 @@ namespace Content.Client._radiant.Arousal.Overlays;
 /// <summary>
 /// Pink circular vignette with pulse; mirrors <see cref="Content.Client.UserInterface.Systems.DamageOverlays.Overlays.DamageOverlay"/> brute-band math.
 /// </summary>
-public sealed class ArousalTintOverlay : Overlay
+public sealed partial class ArousalTintOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> CircleMaskShader = "GradientCircleMask";
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 

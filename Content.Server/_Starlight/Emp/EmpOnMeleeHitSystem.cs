@@ -7,12 +7,12 @@ using Robust.Shared.Map;
 namespace Content.Server._Starlight.Emp;
 
 // Radiant sector: activates an EMP pulse when the powered cyber fist lands a hit.
-public sealed class EmpOnMeleeHitSystem : EntitySystem
+public sealed partial class EmpOnMeleeHitSystem : EntitySystem
 {
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EmpSystem _emp = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

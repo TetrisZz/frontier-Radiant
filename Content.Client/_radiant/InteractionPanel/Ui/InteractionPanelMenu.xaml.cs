@@ -35,12 +35,12 @@ namespace Content.Client.Interaction.Panel.Ui
     [GenerateTypedNameReferences]
     public sealed partial class InteractionPanelMenu : DefaultWindow
     {
-        [Dependency] private readonly IFileDialogManager _dialogManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IEntityManager _entManager = default!;
-        [Dependency] private readonly IEntityNetworkManager _entityNetworkManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly InteractionPanelManager _sharedInteraction = default!;
+        [Dependency] private IFileDialogManager _dialogManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IEntityManager _entManager = default!;
+        [Dependency] private IEntityNetworkManager _entityNetworkManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private InteractionPanelManager _sharedInteraction = default!;
         private readonly InteractionConstructorUIController _interactionConstructorController;
         private readonly InteractionEditorUIController _interactionEditorController;
         private static List<InteractionPrototype> _importedPrototypes = new(); // Memory
@@ -417,13 +417,13 @@ namespace Content.Client.Interaction.Panel.Ui
                 ? anatomyText
                 : appearanceComponent.Species switch
             {
-                var species when species == dionaSpecies => string.Join("\n", Loc.GetString("diona-leaves"), Loc.GetString("diona-branches")),
+                var species when species == dionaSpecies => string.Join("\n", new[] { Loc.GetString("diona-leaves"), Loc.GetString("diona-branches") }),
                 var species when species == arachnidSpecies => Loc.GetString("arachnid-nearestplayer"),
                 var species when species == voxSpecies => Loc.GetString("vox-nearestplayer"),
                 _ => appearanceComponent.Sex switch
                 {
-                    Sex.Male => string.Join("\n", Loc.GetString("male-anal"), Loc.GetString("male-dick")),
-                    Sex.Female => string.Join("\n", Loc.GetString("female-anal"), Loc.GetString("female-vagine"), Loc.GetString("female-breasts")),
+                    Sex.Male => string.Join("\n", new[] { Loc.GetString("male-anal"), Loc.GetString("male-dick") }),
+                    Sex.Female => string.Join("\n", new[] { Loc.GetString("female-anal"), Loc.GetString("female-vagine"), Loc.GetString("female-breasts") }),
                     Sex.Unsexed => Loc.GetString("unsexed-nearestplayer"),
                     _ => Loc.GetString("unknown-nearestplayer")
                 }
@@ -448,13 +448,13 @@ namespace Content.Client.Interaction.Panel.Ui
                 ? anatomyText
                 : appearanceComponent?.Species switch
             {
-                var species when species == dionaSpecies => string.Join("\n", Loc.GetString("diona-leaves-player"), Loc.GetString("diona-branches-player")),
+                var species when species == dionaSpecies => string.Join("\n", new[] { Loc.GetString("diona-leaves-player"), Loc.GetString("diona-branches-player") }),
                 var species when species == arachnidSpecies => Loc.GetString("arachnid-player"),
                 var species when species == voxSpecies => Loc.GetString("vox-player"),
                 _ => appearanceComponent?.Sex switch
                 {
-                    Sex.Male => string.Join("\n", Loc.GetString("male-anal-player"), Loc.GetString("male-dick-player")),
-                    Sex.Female => string.Join("\n", Loc.GetString("female-anal-player"), Loc.GetString("female-vagine-player"), Loc.GetString("female-breasts-player")),
+                    Sex.Male => string.Join("\n", new[] { Loc.GetString("male-anal-player"), Loc.GetString("male-dick-player") }),
+                    Sex.Female => string.Join("\n", new[] { Loc.GetString("female-anal-player"), Loc.GetString("female-vagine-player"), Loc.GetString("female-breasts-player") }),
                     Sex.Unsexed => Loc.GetString("unsexed-player"),
                     _ => Loc.GetString("unknown-player")
                 }

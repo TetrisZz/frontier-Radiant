@@ -9,10 +9,10 @@ namespace Content.Client._Starlight.Scent;
 /// <summary>
 /// Filters scent markers to the trail selected by the local player.
 /// </summary>
-public sealed class ScentTrackingSystem : EntitySystem
+public sealed partial class ScentTrackingSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

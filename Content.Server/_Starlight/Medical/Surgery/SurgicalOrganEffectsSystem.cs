@@ -21,15 +21,15 @@ namespace Content.Server._Starlight.Medical.Surgery;
 /// This is intentionally separate from Starlight's optional cyber-organ system,
 /// which depends on subsystems that are not present in Frontier.
 /// </summary>
-public sealed class SurgicalOrganEffectsSystem : EntitySystem
+public sealed partial class SurgicalOrganEffectsSystem : EntitySystem
 {
-    [Dependency] private readonly BlindableSystem _blindable = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private BlindableSystem _blindable = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private SolutionContainerSystem _solutions = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     private readonly HashSet<EntityUid> _missingLivers = [];
     private readonly HashSet<EntityUid> _missingKidneys = [];

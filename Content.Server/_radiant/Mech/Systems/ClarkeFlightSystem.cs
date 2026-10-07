@@ -17,13 +17,13 @@ namespace Content.Server._radiant.Mech.Systems;
 /// <summary>
 /// Runs the Clarke's integrated thrusters and permanent magnetic boots.
 /// </summary>
-public sealed class ClarkeFlightSystem : EntitySystem
+public sealed partial class ClarkeFlightSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly MechSystem _mech = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private MechSystem _mech = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {

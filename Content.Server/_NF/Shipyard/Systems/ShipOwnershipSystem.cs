@@ -16,7 +16,6 @@ public sealed class ShipOwnershipSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
 
     private readonly HashSet<EntityUid> _pendingDeletionShips = new();
 

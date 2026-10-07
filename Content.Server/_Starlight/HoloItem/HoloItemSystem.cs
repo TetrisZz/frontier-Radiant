@@ -5,10 +5,10 @@ using Robust.Shared.Spawners;
 namespace Content.Server._Starlight.HoloItem;
 
 // Radiant sector: functional holographic restraint projector.
-public sealed class HoloItemSystem : EntitySystem
+public sealed partial class HoloItemSystem : EntitySystem
 {
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly IComponentFactory _components = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private IComponentFactory _components = default!;
 
     public override void Initialize()
     {

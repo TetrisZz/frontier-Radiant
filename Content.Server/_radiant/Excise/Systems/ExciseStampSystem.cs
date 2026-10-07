@@ -11,10 +11,10 @@ namespace Content.Server._radiant.Excise.Systems;
 /// <summary>
 /// Handles excise stamps: crates whose label is an excise stamp are exempt from cargo sale tax.
 /// </summary>
-public sealed class ExciseStampSystem : EntitySystem
+public sealed partial class ExciseStampSystem : EntitySystem
 {
-    [Dependency] private readonly LabelSystem _labels = default!;
-    [Dependency] private readonly PricingSystem _pricing = default!;
+    [Dependency] private LabelSystem _labels = default!;
+    [Dependency] private PricingSystem _pricing = default!;
 
     /// <summary>
     /// Sums up the value of stamped-and-closed crates near the cargo console.

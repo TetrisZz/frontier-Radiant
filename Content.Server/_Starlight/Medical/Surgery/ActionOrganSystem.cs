@@ -9,9 +9,9 @@ namespace Content.Server._Starlight.Medical.Surgery;
 /// <summary>
 /// Keeps actions supplied by surgically installed organs attached to their body.
 /// </summary>
-public sealed class ActionOrganSystem : EntitySystem
+public sealed partial class ActionOrganSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {

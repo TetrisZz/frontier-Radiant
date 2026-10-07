@@ -6,10 +6,10 @@ using Robust.Shared.Player;
 
 namespace Content.Client._radiant.Arousal.Systems;
 
-public sealed class ArousalOverlaySystem : EntitySystem
+public sealed partial class ArousalOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private ArousalTintOverlay _tint = default!;
     private ArousalHeartsOverlay _hearts = default!;
