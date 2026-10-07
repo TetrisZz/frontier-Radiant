@@ -67,20 +67,6 @@
 # End Frontier
 
 - type: construction
-  id: WallSolidDiagonal #radiant sector
-  name: construction-recipe-wall-solid-diagonal
-  graph: DiagonalWall
-  startNode: start
-  targetNode: wallDiagonal
-  category: construction-category-structures
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
   id: ReinforcedWall
   graph: Girder
   startNode: start
@@ -108,20 +94,6 @@
   conditions:
     - !type:TileNotBlocked
 # End Frontier
-
-- type: construction
-  id: WallReinforcedDiagonal #radiant sector
-  name: construction-recipe-wall-reinforced-diagonal
-  graph: DiagonalWall
-  startNode: start
-  targetNode: reinforcedWallDiagonal
-  category: construction-category-structures
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
 
 - type: construction
   id: WallClock

@@ -20,7 +20,7 @@
   - type: ContainerFill
     containers:
       weapon1:
-      - WeaponRifleEstocRS
+      - NFWeaponRifleAssaultEstoc
       weapon2:
       - NFWeaponRifleAssaultNovaliteC1
 
@@ -146,7 +146,7 @@
   - type: ContainerFill
     containers:
       weapon1:
-      - WeaponRifleEstocRS
+      - NFWeaponRifleAssaultEstoc
       weapon2:
       - NFWeaponRifleAssaultNovaliteC1
 
