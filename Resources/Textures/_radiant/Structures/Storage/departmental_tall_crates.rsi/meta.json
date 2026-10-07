@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "copyright": "Sprites taken from BlueMoon Station, icons/obj/crates_new.dmi; original artwork by BlueMoon Station and upstream contributors. Converted to RSI for Radiant Sector. The transparent state was added for layering.",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "engi_e_crate"
+    },
+    {
+      "name": "engi_e_crateopen"
+    },
+    {
+      "name": "engi_crate"
+    },
+    {
+      "name": "engi_crateopen"
+    },
+    {
+      "name": "freezer"
+    },
+    {
+      "name": "freezeropen"
+    },
+    {
+      "name": "medicalcrate"
+    },
+    {
+      "name": "medicalcrateopen"
+    },
+    {
+      "name": "radiation"
+    },
+    {
+      "name": "radiationopen"
+    },
+    {
+      "name": "secgearcrate"
+    },
+    {
+      "name": "secgearcrateopen"
+    },
+    {
+      "name": "transparent"
+    }
+  ]
+}

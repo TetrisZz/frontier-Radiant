@@ -9,6 +9,7 @@
                 PlaceHolder="{Loc 'general-station-record-for-filter-line-placeholder'}" HorizontalExpand="True"/>
             <Button Name="StationRecordsFilters" Text="{Loc 'general-station-record-console-search-records'}"/>
             <Button Name="StationRecordsFiltersReset" Text="{Loc 'general-station-record-console-reset-filters'}"/>
+            <Button Name="PersonalDossierButton" Text="{Loc 'radiant-dossier-personal'}" Visible="False"/>
         </BoxContainer>
         <BoxContainer VerticalExpand="True">
             <!-- Record listing -->

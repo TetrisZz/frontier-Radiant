@@ -3,6 +3,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 using Content.Shared.Paper;
+using Content.Shared._radiant.Dossiers;
 using static Content.Shared.Paper.PaperComponent;
 using Content.Client._Goobstation.Languages; // Radiant Sector
 using Content.Shared._Goobstation.Languages; // Radiant Sector
@@ -44,6 +45,8 @@ public sealed partial class PaperBoundUserInterface : BoundUserInterface // Delt
         {
             _window.InitVisuals(Owner, visuals);
         }
+        if (EntMan.TryGetComponent<DossierPrintoutComponent>(Owner, out var dossier))
+            _window.InitDossierVisuals(dossier);
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -65,7 +68,7 @@ public sealed partial class PaperBoundUserInterface : BoundUserInterface // Delt
         var plainText = FormattedMessage.RemoveMarkupPermissive(paperState.Text);
         var garbled = ObfuscateWriting(paperState.Language ?? "Общегалактический", plainText);
         _window.Populate(new PaperBoundUserInterfaceState(garbled, paperState.StampedBy, PaperAction.Read,
-            Loc.GetString("paper-ui-language-unknown")));
+            Loc.GetString(paperState.Language == null ? "paper-ui-language-common" : "paper-ui-language-unknown")));
     }
 
     private void InputOnTextEntered(string text)

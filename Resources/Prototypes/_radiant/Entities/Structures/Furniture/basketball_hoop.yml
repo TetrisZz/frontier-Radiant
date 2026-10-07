@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseStructure
+  id: RadiantBasketballHoop
+  name: basketball hoop
+  description: Throw a basketball at the rim or dunk it by hand. The ball stays on the court.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/basketball_hoop.rsi
+    state: hoop
+    offset: 0, 0.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+  - type: BasketballHoop
+  - type: Anchorable

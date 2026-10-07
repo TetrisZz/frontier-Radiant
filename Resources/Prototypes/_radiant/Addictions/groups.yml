@@ -1,0 +1,57 @@
+# Round-local dependence. Rates are gameplay tuning, not real medical dosing.
+- type: addictionGroup
+  id: nicotine
+  reagents: [Nicotine]
+  toleranceGain: 5
+  dependenceGain: 4
+  clearance: 0.008
+  toxicThreshold: 12
+  speedPenalty: 0.01
+  tremor: 1
+
+- type: addictionGroup
+  id: alcohol
+  alcohol: true
+  toleranceGain: 1
+  dependenceGain: 0.8
+  clearance: 0.05
+  toxicThreshold: 50
+  graceSeconds: 480
+  speedPenalty: 0.04
+  tremor: 3
+
+- type: addictionGroup
+  id: stimulants
+  reagents: [Stimulants, Ephedrine, Desoxyephedrine]
+  toleranceGain: 4
+  dependenceGain: 3
+  toxicThreshold: 18
+  graceSeconds: 180
+  speedPenalty: 0.1
+
+- type: addictionGroup
+  id: narcotics
+  reagents: [THC, SpaceDrugs, Bananadine, Happiness, SpaceGlue, MindbreakerToxin, Nocturine, ShroomMix, NorepinephricAcid]
+  toleranceGain: 3
+  dependenceGain: 2.5
+  toxicThreshold: 25
+  speedPenalty: 0.06
+  tremor: 1.5
+
+- type: addictionGroup
+  id: aphrodisiac
+  reagents: [Aphrodisiac]
+  requiresErp: true
+  toleranceGain: 4
+  dependenceGain: 3
+  toxicThreshold: 18
+  speedPenalty: 0.01
+
+- type: addictionGroup
+  id: excitement
+  reagents: [Excitement]
+  requiresErp: true
+  toleranceGain: 3
+  dependenceGain: 2
+  toxicThreshold: 25
+  speedPenalty: 0.01

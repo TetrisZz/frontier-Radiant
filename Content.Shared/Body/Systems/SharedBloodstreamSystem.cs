@@ -74,7 +74,9 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             // Adds blood to their blood level if it is below the maximum; Blood regeneration. Must be alive.
             if (bloodSolution.Volume < bloodSolution.MaxVolume && !_mobStateSystem.IsDead(uid))
             {
-                TryModifyBloodLevel((uid, bloodstream), bloodstream.BloodRefreshAmount);
+                var regeneration = new Content.Shared.Body.Events.BloodRegenerationEvent(bloodstream.BloodRefreshAmount);
+                RaiseLocalEvent(uid, ref regeneration);
+                TryModifyBloodLevel((uid, bloodstream), FixedPoint2.Max(FixedPoint2.Zero, regeneration.Amount));
             }
 
             // Removes blood from the bloodstream based on bleed amount (bleed rate)

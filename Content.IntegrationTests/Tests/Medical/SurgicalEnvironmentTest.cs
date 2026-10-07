@@ -26,8 +26,8 @@ public sealed class SurgicalEnvironmentTest
         var entities = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {
-            var map = server.ResolveDependency<IMapManager>().CreateMap();
-            var coordinates = new MapCoordinates(0, 0, map);
+            var map = server.ResolveDependency<IEntityManager>().System<SharedMapSystem>().CreateMap();
+            var coordinates = new EntityCoordinates(map, 0, 0);
             var surgeon = entities.SpawnEntity("MobHuman", coordinates);
             var patient = entities.SpawnEntity("MobHuman", coordinates);
             var surgery = entities.System<SurgerySystem>();

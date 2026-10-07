@@ -75,6 +75,8 @@
   - BoneSetterAdvanced
   - LeftArmCyberRipper
   - RightArmCyberRipper
+  - GeneticBodyGrowerMachineCircuitboard
+  - GeneticResearchConsoleCircuitboard
   technologyPrerequisites: [ StarlightBasicSurgery ]
   prerequisiteLineType: LShape # Radiant sector: keep the surgery branch compact and connected to basic surgery.
   position: 5, 12

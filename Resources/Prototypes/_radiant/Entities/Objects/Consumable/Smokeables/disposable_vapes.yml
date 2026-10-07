@@ -1,0 +1,119 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: DisposableVapeBase
+  name: disposable vape
+  description: A compact vape with a sealed reservoir of flavored liquid. Its colorful casing bears the flavor label.
+  components:
+  - type: Sprite
+    state: icon
+    scale: 0.5, 0.5
+  - type: Item
+    size: Tiny
+  - type: Clothing
+    slots: [mask]
+  - type: DisposableVape
+    puffsRemaining: 30
+    puffInterval: 5
+    nicotinePerPuff: 0.2
+  - type: StaticPrice
+    price: 50
+    vendPrice: 100
+  - type: Tag
+    tags: [Cigarette]
+
+- type: entity
+  parent: DisposableVapeBase
+  id: DisposableVapeBlack
+  name: berry disposable vape
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_black.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_black.rsi
+  - type: DisposableVape
+    flavor: disposable-vape-flavor-berry
+
+- type: entity
+  parent: DisposableVapeBase
+  id: DisposableVapeBlue
+  name: blueberry disposable vape
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_blue.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_blue.rsi
+  - type: DisposableVape
+    flavor: disposable-vape-flavor-blueberry
+
+- type: entity
+  parent: DisposableVapeBase
+  id: DisposableVapeGreen
+  name: mint disposable vape
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_green.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_green.rsi
+  - type: DisposableVape
+    flavor: disposable-vape-flavor-mint
+
+- type: entity
+  parent: DisposableVapeBase
+  id: DisposableVapeOrange
+  name: orange disposable vape
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_orange.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_orange.rsi
+  - type: DisposableVape
+    flavor: disposable-vape-flavor-orange
+
+- type: entity
+  parent: DisposableVapeBase
+  id: DisposableVapePurple
+  name: grape disposable vape
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_purple.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_purple.rsi
+  - type: DisposableVape
+    flavor: disposable-vape-flavor-grape
+
+- type: entity
+  parent: DisposableVapeBase
+  id: DisposableVapeRed
+  name: strawberry disposable vape
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_red.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_red.rsi
+  - type: DisposableVape
+    flavor: disposable-vape-flavor-strawberry
+
+- type: entity
+  parent: DisposableVapeBase
+  id: DisposableVapeWhite
+  name: vanilla disposable vape
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_white.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_white.rsi
+  - type: DisposableVape
+    flavor: disposable-vape-flavor-vanilla
+
+- type: entity
+  parent: DisposableVapeBase
+  id: DisposableVapeYellow
+  name: lemon disposable vape
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_yellow.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Consumable/Smokeables/vape_yellow.rsi
+  - type: DisposableVape
+    flavor: disposable-vape-flavor-lemon

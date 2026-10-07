@@ -1,0 +1,13 @@
+light_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float darkness;
+uniform highp float desaturation;
+
+void fragment() {
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
+    highp vec2 centered = UV * 2.0 - vec2(1.0);
+    highp float edge = smoothstep(0.25, 1.15, length(centered));
+    highp vec3 faded = mix(color.rgb, vec3(zGrayscale(color.rgb)), desaturation);
+    COLOR = vec4(faded * (1.0 - edge * darkness), color.a);
+}

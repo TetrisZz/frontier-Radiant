@@ -3,3 +3,6 @@ ent-EncryptionKeyTraffic = ключ шифрования диспетчерск�
 ent-EncryptionKeyNfsd = ключ шифрования двб
     .desc = Ключ шифрования для канала ДВБ. Надёжный барьер для защиты ваших секретов от космических пиратов и хакеров.
     .suffix = DO NOT MAP
+
+ent-EncryptionKeyGreeting = ключ шифрования приветственного канала
+    .suffix = Без магнитов

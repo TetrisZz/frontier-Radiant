@@ -112,3 +112,22 @@
   components:
   - type: Sprite
     state: poster_sr_duffy
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandBreadRS
+  name: плакат «Хлеб»
+  description: Подпольная реклама с недвусмысленным призывом любить хлеб.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/bluemoon_posters.rsi
+    state: poster_bread
+
+- type: entity
+  parent: PosterContrabandBreadRS
+  id: PosterContrabandDymaiRS
+  name: плакат «Думай»
+  description: Агитационный плакат с призывом думать своей головой.
+  components:
+  - type: Sprite
+    state: poster_dymai

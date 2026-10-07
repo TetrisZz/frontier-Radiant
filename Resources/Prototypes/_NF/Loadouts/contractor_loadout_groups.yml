@@ -3,6 +3,11 @@
   name: loadout-group-contractor-jumpsuit
   loadouts:
   - ContractorClothingUniformBoomaTurtleneck # Radiant Sector
+  - ContractorClothingUniformRadiantBraskirt
+  - ContractorClothingUniformRadiantReallyBlackSuit
+  - ContractorClothingUniformRadiantBlackSuitFem
+  - ContractorClothingUniformRadiantReallyBlackSuitSkirt
+  - ContractorClothingUniformRadiantBlackSuitFemSkirt
   - ContractorClothingUniformSheyaDress # Radiant Sector
   - ContractorClothingUniformGothicLaceDress # Radiant Sector
   - ContractorClothingUniformTuxedo # Radiant Sector
@@ -1232,6 +1237,7 @@
   - ContractorCrateEmotionalSupportSpaceCat
   - ContractorCrateEmotionalSupportCorgi
   - ContractorCrateEmotionalSupportCorgiPuppy
+  - ContractorCrateEmotionalSupportJuda
   - ContractorCrateEmotionalSupportPug
   - ContractorCrateEmotionalSupportChicken
   - ContractorCrateEmotionalSupportFox

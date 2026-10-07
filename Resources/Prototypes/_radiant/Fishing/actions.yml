@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseAction
+  id: ActionStartFishing
+  name: Throw fishing lure
+  description: Throw lure from the fishing rod to catch something!
+  components:
+  - type: Action
+    icon:
+      sprite: _radiant/Objects/Specific/Fishing/fishing_lure.rsi
+      state: icon
+    sound:
+      path: /Audio/_radiant/Items/Fishing/fishing_rod_cast.ogg
+    itemIconStyle: BigAction
+    useDelay: 2.5
+  - type: TargetAction
+    range: 8
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ThrowFishingLureActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionStopFishing
+  name: Reel fishing rod
+  description: Reel your fishing rod to pull an object that it attached to, or stop fishing.
+  components:
+  - type: Action
+    icon:
+      sprite: _radiant/Objects/Specific/Fishing/fishing_rod.rsi
+      state: icon
+    sound:
+      path: /Audio/_radiant/Items/Fishing/fishing_rod_reel.ogg
+    itemIconStyle: NoItem
+  - type: InstantAction
+    event: !type:PullFishingLureActionEvent

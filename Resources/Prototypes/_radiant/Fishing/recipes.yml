@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: RadiantFishingRod
+  result: FishingRod
+  categories:
+  - Tools
+  completetime: 3
+  materials:
+    Steel: 350
+    Plastic: 200
+
+- type: latheRecipePack
+  id: RadiantFishingStatic
+  recipes:
+  - RadiantFishingRod

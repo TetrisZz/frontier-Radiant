@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Components;
 using Content.Shared.StationRecords;
+using Content.Shared._radiant.Dossiers;
 using Robust.Server.GameObjects;
 using Content.Shared.Roles; // Frontier
 using Robust.Shared.Prototypes; // Frontier
@@ -38,7 +39,17 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
             subs.Event<DeleteStationRecord>(OnRecordDelete);
             subs.Event<AdjustStationJobMsg>(OnAdjustJob); // Frontier
             subs.Event<SetStationAdvertisementMsg>(OnAdvertisementChanged); // Frontier
+            subs.Event<OpenPersonalDossierMessage>(OnOpenPersonalDossier);
         });
+    }
+
+    private void OnOpenPersonalDossier(Entity<GeneralStationRecordConsoleComponent> ent, ref OpenPersonalDossierMessage msg)
+    {
+        if (!TryComp<DossierConsoleComponent>(ent.Owner, out var dossier) || dossier.Kind != DossierKind.Personal ||
+            !_access.IsAllowed(msg.Actor, ent.Owner))
+            return;
+
+        _ui.TryOpenUi(ent.Owner, DossierUiKey.Key, msg.Actor);
     }
 
     private void OnRecordDelete(Entity<GeneralStationRecordConsoleComponent> ent, ref DeleteStationRecord args)

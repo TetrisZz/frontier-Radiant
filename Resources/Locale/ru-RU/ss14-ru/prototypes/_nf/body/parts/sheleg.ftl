@@ -1,0 +1,11 @@
+ent-HeadSheleg = голова шелега
+ent-LeftArmSheleg = левая рука шелега
+ent-LeftFootSheleg = левая стопа шелега
+ent-LeftHandSheleg = левая кисть шелега
+ent-LeftLegSheleg = левая нога шелега
+ent-PartSheleg = часть тела шелега
+ent-RightArmSheleg = правая рука шелега
+ent-RightFootSheleg = правая стопа шелега
+ent-RightHandSheleg = правая кисть шелега
+ent-RightLegSheleg = правая нога шелега
+ent-TorsoSheleg = торс шелега

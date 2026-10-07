@@ -34,3 +34,5 @@ ent-ClothingOuterCoatBomberRandomized = Панковская куртка
 ent-ClothingOuterCoatLettermanRandomized = Панковская куртка Letterman
     .suffix = Случайный цвет
     .desc = Где твоя клюшка для лакросса?
+
+ent-ClothingOuterCoatLettermanFrontier = университетская куртка Фронтира

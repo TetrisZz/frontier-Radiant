@@ -27,7 +27,7 @@ public sealed class EmbeddedGlassTest
         var entities = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {
-            var maps = server.ResolveDependency<IMapManager>();
+            var maps = server.ResolveDependency<IEntityManager>().System<SharedMapSystem>();
             var map = maps.CreateMap();
             var coordinates = new MapCoordinates(0, 0, map);
             var patient = entities.SpawnEntity("MobHuman", coordinates);

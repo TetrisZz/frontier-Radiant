@@ -20,10 +20,13 @@ public sealed partial class ArcanaAuraAbilityComponent : Component
     public bool Enabled;
 
     [DataField]
-    public float Radius = 10f;
+    public float Radius = 4f;
 
     [DataField]
     public TimeSpan PulseInterval = TimeSpan.FromSeconds(18);
+
+    [DataField]
+    public TimeSpan RecipientCooldown = TimeSpan.FromSeconds(90);
 
     [DataField]
     public List<LocId> AuraMessages = new()

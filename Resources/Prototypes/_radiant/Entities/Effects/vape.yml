@@ -1,0 +1,16 @@
+- type: entity
+  id: EffectDisposableVapePuff
+  categories: [HideSpawnMenu]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.8
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: Effects/atmospherics.rsi
+    state: water_vapor
+    scale: 0.65, 0.65
+    offset: 0, 0.3
+    color: "#FFFFFFA6"
+  - type: Tag
+    tags: [HideContextMenu]

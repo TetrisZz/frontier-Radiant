@@ -34,7 +34,7 @@ namespace Content.Server.Shuttles.Components
         /// Name that is shown on the radar screen for this dock, if any.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("name")]
-        public string? Name = null;
+        public string? Name = string.Empty;
 
         [ViewVariables]
         public int PathfindHandle = -1;

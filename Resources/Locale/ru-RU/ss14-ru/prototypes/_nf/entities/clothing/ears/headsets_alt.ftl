@@ -10,3 +10,5 @@ ent-ClothingHeadsetAltNfsdCreamandBrown = полноразмерная гарн�
     .desc = { ent-ClothingHeadsetAlt.desc }
 ent-ClothingHeadsetAltArcadia = полноразмерная гарнитура Arcadia
     .desc = Элегантная и привлекательная гарнитура производства Arcadia Industries.
+
+ent-ClothingHeadsetAltEngineeringPlantManager = гарнитура руководителя электростанции

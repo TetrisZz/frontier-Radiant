@@ -62,3 +62,7 @@ ent-LockerWallColorHydroponicsFilled = { ent-LockerWallColorHydroponicsEmpty }
 ent-LockerWallColorChemistryFilled = настенный шкаф химика
     .desc = { ent-LockerWallEVAColorFscEmpty.desc }
     .suffix = Полный
+
+ent-ClosetWallN2 = настенный шкаф для аварийного запаса азота
+ent-ClosetWallO2N2 = настенный шкаф аварийного дыхательного комплекта
+ent-NFPrisonerClosetWallOrange = настенный шкаф заключённого

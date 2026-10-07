@@ -7,6 +7,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Stack;
+using Content.Server._EE.Contractors.Systems;
 using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.Bank.Components;
 using Content.Shared._NF.Bank.Events;
@@ -23,15 +24,17 @@ namespace Content.Server._NF.Bank;
 
 public sealed partial class BankSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly StackSystem _stackSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    private const int UnverifiedTransactionLimit = 10000;
+    [Dependency] private PassportSystem _passports = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private StackSystem _stackSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     private void InitializeATM()
     {
@@ -58,6 +61,15 @@ public sealed partial class BankSystem
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
                 new BankATMMenuInterfaceState(0, false, deposit));
+            return;
+        }
+
+        if (args.Amount > UnverifiedTransactionLimit && !_passports.HasPresentedPassport(player))
+        {
+            ConsolePopup(player, Loc.GetString("ee-passport-atm-withdraw-limit", ("limit", UnverifiedTransactionLimit)));
+            PlayDenySound(uid, component);
+            _uiSystem.SetUiState(uid, args.UiKey,
+                new BankATMMenuInterfaceState(bank.Balance, true, deposit));
             return;
         }
 
@@ -146,6 +158,14 @@ public sealed partial class BankSystem
             PlayDenySound(uid, component);
             _uiSystem.SetUiState(uid, args.UiKey,
                 new BankATMMenuInterfaceState(0, false, deposit));
+            return;
+        }
+
+        // The limit applies to the inserted cash, before tax, and is enforced server-side.
+        if (deposit > UnverifiedTransactionLimit && !_passports.HasPresentedPassport(player))
+        {
+            ConsolePopup(player, Loc.GetString("ee-passport-atm-limit", ("limit", UnverifiedTransactionLimit)));
+            PlayDenySound(uid, component);
             return;
         }
 

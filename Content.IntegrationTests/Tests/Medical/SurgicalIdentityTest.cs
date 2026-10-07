@@ -35,8 +35,8 @@ public sealed class SurgicalIdentityTest
         var entities = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {
-            var map = server.ResolveDependency<IMapManager>().CreateMap();
-            var coordinates = new MapCoordinates(0, 0, map);
+            var map = server.ResolveDependency<IEntityManager>().System<SharedMapSystem>().CreateMap();
+            var coordinates = new EntityCoordinates(map, 0, 0);
             var patient = entities.SpawnEntity("MobHuman", coordinates);
             var surgeon = entities.SpawnEntity("MobHuman", coordinates);
             var body = entities.System<SharedBodySystem>();

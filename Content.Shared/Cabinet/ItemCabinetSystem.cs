@@ -38,11 +38,26 @@ public sealed class ItemCabinetSystem : EntitySystem
     {
         // update at mapinit to avoid copy pasting locked: true and locked: false for each closed/open prototype
         SetSlotLock(ent, !_openable.IsOpen(ent));
+        UpdateAppearance(ent);
     }
 
     private void UpdateAppearance(Entity<ItemCabinetComponent> ent)
     {
         _appearance.SetData(ent, ItemCabinetVisuals.ContainsItem, HasItem(ent));
+        if (ent.Comp.EmptyOpenState == null || ent.Comp.EmptyClosedState == null || ent.Comp.DefaultItemStates == null)
+            return;
+
+        var open = _openable.IsOpen(ent);
+        var state = open ? ent.Comp.EmptyOpenState : ent.Comp.EmptyClosedState;
+        if (TryGetSlot(ent, out var slot) && slot.Item is { } item)
+        {
+            var states = ent.Comp.DefaultItemStates;
+            if (Comp<MetaDataComponent>(item).EntityPrototype is { } prototype &&
+                ent.Comp.ItemStateOverrides.TryGetValue(prototype.ID, out var overridden))
+                states = overridden;
+            state = open ? states.Open : states.Closed;
+        }
+        _appearance.SetData(ent, ItemCabinetVisuals.State, state);
     }
 
     private void OnContainerModified(EntityUid uid, ItemCabinetComponent component, ContainerModifiedMessage args)
@@ -54,11 +69,13 @@ public sealed class ItemCabinetSystem : EntitySystem
     private void OnOpened(Entity<ItemCabinetComponent> ent, ref OpenableOpenedEvent args)
     {
         SetSlotLock(ent, false);
+        UpdateAppearance(ent);
     }
 
     private void OnClosed(Entity<ItemCabinetComponent> ent, ref OpenableClosedEvent args)
     {
         SetSlotLock(ent, true);
+        UpdateAppearance(ent);
     }
 
     /// <summary>

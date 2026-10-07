@@ -80,7 +80,9 @@ public sealed class NodeScannerSystem : EntitySystem
         EntityUid actor
     )
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted
+            || !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(actor, Content.Shared._radiant.Skills.ProfessionalSkill.Science, 1))
             return;
 
         if (TryComp(device, out UseDelayComponent? useDelay)

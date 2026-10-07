@@ -177,7 +177,13 @@ public abstract partial class SharedHandsSystem : EntitySystem
             hand = handsComp.ActiveHandId;
 
         if (!TryGetHeldItem((uid, handsComp), hand, out var held))
-            return false;
+        {
+            if (altInteract || hand == null || hand != handsComp.ActiveHandId)
+                return false;
+            var wornUse = new Content.Shared._radiant.Smoking.UseWornVapeEvent();
+            RaiseLocalEvent(uid, wornUse);
+            return wornUse.Handled;
+        }
 
         if (altInteract)
             return _interactionSystem.AltInteract(uid, held.Value);

@@ -366,6 +366,18 @@
   name: medical records computer
   description: This can be used to check medical records.
   components:
+  - type: DossierConsole
+    kind: Medical
+  - type: AccessReader
+    access: [["Medical"], ["MedicalPhoenix"]]
+  - type: UserInterface
+    interfaces:
+      enum.DossierUiKey.Key:
+        type: DossierBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActivatableUI
+    key: enum.DossierUiKey.Key
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -391,9 +403,13 @@
   name: criminal records computer
   description: This can be used to check criminal records. Only security can modify them.
   components:
+  - type: DossierConsole
+    kind: Security
   - type: CriminalRecordsConsole
   - type: UserInterface
     interfaces:
+      enum.DossierUiKey.Key:
+        type: DossierBoundUserInterface
       enum.CriminalRecordsConsoleKey.Key:
         type: CriminalRecordsConsoleBoundUserInterface
       enum.WiresUiKey.Key:

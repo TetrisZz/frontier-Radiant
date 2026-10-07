@@ -1,0 +1,10 @@
+radiant-citizenship-label = Сектор регистрации
+radiant-citizenship-asgard = Асгард
+radiant-citizenship-hesperia = Гесперия
+radiant-citizenship-aurum = Аурум
+radiant-citizenship-zon = Зон
+radiant-citizenship-midgard = Мидгард
+radiant-citizenship-avrelia = Аврелия
+radiant-citizenship-nt = NanoTrasen
+ee-passport-citizenship = Сектор регистрации: {$citizenship}
+ee-passport-verify-citizenship = Сектор в документе не совпадает с регистрационной записью.

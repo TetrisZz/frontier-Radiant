@@ -58,6 +58,16 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("admin", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.RadiantDiscordLink", b =>
+                {
+                    b.Property<string>("SupporterRoleId").IsRequired().HasMaxLength(20).HasColumnType("character varying(20)").HasColumnName("supporter_role_id");
+                    b.Property<Guid>("UserId").ValueGeneratedOnAdd().HasColumnType("uuid").HasColumnName("user_id");
+                    b.Property<string>("DiscordUserId").IsRequired().HasMaxLength(20).HasColumnType("character varying(20)").HasColumnName("discord_user_id");
+                    b.HasKey("UserId").HasName("PK_radiant_discord_link");
+                    b.HasIndex("DiscordUserId").IsUnique().HasDatabaseName("IX_radiant_discord_link_discord_user_id");
+                    b.ToTable("radiant_discord_link", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdminFlag", b =>
                 {
                     b.Property<int>("Id")
@@ -896,6 +906,20 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("Children").IsRequired().HasColumnType("text").HasColumnName("children");
+                    b.Property<string>("Citizenship").IsRequired().HasColumnType("text").HasColumnName("citizenship");
+                    b.Property<string>("Birthplace").IsRequired().HasColumnType("text").HasColumnName("birthplace");
+                    b.Property<string>("Occupation").IsRequired().HasColumnType("text").HasColumnName("occupation");
+                    b.Property<string>("Education").IsRequired().HasColumnType("text").HasColumnName("education");
+                    b.Property<string>("Allergies").IsRequired().HasColumnType("text").HasColumnName("allergies");
+                    b.Property<string>("MedicalHistory").IsRequired().HasColumnType("text").HasColumnName("medical_history");
+                    b.Property<string>("BloodGroup").IsRequired().HasColumnType("text").HasColumnName("blood_group");
+                    b.Property<string>("DistinguishingFeatures").IsRequired().HasColumnType("text").HasColumnName("distinguishing_features");
+                    b.Property<string>("DossierJson").IsRequired().HasColumnType("text").HasColumnName("dossier_json");
+                    b.Property<string>("EmergencyContact").IsRequired().HasColumnType("text").HasColumnName("emergency_contact");
+                    b.Property<string>("FamilyStatus").IsRequired().HasColumnType("text").HasColumnName("family_status");
+                    b.Property<string>("Residence").IsRequired().HasColumnType("text").HasColumnName("residence");
+
                     b.Property<int>("ERPStatus")
                         .HasColumnType("integer")
                         .HasColumnName("erpstatus");
@@ -927,6 +951,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("facial_hair_name");
+
+                    b.Property<string>("SkillLevels")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("skill_levels");
 
                     b.Property<string>("FlavorText")
                         .IsRequired()

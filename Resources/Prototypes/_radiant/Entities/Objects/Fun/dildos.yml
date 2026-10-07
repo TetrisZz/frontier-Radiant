@@ -1,6 +1,6 @@
 
 - type: entity
-  parent: ClothingButtPlugBase
+  parent: ClothingButtPlugMeleeBase
   id: AvianDildo
   name: avian dildo
   description: A dildo in the shape of a bird's "caw-k".
@@ -13,7 +13,7 @@
     - dildo
 
 - type: entity
-  parent: ClothingButtPlugBase
+  parent: ClothingButtPlugMeleeBase
   id: CanineDildo
   name: canine dildo
   description: A dildo of a green rocket.
@@ -27,7 +27,7 @@
   - type: Strapon
 
 - type: entity
-  parent: ClothingButtPlugBase
+  parent: ClothingButtPlugMeleeBase
   id: CanineDildoRed
   name: red canine dildo
   description: You'll be seeing stars when you ride THIS red rocket.
@@ -41,7 +41,7 @@
   - type: Strapon
 
 - type: entity
-  parent: ClothingButtPlugBase
+  parent: ClothingButtPlugMeleeBase
   id: HorseDildo
   name: horse dildo
   description: A large dildo of a horse... Wow it's big...
@@ -55,7 +55,7 @@
   - type: Strapon
 
 - type: entity
-  parent: ClothingButtPlugBase
+  parent: ClothingButtPlugMeleeBase
   id: DragonDildo
   name: dragon dildo
   description: A large red dildo of a dragon... Woof...
@@ -69,7 +69,7 @@
   - type: Strapon
 
 - type: entity
-  parent: ClothingButtPlugBase
+  parent: ClothingButtPlugMeleeBase
   id: NormalDildo
   name: dildo
   description: A simple pink dildo.
@@ -83,7 +83,7 @@
   - type: Strapon
 
 - type: entity
-  parent: ClothingButtPlugBase
+  parent: ClothingButtPlugMeleeBase
   id: TentacleDildo
   name: tentacle dildo
   description: A floppy tentacle dildo... Is it slimey?
@@ -97,7 +97,7 @@
   - type: Strapon
 
 - type: entity
-  parent: ClothingButtPlugBase
+  parent: ClothingButtPlugMeleeBase
   id: DoubleDildo
   name: double-sided dildo
   description: A long dildo with two ends. Bring a friend!

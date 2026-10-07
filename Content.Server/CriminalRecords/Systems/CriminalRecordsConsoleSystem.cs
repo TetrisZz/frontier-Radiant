@@ -4,6 +4,8 @@ using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.Access.Systems;
+using Content.Server._radiant.Dossiers;
+using Content.Shared._radiant.Dossiers;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
 using Content.Shared.CriminalRecords.Systems;
@@ -13,6 +15,8 @@ using Robust.Server.GameObjects;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
+using Content.Shared.Inventory;
+using Content.Shared.PDA;
 using System.Linq;
 using Content.Shared.Roles.Jobs;
 using Content.Server._NF.SectorServices; // Frontier
@@ -30,8 +34,10 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
     // [Dependency] private readonly StationSystem _station = default!; // Frontier
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SectorServiceSystem _sectorService = default!; // Frontier
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private SectorServiceSystem _sectorService = default!; // Frontier
+    [Dependency] private DossierSystem _dossiers = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -47,7 +53,51 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             subs.Event<CriminalRecordAddHistory>(OnAddHistory);
             subs.Event<CriminalRecordDeleteHistory>(OnDeleteHistory);
             subs.Event<CriminalRecordSetStatusFilter>(OnStatusFilterPressed);
+            subs.Event<OpenSecurityDossierMessage>(OnOpenDossier);
         });
+    }
+
+    private void OnOpenDossier(Entity<CriminalRecordsConsoleComponent> ent, ref OpenSecurityDossierMessage msg)
+    {
+        if (!HasComp<DossierConsoleComponent>(ent.Owner) ||
+            !CheckSelected(ent, msg.Actor, out _, out var key))
+            return;
+
+        // The records list selects a station-record key, not an entity. Follow the ID
+        // held by a character first; names are only a fallback for a removed ID.
+        EntityUid? selected = null;
+        EntityUid? matchingName = null;
+        var recordName = _records.RecordName(key.Value);
+        var query = EntityQueryEnumerator<DossierHolderComponent>();
+        while (query.MoveNext(out var uid, out var holder))
+        {
+            if (!holder.Loaded || _dossiers.IsHiddenCryoBody(holder))
+                continue;
+
+            if (_inventory.TryGetSlotEntity(uid, "id", out var idCard))
+            {
+                if (TryComp<PdaComponent>(idCard, out var pda) && pda.ContainedId is { } contained)
+                    idCard = contained;
+                if (TryComp<StationRecordKeyStorageComponent>(idCard, out var storage) &&
+                    storage.Key is { } storedKey && storedKey.Equals(key.Value))
+                {
+                    selected = uid;
+                    break;
+                }
+            }
+
+            if ((holder.DisplayName ?? Name(uid)) != recordName)
+                continue;
+            // Do not silently open the wrong person's dossier if names collide.
+            if (matchingName != null)
+                matchingName = EntityUid.Invalid;
+            else
+                matchingName = uid;
+        }
+
+        selected ??= matchingName == EntityUid.Invalid ? null : matchingName;
+        if (selected == null || !_dossiers.TryOpenSelected(ent.Owner, msg.Actor, selected.Value))
+            _popup.PopupEntity(Loc.GetString("radiant-dossier-person-not-present"), ent, msg.Actor);
     }
 
     private void UpdateUserInterface<T>(Entity<CriminalRecordsConsoleComponent> ent, ref T args)

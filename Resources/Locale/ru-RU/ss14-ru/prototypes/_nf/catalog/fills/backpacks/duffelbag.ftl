@@ -80,3 +80,8 @@ ent-ClothingBackpackDuffelEVABundlePrivateSec = набор ЕВА телохра
 ent-ClothingBackpackDuffelEVABundleNfsd = набор ЕВА ДВБ
     .suffix = Заполненный
     .desc = { ent-ClothingBackpackDuffelNfsdBrown.desc }
+
+ent-BriefcaseBrownNfsdSniperBundle = коричневый портфель
+    .suffix = ДВБ, набор снайпера
+ent-ClothingBackpackDuffelEVABundleParamedicAlt = аварийный комплект парамедика
+    .suffix = Заполненный

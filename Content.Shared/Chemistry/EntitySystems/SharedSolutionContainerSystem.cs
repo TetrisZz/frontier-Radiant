@@ -860,7 +860,13 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
                                 ("max", solution.MaxVolume)));
 
             // Push the physical description of the primary reagent
-
+            var skills = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+            if (!skills.CanIdentifyReagent(args.Examiner, primary.ID))
+            {
+                args.PushText(Loc.GetString("professional-skills-unknown-reagent"));
+            }
+            else
+            {
             var colorHex = solution.GetColor(PrototypeManager)
                 .ToHexNoAlpha(); //TODO: If the chem has a dark color, the examine text becomes black on a black background, which is unreadable.
 
@@ -868,6 +874,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
                                         ("color", colorHex),
                                         ("desc", primary.LocalizedPhysicalDescription),
                                         ("chemCount", solution.Contents.Count) ));
+            }
 
             // Push the recognizable reagents
 
@@ -881,7 +888,8 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             foreach (var keyValuePair in sortedReagentPrototypes)
             {
                 var proto = keyValuePair.Key;
-                if (!proto.Recognizable)
+                if (!skills.CanIdentifyReagent(args.Examiner, proto.ID)
+                    || !proto.Recognizable && !Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem.IsCommonReagent(proto))
                 {
                     continue;
                 }
@@ -940,6 +948,9 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     /// </summary>
     private void OnSolutionExaminableVerb(Entity<ExaminableSolutionComponent> entity, ref GetVerbsEvent<ExamineVerb> args)
     {
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 2, false))
+            return;
         if (!args.CanInteract || !args.CanAccess)
             return;
 

@@ -17,6 +17,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Shuttles.Systems;
 using Content.Shared.Localizations;
 using Content.Shared.Station.Components;
 using Content.Shared.Storage.Components; //Radiant Sector
@@ -38,7 +39,6 @@ public sealed partial class SalvageSystem
      * Handles actively running a salvage expedition.
      */
 
-    private static readonly TimeSpan ManualFinishCooldown = TimeSpan.FromMinutes(4); ///radiant sector
     private static readonly ProtoId<RadioChannelPrototype> RescueMedicalChannel = "Medical"; ///Radiant Sector
     private const string SeparatistRadioImplantPrototype = "SeparatistsTrackingImplant"; ///Radiant Sector
 
@@ -127,14 +127,11 @@ public sealed partial class SalvageSystem
         if (component.Stage != ExpeditionStage.Added)
             return;
 
-        // Frontier: early finish
         if (TryComp<SalvageExpeditionDataComponent>(component.Station, out var data))
         {
-            data.CanFinish = false;
-            data.ManualFinishAvailableAt = _timing.CurTime + ManualFinishCooldown;
+            data.CanFinish = true;
             UpdateConsoles((component.Station, data));
         }
-        // End Frontier: early finish
 
         Announce(args.MapUid, Loc.GetString("salvage-expedition-announcement-countdown-minutes", ("duration", (component.EndTime - _timing.CurTime).Minutes)));
 
@@ -183,26 +180,30 @@ public sealed partial class SalvageSystem
 
     private void OnFTLStarted(ref FTLStartedEvent ev)
     {
-        if (!TryComp<SalvageExpeditionComponent>(ev.FromMapUid, out var expedition) ||
-            !TryComp<SalvageExpeditionDataComponent>(expedition.Station, out var station))
+        if (!TryComp<SalvageExpeditionComponent>(ev.FromMapUid, out var expedition))
         {
             return;
         }
 
-        station.CanFinish = false; // Frontier
-        station.ManualFinishAvailableAt = TimeSpan.Zero; // Frontier
-
-        // Check if any shuttles remain.
-        var query = EntityQueryEnumerator<ShuttleComponent, TransformComponent>();
-
-        while (query.MoveNext(out _, out var xform))
+        if (TryComp<SalvageExpeditionDataComponent>(expedition.Station, out var data))
         {
-            if (xform.MapUid == ev.FromMapUid)
-                return;
+            data.CanFinish = false;
+            UpdateConsoles((expedition.Station, data));
         }
 
         // Last shuttle has left so finish the mission.
-        QueueDel(ev.FromMapUid.Value);
+        if (!HasShuttleOnExpeditionMap(ev.FromMapUid.Value))
+            QueueDel(ev.FromMapUid.Value);
+    }
+
+    private bool HasShuttleOnExpeditionMap(EntityUid mapUid)
+    {
+        var query = EntityQueryEnumerator<ShuttleComponent, TransformComponent>();
+        while (query.MoveNext(out _, out var xform))
+            if (xform.MapUid == mapUid)
+                return true;
+
+        return false;
     }
 
     // Runs the expedition
@@ -327,27 +328,26 @@ public sealed partial class SalvageSystem
                 }
             }
 
-            if (remaining < TimeSpan.Zero)
+            // An FTL start may be delayed by the drive or by update order. Never
+            // delete the expedition map while a shuttle (and its crew) is still on it.
+            if (remaining < TimeSpan.Zero && !comp.RechargeDelayAnnounced)
+            {
+                var delayedShuttles = EntityQueryEnumerator<ShuttleComponent, FTLComponent, TransformComponent>();
+                while (delayedShuttles.MoveNext(out _, out _, out var ftl, out var shuttleXform))
+                {
+                    if (shuttleXform.MapUid != uid || ftl.State != FTLState.Cooldown)
+                        continue;
+
+                    comp.RechargeDelayAnnounced = true;
+                    Announce(uid, Loc.GetString("salvage-expedition-announcement-recharge-delay"));
+                    break;
+                }
+            }
+
+            if (remaining < TimeSpan.Zero && !HasShuttleOnExpeditionMap(uid))
             {
                 QueueDel(uid);
             }
-        }
-
-        var finishCooldownQuery = EntityQueryEnumerator<SalvageExpeditionComponent>();
-        while (finishCooldownQuery.MoveNext(out _, out var expedition))
-        {
-            if (expedition.Stage < ExpeditionStage.Running ||
-                !TryComp<SalvageExpeditionDataComponent>(expedition.Station, out var data) ||
-                data.CanFinish ||
-                data.ManualFinishAvailableAt == TimeSpan.Zero ||
-                data.ManualFinishAvailableAt > _timing.CurTime)
-            {
-                continue;
-            }
-
-            data.CanFinish = true;
-            data.ManualFinishAvailableAt = TimeSpan.Zero;
-            UpdateConsoles((expedition.Station, data));
         }
 
         // Frontier: mission-specific logic

@@ -17,6 +17,7 @@ public sealed partial class StampCollection : Container
     public StampCollection()
     {
         RobustXamlLoader.Load(this);
+        RectClipContent = true;
     }
 
     /// <summary>
@@ -25,6 +26,7 @@ public sealed partial class StampCollection : Container
     public void RemoveStamps()
     {
         _stamps.Clear();
+        RemoveAllChildren();
         InvalidateArrange();
     }
 
@@ -44,7 +46,8 @@ public sealed partial class StampCollection : Container
         var r = (finalSize * 0.5f).Length();
         var dtheta = -MathHelper.DegreesToRadians(90);
         var theta0 = random.Next(0, 3) * dtheta;
-        var thisCenter = PixelSizeBox.TopLeft + finalSize * UIScale * 0.5f;
+        var pageSize = finalSize * UIScale;
+        var thisCenter = pageSize * 0.5f;
 
         // Here's where we lay out the stamps. The first stamp goes in the
         // center of this container; subsequent stamps will chose an angle
@@ -64,15 +67,24 @@ public sealed partial class StampCollection : Container
                 childCenterOnCircle += new Vector2(MathF.Cos(theta), MathF.Sin(theta)) * r * UIScale;
             }
 
-            var childHeLocal = _stamps[i].DesiredPixelSize * 0.5f;
+            var childSize = (Vector2) _stamps[i].DesiredPixelSize;
+            var childHeLocal = childSize * 0.5f;
             var c = childHeLocal * MathF.Abs(MathF.Cos(stampOrientation));
             var s = childHeLocal * MathF.Abs(MathF.Sin(stampOrientation));
             var childHePage = new Vector2(c.X + s.Y, s.X + c.Y);
-            var controlBox = new UIBox2(PixelSizeBox.TopLeft, PixelSizeBox.TopLeft + finalSize * UIScale);
+            // Fit rotated impressions inside the paper, preserving a small margin.
+            var padding = Vector2.Min(new Vector2(8 * UIScale), pageSize * 0.1f);
+            var available = Vector2.Max(pageSize - padding * 2, Vector2.One);
+            var scale = MathF.Min(1f, MathF.Min(available.X / (childHePage.X * 2), available.Y / (childHePage.Y * 2)));
+            childSize *= scale;
+            childHeLocal *= scale;
+            childHePage *= scale;
+            var controlBox = new UIBox2(padding, pageSize - padding);
             var clampedCenter = Clamp(Shrink(controlBox, childHePage), childCenterOnCircle);
-            var finalPosition = clampedCenter - childHePage;
+            var finalPosition = clampedCenter - childHeLocal;
             var finalPositionAsInt = new Vector2i((int)finalPosition.X, (int)finalPosition.Y);
-            _stamps[i].ArrangePixel(new UIBox2i(finalPositionAsInt, finalPositionAsInt + _stamps[i].DesiredPixelSize));
+            var sizeAsInt = new Vector2i((int) childSize.X, (int) childSize.Y);
+            _stamps[i].ArrangePixel(new UIBox2i(finalPositionAsInt, finalPositionAsInt + sizeAsInt));
         }
 
         return finalSize;

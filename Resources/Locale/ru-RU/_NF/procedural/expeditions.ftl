@@ -1,5 +1,3 @@
-salvage-expedition-window-finish = Завершить экспедицию
-salvage-expedition-announcement-early-finish = Экспедиция была окончена. Шаттл покинет планету через {$departTime} секунд.
 salvage-expedition-announcement-destruction = { $count ->
     [1] Уничтожьте {$structure} до окончания экспедиции.
     *[others] Уничтожьте {$count} {$structure} до окончания экспедиции.
@@ -77,3 +75,6 @@ salvage-expedition-structure-remaining =
         [few] цели.
        *[other] целей.
     }
+salvage-expedition-window-finish = Завершить экспедицию
+salvage-expedition-announcement-early-finish = Экспедиция завершается досрочно. Шаттл покинет планету через {$departTime} секунд.
+salvage-expedition-announcement-recharge-delay = Вылет с экспедиции отложен до завершения перезарядки БС-двигателя. После перезарядки шаттл отправится автоматически.

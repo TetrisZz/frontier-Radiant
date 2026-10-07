@@ -1,4 +1,5 @@
 using System.Numerics;
+using Robust.Client.Graphics;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Paper.UI;
@@ -6,6 +7,9 @@ namespace Content.Client.Paper.UI;
 [RegisterComponent]
 public sealed partial class PaperVisualsComponent : Component
 {
+    public RSI? OriginalStampRsi;
+    public bool StampRsiCaptured;
+
     /// <summary>
     ///     The path to the image which will be used as a background for the paper itself
     /// </summary>

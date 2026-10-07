@@ -32,6 +32,7 @@ public sealed class SurgicalVoiceBoundUserInterface(EntityUid owner, Enum uiKey)
 public sealed class SurgicalVoiceWindow : DefaultWindow
 {
     private readonly OptionButton _voices = new() { HorizontalExpand = true };
+    private readonly Label _originalVoice = new();
     private readonly Button _save = new() { Text = Loc.GetString("surgical-voice-save") };
     private readonly Button _preview = new() { Text = Loc.GetString("surgical-voice-preview") };
     private List<TTSVoicePrototype> _options = new();
@@ -45,6 +46,7 @@ public sealed class SurgicalVoiceWindow : DefaultWindow
         var layout = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 10 };
         layout.AddChild(new Label { Text = Loc.GetString("surgical-voice-hint") });
         layout.AddChild(_voices);
+        layout.AddChild(_originalVoice);
         layout.AddChild(_preview);
         layout.AddChild(_save);
         Contents.AddChild(layout);
@@ -59,12 +61,19 @@ public sealed class SurgicalVoiceWindow : DefaultWindow
 
     public void SetState(SurgicalVoiceState state)
     {
+        _originalVoice.Visible = state.OriginalVoice != null;
+        var prototypes = IoCManager.Resolve<IPrototypeManager>();
+        _originalVoice.Text = state.OriginalVoice is { } original
+            && prototypes.TryIndex<TTSVoicePrototype>(original, out var originalPrototype)
+            ? Loc.GetString("restoration-original-voice", ("voice", Loc.GetString(originalPrototype.Name)))
+            : "";
         _options = IoCManager.Resolve<IPrototypeManager>().EnumeratePrototypes<TTSVoicePrototype>()
             .Where(v => v.RoundStart && HumanoidCharacterProfile.CanHaveVoice(v, state.Sex))
             .OrderBy(v => Loc.GetString(v.Name)).ToList();
         _voices.Clear();
         for (var i = 0; i < _options.Count; i++)
-            _voices.AddItem(Loc.GetString(_options[i].Name), i);
+            _voices.AddItem(Loc.GetString(_options[i].Name)
+                + (_options[i].ID == state.OriginalVoice ? Loc.GetString("restoration-original-marker") : ""), i);
         _selected = Math.Max(0, _options.FindIndex(v => v.ID == state.CurrentVoice));
         _save.Disabled = _preview.Disabled = _options.Count == 0;
         if (_options.Count > 0) _voices.SelectId(_selected);

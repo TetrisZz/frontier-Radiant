@@ -42,6 +42,8 @@
   id: BaseCategoryLips
   abstract: true
   category: lips
+  userBlockedClothingSlots: [mask]
+  targetBlockedClothingSlots: [mask]
 
 - type: interaction
   id: BaseCategoryHead
@@ -197,7 +199,7 @@
   id: InteractionHandshake
   arousalPoints: 1
 
-  category: body
+  category: hands
   name: interaction-handshake
   userMessages: ["chat-interaction-handshake-message"]
   targetMessages: ["chat-interaction-handshake-message-target"]
@@ -218,7 +220,7 @@
   id: InteractionGiveFive
   arousalPoints: 1
 
-  category: body
+  category: hands
   name: interaction-give-five
   userMessages: ["chat-interaction-give-five-message"]
   targetMessages: ["chat-interaction-give-five-message-target"]
@@ -451,7 +453,7 @@
   id: InteractionHoldHand
   arousalPoints: 1
 
-  category: body
+  category: hands
   name: interaction-hold-hand
   userMessages: ["chat-interaction-hold-hand-message"]
   targetMessages: ["chat-interaction-hold-hand-message-target"]
@@ -535,6 +537,8 @@
   arousalPoints: 2
 
   category: lips
+  userBlockedClothingSlots: [mask]
+  targetBlockedClothingSlots: [mask]
   name: interaction-kiss-lips
   userMessages: ["chat-interaction-kiss-lips-message"]
   targetMessages: ["chat-interaction-kiss-lips-message-target"]
@@ -549,7 +553,9 @@
   id: InteractionKissHand
   arousalPoints: 2
 
-  category: body
+  category: hands
+  userBlockedClothingSlots: [mask]
+  targetBlockedClothingSlots: [gloves]
   name: interaction-kiss-hand
   userMessages: ["chat-interaction-kiss-hand-message"]
   targetMessages: ["chat-interaction-kiss-hand-message-target"]
@@ -646,6 +652,8 @@
   id: InteractionBrushLips
 
   category: lips
+  userBlockedClothingSlots: [mask]
+  targetBlockedClothingSlots: [mask]
   name: interaction-brush-lips
   userMessages: ["chat-interaction-brush-lips-message"]
   targetMessages: ["chat-interaction-brush-lips-message-target"]
@@ -656,6 +664,8 @@
   id: InteractionintBiteLips
 
   category: lips
+  userBlockedClothingSlots: [mask]
+  targetBlockedClothingSlots: [mask]
   name: interaction-bite-lips
   userMessages: ["chat-interaction-bite-lips-message"]
   targetMessages: ["chat-interaction-bite-lips-message-target"]
@@ -1321,6 +1331,8 @@
   arousalPoints: 5
 
   category: lips
+  userBlockedClothingSlots: [mask]
+  targetBlockedClothingSlots: [mask]
   name: interaction-bite-lip
   userMessages: ["chat-interaction-bite-lip-message-1", "chat-interaction-bite-lip-message-2"]
   targetMessages: ["chat-interaction-bite-lip-message-target-1", "chat-interaction-bite-lip-message-target-2"]

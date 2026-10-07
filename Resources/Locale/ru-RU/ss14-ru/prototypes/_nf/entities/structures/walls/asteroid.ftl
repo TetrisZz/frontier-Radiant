@@ -402,3 +402,5 @@ ent-WallRockSandBluespace = { ent-WallRockSand }
 ent-WallRockSnowBluespace = { ent-WallRockSnow }
     .suffix = Блюспейс руда
     .desc = Рудная жила, содержащая в себе блюспейс руду.
+
+ent-NFWallRockScrapPile = куча металлолома

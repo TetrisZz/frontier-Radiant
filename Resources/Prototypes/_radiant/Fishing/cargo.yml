@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: RadiantCrateFishingGear
+  parent: CratePlasticBiodegradable
+  name: fishing gear crate
+  description: Two rods, bait and a hat packed for a day by the water.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FishingRod
+    - id: FishingRodClassic
+    - id: ClothingHeadFishCap
+    - id: RadiantFishingBaitNatural
+      amount: 3
+    - id: RadiantFishingBaitLuminous
+      amount: 3
+    - id: DrinkBeerBottleFull
+
+- type: cargoProduct
+  id: RadiantFishingGear
+  icon:
+    sprite: _radiant/Objects/Specific/Fishing/fishing_rod.rsi
+    state: icon
+  product: RadiantCrateFishingGear
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market

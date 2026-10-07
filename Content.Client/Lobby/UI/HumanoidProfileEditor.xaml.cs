@@ -11,6 +11,8 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
 using Content.Shared._radiant.Humanoid;
+using Content.Shared._radiant.Dossiers;
+using Content.Shared._radiant.Passports;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.GameTicking;
@@ -77,6 +79,7 @@ namespace Content.Client.Lobby.UI
 
         private bool _exporting;
         private bool _imaging;
+        private bool _updatingDossier;
 
         /// <summary>
         /// If we're attempting to save.
@@ -97,6 +100,11 @@ namespace Content.Client.Lobby.UI
         /// The character slot for the current profile.
         /// </summary>
         public int? CharacterSlot;
+
+        /// <summary>
+        /// Randomizing a saved slot creates a new identity rather than editing the old one.
+        /// </summary>
+        public bool ReplaceCharacterOnSave { get; private set; }
 
         /// <summary>
         /// The work in progress profile being edited.
@@ -184,6 +192,59 @@ namespace Content.Client.Lobby.UI
             {
                 Save?.Invoke();
             };
+
+            TabContainer.SetTabTitle(4, Loc.GetString("radiant-dossier-editor-tab"));
+            DossierTabs.PanelStyleBoxOverride = new StyleBoxFlat
+            {
+                BackgroundColor = Robust.Shared.Maths.Color.FromHex("#192331"),
+                BorderColor = Robust.Shared.Maths.Color.FromHex("#3B5B75"),
+                BorderThickness = new Robust.Shared.Maths.Thickness(1),
+            };
+            DossierTabs.SetTabTitle(0, Loc.GetString("radiant-dossier-personal"));
+            DossierTabs.SetTabTitle(1, Loc.GetString("radiant-dossier-medical"));
+            DossierTabs.SetTabTitle(2, Loc.GetString("radiant-dossier-security"));
+            DossierBirthplace.Placeholder = new Rope.Leaf(Loc.GetString("radiant-dossier-birthplace-placeholder"));
+            DossierResidence.Placeholder = new Rope.Leaf(Loc.GetString("radiant-dossier-residence-placeholder"));
+            DossierEmergency.Placeholder = new Rope.Leaf(Loc.GetString("radiant-dossier-emergency-placeholder"));
+            DossierOccupation.Placeholder = new Rope.Leaf(Loc.GetString("radiant-dossier-occupation-placeholder"));
+            DossierEducation.Placeholder = new Rope.Leaf(Loc.GetString("radiant-dossier-education-placeholder"));
+            DossierFeatures.Placeholder = new Rope.Leaf(Loc.GetString("radiant-dossier-features-placeholder"));
+            DossierAllergies.Placeholder = new Rope.Leaf(Loc.GetString("radiant-dossier-allergies-placeholder"));
+            DossierMedicalHistory.Placeholder = new Rope.Leaf(Loc.GetString("radiant-dossier-medical-history-placeholder"));
+            DossierResidence.OnTextChanged += _ => UpdatePersonalDossier();
+            DossierBirthplace.OnTextChanged += _ => UpdatePersonalDossier();
+            DossierFamily.OnItemSelected += args =>
+            {
+                DossierFamily.SelectId(args.Id);
+                UpdatePersonalDossier();
+            };
+            foreach (var citizenship in Enum.GetValues<RadiantCitizenship>())
+                DossierCitizenship.AddItem(Loc.GetString($"radiant-citizenship-{citizenship.ToString().ToLowerInvariant()}"),
+                    (int) citizenship);
+            DossierCitizenship.OnItemSelected += args =>
+            {
+                DossierCitizenship.SelectId(args.Id);
+                UpdatePersonalDossier();
+            };
+            DossierEmergency.OnTextChanged += _ => UpdatePersonalDossier();
+            DossierFeatures.OnTextChanged += _ => UpdatePersonalDossier();
+            DossierOccupation.OnTextChanged += _ => UpdatePersonalDossier();
+            DossierEducation.OnTextChanged += _ => UpdatePersonalDossier();
+            DossierAllergies.OnTextChanged += _ => UpdatePersonalDossier();
+            DossierMedicalHistory.OnTextChanged += _ => UpdatePersonalDossier();
+            DossierSave.OnPressed += _ =>
+            {
+                if (!DossierSave.Disabled)
+                    Save?.Invoke();
+            };
+            DossierRefresh.OnPressed += _ =>
+            {
+                if (CharacterSlot is not { } slot)
+                    return;
+                RefreshStaffDossier(null, true);
+                _preferencesManager.RequestDossier(slot);
+            };
+            _preferencesManager.OnDossierReceived += OnDossierReceived;
 
             #region Left
 
@@ -605,6 +666,7 @@ namespace Content.Client.Lobby.UI
             #region Markings
 
             TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-markings-tab")); // Frontier: 4<3
+            SetupSkills();
 
             Markings.OnMarkingAdded += OnMarkingChange;
             Markings.OnMarkingRemoved += OnMarkingChange;
@@ -805,6 +867,7 @@ namespace Content.Client.Lobby.UI
 
                         SetDirty();
                         RefreshTraits(); // If too many traits are selected, they will be reset to the real value.
+                        RefreshSkillLanguages();
                     };
                     selectors.Add(selector);
                 }
@@ -1013,8 +1076,15 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void SetProfile(HumanoidCharacterProfile? profile, int? slot)
         {
+            ReplaceCharacterOnSave = false;
             Profile = profile?.Clone();
             CharacterSlot = slot;
+            RefreshPersonalDossier();
+            RefreshSkills();
+            DossierRefresh.Disabled = slot == null;
+            RefreshStaffDossier(null, slot != null);
+            if (slot is { } dossierSlot)
+                _preferencesManager.RequestDossier(dossierSlot);
             IsDirty = false;
             JobOverride = null;
 
@@ -1050,6 +1120,104 @@ namespace Content.Client.Lobby.UI
             {
                 PreferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
             }
+        }
+
+        private void RefreshPersonalDossier()
+        {
+            _updatingDossier = true;
+            DossierIdentity.Text = Profile?.Name ?? "";
+            DossierSummary.Text = Profile == null ? "" : Loc.GetString("radiant-dossier-lobby-summary",
+                ("age", Profile.Age), ("species", _prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var species)
+                    ? Loc.GetString(species.Name) : Profile.Species.Id));
+            DossierResidence.TextRope = new Rope.Leaf(Profile?.Residence ?? "");
+            DossierBirthplace.TextRope = new Rope.Leaf(Profile?.Birthplace ?? "");
+            DossierCitizenship.SelectId((int) (Profile?.Citizenship ?? RadiantCitizenship.Asgard));
+            DossierCitizenship.Disabled = Profile?.CitizenshipLocked ?? false;
+            RefreshFamilyOptions();
+            DossierEmergency.TextRope = new Rope.Leaf(Profile?.EmergencyContact ?? "");
+            DossierFeatures.TextRope = new Rope.Leaf(Profile?.DistinguishingFeatures ?? "");
+            DossierOccupation.TextRope = new Rope.Leaf(Profile?.Occupation ?? "");
+            DossierEducation.TextRope = new Rope.Leaf(Profile?.Education ?? "");
+            DossierAllergies.TextRope = new Rope.Leaf(Profile?.Allergies ?? "");
+            DossierMedicalHistory.TextRope = new Rope.Leaf(Profile?.MedicalHistory ?? "");
+            DossierBloodGroup.Text = Profile?.BloodGroup is { Length: > 0 } bloodGroup ? bloodGroup
+                : Loc.GetString("radiant-dossier-blood-group-pending");
+            var saved = !ReplaceCharacterOnSave && CharacterSlot is { } slot &&
+                        _preferencesManager.Preferences?.Characters.TryGetValue(slot, out var stored) == true
+                ? stored as HumanoidCharacterProfile : null;
+            DossierBirthplace.Editable = string.IsNullOrWhiteSpace(saved?.Birthplace);
+            DossierResidence.Editable = string.IsNullOrWhiteSpace(saved?.Residence);
+            DossierEmergency.Editable = string.IsNullOrWhiteSpace(saved?.EmergencyContact);
+            DossierOccupation.Editable = string.IsNullOrWhiteSpace(saved?.Occupation);
+            DossierEducation.Editable = string.IsNullOrWhiteSpace(saved?.Education);
+            DossierFeatures.Editable = string.IsNullOrWhiteSpace(saved?.DistinguishingFeatures);
+            DossierAllergies.Editable = string.IsNullOrWhiteSpace(saved?.Allergies);
+            DossierMedicalHistory.Editable = string.IsNullOrWhiteSpace(saved?.MedicalHistory);
+            _updatingDossier = false;
+        }
+
+        private void RefreshFamilyOptions()
+        {
+            var wasUpdating = _updatingDossier;
+            _updatingDossier = true;
+            DossierFamily.Clear();
+            var sex = Profile?.Sex;
+            var single = sex == Sex.Male ? "radiant-dossier-family-single-male"
+                : sex == Sex.Female ? "radiant-dossier-family-single-female"
+                : "radiant-dossier-family-single-neutral";
+            var married = sex == Sex.Male ? "radiant-dossier-family-married-male"
+                : sex == Sex.Female ? "radiant-dossier-family-married-female"
+                : "radiant-dossier-family-married-neutral";
+            var names = new[]
+            {
+                "radiant-dossier-family-unspecified", single, married,
+                "radiant-dossier-family-partnered", "radiant-dossier-family-divorced", "radiant-dossier-family-widowed",
+            };
+            for (var index = 0; index < names.Length; index++)
+                DossierFamily.AddItem(Loc.GetString(names[index]), index);
+            var selected = Array.IndexOf(DossierFamilyStatus.Values, DossierFamilyStatus.Normalize(Profile?.FamilyStatus));
+            DossierFamily.SelectId(Math.Max(selected, 0));
+            _updatingDossier = wasUpdating;
+        }
+
+        private void OnDossierReceived(int slot, DossierRecord record)
+        {
+            if (CharacterSlot == slot)
+                RefreshStaffDossier(record);
+        }
+
+        private void RefreshStaffDossier(DossierRecord? record, bool loading = false)
+        {
+            var fallback = Loc.GetString(loading ? "radiant-dossier-loading" : "radiant-dossier-empty");
+            void Show(RichTextLabel label, string? value)
+                => label.SetMessage(!string.IsNullOrWhiteSpace(value) ? value : fallback);
+
+            Show(DossierMedicalInstructions, record?.MedicalInstructions);
+            Show(DossierMedicalRestrictions, record?.MedicalRestrictions);
+            Show(DossierMedicalPhysiology, record?.MedicalPhysiology);
+            Show(DossierMedicalPsychology, record?.MedicalPsychology);
+            Show(DossierMedicalNotes, record?.MedicalNotes);
+            Show(DossierSecurityPermissions, record?.SecurityPermissions);
+            Show(DossierSecurityArrests, record?.SecurityArrests);
+            Show(DossierSecurityConvictions, record?.SecurityConvictions);
+            DossierMedicalEditor.Text = string.IsNullOrWhiteSpace(record?.LastMedicalEditor) ? ""
+                : Loc.GetString("radiant-dossier-last-edit", ("name", record.LastMedicalEditor));
+            DossierSecurityEditor.Text = string.IsNullOrWhiteSpace(record?.LastSecurityEditor) ? ""
+                : Loc.GetString("radiant-dossier-last-edit", ("name", record.LastSecurityEditor));
+        }
+
+        private void UpdatePersonalDossier()
+        {
+            if (_updatingDossier || Profile == null)
+                return;
+            var familyIndex = Math.Clamp(DossierFamily.SelectedId, 0, DossierFamilyStatus.Values.Length - 1);
+            Profile = Profile.WithPersonalDetails(Rope.Collapse(DossierResidence.TextRope), DossierFamilyStatus.Values[familyIndex],
+                Rope.Collapse(DossierEmergency.TextRope), Rope.Collapse(DossierFeatures.TextRope),
+                Rope.Collapse(DossierBirthplace.TextRope), Rope.Collapse(DossierOccupation.TextRope),
+                Rope.Collapse(DossierEducation.TextRope), Rope.Collapse(DossierAllergies.TextRope),
+                Rope.Collapse(DossierMedicalHistory.TextRope))
+                .WithCitizenship((RadiantCitizenship) DossierCitizenship.SelectedId);
+            SetDirty();
         }
 
 
@@ -1455,6 +1623,7 @@ namespace Content.Client.Lobby.UI
             if (!disposing)
                 return;
 
+            _preferencesManager.OnDossierReceived -= OnDossierReceived;
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
         }
@@ -1481,6 +1650,7 @@ namespace Content.Client.Lobby.UI
         private void SetSex(Sex newSex)
         {
             Profile = Profile?.WithSex(newSex);
+            RefreshFamilyOptions();
             // for convenience, default to most common gender when new sex is selected
             switch (newSex)
             {
@@ -1526,6 +1696,7 @@ namespace Content.Client.Lobby.UI
             RefreshLoadouts();
             // Frontier: In case there's species restrictions for traits
             RefreshTraits(); // Frontier
+            RefreshSkillLanguages();
             UpdateSexControls(); // update sex for new species
             UpdateSpeciesGuidebookIcon();
             ReloadPreview();
@@ -1534,6 +1705,7 @@ namespace Content.Client.Lobby.UI
         private void SetName(string newName)
         {
             Profile = Profile?.WithName(newName);
+            DossierIdentity.Text = newName;
             SetDirty();
 
             if (!IsDirty)
@@ -1994,6 +2166,7 @@ namespace Content.Client.Lobby.UI
         private void UpdateSaveButton()
         {
             SaveButton.Disabled = Profile is null || !IsDirty;
+            DossierSave.Disabled = SaveButton.Disabled;
             ResetButton.Disabled = Profile is null || !IsDirty;
         }
 
@@ -2004,9 +2177,13 @@ namespace Content.Client.Lobby.UI
 
         private void RandomizeEverything()
         {
-            var oldBank = Profile?.BankBalance ?? HumanoidCharacterProfile.DefaultBalance; // Frontier
+            var previous = Profile;
+            var oldBank = previous?.BankBalance ?? HumanoidCharacterProfile.DefaultBalance; // Frontier
             Profile = HumanoidCharacterProfile.Random().WithBankBalance(oldBank); // Frontier: add WithBankBalance(oldBank)
+            var replacingSavedCharacter = ReplaceCharacterOnSave || previous?.CitizenshipLocked == true;
             SetProfile(Profile, CharacterSlot);
+            ReplaceCharacterOnSave = replacingSavedCharacter;
+            RefreshPersonalDossier();
             SetDirty();
         }
 
@@ -2050,6 +2227,11 @@ namespace Content.Client.Lobby.UI
                 var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!);
                 var oldProfile = Profile;
                 profile = profile.WithBankBalance(oldProfile.BankBalance); // Frontier: no free money (enforce import, don't care about import)
+                profile = profile.WithPersonalDetails(oldProfile.Residence, oldProfile.FamilyStatus,
+                    oldProfile.EmergencyContact, oldProfile.DistinguishingFeatures, oldProfile.Birthplace,
+                    oldProfile.Occupation, oldProfile.Education, oldProfile.Allergies, oldProfile.MedicalHistory);
+                profile.BloodGroup = oldProfile.BloodGroup;
+                profile = profile.WithCitizenship(oldProfile.Citizenship);
                 SetProfile(profile, CharacterSlot);
 
                 IsDirty = !profile.MemberwiseEquals(oldProfile);

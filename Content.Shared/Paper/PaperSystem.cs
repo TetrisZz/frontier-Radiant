@@ -17,6 +17,7 @@ using Content.Shared.Access.Systems; // Frontier
 using Content.Shared.Verbs; // Frontier
 using Content.Shared.Ghost; // Frontier
 using Content.Shared._Goobstation.Languages; // Radiant Sector
+using Content.Shared._radiant.Dossiers;
 using Content.Shared.IdentityManagement; // RMC14
 using Content.Shared.IdentityManagement.Components; // RMC14
 using Content.Shared.Mind.Components; // RMC14
@@ -89,6 +90,7 @@ public sealed class PaperSystem : EntitySystem
 
             if (entity.Comp.StampState != null)
                 _appearance.SetData(entity, PaperVisuals.Stamp, entity.Comp.StampState, appearance);
+            _appearance.SetData(entity, PaperVisuals.StampRsi, entity.Comp.StampRsiPath ?? "", appearance);
         }
     }
 
@@ -213,7 +215,7 @@ public sealed class PaperSystem : EntitySystem
             {
                 TrySign(entity, args.User, args.Used);
             }
-            else if (TryStamp(entity, stampInfo, stampComp.StampState))
+            else if (TryStamp(entity, stampInfo, stampComp.StampState, stampComp.StampRsiPath))
             {
                 // End Frontier: assign DisplayStampInfo before stamp
                 // successfully stamped, play popup
@@ -249,12 +251,18 @@ public sealed class PaperSystem : EntitySystem
         {
             Reapply = stamp.Reapply, // Frontier
             StampedName = stamp.StampedName,
-            StampedColor = stamp.StampedColor
+            StampedColor = stamp.StampedColor,
+            StampSprite = stamp.StampSprite
         };
     }
 
     private void OnInputTextMessage(Entity<PaperComponent> entity, ref PaperInputTextMessage args)
     {
+        // Printed dossiers may only fill one remaining form field; their template is immutable.
+        var dossierPrintout = HasComp<DossierPrintoutComponent>(entity);
+        if (dossierPrintout && !IsSingleDossierFieldFill(entity.Comp.Content, args.Text))
+            return;
+
         var ev = new PaperWriteAttemptEvent(entity.Owner);
         RaiseLocalEvent(args.Actor, ref ev);
         if (ev.Cancelled)
@@ -270,7 +278,12 @@ public sealed class PaperSystem : EntitySystem
         }
 
         var nativeLanguage = SpeciesLanguageUtility.GetNativeLanguage(EntityManager, args.Actor);
-        if (args.NativeLanguage)
+        if (dossierPrintout)
+        {
+            // Filling one field must not change the language of the entire printout.
+            entity.Comp.Language = null;
+        }
+        else if (args.NativeLanguage)
         {
             if (nativeLanguage == null || HasComp<NativeLanguageUnfamiliarComponent>(args.Actor))
             {
@@ -300,7 +313,7 @@ public sealed class PaperSystem : EntitySystem
             if (TryComp<AppearanceComponent>(entity, out var appearance))
                 _appearance.SetData(entity, PaperVisuals.Status, paperStatus, appearance);
 
-            if (TryComp(entity, out MetaDataComponent? meta))
+            if (!dossierPrintout && TryComp(entity, out MetaDataComponent? meta))
                 _metaSystem.SetEntityDescription(entity, "", meta);
 
             _adminLogger.Add(LogType.Chat,
@@ -312,6 +325,28 @@ public sealed class PaperSystem : EntitySystem
 
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
+    }
+
+    private static bool IsSingleDossierFieldFill(string previous, string next)
+    {
+        const string form = "[form]";
+        for (var position = previous.IndexOf(form, StringComparison.Ordinal); position >= 0;
+             position = previous.IndexOf(form, position + form.Length, StringComparison.Ordinal))
+        {
+            var suffixStart = position + form.Length;
+            if (next.Length <= previous.Length - form.Length ||
+                !next.StartsWith(previous[..position], StringComparison.Ordinal) ||
+                !next.EndsWith(previous[suffixStart..], StringComparison.Ordinal))
+                continue;
+
+            var replacement = next[position..(next.Length - (previous.Length - suffixStart))];
+            if (replacement.Length is > 0 and <= 256 &&
+                replacement.IndexOfAny(['[', ']', '\r', '\n']) < 0 &&
+                !string.IsNullOrWhiteSpace(replacement))
+                return true;
+        }
+
+        return false;
     }
 
     private void OnRandomPaperContentMapInit(Entity<RandomPaperContentComponent> ent, ref MapInitEvent args)
@@ -346,7 +381,7 @@ public sealed class PaperSystem : EntitySystem
     /// <summary>
     ///     Accepts the name and state to be stamped onto the paper, returns true if successful.
     /// </summary>
-    public bool TryStamp(Entity<PaperComponent> entity, StampDisplayInfo stampInfo, string spriteStampState)
+    public bool TryStamp(Entity<PaperComponent> entity, StampDisplayInfo stampInfo, string spriteStampState, string? spriteStampRsiPath = null)
     {
         if (CanStamp(stampInfo, entity.Comp)) // Frontier: !entity.Comp.StampedBy.Contains(stampInfo) < CanStamp(stampInfo, entity.Comp)
         {
@@ -363,6 +398,8 @@ public sealed class PaperSystem : EntitySystem
             if (entity.Comp.StampState == null && TryComp<AppearanceComponent>(entity, out var appearance))
             {
                 entity.Comp.StampState = spriteStampState;
+                entity.Comp.StampRsiPath = spriteStampRsiPath;
+                _appearance.SetData(entity, PaperVisuals.StampRsi, spriteStampRsiPath ?? "", appearance);
                 // Would be nice to be able to display multiple sprites on the paper
                 // but most of the existing images overlap
                 _appearance.SetData(entity, PaperVisuals.Stamp, entity.Comp.StampState, appearance);
@@ -381,6 +418,7 @@ public sealed class PaperSystem : EntitySystem
 
         target.Comp.StampedBy = new List<StampDisplayInfo>(source.Comp.StampedBy);
         target.Comp.StampState = source.Comp.StampState;
+        target.Comp.StampRsiPath = source.Comp.StampRsiPath;
         Dirty(target);
 
         // Frontier: apply stamp protection
@@ -392,6 +430,7 @@ public sealed class PaperSystem : EntitySystem
         {
             // delete any stamps if the stamp state is null
             _appearance.SetData(target, PaperVisuals.Stamp, target.Comp.StampState ?? "", appearance);
+            _appearance.SetData(target, PaperVisuals.StampRsi, target.Comp.StampRsiPath ?? "", appearance);
         }
     }
 
@@ -497,6 +536,21 @@ public sealed class PaperSystem : EntitySystem
         }
 
         return false;
+    }
+
+    public bool TrySignWithPassport(Entity<PaperComponent> paper, string name, string number)
+    {
+        var info = new StampDisplayInfo
+        {
+            Type = StampType.Signature,
+            StampedName = Loc.GetString("ee-passport-signature", ("name", name), ("number", number)),
+            StampedColor = Color.FromHex("#315C83"),
+        };
+        if (!CanStamp(info, paper.Comp))
+            return false;
+        TryStamp(paper, info, "paper_stamp-nf-signature");
+        UpdateUserInterface(paper);
+        return true;
     }
     #endregion Frontier
     // End Frontier

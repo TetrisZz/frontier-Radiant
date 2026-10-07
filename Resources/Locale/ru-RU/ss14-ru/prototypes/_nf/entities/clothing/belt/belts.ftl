@@ -18,3 +18,5 @@ ent-ClothingBeltMercenaryWebbing = РПС наемника
     .desc = Идеально подходит для хранения всего, от боеприпасов до оружия и предметов первой необходимости.
 ent-ClothingBeltChiefEngineerFilledBasic = инженерный пояс
     .desc = Держит инструменты, выглядит стильно.
+
+ent-ClothingBeltCCSheath = украшенные ножны для сабли

@@ -133,6 +133,11 @@ public record class EntityEffectReagentArgs : EntityEffectBaseArgs
 
     public FixedPoint2 Scale;
 
+    // Radiant: only these effect types are affected; duration and metabolism remain unchanged.
+    public float AddictionHealing = 1;
+    public float AddictionDamage = 1;
+    public float AddictionSlowdown = 1;
+
     public EntityEffectReagentArgs(EntityUid targetEntity, IEntityManager entityManager, EntityUid? organEntity, Solution? source, FixedPoint2 quantity, ReagentPrototype? reagent, ReactionMethod? method, FixedPoint2 scale) : base(targetEntity, entityManager)
     {
         OrganEntity = organEntity;

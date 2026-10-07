@@ -26,6 +26,11 @@ namespace Content.Shared.Chemistry.Components
         public bool Metamorphic = false;
         [DataField]
         public SpriteSpecifier? MetamorphicDefaultSprite;
+        /// <summary>
+        /// Restore the ordinary container sprite when emptied instead of retaining the last reagent's transparent base.
+        /// </summary>
+        [DataField]
+        public bool RestoreDefaultWhenEmpty = false;
         [DataField]
         public LocId MetamorphicNameFull = "transformable-container-component-glass";
 

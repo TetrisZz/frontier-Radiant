@@ -1,5 +1,3 @@
-salvage-expedition-window-finish = Finish expedition
-salvage-expedition-announcement-early-finish = The expedition was completed ahead of schedule. Shuttle will depart in {$departTime} seconds.
 salvage-expedition-announcement-destruction = { $count ->
     [1] Destroy the {$structure} before the expedition ends.
     *[others] Destroy {$count} {MAKEPLURAL($structure)} before the expedition ends.
@@ -73,3 +71,6 @@ salvage-expedition-structure-remaining = {$count ->
     [one] {$count} structure remaining.
     *[other] {$count} structures remaining.
 }
+salvage-expedition-window-finish = Finish expedition
+salvage-expedition-announcement-early-finish = The expedition is ending early. The shuttle will depart in {$departTime} seconds.
+salvage-expedition-announcement-recharge-delay = Expedition departure is delayed until the bluespace drive finishes recharging. The shuttle will depart automatically afterward.

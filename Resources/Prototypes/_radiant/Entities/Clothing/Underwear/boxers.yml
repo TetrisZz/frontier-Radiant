@@ -108,3 +108,25 @@
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/dvbb.rsi
 
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomRadiantStriped
+  name: полосатые плавки
+  description: Яркие полосатые плавки.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/boxers_striped.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Underwear/bottom/boxers_striped.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomRadiantBee
+  name: пчелиные плавки
+  description: Чёрно-жёлтые плавки с пчелиным узором.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/bee_shorts.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Underwear/bottom/bee_shorts.rsi
+

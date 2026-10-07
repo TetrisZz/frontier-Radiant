@@ -148,3 +148,4 @@ tiles-white-marble = белая мраморная плитка
 tiles-dark-marble = чёрная мраморная плитка
 tiles-plasma-marble = плазменная мраморная плитка
 tiles-uranium-marble = урановая мраморная плитка
+tiles-inflatable-plating = надувной пол

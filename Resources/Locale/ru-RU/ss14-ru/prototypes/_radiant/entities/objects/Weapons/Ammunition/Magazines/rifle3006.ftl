@@ -1,0 +1,14 @@
+ent-NFBaseMagazineRifle3006 = магазин для винтовки .30-06 Springfield
+ent-NFMagazineRifle3006 = магазин для винтовки .30-06 Springfield
+ent-NFMagazineRifle3006Empty = магазин для винтовки .30-06 Springfield
+    .suffix = Любые, пустой
+ent-NFMagazineRifle3006Incendiary = магазин для винтовки .30-06 Springfield
+    .suffix = Зажигательные
+ent-NFMagazineRifle3006Overpressure = магазин для винтовки .30-06 Springfield
+    .suffix = Усиленные
+ent-NFMagazineRifle3006Practice = магазин для винтовки .30-06 Springfield
+    .suffix = Учебные
+ent-NFMagazineRifle3006Rubber = магазин для винтовки .30-06 Springfield
+    .suffix = Резиновые
+ent-NFMagazineRifle3006Uranium = магазин для винтовки .30-06 Springfield
+    .suffix = Урановые

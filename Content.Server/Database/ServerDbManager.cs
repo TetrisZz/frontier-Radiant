@@ -40,7 +40,15 @@ namespace Content.Server.Database
 
         Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index);
 
-        Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot);
+        Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot, bool replaceCharacter = false);
+
+        Task<string?> GetCharacterDossierAsync(NetUserId userId, int slot);
+        Task SaveCharacterDossierAsync(NetUserId userId, int slot, string dossierJson);
+        Task<string?> GetDiscordLinkAsync(NetUserId userId);
+        Task<Dictionary<NetUserId, (string DiscordId, string RoleId)>> GetSupporterLinksAsync();
+        Task<NetUserId?> SetSupporterRoleAsync(string discordId, string roleId);
+        Task<bool> TryLinkDiscordAsync(NetUserId userId, string discordUserId);
+        Task RemoveDiscordLinkAsync(NetUserId userId);
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
 
@@ -495,10 +503,52 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SaveSelectedCharacterIndexAsync(userId, index));
         }
 
-        public Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
+        public Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot, bool replaceCharacter = false)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SaveCharacterSlotAsync(userId, profile, slot));
+            return RunDbCommand(() => _db.SaveCharacterSlotAsync(userId, profile, slot, replaceCharacter));
+        }
+
+        public Task<string?> GetCharacterDossierAsync(NetUserId userId, int slot)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetCharacterDossierAsync(userId, slot));
+        }
+
+        public Task SaveCharacterDossierAsync(NetUserId userId, int slot, string dossierJson)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveCharacterDossierAsync(userId, slot, dossierJson));
+        }
+
+        public Task<Dictionary<NetUserId, (string DiscordId, string RoleId)>> GetSupporterLinksAsync()
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetSupporterLinksAsync());
+        }
+
+        public Task<NetUserId?> SetSupporterRoleAsync(string discordId, string roleId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetSupporterRoleAsync(discordId, roleId));
+        }
+
+        public Task<string?> GetDiscordLinkAsync(NetUserId userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetDiscordLinkAsync(userId));
+        }
+
+        public Task<bool> TryLinkDiscordAsync(NetUserId userId, string discordUserId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.TryLinkDiscordAsync(userId, discordUserId));
+        }
+
+        public Task RemoveDiscordLinkAsync(NetUserId userId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemoveDiscordLinkAsync(userId));
         }
 
         public Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot)

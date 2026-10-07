@@ -38,6 +38,7 @@
   - type: NpcFactionMember
     factions:
     - Zombie
+  - type: VirologyZombieSource
   - type: Damageable
     damageModifierSet: Zombie
   - type: MeleeWeapon

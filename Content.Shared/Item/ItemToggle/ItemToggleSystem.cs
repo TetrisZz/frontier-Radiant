@@ -165,6 +165,9 @@ public sealed class ItemToggleSystem : EntitySystem
     /// </summary>
     public bool TryActivate(Entity<ItemToggleComponent?> ent, EntityUid? user = null, bool predicted = true, bool showPopup = true)
     {
+        if (user is { } actor && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(actor, ent, Content.Shared._radiant.Skills.SkillAction.Use, showPopup))
+            return false;
         if (!_query.Resolve(ent, ref ent.Comp, false))
             return false;
 

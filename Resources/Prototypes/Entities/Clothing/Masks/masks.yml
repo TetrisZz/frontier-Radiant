@@ -4,6 +4,8 @@
   name: gas mask
   description: A face-covering mask that can be connected to an air supply.
   components:
+  - type: VirologyProtection
+    dropletMultiplier: 0.1
   - type: Sprite
     sprite: Clothing/Mask/gas.rsi
   - type: Clothing
@@ -131,6 +133,8 @@
   name: medical mask
   description: A close-fitting sterile mask that can be connected to an air supply.
   components:
+  - type: VirologyProtection
+    dropletMultiplier: 0.3
   - type: SurgicalProtection
   - type: SurgicalItemSterility
   - type: Item
@@ -303,6 +307,8 @@
   name: sterile mask
   description: A sterile mask designed to help prevent the spread of diseases.
   components:
+  - type: VirologyProtection
+    dropletMultiplier: 0.3
   - type: SurgicalProtection
   - type: SurgicalItemSterility
   - type: Sprite

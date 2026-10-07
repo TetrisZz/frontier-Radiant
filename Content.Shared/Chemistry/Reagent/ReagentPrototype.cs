@@ -25,6 +25,11 @@ namespace Content.Shared.Chemistry.Reagent
     [DataDefinition]
     public sealed partial class ReagentPrototype : IPrototype, IInheritingPrototype
     {
+        // Radiant: per-reagent tolerance settings. Toxic HealthChange effects must also opt in.
+        [DataField] public bool AddictionToleranceHealing = true;
+        [DataField] public bool AddictionToleranceDamage = true;
+        [DataField] public bool AddictionToleranceSlowdown = true;
+
         [ViewVariables]
         [IdDataField]
         public string ID { get; private set; } = default!;

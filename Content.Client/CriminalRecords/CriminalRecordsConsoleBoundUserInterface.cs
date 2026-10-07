@@ -1,4 +1,5 @@
 using Content.Shared.Access.Systems;
+using Content.Shared._radiant.Dossiers;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
 using Content.Shared.Security;
@@ -17,7 +18,6 @@ public sealed class CriminalRecordsConsoleBoundUserInterface : BoundUserInterfac
     private readonly AccessReaderSystem _accessReader;
 
     private CriminalRecordsConsoleWindow? _window;
-    private CrimeHistoryWindow? _historyWindow;
 
     public CriminalRecordsConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -41,26 +41,8 @@ public sealed class CriminalRecordsConsoleBoundUserInterface : BoundUserInterfac
             SendMessage(new CriminalRecordChangeStatus(status, reason));
         _window.OnStatusFilterPressed += (statusFilter) =>
             SendMessage(new CriminalRecordSetStatusFilter(statusFilter));
-        _window.OnHistoryUpdated += UpdateHistory;
-        _window.OnHistoryClosed += () => _historyWindow?.Close();
+        _window.OnDossierRequested += () => SendMessage(new OpenSecurityDossierMessage());
         _window.OnClose += Close;
-
-        _historyWindow = new(comp.MaxStringLength);
-        _historyWindow.OnAddHistory += line => SendMessage(new CriminalRecordAddHistory(line));
-        _historyWindow.OnDeleteHistory += index => SendMessage(new CriminalRecordDeleteHistory(index));
-
-        _historyWindow.Close(); // leave closed until user opens it
-    }
-
-    /// <summary>
-    /// Updates or opens a new history window.
-    /// </summary>
-    private void UpdateHistory(CriminalRecord record, bool access, bool open)
-    {
-        _historyWindow!.UpdateHistory(record, access);
-
-        if (open)
-            _historyWindow.OpenCentered();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -78,6 +60,5 @@ public sealed class CriminalRecordsConsoleBoundUserInterface : BoundUserInterfac
         base.Dispose(disposing);
 
         _window?.Close();
-        _historyWindow?.Close();
     }
 }

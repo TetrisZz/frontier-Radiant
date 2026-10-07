@@ -1,0 +1,11 @@
+ent-HeadShadowkin = голова шадовкина
+ent-LeftArmShadowkin = левая рука шадовкина
+ent-LeftFootShadowkin = левая стопа шадовкина
+ent-LeftHandShadowkin = левая кисть шадовкина
+ent-LeftLegShadowkin = левая нога шадовкина
+ent-PartShadowkinBase = часть тела шадовкина
+ent-RightArmShadowkin = правая рука шадовкина
+ent-RightFootShadowkin = правая стопа шадовкина
+ent-RightHandShadowkin = правая кисть шадовкина
+ent-RightLegShadowkin = правая нога шадовкина
+ent-TorsoShadowkin = торс шадовкина

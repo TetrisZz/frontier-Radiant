@@ -149,6 +149,7 @@
     - NFMaterialElectronicsStatic # Frontier
     - NFEngineeringStructureBoardsStatic # Frontier
     - NFServiceToolsStatic # Frontier
+    - RadiantFishingStatic
     - NFServiceStatic # Frontier
     - ReportingStatic # DeltaV
     - NFPaperAndPaperAccessories # Frontier

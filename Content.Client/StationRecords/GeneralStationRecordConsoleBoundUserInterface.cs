@@ -1,4 +1,5 @@
 using Content.Shared.StationRecords;
+using Content.Shared._radiant.Dossiers;
 using Robust.Client.UserInterface;
 using Content.Shared._NF.StationRecords; // Frontier
 using Content.Shared.Roles; // Frontier
@@ -20,6 +21,8 @@ public sealed class GeneralStationRecordConsoleBoundUserInterface : BoundUserInt
         base.Open();
 
         _window = this.CreateWindow<GeneralStationRecordConsoleWindow>();
+        _window.ShowPersonalDossierButton(EntMan.HasComponent<DossierConsoleComponent>(Owner));
+        _window.OnPersonalDossierRequested += () => SendMessage(new OpenPersonalDossierMessage());
         _window.OnKeySelected += key =>
             SendMessage(new SelectStationRecord(key));
         _window.OnFiltersChanged += (type, filterValue) =>

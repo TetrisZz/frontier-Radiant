@@ -1,0 +1,70 @@
+- type: traitCategory
+  id: AddictionHistory
+  name: trait-category-addiction-history
+  maxTraitPoints: 1
+
+- type: trait
+  id: RadiantSmoker
+  name: trait-smoker-name
+  description: trait-smoker-desc
+  category: AddictionHistory
+  cost: 1
+  whitelist:
+    components: [Bloodstream]
+  components:
+  - type: PermanentHabit
+    group: nicotine
+
+- type: trait
+  id: RadiantRecoveringAddict
+  name: trait-recovering-addict-name
+  description: trait-recovering-addict-desc
+  category: AddictionHistory
+  cost: 1
+  whitelist:
+    components: [Bloodstream]
+  components:
+  - type: AddictionHistory
+    group: nicotine
+    dependence: 40
+    tolerance: 10
+    recovering: true
+
+- type: trait
+  id: RadiantRecoveringAlcoholic
+  name: trait-recovering-alcohol-name
+  description: trait-recovering-alcohol-desc
+  category: AddictionHistory
+  cost: 1
+  whitelist:
+    components: [Bloodstream]
+  components:
+  - type: AddictionHistory
+    group: alcohol
+    dependence: 40
+    tolerance: 10
+    recovering: true
+
+- type: trait
+  id: RadiantHabitualDrinker
+  name: trait-habitual-drinker-name
+  description: trait-habitual-drinker-desc
+  category: AddictionHistory
+  cost: 1
+  whitelist:
+    components: [Bloodstream]
+  components:
+  - type: PermanentHabit
+    group: alcohol
+
+- type: trait
+  id: RadiantHabitualDrugUser
+  name: trait-habitual-drug-user-name
+  description: trait-habitual-drug-user-desc
+  category: AddictionHistory
+  cost: 1
+  whitelist:
+    components: [Bloodstream]
+  components:
+  - type: PermanentHabit
+    group: narcotics

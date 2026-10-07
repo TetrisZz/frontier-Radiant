@@ -482,3 +482,36 @@
     state: braskirt
   - type: Clothing
     sprite: _radiant/Clothing/Uniforms/formal_attire_worn.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformRadiantReallyBlackSuitSkirt
+  name: чёрный деловой костюм с юбкой
+  description: Строгий чёрный костюм для тех, кто ценит сдержанный стиль.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/really_black_suit_skirt.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/really_black_suit_skirt.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformRadiantBlackSuitFemSkirt
+  name: чёрный приталенный костюм с юбкой
+  description: Строгий чёрный костюм для тех, кто ценит сдержанный стиль.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/black_suit_fem_skirt.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/black_suit_fem_skirt.rsi
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
+  id: ClothingUniformRadiantParamedicDarkSkirt
+  name: тёмная юбка-комбинезон парамедика
+  description: Практичная тёмная униформа с медицинской символикой.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/paramedic_dark_skirt.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/paramedic_dark_skirt.rsi

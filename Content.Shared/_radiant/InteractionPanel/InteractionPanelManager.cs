@@ -141,6 +141,11 @@ public sealed partial class InteractionPanelManager : IPostInjectInit
         mapping.Add("name", new ValueDataNode(prototype.Name));
         mapping.Add("erp", new ValueDataNode(prototype.ERP.ToString().ToLower()));
         mapping.Add("solo", new ValueDataNode(prototype.Solo.ToString().ToLower()));
+        mapping.Add("category", new ValueDataNode(prototype.Category));
+        AddSlots(mapping, "requiredClothingSlots", prototype.RequiredClothingSlots);
+        AddSlots(mapping, "oneRequiredClothingSlots", prototype.OneRequiredClothingSlots);
+        AddSlots(mapping, "userBlockedClothingSlots", prototype.UserBlockedClothingSlots);
+        AddSlots(mapping, "targetBlockedClothingSlots", prototype.TargetBlockedClothingSlots);
 
         if (prototype.RequiresStrapon)
             mapping.Add("requiresStrapon", new ValueDataNode("true"));
@@ -234,6 +239,16 @@ public sealed partial class InteractionPanelManager : IPostInjectInit
         sequenceNode.Add(mapping);
 
         return sequenceNode;
+    }
+
+    private static void AddSlots(MappingDataNode mapping, string key, List<string>? slots)
+    {
+        if (slots == null || slots.Count == 0)
+            return;
+        var sequence = new SequenceDataNode();
+        foreach (var slot in slots)
+            sequence.Add(new ValueDataNode(slot));
+        mapping.Add(key, sequence);
     }
 
     /// <summary>

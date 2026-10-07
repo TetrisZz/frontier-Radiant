@@ -17,3 +17,8 @@ ent-BoxFolderStc = папка с формами
     .desc = Папка с шаблонами документов.
 ent-BoxFolderClipboardPal = планшет
     .desc = Оружие тех, кто действует на передовой бюрократии.
+
+ent-BoxFolderPalBrown = папка PAL
+    .suffix = Коричневая
+ent-BoxFolderPalGreen = папка PAL
+    .suffix = Зелёная

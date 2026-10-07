@@ -1,0 +1,338 @@
+- type: professionalSkillRequirement
+  id: Sidearms
+  skill: Shooting
+  level: 1
+  actions: Shoot
+  targets: [BaseWeaponPistol, BaseWeaponRevolver, NFBaseWeaponFramePistol, NFBaseWeaponFrameRevolver]
+  inaccurateAtLevel: 1
+  misfireChance: 0.1
+
+- type: professionalSkillRequirement
+  id: EnergyWeapons
+  skill: Shooting
+  level: 1
+  actions: Shoot
+  targets: [BaseWeaponBattery, BaseWeaponPowerCell, NFBaseWeaponFrameEnergyPistol, NFBaseWeaponFramePowerCellPistol, NFBaseWeaponFrameEnergyRifle, NFBaseWeaponFrameMachinePistol]
+  inaccurateAtLevel: 1
+  misfireChance: 0.1
+
+- type: professionalSkillRequirement
+  id: LongGuns
+  skill: Shooting
+  level: 2
+  actions: Shoot
+  targets: [BaseWeaponSubMachineGun, BaseWeaponRifle, BaseWeaponShotgun, BaseWeaponSniper, NFBaseWeaponFrameSubMachineGun, NFBaseWeaponFrameRifle, NFBaseWeaponFrameRifleAssault, NFBaseWeaponFrameRifleSniper, NFBaseWeaponFrameShotgun, NFBaseWeaponFrameEnergySubMachineGun, NFBaseWeaponFrameEnergyRifleAssault, NFBaseWeaponFrameEnergyRifleSniper]
+  inaccurateAtLevel: 2
+  misfireChance: 0.1
+
+- type: professionalSkillRequirement
+  id: HeavyGuns
+  skill: Shooting
+  level: 3
+  actions: Shoot
+  targets: [BaseWeaponLightMachineGun, BaseWeaponLauncher, NFBaseWeaponFrameLightMachineGun, NFBaseWeaponFrameLauncher, WeaponLauncherM203]
+
+- type: professionalSkillRequirement
+  id: ToyGuns
+  skill: Shooting
+  level: 0
+  actions: Shoot
+  targets: [NFBaseWeaponFrameRevolverFoamForce, NFBaseWeaponFrameRifleFoamForce, NFBaseWeaponEnergyGunPractice]
+
+- type: professionalSkillRequirement
+  id: MiningGuns
+  skill: Salvage
+  level: 1
+  actions: Shoot
+  targets: [NFBaseWeaponFramePka]
+
+- type: professionalSkillRequirement
+  id: MiningScanner
+  skill: Salvage
+  level: 3
+  actions: Use
+  targets: [AdvancedMineralScannerUnpowered]
+
+- type: professionalSkillRequirement
+  id: Welding
+  skill: Engineering
+  level: 0
+  actions: Use
+  targets: [Welder, Wrench, Screwdriver, Wirecutter, Crowbar]
+
+- type: professionalSkillRequirement
+  id: IndustrialWelding
+  skill: Engineering
+  level: 1
+  actions: Use
+  targets: [WelderIndustrial]
+
+- type: professionalSkillRequirement
+  id: AdvancedWelding
+  skill: Engineering
+  level: 1
+  actions: Use
+  targets: [WelderIndustrialAdvanced]
+
+- type: professionalSkillRequirement
+  id: ExperimentalWelding
+  skill: Engineering
+  level: 1
+  actions: Use
+  targets: [WelderExperimental]
+
+- type: professionalSkillRequirement
+  id: RCD
+  skill: Engineering
+  level: 2
+  actions: Use
+  targets: [RCD, RCDCyber]
+
+- type: professionalSkillRequirement
+  id: PlantAnalysis
+  skill: Botany
+  level: 2
+  actions: Use
+  targets: [BasePlantAnalyzer]
+
+- type: professionalSkillRequirement
+  id: Cooking
+  skill: Cooking
+  level: 1
+  actions: Interface
+  targets: [KitchenMicrowave]
+  uiMessages: [MicrowaveStartCookMessage, AssemblerStartCookMessage]
+
+- type: professionalSkillRequirement
+  id: Chemistry
+  skill: Medicine
+  level: 2
+  actions: Interface
+  targets: [ChemMaster]
+  uiMessages: [ChemMasterReagentAmountButtonMessage, ChemMasterCreatePillsMessage, ChemMasterOutputToBottleMessage]
+
+- type: professionalSkillRequirement
+  id: Cloning
+  skill: Medicine
+  level: 4
+  actions: Interface
+  targets: [ComputerCloningConsole]
+  uiMessages: [UiButtonPressedMessage]
+
+- type: professionalSkillRequirement
+  id: Artifacts
+  skill: Science
+  level: 1
+  actions: Interface
+  targets: [ComputerAnalysisConsole]
+  uiMessages: [AnalysisConsoleExtractButtonPressedMessage]
+
+- type: professionalSkillRequirement
+  id: Research
+  skill: Science
+  level: 2
+  actions: Interface
+  targets: [ComputerResearchAndDevelopment]
+  uiMessages: [ConsoleUnlockTechnologyMessage]
+
+- type: professionalSkillRequirement
+  id: Anomalies
+  skill: Science
+  level: 2
+  actions: Interface
+  targets: [MachineAnomalyGenerator]
+  uiMessages: [AnomalyGeneratorGenerateButtonPressedEvent]
+
+- type: professionalSkillRequirement
+  id: ExperimentalAnomalies
+  skill: Science
+  level: 2
+  actions: Interface
+  targets: [MachineAnomalyVesselExperimental]
+
+- type: professionalSkillRequirement
+  id: AdvancedTools
+  skill: Engineering
+  level: 1
+  actions: Use
+  targets: [PowerDrill, JawsOfLife, Multitool, RPED]
+
+- type: professionalSkillRequirement
+  id: Flare
+  skill: Shooting
+  level: 0
+  actions: Shoot
+  targets: [NFWeaponHoloflareGun]
+
+- type: professionalSkillRequirement
+  id: Grapple
+  skill: Salvage
+  level: 0
+  actions: Shoot
+  targets: [WeaponGrapplingGun, WeaponGrapplingGunCyber]
+  inaccurateAtLevel: 0
+  misfireChance: 0.8
+
+- type: professionalSkillRequirement
+  id: MiningMelee
+  skill: Salvage
+  level: 1
+  actions: Use
+  targets: [MiningDrill]
+
+- type: professionalSkillRequirement
+  id: DiamondDrill
+  skill: Salvage
+  level: 3
+  actions: Use
+  targets: [MiningDrillDiamond]
+
+- type: professionalSkillRequirement
+  id: SpaceOreBag
+  skill: Salvage
+  level: 3
+  actions: Use
+  targets: [OreBagOfHolding]
+
+- type: professionalSkillRequirement
+  id: FirstAid
+  skill: Medicine
+  level: 0
+  actions: Use
+  targets: [Gauze]
+
+- type: professionalSkillRequirement
+  id: AdvancedHealing
+  skill: Medicine
+  level: 1
+  actions: Use
+  targets: [MedicatedSuture, RegenerativeMesh]
+
+- type: professionalSkillRequirement
+  id: Syringe
+  skill: Medicine
+  level: 1
+  actions: Use
+  targets: [Syringe, Hypospray, ChemicalMedipen]
+
+- type: professionalSkillRequirement
+  id: ShipAmmo
+  skill: Shooting
+  level: 1
+  actions: Reload
+  targets: [BallisticArtilleryUnanchorable]
+
+- type: professionalSkillRequirement
+  id: Crusher
+  skill: Salvage
+  level: 1
+  actions: Use
+  targets: [BaseWeaponCrusher, MineralScannerUnpowered, OreBox, NFMagnetBoxOre]
+
+- type: professionalSkillRequirement
+  id: Fertilizing
+  skill: Botany
+  level: 1
+  actions: Pour
+  targets: [hydroponicsSoil]
+
+- type: professionalSkillRequirement
+  id: MedicalAnalyzer
+  skill: Medicine
+  level: 1
+  actions: Use
+  targets: [HandheldHealthAnalyzerUnpowered]
+
+- type: professionalSkillRequirement
+  id: Gunnery
+  skill: Shooting
+  level: 3
+  actions: Interface
+  targets: [ComputerGunneryConsole]
+  uiMessages: [FireControlConsoleFireMessage]
+
+- type: professionalSkillRequirement
+  id: CivilianSmelting
+  skill: Salvage
+  level: 1
+  actions: Interface
+  targets: [OreProcessorCivilian]
+  uiMessages: [LatheQueueRecipeMessage]
+
+- type: professionalSkillRequirement
+  id: Smelting
+  skill: Salvage
+  level: 2
+  actions: Interface
+  targets: [OreProcessor]
+  uiMessages: [LatheQueueRecipeMessage]
+
+- type: professionalSkillRequirement
+  id: IndustrialSmelting
+  skill: Salvage
+  level: 4
+  actions: Interface
+  targets: [OreProcessorIndustrial]
+  uiMessages: [LatheQueueRecipeMessage]
+
+- type: professionalSkillRequirement
+  id: ChemicalDispensing
+  skill: Medicine
+  level: 2
+  actions: Interface
+  targets: [ChemDispenserEmpty]
+  uiMessages: [ReagentDispenserDispenseReagentMessage, ReagentDispenserClearContainerSolutionMessage]
+
+- type: professionalSkillRequirement
+  id: AtmosInstallation
+  skill: Engineering
+  level: 2
+  actions: Anchor
+  targets: [GasPipeSansLayers, GasUnaryBase, GasBinaryBase, GasTrinaryBase, GasCanister]
+
+- type: professionalSkillRequirement
+  id: AtmosControls
+  skill: Engineering
+  level: 2
+  actions: Interface
+  targets: [GasUnaryBase, GasBinaryBase, GasTrinaryBase, GasCanister]
+  uiMessages:
+  - GasCanisterChangeReleasePressureMessage
+  - GasCanisterChangeReleaseValveMessage
+  - GasPressureRegulatorChangeThresholdMessage
+  - GasPressurePumpToggleStatusMessage
+  - GasPressurePumpChangeOutputPressureMessage
+  - GasPressurePumpChangePumpDirectionMessage
+  - GasVolumePumpToggleStatusMessage
+  - GasVolumePumpChangeTransferRateMessage
+  - GasMixerToggleStatusMessage
+  - GasMixerChangeOutputPressureMessage
+  - GasMixerChangeNodePercentageMessage
+  - GasFilterToggleStatusMessage
+  - GasFilterChangeRateMessage
+  - GasFilterSelectGasMessage
+  - GasThermomachineToggleMessage
+  - GasThermomachineChangeTemperatureMessage
+
+- type: professionalSkillRequirement
+  id: CrusherShooting
+  skill: Salvage
+  level: 1
+  actions: Shoot
+  targets: [BaseWeaponCrusher]
+
+- type: professionalSkillRequirement
+  id: AtmosRemoteControls
+  skill: Engineering
+  level: 2
+  actions: Interface
+  targets: [ComputerAlert, AirAlarm]
+  uiMessages:
+  - RemoteGasPressurePumpChangePumpDirectionMessage
+  - RemoteGasPressurePumpChangeOutputPressureMessage
+  - RemoteGasPressurePumpToggleStatusMessage
+  - AirAlarmUpdateAlarmModeMessage
+  - AirAlarmUpdateAutoModeMessage
+  - AirAlarmUpdateDeviceDataMessage
+  - AirAlarmCopyDeviceDataMessage
+  - AirAlarmUpdateAlarmThresholdMessage

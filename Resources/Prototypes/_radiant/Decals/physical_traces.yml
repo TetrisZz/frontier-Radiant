@@ -1,0 +1,69 @@
+- type: decal
+  id: RadiantFootstep1
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _radiant/Effects/physical_traces.rsi
+    state: footstep_1
+
+- type: decal
+  id: RadiantFootstep2
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _radiant/Effects/physical_traces.rsi
+    state: footstep_2
+
+- type: decal
+  id: RadiantCrawlTrail1
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _radiant/Effects/physical_traces.rsi
+    state: crawl_1
+
+- type: decal
+  id: RadiantCrawlTrail2
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _radiant/Effects/physical_traces.rsi
+    state: crawl_2
+
+- type: decal
+  id: RadiantBloodCrawlTrail1
+  defaultCleanable: true
+  defaultSnap: false
+  sprite:
+    sprite: _radiant/Effects/physical_traces.rsi
+    state: blood_crawl_1
+
+- type: decal
+  id: RadiantBloodCrawlTrail2
+  defaultCleanable: true
+  defaultSnap: false
+  sprite:
+    sprite: _radiant/Effects/physical_traces.rsi
+    state: blood_crawl_2
+
+- type: decal
+  id: RadiantBloodSplatter1
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _radiant/Effects/physical_traces.rsi
+    state: blood_splatter_1
+
+- type: decal
+  id: RadiantBloodSplatter2
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _radiant/Effects/physical_traces.rsi
+    state: blood_splatter_2

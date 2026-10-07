@@ -22,8 +22,8 @@ public sealed class BodyScannerPlanTest
         var loc = server.ResolveDependency<ILocalizationManager>();
         await server.WaitAssertion(() =>
         {
-            var map = server.ResolveDependency<IMapManager>().CreateMap();
-            var coords = new MapCoordinates(0, 0, map);
+            var map = server.ResolveDependency<IEntityManager>().System<SharedMapSystem>().CreateMap();
+            var coords = new EntityCoordinates(map, 0, 0);
             var patient = entities.SpawnEntity("MobHuman", coords);
             var other = entities.SpawnEntity("MobHuman", coords);
             var scanner = entities.System<BodyScannerSystem>();

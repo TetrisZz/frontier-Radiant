@@ -1029,7 +1029,8 @@ namespace Content.Shared.Interaction
             EntityUid target,
             EntityCoordinates clickLocation,
             bool checkCanInteract = true,
-            bool checkCanUse = true)
+            bool checkCanUse = true,
+            bool skillDelayComplete = false)
         {
             if (IsDeleted(user) || IsDeleted(used) || IsDeleted(target))
                 return false;
@@ -1039,6 +1040,10 @@ namespace Content.Shared.Interaction
 
             if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, used))
                 return false;
+
+            if (!skillDelayComplete && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .DelayNoviceTool(user, used, target))
+                return true;
 
             _adminLogger.Add(
                 LogType.InteractUsing,

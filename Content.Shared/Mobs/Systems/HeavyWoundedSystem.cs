@@ -1,4 +1,6 @@
 using Content.Shared.Damage;
+using Robust.Shared.Network;
+using Robust.Shared.Random;
 using Content.Shared.Gravity;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -16,13 +18,16 @@ namespace Content.Shared.Mobs.Systems;
 /// </summary>
 public sealed class HeavyWoundedSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedWieldableSystem _wieldable = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedWieldableSystem _wieldable = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<HeavyWoundedComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<HeavyWoundedComponent, DamageChangedEvent>(OnDamageChanged, after: [typeof(MobThresholdSystem)]);
         SubscribeLocalEvent<HeavyWoundedComponent, WeightlessnessChangedEvent>(OnWeightlessnessChanged);
         SubscribeLocalEvent<HeavyWoundedComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HeavyWoundedComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -47,6 +52,10 @@ public sealed class HeavyWoundedSystem : EntitySystem
             Dirty(ent);
         }
 
+        // Damage inside a single threshold does not normally trigger UpdateMobState.
+        // Our probabilistic threshold must also be evaluated on these changes.
+        if (_net.IsServer)
+            _mobState.UpdateMobState(ent, origin: args.Origin);
         UpdateState(ent, args.Damageable);
     }
 
@@ -86,6 +95,39 @@ public sealed class HeavyWoundedSystem : EntitySystem
 
     private void OnUpdateMobState(Entity<HeavyWoundedComponent> ent, ref UpdateMobStateEvent args)
     {
+        // The threshold cache can remain unset while a freshly spawned mob stays alive.
+        if (args.State == MobState.Invalid)
+            args.State = args.Component.CurrentState;
+
+        if (_net.IsServer && TryComp<DamageableComponent>(ent, out var damage))
+        {
+            if (damage.TotalDamage < ent.Comp.DamageThreshold)
+            {
+                if (ent.Comp.EntryRolled || ent.Comp.Skipped)
+                {
+                    ent.Comp.EntryRolled = false;
+                    ent.Comp.Skipped = false;
+                    Dirty(ent);
+                }
+            }
+            else if (!ent.Comp.EntryRolled
+                     && args.State == MobState.Alive
+                     && args.Component.CurrentState == MobState.Alive
+                     && damage.TotalDamage < ent.Comp.CriticalThreshold
+                     && (!ent.Comp.RecoveredFromCritical || damage.TotalDamage > ent.Comp.DamageThreshold))
+            {
+                ent.Comp.EntryRolled = true;
+                ent.Comp.Skipped = _random.Prob(ent.Comp.SkipChance);
+                Dirty(ent);
+            }
+
+            // Keep the failed entry in critical condition until healed below the entry threshold.
+            // Never override death or higher-priority incapacitation states.
+            if (ent.Comp.Skipped && damage.TotalDamage >= ent.Comp.DamageThreshold
+                && args.State == MobState.Alive)
+                args.State = MobState.Critical;
+        }
+
         if (args.State != MobState.Alive
             || args.Component.CurrentState != MobState.Critical
             || !TryComp<DamageableComponent>(ent, out var damageable)
@@ -106,6 +148,7 @@ public sealed class HeavyWoundedSystem : EntitySystem
         var active = damageable.TotalDamage >= ent.Comp.DamageThreshold
                      && damageable.TotalDamage < ent.Comp.CriticalThreshold
                      && !ent.Comp.RecoveredFromCritical
+                     && !ent.Comp.Skipped
                      && mob.CurrentState == MobState.Alive;
 
         if (active == ent.Comp.Active)

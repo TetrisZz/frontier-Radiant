@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites taken from BlueMoon Station, icons/obj/wallmounts.dmi; original artwork by BlueMoon Station and upstream contributors. Converted to RSI for Radiant Sector.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "extinguisher_empty_closed" },
+    { "name": "extinguisher_empty_open" },
+    { "name": "extinguisher_mini_open" },
+    { "name": "extinguisher_standard_open" },
+    { "name": "extinguisher_advanced_open" },
+    { "name": "extinguisher_mini_closed" },
+    { "name": "extinguisher_closed" },
+    { "name": "extinguisher_advanced_closed" }
+  ]
+}

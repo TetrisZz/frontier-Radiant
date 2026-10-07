@@ -1,0 +1,1 @@
+ent-FireExtinguisherBluespace = блюспейс-огнетушитель

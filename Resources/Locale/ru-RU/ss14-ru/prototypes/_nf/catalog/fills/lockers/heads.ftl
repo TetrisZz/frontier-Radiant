@@ -7,3 +7,6 @@ ent-LockerStationRepresentativeFilled = { ent-LockerStationRepresentative }
 ent-GunSafeSr = оружейный сейф ПФ
     .suffix = Заполненный
     .desc = { ent-GunSafe.desc }
+
+ent-GunSafePlantManager = оружейный сейф руководителя электростанции
+    .suffix = Заполненный

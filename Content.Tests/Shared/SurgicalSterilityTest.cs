@@ -36,24 +36,24 @@ public sealed class SurgicalSterilityTest
     public void EquipmentBonusesAndPenalties(bool gloves, bool mask, bool outerwear, int expected)
         => Assert.That(SurgicalSterilityRules.EquipmentRisk(gloves, mask, outerwear), Is.EqualTo(expected));
 
-    [TestCase(6, 0, 6)]
-    [TestCase(6, 25, 3)]
-    [TestCase(10, 0, 10)]
-    [TestCase(10, 25, 5)]
-    public void ContactBudgetDelaysDirtAndCleaningResetsCounter(int limit, int contamination, int actions)
+    [TestCase(6, 0)]
+    [TestCase(6, 25)]
+    [TestCase(10, 0)]
+    [TestCase(10, 100)]
+    public void ToolsAndGlovesStaySafeForTheSamePatient(int limit, int contamination)
     {
         var item = new SurgicalItemSterilityComponent();
-        for (var i = 1; i < actions; i++)
+        for (var i = 0; i < 100; i++)
         {
             Assert.That(SurgicalSterilityRules.Contact(item, _first, contamination, true, limit), Is.Zero);
             Assert.That(item.Dirty, Is.False);
         }
-        Assert.That(SurgicalSterilityRules.Contact(item, _first, contamination, true, limit), Is.Zero);
+        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0, true, limit), Is.EqualTo(15));
         Assert.That(item.Dirty, Is.True);
-        Assert.That(SurgicalSterilityRules.Contact(item, _first, 0, true), Is.EqualTo(15));
+        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0, true), Is.EqualTo(15));
         SurgicalSterilityRules.Disinfect(item);
         Assert.That(item.UsesSinceCleaning, Is.Zero);
-        SurgicalSterilityRules.Contact(item, _first, 0, true);
+        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0, true), Is.Zero);
         Assert.That(item.Dirty, Is.False);
     }
 

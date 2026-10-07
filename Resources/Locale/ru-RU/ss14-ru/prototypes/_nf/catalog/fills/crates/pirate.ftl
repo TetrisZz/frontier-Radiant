@@ -7,3 +7,5 @@ ent-CratePirateChestGrapeShot = Сундук картечи
 ent-CratePirateChestGlassShot = Сундук стеклянной картечи
     .suffix = Заполненный
     .desc = { ent-CratePirateGrey.desc }
+
+ent-CratePirateChestNFCannonBallEmp = сундук с электромагнитными снарядами

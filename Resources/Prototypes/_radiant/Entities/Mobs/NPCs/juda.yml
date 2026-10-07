@@ -1,0 +1,49 @@
+- type: entity
+  id: MobJudaEmotionalSupport
+  parent: [NFMobPet, MobCorgiGhost]
+  name: Джуда
+  description: Похожая на банан ручная акула. Смешно перебирает лапками и успокаивающе булькает.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _radiant/Mobs/Pets/juda.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: juda
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: juda-moving
+    noMovementLayers:
+      movement:
+        state: juda
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: juda
+      Critical:
+        Base: juda_dead
+      Dead:
+        Base: juda_dead
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: RandomMetadata
+    nameSegments: null
+  - type: InteractionPopup
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      collection: JudaHappySounds
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Dog
+    allowedEmotes: ['Bark', 'Growl', 'Whine']
+  - type: Vocalizer
+    minVocalizeInterval: 2m
+    maxVocalizeInterval: 5m
+    hideChat: true
+  - type: DatasetVocalizer
+    dataset: JudaChatter

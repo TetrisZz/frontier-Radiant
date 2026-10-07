@@ -43,3 +43,13 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtVirology
 
+- type: loadout
+  id: PhoenixClothingUniformRadiantParamedicDark
+  equipment:
+    jumpsuit: ClothingUniformRadiantParamedicDark
+
+- type: loadout
+  id: PhoenixClothingUniformRadiantParamedicDarkSkirt
+  equipment:
+    jumpsuit: ClothingUniformRadiantParamedicDarkSkirt
+

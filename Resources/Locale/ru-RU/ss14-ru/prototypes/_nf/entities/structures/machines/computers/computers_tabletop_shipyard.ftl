@@ -12,3 +12,6 @@ ent-ComputerTabletopShipyardExpedition = { ent-ComputerShipyardExpedition }
     .desc = { ent-ComputerShipyardExpedition.desc }
 ent-ComputerTabletopShipyardScrap = { ent-ComputerShipyardScrap }
     .desc = { ent-ComputerShipyardScrap.desc }
+
+ent-ComputerTabletopShipyardCentcomm = кораблестроительная консоль Центрального командования
+    .suffix = Настольная

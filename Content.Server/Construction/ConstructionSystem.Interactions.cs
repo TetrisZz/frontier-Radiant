@@ -57,6 +57,16 @@ namespace Content.Server.Construction
             if (!Resolve(uid, ref construction))
                 return HandleResult.False;
 
+            if (ev is InteractUsingEvent interaction)
+            {
+                var skills = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+                var required = Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem
+                    .ConstructionLevel(construction.Graph, structure: false);
+                if (!skills.Check(interaction.User, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering,
+                        required, popup: !validation, serverPopup: true))
+                    return HandleResult.False;
+            }
+
             // If the state machine is in an invalid state (not on a valid node) we can't do anything, ever.
             if (GetCurrentNode(uid, construction) is not {} node)
             {
@@ -572,6 +582,18 @@ namespace Content.Server.Construction
                 // If they're already handled, we do nothing.
                 if (handled.Handled)
                     return;
+
+                // Validation below is deliberately silent; report a skill refusal here,
+                // otherwise the event is discarded before the real construction step runs.
+                if (args is InteractUsingEvent interaction
+                    && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                        .Check(interaction.User, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering,
+                            Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem
+                                .ConstructionLevel(construction.Graph, structure: false), serverPopup: true))
+                {
+                    handled.Handled = true;
+                    return;
+                }
 
                 // Otherwise, let's check if this event could be handled by the construction's current state.
                 if (HandleEvent(uid, args, true, construction) != HandleResult.Validated)

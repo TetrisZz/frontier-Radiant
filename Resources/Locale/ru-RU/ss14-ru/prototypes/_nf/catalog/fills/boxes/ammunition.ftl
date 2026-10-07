@@ -10,3 +10,14 @@ ent-BoxMagazinePistolSubMachineGunRubber = коробка магазинов д�
     .desc = Полная коробка магазинов для ПП с резиновыми патронами калибра .35 авто.
 ent-BoxMagazineRifleRubber = коробка магазинов с .20 винтовочными (резиновые)
     .desc = Полная коробка магазинов с резиновыми патронами калибра .20 винтовочный.
+
+ent-NFBoxMagazineHighCapacityPistol35Overpressure = коробка магазинов для пистолета .35 с усиленными патронами
+ent-NFBoxMagazinePistol35Practice = коробка магазинов для пистолета .35 с учебными патронами
+ent-NFBoxMagazinePistol35Rubber = коробка магазинов для пистолета .35 с резиновыми патронами
+ent-NFBoxMagazinePistolSubMachineGun35Overpressure = коробка магазинов для ПП .35 с усиленными патронами
+ent-NFBoxMagazinePistolSubMachineGun35Rubber = коробка магазинов для ПП .35 с резиновыми патронами
+ent-NFBoxMagazineRifle20Overpressure = коробка магазинов для винтовки .20 с усиленными патронами
+ent-NFBoxMagazineRifle20Rubber = коробка магазинов для винтовки .20 с резиновыми патронами
+ent-NFBoxMagazineRifle30Overpressure = коробка магазинов для винтовки .30 с усиленными патронами
+ent-NFBoxMagazineRifle30Rubber = коробка магазинов для винтовки .30 с резиновыми патронами
+ent-NFBoxMagazineTopMountedSubMachineGun35Overpressure = коробка магазинов для ПП .35 с верхней подачей и усиленными патронами

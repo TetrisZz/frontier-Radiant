@@ -1301,6 +1301,15 @@ public abstract class SharedStorageSystem : EntitySystem
         stackedEntity = null;
         reason = null;
 
+        var skills = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+        if (user is { } actor
+            && skills.Requirement(uid, Content.Shared._radiant.Skills.SkillAction.Use) is { } required
+            && !skills.Check(actor, required.Skill, required.Level, false))
+        {
+            reason = skills.Message(required.Skill, required.Level);
+            return false;
+        }
+
         if (!Resolve(uid, ref storageComp))
             return false;
 

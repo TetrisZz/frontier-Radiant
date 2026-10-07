@@ -1,0 +1,1 @@
+ent-NFWardrobePrison = гардероб заключённых

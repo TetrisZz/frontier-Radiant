@@ -55,3 +55,6 @@ ent-NFHolopadTradeStationCafeteria = { ent-NFHolopadLaboratory }
 ent-NFHolopadTradeStationSTC = { ent-NFHolopadLaboratory }
     .suffix = POI, торговый аванпост-диспечер трафика
     .desc = { ent-NFHolopadLaboratory.desc }
+
+ent-NFHolopadGrid = локальный голопад
+    .suffix = Локальная

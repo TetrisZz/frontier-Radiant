@@ -102,3 +102,6 @@ ent-VendingMachinePaintingPrinter = АртПресс
 ent-VendingMachinePaintingPrinterPOI = { ent-VendingMachinePaintingPrinter }
     .desc = { ent-VendingMachinePaintingPrinter.desc }
     .suffix = POI, Картины
+
+ent-VendingMachineMagivendConjured = призванный МагиВенд
+    .suffix = Призванный

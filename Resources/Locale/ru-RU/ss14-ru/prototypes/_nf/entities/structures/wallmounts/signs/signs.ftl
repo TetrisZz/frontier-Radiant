@@ -32,3 +32,8 @@ ent-NFSignEms2 = знак службы неотложной медицинско
     .desc = Знак, указывающий на наличие службы неотложной медицинской помощи.
 ent-NFSignEms1 = { ent-NFSignEms2 }
     .desc = { ent-NFSignEms2.desc }
+
+ent-SignNfsdBrigmed = знак медицинского отсека КСБ
+ent-SignNfsdLaw = знак адвоката
+ent-SignNfsdRange = знак стрельбища
+ent-WarningHelium = знак опасности гелия

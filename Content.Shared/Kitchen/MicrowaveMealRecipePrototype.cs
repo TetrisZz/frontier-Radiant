@@ -18,6 +18,12 @@ namespace Content.Shared.Kitchen
         [IdDataField]
         public string ID { get; private set; } = default!;
 
+        [DataField]
+        public int? CookingSkillLevel;
+
+        public int RequiredCookingLevel => CookingSkillLevel
+            ?? Content.Shared._radiant.Skills.ProfessionalSkillRules.CookingLevel(IngredientsSolids.Count + IngredientsReagents.Count);
+
         [DataField("name")]
         private string _name = string.Empty;
 

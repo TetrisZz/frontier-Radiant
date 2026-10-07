@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "copyright": "Sprites taken from BlueMoon Station, icons/obj/closet.dmi; original artwork by BlueMoon Station and upstream contributors. Converted to RSI for Radiant Sector. The transparent state was added for layering.",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "unlocked"
+    },
+    {
+      "name": "locked"
+    },
+    {
+      "name": "welded"
+    },
+    {
+      "name": "sparking"
+    },
+    {
+      "name": "med"
+    },
+    {
+      "name": "med_open"
+    },
+    {
+      "name": "med_door"
+    },
+    {
+      "name": "freezer"
+    },
+    {
+      "name": "freezer_open"
+    },
+    {
+      "name": "freezer_door"
+    },
+    {
+      "name": "cabinet"
+    },
+    {
+      "name": "cabinet_open"
+    },
+    {
+      "name": "cabinet_door"
+    },
+    {
+      "name": "mini_fridge"
+    },
+    {
+      "name": "mini_fridge_open"
+    },
+    {
+      "name": "mini_fridge_door"
+    },
+    {
+      "name": "riot"
+    },
+    {
+      "name": "riot_open"
+    },
+    {
+      "name": "riot_door"
+    },
+    {
+      "name": "eng"
+    },
+    {
+      "name": "eng_open"
+    },
+    {
+      "name": "eng_tool_door"
+    },
+    {
+      "name": "science"
+    },
+    {
+      "name": "science_open"
+    },
+    {
+      "name": "science_door"
+    },
+    {
+      "name": "sec"
+    },
+    {
+      "name": "sec_open"
+    },
+    {
+      "name": "sec_door"
+    },
+    {
+      "name": "cargo"
+    },
+    {
+      "name": "cargo_open"
+    },
+    {
+      "name": "cargo_door"
+    },
+    {
+      "name": "bio"
+    },
+    {
+      "name": "bio_open"
+    },
+    {
+      "name": "bio_door"
+    },
+    {
+      "name": "transparent"
+    }
+  ]
+}

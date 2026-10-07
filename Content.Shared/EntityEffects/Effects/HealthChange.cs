@@ -14,6 +14,13 @@ namespace Content.Shared.EntityEffects.Effects
     /// </summary>
     public sealed partial class HealthChange : EntityEffect
     {
+        // Opt in only for ordinary side effects, never overdose damage.
+        [DataField]
+        public bool ToleranceAffectsDamage;
+
+        [DataField]
+        public bool IgnoreAddictionTolerance;
+
         /// <summary>
         /// Damage to apply every cycle. Damage Ignores resistances.
         /// </summary>
@@ -95,6 +102,15 @@ namespace Content.Shared.EntityEffects.Effects
             if (args is EntityEffectReagentArgs reagentArgs)
             {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
+                if (!IgnoreAddictionTolerance)
+                {
+                    foreach (var (type, value) in damageSpec.DamageDict.ToArray())
+                    {
+                        var factor = value < 0 ? reagentArgs.AddictionHealing
+                            : ToleranceAffectsDamage ? reagentArgs.AddictionDamage : 1f;
+                        damageSpec.DamageDict[type] = value * factor;
+                    }
+                }
             }
 
             var universalReagentDamageModifier = args.EntityManager.System<DamageableSystem>().UniversalReagentDamageModifier;

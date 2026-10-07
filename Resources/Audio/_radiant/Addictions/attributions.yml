@@ -1,0 +1,4 @@
+- files: ["heartbeat.ogg"]
+  license: "CC0-1.0"
+  copyright: "Original procedural heartbeat synthesized for Radiant."
+  source: "https://github.com/TetrisZz/frontier-Radiant"

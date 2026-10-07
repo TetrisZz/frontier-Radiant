@@ -3,6 +3,11 @@
   id: ClothingBeltStraponBase
   abstract: true
   components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Trash
+    - Recyclable
   - type: Sprite
     sprite: _radiant/Clothing/Belt/strapon.rsi
   - type: Clothing

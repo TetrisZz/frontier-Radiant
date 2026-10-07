@@ -14,6 +14,7 @@ namespace Content.Client.Audio.Jukebox;
 
 public sealed class JukeboxSystem : SharedJukeboxSystem
 {
+    private const float MutedMusicVolume = -80f;
     private bool _clientMusicEnabled = true; // Radiant Sector
 
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
@@ -99,7 +100,9 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             if (jukebox.AudioStream is not { } stream || !TryComp<AudioComponent>(stream, out var audio))
                 continue;
 
-            audio.Gain = 0f;
+            // AudioSystem reapplies Params.Volume each update. Muting only Gain
+            // lets brief bursts through between updates, heard as static.
+            _audio.SetVolume(stream, MutedMusicVolume, audio);
         }
     }
 
@@ -117,11 +120,13 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
         if (!_clientMusicEnabled)
         {
-            audio.Gain = 0f;
+            _audio.SetVolume(stream, MutedMusicVolume, audio);
             return;
         }
 
-        var volume = SharedAudioSystem.GainToVolume(Math.Clamp(jukebox.Volume, 0f, 1f));
+        var volume = jukebox.Volume <= 0f
+            ? MutedMusicVolume
+            : SharedAudioSystem.GainToVolume(Math.Clamp(jukebox.Volume, 0f, 1f));
         _audio.SetVolume(audio.Owner, volume, audio);
     }
     // Radiant Sector end

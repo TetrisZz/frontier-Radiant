@@ -16,6 +16,9 @@ public sealed partial class ArcanaAuraAbilitySystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+
+    private readonly Dictionary<EntityUid, EntityUid> _visuals = new();
 
     public override void Initialize()
     {
@@ -49,6 +52,8 @@ public sealed partial class ArcanaAuraAbilitySystem : EntitySystem
 
         _actions.AddAction(entity, ref entity.Comp.ActionEntity, entity.Comp.Action, component: actions);
         _actions.SetToggled(entity.Comp.ActionEntity, entity.Comp.Enabled);
+        if (entity.Comp.Enabled)
+            EnsureVisual(entity.Owner);
     }
 
     private void OnShutdown(Entity<ArcanaAuraAbilityComponent> entity, ref ComponentShutdown args)
@@ -76,6 +81,11 @@ public sealed partial class ArcanaAuraAbilitySystem : EntitySystem
         entity.Comp.NextPulse = _timing.CurTime + entity.Comp.PulseInterval;
         Dirty(entity);
 
+        if (enabled)
+            EnsureVisual(entity.Owner);
+        else
+            RemoveVisual(entity.Owner);
+
         _actions.SetToggled(entity.Comp.ActionEntity, enabled);
 
         if (!showPopup || performer == null)
@@ -101,7 +111,39 @@ public sealed partial class ArcanaAuraAbilitySystem : EntitySystem
             if (recipient == uid)
                 continue;
 
+            var cooldown = EnsureComp<ArcanaAuraRecipientCooldownComponent>(recipient);
+            if (_timing.CurTime < cooldown.NextMessageAt)
+                continue;
+
+            cooldown.NextMessageAt = _timing.CurTime + component.RecipientCooldown;
             _popup.PopupEntity(message, recipient, recipient);
         }
     }
+
+    private void EnsureVisual(EntityUid owner)
+    {
+        if (_visuals.ContainsKey(owner))
+            return;
+
+        var visual = Spawn("ArcanaAuraGlimmer", Transform(owner).Coordinates);
+        _transform.SetParent(visual, owner);
+        _visuals.Add(owner, visual);
+    }
+
+    private void RemoveVisual(EntityUid owner)
+    {
+        if (!_visuals.Remove(owner, out var visual))
+            return;
+
+        QueueDel(visual);
+    }
+}
+
+/// <summary>
+/// Shared by all arcana auras so several nearby arcana cannot spam one observer.
+/// </summary>
+[RegisterComponent]
+public sealed partial class ArcanaAuraRecipientCooldownComponent : Component
+{
+    public TimeSpan NextMessageAt;
 }

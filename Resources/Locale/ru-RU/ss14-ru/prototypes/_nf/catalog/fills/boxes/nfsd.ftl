@@ -18,3 +18,9 @@ ent-BoxStingerGrenades = коробка травматических грана�
     .desc = Коробка, полная травматических гранат.
 ent-BoxBreachingCharges = коробка подрывных зарядов
     .desc = Коробка, полная подрывных зарядов.
+
+ent-BoxEMPGrenadesNfsd = коробка ЭМИ-гранат
+ent-BoxExplosiveGrenadesNfsd = коробка взрывных гранат
+ent-BoxIncendiaryGrenadesNfsd = коробка зажигательных гранат
+ent-BoxShrapnelGrenadesNfsd = коробка осколочных гранат
+ent-BoxStingerGrenadesNfsd = коробка травматических гранат

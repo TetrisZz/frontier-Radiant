@@ -46,8 +46,8 @@ public sealed partial class SalvageSystem
         SubscribeLocalEvent<SalvageExpeditionConsoleComponent, ComponentInit>(OnSalvageConsoleInit);
         SubscribeLocalEvent<SalvageExpeditionConsoleComponent, EntParentChangedMessage>(OnSalvageConsoleParent);
         SubscribeLocalEvent<SalvageExpeditionConsoleComponent, ClaimSalvageMessage>(OnSalvageClaimMessage);
+        SubscribeLocalEvent<SalvageExpeditionConsoleComponent, FinishSalvageMessage>(OnSalvageFinishMessage);
         SubscribeLocalEvent<SalvageExpeditionDataComponent, ExpeditionSpawnCompleteEvent>(OnExpeditionSpawnComplete); // Frontier: more gracefully handle expedition generation failures
-        SubscribeLocalEvent<SalvageExpeditionConsoleComponent, FinishSalvageMessage>(OnSalvageFinishMessage); // Frontier: For early finish
 
         SubscribeLocalEvent<SalvageExpeditionComponent, MapInitEvent>(OnExpeditionMapInit);
         SubscribeLocalEvent<SalvageExpeditionComponent, ComponentShutdown>(OnExpeditionShutdown);
@@ -212,8 +212,7 @@ public sealed partial class SalvageSystem
         }
         // End Frontier: separate timeout/announcement for success/failures
         component.ActiveMission = 0;
-        component.CanFinish = false; ///radiant sector
-        component.ManualFinishAvailableAt = TimeSpan.Zero; ///radiant sector
+        component.CanFinish = false;
         component.Cooldown = true;
         UpdateConsoles(expedition);
     }
@@ -261,7 +260,7 @@ public sealed partial class SalvageSystem
     private SalvageExpeditionConsoleState GetState(SalvageExpeditionDataComponent component)
     {
         var missions = component.Missions.Values.ToList();
-        return new SalvageExpeditionConsoleState(component.NextOffer, component.Claimed, component.Cooldown, component.ActiveMission, missions, component.CanFinish, component.ManualFinishAvailableAt, component.CooldownTime); // Frontier: add CanFinish, ManualFinishAvailableAt, CooldownTime
+        return new SalvageExpeditionConsoleState(component.NextOffer, component.Claimed, component.Cooldown, component.ActiveMission, missions, component.CanFinish, component.CooldownTime);
     }
 
     private void SpawnMission(SalvageMissionParams missionParams, EntityUid station, EntityUid shuttle, EntityUid? coordinatesDisk) // Frontier: add shuttle
@@ -303,9 +302,8 @@ public sealed partial class SalvageSystem
         if (component.ActiveMission == ev.MissionIndex && !ev.Success)
         {
             component.ActiveMission = 0;
+            component.CanFinish = false;
             component.Cooldown = false;
-            component.CanFinish = false; ///radiant sector
-            component.ManualFinishAvailableAt = TimeSpan.Zero; ///radiant sector
             UpdateConsoles((uid, component));
         }
     }

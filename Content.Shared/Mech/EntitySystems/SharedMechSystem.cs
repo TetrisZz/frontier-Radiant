@@ -404,6 +404,10 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (!CanInsert(uid, toInsert.Value, component))
             return false;
 
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(toInsert.Value, uid, Content.Shared._radiant.Skills.SkillAction.Pilot))
+            return false;
+
         SetupUser(uid, toInsert.Value);
         _container.Insert(toInsert.Value, component.PilotSlot);
         UpdateAppearance(uid, component);

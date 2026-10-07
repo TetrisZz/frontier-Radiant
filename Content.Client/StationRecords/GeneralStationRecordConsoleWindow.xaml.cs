@@ -18,6 +18,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
 
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
     public Action<uint>? OnDeleted;
+    public event Action? OnPersonalDossierRequested;
 
     public event Action<ProtoId<JobPrototype>>? OnJobAdd; // Frontier
     public event Action<ProtoId<JobPrototype>>? OnJobSubtract; // Frontier
@@ -33,6 +34,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     public GeneralStationRecordConsoleWindow()
     {
         RobustXamlLoader.Load(this);
+        PersonalDossierButton.OnPressed += _ => OnPersonalDossierRequested?.Invoke();
         IoCManager.InjectDependencies(this); // Frontier
 
         _currentFilterType = StationRecordFilterType.Name;
@@ -108,6 +110,9 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         };
         // End Frontier: station/ship advertisements
     }
+
+    public void ShowPersonalDossierButton(bool visible)
+        => PersonalDossierButton.Visible = visible;
 
     public void UpdateState(GeneralStationRecordConsoleState state)
     {

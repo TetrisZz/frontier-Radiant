@@ -1,0 +1,14 @@
+ent-NFBaseMagazinePistol45 = пистолетный магазин (.45)
+ent-NFMagazinePistol45 = пистолетный магазин (.45)
+ent-NFMagazinePistol45Empty = пистолетный магазин (.45)
+    .suffix = Любые, пустой
+ent-NFMagazinePistol45Incendiary = пистолетный магазин (.45)
+    .suffix = Зажигательные
+ent-NFMagazinePistol45Overpressure = пистолетный магазин (.45)
+    .suffix = Усиленные
+ent-NFMagazinePistol45Practice = пистолетный магазин (.45)
+    .suffix = Учебные
+ent-NFMagazinePistol45Rubber = пистолетный магазин (.45)
+    .suffix = Резиновые
+ent-NFMagazinePistol45Uranium = пистолетный магазин (.45)
+    .suffix = Урановые

@@ -50,6 +50,9 @@ namespace Content.Client.Lobby.UI
             {
                 _preferencesManager.CreateCharacter(HumanoidCharacterProfile.Random());
                 ReloadCharacterPickers();
+                profileEditor.SetProfile(
+                    (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter,
+                    _preferencesManager.Preferences?.SelectedCharacterIndex);
                 args.Event.Handle();
             };
 

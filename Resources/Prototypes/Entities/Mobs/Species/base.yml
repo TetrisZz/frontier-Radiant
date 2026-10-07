@@ -271,6 +271,7 @@
       groups:
         Brute: -0.07
   - type: Fingerprint
+  - type: FootstepTrack
   - type: Scent # Radiant sector: organic characters leave trails for olfactory implants.
   - type: Blindable
   # Other

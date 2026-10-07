@@ -1,0 +1,33 @@
+- type: entity
+  id: ArcanaAuraGlimmer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    drawdepth: OverMobs
+    sprite: Fluids/wet_floor_sparkles.rsi
+    scale: 0.8, 0.8
+    offset: 0, 0.12
+    color: "#D888E899"
+    state: sparkles
+  - type: PointLight
+    color: "#C36DE8"
+    radius: 2
+    energy: 0.55
+  - type: LightBehaviour
+    behaviours:
+    - !type:PulseBehaviour
+      id: arcana-glimmer
+      interpolate: Cubic
+      maxDuration: 3.0
+      startValue: 0.35
+      endValue: 0.8
+      isLooped: true
+      reverseWhenFinished: true
+      property: Energy
+      enabled: true
+  - type: Tag
+    tags:
+    - HideContextMenu

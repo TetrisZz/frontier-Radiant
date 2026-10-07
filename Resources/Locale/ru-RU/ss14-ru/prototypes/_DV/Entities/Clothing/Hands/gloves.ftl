@@ -1,0 +1,1 @@
+ent-ClothingHandsGlovesCentComm = перчатки Центрального командования

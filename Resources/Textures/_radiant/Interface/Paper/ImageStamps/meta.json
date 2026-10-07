@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Stamp impressions taken from BlueMoon Station, icons/stamp_icons/legit; original artwork by BlueMoon Station and upstream contributors. Copied unchanged for Radiant Sector.",
+  "files": [
+    {
+      "name": "feline_large_stamp-personal.png",
+      "source": "icons/stamp_icons/legit/feline_large_stamp-personal.png"
+    },
+    {
+      "name": "horny_large_stamp-personal.png",
+      "source": "icons/stamp_icons/legit/horny_large_stamp-personal.png"
+    },
+    {
+      "name": "large_stamp-centcom.png",
+      "source": "icons/stamp_icons/legit/large_stamp-centcom.png"
+    },
+    {
+      "name": "large_stamp-clown.png",
+      "source": "icons/stamp_icons/legit/large_stamp-clown.png"
+    },
+    {
+      "name": "large_stamp-deny.png",
+      "source": "icons/stamp_icons/legit/large_stamp-deny.png"
+    },
+    {
+      "name": "large_stamp-mime.png",
+      "source": "icons/stamp_icons/legit/large_stamp-mime.png"
+    },
+    {
+      "name": "large_stamp-ok.png",
+      "source": "icons/stamp_icons/legit/large_stamp-ok.png"
+    },
+    {
+      "name": "pepe-large_stamp-custom.png",
+      "source": "icons/stamp_icons/legit/pepe-large_stamp-custom.png"
+    }
+  ]
+}

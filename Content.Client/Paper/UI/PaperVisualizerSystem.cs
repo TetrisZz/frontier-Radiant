@@ -1,4 +1,5 @@
 using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 
 using static Content.Shared.Paper.PaperComponent;
 
@@ -11,6 +12,13 @@ public sealed class PaperVisualizerSystem : VisualizerSystem<PaperVisualsCompone
         if (args.Sprite == null)
             return;
 
+        if (!component.StampRsiCaptured &&
+            SpriteSystem.TryGetLayer((uid, args.Sprite), PaperVisualLayers.Stamp, out var stampLayer, false))
+        {
+            component.OriginalStampRsi = stampLayer.ActualRsi;
+            component.StampRsiCaptured = true;
+        }
+
         if (AppearanceSystem.TryGetData<PaperStatus>(uid, PaperVisuals.Status, out var writingStatus, args.Component))
             SpriteSystem.LayerSetVisible((uid, args.Sprite), PaperVisualLayers.Writing, writingStatus == PaperStatus.Written);
 
@@ -18,6 +26,13 @@ public sealed class PaperVisualizerSystem : VisualizerSystem<PaperVisualsCompone
         {
             if (stampState != string.Empty)
             {
+                if (AppearanceSystem.TryGetData<string>(uid, PaperVisuals.StampRsi, out var stampRsi, args.Component))
+                {
+                    if (string.IsNullOrEmpty(stampRsi))
+                        SpriteSystem.LayerSetRsi((uid, args.Sprite), PaperVisualLayers.Stamp, component.OriginalStampRsi);
+                    else
+                        SpriteSystem.LayerSetRsi((uid, args.Sprite), PaperVisualLayers.Stamp, new ResPath(stampRsi));
+                }
                 SpriteSystem.LayerSetRsiState((uid, args.Sprite), PaperVisualLayers.Stamp, stampState);
                 SpriteSystem.LayerSetVisible((uid, args.Sprite), PaperVisualLayers.Stamp, true);
             }

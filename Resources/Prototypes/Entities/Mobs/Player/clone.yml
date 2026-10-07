@@ -12,6 +12,7 @@
   - DetailExaminable
   - Dna
   - Fingerprint
+  - PassportIdentity # EE: preserve document number with the cloned identity
   - NpcFactionMember
   # traits
   - BlackAndWhiteOverlay
@@ -73,6 +74,10 @@
   - TTS # Corvax-TTS
   - NativeLanguageUnfamiliar # Radiant Sector
   - NativeLanguageOnly # Radiant Sector
+  - AddictionHistory # Radiant Sector
+  - PermanentHabit # Radiant Sector
+  - UndocumentedImmigrant # EE
+  - Addiction # Preserve current progress instead of resetting it when cloned.
 
 # for job-specific traits etc.
 - type: cloningSettings

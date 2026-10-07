@@ -176,6 +176,15 @@ public sealed class PlantHolderSystem : EntitySystem
     {
         var (uid, component) = entity;
 
+        if ((_tagSystem.HasTag(args.Used, HoeTag) || HasComp<ShovelComponent>(args.Used) || HasComp<SharpComponent>(args.Used))
+            && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Level(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany) == 0 && _random.Prob(0.6f))
+        {
+            args.Handled = true;
+            _popup.PopupCursor(Loc.GetString("professional-skills-botany-failure"), args.User);
+            return;
+        }
+
         if (TryComp(args.Used, out SeedComponent? seeds))
         {
             if (component.Seed == null)

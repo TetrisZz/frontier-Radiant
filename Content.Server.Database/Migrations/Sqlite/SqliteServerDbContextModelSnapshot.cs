@@ -49,6 +49,16 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("admin", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.RadiantDiscordLink", b =>
+                {
+                    b.Property<string>("SupporterRoleId").IsRequired().HasMaxLength(20).HasColumnType("TEXT").HasColumnName("supporter_role_id");
+                    b.Property<Guid>("UserId").ValueGeneratedOnAdd().HasColumnType("TEXT").HasColumnName("user_id");
+                    b.Property<string>("DiscordUserId").IsRequired().HasMaxLength(20).HasColumnType("TEXT").HasColumnName("discord_user_id");
+                    b.HasKey("UserId").HasName("PK_radiant_discord_link");
+                    b.HasIndex("DiscordUserId").IsUnique().HasDatabaseName("IX_radiant_discord_link_discord_user_id");
+                    b.ToTable("radiant_discord_link", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdminFlag", b =>
                 {
                     b.Property<int>("Id")
@@ -844,6 +854,20 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("Children").IsRequired().HasColumnType("TEXT").HasColumnName("children");
+                    b.Property<string>("Citizenship").IsRequired().HasColumnType("TEXT").HasColumnName("citizenship");
+                    b.Property<string>("Birthplace").IsRequired().HasColumnType("TEXT").HasColumnName("birthplace");
+                    b.Property<string>("Occupation").IsRequired().HasColumnType("TEXT").HasColumnName("occupation");
+                    b.Property<string>("Education").IsRequired().HasColumnType("TEXT").HasColumnName("education");
+                    b.Property<string>("Allergies").IsRequired().HasColumnType("TEXT").HasColumnName("allergies");
+                    b.Property<string>("MedicalHistory").IsRequired().HasColumnType("TEXT").HasColumnName("medical_history");
+                    b.Property<string>("BloodGroup").IsRequired().HasColumnType("TEXT").HasColumnName("blood_group");
+                    b.Property<string>("DistinguishingFeatures").IsRequired().HasColumnType("TEXT").HasColumnName("distinguishing_features");
+                    b.Property<string>("DossierJson").IsRequired().HasColumnType("TEXT").HasColumnName("dossier_json");
+                    b.Property<string>("EmergencyContact").IsRequired().HasColumnType("TEXT").HasColumnName("emergency_contact");
+                    b.Property<string>("FamilyStatus").IsRequired().HasColumnType("TEXT").HasColumnName("family_status");
+                    b.Property<string>("Residence").IsRequired().HasColumnType("TEXT").HasColumnName("residence");
+
                     b.Property<int>("ERPStatus")
                         .HasColumnType("INTEGER")
                         .HasColumnName("erpstatus");
@@ -875,6 +899,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("facial_hair_name");
+
+                    b.Property<string>("SkillLevels")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("skill_levels");
 
                     b.Property<string>("FlavorText")
                         .IsRequired()

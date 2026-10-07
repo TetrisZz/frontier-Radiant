@@ -94,6 +94,9 @@ public sealed partial class MicrowaveSystem : EntitySystem
         }
 
         // We're actually microwaving things, run the wzhzhzh checks
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Cooking, portionedRecipe.Item1.RequiredCookingLevel))
+            return;
         foreach (var item in component.Storage.ContainedEntities.ToArray())
         {
             var ev = new BeingMicrowavedEvent(uid, user, component.CanHeat, component.CanIrradiate);

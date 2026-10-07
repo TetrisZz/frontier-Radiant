@@ -1,0 +1,10 @@
+- type: sourcePort
+  id: GeneticCapsuleSender
+  name: genetics-port-name
+  description: genetics-port-source-description
+  defaultLinks: [GeneticCapsuleReceiver]
+
+- type: sinkPort
+  id: GeneticCapsuleReceiver
+  name: genetics-port-name
+  description: genetics-port-sink-description

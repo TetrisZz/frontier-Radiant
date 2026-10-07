@@ -8,6 +8,8 @@ using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Whitelist;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -19,7 +21,8 @@ namespace Content.Server._radiant.Mech.Systems;
 /// </summary>
 public sealed partial class ClarkeMechDrillSystem : EntitySystem
 {
-    private const float CursorTargetRadius = 0.75f;
+    private const float CursorTargetRadius = 0.85f;
+    private const float SwingArcCosine = 0.5f; // 120-degree mining arc.
 
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -27,6 +30,8 @@ public sealed partial class ClarkeMechDrillSystem : EntitySystem
     [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private MeleeWeaponSystem _melee = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     private readonly SoundSpecifier _drillSound = new SoundPathSpecifier("/Audio/_radiant/Mech/clarke_drill.ogg");
 
@@ -76,9 +81,10 @@ public sealed partial class ClarkeMechDrillSystem : EntitySystem
         var targets = new HashSet<EntityUid>();
         CollectDrillTargets(mech, pilot, args, targets);
 
+        var hit = false;
         foreach (var target in targets)
         {
-            TryDrill(mech, drill, target);
+            hit |= TryDrill(mech, drill, target, hit);
         }
 
         // Prevent the stock handler from repeating the hit with the pilot as its source.
@@ -120,6 +126,39 @@ public sealed partial class ClarkeMechDrillSystem : EntitySystem
         foreach (var (entity, _) in _lookup.GetEntitiesInRange<GatherableComponent>(clickCoordinates, CursorTargetRadius))
         {
             if (IsValidDrillTarget(mech, pilot, entity))
+                targets.Add(entity);
+        }
+
+        // The client normally raycasts from the pilot, who is inside the Clarke. That ray
+        // often hits the chassis first and leaves the packet without the adjacent rock.
+        // Resolve nearby rocks from the mech's position and cursor direction instead.
+        if (!TryComp<MechComponent>(mech, out var mechComponent) ||
+            mechComponent.CurrentSelectedEquipment is not { } drill ||
+            !TryComp<MeleeWeaponComponent>(drill, out var weapon))
+            return;
+
+        var origin = _transform.GetMapCoordinates(mech);
+        var aim = _transform.ToMapCoordinates(clickCoordinates);
+        if (origin.MapId != aim.MapId)
+            return;
+
+        var direction = aim.Position - origin.Position;
+        if (direction.LengthSquared() < 0.01f)
+            return;
+
+        direction = System.Numerics.Vector2.Normalize(direction);
+        foreach (var (entity, _) in _lookup.GetEntitiesInRange<GatherableComponent>(Transform(mech).Coordinates, weapon.Range + 0.5f))
+        {
+            if (!IsValidDrillTarget(mech, pilot, entity))
+                continue;
+
+            var position = _transform.GetMapCoordinates(entity);
+            if (position.MapId != origin.MapId)
+                continue;
+
+            var offset = position.Position - origin.Position;
+            if (offset.LengthSquared() > 0.01f &&
+                System.Numerics.Vector2.Dot(direction, System.Numerics.Vector2.Normalize(offset)) >= SwingArcCosine)
                 targets.Add(entity);
         }
     }
@@ -164,7 +203,7 @@ public sealed partial class ClarkeMechDrillSystem : EntitySystem
         return true;
     }
 
-    private bool TryDrill(EntityUid mech, EntityUid drill, EntityUid target)
+    private bool TryDrill(EntityUid mech, EntityUid drill, EntityUid target, bool sameSwing = false)
     {
         if (!TryComp<MechComponent>(mech, out var mechComponent) ||
             mechComponent.PilotSlot.ContainedEntity == null ||
@@ -172,17 +211,23 @@ public sealed partial class ClarkeMechDrillSystem : EntitySystem
             mechComponent.CurrentSelectedEquipment != drill ||
             !IsValidDrillTarget(mech, mechComponent.PilotSlot.ContainedEntity.Value, target) ||
             !TryComp<MeleeWeaponComponent>(drill, out var weapon) ||
-            weapon.NextAttack > _timing.CurTime ||
+            (!sameSwing && weapon.NextAttack > _timing.CurTime) ||
+            (TryComp<GatherableComponent>(target, out var gatherable) &&
+             _whitelist.IsWhitelistFailOrNull(gatherable.ToolWhitelist, drill)) ||
             !_interaction.InRangeUnobstructed(mech, target, weapon.Range))
         {
             return false;
         }
 
-        weapon.NextAttack = _timing.CurTime + TimeSpan.FromSeconds(1f / weapon.AttackRate);
-        Dirty(drill, weapon);
+        if (!sameSwing)
+        {
+            weapon.NextAttack = _timing.CurTime + TimeSpan.FromSeconds(1f / weapon.AttackRate);
+            Dirty(drill, weapon);
+        }
 
         // Radiant Sector: the custom right-click drill route bypasses the stock melee sound handler.
-        _audio.PlayPvs(_drillSound, mech, AudioParams.Default.WithVolume(-6f));
+        if (!sameSwing)
+            _audio.PlayPvs(_drillSound, mech, AudioParams.Default.WithVolume(-6f));
 
         var damage = _melee.GetDamage(drill, mech, weapon);
         var hitEvent = new MeleeHitEvent([target], mech, drill, damage, null);

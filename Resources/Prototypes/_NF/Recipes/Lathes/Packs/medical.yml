@@ -1,6 +1,10 @@
 - type: latheRecipePack
   id: NFMedicalStatic
   recipes:
+  - GeneticSampleCartridge # Radiant: laboratory sampling and research archives.
+  - GeneticResearchDisk
+  - GeneticResearchDiskBox
+  - VirologySwab
   - ClothingOuterEVASuitMedic
   - BaseChemistryEmptyVial
   - BlankMediPen

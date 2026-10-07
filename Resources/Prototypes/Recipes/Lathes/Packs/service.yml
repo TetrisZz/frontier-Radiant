@@ -31,6 +31,7 @@
 - type: latheRecipePack
   id: ServiceBoardsStatic
   recipes:
+  - RadiantPassportOfficeCircuitboard
   # - BiogeneratorMachineCircuitboard # Frontier: dynamic
   - UniformPrinterMachineCircuitboard
   # - MicrowaveMachineCircuitboard # Frontier: dynamic

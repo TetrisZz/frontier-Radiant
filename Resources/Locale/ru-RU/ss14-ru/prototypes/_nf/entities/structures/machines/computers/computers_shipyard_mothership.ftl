@@ -15,3 +15,6 @@ ent-CrescentMothershipComputer = консоль верфи полумесяца
     .desc = { ent-BaseMothershipComputer.desc }
 ent-MailCarrierMothershipComputer = консоль почтовой верфи
     .desc = { ent-BaseMothershipComputer.desc }
+
+ent-CaladriusMothershipComputer = кораблестроительная консоль «Каладриус»
+    .suffix = Материнский корабль

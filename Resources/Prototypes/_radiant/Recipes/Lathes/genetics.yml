@@ -1,0 +1,25 @@
+- type: latheRecipe
+  id: GeneticSampleCartridge
+  result: GeneticSampleCartridge
+  completetime: 3
+  materials: {Plastic: 300, Glass: 200}
+
+- type: latheRecipe
+  id: GeneticBodyGrowerMachineCircuitboard
+  parent: BaseMedicalMachineRecipeCategory
+  result: GeneticBodyGrowerMachineCircuitboard
+  completetime: 5
+  materials: {Glass: 1000, Gold: 500}
+
+- type: latheRecipe
+  id: GeneticResearchDisk
+  result: GeneticResearchDisk
+  completetime: 3
+  materials: {Plastic: 200, Glass: 100}
+
+- type: latheRecipe
+  id: GeneticResearchConsoleCircuitboard
+  parent: BaseMedicalMachineRecipeCategory
+  result: GeneticResearchConsoleCircuitboard
+  completetime: 5
+  materials: {Glass: 1000, Gold: 500}

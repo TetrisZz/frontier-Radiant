@@ -24,10 +24,13 @@ public sealed partial class PaperComponent : Component
     public List<StampDisplayInfo> StampedBy { get; set; } = new();
 
     /// <summary>
-    ///     Stamp to be displayed on the paper, state from bureaucracy.rsi
+    ///     Stamp to be displayed on the paper, from its original RSI or StampRsiPath.
     /// </summary>
     [DataField("stampState"), AutoNetworkedField]
     public string? StampState { get; set; }
+
+    [DataField, AutoNetworkedField]
+    public string? StampRsiPath { get; set; }
 
     [DataField, AutoNetworkedField]
     public bool EditingDisabled;
@@ -108,7 +111,8 @@ public sealed partial class PaperComponent : Component
     public enum PaperVisuals : byte
     {
         Status,
-        Stamp
+        Stamp,
+        StampRsi
     }
 
     [Serializable, NetSerializable]

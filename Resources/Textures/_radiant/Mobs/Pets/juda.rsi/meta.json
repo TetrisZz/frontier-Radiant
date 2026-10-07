@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "BlueMoon Station modular_bluemoon/kovac_shitcode/icons/animals.dmi; Juda sprites converted to RSI for Radiant.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "juda",
+      "directions": 4
+    },
+    {
+      "name": "juda-moving",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "juda_sit",
+      "directions": 4
+    },
+    {
+      "name": "juda_dead"
+    }
+  ]
+}

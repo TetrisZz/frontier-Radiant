@@ -1,0 +1,1 @@
+ent-DrinkShakerBluespace = блюспейс-шейкер

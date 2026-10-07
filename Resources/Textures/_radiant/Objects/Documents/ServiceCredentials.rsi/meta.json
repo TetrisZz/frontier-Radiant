@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by homka for Radiant Sector using OpenAI image generation, normalized to matching centered 18x24 silhouettes on transparent 32x32 canvases. DVB revised prompt: straight upright burgundy service-credential cover, centered symmetric broad gold shield with dark star, uninterrupted gold rectangular border on all four sides, two equal centered bars, coarse pixel art, no tilt, no spine protrusions; outer rim trimmed before nearest-neighbor reduction to retain the frame. Fleet prompt: straight rectangular blue service-credential cover, simple silver spacecraft and star, thick symmetric uninterrupted silver frame on all four sides, two centered bars, no spine extensions or maritime symbols, coarse pixel art, no tilt. No passport sprites used.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "dvb_closed" },
+    { "name": "fleet_closed" }
+  ]
+}

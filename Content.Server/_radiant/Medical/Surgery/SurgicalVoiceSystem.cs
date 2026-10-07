@@ -73,7 +73,8 @@ public sealed partial class SurgicalVoiceSystem : EntitySystem
         _ui.SetUi(patient, SurgicalVoiceUiKey.Key,
             new InterfaceData("SurgicalVoiceBoundUserInterface"));
         _ui.CloseUi(patient, SurgicalVoiceUiKey.Key);
-        _ui.SetUiState(patient, SurgicalVoiceUiKey.Key, new SurgicalVoiceState(appearance.Sex, appearance.Voice));
+        _ui.SetUiState(patient, SurgicalVoiceUiKey.Key, new SurgicalVoiceState(appearance.Sex, appearance.Voice,
+            EntityManager.System<BrainRestorationSystem>().OriginalVoice(patient)));
         _ui.TryOpenUi(patient, SurgicalVoiceUiKey.Key, surgeon);
     }
 

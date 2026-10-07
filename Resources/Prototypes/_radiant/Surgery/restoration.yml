@@ -1,0 +1,60 @@
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRestoreIdentity
+  name: Restore original appearance
+  components:
+  - type: SurgeryRestoreIdentity
+  - type: SurgeryPartCondition
+    parts: [Head, Torso]
+  - type: Surgery
+    steps:
+    - SurgeryStepRestoreIdentity
+    - SurgeryStepRestoreEyeColor
+    - SurgeryStepRestoreOriginalVoice
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRestoreIdentity
+  name: Reconstruct appearance from brain memory
+  components:
+  - type: SurgeryRestoreIdentity
+  - type: SurgeryStep
+    duration: 30
+    medicalSkillLevel: 4
+    tools:
+    - type: Scalpel
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRestoreEyeColor
+  name: Restore original iris color
+  components:
+  - type: SurgeryRestoreIdentity
+    stage: Eyes
+  - type: SurgeryStep
+    duration: 15
+    medicalSkillLevel: 4
+    tools:
+    - type: Hemostat
+  - type: Sprite
+    sprite: _Starlight/Objects/Specific/Medical/scissors.rsi
+    state: hemostat
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRestoreOriginalVoice
+  name: Reconstruct original voice
+  components:
+  - type: SurgeryRestoreIdentity
+    stage: Voice
+  - type: SurgeryStep
+    duration: 20
+    medicalSkillLevel: 4
+    tools:
+    - type: Cautery
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
+    state: cautery

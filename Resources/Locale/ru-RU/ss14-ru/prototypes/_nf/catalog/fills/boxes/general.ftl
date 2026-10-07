@@ -14,3 +14,9 @@ ent-BoxEncryptionKeyNfsd = коробка ключей шифрования ДВ
     .desc = { ent-BoxEncryptionKeySecurity.desc }
 ent-BoxExteriorLightTube = коробка внешних лампочек
     .desc = Из-за формы коробки в неё помещаются только лампочки и лампочки-трубки.
+
+ent-BoxColoredConstructionbulb = коробка строительных лампочек
+ent-BoxColoredConstructiontube = коробка строительных световых трубок
+ent-BoxColoredCooltube = коробка цветных холодных ламп
+ent-BoxColoredLightbulb = коробка цветных лампочек
+ent-BoxPirateShipyardRCD = коробка с пиратским судостроительным РСУ

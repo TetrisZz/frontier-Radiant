@@ -41,4 +41,26 @@ ent-ClarpyIDCard = ID карта Кларпи
 ent-ClippyIDCard = ID карта Клиппи
     .desc = { ent-IDCardStandard.desc }
 ent-PublicAffairsIDCard = ID карта специалиста ПСсО
-    .desc = { ent-IDCardStandard.desc } 
+    .desc = { ent-IDCardStandard.desc }
+
+ent-CaddyIDCard = ID карта Кэдди
+ent-DocIDCard = ID карта смотрителя медицинского обслуживания
+ent-NFPirateCaptainIDCard = ID карта капитана пиратов
+    .suffix = Фронтир
+ent-NFPirateFirstMateIDCard = ID карта первого помощника пиратов
+    .suffix = Фронтир
+ent-NFPirateIDCard = ID карта пирата
+    .suffix = Фронтир
+ent-PlantManagerIDCard = ID карта руководителя электростанции
+ent-PlantTechnicianIDCard = ID карта техника электростанции
+
+ent-SheriffIDCard = { ent-ShriffIDCard }
+    .desc = { ent-ShriffIDCard.desc }
+ent-NFDetectiveIDCard = { ent-DetectiveNFIDCard }
+    .desc = { ent-DetectiveNFIDCard.desc }
+ent-NFJanitorIDCard = ID карта уборщика
+    .desc = { ent-JanitorIDCard.desc }
+ent-CurieIDCard = ID карта Кюри
+    .desc = { ent-IDCardStandard.desc }
+ent-YipYipIDCard = ID карта Йип-Йипа
+    .desc = { ent-PunPunIDCard.desc }

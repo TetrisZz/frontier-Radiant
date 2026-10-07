@@ -16,7 +16,12 @@ public static class SpeciesLanguageUtility
         if (!entityManager.TryGetComponent(entity, out HumanoidAppearanceComponent? humanoid))
             return null;
 
-        return humanoid.Species.Id switch
+        return GetNativeLanguage(humanoid.Species.Id);
+    }
+
+    public static string? GetNativeLanguage(string species)
+    {
+        return species switch
         {
             // Humans have a selectable native language too.  Keeping it in this
             // shared lookup automatically covers speech, radio relays, paper and

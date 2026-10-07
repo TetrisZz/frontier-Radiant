@@ -1,0 +1,104 @@
+- type: radiantDisease
+  id: StationFever
+  name: virology-disease-StationFever
+  description: virology-description-StationFever
+  reagent: CultureStationFever
+  route: droplet
+
+- type: reagent
+  id: CultureStationFever
+  name: reagent-name-culture-StationFever
+  desc: reagent-desc-virology-culture
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: bitter
+  color: "#ADBF54"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects: []
+
+- type: entity
+  id: VirologyCultureStationFever
+  parent: BaseChemistryEmptyBottle
+  name: laboratory culture
+  description: A sealed laboratory bottle bearing a biohazard label.
+  suffix: StationFever, ADMIN
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CultureStationFever
+          Quantity: 10
+
+- type: radiantDisease
+  id: Enteric
+  name: virology-disease-Enteric
+  description: virology-description-Enteric
+  reagent: CultureEnteric
+  route: ingestion
+
+- type: reagent
+  id: CultureEnteric
+  name: reagent-name-culture-Enteric
+  desc: reagent-desc-virology-culture
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: bitter
+  color: "#A47842"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects: []
+
+- type: entity
+  id: VirologyCultureEnteric
+  parent: BaseChemistryEmptyBottle
+  name: laboratory culture
+  description: A sealed laboratory bottle bearing a biohazard label.
+  suffix: Enteric, ADMIN
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CultureEnteric
+          Quantity: 10
+
+- type: radiantDisease
+  id: Hematic
+  name: virology-disease-Hematic
+  description: virology-description-Hematic
+  reagent: CultureHematic
+  route: blood
+  bloodRegenerationMultiplier: 0.02
+  bloodLossPerPulse: 2
+  severeBloodLossPerPulse: 6
+
+- type: reagent
+  id: CultureHematic
+  name: reagent-name-culture-Hematic
+  desc: reagent-desc-virology-culture
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: bitter
+  color: "#9B3545"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects: []
+
+- type: entity
+  id: VirologyCultureHematic
+  parent: BaseChemistryEmptyBottle
+  name: laboratory culture
+  description: A sealed laboratory bottle bearing a biohazard label.
+  suffix: Hematic, ADMIN
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CultureHematic
+          Quantity: 10

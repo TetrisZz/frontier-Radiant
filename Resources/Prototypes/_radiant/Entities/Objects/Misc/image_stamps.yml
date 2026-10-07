@@ -1,0 +1,120 @@
+- type: entity
+  parent: RubberStampBase
+  id: RadiantRubberStampFeline
+  name: Feline stamp
+  description: A rubber stamp with a distinctive illustrated impression.
+  components:
+  - type: Sprite
+    state: stamp-mime
+  - type: Stamp
+    stampedName: radiant-image-stamp-feline
+    stampedColor: "#EAA7C2"
+    stampSprite: /Textures/_radiant/Interface/Paper/ImageStamps/feline_large_stamp-personal.png
+    stampRsiPath: _radiant/Objects/Misc/image_stamp_marks.rsi
+    stampState: feline
+
+- type: entity
+  parent: RubberStampBase
+  id: RadiantRubberStampHorny
+  name: IN HORNY stamp
+  description: A rubber stamp with a distinctive illustrated impression.
+  components:
+  - type: Sprite
+    state: stamp-clown
+  - type: Stamp
+    stampedName: radiant-image-stamp-horny
+    stampedColor: "#D95BAA"
+    stampSprite: /Textures/_radiant/Interface/Paper/ImageStamps/horny_large_stamp-personal.png
+    stampRsiPath: _radiant/Objects/Misc/image_stamp_marks.rsi
+    stampState: horny
+
+- type: entity
+  parent: RubberStampBase
+  id: RadiantRubberStampCentCom
+  name: Central Command image stamp
+  description: A rubber stamp with a distinctive illustrated impression.
+  components:
+  - type: Sprite
+    state: stamp-centcom
+  - type: Stamp
+    stampedName: radiant-image-stamp-centcom
+    stampedColor: "#459623"
+    stampSprite: /Textures/_radiant/Interface/Paper/ImageStamps/large_stamp-centcom.png
+    stampRsiPath: _radiant/Objects/Misc/image_stamp_marks.rsi
+    stampState: centcom
+
+- type: entity
+  parent: RubberStampBase
+  id: RadiantRubberStampClown
+  name: HONK! stamp
+  description: A rubber stamp with a distinctive illustrated impression.
+  components:
+  - type: Sprite
+    state: stamp-clown
+  - type: Stamp
+    stampedName: radiant-image-stamp-clown
+    stampedColor: "#EC75C6"
+    stampSprite: /Textures/_radiant/Interface/Paper/ImageStamps/large_stamp-clown.png
+    stampRsiPath: _radiant/Objects/Misc/image_stamp_marks.rsi
+    stampState: clown
+
+- type: entity
+  parent: RubberStampBase
+  id: RadiantRubberStampDenied
+  name: Denied image stamp
+  description: A rubber stamp with a distinctive illustrated impression.
+  components:
+  - type: Sprite
+    state: stamp-deny
+  - type: Stamp
+    stampedName: radiant-image-stamp-denied
+    stampedColor: "#C42B32"
+    stampSprite: /Textures/_radiant/Interface/Paper/ImageStamps/large_stamp-deny.png
+    stampRsiPath: _radiant/Objects/Misc/image_stamp_marks.rsi
+    stampState: denied
+
+- type: entity
+  parent: RubberStampBase
+  id: RadiantRubberStampMime
+  name: Mime image stamp
+  description: A rubber stamp with a distinctive illustrated impression.
+  components:
+  - type: Sprite
+    state: stamp-mime
+  - type: Stamp
+    stampedName: radiant-image-stamp-mime
+    stampedColor: "#DDDDDD"
+    stampSprite: /Textures/_radiant/Interface/Paper/ImageStamps/large_stamp-mime.png
+    stampRsiPath: _radiant/Objects/Misc/image_stamp_marks.rsi
+    stampState: mime
+
+- type: entity
+  parent: RubberStampBase
+  id: RadiantRubberStampGranted
+  name: Granted image stamp
+  description: A rubber stamp with a distinctive illustrated impression.
+  components:
+  - type: Sprite
+    state: stamp-ok
+  - type: Stamp
+    stampedName: radiant-image-stamp-granted
+    stampedColor: "#4AAA24"
+    stampSprite: /Textures/_radiant/Interface/Paper/ImageStamps/large_stamp-ok.png
+    stampRsiPath: _radiant/Objects/Misc/image_stamp_marks.rsi
+    stampState: granted
+
+- type: entity
+  parent: RubberStampBase
+  id: RadiantRubberStampPepe
+  name: Pepe stamp
+  description: A rubber stamp with a distinctive illustrated impression.
+  components:
+  - type: Sprite
+    state: stamp-ok
+  - type: Stamp
+    stampedName: radiant-image-stamp-pepe
+    stampedColor: "#679848"
+    stampSprite: /Textures/_radiant/Interface/Paper/ImageStamps/pepe-large_stamp-custom.png
+    stampRsiPath: _radiant/Objects/Misc/image_stamp_marks.rsi
+    stampState: pepe
+
