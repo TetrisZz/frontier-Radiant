@@ -6,6 +6,7 @@ using System.Text.Json;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
@@ -15,9 +16,11 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    partial class PostgresServerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260302171310_AddLibraryBook")]
+    partial class AddLibraryBook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -699,38 +702,34 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("job", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.NFLibraryBook", b =>
+            modelBuilder.Entity("Content.Server.Database.LibraryBook", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("nf_library_book_id");
+                        .HasColumnName("library_book_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)")
+                        .HasColumnType("text")
                         .HasColumnName("author");
 
-                    b.Property<Guid>("AuthorPlayerUserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("author_player_user_id");
+                    b.Property<string>("AuthorCKey")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("author_ckey");
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasMaxLength(32768)
-                        .HasColumnType("character varying(32768)")
+                        .HasColumnType("text")
                         .HasColumnName("content");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone")
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("date");
-
-                    b.Property<int>("RoundId")
-                        .HasColumnType("integer")
-                        .HasColumnName("round_id");
 
                     b.Property<int>("ServerId")
                         .HasColumnType("integer")
@@ -738,22 +737,17 @@ namespace Content.Server.Database.Migrations.Postgres
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)")
+                        .HasColumnType("text")
                         .HasColumnName("title");
 
                     b.HasKey("Id")
-                        .HasName("PK_nf_library_book");
-
-                    b.HasIndex("RoundId")
-                        .HasDatabaseName("IX_nf_library_book_round_id");
+                        .HasName("PK_library_book");
 
                     b.HasIndex("ServerId")
-                        .HasDatabaseName("IX_nf_library_book_server_id");
+                        .HasDatabaseName("IX_library_book_server_id");
 
-                    b.ToTable("nf_library_book", (string)null);
+                    b.ToTable("library_book", (string)null);
                 });
-
 
             modelBuilder.Entity("Content.Server.Database.PlayTime", b =>
                 {
@@ -896,10 +890,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("char_name");
 
-                    b.Property<int>("ERPStatus")
-                        .HasColumnType("integer")
-                        .HasColumnName("erpstatus");
-
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("text")
@@ -909,19 +899,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("facial_hair_color");
-
-                    b.Property<int>("FacialHairColoringMode")
-                        .HasColumnType("integer")
-                        .HasColumnName("facial_hair_coloring_mode");
-
-                    b.Property<string>("FacialHairGradientColor")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("facial_hair_gradient_color");
-
-                    b.Property<int>("FacialHairGradientDirection")
-                        .HasColumnType("integer")
-                        .HasColumnName("facial_hair_gradient_direction");
 
                     b.Property<string>("FacialHairName")
                         .IsRequired()
@@ -943,27 +920,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("hair_color");
 
-                    b.Property<int>("HairColoringMode")
-                        .HasColumnType("integer")
-                        .HasColumnName("hair_coloring_mode");
-
-                    b.Property<string>("HairGradientColor")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("hair_gradient_color");
-
-                    b.Property<int>("HairGradientDirection")
-                        .HasColumnType("integer")
-                        .HasColumnName("hair_gradient_direction");
-
                     b.Property<string>("HairName")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("hair_name");
-
-                    b.Property<float>("Height")
-                        .HasColumnType("real")
-                        .HasColumnName("height");
 
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
@@ -999,15 +959,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("species");
-
-                    b.Property<string>("Voice")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("voice");
-
-                    b.Property<float>("Width")
-                        .HasColumnType("real")
-                        .HasColumnName("width");
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
@@ -1512,95 +1463,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("uploaded_resource_log", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBox", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("wayfarer_safety_deposit_box_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<Guid>("BoxId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("box_id");
-
-                    b.Property<int>("CharacterIndex")
-                        .HasColumnType("integer")
-                        .HasColumnName("character_index");
-
-                    b.Property<DateTime?>("LastWithdrawn")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("last_withdrawn");
-
-                    b.Property<int?>("LastWithdrawnRoundId")
-                        .HasColumnType("integer")
-                        .HasColumnName("last_withdrawn_round_id");
-
-                    b.Property<string>("Nickname")
-                        .HasColumnType("text")
-                        .HasColumnName("nickname");
-
-                    b.Property<string>("OwnerName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("owner_name");
-
-                    b.Property<Guid>("OwnerUserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("owner_user_id");
-
-                    b.Property<string>("ProtoId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("proto_id");
-
-                    b.Property<DateTime>("PurchaseDate")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("purchase_date");
-
-                    b.HasKey("Id")
-                        .HasName("PK_wayfarer_safety_deposit_box");
-
-                    b.HasIndex("BoxId")
-                        .IsUnique();
-
-                    b.HasIndex("OwnerUserId");
-
-                    b.ToTable("wayfarer_safety_deposit_box", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBoxItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("wayfarer_safety_deposit_box_item_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BoxId")
-                        .HasColumnType("integer")
-                        .HasColumnName("box_id");
-
-                    b.Property<DateTime>("DepositDate")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deposit_date");
-
-                    b.Property<string>("EntityData")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("entity_data");
-
-                    b.HasKey("Id")
-                        .HasName("PK_wayfarer_safety_deposit_box_item");
-
-                    b.HasIndex("BoxId")
-                        .HasDatabaseName("IX_wayfarer_safety_deposit_box_item_box_id");
-
-                    b.ToTable("wayfarer_safety_deposit_box_item", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.Whitelist", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -1904,27 +1766,17 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.NFLibraryBook", b =>
+            modelBuilder.Entity("Content.Server.Database.LibraryBook", b =>
                 {
-                    b.HasOne("Content.Server.Database.Round", "Round")
-                        .WithMany()
-                        .HasForeignKey("RoundId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_nf_library_book_round_round_id");
-
                     b.HasOne("Content.Server.Database.Server", "Server")
                         .WithMany()
                         .HasForeignKey("ServerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_nf_library_book_server_server_id");
-
-                    b.Navigation("Round");
+                        .HasConstraintName("FK_library_book_server_server_id");
 
                     b.Navigation("Server");
                 });
-
 
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
@@ -2199,18 +2051,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBoxItem", b =>
-                {
-                    b.HasOne("Content.Server.Database.WayfarerSafetyDepositBox", "Box")
-                        .WithMany("Items")
-                        .HasForeignKey("BoxId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_wayfarer_safety_deposit_box_item_wayfarer_safety_deposit_bo~");
-
-                    b.Navigation("Box");
-                });
-
             modelBuilder.Entity("PlayerRound", b =>
                 {
                     b.HasOne("Content.Server.Database.Player", null)
@@ -2337,11 +2177,6 @@ namespace Content.Server.Database.Migrations.Postgres
             modelBuilder.Entity("Content.Server.Database.ServerRoleBan", b =>
                 {
                     b.Navigation("Unban");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBox", b =>
-                {
-                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }
