@@ -171,8 +171,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
 
             if (!boundsSet)
             {
-                bounds.BottomLeft = position;
-                bounds.TopRight = position;
+                bounds = new Box2i(position, position);
                 boundsSet = true;
             }
             else
@@ -184,18 +183,15 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
             }
         }
 
-        if (boundsSet)
-        {
-            _bounds = bounds;
+        _bounds = boundsSet ? bounds : new Box2i(DefaultPosition, DefaultPosition);
 
-            // Set container size with padding
-            var padding = 200;
-            var totalWidth = _bounds.Width + CardSize + padding;
-            var totalHeight = _bounds.Height + CardSize + padding;
+        // Set container size with padding, also resetting stale bounds for an empty tree.
+        var padding = 200;
+        var totalWidth = _bounds.Width + CardSize + padding;
+        var totalHeight = _bounds.Height + CardSize + padding;
 
-            DragContainer.SetWidth = Math.Max(totalWidth, 1000);
-            DragContainer.SetHeight = Math.Max(totalHeight, 1000);
-        }
+        DragContainer.SetWidth = Math.Max(totalWidth, 1000);
+        DragContainer.SetHeight = Math.Max(totalHeight, 1000);
 
         // Add tech items
         foreach (var tech in List)
