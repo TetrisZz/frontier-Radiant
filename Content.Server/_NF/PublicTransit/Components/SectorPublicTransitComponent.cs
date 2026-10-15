@@ -23,8 +23,8 @@ public sealed partial class SectorPublicTransitComponent : Component
     public TimeSpan NextUpdate = TimeSpan.Zero;
 }
 
-[Serializable]
-public sealed class PublicTransitRoute(PublicTransitRoutePrototype prototype)
+[Serializable, DataDefinition]
+public sealed partial class PublicTransitRoute(PublicTransitRoutePrototype prototype)
 {
     /// <summary>
     /// The prototype this route is based off of.

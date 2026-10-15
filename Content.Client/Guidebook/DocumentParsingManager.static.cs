@@ -83,7 +83,8 @@ public sealed partial class DocumentParsingManager
                     }
 
                     msg.Pop();
-                    rt.SetMessage(msg);
+                    // Guidebook markup is a trusted resource and includes interactive textlink tags.
+                    rt.SetMessage(msg, tagsAllowed: null);
                     return rt;
                 },
                 TextParser)
