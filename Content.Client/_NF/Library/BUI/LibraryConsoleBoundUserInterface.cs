@@ -20,9 +20,9 @@ public sealed class LibraryConsoleBoundUserInterface(EntityUid owner, Enum uiKey
         _menu.DownloadBookRequested += OnDownloadBook;
     }
 
-    private void OnUploadBook(string title, string author, string content)
+    private void OnUploadBook(string title)
     {
-        SendMessage(new LibraryConsoleUploadBookMessage(title, author, content));
+        SendMessage(new LibraryConsoleUploadBookMessage(title));
     }
 
     private void OnDownloadBook(int bookId)
@@ -38,7 +38,12 @@ public sealed class LibraryConsoleBoundUserInterface(EntityUid owner, Enum uiKey
             return;
 
         _menu?.SetEnabled(libraryState.Enabled);
-        _menu?.SetBookContent(libraryState.Enabled, libraryState.BookContent);
+        _menu?.SetBookContent(
+            libraryState.Enabled, libraryState.BookContent);
+
+        _menu?.SetUploadBlocked(
+            libraryState.UploadBlocked,
+            libraryState.UploadCooldownSeconds);
         _menu?.PopulateBookList(libraryState.Books);
     }
 }

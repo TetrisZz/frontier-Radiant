@@ -8,7 +8,9 @@ namespace Content.Shared._NF.Library.BUI;
 public sealed class LibraryConsoleBoundUserInterfaceState(
     bool enabled,
     string? bookContent = null,
-    List<LibraryBookData>? books = null) : BoundUserInterfaceState
+    List<LibraryBookData>? books = null,
+    bool uploadBlocked = false,
+    int uploadCooldownSeconds = 0) : BoundUserInterfaceState
 {
     /// <summary>
     /// Whether or not the buttons on the interface are enabled.
@@ -24,6 +26,10 @@ public sealed class LibraryConsoleBoundUserInterfaceState(
     /// All library books available on this server, for the browse tab.
     /// </summary>
     public List<LibraryBookData>? Books = books;
+
+    public bool UploadBlocked = uploadBlocked;
+
+    public int UploadCooldownSeconds = uploadCooldownSeconds;
 }
 
 [Serializable, NetSerializable]

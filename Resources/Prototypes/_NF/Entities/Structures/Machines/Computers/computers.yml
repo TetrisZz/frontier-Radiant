@@ -609,7 +609,7 @@
     bookSlot:
       whitelist:
         tags:
-          - Book
+          - Paper
   - type: ItemSlots
   - type: ContainerContainer
     containers:

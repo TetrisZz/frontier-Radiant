@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using Content.Shared.Paper;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Database;
@@ -49,6 +53,18 @@ public sealed class AdminLibraryEui : BaseEui
         }
     }
 
+    private static LibraryPaperSaveData? ReadPaperData(string content)
+    {
+        try
+        {
+            return JsonSerializer.Deserialize<LibraryPaperSaveData>(content);
+        }
+        catch (JsonException)
+        {
+            return null;
+        }
+    }
+
     private async Task LoadBooksAsync()
     {
         var books = await _dbManager.GetNFLibraryBooksAsync();
@@ -57,22 +73,59 @@ public sealed class AdminLibraryEui : BaseEui
 
         foreach (var book in books)
         {
-            var playerRecord = await _dbManager.GetPlayerRecordByUserId(new NetUserId(book.AuthorPlayerUserId));
+            var playerRecord = await _dbManager.GetPlayerRecordByUserId(
+                new NetUserId(book.AuthorPlayerUserId));
+
             var authorPlayerUserName = playerRecord?.LastSeenUserName ?? string.Empty;
+
+            var paperData = ReadPaperData(book.Content);
+
+            var stamps = paperData?.Stamps
+                .Select(stamp => new AdminLibraryStampEntry
+                {
+                    StampedName = stamp.StampedName,
+                    StampSprite = stamp.StampSprite,
+                    Red = stamp.Red,
+                    Green = stamp.Green,
+                    Blue = stamp.Blue,
+                    Alpha = stamp.Alpha,
+                    Type = stamp.Type,
+                    Reapply = stamp.Reapply
+                })
+                .ToList() ?? new List<AdminLibraryStampEntry>();
 
             booksWithNames.Add(new AdminLibraryBookEntry(
                 book.Id,
                 book.Title,
                 book.Author,
-                book.Content,
+                paperData?.Content ?? book.Content,
                 book.Date.ToString("yyyy-MM-dd"),
                 book.AuthorPlayerUserId,
-                authorPlayerUserName));
+                authorPlayerUserName,
+                paperData?.Language,
+                paperData?.EditingDisabled ?? false,
+                paperData?.StampState,
+                stamps));
         }
 
         _books = booksWithNames;
 
         StateDirty();
+    }
+
+    private static string GetReadablePaperContent(string storedContent)
+    {
+        try
+        {
+            var data =
+                JsonSerializer.Deserialize<LibraryPaperSaveData>(storedContent);
+        }
+        catch (JsonException)
+        {
+            // Older records may contain plain text instead of JSON.
+        }
+
+        return storedContent;
     }
 
     private async Task DeleteBookAsync(int bookId)

@@ -15,15 +15,14 @@
                           PlaceHolder="{Loc 'library-console-title-placeholder'}"
                           HorizontalExpand="True"
                           Margin="0 0 0 4" />
-                <Label Text="{Loc 'library-console-author-label'}" HorizontalAlignment="Left" />
-                <LineEdit Name="AuthorEdit"
-                          PlaceHolder="{Loc 'library-console-author-placeholder'}"
-                          HorizontalExpand="True"
-                          Margin="0 0 0 4" />
                 <Button Name="UploadBookButton"
                         Text="{Loc 'library-console-upload-book-button'}"
                         HorizontalExpand="True"
                         Margin="0 0 0 4" />
+                <Label Name="UploadStatusLabel"
+                       HorizontalAlignment="Center"
+                       Visible="False"
+                       Margin="0 0 0 4" />
             </BoxContainer>
             <!-- Tab 1: Browse -->
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4">
