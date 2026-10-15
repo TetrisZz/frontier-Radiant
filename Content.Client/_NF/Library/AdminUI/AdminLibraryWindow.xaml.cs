@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using Robust.Shared.Maths;
 using System.Collections.Generic;
 using Content.Client.Paper.UI;
 using Content.Shared._NF.Library;
@@ -106,17 +109,31 @@ public sealed partial class AdminLibraryWindow : DefaultWindow
         }
 
         var book = _allBooks.Find(b => b.Id == selectedBookId);
+
         if (book == null)
         {
             PreviewPanel.Visible = false;
             return;
         }
 
-        PreviewTitle.Text = Loc.GetString("library-admin-preview-title", ("title", book.Title));
-        PreviewAuthor.Text = Loc.GetString("library-admin-preview-author", ("author", book.Author));
-        PreviewPlayerUserId.Text = Loc.GetString("library-admin-preview-player-user-id", ("playerUserId", FormatUploader(book)));
-        PreviewDate.Text = Loc.GetString("library-admin-preview-date", ("date", book.Date));
+        PreviewTitle.Text = Loc.GetString(
+            "library-admin-preview-title",
+            ("title", book.Title));
+
+        PreviewAuthor.Text = Loc.GetString(
+            "library-admin-preview-author",
+            ("author", book.Author));
+
+        PreviewPlayerUserId.Text = Loc.GetString(
+            "library-admin-preview-player-user-id",
+            ("playerUserId", FormatUploader(book)));
+
+        PreviewDate.Text = Loc.GetString(
+            "library-admin-preview-date",
+            ("date", book.Date));
+
         PreviewContent.Text = book.Content;
+
         PreviewPanel.Visible = true;
     }
 
@@ -138,13 +155,35 @@ public sealed partial class AdminLibraryWindow : DefaultWindow
     private void OpenBookView()
     {
         var book = GetSelectedBook();
+
         if (book == null)
             return;
 
         _bookViewWindow?.Close();
-
         _bookViewWindow = new PaperWindow();
-        _bookViewWindow.Populate(new PaperComponent.PaperBoundUserInterfaceState(book.Content, new(), PaperComponent.PaperAction.Read));
+
+        var stamps = book.Stamps
+            .Select(stamp => new StampDisplayInfo
+            {
+                StampedName = stamp.StampedName,
+				StampSprite = stamp.StampSprite,
+                StampedColor = new Color(
+                    stamp.Red,
+                    stamp.Green,
+                    stamp.Blue,
+                    stamp.Alpha),
+                Type = stamp.Type,
+                Reapply = stamp.Reapply
+            })
+            .ToList();
+
+        _bookViewWindow.Populate(
+            new PaperComponent.PaperBoundUserInterfaceState(
+                book.Content,
+                stamps,
+                PaperComponent.PaperAction.Read,
+                book.Language));
+
         _bookViewWindow.OpenCentered();
     }
 

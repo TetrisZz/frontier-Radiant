@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._NF.Library.Events;
@@ -11,37 +12,55 @@ namespace Content.Client._NF.Library.UI;
 [GenerateTypedNameReferences]
 public sealed partial class LibraryConsoleMenu : FancyWindow
 {
-    public event Action<string, string, string>? UploadBookRequested;
+    public event Action<string>? UploadBookRequested;
     public event Action<int>? DownloadBookRequested;
 
     private bool _powered;
     private bool _hasBook;
+    private bool _uploadBlocked;
+
     private string _bookContent = string.Empty;
     private int _selectedBookIndex = -1;
+
+    private DateTime? _uploadCooldownEnd;
+
     private readonly List<int> _bookIds = new();
     private readonly List<LibraryBookData> _allBooks = new();
+	private bool _hasPopulatedBookList;
 
     public LibraryConsoleMenu()
     {
         RobustXamlLoader.Load(this);
 
-        MainTabContainer.SetTabTitle(0, Loc.GetString("library-console-tab-upload"));
-        MainTabContainer.SetTabTitle(1, Loc.GetString("library-console-tab-browse"));
+        MainTabContainer.SetTabTitle(
+            0, Loc.GetString("library-console-tab-upload"));
+
+        MainTabContainer.SetTabTitle(
+            1, Loc.GetString("library-console-tab-browse"));
 
         UploadBookButton.OnPressed += _ =>
-            UploadBookRequested?.Invoke(TitleEdit.Text, AuthorEdit.Text, _bookContent);
+            UploadBookRequested?.Invoke(TitleEdit.Text.Trim());
+
         DownloadBookButton.OnPressed += _ =>
         {
-            if (_selectedBookIndex < 0 || _selectedBookIndex >= _bookIds.Count)
+            if (_selectedBookIndex < 0 ||
+                _selectedBookIndex >= _bookIds.Count)
+            {
                 return;
-            DownloadBookRequested?.Invoke(_bookIds[_selectedBookIndex]);
+            }
+
+            DownloadBookRequested?.Invoke(
+                _bookIds[_selectedBookIndex]);
         };
+
+        TitleEdit.OnTextChanged += _ => UpdateUploadButtonState();
 
         BookList.OnItemSelected += args =>
         {
             _selectedBookIndex = args.ItemIndex;
             UpdateDownloadButtonState();
         };
+
         BookList.OnItemDeselected += _ =>
         {
             _selectedBookIndex = -1;
@@ -55,37 +74,107 @@ public sealed partial class LibraryConsoleMenu : FancyWindow
     {
         _powered = enabled;
         TitleEdit.Editable = enabled;
-        AuthorEdit.Editable = enabled;
+
         UpdateUploadButtonState();
         UpdateDownloadButtonState();
     }
 
-    /// <summary>
-    /// Updates the content field from the inserted book. Pass null when no book is inserted.
-    /// </summary>
+    public void SetUploadBlocked(bool blocked, int cooldownSeconds)
+    {
+        _uploadBlocked = blocked;
+
+        if (!blocked)
+        {
+            _uploadCooldownEnd = null;
+        }
+        else if (cooldownSeconds > 0)
+        {
+            _uploadCooldownEnd = DateTime.UtcNow.AddSeconds(cooldownSeconds);
+        }
+        else
+        {
+            _uploadCooldownEnd = null;
+        }
+
+        UpdateUploadStatus();
+        UpdateUploadButtonState();
+    }
+
+    private void UpdateUploadStatus()
+    {
+        if (!_uploadBlocked)
+        {
+            UploadStatusLabel.Visible = false;
+            return;
+        }
+
+        if (_uploadCooldownEnd is not { } cooldownEnd)
+        {
+            UploadStatusLabel.Text =
+                Loc.GetString("library-console-upload-in-progress");
+
+            UploadStatusLabel.Visible = true;
+            return;
+        }
+
+        var remaining = cooldownEnd - DateTime.UtcNow;
+
+        var totalSeconds = Math.Max(
+            0,
+            (int)Math.Ceiling(remaining.TotalSeconds));
+
+        var time = $"{totalSeconds / 60:D2}:{totalSeconds % 60:D2}";
+
+        UploadStatusLabel.Text = Loc.GetString(
+            "library-console-upload-cooldown-ui",
+            ("time", time));
+
+        UploadStatusLabel.Visible = true;
+    }
+
     public void SetBookContent(bool powered, string? content)
     {
         _powered = powered;
         _hasBook = content != null;
         _bookContent = content ?? string.Empty;
+
         UpdateUploadButtonState();
         UpdateDownloadButtonState();
     }
 
-    /// <summary>
-    /// Populates the browse tab list with library books.
-    /// </summary>
     public void PopulateBookList(List<LibraryBookData>? books)
     {
+        var incoming = books ?? new List<LibraryBookData>();
+
+        // Cooldown updates send the same book list every second.
+        // Do not rebuild the list, otherwise the selected book is lost.
+        var unchanged = _hasPopulatedBookList &&
+                        _allBooks.Count == incoming.Count;
+
+        for (var i = 0; unchanged && i < incoming.Count; i++)
+        {
+            var current = _allBooks[i];
+            var next = incoming[i];
+
+            if (current.Id != next.Id ||
+                current.Title != next.Title ||
+                current.Author != next.Author ||
+                current.Date != next.Date)
+            {
+                unchanged = false;
+            }
+        }
+
+        if (unchanged)
+            return;
+
         _allBooks.Clear();
-        if (books != null)
-            _allBooks.AddRange(books);
+        _allBooks.AddRange(incoming);
+        _hasPopulatedBookList = true;
+
         FilterBookList();
     }
 
-    /// <summary>
-    /// Rebuilds the visible book list, filtering by the current search text against title and author.
-    /// </summary>
     private void FilterBookList()
     {
         BookList.Clear();
@@ -97,8 +186,10 @@ public sealed partial class LibraryConsoleMenu : FancyWindow
         var filtered = string.IsNullOrEmpty(query)
             ? _allBooks
             : _allBooks.FindAll(b =>
-                b.Title.Contains(query, System.StringComparison.OrdinalIgnoreCase) ||
-                b.Author.Contains(query, System.StringComparison.OrdinalIgnoreCase));
+                b.Title.Contains(
+                    query, StringComparison.OrdinalIgnoreCase) ||
+                b.Author.Contains(
+                    query, StringComparison.OrdinalIgnoreCase));
 
         if (filtered.Count == 0)
         {
@@ -108,21 +199,30 @@ public sealed partial class LibraryConsoleMenu : FancyWindow
         }
 
         BrowseEmptyLabel.Visible = false;
+
         foreach (var book in filtered)
         {
-            BookList.AddItem($"{book.Title}  —  {book.Author}");
+            BookList.AddItem($"{book.Title} — {book.Author}");
             _bookIds.Add(book.Id);
         }
+
         UpdateDownloadButtonState();
     }
 
     private void UpdateUploadButtonState()
     {
-        UploadBookButton.Disabled = !_powered || !_hasBook;
+        UploadBookButton.Disabled =
+            !_powered ||
+            !_hasBook ||
+            _uploadBlocked ||
+            string.IsNullOrWhiteSpace(TitleEdit.Text);
     }
 
     private void UpdateDownloadButtonState()
     {
-        DownloadBookButton.Disabled = !_powered || !_hasBook || _selectedBookIndex < 0;
+        DownloadBookButton.Disabled =
+            !_powered ||
+            !_hasBook ||
+            _selectedBookIndex < 0;
     }
 }

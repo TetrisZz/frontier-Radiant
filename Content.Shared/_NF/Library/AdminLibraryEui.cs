@@ -1,10 +1,13 @@
+using System;
+using System.Collections.Generic;
 using Content.Shared.Eui;
+using Content.Shared.Paper;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._NF.Library;
 
 /// <summary>
-/// EUI state sent from server to client containing all library books with full details.
+/// EUI state sent from server to client containing all library books.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class AdminLibraryEuiState : EuiStateBase
@@ -18,7 +21,7 @@ public sealed class AdminLibraryEuiState : EuiStateBase
 }
 
 /// <summary>
-/// Full details for a single library book, including content and uploader player identity.
+/// Library book with decoded paper content and stamp data.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class AdminLibraryBookEntry
@@ -31,7 +34,23 @@ public sealed class AdminLibraryBookEntry
     public Guid AuthorPlayerUserId;
     public string AuthorPlayerUserName;
 
-    public AdminLibraryBookEntry(int id, string title, string author, string content, string date, Guid authorPlayerUserId, string authorPlayerUserName)
+    public string? Language;
+    public bool EditingDisabled;
+    public string? StampState;
+    public List<AdminLibraryStampEntry> Stamps;
+
+    public AdminLibraryBookEntry(
+        int id,
+        string title,
+        string author,
+        string content,
+        string date,
+        Guid authorPlayerUserId,
+        string authorPlayerUserName,
+        string? language = null,
+        bool editingDisabled = false,
+        string? stampState = null,
+        List<AdminLibraryStampEntry>? stamps = null)
     {
         Id = id;
         Title = title;
@@ -40,11 +59,32 @@ public sealed class AdminLibraryBookEntry
         Date = date;
         AuthorPlayerUserId = authorPlayerUserId;
         AuthorPlayerUserName = authorPlayerUserName;
+
+        Language = language;
+        EditingDisabled = editingDisabled;
+        StampState = stampState;
+        Stamps = stamps ?? new List<AdminLibraryStampEntry>();
     }
 }
 
 /// <summary>
-/// Messages sent from the admin library client UI to the server EUI.
+/// Stamp information transferred to the admin client.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class AdminLibraryStampEntry
+{
+    public string StampedName = string.Empty;
+	public string StampSprite = string.Empty;
+    public float Red;
+    public float Green;
+    public float Blue;
+    public float Alpha;
+    public StampType Type;
+    public bool Reapply;
+}
+
+/// <summary>
+/// Messages sent from the admin library client UI to the server.
 /// </summary>
 public static class AdminLibraryEuiMsg
 {

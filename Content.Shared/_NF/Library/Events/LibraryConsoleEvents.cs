@@ -3,20 +3,16 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._NF.Library.Events;
 
 /// <summary>
-/// Raised by a client requesting to upload a book to the server's library database.
+/// Raised by a client requesting to upload a book.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class LibraryConsoleUploadBookMessage : BoundUserInterfaceMessage
 {
     public string Title;
-    public string Author;
-    public string Content;
 
-    public LibraryConsoleUploadBookMessage(string title, string author, string content)
+    public LibraryConsoleUploadBookMessage(string title)
     {
         Title = title;
-        Author = author;
-        Content = content;
     }
 }
 
