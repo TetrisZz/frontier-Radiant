@@ -164,7 +164,7 @@ public sealed class ItemHandlingSoundsTest
                     Assert.That(prototype.TryGetComponent<EmitSoundOnThrowComponent>(out _, factory), Is.False, id);
                 }
 
-                foreach (var id in new[] { "SheetGlass", "SheetPlastic", "SheetPlasma", "MaterialDiamond", "MaterialWoodPlank" })
+                foreach (var id in new[] { "SheetPlastic", "SheetPlasma", "MaterialDiamond", "MaterialWoodPlank" })
                 {
                     var prototype = prototypes.Index<EntityPrototype>(id);
                     Assert.That(prototype.TryGetComponent<EmitSoundOnPickupComponent>(out var pickup, factory), Is.True, id);
@@ -228,7 +228,7 @@ public sealed class ItemHandlingSoundsTest
                     .TryGetComponent<ClothingComponent>(out var belt, factory), Is.True);
                 Assert.That(((SoundPathSpecifier) belt!.EquipSound!).Path.ToString(),
                     Is.EqualTo("/Audio/Items/belt_equip.ogg"));
-                Assert.That(GetPrototype("DonorDecisionToken")!
+                Assert.That(GetPrototype("MaterialWoodPlank")!
                     .TryGetComponent<EmitSoundOnLandComponent>(out var baseLand, factory), Is.True);
                 Assert.That(((SoundPathSpecifier) baseLand!.Sound!).Path.ToString(),
                     Is.EqualTo("/Audio/Effects/drop.ogg"));

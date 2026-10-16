@@ -68,3 +68,55 @@
   license: "CC-BY-SA-3.0"
   copyright: "Imported from Triad Sector. Original authors retain their copyright. License follows the source repository asset default."
   source: "https://github.com/Triad-Sector/Triad_Sector"
+
+- files:
+  - beaker_drop.wav
+  - beaker_pickup.wav
+  - bottle_drop.wav
+  - bottle_pickup.wav
+  - coin_drop.wav
+  - coin_pickup.wav
+  - dosh_drop.wav
+  - dosh_pickup.wav
+  license: CC-BY-SA-3.0
+  copyright: "Imported from BlueMoon Station, modular_bluemoon/krashly/sound/items. Original authors retain their copyright. Decoded to mono PCM16 WAV for positional audio."
+  source: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station
+
+- files:
+  - drinkglass_drop.wav
+  - drinkglass_pickup.wav
+  - tape_drop.wav
+  - tape_pickup.wav
+  license: CC-BY-SA-3.0
+  copyright: "Imported from BlueMoon Station, sound/items/handling. Original authors retain their copyright. Decoded to mono PCM16 WAV."
+  source: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station
+
+- files:
+  - rolling_pin_drop.wav
+  - rolling_pin_pickup.wav
+  - rolling_pin_rolling1.wav
+  - rolling_pin_rolling2.wav
+  - rolling_pin_rolling3.wav
+  - rolling_pin_rolling4.wav
+  - rolling_pin_rolling5.wav
+  - rolling_pin_rolling6.wav
+  license: CC-BY-SA-3.0
+  copyright: "Made by grungussuss; imported from BlueMoon Station, sound/items/rolling_pin (see attribution.txt). Decoded to mono PCM16 WAV."
+  source: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station
+
+- files:
+  - door_remote_action1.wav
+  - door_remote_action2.wav
+  - door_remote_drop1.wav
+  - door_remote_pick_up1.wav
+  - door_remote_switch1.wav
+  - door_remote_switch2.wav
+  - door_remote_switch3.wav
+  license: CC-BY-SA-3.0
+  copyright: "Made by grungussuss; imported from BlueMoon Station, sound/items/door_remote (see attribution.txt). Decoded to mono PCM16 WAV."
+  source: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station
+
+- files: [wooden_drop.wav]
+  license: CC-BY-SA-3.0
+  copyright: "Imported from BlueMoon Station, modular_bluemoon/sound/items/wooden_drop.ogg. Original authors retain their copyright. Decoded to mono PCM16 WAV; retained for future wooden drink containers."
+  source: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station

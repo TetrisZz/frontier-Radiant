@@ -552,6 +552,21 @@
   name: rolling pin
   description: A tool used to shape and flatten dough.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/rolling_pin_pickup.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/rolling_pin_drop.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/rolling_pin_drop.wav
+      params:
+        volume: -4
   - type: Sprite
     sprite: Objects/Tools/rolling_pin.rsi
     state: icon
@@ -574,6 +589,10 @@
   - type: Tool
     qualities:
     - Rolling
+    useSound:
+      collection: RollingPinRolling
+      params:
+        volume: -4
   - type: PhysicalComposition
     materialComposition:
       Wood: 100

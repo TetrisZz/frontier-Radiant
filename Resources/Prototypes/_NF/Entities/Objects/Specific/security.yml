@@ -5,6 +5,21 @@
   suffix: 20 FUC
   description: A token awarded to the NFSD for turning in contraband. It can be exchanged in an NFSD uplink device for a variety of law enforcement tools.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_pickup.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_drop.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_drop.wav
+      params:
+        volume: -4
   - type: WarnOnCryoSleep
   - type: Sprite
     sprite: _NF/Objects/Specific/Security/frontieruplinkcoin.rsi

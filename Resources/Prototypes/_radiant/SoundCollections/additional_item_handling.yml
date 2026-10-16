@@ -1,0 +1,22 @@
+- type: soundCollection
+  id: RollingPinRolling
+  files:
+  - /Audio/_radiant/Items/handling/rolling_pin_rolling1.wav
+  - /Audio/_radiant/Items/handling/rolling_pin_rolling2.wav
+  - /Audio/_radiant/Items/handling/rolling_pin_rolling3.wav
+  - /Audio/_radiant/Items/handling/rolling_pin_rolling4.wav
+  - /Audio/_radiant/Items/handling/rolling_pin_rolling5.wav
+  - /Audio/_radiant/Items/handling/rolling_pin_rolling6.wav
+
+- type: soundCollection
+  id: DoorRemoteSwitch
+  files:
+  - /Audio/_radiant/Items/handling/door_remote_switch1.wav
+  - /Audio/_radiant/Items/handling/door_remote_switch2.wav
+  - /Audio/_radiant/Items/handling/door_remote_switch3.wav
+
+- type: soundCollection
+  id: DoorRemoteAction
+  files:
+  - /Audio/_radiant/Items/handling/door_remote_action1.wav
+  - /Audio/_radiant/Items/handling/door_remote_action2.wav

@@ -7,6 +7,21 @@
   suffix: 20 BM
   description: Жетоны контроля за сектор.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_pickup.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_drop.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_drop.wav
+      params:
+        volume: -4
   - type: Sprite
     sprite: _radiant/Objects/Specific/tokens.rsi
     state: token-navy
@@ -57,6 +72,21 @@
   suffix: 20 ЖКС
   description: Жетоны контроля за сектор.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_pickup.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_drop.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/coin_drop.wav
+      params:
+        volume: -4
   - type: Sprite
     sprite: _radiant/Objects/Specific/tokens.rsi
     state: token-sep

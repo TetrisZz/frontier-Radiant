@@ -1,10 +1,17 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.Remotes.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DoorRemoteComponent : Component
 {
+    [DataField]
+    public SoundSpecifier? SwitchSound;
+
+    [DataField]
+    public SoundSpecifier? ActionSound;
+
     [AutoNetworkedField]
     [DataField]
     public OperatingMode Mode = OperatingMode.OpenClose;

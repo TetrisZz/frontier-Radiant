@@ -93,20 +93,26 @@ namespace Content.Shared.Remotes
                 return;
             }
 
+            var acted = false;
             switch (entity.Comp.Mode)
             {
                 case OperatingMode.OpenClose:
                     if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, accessTarget))
+                    {
+                        acted = true;
                         _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp.State}");
+                    }
                     break;
                 case OperatingMode.ToggleBolts:
                     if (TryComp<DoorBoltComponent>(args.Target, out var boltsComp))
                     {
                         if (!boltsComp.BoltWireCut)
                         {
-                            _doorSystem.SetBoltsDown((args.Target.Value, boltsComp), !boltsComp.BoltsDown, accessTarget);
+                            var wasBolted = boltsComp.BoltsDown;
+                            _doorSystem.SetBoltsDown((args.Target.Value, boltsComp), !wasBolted, accessTarget);
+                            acted = boltsComp.BoltsDown != wasBolted;
                             _adminLogger.Add(LogType.Action,
                                 LogImpact.Medium,
                                 $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} to {(boltsComp.BoltsDown ? "" : "un")}bolt it");
@@ -117,7 +123,9 @@ namespace Content.Shared.Remotes
                 case OperatingMode.ToggleEmergencyAccess:
                     if (airlockComp != null)
                     {
-                        _airlock.SetEmergencyAccess((args.Target.Value, airlockComp), !airlockComp.EmergencyAccess);
+                        var wasEmergency = airlockComp.EmergencyAccess;
+                        _airlock.SetEmergencyAccess((args.Target.Value, airlockComp), !wasEmergency);
+                        acted = airlockComp.EmergencyAccess != wasEmergency;
                         _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} to set emergency access {(airlockComp.EmergencyAccess ? "on" : "off")}");
@@ -128,6 +136,8 @@ namespace Content.Shared.Remotes
                     throw new InvalidOperationException(
                         $"{nameof(DoorRemoteComponent)} had invalid mode {entity.Comp.Mode}");
             }
+            if (acted && entity.Comp.ActionSound != null)
+                Audio.PlayPvs(entity.Comp.ActionSound, entity);
         }
     }
 }
