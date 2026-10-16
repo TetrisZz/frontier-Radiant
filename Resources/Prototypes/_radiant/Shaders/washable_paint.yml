@@ -1,0 +1,22 @@
+- type: shader
+  id: WashablePaint
+  kind: source
+  path: /Textures/Shaders/washable_paint.swsl
+
+- type: shader
+  id: WashablePaintDisplaced
+  kind: source
+  path: /Textures/Shaders/washable_paint_displaced.swsl
+  params:
+    displacementSize: 127
+
+- type: shader
+  id: WashablePaintDisplacedStencil
+  kind: source
+  path: /Textures/Shaders/washable_paint_displaced.swsl
+  stencil:
+    ref: 1
+    op: Keep
+    func: NotEqual
+  params:
+    displacementSize: 127

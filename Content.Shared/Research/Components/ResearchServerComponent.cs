@@ -1,4 +1,7 @@
 using Robust.Shared.GameStates;
+using Content.Shared._radiant.ResearchBlueprints;
+using Content.Shared.Research.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -20,6 +23,17 @@ public sealed partial class ResearchServerComponent : Component
     [AutoNetworkedField]
     [DataField("points"), ViewVariables(VVAccess.ReadWrite)]
     public int Points;
+
+    [DataField]
+    public Dictionary<ProtoId<LatheRecipePrototype>, BlueprintModifiers> BlueprintRecipes = new();
+    [DataField]
+    public Dictionary<ProtoId<LatheRecipePrototype>, EntityUid> BlueprintSources = new();
+
+    [DataField]
+    public List<ProtoId<TechnologyBlueprintsPrototype>> BlueprintHistory = new();
+
+    [DataField]
+    public List<BlueprintResearchResult> BlueprintResults = new();
 
     /// <summary>
     /// A unique numeric id representing the server

@@ -40,15 +40,16 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
 
         var activeUI = _entManager.GetEntity(loaderUiState.ActiveUI);
 
+        // Metadata updates must not run Setup again on the visible fragment.
+        // Otherwise its UIFragment starts updating a new, unattached control.
+        if (_activeProgram == activeUI && _activeUiFragment != null)
+            return;
+
         _activeProgram = activeUI;
 
         var ui = RetrieveCartridgeUI(activeUI);
         var comp = RetrieveCartridgeComponent(activeUI);
         var control = ui?.GetUIFragmentRoot();
-
-        //Prevent the same UI fragment from getting disposed and attached multiple times
-        if (_activeUiFragment?.GetType() == control?.GetType())
-            return;
 
         if (_activeUiFragment is not null)
             DetachCartridgeUI(_activeUiFragment);

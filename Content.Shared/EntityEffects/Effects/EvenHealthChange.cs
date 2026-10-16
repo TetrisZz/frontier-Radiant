@@ -130,10 +130,15 @@ public sealed partial class EvenHealthChange : EntityEffect
             }
         }
 
-        damagableSystem.TryChangeDamage(
+        var healed = damagableSystem.TryChangeDamage(
             args.TargetEntity,
             dspec * scale,
             IgnoreResistances,
             interruptsDoAfters: false);
+        if (healed != null && args is EntityEffectReagentArgs { Reagent: { } reagent })
+        {
+            var applied = new Content.Shared._radiant.Careers.CareerChemicalHealingEvent(args.TargetEntity, reagent.ID, healed);
+            args.EntityManager.EventBus.RaiseEvent(EventSource.Local, ref applied);
+        }
     }
 }

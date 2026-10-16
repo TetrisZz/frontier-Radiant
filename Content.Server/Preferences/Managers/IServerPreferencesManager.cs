@@ -25,5 +25,6 @@ namespace Content.Server.Preferences.Managers
         Task RefreshPreferencesAsync(ICommonSession session, CancellationToken cancel); // Frontier
         Task SetProfile(NetUserId userId, int slot, ICharacterProfile profile, bool validateFields = true, bool replaceCharacter = false); // Frontier: add validateFields
         Task SetConstructionFavorites(NetUserId userId, List<ProtoId<ConstructionPrototype>> favorites);
+        Task<bool> SetGhostSkin(NetUserId userId, string skin);
     }
 }

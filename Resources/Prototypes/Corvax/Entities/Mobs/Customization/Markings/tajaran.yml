@@ -342,6 +342,7 @@
 
 - type: marking
   id: Outears
+  bodyFeatures: [Ears]
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Tajaran]
@@ -387,6 +388,7 @@
 
 - type: marking
   id: Inears
+  bodyFeatures: [Ears]
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Tajaran]
@@ -423,6 +425,7 @@
 
 - type: marking
   id: Muzzleinears
+  bodyFeatures: [Ears]
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Tajaran]
@@ -432,6 +435,7 @@
 
 - type: marking
   id: TailFluffy
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -478,6 +482,7 @@
 
 - type: marking
   id: TailM
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -487,6 +492,7 @@
 
 - type: marking
   id: TailRing
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Tajaran]
@@ -498,6 +504,7 @@
 
 - type: marking
   id: TailSkeleton
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -509,6 +516,7 @@
 
 - type: marking
   id: TailTip
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -520,6 +528,7 @@
 
 - type: marking
   id: TailFluffySkeleton
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -532,6 +541,7 @@
 
 - type: marking
   id: TailWingler1
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -543,6 +553,7 @@
 
 - type: marking
   id: TailWingler2
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -554,6 +565,7 @@
 
 - type: marking
   id: TailWingler3
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: [Tajaran]
@@ -566,6 +578,7 @@
 # Animated
 - type: marking
   id: TailFluffyAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -575,6 +588,7 @@
 
 - type: marking
   id: TailWingler1Animated
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
@@ -586,6 +600,7 @@
 
 - type: marking
   id: TailWingler2Animated
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
@@ -597,6 +612,7 @@
 
 - type: marking
   id: TailWingler3Animated
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
@@ -608,6 +624,7 @@
 
 - type: marking
   id: TailFluffySkeletonAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -619,6 +636,7 @@
 
 - type: marking
   id: TailTipAnimated
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []
@@ -631,6 +649,7 @@
 
 - type: marking
   id: TailMAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -640,6 +659,7 @@
 
 - type: marking
   id: TailRingAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -651,6 +671,7 @@
 
 - type: marking
   id: TailSkeletonAnimated
+  bodyFeatures: [Tail]
   markingCategory: Tail
   bodyPart: Tail
   speciesRestriction: []

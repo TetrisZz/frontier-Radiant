@@ -1,6 +1,7 @@
 # Antennas
 - type: marking
   id: MothAntennasClassicAspen
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -16,6 +17,7 @@
 
 - type: marking
   id: MothAntennasClassicBrown
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -31,6 +33,7 @@
 
 - type: marking
   id: MothAntennasClassicDeathshead
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -46,6 +49,7 @@
 
 - type: marking
   id: MothAntennasClassicFeathery
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -61,6 +65,7 @@
 
 - type: marking
   id: MothAntennasClassicFirewatch
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -76,6 +81,7 @@
 
 - type: marking
   id: MothAntennasClassicGothic
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -91,6 +97,7 @@
 
 - type: marking
   id: MothAntennasClassicJungle
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -106,6 +113,7 @@
 
 - type: marking
   id: MothAntennasClassicLovers
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -121,6 +129,7 @@
 
 - type: marking
   id: MothAntennasClassicMint
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -136,6 +145,7 @@
 
 - type: marking
   id: MothAntennasClassicMoffra
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -151,6 +161,7 @@
 
 - type: marking
   id: MothAntennasClassicMoonfly
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -166,6 +177,7 @@
 
 - type: marking
   id: MothAntennasClassicOakworm
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -181,6 +193,7 @@
 
 - type: marking
   id: MothAntennasClassicPlain
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -196,6 +209,7 @@
 
 - type: marking
   id: MothAntennasClassicPlasmafire
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -211,6 +225,7 @@
 
 - type: marking
   id: MothAntennasClassicPoison
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -226,6 +241,7 @@
 
 - type: marking
   id: MothAntennasClassicReddish
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -241,6 +257,7 @@
 
 - type: marking
   id: MothAntennasClassicRegal
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -256,6 +273,7 @@
 
 - type: marking
   id: MothAntennasClassicRosy
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -271,6 +289,7 @@
 
 - type: marking
   id: MothAntennasClassicRoyal
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -286,6 +305,7 @@
 
 - type: marking
   id: MothAntennasClassicSnow
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -301,6 +321,7 @@
 
 - type: marking
   id: MothAntennasClassicWhitefly
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -316,6 +337,7 @@
 
 - type: marking
   id: MothAntennasClassicWitchking
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -332,6 +354,7 @@
 # Wings
 - type: marking
   id: MothWingsClassicAspen
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -347,6 +370,7 @@
 
 - type: marking
   id: MothWingsClassicAtlas
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -362,6 +386,7 @@
 
 - type: marking
   id: MothWingsClassicBrown
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -377,6 +402,7 @@
 
 - type: marking
   id: MothWingsClassicDeathshead
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -392,6 +418,7 @@
 
 - type: marking
   id: MothWingsClassicFeathery
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -407,6 +434,7 @@
 
 - type: marking
   id: MothWingsClassicFirewatch
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -422,6 +450,7 @@
 
 - type: marking
   id: MothWingsClassicGothic
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -437,6 +466,7 @@
 
 - type: marking
   id: MothWingsClassicJungle
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -452,6 +482,7 @@
 
 - type: marking
   id: MothWingsClassicLovers
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -467,6 +498,7 @@
 
 - type: marking
   id: MothWingsClassicLuna
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -482,6 +514,7 @@
 
 - type: marking
   id: MothWingsClassicMint
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -497,6 +530,7 @@
 
 - type: marking
   id: MothWingsClassicMoffra
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -512,6 +546,7 @@
 
 - type: marking
   id: MothWingsClassicMonarch
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -527,6 +562,7 @@
 
 - type: marking
   id: MothWingsClassicMoonfly
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -542,6 +578,7 @@
 
 - type: marking
   id: MothWingsClassicOakworm
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -557,6 +594,7 @@
 
 - type: marking
   id: MothWingsClassicPlain
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -572,6 +610,7 @@
 
 - type: marking
   id: MothWingsClassicPlasmafire
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -587,6 +626,7 @@
 
 - type: marking
   id: MothWingsClassicPoison
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -602,6 +642,7 @@
 
 - type: marking
   id: MothWingsClassicRagged
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -617,6 +658,7 @@
 
 - type: marking
   id: MothWingsClassicReddish
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -632,6 +674,7 @@
 
 - type: marking
   id: MothWingsClassicRosy
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -647,6 +690,7 @@
 
 - type: marking
   id: MothWingsClassicRoyal
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -662,6 +706,7 @@
 
 - type: marking
   id: MothWingsClassicSnow
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -677,6 +722,7 @@
 
 - type: marking
   id: MothWingsClassicWhitefly
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -692,6 +738,7 @@
 
 - type: marking
   id: MothWingsClassicWitchking
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true

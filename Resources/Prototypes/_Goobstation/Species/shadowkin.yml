@@ -12,6 +12,9 @@
   maleFirstNames: NamesVulpkaninMale
   femaleFirstNames: NamesVulpkaninFemale
   lastNames: NamesVulpkaninLast
+  youngAge: 70
+  oldAge: 120
+  maxAge: 200
   minHeight: 0.75 # Radiant sector ↓
   defaultHeight: 0.9
   maxHeight: 1.1

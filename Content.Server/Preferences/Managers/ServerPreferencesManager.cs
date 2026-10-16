@@ -8,6 +8,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared._radiant.Dossiers;
+using Content.Shared._radiant.Careers;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -75,7 +76,7 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
 
-            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, index, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
+            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, index, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites, curPrefs.GhostSkin);
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -144,6 +145,14 @@ namespace Content.Server.Preferences.Managers
 
             profile.EnsureValid(session, _dependencies);
 
+            if (profile is HumanoidCharacterProfile careerProfile)
+            {
+                if (replaceCharacter || !hadCharacter)
+                    careerProfile.Career = new CareerData { CharacterId = Guid.NewGuid() };
+                else if (curPrefs.Characters[slot] is HumanoidCharacterProfile currentProfile)
+                    careerProfile.Career = currentProfile.Career.Clone();
+            }
+
             // Frontier: check for profile modifications (based on Monolith's impl)
             if (validateFields && profile is HumanoidCharacterProfile humanProfile)
             {
@@ -199,7 +208,7 @@ namespace Content.Server.Preferences.Managers
                 [slot] = profile
             };
 
-            var updatedPrefs = new PlayerPreferences(profiles, slot, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
+            var updatedPrefs = new PlayerPreferences(profiles, slot, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites, curPrefs.GhostSkin);
             prefsData.Prefs = updatedPrefs;
 
             if (ShouldStorePrefs(session.Channel.AuthType))
@@ -242,7 +251,7 @@ namespace Content.Server.Preferences.Managers
             }
 
             var curPrefs = prefsData.Prefs!;
-            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, favorites);
+            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, favorites, curPrefs.GhostSkin);
 
             var session = _playerManager.GetSessionById(userId);
             if (ShouldStorePrefs(session.Channel.AuthType))
@@ -286,7 +295,7 @@ namespace Content.Server.Preferences.Managers
             var arr = new Dictionary<int, ICharacterProfile>(curPrefs.Characters);
             arr.Remove(slot);
 
-            prefsData.Prefs = new PlayerPreferences(arr, nextSlot ?? curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
+            prefsData.Prefs = new PlayerPreferences(arr, nextSlot ?? curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites, curPrefs.GhostSkin);
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -327,7 +336,7 @@ namespace Content.Server.Preferences.Managers
             }
 
             var curPrefs = prefsData.Prefs!;
-            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, validatedList);
+            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, validatedList, curPrefs.GhostSkin);
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -341,11 +350,13 @@ namespace Content.Server.Preferences.Managers
             if (!ShouldStorePrefs(session.Channel.AuthType))
             {
                 // Don't store data for guests.
+                var character = HumanoidCharacterProfile.Random();
+                character.Career = new CareerData { CharacterId = Guid.NewGuid() };
                 var prefsData = new PlayerPrefData
                 {
                     PrefsLoaded = true,
                     Prefs = new PlayerPreferences(
-                        new[] { new KeyValuePair<int, ICharacterProfile>(0, HumanoidCharacterProfile.Random()) },
+                        new[] { new KeyValuePair<int, ICharacterProfile>(0, character) },
                         0, Color.Transparent, [])
                 };
 
@@ -478,6 +489,23 @@ namespace Content.Server.Preferences.Managers
                 !ReferenceEquals(currentData, prefsData))
                 return;
 
+            // Career writes update the cache independently of PendingPreferenceWrites.
+            // Read it after the await so queued progress survives an older DB snapshot.
+            if (currentData.Prefs is { } latestPrefs)
+            {
+                foreach (var (slot, profile) in prefs.Characters)
+                {
+                    if (profile is HumanoidCharacterProfile refreshedProfile &&
+                        latestPrefs.Characters.TryGetValue(slot, out var cachedProfile) &&
+                        cachedProfile is HumanoidCharacterProfile currentProfile &&
+                        refreshedProfile.Career.CharacterId != Guid.Empty &&
+                        refreshedProfile.Career.CharacterId == currentProfile.Career.CharacterId)
+                    {
+                        refreshedProfile.Career = currentProfile.Career.Clone();
+                    }
+                }
+            }
+
             prefsData.Prefs = prefs;
             prefsData.PrefsLoaded = true;
 
@@ -497,7 +525,7 @@ namespace Content.Server.Preferences.Managers
             return new PlayerPreferences(prefs.Characters.Select(p =>
             {
                 return new KeyValuePair<int, ICharacterProfile>(p.Key, p.Value.Validated(session, collection));
-            }), prefs.SelectedCharacterIndex, prefs.AdminOOCColor, prefs.ConstructionFavorites);
+            }), prefs.SelectedCharacterIndex, prefs.AdminOOCColor, prefs.ConstructionFavorites, prefs.GhostSkin);
         }
 
         public IEnumerable<KeyValuePair<NetUserId, ICharacterProfile>> GetSelectedProfilesForPlayers(
@@ -512,6 +540,37 @@ namespace Content.Server.Preferences.Managers
         internal static bool ShouldStorePrefs(LoginType loginType)
         {
             return loginType.HasStaticUserId();
+        }
+
+        public async Task<bool> SetGhostSkin(NetUserId userId, string skin)
+        {
+            if (!_cachedPlayerPrefs.TryGetValue(userId, out var data) || !data.PrefsLoaded || data.Prefs == null)
+                return false;
+            var session = _playerManager.GetSessionById(userId);
+            data.PendingPreferenceWrites++;
+            try
+            {
+                await data.PreferenceSaveLock.WaitAsync();
+                try
+                {
+                    if (ShouldStorePrefs(session.Channel.AuthType))
+                        await _db.SaveGhostSkinAsync(userId, skin);
+                    // A profile edit can replace Prefs while this write awaits the database.
+                    if (!_cachedPlayerPrefs.TryGetValue(userId, out var current) || !ReferenceEquals(current, data)
+                        || current.Prefs == null)
+                        return false;
+                    current.Prefs.GhostSkin = skin;
+                    return true;
+                }
+                finally
+                {
+                    data.PreferenceSaveLock.Release();
+                }
+            }
+            finally
+            {
+                data.PendingPreferenceWrites--;
+            }
         }
 
         private sealed class PlayerPrefData

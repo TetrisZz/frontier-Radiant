@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from BlueMoon Station icons/obj/iv_drip.dmi. Original contributors retain copyright. Original pixels, directions and animation timing preserved.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tele_iv"
+    },
+    {
+      "name": "iv_drip_tele"
+    },
+    {
+      "name": "donating_tele",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "injecting_tele",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "donateidle_tele"
+    },
+    {
+      "name": "injectidle_tele"
+    },
+    {
+      "name": "iv_drip"
+    },
+    {
+      "name": "injecting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "donating",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "injectidle"
+    },
+    {
+      "name": "donateidle"
+    },
+    {
+      "name": "beakeridle"
+    },
+    {
+      "name": "beakeractive"
+    },
+    {
+      "name": "beakerlarge100"
+    },
+    {
+      "name": "reagent100"
+    },
+    {
+      "name": "reagent80"
+    },
+    {
+      "name": "reagent75"
+    },
+    {
+      "name": "reagent50"
+    },
+    {
+      "name": "reagent25"
+    },
+    {
+      "name": "reagent10"
+    },
+    {
+      "name": "reagent0"
+    }
+  ]
+}

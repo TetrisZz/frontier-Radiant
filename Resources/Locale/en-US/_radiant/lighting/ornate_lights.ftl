@@ -1,0 +1,14 @@
+ent-RadiantLampPostBare = bare lamp post
+    .desc = A metal post without a lamp head.
+ent-RadiantLampPostChinese = lantern sign post
+    .desc = A decorative lamp with a sign and a replaceable bulb. Requires APC power.
+ent-RadiantLampPostOneSnow = snow-covered single lamp post
+ent-RadiantLampPostTwoSnow = snow-covered double lamp post
+ent-RadiantLampPostThreeSnow = snow-covered triple lamp post
+ent-RadiantLampPostFourSnow = snow-covered four-lamp post
+ent-RadiantLampPostSidewalkSnow = snow-covered sidewalk lamp post
+ent-RadiantLampPostChineseSnow = snow-covered lantern sign post
+ent-RadiantLampPostTraffic = traffic signal post
+    .desc = A decorative traffic signal on a metal post.
+ent-RadiantLampPostTrafficSnow = snow-covered traffic signal post
+    .desc = A decorative traffic signal covered in snow.

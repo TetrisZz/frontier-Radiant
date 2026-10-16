@@ -34,6 +34,10 @@ public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
     [DataField(required: true)]
     public int Price;
 
+    [DataField] public string? CareerProfession;
+    [DataField] public int CareerLevel;
+    [DataField] public bool CareerFree;
+
     /// <summary>
     ///     The size of the vessel. (e.g. Small, Medium, Large etc.)
     /// </summary>

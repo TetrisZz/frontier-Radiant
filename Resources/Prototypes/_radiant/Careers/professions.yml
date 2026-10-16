@@ -1,0 +1,72 @@
+- type: careerProfession
+  id: Adventurer
+  name: career-profession-adventurer
+  description: career-profession-adventurer-description
+  icon: ClothingBackpack
+
+- type: careerProfession
+  id: Mining
+  name: career-profession-mining
+  description: career-profession-mining-description
+  icon: MiningDrill
+  jobs: [SalvageSpecialist]
+  requiredSkill: Salvage
+  requiredSkillLevel: 2
+  levels: [MiningLevel1, MiningLevel2, MiningLevel3]
+  jobTitles:
+  - id: miner
+    name: career-title-miner
+  - id: prospector
+    name: career-title-prospector
+    requiredLevel: 1
+  - id: senior-miner
+    name: career-title-senior-miner
+    requiredLevel: 2
+  - id: mining-master
+    name: career-title-mining-master
+    requiredLevel: 3
+
+- type: careerLevel
+  id: MiningLevel1
+  objectives:
+  - id: ore-value
+    title: career-objective-ore-value
+    type: SaleValue
+    target: 10000
+    tags: [Ore]
+  rewardItems: [MiningDrill]
+  rewardMoney: 10000
+  boxTier: 1
+
+- type: careerLevel
+  id: MiningLevel2
+  objectives:
+  - id: duty
+    title: career-objective-duty
+    type: DutyTime
+    target: 3600
+  - id: gold
+    title: career-objective-gold
+    type: SaleQuantity
+    target: 30
+    prototypes: [GoldOre]
+  rewardItems: [ClothingOuterHardsuitSalvage]
+  rewardMoney: 20000
+  boxTier: 2
+
+- type: careerLevel
+  id: MiningLevel3
+  objectives:
+  - id: wildlife
+    title: career-objective-wildlife
+    type: Damage
+    target: 250
+    prototypes: [MobCarp, MobShark, NFMobCarpBase]
+  - id: tooth
+    title: career-objective-tooth
+    type: SaleQuantity
+    target: 1
+    prototypes: [MaterialToothSharkminnow]
+  rewardItems: [WeaponProtoKineticAccelerator]
+  rewardMoney: 30000
+  boxTier: 3

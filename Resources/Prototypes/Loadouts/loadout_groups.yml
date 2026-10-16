@@ -42,22 +42,6 @@
   - OffsetCaneMime
   - OffsetCaneNT
   - Cane
-  - TowelColorBlack
-  - TowelColorDarkBlue
-  - TowelColorDarkGreen
-  - TowelColorGold
-  - TowelColorGray
-  - TowelColorGreen
-  - TowelColorLightBlue
-  - TowelColorLightBrown
-  - TowelColorMaroon
-  - TowelColorMime
-  - TowelColorOrange
-  - TowelColorPurple
-  - TowelColorRed
-  - TowelColorSilver
-  - TowelColorWhite
-  - TowelColorYellow
 
 - type: loadoutGroup
   id: Glasses
@@ -1558,8 +1542,6 @@
   - SocksNormal
   - SocksHigh
   - SocksShort
-  - SocksBee
-  - SocksCoder
   - SocksPantyhose
   - SocksFishnettights
   - SocksGarters

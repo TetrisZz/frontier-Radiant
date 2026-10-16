@@ -2,9 +2,9 @@ ent-RadiantRubberStampFeline = кошачья печать
     .desc = Резиновый штамп, оставляющий на бумаге свой рисунок.
 radiant-image-stamp-feline = кошачья печать
 
-ent-RadiantRubberStampHorny = печать «IN HORNY»
+ent-RadiantRubberStampHorny = печать «IM HORNY»
     .desc = Резиновый штамп, оставляющий на бумаге свой рисунок.
-radiant-image-stamp-horny = печать «IN HORNY»
+radiant-image-stamp-horny = печать «IM HORNY»
 
 ent-RadiantRubberStampCentCom = печать Центрального командования (рисунок)
     .desc = Резиновый штамп, оставляющий на бумаге свой рисунок.

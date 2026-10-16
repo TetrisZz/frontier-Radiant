@@ -60,6 +60,7 @@
     - UplinkHomHardsuits
     - UplinkHomUtility
     - UplinkHomShuttle
+    - UplinkHomKeepsakes
     currencyWhitelist:
     - Cristalhom
     balance:

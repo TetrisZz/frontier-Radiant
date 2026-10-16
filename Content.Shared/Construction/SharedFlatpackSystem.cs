@@ -102,6 +102,8 @@ public abstract class SharedFlatpackSystem : EntitySystem
             _adminLogger.Add(LogType.Construction,
                 LogImpact.Low,
                 $"{ToPrettyString(args.User):player} unpacked {ToPrettyString(spawn):entity} at {xform.Coordinates} from {ToPrettyString(uid):entity}");
+            var careerBuild = new Content.Shared._radiant.Careers.CareerConstructionCompletedEvent(spawn, args.User, uid);
+            RaiseLocalEvent(ref careerBuild);
             QueueDel(uid);
         }
 

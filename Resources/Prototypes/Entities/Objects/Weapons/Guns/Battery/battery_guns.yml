@@ -4,6 +4,15 @@
   parent: BaseItem
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: LasersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: LasersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: LasersDrop
   - type: Sprite
   - type: Item
     size: Huge
@@ -32,6 +41,15 @@
   parent: BaseItem
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: LasersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: LasersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: LasersDrop
   - type: Sprite
   - type: Item
     size: Huge

@@ -431,6 +431,9 @@ namespace Content.Server.Interaction.Panel
 
         private bool IsInteractionAnatomyAllowed(EntityUid user, EntityUid? target, InteractionPrototype prototype)
         {
+            if (!_entManager.System<Content.Shared.Interaction.Panel.InteractionBodyFeatureSystem>()
+                    .IsAllowed(user, target, prototype))
+                return false;
             if (!TryComp<HumanoidAppearanceComponent>(user, out var userAppearance))
                 return false;
 

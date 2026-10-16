@@ -12,6 +12,8 @@ using Robust.Shared.Map;
 using System.Numerics;
 using Content.Shared.Coordinates;
 using Robust.Shared.Random;
+using Content.Server._radiant.Careers;
+using Content.Shared.Stacks;
 
 namespace Content.Server._NF.Cargo.Systems;
 
@@ -143,8 +145,9 @@ public sealed partial class NFCargoSystem
 
     #region Station
 
-    private bool SellPallets(Entity<NFCargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out double amount, out double noMultiplierAmount, out Dictionary<string, double> additionalCurrency) // Frontier: first arg to Entity, add noMultiplierAmount
+    private bool SellPallets(Entity<NFCargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out double amount, out double noMultiplierAmount, out Dictionary<string, double> additionalCurrency, out CareerSaleSnapshot? careerSale) // Frontier: first arg to Entity, add noMultiplierAmount
     {
+        careerSale = null;
         GetPalletGoods(consoleUid, gridUid, out var toSell, out amount, out noMultiplierAmount, out additionalCurrency);
 
         Log.Debug($"Cargo sold {toSell.Count} entities for {amount} (plus {noMultiplierAmount} without mods)");
@@ -152,6 +155,7 @@ public sealed partial class NFCargoSystem
         if (toSell.Count == 0)
             return false;
 
+        careerSale = EntityManager.System<CareerQuestSystem>().CaptureSale(consoleUid, toSell);
         var ev = new NFEntitySoldEvent(toSell, gridUid);
         RaiseLocalEvent(ref ev);
 
@@ -265,7 +269,7 @@ public sealed partial class NFCargoSystem
         // radiant: excise exempt must be calculated BEFORE SellPallets deletes the goods.
         var exciseExempt = _excise.CalculateTaxExemptAmount(ent);
 
-        if (!SellPallets(ent, gridUid, out var price, out var noMultiplierPrice, out Dictionary<string, double> additionalCurrency))
+        if (!SellPallets(ent, gridUid, out var price, out var noMultiplierPrice, out Dictionary<string, double> additionalCurrency, out var careerSale))
             return;
 
         // Handle market modifiers & immune objects
@@ -305,8 +309,15 @@ public sealed partial class NFCargoSystem
         // radiant end
         var stackPrototype = _proto.Index(ent.Comp.CashType);
         var stackUid = _stack.Spawn((int)price, stackPrototype, args.Actor.ToCoordinates());
+        var careerPayout = TryComp<StackComponent>(stackUid, out var cashStack) ? cashStack.Count : 0;
         if (!_hands.TryPickupAnyHand(args.Actor, stackUid))
             _transform.SetLocalRotation(stackUid, Angle.Zero); // Orient these to grid north instead of map north
+
+        if (careerSale != null)
+        {
+            var careerEvent = new CareerSaleCompletedEvent(args.Actor, careerSale, careerPayout);
+            RaiseLocalEvent(ref careerEvent);
+        }
 
         // Iterate through additional currency payouts, putting them in hand if possible
         foreach (var (currencyId, currencyAmount) in additionalCurrency)

@@ -1,0 +1,90 @@
+- type: entity
+  parent: DrinkEnergyDrinkCan
+  id: DrinkBuzzFuzzCan
+  name: Buzz Fuzz can
+  description: A sweet fizzy drink made with honey. A hive of flavour!
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Drinks/buzz_fuzz.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon }
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BuzzFuzz
+          Quantity: 30
+
+- type: entity
+  parent: DrinkEnergyDrinkCan
+  id: DrinkGreyBullCan
+  name: Grey Bull can
+  description: Grey Bull gives you gloves! A small can of energy drink.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Drinks/grey_bull.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon }
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: GreyBull
+          Quantity: 20
+
+- type: entity
+  parent: DrinkFourteenLokoCan
+  id: DrinkThirteenLokoCan
+  name: Thirteen Loko can
+  description: A dangerously strong alcoholic energy drink. Drink responsibly.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Drinks/thirteen_loko.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon }
+
+- type: entity
+  parent: DrinkBeerBottleFull
+  id: DrinkCarpLiteBottle
+  name: Carp Lite bottle
+  description: A light beer brewed with pure ice asteroid spring water.
+  components:
+  - type: Label
+    currentLabel: reagent-name-carp-lite
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: CarpLite
+          Quantity: 30
+
+- type: entity
+  parent: DrinkWaterBottleFull
+  id: DrinkWaterBottleLarge
+  name: large water bottle
+  description: A large bottle of clean drinking water.
+  components:
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 100

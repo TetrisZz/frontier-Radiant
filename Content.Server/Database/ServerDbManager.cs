@@ -10,6 +10,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Preferences;
+using Content.Shared._radiant.Careers;
 using Content.Shared.Ghost.Roles; // Frontier: ghost role whitelists
 using Content.Shared.Roles;
 using Microsoft.Data.Sqlite;
@@ -32,6 +33,9 @@ namespace Content.Server.Database
 
         void Shutdown();
 
+        Task<T> RunTriadDbCommand<T>(Func<ServerDbContext, CancellationToken, Task<T>> fn, CancellationToken ct);
+        Task RunTriadDbCommand(Func<ServerDbContext, CancellationToken, Task> fn, CancellationToken ct);
+
         #region Preferences
         Task<PlayerPreferences> InitPrefsAsync(
             NetUserId userId,
@@ -41,6 +45,10 @@ namespace Content.Server.Database
         Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index);
 
         Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot, bool replaceCharacter = false);
+
+        /// <summary>Updates only career data. Missing slots and mismatched character IDs are ignored.</summary>
+        /// <exception cref="DbUpdateConcurrencyException">The career changed during the update.</exception>
+        Task SaveCharacterCareerAsync(NetUserId userId, int slot, Guid characterId, CareerData career);
 
         Task<string?> GetCharacterDossierAsync(NetUserId userId, int slot);
         Task SaveCharacterDossierAsync(NetUserId userId, int slot, string dossierJson);
@@ -53,6 +61,7 @@ namespace Content.Server.Database
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
 
         Task SaveConstructionFavoritesAsync(NetUserId userId, List<ProtoId<ConstructionPrototype>> constructionFavorites);
+        Task SaveGhostSkinAsync(NetUserId userId, string skin);
 
         // Single method for two operations for transaction.
         Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot);
@@ -385,6 +394,9 @@ namespace Content.Server.Database
         Task<WayfarerSafetyDepositBox> PurchaseSafetyDepositBox(Guid ownerUserId, int characterIndex, string ownerName, string boxSize, CancellationToken cancel = default);
         Task<List<WayfarerSafetyDepositBox>> GetPlayerSafetyDepositBoxes(Guid ownerUserId, int characterIndex, CancellationToken cancel = default);
         Task<WayfarerSafetyDepositBox?> GetSafetyDepositBox(Guid boxId, CancellationToken cancel = default);
+        /// <summary>Updates only ProtoId when the box, owner, character slot and old prototype match.
+        /// The caller must check that the physical box is empty.</summary>
+        Task<bool> UpgradeCareerSafetyDepositBox(Guid boxId, Guid ownerId, int characterIndex, string expectedPrototype, string newPrototype);
         Task DepositSafetyDepositBoxItems(Guid boxId, List<string> entityDataList, CancellationToken cancel = default);
         Task UpdateSafetyDepositBoxNickname(Guid boxId, string? nickname, CancellationToken cancel = default);
         Task ClearSafetyDepositBoxItems(Guid boxId, int roundId, CancellationToken cancel = default);
@@ -438,6 +450,12 @@ namespace Content.Server.Database
         [Dependency] private readonly ILogManager _logMgr = default!;
 
         private ServerDbBase _db = default!;
+
+        public Task<T> RunTriadDbCommand<T>(Func<ServerDbContext, CancellationToken, Task<T>> fn, CancellationToken ct)
+            => RunDbCommand(() => _db.RunWithContextAsync(fn, ct));
+
+        public Task RunTriadDbCommand(Func<ServerDbContext, CancellationToken, Task> fn, CancellationToken ct)
+            => RunDbCommand(() => _db.RunWithContextAsync(fn, ct));
         private LoggingProvider _msLogProvider = default!;
         private ILoggerFactory _msLoggerFactory = default!;
         private ISawmill _sawmill = default!;
@@ -521,6 +539,13 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SaveCharacterDossierAsync(userId, slot, dossierJson));
         }
 
+        public Task SaveCharacterCareerAsync(NetUserId userId, int slot, Guid characterId, CareerData career)
+        {
+            DbWriteOpsMetric.Inc();
+            var snapshot = career.Clone();
+            return RunDbCommand(() => _db.SaveCharacterCareerAsync(userId, slot, characterId, snapshot));
+        }
+
         public Task<Dictionary<NetUserId, (string DiscordId, string RoleId)>> GetSupporterLinksAsync()
         {
             DbReadOpsMetric.Inc();
@@ -567,6 +592,12 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SaveConstructionFavoritesAsync(userId, constructionFavorites));
+        }
+
+        public Task SaveGhostSkinAsync(NetUserId userId, string skin)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveGhostSkinAsync(userId, skin));
         }
 
         public Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId, CancellationToken cancel)
@@ -1203,6 +1234,12 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.DepositSafetyDepositBoxItems(boxId, entityDataList, cancel));
+        }
+
+        public Task<bool> UpgradeCareerSafetyDepositBox(Guid boxId, Guid ownerId, int characterIndex, string expectedPrototype, string newPrototype)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpgradeCareerSafetyDepositBox(boxId, ownerId, characterIndex, expectedPrototype, newPrototype));
         }
 
         public Task UpdateSafetyDepositBoxNickname(Guid boxId, string? nickname, CancellationToken cancel = default)

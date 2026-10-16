@@ -12,6 +12,8 @@ public sealed class LatheUpdateState : BoundUserInterfaceState
     public LatheRecipeBatch[] Queue;
 
     public ProtoId<LatheRecipePrototype>? CurrentlyProducing;
+    public Dictionary<ProtoId<LatheRecipePrototype>, TimeSpan> ProductionTimes = new();
+    public Dictionary<ProtoId<LatheRecipePrototype>, Content.Shared._radiant.ResearchBlueprints.BlueprintModifiers> RecipeModifiers = new();
 
     public LatheUpdateState(List<ProtoId<LatheRecipePrototype>> recipes, LatheRecipeBatch[] queue, ProtoId<LatheRecipePrototype>? currentlyProducing = null)
     {

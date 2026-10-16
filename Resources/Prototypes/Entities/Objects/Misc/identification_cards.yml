@@ -5,6 +5,21 @@
   description: A card necessary to access various areas aboard the station.
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/card_pickup.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/card_drop.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/card_drop.ogg
+      params:
+        volume: -5
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
   - type: Clothing

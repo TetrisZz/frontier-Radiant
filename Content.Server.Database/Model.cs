@@ -47,12 +47,19 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<RadiantDiscordLink> RadiantDiscordLinks { get; set; } = null!;
+        public DbSet<TriadShipyardAuditEvent> TriadShipyardAuditEvents { get; set; } = null!;
+        public DbSet<TriadShipyardMigrationPermit> TriadShipyardMigrationPermits { get; set; } = null!;
         public DbSet<NFLibraryBook> NFLibraryBook { get; set; } = null!;
         public DbSet<WayfarerSafetyDepositBox> WayfarerSafetyDepositBox { get; set; } = null!;
         public DbSet<WayfarerSafetyDepositBoxItem> WayfarerSafetyDepositBoxItem { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TriadShipyardAuditEvent>().HasIndex(a => new { a.EventType, a.At });
+            modelBuilder.Entity<TriadShipyardAuditEvent>().HasIndex(a => new { a.PlayerUserId, a.At });
+            modelBuilder.Entity<TriadShipyardAuditEvent>().HasIndex(a => new { a.ShipHash, a.At });
+            modelBuilder.Entity<TriadShipyardMigrationPermit>().HasIndex(p => p.PlayerUserId).IsUnique();
+
             modelBuilder.Entity<Preference>()
                 .HasIndex(p => p.UserId)
                 .IsUnique();
@@ -192,6 +199,10 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<Player>()
                 .HasIndex(p => p.LastSeenUserName);
+
+            modelBuilder.Entity<Profile>()
+                .Property(p => p.CareerJson)
+                .HasDefaultValue("{}");
 
             modelBuilder.Entity<ConnectionLog>()
                 .HasIndex(p => p.UserId);
@@ -413,6 +424,7 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
+        public string GhostSkin { get; set; } = "GhostClassic";
         public List<string> ConstructionFavorites { get; set; } = new();
         public List<Profile> Profiles { get; } = new();
     }
@@ -425,6 +437,7 @@ namespace Content.Server.Database
         public string FlavorText { get; set; } = null!;
         public string SkillLevels { get; set; } = "[]";
         public string DossierJson { get; set; } = "{}";
+        public string CareerJson { get; set; } = "{}";
         public string Residence { get; set; } = "";
         public string Citizenship { get; set; } = "Asgard";
         public string FamilyStatus { get; set; } = "";

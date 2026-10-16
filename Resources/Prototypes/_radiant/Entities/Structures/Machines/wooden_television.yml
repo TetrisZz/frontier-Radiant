@@ -1,0 +1,52 @@
+- type: entity
+  parent: ComputerTelevision
+  id: ComputerTelevisionRadiant
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/wooden_television.rsi
+    noRot: true
+    layers:
+    - state: off
+      map: [computerLayerBody]
+    - state: on
+      visible: false
+      map: [computerLayerScreen]
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { state: on, visible: true, shader: shaded }
+          False: { visible: false }
+  - type: Computer
+    board: ComputerTelevisionRadiantCircuitboard
+  - type: Construction
+    graph: RadiantWoodenTelevision
+    node: computer
+
+- type: entity
+  parent: ComputerBroken
+  id: ComputerTelevisionRadiantBroken
+  name: broken wooden television
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/wooden_television.rsi
+    noRot: true
+    state: broken
+  - type: Construction
+    graph: RadiantWoodenTelevision
+    node: monitorBroken
+
+- type: entity
+  parent: ComputerTelevisionCircuitboard
+  id: ComputerTelevisionRadiantCircuitboard
+  components:
+  - type: ComputerBoard
+    prototype: ComputerTelevisionRadiant
+
+- type: entity
+  parent: ComputerFrame
+  id: ComputerTelevisionRadiantFrame
+  components:
+  - type: Construction
+    graph: RadiantWoodenTelevision
+    node: frameUnsecured

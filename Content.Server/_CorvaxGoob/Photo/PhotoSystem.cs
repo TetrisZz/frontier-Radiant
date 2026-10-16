@@ -21,9 +21,6 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     [Dependency] private UseDelaySystem _delay = default!;
     [Dependency] private AudioSystem _audio = default!;
 
-    //96 KB
-    const int MAX_SIZE = 1024 * 96;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -59,7 +56,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
 
     private void OnTakeImageMessage(EntityUid uid, PhotoCameraComponent component, PhotoCameraTakeImageMessage message)
     {
-        if (message.Data.Length > MAX_SIZE)
+        if (message.Data.Length > PhotoCameraTakeImageMessage.MaxImageBytes)
             return;
 
         if (!CheckPngSignature(message.Data))
@@ -112,10 +109,17 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
 
     private bool TryTakeImage(EntityUid uid, PhotoCameraComponent component, byte[] imageData)
     {
-        if (_delay.IsDelayed(uid))
+        // Saved cameras may predate the separate shutter cooldown.
+        if (!_delay.TryGetDelayInfo(uid, out _, PhotoCameraComponent.CaptureDelayId))
+        {
+            var length = _delay.TryGetDelayInfo(uid, out var delay) ? delay.Length : TimeSpan.FromSeconds(1);
+            _delay.SetLength(uid, length, PhotoCameraComponent.CaptureDelayId);
+        }
+
+        if (_delay.IsDelayed(uid, PhotoCameraComponent.CaptureDelayId))
             return false;
 
-        _delay.TryResetDelay(uid);
+        _delay.TryResetDelay(uid, id: PhotoCameraComponent.CaptureDelayId);
 
         var printCard = PrintCard(uid, component, imageData);
 

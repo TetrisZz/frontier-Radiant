@@ -1,0 +1,52 @@
+research-blueprint-history = Последние исследования
+research-technology-radiant-ftl-drive = Двигатель БСС
+research-blueprint-history-count = Последние исследования ({ $count })
+research-blueprint-latest = Последнее исследование
+research-blueprint-resource-factor = { $count ->
+    [0] Ресурсы ×{ $factor }
+   *[other] Ресурсы ×{ $factor }; дополнительные материалы: { $count }
+    }
+research-blueprint-history-empty = Исследований пока нет.
+research-blueprint-points = Очки исследований: { $points }
+research-blueprint-roll = Получить чертёж — { $cost } очков
+research-blueprint-disconnected = Нет доступного сервера РНД
+research-blueprint-connected = Подключено к серверу РНД
+research-blueprint-library-title = Литограф чертежей
+research-blueprint-items = Предметы
+research-blueprint-variants = Чертежи
+research-blueprint-details = Условия изготовления
+research-blueprint-search = Поиск предмета...
+research-blueprint-library-empty = Нет чертежей для выбранного предмета.
+research-blueprint-variant = { $rarity }: время ×{ $time }, ресурсы ×{ $materials }
+research-blueprint-active = Выбран
+research-blueprint-paper-name = чертёж «{ $item }»
+research-blueprint-variant-title = Вариант { $number }
+research-blueprint-connected-machines = Подключено подходящих станков: { $count }
+research-blueprint-machine-count = { $name } ×{ $count }
+research-blueprint-number = Чертёж №{ $id }
+research-blueprint-server = Сервер РНД: { $name }
+research-blueprint-items-count = Предметы ({ $count })
+research-blueprint-variants-count = Варианты ({ $count })
+research-blueprint-target = Место изготовления
+research-blueprint-resources = Необходимые ресурсы
+research-blueprint-destinations = Подходящие станки ({ $count })
+research-blueprint-no-destinations = Подходящие станки не подключены к этому серверу.
+research-blueprint-lathe-legacy = Станки со штатной поддержкой этого рецепта
+research-blueprint-select = Назначить рецепт
+research-blueprint-eject = Извлечь чертёж
+research-blueprint-modifiers = Время ×{ $time }, ресурсы ×{ $materials }
+research-blueprint-lathe = Станок: { $lathe }
+research-blueprint-lathes = Станки: { $lathe }
+research-blueprint-time = Время изготовления: { $seconds } с
+research-blueprint-material = { $material }: { $amount }
+research-blueprint-examine-rarity = [bold][color={ $color }]{ $rarity }[/color][/bold]
+research-blueprint-wrong-lathe = Этот чертёж предназначен для другого станка.
+research-technology-blueprint-common = Обычный чертёж
+research-technology-blueprint-uncommon = Необычный чертёж
+research-technology-blueprint-rare = Редкий чертёж
+research-technology-blueprint-epic = Очень редкий чертёж
+ent-ResearchRandomBlueprint = исследовательский чертёж
+    .desc = { ent-BaseBlueprint.desc }
+ent-BlueprintLithographLegacy = литограф чертежей
+    .desc = Старый литограф для печати чертежей.
+    .suffix = Старая система

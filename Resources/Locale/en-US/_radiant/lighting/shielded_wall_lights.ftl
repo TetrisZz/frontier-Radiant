@@ -1,0 +1,10 @@
+ent-NFPoweredlightShieldedEmpty = shielded light
+    .desc = A light fixture reinforced with plasteel to shield it from solar flares. Draws power when equipped with a light tube.
+    .suffix = Empty
+ent-NFPoweredlightShielded = { ent-NFPoweredlightShieldedEmpty }
+    .desc = { ent-NFPoweredlightShieldedEmpty.desc }
+ent-NFPoweredSmallLightShieldedEmpty = shielded small light
+    .desc = A small light fixture reinforced with plasteel to shield it from solar flares. Draws power when equipped with a light bulb.
+    .suffix = Empty
+ent-NFPoweredSmallLightShielded = { ent-NFPoweredSmallLightShieldedEmpty }
+    .desc = { ent-NFPoweredSmallLightShieldedEmpty.desc }

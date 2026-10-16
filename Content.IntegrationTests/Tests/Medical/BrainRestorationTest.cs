@@ -31,8 +31,8 @@ public sealed class BrainRestorationTest
     [TestCase(EnumERPStatus.FULL, "")]
     public async Task TransplantRestoresAppearanceEyesAndExactOriginalVoiceInSeparateStages(EnumERPStatus status, string description)
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var em = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {
@@ -125,8 +125,8 @@ public sealed class BrainRestorationTest
     [Test]
     public async Task BoxContainsTwoCubesOfEveryLobbySpecies()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var em = server.ResolveDependency<IEntityManager>();
         var prototypes = server.ResolveDependency<IPrototypeManager>();
         await server.WaitAssertion(() =>

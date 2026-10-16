@@ -344,6 +344,9 @@ namespace Content.Server.Construction
                 completed.PerformAction(newEntity, user, EntityManager);
             }
 
+            var careerBuild = new Content.Shared._radiant.Careers.CareerConstructionCompletedEvent(newEntity, user);
+            RaiseLocalEvent(ref careerBuild);
+
             return newEntity;
         }
 

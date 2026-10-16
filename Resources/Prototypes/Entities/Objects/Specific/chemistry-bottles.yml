@@ -5,6 +5,21 @@
   abstract: true
   description: A small bottle.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/bottle_pickup.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/bottle_drop.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/bottle_drop.wav
+      params:
+        volume: -4
   - type: Tag
     tags:
     - Bottle

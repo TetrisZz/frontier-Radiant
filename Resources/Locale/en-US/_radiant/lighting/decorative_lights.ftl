@@ -1,0 +1,16 @@
+ent-RadiantFloorLight = recessed floor light
+    .desc = An electric light fixture with a replaceable bulb. Requires APC power.
+ent-RadiantLampPost = decorative lamp post
+    .desc = An electric light fixture with a replaceable bulb. Requires APC power.
+ent-RadiantLampPostFestive = festive lamp post
+    .desc = An electric light fixture with a replaceable bulb. Requires APC power.
+ent-RadiantLampPostOne = decorative lamp post (one)
+    .desc = An electric light fixture with a replaceable bulb. Requires APC power.
+ent-RadiantLampPostTwo = decorative lamp post (two)
+    .desc = An electric light fixture with a replaceable bulb. Requires APC power.
+ent-RadiantLampPostThree = decorative lamp post (three)
+    .desc = An electric light fixture with a replaceable bulb. Requires APC power.
+ent-RadiantLampPostFour = decorative lamp post (four)
+    .desc = An electric light fixture with a replaceable bulb. Requires APC power.
+ent-RadiantLampPostSidewalk = decorative lamp post (sidewalk)
+    .desc = An electric light fixture with a replaceable bulb. Requires APC power.

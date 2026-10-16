@@ -6,6 +6,15 @@
   description: Spray and pray.
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SnipersDrop
   - type: Sprite
   - type: Item
     size: Ginormous

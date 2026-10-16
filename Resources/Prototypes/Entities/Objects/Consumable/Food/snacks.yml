@@ -418,6 +418,8 @@
   name: fortune cookie
   description: A boring cardboard tasting snack with a fortune inside. Surprise! You're boring too.
   components:
+  - type: Tag
+    tags: [Cookie]
   - type: FlavorProfile
     flavors:
       - fortunecookie

@@ -1,0 +1,247 @@
+# Selected casual, solo, and affectionate interactions.
+
+- type: interaction
+  id: InteractionHugShoulders
+  category: body
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-hug-shoulders
+  userMessages: [chat-interaction-hug-shoulders-message]
+  targetMessages: [chat-interaction-hug-shoulders-message-target]
+  otherMessages: [chat-interaction-hug-shoulders-message-others]
+
+- type: interaction
+  id: InteractionRuffleHair
+  category: head
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [head]
+  name: interaction-ruffle-hair
+  userMessages: [chat-interaction-ruffle-hair-message]
+  targetMessages: [chat-interaction-ruffle-hair-message-target]
+  otherMessages: [chat-interaction-ruffle-hair-message-others]
+
+- type: interaction
+  id: InteractionBrushStrand
+  category: head
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [head]
+  name: interaction-brush-strand
+  userMessages: [chat-interaction-brush-strand-message]
+  targetMessages: [chat-interaction-brush-strand-message-target]
+  otherMessages: [chat-interaction-brush-strand-message-others]
+
+- type: interaction
+  id: InteractionSoloSlimeBubble
+  solo: true
+  category: body
+  userRequiredBodyFeatures: [SlimeBody]
+  userBlockedClothingSlots: [gloves]
+  targetBlockedClothingSlots: []
+  name: interaction-solo-slime-bubble
+  userMessages: [chat-interaction-solo-slime-bubble-message]
+
+- type: interaction
+  id: InteractionSoloSlimeShape
+  solo: true
+  category: body
+  userRequiredBodyFeatures: [SlimeBody]
+  userBlockedClothingSlots: [gloves]
+  targetBlockedClothingSlots: []
+  name: interaction-solo-slime-shape
+  userMessages: [chat-interaction-solo-slime-shape-message]
+
+- type: interaction
+  id: InteractionSoloSlimeWave
+  solo: true
+  category: body
+  userRequiredBodyFeatures: [SlimeBody]
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-solo-slime-wave
+  userMessages: [chat-interaction-solo-slime-wave-message]
+
+- type: interaction
+  id: InteractionTouchHornsTogether
+  category: head
+  userRequiredBodyFeatures: [Horns]
+  targetRequiredBodyFeatures: [Horns]
+  userBlockedClothingSlots: [head]
+  targetBlockedClothingSlots: [head]
+  name: interaction-touch-horns-together
+  userMessages: [chat-interaction-touch-horns-together-message]
+  targetMessages: [chat-interaction-touch-horns-together-message-target]
+  otherMessages: [chat-interaction-touch-horns-together-message-others]
+
+- type: interaction
+  id: InteractionSoloPreenFeather
+  solo: true
+  category: body
+  userRequiredBodyFeatures: [Feathers]
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-solo-preen-feather
+  userMessages: [chat-interaction-solo-preen-feather-message]
+
+- type: interaction
+  id: InteractionSoloStretchNeck
+  solo: true
+  category: head
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-solo-stretch-neck
+  userMessages: [chat-interaction-solo-stretch-neck-message]
+
+- type: interaction
+  id: InteractionSoloRollShoulders
+  solo: true
+  category: body
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-solo-roll-shoulders
+  userMessages: [chat-interaction-solo-roll-shoulders-message]
+
+- type: interaction
+  id: InteractionSoloRubNoseBridge
+  solo: true
+  category: head
+  userBlockedClothingSlots: [mask, eyes]
+  targetBlockedClothingSlots: []
+  name: interaction-solo-rub-nose-bridge
+  userMessages: [chat-interaction-solo-rub-nose-bridge-message]
+
+- type: interaction
+  id: InteractionSoloSmoothHair
+  solo: true
+  category: head
+  userBlockedClothingSlots: [head]
+  targetBlockedClothingSlots: []
+  name: interaction-solo-smooth-hair
+  userMessages: [chat-interaction-solo-smooth-hair-message]
+
+- type: interaction
+  id: InteractionStrokeEars
+  category: head
+  targetRequiredBodyFeatures: [Ears]
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [head]
+  name: interaction-stroke-ears
+  userMessages: [chat-interaction-stroke-ears-message]
+  targetMessages: [chat-interaction-stroke-ears-message-target]
+  otherMessages: [chat-interaction-stroke-ears-message-others]
+
+- type: interaction
+  id: InteractionSoloTailAroundLegs
+  solo: true
+  category: tail
+  userRequiredBodyFeatures: [Tail]
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-solo-tail-around-legs
+  userMessages: [chat-interaction-solo-tail-around-legs-message]
+
+- type: interaction
+  id: InteractionSoloHideTail
+  solo: true
+  category: tail
+  userRequiredBodyFeatures: [Tail]
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-solo-hide-tail
+  userMessages: [chat-interaction-solo-hide-tail-message]
+
+- type: interaction
+  id: InteractionTailOnLap
+  category: tail
+  userRequiredBodyFeatures: [Tail]
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-tail-on-lap
+  userMessages: [chat-interaction-tail-on-lap-message]
+  targetMessages: [chat-interaction-tail-on-lap-message-target]
+  otherMessages: [chat-interaction-tail-on-lap-message-others]
+
+- type: interaction
+  id: InteractionSoloAlertAntennae
+  solo: true
+  category: head
+  userRequiredBodyFeatures: [Antennae]
+  userBlockedClothingSlots: [head]
+  targetBlockedClothingSlots: []
+  name: interaction-solo-alert-antennae
+  userMessages: [chat-interaction-solo-alert-antennae-message]
+
+- type: interaction
+  id: InteractionSoloShakeFoliage
+  solo: true
+  category: head
+  userRequiredBodyFeatures: [Foliage]
+  userBlockedClothingSlots: [head]
+  targetBlockedClothingSlots: []
+  name: interaction-solo-shake-foliage
+  userMessages: [chat-interaction-solo-shake-foliage-message]
+
+- type: interaction
+  id: InteractionHugWaist
+  category: body
+  arousalPoints: 2
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-hug-waist
+  userMessages: [chat-interaction-hug-waist-message]
+  targetMessages: [chat-interaction-hug-waist-message-target]
+  otherMessages: [chat-interaction-hug-waist-message-others]
+
+- type: interaction
+  id: InteractionHeadOnChest
+  category: body
+  arousalPoints: 2
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-head-on-chest
+  userMessages: [chat-interaction-head-on-chest-message]
+  targetMessages: [chat-interaction-head-on-chest-message-target]
+  otherMessages: [chat-interaction-head-on-chest-message-others]
+
+- type: interaction
+  id: InteractionSoloShyEarsSmile
+  solo: true
+  category: head
+  userRequiredBodyFeatures: [Ears]
+  userBlockedClothingSlots: [head]
+  targetBlockedClothingSlots: []
+  name: interaction-solo-shy-ears-smile
+  userMessages: [chat-interaction-solo-shy-ears-smile-message]
+
+- type: interaction
+  id: InteractionTailAroundHand
+  category: tail
+  arousalPoints: 2
+  userRequiredBodyFeatures: [Tail]
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
+  name: interaction-tail-around-hand
+  userMessages: [chat-interaction-tail-around-hand-message]
+  targetMessages: [chat-interaction-tail-around-hand-message-target]
+  otherMessages: [chat-interaction-tail-around-hand-message-others]
+
+- type: interaction
+  id: InteractionWingHug
+  category: body
+  arousalPoints: 2
+  userRequiredBodyFeatures: [Wings]
+  userBlockedClothingSlots: [outerClothing]
+  targetBlockedClothingSlots: []
+  name: interaction-wing-hug
+  userMessages: [chat-interaction-wing-hug-message]
+  targetMessages: [chat-interaction-wing-hug-message-target]
+  otherMessages: [chat-interaction-wing-hug-message-others]
+
+- type: interaction
+  id: InteractionSoloSlimeHeart
+  solo: true
+  category: body
+  userRequiredBodyFeatures: [SlimeBody]
+  userBlockedClothingSlots: [gloves]
+  targetBlockedClothingSlots: []
+  name: interaction-solo-slime-heart
+  userMessages: [chat-interaction-solo-slime-heart-message]

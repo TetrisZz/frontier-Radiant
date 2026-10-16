@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from BlueMoon-Station, icons/obj/machines/washing_machine.dmi, user-provided source archive. Original sprites licensed CC-BY-SA-3.0 per source README.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "open-empty"
+    },
+    {
+      "name": "closed-empty"
+    },
+    {
+      "name": "open-loaded"
+    },
+    {
+      "name": "closed-loaded"
+    },
+    {
+      "name": "running",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "panel"
+    }
+  ]
+}

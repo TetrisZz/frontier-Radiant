@@ -3,6 +3,12 @@
   parent: [BaseStorageItem, RecyclableItemSteelMedium] # Frontier: added RecyclableItemSteelMedium
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/toolbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
   - type: Sprite
     layers:
       - map: [ base ]

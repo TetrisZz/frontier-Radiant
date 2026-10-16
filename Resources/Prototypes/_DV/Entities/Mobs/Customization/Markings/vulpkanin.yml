@@ -3,6 +3,7 @@
 # Ears Markings
 - type: marking
   id: VulpEar
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human, Felinid] #radiant_sector
@@ -14,6 +15,7 @@
 
 - type: marking
   id: VulpEarFade
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -25,6 +27,7 @@
 
 - type: marking
   id: VulpEarSharp
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -36,6 +39,7 @@
 
 - type: marking
   id: VulpEarJackal
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -47,6 +51,7 @@
 
 - type: marking
   id: VulpEarTerrier
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -58,6 +63,7 @@
 
 - type: marking
   id: VulpEarWolf
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -69,6 +75,7 @@
 
 - type: marking
   id: VulpEarFennec
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -80,6 +87,7 @@
 
 - type: marking
   id: VulpEarFox
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -89,6 +97,7 @@
 
 - type: marking
   id: VulpEarOtie
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin]
@@ -100,6 +109,7 @@
 
 - type: marking
   id: VulpEarTajaran
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin]
@@ -111,6 +121,7 @@
 
 - type: marking
   id: VulpEarShock
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -120,6 +131,7 @@
 
 - type: marking
   id: VulpEarCoyote
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin]
@@ -129,6 +141,7 @@
 
 - type: marking
   id: VulpEarDalmatian
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -270,6 +283,7 @@
 # Tail Markings
 - type: marking
   id: VulpTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -281,6 +295,7 @@
 
 - type: marking
   id: VulpTailTip
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -292,6 +307,7 @@
 
 - type: marking
   id: VulpTailWag
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -303,6 +319,7 @@
 
 - type: marking
   id: VulpTailWagTip
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -314,6 +331,7 @@
 
 - type: marking
   id: VulpTailAlt
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -325,6 +343,7 @@
 
 - type: marking
   id: VulpTailAltTip
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -336,6 +355,7 @@
 
 - type: marking
   id: VulpTailLong
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -347,6 +367,7 @@
 
 - type: marking
   id: VulpTailFox
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -358,6 +379,7 @@
 
 - type: marking
   id: VulpTailFoxTip
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -369,6 +391,7 @@
 
 - type: marking
   id: VulpTailFoxWag
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -380,6 +403,7 @@
 
 - type: marking
   id: VulpTailFoxWagTip
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -391,6 +415,7 @@
 
 - type: marking
   id: VulpTailBushy
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -400,6 +425,7 @@
 
 - type: marking
   id: VulpTailBushyWag
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -409,6 +435,7 @@
 
 - type: marking
   id: VulpTailCoyote
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -418,6 +445,7 @@
 
 - type: marking
   id: VulpTailCoyoteWag
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -427,6 +455,7 @@
 
 - type: marking
   id: VulpTailCorgiWag
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
@@ -436,6 +465,7 @@
 
 - type: marking
   id: VulpTailHusky
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -447,6 +477,7 @@
 
 - type: marking
   id: VulpTailHuskyAlt
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -456,6 +487,7 @@
 
 - type: marking
   id: VulpTailFox2
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -465,6 +497,7 @@
 
 - type: marking
   id: VulpTailFox3
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -476,6 +509,7 @@
 
 - type: marking
   id: VulpTailFennec
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -485,6 +519,7 @@
 
 - type: marking
   id: VulpTailOtie
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -494,6 +529,7 @@
 
 - type: marking
   id: VulpTailFluffy
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
@@ -503,6 +539,7 @@
 
 - type: marking
   id: VulpTailDalmatianWag
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]

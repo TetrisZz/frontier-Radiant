@@ -1,0 +1,2022 @@
+# Initial catalogue follows the existing Frontier research recipes.
+- type: technologyBlueprints
+  id: NFAdvancedParts
+  name: nf-research-technology-advanced-parts
+  entityIcon: AdvancedMatterBinStockPart
+  discipline: NFEngineering
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: EngineeringTechFab
+  recipeForce:
+  - AdvancedCapacitorStockPart
+  - AdvancedMatterBinStockPart
+  - NanoManipulatorStockPart
+
+- type: technologyBlueprints
+  id: NFIndustrialCutter
+  name: nf-research-technology-industrial-cutter
+  entityIcon: CutterMachine
+  discipline: NFEngineering
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - CutterMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFIndustrialSilo
+  name: nf-research-technology-industrial-silo
+  entityIcon: MachineMaterialSilo
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - MaterialSiloMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFIndustrialEngineering
+  name: nf-research-technology-industrial-engineering
+  entityIcon: ProtolatheHyperConvection
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - AutolatheHyperConvectionMachineCircuitboard
+  - ProtolatheHyperConvectionMachineCircuitboard
+  - CircuitImprinterHyperConvectionMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedBeltTechnology
+  name: nf-research-technology-advanced-belt
+  entityIcon: ClothingBeltChiefEngineer
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingBeltChiefEngineer
+  - NFClothingEyesGlassesMesonScanner
+
+- type: technologyBlueprints
+  id: NFAdvancedWelderTechnology
+  name: nf-research-technology-advanced-welder
+  entityIcon: WelderExperimental
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - WelderExperimental
+  - ClothingMaskWeldingGas
+
+- type: technologyBlueprints
+  id: NFFauxAstroTiles
+  name: nf-research-technology-faux-astro-tiles
+  entityIcon: FloorTileItemAstroIce
+  discipline: NFService
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - FauxTileAstroGrass
+  - FauxTileMowedAstroGrass
+  - FauxTileJungleAstroGrass
+  - FauxTileAstroIce
+  - FauxTileAstroSnow
+  - FauxTileAstroAsteroidSand
+
+- type: technologyBlueprints
+  id: NFMechanicalCompression
+  name: nf-research-technology-mechanical-compression
+  entityIcon: MachineFlatpacker
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - FlatpackerMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFRapidPartExchange
+  name: nf-research-technology-rped
+  entityIcon: RPED
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - RPED
+
+- type: technologyBlueprints
+  id: NFRapidPartExchangeFab
+  name: nf-research-technology-rped-fab
+  entityIcon: EngineeringTechFab
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - EngineeringTechFabCircuitboardRS
+
+- type: technologyBlueprints
+  id: NFMiscellaneousItemsOrganization
+  name: nf-research-technology-personal-storage-solutions
+  entityIcon: NFPouchEngineering
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [MedicalTechFab, Protolathe]
+  recipe:
+  - NFPouchUtility
+  - NFPouchEngineering
+  - NFPouchFirstAid
+  - NFPouchFirstAidAlt
+  - NFPouchScience
+  - NFPouchSalvage
+  - NFPouchAtmospherics
+  - NFPouchHydroponics
+  - NFPouchChaplain
+  - NFPouchPunk
+  - NFPouchMercenary
+  - NFPouchPrivateSecurity
+  - NFPouchJanitor
+  - NFPouchContractor
+  - NFPouchClown
+  - NFPouchMime
+  - NFPouchCaptain
+  - NFPouchCargo
+  - MedicalPouch
+
+- type: technologyBlueprints
+  id: NFAdvancedToolsTechnology
+  name: nf-research-technology-advanced-tools
+  entityIcon: PowerDrill
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - PowerDrill
+  - JawsOfLife
+  - SignallerAdvanced
+
+- type: technologyBlueprints
+  id: NFRapidConstruction
+  name: nf-research-technology-rapid-construction
+  entityIcon: ShipyardRCD
+  discipline: NFEngineering
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - ShipyardRCD
+  - ShipyardRCDAmmo
+
+- type: technologyBlueprints
+  id: BluespaceStorage
+  name: nf-research-technology-bluespace-storage
+  entityIcon: ClothingBackpackHolding
+  discipline: NFEngineering
+  rare: 1000
+  rareLoc: research-technology-blueprint-epic
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingBackpackHolding
+  - ClothingBackpackSatchelHolding
+  - ClothingBackpackDuffelHolding
+  - ClothingBackpackMessengerHolding
+
+- type: technologyBlueprints
+  id: NFAdvancedCyborgToolsTechnology
+  name: nf-research-technology-advanced-cyborg-tools
+  entityIcon: BorgModuleAdvancedTool
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - BorgModuleAdvancedTool
+
+- type: technologyBlueprints
+  id: NFAdvancedFireExtinguisherBluespaceRS
+  name: nf-research-technology-advanced-extinguisher
+  entityIcon: FireExtinguisherBluespace
+  discipline: NFEngineering
+  rare: 1000
+  rareLoc: research-technology-blueprint-epic
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - FireExtinguisherBluespaceRS
+
+- type: technologyBlueprints
+  id: NFMatterEnergyConversion
+  name: nf-research-technology-matter-energy-conversion
+  entityIcon: BorgModuleRCD
+  discipline: NFEngineering
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - BorgModuleRCD
+
+- type: technologyBlueprints
+  id: NFAbnormalArtifactManipulation
+  name: nf-research-technology-abnormal-artifact-manipulation
+  entityIcon: MachineArtifactCrusher
+  discipline: NFScience
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - ArtifactCrusherMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFBasicXenoArcheology
+  name: nf-research-technology-basic-xenoarcheology
+  entityIcon: MachineArtifactAnalyzer
+  discipline: NFScience
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - NodeScanner
+  - AnalysisComputerCircuitboard
+  - ArtifactAnalyzerMachineCircuitboard
+  - ResearchComputerCircuitboard
+
+- type: technologyBlueprints
+  id: NFAnomalyCoreHarnessing
+  name: nf-research-technology-anomaly-harnessing
+  entityIcon: WeaponGauntletGorilla
+  discipline: NFScience
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - WeaponGauntletGorilla
+
+- type: technologyBlueprints
+  id: NFBasicAnomalousResearch
+  name: nf-research-technology-basic-anomalous-research
+  entityIcon: MachineAnomalyVessel
+  discipline: NFScience
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - AnomalyScanner
+  - AnomalyLocator
+  - AnomalyLocatorWide
+  - APECircuitboard
+  - AnomalyVesselCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedAnomalyResearch
+  name: nf-research-technology-advanced-anomaly-research
+  entityIcon: MachineAnomalyVesselExperimental
+  discipline: NFScience
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - NFWeaponPistolCHIMP
+  - AnomalyVesselExperimentalCircuitboard
+
+- type: technologyBlueprints
+  id: NFBluespaceTimeManipulation
+  name: nf-research-technology-bluespace-time-manipulation
+  entityIcon: DeviceDesynchronizer
+  discipline: NFScience
+  rare: 1000
+  rareLoc: research-technology-blueprint-epic
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - DeviceDesynchronizer
+
+- type: technologyBlueprints
+  id: NFSuperParts
+  name: nf-research-technology-super-parts
+  entityIcon: SuperMatterBinStockPart
+  discipline: NFScience
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: Protolathe
+  recipeForce:
+  - SuperCapacitorStockPart
+  - SuperMatterBinStockPart
+  - PicoManipulatorStockPart
+
+- type: technologyBlueprints
+  id: NFHardsuitsEntertainment
+  name: nf-research-technology-hardsuits-entertainment
+  entityIcon: ClothingOuterHardsuitClown
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingOuterHardsuitClown
+  - ClothingOuterHardsuitMime
+
+- type: technologyBlueprints
+  id: NFHardsuitsBasic
+  name: nf-research-technology-hardsuits-basic
+  entityIcon: ClothingOuterHardsuitSpatio
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingOuterHardsuitSpatio
+  - ClothingOuterHardsuitPilot
+
+- type: technologyBlueprints
+  id: NFHardsuitsField
+  name: nf-research-technology-hardsuits-field
+  entityIcon: ClothingOuterHardsuitSalvage
+  discipline: NFSalvage
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingOuterHardsuitSalvage
+
+- type: technologyBlueprints
+  id: NFHardsuitsMedical
+  name: nf-research-technology-hardsuits-medical
+  entityIcon: ClothingOuterHardsuitMedical
+  discipline: NFMedical
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingOuterHardsuitMedical
+
+- type: technologyBlueprints
+  id: NFHardsuitsEngineering
+  name: nf-research-technology-hardsuits-engineering
+  entityIcon: ClothingOuterHardsuitEngineering
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingOuterHardsuitAtmos
+  - ClothingOuterHardsuitEngineering
+
+- type: technologyBlueprints
+  id: NFHardsuitsAdvanced
+  name: nf-research-technology-hardsuits-advanced
+  entityIcon: ClothingOuterHardsuitEngineeringWhite
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingOuterHardsuitCap
+  - ClothingOuterHardsuitEngineeringWhite
+  - ClothingOuterHardsuitLuxury
+
+- type: technologyBlueprints
+  id: NFHardsuitsExperimentalProtection
+  name: nf-research-technology-hardsuits-experimental-protection
+  entityIcon: ClothingOuterHardsuitRd
+  discipline: NFScience
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - ClothingOuterHardsuitRd
+  - ClothingOuterHardsuitHostileEnvironment
+
+- type: technologyBlueprints
+  id: NFHardsuitsArmored
+  name: nf-research-technology-hardsuits-armored
+  entityIcon: ClothingOuterHardsuitMercenary
+  discipline: NFArsenalMercenary
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ClothingOuterHardsuitMercenary
+  - ClothingOuterHardsuitPrivateSecurity
+
+- type: technologyBlueprints
+  id: NFHardsuitsOldWar
+  name: nf-research-technology-hardsuits-old-war
+  entityIcon: ClothingOuterHardsuitSurplus
+  discipline: NFArsenalMercenary
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ClothingOuterHardsuitSurplus
+
+- type: technologyBlueprints
+  id: NFHardsuitsExperimentalIndustrial
+  name: nf-research-technology-hardsuits-experimental-industrial
+  entityIcon: ClothingOuterHardsuitMaximPrototype
+  discipline: NFScience
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - ClothingOuterHardsuitMaximPrototype
+
+- type: technologyBlueprints
+  id: NFHardsuitsArmoredAdvanced
+  name: nf-research-technology-hardsuits-armored-advanced
+  entityIcon: ClothingOuterHardsuitScaf
+  discipline: NFArsenalMercenary
+  rare: 400
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ClothingOuterHardsuitScaf
+  - ClothingOuterHardsuitNoble
+
+- type: technologyBlueprints
+  id: NFBiochemicalStasis
+  name: nf-research-technology-biochemical-stasis
+  entityIcon: CryostasisBeaker
+  discipline: NFMedical
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - CryostasisBeaker
+  - SyringeCryostasis
+
+- type: technologyBlueprints
+  id: NFReinforcedJug
+  name: nf-research-technology-reinforced-jug
+  entityIcon: ReinforcedJug
+  discipline: NFMedical
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - ReinforcedJug
+
+- type: technologyBlueprints
+  id: NFBluespaceChemistry
+  name: nf-research-technology-bluespace-chemistry
+  entityIcon: BluespaceBeaker
+  discipline: NFMedical
+  rare: 1000
+  rareLoc: research-technology-blueprint-epic
+  tier: 1
+  lathe: MedicalTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - BluespaceBeaker
+  - SyringeBluespace
+  - JugBluespace
+  - VialBluespace
+
+- type: technologyBlueprints
+  id: NFBasicMedicine
+  name: nf-research-technology-basic-medicine
+  entityIcon: ChemDispenserEmpty
+  discipline: NFMedical
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - ChemMasterMachineCircuitboard
+  - ChemDispenserMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFMechanizedTreatment
+  name: nf-research-technology-mechanized-treatment
+  entityIcon: BorgModuleAdvancedParamedic
+  discipline: NFMedical
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  additionalLathes: [ExosuitFabricator]
+  recipe:
+  - BorgModuleAdvancedParamedic
+  - BorgModuleAdvancedChemical
+  - BorgModulePill
+
+- type: technologyBlueprints
+  id: NFEngineeringMedicine
+  name: nf-research-technology-industrial-medicine
+  entityIcon: MedicalAssembler
+  discipline: NFMedical
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - MedicalAssemblerMachineCircuitboard
+  - HotplateMachineCircuitboard
+  - ElectrolysisUnitMachineCircuitboard
+  - CentrifugeMachineCircuitboard
+  - DefibrillatorCompact
+  - BlankMediPen
+
+- type: technologyBlueprints
+  id: NFSyringeGun
+  name: nf-research-technology-syringe-gun
+  entityIcon: LauncherSyringe
+  discipline: NFMedical
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MedicalTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - LauncherSyringe
+  - MiniSyringe
+
+- type: technologyBlueprints
+  id: NFAppliedBiochemicalStasis
+  name: nf-research-technology-applied-biochemical-stasis
+  entityIcon: StasisBed
+  discipline: NFMedical
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - StasisBedMachineCircuitboard
+  - CryoPodMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAppliedCircuitboard
+  name: nf-research-technology-applied-circuitboard
+  entityIcon: CloningPod
+  discipline: NFMedical
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - CloningPodMachineCircuitboardRS
+  - CloningConsoleComputerCircuitboardRS
+  - BodyScannerComputerCircuitboardRS
+
+- type: technologyBlueprints
+  id: NFBasicMagnetsTech
+  name: nf-research-technology-basic-magnets-tech
+  entityIcon: ClothingShoesBootsMagSci
+  discipline: NFScience
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - ClothingShoesBootsMagSci
+
+- type: technologyBlueprints
+  id: NFGravityResistantTech
+  name: nf-research-technology-anti-gravitational-fields
+  entityIcon: NFClothingShoesBootsMoon
+  discipline: NFScience
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - NFClothingShoesBootsMoon
+
+- type: technologyBlueprints
+  id: NFMagnetsTech
+  name: nf-research-technology-magnets-tech
+  entityIcon: ClothingShoesBootsMag
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - ClothingShoesBootsMag
+
+- type: technologyBlueprints
+  id: NFQuantumFiberWeaving
+  name: nf-research-technology-quantum-fiber-weaving
+  entityIcon: ClothingShoesBootsSpeed
+  discipline: NFScience
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - ClothingShoesBootsSpeed
+
+- type: technologyBlueprints
+  id: NFMagnetsTechCombat
+  name: nf-research-technology-magnets-tech-combat
+  entityIcon: ClothingShoesBootsMagMercenary
+  discipline: NFArsenalMercenary
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ClothingShoesBootsMagSecurity
+  - ClothingShoesBootsMagMercenary
+
+- type: technologyBlueprints
+  id: NFMagnetsTechCombatJump
+  name: nf-research-technology-magnets-tech-jump
+  entityIcon: ClothingShoesBootsJump
+  discipline: NFArsenalMercenary
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ClothingShoesBootsJump
+
+- type: technologyBlueprints
+  id: NFMagnetsTechAdvanced
+  name: nf-research-technology-magnets-tech-advanced
+  entityIcon: ClothingShoesBootsMagAdv
+  discipline: NFScience
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipe:
+  - ClothingShoesBootsMagAdv
+
+- type: technologyBlueprints
+  id: NFBasicRoboticsEquipment
+  name: nf-research-technology-basic-robotics-equipment
+  entityIcon: MechEquipmentFork
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ExosuitFabricator
+  recipe:
+  - MechEquipmentFork
+
+- type: technologyBlueprints
+  id: NFBasicRobotics
+  name: nf-research-technology-basic-robotics
+  entityIcon: ExosuitFabricator
+  discipline: NFEngineering
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: ExosuitFabricator
+  recipe:
+  - ProximitySensor
+
+- type: technologyBlueprints
+  id: NFVim
+  name: nf-research-technology-vim
+  entityIcon: MechVim
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ExosuitFabricator
+  recipe:
+  - VimHarness
+
+- type: technologyBlueprints
+  id: NFRoboticsEquipment
+  name: nf-research-technology-robotics-equipment
+  entityIcon: MechEquipmentGrabberSmall
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ExosuitFabricator
+  recipe:
+  - MechEquipmentGrabberSmall
+
+- type: technologyBlueprints
+  id: NFRipleyAPLU
+  name: nf-research-technology-ripley-aplu
+  entityIcon: MechRipley
+  discipline: NFEngineering
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ExosuitFabricator
+  recipeLinks:
+  - [RipleyLArm, RipleyRArm]
+  - [RipleyLLeg, RipleyRLeg]
+  recipe:
+  - RipleyHarness
+  - RipleyLArm
+  - RipleyRArm
+  - RipleyLLeg
+  - RipleyRLeg
+  - RipleyCentralElectronics
+  - RipleyPeripheralsElectronics
+
+- type: technologyBlueprints
+  id: NFCritterMechs
+  name: nf-research-technology-critter-mechs
+  entityIcon: MechHamtr
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ExosuitFabricator
+  recipeLinks:
+  - [HamtrLArm, HamtrRArm]
+  - [HamtrLLeg, HamtrRLeg]
+  recipe:
+  - HamtrHarness
+  - HamtrLArm
+  - HamtrRArm
+  - HamtrLLeg
+  - HamtrRLeg
+  - HamtrCentralElectronics
+  - HamtrPeripheralsElectronics
+
+- type: technologyBlueprints
+  id: NFAdvancedRoboticsEquipment
+  name: nf-research-technology-advanced-robotics-equipment
+  entityIcon: MechEquipmentGrabber
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ExosuitFabricator
+  recipe:
+  - MechEquipmentGrabber
+
+- type: technologyBlueprints
+  id: NFHONKMech
+  name: nf-research-technology-honk-mech
+  entityIcon: MechHonker
+  discipline: NFEngineering
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ExosuitFabricator
+  recipeLinks:
+  - [HonkerLArm, HonkerRArm]
+  - [HonkerLLeg, HonkerRLeg]
+  recipe:
+  - HonkerHarness
+  - HonkerLArm
+  - HonkerRArm
+  - HonkerLLeg
+  - HonkerRLeg
+  - HonkerCentralElectronics
+  - HonkerPeripheralsElectronics
+  - HonkerTargetingElectronics
+
+- type: technologyBlueprints
+  id: NFHornRoboticsEquipment
+  name: nf-research-technology-horn-robotics-equipment
+  entityIcon: MechEquipmentHorn
+  discipline: NFEngineering
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: ExosuitFabricator
+  recipe:
+  - MechEquipmentHorn
+
+- type: technologyBlueprints
+  id: NFBorgRestoration
+  name: nf-research-technology-borg-restoration
+  entityIcon: BorgChargerRadiant
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - BorgChargerRadiantCircuitboard
+
+- type: technologyBlueprints
+  id: NFWirelessAudioVisualCommunication
+  name: nf-research-technology-wireless-audio-visual-communication
+  entityIcon: TelecomServer
+  discipline: NFService
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - TelecomServerCircuitboard
+
+- type: technologyBlueprints
+  id: NFAudioVisualCommunication
+  name: nf-research-technology-audio-visual-communication
+  entityIcon: SurveillanceCameraRouterConstructed
+  discipline: NFArsenalMercenary
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - SurveillanceCameraRouterCircuitboard
+  - SurveillanceCameraMonitorCircuitboard
+
+- type: technologyBlueprints
+  id: NFHologramCommunication
+  name: nf-research-technology-hologram-communication
+  entityIcon: NFHolopadShip
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - NFHolopadShipMachineCircuitboard
+  - NFHolopadGridMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedInstruments
+  name: nf-research-technology-advanced-instruments
+  entityIcon: DawInstrument
+  discipline: NFService
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - SynthesizerInstrument
+  - DawInstrumentMachineCircuitboard
+  - JukeboxCircuitBoard
+
+- type: technologyBlueprints
+  id: NFAdvancedInstrumentsBox
+  name: nf-research-technology-advanced-box
+  entityIcon: BoomBoxPink
+  discipline: NFService
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - BoomBoxPinkRS
+  - BoomBoxRS
+  - BoomBoxBlueRS
+
+- type: technologyBlueprints
+  id: NFAdvancedEntertainment
+  name: nf-research-technology-advanced-entertainment
+  entityIcon: ComputerTelevision
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - ComputerTelevisionCircuitboard
+  - SurveillanceWirelessCameraMovableCircuitboard
+  - SurveillanceWirelessCameraAnchoredCircuitboard
+
+- type: technologyBlueprints
+  id: NFJournalism
+  name: nf-research-technology-journalism
+  entityIcon: ComputerMassMedia
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - MassMediaCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedCyborgInstruments
+  name: nf-research-technology-advanced-cyborg-instruments
+  entityIcon: AdvancedBorgModuleMusique
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [ExosuitFabricator]
+  recipe:
+  - AdvancedBorgModuleMusique
+  - BorgModuleMutation
+
+- type: technologyBlueprints
+  id: NFPushHorn
+  name: nf-research-technology-clowning-utilities
+  entityIcon: PushHorn
+  discipline: NFService
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - PushHorn
+
+- type: technologyBlueprints
+  id: SuperInstruments
+  name: nf-research-technology-super-instruments
+  entityIcon: SuperHarmonicaInstrument
+  discipline: NFService
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - SuperHarmonicaInstrument
+
+- type: technologyBlueprints
+  id: NFBasicSpray
+  name: nf-research-technology-basic-spray
+  entityIcon: MegaSprayBottle
+  discipline: NFService
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - MegaSprayBottle
+
+- type: technologyBlueprints
+  id: NFJanicart
+  name: nf-research-technology-mobile-service
+  entityIcon: NFVehicleJanicart
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - JanicartFlatpack
+  - MailTrolleyFlatpack
+
+- type: technologyBlueprints
+  id: NFAdvancedSpray
+  name: nf-research-technology-advanced-spray
+  entityIcon: WeaponSprayNozzle
+  discipline: NFService
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - WeaponSprayNozzle
+  - ClothingBackpackWaterTank
+
+- type: technologyBlueprints
+  id: NFPortablePump
+  name: nf-research-technology-portable-cleaning
+  entityIcon: PortablePump
+  discipline: NFService
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - PortablePumpMachineCircuitBoard
+
+- type: technologyBlueprints
+  id: NFAdvancedCleaning
+  name: nf-research-technology-advanced-cleaning
+  entityIcon: AdvMopItem
+  discipline: NFService
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - AdvMopItem
+  - BagOfSummoningGarbage
+
+- type: technologyBlueprints
+  id: NFAdvancedCleaningCyborg
+  name: nf-research-technology-advanced-cleaning-cyborg
+  entityIcon: BorgModuleAdvancedCleaning
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [ExosuitFabricator]
+  recipe:
+  - BorgModuleAdvancedCleaning
+  - BorgModuleAdvancedSprayNozzle
+
+- type: technologyBlueprints
+  id: NFSelectiveDropper
+  name: nf-research-technology-food-filtration
+  entityIcon: ServiceSelectiveDropper
+  discipline: NFService
+  rare: 40
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - ServiceSelectiveDropper
+  - HydroponicsToolScythe
+  - HydroponicsToolSpade
+  - HydroponicsToolHatchet
+  - HydroponicsToolMiniHoe
+  - HydroponicsToolClippers
+
+- type: technologyBlueprints
+  id: NFAdvancedHydroponicsEquipment
+  name: nf-research-technology-advanced-botanical-equipment
+  entityIcon: PlantAnalyzer
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - PlantAnalyzer
+  - NFCookingBag
+
+- type: technologyBlueprints
+  id: NFHydroponics
+  name: nf-research-technology-basic-hydroponics
+  entityIcon: hydroponicsTray
+  discipline: NFService
+  rare: 250
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - HydroponicsTrayMachineCircuitboard
+  - SeedExtractorMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedHydroponicsStorge
+  name: nf-research-technology-advanced-botanical-storage
+  entityIcon: PlantBagOfHolding
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - PlantBagOfHolding
+
+- type: technologyBlueprints
+  id: NFFoodService
+  name: nf-research-technology-food-service
+  entityIcon: KitchenMicrowave
+  discipline: NFService
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  additionalLathes: [MedicalTechFab]
+  recipe:
+  - MicrowaveMachineCircuitboard
+  - ReagentGrinderMachineCircuitboard
+  - ElectricGrillMachineCircuitboard
+  - BoozeDispenserMachineCircuitboard
+  - SodaDispenserMachineCircuitboard
+  - ImpCoffeeMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFDeepFryer
+  name: nf-research-technology-deep-fryer
+  entityIcon: KitchenDeepFryer
+  discipline: NFService
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - DeepFryerMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedFoodService
+  name: nf-research-technology-advanced-food-service
+  entityIcon: KitchenElectricRange
+  discipline: NFService
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - ElectricRangeMachineCircuitboard
+  - KitchenAssemblerMachineCircuitboard
+  - ReagentGrinderIndustrialMachineCircuitboard
+  - NFServiceDrinkShakerBluespace
+
+- type: technologyBlueprints
+  id: NFAdvancedFoodServiceTech
+  name: nf-research-technology-advanced-food-service-tech
+  entityIcon: ServiceTechFab
+  discipline: NFService
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - ServiceTechFabCircuitboardRS
+  - McServiceTechFabCircuitboardRS
+
+- type: technologyBlueprints
+  id: NFBiogenerator
+  name: nf-research-technology-biogenerator
+  entityIcon: Biogenerator
+  discipline: NFService
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - BiogeneratorMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFMeatManipulation
+  name: nf-research-technology-meat-manipulation
+  entityIcon: FatExtractor
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - FatExtractorMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFBiomass
+  name: nf-research-technology-biomass
+  entityIcon: BiomassReclaimer
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - BiomassReclaimerMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedPowercells
+  name: nf-research-technology-advanced-powercells
+  entityIcon: PowerCellHigh
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - PowerCellHigh
+
+- type: technologyBlueprints
+  id: NFAdvancedSMES
+  name: nf-research-technology-advanced-smes
+  entityIcon: SMESAdvancedEmpty
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - SMESAdvancedMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedCharging
+  name: nf-research-technology-advanced-charging
+  entityIcon: TurboItemRecharger
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - TurboItemRechargerCircuitboard
+
+- type: technologyBlueprints
+  id: NFTrashPowerGeneration
+  name: nf-research-technology-trash-power-generators
+  entityIcon: PortableGeneratorJrPacman
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - PortableGeneratorJrPacmanMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFPowerSolar
+  name: nf-research-technology-power-solar
+  entityIcon: SolarPanel
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - SolarControlComputerCircuitboard
+  - SolarTrackerElectronics
+  - SolarAssemblyFlatpack
+
+- type: technologyBlueprints
+  id: NFEmitter
+  name: nf-research-technology-particle-emission
+  entityIcon: Emitter
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - EmitterCircuitboard
+
+- type: technologyBlueprints
+  id: NFFission
+  name: nf-research-technology-fission-powercells
+  entityIcon: PowerCellMicroreactor
+  discipline: NFEngineering
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - PowerCellMicroreactor
+
+- type: technologyBlueprints
+  id: NFPortableFission
+  name: nf-research-technology-portable-fission
+  entityIcon: PortableRecharger
+  discipline: NFEngineering
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - NFPortableRecharger
+
+- type: technologyBlueprints
+  id: NFBasicPowerGeneration
+  name: nf-research-technology-basic-power-generators
+  entityIcon: PortableGeneratorPacman
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - PortableGeneratorPacmanMachineCircuitboard
+  - PowerComputerCircuitboard
+
+- type: technologyBlueprints
+  id: NFParticleDecelerator
+  name: nf-research-technology-portable-particle-emission
+  entityIcon: NFWeaponParticleDecelerator
+  discipline: NFEngineering
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - NFWeaponParticleDecelerator
+
+- type: technologyBlueprints
+  id: NFPowerGeneration
+  name: nf-research-technology-power-generators
+  entityIcon: PortableGeneratorSuperPacman
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - PortableGeneratorSuperPacmanMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedPowerGeneration
+  name: nf-research-technology-fission-generators
+  entityIcon: PortableGeneratorDKJr
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - PortableGeneratorDKJrMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFSpaceScanning
+  name: nf-research-technology-space-scanning
+  entityIcon: ComputerRadar
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - RadarConsoleCircuitboard
+
+- type: technologyBlueprints
+  id: NFSpaceHandHeldScanning
+  name: nf-research-technology-space-handheld-scanning
+  entityIcon: HandHeldMassScanner
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe:
+  - HandHeldMassScanner
+
+- type: technologyBlueprints
+  id: NFShuttlecraft
+  name: nf-research-technology-shuttlecraft
+  entityIcon: ComputerShuttle
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - ShuttleConsoleCircuitboard
+  - MiniGravityGeneratorCircuitboard
+  - MiniStationAnchorCircuitboard
+
+- type: technologyBlueprints
+  id: NFShuttlecraftThrust
+  name: nf-research-technology-shuttlecraft-thrust
+  entityIcon: Thruster
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - ThrusterMachineCircuitboard
+  - GyroscopeMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFShuttlecraftThrustSmall
+  name: nf-research-technology-shuttlecraft-thrust-small
+  entityIcon: SmallThruster
+  discipline: NFEngineering
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - SmallThrusterMachineCircuitboard
+  - SmallGyroscopeMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedAtmosphericsTools
+  name: nf-research-technology-advanced-atmospherics-tools
+  entityIcon: HolofanProjector
+  discipline: NFEngineering
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - HolofanProjector
+  - AlertsComputerCircuitboard
+  - AtmosMonitoringComputerCircuitboard
+
+- type: technologyBlueprints
+  id: NFAtmosphericTech
+  name: nf-research-technology-atmospheric-tech
+  entityIcon: GasThermoMachineFreezer
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - ThermomachineFreezerMachineCircuitBoard
+  - GasRecyclerMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAtmosphericDrilling
+  name: nf-research-technology-atmospheric-drilling
+  entityIcon: GasMiningDrill
+  discipline: NFEngineering
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - GasMiningDrillMachineCircuitboard
+  - GaslockFrameMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFAdvancedAtmosphericsPortable
+  name: nf-research-technology-advanced-atmospherics-portable
+  entityIcon: PortableScrubber
+  discipline: NFEngineering
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - PortableScrubberMachineCircuitBoard
+
+- type: technologyBlueprints
+  id: NFAdvancedAtmospherics
+  name: nf-research-technology-advanced-atmospherics
+  entityIcon: GasThermoMachineHellfireFreezer
+  discipline: NFEngineering
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - HellfireFreezerMachineCircuitBoard
+
+- type: technologyBlueprints
+  id: NFBasicPersonalPropulsion
+  name: nf-research-technology-basic-personal-propulsion
+  entityIcon: JetpackBlue
+  discipline: NFSalvage
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - JetpackBlue
+
+- type: technologyBlueprints
+  id: NFArsenalMercenaryPropulsion
+  name: nf-research-technology-combat-propulsion
+  entityIcon: JetpackSecurity
+  discipline: NFArsenalMercenary
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - JetpackSecurity
+
+- type: technologyBlueprints
+  id: NFPersonalPropulsion
+  name: nf-research-technology-personal-propulsion
+  entityIcon: JetpackCaptain
+  discipline: NFSalvage
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - JetpackCaptain
+
+- type: technologyBlueprints
+  id: NFAdvancedPersonalPropulsion
+  name: nf-research-technology-advanced-personal-propulsion
+  entityIcon: JetpackVoid
+  discipline: NFSalvage
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  additionalLathes: [Protolathe]
+  recipe:
+  - JetpackVoid
+
+- type: technologyBlueprints
+  id: NFBootBasedPropulsion
+  name: nf-research-technology-boot-based-propulsion
+  entityIcon: NFClothingShoesBootsJetpack
+  discipline: NFSalvage
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  tiers: [2]
+  lathe: SalvageTechfabNF
+  additionalLathes: [Protolathe]
+  recipe:
+  - NFClothingShoesBootsJetpack
+
+- type: technologyBlueprints
+  id: NFSalvageGrapplingEquipment
+  name: nf-research-technology-salvage-grappling-equipment
+  entityIcon: WeaponGrapplingGun
+  discipline: NFSalvage
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - WeaponGrapplingGun
+
+- type: technologyBlueprints
+  id: NFExcavation
+  name: nf-research-technology-excavation
+  entityIcon: MiningDrill
+  discipline: NFSalvage
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - MiningDrill
+  - MineralScannerEmpty
+
+- type: technologyBlueprints
+  id: NFOreProcessor
+  name: nf-research-technology-ore-processing
+  entityIcon: OreProcessor
+  discipline: NFSalvage
+  rare: 40
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - OreProcessorMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFIndustrialOreProcessor
+  name: nf-research-technology-industrial-ore-processing
+  entityIcon: OreProcessorIndustrial
+  discipline: NFSalvage
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - OreProcessorIndustrialMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFSalvageWeapons
+  name: nf-research-technology-salvage-weapons
+  entityIcon: NFWeaponPka
+  discipline: NFSalvage
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - NFWeaponPka
+  - WeaponCrusher
+  - WeaponCrusherDagger
+
+- type: technologyBlueprints
+  id: NFMassExcavation
+  name: nf-research-technology-mass-excavation
+  entityIcon: MiningDrillDiamond
+  discipline: NFSalvage
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  additionalLathes: [Protolathe]
+  recipe:
+  - MiningDrillDiamond
+  - AdvancedMineralScannerEmpty
+
+- type: technologyBlueprints
+  id: NFAdvancedSalvageWeapons
+  name: nf-research-technology-advanced-salvage-weapons
+  entityIcon: WeaponCrusherGlaive
+  discipline: NFSalvage
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - WeaponCrusherGlaive
+
+- type: technologyBlueprints
+  id: NFBluespaceOreStorage
+  name: nf-research-technology-excavation-storage
+  entityIcon: OreBagOfHolding
+  discipline: NFSalvage
+  rare: 1000
+  rareLoc: research-technology-blueprint-epic
+  tier: 1
+  lathe: SalvageTechfabNF
+  additionalLathes: [Protolathe]
+  recipe:
+  - OreBagOfHolding
+
+- type: technologyBlueprints
+  id: NFImprovedSalvageWeapons
+  name: nf-research-technology-salvage-weapons-improved
+  entityIcon: NFWeaponPkaCannon
+  discipline: NFSalvage
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - NFWeaponPkaCannon
+
+- type: technologyBlueprints
+  id: NFAdvancedSalvageCyborg
+  name: nf-research-technology-advanced-salvage-cyborg
+  entityIcon: BorgModuleAdvancedMining
+  discipline: NFSalvage
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipe:
+  - BorgModuleAdvancedMining
+
+- type: technologyBlueprints
+  id: NFBluespaceGasTanks
+  name: nf-research-technology-bluespace-gas-tanks
+  entityIcon: BluespaceAirTank
+  discipline: NFSalvage
+  rare: 1000
+  rareLoc: research-technology-blueprint-epic
+  tier: 1
+  lathe: SalvageTechfabNF
+  additionalLathes: [Protolathe]
+  recipe:
+  - BluespaceAirTank
+  - SmallBluespaceAirTank
+
+- type: technologyBlueprints
+  id: NFBasicAmmunitionProduction
+  name: nf-research-technology-basic-ammunition
+  entityIcon: NFAmmunitionBoxPistol45
+  discipline: NFArsenalMercenary
+  rare: 20
+  rareLoc: research-technology-blueprint-common
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFAmmunitionBoxShellShotgunBuckshot
+  - NFAmmunitionBoxShellShotgunSlug
+  - NFAmmunitionBoxRifle20
+  - NFAmmunitionBoxRifle30
+  - NFAmmunitionBoxPistol35
+  - NFAmmunitionBoxPistol45
+  - NFSpeedLoaderPistol35Empty
+  - NFSpeedLoaderPistol45Empty
+  - NFMagazineClipRifle20Empty
+  - MagazineLightRifleLowCapacityEmpty
+  - NFMagazinePistol35Empty
+
+- type: technologyBlueprints
+  id: NFBountyHunting
+  name: nf-research-technology-bounty-hunting
+  entityIcon: Handcuffs
+  discipline: NFArsenalMercenary
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - BolaNF
+  - NFHandcuffs
+  - ClothingOuterArmorBulletproofNF
+  - ClothingOuterCoatBHTrench
+  - PinpointerUniversalNF
+  - ClothingEyesHudBountyHunter
+  - NFForensicPad
+  - FlashlightSecliteNF
+  - BorgModuleCombatPinpointer
+
+- type: technologyBlueprints
+  id: NFImprovedPistolAmmo
+  name: nf-research-technology-pistol-ammo-improved
+  entityIcon: NFAmmunitionBoxPistol35Overpressure
+  discipline: NFArsenalMercenary
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFAmmunitionBoxPistol35Overpressure
+  - NFAmmunitionBoxPistol45Overpressure
+  - NFMagazineHighCapacityPistol35Empty
+  - NFMagazineSubMachineGun35Empty
+  - NFMagazineSubMachineGunTopMounted35Empty
+  - MagazinePistolSubMachineGunVereskLowEmpty
+  - NFMagazinePistol45Empty
+  - NFAmmunitionBoxShellShotgunTranquilizer
+  - NFAmmunitionBoxShellShotgunBeanbag
+
+- type: technologyBlueprints
+  id: NFAdvancedRiotControl
+  name: nf-research-technology-advanced-riot-control
+  entityIcon: Truncheon
+  discipline: NFArsenalMercenary
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFTelescopicShield
+  - NFClothingBackpackElectropack
+
+- type: technologyBlueprints
+  id: NFArsenalStyle
+  name: nf-research-technology-arsenal-style
+  entityIcon: ClothingOuterArmorPunkOrange
+  discipline: NFArsenalMercenary
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ClothingEyesPunkInfoShades
+  - ClothingOuterArmorPunkRandomized
+  - ClothingOuterArmorPunkRed
+  - ClothingOuterArmorPunkGreen
+  - ClothingOuterArmorPunkOrange
+  - ClothingOuterArmorElitePunkRandomized
+  - ClothingBeltPunkRandomized
+  - ClothingShoesBootsPunkRandomized
+  - ClothingEyesPunkGoggles
+  - ClothingMaskPunkHalf
+  - ClothingUniformRandomPunkTanktop
+  - ClothingUniformRandomPunkTanktopShorts
+  - ClothingUniformRandomPunkCroptop
+  - ClothingUniformRandomPunkCroptopShorts
+  - ClothingOuterCoatLettermanRandomized
+  - ClothingOuterCoatBomberRandomized
+
+- type: technologyBlueprints
+  id: NFImprovedRifleAmmo
+  name: nf-research-technology-rifle-ammo-improved
+  entityIcon: NFAmmunitionBoxRifle30Overpressure
+  discipline: NFArsenalMercenary
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFAmmunitionBoxRifle20Overpressure
+  - NFAmmunitionBoxRifle30Overpressure
+  - NFAmmunitionBoxShellShotgunOverpressure
+  - NFMagazineRifle20Empty
+  - NFMagazineRifle30Empty
+  - NFMagazineDrumRifle20Empty
+  - MagazineAsmgtUniversalEmpty
+
+- type: technologyBlueprints
+  id: NFExplosiveTechnology
+  name: nf-research-technology-explosive-technology
+  entityIcon: ChemicalPayload
+  discipline: NFArsenalMercenary
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - SignalTrigger
+  - VoiceTrigger
+  - TimerTrigger
+  - FlashPayload
+  - ChemicalPayload
+  - ExplosivePayload
+
+- type: technologyBlueprints
+  id: NFDeterrenceTechnologies
+  name: nf-research-technology-deterrence
+  entityIcon: HoloprojectorField
+  discipline: NFArsenalMercenary
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - HoloprojectorField
+
+- type: technologyBlueprints
+  id: NFBulkAmmo
+  name: nf-research-technology-ammo-bulk
+  entityIcon: NFAmmunitionBoxBigRifle20
+  discipline: NFArsenalMercenary
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFAmmunitionBoxBigPistol35
+  - NFAmmunitionBoxBigPistol35Overpressure
+  - NFAmmunitionBoxBigPistol45
+  - NFAmmunitionBoxBigPistol45Overpressure
+  - NFAmmunitionBoxBigRifle20
+  - NFAmmunitionBoxBigRifle20Overpressure
+  - NFAmmunitionBoxBigRifle30
+  - NFAmmunitionBoxBigRifle30Overpressure
+  - NFAmmunitionBoxBigShellShotgunBuckshot
+  - NFAmmunitionBoxBigShellShotgunOverpressure
+
+- type: technologyBlueprints
+  id: NFBasicShuttleArmament
+  name: nf-research-technology-basic-shuttle-armament
+  entityIcon: PowerCageRecharger
+  discipline: NFArsenalMercenary
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - PowerCageRechargerCircuitboard
+  - PowerCageSmall
+  - PowerCageMedium
+  - PowerCageHigh
+  - NFMagazineGrenadeEmpty
+  - NFGrenadeFlash
+  - NFGrenadeEMP
+
+- type: technologyBlueprints
+  id: NFArsenalRiot
+  name: nf-research-technology-arsenal-riot
+  entityIcon: ClothingOuterArmorRiot
+  discipline: NFArsenalMercenary
+  rare: 70
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ClothingOuterArmorRiot
+  - ClothingHeadHelmetRiot
+  - NFRiotShield
+  - ClothingMaskGasSwatRS
+
+- type: technologyBlueprints
+  id: NFImprovedSvalinn
+  name: rs-research-technology-svalinn
+  entityIcon: NFWeaponEnergyPistolLaserSvalinn
+  discipline: NFArsenalMercenary
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFWeaponEnergyPistolLaserSvalinnRS
+  - NFWeaponEnergyPistolLaserMakeshiftRS
+
+- type: technologyBlueprints
+  id: NFImprovedPractice
+  name: rs-research-technology-practice
+  entityIcon: NFWeaponEnergySubMachineGunDisabler
+  discipline: NFArsenalMercenary
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFWeaponEnergyPistolDisablerPracticeRS
+  - NFWeaponEnergyRifleCarbinePracticeRS
+  - NFWeaponEnergyRifleCarbineRS
+  - NFWeaponEnergyPistolLaserRS
+  - NFWeaponEnergyPistolDisablerRS
+  - NFWeaponEnergySubMachineGunDisablerRS
+
+- type: technologyBlueprints
+  id: NFImprovedRifle
+  name: rs-research-technology-rifle
+  entityIcon: NFWeaponEnergyRifleTemperature
+  discipline: NFArsenalMercenary
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFWeaponEnergySubMachineGunDeltaVRS
+  - NFWeaponEnergyRifleTemperature
+
+- type: technologyBlueprints
+  id: NFImprovedSniperCannon
+  name: rs-research-technology-cannon
+  entityIcon: NFWeaponEnergyRifleSniperCannon
+  discipline: NFArsenalMercenary
+  rare: 250
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFWeaponEnergyRifleSniperXrayCannon
+  - NFWeaponEnergyRifleSniperCannon
+
+- type: technologyBlueprints
+  id: NFImprovedLaserAdvanced
+  name: rs-research-technology-laser-advanced
+  entityIcon: NFWeaponEnergyPistolLaserAdvanced
+  discipline: NFArsenalMercenary
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - NFWeaponEnergyPistolLaserAdvancedRS
+
+- type: technologyBlueprints
+  id: NFImprovedLaserAdvancedGunCircuitboard
+  name: rs-research-technology-laser-advanced-gun
+  entityIcon: ShuttleGunSvalinnMachineGun
+  discipline: NFArsenalMercenary
+  rare: 240
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ShuttleGunSvalinnMachineGunCircuitboard
+
+- type: technologyBlueprints
+  id: NFImprovedLaserAdvancedPerforator
+  name: rs-research-technology-laser-advanced-perforator
+  entityIcon: ShuttleGunPerforator
+  discipline: NFArsenalMercenary
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - ShuttleGunPerforatorCircuitboard
+
+- type: technologyBlueprints
+  id: BluespaceConstructionStorage
+  name: nf-research-technology-bluespace-storage
+  entityIcon: ConstructionBagOfHolding
+  discipline: NFEngineering
+  rare: 1000
+  rareLoc: research-technology-blueprint-epic
+  tier: 1
+  lathe: EngineeringTechFab
+  additionalLathes: [Protolathe]
+  recipe: [ConstructionBagOfHolding]

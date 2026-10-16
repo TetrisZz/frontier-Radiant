@@ -13,252 +13,138 @@ using YamlDotNet.RepresentationModel;
 
 namespace Content.Shared.Interaction.Panel;
 
-public sealed partial class InteractionPanelManager : IPostInjectInit
+public sealed class InteractionPanelManager : IPostInjectInit
 {
+    public const int MaxFileBytes = 262144;
+    public const int MaxActions = 128;
     [Dependency] private ISerializationManager _serManager = default!;
-    private ISawmill _sawmill = default!;
 
-    public void PostInject()
-    {
-        _sawmill = Logger.GetSawmill("interaction_import");
-    }
+    public void PostInject() { }
 
-    /// <summary>
-    /// !@#%*#%*#$!#@$
-    /// </summary>
-    /// <param name="stream">Stream</param>
-    /// <returns></returns>
-    /// <exception cref="InvalidDataException">:P</exception>
     public List<InteractionPrototype> FromStream(Stream stream)
     {
-        try
+        // Bound input before invoking the YAML parser, including non-seekable file dialogs.
+        using var buffer = new MemoryStream();
+        var bytes = new byte[8192];
+        int read;
+        while ((read = stream.Read(bytes, 0, bytes.Length)) > 0)
         {
-            using var reader = new StreamReader(stream, EncodingHelpers.UTF8);
-            var yamlStream = new YamlStream();
-            yamlStream.Load(reader);
-
-            if (yamlStream.Documents.Count == 0)
-            {
-                throw new InvalidDataException("YAML file is empty.");
-            }
-
-            var root = yamlStream.Documents[0].RootNode;
-            var prototypes = _serManager.Read<List<InteractionPrototype>>(root.ToDataNode(), notNullableOverride: true);
-
-            if (prototypes == null || prototypes.Count == 0)
-            {
-                throw new InvalidDataException("No valid prototypes found in the file.");
-            }
-
-            var validPrototypes = FilterValidPrototypes(prototypes);
-            if (validPrototypes.Count == 0)
-                return new List<InteractionPrototype>();
-
-            return validPrototypes;
+            if (buffer.Length + read > MaxFileBytes)
+                throw new InvalidDataException("interaction-panel-file-too-large");
+            buffer.Write(bytes, 0, read);
         }
-        catch (Exception ex)
+        buffer.Position = 0;
+        using var reader = new StreamReader(buffer, EncodingHelpers.UTF8);
+        var yaml = new YamlStream();
+        yaml.Load(reader);
+        if (yaml.Documents.Count != 1)
+            throw new InvalidDataException("interaction-panel-file-format");
+
+        var root = yaml.Documents[0].RootNode;
+        var nodeBudget = 20000;
+        ValidateShape(root, 0, ref nodeBudget);
+        if (root is YamlMappingNode package)
         {
-            _sawmill = Logger.GetSawmill("interaction_import");
-            _sawmill.Error($"Error while reading YAML file: {ex.Message}");
-            throw;
+            if (!TryField(package, "version", out var version)
+                || version is not YamlScalarNode { Value: "1" }
+                || !TryField(package, "actions", out root))
+                throw new InvalidDataException("interaction-panel-file-version");
         }
+        if (root is not YamlSequenceNode sequence || sequence.Children.Count > MaxActions)
+            throw new InvalidDataException("interaction-panel-file-count");
+        foreach (var node in sequence.Children)
+        {
+            if (node is not YamlMappingNode action
+                || TryField(action, "type", out var type)
+                && type is not YamlScalarNode { Value: "interaction" })
+                throw new InvalidDataException("interaction-panel-file-type");
+        }
+
+        var prototypes = _serManager.Read<List<InteractionPrototype>>(sequence.ToDataNode(), notNullableOverride: true);
+        Validate(prototypes);
+        return prototypes;
     }
 
-    /// <summary>
-    /// List validation
-    /// </summary>
-    /// <param name="prototypes">The prototype sheet itself</param>
-    /// <returns>The corrected list</returns>
-    private List<InteractionPrototype> FilterValidPrototypes(List<InteractionPrototype> prototypes)
+    public DataNode ToDataNode(InteractionPrototype prototype) => ToDataNode(new[] { prototype });
+
+    public DataNode ToDataNode(IEnumerable<InteractionPrototype> prototypes)
     {
-        var validPrototypes = new List<InteractionPrototype>();
-        var idSet = new HashSet<string>();
-
-        var pathRegex = new Regex(@"^(/Audio/Voice/|/Audio/Effects/|/Audio/_radiant/Voice/).+\.ogg$", RegexOptions.Compiled);
-        foreach (var prototype in prototypes)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(prototype.ID) || string.IsNullOrWhiteSpace(prototype.Name))
-                {
-                    _sawmill.Warning($"Prototype ID or Name is null or whitespace. Skipping prototype");
-                    continue;
-                }
-                if (!IsValidId(prototype.ID))
-                {
-                    _sawmill.Warning($"Prototype ID '{prototype.ID}' contains invalid characters. Skipping prototype: {prototype.Name}");
-                    continue;
-                }
-                if (prototype.Abstract)
-                {
-                    _sawmill.Warning($"Abstract types are not allowed in prototype ID '{prototype.ID}'. Skipping prototype: {prototype.Name}");
-                    continue;
-                }
-                if (prototype.Parents?.Length > 0)
-                {
-                    _sawmill.Warning($"Prototype ID '{prototype.ID}' has parents. Skipping prototype: {prototype.Name}");
-                    continue;
-                }
-                if (!idSet.Add(prototype.ID))
-                {
-                    _sawmill.Warning($"Duplicate prototype ID found: '{prototype.ID}'. Skipping prototype: {prototype.Name}");
-                    continue;
-                }
-                if (!prototype.UserMessages.Any())
-                {
-                    _sawmill.Warning($"No messages found: '{prototype.ID}'. Skipping prototype: {prototype.Name}");
-                    continue;
-                }
-                if (prototype.InteractSound is SoundPathSpecifier pathSpecifier && !pathRegex.IsMatch(pathSpecifier.Path.ToString()))
-                {
-                    _sawmill.Warning($"Invalid path format for prototype ID '{prototype.ID}'. Path must start with '/Audio/Voice/', '/Audio/Effects/', or '/Audio/_radiant/Voice/' and end with '.ogg'. Skipping prototype: {prototype.Name}");
-                    continue;
-                }
-
-                validPrototypes.Add(prototype);
-            }
-            catch (Exception ex)
-            {
-                _sawmill.Error($"Error while validating prototype '{prototype.ID}': {ex.Message}");
-            }
-        }
-
-        return validPrototypes;
-    }
-
-    /// <summary>
-    /// Collects the prototype data into a file with the correct formatting
-    /// </summary>
-    /// <param name="prototype">The resulting prototype</param>
-    /// <returns>Formatted Node</returns>
-    public DataNode ToDataNode(InteractionPrototype prototype)
-    {
-        var sequenceNode = new SequenceDataNode();
-        var mapping = new MappingDataNode();
-
-        mapping.Add("type", new ValueDataNode("interaction"));
-        mapping.Add("id", new ValueDataNode(prototype.ID));
-        mapping.Add("name", new ValueDataNode(prototype.Name));
-        mapping.Add("erp", new ValueDataNode(prototype.ERP.ToString().ToLower()));
-        mapping.Add("solo", new ValueDataNode(prototype.Solo.ToString().ToLower()));
-        mapping.Add("category", new ValueDataNode(prototype.Category));
-        AddSlots(mapping, "requiredClothingSlots", prototype.RequiredClothingSlots);
-        AddSlots(mapping, "oneRequiredClothingSlots", prototype.OneRequiredClothingSlots);
-        AddSlots(mapping, "userBlockedClothingSlots", prototype.UserBlockedClothingSlots);
-        AddSlots(mapping, "targetBlockedClothingSlots", prototype.TargetBlockedClothingSlots);
-
-        if (prototype.RequiresStrapon)
-            mapping.Add("requiresStrapon", new ValueDataNode("true"));
-
-        if (prototype.RequiresVibrator)
-            mapping.Add("requiresVibrator", new ValueDataNode("true"));
-
-        if (prototype.RequiresDildo)
-            mapping.Add("requiresDildo", new ValueDataNode("true"));
-
-        if (prototype.Icon != null)
-        {
-            mapping.Add("icon", new ValueDataNode(prototype.Icon.ToString()));
-        }
-
-        if (prototype.UserMessages != null && prototype.UserMessages.Count > 0)
-        {
-            var userMessagesNode = new SequenceDataNode();
-            foreach (var message in prototype.UserMessages)
-            {
-                userMessagesNode.Add(new ValueDataNode(message));
-            }
-            mapping.Add("userMessages", userMessagesNode);
-        }
-
-        if (prototype.AllowedSpecies != null && prototype.AllowedSpecies.Count > 0)
-        {
-            var allowedSpeciesNode = new SequenceDataNode();
-            foreach (var species in prototype.AllowedSpecies)
-            {
-                allowedSpeciesNode.Add(new ValueDataNode(species));
-            }
-            mapping.Add("allowedSpecies", allowedSpeciesNode);
-        }
-
-        if (prototype.AllowedGenders != null && prototype.AllowedGenders.Count > 0)
-        {
-            var allowedGendersNode = new SequenceDataNode();
-            foreach (var gender in prototype.AllowedGenders)
-            {
-                allowedGendersNode.Add(new ValueDataNode(gender));
-            }
-            mapping.Add("allowedGenders", allowedGendersNode);
-        }
-
-        if (prototype.NearestAllowedSpecies != null && prototype.NearestAllowedSpecies.Count > 0)
-        {
-            var nearestAllowedSpeciesNode = new SequenceDataNode();
-            foreach (var species in prototype.NearestAllowedSpecies)
-            {
-                nearestAllowedSpeciesNode.Add(new ValueDataNode(species));
-            }
-            mapping.Add("nearestAllowedSpecies", nearestAllowedSpeciesNode);
-        }
-
-        if (prototype.NearestAllowedGenders != null && prototype.NearestAllowedGenders.Count > 0)
-        {
-            var nearestAllowedGendersNode = new SequenceDataNode();
-            foreach (var gender in prototype.NearestAllowedGenders)
-            {
-                nearestAllowedGendersNode.Add(new ValueDataNode(gender));
-            }
-            mapping.Add("nearestAllowedGenders", nearestAllowedGendersNode);
-        }
-
-        if (prototype.BlackListSpecies != null && prototype.BlackListSpecies.Count > 0)
-        {
-            var blackListSpeciesNode = new SequenceDataNode();
-            foreach (var species in prototype.BlackListSpecies)
-            {
-                blackListSpeciesNode.Add(new ValueDataNode(species));
-            }
-            mapping.Add("blackListSpecies", blackListSpeciesNode);
-        }
-
-        if (prototype.InteractSound != null)
-        {
-            if (prototype.InteractSound is SoundCollectionSpecifier collectionSpecifier)
-            {
-                var soundNode = new MappingDataNode().Add("collection", new ValueDataNode(collectionSpecifier.Collection));
-                mapping.Add("interactSound", soundNode);
-            }
-            else if (prototype.InteractSound is SoundPathSpecifier pathSpecifier)
-            {
-                mapping.Add("interactSound", new ValueDataNode(pathSpecifier.Path.ToString()));
-            }
-        }
-
-        mapping.Add("soundPerceivedByOthers", new ValueDataNode(prototype.SoundPerceivedByOthers.ToString().ToLower()));
-
-        sequenceNode.Add(mapping);
-
-        return sequenceNode;
-    }
-
-    private static void AddSlots(MappingDataNode mapping, string key, List<string>? slots)
-    {
-        if (slots == null || slots.Count == 0)
-            return;
+        var actions = prototypes.ToList();
+        Validate(actions);
         var sequence = new SequenceDataNode();
-        foreach (var slot in slots)
-            sequence.Add(new ValueDataNode(slot));
-        mapping.Add(key, sequence);
+        foreach (var action in actions)
+        {
+            // Use the same field serializers as import, so no editable fields are lost.
+            var mapping = (MappingDataNode) _serManager.WriteValue(action, alwaysWrite: true, notNullableOverride: true);
+            mapping.Add("type", new ValueDataNode("interaction"));
+            sequence.Add(mapping);
+        }
+        return new MappingDataNode
+        {
+            { "version", new ValueDataNode("1") },
+            { "actions", sequence }
+        };
     }
 
-    /// <summary>
-    /// ID validation
-    /// </summary>
-    /// <param name="id">Id prototype</param>
-    /// <returns>true/false?</returns>
-    private bool IsValidId(string id)
+    private static void Validate(IReadOnlyList<InteractionPrototype> actions)
     {
-        var regex = new Regex(@"^[a-zA-Z0-9]+$");
-        return regex.IsMatch(id);
+        if (actions.Count > MaxActions)
+            throw new InvalidDataException("interaction-panel-file-count");
+        var ids = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var action in actions)
+        {
+            if (string.IsNullOrWhiteSpace(action.ID) || action.ID.Length > 128
+                || !Regex.IsMatch(action.ID, "^[a-zA-Z0-9_-]+$") || !ids.Add(action.ID)
+                || string.IsNullOrWhiteSpace(action.Name) || action.Name.Length > 256
+                || action.Abstract || action.Parents?.Length > 0)
+                throw new InvalidDataException("interaction-panel-file-identity");
+            if (action.UserMessages.Count == 0
+                || new[] { action.UserMessages, action.TargetMessages, action.OtherMessages }
+                    .Any(messages => messages.Count > 32 || messages.Any(text => string.IsNullOrWhiteSpace(text) || text.Length > 4096)))
+                throw new InvalidDataException("interaction-panel-file-messages");
+            if (!float.IsFinite(action.DoAfterDelay) || action.DoAfterDelay < 0
+                || action.UseDelay < TimeSpan.Zero || action.UseDelay > TimeSpan.FromHours(1))
+                throw new InvalidDataException("interaction-panel-file-delay");
+            if (action.InteractSound is SoundPathSpecifier sound)
+            {
+                var path = sound.Path.ToString();
+                if (path.Contains("..", StringComparison.Ordinal)
+                    || !Regex.IsMatch(path, @"^(/Audio/Voice/|/Audio/Effects/|/Audio/_radiant/Voice/).+\.ogg$"))
+                    throw new InvalidDataException("interaction-panel-file-sound");
+            }
+        }
+    }
+
+    private static void ValidateShape(YamlNode node, int depth, ref int budget)
+    {
+        if (depth > 16 || --budget < 0)
+            throw new InvalidDataException("interaction-panel-file-complex");
+        if (node is YamlMappingNode mapping)
+        {
+            foreach (var pair in mapping)
+            {
+                ValidateShape(pair.Key, depth + 1, ref budget);
+                ValidateShape(pair.Value, depth + 1, ref budget);
+            }
+        }
+        else if (node is YamlSequenceNode sequence)
+        {
+            foreach (var child in sequence.Children)
+                ValidateShape(child, depth + 1, ref budget);
+        }
+    }
+
+    private static bool TryField(YamlMappingNode mapping, string name, out YamlNode value)
+    {
+        // Mapping enumeration is sandbox-safe across supported YamlDotNet versions.
+        foreach (var pair in mapping)
+        {
+            if (pair.Key is not YamlScalarNode key || key.Value != name)
+                continue;
+            value = pair.Value;
+            return true;
+        }
+        value = default!;
+        return false;
     }
 }

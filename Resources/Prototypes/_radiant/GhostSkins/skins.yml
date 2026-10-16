@@ -1,0 +1,79 @@
+- type: ghostSkin
+  id: GhostOriginal
+  name: ghost-skin-original
+  sprite: { sprite: Mobs/Ghosts/ghost_human.rsi, state: animated }
+  color: "#ffffff88"
+  order: -1
+
+- type: ghostSkin
+  id: GhostClassic
+  name: ghost-skin-classic
+  sprite: { sprite: _radiant/Mobs/Ghosts/classic.rsi, state: ghost }
+  color: "#ffffffaa"
+  order: 0
+
+- type: ghostSkin
+  id: GhostWhisper
+  name: ghost-skin-whisper
+  sprite: { sprite: _radiant/Mobs/Ghosts/whisper.rsi, state: ghost }
+  color: "#ffffffaa"
+  order: 1
+
+- type: ghostSkin
+  id: GhostWisp
+  name: ghost-skin-wisp
+  sprite: { sprite: _radiant/Mobs/Ghosts/wisp.rsi, state: ghost }
+  color: "#ffffffaa"
+  order: 2
+
+- type: ghostSkin
+  id: GhostCat
+  name: ghost-skin-cat
+  sprite: { sprite: _radiant/Mobs/Ghosts/cat.rsi, state: ghost }
+  color: "#ffffffaa"
+  order: 3
+
+- type: ghostSkin
+  id: GhostFoxMask
+  name: ghost-skin-fox-mask
+  sprite: { sprite: _radiant/Mobs/Ghosts/fox-mask.rsi, state: ghost }
+  scale: 0.333333, 0.333333
+  supporterOnly: true
+  order: 4
+
+- type: ghostSkin
+  id: GhostLanternHood
+  name: ghost-skin-lantern-hood
+  sprite: { sprite: _radiant/Mobs/Ghosts/lantern-hood.rsi, state: ghost }
+  scale: 0.333333, 0.333333
+  supporterOnly: true
+  order: 5
+
+- type: ghostSkin
+  id: GhostAstralJelly
+  name: ghost-skin-astral-jelly
+  sprite: { sprite: _radiant/Mobs/Ghosts/astral-jelly.rsi, state: ghost }
+  scale: 0.333333, 0.333333
+  supporterOnly: true
+  order: 6
+
+- type: ghostSkin
+  id: GhostCrescentPhantom
+  name: ghost-skin-crescent-phantom
+  sprite: { sprite: _radiant/Mobs/Ghosts/crescent-phantom.rsi, state: ghost }
+  scale: 0.333333, 0.333333
+  supporterOnly: true
+  order: 7
+
+- type: entity
+  id: ActionGhostSkin
+  parent: BaseMentalAction
+  name: Ghost Appearance
+  description: Choose your ghost's appearance.
+  components:
+  - type: Action
+    icon: { sprite: _radiant/Mobs/Ghosts/classic.rsi, state: ghost }
+    clientExclusive: true
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:GhostSkinActionEvent

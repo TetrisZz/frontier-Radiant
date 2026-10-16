@@ -45,6 +45,8 @@
   suffix: Empty
   abstract: true
   components:
+  - type: HLPersistOnShipSave
+    saveContents: false
   - type: Storage
     grid:
     - 0,0,9,3

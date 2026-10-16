@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadRadiantBlueFlame
+  name: blue flame horns
+  description: Holographic horns shaped like flickering blue flames.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hats/blueflame.rsi
+    layers:
+    - state: icon
+      shader: unshaded
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hats/blueflame.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+        shader: unshaded

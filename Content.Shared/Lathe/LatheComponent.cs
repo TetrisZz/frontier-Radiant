@@ -1,4 +1,5 @@
 using Content.Shared.Construction.Prototypes;
+using Content.Shared._radiant.ResearchBlueprints;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.Audio;
@@ -21,6 +22,15 @@ namespace Content.Shared.Lathe
         /// </summary>
         [DataField]
         public List<ProtoId<LatheRecipePackPrototype>> DynamicPacks = new();
+
+        [DataField, AutoNetworkedField]
+        public ProtoId<LatheBlueprintPrototype>? LatheBlueprint;
+
+        [DataField, AutoNetworkedField]
+        public Dictionary<ProtoId<LatheRecipePrototype>, BlueprintModifiers> BlueprintRecipes = new();
+
+        [DataField]
+        public BlueprintModifiers? CurrentBlueprintModifiers;
         // Note that this shouldn't be modified dynamically.
         // I.e., this + the static recipies should represent all recipies that the lathe can ever make
         // Otherwise the material arbitrage test and/or LatheSystem.GetAllBaseRecipes needs to be updated
@@ -150,6 +160,7 @@ namespace Content.Shared.Lathe
     [Serializable]
     public sealed partial class LatheRecipeBatch
     {
+        public BlueprintModifiers? Modifiers;
         public ProtoId<LatheRecipePrototype> Recipe;
         public int ItemsPrinted;
         public int ItemsRequested;

@@ -1,0 +1,62 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachinePaint
+  name: ColorMate
+  description: A vending machine selling spray paint in a variety of colours and designs.
+  components:
+  - type: VendingMachine
+    pack: PaintVendorInventory
+    offState: off
+    brokenState: off
+    normalState: normal
+    ejectState: vend
+    denyState: off
+    screenState: null
+    ejectDelay: 1.6
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/paint_vendor.rsi
+    layers:
+    - state: off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: normal
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: PointLight
+    color: "#BCE6CC"
+    radius: 1.5
+
+- type: vendingMachineInventory
+  id: PaintVendorInventory
+  startingInventory:
+    WashablePaintRed: 10
+    WashablePaintOrange: 10
+    WashablePaintYellow: 10
+    WashablePaintGreen: 10
+    WashablePaintBlue: 10
+    WashablePaintPurple: 10
+    WashablePaintWhite: 10
+    WashablePaintBlack: 10
+    WashablePaintMimeWhite: 5
+    WashablePaintMimeBlack: 5
+    WashablePaintRainbowCyan: 5
+    WashablePaintRainbowLilac: 5
+    WashablePaintClownPink: 5
+    WashablePaintDeathGray: 5
+    WashablePaintDeathCopper: 5
+  contrabandInventory:
+    ClownLubricantSpray: 3
+
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockPaint
+  name: ColorMate restock box
+  description: Replacement washable paint cartridges for a ColorMate.
+  components:
+  - type: VendingMachineRestock
+    canRestock: [PaintVendorInventory]
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit

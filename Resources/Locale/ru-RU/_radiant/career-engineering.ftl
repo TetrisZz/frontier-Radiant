@@ -1,0 +1,16 @@
+career-profession-engineering = Инженер
+career-profession-engineering-description = Заготовка материалов, сборка корабельного оборудования и строительство. Время работы отсчитывается отдельно с начала каждого этапа.
+career-engineering-steel = Продать 100 листов стали в торговом центре
+career-engineering-plastic = Продать 100 листов пластика в торговом центре
+career-engineering-duty-3 = Проработать инженером 3 часа с начала этапа
+career-engineering-duty-4 = Проработать инженером 4 часа с начала этапа
+career-engineering-thrusters = Собрать 6 двигателей
+career-engineering-gyroscopes = Собрать 2 гироскопа
+career-engineering-walls = Построить 50 стен
+career-engineering-airlocks = Собрать 3 шлюза
+career-engineering-windows = Построить 10 окон
+career-engineering-apc = Собрать 1 ЛКП
+career-engineering-substation = Собрать 1 подстанцию
+career-engineering-smes = Собрать 1 СМЭС
+ent-CareerEngineeringRCDAmmoBlueprint = чертёж картриджей корабельного РСУ
+    .desc = Схема картриджа корабельного РСУ для инженерного фабрикатора.

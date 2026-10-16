@@ -1,7 +1,7 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                           SetSize="640 500"
+                           SetSize="640 650"
                            MinSize="640 300">
     <BoxContainer Orientation="Vertical" Margin="5 0 5 0">
         <BoxContainer Orientation="Vertical">
@@ -63,5 +63,14 @@
                 <Label Name="DeedTitle" Text=""/>
             </BoxContainer>
         </GridContainer>
+        <BoxContainer Name="SavedShipsContainer" Orientation="Vertical" Margin="0 8 0 0">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <Label Text="{Loc 'shipyard-save-list-title'}" HorizontalExpand="True" />
+                <controls:ConfirmButton Name="SaveShipButton" Text="{Loc 'shipyard-save-button'}" Disabled="True" />
+                <controls:ConfirmButton Name="LoadShipButton" Text="{Loc 'shipyard-load-button'}" Disabled="True" />
+            </BoxContainer>
+            <ItemList Name="SavedShipsList" MinHeight="100" MaxHeight="140" HorizontalExpand="True" />
+            <Label Name="LoadShipPriceLabel" />
+        </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

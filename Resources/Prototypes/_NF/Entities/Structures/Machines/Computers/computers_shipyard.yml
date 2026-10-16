@@ -17,6 +17,9 @@
     - map: ["computerLayerKeys"]
       state: telesci_key
   - type: ShipyardConsole
+    shipSaveBlacklist:
+      components:
+      - ShipSavingBlacklist
     targetIdSlot:
       name: id-card-console-target-id
       ejectSound: /Audio/Machines/id_swipe.ogg

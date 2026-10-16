@@ -1,4 +1,5 @@
 using Content.Shared.Examine;
+using Content.Shared._radiant.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -65,6 +66,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
+        HairColoringHelper.CopyGradientSettingsToComponent(sourceHumanoid, targetHumanoid);
 
         _pseudoItem.UpdatePseudoItemState(target);
 

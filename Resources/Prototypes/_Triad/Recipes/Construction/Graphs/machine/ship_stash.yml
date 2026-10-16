@@ -1,0 +1,212 @@
+- type: constructionGraph
+  id: CivilianStorageStashGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CivilianStorageStashNode
+      steps:
+        - material: Steel
+          amount: 20
+          doAfter: 1
+        - material: Plasteel
+          amount: 10
+          doAfter: 2
+        - material: Cable
+          amount: 5
+          doAfter: 3
+
+  - node: CivilianStorageStashNode
+    entity: CivilianStorageStash
+    edges:
+    - to: start
+      steps:
+        - tool: Screwing
+          doAfter: 3
+        - tool: Welding
+          doAfter: 10
+        - tool: Prying
+          doAfter: 5
+      completed:
+        - !type:SpawnPrototype
+          prototype: SheetPlasteel1
+          amount: 10
+        - !type:SpawnPrototype
+          prototype: SheetSteel10
+          amount: 2
+        - !type:EmptyAllContainers
+        - !type:DeleteEntity
+
+- type: constructionGraph
+  id: MilitaryStorageStashGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: MilitaryStorageStashNode
+      steps:
+        - material: Steel
+          amount: 20
+          doAfter: 1
+        - material: Plasteel
+          amount: 10
+          doAfter: 2
+        - material: Plasteel
+          amount: 12
+          doAfter: 6
+        - material: Cable
+          amount: 5
+          doAfter: 3
+
+  - node: MilitaryStorageStashNode
+    entity: MilitaryStorageStash
+    edges:
+    - to: start
+      steps:
+        - tool: Screwing
+          doAfter: 3
+        - tool: Welding
+          doAfter: 10
+        - tool: Prying
+          doAfter: 5
+      completed:
+        - !type:SpawnPrototype
+          prototype: SheetPlasteel10
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: SheetSteel10
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: SheetPlasteel1
+          amount: 6
+        - !type:EmptyAllContainers
+        - !type:DeleteEntity
+
+- type: constructionGraph
+  id: MedicalSecureStorageGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: MedicalSecureStorageNode
+      steps:
+        - material: Steel
+          amount: 20
+          doAfter: 1
+        - material: Plasteel
+          amount: 10
+          doAfter: 2
+        - material: Silver
+          amount: 8
+          doAfter: 6
+        - material: Cable
+          amount: 5
+          doAfter: 3
+
+  - node: MedicalSecureStorageNode
+    entity: MedicalSecureStorage
+    edges:
+    - to: start
+      steps:
+        - tool: Screwing
+          doAfter: 3
+        - tool: Welding
+          doAfter: 10
+        - tool: Prying
+          doAfter: 5
+      completed:
+        - !type:SpawnPrototype
+          prototype: SheetPlasteel10
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: SheetSteel10
+          amount: 1
+        - !type:SpawnPrototype
+          prototype: IngotSilver1
+          amount: 4
+        - !type:EmptyAllContainers
+        - !type:DeleteEntity
+
+- type: constructionGraph
+  id: BotanicalStorageUnitGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: BotanicalStorageUnitNode
+      steps:
+        - material: Steel
+          amount: 15
+          doAfter: 1
+        - material: Plasteel
+          amount: 5
+          doAfter: 2
+        - material: WoodPlank
+          amount: 5
+          doAfter: 6
+        - material: Cable
+          amount: 5
+          doAfter: 3
+
+  - node: BotanicalStorageUnitNode
+    entity: BotanicalStorageUnit
+    edges:
+    - to: start
+      steps:
+        - tool: Screwing
+          doAfter: 3
+        - tool: Welding
+          doAfter: 10
+        - tool: Prying
+          doAfter: 5
+      completed:
+        - !type:SpawnPrototype
+          prototype: SheetPlasteel1
+          amount: 2
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 8
+        - !type:EmptyAllContainers
+        - !type:DeleteEntity
+
+- type: constructionGraph
+  id: FuelStorageStashGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: FuelStorageStashNode
+      completed:
+        - !type:SetAnchor
+          value: true 
+      steps:
+        - material: Steel
+          amount: 20
+          doAfter: 1
+        - material: Plasteel
+          amount: 10
+          doAfter: 2
+        - material: Cable
+          amount: 5
+          doAfter: 3
+
+  - node: FuelStorageStashNode
+    entity: FuelStorageStash
+    edges:
+    - to: start
+      steps:
+        - tool: Screwing
+          doAfter: 3
+        - tool: Welding
+          doAfter: 10
+        - tool: Prying
+          doAfter: 5
+      completed:
+        - !type:SpawnPrototype
+          prototype: SheetPlasteel1
+          amount: 10
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 20
+        - !type:EmptyAllContainers
+        - !type:DeleteEntity

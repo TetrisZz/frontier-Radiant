@@ -29,6 +29,9 @@ public sealed partial class ShuttleDeedComponent : Component
     [DataField, AutoNetworkedField]
     public bool PurchasedWithVoucher;
 
+    [DataField, AutoNetworkedField]
+    public bool LoadedFromSave;
+
     /// <summary>
     /// The EntityUid of the voucher used to purchase this ship, stored as a string.
     /// Only relevant if PurchasedWithVoucher is true.

@@ -5,6 +5,15 @@
   description: A rooty tooty point and shooty.
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SMGPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SMGDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SMGDrop
   - type: Sprite
   - type: Item
     size: Large

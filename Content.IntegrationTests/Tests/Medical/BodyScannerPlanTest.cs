@@ -16,8 +16,8 @@ public sealed class BodyScannerPlanTest
     [Test]
     public async Task ScannerPlanTracksPatientAndSeparateCavities()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var entities = server.ResolveDependency<IEntityManager>();
         var loc = server.ResolveDependency<ILocalizationManager>();
         await server.WaitAssertion(() =>

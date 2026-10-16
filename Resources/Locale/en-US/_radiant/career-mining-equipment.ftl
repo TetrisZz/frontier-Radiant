@@ -1,0 +1,9 @@
+career-loadout-mining-shoes = Miner footwear
+career-loadout-mining-neck = Miner neckwear
+career-loadout-mining-gloves = Miner gloves
+career-loadout-mining-outer = Miner outerwear
+career-loadout-mining-head = Miner headwear
+career-loadout-mining-back = Miner backpack
+career-loadout-mining-ears = Miner headset
+career-loadout-mining-uniform = Miner uniform
+career-loadout-mining-equipment = Miner basic equipment

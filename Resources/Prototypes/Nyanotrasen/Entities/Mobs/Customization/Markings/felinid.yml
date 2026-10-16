@@ -2,6 +2,7 @@
 
 - type: marking
   id: FelinidEarsBasic
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
@@ -13,6 +14,7 @@
 
 - type: marking
   id: FelinidEarsCurled
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
@@ -24,6 +26,7 @@
 
 - type: marking
   id: FelinidEarsDroopy
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
@@ -35,6 +38,7 @@
 
 - type: marking
   id: FelinidEarsFuzzy
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
@@ -46,6 +50,7 @@
 
 - type: marking
   id: FelinidEarsStubby
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
@@ -57,6 +62,7 @@
 
 - type: marking
   id: FelinidEarsTall
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
@@ -70,6 +76,7 @@
 
 - type: marking
   id: FelinidEarsTorn
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
@@ -81,6 +88,7 @@
 
 - type: marking
   id: FelinidEarsWide
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
@@ -94,6 +102,7 @@
 
 - type: marking
   id: FelinidTailBasic
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid]
@@ -107,6 +116,7 @@
 
 - type: marking
   id: FelinidTailBasicWithBow
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid]
@@ -122,6 +132,7 @@
 
 - type: marking
   id: FelinidTailBasicWithBell
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid]
@@ -137,6 +148,7 @@
 
 - type: marking
   id: FelinidTailBasicWithBowAndBell
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid]

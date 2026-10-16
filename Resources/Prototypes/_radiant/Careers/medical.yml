@@ -1,0 +1,168 @@
+- type: careerProfession
+  id: Medical
+  name: career-profession-medical
+  description: career-profession-medical-description
+  icon: Medkit
+  jobs: [MedicalDoctor]
+  requiredSkill: Medicine
+  requiredSkillLevel: 1
+  levels: [MedicalLevel1, MedicalLevel2, MedicalLevel3, MedicalLevel4, MedicalLevel5, MedicalLevel6]
+  jobTitles:
+  - id: doctor
+    name: career-title-doctor
+  - id: paramedic
+    name: career-title-paramedic
+    requiredLevel: 1
+  - id: chemist
+    name: career-title-chemist
+    requiredLevel: 2
+  - id: senior-doctor
+    name: career-title-senior-doctor
+    requiredLevel: 3
+  - id: surgeon
+    name: career-title-surgeon
+    requiredLevel: 4
+  - id: geneticist
+    name: career-title-geneticist
+    requiredLevel: 5
+  - id: virologist
+    name: career-title-virologist
+    requiredLevel: 6
+
+- type: careerLevel
+  id: MedicalLevel1
+  objectives:
+  - id: healing
+    title: career-medical-healing
+    type: Healing
+    target: 1000
+  rewardItems: [RestorativeSynthesizer]
+  rewardMoney: 10000
+  boxTier: 1
+
+- type: careerLevel
+  id: MedicalLevel2
+  objectives:
+  - id: duty
+    title: career-medical-duty-3
+    type: DutyTime
+    target: 10800
+  - id: bicaridine
+    title: career-medical-bicaridine
+    type: Synthesis
+    target: 1000
+    qualifiers: [Bicaridine]
+  - id: dermaline
+    title: career-medical-dermaline
+    type: Synthesis
+    target: 1000
+    qualifiers: [Dermaline]
+  - id: dylovene
+    title: career-medical-dylovene
+    type: Synthesis
+    target: 1000
+    qualifiers: [Dylovene]
+  rewardItems: [MedicalPouchFilledLow]
+  rewardMoney: 20000
+  boxTier: 1
+
+- type: careerLevel
+  id: MedicalLevel3
+  objectives:
+  - id: duty
+    title: career-medical-duty-4
+    type: DutyTime
+    target: 14400
+  - id: chemical-blunt
+    title: career-medical-chemical-blunt
+    type: ChemicalHealing
+    target: 500
+    qualifiers: [Blunt]
+  - id: chemical-heat
+    title: career-medical-chemical-heat
+    type: ChemicalHealing
+    target: 300
+    qualifiers: [Heat]
+  - id: chemical-poison
+    title: career-medical-chemical-poison
+    type: ChemicalHealing
+    target: 300
+    qualifiers: [Poison]
+  - id: cryoxadone
+    title: career-medical-cryoxadone
+    type: Synthesis
+    target: 200
+    qualifiers: [Cryoxadone]
+  - id: puncturase
+    title: career-medical-puncturase
+    type: Synthesis
+    target: 100
+    qualifiers: [Puncturase]
+  rewardItems: [CareerMedicalChemistryBlueprint, CareerMedicalSurgeryBlueprint]
+  rewardMoney: 30000
+  boxTier: 2
+
+- type: careerLevel
+  id: MedicalLevel4
+  objectives:
+  - id: implantation
+    title: career-medical-implantation
+    type: Implantation
+    target: 1
+  rewardItems: [CareerMedicalImplantsBlueprint]
+  rewardMoney: 40000
+  boxTier: 2
+
+- type: careerLevel
+  id: MedicalLevel5
+  objectives:
+  - id: duty
+    title: career-medical-duty-5
+    type: DutyTime
+    target: 18000
+  - id: dna
+    title: career-medical-dna
+    type: GeneticSequence
+    target: 3
+  - id: therapy
+    title: career-medical-therapy
+    type: GeneticProduction
+    target: 3
+    qualifiers: [Therapy]
+  - id: organs
+    title: career-medical-organs
+    type: GeneticProduction
+    target: 3
+    qualifiers: [Organ]
+  rewardItems: [CareerMedicalGeneticsBlueprint, GeneticResearchDiskBox]
+  rewardMoney: 50000
+  boxTier: 3
+
+- type: careerLevel
+  id: MedicalLevel6
+  objectives:
+  - id: duty
+    title: career-medical-duty-6
+    type: DutyTime
+    target: 21600
+  - id: diagnosis
+    title: career-medical-diagnosis
+    type: DiseaseAnalysis
+    target: 3
+  - id: treatments
+    title: career-medical-treatments
+    type: DiseaseProduction
+    target: 3
+    qualifiers: [Treatment]
+  - id: vaccines
+    title: career-medical-vaccines
+    type: DiseaseProduction
+    target: 3
+    qualifiers: [Vaccine]
+  - id: courses
+    title: career-medical-courses
+    type: DiseaseTreatment
+    target: 3
+  rewardItems: [CareerMedicalVirologyBlueprint, MedicalPouchFilledHigh]
+  rewardMoney: 60000
+  boxTier: 3

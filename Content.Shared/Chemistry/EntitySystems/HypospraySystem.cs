@@ -238,6 +238,8 @@ public sealed class HypospraySystem : EntitySystem
 
         if (!targetSolution.CanAddSolution(removedSolution))
             return true;
+        var administered = new Content.Shared._radiant.Careers.CareerMedicineAdministeredEvent(user, target, removedSolution);
+        RaiseLocalEvent(ref administered);
         _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection);
         _solutionContainers.TryAddSolution(targetSoln.Value, removedSolution);
 

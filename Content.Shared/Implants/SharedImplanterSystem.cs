@@ -138,7 +138,10 @@ public abstract class SharedImplanterSystem : EntitySystem
         if (component.ImplanterSlot.ContainerSlot != null)
             _container.Remove(implant.Value, component.ImplanterSlot.ContainerSlot);
         implantContainer.OccludesLight = false;
-        _container.Insert(implant.Value, implantContainer);
+        if (!_container.Insert(implant.Value, implantContainer))
+            return;
+        var installed = new Content.Shared._radiant.Careers.CareerImplantInstalledEvent(user, target, implant.Value);
+        RaiseLocalEvent(ref installed);
 
         if (component.CurrentMode == ImplanterToggleMode.Inject && !component.ImplantOnly)
             DrawMode(implanter, component);

@@ -281,17 +281,23 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - BasicUnderwearBottom
-  - BasicUnderwearTop
-  - BasicUnderwearSocks
+  - CareerMiningEquipment
   - GroupTankHarness
-  - SalvageSpecialistBackpack
-  - SalvageSpecialistOuterClothing
-  - SalvageSpecialistShoes
-  - Glasses
+  - CareerMiningHead
+  - CareerMiningUniform
+  - CareerMiningGloves
+  - CareerMiningBack
+  - CareerMiningOuter
+  - CareerMiningShoes
+  - CareerMiningNeck
+  - CareerMiningEyes
+  - CareerMiningEars
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 # Engineering
 - type: roleLoadout
@@ -327,19 +333,19 @@
 - type: roleLoadout
   id: JobStationEngineer
   groups:
-  - BasicUnderwearBottom
-  - BasicUnderwearTop
-  - BasicUnderwearSocks
   - GroupTankHarness
-  - StationEngineerHead
-  - StationEngineerJumpsuit
+  - CareerEngineeringHead
+  - CareerEngineeringUniform
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes
-  - StationEngineerID
+  - CareerEngineeringPDA
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -517,22 +523,25 @@
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
-  - BasicUnderwearBottom
-  - BasicUnderwearTop
-  - BasicUnderwearSocks
   - GroupTankHarness
-  - MedicalDoctorHead
+  - CareerMedicalHead
   - MedicalMask
-  - MedicalDoctorJumpsuit
+  - CareerMedicalUniform
   - MedicalGloves
-  - MedicalBackpack
-  - MedicalDoctorOuterClothing
-  - MedicalShoes
-  - MedicalDoctorPDA
-  - MedicalEyewear
+  - CareerMedicalBack
+  - CareerMedicalOuter
+  - CareerMedicalShoes
+  - CareerMedicalPDA
+  - CareerMedicalEyes
+  - CareerMedicalNeck
+  - CareerMedicalBelt
+  - CareerMedicalEars
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - ContractorUnderwearBottom
+  - ContractorUnderwearSocks
+  - ContractorUnderwearTop
 
 - type: roleLoadout
   id: JobMedicalIntern

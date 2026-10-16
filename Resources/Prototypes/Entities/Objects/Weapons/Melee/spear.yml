@@ -4,6 +4,21 @@
   id: Spear
   description: Definition of a Classic. Keeping murder affordable since 200,000 BCE.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/knife_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/knife_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/knife_drop.ogg
+      params:
+        volume: -2
   - type: EmbeddableProjectile
     offset: -0.15,0.0
   - type: ThrowingAngle

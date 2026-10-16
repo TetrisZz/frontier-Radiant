@@ -1,0 +1,15 @@
+- files:
+  - "surgery_pickup.ogg"
+  - "drape_pickup.ogg"
+  - "metal_drop.ogg"
+  - "medkit_latch.ogg"
+  license: "CC-BY-SA-3.0"
+  copyright: "Imported from BlueMoon Station, modular_bluemoon/krashly/sound/items. Original authors retain their copyright. Stereo handling sounds converted to mono."
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
+
+- files:
+  - "medkit_pickup.ogg"
+  - "medkit_drop.ogg"
+  license: "CC-BY-SA-3.0"
+  copyright: "Imported from BlueMoon Station, sound/items/handling/taperecorder_pickup.ogg and taperecorder_drop.ogg. Used for plastic medical cases."
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"

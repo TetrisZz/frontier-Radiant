@@ -4,6 +4,21 @@
   name: spesos
   description: You gotta have money.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/dosh_pickup.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/dosh_drop.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/dosh_drop.wav
+      params:
+        volume: -4
   - type: Cash
   - type: Item
     shape:

@@ -3,3 +3,6 @@
 
 - type: Tag
   id: PowerCellTiny
+
+- type: Tag
+  id: BoneGel

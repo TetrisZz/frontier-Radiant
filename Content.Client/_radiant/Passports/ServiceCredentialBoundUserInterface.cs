@@ -80,8 +80,8 @@ public sealed class ServiceCredentialWindow : BaseWindow
         ClearPortrait();
         _content.RemoveAllChildren();
         var fleet = state.Service == CredentialService.Fleet;
-        var accent = Color.FromHex(fleet ? "#244C74" : "#873B3B");
-        var cover = Panel(Color.FromHex(fleet ? "#14283F" : "#442020"), Gold, 3);
+        var accent = Color.FromHex(fleet ? "#244C74" : "#3C417C");
+        var cover = Panel(Color.FromHex(fleet ? "#14283F" : "#25284E"), Gold, 3);
         cover.Name = "CredentialCover";
         cover.HorizontalExpand = true;
         cover.VerticalExpand = true;

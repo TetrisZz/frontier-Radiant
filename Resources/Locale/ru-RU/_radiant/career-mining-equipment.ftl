@@ -1,0 +1,9 @@
+career-loadout-mining-shoes = Шахтёр, обувь
+career-loadout-mining-neck = Шахтёр, шейные аксессуары
+career-loadout-mining-gloves = Шахтёр, перчатки
+career-loadout-mining-outer = Шахтёр, верхняя одежда
+career-loadout-mining-head = Шахтёр, головные уборы
+career-loadout-mining-back = Шахтёр, рюкзак
+career-loadout-mining-ears = Шахтёр, гарнитура
+career-loadout-mining-uniform = Шахтёр, униформа
+career-loadout-mining-equipment = Шахтёр, базовое снаряжение

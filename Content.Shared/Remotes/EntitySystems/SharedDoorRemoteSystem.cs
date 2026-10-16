@@ -1,12 +1,14 @@
 using Content.Shared.Popups;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Remotes.Components;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Remotes.EntitySystems;
 
 public abstract class SharedDoorRemoteSystem : EntitySystem
 {
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
 
     public override void Initialize()
     {
@@ -39,6 +41,8 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
                     $"{nameof(DoorRemoteComponent)} had invalid mode {entity.Comp.Mode}");
         }
         Dirty(entity);
+        if (entity.Comp.SwitchSound != null)
+            Audio.PlayPredicted(entity.Comp.SwitchSound, entity, args.User);
         Popup.PopupClient(Loc.GetString(switchMessageId), entity, args.User);
     }
 }

@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server._NF.Roles.Systems;
 using Content.Shared._NF.Roles.Components;
+using Content.Shared._radiant.Humanoid;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
@@ -48,10 +49,12 @@ public sealed class InterviewHologramSystem : SharedInterviewHologramSystem
         hologramSprite.Offset = hologramComp.Offset;
         hologramSprite.DrawDepth = (int)DrawDepth.Mobs;
 
-        // Remove shading from all layers (except displacement maps)
+        // Keep shaders that supply the character's shape or hair colors.
         for (int i = 0; i < hologramSprite.AllLayers.Count(); i++)
         {
-            if (hologramSprite.TryGetLayer(i, out var layer) && layer.ShaderPrototype != "DisplacedStencilDraw")
+            if (hologramSprite.TryGetLayer(i, out var layer)
+                && layer.ShaderPrototype != "DisplacedStencilDraw"
+                && layer.ShaderPrototype != HairColoringHelper.GradientShader)
                 hologramSprite.LayerSetShader(i, "unshaded");
         }
 

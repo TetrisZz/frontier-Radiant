@@ -4,6 +4,12 @@
   id: ClothingHeadBase
   components:
   - type: Clothing
+    unequipSound:
+      collection: GenericEquip
+      params:
+        volume: -7
+    equipSound:
+      collection: GenericEquip
     slots:
     - HEAD
   - type: Sprite

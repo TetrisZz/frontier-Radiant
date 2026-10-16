@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Preferences;
+using Content.Shared._radiant.Careers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -16,6 +17,11 @@ public static class JobRequirements
         IPrototypeManager protoManager,
         HumanoidCharacterProfile? profile)
     {
+        if (profile != null && !CareerJobRules.IsAllowed(protoManager, profile.Career.Profession, job.ID))
+        {
+            reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("career-role-restricted"));
+            return false;
+        }
         var sys = entManager.System<SharedRoleSystem>();
         var requirements = sys.GetJobRequirement(job);
         reason = null;

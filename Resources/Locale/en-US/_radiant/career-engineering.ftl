@@ -1,0 +1,16 @@
+career-profession-engineering = Engineer
+career-profession-engineering-description = Material supply, shuttle machinery assembly and construction. Duty time starts anew at each stage.
+career-engineering-steel = Sell 100 steel sheets at the trade station
+career-engineering-plastic = Sell 100 plastic sheets at the trade station
+career-engineering-duty-3 = Work as an engineer for 3 hours since this stage began
+career-engineering-duty-4 = Work as an engineer for 4 hours since this stage began
+career-engineering-thrusters = Assemble 6 thrusters
+career-engineering-gyroscopes = Assemble 2 gyroscopes
+career-engineering-walls = Build 50 walls
+career-engineering-airlocks = Assemble 3 airlocks
+career-engineering-windows = Build 10 windows
+career-engineering-apc = Assemble 1 APC
+career-engineering-substation = Assemble 1 substation
+career-engineering-smes = Assemble 1 SMES
+ent-CareerEngineeringRCDAmmoBlueprint = shipyard RCD cartridge blueprint
+    .desc = A shipyard RCD cartridge schematic for an engineering fabricator.

@@ -82,9 +82,9 @@
 - type: loadoutGroup
   id: NAVYKomandorOuterClothing
   name: loadout-group-service-outerclothing
-  hidden: true
   loadouts:
   - NAVYClothingOuterCoatNavyGoldLong2
+  - NAVYClothingOuterCloakNavyKomandor
   fallbacks:
   - NAVYClothingOuterCoatNavyGoldLong2
 

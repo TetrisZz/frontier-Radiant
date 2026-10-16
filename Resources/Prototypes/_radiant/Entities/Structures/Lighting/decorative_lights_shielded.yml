@@ -1,0 +1,102 @@
+- type: entity
+  id: RadiantFloorLightShielded
+  parent: RadiantFloorLight
+  name: shielded decorative light
+  description: A plasteel-reinforced fixture that protects its replaceable bulb from solar flares.
+  components:
+  - type: PoweredLight
+    solarFlareShieldingCoefficient: 0
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: floorShielded
+
+- type: entity
+  id: RadiantLampPostShielded
+  parent: RadiantLampPost
+  name: shielded decorative light
+  description: A plasteel-reinforced fixture that protects its replaceable bulb from solar flares.
+  components:
+  - type: PoweredLight
+    solarFlareShieldingCoefficient: 0
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: postShielded
+
+- type: entity
+  id: RadiantLampPostFestiveShielded
+  parent: RadiantLampPostFestive
+  name: shielded decorative light
+  description: A plasteel-reinforced fixture that protects its replaceable bulb from solar flares.
+  components:
+  - type: PoweredLight
+    solarFlareShieldingCoefficient: 0
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: festiveShielded
+
+- type: entity
+  id: RadiantLampPostOneShielded
+  parent: RadiantLampPostOne
+  name: shielded decorative light
+  description: A plasteel-reinforced fixture that protects its replaceable bulb from solar flares.
+  components:
+  - type: PoweredLight
+    solarFlareShieldingCoefficient: 0
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: oneShielded
+
+- type: entity
+  id: RadiantLampPostTwoShielded
+  parent: RadiantLampPostTwo
+  name: shielded decorative light
+  description: A plasteel-reinforced fixture that protects its replaceable bulb from solar flares.
+  components:
+  - type: PoweredLight
+    solarFlareShieldingCoefficient: 0
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: twoShielded
+
+- type: entity
+  id: RadiantLampPostThreeShielded
+  parent: RadiantLampPostThree
+  name: shielded decorative light
+  description: A plasteel-reinforced fixture that protects its replaceable bulb from solar flares.
+  components:
+  - type: PoweredLight
+    solarFlareShieldingCoefficient: 0
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: threeShielded
+
+- type: entity
+  id: RadiantLampPostFourShielded
+  parent: RadiantLampPostFour
+  name: shielded decorative light
+  description: A plasteel-reinforced fixture that protects its replaceable bulb from solar flares.
+  components:
+  - type: PoweredLight
+    solarFlareShieldingCoefficient: 0
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: fourShielded
+
+- type: entity
+  id: RadiantLampPostSidewalkShielded
+  parent: RadiantLampPostSidewalk
+  name: shielded decorative light
+  description: A plasteel-reinforced fixture that protects its replaceable bulb from solar flares.
+  components:
+  - type: PoweredLight
+    solarFlareShieldingCoefficient: 0
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: sidewalkShielded
+

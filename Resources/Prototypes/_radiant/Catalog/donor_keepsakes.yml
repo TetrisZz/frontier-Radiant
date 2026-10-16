@@ -1,0 +1,63 @@
+- type: listing
+  id: UplinkHomDonorPhotoMedallion
+  name: ent-DonorPhotoMedallion
+  description: donor-catalog-photo-medallion-desc
+  productEntity: DonorPhotoMedallion
+  icon:
+    sprite: _radiant/Objects/Donor/photo_medallion.rsi
+    state: closed
+  cost:
+    Cristalhom: 2
+  categories: [UplinkHomKeepsakes]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkHomDonorEngravedWatch
+  name: ent-DonorEngravedWatch
+  description: donor-catalog-engraved-watch-desc
+  productEntity: DonorEngravedWatch
+  icon:
+    sprite: _radiant/Objects/Donor/engraved_watch.rsi
+    state: closed
+  cost:
+    Cristalhom: 2
+  categories: [UplinkHomKeepsakes]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkHomDonorEngravedWatchSilver
+  name: ent-DonorEngravedWatchSilver
+  description: donor-catalog-silver-watch-desc
+  productEntity: DonorEngravedWatchSilver
+  icon:
+    sprite: _radiant/Objects/Donor/engraved_watch_silver.rsi
+    state: closed
+  cost:
+    Cristalhom: 2
+  categories: [UplinkHomKeepsakes]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkHomDonorBraceletPair
+  name: ent-DonorBraceletPair
+  description: donor-catalog-bracelet-pair-desc
+  productEntity: DonorBraceletPair
+  icon:
+    sprite: _radiant/Objects/Donor/paired_bracelets.rsi
+    state: green
+  cost:
+    Cristalhom: 2
+  categories: [UplinkHomKeepsakes]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]

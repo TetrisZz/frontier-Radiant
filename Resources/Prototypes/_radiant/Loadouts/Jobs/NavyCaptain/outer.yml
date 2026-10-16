@@ -6,3 +6,11 @@
   equipment:
     outerClothing: ClothingOuterCoatNavyGoldLong
 
+- type: loadout
+  id: NAVYClothingOuterCloakNavyCaptain
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  equipment:
+    outerClothing: ClothingOuterCloakNavyCaptain
+

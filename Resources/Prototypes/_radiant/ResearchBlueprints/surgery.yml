@@ -1,0 +1,313 @@
+# Surgery and augmentation research ported from the existing Starlight tree.
+- type: technologyBlueprints
+  id: StarlightEngineeringCyberarms
+  name: starlight-research-engineering-cyberarms
+  entityIcon: LeftArmCyberEngineer
+  discipline: NFEngineering
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: EngineeringTechFab
+  recipeLinks:
+  - [LeftArmCyberEngineer, RightArmCyberEngineer]
+  recipe:
+  - LeftArmCyberEngineer
+  - RightArmCyberEngineer
+
+- type: technologyBlueprints
+  id: StarlightGorillaCyberarms
+  name: starlight-research-gorilla-cyberarms
+  entityIcon: LeftArmCyberGorilla
+  discipline: NFScience
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipeLinks:
+  - [LeftArmCyberGorilla, RightArmCyberGorilla]
+  recipe:
+  - LeftArmCyberGorilla
+  - RightArmCyberGorilla
+
+- type: technologyBlueprints
+  id: StarlightInvestigatorCyberarms
+  name: starlight-research-investigator-cyberarms
+  entityIcon: LeftArmCyberInvestigator
+  discipline: NFScience
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: Protolathe
+  recipeLinks:
+  - [LeftArmCyberInvestigator, RightArmCyberInvestigator]
+  recipe:
+  - LeftArmCyberInvestigator
+  - RightArmCyberInvestigator
+
+- type: technologyBlueprints
+  id: StarlightBasicSurgery
+  name: starlight-research-basic-surgery
+  entityIcon: Scalpel
+  discipline: NFMedical
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - Scalpel
+  - Retractor
+  - Cautery
+  - Drill
+  - Saw
+  - Hemostat
+  - BoneSetter
+  - BoneGel
+  - SurgicalAntiseptic
+  - SurgicalSterileDrape
+  - SurgicalLavageBottle
+  - SurgicalSterilizerMachineCircuitboard
+  - SurgicalKitMedical
+  - SurgicalKitRobotics
+
+- type: technologyBlueprints
+  id: StarlightAdvancedSurgery
+  name: starlight-research-advanced-surgery
+  entityIcon: ScalpelAdvanced
+  discipline: NFMedical
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipeLinks:
+  - [LeftArmCyberRipper, RightArmCyberRipper]
+  recipe:
+  - ScalpelAdvanced
+  - RetractorAdvanced
+  - SawAdvanced
+  - HemostatAdvanced
+  - BoneSetterAdvanced
+  - LeftArmCyberRipper
+  - RightArmCyberRipper
+  - GeneticBodyGrowerMachineCircuitboard
+  - GeneticResearchConsoleCircuitboard
+
+- type: technologyBlueprints
+  id: StarlightAngelCyberarms
+  name: starlight-research-angel-cyberarms
+  entityIcon: LeftArmCyberAngel
+  discipline: NFMedical
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipeLinks:
+  - [LeftArmCyberAngel, RightArmCyberAngel]
+  recipe:
+  - LeftArmCyberAngel
+  - RightArmCyberAngel
+
+- type: technologyBlueprints
+  id: StarlightSurgeonCyberarms
+  name: starlight-research-surgeon-cyberarms
+  entityIcon: LeftArmCyberReaper
+  discipline: NFMedical
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MedicalTechFab
+  recipeLinks:
+  - [LeftArmCyberReaper, RightArmCyberReaper]
+  recipe:
+  - LeftArmCyberReaper
+  - RightArmCyberReaper
+
+- type: technologyBlueprints
+  id: StarlightBudgetCyberOrgans
+  name: starlight-research-budget-cyber-organs
+  entityIcon: BudgetCyberLiver
+  discipline: NFMedical
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - BudgetCyberEyes
+  - BudgetCyberTongue
+  - BudgetCyberLiver
+  - BudgetCyberStomach
+  - BudgetCyberKidneys
+
+- type: technologyBlueprints
+  id: StarlightEyeImplants
+  name: starlight-research-eye-implants
+  entityIcon: EyeImplantMedical
+  discipline: NFMedical
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - EyeImplantMedical
+  - EyeImplantChemistry
+  - EyeImplantSecurity
+
+- type: technologyBlueprints
+  id: StarlightCommsImplant
+  name: starlight-research-comms-implant
+  entityIcon: BrainImplantComms
+  discipline: NFMedical
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - BrainImplantComms
+
+- type: technologyBlueprints
+  id: StarlightOlfactoryImplant
+  name: starlight-research-olfactory-implant
+  entityIcon: NoseImplantOlfactory
+  discipline: NFMedical
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - NoseImplantOlfactory
+
+- type: technologyBlueprints
+  id: StarlightInsulatedImplant
+  name: starlight-research-insulated-implant
+  entityIcon: HandImplantInsulated
+  discipline: NFMedical
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - HandImplantInsulated
+
+- type: technologyBlueprints
+  id: StarlightMechanicCargoCyberarms
+  name: starlight-research-mechanic-cargo-cyberarms
+  entityIcon: LeftArmCyberMechwright
+  discipline: NFEngineering
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: EngineeringTechFab
+  recipeLinks:
+  - [LeftArmCyberMechwright, RightArmCyberMechwright]
+  - [LeftArmCyberRiplet, RightArmCyberRiplet]
+  recipe:
+  - LeftArmCyberMechwright
+  - RightArmCyberMechwright
+  - LeftArmCyberRiplet
+  - RightArmCyberRiplet
+
+- type: technologyBlueprints
+  id: StarlightScribeCyberarms
+  name: starlight-research-scribe-cyberarms
+  entityIcon: LeftArmCyberScribe
+  discipline: NFService
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipeLinks:
+  - [LeftArmCyberScribe, RightArmCyberScribe]
+  recipe:
+  - LeftArmCyberScribe
+  - RightArmCyberScribe
+
+- type: technologyBlueprints
+  id: StarlightBotanistCyberarms
+  name: starlight-research-botanist-cyberarms
+  entityIcon: LeftArmCyberPersephone
+  discipline: NFService
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipeLinks:
+  - [LeftArmCyberPersephone, RightArmCyberPersephone]
+  recipe:
+  - LeftArmCyberPersephone
+  - RightArmCyberPersephone
+
+- type: technologyBlueprints
+  id: StarlightSpacerCyberarms
+  name: starlight-research-spacer-cyberarms
+  entityIcon: LeftArmCyberSpacer
+  discipline: NFSalvage
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: SalvageTechfabNF
+  recipeLinks:
+  - [LeftArmCyberSpacer, RightArmCyberSpacer]
+  recipe:
+  - LeftArmCyberSpacer
+  - RightArmCyberSpacer
+
+- type: technologyBlueprints
+  id: StarlightCombatCyberarms
+  name: starlight-research-combat-cyberarms
+  entityIcon: LeftArmCyberMantisBlade
+  discipline: NFArsenalMercenary
+  rare: 250
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipeLinks:
+  - [LeftArmCyberMantisBlade, RightArmCyberMantisBlade]
+  - [LeftArmCyberHerakles, RightArmCyberHerakles]
+  recipe:
+  - LeftArmCyberMantisBlade
+  - RightArmCyberMantisBlade
+  - LeftArmCyberHerakles
+  - RightArmCyberHerakles
+  - HandImplantClaws
+
+- type: technologyBlueprints
+  id: StarlightDecorativeEyes
+  name: starlight-research-decorative-eyes
+  entityIcon: DecorativeCyberEyesConfigurable
+  discipline: NFMedical
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - DecorativeCyberEyesRed
+  - DecorativeCyberEyesCyan
+  - DecorativeCyberEyesViolet
+  - DecorativeCyberEyesGold
+  - DecorativeCyberEyesConfigurable
+
+- type: technologyBlueprints
+  id: StarlightInternalAnalyzer
+  name: starlight-research-internal-analyzer
+  entityIcon: ChestImplantInternalAnalyzer
+  discipline: NFMedical
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - ChestImplantInternalAnalyzer
+
+- type: technologyBlueprints
+  id: StarlightHeartImplants
+  name: starlight-research-heart-implants
+  entityIcon: ChestImplantHemostatic
+  discipline: NFMedical
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MedicalTechFab
+  recipe:
+  - ChestImplantHemostatic
+  - ChestImplantThermal
+

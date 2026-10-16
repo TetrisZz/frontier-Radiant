@@ -2,6 +2,7 @@
 
 - type: marking
   id: VulpEarJackalDamaged
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin]
@@ -11,6 +12,7 @@
 
 - type: marking
   id: VulpEarCoyoteDamaged
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin]
@@ -20,6 +22,7 @@
 
 - type: marking
   id: VulpEarJackalDamaged1
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -31,6 +34,7 @@
 
 - type: marking
   id: VulpEarShockDamaged
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -40,6 +44,7 @@
 
 - type: marking
   id: VulpEarDamaged
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human, Felinid] #radiant_sector
@@ -51,6 +56,7 @@
 
 - type: marking
   id: VulpEarFadeDamaged
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]
@@ -62,6 +68,7 @@
 
 - type: marking
   id: VulpEarSharpDamaged
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Felinid]

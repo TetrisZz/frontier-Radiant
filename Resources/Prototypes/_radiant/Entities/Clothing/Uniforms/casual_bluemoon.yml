@@ -1,0 +1,36 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformRadiantWhiteTshirt
+  name: white T-shirt and brown trousers
+  description: A comfortable white T-shirt paired with brown trousers.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/tshirt_w_br.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/tshirt_w_br.rsi
+  - type: Item
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/tshirt_w_br.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformRadiantGrayTshirt
+  name: gray T-shirt and blue jeans
+  description: A comfortable gray T-shirt paired with blue jeans.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/tshirt_gray_blu.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/tshirt_gray_blu.rsi
+  - type: Item
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/tshirt_gray_blu.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformRadiantSlimBodyShorts
+  name: blue bodysuit and athletic shorts
+  description: A fitted blue bodysuit paired with athletic shorts.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/slim_body_and_shorts.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpsuit/slim_body_and_shorts.rsi

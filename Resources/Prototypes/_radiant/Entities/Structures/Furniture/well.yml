@@ -1,0 +1,46 @@
+- type: entity
+  id: RadiantWaterWell
+  parent: BaseStructure
+  name: water well
+  description: A stone well with a wooden bucket for drawing fresh water.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/well.rsi
+    state: well
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: Water
+          Quantity: 500
+  - type: SolutionRegeneration
+    solution: tank
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 1
+  - type: DrainableSolution
+    solution: tank
+  - type: ReagentTank
+  - type: ExaminableSolution
+    solution: tank
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock

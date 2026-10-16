@@ -5,6 +5,15 @@
   id: NFBaseWeaponFrameMachinePistol
   name: machine pistol
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: PistolsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: PistolsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: PistolsDrop
   - type: Gun
     projectileSpeed: 22.5
     minAngle: 3.1

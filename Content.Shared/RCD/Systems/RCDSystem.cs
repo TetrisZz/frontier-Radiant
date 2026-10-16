@@ -578,6 +578,8 @@ public sealed class RCDSystem : EntitySystem
                 }
 
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to spawn {ToPrettyString(ent)} at {position} on grid {gridUid}");
+                var careerBuild = new Content.Shared._radiant.Careers.CareerConstructionCompletedEvent(ent, user);
+                RaiseLocalEvent(ref careerBuild);
                 break;
 
             case RcdMode.Deconstruct:

@@ -1,0 +1,75 @@
+- type: construction
+  id: CivilianStorageStash
+  graph: CivilianStorageStashGraph
+  startNode: start
+  targetNode: CivilianStorageStashNode
+  category: construction-category-storage
+  icon:
+    sprite: _Triad/Structure/Storage/ShipStashes/civilian_storage_stash.rsi
+    state: civilian_storage_stash
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: MilitaryStorageStash
+  graph: MilitaryStorageStashGraph
+  startNode: start
+  targetNode: MilitaryStorageStashNode
+  category: construction-category-storage
+  icon:
+    sprite: _Triad/Structure/Storage/ShipStashes/military_storage_stash.rsi
+    state: military_storage_rsi
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: MedicalSecureStorage
+  graph: MedicalSecureStorageGraph
+  startNode: start
+  targetNode: MedicalSecureStorageNode
+  category: construction-category-storage
+  icon:
+    sprite: _Triad/Structure/Storage/ShipStashes/medical_secure_storage.rsi
+    state: medical_secure_storage
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BotanicalStorageUnit
+  graph: BotanicalStorageUnitGraph
+  startNode: start
+  targetNode: BotanicalStorageUnitNode
+  category: construction-category-storage
+  icon:
+    sprite: _Triad/Structure/Storage/ShipStashes/botany_storage_unit.rsi
+    state: botany_storage_unit
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: FuelStorageStash
+  graph: FuelStorageStashGraph
+  startNode: start
+  targetNode: FuelStorageStashNode
+  category: construction-category-storage
+  icon:
+    sprite: _Triad/Structure/Storage/ShipStashes/fuel_storage_stash.rsi
+    state: fuel_door
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition

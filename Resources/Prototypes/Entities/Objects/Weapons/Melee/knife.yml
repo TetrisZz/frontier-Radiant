@@ -3,6 +3,21 @@
   id: BaseKnife
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/knife_pickup.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
   - type: SurgeryTool
   - type: Scalpel
     speed: 1.5

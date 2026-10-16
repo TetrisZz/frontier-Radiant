@@ -126,6 +126,7 @@
 
 - type: humanoidBaseSprite
   id: MobHarpyLArm
+  bodyFeatures: [Wings, Feathers]
   baseSprite:
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: l_arm
@@ -150,6 +151,7 @@
 
 - type: humanoidBaseSprite
   id: MobHarpyRArm
+  bodyFeatures: [Wings, Feathers]
   baseSprite:
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: r_arm

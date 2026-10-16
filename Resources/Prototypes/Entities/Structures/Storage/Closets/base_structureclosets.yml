@@ -5,6 +5,8 @@
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
   components:
+  - type: HLPersistOnShipSave
+    saveContents: false
   - type: Animateable
   - type: ResistLocker
   - type: Transform
@@ -138,6 +140,8 @@
   name: wall closet
   description: A standard-issue Nanotrasen storage unit, now on walls.
   components:
+  - type: HLPersistOnShipSave
+    saveContents: false
   - type: ResistLocker
   - type: Weldable
   - type: StaticPrice
@@ -236,6 +240,8 @@
   name: suit storage unit
   description: A fancy hi-tech storage unit made for storing space suits.
   components:
+  - type: HLPersistOnShipSave
+    saveContents: false
   - type: AccessReader
   - type: Lock
   - type: Anchorable

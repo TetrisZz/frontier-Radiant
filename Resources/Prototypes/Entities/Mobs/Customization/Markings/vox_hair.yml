@@ -1,5 +1,6 @@
 - type: marking
   id: VoxHairAfro
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -10,6 +11,7 @@
 
 - type: marking
   id: VoxHairBraids
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -20,6 +22,7 @@
 
 - type: marking
   id: VoxHairBushy
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -30,6 +33,7 @@
 
 - type: marking
   id: VoxHairCrestedQuills
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -40,6 +44,7 @@
 
 - type: marking
   id: VoxHairEmperorQuills
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -50,6 +55,7 @@
 
 - type: marking
   id: VoxHairFlowing
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -60,6 +66,7 @@
 
 - type: marking
   id: VoxHairHawk
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -70,6 +77,7 @@
 
 - type: marking
   id: VoxHairHedgehog
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -80,6 +88,7 @@
 
 - type: marking
   id: VoxHairHorns
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -90,6 +99,7 @@
 
 - type: marking
   id: VoxHairKeelQuills
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -100,6 +110,7 @@
 
 - type: marking
   id: VoxHairKeetQuills
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -110,6 +121,7 @@
 
 - type: marking
   id: VoxHairKingly
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -120,6 +132,7 @@
 
 - type: marking
   id: VoxHairLongBraid
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -130,6 +143,7 @@
 
 - type: marking
   id: VoxHairMadScientist
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -140,6 +154,7 @@
 
 - type: marking
   id: VoxHairMange
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -150,6 +165,7 @@
       
 - type: marking
   id: VoxHairMohawk
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -160,6 +176,7 @@
 
 - type: marking
   id: VoxHairNights
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -170,6 +187,7 @@
 
 - type: marking
   id: VoxHairPony
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -180,6 +198,7 @@
 
 - type: marking
   id: VoxHairRazorClipped
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -190,6 +209,7 @@
 
 - type: marking
   id: VoxHairRazor
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -200,6 +220,7 @@
 
 - type: marking
   id: VoxHairSortBraid
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -210,6 +231,7 @@
 
 - type: marking
   id: VoxHairShortQuills
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -220,6 +242,7 @@
 
 - type: marking
   id: VoxHairSlick
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -230,6 +253,7 @@
 
 - type: marking
   id: VoxHairSpotty
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -240,6 +264,7 @@
 
 - type: marking
   id: VoxHairSurf
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -250,6 +275,7 @@
 
 - type: marking
   id: VoxHairTielQuills
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -260,6 +286,7 @@
 
 - type: marking
   id: VoxHairWiseBraid
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false
@@ -270,6 +297,7 @@
       
 - type: marking
   id: VoxHairYasu
+  bodyFeatures: [Feathers]
   bodyPart: Hair
   markingCategory: Hair
   canBeDisplaced: false

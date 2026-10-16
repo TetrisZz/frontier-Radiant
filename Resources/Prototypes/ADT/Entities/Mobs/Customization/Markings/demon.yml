@@ -65,6 +65,7 @@
 # Radiant Sector
 - type: marking
   id: SuccubusWingsDemon
+  bodyFeatures: [Wings]
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [DemonSpecies]
@@ -74,6 +75,7 @@
 
 - type: marking
   id: SuccubusWingsDemonTwo
+  bodyFeatures: [Wings]
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [DemonSpecies]
@@ -83,6 +85,7 @@
 
 - type: marking
   id: SuccubusWingsDemonT
+  bodyFeatures: [Wings]
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [DemonSpecies]
@@ -92,6 +95,7 @@
 
 - type: marking
   id: SuccubusWingsDemonH
+  bodyFeatures: [Wings]
   bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [DemonSpecies]

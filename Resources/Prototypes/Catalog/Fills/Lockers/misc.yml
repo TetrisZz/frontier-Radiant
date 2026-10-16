@@ -155,6 +155,8 @@
     children:
     - id: StrangePill
       prob: 0.20
+    - id: WashablePaintRandom
+      prob: 0.25
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable

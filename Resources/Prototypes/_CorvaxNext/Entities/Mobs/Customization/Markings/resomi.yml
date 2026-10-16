@@ -1,5 +1,6 @@
 - type: marking
   id: ResomiTail
+  bodyFeatures: [Tail]
   bodyPart: Chest
   markingCategory: Tail
   speciesRestriction: [Resomi]
@@ -10,6 +11,7 @@
 
 - type: marking
   id: ResomiTailFeathers
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Chest
   markingCategory: Tail
   speciesRestriction: [Resomi]
@@ -19,6 +21,7 @@
 
 - type: marking
   id: ResomiLArmFeathers
+  bodyFeatures: [Feathers]
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [Resomi]
@@ -28,6 +31,7 @@
 
 - type: marking
   id: ResomiLLegFeathers
+  bodyFeatures: [Feathers]
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [Resomi]
@@ -37,6 +41,7 @@
 
 - type: marking
   id: ResomiRArmFeathers
+  bodyFeatures: [Feathers]
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [Resomi]
@@ -46,6 +51,7 @@
 
 - type: marking
   id: ResomiRLegFeathers
+  bodyFeatures: [Feathers]
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [Resomi]

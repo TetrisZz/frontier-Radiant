@@ -14,8 +14,8 @@ public sealed class ProfessionalSkillDropperTest
     [Test]
     public async Task DropperChecksBotanyBeforeConsumingReagents()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         await server.WaitAssertion(() =>
         {
             var entities = server.ResolveDependency<IEntityManager>();

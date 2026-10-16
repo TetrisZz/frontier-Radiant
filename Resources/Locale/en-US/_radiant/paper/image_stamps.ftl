@@ -2,9 +2,9 @@ ent-RadiantRubberStampFeline = Feline stamp
     .desc = A rubber stamp that leaves an illustrated impression on paper.
 radiant-image-stamp-feline = Feline stamp
 
-ent-RadiantRubberStampHorny = IN HORNY stamp
+ent-RadiantRubberStampHorny = IM HORNY stamp
     .desc = A rubber stamp that leaves an illustrated impression on paper.
-radiant-image-stamp-horny = IN HORNY stamp
+radiant-image-stamp-horny = IM HORNY stamp
 
 ent-RadiantRubberStampCentCom = Central Command image stamp
     .desc = A rubber stamp that leaves an illustrated impression on paper.

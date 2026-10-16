@@ -236,6 +236,9 @@ namespace Content.Shared.Chemistry.Reaction
             {
                 products.Add(product.Key);
                 solution.AddReagent(product.Key, product.Value * unitReactions);
+                var synthesized = new Content.Shared._radiant.Careers.CareerChemicalSynthesisEvent(
+                    uid, product.Key, (product.Value * unitReactions).Double());
+                RaiseLocalEvent(ref synthesized);
             }
 
             if (reaction.ConserveEnergy)

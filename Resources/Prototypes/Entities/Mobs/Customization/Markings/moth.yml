@@ -1,6 +1,7 @@
 # Antennas
 - type: marking
   id: MothAntennasDefault
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -10,6 +11,7 @@
 
 - type: marking
   id: MothAntennasCharred
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -19,6 +21,7 @@
 
 - type: marking
   id: MothAntennasDbushy
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -28,6 +31,7 @@
 
 - type: marking
   id: MothAntennasDcurvy
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -37,6 +41,7 @@
 
 - type: marking
   id: MothAntennasDfan
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -46,6 +51,7 @@
 
 - type: marking
   id: MothAntennasDpointy
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -55,6 +61,7 @@
 
 - type: marking
   id: MothAntennasFeathery
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -64,6 +71,7 @@
 
 - type: marking
   id: MothAntennasFirewatch
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -73,6 +81,7 @@
 
 - type: marking
   id: MothAntennasGray
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -82,6 +91,7 @@
 
 - type: marking
   id: MothAntennasJungle
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -91,6 +101,7 @@
 
 - type: marking
   id: MothAntennasMoffra
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -100,6 +111,7 @@
 
 - type: marking
   id: MothAntennasOakworm
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -109,6 +121,7 @@
 
 - type: marking
   id: MothAntennasPlasmafire
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -118,6 +131,7 @@
 
 - type: marking
   id: MothAntennasMaple
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -127,6 +141,7 @@
 
 - type: marking
   id: MothAntennasRoyal
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -136,6 +151,7 @@
 
 - type: marking
   id: MothAntennasStriped
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -145,6 +161,7 @@
 
 - type: marking
   id: MothAntennasWhitefly
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -154,6 +171,7 @@
 
 - type: marking
   id: MothAntennasWitchwing
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -163,6 +181,7 @@
 
 - type: marking
   id: MothAntennasUnderwing
+  bodyFeatures: [Antennae]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
@@ -175,6 +194,7 @@
 # Wings
 - type: marking
   id: MothWingsDefault
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -184,6 +204,7 @@
 
 - type: marking
   id: MothWingsCharred
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -193,6 +214,7 @@
 
 - type: marking
   id: MothWingsDbushy
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -204,6 +226,7 @@
 
 - type: marking
   id: MothWingsDeathhead
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -215,6 +238,7 @@
 
 - type: marking
   id: MothWingsFan
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -224,6 +248,7 @@
 
 - type: marking
   id: MothWingsDfan
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -233,6 +258,7 @@
 
 - type: marking
   id: MothWingsFeathery
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -242,6 +268,7 @@
 
 - type: marking
   id: MothWingsFirewatch
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -253,6 +280,7 @@
 
 - type: marking
   id: MothWingsGothic
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -262,6 +290,7 @@
 
 - type: marking
   id: MothWingsJungle
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -271,6 +300,7 @@
 
 - type: marking
   id: MothWingsLadybug
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -280,6 +310,7 @@
 
 - type: marking
   id: MothWingsMaple
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -291,6 +322,7 @@
 
 - type: marking
   id: MothWingsMoffra
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -302,6 +334,7 @@
 
 - type: marking
   id: MothWingsOakworm
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -311,6 +344,7 @@
 
 - type: marking
   id: MothWingsPlasmafire
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -322,6 +356,7 @@
 
 - type: marking
   id: MothWingsPointy
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -331,6 +366,7 @@
 
 - type: marking
   id: MothWingsRoyal
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -342,6 +378,7 @@
 
 - type: marking
   id: MothWingsStellar
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -351,6 +388,7 @@
 
 - type: marking
   id: MothWingsStriped
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -360,6 +398,7 @@
 
 - type: marking
   id: MothWingsSwirly
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -369,6 +408,7 @@
 
 - type: marking
   id: MothWingsWhitefly
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -378,6 +418,7 @@
 
 - type: marking
   id: MothWingsWitchwing
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
@@ -387,6 +428,7 @@
 
 - type: marking
   id: MothWingsUnderwing
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]

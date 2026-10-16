@@ -52,12 +52,13 @@
   parent: [ BaseItem, StorePresetHomUplink ]
   id: BaseHomUplinkRadio
   name: аплинк meow
-  description: Типо мяу-мяу-мяу.
+  description: Карманный терминал частного каталога Meow. Принимает кристаллы и превращает небольшие прихоти в вполне осязаемые покупки.
   suffix: Empty
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _radiant/Objects/Devices/homulink.rsi
+    sprite: _radiant/Objects/Devices/crystal_uplink.rsi
+    scale: 0.5, 0.5
     layers:
     - state: icon
   - type: Item
@@ -69,11 +70,27 @@
         type: StoreBoundUserInterface
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
+  - type: DonorUplink
+  - type: Store
+    buySuccessSound:
+      path: /Audio/_radiant/Uplink/purchase.ogg
+      params:
+        volume: -8
   - type: Tag
     tags:
     - HomUplink
   - type: GiveSerialNumber
     examineDepartment: gun-examine-department-meow
+
+- type: entity
+  parent: BaseHomUplinkRadio
+  id: BaseHomUplinkRadioPearl
+  name: жемчужный аплинк meow
+  description: Коллекционный терминал Meow в перламутровом корпусе с бордовой отделкой. Тот же частный каталог, та же привязка к владельцу, чуть больше блеска.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Devices/pearl_uplink.rsi
+    scale: 0.5, 0.5
 
 - type: entity
   parent: BaseHomUplinkRadio
@@ -83,6 +100,24 @@
   - type: Store
     balance:
       Cristalhom: 99999
+
+- type: entity
+  parent: BaseHomUplinkRadioPearl
+  id: BaseHomUplinkRadioPearl50
+  suffix: hom, 50
+  components:
+  - type: Store
+    balance:
+      Cristalhom: 50
+
+- type: entity
+  parent: BaseHomUplinkRadioPearl
+  id: BaseHomUplinkRadioPearl100
+  suffix: hom, 100
+  components:
+  - type: Store
+    balance:
+      Cristalhom: 100
 
 - type: entity
   parent: BaseHomUplinkRadio

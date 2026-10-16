@@ -21,8 +21,8 @@ public sealed class ImageStampTest
     [Test]
     public async Task IllustratedStampsApplyCopyAndDisplayWithoutReplacingOrdinaryStamps()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         // A freshly generated server starts at time zero, equal to a new stamp's initial delay end.
         await server.WaitRunTicks(1);
         var entities = server.ResolveDependency<IEntityManager>();

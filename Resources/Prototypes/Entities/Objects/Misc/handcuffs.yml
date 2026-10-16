@@ -4,6 +4,16 @@
   id: Handcuffs
   parent: [BaseItem, BaseC1Contraband] # Frontier: BaseSecurityCommandContraband<BaseC1Contraband
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/other/Handcuffs/pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/other/Handcuffs/drop.ogg
+      params:
+        volume: -4
   - type: Item
     size: Small
     storedRotation: 90

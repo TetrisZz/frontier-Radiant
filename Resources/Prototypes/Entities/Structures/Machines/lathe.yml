@@ -121,6 +121,7 @@
         - Ingot
   - type: OreSiloClient
   - type: Lathe
+    latheBlueprint: Engineering
     idleState: icon
     runningState: building
     unlitIdleState: unlit
@@ -216,6 +217,7 @@
         - Ingot
   - type: OreSiloClient
   - type: Lathe
+    latheBlueprint: Science
     idleState: icon
     runningState: building
     unlitIdleState: unlit
@@ -366,6 +368,7 @@
   - type: Machine
     board: ExosuitFabricatorMachineCircuitboard
   - type: Lathe
+    latheBlueprint: Science
     idleState: fab-idle
     runningState: fab-active
     staticPacks:
@@ -456,6 +459,7 @@
   - type: Machine
     board: SecurityTechFabCircuitboard
   - type: Lathe
+    latheBlueprint: Weapon
     idleState: icon
     runningState: icon
     staticPacks:
@@ -505,6 +509,7 @@
     - type: Machine
       board: AmmoTechFabCircuitboard
     - type: Lathe
+      latheBlueprint: Weapon
       idleState: icon
       runningState: icon
       staticPacks:
@@ -552,6 +557,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Lathe
+    latheBlueprint: Medical
     idleState: icon
     runningState: icon
     staticPacks:

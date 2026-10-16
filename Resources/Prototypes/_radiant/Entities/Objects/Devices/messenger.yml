@@ -1,0 +1,17 @@
+- type: entity
+  parent: NFBasePDACartridge
+  id: MessengerCartridge
+  name: messenger cartridge
+  description: Personal messaging software for PDAs. Correspondence stays on the device.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-y
+  - type: UIFragment
+    ui: !type:MessengerUi
+  - type: Cartridge
+    programName: messenger-title
+    icon:
+      sprite: Interface/Misc/program_icons.rsi
+      state: news_read
+  - type: MessengerCartridge

@@ -35,6 +35,8 @@
   suffix: Frontier
   abstract: true
   components:
+  - type: HLPersistOnShipSave
+    saveContents: false
   - type: Sprite
     sprite: _NF/Structures/Storage/wall_locker_color.rsi
     layers:

@@ -1,5 +1,6 @@
 - type: marking
   id: SlimeFoxEars # if cat ears from slime can exist, then why fox ears cannot?
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [SlimePerson]

@@ -4,6 +4,8 @@
   id: NapkinDrum
   parent: [BaseItem, PaperBin]
   components:
+  - type: Tag
+    tags: [NoWashablePaint]
   - type: Sprite
     sprite: _NF/Objects/Specific/Service/napkindrum.rsi
     state: drum0

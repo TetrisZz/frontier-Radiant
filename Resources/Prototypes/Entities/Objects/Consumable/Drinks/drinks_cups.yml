@@ -4,6 +4,12 @@
   parent: DrinkBase
   id: DrinkBaseCup
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/other/Cup/pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/other/Cup/drop.ogg
   - type: SolutionContainerManager
     solutions:
       drink:

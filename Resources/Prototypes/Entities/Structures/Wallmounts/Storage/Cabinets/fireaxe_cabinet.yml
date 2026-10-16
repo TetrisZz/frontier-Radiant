@@ -6,6 +6,8 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: HLPersistOnShipSave
+    saveContents: true
   - type: Destructible
     thresholds:
     - trigger:
