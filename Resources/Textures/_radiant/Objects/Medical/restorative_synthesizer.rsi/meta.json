@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from BlueMoon-Station icons/obj/defibrillators.dmi and icons/mob/clothing/belt.dmi, state defibcompact. Back positioning and in-hand conversion for Radiant.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "icon" },
+    {
+      "name": "equipped-BELT",
+      "directions": 4,
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2]]
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4,
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2]]
+    },
+    { "name": "inhand-left", "directions": 4 },
+    { "name": "inhand-right", "directions": 4 }
+  ]
+}

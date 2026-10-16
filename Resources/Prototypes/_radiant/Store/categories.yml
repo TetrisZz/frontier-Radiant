@@ -80,6 +80,10 @@
   id: UplinkHomShuttle
   name: store-category-hom-shuttle
 
+- type: storeCategory
+  id: UplinkHomKeepsakes
+  name: store-category-hom-keepsakes
+
 #Governor
 
 - type: storeCategory

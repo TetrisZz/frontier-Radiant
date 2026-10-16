@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from BlueMoon Station: modular_bluemoon/icons/obj/lamppost96x160.dmi. Original contributors retain copyright. Original pixel dimensions and all selected directions preserved without resampling.",
+  "size": {
+    "x": 96,
+    "y": 160
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "one",
+      "directions": 4
+    },
+    {
+      "name": "two",
+      "directions": 4
+    },
+    {
+      "name": "three",
+      "directions": 4
+    },
+    {
+      "name": "four"
+    },
+    {
+      "name": "traffic",
+      "directions": 8
+    },
+    {
+      "name": "sidewalk"
+    },
+    {
+      "name": "chinese",
+      "directions": 4
+    },
+    {
+      "name": "one-snow",
+      "directions": 4
+    },
+    {
+      "name": "two-snow",
+      "directions": 4
+    },
+    {
+      "name": "three-snow",
+      "directions": 4
+    },
+    {
+      "name": "four-snow"
+    },
+    {
+      "name": "traffic-snow",
+      "directions": 8
+    },
+    {
+      "name": "sidewalk-snow"
+    },
+    {
+      "name": "chinese-snow",
+      "directions": 4
+    }
+  ]
+}

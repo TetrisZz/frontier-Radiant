@@ -161,7 +161,7 @@ public sealed partial class SingleMarkingPicker : BoxContainer
 
         _gradientPanel = new GradientHairColorPanel();
         _gradientPanel.OnChanged += () => OnGradientChanged?.Invoke();
-        AddChild(_gradientPanel);
+        HairColoringContainer.AddChild(_gradientPanel);
     }
 
     public bool SupportsGradient =>

@@ -66,6 +66,15 @@
   - type: Item
     sprite: _radiant/Objects/Weapons/Guns/Pistols/self-loading.rsi
     size: Normal
+  - type: EmitSoundOnPickup
+    sound:
+      collection: PistolsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: PistolsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: PistolsDrop
   - type: Gun
     fireRate: 1.8
     selectedMode: SemiAuto

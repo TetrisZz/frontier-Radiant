@@ -1,5 +1,6 @@
 - type: marking
   id: RadiantEarsShadekinElegant
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
@@ -12,6 +13,7 @@
 
 - type: marking
   id: RadiantEarsShadekinFluffy
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
@@ -22,6 +24,7 @@
 
 - type: marking
   id: RadiantEarsShadekinBull
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
@@ -32,6 +35,7 @@
 
 - type: marking
   id: RadiantEarsShadekinAqua
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
@@ -42,6 +46,7 @@
 
 - type: marking
   id: RadiantEarsShadekinAlpha
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
@@ -52,6 +57,7 @@
 
 - type: marking
   id: RadiantEarsShadekinExperiment
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
@@ -62,6 +68,7 @@
 
 - type: marking
   id: RadiantTailShadekinDragon
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
@@ -72,6 +79,7 @@
 
 - type: marking
   id: RadiantTailShadekinBigOrbit
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
@@ -82,6 +90,7 @@
 
 - type: marking
   id: RadiantTailShadekinBigSkeleton
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
@@ -92,6 +101,7 @@
 
 - type: marking
   id: RadiantTailShadekinSnail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
@@ -102,6 +112,7 @@
 
 - type: marking
   id: RadiantTailShadekinFluffy
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
@@ -112,6 +123,7 @@
 
 - type: marking
   id: RadiantTailShadekinHook
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
@@ -122,6 +134,7 @@
 
 - type: marking
   id: RadiantTailShadekinShorterBrush
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
@@ -132,6 +145,7 @@
 
 - type: marking
   id: RadiantTailShadekinExperiment
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]

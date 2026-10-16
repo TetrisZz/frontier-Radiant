@@ -11,6 +11,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Atmos;
+using Content.Shared._radiant.ResearchBlueprints;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -72,7 +73,6 @@ namespace Content.Server.Lathe
         /// Multiplier applied to ALL lathe production times, to make upgrades feel
         /// actually relevant. Upstream lathe recipes are simply too fast.
         /// </summary>
-        private const int ProductionTimeMultiplier = 3; // Frontier
 
         public override void Initialize()
         {
@@ -92,6 +92,7 @@ namespace Content.Server.Lathe
 
             SubscribeLocalEvent<LatheComponent, BeforeActivatableUIOpenEvent>((u, c, _) => UpdateUserInterfaceState(u, c));
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
+            SubscribeLocalEvent<LatheComponent, SolutionContainerChangedEvent>((uid, comp, _) => UpdateUserInterfaceState(uid, comp));
             SubscribeLocalEvent<TechnologyDatabaseComponent, LatheGetRecipesEvent>(OnGetRecipes);
             SubscribeLocalEvent<EmagLatheRecipesComponent, LatheGetRecipesEvent>(GetEmagLatheRecipes);
             SubscribeLocalEvent<LatheHeatProducingComponent, LatheStartPrintingEvent>(OnHeatStartPrinting);
@@ -155,7 +156,7 @@ namespace Content.Server.Lathe
             {
                 if (!_proto.TryIndex(id, out var proto))
                     continue;
-                foreach (var (mat, _) in proto.Materials)
+                foreach (var (mat, _) in GetMaterials(uid, proto, component))
                 {
                     if (!materialWhitelist.Contains(mat))
                     {
@@ -163,6 +164,10 @@ namespace Content.Server.Lathe
                     }
                 }
             }
+
+            if (component.LatheBlueprint != null)
+                foreach (var tier in _proto.EnumeratePrototypes<BlueprintMaterialTierPrototype>())
+                    materialWhitelist.AddRange(tier.Materials);
 
             var combined = args.Whitelist.Union(materialWhitelist).ToList();
             args.Whitelist = combined;
@@ -183,6 +188,13 @@ namespace Content.Server.Lathe
             var ev = new LatheGetRecipesEvent((uid, component), getUnavailable);
             AddRecipesFromPacks(ev.Recipes, component.StaticPacks);
             RaiseLocalEvent(uid, ev);
+            ev.Recipes.UnionWith(component.BlueprintRecipes.Keys);
+            // Old packs or saved blueprints may still reference removed recipes.
+            ev.Recipes.RemoveWhere(r => !_proto.HasIndex(r));
+            var selectedResults = ev.Recipes.Where(component.BlueprintRecipes.ContainsKey)
+                .Select(r => _proto.Index(r).Result).Where(r => r != null).ToHashSet();
+            if (selectedResults.Count > 0)
+                ev.Recipes.RemoveWhere(r => !component.BlueprintRecipes.ContainsKey(r) && _proto.Index(r).Result is { } result && selectedResults.Contains(result));
             return ev.Recipes.ToList();
         }
 
@@ -198,20 +210,20 @@ namespace Content.Server.Lathe
             if (!CanProduce(uid, recipe, quantity, component))
                 return false;
 
-            foreach (var (mat, amount) in recipe.Materials)
+            var materials = GetMaterials(uid, recipe, component);
+            if (materials.Values.Any(amount => (long) amount * quantity > int.MaxValue))
+                return false;
+            var modifiers = GetBlueprintModifiers(uid, recipe, component)?.Copy();
+            foreach (var (mat, amount) in materials)
             {
-                var adjustedAmount = recipe.ApplyMaterialDiscount
-                    ? (int)(-amount * component.FinalMaterialUseMultiplier) // Frontier: MaterialUseMultiplier<FinalMaterialUseMultiplier
-                    : -amount;
-                adjustedAmount *= quantity;
-
-                _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
+                _materialStorage.TryChangeMaterialAmount(uid, mat, -amount * quantity);
             }
 
-            if (component.Queue.Last is { } node && node.ValueRef.Recipe == recipe.ID)
+            if (component.Queue.Last is { } node && node.ValueRef.Recipe == recipe.ID &&
+                node.ValueRef.Modifiers?.InstanceId == modifiers?.InstanceId && node.ValueRef.ItemsRequested <= int.MaxValue - quantity)
                 node.ValueRef.ItemsRequested += quantity;
             else
-                component.Queue.AddLast(new LatheRecipeBatch(recipe.ID, 0, quantity));
+                component.Queue.AddLast(new LatheRecipeBatch(recipe.ID, 0, quantity) { Modifiers = modifiers });
 
             return true;
         }
@@ -229,7 +241,8 @@ namespace Content.Server.Lathe
                 component.Queue.RemoveFirst();
             var recipe = _proto.Index(batch.Recipe);
 
-            var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * component.FinalTimeMultiplier; // Frontier: TimeMultiplier<FinalTimeMultiplier
+            component.CurrentBlueprintModifiers = batch.Modifiers?.Copy();
+            var time = _reagentSpeed.ApplySpeed(uid, BlueprintModifiers.Time(recipe, batch.Modifiers, component.FinalTimeMultiplier));
 
             var lathe = EnsureComp<LatheProducingComponent>(uid);
             lathe.StartTime = _timing.CurTime;
@@ -301,6 +314,7 @@ namespace Content.Server.Lathe
             }
 
             comp.CurrentRecipe = null;
+            comp.CurrentBlueprintModifiers = null;
             prodComp.StartTime = _timing.CurTime;
 
             if (!TryStartProducing(uid, comp))
@@ -321,6 +335,14 @@ namespace Content.Server.Lathe
                 producing = node.Value.Recipe;
 
             var state = new LatheUpdateState(GetAvailableRecipes(uid, component), component.Queue.ToArray(), producing);
+            foreach (var id in state.Recipes)
+            {
+                var recipe = _proto.Index(id);
+                var modifiers = GetBlueprintModifiers(uid, recipe, component);
+                if (modifiers != null) state.RecipeModifiers[id] = modifiers.Copy();
+                state.ProductionTimes[id] = _reagentSpeed.PreviewSpeed(uid,
+                    BlueprintModifiers.Time(recipe, modifiers, component.FinalTimeMultiplier)) * ProductionTimeMultiplier;
+            }
             _uiSys.SetUiState(uid, LatheUiKey.Key, state);
         }
 
@@ -472,22 +494,17 @@ namespace Content.Server.Lathe
 
             if (component.CurrentRecipe != null)
             {
-                if (component.Queue.Count > 0)
+                if (component.Queue.First is { } first && first.Value.Recipe == component.CurrentRecipe &&
+                    first.Value.Modifiers?.InstanceId == component.CurrentBlueprintModifiers?.InstanceId && first.Value.ItemsPrinted > 0)
                 {
-                    // Batch abandoned while printing last item, need to create a one-item batch
-                    var batch = component.Queue.First();
-                    if (batch.Recipe != component.CurrentRecipe)
-                    {
-                        var newBatch = new LatheRecipeBatch(component.CurrentRecipe.Value, 0, 1);
-                        component.Queue.AddFirst(newBatch);
-                    }
-                    else if (batch.ItemsPrinted > 0)
-                    {
-                        batch.ItemsPrinted--;
-                    }
+                    first.Value.ItemsPrinted--;
                 }
+                else
+                    component.Queue.AddFirst(new LatheRecipeBatch(component.CurrentRecipe.Value, 0, 1)
+                    { Modifiers = component.CurrentBlueprintModifiers?.Copy() });
 
                 component.CurrentRecipe = null;
+                component.CurrentBlueprintModifiers = null;
             }
             RemCompDeferred<LatheProducingComponent>(uid);
             UpdateUserInterfaceState(uid, component);
@@ -614,6 +631,7 @@ namespace Content.Server.Lathe
             component.FinalTimeMultiplier = component.TimeMultiplier * MathF.Pow(component.PartRatingPrintTimeMultiplier, printTimeRating - 1);
             component.FinalMaterialUseMultiplier = component.MaterialUseMultiplier * MathF.Pow(component.PartRatingMaterialUseMultiplier, materialUseRating - 1);
             Dirty(uid, component);
+            UpdateUserInterfaceState(uid, component);
         }
 
         private void OnUpgradeExamine(EntityUid uid, LatheComponent component, UpgradeExamineEvent args)

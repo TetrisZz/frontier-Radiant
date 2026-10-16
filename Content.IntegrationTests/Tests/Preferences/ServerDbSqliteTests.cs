@@ -98,8 +98,8 @@ namespace Content.IntegrationTests.Tests.Preferences
         [Test]
         public async Task TestProfessionalSkillPersistence()
         {
-            var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-            using var server = instance;
+            await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+            var server = pair.Server;
             var db = GetDb(server);
             Assert.That(await db.HasPendingModelChanges(), Is.False);
             var user = NewUserId();
@@ -132,8 +132,8 @@ namespace Content.IntegrationTests.Tests.Preferences
         [Test]
         public async Task TestDossierPersistence()
         {
-            var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-            using var server = instance;
+            await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+            var server = pair.Server;
             var db = GetDb(server);
             var user = NewUserId();
             var profile = CharlieCharlieson().WithPersonalDetails("Prospekt, 13", "Married", "One child",

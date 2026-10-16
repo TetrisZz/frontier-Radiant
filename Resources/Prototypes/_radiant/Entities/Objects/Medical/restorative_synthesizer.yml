@@ -1,0 +1,26 @@
+- type: entity
+  parent: Clothing
+  id: RestorativeSynthesizer
+  name: restorative synthesizer
+  description: A wearable tissue recovery unit. Slowly treats minor bruises, cuts and punctures while worn. Requires basic medical training; does not work at 100 total damage or more.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Medical/restorative_synthesizer.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    sprite: _radiant/Objects/Medical/restorative_synthesizer.rsi
+  - type: Clothing
+    sprite: _radiant/Objects/Medical/restorative_synthesizer.rsi
+    quickEquip: false
+    slots: [back, belt, suitStorage]
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      belt:
+      - state: equipped-BELT
+      suitstorage:
+      - state: equipped-BACKPACK
+  - type: RestorativeSynthesizer
+  - type: StaticPrice
+    price: 1500

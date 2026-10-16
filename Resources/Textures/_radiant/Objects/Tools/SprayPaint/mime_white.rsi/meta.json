@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from BlueMoon Station: icons/obj/crayons.dmi. Original contributors retain copyright. Original pixels and animation timing preserved. Transparent state added for layering.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "capped"
+    },
+    {
+      "name": "can"
+    },
+    {
+      "name": "transparent"
+    }
+  ]
+}

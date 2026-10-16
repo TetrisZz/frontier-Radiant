@@ -1076,6 +1076,7 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void SetProfile(HumanoidCharacterProfile? profile, int? slot)
         {
+            _entManager.System<Content.Client._radiant.Careers.CareerSystem>().CloseWindow();
             ReplaceCharacterOnSave = false;
             Profile = profile?.Clone();
             CharacterSlot = slot;
@@ -1264,7 +1265,8 @@ namespace Content.Client.Lobby.UI
             JobList.DisposeAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
-            var firstCategory = true;
+            var firstCategory = !AddProfessionJob();
+            var professionJob = GetProfessionJob();
 
             // Get all displayed departments
             var departments = new List<DepartmentPrototype>();
@@ -1331,7 +1333,7 @@ namespace Content.Client.Lobby.UI
                 }
 
                 var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
-                    .Where(job => job.SetPreference)
+                    .Where(job => job.SetPreference && job.ID != professionJob?.ID)
                     .ToArray();
 
                 Array.Sort(jobs, JobUIComparer.Instance);
@@ -1624,6 +1626,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _preferencesManager.OnDossierReceived -= OnDossierReceived;
+            _entManager.System<Content.Client._radiant.Careers.CareerSystem>().StateUpdated -= OnCareerUpdated;
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
         }
@@ -2165,6 +2168,7 @@ namespace Content.Client.Lobby.UI
 
         private void UpdateSaveButton()
         {
+            RefreshProfessionButton();
             SaveButton.Disabled = Profile is null || !IsDirty;
             DossierSave.Disabled = SaveButton.Disabled;
             ResetButton.Disabled = Profile is null || !IsDirty;

@@ -1,0 +1,13 @@
+- type: emoteSounds
+  id: Juda
+  sound:
+    path: /Audio/Animals/small_dog_bark_happy.ogg
+    params:
+      variation: 0.125
+  sounds:
+    Bubble:
+      collection: Bubbles
+    Squish:
+      collection: Squishes
+    Pop:
+      collection: Pops

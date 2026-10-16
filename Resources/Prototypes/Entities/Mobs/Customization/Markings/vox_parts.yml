@@ -135,6 +135,7 @@
 
 - type: marking
   id: VoxTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vox]
@@ -145,6 +146,7 @@
 
 - type: marking
   id: VoxTailShort
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vox]
@@ -155,6 +157,7 @@
 
 - type: marking
   id: VoxTailBig
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vox]

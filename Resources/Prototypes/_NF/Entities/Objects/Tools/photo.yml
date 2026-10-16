@@ -12,6 +12,9 @@
   - type: Eye
   - type: PhotoCamera
   - type: UseDelay
+    delays:
+      photo:
+        length: 1
   - type: ActivatableUI
     key: enum.PhotoCameraUiKey.Key
     inHandsOnly: true
@@ -83,6 +86,7 @@
     tags:
     - Document
     - Paper
+    - PhotoCard
   - type: Flammable
     fireSpread: true
     alwaysCombustible: true

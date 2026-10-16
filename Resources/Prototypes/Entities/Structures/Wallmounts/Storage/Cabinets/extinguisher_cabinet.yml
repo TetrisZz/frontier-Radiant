@@ -4,9 +4,12 @@
   name: extinguisher cabinet
   description: A small wall mounted cabinet designed to hold a fire extinguisher.
   components:
+    - type: HLPersistOnShipSave
+      saveContents: true
     - type: Sprite
       sprite: _radiant/Structures/Wallmounts/extinguisher_cabinet.rsi
-      snapCardinals: true
+      noRot: false
+      snapCardinals: false
       layers:
       - state: extinguisher_empty_closed
         map: ["cabinet"]

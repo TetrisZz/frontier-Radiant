@@ -1,4 +1,5 @@
 using Content.Shared._radiant.Humanoid;
+using Content.Client._radiant.Humanoid;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Holopad;
 using Content.Shared.Humanoid;
@@ -19,6 +20,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly HairGradientSystem _hairGradient = default!;
 
     public override void Initialize()
     {
@@ -179,12 +181,8 @@ public sealed class HolopadSystem : SharedHolopadSystem
                 var direction = visualLayer == HumanoidVisualLayers.Hair
                     ? humanoid.HairGradientDirection
                     : humanoid.FacialHairGradientDirection;
-                var shader = _prototypeManager.Index<ShaderPrototype>(HairColoringHelper.GradientShader).InstanceUnique();
-
-                shader.SetParameter("color1", new Vector3(primary.R, primary.G, primary.B));
-                shader.SetParameter("color2", new Vector3(secondary.R, secondary.G, secondary.B));
-                shader.SetParameter("direction", HairColoringHelper.DirectionToShaderParam(direction));
-                shader.SetParameter("brightness", 1.35f);
+                var displaced = markingPrototype.CanBeDisplaced && humanoid.MarkingsDisplacement.ContainsKey(visualLayer);
+                var shader = _hairGradient.CreateShader(markingPrototype, i, primary, secondary, direction, displaced);
                 hologram.Comp.LayerSetShader(layerIndex, shader, HairColoringHelper.GradientShader);
                 _sprite.LayerSetColor(hologram.AsNullable(), layerId, Color.White);
             }

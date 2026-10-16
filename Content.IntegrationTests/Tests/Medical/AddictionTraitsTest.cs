@@ -16,8 +16,8 @@ public sealed class AddictionTraitsTest
     [Test]
     public async Task RecoveryAndPermanentHabits()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var entities = server.ResolveDependency<IEntityManager>();
         var prototypes = server.ResolveDependency<IPrototypeManager>();
         await server.WaitAssertion(() =>

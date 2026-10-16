@@ -183,6 +183,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         targetHumanoid.Age = sourceHumanoid.Age;
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
+        HairColoringHelper.CopyGradientSettingsToComponent(sourceHumanoid, targetHumanoid);
 
         SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
         SetGender((target, targetHumanoid), sourceHumanoid.Gender);

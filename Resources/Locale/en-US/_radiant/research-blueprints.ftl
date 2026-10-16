@@ -1,0 +1,52 @@
+research-blueprint-history = Recent research
+research-technology-radiant-ftl-drive = Bluespace drive
+research-blueprint-history-count = Recent research ({ $count })
+research-blueprint-latest = Latest research
+research-blueprint-resource-factor = { $count ->
+    [0] Materials x{ $factor }
+   *[other] Materials x{ $factor }; additional materials: { $count }
+    }
+research-blueprint-history-empty = No research yet.
+research-blueprint-points = Research points: { $points }
+research-blueprint-roll = Obtain blueprint: { $cost } points
+research-blueprint-disconnected = No research server available
+research-blueprint-connected = Connected to research server
+research-blueprint-library-title = Blueprint lithograph
+research-blueprint-items = Items
+research-blueprint-variants = Blueprints
+research-blueprint-details = Fabrication requirements
+research-blueprint-search = Search items...
+research-blueprint-library-empty = No blueprints for this item.
+research-blueprint-variant = { $rarity }: time x{ $time }, materials x{ $materials }
+research-blueprint-active = Selected
+research-blueprint-paper-name = blueprint "{ $item }"
+research-blueprint-variant-title = Variant { $number }
+research-blueprint-connected-machines = Compatible machines connected: { $count }
+research-blueprint-machine-count = { $name } x{ $count }
+research-blueprint-number = Blueprint #{ $id }
+research-blueprint-server = Research server: { $name }
+research-blueprint-items-count = Items ({ $count })
+research-blueprint-variants-count = Variants ({ $count })
+research-blueprint-target = Fabrication machine
+research-blueprint-resources = Required materials
+research-blueprint-destinations = Compatible machines ({ $count })
+research-blueprint-no-destinations = No compatible machines connected to this server.
+research-blueprint-lathe-legacy = Machines with native support for this recipe
+research-blueprint-select = Assign recipe
+research-blueprint-eject = Eject blueprint
+research-blueprint-modifiers = Time x{ $time }, materials x{ $materials }
+research-blueprint-lathe = Machine: { $lathe }
+research-blueprint-lathes = Machines: { $lathe }
+research-blueprint-time = Fabrication time: { $seconds } s
+research-blueprint-material = { $material }: { $amount }
+research-blueprint-examine-rarity = [bold][color={ $color }]{ $rarity }[/color][/bold]
+research-blueprint-wrong-lathe = This blueprint requires a different machine.
+research-technology-blueprint-common = Common blueprint
+research-technology-blueprint-uncommon = Uncommon blueprint
+research-technology-blueprint-rare = Rare blueprint
+research-technology-blueprint-epic = Very rare blueprint
+ent-ResearchRandomBlueprint = research blueprint
+    .desc = { ent-BaseBlueprint.desc }
+ent-BlueprintLithographLegacy = blueprint lithograph
+    .desc = A legacy blueprint printer.
+    .suffix = Legacy system

@@ -1,0 +1,16 @@
+ent-RadiantFloorLightShielded = shielded floor light
+    .desc = A plasteel-shielded electric fixture. Its bulb cannot burst during solar flares. Requires APC power and a separately inserted bulb.
+ent-RadiantLampPostShielded = shielded decorative lamp post
+    .desc = A plasteel-shielded electric fixture. Its bulb cannot burst during solar flares. Requires APC power and a separately inserted bulb.
+ent-RadiantLampPostFestiveShielded = shielded festive lamp post
+    .desc = A plasteel-shielded electric fixture. Its bulb cannot burst during solar flares. Requires APC power and a separately inserted bulb.
+ent-RadiantLampPostOneShielded = shielded single lamp post
+    .desc = A plasteel-shielded electric fixture. Its bulb cannot burst during solar flares. Requires APC power and a separately inserted bulb.
+ent-RadiantLampPostTwoShielded = shielded double lamp post
+    .desc = A plasteel-shielded electric fixture. Its bulb cannot burst during solar flares. Requires APC power and a separately inserted bulb.
+ent-RadiantLampPostThreeShielded = shielded triple lamp post
+    .desc = A plasteel-shielded electric fixture. Its bulb cannot burst during solar flares. Requires APC power and a separately inserted bulb.
+ent-RadiantLampPostFourShielded = shielded quadruple lamp post
+    .desc = A plasteel-shielded electric fixture. Its bulb cannot burst during solar flares. Requires APC power and a separately inserted bulb.
+ent-RadiantLampPostSidewalkShielded = shielded sidewalk lamp post
+    .desc = A plasteel-shielded electric fixture. Its bulb cannot burst during solar flares. Requires APC power and a separately inserted bulb.

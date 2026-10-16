@@ -4,6 +4,21 @@
   id: Pickaxe
   description: Notched to perfection, for jamming it into rocks.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/knife_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/sabre_drop.ogg
+      params:
+        volume: -6
   - type: Tag
     tags:
     - Pickaxe
@@ -46,6 +61,21 @@
   id: MiningDrill
   description: Powerful tool used to quickly drill through rocks.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Items/change_drill.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/gun_drop.ogg
+      params:
+        volume: -4
   - type: Item
     storedRotation: -90
   - type: Tag
@@ -116,6 +146,21 @@
   parent: [BaseWeaponCrusher, BaseC1Contraband] # Frontier: BaseSecurityCargoContraband<BaseC1Contraband
   id: WeaponCrusher
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/knife_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/sabre_drop.ogg
+      params:
+        volume: -4
   - type: Tag
     tags:
       - Pickaxe

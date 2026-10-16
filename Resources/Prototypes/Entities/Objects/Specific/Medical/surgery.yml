@@ -24,6 +24,21 @@
   parent: BaseToolSurgery
   description: A surgical tool used to cauterize open wounds.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/surgery_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
@@ -53,6 +68,21 @@
   parent: BaseToolSurgery
   description: A surgical drill for making holes into hard material.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/surgery_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/drill.rsi
     state: drill
@@ -84,6 +114,21 @@
   parent: BaseToolSurgery
   description: A surgical tool used to make incisions into flesh.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/surgery_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
   - type: Sharp
     butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
   - type: Tool
@@ -165,6 +210,21 @@
   parent: BaseToolSurgery
   description: A surgical tool used to hold open incisions.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/surgery_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: retractor
@@ -186,6 +246,21 @@
   parent: BaseToolSurgery
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/surgery_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
@@ -214,6 +289,21 @@
   parent: BaseToolSurgery
   description: For cutting wood and other objects to pieces. Or sawing bones, in case of emergency.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/surgery_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -6
   - type: Sharp
   - type: Utensil
     types:

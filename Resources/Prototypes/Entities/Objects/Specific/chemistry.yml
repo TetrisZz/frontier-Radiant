@@ -595,6 +595,12 @@
   parent: [BaseStorageItem, RecyclableItemPlasticTiny] # Frontier: added RecyclableItemPlasticTiny
   description: Holds up to 10 pills.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/pillbottle_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/pillbottle_drop.ogg
   - type: Item
     size: Tiny
     sprite: Objects/Specific/Chemistry/pills_canister.rsi

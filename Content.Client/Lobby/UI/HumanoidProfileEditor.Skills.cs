@@ -1,7 +1,13 @@
 using System.Linq;
+using System.Numerics;
+using Content.Client._radiant.Careers;
+using Content.Shared._radiant.Careers;
 using Content.Shared._Goobstation.Languages;
 using Content.Shared._radiant.Skills;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Clothing;
+using Content.Shared.Preferences.Loadouts;
+using Content.Shared.Roles;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -15,6 +21,7 @@ public sealed partial class HumanoidProfileEditor
     private BoxContainer? _skillLanguages;
     private Label? _skillPoints;
     private ProfessionalSkill _selectedSkill;
+    private Button? _professionButton;
 
     private static Color SkillColor(ProfessionalSkill skill) => Color.FromHex(skill switch
     {
@@ -90,6 +97,14 @@ public sealed partial class HumanoidProfileEditor
         main.AddChild(_skillsList);
         _skillDetails = SkillColumn();
         main.AddChild(SkillPanel(_skillDetails));
+        _professionButton = new Button { Text = Loc.GetString("careers-client-button") };
+        _professionButton.OnPressed += _ =>
+        {
+            if (!IsDirty && Profile != null && CharacterSlot == _preferencesManager.Preferences?.SelectedCharacterIndex)
+                _entManager.System<CareerSystem>().OpenWindow();
+        };
+        main.AddChild(_professionButton);
+        _entManager.System<CareerSystem>().StateUpdated += OnCareerUpdated;
 
         var languages = SkillColumn();
         languages.HorizontalExpand = false;
@@ -128,6 +143,106 @@ public sealed partial class HumanoidProfileEditor
         TabContainer.AddChild(viewport);
         TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("professional-skills-tab"));
         RefreshSkills();
+    }
+
+    private void OnCareerUpdated(CareerStateEvent state)
+    {
+        if (Profile == null || Profile.Career.CharacterId != state.Career.CharacterId)
+            return;
+        Profile.Career = state.Career.Clone();
+        RefreshJobs();
+        RefreshProfessionButton();
+    }
+
+    private JobPrototype? GetProfessionJob()
+    {
+        if (Profile == null || !_prototypeManager.TryIndex<CareerProfessionPrototype>(Profile.Career.Profession, out var profession)
+            || profession.Jobs.Count == 0 || !_prototypeManager.TryIndex<JobPrototype>(profession.Jobs[0], out var job))
+            return null;
+        return job;
+    }
+
+    private void OpenProfessionEquipment()
+    {
+        var job = GetProfessionJob();
+        if (Profile == null || job == null
+            || !_prototypeManager.TryIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID), out var prototype))
+            return;
+        Profile.Loadouts.TryGetValue(prototype.ID, out var saved);
+        var loadout = saved?.Clone() ?? new RoleLoadout(prototype.ID);
+        if (saved == null)
+            loadout.SetDefault(Profile, _playerManager.LocalSession, _prototypeManager);
+        OpenLoadout(job, loadout, prototype);
+    }
+
+    private bool AddProfessionJob()
+    {
+        var job = GetProfessionJob();
+        if (job == null)
+            return false;
+        var category = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Name = "CareerJobs" };
+        category.AddChild(new Label { Text = Loc.GetString("careers-client-selected-profession"), Margin = new Thickness(5, 0, 0, 4) });
+        var row = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, SeparationOverride = 8 };
+        var icon = new TextureRect
+        {
+            Texture = _sprite.Frame0(_prototypeManager.Index(job.Icon).Icon),
+            TextureScale = new Vector2(2, 2),
+            MinSize = new Vector2(32, 32),
+            MaxSize = new Vector2(32, 32),
+            VerticalAlignment = Control.VAlignment.Center,
+        };
+        row.AddChild(icon);
+        var profession = _prototypeManager.Index<CareerProfessionPrototype>(Profile!.Career.Profession);
+        row.AddChild(new Label { Text = Loc.GetString(profession.Name), HorizontalExpand = true, VerticalAlignment = Control.VAlignment.Center });
+        var equipment = new Button
+        {
+            Name = "CareerJobEquipment",
+            Text = Loc.GetString("loadout-window"),
+            VerticalAlignment = Control.VAlignment.Center,
+            Disabled = !_prototypeManager.HasIndex<RoleLoadoutPrototype>(LoadoutSystem.GetJobPrototype(job.ID)),
+        };
+        equipment.OnPressed += _ => OpenProfessionEquipment();
+        row.AddChild(equipment);
+        category.AddChild(row);
+        if (profession.JobTitles.Count > 0)
+        {
+            var titleRow = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, SeparationOverride = 8 };
+            titleRow.AddChild(new Label { Text = Loc.GetString("career-job-title-label"), VerticalAlignment = Control.VAlignment.Center });
+            var titles = new OptionButton
+            {
+                Name = "CareerJobTitle",
+                HorizontalExpand = true,
+                Disabled = IsDirty || CharacterSlot != _preferencesManager.Preferences?.SelectedCharacterIndex,
+                ToolTip = IsDirty ? Loc.GetString("careers-client-save-profile-first") : null,
+            };
+            var selected = CareerTitleRules.GetSelected(profession, Profile.Career);
+            for (var i = 0; i < profession.JobTitles.Count; i++)
+            {
+                var title = profession.JobTitles[i];
+                var unlocked = CareerTitleRules.IsUnlocked(title, Profile.Career);
+                titles.AddItem(unlocked ? Loc.GetString(title.Name) : Loc.GetString("career-job-title-locked",
+                    ("title", Loc.GetString(title.Name)), ("stage", title.RequiredLevel)), i);
+                titles.SetItemDisabled(i, !unlocked);
+                if (title == selected)
+                    titles.SelectId(i);
+            }
+            var characterId = Profile.Career.CharacterId;
+            titles.OnItemSelected += args => _entManager.System<CareerSystem>()
+                .SelectJobTitle(characterId, profession.JobTitles[args.Id].Id);
+            titleRow.AddChild(titles);
+            category.AddChild(titleRow);
+        }
+        JobList.AddChild(category);
+        return true;
+    }
+
+    private void RefreshProfessionButton()
+    {
+        if (_professionButton == null)
+            return;
+        _professionButton.Disabled = Profile == null || IsDirty ||
+            CharacterSlot != _preferencesManager.Preferences?.SelectedCharacterIndex;
+        _professionButton.ToolTip = IsDirty ? Loc.GetString("careers-client-save-profile-first") : null;
     }
 
     private void RefreshSkills()
@@ -172,6 +287,7 @@ public sealed partial class HumanoidProfileEditor
         }
         RefreshSkillDetails();
         RefreshSkillLanguages();
+        RefreshProfessionButton();
     }
 
     private void RefreshSkillDetails()

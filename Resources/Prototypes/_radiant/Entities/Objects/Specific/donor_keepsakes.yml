@@ -1,0 +1,119 @@
+- type: entity
+  id: BaseDonorKeepsake
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: Appearance
+  - type: Engraveable
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  id: DonorPhotoMedallion
+  parent: BaseDonorKeepsake
+  name: photo medallion
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Donor/photo_medallion.rsi
+    scale: 0.25, 0.25
+    layers:
+    - state: closed
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: ItemToggle
+    soundActivate: { path: /Audio/UserInterface/click.ogg, params: { volume: -12, maxDistance: 3 } }
+    soundDeactivate: { path: /Audio/UserInterface/click.ogg, params: { volume: -12, maxDistance: 3 } }
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: open }
+          False: { state: closed }
+  - type: DonorPhotoHolder
+    closeable: true
+  - type: UserInterface
+    interfaces:
+      enum.PhotoCardUiKey.Key:
+        type: PhotoCardBoundUserInterface
+  - type: ItemSlots
+    slots:
+      photo:
+        name: donor-photo-slot
+        whitelist: { tags: [PhotoCard] }
+        insertSound: { path: /Audio/Items/Paper/paper_scribble1.ogg, params: { volume: -12 } }
+        ejectSound: { path: /Audio/Items/Paper/paper_scribble2.ogg, params: { volume: -12 } }
+        ejectOnBreak: true
+  - type: ContainerContainer
+    containers:
+      photo: !type:ContainerSlot
+  - type: Clothing
+    slots: [neck]
+  - type: Item
+    size: Tiny
+
+- type: entity
+  id: DonorEngravedWatch
+  parent: BaseDonorKeepsake
+  name: engraved pocket watch
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Donor/engraved_watch.rsi
+    layers:
+    - state: closed
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: ItemToggle
+    soundActivate: { path: /Audio/UserInterface/click.ogg, params: { volume: -12, maxDistance: 3 } }
+    soundDeactivate: { path: /Audio/UserInterface/click.ogg, params: { volume: -12, maxDistance: 3 } }
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { state: open }
+          False: { state: closed }
+  - type: Clock
+  - type: DonorStopwatch
+  - type: Item
+    size: Tiny
+
+- type: entity
+  id: DonorEngravedWatchSilver
+  parent: DonorEngravedWatch
+  name: silver pocket watch
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Donor/engraved_watch_silver.rsi
+
+- type: entity
+  id: DonorPairedBracelet
+  parent: BaseDonorKeepsake
+  name: paired bracelet
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Donor/paired_bracelets.rsi
+    layers:
+    - state: green
+      map: [bracelet]
+  - type: GenericVisualizer
+    visuals:
+      enum.DonorKeepsakeVisuals.Style:
+        bracelet:
+          0: { state: green }
+          1: { state: gold }
+  - type: DonorKeepsakeStyle
+    styles: [donor-bracelet-green, donor-bracelet-gold]
+  - type: DonorPairedBracelet
+  - type: Clothing
+    slots: [gloves]
+  - type: Item
+    size: Tiny
+
+- type: entity
+  id: DonorBraceletPair
+  parent: BoxCardboard
+  name: pair of bracelets
+  components:
+  - type: StorageFill
+    contents:
+    - id: DonorPairedBracelet
+      amount: 2

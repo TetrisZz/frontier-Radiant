@@ -219,7 +219,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 // force open container, if applicable, to avoid confusing people on why it doesn't dispense
                 _openable.SetOpen(storedContainer, true);
-                _solutionTransferSystem.Transfer(reagentDispenser,
+                _solutionTransferSystem.Transfer(message.Actor,
                         storedContainer, src.Value,
                         outputContainer.Value, dst.Value,
                         (int)reagentDispenser.Comp.DispenseAmount);

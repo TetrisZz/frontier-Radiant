@@ -578,7 +578,7 @@
 - type: listing
   id: UplinkHomClothingNeckNinjaScarfClassic
   name: классический боевой шарф
-  description: Длинный тёмный шарф для стремительных и уважаемых покупателей.
+  description: uplink-hom-ninja-classic-desc
   productEntity: ClothingNeckNinjaScarfClassic
   icon: { sprite: _radiant/Clothing/Neck/ninja_scarf_classic.rsi, state: icon }
   cost:
@@ -592,7 +592,7 @@
 - type: listing
   id: UplinkHomClothingNeckNinjaScarfNew
   name: современный боевой шарф
-  description: Обновлённый боевой шарф с выразительным силуэтом.
+  description: uplink-hom-ninja-new-desc
   productEntity: ClothingNeckNinjaScarfNew
   icon: { sprite: _radiant/Clothing/Neck/ninja_scarf_new.rsi, state: icon }
   cost: { Cristalhom: 1 }
@@ -602,7 +602,7 @@
 - type: listing
   id: UplinkHomClothingMaskHalf
   name: чёрная полумаска
-  description: Полумаска, которую можно опустить.
+  description: uplink-hom-half-mask-desc
   productEntity: ClothingMaskHalf
   icon: { sprite: _radiant/Clothing/Mask/half_mask.rsi, state: icon }
   cost: { Cristalhom: 1 }
@@ -612,7 +612,7 @@
 - type: listing
   id: UplinkHomClothingMaskGasAlt2
   name: альтернативный противогаз
-  description: Компактный противогаз необычной формы.
+  description: uplink-hom-alt-gas-mask-desc
   productEntity: ClothingMaskGasAlt2
   icon: { sprite: _radiant/Clothing/Mask/gas_alt2.rsi, state: icon }
   cost: { Cristalhom: 1 }
@@ -622,7 +622,7 @@
 - type: listing
   id: UplinkHomClothingMaskHalfFlektarn
   name: полумаска «флектарн»
-  description: Камуфляжная полумаска, которую можно опустить.
+  description: uplink-hom-flektarn-mask-desc
   productEntity: ClothingMaskHalfFlektarn
   icon: { sprite: _radiant/Clothing/Mask/half_mask_flektarn.rsi, state: icon }
   cost: { Cristalhom: 1 }
@@ -632,7 +632,7 @@
 - type: listing
   id: UplinkHomClothingMaskHalfTan
   name: песочная полумаска
-  description: Полумаска песочного оттенка, которую можно опустить.
+  description: uplink-hom-tan-mask-desc
   productEntity: ClothingMaskHalfTan
   icon: { sprite: _radiant/Clothing/Mask/half_mask_tan.rsi, state: icon }
   cost: { Cristalhom: 1 }
@@ -642,7 +642,7 @@
 - type: listing
   id: UplinkHomClothingMaskFir22
   name: защитная маска FIR-22
-  description: Тактическая маска со встроенной защитой от вспышек.
+  description: uplink-hom-fir-mask-desc
   productEntity: ClothingMaskFir22
   icon: { sprite: _radiant/Clothing/Mask/fir22.rsi, state: icon }
   cost: { Cristalhom: 1 }
@@ -891,8 +891,8 @@
 
 - type: listing
   id: UplinkCrateFunMobFenGhost
-  name:  uplink-hom-fox-name
-  description: uplink-hom-fox-desc
+  name: uplink-hom-fennec-name
+  description: uplink-hom-fennec-desc
   productEntity: CrateFunMobFenGhost
   icon: { sprite: _radiant/Mobs/Pets/fen.rsi, state: fox }
   cost:
@@ -907,8 +907,8 @@
 
 - type: listing
   id: UplinkCrateFunMobPigRSGhost
-  name:  uplink-hom-fox-name
-  description: uplink-hom-fox-desc
+  name: uplink-hom-pig-name
+  description: uplink-hom-pig-desc
   productEntity: CrateFunMobPigRSGhost
   icon: { sprite: _radiant/Mobs/Pets/pig.rsi, state: pig }
   cost:
@@ -1131,7 +1131,7 @@
 - type: listing
   id: UplinkHomClothingOuterFormalBlackCoat
   name: строгий чёрный сюртук
-  description: Элегантный сюртук для создания безупречного образа.
+  description: uplink-hom-formal-coat-desc
   productEntity: ClothingOuterFormalBlackCoat
   icon: { sprite: _radiant/Clothing/OuterClothing/Coats/formal_black_coat.rsi, state: icon }
   cost:
@@ -1147,7 +1147,7 @@
 - type: listing
   id: UplinkHomClothingOuterElegantTrenchcloak
   name: элегантный плащ
-  description: Длинный плащ с выразительным силуэтом и сдержанной отделкой.
+  description: uplink-hom-trenchcloak-desc
   productEntity: ClothingOuterElegantTrenchcloak
   icon: { sprite: _radiant/Clothing/OuterClothing/Coats/elegant_trenchcloak.rsi, state: icon }
   cost:
@@ -1191,3 +1191,34 @@
     whitelist:
       tags:
       - HomUplink
+- type: listing
+  id: UplinkHomPasswordWallSafeCircuitboard
+  name: uplink-hom-wall-safe-board-name
+  description: uplink-hom-wall-safe-board-desc
+  productEntity: PasswordWallSafeCircuitboard
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: id_mod
+  cost:
+    Cristalhom: 5
+  categories: [UplinkHomHardsuits]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkHomDonorDecisionToken
+  name: uplink-hom-decision-token-name
+  description: uplink-hom-decision-token-desc
+  productEntity: DonorDecisionToken
+  icon:
+    sprite: _radiant/Objects/Fun/decision_token.rsi
+    state: icon
+  cost:
+    Cristalhom: 1
+  categories: [UplinkHomHardsuits]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]

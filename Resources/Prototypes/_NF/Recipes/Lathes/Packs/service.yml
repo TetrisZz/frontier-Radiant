@@ -1,6 +1,7 @@
 - type: latheRecipePack
   id: NFServiceStorageStatic
   recipes:
+  - FoodBoxCookiesEmpty
   - NFBoxMREEmpty
   - NFHappyHonkEmpty
   - NFHappyHonkMimeEmpty
@@ -104,6 +105,7 @@
   - NFSheetPaperFromCardboard
   - PaperFromSheetPaper
   - BookRandomSimpleRecipe
+  - PhotoAlbum
 
 - type: latheRecipePack
   id: NFServiceBoardsStatic

@@ -155,8 +155,8 @@
 - type: cargoProduct
   id: EngineeringSpaceHeater
   icon:
-    sprite: Structures/Piping/Atmospherics/Portable/portable_sheater.rsi
-    state: sheaterOff
+    sprite: _radiant/Structures/Atmospherics/space_heater.rsi
+    state: sheater-off
   product: SpaceHeaterAnchored # Frontier: CrateEngineeringSpaceHeater<SpaceHeaterAnchored
   cost: 600 # Frontier: 350<600
   category: cargoproduct-category-name-engineering

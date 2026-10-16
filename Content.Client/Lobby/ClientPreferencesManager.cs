@@ -69,7 +69,7 @@ namespace Content.Client.Lobby
 
         public void SelectCharacter(int slot)
         {
-            Preferences = new PlayerPreferences(Preferences.Characters, slot, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
+            Preferences = new PlayerPreferences(Preferences.Characters, slot, Preferences.AdminOOCColor, Preferences.ConstructionFavorites, Preferences.GhostSkin);
             var msg = new MsgSelectCharacter
             {
                 SelectedCharacterIndex = slot
@@ -93,7 +93,7 @@ namespace Content.Client.Lobby
             }
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
             // Saving (or creating) a character also selects that slot, matching the server.
-            Preferences = new PlayerPreferences(characters, slot, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
+            Preferences = new PlayerPreferences(characters, slot, Preferences.AdminOOCColor, Preferences.ConstructionFavorites, Preferences.GhostSkin);
             var msg = new MsgUpdateCharacter
             {
                 Profile = profile,
@@ -126,7 +126,7 @@ namespace Content.Client.Lobby
         public void DeleteCharacter(int slot)
         {
             var characters = Preferences.Characters.Where(p => p.Key != slot);
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
+            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.ConstructionFavorites, Preferences.GhostSkin);
             var msg = new MsgDeleteCharacter
             {
                 Slot = slot
@@ -136,7 +136,7 @@ namespace Content.Client.Lobby
 
         public void UpdateConstructionFavorites(List<ProtoId<ConstructionPrototype>> favorites)
         {
-            Preferences = new PlayerPreferences(Preferences.Characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, favorites);
+            Preferences = new PlayerPreferences(Preferences.Characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, favorites, Preferences.GhostSkin);
             var msg = new MsgUpdateConstructionFavorites
             {
                 Favorites = favorites

@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingOuterCoatNavyGoldLong2
+  id: ClothingOuterCloakNavyKomandor
+  name: fleet commodore's ceremonial cloak
+  description: A blue ceremonial cloak with golden shoulder decorations, reserved for the commodore of the Confederate Fleet.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/navy_komandor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/navy_komandor.rsi
+
+- type: entity
+  parent: ClothingOuterCoatNavyGoldLong
+  id: ClothingOuterCloakNavyCaptain
+  name: fleet captain's ceremonial cloak
+  description: A blue ceremonial cloak with golden decorations, reserved for captains of the Confederate Fleet.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/navy_captain.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/navy_captain.rsi

@@ -1,0 +1,31 @@
+- type: entity
+  id: NFPoweredlightShielded
+  parent: NFPoweredlightShieldedEmpty
+  suffix: ""
+  components:
+  - type: Sprite
+    state: base
+  - type: PoweredLight
+    hasLampOnSpawn: LightTube
+  - type: PointLight
+    enabled: true
+    radius: 10
+    energy: 0.8
+    softness: 1
+    color: "#FFE4CE"
+
+- type: entity
+  id: NFPoweredSmallLightShielded
+  parent: NFPoweredSmallLightShieldedEmpty
+  suffix: ""
+  components:
+  - type: Sprite
+    state: base
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulb
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"

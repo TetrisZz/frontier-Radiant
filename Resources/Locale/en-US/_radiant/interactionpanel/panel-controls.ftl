@@ -1,6 +1,9 @@
 interaction-panel-hands-collapsible = Hands
 interaction-panel-slime-collapsible = Slime
 interaction-panel-management = Management
+interaction-panel-private-mode = Private
+interaction-panel-solo-mode = Solo
+interaction-panel-arousal-label = Arousal
 interaction-panel-filter-favorites = ★ Favorites
 interaction-panel-filter-available = Available only
 interaction-panel-favorite-add = Add to favorites
@@ -10,6 +13,7 @@ interaction-panel-search-placeholder = Search actions…
 interaction-panel-search-clear = Clear
 interaction-panel-search-results = Actions found: { $count }
 interaction-panel-search-empty = Nothing found
+interaction-panel-empty-available = No available actions
 interaction-panel-unavailable-hint = Hover over a disabled action to see why it is unavailable.
 interaction-panel-order-up = Move up
 interaction-panel-order-down = Move down

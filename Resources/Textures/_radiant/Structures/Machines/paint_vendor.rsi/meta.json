@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from BlueMoon-Station, icons/obj/vending.dmi, user-provided source archive. Original sprites licensed CC-BY-SA-3.0 per source README.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "off"
+    },
+    {
+      "name": "panel"
+    },
+    {
+      "name": "normal",
+      "delays": [
+        [
+          0.3,
+          1.0,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "vend",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "light"
+    }
+  ]
+}

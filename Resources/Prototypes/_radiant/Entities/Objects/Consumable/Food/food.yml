@@ -46,6 +46,8 @@
   name: печенье-косточка
   description: Обычное хрустящее печенье в форме косточки.
   components:
+  - type: Tag
+    tags: [Cookie]
   - type: Sprite
     scale: 0.5, 0.5
     sprite: _radiant/Objects/Consumable/Food/food.rsi

@@ -1,19 +1,17 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432, inhand sprites by TiniestShark (github)",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432, inhand sprites by TiniestShark (github) States lampgreen, lampgreen-on imported from BlueMoon Station icons/obj/lighting.dmi; original contributors retain copyright.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-        "name": "lampgreen",
-        "directions": 4
+      "name": "lampgreen"
     },
     {
-        "name": "lampgreen-on",
-        "directions": 4
+      "name": "lampgreen-on"
     },
     {
       "name": "off-inhand-left",

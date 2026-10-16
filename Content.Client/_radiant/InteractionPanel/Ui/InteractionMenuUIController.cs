@@ -1,14 +1,22 @@
 using Content.Client.Gameplay;
+using Content.Client.Construction;
+using Content.Client.Hands;
+using Content.Client.Interaction;
 using Content.Client.Interaction.Panel.Ui;
 using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.Systems.Actions;
 using Content.Shared._radiant;
 using Content.Shared.DetailExaminable;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Player;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Input;
+using Robust.Shared.Timing;
+using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.UserInterface.Systems.Interaction;
@@ -18,8 +26,16 @@ public sealed partial class InteractionUIController : UIController, IOnStateChan
 {
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IOverlayManager _overlays = default!;
 
     private InteractionPanelMenu? _interactionWindow;
+    private bool _consumePickRelease;
+    private bool _showingPickCursor;
+    private Texture? _pickCursor;
+    private Texture? _previousCursor;
+    private float _previousCursorScale;
+    private EntityUid? _previousCursorEntity;
     private MenuButton? InteractionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.InteractionButton;
 
     public void OnStateEntered(GameplayState state)
@@ -27,6 +43,10 @@ public sealed partial class InteractionUIController : UIController, IOnStateChan
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.OpenInteractionMenu,
                 InputCmdHandler.FromDelegate(_ => ToggleInteractionMenu()))
+            .BindBefore(EngineKeyFunctions.Use, new PointerInputCmdHandler(PickTarget, ignoreUp: false, outsidePrediction: true),
+                typeof(ActionUIController), typeof(ConstructionSystem), typeof(DragDropSystem))
+            .BindBefore(EngineKeyFunctions.UIRightClick, new PointerInputCmdHandler(CancelPicking, outsidePrediction: true),
+                typeof(ActionUIController))
             .Register<InteractionUIController>();
     }
 
@@ -34,7 +54,65 @@ public sealed partial class InteractionUIController : UIController, IOnStateChan
     {
         CommandBinds.Unregister<InteractionUIController>();
         _interactionWindow?.Close();
+        _interactionWindow?.Dispose();
         _interactionWindow = null;
+        UpdatePickCursor(false);
+        _consumePickRelease = false;
+    }
+
+    private bool PickTarget(in PointerInputCmdArgs args)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return false;
+        if (args.State == BoundKeyState.Up)
+        {
+            var consume = _consumePickRelease;
+            _consumePickRelease = false;
+            return consume;
+        }
+        if (_interactionWindow is not { IsOpen: true, PickingTarget: true } window)
+            return false;
+        _consumePickRelease = true;
+        window.TryPickTarget(args.EntityUid);
+        UpdatePickCursor(window.PickingTarget);
+        return true;
+    }
+
+    private bool CancelPicking(in PointerInputCmdArgs args)
+    {
+        if (!_timing.IsFirstTimePredicted || _interactionWindow is not { IsOpen: true, PickingTarget: true } window)
+            return false;
+        window.CancelTargetPicking();
+        UpdatePickCursor(false);
+        return true;
+    }
+
+    public override void FrameUpdate(FrameEventArgs args)
+    {
+        UpdatePickCursor(_interactionWindow is { IsOpen: true, PickingTarget: true });
+    }
+
+    private void UpdatePickCursor(bool picking)
+    {
+        if (picking == _showingPickCursor || !_overlays.TryGetOverlay<ShowHandItemOverlay>(out var overlay))
+            return;
+        _showingPickCursor = picking;
+        if (picking)
+        {
+            _pickCursor = _interactionWindow!.TargetPickTexture;
+            _previousCursor = overlay.IconOverride;
+            _previousCursorScale = overlay.IconOverrideScale;
+            _previousCursorEntity = overlay.EntityOverride;
+            overlay.IconOverride = _pickCursor;
+            overlay.IconOverrideScale = 0.5f;
+            overlay.EntityOverride = null;
+        }
+        else if (overlay.IconOverride == _pickCursor)
+        {
+            overlay.IconOverride = _previousCursor;
+            overlay.IconOverrideScale = _previousCursorScale;
+            overlay.EntityOverride = _previousCursorEntity;
+        }
     }
 
     public void LoadButton()
@@ -102,9 +180,15 @@ public sealed partial class InteractionUIController : UIController, IOnStateChan
             }
             _interactionWindow.OpenCenteredRight();
         }
-        else
+        else if (_interactionWindow.IsOpen)
         {
             _interactionWindow.Close();
+        }
+        else
+        {
+            if (session?.AttachedEntity is { } attached)
+                _interactionWindow.UpdateUser(attached);
+            _interactionWindow.OpenCenteredRight();
         }
     }
 
@@ -113,7 +197,7 @@ public sealed partial class InteractionUIController : UIController, IOnStateChan
         if (InteractionButton != null)
             InteractionButton.Pressed = false;
 
-        _interactionWindow = null;
+        UpdatePickCursor(false);
     }
 
     private void OnWindowOpen()

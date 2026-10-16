@@ -198,6 +198,8 @@
   id: FoodBakedCookie
   description: COOKIE!!!
   components:
+  - type: Tag
+    tags: [Cookie]
   - type: Sprite
     state: COOKIE!!!
 
@@ -207,6 +209,8 @@
   id: FoodBakedCookieOatmeal
   description: The best of both cookie and oat.
   components:
+  - type: Tag
+    tags: [Cookie]
   - type: Sprite
     state: cookie-oatmeal
   - type: SolutionContainerManager
@@ -239,6 +243,7 @@
   - type: Tag
     tags:
     - Fruit
+    - Cookie
 
 - type: entity
   name: sugar cookie
@@ -246,6 +251,8 @@
   id: FoodBakedCookieSugar
   description: Just like your mom used to make.
   components:
+  - type: Tag
+    tags: [Cookie]
   - type: Sprite
     state: cookie-sugar
 

@@ -54,6 +54,7 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
+  - type: GhostSkin
   - type: GhostHearing
   - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver

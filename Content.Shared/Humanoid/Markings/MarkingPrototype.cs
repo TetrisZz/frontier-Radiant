@@ -17,6 +17,10 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("markingCategory", required: true)]
         public MarkingCategories MarkingCategory { get; private set; } = default!;
 
+        /// <summary>Physical features supplied by this marking, independent of species.</summary>
+        [DataField]
+        public HashSet<HumanoidBodyFeature> BodyFeatures { get; private set; } = new();
+
         [DataField("speciesRestriction")]
         public List<string>? SpeciesRestrictions { get; private set; }
 

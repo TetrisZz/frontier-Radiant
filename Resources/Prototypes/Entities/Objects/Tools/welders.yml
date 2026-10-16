@@ -4,6 +4,12 @@
   id: Welder
   description: "Melts anything as long as it's fueled, don't forget your eye protection!"
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/weldingtool_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/welder_drop.ogg
   - type: SurgeryTool
   - type: Cautery
     speed: 2

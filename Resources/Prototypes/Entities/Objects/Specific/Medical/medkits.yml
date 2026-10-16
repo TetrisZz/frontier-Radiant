@@ -4,10 +4,33 @@
   parent: BaseStorageItem
   id: Medkit
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/medkit_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/medical/medkit_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/medical/medkit_drop.ogg
+      params:
+        volume: -6
   - type: Sprite
     sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi # Frontier: _NF prefix
     state: firstaid
   - type: Storage
+    storageOpenSound:
+      path: /Audio/_radiant/Items/medical/medkit_latch.ogg
+      params:
+        volume: -8
+    storageCloseSound:
+      path: /Audio/_radiant/Items/medical/medkit_latch.ogg
+      params:
+        volume: -8
     maxItemSize: Small
     grid:
     - 0,0,3,1

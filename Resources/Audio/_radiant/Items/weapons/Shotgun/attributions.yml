@@ -1,0 +1,9 @@
+- files:
+  - "drop1.ogg"
+  - "drop2.ogg"
+  - "pickup1.ogg"
+  - "pickup2.ogg"
+  - "pickup3.ogg"
+  license: "CC-BY-SA-3.0"
+  copyright: "Imported from Triad Sector. Original authors retain their copyright. License follows the source repository asset default."
+  source: "https://github.com/Triad-Sector/Triad_Sector"

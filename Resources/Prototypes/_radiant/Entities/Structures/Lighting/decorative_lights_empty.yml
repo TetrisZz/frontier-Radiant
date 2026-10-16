@@ -1,0 +1,160 @@
+- type: entity
+  id: RadiantFloorLightEmpty
+  parent: RadiantFloorLight
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantFloorLightShieldedEmpty
+  parent: RadiantFloorLightShielded
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostEmpty
+  parent: RadiantLampPost
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostShieldedEmpty
+  parent: RadiantLampPostShielded
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostFestiveEmpty
+  parent: RadiantLampPostFestive
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostFestiveShieldedEmpty
+  parent: RadiantLampPostFestiveShielded
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostOneEmpty
+  parent: RadiantLampPostOne
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostOneShieldedEmpty
+  parent: RadiantLampPostOneShielded
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostTwoEmpty
+  parent: RadiantLampPostTwo
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostTwoShieldedEmpty
+  parent: RadiantLampPostTwoShielded
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostThreeEmpty
+  parent: RadiantLampPostThree
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostThreeShieldedEmpty
+  parent: RadiantLampPostThreeShielded
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostFourEmpty
+  parent: RadiantLampPostFour
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostFourShieldedEmpty
+  parent: RadiantLampPostFourShielded
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostSidewalkEmpty
+  parent: RadiantLampPostSidewalk
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: RadiantLampPostSidewalkShieldedEmpty
+  parent: RadiantLampPostSidewalkShielded
+  suffix: Empty
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: null
+  - type: PointLight
+    enabled: false
+

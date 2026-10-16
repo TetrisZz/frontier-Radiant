@@ -1,0 +1,117 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: WashingMachine
+  name: washing machine
+  description: A compact washing machine for cleaning washable paint off clothing and items.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/washing_machine.rsi
+    noRot: true
+    layers:
+    - state: open-empty
+      map: ["enum.WashingMachineVisuals.Layer"]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.35,-0.4,0.35,0.4"
+        density: 150
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: EntityStorage
+    capacity: 5
+    open: true
+    airtight: false
+    isCollidableWhenOpen: true
+    whitelist:
+      components: [Item]
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container {}
+  - type: WashingMachine
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.WashingMachineVisuals.State:
+        enum.WashingMachineVisuals.Layer:
+          OpenEmpty: { state: open-empty }
+          OpenLoaded: { state: open-loaded }
+          ClosedEmpty: { state: closed-empty }
+          ClosedLoaded: { state: closed-loaded }
+          Running: { state: running }
+  - type: AmbientSound
+    enabled: false
+    volume: -12
+    range: 4
+    sound:
+      path: /Audio/_radiant/Machines/WashingMachine/wash1.ogg
+  - type: Construction
+    graph: RadiantWashingMachine
+    node: washer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [Destruction]
+  - type: StaticPrice
+    price: 600
+
+- type: construction
+  id: RadiantWashingMachine
+  graph: RadiantWashingMachine
+  startNode: start
+  targetNode: washer
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: RadiantWashingMachine
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: washer
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2
+      - material: Glass
+        amount: 2
+      - material: Cable
+        amount: 5
+      - tool: Screwing
+        doAfter: 2
+  - node: washer
+    entity: WashingMachine
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 3
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: SheetGlass1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 5

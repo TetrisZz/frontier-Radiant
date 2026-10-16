@@ -9,6 +9,7 @@
     snap:
     - Bed
   components:
+  - type: HLPersistOnShipSave
   - type: Sprite
     sprite: Objects/Misc/bedsheets.rsi
     noRot: true

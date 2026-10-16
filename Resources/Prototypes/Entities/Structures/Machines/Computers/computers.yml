@@ -533,7 +533,7 @@
   - type: UserInterface
     interfaces:
       enum.ResearchConsoleUiKey.Key:
-        type: ResearchConsoleFrontierBoundUserInterface # Frontier: ResearchConsole<ResearchConsoleFrontier
+        type: ResearchBlueprintConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
       enum.WiresUiKey.Key:

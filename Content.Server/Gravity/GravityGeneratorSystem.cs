@@ -15,6 +15,7 @@ public sealed class GravityGeneratorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<GravityGeneratorComponent, EntParentChangedMessage>(OnParentChanged);
+        SubscribeLocalEvent<GravityGeneratorComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<GravityGeneratorComponent, ChargedMachineActivatedEvent>(OnActivated);
         SubscribeLocalEvent<GravityGeneratorComponent, ChargedMachineDeactivatedEvent>(OnDeactivated);
         // SubscribeLocalEvent<GravityGeneratorComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
@@ -47,6 +48,16 @@ public sealed class GravityGeneratorSystem : EntitySystem
         }
     }
 
+    private void OnStartup(Entity<GravityGeneratorComponent> ent, ref ComponentStartup args)
+    {
+        // PowerCharge.Active is saved, but GravityActive is runtime-only. No activation event
+        // fires when an already active generator is loaded, so restore it before refreshing gravity.
+        ent.Comp.GravityActive = TryComp<PowerChargeComponent>(ent, out var power) && power.Active;
+        var parent = Transform(ent).ParentUid;
+        if (TryComp<GravityComponent>(parent, out var gravity))
+            _gravitySystem.RefreshGravity(parent, gravity);
+    }
+
     private void OnDeactivated(Entity<GravityGeneratorComponent> ent, ref ChargedMachineDeactivatedEvent args)
     {
         ent.Comp.GravityActive = false;
@@ -65,5 +76,7 @@ public sealed class GravityGeneratorSystem : EntitySystem
         {
             _gravitySystem.RefreshGravity(args.OldParent.Value, gravity);
         }
+        if (component.GravityActive && TryComp(Transform(uid).ParentUid, out GravityComponent? newGravity))
+            _gravitySystem.RefreshGravity(Transform(uid).ParentUid, newGravity);
     }
 }

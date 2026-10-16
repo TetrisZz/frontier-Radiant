@@ -1,0 +1,150 @@
+- type: entity
+  id: WashablePaintSpecialBase
+  parent: WashablePaintCan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/SprayPaint/mime_white.rsi
+    layers:
+    - state: capped
+      map: [body]
+    - state: transparent
+      visible: false
+      map: [color]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        body:
+          True: { state: can }
+          False: { state: capped }
+        color:
+          True: { state: transparent, visible: false }
+          False: { state: transparent, visible: false }
+
+- type: entity
+  id: WashablePaintMimeWhite
+  parent: WashablePaintSpecialBase
+  name: white paint
+  suffix: Mime
+  components:
+  - type: PaintCan
+    color: "#EEEEEE"
+
+- type: entity
+  id: WashablePaintMimeBlack
+  parent: WashablePaintSpecialBase
+  name: black paint
+  suffix: Mime
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/SprayPaint/mime_black.rsi
+  - type: PaintCan
+    color: "#505058"
+
+- type: entity
+  id: WashablePaintRainbowCyan
+  parent: WashablePaintSpecialBase
+  name: turquoise paint
+  suffix: Rainbow
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/SprayPaint/rainbow_cyan.rsi
+  - type: PaintCan
+    color: "#56B6BA"
+
+- type: entity
+  id: WashablePaintRainbowLilac
+  parent: WashablePaintSpecialBase
+  name: lilac paint
+  suffix: Rainbow
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/SprayPaint/rainbow_lilac.rsi
+  - type: PaintCan
+    color: "#B18BE2"
+
+- type: entity
+  id: WashablePaintClownPink
+  parent: WashablePaintSpecialBase
+  name: pink paint
+  suffix: Clown
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/SprayPaint/clown_pink.rsi
+  - type: PaintCan
+    color: "#D877A0"
+
+- type: entity
+  id: WashablePaintDeathGray
+  parent: WashablePaintSpecialBase
+  name: gray paint
+  suffix: Skull
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/SprayPaint/death_gray.rsi
+  - type: PaintCan
+    color: "#90929B"
+
+- type: entity
+  id: WashablePaintDeathCopper
+  parent: WashablePaintSpecialBase
+  name: copper paint
+  suffix: Flaming Skull
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/SprayPaint/death_copper.rsi
+  - type: PaintCan
+    color: "#C4753E"
+
+- type: entity
+  id: ClownLubricantSpray
+  parent: BaseItem
+  name: lubricant spray
+  description: A colourful aerosol can filled with slippery space lubricant.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/SprayPaint/clown_lube.rsi
+    layers:
+    - state: capped
+      map: [body]
+  - type: Item
+    size: Small
+    sprite: _radiant/Objects/Tools/washable_paint_inhands.rsi
+  - type: Appearance
+  - type: ItemToggle
+    verbToggleOn: paint-can-open
+    verbToggleOff: paint-can-close
+  - type: SpraySafety
+    popup: paint-can-capped
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        body:
+          True: { state: can }
+          False: { state: capped }
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 100
+        reagents:
+        - ReagentId: SpaceLube
+          Quantity: 100
+  - type: RefillableSolution
+    solution: spray
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: spray
+  - type: ExaminableSolution
+    solution: spray
+    exactVolume: true
+  - type: UseDelay
+  - type: Spray
+    transferAmount: 5
+    sprayVelocity: 2
+    spraySound:
+      path: /Audio/Effects/spray2.ogg
+  - type: Tag
+    tags: [Spray, NoWashablePaint]
+  - type: StaticPrice
+    price: 50

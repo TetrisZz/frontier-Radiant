@@ -51,6 +51,7 @@
   name: smart refrigerator
   description: A refrigerated dispenser for medicines, produce and other supplies.
   components:
+  - type: SmartFridgeFillVisuals
   - type: Sprite
     sprite: _radiant/Structures/Machines/smart_fridge.rsi
     layers:

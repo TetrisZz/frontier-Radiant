@@ -4,6 +4,21 @@
   id: SecBreachingHammer
   description: A large, heavy hammer with a long handle, used for breaking stones or other heavy material such as the skulls of violent criminals, also perfect for forcing your way through airlocks.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/boots_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/sabre_drop.ogg
+      params:
+        volume: -4
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Melee/breaching_hammer.rsi
     state: icon

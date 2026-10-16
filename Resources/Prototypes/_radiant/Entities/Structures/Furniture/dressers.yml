@@ -1,0 +1,87 @@
+- type: entity
+  id: RadiantDresser
+  parent: Dresser
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserFilled
+  parent: DresserFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserCaptainFilled
+  parent: DresserCaptainFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserChiefEngineerFilled
+  parent: DresserChiefEngineerFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserChiefMedicalOfficerFilled
+  parent: DresserChiefMedicalOfficerFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserHeadOfPersonnelFilled
+  parent: DresserHeadOfPersonnelFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserHeadOfSecurityFilled
+  parent: DresserHeadOfSecurityFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserQuarterMasterFilled
+  parent: DresserQuarterMasterFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserResearchDirectorFilled
+  parent: DresserResearchDirectorFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserWardenFilled
+  parent: DresserWardenFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser
+
+- type: entity
+  id: RadiantDresserStationRepresentativeFilled
+  parent: DresserStationRepresentativeFilled
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/dresser.rsi
+    state: dresser

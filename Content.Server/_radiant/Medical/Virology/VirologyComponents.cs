@@ -78,4 +78,5 @@ public sealed partial class VirologyMachineComponent : Component
     public float Remaining;
     public float Duration;
     public float UiAccumulator;
+    public Content.Server._radiant.Careers.MedicalCredit? CareerOperator;
 }

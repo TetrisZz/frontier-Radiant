@@ -1,0 +1,483 @@
+- type: loadoutGroup
+  id: CareerMedicalPDA
+  name: loadout-group-medical-doctor-id
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalMedicalPDA
+  - CareerMedicalChemistryPDA
+  - CareerMedicalMedicalInternPDA
+
+- type: loadout
+  id: CareerMedicalMedicalPDA
+  equipment:
+    id: MedicalPDA
+
+- type: loadout
+  id: CareerMedicalChemistryPDA
+  equipment:
+    id: ChemistryPDA
+
+- type: loadout
+  id: CareerMedicalMedicalInternPDA
+  equipment:
+    id: MedicalInternPDA
+
+- type: loadoutGroup
+  id: CareerMedicalUniform
+  name: loadout-group-medical-doctor-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalClothingUniformJumpsuitMedicalDoctor
+  - CareerMedicalClothingUniformJumpskirtMedicalDoctor
+  - CareerMedicalClothingUniformJumpskirtChemistry
+  - CareerMedicalClothingUniformJumpskirtGenetics
+  - CareerMedicalClothingUniformJumpsuitGenetics
+  - CareerMedicalClothingUniformJumpskirtVirology
+  - CareerMedicalClothingUniformJumpsuitChemistry
+  - CareerMedicalClothingUniformJumpsuitVirology
+  - CareerMedicalUniformScrubsColorBlue
+  - CareerMedicalUniformScrubsColorGreen
+  - CareerMedicalUniformScrubsColorPurple
+
+- type: loadout
+  id: CareerMedicalClothingUniformJumpsuitMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+
+- type: loadout
+  id: CareerMedicalClothingUniformJumpskirtMedicalDoctor
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMedicalDoctor
+
+- type: loadout
+  id: CareerMedicalClothingUniformJumpskirtChemistry
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtChemistry
+
+- type: loadout
+  id: CareerMedicalClothingUniformJumpskirtGenetics
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtGenetics
+
+- type: loadout
+  id: CareerMedicalClothingUniformJumpsuitGenetics
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGenetics
+
+- type: loadout
+  id: CareerMedicalClothingUniformJumpskirtVirology
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtVirology
+
+- type: loadout
+  id: CareerMedicalClothingUniformJumpsuitChemistry
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChemistry
+
+- type: loadout
+  id: CareerMedicalClothingUniformJumpsuitVirology
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVirology
+
+- type: loadout
+  id: CareerMedicalUniformScrubsColorBlue
+  equipment:
+    jumpsuit: UniformScrubsColorBlue
+
+- type: loadout
+  id: CareerMedicalUniformScrubsColorGreen
+  equipment:
+    jumpsuit: UniformScrubsColorGreen
+
+- type: loadout
+  id: CareerMedicalUniformScrubsColorPurple
+  equipment:
+    jumpsuit: UniformScrubsColorPurple
+
+- type: loadoutGroup
+  id: CareerMedicalEyes
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalClothingEyesNiceGoggles
+  - CareerMedicalClothingEyesEyepatchHudMedical
+  - CareerMedicalClothingEyesGlasses
+  - CareerMedicalClothingEyesGlassesChemical
+  - CareerMedicalClothingEyesGlassesJamjar
+  - CareerMedicalClothingEyesHudMedical
+
+- type: loadout
+  id: CareerMedicalClothingEyesNiceGoggles
+  equipment:
+    eyes: ClothingEyesNiceGoggles
+
+- type: loadout
+  id: CareerMedicalClothingEyesEyepatchHudMedical
+  equipment:
+    eyes: ClothingEyesEyepatchHudMedical
+
+- type: loadout
+  id: CareerMedicalClothingEyesGlasses
+  equipment:
+    eyes: ClothingEyesGlasses
+
+- type: loadout
+  id: CareerMedicalClothingEyesGlassesChemical
+  equipment:
+    eyes: ClothingEyesGlassesChemical
+
+- type: loadout
+  id: CareerMedicalClothingEyesGlassesJamjar
+  equipment:
+    eyes: ClothingEyesGlassesJamjar
+
+- type: loadout
+  id: CareerMedicalClothingEyesHudMedical
+  equipment:
+    eyes: ClothingEyesHudMedical
+
+- type: loadoutGroup
+  id: CareerMedicalNeck
+  name: career-loadout-medical-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalNFClothingNeckCardMedic
+  - CareerMedicalClothingNeckIFFNeutral
+  - CareerMedicalClothingNeckIFFCyan
+  - CareerMedicalClothingNeckIFFBlue
+  - CareerMedicalClothingNeckScarfStripedLightBlue
+  - CareerMedicalClothingNeckStethoscope
+
+- type: loadout
+  id: CareerMedicalNFClothingNeckCardMedic
+  equipment:
+    neck: NFClothingNeckCardMedic
+
+- type: loadout
+  id: CareerMedicalClothingNeckIFFNeutral
+  equipment:
+    neck: ClothingNeckIFFNeutral
+
+- type: loadout
+  id: CareerMedicalClothingNeckIFFCyan
+  equipment:
+    neck: ClothingNeckIFFCyan
+
+- type: loadout
+  id: CareerMedicalClothingNeckIFFBlue
+  equipment:
+    neck: ClothingNeckIFFBlue
+
+- type: loadout
+  id: CareerMedicalClothingNeckScarfStripedLightBlue
+  equipment:
+    neck: ClothingNeckScarfStripedLightBlue
+
+- type: loadout
+  id: CareerMedicalClothingNeckStethoscope
+  equipment:
+    neck: ClothingNeckStethoscope
+
+- type: loadoutGroup
+  id: CareerMedicalBelt
+  name: career-loadout-medical-belt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalChemBag
+  - CareerMedicalClothingBeltMedicalEMT
+  - CareerMedicalClothingBeltMedical
+
+- type: loadout
+  id: CareerMedicalChemBag
+  equipment:
+    belt: ChemBag
+
+- type: loadout
+  id: CareerMedicalClothingBeltMedicalEMT
+  equipment:
+    belt: ClothingBeltMedicalEMT
+
+- type: loadout
+  id: CareerMedicalClothingBeltMedical
+  equipment:
+    belt: ClothingBeltMedical
+
+- type: loadoutGroup
+  id: CareerMedicalBack
+  name: loadout-group-medical-doctor-backpack
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalClothingBackpackMedical
+  - CareerMedicalClothingBackpackSatchelMedical
+  - CareerMedicalClothingBackpackDuffelMedical
+  - CareerMedicalClothingBackpackSatchelGenetics
+  - CareerMedicalClothingBackpackVirology
+  - CareerMedicalClothingBackpackDuffelChemistry
+  - CareerMedicalClothingBackpackSatchelChemistry
+  - CareerMedicalClothingBackpackSatchelVirology
+  - CareerMedicalClothingBackpackDuffelVirology
+  - CareerMedicalClothingBackpackMessengerGenetics
+  - CareerMedicalClothingBackpackGenetics
+  - CareerMedicalClothingBackpackMessengerChemistry
+  - CareerMedicalClothingBackpackMessengerMedical
+  - CareerMedicalClothingBackpackDuffelGenetics
+
+- type: loadout
+  id: CareerMedicalClothingBackpackMedical
+  equipment:
+    back: ClothingBackpackMedical
+
+- type: loadout
+  id: CareerMedicalClothingBackpackSatchelMedical
+  equipment:
+    back: ClothingBackpackSatchelMedical
+
+- type: loadout
+  id: CareerMedicalClothingBackpackDuffelMedical
+  equipment:
+    back: ClothingBackpackDuffelMedical
+
+- type: loadout
+  id: CareerMedicalClothingBackpackSatchelGenetics
+  equipment:
+    back: ClothingBackpackSatchelGenetics
+
+- type: loadout
+  id: CareerMedicalClothingBackpackVirology
+  equipment:
+    back: ClothingBackpackVirology
+
+- type: loadout
+  id: CareerMedicalClothingBackpackDuffelChemistry
+  equipment:
+    back: ClothingBackpackDuffelChemistry
+
+- type: loadout
+  id: CareerMedicalClothingBackpackSatchelChemistry
+  equipment:
+    back: ClothingBackpackSatchelChemistry
+
+- type: loadout
+  id: CareerMedicalClothingBackpackSatchelVirology
+  equipment:
+    back: ClothingBackpackSatchelVirology
+
+- type: loadout
+  id: CareerMedicalClothingBackpackDuffelVirology
+  equipment:
+    back: ClothingBackpackDuffelVirology
+
+- type: loadout
+  id: CareerMedicalClothingBackpackMessengerGenetics
+  equipment:
+    back: ClothingBackpackMessengerGenetics
+
+- type: loadout
+  id: CareerMedicalClothingBackpackGenetics
+  equipment:
+    back: ClothingBackpackGenetics
+
+- type: loadout
+  id: CareerMedicalClothingBackpackMessengerChemistry
+  equipment:
+    back: ClothingBackpackMessengerChemistry
+
+- type: loadout
+  id: CareerMedicalClothingBackpackMessengerMedical
+  equipment:
+    back: ClothingBackpackMessengerMedical
+
+- type: loadout
+  id: CareerMedicalClothingBackpackDuffelGenetics
+  equipment:
+    back: ClothingBackpackDuffelGenetics
+
+- type: loadoutGroup
+  id: CareerMedicalOuter
+  name: loadout-group-medical-doctor-outerclothing
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalClothingOuterCoatLab
+  - CareerMedicalClothingOuterWinterMed
+  - CareerMedicalClothingOuterCoatLabChem
+  - CareerMedicalClothingOuterCoatLabGene
+  - CareerMedicalClothingOuterWinterGen
+  - CareerMedicalClothingOuterCoatLabViro
+  - CareerMedicalClothingOuterWinterViro
+  - CareerMedicalClothingOuterWinterChem
+
+- type: loadout
+  id: CareerMedicalClothingOuterCoatLab
+  equipment:
+    outerClothing: ClothingOuterCoatLab
+
+- type: loadout
+  id: CareerMedicalClothingOuterWinterMed
+  equipment:
+    outerClothing: ClothingOuterWinterMed
+
+- type: loadout
+  id: CareerMedicalClothingOuterCoatLabChem
+  equipment:
+    outerClothing: ClothingOuterCoatLabChem
+
+- type: loadout
+  id: CareerMedicalClothingOuterCoatLabGene
+  equipment:
+    outerClothing: ClothingOuterCoatLabGene
+
+- type: loadout
+  id: CareerMedicalClothingOuterWinterGen
+  equipment:
+    outerClothing: ClothingOuterWinterGen
+
+- type: loadout
+  id: CareerMedicalClothingOuterCoatLabViro
+  equipment:
+    outerClothing: ClothingOuterCoatLabViro
+
+- type: loadout
+  id: CareerMedicalClothingOuterWinterViro
+  equipment:
+    outerClothing: ClothingOuterWinterViro
+
+- type: loadout
+  id: CareerMedicalClothingOuterWinterChem
+  equipment:
+    outerClothing: ClothingOuterWinterChem
+
+- type: loadoutGroup
+  id: CareerMedicalShoes
+  name: loadout-group-medical-doctor-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalClothingShoesColorWhite
+  - CareerMedicalClothingShoesBootsWinterMed
+  - CareerMedicalClothingShoesBootsLaceup
+  - CareerMedicalClothingShoesBootsWinterViro
+  - CareerMedicalClothingShoesBootsWinterGenetics
+  - CareerMedicalClothingShoesBootsWinterChem
+
+- type: loadout
+  id: CareerMedicalClothingShoesColorWhite
+  equipment:
+    shoes: ClothingShoesColorWhite
+
+- type: loadout
+  id: CareerMedicalClothingShoesBootsWinterMed
+  equipment:
+    shoes: ClothingShoesBootsWinterMed
+
+- type: loadout
+  id: CareerMedicalClothingShoesBootsLaceup
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: CareerMedicalClothingShoesBootsWinterViro
+  equipment:
+    shoes: ClothingShoesBootsWinterViro
+
+- type: loadout
+  id: CareerMedicalClothingShoesBootsWinterGenetics
+  equipment:
+    shoes: ClothingShoesBootsWinterGenetics
+
+- type: loadout
+  id: CareerMedicalClothingShoesBootsWinterChem
+  equipment:
+    shoes: ClothingShoesBootsWinterChem
+
+- type: loadoutGroup
+  id: CareerMedicalHead
+  name: loadout-group-medical-doctor-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalClothingHeadHatBeretMedic
+  - CareerMedicalClothingHeadHatBeretSeniorPhysician
+  - CareerMedicalClothingHeadMirror
+  - CareerMedicalClothingHeadHatSurgcapBlue
+  - CareerMedicalClothingHeadHatSurgcapGreen
+  - CareerMedicalClothingHeadHatSurgcapPurple
+  - CareerMedicalClothingHeadNurseHat
+
+- type: loadout
+  id: CareerMedicalClothingHeadHatBeretMedic
+  equipment:
+    head: ClothingHeadHatBeretMedic
+
+- type: loadout
+  id: CareerMedicalClothingHeadHatBeretSeniorPhysician
+  equipment:
+    head: ClothingHeadHatBeretSeniorPhysician
+
+- type: loadout
+  id: CareerMedicalClothingHeadMirror
+  equipment:
+    head: ClothingHeadMirror
+
+- type: loadout
+  id: CareerMedicalClothingHeadHatSurgcapBlue
+  equipment:
+    head: ClothingHeadHatSurgcapBlue
+
+- type: loadout
+  id: CareerMedicalClothingHeadHatSurgcapGreen
+  equipment:
+    head: ClothingHeadHatSurgcapGreen
+
+- type: loadout
+  id: CareerMedicalClothingHeadHatSurgcapPurple
+  equipment:
+    head: ClothingHeadHatSurgcapPurple
+
+- type: loadout
+  id: CareerMedicalClothingHeadNurseHat
+  equipment:
+    head: ClothingHeadNurseHat
+
+- type: loadoutGroup
+  id: CareerMedicalEars
+  name: career-loadout-medical-ears
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMedicalClothingHeadsetMedical
+  - CareerMedicalNFClothingWristsetMedicalCommon
+  fallbacks:
+  - CareerMedicalClothingHeadsetMedical
+
+- type: loadout
+  id: CareerMedicalClothingHeadsetMedical
+  equipment:
+    ears: ClothingHeadsetMedical
+
+- type: loadout
+  id: CareerMedicalNFClothingWristsetMedicalCommon
+  equipment:
+    ears: NFClothingWristsetMedicalCommon
+
+- type: loadoutGroup
+  id: CareerMiningEyes
+  name: loadout-group-glasses
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - Glasses
+  - GlassesJamjar
+  - CareerMiningGlassesJensen
+
+- type: loadout
+  id: CareerMiningGlassesJensen
+  equipment:
+    eyes: ClothingEyesGlassesJensen
+

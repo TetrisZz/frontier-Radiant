@@ -24,7 +24,7 @@ chat-interaction-solo-sigh-message = тихо вздыхает
 interaction-solo-smile = Улыбнуться
 chat-interaction-solo-smile-message = мягко улыбается
 
-interaction-solo-cross-arms = Скрестить руки
+interaction-solo-cross-arms = Скрестить руки на груди
 chat-interaction-solo-cross-arms-message = скрещивает руки на груди
 
 interaction-solo-facepalm = Фейспалм
@@ -189,9 +189,9 @@ interaction-tajaran-rub-cheek = Потереться щеками
 chat-interaction-tajaran-rub-cheek-message = трётся щекой о щеку { $target }
 chat-interaction-tajaran-rub-cheek-message-target = { $user } трётся щекой о вашу щеку
 
-interaction-tajaran-tail-entwine = Переплести хвосты
-chat-interaction-tajaran-tail-entwine-message = переплетает хвост с хвостом { $target }
-chat-interaction-tajaran-tail-entwine-message-target = { $user } переплетает свой хвост с вашим
+interaction-tajaran-tail-entwine = Переплести хвосты, устроившись рядом
+chat-interaction-tajaran-tail-entwine-message = устраивается рядом с { $target }, переплетая свой хвост с чужим
+chat-interaction-tajaran-tail-entwine-message-target = { $user } устраивается рядом с вами, переплетая свой хвост с вашим
 
 interaction-tajaran-scratch-back = Процарапать по спине
 chat-interaction-tajaran-scratch-back-message = оставляет лёгкие следы когтей на спине { $target }

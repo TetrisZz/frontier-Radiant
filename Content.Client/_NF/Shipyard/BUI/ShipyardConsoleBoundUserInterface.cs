@@ -4,12 +4,14 @@ using Content.Shared._NF.Shipyard.BUI;
 using Content.Shared._NF.Shipyard.Events;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 using Robust.Client.UserInterface;
+using Content.Client._Triad.Shipyard.Save;
 
 namespace Content.Client._NF.Shipyard.BUI;
 
 public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 {
     private ShipyardConsoleMenu? _menu;
+    private ShipFileManagementSystem ShipFiles => EntMan.System<ShipFileManagementSystem>();
     // private ShipyardRulesPopup? _rulesWindow; // Frontier
     public int Balance { get; private set; }
 
@@ -27,6 +29,10 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
             _menu = this.CreateWindow<ShipyardConsoleMenu>();
             _menu.OnOrderApproved += ApproveOrder;
             _menu.OnSellShip += SellShip;
+            _menu.OnSaveShip += _ => SendMessage(new ShipyardConsoleSaveMessage());
+            _menu.OnLoadShip += LoadSavedShip;
+            ShipFiles.ShipsUpdated += RefreshSavedShips;
+            RefreshSavedShips();
             _menu.TargetIdButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent("ShipyardConsole-targetId"));
 
             // Disable the NFSD popup for now.
@@ -83,5 +89,23 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     {
         //reserved for a sanity check, but im not sure what since we check all the important stuffs on server already
         SendMessage(new ShipyardConsoleSellMessage());
+    }
+
+    private void RefreshSavedShips()
+    {
+        _menu?.SetSavedShips(ShipFiles.GetSavedShipFiles());
+    }
+
+    private void LoadSavedShip(string path)
+    {
+        if (ShipFiles.ReadForLoad(path) is { } yaml)
+            SendMessage(new ShipyardConsoleLoadMessage(yaml, path));
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+            ShipFiles.ShipsUpdated -= RefreshSavedShips;
+        base.Dispose(disposing);
     }
 }

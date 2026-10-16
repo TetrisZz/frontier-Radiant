@@ -26,8 +26,8 @@ public sealed class VirologyTest
     [Test]
     public async Task ExposureRoutesTreatmentAndTransplantation()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var em = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {
@@ -124,8 +124,8 @@ public sealed class VirologyTest
     [Test]
     public async Task ExistingMachinesAnalyzeAndProduceWithoutFreeOrDuplicateDoses()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var em = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {

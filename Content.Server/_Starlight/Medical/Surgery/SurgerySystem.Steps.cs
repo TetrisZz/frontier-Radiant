@@ -213,6 +213,9 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
         var ev = new SurgeryOrganImplantationCompleted(body, part, organId);
         RaiseLocalEvent(organId, ref ev);
+        if (args.User != body && HasComp<SurgicalImplantExamineComponent>(organId))
+            EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().RecordTask(
+                args.User, Content.Shared._radiant.Careers.CareerObjectiveType.Implantation);
     }
 
     // Radiant sector: adult anatomy is changed only by completed, server-authoritative surgery steps.

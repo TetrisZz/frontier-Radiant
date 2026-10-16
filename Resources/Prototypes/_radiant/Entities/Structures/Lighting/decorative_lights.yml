@@ -1,0 +1,319 @@
+- type: entity
+  id: RadiantFloorLight
+  parent: PoweredLightPostSmallEmpty
+  suffix: ""
+  name: recessed floor light
+  description: An electric light fixture with a replaceable bulb.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Lighting/floor_light.rsi
+    drawdepth: FloorObjects
+    noRot: true
+    state: on
+    layers:
+    - state: on
+      map: ["enum.PoweredLightLayers.Base"]
+  - type: PoweredLight
+    bulb: Bulb
+    hasLampOnSpawn: LightBulb
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: empty
+      off: on
+      on: on
+      broken: broken
+      burned: burned
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+    offset: 0, 0
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: floor
+  - type: Physics
+    canCollide: false
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: RadiantLampPost
+  parent: PoweredLightPostSmallEmpty
+  suffix: ""
+  name: decorative lamp post
+  description: An electric light fixture with a replaceable bulb.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Lighting/decorative_lamp_post.rsi
+    drawdepth: Overdoors
+    noRot: true
+    scale: 1, 1
+    offset: 0, 0.5
+    state: base
+    layers:
+    - state: base
+      map: ["enum.PoweredLightLayers.Base"]
+  - type: PoweredLight
+    bulb: Bulb
+    hasLampOnSpawn: LightBulb
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: base
+      off: base
+      on: base
+      broken: base
+      burned: base
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+    offset: 0, 1
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: post
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: RadiantLampPostFestive
+  parent: PoweredLightPostSmallEmpty
+  suffix: ""
+  name: festive lamp post
+  description: An electric light fixture with a replaceable bulb.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Lighting/decorative_lamp_post.rsi
+    drawdepth: Overdoors
+    noRot: true
+    scale: 1, 1
+    offset: 0, 0.5
+    state: festive
+    layers:
+    - state: festive
+      map: ["enum.PoweredLightLayers.Base"]
+  - type: PoweredLight
+    bulb: Bulb
+    hasLampOnSpawn: LightBulb
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: festive
+      off: festive
+      on: festive
+      broken: festive
+      burned: festive
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+    offset: 0, 1
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: festive
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: RadiantLampPostOne
+  parent: PoweredLightPostSmallEmpty
+  suffix: ""
+  name: decorative lamp post
+  description: An electric light fixture with a replaceable bulb.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Lighting/ornate_lamp_post.rsi
+    drawdepth: Overdoors
+    noRot: true
+    scale: 1, 1
+    offset: 0, 2
+    state: one
+    layers:
+    - state: one
+      map: ["enum.PoweredLightLayers.Base"]
+  - type: PoweredLight
+    bulb: Bulb
+    hasLampOnSpawn: LightBulb
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: one
+      off: one
+      on: one
+      broken: one
+      burned: one
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+    offset: 0, 2.5
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: one
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: RadiantLampPostTwo
+  parent: PoweredLightPostSmallEmpty
+  suffix: ""
+  name: decorative lamp post
+  description: An electric light fixture with a replaceable bulb.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Lighting/ornate_lamp_post.rsi
+    drawdepth: Overdoors
+    noRot: true
+    scale: 1, 1
+    offset: 0, 2
+    state: two
+    layers:
+    - state: two
+      map: ["enum.PoweredLightLayers.Base"]
+  - type: PoweredLight
+    bulb: Bulb
+    hasLampOnSpawn: LightBulb
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: two
+      off: two
+      on: two
+      broken: two
+      burned: two
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+    offset: 0, 2.5
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: two
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: RadiantLampPostThree
+  parent: PoweredLightPostSmallEmpty
+  suffix: ""
+  name: decorative lamp post
+  description: An electric light fixture with a replaceable bulb.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Lighting/ornate_lamp_post.rsi
+    drawdepth: Overdoors
+    noRot: true
+    scale: 1, 1
+    offset: 0, 2
+    state: three
+    layers:
+    - state: three
+      map: ["enum.PoweredLightLayers.Base"]
+  - type: PoweredLight
+    bulb: Bulb
+    hasLampOnSpawn: LightBulb
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: three
+      off: three
+      on: three
+      broken: three
+      burned: three
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+    offset: 0, 2.5
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: three
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: RadiantLampPostFour
+  parent: PoweredLightPostSmallEmpty
+  suffix: ""
+  name: decorative lamp post
+  description: An electric light fixture with a replaceable bulb.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Lighting/ornate_lamp_post.rsi
+    drawdepth: Overdoors
+    noRot: true
+    scale: 1, 1
+    offset: 0, 2
+    state: four
+    layers:
+    - state: four
+      map: ["enum.PoweredLightLayers.Base"]
+  - type: PoweredLight
+    bulb: Bulb
+    hasLampOnSpawn: LightBulb
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: four
+      off: four
+      on: four
+      broken: four
+      burned: four
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+    offset: 0, 2.5
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: four
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: RadiantLampPostSidewalk
+  parent: PoweredLightPostSmallEmpty
+  suffix: ""
+  name: decorative lamp post
+  description: An electric light fixture with a replaceable bulb.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Lighting/ornate_lamp_post.rsi
+    drawdepth: Overdoors
+    noRot: true
+    scale: 1, 1
+    offset: 0, 2
+    state: sidewalk
+    layers:
+    - state: sidewalk
+      map: ["enum.PoweredLightLayers.Base"]
+  - type: PoweredLight
+    bulb: Bulb
+    hasLampOnSpawn: LightBulb
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: sidewalk
+      off: sidewalk
+      on: sidewalk
+      broken: sidewalk
+      burned: sidewalk
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 1.1
+    color: "#FFD1A3"
+    offset: 0, 2.5
+  - type: Construction
+    graph: RadiantDecorativeLighting
+    node: sidewalk
+  placement:
+    mode: SnapgridCenter

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from BlueMoon Station: modular_bluemoon/icons/obj/toys/plushes.dmi, ezuar and yuchi states. Original contributors retain copyright. Original 32x32 pixels and directions preserved.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "yuchi",
+      "directions": 4
+    },
+    {
+      "name": "ezuar"
+    }
+  ]
+}

@@ -8,6 +8,7 @@
   components:
   - type: Clickable
   - type: InteractionOutline
+  - type: PaintWashStation
   - type: Sprite
     sprite: Structures/Furniture/sink.rsi
     layers:

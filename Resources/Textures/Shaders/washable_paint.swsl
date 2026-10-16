@@ -1,0 +1,7 @@
+uniform highp vec3 paintColor;
+
+void fragment() {
+    highp vec4 original = zTexture(UV);
+    highp float shade = sqrt(max(original.r, max(original.g, original.b)));
+    COLOR = vec4(paintColor * shade, original.a);
+}

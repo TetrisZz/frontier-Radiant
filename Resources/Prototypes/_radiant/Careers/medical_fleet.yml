@@ -1,0 +1,77 @@
+- type: entity
+  id: CareerMedicalStation
+  parent: StandardFrontierExpeditionVessel
+  categories: [HideSpawnMenu]
+  components:
+  - type: CareerFleet
+    profession: Medical
+  - type: StationJobs
+    availableJobs:
+      MedicalDoctor: [0, 3]
+  - type: ExtraShuttleInformation
+    hiddenWithoutOpenJobs: true
+
+- type: vessel
+  id: CareerMedicalStarter
+  parent: Apothecary
+  name: Medical Apothecary
+  description: A small duty vessel for a three-person medical crew.
+  price: 0
+  careerProfession: Medical
+  careerLevel: 0
+  careerFree: true
+
+- type: gameMap
+  id: CareerMedicalStarter
+  mapName: Medical Apothecary
+  mapPath: /Maps/_NF/Shuttles/apothecary.yml
+  minPlayers: 0
+  stations:
+    CareerMedicalStarter:
+      stationProto: CareerMedicalStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Medical Apothecary {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+- type: vessel
+  id: CareerMedicalUpgrade
+  parent: Stasis
+  name: Medical Stasis
+  description: A larger medical duty vessel for an experienced crew.
+  careerProfession: Medical
+  careerLevel: 2
+  careerFree: false
+
+- type: gameMap
+  id: CareerMedicalUpgrade
+  mapName: Medical Stasis
+  mapPath: /Maps/_NF/Shuttles/stasis.yml
+  minPlayers: 0
+  stations:
+    CareerMedicalUpgrade:
+      stationProto: CareerMedicalStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Medical Stasis {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+- type: entity
+  id: ComputerShipyardCareerMedical
+  parent: ComputerShipyardBase
+  name: medical fleet shipyard
+  components:
+  - type: ShipyardConsole
+    newJobTitle: null
+  - type: ShipyardListing
+    shuttles: [CareerMedicalStarter, CareerMedicalUpgrade]
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Custom
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Custom:
+        type: ShipyardConsoleBoundUserInterface

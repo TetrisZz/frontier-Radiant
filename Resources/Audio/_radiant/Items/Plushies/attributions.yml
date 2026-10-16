@@ -1,0 +1,9 @@
+- files: ["ezuar_hiss.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Imported unmodified from BlueMoon-Station; original author unknown."
+  source: "BlueMoon-Station source archive, modular_citadel/sound/voice/hiss.ogg"
+
+- files: ["yuchi_chirp.ogg", "yuchi_trill.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Imported unmodified from BlueMoon-Station; original author unknown."
+  source: "BlueMoon-Station source archive, modular_splurt/sound/voice/chirp.ogg and teshtrill.ogg"

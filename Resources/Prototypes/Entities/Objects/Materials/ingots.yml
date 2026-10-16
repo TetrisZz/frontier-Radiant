@@ -4,6 +4,21 @@
   id: IngotBase
   description: A heavy metal ingot stamped with the Nanotrasen logo.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/surgery_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/medical/metal_drop.ogg
+      params:
+        volume: -4
   - type: Sprite
     sprite: Objects/Materials/ingots.rsi
   - type: Item

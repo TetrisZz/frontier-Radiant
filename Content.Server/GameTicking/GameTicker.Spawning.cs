@@ -47,6 +47,19 @@ namespace Content.Server.GameTicking
         /// </summary>
         public int PlayersJoinedRoundNormally;
 
+        public void TransferCareerFleetJobs(EntityUid previousStation, EntityUid station, EntityUid previousBuyer, string role = "SalvageSpecialist")
+        {
+            var query = EntityQueryEnumerator<JobTrackingComponent>();
+            while (query.MoveNext(out var entity, out var job))
+            {
+                if (job.Job?.Id != role
+                    || (job.SpawnStation != previousStation && entity != previousBuyer))
+                    continue;
+                job.SpawnStation = station;
+                Dirty(entity, job);
+            }
+        }
+
         // Mainly to avoid allocations.
         private readonly List<EntityCoordinates> _possiblePositions = new();
 
@@ -171,6 +184,9 @@ namespace Content.Server.GameTicking
             if (station == EntityUid.Invalid)
             {
                 var stations = GetSpawnableStations();
+                var fleet = EntityManager.System<Content.Server._radiant.Careers.CareerFleetSystem>();
+                stations.RemoveAll(candidate => !_stationJobs.GetAvailableJobs(candidate)
+                    .Any(job => (jobId == null || job.Id == jobId) && fleet.CanJoin(player, candidate, job, out _)));
                 _robustRandom.Shuffle(stations);
                 if (stations.Count == 0)
                     station = EntityUid.Invalid;
@@ -181,6 +197,16 @@ namespace Content.Server.GameTicking
             if (lateJoin && DisallowLateJoin)
             {
                 JoinAsObserver(player);
+                return;
+            }
+
+            if (station == EntityUid.Invalid)
+            {
+                if (!LobbyEnabled)
+                    JoinAsObserver(player);
+                RaiseLocalEvent(new NoJobsAvailableSpawningEvent(player));
+                _chatManager.DispatchServerMessage(player,
+                    Loc.GetString("game-ticker-player-no-jobs-available-when-joining"));
                 return;
             }
 
@@ -215,6 +241,12 @@ namespace Content.Server.GameTicking
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
+            var careerFleet = EntityManager.System<Content.Server._radiant.Careers.CareerFleetSystem>();
+            if (jobId != null && !careerFleet.CanJoin(player, station, jobId, out var earlyCareerReason))
+            {
+                _chatManager.DispatchServerMessage(player, earlyCareerReason!);
+                return;
+            }
             var bev = new PlayerBeforeSpawnEvent(player, character, jobId, lateJoin, station);
             RaiseLocalEvent(bev);
 
@@ -234,6 +266,12 @@ namespace Content.Server.GameTicking
             if (jobBans != null)
                 restrictedRoles.UnionWith(jobBans);
 
+            foreach (var candidate in _stationJobs.GetAvailableJobs(station))
+            {
+                if (!careerFleet.CanJoin(player, station, candidate, out _))
+                    restrictedRoles.Add(candidate);
+            }
+
             // Pick best job best on prefs.
             jobId ??= _stationJobs.PickBestAvailableJobWithPriority(station,
                 character.JobPriorities,
@@ -252,6 +290,12 @@ namespace Content.Server.GameTicking
 
                 _chatManager.DispatchServerMessage(player,
                     Loc.GetString("game-ticker-player-no-jobs-available-when-joining"));
+                return;
+            }
+
+            if (!careerFleet.CanJoin(player, station, jobId, out var careerReason))
+            {
+                _chatManager.DispatchServerMessage(player, careerReason!);
                 return;
             }
 
@@ -291,7 +335,8 @@ namespace Content.Server.GameTicking
             // End Frontier
 
             _roles.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
-            var jobName = _jobs.MindTryGetJobName(newMind);
+            var jobName = EntityManager.System<Content.Server._radiant.Careers.CareerSystem>()
+                .GetJobTitle(character, jobPrototype);
             _admin.UpdatePlayerList(player);
 
             if (lateJoin && !silent)
@@ -332,7 +377,10 @@ namespace Content.Server.GameTicking
                 AddComp<OwOAccentComponent>(mob);
             }
 
-            _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
+            // The career buyer already occupies a reserved seat from the purchase.
+            if (!TryComp<Content.Server._radiant.Careers.CareerFleetComponent>(station, out var fleetStation)
+                || fleetStation.Buyer != player.UserId)
+                _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
 
             if (lateJoin)
             {

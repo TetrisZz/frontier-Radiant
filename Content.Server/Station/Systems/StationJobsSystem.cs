@@ -72,6 +72,20 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!TryComp<StationJobsComponent>(msg.Station, out var stationJobs))
             return;
 
+        // Base maps may omit the entry role; preserve every explicitly mapped job.
+        if (TryComp<Content.Server._radiant.Careers.CareerBaseStationComponent>(msg.Station, out var careerBase))
+        {
+            foreach (var profession in _prototypeManager.EnumeratePrototypes<Content.Shared._radiant.Careers.CareerProfessionPrototype>())
+            {
+                if (profession.Jobs.Count > 0 && careerBase.Allows(profession.ID))
+                    stationJobs.SetupAvailableJobs.TryAdd(profession.Jobs[0], new[] { -1, -1 });
+            }
+            stationJobs.OverflowJobs = stationJobs.SetupAvailableJobs
+                .Where(x => x.Value[0] < 0)
+                .Select(x => x.Key)
+                .ToHashSet();
+        }
+
         stationJobs.JobList = stationJobs.SetupAvailableJobs.ToDictionary(
             x => x.Key,
             x=> (int?)(x.Value[1] < 0 ? null : x.Value[1]));
@@ -465,7 +479,9 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!pickOverflows)
             return null;
 
-        var overflows = GetOverflowJobs(station);
+        var overflows = GetOverflowJobs(station)
+            .Where(job => available.Contains(job) && (disallowedJobs == null || !disallowedJobs.Contains(job)))
+            .ToList();
         if (overflows.Count == 0)
             return null;
 
@@ -498,8 +514,19 @@ public sealed partial class StationJobsSystem : EntitySystem
 
         while (query.MoveNext(out var station, out var comp))
         {
+            if (!EntityManager.System<Content.Server._radiant.Careers.CareerFleetSystem>().IsSpawnEnabled(station))
+                continue;
             var stationNetEntity = GetNetEntity(station);
             var list = comp.JobList.ToDictionary(x => x.Key, x => x.Value);
+
+            if (TryComp<Content.Server._radiant.Careers.CareerFleetComponent>(station, out var careerFleet))
+            {
+                var capacity = EntityManager.System<Content.Server._radiant.Careers.CareerFleetSystem>()
+                    .GetOpenCrewSlots(station, careerFleet);
+                foreach (var job in list.Keys.ToArray())
+                    list[job] = EntityManager.System<Content.Server._radiant.Careers.CareerFleetSystem>()
+                        .IsFleetJob(careerFleet.Profession, job.Id) ? Math.Min(list[job] ?? capacity, capacity) : 0;
+            }
 
             // Frontier: overwrite station/vessel information generation
             var isLateJoinStation = false;

@@ -3,11 +3,23 @@
   parent: [Clothing, RecyclableItemClothDevice] # Frontier: added RecyclableItemClothDevice
   id: ClothingMaskBase
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/generic_small_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/generic_small_drop.ogg
   - type: Sprite
     state: icon
   - type: Item
     size: Small
   - type: Clothing
+    unequipSound:
+      collection: GenericEquip
+      params:
+        volume: -7
+    equipSound:
+      collection: GenericEquip
     slots: [mask]
   - type: StaticPrice
     price: 25

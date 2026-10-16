@@ -1,6 +1,7 @@
 # Goblin Ears
 - type: marking
   id: GoblinEarsBasic
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Goblin]
@@ -10,6 +11,7 @@
 
 - type: marking
   id: GoblinEarsBasicAlt
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Goblin]
@@ -19,6 +21,7 @@
 
 - type: marking
   id: GoblinEarsLong01
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Goblin]
@@ -28,6 +31,7 @@
 
 - type: marking
   id: GoblinEarsLong02
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Goblin]

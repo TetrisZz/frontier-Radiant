@@ -1,0 +1,36 @@
+- type: entity
+  parent: [NFBaseWeaponPistolChamber35, NFBaseWeaponFramePistolNanotrasen]
+  id: WeaponPistolVP78
+  name: VP78
+  description: A Hellgate semiautomatic pistol with an angular frame, a dark finish, and no unnecessary frills. Uses standard .35 magazines.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi
+  - type: Item
+    sprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_radiant/Weapons/Gunshots/vp78.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/pistol_cock.ogg
+  - type: NFWeaponDetails
+    manufacturer: weapon-details-manufacturer-hellgate
+
+- type: listing
+  id: UplinkHomWeaponPistolVP78
+  name: uplink-hom-vp78-name
+  description: uplink-hom-vp78-desc
+  productEntity: WeaponPistolVP78
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi, state: vp78 }
+  cost:
+    Cristalhom: 5
+  categories:
+  - UplinkHomWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink

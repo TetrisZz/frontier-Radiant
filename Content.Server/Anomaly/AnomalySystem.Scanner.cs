@@ -95,7 +95,7 @@ public sealed partial class AnomalySystem
             return;
 
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-            .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Science, 1))
+            .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Science, 2))
             return;
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.ScanDoAfterDuration, new ScannerDoAfterEvent(), uid, target: target, used: uid)
@@ -110,7 +110,7 @@ public sealed partial class AnomalySystem
             return;
 
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-            .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Science, 1))
+            .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Science, 2))
             return;
 
         Audio.PlayPvs(component.CompleteSound, uid);

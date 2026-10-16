@@ -1,0 +1,19 @@
+- files: ["open.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original contributors; imported unchanged from terminal_prompt.ogg."
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/sound/machines/terminal_prompt.ogg"
+
+- files: ["close.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original contributors; imported unchanged from terminal_button05.ogg."
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/sound/machines/terminal_button05.ogg"
+
+- files: ["purchase.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original contributors; imported unchanged from uplinkpurchase.ogg."
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/sound/machines/uplinkpurchase.ogg"
+
+- files: ["denied.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original contributors; imported unchanged from terminal_prompt_deny.ogg."
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/sound/machines/terminal_prompt_deny.ogg"

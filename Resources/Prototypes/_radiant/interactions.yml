@@ -101,41 +101,32 @@
 - type: interaction
   id: BaseUserHasTail
   abstract: true
-  allowedSpecies:
-  - Felinid
-  - Feroxi
-  - Shadowkin
-  - Reptilian
-  - Vulpkanin
-  - Vox
-  - Tajaran
-  - Resomi
-  - DemonSpecies
+  userRequiredBodyFeatures: [Tail]
 
 - type: interaction
   id: BaseTargetHasTail
   abstract: true
-  nearestAllowedSpecies:
-  - Felinid
-  - Feroxi
-  - Shadowkin
-  - Reptilian
-  - Vulpkanin
-  - Vox
-  - Resomi
-  - DemonSpecies
-  - Tajaran
+  targetRequiredBodyFeatures: [Tail]
 
 - type: interaction
   id: BaseTargetHasEars
   abstract: true
-  nearestAllowedSpecies:
-  - Felinid
-  - Feroxi
-  - Shadowkin
-  - Vulpkanin
-  - Resomi
-  - Tajaran
+  targetRequiredBodyFeatures: [Ears]
+
+- type: interaction
+  id: BaseUserHasEars
+  abstract: true
+  userRequiredBodyFeatures: [Ears]
+
+- type: interaction
+  id: BaseUserHasHorns
+  abstract: true
+  userRequiredBodyFeatures: [Horns]
+
+- type: interaction
+  id: BaseTargetHasHorns
+  abstract: true
+  targetRequiredBodyFeatures: [Horns]
 
 - type: interaction
   parent: BaseHumanoid
@@ -188,8 +179,7 @@
 - type: interaction
   id: BaseTargetSlimeTail
   abstract: true
-  allowedSpecies:
-  - SlimePerson
+  targetRequiredBodyFeatures: [Tail]
 
 
 # Interactions
@@ -400,6 +390,8 @@
 
 - type: interaction
   id: InteractionBoopNose
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [mask]
   arousalPoints: 1
 
   category: head
@@ -440,6 +432,8 @@
 
 - type: interaction
   id: InteractionKissForehead
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [head]
   arousalPoints: 2
 
   category: head
@@ -537,8 +531,8 @@
   arousalPoints: 2
 
   category: lips
-  userBlockedClothingSlots: [mask]
-  targetBlockedClothingSlots: [mask]
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   name: interaction-kiss-lips
   userMessages: ["chat-interaction-kiss-lips-message"]
   targetMessages: ["chat-interaction-kiss-lips-message-target"]
@@ -554,7 +548,7 @@
   arousalPoints: 2
 
   category: hands
-  userBlockedClothingSlots: [mask]
+  userBlockedClothingSlots: [mask, head]
   targetBlockedClothingSlots: [gloves]
   name: interaction-kiss-hand
   userMessages: ["chat-interaction-kiss-hand-message"]
@@ -582,6 +576,8 @@
 
 - type: interaction
   id: InteractionNuzzle
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   arousalPoints: 2
 
   category: head
@@ -624,6 +620,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionTouchBreasts
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
 
   category: chest
   name: interaction-touch-breasts
@@ -639,6 +637,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionTouchAss
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
 
   category: groin
   name: interaction-touch-ass
@@ -652,8 +652,8 @@
   id: InteractionBrushLips
 
   category: lips
-  userBlockedClothingSlots: [mask]
-  targetBlockedClothingSlots: [mask]
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   name: interaction-brush-lips
   userMessages: ["chat-interaction-brush-lips-message"]
   targetMessages: ["chat-interaction-brush-lips-message-target"]
@@ -664,8 +664,8 @@
   id: InteractionintBiteLips
 
   category: lips
-  userBlockedClothingSlots: [mask]
-  targetBlockedClothingSlots: [mask]
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   name: interaction-bite-lips
   userMessages: ["chat-interaction-bite-lips-message"]
   targetMessages: ["chat-interaction-bite-lips-message-target"]
@@ -815,6 +815,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionTouchDick
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-touch-dick
@@ -830,6 +832,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionLickDick
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-lick-dick
@@ -846,6 +850,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionKissDick
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-kiss-dick
@@ -863,6 +869,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionTermDick
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-term-dick
@@ -879,6 +887,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionMasturbateDick
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-masturbate-dick
@@ -894,6 +904,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionSuckDick
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-suck-dick
@@ -910,6 +922,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionLegkDick
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-leg-dick
@@ -964,6 +978,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseHumanoid ]
   id: InteractionLickAnal
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb, plug]
 
   category: groin
   name: interaction-lick-anal
@@ -1057,6 +1073,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseMaleOnly ]
   id: InteractionMinetTraxSlowly
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [mask, head]
 
   category: groin
   name: interaction-minet-trax-slowly
@@ -1071,6 +1089,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothingAnal, BaseMaleOnly ]
   id: InteractionSisTraxSlowly
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
 
   category: groin
   name: interaction-sis-trax-slowly
@@ -1085,6 +1105,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
   id: InteractionRubbingVaginaHand
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: []
 
   category: body
   name: interaction-rubbing-vagina-hand
@@ -1098,6 +1120,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
   id: InteractionRubbingVaginaLeg
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: []
 
   category: body
   name: interaction-rubbing-vagina-leg
@@ -1111,6 +1135,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionCunnilingusSlowly
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-cunnilingus-slowly
@@ -1127,6 +1153,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionCunnilingusFaster
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-cunnilingus-faster
@@ -1143,6 +1171,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionClitoris
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-clitoris
@@ -1158,6 +1188,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionMassageVagina
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-massage-vagina
@@ -1183,6 +1215,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionFaceBreasts
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
 
   category: chest
   name: interaction-face-breasts
@@ -1199,6 +1233,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionLickBreasts
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
 
   category: chest
   name: interaction-lick-breasts
@@ -1215,6 +1251,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionTraxBreasts
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
 
   category: chest
   name: interaction-trax-breasts
@@ -1231,6 +1269,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionBiteBreasts
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
 
   category: chest
   name: interaction-bite-breasts
@@ -1246,6 +1286,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionTouchNippels
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
 
   category: chest
   name: interaction-touch-nippels
@@ -1261,6 +1303,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionLickNippels
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
 
   category: chest
   name: interaction-lick-nippels
@@ -1300,6 +1344,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionBiteRough
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
   arousalPoints: 5
 
   category: body
@@ -1314,6 +1360,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionScratchBack
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
   arousalPoints: 5
 
   category: body
@@ -1331,8 +1379,8 @@
   arousalPoints: 5
 
   category: lips
-  userBlockedClothingSlots: [mask]
-  targetBlockedClothingSlots: [mask]
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   name: interaction-bite-lip
   userMessages: ["chat-interaction-bite-lip-message-1", "chat-interaction-bite-lip-message-2"]
   targetMessages: ["chat-interaction-bite-lip-message-target-1", "chat-interaction-bite-lip-message-target-2"]
@@ -1383,6 +1431,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionVoxEnterSlowly
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-vox-enter-slowly
@@ -1396,6 +1446,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionVoxEnterFaster
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-vox-enter-faster
@@ -1409,6 +1461,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
   id: InteractionRubbingVaginaVox
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
   arousalPoints: 5
 
   category: groin
@@ -1424,6 +1478,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionTouchFilament
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
   arousalPoints: 5
 
   category: body
@@ -1437,6 +1493,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionEnterSlowlyFilament
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-enter-slowly-filament
@@ -1450,6 +1508,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseMaleOnly ]
   id: InteractionEnterFasterFilament
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: groin
   name: interaction-enter-faster-filament
@@ -1544,6 +1604,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasTail ]
   id: InteractionLickTail
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: []
   arousalPoints: 5
 
   category: tail
@@ -1556,6 +1618,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasTail ]
   id: InteractionEatTail
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: []
   arousalPoints: 5
 
   category: tail
@@ -1567,6 +1631,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionHoldsDickTail
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: tail
   name: interaction-holds-dick-tail
@@ -1582,6 +1648,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionRubbingVaginaTail
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: tail
   name: interaction-rubbing-vagina-tail
@@ -1597,6 +1665,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionInsertTailVox
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: tail
   name: interaction-insert-tail-vox
@@ -1610,6 +1680,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothingAnal ]
   id: InteractionInsertTailAnal
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb, plug]
 
   category: tail
   name: interaction-insert-tail-anal
@@ -1623,6 +1695,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing, ]
   id: InteractionInsertTailVagina
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: tail
   name: interaction-insert-tail-vagina
@@ -1638,6 +1712,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionRunsTailVagina
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: tail
   name: interaction-runs-tail-vagina
@@ -1653,6 +1729,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionMassageTailDick
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: tail
   name: interaction-massage-tail-dick
@@ -1668,6 +1746,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionHugsTailDick
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: tail
   name: interaction-hugs-tail-dick
@@ -1683,6 +1763,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseCheckClothing ]
   id: InteractionHugsTaillDick
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
 
   category: tail
   name: interaction-hugs-taill-dick
@@ -1698,6 +1780,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetSlimeTail, BaseCheckClothing ]
   id: InteractionHugsSlimeDick
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: []
 
   category: tail
   name: interaction-hugs-slime-dick
@@ -1713,6 +1797,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetSlimeTail, BaseCheckClothing ]
   id: InteractionFondleSlimeDick
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: []
 
   category: tail
   name: interaction-fondle-slime-dick
@@ -1740,6 +1826,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
   id: InteractionKissEars
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [head]
 
   category: head
   name: interaction-kiss-ears
@@ -1753,6 +1841,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars, BaseHumanoid ]
   id: InteractionLickEars
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [head]
   arousalPoints: 5
 
   category: head
@@ -1765,6 +1855,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
   id: InteractionBiteEars
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [head]
   arousalPoints: 5
 
   category: head
@@ -1881,6 +1973,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionStraponEnterVoxSlowly
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
   arousalPoints: 5
 
   category: groin
@@ -1895,6 +1989,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionStraponEnterVoxFaster
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underwearb]
   arousalPoints: 5
 
   category: groin

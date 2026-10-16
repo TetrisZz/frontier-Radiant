@@ -2051,7 +2051,7 @@
   recipeUnlocks:
   - ClothingOuterArmorRiot
   - ClothingHeadHelmetRiot
-  - RiotShield
+  - NFRiotShield
   - ClothingMaskGasSwatRS
   technologyPrerequisites:
   - NFArsenalStyle

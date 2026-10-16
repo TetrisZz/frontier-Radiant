@@ -44,6 +44,9 @@ public sealed partial class HumanoidSpeciesSpriteLayer : IPrototype
     [DataField("baseSprite")]
     public SpriteSpecifier? BaseSprite { get; private set; }
 
+    [DataField]
+    public HashSet<HumanoidBodyFeature> BodyFeatures { get; private set; } = new();
+
     /// <summary>
     ///     The alpha of this layer. Ensures that
     ///     this layer will start with this percentage

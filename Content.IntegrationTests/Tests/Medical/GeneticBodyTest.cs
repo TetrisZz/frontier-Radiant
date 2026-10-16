@@ -23,8 +23,8 @@ public sealed class GeneticBodyTest
     [Test]
     public async Task BrainSampleGrowsOriginalAppearanceAndDna()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var em = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {
@@ -80,8 +80,8 @@ public sealed class GeneticBodyTest
     [Test]
     public async Task SampleGrowthPowerAndTransplantBody()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var em = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {

@@ -5,6 +5,15 @@
   name: bronzeheart medal
   description: Given to crewmates for exemplary bravery in the face of danger.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
   - type: Sprite
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
   - type: Clothing
@@ -20,6 +29,15 @@
   name: gold medal of crewmanship
   description: Given to crewmates who display excellent crewmanship.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
   - type: Sprite
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: Clothing
@@ -37,6 +55,15 @@
   name: cargo medal
   description: Given for the best work in the cargo department.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
   - type: Sprite
     sprite: Clothing/Neck/Medals/cargomedal.rsi
   - type: Clothing
@@ -52,6 +79,15 @@
   name: engineer medal
   description: Given for the best work in the engineering department.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
   - type: Sprite
     sprite: Clothing/Neck/Medals/engineermedal.rsi
   - type: Clothing
@@ -67,6 +103,15 @@
   name: medical medal
   description: Given for the best work in the medical department.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
   - type: Sprite
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
   - type: Clothing
@@ -82,6 +127,15 @@
   name: science medal
   description: Given for the best work in the science department.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
   - type: Sprite
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
   - type: Clothing
@@ -97,6 +151,15 @@
   name: security medal
   description: Given for the best work in the security department.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
   - type: Sprite
     sprite: Clothing/Neck/Medals/securitymedal.rsi
   - type: Clothing
@@ -112,6 +175,15 @@
   name: clown medal
   description: Given for the best joke in the universe. HONK!
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/accessory_drop.ogg
   - type: Sprite
     sprite: Clothing/Neck/Medals/clownmedal.rsi
   - type: Clothing

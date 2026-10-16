@@ -1,0 +1,82 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               Title="{Loc tamper-audit-title}"
+               MinSize="900 500"
+               SetSize="1200 650">
+    <PanelContainer StyleClasses="PanelBackgroundBaseDark">
+        <BoxContainer Orientation="Vertical">
+
+            <!-- ===================== AUDIT VIEW ===================== -->
+            <BoxContainer Name="AuditView" Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" Margin="4">
+                <PanelContainer StyleClasses="AngleRect">
+                    <BoxContainer Orientation="Vertical" MinWidth="250" Margin="6">
+                        <Label Text="{Loc tamper-audit-filters}" StyleClasses="LabelHeading" />
+                        <Label Text="{Loc tamper-audit-round}" />
+                        <BoxContainer Orientation="Horizontal">
+                            <Button Name="PrevRoundButton" Text="◄" />
+                            <Label Name="RoundLabel" Text="-" HorizontalExpand="True" Align="Center" />
+                            <Button Name="NextRoundButton" Text="►" />
+                        </BoxContainer>
+                        <Label Text="{Loc tamper-audit-round-time}" Margin="0 4 0 0" />
+                        <BoxContainer Orientation="Horizontal">
+                            <LineEdit Name="RoundTimeFromInput" PlaceHolder="HH:MM:SS" HorizontalExpand="True" />
+                            <Label Text="–" Margin="4 0" />
+                            <LineEdit Name="RoundTimeToInput" PlaceHolder="HH:MM:SS" HorizontalExpand="True" />
+                        </BoxContainer>
+                        <Label Text="{Loc tamper-audit-player}" Margin="0 4 0 0" />
+                        <OptionButton Name="PlayerDropdown" HorizontalExpand="True" />
+                        <Label Text="{Loc tamper-audit-ship-name}" Margin="0 4 0 0" />
+                        <LineEdit Name="ShipNameInput" PlaceHolder="{Loc tamper-audit-ship-filter}" HorizontalExpand="True" />
+                        <Button Name="ApplyButton" Text="{Loc tamper-audit-apply}" HorizontalExpand="True" Margin="0 4 0 0" />
+                        <Control MinHeight="10" />
+                        <Label Text="{Loc tamper-audit-action}" StyleClasses="LabelHeading" />
+                        <CheckBox Name="ActionSaveSigned" Text="{Loc tamper-audit-save}" />
+                        <CheckBox Name="ActionVerifiedTrusted" Text="{Loc tamper-audit-trusted}" />
+                        <CheckBox Name="ActionVerifiedUntrusted" Text="{Loc tamper-audit-untrusted}" />
+                        <CheckBox Name="ActionUnsigned" Text="{Loc tamper-audit-unsigned}" />
+                        <CheckBox Name="ActionInvalidSignature" Text="{Loc tamper-audit-invalid}" />
+                        <CheckBox Name="ActionMigrated" Text="{Loc tamper-audit-migrated}" />
+                        <CheckBox Name="ActionRejected" Text="{Loc tamper-audit-rejected}" />
+                        <CheckBox Name="ActionPermitGranted" Text="{Loc tamper-audit-granted}" />
+                        <CheckBox Name="ActionPermitRevoked" Text="{Loc tamper-audit-revoked}" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4 0 0 0">
+                    <Label Name="CountLabel" Margin="0 0 0 2" />
+                    <PanelContainer VerticalExpand="True" StyleClasses="AngleRect">
+                        <ScrollContainer Name="FeedScroll" VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                            <BoxContainer Name="FeedContainer" Orientation="Vertical" VerticalExpand="True" />
+                        </ScrollContainer>
+                    </PanelContainer>
+
+                    <PanelContainer StyleClasses="PanelBackgroundBaseLight" Margin="0 4 0 0">
+                        <BoxContainer Orientation="Vertical" Margin="6 4">
+                            <Label Name="SelectedLabel" Text="{Loc tamper-audit-select}" ClipText="True" />
+                            <BoxContainer Orientation="Horizontal" Margin="0 2 0 0">
+                                <Button Name="GrantPermitButton" Text="{Loc tamper-audit-grant}" Disabled="True" />
+                                <LineEdit Name="NotesInput" PlaceHolder="{Loc tamper-audit-notes-placeholder}" HorizontalExpand="True" Margin="4 0 0 0" />
+                            </BoxContainer>
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+                        <Button Name="PrevPageButton" Text="{Loc tamper-audit-prev}" />
+                        <Label Name="PageLabel" Margin="8 0" />
+                        <Button Name="NextPageButton" Text="{Loc tamper-audit-next}" />
+                    </BoxContainer>
+
+                    <!-- Active permits, in-line with the feed so an admin can grant from a rejected-load
+                         row and revoke right here without leaving the audit view. -->
+                    <Label Text="{Loc tamper-audit-permits}" StyleClasses="LabelHeading" Margin="0 6 0 2" />
+                    <PanelContainer StyleClasses="AngleRect">
+                        <ScrollContainer Name="AuditPermitsScroll" HScrollEnabled="False" MinHeight="110" MaxHeight="110">
+                            <BoxContainer Name="AuditPermitsContainer" Orientation="Vertical" />
+                        </ScrollContainer>
+                    </PanelContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+        </BoxContainer>
+    </PanelContainer>
+</DefaultWindow>

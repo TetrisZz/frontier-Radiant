@@ -1,0 +1,84 @@
+- type: loadout
+  id: WhiteBoxers
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersWhite
+
+- type: loadout
+  id: WhitePanties
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesWhite
+
+- type: loadout
+  id: WhitePantiesNeko
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesNeko
+
+- type: loadout
+  id: PantiesLace
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesLace
+
+- type: loadout
+  id: PantiesThong
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesThong
+
+- type: loadout
+  id: BraWhite
+  equipment:
+    underweart: ClothingUnderwearTopBraWhite
+
+- type: loadout
+  id: BraSports
+  equipment:
+    underweart: ClothingUnderwearTopBraSports
+
+- type: loadout
+  id: BraNeko
+  equipment:
+    underweart: ClothingUnderwearTopNekoBra
+
+- type: loadout
+  id: BraLace
+  equipment:
+    underweart: ClothingUnderwearToplaceBra
+
+- type: loadout
+  id: BraSportsAlt
+  equipment:
+    underweart: ClothingUnderwearTopBraSportsAlternative
+
+- type: loadout
+  id: SocksNormal
+  equipment:
+    socks: ClothingUnderwearSocksNormal
+
+- type: loadout
+  id: SocksHigh
+  equipment:
+    socks: ClothingUnderwearSocksHigh
+
+- type: loadout
+  id: SocksShort
+  equipment:
+    socks: ClothingUnderwearSocksShort
+
+- type: loadout
+  id: SocksPantyhose
+  equipment:
+    socks: ClothingUnderwearSocksPantyhose
+
+- type: loadout
+  id: SocksFishnettights
+  equipment:
+    socks: ClothingUnderwearSocksFishnettights
+
+- type: loadout
+  id: SocksGarters
+  equipment:
+    socks: ClothingUnderwearSocksGarters
+
+- type: loadout
+  id: SocksRich
+  equipment:
+    socks: ClothingUnderwearSocksRich

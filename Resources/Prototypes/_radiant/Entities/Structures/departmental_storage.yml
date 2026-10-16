@@ -213,12 +213,12 @@
   description: Прочный грузовой ящик.
   components:
   - type: Icon
-    sprite: _radiant/Structures/Storage/departmental_crates.rsi
-    state: medicalcrate
+    sprite: _radiant/Structures/Storage/Crates/classic_medical.rsi
+    state: closed
   - type: Sprite
-    sprite: _radiant/Structures/Storage/departmental_crates.rsi
+    sprite: _radiant/Structures/Storage/Crates/classic_medical.rsi
     layers:
-    - state: medicalcrate
+    - state: closed
       map: ["enum.StorageVisualLayers.Base"]
     - state: transparent
       map: ["enum.StorageVisualLayers.Door"]
@@ -229,8 +229,8 @@
       sprite: Structures/Storage/Crates/labels.rsi
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: EntityStorageVisuals
-    stateBaseClosed: medicalcrate
-    stateBaseOpen: medicalcrateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -242,30 +242,31 @@
   description: Прочный запираемый грузовой ящик.
   components:
   - type: Icon
-    sprite: _radiant/Structures/Storage/departmental_crates.rsi
-    state: medical_secure_crate
+    sprite: _radiant/Structures/Storage/Crates/classic_medical_secure.rsi
+    state: closed
   - type: Sprite
-    sprite: _radiant/Structures/Storage/departmental_crates.rsi
+    sprite: _radiant/Structures/Storage/Crates/classic_medical_secure.rsi
     layers:
-    - state: medical_secure_crate
+    - state: closed
       map: ["enum.StorageVisualLayers.Base"]
     - state: transparent
       map: ["enum.StorageVisualLayers.Door"]
     - state: transparent
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
-    - sprite: Structures/Storage/Crates/secure.rsi
-      state: locked
-      offset: "0,0.375"
+    - state: locked
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: LockVisuals
+    stateLocked: locked
+    stateUnlocked: unlocked
   - type: EntityStorageVisuals
-    stateBaseClosed: medical_secure_crate
-    stateBaseOpen: medical_secure_crateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -275,10 +276,13 @@
   name: медицинский ящик
   components:
   - type: Icon
-    state: medicalcrate
+    sprite: _radiant/Structures/Storage/Crates/classic_medical.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/classic_medical.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: medicalcrate
-    stateBaseOpen: medicalcrateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -286,25 +290,6 @@
   id: RadiantDepartmentalClassicSecureCrateHiddenLockBase
   parent: RadiantDepartmentalClassicSecureCrateBase
   abstract: true
-  components:
-  - type: Sprite
-    sprite: _radiant/Structures/Storage/departmental_crates.rsi
-    layers:
-    - state: medical_secure_crate
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: transparent
-      map: ["enum.StorageVisualLayers.Door"]
-    - state: transparent
-      visible: false
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: transparent
-      offset: "0,0.375"
-      map: ["enum.LockVisualLayers.Lock"]
-      shader: unshaded
-    - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
-      offset: "-0.5,0"
-      map: ["enum.PaperLabelVisuals.Layer"]
 
 - type: entity
   parent: RadiantDepartmentalClassicSecureCrateBase
@@ -312,10 +297,13 @@
   name: защищённый медицинский ящик
   components:
   - type: Icon
-    state: medical_secure_crate
+    sprite: _radiant/Structures/Storage/Crates/classic_medical_secure.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/classic_medical_secure.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: medical_secure_crate
-    stateBaseOpen: medical_secure_crateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -325,10 +313,13 @@
   name: научный ящик
   components:
   - type: Icon
-    state: scicrate
+    sprite: _radiant/Structures/Storage/Crates/classic_science.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/classic_science.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: scicrate
-    stateBaseOpen: scicrateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -338,10 +329,13 @@
   name: защищённый научный ящик
   components:
   - type: Icon
-    state: scisecurecrate
+    sprite: _radiant/Structures/Storage/Crates/classic_science_secure.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/classic_science_secure.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: scisecurecrate
-    stateBaseOpen: scisecurecrateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -351,10 +345,13 @@
   name: ящик охранного снаряжения
   components:
   - type: Icon
-    state: secgearcrate
+    sprite: _radiant/Structures/Storage/Crates/classic_security_gear.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/classic_security_gear.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: secgearcrate
-    stateBaseOpen: secgearcrateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -372,10 +369,13 @@
   name: инженерный ящик
   components:
   - type: Icon
-    state: engi_crate
+    sprite: _radiant/Structures/Storage/Crates/classic_engineering.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/classic_engineering.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: engi_crate
-    stateBaseOpen: engi_crateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -385,10 +385,13 @@
   name: защищённый инженерный ящик
   components:
   - type: Icon
-    state: engi_secure_crate
+    sprite: _radiant/Structures/Storage/Crates/classic_engineering_secure.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/classic_engineering_secure.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: engi_secure_crate
-    stateBaseOpen: engi_secure_crateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -400,12 +403,12 @@
   description: Высокий грузовой ящик.
   components:
   - type: Icon
-    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
-    state: engi_crate
+    sprite: _radiant/Structures/Storage/Crates/tall_engineering.rsi
+    state: closed
   - type: Sprite
-    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
+    sprite: _radiant/Structures/Storage/Crates/tall_engineering.rsi
     layers:
-    - state: engi_crate
+    - state: closed
       map: ["enum.StorageVisualLayers.Base"]
     - state: transparent
       map: ["enum.StorageVisualLayers.Door"]
@@ -416,8 +419,8 @@
       sprite: Structures/Storage/Crates/labels.rsi
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: EntityStorageVisuals
-    stateBaseClosed: engi_crate
-    stateBaseOpen: engi_crateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -429,30 +432,31 @@
   description: Высокий запираемый грузовой ящик.
   components:
   - type: Icon
-    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
-    state: secgearcrate
+    sprite: _radiant/Structures/Storage/Crates/tall_security_gear.rsi
+    state: closed
   - type: Sprite
-    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
+    sprite: _radiant/Structures/Storage/Crates/tall_security_gear.rsi
     layers:
-    - state: secgearcrate
+    - state: closed
       map: ["enum.StorageVisualLayers.Base"]
     - state: transparent
       map: ["enum.StorageVisualLayers.Door"]
     - state: transparent
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
-    - sprite: Structures/Storage/Crates/secure.rsi
-      state: locked
-      offset: "0,0.375"
+    - state: locked
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: LockVisuals
+    stateLocked: locked
+    stateUnlocked: unlocked
   - type: EntityStorageVisuals
-    stateBaseClosed: secgearcrate
-    stateBaseOpen: secgearcrateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -462,11 +466,12 @@
   name: высокий ящик электротехники
   components:
   - type: Icon
-    state: engi_e_crate
+    sprite: _radiant/Structures/Storage/Crates/tall_electrical.rsi
+    state: closed
   - type: Sprite
-    sprite: _radiant/Structures/Storage/departmental_tall_crates.rsi
+    sprite: _radiant/Structures/Storage/Crates/tall_electrical.rsi
     layers:
-    - state: engi_e_crate
+    - state: closed
       map: ["enum.StorageVisualLayers.Base"]
     - state: transparent
       map: ["enum.StorageVisualLayers.Door"]
@@ -477,8 +482,8 @@
       sprite: Structures/Storage/Crates/labels.rsi
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: EntityStorageVisuals
-    stateBaseClosed: engi_e_crate
-    stateBaseOpen: engi_e_crateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -488,10 +493,13 @@
   name: высокий инженерный ящик
   components:
   - type: Icon
-    state: engi_crate
+    sprite: _radiant/Structures/Storage/Crates/tall_engineering.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/tall_engineering.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: engi_crate
-    stateBaseOpen: engi_crateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -501,10 +509,13 @@
   name: высокий ящик-холодильник
   components:
   - type: Icon
-    state: freezer
+    sprite: _radiant/Structures/Storage/Crates/tall_freezer.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/tall_freezer.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: freezer
-    stateBaseOpen: freezeropen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
   - type: AntiRottingContainer
@@ -515,10 +526,13 @@
   name: высокий медицинский ящик
   components:
   - type: Icon
-    state: medicalcrate
+    sprite: _radiant/Structures/Storage/Crates/tall_medical.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/tall_medical.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: medicalcrate
-    stateBaseOpen: medicalcrateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -528,10 +542,13 @@
   name: высокий ящик радиационной защиты
   components:
   - type: Icon
-    state: radiation
+    sprite: _radiant/Structures/Storage/Crates/tall_radiation.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/tall_radiation.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: radiation
-    stateBaseOpen: radiationopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 
@@ -541,10 +558,13 @@
   name: высокий ящик охранного снаряжения
   components:
   - type: Icon
-    state: secgearcrate
+    sprite: _radiant/Structures/Storage/Crates/tall_security_gear.rsi
+    state: closed
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/Crates/tall_security_gear.rsi
   - type: EntityStorageVisuals
-    stateBaseClosed: secgearcrate
-    stateBaseOpen: secgearcrateopen
+    stateBaseClosed: closed
+    stateBaseOpen: open
     stateDoorClosed: transparent
     stateDoorOpen: transparent
 

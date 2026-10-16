@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Resources;
@@ -28,9 +29,13 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
 using Robust.Shared.ContentPack;
+using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using YamlDotNet.RepresentationModel;
 
 /// In the name of the Father and the Holy Spirit, have mercy on this panel. Amen
 namespace Content.Client.Interaction.Panel.Ui
@@ -44,7 +49,8 @@ namespace Content.Client.Interaction.Panel.Ui
         [Dependency] private IEntityNetworkManager _entityNetworkManager = default!;
         [Dependency] private IPlayerManager _playerManager = default!;
         [Dependency] private InteractionPanelManager _sharedInteraction = default!;
-        private static List<InteractionPrototype> _importedPrototypes = new(); // Memory
+        [Dependency] private ISerializationManager _serialization = default!;
+        private List<InteractionPrototype> _importedPrototypes = new();
         private readonly List<BoxContainer> _importedButtons = new();
         private readonly List<BoxContainer> _favoriteButtons = new();
         private readonly List<InteractionPrototype> _favoritePrototypes = new();
@@ -58,8 +64,19 @@ namespace Content.Client.Interaction.Panel.Ui
         private ISawmill _sawmill = default!;
         private float _updateDif;
         private string? _panelState;
-        private const float TargetSearchRange = 2f;
+        private const float TargetSearchRange = InteractionTargetSelection.Range;
         private const float TargetUpdateInterval = 0.25f;
+        private EntityUid? _selectedTarget;
+        private readonly List<EntityUid> _targetOptions = new();
+        private string? _targetOptionsState;
+        private readonly Dictionary<CollapsibleHeading, string> _headingTitles = new();
+        private InteractionPanelPreferences _preferences = new();
+        private int _restoreScrollFrames;
+        private bool _fileOperation;
+        private EntityUid? _targetOwner;
+        private bool _invalidPick;
+        public bool PickingTarget => PickTargetButton.Pressed;
+        public Texture TargetPickTexture { get; }
 
         public BoxContainer UserModel => this.FindControl<BoxContainer>("UserSpriteView");
         public BoxContainer TargetModel => this.FindControl<BoxContainer>("TargetSpriteView");
@@ -82,7 +99,13 @@ namespace Content.Client.Interaction.Panel.Ui
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
 
+            var pickRsi = IoCManager.Resolve<IResourceCache>()
+                .GetResource<RSIResource>(new ResPath("/Textures/Interface/Misc/crosshair_pointers.rsi")).RSI;
+            TargetPickTexture = pickRsi["gun_sight"].GetFrame(RsiDirection.South, 0);
+            PickTargetIcon.Texture = TargetPickTexture;
+
             _sawmill = Logger.GetSawmill("interaction_import");
+            LoadCustomActions();
             LoadFavorites();
 
             _userSpriteView = CreateSpriteView();
@@ -101,7 +124,13 @@ namespace Content.Client.Interaction.Panel.Ui
             var constructorButton = FindControl<Button>("ConstructorButton");
 
             importButton.OnButtonUp += _ => HandleImport();
+            ExportButton.OnButtonUp += _ => HandleExport(_importedPrototypes.ToArray());
             constructorButton.OnButtonUp += _ => HandleConstructor();
+            PickTargetButton.OnToggled += _ =>
+            {
+                _invalidPick = false;
+                UpdateTarget();
+            };
             ManagementButton.OnToggled += _ => ManagementPanel.Visible = ManagementButton.Pressed;
             ClearSearchButton.OnButtonUp += _ =>
             {
@@ -111,13 +140,22 @@ namespace Content.Client.Interaction.Panel.Ui
 
             SearchBar.OnTextChanged += OnSearchTextChanged;
             FavoritesOnlyButton.OnToggled += _ => UpdateButtonsVisibility();
-            AvailableOnlyCheckBox.OnToggled += _ => UpdateButtonsVisibility();
+            TargetPicker.OnItemSelected += args =>
+            {
+                if (args.Id < 0 || args.Id > _targetOptions.Count)
+                    return;
+                _selectedTarget = args.Id == 0 ? null : _targetOptions[args.Id - 1];
+                TargetPicker.SelectId(args.Id);
+                PopulateInteractions();
+                UpdateTarget();
+            };
 
             SoloModeCheckBox.Pressed = _soloModeEnabled;
             HideFromOthersCheckBox.Pressed = _hideFromOthersEnabled;
             SoloModeCheckBox.OnToggled += _ =>
             {
                 _soloModeEnabled = SoloModeCheckBox.Pressed;
+                PickTargetButton.Pressed = false;
                 OnSoloModeToggled();
             };
             HideFromOthersCheckBox.OnToggled += _ => _hideFromOthersEnabled = HideFromOthersCheckBox.Pressed;
@@ -143,11 +181,19 @@ namespace Content.Client.Interaction.Panel.Ui
 
             PopulateInteractions();
             UpdateTarget();
+            LoadPanelPreferences();
+            OnClose += () =>
+            {
+                PickTargetButton.Pressed = false;
+                SavePanelPreferences();
+            };
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
         {
             base.FrameUpdate(args);
+            if (_restoreScrollFrames > 0 && --_restoreScrollFrames == 0)
+                Scroll.SetScrollValue(new Vector2(0, _preferences.Scroll));
 
             var session = _playerManager.LocalSession;
             if (session?.AttachedEntity is { } user && IsErpDenied(user))
@@ -212,6 +258,8 @@ namespace Content.Client.Interaction.Panel.Ui
 
         private void OnUserStatusChanged(object? sender, SessionStatusEventArgs e)
         {
+            if (e.Session != _playerManager.LocalSession)
+                return;
             if (e.Session.AttachedEntity.HasValue)
             {
                 UpdateUser(e.Session.AttachedEntity.Value);
@@ -283,6 +331,7 @@ namespace Content.Client.Interaction.Panel.Ui
 
         private void SetupHeading(CollapsibleHeading heading)
         {
+            _headingTitles[heading] = heading.Label.Text ?? string.Empty;
             heading.AddStyleClass(ContainerButton.StyleClassButton);
             heading.Label.HorizontalAlignment = HAlignment.Left;
             heading.Label.HorizontalExpand = true;
@@ -308,9 +357,10 @@ namespace Content.Client.Interaction.Panel.Ui
 
         public void UpdateAppendageHeading(string species)
         {
-            TailHeading.Label.Text = Loc.GetString(species.Equals("SlimePerson", StringComparison.OrdinalIgnoreCase)
+            _headingTitles[TailHeading] = Loc.GetString(species.Equals("SlimePerson", StringComparison.OrdinalIgnoreCase)
                 ? "interaction-panel-slime-collapsible"
                 : "interaction-panel-tail-collapsible");
+            TailHeading.Label.Text = $"{_headingTitles[TailHeading]} ({TailContainer.ChildCount})";
         }
         #endregion
 
@@ -321,56 +371,96 @@ namespace Content.Client.Interaction.Panel.Ui
             if (session?.AttachedEntity is not { } uid ||
                 !_entManager.TryGetComponent<ArousalComponent>(uid, out var arousal))
             {
-                ArousalBar.Visible = false;
+                ArousalContainer.Visible = false;
                 ArousalBar.Value = 0;
                 return;
             }
 
-            ArousalBar.Visible = true;
+            ArousalContainer.Visible = true;
             var frac = arousal.MaxArousal > 0f
                 ? Math.Clamp(arousal.CurrentArousal / arousal.MaxArousal, 0f, 1f)
                 : 0f;
             ArousalBar.Value = frac;
+            ArousalValue.Text = $"{MathF.Round(frac * 100)}%";
         }
 
-        /// <summary>
-        /// Whoever is reading this, shut the fuck down if there are problems with downloading.
-        /// It's not worth it, they'll decide later. BE PATIENT.
-        /// </summary>
         private async void HandleImport()
         {
-            await using var file = await _dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
-
-            if (file == null)
+            if (_fileOperation)
                 return;
-
+            SetFileOperation(true);
             try
             {
-                var prototypes = _sharedInteraction.FromStream(file);
-                if (!prototypes.Any())
+                await using var file = await _dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml", "yaml")));
+                if (file == null || Disposed)
                     return;
-
-                _importedButtons.Clear();
-                _importedPrototypes.Clear();
-                SpecialContainer.RemoveAllChildren();
-
-                foreach (var prototype in prototypes)
-                {
-                    if (prototype is not InteractionPrototype interactionPrototype)
-                        continue;
-
-                    if (_allButtons.Any(b => b.Children.OfType<Button>().Any(btn => btn.Name == interactionPrototype.ID)))
-                        continue;
-
-                    _importedPrototypes.Add(interactionPrototype);
-                }
-
-                PopulateInteractions();
+                var prototypes = _sharedInteraction.FromStream(file);
+                var merged = InteractionCustomActions.Merge(_importedPrototypes, prototypes,
+                    id => _prototypeManager.HasIndex<InteractionPrototype>(id), out var added, out var updated, out var skipped);
+                CommitCustomActions(merged);
+                SetFileStatus(Loc.GetString("interaction-panel-import-result", ("added", added), ("updated", updated), ("skipped", skipped)));
             }
             catch (Exception exc)
             {
-                _sawmill.Error($"Error when importing buttons\n{exc.StackTrace}");
+                _sawmill.Warning($"Could not import custom interactions: {exc.Message}");
+                SetFileError("interaction-panel-import-failed", exc);
             }
+            finally { SetFileOperation(false); }
+        }
+
+        private async void HandleExport(InteractionPrototype[] actions)
+        {
+            if (_fileOperation || actions.Length == 0)
+                return;
+            SetFileOperation(true);
+            try
+            {
+                var yaml = SerializeActions(actions);
+                var file = await _dialogManager.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml", "yaml")));
+                if (file == null)
+                    return;
+                await using var stream = file.Value.fileStream;
+                if (Disposed)
+                    return;
+                await using var writer = new StreamWriter(stream, EncodingHelpers.UTF8);
+                await writer.WriteAsync(yaml);
+                await writer.FlushAsync();
+                SetFileStatus(Loc.GetString("interaction-panel-export-result", ("count", actions.Length)));
+            }
+            catch (Exception exc)
+            {
+                _sawmill.Warning($"Could not export custom interactions: {exc.Message}");
+                SetFileStatus(Loc.GetString("interaction-panel-export-failed"));
+            }
+            finally { SetFileOperation(false); }
+        }
+
+        private void SetFileOperation(bool busy)
+        {
+            _fileOperation = busy;
+            if (Disposed)
+                return;
+            ImportButton.Disabled = busy;
+            ExportButton.Disabled = busy || _importedPrototypes.Count == 0;
+        }
+
+        private void SetFileStatus(string message)
+        {
+            if (Disposed)
+                return;
+            FileStatus.Text = message;
+            FileStatus.ToolTip = message;
+            FileStatus.Visible = true;
+            ManagementButton.Pressed = true;
+            ManagementPanel.Visible = true;
+        }
+
+        private void SetFileError(string message, Exception error)
+        {
+            var text = Loc.GetString(message);
+            if (error is InvalidDataException && Loc.TryGetString(error.Message, out var reason))
+                text += " " + reason;
+            SetFileStatus(text);
         }
 
         private void HandleConstructor()
@@ -380,38 +470,37 @@ namespace Content.Client.Interaction.Panel.Ui
 
         public void HandleAddConstructor(InteractionPrototype prototype)
         {
-            _importedPrototypes.Add(prototype);
-            PopulateInteractions();
+            HandleAddEdit(prototype);
         }
 
         public void HandleAddEdit(InteractionPrototype prototype)
         {
-            var existingPrototype = _importedPrototypes.FirstOrDefault(p => p.ID == prototype.ID);
-            if (existingPrototype != null)
+            try
             {
-                _importedPrototypes.Remove(existingPrototype);
+                var merged = InteractionCustomActions.Merge(_importedPrototypes, new[] { prototype },
+                    id => _prototypeManager.HasIndex<InteractionPrototype>(id), out _, out _, out _);
+                CommitCustomActions(merged);
             }
-
-            _importedPrototypes.Add(prototype);
-            PopulateInteractions();
+            catch (Exception e)
+            {
+                _sawmill.Warning($"Could not save custom interaction: {e.Message}");
+                SetFileError("interaction-panel-save-failed", e);
+            }
         }
 
         public void HandleDeleteEdit(InteractionPrototype prototype)
         {
-            var existingPrototype = _importedPrototypes.FirstOrDefault(p => p.ID == prototype.ID);
-            if (existingPrototype != null)
+            try
             {
-                _importedPrototypes.Remove(existingPrototype);
+                CommitCustomActions(_importedPrototypes.Where(action => action.ID != prototype.ID).ToList());
+                _favorites.Remove(prototype.ID);
+                SaveFavorites();
             }
-
-            if (!_importedPrototypes.Any())
+            catch (Exception e)
             {
-                _importedButtons.Clear();
-                _importedPrototypes.Clear();
-                SpecialContainer.RemoveAllChildren();
+                _sawmill.Warning($"Could not delete custom interaction: {e.Message}");
+                SetFileError("interaction-panel-save-failed", e);
             }
-
-            PopulateInteractions();
         }
 
         private void OnPinPressed(InteractionPrototype prototype)
@@ -448,39 +537,98 @@ namespace Content.Client.Interaction.Panel.Ui
 
         private void UpdateTarget()
         {
-            _targetSpriteView.RemoveAllChildren();
-
             var session = _playerManager.LocalSession;
             if (session?.AttachedEntity == null)
             {
                 TargetCard.Visible = false;
+                TargetPicker.Disabled = true;
+                _targetSpriteView.SetEntity(EntityUid.Invalid);
+                _targetLabel.Text = Loc.GetString("interaction-panel-no-partner");
+                _targetGenderLabel.Text = string.Empty;
+                PartnerStatus.Text = string.Empty;
+                PartnerDistance.Text = string.Empty;
+                PickTargetButton.Disabled = true;
+                PickTargetButton.Pressed = false;
                 return;
             }
 
             var user = session.AttachedEntity.Value;
-            var target = GetInteractionTarget(user);
-            TargetCard.Visible = target.HasValue;
-
-            if (target.HasValue)
+            if (_targetOwner != user)
             {
-                _targetSpriteView.SetEntity(target.Value);
+                _targetOwner = user;
+                _selectedTarget = null;
+                PickTargetButton.Pressed = false;
+            }
+            UpdateTargetPicker(user);
+            PickTargetButton.Disabled = SoloModeCheckBox.Pressed;
+            var target = SoloModeCheckBox.Pressed ? null : _selectedTarget ?? GetInteractionTarget(user);
+            var availableTarget = target is { } uid && _entManager.EntityExists(uid);
+            TargetCard.Visible = !SoloModeCheckBox.Pressed && (availableTarget || _selectedTarget.HasValue);
+            var coordinates = availableTarget ? _transform.GetMapCoordinates(target!.Value) : (Robust.Shared.Map.MapCoordinates?) null;
+            var source = _transform.GetMapCoordinates(user);
+            var status = InteractionTargetSelection.Status(source, coordinates,
+                availableTarget && IsValidInteractionTarget(target!.Value),
+                availableTarget && _interaction.InRangeUnobstructed(user, target!.Value, range: TargetSearchRange,
+                    collisionMask: Content.Shared.Physics.CollisionGroup.Impassable, popup: false));
+            var statusKey = status switch
+            {
+                InteractionTargetStatus.Ready => "interaction-panel-partner-ready",
+                InteractionTargetStatus.TooFar => "interaction-panel-partner-far",
+                InteractionTargetStatus.Obstructed => "interaction-panel-partner-obstructed",
+                _ => _selectedTarget.HasValue ? "interaction-panel-partner-unavailable" : "interaction-panel-partner-empty"
+            };
+            PartnerStatus.Text = Loc.GetString(PickingTarget ? _invalidPick ? "interaction-panel-pick-invalid" : "interaction-panel-picking-target" : SoloModeCheckBox.Pressed
+                ? "interaction-panel-partner-solo"
+                : statusKey);
+            PartnerStatus.ToolTip = PartnerStatus.Text;
+            PartnerDistance.Text = coordinates is { } position && source.MapId == position.MapId && source.MapId != Robust.Shared.Map.MapId.Nullspace
+                ? Loc.GetString("interaction-panel-partner-distance", ("distance", Math.Round((position.Position - source.Position).Length(), 1)))
+                : string.Empty;
 
-                _targetLabel.Text = Identity.Name(target.Value, _entManager, session.AttachedEntity);
+            if (availableTarget && target is { } shownTarget)
+            {
+                _targetSpriteView.SetEntity(shownTarget);
+
+                _targetLabel.Text = Identity.Name(shownTarget, _entManager, session.AttachedEntity);
                 _targetLabel.ToolTip = _targetLabel.Text;
 
-                var appearanceComponent = _entManager.GetComponentOrNull<HumanoidAppearanceComponent>(target.Value);
-                UpdateGender(target.Value, appearanceComponent, _targetGenderLabel);
+                var appearanceComponent = _entManager.GetComponentOrNull<HumanoidAppearanceComponent>(shownTarget);
+                UpdateGender(shownTarget, appearanceComponent, _targetGenderLabel);
             }
             else
             {
                 _targetSpriteView.SetEntity(EntityUid.Invalid);
                 _targetGenderLabel.Text = "";
-                _targetLabel.Text = "";
+                _targetLabel.Text = _selectedTarget is { } selected && _entManager.EntityExists(selected)
+                    ? Identity.Name(selected, _entManager, user)
+                    : Loc.GetString("interaction-panel-no-partner");
+                _targetLabel.ToolTip = _targetLabel.Text;
 
                 _targetGenderLabel.Orphan();
                 TargetModel.AddChild(_targetGenderLabel);
             }
         }
+
+        public bool TryPickTarget(EntityUid target)
+        {
+            if (_playerManager.LocalSession?.AttachedEntity is not { } user || target == user
+                || !_entManager.EntityExists(target) || !IsValidInteractionTarget(target)
+                || _transform.GetMapCoordinates(user).MapId != _transform.GetMapCoordinates(target).MapId)
+            {
+                _invalidPick = true;
+                UpdateTarget();
+                return false;
+            }
+            _selectedTarget = target;
+            _targetOwner = user;
+            PickTargetButton.Pressed = false;
+            InitializeNamesContainer();
+            UpdateTarget();
+            PopulateInteractions();
+            return true;
+        }
+
+        public void CancelTargetPicking() => PickTargetButton.Pressed = false;
 
         private void UpdateGender(EntityUid entity, HumanoidAppearanceComponent? appearanceComponent, Label genderLabel)
         {
@@ -572,7 +720,9 @@ namespace Content.Client.Interaction.Panel.Ui
             if (anatomy.HasVagina)
                 parts.Add(Loc.GetString($"adult-anatomy-vagina{suffix}"));
             if (anatomy.HasBreasts)
-                parts.Add(Loc.GetString($"adult-anatomy-breasts{suffix}", ("size", Loc.GetString($"adult-anatomy-size-{anatomy.BreastSize.ToString().ToLowerInvariant()}"))));
+                parts.Add(anatomy.BreastSizeSurgicallyChanged
+                    ? Loc.GetString($"adult-anatomy-breasts{suffix}", ("size", Loc.GetString($"adult-anatomy-size-{anatomy.BreastSize.ToString().ToLowerInvariant()}")))
+                    : Loc.GetString($"adult-anatomy-breasts-unsized{suffix}"));
 
             text = string.Join("\n", parts);
             return true;
@@ -615,7 +765,7 @@ namespace Content.Client.Interaction.Panel.Ui
                     else if (_importedPrototypes.FirstOrDefault(p => p.ID == button.Name) is { } imported)
                         availabilityChanged |= ApplyAvailability(button, imported, user, target);
                 }
-                if (availabilityChanged && AvailableOnlyCheckBox.Pressed)
+                if (availabilityChanged)
                     UpdateButtonsVisibility();
                 return;
             }
@@ -696,9 +846,20 @@ namespace Content.Client.Interaction.Panel.Ui
 
                 foreach (var interactionPrototype in SortInteractions(_importedPrototypes))
                 {
-                    var editorButton = new Button { Text = Loc.GetString(interactionPrototype.Name), MinHeight = 32 };
+                    var editorButton = new Button { Text = ActionName(interactionPrototype), MinHeight = 32, HorizontalExpand = true, ClipText = true };
                     editorButton.OnButtonUp += _ => OnEditorPressed(interactionPrototype);
-                    EditorsContainer.AddChild(editorButton);
+                    var editorRow = new BoxContainer { SeparationOverride = 4 };
+                    editorRow.AddChild(editorButton);
+                    var export = new Button { SetSize = new Vector2(32, 32), ToolTip = Loc.GetString("interaction-panel-export-one") };
+                    export.AddChild(new TextureRect
+                    {
+                        TexturePath = "/Textures/Interface/VerbIcons/eject.svg.192dpi.png",
+                        SetSize = new Vector2(18, 18), Stretch = TextureRect.StretchMode.KeepAspectCentered,
+                        MouseFilter = MouseFilterMode.Ignore
+                    });
+                    export.OnButtonUp += _ => HandleExport(new[] { interactionPrototype });
+                    editorRow.AddChild(export);
+                    EditorsContainer.AddChild(editorRow);
                     if (!IsInteractionVisible(interactionPrototype, appearanceComponent, target))
                         continue;
 
@@ -714,7 +875,7 @@ namespace Content.Client.Interaction.Panel.Ui
 
                     var button = new Button
                     {
-                        Text = Loc.GetString(interactionPrototype.Name),
+                        Text = ActionName(interactionPrototype),
                         Name = interactionPrototype.ID,
                         ClipText = true,
                         HorizontalExpand = true,
@@ -777,7 +938,7 @@ namespace Content.Client.Interaction.Panel.Ui
 
                     var button = new Button
                     {
-                        Text = Loc.GetString(interactionPrototype.Name),
+                        Text = ActionName(interactionPrototype),
                         Name = interactionPrototype.ID,
                         ClipText = true,
                         HorizontalExpand = true,
@@ -825,13 +986,13 @@ namespace Content.Client.Interaction.Panel.Ui
             }
 
             UpdateButtonsVisibility();
+            SetFileOperation(_fileOperation);
         }
 
         protected override void Opened()
         {
             base.Opened();
-            foreach (var group in InteractionContainer.Children.OfType<Collapsible>())
-                group.BodyVisible = false;
+            _restoreScrollFrames = 2;
         }
 
         private void OnSearchTextChanged(LineEdit.LineEditEventArgs args)
@@ -841,6 +1002,7 @@ namespace Content.Client.Interaction.Panel.Ui
 
         private void UpdateButtonsVisibility()
         {
+            var previousScroll = Scroll.VScroll;
             var searchText = SearchBar.Text.Trim().ToLowerInvariant();
             ClearSearchButton.Disabled = SearchBar.Text.Length == 0;
 
@@ -901,17 +1063,27 @@ namespace Content.Client.Interaction.Panel.Ui
                 .Distinct().Count();
             SearchResults.Text = Loc.GetString("interaction-panel-search-results", ("count", count));
             EmptyResults.Visible = count == 0;
+            EmptyResults.Text = Loc.GetString(searchText.Length == 0
+                ? "interaction-panel-empty-available"
+                : "interaction-panel-search-empty");
             foreach (var group in InteractionContainer.Children.OfType<Collapsible>())
             {
                 var content = group.Children.OfType<CollapsibleBody>().First()
                     .Children.OfType<BoxContainer>().First();
                 group.Visible = content.ChildCount > 0;
+                var heading = group.Children.OfType<CollapsibleHeading>().First();
+                heading.Label.Text = $"{_headingTitles[heading]} ({content.ChildCount})";
             }
+            _preferences.Scroll = previousScroll;
+            _restoreScrollFrames = 2;
         }
+
+        private static string ActionName(InteractionPrototype action)
+            => Loc.TryGetString(action.Name, out var translated) ? translated : action.Name;
 
         private bool MatchesFilters(Button button, string searchText)
         {
-            return (!AvailableOnlyCheckBox.Pressed || !button.Disabled)
+            return !button.Disabled
                    && (searchText.Length == 0 || button.Text?.ToLowerInvariant().Contains(searchText) == true);
         }
 
@@ -926,38 +1098,60 @@ namespace Content.Client.Interaction.Panel.Ui
             if (SoloModeCheckBox.Pressed)
                 return null;
 
-            return FindTarget(user);
+            return InteractionTargetSelection.Resolve(_selectedTarget, FindTargets(user));
         }
 
-        private EntityUid? FindTarget(EntityUid user)
+        private void UpdateTargetPicker(EntityUid user)
+        {
+            TargetPicker.Disabled = SoloModeCheckBox.Pressed;
+            var targets = FindTargets(user).OrderBy(entity => entity.Id).ToList();
+            // Keep a missing manual selection visible so returning to automatic is explicit.
+            if (_selectedTarget is { } selected && !targets.Contains(selected))
+                targets.Add(selected);
+            var names = targets.Select(entity => _entManager.EntityExists(entity)
+                ? Identity.Name(entity, _entManager, user)
+                : Loc.GetString("interaction-panel-no-partner")).ToList();
+            var state = $"{_selectedTarget}:" + string.Join("\n", targets.Select((entity, index) => $"{entity}:{names[index]}"));
+            if (_targetOptionsState == state)
+                return;
+
+            _targetOptionsState = state;
+            _targetOptions.Clear();
+            _targetOptions.AddRange(targets);
+            TargetPicker.Clear();
+            TargetPicker.AddItem(Loc.GetString("interaction-panel-partner-auto"), 0);
+            for (var i = 0; i < targets.Count; i++)
+                TargetPicker.AddItem(names[i], i + 1);
+            TargetPicker.SelectId(_selectedTarget is { } partner ? targets.IndexOf(partner) + 1 : 0);
+        }
+
+        private List<EntityUid> FindTargets(EntityUid user)
         {
             if (!_entManager.TryGetComponent<TransformComponent>(user, out var sourceTransform))
-                return null;
+                return new List<EntityUid>();
 
-            EntityUid? bestTarget = null;
-            var bestDistance = float.MaxValue;
+            var source = _transform.GetMapCoordinates(user, sourceTransform);
+            var candidates = new HashSet<EntityUid>();
 
             void Consider(EntityUid candidate)
             {
                 if (candidate == user || !IsValidInteractionTarget(candidate))
                     return;
 
-                var distance = (_transform.GetWorldPosition(user) - _transform.GetWorldPosition(candidate)).LengthSquared();
-                // Prefer reachable partners, but retain a nearby unavailable candidate for explanations.
-                if (!_interaction.InRangeUnobstructed(user, candidate, range: TargetSearchRange,
-                        collisionMask: Content.Shared.Physics.CollisionGroup.Impassable, popup: false))
-                    distance += 1000;
-                if (distance >= bestDistance)
+                if (!InteractionTargetSelection.InRange(source, _transform.GetMapCoordinates(candidate)))
                     return;
 
-                bestDistance = distance;
-                bestTarget = candidate;
+                if (!_interaction.InRangeUnobstructed(user, candidate, range: TargetSearchRange,
+                        collisionMask: Content.Shared.Physics.CollisionGroup.Impassable, popup: false))
+                    return;
+
+                candidates.Add(candidate);
             }
 
-            foreach (var entity in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(sourceTransform.Coordinates, TargetSearchRange * 3))
+            foreach (var entity in _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(sourceTransform.Coordinates, TargetSearchRange))
                 Consider(entity.Owner);
 
-            foreach (var strapEntity in _lookup.GetEntitiesInRange<StrapComponent>(sourceTransform.Coordinates, TargetSearchRange * 3))
+            foreach (var strapEntity in _lookup.GetEntitiesInRange<StrapComponent>(sourceTransform.Coordinates, TargetSearchRange))
             {
                 if (!_entManager.TryGetComponent<StrapComponent>(strapEntity.Owner, out var strapComponent))
                     continue;
@@ -966,7 +1160,8 @@ namespace Content.Client.Interaction.Panel.Ui
                     Consider(buckledEntity);
             }
 
-            return bestTarget;
+            return candidates.OrderBy(entity => (source.Position - _transform.GetWorldPosition(entity)).LengthSquared())
+                .ThenBy(entity => entity.Id).ToList();
         }
 
         private bool IsValidInteractionTarget(EntityUid entity)
@@ -1019,8 +1214,8 @@ namespace Content.Client.Interaction.Panel.Ui
                     return erp;
 
                 var name = string.Compare(
-                    Loc.GetString(a.Name),
-                    Loc.GetString(b.Name),
+                    ActionName(a),
+                    ActionName(b),
                     StringComparison.CurrentCultureIgnoreCase);
                 if (name != 0)
                     return name;
@@ -1053,6 +1248,99 @@ namespace Content.Client.Interaction.Panel.Ui
 
         #region Logic
         private static readonly ResPath FavoritesPath = new("/interaction-panel-favorites.txt");
+        private static readonly ResPath CustomActionsPath = new("/interaction-panel-actions.yml");
+        private static readonly ResPath PanelPreferencesPath = new("/interaction-panel-window.yml");
+
+        private string SerializeActions(IEnumerable<InteractionPrototype> actions)
+        {
+            using var writer = new StringWriter();
+            _sharedInteraction.ToDataNode(actions).Write(writer);
+            var text = writer.ToString();
+            if (EncodingHelpers.UTF8.GetByteCount(text) > InteractionPanelManager.MaxFileBytes)
+                throw new InvalidDataException("interaction-panel-file-too-large");
+            return text;
+        }
+
+        private void CommitCustomActions(List<InteractionPrototype> actions)
+        {
+            var resources = IoCManager.Resolve<IResourceCache>();
+            ValidateActionIcons(actions);
+            var text = actions.Count == 0 ? "version: 1\nactions: []\n" : SerializeActions(actions);
+            InteractionPanelStorage.Write(resources.UserData, CustomActionsPath, text);
+            _importedPrototypes = actions;
+            PopulateInteractions();
+        }
+
+        private static void ValidateActionIcons(IEnumerable<InteractionPrototype> actions)
+        {
+            var resources = IoCManager.Resolve<IResourceCache>();
+            foreach (var action in actions)
+            {
+                if (string.IsNullOrEmpty(action.Icon))
+                    continue;
+                var icon = action.Icon.StartsWith('/') ? action.Icon : "/Textures/" + action.Icon;
+                if (!resources.TryGetResource<TextureResource>(new ResPath(icon), out _))
+                    throw new InvalidDataException("interaction-panel-file-icon");
+            }
+        }
+
+        private void LoadCustomActions()
+        {
+            try
+            {
+                var resources = IoCManager.Resolve<IResourceCache>();
+                if (!resources.UserData.Exists(CustomActionsPath))
+                    return;
+                using var stream = resources.UserData.OpenRead(CustomActionsPath);
+                var actions = _sharedInteraction.FromStream(stream);
+                ValidateActionIcons(actions);
+                _importedPrototypes = InteractionCustomActions.Merge(Array.Empty<InteractionPrototype>(), actions,
+                    id => _prototypeManager.HasIndex<InteractionPrototype>(id), out _, out _, out _);
+            }
+            catch (Exception e)
+            {
+                _sawmill.Warning($"Could not load custom interactions: {e.Message}");
+                SetFileStatus(Loc.GetString("interaction-panel-load-failed"));
+            }
+        }
+
+        private void LoadPanelPreferences()
+        {
+            try
+            {
+                var resources = IoCManager.Resolve<IResourceCache>();
+                if (!resources.UserData.TryReadAllText(PanelPreferencesPath, out var text) || text.Length > 8192)
+                    return;
+                var yaml = new YamlStream();
+                using var reader = new StringReader(text);
+                yaml.Load(reader);
+                if (yaml.Documents.Count != 1)
+                    return;
+                _preferences = _serialization.Read<InteractionPanelPreferences>(yaml.Documents[0].RootNode.ToDataNode(), notNullableOverride: true);
+                _preferences.Sanitize();
+                SetSize = _preferences.WindowSize;
+                foreach (var group in InteractionContainer.Children.OfType<Collapsible>())
+                    group.BodyVisible = _preferences.Expanded.Contains(group.Children.OfType<CollapsibleHeading>().First().Name!);
+                _restoreScrollFrames = 2;
+            }
+            catch (Exception e) { _sawmill.Warning($"Could not load interaction window settings: {e.Message}"); }
+        }
+
+        private void SavePanelPreferences()
+        {
+            try
+            {
+                _preferences.WindowSize = Size;
+                _preferences.Scroll = Scroll.VScroll;
+                _preferences.Expanded = InteractionContainer.Children.OfType<Collapsible>().Where(group => group.BodyVisible)
+                    .Select(group => group.Children.OfType<CollapsibleHeading>().First().Name!).ToList();
+                _preferences.Sanitize();
+                using var writer = new StringWriter();
+                _serialization.WriteValue(_preferences, notNullableOverride: true).Write(writer);
+                InteractionPanelStorage.Write(IoCManager.Resolve<IResourceCache>().UserData, PanelPreferencesPath, writer.ToString());
+            }
+            catch (Exception e) { _sawmill.Warning($"Could not save interaction window settings: {e.Message}"); }
+        }
 
         private void LoadFavorites()
         {
@@ -1171,6 +1459,10 @@ namespace Content.Client.Interaction.Panel.Ui
 
         private bool IsUserAnatomyAllowed(InteractionPrototype prototype, HumanoidAppearanceComponent appearance)
         {
+            if (_playerManager.LocalSession?.AttachedEntity is not { } user
+                || !_entManager.System<InteractionBodyFeatureSystem>()
+                    .HasRequiredFeatures(user, prototype.UserRequiredBodyFeatures))
+                return false;
             var genders = prototype.AllowedGenders;
             if (genders?.Contains("all") == true)
                 return true;
@@ -1188,6 +1480,9 @@ namespace Content.Client.Interaction.Panel.Ui
 
         private bool IsTargetAnatomyAllowed(InteractionPrototype prototype, HumanoidAppearanceComponent appearance, EntityUid uid)
         {
+            if (!_entManager.System<InteractionBodyFeatureSystem>()
+                    .HasRequiredFeatures(uid, prototype.TargetRequiredBodyFeatures))
+                return false;
             var genders = prototype.NearestAllowedGenders;
             if (genders?.Contains("all") == true)
                 return true;

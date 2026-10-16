@@ -1,0 +1,7 @@
+- type: entity
+  parent: NFBlueprintEngineering
+  id: CareerEngineeringRCDAmmoBlueprint
+  name: shipyard RCD cartridge blueprint
+  components:
+  - type: Blueprint
+    providedRecipes: [ShipyardRCDAmmo]

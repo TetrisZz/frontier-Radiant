@@ -3,6 +3,7 @@
 # Ears Markings
 - type: marking
   id: HarpyWingDefaultHuescale
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -20,6 +21,7 @@
 
 - type: marking
   id: HarpyWingDefaultWhitescale
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -37,6 +39,7 @@
 
 - type: marking
   id: HarpyWingClassic
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -54,6 +57,7 @@
 
 - type: marking
   id: HarpyWingFoldedHuescale
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -71,6 +75,7 @@
 
 - type: marking
   id: HarpyWingFoldedWhitescale
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -88,6 +93,7 @@
 
 - type: marking
   id: HarpyWingOwlHuescale
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -105,6 +111,7 @@
 
 - type: marking
   id: HarpyWingOwlWhitescale
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -122,6 +129,7 @@
 
 - type: marking
   id: HarpyEarsLarge
+  bodyFeatures: [Ears, Feathers]
   bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Harpy]
@@ -139,6 +147,7 @@
 
 - type: marking
   id: HarpyTailForkedWhitescale
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -155,6 +164,7 @@
 
 - type: marking
   id: HarpyTailForkedHuescale
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -171,6 +181,7 @@
 
 - type: marking
   id: HarpyTailPeacock
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -189,6 +200,7 @@
 
 - type: marking
   id: HarpyTailHaven
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -207,6 +219,7 @@
 
 - type: marking
   id: HarpyTailForkedLong
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -223,6 +236,7 @@
 
 - type: marking
   id: HarpyTailSwallow
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -239,6 +253,7 @@
 
 - type: marking
   id: HarpyWing2ToneClassic
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -250,6 +265,7 @@
 
 - type: marking
   id: HarpyWing3ToneClassic
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -263,6 +279,7 @@
 
 - type: marking
   id: HarpyWingSpeckledClassic
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -274,6 +291,7 @@
 
 - type: marking
   id: HarpyWingUndertoneClassic
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -285,6 +303,7 @@
 
 - type: marking
   id: HarpyWingTipsClassic
+  bodyFeatures: [Wings, Feathers]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -296,6 +315,7 @@
 
 - type: marking
   id: HarpyWingBat
+  bodyFeatures: [Wings]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]
@@ -307,6 +327,7 @@
 
 - type: marking
   id: HarpyWingBionic
+  bodyFeatures: [Wings]
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms
   speciesRestriction: [Harpy]

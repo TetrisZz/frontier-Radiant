@@ -10,6 +10,10 @@ public sealed class PhotoCardBoundUserInterface : BoundUserInterface
 
     public PhotoCardBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
+    }
+
+    protected override void Open()
+    {
         base.Open();
 
         _window = this.CreateWindow<PhotoCardWindow>();
@@ -26,8 +30,4 @@ public sealed class PhotoCardBoundUserInterface : BoundUserInterface
         _window.ShowImage(cast.ImageData);
     }
 
-    protected override void Dispose(bool disposing)
-    {
-        base.Dispose(disposing);
-    }
 }

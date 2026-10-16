@@ -23,8 +23,8 @@ public sealed class GeneticModificationTest
     [Test]
     public async Task ResearchSynthesisPersonalizationAdaptationAndRemoval()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var em = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {

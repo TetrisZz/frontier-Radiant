@@ -9,6 +9,8 @@ namespace Content.Shared._CorvaxGoob.Photo;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PhotoCameraComponent : Component
 {
+    public const string CaptureDelayId = "photo";
+
     [DataField]
     public Vector2 ViewBox = new Vector2(5, 5);
     [DataField]
@@ -60,6 +62,8 @@ public enum PhotoCameraUiKey : byte
 [Serializable, NetSerializable]
 public sealed class PhotoCameraTakeImageMessage : BoundUserInterfaceMessage
 {
+    public const int MaxImageBytes = 96 * 1024;
+
     public byte[] Data { get; }
     public MapCoordinates PhotoPosition { get; }
     public float Zoom { get; }

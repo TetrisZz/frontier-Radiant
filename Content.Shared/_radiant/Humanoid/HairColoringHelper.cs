@@ -20,6 +20,16 @@ public static class HairColoringHelper
                && markingManager.MustMatchColor(species, layer, out _, proto) == null;
     }
 
+    public static bool CanUseHairGradient(
+        string species,
+        HumanoidVisualLayers layer,
+        MarkingManager markingManager,
+        IPrototypeManager proto)
+    {
+        return layer is HumanoidVisualLayers.Hair or HumanoidVisualLayers.FacialHair
+               && markingManager.MustMatchColor(species, layer, out _, proto) == null;
+    }
+
     public static Color ResolvePrimaryColor(
         HumanoidCharacterAppearance appearance,
         string species,
@@ -112,6 +122,18 @@ public static class HairColoringHelper
         humanoid.FacialHairColoringMode = appearance.FacialHairColoringMode;
         humanoid.FacialHairGradientColor = appearance.FacialHairGradientColor;
         humanoid.FacialHairGradientDirection = appearance.FacialHairGradientDirection;
+    }
+
+    public static void CopyGradientSettingsToComponent(
+        HumanoidAppearanceComponent source,
+        HumanoidAppearanceComponent target)
+    {
+        target.HairColoringMode = source.HairColoringMode;
+        target.HairGradientColor = source.HairGradientColor;
+        target.HairGradientDirection = source.HairGradientDirection;
+        target.FacialHairColoringMode = source.FacialHairColoringMode;
+        target.FacialHairGradientColor = source.FacialHairGradientColor;
+        target.FacialHairGradientDirection = source.FacialHairGradientDirection;
     }
 
     private static bool ShouldReverseForLayers(HairGradientDirection direction)

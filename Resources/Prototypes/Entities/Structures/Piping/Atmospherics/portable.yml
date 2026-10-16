@@ -4,6 +4,7 @@
   name: portable scrubber
   description: It scrubs, portably!
   components:
+  - type: HLPersistOnShipSave
   - type: Transform
     anchored: false
   - type: Physics
@@ -108,6 +109,7 @@
   description: A bluespace technology device that alters local temperature. Commonly referred to as a "Space Heater".
   suffix: Unanchored
   components:
+  - type: HLPersistOnShipSave
   - type: StationAiWhitelist
   - type: Transform
     anchored: false
@@ -129,22 +131,22 @@
   - type: ApcPowerReceiver
     powerDisabled: true #starts off
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/Portable/portable_sheater.rsi
+    sprite: _radiant/Structures/Atmospherics/space_heater.rsi
     noRot: true
     layers:
-    - state: sheaterOff
+    - state: sheater-off
       map: ["enum.SpaceHeaterVisualLayers.Main"]
-    - state: sheaterPanelOpen
+    - state: sheater-open
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.SpaceHeaterVisuals.State:
         SpaceHeaterVisualLayers.Main:
-          Off: { state: sheaterOff }
-          StandBy: { state: sheaterStandby }
-          Heating: { state: sheaterHeat }
-          Cooling: { state: sheaterCool }
+          Off: { state: sheater-off }
+          StandBy: { state: sheater-standby }
+          Heating: { state: sheater-heat }
+          Cooling: { state: sheater-cool }
   - type: Machine
     board: SpaceHeaterMachineCircuitBoard
   - type: WiresPanel

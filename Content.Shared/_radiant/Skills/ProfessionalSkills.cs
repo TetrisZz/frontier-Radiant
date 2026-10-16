@@ -20,7 +20,7 @@ public static class ProfessionalSkillRules
         ProfessionalSkill.Piloting or ProfessionalSkill.Shooting or ProfessionalSkill.Engineering
             or ProfessionalSkill.Botany or ProfessionalSkill.Cooking => 3,
         ProfessionalSkill.Medicine or ProfessionalSkill.Salvage => 4,
-        ProfessionalSkill.Science => 2,
+        ProfessionalSkill.Science => 3,
         _ => 0,
     };
 

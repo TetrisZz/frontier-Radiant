@@ -40,6 +40,19 @@ public sealed class ProfessionalSkillsTest
     }
 
     [Test]
+    public void ResearchHasThreePaidLevelsWithoutChangingTheBudget()
+    {
+        Assert.That(ProfessionalSkillRules.Maximum(ProfessionalSkill.Science), Is.EqualTo(3));
+        Assert.That(ProfessionalSkillRules.Budget, Is.EqualTo(10));
+        for (var level = 1; level <= 3; level++)
+        {
+            var profile = new HumanoidCharacterProfile().WithSkillLevel(ProfessionalSkill.Science, level);
+            Assert.That(profile.SkillPointsSpent, Is.EqualTo(level));
+            Assert.That(profile.SkillLevels[(int) ProfessionalSkill.Science], Is.EqualTo(level));
+        }
+    }
+
+    [Test]
     public void CopiesDoNotShareSkillArrays()
     {
         var profile = new HumanoidCharacterProfile().WithSkillLevel(ProfessionalSkill.Medicine, 3);

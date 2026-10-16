@@ -1,0 +1,95 @@
+- type: construction
+  id: RadiantFloorLight
+  graph: RadiantDecorativeLighting
+  startNode: start
+  targetNode: floor
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantLampPost
+  graph: RadiantDecorativeLighting
+  startNode: start
+  targetNode: post
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantLampPostFestive
+  graph: RadiantDecorativeLighting
+  startNode: start
+  targetNode: festive
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantLampPostOne
+  graph: RadiantDecorativeLighting
+  startNode: start
+  targetNode: one
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantLampPostTwo
+  graph: RadiantDecorativeLighting
+  startNode: start
+  targetNode: two
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantLampPostThree
+  graph: RadiantDecorativeLighting
+  startNode: start
+  targetNode: three
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantLampPostFour
+  graph: RadiantDecorativeLighting
+  startNode: start
+  targetNode: four
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: RadiantLampPostSidewalk
+  graph: RadiantDecorativeLighting
+  startNode: start
+  targetNode: sidewalk
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  conditions:
+  - !type:TileNotBlocked

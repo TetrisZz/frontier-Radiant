@@ -4,6 +4,12 @@
   id: Wirecutter
   description: This kills the wire.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/wirecutter_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/wirecutter_drop.ogg
   - type: SurgeryTool
   - type: Scalpel
     speed: 2
@@ -54,6 +60,12 @@
   id: Screwdriver
   description: Industrial grade torque in a small screwdriving package.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/screwdriver_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/screwdriver_drop.ogg
   - type: SurgeryTool
   - type: SurgicalDrill
     speed: 2
@@ -102,6 +114,16 @@
   id: Wrench
   description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/wrench_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/wrench_drop.ogg
+      params:
+        volume: -2
   - type: SurgeryTool
   - type: BoneSetter
     speed: 1.5
@@ -148,6 +170,12 @@
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/multitool_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/multitool_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/multitool_drop.ogg

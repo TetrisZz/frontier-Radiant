@@ -11,13 +11,14 @@ public sealed class InteractionClothingSystem : EntitySystem
     public bool IsBlocked(EntityUid user, EntityUid? target, InteractionPrototype prototype, out bool targetBlocked)
     {
         targetBlocked = false;
-        if (HasClothing(user, prototype.RequiredClothingSlots) || HasClothing(user, prototype.UserBlockedClothingSlots))
+        if (HasClothing(user, prototype.UserBlockedClothingSlots ?? prototype.RequiredClothingSlots))
             return true;
         if (target is not { } partner)
             return false;
-        targetBlocked = HasClothing(partner, prototype.RequiredClothingSlots)
-                        || HasClothing(partner, prototype.OneRequiredClothingSlots)
-                        || HasClothing(partner, prototype.TargetBlockedClothingSlots);
+        targetBlocked = prototype.TargetBlockedClothingSlots is { } targetSlots
+            ? HasClothing(partner, targetSlots)
+            : HasClothing(partner, prototype.RequiredClothingSlots)
+              || HasClothing(partner, prototype.OneRequiredClothingSlots);
         return targetBlocked;
     }
 

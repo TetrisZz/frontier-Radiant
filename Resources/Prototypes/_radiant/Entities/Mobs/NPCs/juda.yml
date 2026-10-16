@@ -38,12 +38,36 @@
     interactSuccessSound:
       collection: JudaHappySounds
   - type: Speech
-    speechVerb: Canine
-    speechSounds: Dog
-    allowedEmotes: ['Bark', 'Growl', 'Whine']
+    speechVerb: Slime
+    speechSounds: Slime
+    allowedEmotes: ['Bark', 'Growl', 'Whine', 'Bubble', 'Squish', 'Pop']
+  - type: ReplacementAccent
+    accent: Juda
+  - type: Vocal
+    sounds:
+      Male: Juda
+      Female: Juda
+      Unsexed: Juda
   - type: Vocalizer
     minVocalizeInterval: 2m
     maxVocalizeInterval: 5m
     hideChat: true
   - type: DatasetVocalizer
     dataset: JudaChatter
+
+- type: entity
+  id: SpawnMobJudaEmotionalSupport
+  parent: MarkerBase
+  name: Juda spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _radiant/Mobs/Pets/juda.rsi
+      state: juda
+  - type: RandomSpawner
+    prototypes:
+    - MobJudaEmotionalSupport
+    chance: 1
+    offset: 0
+    deleteSpawnerAfterSpawn: true

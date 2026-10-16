@@ -80,7 +80,7 @@
   id: SpawnPointSalvageSpecialist
   parent: SpawnPointJobBase
   name: salvagespecialist
-  categories: [ HideSpawnMenu ] # Frontier
+  suffix: Profession
   components:
   - type: SpawnPoint
     job_id: SalvageSpecialist
@@ -374,7 +374,6 @@
   id: SpawnPointStationEngineer
   parent: SpawnPointJobBase
   name: stationengineer
-  categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: SpawnPoint
     job_id: StationEngineer
@@ -415,7 +414,7 @@
   id: SpawnPointMedicalDoctor
   parent: SpawnPointJobBase
   name: medicaldoctor
-  categories: [ HideSpawnMenu ] # Frontier
+  suffix: Profession
   components:
   - type: SpawnPoint
     job_id: MedicalDoctor

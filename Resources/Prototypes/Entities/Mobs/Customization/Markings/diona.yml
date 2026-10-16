@@ -28,6 +28,7 @@
 
 - type: marking
   id: DionaFlowersHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -69,6 +70,7 @@
 
 - type: marking
   id: DionaBloomHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -83,6 +85,7 @@
 
 - type: marking
   id: DionaBracketHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -97,6 +100,7 @@
 
 - type: marking
   id: DionaBrushHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -110,6 +114,7 @@
 
 - type: marking
   id: DionaCornflowerHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -124,6 +129,7 @@
 
 - type: marking
   id: DionaFicusHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -138,6 +144,7 @@
 
 - type: marking
   id: DionaGarlandHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -152,6 +159,7 @@
 
 - type: marking
   id: DionaKingHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -166,6 +174,7 @@
 
 - type: marking
   id: DionaLaurelHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -180,6 +189,7 @@
 
 - type: marking
   id: DionaLeafyHeadTop
+  bodyFeatures: [Foliage]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
@@ -194,6 +204,7 @@
 
 - type: marking
   id: DionaLotusHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -208,6 +219,7 @@
 
 - type: marking
   id: DionaMeadowHeadTop
+  bodyFeatures: [Foliage]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
@@ -222,6 +234,7 @@
 
 - type: marking
   id: DionaOakHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -236,6 +249,7 @@
 
 - type: marking
   id: DionaPalmHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -250,6 +264,7 @@
 
 - type: marking
   id: DionaRootHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -264,6 +279,7 @@
 
 - type: marking
   id: DionaRoseHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -278,6 +294,7 @@
 
 - type: marking
   id: DionaRoseyHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -292,6 +309,7 @@
 
 - type: marking
   id: DionaShrubHeadTop
+  bodyFeatures: [Foliage]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
@@ -306,6 +324,7 @@
 
 - type: marking
   id: DionaSpinnerHeadSide
+  bodyFeatures: [Foliage]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Diona]
@@ -320,6 +339,7 @@
 
 - type: marking
   id: DionaSproutHeadSide
+  bodyFeatures: [Foliage]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Diona]
@@ -334,6 +354,7 @@
 
 - type: marking
   id: DionaVineHeadTop
+  bodyFeatures: [Foliage]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
@@ -348,6 +369,7 @@
 
 - type: marking
   id: DionaVinelHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -362,6 +384,7 @@
 
 - type: marking
   id: DionaVinesHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
@@ -376,6 +399,7 @@
 
 - type: marking
   id: DionaWildflowerHead
+  bodyFeatures: [Foliage]
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]

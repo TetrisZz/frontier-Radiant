@@ -1,4 +1,6 @@
 using Content.Server._NF.Auth;
+using Content.Server._Triad.Shipyard.Admin;
+using Content.Server._Triad.Shipyard.Persistence;
 using Content.Server._Harmony.JoinQueue; // Harmony Queue
 using Content.Server._NF.Whitelist; //Frontier
 using Content.Server.Administration;
@@ -47,6 +49,9 @@ namespace Content.Server.IoC
             IoCManager.Register<IChatSanitizationManager, ChatSanitizationManager>();
             IoCManager.Register<IServerPreferencesManager, ServerPreferencesManager>();
             IoCManager.Register<IServerDbManager, ServerDbManager>();
+            IoCManager.Register<ITriadShipyardAuditLog, TriadShipyardAuditLogStore>();
+            IoCManager.Register<ITriadShipyardPermitStore, TriadShipyardPermitStore>();
+            IoCManager.Register<TriadTamperAdminEuiRegistry>();
             IoCManager.Register<RecipeManager, RecipeManager>();
             IoCManager.Register<INodeGroupFactory, NodeGroupFactory>();
             IoCManager.Register<IConnectionManager, ConnectionManager>();

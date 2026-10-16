@@ -3,11 +3,30 @@
   parent: [Clothing, RecyclableItemClothBasic] # Frontier: added RecyclableItemClothBasic
   id: ClothingBeltBase
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/toolbelt_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/toolbelt_drop.ogg
+      params:
+        volume: -4
   - type: Sprite
     state: icon
   - type: Item
     size: Normal
   - type: Clothing
+    unequipSound:
+      path: /Audio/_radiant/Items/handling/toolbelt_pickup.ogg
+      params:
+        volume: -4
     slots: [belt]
     equipSound:
       path: /Audio/Items/belt_equip.ogg

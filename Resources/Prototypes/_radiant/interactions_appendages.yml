@@ -1,0 +1,10 @@
+- type: interaction
+  parent: BaseTargetHasHorns
+  id: InteractionTouchHorns
+  category: head
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [head]
+  name: interaction-touch-horns
+  userMessages: [chat-interaction-touch-horns-message]
+  targetMessages: [chat-interaction-touch-horns-message-target]
+  otherMessages: [chat-interaction-touch-horns-message-others]

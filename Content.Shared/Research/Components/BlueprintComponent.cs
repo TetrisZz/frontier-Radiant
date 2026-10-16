@@ -1,4 +1,5 @@
 using Content.Shared._NF.Lathe;
+using Content.Shared._radiant.ResearchBlueprints;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Research.Systems;
 using Robust.Shared.GameStates;
@@ -9,7 +10,7 @@ namespace Content.Shared.Research.Components;
 /// <summary>
 /// This is used for an item that is inserted directly into a given lathe to provide it with a recipe.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(BlueprintSystem), typeof(SharedBlueprintLatheSystem))] // Frontier: add SharedBlueprintLatheSystem access
+[RegisterComponent, NetworkedComponent, Access(typeof(BlueprintSystem), typeof(SharedBlueprintLatheSystem), typeof(SharedBlueprintResearchSystem), typeof(Content.Shared.Lathe.SharedLatheSystem))]
 [AutoGenerateComponentState] // Frontier: dynamically set blueprints
 public sealed partial class BlueprintComponent : Component
 {
@@ -19,4 +20,7 @@ public sealed partial class BlueprintComponent : Component
     [DataField(required: true)]
     [AutoNetworkedField] // Frontier: dynamically set blueprints
     public HashSet<ProtoId<LatheRecipePrototype>> ProvidedRecipes = new();
+
+    [DataField, AutoNetworkedField]
+    public BlueprintModifiers? Modifiers;
 }

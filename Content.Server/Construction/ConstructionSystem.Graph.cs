@@ -414,6 +414,9 @@ namespace Content.Server.Construction
             var afterChangeEv = new AfterConstructionChangeEntityEvent(construction.Graph, construction.Node, previousNode);
             RaiseLocalEvent(newUid, ref afterChangeEv);
 
+            var careerBuild = new Content.Shared._radiant.Careers.CareerConstructionCompletedEvent(newUid, userUid, uid);
+            RaiseLocalEvent(ref careerBuild);
+
             return newUid;
         }
 

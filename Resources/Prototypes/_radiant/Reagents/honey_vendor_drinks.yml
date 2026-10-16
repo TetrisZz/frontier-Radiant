@@ -1,0 +1,42 @@
+- type: reagent
+  id: BuzzFuzz
+  parent: BaseSoda
+  name: reagent-name-buzz-fuzz
+  desc: reagent-desc-buzz-fuzz
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: honey
+  color: "#8CFF00"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 1
+        probability: 0.33
+      - !type:AdjustReagent
+        reagent: Honey
+        amount: 1
+        probability: 0.01
+
+- type: reagent
+  id: GreyBull
+  parent: EnergyDrink
+  name: reagent-name-grey-bull
+  desc: reagent-desc-grey-bull
+  color: "#EEFF00"
+
+- type: reagent
+  id: CarpLite
+  parent: Beer
+  name: reagent-name-carp-lite
+  desc: reagent-desc-carp-lite
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.025

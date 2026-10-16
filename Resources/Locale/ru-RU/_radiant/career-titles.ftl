@@ -1,0 +1,17 @@
+career-job-title-label = Должность
+career-job-title-locked = { $title } (после этапа { $stage })
+career-title-miner = Шахтёр
+career-title-prospector = Старатель
+career-title-senior-miner = Старший шахтёр
+career-title-mining-master = Горный мастер
+career-title-doctor = Врач
+career-title-paramedic = Парамедик
+career-title-chemist = Химик
+career-title-senior-doctor = Старший врач
+career-title-surgeon = Хирург
+career-title-geneticist = Генетик
+career-title-virologist = Вирусолог
+career-title-technician = Техник
+career-title-engineer = Инженер
+career-title-ship-engineer = Корабельный инженер
+career-title-senior-engineer = Старший инженер

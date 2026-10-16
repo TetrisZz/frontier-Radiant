@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from BlueMoon-Station (icons\\obj\\food\\containers.dmi), licensed CC-BY-SA-3.0. Original authors: tgstation/BlueMoon contributors.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chocolatebox"
+    },
+    {
+      "name": "chocolatebox8"
+    },
+    {
+      "name": "chocolatebox7"
+    },
+    {
+      "name": "chocolatebox6"
+    },
+    {
+      "name": "chocolatebox5"
+    },
+    {
+      "name": "chocolatebox4"
+    },
+    {
+      "name": "chocolatebox3"
+    },
+    {
+      "name": "chocolatebox2"
+    },
+    {
+      "name": "chocolatebox1"
+    },
+    {
+      "name": "chocolatebox0"
+    },
+    { "name": "chocolatebox-0" },
+    { "name": "chocolatebox-1" },
+    { "name": "chocolatebox-2" },
+    { "name": "chocolatebox-3" },
+    { "name": "chocolatebox-4" },
+    { "name": "chocolatebox-5" },
+    { "name": "chocolatebox-6" },
+    { "name": "chocolatebox-7" },
+    { "name": "chocolatebox-8" }
+  ]
+}

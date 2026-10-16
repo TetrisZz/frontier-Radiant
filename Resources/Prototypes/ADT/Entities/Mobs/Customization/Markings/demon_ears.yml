@@ -1,5 +1,6 @@
 - type: marking
   id: DemonCowEars
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [DemonSpecies]
@@ -9,6 +10,7 @@
 
 - type: marking
   id: DemonEars
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [DemonSpecies]
@@ -18,6 +20,7 @@
 
 - type: marking
   id: DemonElfEars
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [DemonSpecies]

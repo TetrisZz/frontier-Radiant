@@ -5,6 +5,15 @@
   id: NFBaseWeaponFrameRifleSniper
   suffix: Frontier
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SnipersDrop
   - type: Wieldable
     unwieldOnUse: false
   - type: GunRequiresWield

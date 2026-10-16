@@ -12,8 +12,8 @@ public sealed class CentCommMapTest
     [Test]
     public async Task CentCommLoadsAsMapWithRestrictedFtl()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         await server.WaitAssertion(() =>
         {
             var entities = server.ResolveDependency<IEntityManager>();
@@ -25,5 +25,7 @@ public sealed class CentCommMapTest
             Assert.That(entities.TryGetComponent<FTLDestinationComponent>(map!.Value.Owner, out var destination), Is.True);
             Assert.That(destination!.RequireCoordinateDisk, Is.True);
         });
+        TestContext.Out.WriteLine("CentComm map initialization and restricted FTL assertions completed.");
+        await pair.CleanReturnAsync();
     }
 }

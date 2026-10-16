@@ -3,9 +3,28 @@
   parent: [Clothing, RecyclableItemClothBasic] # Frontier: added RecyclableItemClothBasic
   id: UnsensoredClothingUniformBase
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
   - type: Sprite
     state: icon
   - type: Clothing
+    unequipSound:
+      path: /Audio/_radiant/Items/handling/cloth_pickup.ogg
+      params:
+        volume: -4
     slots: [innerclothing]
     equipSound:
       path: /Audio/Items/jumpsuit_equip.ogg

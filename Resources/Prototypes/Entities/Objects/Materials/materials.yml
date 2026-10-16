@@ -91,6 +91,21 @@
   name: cloth
   suffix: Full
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
   - type: ConstructionMaterials # Frontier
   - type: Healing
     damageContainers:
@@ -183,6 +198,21 @@
   name: durathread
   suffix: Full
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
   - type: ConstructionMaterials # Frontier
   - type: Stack
     stackType: Durathread

@@ -1,5 +1,6 @@
 - type: marking
   id: FelinidFluffyTailRings
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] #radiant_sector
@@ -11,6 +12,7 @@
 
 - type: marking
   id: FelinidFluffyTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid, Tajaran]
@@ -20,6 +22,7 @@
 
 - type: marking
   id: FelinidAlternativeTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid, Tajaran, Human] #radiant_sector
@@ -29,6 +32,7 @@
 
 - type: marking
   id: FelinidTiger
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid, Tajaran]
@@ -43,6 +47,7 @@
 # Frontier Below
 - type: marking
   id: KitsuneEarsFox
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid, Vulpkanin]
@@ -52,6 +57,7 @@
 
 - type: marking
   id: KitsuneEarsDefault
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid, Vulpkanin]
@@ -63,6 +69,7 @@
 
 - type: marking
   id: KitsuneTailDefault
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Vulpkanin]
@@ -74,6 +81,7 @@
 
 - type: marking
   id: KitsuneTailsNine
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Vulpkanin]
@@ -85,6 +93,7 @@
 
 - type: marking
   id: KitsuneTailsThree
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Vulpkanin]
@@ -96,6 +105,7 @@
 
 - type: marking
   id: KitsuneTailsTwo
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Vulpkanin]

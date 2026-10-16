@@ -1,6 +1,7 @@
 # Default
 - type: marking
   id: FeroxiEars
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Feroxi ]
@@ -12,6 +13,7 @@
 
 - type: marking
   id: FeroxiTailAndDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -33,6 +35,7 @@
 # Ears Markings
 - type: marking
   id: FeroxiEarsTips
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Feroxi ]
@@ -107,6 +110,7 @@
 # Tail Markings
 - type: marking
   id: FeroxiTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -116,6 +120,7 @@
 
 - type: marking
   id: FeroxiStripedTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -127,6 +132,7 @@
 
 - type: marking
   id: FeroxiStripedTailAndDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -142,6 +148,7 @@
 
 - type: marking
   id: FeroxiTipTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -157,6 +164,7 @@
 
 - type: marking
   id: FeroxiTipTailAndDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -176,6 +184,7 @@
 
 - type: marking
   id: FeroxiTailBlitz
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -197,6 +206,7 @@
 
 - type: marking
   id: FeroxiTailBlitzNoDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -214,6 +224,7 @@
 
 - type: marking
   id: FeroxiTwoToneTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -225,6 +236,7 @@
 
 - type: marking
   id: FeroxiTwoToneTailAndDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -238,6 +250,7 @@
 
 - type: marking
   id: FeroxiStripeTwoToneTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -251,6 +264,7 @@
 
 - type: marking
   id: FeroxiStripeTwoToneTailAndDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -268,6 +282,7 @@
 
 - type: marking
   id: FeroxiTipTwoToneTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -285,6 +300,7 @@
 
 - type: marking
   id: FeroxiTipTwoToneTailAndDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -428,6 +444,7 @@
 # Goob Ears Markings
 - type: marking
   id: FeroxiEarsTiger
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Feroxi ]
@@ -441,6 +458,7 @@
 
 - type: marking
   id: FeroxiEarsPierced
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Feroxi ]
@@ -450,6 +468,7 @@
 
 - type: marking
   id: FeroxiEarsPiercedTiger
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Feroxi ]
@@ -461,6 +480,7 @@
 
 - type: marking
   id: FeroxiEarsAlt
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Feroxi ]
@@ -472,6 +492,7 @@
 
 - type: marking
   id: FeroxiEarsAltTips
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Feroxi ]
@@ -485,6 +506,7 @@
 
 - type: marking
   id: FeroxiEarsAltTiger
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Feroxi ]
@@ -500,6 +522,7 @@
 
 - type: marking
   id: FeroxiFullTipTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -513,6 +536,7 @@
 
 - type: marking
   id: FeroxiFullTipTailAndDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -530,6 +554,7 @@
 
 - type: marking
   id: FeroxiTailBlitzFullTip
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -549,6 +574,7 @@
 
 - type: marking
   id: FeroxiTailBlitzNoDorsalFullTip
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -564,6 +590,7 @@
 
 - type: marking
   id: FeroxiFullTipTwoToneTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]
@@ -579,6 +606,7 @@
 
 - type: marking
   id: FeroxiFullTipTwoToneTailAndDorsal
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Feroxi ]

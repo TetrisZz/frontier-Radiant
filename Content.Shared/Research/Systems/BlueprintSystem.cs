@@ -9,6 +9,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared._radiant.ResearchBlueprints;
 
 namespace Content.Shared.Research.Systems;
 
@@ -18,6 +19,7 @@ public sealed class BlueprintSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!; // Frontier
+    [Dependency] private readonly SharedLatheSystem _lathe = default!;
 
     private const int MaxExaminedRecipes = 5; // Frontier
 
@@ -44,10 +46,14 @@ public sealed class BlueprintSystem : EntitySystem
 
     private void OnGetRecipes(Entity<BlueprintReceiverComponent> ent, ref LatheGetRecipesEvent args)
     {
-        var recipes = GetBlueprintRecipes(ent);
-        foreach (var recipe in recipes)
+        if (HasComp<BlueprintLibraryComponent>(ent))
+            return;
+        foreach (var blueprint in _container.GetContainer(ent, ent.Comp.ContainerId).ContainedEntities)
         {
-            args.Recipes.Add(recipe);
+            if (!TryComp<BlueprintComponent>(blueprint, out var data) ||
+                data.Modifiers != null && !_lathe.MatchesBlueprintLathe(ent, args.Comp, data.Modifiers))
+                continue;
+            args.Recipes.UnionWith(data.ProvidedRecipes);
         }
     }
 
@@ -90,9 +96,17 @@ public sealed class BlueprintSystem : EntitySystem
             return false;
         }
 
+        if (blueprint.Comp.Modifiers != null && !HasComp<BlueprintLibraryComponent>(ent) &&
+            (!TryComp<LatheComponent>(ent, out var lathe) || !_lathe.MatchesBlueprintLathe(ent, lathe, blueprint.Comp.Modifiers)))
+        {
+            _popup.PopupPredicted(Loc.GetString("research-blueprint-wrong-lathe"), ent, user);
+            return false;
+        }
+
         // Don't add new blueprints if there are no new recipes.
         var currentRecipes = GetBlueprintRecipes(ent);
-        if (currentRecipes.Count != 0 && currentRecipes.IsSupersetOf(blueprint.Comp.ProvidedRecipes))
+        if (!HasComp<BlueprintLibraryComponent>(ent) && blueprint.Comp.Modifiers == null &&
+            currentRecipes.Count != 0 && currentRecipes.IsSupersetOf(blueprint.Comp.ProvidedRecipes))
         {
             _popup.PopupPredicted(Loc.GetString("blueprint-receiver-popup-recipe-exists"), ent, user);
             return false;
@@ -155,6 +169,18 @@ public sealed class BlueprintSystem : EntitySystem
             {
                 args.PushMarkup(Loc.GetString("blueprint-count-others", ("count", ent.Comp.ProvidedRecipes.Count - MaxExaminedRecipes)));
             }
+        }
+        if (ent.Comp.Modifiers is { } modifiers)
+        {
+            var color = modifiers.RareLoc.ToString() switch
+            {
+                "research-technology-blueprint-uncommon" => "#33FF44",
+                "research-technology-blueprint-rare" => "#33CCFF",
+                "research-technology-blueprint-epic" => "#CC66FF",
+                _ => "#CCCCCC",
+            };
+            args.PushMarkup(Loc.GetString("research-blueprint-examine-rarity",
+                ("rarity", Loc.GetString(modifiers.RareLoc)), ("color", color)), priority: -1000);
         }
     }
     // End Frontier

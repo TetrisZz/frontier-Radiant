@@ -49,6 +49,11 @@ public sealed class PassportAppearanceTest
                 var size = new Vector2(930, 550);
                 window.Measure(size);
                 window.Arrange(UIBox2.FromDimensions(Vector2.Zero, size));
+                Assert.That(window.ChildCount, Is.EqualTo(1));
+                Assert.That(Descendants(window).Any(c => c.Name is "WindowHeader" or "TitleLabel" or "CloseButton"), Is.False);
+                var cover = Descendants(window).Single(c => c.Name == "PassportCover");
+                Assert.That(cover.GlobalPosition, Is.EqualTo(window.GlobalPosition));
+                Assert.That(cover.Size, Is.EqualTo(size));
                 var seal = (PassportSeal) Descendants(window).Single(c => c.Name == "PassportWatermark");
                 Assert.That(seal.Size.X, Is.EqualTo(270).Within(1));
                 Assert.That(seal.Size.Y, Is.EqualTo(270).Within(1));
@@ -61,6 +66,13 @@ public sealed class PassportAppearanceTest
                     "The document must not have page-switching buttons.");
                 window.Update(state);
                 Assert.That(Descendants(window).Count(c => c.Name == "PassportWatermark"), Is.EqualTo(1));
+                var closed = false;
+                window.OnClose += () => closed = true;
+                window.OpenCentered();
+                Assert.That(window.IsOpen, Is.True);
+                window.Close();
+                Assert.That(closed, Is.True);
+                Assert.That(window.IsOpen, Is.False);
             }
         });
     }

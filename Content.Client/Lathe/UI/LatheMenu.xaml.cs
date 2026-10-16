@@ -33,6 +33,8 @@ public sealed partial class LatheMenu : DefaultWindow
     public event Action? DeleteFabricatingAction;
 
     public List<ProtoId<LatheRecipePrototype>> Recipes = new();
+    public Dictionary<ProtoId<LatheRecipePrototype>, TimeSpan> ProductionTimes = new();
+    public Dictionary<ProtoId<LatheRecipePrototype>, Content.Shared._radiant.ResearchBlueprints.BlueprintModifiers> RecipeModifiers = new();
 
     public List<ProtoId<LatheCategoryPrototype>>? Categories;
 
@@ -78,7 +80,7 @@ public sealed partial class LatheMenu : DefaultWindow
 
         if (_entityManager.TryGetComponent<LatheComponent>(Entity, out var latheComponent))
         {
-            if (!latheComponent.DynamicPacks.Any())
+            if (!latheComponent.DynamicPacks.Any() && latheComponent.LatheBlueprint == null)
             {
                 ServerListButton.Visible = false;
             }
@@ -134,7 +136,9 @@ public sealed partial class LatheMenu : DefaultWindow
 
         foreach (var prototype in sortedRecipesToShow)
         {
-            var canProduce = _lathe.CanProduce(Entity, prototype, quantity, component: lathe);
+            var canProduce = lathe != null && Content.Shared._radiant.ResearchBlueprints.BlueprintModifiers.Materials(prototype,
+                RecipeModifiers.GetValueOrDefault(prototype.ID), lathe.FinalMaterialUseMultiplier)
+                .All(p => _materialStorage.GetMaterialAmount(Entity, p.Key) >= (long) p.Value * quantity);
 
             var control = new RecipeControl(_lathe, prototype, () => GenerateTooltipText(prototype), canProduce, GetRecipeDisplayControl(prototype));
             control.OnButtonPressed += s =>
@@ -150,14 +154,14 @@ public sealed partial class LatheMenu : DefaultWindow
     private string GenerateTooltipText(LatheRecipePrototype prototype)
     {
         StringBuilder sb = new();
-        var multiplier = _entityManager.GetComponent<LatheComponent>(Entity).FinalMaterialUseMultiplier; // Frontier: MaterialUseMultiplier<FinalMaterialUseMultiplier
+        var lathe = _entityManager.GetComponent<LatheComponent>(Entity);
 
-        foreach (var (id, amount) in prototype.Materials)
+        foreach (var (id, adjustedAmount) in Content.Shared._radiant.ResearchBlueprints.BlueprintModifiers.Materials(prototype,
+                     RecipeModifiers.GetValueOrDefault(prototype.ID), lathe.FinalMaterialUseMultiplier))
         {
             if (!_prototypeManager.TryIndex(id, out var proto))
                 continue;
 
-            var adjustedAmount = SharedLatheSystem.AdjustMaterial(amount, prototype.ApplyMaterialDiscount, multiplier);
             var sheetVolume = _materialStorage.GetSheetVolume(proto);
 
             var unit = Loc.GetString(proto.Unit);
@@ -182,6 +186,11 @@ public sealed partial class LatheMenu : DefaultWindow
 
             sb.AppendLine(tooltipText);
         }
+
+        var time = ProductionTimes.GetValueOrDefault(prototype.ID,
+            Content.Shared._radiant.ResearchBlueprints.BlueprintModifiers.Time(prototype,
+                _lathe.GetBlueprintModifiers(Entity, prototype, lathe), lathe.FinalTimeMultiplier) * SharedLatheSystem.ProductionTimeMultiplier);
+        sb.AppendLine(Loc.GetString("research-blueprint-time", ("seconds", Math.Round(time.TotalSeconds, 1))));
 
         var desc = _lathe.GetRecipeDescription(prototype);
         if (!string.IsNullOrWhiteSpace(desc))

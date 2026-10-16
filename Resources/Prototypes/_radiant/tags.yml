@@ -17,4 +17,22 @@
   id: CartridgePistol25ACP
 
 - type: Tag
+  id: MagazineHigh2Rifle
+
+- type: Tag
+  id: MagazineHigh2RifleAK
+
+- type: Tag
+  id: CartridgeHigh2Rifle
+
+- type: Tag
+  id: TechnicalDocument
+
+- type: Tag
   id: GrenadeM203
+
+- type: Tag
+  id: HomUplink
+
+- type: Tag
+  id: NoWashablePaint

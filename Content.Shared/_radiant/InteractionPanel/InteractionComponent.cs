@@ -1,4 +1,5 @@
 using Robust.Shared.Audio;
+using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
@@ -60,7 +61,7 @@ namespace Content.Shared.Chat.Prototypes
 
         /// <summary>
         /// Arousal added on successful panel interaction (server).
-        /// Non-ERP interactions with a single point are treated as mundane (no gain).
+        /// Ordinary interactions give half their configured gain, rounded down.
         /// </summary>
         public int EffectiveArousal
         {
@@ -70,10 +71,7 @@ namespace Content.Shared.Chat.Prototypes
                 if (baseVal <= 0)
                     return 0;
 
-                if (!ERP && baseVal <= 1)
-                    return 0;
-
-                return baseVal;
+                return ERP ? baseVal : baseVal / 2;
             }
         }
 
@@ -119,12 +117,22 @@ namespace Content.Shared.Chat.Prototypes
         [DataField]
         public List<string>? RequiredClothingSlots;
 
-        /// <summary>Occupied slots that prevent access for the initiator or partner.</summary>
+        /// <summary>
+        /// Occupied slots blocking the initiator. Overrides legacy RequiredClothingSlots;
+        /// an explicit empty list means no restriction for this participant.
+        /// </summary>
         [DataField]
         public List<string>? UserBlockedClothingSlots;
 
+        /// <summary>Partner slots; overrides legacy RequiredClothingSlots and OneRequiredClothingSlots.</summary>
         [DataField]
         public List<string>? TargetBlockedClothingSlots;
+
+        [DataField]
+        public List<HumanoidBodyFeature>? UserRequiredBodyFeatures;
+
+        [DataField]
+        public List<HumanoidBodyFeature>? TargetRequiredBodyFeatures;
 
         [DataField]
         public bool RequiresStrapon { get; set; } = false;
