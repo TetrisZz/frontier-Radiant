@@ -1084,6 +1084,7 @@
   - ContractorMedTekCartridge
   - ContractorNetProbeCartridge
   - ContractorLogProbeCartridge
+  - ContractorDynamicCargoMarketCartridge
 
 - type: loadoutGroup
   id: ContractorImplanter
