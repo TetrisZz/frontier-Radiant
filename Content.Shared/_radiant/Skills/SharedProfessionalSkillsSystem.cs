@@ -12,7 +12,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
     [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private INetManager _net = default!;
-    private readonly Dictionary<(string, SkillAction), ProfessionalSkillRequirementPrototype?> _cache = new();
+    private readonly Dictionary<(string, SkillAction, string?), ProfessionalSkillRequirementPrototype?> _cache = new();
 
     public override void Initialize()
     {
@@ -81,11 +81,11 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
         return structure ? 1 : 0;
     }
 
-    public ProfessionalSkillRequirementPrototype? Requirement(EntityUid target, SkillAction action)
+    public ProfessionalSkillRequirementPrototype? Requirement(EntityUid target, SkillAction action, string? uiMessage = null)
     {
         if (MetaData(target).EntityPrototype is not { } proto)
             return null;
-        var key = (proto.ID, action);
+        var key = (proto.ID, action, uiMessage);
         if (_cache.TryGetValue(key, out var cached))
             return cached;
         // Most-specific prototype overrides inherited rules (e.g. industrial guns).
@@ -98,7 +98,8 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
                 continue;
             foreach (var rule in _prototypes.EnumeratePrototypes<ProfessionalSkillRequirementPrototype>())
             {
-                if ((rule.Actions & action) != 0 && rule.Targets.Contains(id))
+                if ((rule.Actions & action) != 0 && rule.Targets.Contains(id) &&
+                    (uiMessage == null || rule.UiMessages.Contains(uiMessage)))
                     return _cache[key] = rule;
             }
         }
@@ -162,8 +163,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
         if (args.Message is Content.Shared.Cloning.CloningConsole.UiButtonPressedMessage
             { Button: Content.Shared.Cloning.CloningConsole.UiButton.Eject })
             return;
-        if (Requirement(args.Target, SkillAction.Interface) is not { } rule
-            || !rule.UiMessages.Contains(args.Message.GetType().Name))
+        if (Requirement(args.Target, SkillAction.Interface, args.Message.GetType().Name) is not { } rule)
             return;
         if (!Check(args.Actor, rule.Skill, rule.Level, serverPopup: true))
             args.Cancel();

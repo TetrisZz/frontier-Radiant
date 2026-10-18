@@ -191,7 +191,7 @@ public sealed partial class GeneticBodySystem
         }
         if (args.Command is GeneticCommand.Research or GeneticCommand.SelectGene or GeneticCommand.CheckSequence or GeneticCommand.Spectrum)
         {
-            if (_skills.Level(args.Actor, ProfessionalSkill.Science) < 2
+            if (_skills.Level(args.Actor, ProfessionalSkill.Science) < 3
                 && _skills.Level(args.Actor, ProfessionalSkill.Medicine) < 4)
             {
                 _popup.PopupEntity(Loc.GetString("genetics-research-skill"), ent, args.Actor);
@@ -244,6 +244,10 @@ public sealed partial class GeneticBodySystem
                 if (TryRelease(ent) is { } result)
                 {
                     if (isOrgan)
+                        EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().RecordTask(
+                            args.Actor, Content.Shared._radiant.Careers.CareerObjectiveType.GeneticProduction,
+                            HasComp<GeneticTherapyComponent>(result) ? "Therapy" : "Organ");
+                    if (isOrgan)
                         _hands.TryPickupAnyHand(args.Actor, result);
                     success = true;
                 }
@@ -256,6 +260,8 @@ public sealed partial class GeneticBodySystem
                 }
                 break;
         }
+        if (success && args.Command == GeneticCommand.CheckSequence)
+            ent.Comp.CareerOperator = EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().Capture(args.Actor);
         if (!success)
             _popup.PopupEntity(Loc.GetString("genetics-ui-action-failed"), ent, args.Actor);
         PublishUi(ent);

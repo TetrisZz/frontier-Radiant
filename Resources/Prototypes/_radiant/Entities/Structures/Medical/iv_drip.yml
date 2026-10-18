@@ -1,0 +1,31 @@
+- type: entity
+  id: RadiantIVDrip
+  parent: [BaseStructureDynamic, StructureWheeled]
+  name: IV drip stand
+  description: A wheeled stand for intravenous infusions.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Medical/iv_drip.rsi
+    state: iv_drip
+    noRot: true
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.18
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - LowImpassable
+
+- type: entity
+  id: RadiantIVDripTelescopic
+  parent: RadiantIVDrip
+  name: telescopic IV drip stand
+  description: A compact stand for intravenous infusions.
+  components:
+  - type: Sprite
+    state: iv_drip_tele

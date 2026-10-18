@@ -1,5 +1,6 @@
 - type: marking
   id: CatEars
+  bodyFeatures: [Ears]
   bodyPart: Special
   markingCategory: Special
   speciesRestriction: [ Human ] # Frontier: Human<empty list #radiant_sector
@@ -23,6 +24,7 @@
 
 - type: marking
   id: CatTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Human ] #radiant_sector

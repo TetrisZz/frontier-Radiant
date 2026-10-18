@@ -1,0 +1,15 @@
+uplink-hom-ninja-classic-desc = A long, dark scarf with a classic silhouette. A little mystery without having to explain where it came from.
+uplink-hom-ninja-new-desc = A scarf with a distinctive modern design. A personal touch for a dark tactical outfit.
+uplink-hom-half-mask-desc = An understated half-mask for an everyday kit. Can be lowered without taking it off completely.
+uplink-hom-alt-gas-mask-desc = An unusually shaped gas mask for those who like their equipment to have character.
+uplink-hom-flektarn-mask-desc = A half-mask in Flektarn camouflage. Can be lowered without taking it off completely.
+uplink-hom-tan-mask-desc = A tan half-mask for a field outfit. Can be lowered without taking it off completely.
+uplink-hom-fir-mask-desc = A tactical mask with flash protection. An understated silhouette for a working combat kit.
+uplink-hom-formal-coat-desc = A formal black coat for meetings and special occasions. Good manners sold separately.
+uplink-hom-trenchcloak-desc = A long cloak with understated trim. For those who prefer a recognizable silhouette to loud insignia.
+uplink-hom-fennec-name = Fennec carrier
+uplink-hom-fennec-desc = A fennec for your ship. Furry company for long journeys. Ghost players can take control of this pet.
+uplink-hom-pig-name = Pet pig carrier
+uplink-hom-pig-desc = A pet pig in a transport crate. An unusual passenger for your crew. Ghost players can take control of this pet.
+ent-BaseHomUplinkRadio = Meow uplink
+    .desc = A pocket terminal for Meow's private catalog. Accepts crystals and turns small whims into tangible purchases.

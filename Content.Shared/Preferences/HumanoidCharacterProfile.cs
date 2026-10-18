@@ -220,6 +220,7 @@ namespace Content.Shared.Preferences
             : this(other.Name, other.FlavorText, (int)other.ERPStatus, other.Species, other.Height, other.Width, other.Voice, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
                 jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, loadouts, other.SkillLevels)
         {
+            Career = other.Career.Clone();
             Residence = other.Residence;
             Citizenship = other.Citizenship;
             CitizenshipLocked = other.CitizenshipLocked;
@@ -256,6 +257,7 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts), other.SkillLevels)
         {
+            Career = other.Career.Clone();
             Residence = other.Residence;
             Citizenship = other.Citizenship;
             CitizenshipLocked = other.CitizenshipLocked;

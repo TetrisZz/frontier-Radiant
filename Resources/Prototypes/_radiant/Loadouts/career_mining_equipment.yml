@@ -1,0 +1,238 @@
+- type: loadoutGroup
+  id: CareerMiningShoes
+  name: career-loadout-mining-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMiningClothingShoesBootsSalvage
+  - CareerMiningClothingShoesBootsWinterMiner
+  - CareerMiningClothingShoesBootsWinterCargo
+  - CareerMiningClothingShoesColorBlack
+  fallbacks:
+  - CareerMiningClothingShoesBootsSalvage
+
+- type: loadout
+  id: CareerMiningClothingShoesBootsSalvage
+  equipment:
+    shoes: ClothingShoesBootsSalvage
+
+- type: loadout
+  id: CareerMiningClothingShoesBootsWinterMiner
+  equipment:
+    shoes: ClothingShoesBootsWinterMiner
+
+- type: loadout
+  id: CareerMiningClothingShoesBootsWinterCargo
+  equipment:
+    shoes: ClothingShoesBootsWinterCargo
+
+- type: loadout
+  id: CareerMiningClothingShoesColorBlack
+  equipment:
+    shoes: ClothingShoesColorBlack
+
+- type: loadoutGroup
+  id: CareerMiningNeck
+  name: career-loadout-mining-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMiningClothingNeckMantleSalvage
+  - CareerMiningClothingNeckScarfStripedBrown
+  - CareerMiningClothingNeckCloakMiner
+  - CareerMiningClothingNeckIFFPurple
+
+- type: loadout
+  id: CareerMiningClothingNeckIFFPurple
+  equipment:
+    neck: ClothingNeckIFFPurple
+
+- type: loadout
+  id: CareerMiningClothingNeckMantleSalvage
+  equipment:
+    neck: ClothingNeckMantleSalvage
+
+- type: loadout
+  id: CareerMiningClothingNeckScarfStripedBrown
+  equipment:
+    neck: ClothingNeckScarfStripedBrown
+
+- type: loadout
+  id: CareerMiningClothingNeckCloakMiner
+  equipment:
+    neck: ClothingNeckCloakMiner
+
+- type: loadoutGroup
+  id: CareerMiningGloves
+  name: career-loadout-mining-gloves
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMiningClothingHandsGlovesFingerless
+  - CareerMiningClothingHandsGlovesColorBlack
+  - CareerMiningClothingHandsGlovesColorBrown
+
+- type: loadout
+  id: CareerMiningClothingHandsGlovesFingerless
+  equipment:
+    gloves: ClothingHandsGlovesFingerless
+
+- type: loadout
+  id: CareerMiningClothingHandsGlovesColorBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: CareerMiningClothingHandsGlovesColorBrown
+  equipment:
+    gloves: ClothingHandsGlovesColorBrown
+
+- type: loadoutGroup
+  id: CareerMiningOuter
+  name: career-loadout-mining-outer
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMiningClothingOuterWinterCargo
+  - CareerMiningClothingOuterWinterMiner
+
+- type: loadout
+  id: CareerMiningClothingOuterWinterCargo
+  equipment:
+    outerClothing: ClothingOuterWinterCargo
+
+- type: loadout
+  id: CareerMiningClothingOuterWinterMiner
+  equipment:
+    outerClothing: ClothingOuterWinterMiner
+
+- type: loadoutGroup
+  id: CareerMiningHead
+  name: career-loadout-mining-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CareerMiningClothingHeadHatQMsoft
+  - CareerMiningClothingHeadHatCargosoft
+  - CareerMiningClothingHeadBandBrown
+
+- type: loadout
+  id: CareerMiningClothingHeadHatQMsoft
+  equipment:
+    head: ClothingHeadHatQMsoft
+
+- type: loadout
+  id: CareerMiningClothingHeadHatCargosoft
+  equipment:
+    head: ClothingHeadHatCargosoft
+
+- type: loadout
+  id: CareerMiningClothingHeadBandBrown
+  equipment:
+    head: ClothingHeadBandBrown
+
+- type: loadoutGroup
+  id: CareerMiningBack
+  name: career-loadout-mining-back
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMiningClothingBackpackSalvage
+  - CareerMiningClothingBackpackMessengerSalvage
+  - CareerMiningClothingBackpackSatchelSalvage
+  - CareerMiningClothingBackpackDuffelSalvage
+  fallbacks:
+  - CareerMiningClothingBackpackSalvage
+
+- type: loadout
+  id: CareerMiningClothingBackpackSalvage
+  equipment:
+    back: ClothingBackpackSalvage
+
+- type: loadout
+  id: CareerMiningClothingBackpackMessengerSalvage
+  equipment:
+    back: ClothingBackpackMessengerSalvage
+
+- type: loadout
+  id: CareerMiningClothingBackpackSatchelSalvage
+  equipment:
+    back: ClothingBackpackSatchelSalvage
+
+- type: loadout
+  id: CareerMiningClothingBackpackDuffelSalvage
+  equipment:
+    back: ClothingBackpackDuffelSalvage
+
+- type: loadoutGroup
+  id: CareerMiningEars
+  name: career-loadout-mining-ears
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMiningClothingHeadsetMining
+  - CareerMiningClothingHeadsetAltCargo
+  - CareerMiningNFClothingWristsetMiningCommon
+  - CareerMiningClothingHeadsetCargo
+  fallbacks:
+  - CareerMiningClothingHeadsetMining
+
+- type: loadout
+  id: CareerMiningClothingHeadsetMining
+  equipment:
+    ears: ClothingHeadsetMining
+
+- type: loadout
+  id: CareerMiningClothingHeadsetAltCargo
+  equipment:
+    ears: ClothingHeadsetAltCargo
+
+- type: loadout
+  id: CareerMiningNFClothingWristsetMiningCommon
+  equipment:
+    ears: NFClothingWristsetMiningCommon
+
+- type: loadout
+  id: CareerMiningClothingHeadsetCargo
+  equipment:
+    ears: ClothingHeadsetCargo
+
+- type: loadoutGroup
+  id: CareerMiningUniform
+  name: career-loadout-mining-uniform
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CareerMiningClothingUniformJumpsuitSalvageSpecialist
+  - CareerMiningClothingUniformJumpsuitMilitarySalvageSpecialist
+  fallbacks:
+  - CareerMiningClothingUniformJumpsuitSalvageSpecialist
+
+- type: loadout
+  id: CareerMiningClothingUniformJumpsuitSalvageSpecialist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
+
+- type: loadout
+  id: CareerMiningClothingUniformJumpsuitMilitarySalvageSpecialist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitarySalvageSpecialist
+
+- type: loadoutGroup
+  id: CareerMiningEquipment
+  name: career-loadout-mining-equipment
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - CareerMiningEquipment
+  fallbacks:
+  - CareerMiningEquipment
+
+- type: loadout
+  id: CareerMiningEquipment
+  equipment:
+    mask: ClothingMaskGasExplorer
+    belt: ClothingBeltSalvageWebbing
+    id: SalvagePDA
+

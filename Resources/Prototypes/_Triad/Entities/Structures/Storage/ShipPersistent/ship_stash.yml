@@ -1,0 +1,204 @@
+- type: entity
+  abstract: true
+  id: BasePersistentStorage
+  components:
+  - type: Appearance
+  - type: Storage
+    maxItemSize: Large
+    blacklist:
+      components:
+      - StorageFill
+      - PresetIdCard
+      - IdCard
+      - Access
+      - Store
+      - Cash
+      - Headset
+  - type: RadarBlip
+    radarColor: "#e3ffea"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: HLPersistOnShipSave
+    saveContents: true
+
+- type: entity
+  abstract: true
+  parent: [ BaseStorageStructure, BasePersistentStorage ]
+  id: BasePersistentShipStorageStash
+  components:
+  - type: Sprite
+    noRot: true
+
+- type: entity
+  abstract: true
+  parent: BasePersistentStorage
+  id: BasePersistentShipStorageStashWallmount
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    noRot: false
+  - type: Sprite
+    drawdepth: WallMountedItems
+    noRot: false
+  - type: InteractionOutline
+  - type: Clickable
+  - type: WallMount
+    arc: 175
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Storage
+    grid:
+    - 0,0,0,0
+  - type: PlaceableSurface
+    placeCentered: true
+    isPlaceable: false
+
+- type: entity
+  parent: BasePersistentShipStorageStash
+  id: CivilianStorageStash
+  name: civilian storage stash
+  description: Shipboard storage for personal belongings and everyday supplies.
+  components:
+  - type: Sprite
+    sprite: _Triad/Structure/Storage/ShipStashes/civilian_storage_stash.rsi
+    state: civilian_storage_stash
+  - type: Storage
+    grid:
+    - 0,0,3,7
+    - 5,0,11,7
+  - type: Construction
+    graph: CivilianStorageStashGraph
+    node: CivilianStorageStashNode
+  - type: ShipSaveLimit
+    limitId: CivilianStash
+
+- type: entity
+  parent: CivilianStorageStash
+  id: MilitaryStorageStash
+  name: military storage stash
+  description: Reinforced shipboard storage for equipment and bulky cargo.
+  components:
+  - type: Sprite
+    sprite: _Triad/Structure/Storage/ShipStashes/military_storage_stash.rsi
+    state: military_storage_rsi
+  - type: Storage
+    maxItemSize: Ginormous
+  - type: Construction
+    graph: MilitaryStorageStashGraph
+    node: MilitaryStorageStashNode
+  - type: ShipSaveLimit
+    limitId: MilitaryStash
+
+- type: entity
+  parent: BasePersistentShipStorageStash
+  id: MedicalSecureStorage
+  name: medical sanitized stash
+  description: Shipboard storage for medicine and medical supplies.
+  components:
+  - type: Sprite
+    sprite: _Triad/Structure/Storage/ShipStashes/medical_secure_storage.rsi
+    state: medical_secure_storage
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    - 0,3,2,6
+    - 4,0,9,6
+    maxItemSize: Ginormous
+    whitelist:
+      components:
+      - Pill
+      - Hypospray
+      - HandLabeler
+      tags:
+      - PillCanister
+      - CentrifugeCompatible
+      - Syringe
+      - Ointment
+      - Brutepack
+      - Bloodpack
+      - Gauze
+      - Bottle
+      - GlassBeaker
+      - ChemDispensable
+      - CigPack
+      - Medkit
+  - type: Construction
+    graph: MedicalSecureStorageGraph
+    node: MedicalSecureStorageNode
+  - type: ShipSaveLimit
+    limitId: MedicalStash
+
+- type: entity
+  parent: BasePersistentShipStorageStash
+  id: BotanicalStorageUnit
+  name: botanical greenhouse stash
+  description: Shipboard storage for seeds, plants and gardening tools.
+  components:
+  - type: Sprite
+    sprite: _Triad/Structure/Storage/ShipStashes/botany_storage_unit.rsi
+    state: botany_storage_unit
+  - type: Storage
+    grid:
+    - 0,0,0,0
+    - 0,2,0,2
+    - 2,0,2,0
+    - 2,2,2,2
+    - 4,0,4,0
+    - 4,2,4,2
+    - 0,4,4,6
+    - 6,0,9,6
+    maxItemSize: Ginormous
+    whitelist:
+      components:
+      - Produce
+      - Seed
+      - HandLabeler
+      tags:
+      - BotanyShovel
+      - BotanyHatchet
+      - PlantSampleTaker
+      - Hoe
+      - BotanyHoe
+      - PlantAnalyzer
+  - type: Construction
+    graph: BotanicalStorageUnitGraph
+    node: BotanicalStorageUnitNode
+  - type: ShipSaveLimit
+    limitId: HydroponicsStash
+
+- type: entity
+  parent: BasePersistentShipStorageStashWallmount
+  id: FuelStorageStash
+  name: fuel stash
+  description: A wall-mounted shipboard locker for fuel.
+  components:
+  - type: Sprite
+    sprite: _Triad/Structure/Storage/ShipStashes/fuel_storage_stash.rsi
+    layers:
+    - state: fuel
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: fuel_door
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    whitelist:
+      components:
+      - NFFuel
+  - type: EntityStorageVisuals
+    stateBaseClosed: fuel
+    stateDoorOpen: fuel_open
+    stateDoorClosed: fuel_door
+  - type: Construction
+    graph: FuelStorageStashGraph
+    node: FuelStorageStashNode
+  - type: ShipSaveLimit
+    limitId: FuelStash

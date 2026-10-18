@@ -2,6 +2,7 @@
 
 - type: marking
   id: HarpyEarsDefault
+  bodyFeatures: [Ears, Feathers]
   bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Harpy]
@@ -18,6 +19,7 @@
 
 - type: marking
   id: HarpyTailPhoenix
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -34,6 +36,7 @@
 
 - type: marking
   id: HarpyTailRooster
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -49,6 +52,7 @@
 
 - type: marking
   id: HarpyTailFinch
+  bodyFeatures: [Tail, Feathers]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
@@ -64,6 +68,7 @@
 
 - type: marking
   id: HarpyChestDefault
+  bodyFeatures: [Feathers]
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Harpy]
@@ -82,6 +87,7 @@
 
 - type: marking
   id: HarpyLegsDefault
+  bodyFeatures: [Feathers]
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [Harpy]

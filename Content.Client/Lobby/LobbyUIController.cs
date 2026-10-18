@@ -480,9 +480,10 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         if (previewEntity != null)
         {
-            // Special type like borg or AI, do not spawn a human just spawn the entity.
+            // Non-humanoid jobs keep their own appearance; humanoid job previews use the profile.
             dummyEnt = EntityManager.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
-            return dummyEnt;
+            if (humanoid == null || !EntityManager.HasComponent<HumanoidAppearanceComponent>(dummyEnt))
+                return dummyEnt;
         }
         else if (humanoid is not null)
         {

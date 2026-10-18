@@ -122,7 +122,7 @@
 - type: professionalSkillRequirement
   id: Artifacts
   skill: Science
-  level: 1
+  level: 2
   actions: Interface
   targets: [ComputerAnalysisConsole]
   uiMessages: [AnalysisConsoleExtractButtonPressedMessage]
@@ -130,15 +130,23 @@
 - type: professionalSkillRequirement
   id: Research
   skill: Science
-  level: 2
+  level: 3
   actions: Interface
   targets: [ComputerResearchAndDevelopment]
   uiMessages: [ConsoleUnlockTechnologyMessage]
 
 - type: professionalSkillRequirement
+  id: BlueprintResearch
+  skill: Science
+  level: 1
+  actions: Interface
+  targets: [ComputerResearchAndDevelopment]
+  uiMessages: [ResearchBlueprintRollMessage]
+
+- type: professionalSkillRequirement
   id: Anomalies
   skill: Science
-  level: 2
+  level: 3
   actions: Interface
   targets: [MachineAnomalyGenerator]
   uiMessages: [AnomalyGeneratorGenerateButtonPressedEvent]
@@ -146,7 +154,7 @@
 - type: professionalSkillRequirement
   id: ExperimentalAnomalies
   skill: Science
-  level: 2
+  level: 3
   actions: Interface
   targets: [MachineAnomalyVesselExperimental]
 

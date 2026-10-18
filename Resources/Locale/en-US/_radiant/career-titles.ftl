@@ -1,0 +1,17 @@
+career-job-title-label = Job title
+career-job-title-locked = { $title } (after stage { $stage })
+career-title-miner = Miner
+career-title-prospector = Prospector
+career-title-senior-miner = Senior miner
+career-title-mining-master = Mining foreman
+career-title-doctor = Doctor
+career-title-paramedic = Paramedic
+career-title-chemist = Chemist
+career-title-senior-doctor = Senior doctor
+career-title-surgeon = Surgeon
+career-title-geneticist = Geneticist
+career-title-virologist = Virologist
+career-title-technician = Technician
+career-title-engineer = Engineer
+career-title-ship-engineer = Ship engineer
+career-title-senior-engineer = Senior engineer

@@ -4,6 +4,8 @@
   name: ashtray
   description: Proven by scientists to improve the smoking experience by 37%!
   components:
+  - type: Tag
+    tags: [NoWashablePaint]
   - type: Sprite
     sprite: Objects/Decoration/ashtray.rsi
     layers:

@@ -1,0 +1,62 @@
+- type: Tag
+  id: PhotoCard
+
+- type: entity
+  parent: [BaseStorageItem, BaseBagOpenClose]
+  id: PhotoAlbum
+  name: photo album
+  description: A small album with room for 21 photographs.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/photo_album.rsi
+    layers:
+    - state: album-closed
+      map: [closeLayer]
+    - state: album
+      map: [openLayer]
+      visible: false
+  - type: Item
+    size: Small
+    sprite: _radiant/Objects/Misc/photo_album.rsi
+    heldPrefix: album
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,6,2
+    whitelist:
+      tags:
+      - PhotoCard
+  - type: Tag
+    tags:
+    - Book
+  - type: PhysicalComposition
+    materialComposition:
+      Paper: 200
+      Cloth: 50
+  - type: StaticPrice
+    price: 15
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [Destruction]

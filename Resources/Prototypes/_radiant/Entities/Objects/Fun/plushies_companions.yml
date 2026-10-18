@@ -1,0 +1,58 @@
+- type: entity
+  id: PlushieEzuar
+  parent: BasePlushie
+  name: Ezuar plushie
+  description: A soft toy shaped like a dark synthetic creature with glowing blue details.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Plushies/companions.rsi
+    state: ezuar
+  - type: EmitSoundOnUse
+    sound: &EzuarSound
+      path: /Audio/_radiant/Items/Plushies/ezuar_hiss.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnActivate
+    sound: *EzuarSound
+  - type: EmitSoundOnCollide
+    sound: *EzuarSound
+  - type: EmitSoundOnLand
+    sound: *EzuarSound
+  - type: EmitSoundOnTrigger
+    sound: *EzuarSound
+  - type: MeleeWeapon
+    soundHit: *EzuarSound
+  - type: Edible
+    useSound: *EzuarSound
+  - type: Item
+    size: Small
+
+- type: entity
+  id: PlushieYuchi
+  parent: BasePlushie
+  name: Yuchi plushie
+  description: A soft blue-and-white avali toy with a peaceful smile and fluffy feathers.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/Plushies/companions.rsi
+    state: yuchi
+    noRot: true
+  - type: EmitSoundOnUse
+    sound: &YuchiSound
+      collection: PlushieYuchiVoice
+      params:
+        volume: -4
+  - type: EmitSoundOnActivate
+    sound: *YuchiSound
+  - type: EmitSoundOnCollide
+    sound: *YuchiSound
+  - type: EmitSoundOnLand
+    sound: *YuchiSound
+  - type: EmitSoundOnTrigger
+    sound: *YuchiSound
+  - type: MeleeWeapon
+    soundHit: *YuchiSound
+  - type: Edible
+    useSound: *YuchiSound
+  - type: Item
+    size: Small

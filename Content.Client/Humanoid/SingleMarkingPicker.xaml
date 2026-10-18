@@ -18,8 +18,9 @@
         </ScrollContainer>
 
         <!-- Color sliders -->
-        <ScrollContainer MinHeight="200" HorizontalExpand="True">
+        <ScrollContainer HorizontalExpand="True" ReturnMeasure="True" HScrollEnabled="False">
             <BoxContainer Name="ColorSelectorContainer" HorizontalExpand="True" />
         </ScrollContainer>
+        <BoxContainer Name="HairColoringContainer" Orientation="Vertical" HorizontalExpand="True" />
     </BoxContainer>
 </BoxContainer>

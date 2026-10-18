@@ -6,6 +6,14 @@
   - type: Sprite
     state: icon
   - type: Clothing
+    unequipSound:
+      path: /Audio/_radiant/Items/handling/generic_equip2.ogg
+      params:
+        volume: -4
+    equipSound:
+      path: /Audio/_radiant/Items/handling/generic_equip2.ogg
+      params:
+        volume: -4
     slots: [gloves]
   - type: Edible
     requiresSpecialDigestion: true

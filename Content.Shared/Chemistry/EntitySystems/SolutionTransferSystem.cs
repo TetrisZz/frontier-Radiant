@@ -204,6 +204,8 @@ public sealed class SolutionTransferSystem : EntitySystem
             return FixedPoint2.Zero;
 
         var solution = _solution.SplitSolution(source, actualAmount);
+        var operation = new Content.Shared._radiant.Careers.CareerChemicalOperationEvent(user, targetEntity);
+        RaiseLocalEvent(ref operation);
         _solution.AddSolution(target, solution);
 
         var ev = new SolutionTransferredEvent(sourceEntity, targetEntity, user, actualAmount);

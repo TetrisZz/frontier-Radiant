@@ -250,10 +250,14 @@ public sealed class InjectorSystem : SharedInjectorSystem
         }
 
         // Move units from attackSolution to targetSolution
-        var removedSolution = SolutionContainers.SplitSolution(target.Comp.ChemicalSolution.Value, realTransferAmount);
+        if (!SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out var source, out _))
+            return false;
+        var removedSolution = SolutionContainers.SplitSolution(source.Value, realTransferAmount);
 
         _blood.TryAddToChemicals(target.AsNullable(), removedSolution);
 
+        var administered = new Content.Shared._radiant.Careers.CareerMedicineAdministeredEvent(user, target, removedSolution);
+        RaiseLocalEvent(ref administered);
         _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection);
 
         Popup.PopupEntity(Loc.GetString("injector-component-inject-success-message",
@@ -302,12 +306,20 @@ public sealed class InjectorSystem : SharedInjectorSystem
         else
             removedSolution = SolutionContainers.SplitSolution(soln.Value, realTransferAmount);
 
-        _reactiveSystem.DoEntityReaction(targetEntity, removedSolution, ReactionMethod.Injection);
-
         if (!asRefill)
+        {
+            var administered = new Content.Shared._radiant.Careers.CareerMedicineAdministeredEvent(user, targetEntity, removedSolution);
+            RaiseLocalEvent(ref administered);
+            _reactiveSystem.DoEntityReaction(targetEntity, removedSolution, ReactionMethod.Injection);
             SolutionContainers.Inject(targetEntity, targetSolution, removedSolution);
+        }
         else
+        {
+            var operation = new Content.Shared._radiant.Careers.CareerChemicalOperationEvent(user, targetEntity);
+            RaiseLocalEvent(ref operation);
+            _reactiveSystem.DoEntityReaction(targetEntity, removedSolution, ReactionMethod.Injection);
             SolutionContainers.Refill(targetEntity, targetSolution, removedSolution);
+        }
 
         Popup.PopupEntity(Loc.GetString("injector-component-transfer-success-message",
             ("amount", removedSolution.Volume),

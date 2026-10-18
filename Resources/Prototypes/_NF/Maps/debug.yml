@@ -11,6 +11,7 @@
           mapNameTemplate: "NFDev"
         - type: StationJobs
           availableJobs:
+            SalvageSpecialist: [ -1, -1 ]
             Contractor: [ -1, -1 ]
             Pilot: [ -1, -1 ]
             Mercenary: [ -1, -1 ]

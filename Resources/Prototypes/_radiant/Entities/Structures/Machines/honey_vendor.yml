@@ -1,0 +1,69 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineHoney
+  name: Buzz Fuzz Vendor
+  description: A hive of flavour! Refreshing soda and honey-sweet Buzz Fuzz.
+  components:
+  - type: VendingMachine
+    pack: HoneyVendorInventory
+    initialStockQuality: 1.0
+    offState: off
+    brokenState: broken
+    normalState: normal
+    ejectState: normal
+    denyState: normal
+    screenState: null
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/honey_vendor.rsi
+    layers:
+    - state: off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: normal
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+    - state: panel
+      visible: false
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: DatasetVocalizer
+    dataset: HoneyVendorAds
+  - type: PointLight
+    color: "#EFC94C"
+
+- type: vendingMachineInventory
+  id: HoneyVendorInventory
+  startingInventory:
+    DrinkColaCan: 10
+    DrinkSpaceMountainWindCan: 10
+    DrinkDrGibbCan: 10
+    DrinkStarkistCan: 10
+    DrinkSpaceUpCan: 10
+    DrinkPwrGameCan: 10
+    DrinkLemonLimeCan: 10
+    DrinkSolDryCan: 10
+    DrinkShamblersJuiceCan: 5
+    DrinkBuzzFuzzCan: 5
+    DrinkWaterBottleLarge: 5
+  contrabandInventory:
+    DrinkThirteenLokoCan: 6
+  emaggedInventory:
+    DrinkCarpLiteBottle: 1
+    DrinkGreyBullCan: 1
+
+- type: localizedDataset
+  id: HoneyVendorAds
+  values:
+    prefix: advertisement-honey-vendor-
+    count: 4
+
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockHoney
+  name: Buzz Fuzz restock box
+  description: A restock box for a Buzz Fuzz drinks vendor.
+  components:
+  - type: VendingMachineRestock
+    canRestock: [HoneyVendorInventory]
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      color: "#EFC94C"

@@ -124,6 +124,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionSoloBiteLip
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: []
   solo: true
   category: lips
   name: interaction-solo-bite-lip
@@ -143,6 +145,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseFemaleOnly ]
   id: InteractionSoloTouchChest
+  userBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
+  targetBlockedClothingSlots: []
   solo: true
   category: chest
   name: interaction-solo-touch-chest
@@ -153,6 +157,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionMarkNeck
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing]
   category: head
   name: interaction-mark-neck
   arousalPoints: 1
@@ -162,6 +168,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionDeepKiss
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   category: lips
   name: interaction-deep-kiss
   arousalPoints: 2
@@ -184,6 +192,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionTeaseNipple
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
   category: chest
   name: interaction-tease-nipple
   arousalPoints: 2
@@ -206,6 +216,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionTongueKiss
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   category: lips
   name: interaction-tongue-kiss
   arousalPoints: 3
@@ -230,6 +242,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseHumanoid ]
   id: InteractionBiteShoulder
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing]
   category: body
   name: interaction-bite-shoulder
   arousalPoints: 3
@@ -239,6 +253,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing ]
   id: InteractionUnbuttonShirt
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
   category: body
   name: interaction-unbutton-shirt
   arousalPoints: 3
@@ -308,6 +324,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionKissCollarbone
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing]
   category: head
   name: interaction-kiss-collarbone
   arousalPoints: 3
@@ -356,6 +374,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionBitePartnerLip
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   category: lips
   name: interaction-bite-partner-lip
   arousalPoints: 4
@@ -365,6 +385,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionKissDownNeck
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing]
   category: head
   name: interaction-kiss-down-neck
   arousalPoints: 4
@@ -376,6 +398,8 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseCheckClothing, BaseHumanoid ]
   id: InteractionGropeBreastOver
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: []
   category: chest
   name: interaction-grope-breast-over
   arousalPoints: 4
@@ -408,6 +432,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionVulpkaninBiteScruff
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing]
   category: head
   name: interaction-vulpkanin-bite-scruff
   arousalPoints: 4
@@ -419,6 +445,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionVulpkaninLickMuzzle
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   category: lips
   name: interaction-vulpkanin-lick-muzzle
   arousalPoints: 4
@@ -431,6 +459,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionVulpkaninSniffNeck
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing]
   category: head
   name: interaction-vulpkanin-sniff-neck
   arousalPoints: 3
@@ -446,19 +476,17 @@
   arousalPoints: 4
   userMessages: ["chat-interaction-vulpkanin-tail-wrap-message"]
   targetMessages: ["chat-interaction-vulpkanin-tail-wrap-message-target"]
-  allowedSpecies:
-  - Vulpkanin
 
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
   id: InteractionVulpkaninNibbleEar
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [head]
   category: head
   name: interaction-vulpkanin-nibble-ear
   arousalPoints: 4
   userMessages: ["chat-interaction-vulpkanin-nibble-ear-message"]
   targetMessages: ["chat-interaction-vulpkanin-nibble-ear-message-target"]
-  nearestAllowedSpecies:
-  - Vulpkanin
 
 # Tajaran ERP
 - type: interaction
@@ -475,6 +503,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionTajaranBiteNape
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing]
   category: head
   name: interaction-tajaran-bite-nape
   arousalPoints: 4
@@ -486,6 +516,8 @@
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionTajaranRubCheek
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [mask, head]
   category: head
   name: interaction-tajaran-rub-cheek
   arousalPoints: 3
@@ -497,19 +529,19 @@
   - Tajaran
 
 - type: interaction
-  parent: [ BaseCheckErpStatus, BaseUserHasTail, BaseTargetHasTail ]
+  parent: [ BaseUserHasTail, BaseTargetHasTail ]
   id: InteractionTajaranTailEntwine
   category: tail
   name: interaction-tajaran-tail-entwine
   arousalPoints: 4
   userMessages: ["chat-interaction-tajaran-tail-entwine-message"]
   targetMessages: ["chat-interaction-tajaran-tail-entwine-message-target"]
-  nearestAllowedSpecies:
-  - Tajaran
 
 - type: interaction
   parent: BaseCheckErpStatus
   id: InteractionTajaranScratchBack
+  userBlockedClothingSlots: []
+  targetBlockedClothingSlots: [jumpsuit, outerClothing, underweart]
   category: body
   name: interaction-tajaran-scratch-back
   arousalPoints: 4
@@ -521,10 +553,10 @@
 - type: interaction
   parent: [ BaseCheckErpStatus, BaseTargetHasEars ]
   id: InteractionTajaranGroomNeck
+  userBlockedClothingSlots: [mask, head]
+  targetBlockedClothingSlots: [jumpsuit, outerClothing]
   category: head
   name: interaction-tajaran-groom-neck
   arousalPoints: 3
   userMessages: ["chat-interaction-tajaran-groom-neck-message"]
   targetMessages: ["chat-interaction-tajaran-groom-neck-message-target"]
-  nearestAllowedSpecies:
-  - Tajaran

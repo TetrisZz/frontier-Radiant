@@ -5,12 +5,35 @@
   description: You wear this on your back and put items into it.
   categories: [ HideSpawnMenu ] # Frontier
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/backpack_pickup.ogg
+      params:
+        volume: -9
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/backpack_drop.ogg
+      params:
+        volume: -11
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/backpack_drop.ogg
+      params:
+        volume: -11
   - type: Sprite
     sprite: Clothing/Back/Backpacks/backpack.rsi
     state: icon
   - type: Item
     size: Huge
   - type: Clothing
+    unequipSound:
+      path: /Audio/_radiant/Items/handling/backpack_equip.ogg
+      params:
+        volume: -9
+    equipSound:
+      path: /Audio/_radiant/Items/handling/backpack_equip.ogg
+      params:
+        volume: -9
     quickEquip: false
     slots:
     - back

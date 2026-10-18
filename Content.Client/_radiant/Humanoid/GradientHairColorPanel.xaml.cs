@@ -64,7 +64,7 @@ public sealed partial class GradientHairColorPanel : BoxContainer
             ? Loc.GetString("hair-gradient-hair-title")
             : Loc.GetString("hair-gradient-facial-hair-title");
 
-        var canCustomize = HairColoringHelper.CanUseCustomHairColor(species, TargetLayer, _markingManager, _prototypeManager);
+        var canCustomize = HairColoringHelper.CanUseHairGradient(species, TargetLayer, _markingManager, _prototypeManager);
         Visible = canCustomize;
         ModeButton.Disabled = !canCustomize;
         DirectionButton.Disabled = !canCustomize;

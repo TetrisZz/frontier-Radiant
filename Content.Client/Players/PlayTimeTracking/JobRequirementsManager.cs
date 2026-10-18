@@ -6,6 +6,7 @@ using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Preferences;
+using Content.Shared._radiant.Careers;
 using Content.Shared.Roles;
 using Content.Shared.Humanoid; /// Radiant_sector
 using Robust.Client;
@@ -34,6 +35,8 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
     private ISawmill _sawmill = default!;
 
     public event Action? Updated;
+
+    public void RefreshCareerRequirements() => Updated?.Invoke();
 
     public void Initialize()
     {
@@ -125,6 +128,11 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
 
     public bool CheckRoleRequirements(JobPrototype job, HumanoidCharacterProfile? profile, [NotNullWhen(false)] out FormattedMessage? reason)
     {
+        if (profile != null && !CareerJobRules.IsAllowed(_prototypes, profile.Career.Profession, job.ID))
+        {
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("career-role-restricted"));
+            return false;
+        }
         var reqs = _entManager.System<SharedRoleSystem>().GetJobRequirement(job);
 
         //return CheckRoleRequirements(reqs, profile, out reason); // Frontier: old implementation

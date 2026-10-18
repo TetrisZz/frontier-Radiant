@@ -12,6 +12,7 @@ using Content.Shared._NF.Library;
 using Content.Shared.Administration.Logs;
 using Content.Shared._radiant.Humanoid;
 using Content.Shared._radiant.Dossiers;
+using Content.Shared._radiant.Careers;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Ghost.Roles;
@@ -31,6 +32,8 @@ namespace Content.Server.Database
 {
     public abstract class ServerDbBase
     {
+        private static readonly JsonSerializerOptions CareerJsonOptions = new() { IncludeFields = true };
+
         private readonly ISawmill _opsLog;
 
         public event Action<DatabaseNotification>? OnNotificationReceived;
@@ -42,6 +45,18 @@ namespace Content.Server.Database
         }
 
         #region Preferences
+        public async Task<T> RunWithContextAsync<T>(Func<ServerDbContext, CancellationToken, Task<T>> fn, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            return await fn(db.DbContext, cancel);
+        }
+
+        public async Task RunWithContextAsync(Func<ServerDbContext, CancellationToken, Task> fn, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            await fn(db.DbContext, cancel);
+        }
+
         public async Task<PlayerPreferences?> GetPlayerPreferencesAsync(
             NetUserId userId,
             CancellationToken cancel = default)
@@ -85,7 +100,7 @@ namespace Content.Server.Database
             foreach (var favorite in prefs.ConstructionFavorites)
                 constructionFavorites.Add(new ProtoId<ConstructionPrototype>(favorite));
 
-            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites);
+            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites, prefs.GhostSkin);
         }
 
         public async Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index)
@@ -140,6 +155,19 @@ namespace Content.Server.Database
             humanoid.CitizenshipLocked = oldProfile != null;
             if (replaceCharacter && oldProfile != null)
                 oldProfile.DossierJson = "{}";
+            if (oldProfile != null)
+            {
+                if (replaceCharacter)
+                {
+                    var requestedId = humanoid.Career.CharacterId;
+                    humanoid.Career = new CareerData
+                    {
+                        CharacterId = requestedId != Guid.Empty && requestedId != ReadCareer(oldProfile).CharacterId
+                            ? requestedId : Guid.NewGuid()
+                    };
+                    oldProfile.CareerJson = JsonSerializer.Serialize(humanoid.Career, CareerJsonOptions);
+                }
+            }
             var newProfile = ConvertProfiles(humanoid, slot, oldProfile);
             if (oldProfile == null)
             {
@@ -166,6 +194,27 @@ namespace Content.Server.Database
                 .Where(p => p.Preference.UserId == userId.UserId && p.Slot == slot)
                 .Select(p => p.DossierJson)
                 .SingleOrDefaultAsync();
+        }
+
+        public async Task SaveCharacterCareerAsync(NetUserId userId, int slot, Guid characterId, CareerData career)
+        {
+            if (characterId == Guid.Empty || career.CharacterId != characterId)
+                return;
+
+            var json = JsonSerializer.Serialize(career, CareerJsonOptions);
+            await using var db = await GetDb();
+            var query = db.DbContext.Profile
+                .Where(p => p.Preference.UserId == userId.UserId && p.Slot == slot);
+            var profile = await query.AsNoTracking().SingleOrDefaultAsync();
+            if (profile == null || ReadCareer(profile).CharacterId != characterId)
+                return;
+
+            // Compare the original JSON in the UPDATE itself to reject concurrent replacement
+            // or progress writes between the identity check and the update.
+            var updated = await query.Where(p => p.Id == profile.Id && p.CareerJson == profile.CareerJson)
+                .ExecuteUpdateAsync(setters => setters.SetProperty(p => p.CareerJson, json));
+            if (updated == 0)
+                throw new DbUpdateConcurrencyException("Character career changed while saving.");
         }
 
         public async Task SaveCharacterDossierAsync(NetUserId userId, int slot, string dossierJson)
@@ -257,6 +306,7 @@ namespace Content.Server.Database
         {
             await using var db = await GetDb();
 
+            ((HumanoidCharacterProfile) defaultProfile).Career = new CareerData { CharacterId = Guid.NewGuid() };
             var profile = ConvertProfiles((HumanoidCharacterProfile) defaultProfile, 0);
             var prefs = new Preference
             {
@@ -311,10 +361,29 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        public async Task SaveGhostSkinAsync(NetUserId userId, string skin)
+        {
+            await using var db = await GetDb();
+            var preference = await db.DbContext.Preference.SingleAsync(p => p.UserId == userId.UserId);
+            preference.GhostSkin = skin;
+            await db.DbContext.SaveChangesAsync();
+        }
+
         private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
         {
             var prefs = await db.Preference.SingleAsync(p => p.UserId == userId.UserId);
             prefs.SelectedCharacterSlot = newSlot;
+        }
+
+        private static CareerData ReadCareer(Profile profile)
+        {
+            var career = JsonSerializer.Deserialize<CareerData>(profile.CareerJson, CareerJsonOptions) ?? new CareerData();
+            if (career.CharacterId == Guid.Empty)
+            {
+                // Fixed namespace suffix keeps legacy identity stable across providers and restarts.
+                career.CharacterId = new Guid(profile.Id, 0x5241, 0x4449, 0x80, 0x43, 0x41, 0x52, 0x45, 0x45, 0x52, 0x01);
+            }
+            return career;
         }
 
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
@@ -422,6 +491,7 @@ namespace Content.Server.Database
                 JsonSerializer.Deserialize<int[]>(profile.SkillLevels)
             )
             {
+                Career = ReadCareer(profile),
                 Residence = profile.Residence,
                 Citizenship = Content.Shared._radiant.Passports.RadiantCitizenships.Parse(
                     profile.Citizenship.StartsWith("Locked:", StringComparison.Ordinal)
@@ -443,7 +513,17 @@ namespace Content.Server.Database
 
         private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
         {
-            profile ??= new Profile();
+            if (profile == null)
+            {
+                humanoid.Career = new CareerData
+                {
+                    CharacterId = humanoid.Career.CharacterId == Guid.Empty ? Guid.NewGuid() : humanoid.Career.CharacterId
+                };
+                profile = new Profile
+                {
+                    CareerJson = JsonSerializer.Serialize(humanoid.Career, CareerJsonOptions)
+                };
+            }
             var appearance = (HumanoidCharacterAppearance) humanoid.CharacterAppearance;
             List<string> markingStrings = new();
             foreach (var marking in appearance.Markings)
@@ -2209,6 +2289,22 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return await db.DbContext.WayfarerSafetyDepositBox
                 .Include(b => b.Items)
                 .FirstOrDefaultAsync(b => b.BoxId == boxId, cancel);
+        }
+
+        public async Task<bool> UpgradeCareerSafetyDepositBox(
+            Guid boxId,
+            Guid ownerId,
+            int characterIndex,
+            string expectedPrototype,
+            string newPrototype)
+        {
+            await using var db = await GetDb();
+
+            var updated = await db.DbContext.WayfarerSafetyDepositBox
+                .Where(b => b.BoxId == boxId && b.OwnerUserId == ownerId &&
+                            b.CharacterIndex == characterIndex && b.ProtoId == expectedPrototype)
+                .ExecuteUpdateAsync(setters => setters.SetProperty(b => b.ProtoId, newPrototype));
+            return updated == 1;
         }
 
         public async Task DepositSafetyDepositBoxItems(

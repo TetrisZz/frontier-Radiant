@@ -1,0 +1,52 @@
+- type: blueprintResearch
+  id: Default
+  cost: 30000
+  tier: 1
+  blueprint: ResearchRandomBlueprint
+  timeChance: 0.25
+  materialChance: 0.25
+  extraMaterialChance: 0.25
+  latheChance: 0.05
+  unmodifiedChance: 0.005
+  materialTiers: [Common, Uncommon, Rare]
+
+- type: blueprintMaterialTier
+  id: Common
+  materials: [Steel, Glass, Plastic]
+  minimum: 134
+  maximum: 6667
+  weight: 60
+
+- type: blueprintMaterialTier
+  id: Uncommon
+  materials: [Gold, Silver, Uranium, Plasma]
+  minimum: 67
+  maximum: 3334
+  weight: 30
+
+- type: blueprintMaterialTier
+  id: Rare
+  materials: [Bluespace, Diamond]
+  minimum: 7
+  maximum: 667
+  weight: 10
+
+- type: latheBlueprint
+  id: Weapon
+  lathe: [AmmoTechFab, MercenaryTechFab, MercenaryTechFabHacked, NfsdTechFab, SecurityTechFab]
+
+- type: latheBlueprint
+  id: Engineering
+  lathe: [EngineeringTechFab, Autolathe, SalvageTechfabNF]
+
+- type: latheBlueprint
+  id: Medical
+  lathe: [MedicalTechFab]
+
+- type: latheBlueprint
+  id: Science
+  lathe: [Protolathe, ExosuitFabricator]
+
+- type: latheBlueprint
+  id: Service
+  lathe: [ServiceTechFab, CargoTechFabNF]

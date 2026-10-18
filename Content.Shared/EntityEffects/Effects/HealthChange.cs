@@ -131,12 +131,17 @@ namespace Content.Shared.EntityEffects.Effects
                 }
             }
 
-            args.EntityManager.System<DamageableSystem>()
+            var healed = args.EntityManager.System<DamageableSystem>()
                 .TryChangeDamage(
                     args.TargetEntity,
                     damageSpec * scale,
                     IgnoreResistances,
                     interruptsDoAfters: false);
+            if (healed != null && args is EntityEffectReagentArgs { Reagent: { } reagent })
+            {
+                var applied = new Content.Shared._radiant.Careers.CareerChemicalHealingEvent(args.TargetEntity, reagent.ID, healed);
+                args.EntityManager.EventBus.RaiseEvent(EventSource.Local, ref applied);
+            }
         }
     }
 }

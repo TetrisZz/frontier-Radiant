@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Open album and inhands taken from BlueMoon-Station (album state in icons/obj/items_and_weapons.dmi and icons/mob/inhands/misc/books_lefthand.dmi, books_righthand.dmi), licensed CC-BY-SA-3.0. Original authors: tgstation/BlueMoon contributors. Closed cover generated with OpenAI image generation and downscaled for Radiant Sector (2026).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "album-closed"
+    },
+    {
+      "name": "album"
+    },
+    {
+      "name": "album-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "album-inhand-right",
+      "directions": 4
+    }
+  ]
+}

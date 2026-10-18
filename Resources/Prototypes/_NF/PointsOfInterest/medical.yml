@@ -32,6 +32,8 @@
     Medical:
       stationProto: RecordsFrontierOutpost
       components:
+        - type: CareerBaseStation
+          professions: [Medical]
         - type: StationNameSetup
           mapNameTemplate: 'Медицинский Центр'
         - type: ExtraStationInformation
@@ -41,6 +43,7 @@
           lobbySortOrder: 4
         - type: StationJobs
           availableJobs:
+            MedicalDoctor: [ -1, -1 ]
             DirectorOfCare: [ 1, 1 ]
             PhoenixAgent: [ 2, 2 ] # Radiant sector
             PhoenixMedic: [ 2, 2 ] # Radiant sector

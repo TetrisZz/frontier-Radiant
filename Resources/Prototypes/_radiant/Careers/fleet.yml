@@ -1,0 +1,86 @@
+- type: entity
+  id: BaseCareerStation
+  abstract: true
+  components:
+  - type: CareerBaseStation
+    professions: [Mining, Engineering]
+
+- type: entity
+  id: CareerMiningStation
+  parent: StandardFrontierExpeditionVessel
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CareerFleet
+    profession: Mining
+  - type: StationJobs
+    availableJobs:
+      SalvageSpecialist: [ 0, 3 ]
+  - type: ExtraShuttleInformation
+    hiddenWithoutOpenJobs: true
+
+- type: vessel
+  id: CareerMiningStarter
+  parent: Prospector
+  name: Mining Prospector
+  description: A starter mining vessel for a three-person crew.
+  price: 0
+  careerProfession: Mining
+  careerLevel: 0
+  careerFree: true
+
+- type: gameMap
+  id: CareerMiningStarter
+  mapName: Mining Prospector
+  mapPath: /Maps/_NF/Shuttles/prospector.yml
+  minPlayers: 0
+  stations:
+    CareerMiningStarter:
+      stationProto: CareerMiningStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Mining Prospector {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+- type: vessel
+  id: CareerMiningUpgrade
+  parent: Barge
+  name: Mining Barge
+  description: A larger mining vessel for an experienced three-person crew.
+  careerProfession: Mining
+  careerLevel: 1
+  careerFree: false
+
+- type: gameMap
+  id: CareerMiningUpgrade
+  mapName: Mining Barge
+  mapPath: /Maps/_NF/Shuttles/barge.yml
+  minPlayers: 0
+  stations:
+    CareerMiningUpgrade:
+      stationProto: CareerMiningStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Mining Barge {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+- type: entity
+  id: ComputerShipyardCareerMining
+  parent: ComputerShipyardBase
+  name: mining fleet shipyard
+  components:
+  - type: ShipyardConsole
+    newJobTitle: null
+  - type: ShipyardListing
+    shuttles:
+    - CareerMiningStarter
+    - CareerMiningUpgrade
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Custom
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Custom:
+        type: ShipyardConsoleBoundUserInterface

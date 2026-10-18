@@ -5,6 +5,8 @@
   description: This cookie looks incredibly delicious. Whoever made it must really appreciate you.
   categories: [ DoNotMap ]
   components:
+  - type: Tag
+    tags: [Cookie]
   - type: Sprite
     state: cookie-sugar
   - type: FlavorProfile

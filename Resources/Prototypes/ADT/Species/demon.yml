@@ -161,6 +161,7 @@
 
 - type: humanoidBaseSprite
   id: MobDemonTail
+  bodyFeatures: [Tail]
   baseSprite:
     sprite: ADT/Mobs/Species/Demon/parts.rsi
     state: tail

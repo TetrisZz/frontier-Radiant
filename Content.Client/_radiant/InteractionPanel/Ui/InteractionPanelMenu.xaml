@@ -4,17 +4,26 @@
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     x:Class="Content.Client.Interaction.Panel.Ui.InteractionPanelMenu"
     Title="{Loc 'interaction-ui-default-title'}"
-    MinSize="620 620"
-    SetSize="640 740">
+    MinSize="580 560"
+    SetSize="660 720">
 
     <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="4">
+        <BoxContainer SeparationOverride="8" Margin="4, 2, 4, 4">
+            <Label Text="{Loc 'interaction-panel-partner-label'}" VerticalAlignment="Center" />
+            <OptionButton Name="TargetPicker" HorizontalExpand="True" MinHeight="32" />
+            <Button Name="PickTargetButton" ToggleMode="True" SetSize="32 32" ToolTip="{Loc 'interaction-panel-pick-target'}">
+                <TextureRect Name="PickTargetIcon" SetSize="24 24" Stretch="KeepAspectCentered" MouseFilter="Ignore" />
+            </Button>
+        </BoxContainer>
+        <BoxContainer Margin="4, 0, 4, 8" SeparationOverride="8">
+            <Label Name="PartnerStatus" StyleClasses="LabelSubText" HorizontalExpand="True" ClipText="True" />
+            <Label Name="PartnerDistance" StyleClasses="LabelSubText" />
+        </BoxContainer>
         <!-- Верхний блок информации -->
         <BoxContainer Name="UpperBlock" HorizontalExpand="True" Margin="0, 2, 0, 6">
             <PanelContainer Name="UserCard" HorizontalExpand="True">
-                <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#202C36" BorderColor="#344958" BorderThickness="1" />
-                </PanelContainer.PanelOverride>
-                <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+                <PanelContainer.PanelOverride><gfx:StyleBoxFlat BackgroundColor="#20252B" BorderColor="#3E464D" BorderThickness="1" /></PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6">
                     <BoxContainer Name="UserNameRow" HorizontalExpand="True" />
                     <PanelContainer MinHeight="1">
                         <PanelContainer.PanelOverride><gfx:StyleBoxFlat BackgroundColor="#344958" /></PanelContainer.PanelOverride>
@@ -22,59 +31,58 @@
                     <BoxContainer Name="UserSpriteView" Orientation="Horizontal" SeparationOverride="10" />
                 </BoxContainer>
             </PanelContainer>
-            <PanelContainer Name="TargetCard" HorizontalExpand="True" Margin="8, 0, 0, 0" Visible="False">
-                <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#202C36" BorderColor="#344958" BorderThickness="1" />
-                </PanelContainer.PanelOverride>
-                <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+            <PanelContainer Name="TargetCard" HorizontalExpand="True" Margin="8, 0, 0, 0">
+                <PanelContainer.PanelOverride><gfx:StyleBoxFlat BackgroundColor="#20252B" BorderColor="#3E464D" BorderThickness="1" /></PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6">
                     <BoxContainer Name="TargetNameRow" HorizontalExpand="True" />
                     <PanelContainer MinHeight="1">
                         <PanelContainer.PanelOverride><gfx:StyleBoxFlat BackgroundColor="#344958" /></PanelContainer.PanelOverride>
                     </PanelContainer>
-                    <BoxContainer Name="TargetSpriteView" Orientation="Horizontal" SeparationOverride="10" />
+                    <BoxContainer Name="TargetSpriteView" Orientation="Horizontal" SeparationOverride="10" MinHeight="80" />
                 </BoxContainer>
             </PanelContainer>
         </BoxContainer>
 
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4, 2, 4, 4">
+        <BoxContainer Name="ArousalContainer" HorizontalExpand="True" Margin="4, 2, 4, 8" SeparationOverride="8">
             <Label Text="{Loc 'interaction-panel-arousal-label'}" StyleClasses="LabelSubText" />
-            <ProgressBar Name="ArousalBar" MinValue="0" MaxValue="1" Value="0" HorizontalExpand="True" SetHeight="10">
+            <ProgressBar Name="ArousalBar" MinValue="0" MaxValue="1" Value="0" HorizontalExpand="True" SetHeight="8" VerticalAlignment="Center">
                 <ProgressBar.ForegroundStyleBoxOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#E85A8A" />
                 </ProgressBar.ForegroundStyleBoxOverride>
             </ProgressBar>
+            <Label Name="ArousalValue" Text="0%" MinWidth="40" HorizontalAlignment="Right" StyleClasses="LabelSubText" />
+        </BoxContainer>
+        <BoxContainer HorizontalExpand="True" Margin="4, 0, 4, 6" SeparationOverride="12">
+            <CheckBox Name="SoloModeCheckBox" Text="{Loc 'interaction-panel-solo-mode'}" />
             <CheckBox Name="HideFromOthersCheckBox"
-                      Text="Скрыть от окружающих (видим только мы)"
-                      Margin="0, 4, 0, 0"/>
-            <CheckBox Name="SoloModeCheckBox"
-                      Text="{Loc 'interaction-panel-solo-mode'}"
-                      Margin="0, 4, 0, 0"/>
+                      Text="{Loc 'interaction-panel-private-mode'}" />
         </BoxContainer>
 
         <!-- Специальный блок -->
-        <BoxContainer Margin="0, 4">
-            <Button Name="FavoritesOnlyButton" Text="{Loc 'interaction-panel-filter-favorites'}" ToggleMode="True" />
-            <CheckBox Name="AvailableOnlyCheckBox" Text="{Loc 'interaction-panel-filter-available'}" Margin="8, 0" />
-            <Control HorizontalExpand="True" />
-            <Button Name="ManagementButton" Text="{Loc 'interaction-panel-management'}" ToggleMode="True" />
+        <BoxContainer Margin="4, 0, 4, 6" SeparationOverride="4">
+            <LineEdit Name="SearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'interaction-panel-search-placeholder'}"/>
+            <Button Name="ClearSearchButton" SetSize="32 32" ToolTip="{Loc 'interaction-panel-search-clear'}">
+                <TextureRect TexturePath="/Textures/Interface/VerbIcons/close.svg.192dpi.png" SetSize="18 18" Stretch="KeepAspectCentered" MouseFilter="Ignore" />
+            </Button>
+            <Button Name="FavoritesOnlyButton" Text="★" SetSize="32 32" ToolTip="{Loc 'interaction-panel-filter-favorites'}" ToggleMode="True" />
+            <Button Name="ManagementButton" SetSize="32 32" ToolTip="{Loc 'interaction-panel-management'}" ToggleMode="True">
+                <TextureRect TexturePath="/Textures/Interface/VerbIcons/settings.svg.192dpi.png" SetSize="18 18" Stretch="KeepAspectCentered" MouseFilter="Ignore" />
+            </Button>
         </BoxContainer>
         <BoxContainer Name="ManagementPanel" Orientation="Vertical" Visible="False">
             <BoxContainer HorizontalExpand="True">
                 <Button Name="ImportButton" HorizontalExpand="True" Text="{Loc 'interaction-panel-import-button'}"/>
+                <Button Name="ExportButton" HorizontalExpand="True" Text="{Loc 'interaction-panel-export-button'}"/>
                 <Button Name="ConstructorButton" HorizontalExpand="True" Text="{Loc 'interaction-panel-constructor-button'}"/>
             </BoxContainer>
+            <Label Name="FileStatus" StyleClasses="LabelSubText" ClipText="True" Visible="False" Margin="4" />
             <Label Text="{Loc 'interaction-panel-edit-imported'}" />
-            <ScrollContainer MaxHeight="160" HScrollEnabled="False">
+            <ScrollContainer MaxHeight="160" HScrollEnabled="False" ReturnMeasure="True">
                 <BoxContainer Name="EditorsContainer" Orientation="Vertical" />
             </ScrollContainer>
         </BoxContainer>
 
-        <BoxContainer Margin="4">
-            <LineEdit Name="SearchBar" HorizontalExpand="True" PlaceHolder="{Loc 'interaction-panel-search-placeholder'}"/>
-            <Button Name="ClearSearchButton" Text="{Loc 'interaction-panel-search-clear'}" />
-        </BoxContainer>
         <Label Name="SearchResults" StyleClasses="LabelSubText" />
-        <Label Text="{Loc 'interaction-panel-unavailable-hint'}" StyleClasses="LabelSubText" />
         <Label Name="EmptyResults" Text="{Loc 'interaction-panel-search-empty'}" Visible="False" />
 
         <!-- Контейнер для взаимодействия -->
@@ -88,7 +96,7 @@
 
                     <!-- Первая разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Special" Title="{Loc 'interaction-panel-special-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True"  />
+                        <CollapsibleHeading Name="Special" Title="{Loc 'interaction-panel-special-collapsible'}" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True"  />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="SpecialContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
@@ -97,7 +105,7 @@
 
                     <!-- Вторая разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Favourites" Title="{Loc 'interaction-panel-favourites-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Favourites" Title="{Loc 'interaction-panel-favourites-collapsible'}" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="FavouritesContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
@@ -106,7 +114,7 @@
 
                     <!-- Третья разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Lips" Title="{Loc 'interaction-panel-lips-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Lips" Title="{Loc 'interaction-panel-lips-collapsible'}" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="LipsContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
@@ -114,7 +122,7 @@
                     </Collapsible>
 
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Hands" Title="{Loc 'interaction-panel-hands-collapsible'}" MinWidth="480" MinHeight="32" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Hands" Title="{Loc 'interaction-panel-hands-collapsible'}" MinHeight="32" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="HandsContainer" Orientation="Vertical" SeparationOverride="5" />
                         </CollapsibleBody>
@@ -122,7 +130,7 @@
 
                     <!-- Четвертая разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Head" Title="{Loc 'interaction-panel-head-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Head" Title="{Loc 'interaction-panel-head-collapsible'}" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="HeadContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
@@ -131,7 +139,7 @@
 
                     <!-- Пятая разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Chest" Title="{Loc 'interaction-panel-chest-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Chest" Title="{Loc 'interaction-panel-chest-collapsible'}" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="ChestContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
@@ -140,7 +148,7 @@
 
                     <!-- Шестая разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Groin" Title="{Loc 'interaction-panel-groin-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Groin" Title="{Loc 'interaction-panel-groin-collapsible'}" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="GroinContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
@@ -149,7 +157,7 @@
 
                     <!-- Седьмая разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Tail" Title="{Loc 'interaction-panel-tail-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Tail" Title="{Loc 'interaction-panel-tail-collapsible'}" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="TailContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>
@@ -158,7 +166,7 @@
 
                     <!-- Восьмая разворачивающаяся панель -->
                     <Collapsible Orientation="Vertical" Margin="0, 0, 0, 8">
-                        <CollapsibleHeading Name="Body" Title="{Loc 'interaction-panel-body-collapsible'}" MinWidth="480" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
+                        <CollapsibleHeading Name="Body" Title="{Loc 'interaction-panel-body-collapsible'}" MinHeight="32" HorizontalAlignment="Stretch" HorizontalExpand="True" />
                         <CollapsibleBody Margin="0, 5, 0, 0">
                             <BoxContainer Name="BodyContainer" Orientation="Vertical" SeparationOverride="5">
                             </BoxContainer>

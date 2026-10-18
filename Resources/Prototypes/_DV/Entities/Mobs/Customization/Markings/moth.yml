@@ -1,5 +1,6 @@
 - type: marking
   id: MothWingsClassicSelene
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   forcedColoring: true
@@ -15,6 +16,7 @@
 
 - type: marking
   id: MothWingsSelene
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]

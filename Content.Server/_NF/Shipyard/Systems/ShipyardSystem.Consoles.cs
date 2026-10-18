@@ -49,6 +49,7 @@ using Content.Shared.Shuttles.Components;
 using Robust.Shared.Log;
 using Robust.Shared.Timing;
 using Content.Shared._NF.Whitelist.Components;
+using Content.Server._radiant.Careers;
 
 namespace Content.Server._NF.Shipyard.Systems;
 
@@ -73,6 +74,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly ShuttleRecordsSystem _shuttleRecordsSystem = default!;
     [Dependency] private readonly ShuttleConsoleLockSystem _shuttleConsoleLock = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly CareerFleetSystem _careerFleet = default!;
 
     private static readonly Regex DeedRegex = new(@"\s*\([^()]*\)");
 
@@ -109,13 +111,6 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             return;
         }
 
-        if (HasComp<ShuttleDeedComponent>(targetId))
-        {
-            ConsolePopup(player, Loc.GetString("shipyard-console-already-deeded"));
-            PlayDenySound(player, shipyardConsoleUid, component);
-            return;
-        }
-
         if (TryComp<AccessReaderComponent>(shipyardConsoleUid, out var accessReaderComponent) && !_access.IsAllowed(player, shipyardConsoleUid, accessReaderComponent))
         {
             ConsolePopup(player, Loc.GetString("comms-console-permission-denied"));
@@ -138,8 +133,39 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
 
         var name = vessel.Name;
-        if (vessel.Price <= 0)
+        if (vessel.Price <= 0 && !vessel.CareerFree)
             return;
+
+        if (!_player.TryGetSessionByEntity(player, out var careerSession))
+            return;
+        if (!_careerFleet.CanPurchase(careerSession, vessel, out var careerReason))
+        {
+            ConsolePopup(player, careerReason!);
+            PlayDenySound(player, shipyardConsoleUid, component);
+            return;
+        }
+        var isUpgrade = _careerFleet.TryGetUpgrade(careerSession, vessel, out var replacedStation);
+        if (TryComp<ShuttleDeedComponent>(targetId, out var previousDeed)
+            && (!isUpgrade || previousDeed.ShuttleUid != Comp<CareerFleetComponent>(replacedStation).Grid))
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-already-deeded"));
+            PlayDenySound(player, shipyardConsoleUid, component);
+            return;
+        }
+        if (isUpgrade && (voucher != null || idCard == null))
+        {
+            ConsolePopup(player, Loc.GetString("career-fleet-upgrade-id-required"));
+            PlayDenySound(player, shipyardConsoleUid, component);
+            return;
+        }
+        if (vessel.CareerProfession != null
+            && (!_prototypeManager.TryIndex<GameMapPrototype>(vessel.ID, out var careerMap)
+                || !careerMap.Stations.ContainsKey(vessel.ID)))
+        {
+            ConsolePopup(player, Loc.GetString("career-fleet-unavailable"));
+            PlayDenySound(player, shipyardConsoleUid, component);
+            return;
+        }
 
         if (_station.GetOwningStation(shipyardConsoleUid) is not { Valid: true } station)
         {
@@ -157,8 +183,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         // Keep track of whether or not a voucher was used.
         // TODO: voucher purchase should be done in a separate function.
-        bool voucherUsed = false;
-        if (voucher is not null)
+        // Free career starters use the existing no-resale/no-save deed flag.
+        bool voucherUsed = vessel.CareerFree;
+        if (!vessel.CareerFree && voucher is not null)
         {
             if (voucher!.RedemptionsLeft <= 0)
             {
@@ -179,7 +206,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             voucher.RedemptionsLeft--;
             voucherUsed = true;
         }
-        else
+        else if (!vessel.CareerFree)
         {
             if (!_bank.TryBankWithdraw(player, vessel.Price))
             {
@@ -196,6 +223,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
 
         var shuttleUid = shuttleUidOut.Value;
+        EnsureComp<Content.Shared._radiant.Shipyard.SavedShipComponent>(shuttleUid).VesselId = vessel.ID;
         if (!TryComp<ShuttleComponent>(shuttleUid, out var shuttle))
         {
             PlayDenySound(player, shipyardConsoleUid, component);
@@ -249,7 +277,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         // Register ship ownership for auto-deletion when owner is offline too long
         // We need to get the player's session from their entity
-        if (TryComp<ActorComponent>(player, out var actorComp) && actorComp.PlayerSession != null)
+        if (vessel.CareerProfession == null && TryComp<ActorComponent>(player, out var actorComp) && actorComp.PlayerSession != null)
         {
             _shipOwnership.RegisterShipOwnership(shuttleUid, actorComp.PlayerSession);
         }
@@ -342,6 +370,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             );
         }
 
+        if (shuttleStation is { } fleetStation)
+            _careerFleet.Register(fleetStation, shuttleUid, player, careerSession, vessel);
+
         RefreshState(shipyardConsoleUid, bank.Balance, true, name, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed);
     }
 
@@ -386,6 +417,15 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
 
         bool voucherUsed = deed.PurchasedWithVoucher;
+
+        if (TryComp<CareerFleetGridComponent>(shuttleUid, out var careerGrid)
+            && _prototypeManager.TryIndex<VesselPrototype>(careerGrid.Vessel, out var careerVessel)
+            && careerVessel.CareerFree)
+        {
+            ConsolePopup(player, Loc.GetString("career-fleet-starter-no-sale"));
+            PlayDenySound(player, uid, component);
+            return;
+        }
 
         if (!TryComp<BankAccountComponent>(player, out var bank))
         {
@@ -840,7 +880,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             GetAvailableShuttles(uid, uiKey, targetId: targetId),
             uiKey.ToString(),
             freeListings,
-            CalculateSellRate(uid));
+            CalculateSellRate(uid),
+            CompOrNull<ShuttleDeedComponent>(targetId)?.LoadedFromSave ?? false,
+            Comp<ShipyardConsoleComponent>(uid).AllowShipSaving);
 
         _ui.SetUiState(uid, uiKey, newState);
     }

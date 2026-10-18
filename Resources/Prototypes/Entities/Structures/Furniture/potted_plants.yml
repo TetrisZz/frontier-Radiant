@@ -5,6 +5,8 @@
   description: A little bit of nature contained in a pot.
   abstract: true
   components:
+  - type: Tag
+    tags: [NoWashablePaint]
   - type: SpriteFade
   - type: Transform
     noRot: true
@@ -25,15 +27,8 @@
     offset: "0.0,0.3"
     sprite: Structures/Furniture/potted_plants.rsi
     noRot: true
-  - type: Speech
-    speechVerb: Plant # for pais (In the secret stash)
-  - type: SecretStash
-    tryInsertItemSound: /Audio/Effects/plant_rustle.ogg
-    tryRemoveItemSound: /Audio/Effects/plant_rustle.ogg
-    secretStashName: secret-stash-plant
-  - type: ContainerContainer
-    containers:
-      stash: !type:ContainerSlot {}
+  - type: HLPersistOnShipSave
+    saveContents: false
   - type: Pullable
   - type: MultiHandedItem
   - type: Item

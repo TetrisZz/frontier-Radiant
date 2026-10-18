@@ -7,6 +7,21 @@
   abstract: true
   id: DrinkBaseMaterialGlass
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/drinkglass_pickup.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/drinkglass_drop.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/drinkglass_drop.wav
+      params:
+        volume: -4
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyGlass
@@ -56,6 +71,17 @@
   parent: DrinkBaseMaterialGlass
   id: DrinkBaseMaterialPorcelain
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/other/Cup/pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/other/Cup/drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/drop.ogg
+      params:
+        volume: 2
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold

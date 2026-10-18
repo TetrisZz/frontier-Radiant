@@ -6,6 +6,7 @@
   parent: BaseVehicle
   abstract: true
   components:
+  - type: HLPersistOnShipSave
   - type: Anchorable
   - type: Rotatable
     rotateWhileAnchored: true

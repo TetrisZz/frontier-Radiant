@@ -368,6 +368,8 @@ public sealed partial class IngestionSystem : EntitySystem
         var ingestEv = new IngestingEvent(food, split, forceFed);
         RaiseLocalEvent(entity, ref ingestEv);
 
+        var administered = new Content.Shared._radiant.Careers.CareerMedicineAdministeredEvent(args.User, entity, split);
+        RaiseLocalEvent(ref administered);
         _reaction.DoEntityReaction(entity, split, ReactionMethod.Ingestion);
 
         // Everything is good to go item has been successfuly eaten

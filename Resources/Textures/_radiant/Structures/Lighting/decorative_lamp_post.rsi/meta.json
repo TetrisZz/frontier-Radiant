@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from BlueMoon Station: modular_citadel/code/modules/festive/32x64icons.dmi. Original contributors retain copyright. Original pixel dimensions and all selected directions preserved without resampling.",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "festive"
+    }
+  ]
+}

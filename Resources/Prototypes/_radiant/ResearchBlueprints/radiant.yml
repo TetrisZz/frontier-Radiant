@@ -1,0 +1,88 @@
+- type: technologyBlueprints
+  id: MercenaryCombatModule
+  name: research-technology-arsenal-module
+  entityIcon: BorgModuleCombatLethal
+  discipline: NFArsenalMercenary
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - BorgModuleCombatLethal
+  - BorgModuleCombatNonLethal
+  - BorgModuleCombatLethalNovalite
+
+- type: technologyBlueprints
+  id: MercenaryCyborgArmour
+  name: research-technology-arsenal-cyborg_armour
+  entityIcon: CyborgArmour
+  discipline: NFArsenalMercenary
+  rare: 250
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: MercenaryTechFab
+  additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  recipe:
+  - CyborgArmour
+
+- type: technologyBlueprints
+  id: NFClarke
+  name: nf-research-technology-clarke
+  entityIcon: MechClarke
+  discipline: NFSalvage
+  rare: 250
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: ExosuitFabricator
+  recipeLinks:
+  - [ClarkeLArm, ClarkeRArm]
+  recipe:
+  - ClarkeHarness
+  - ClarkeHead
+  - ClarkeLArm
+  - ClarkeRArm
+  - ClarkeTreads
+  - ClarkeCentralElectronics
+  - ClarkePeripheralsElectronics
+  - MechThruster
+  - MechEquipmentDrill
+  - MechEquipmentKineticAccelerator
+
+- type: technologyBlueprints
+  id: NFClarkeAdvancedMining
+  name: nf-research-technology-clarke-advanced-mining
+  entityIcon: WeaponMechMeleeDrillDiamond
+  discipline: NFSalvage
+  rare: 300
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  tiers: [2]
+  lathe: ExosuitFabricator
+  recipe:
+  - MechEquipmentDrillDiamond
+
+- type: technologyBlueprints
+  id: NFDocumentTranslation
+  name: research-technology-document-translation
+  entityIcon: HandheldLanguageTranslator
+  discipline: NFService
+  rare: 50
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 1
+  lathe: ServiceTechFab
+  recipe:
+  - HandheldLanguageTranslator
+
+- type: technologyBlueprints
+  id: RSFTLDrive
+  name: research-technology-radiant-ftl-drive
+  entityIcon: BlueSpaceRepairKit
+  discipline: NFEngineering
+  rare: 250
+  rareLoc: research-technology-blueprint-rare
+  tier: 1
+  lathe: EngineeringTechFab
+  recipe:
+  - MachineFTLDriveCircuitboard
+  - BlueSpaceRepairKit

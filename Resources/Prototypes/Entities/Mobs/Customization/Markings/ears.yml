@@ -1,5 +1,6 @@
 - type: marking
   id: HumanLongEars
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -11,6 +12,7 @@
 
 - type: marking
   id: LongEarsWide
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -22,6 +24,7 @@
 
 - type: marking
   id: LongEarsSmall
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -33,6 +36,7 @@
 
 - type: marking
   id: LongEarsUpwards
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -44,6 +48,7 @@
 
 - type: marking
   id: LongEarsTall
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
@@ -55,6 +60,7 @@
 
 - type: marking
   id: LongEarsThin
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true

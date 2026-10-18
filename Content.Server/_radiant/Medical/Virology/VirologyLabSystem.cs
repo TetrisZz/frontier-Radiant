@@ -116,6 +116,9 @@ public sealed partial class VirologyLabSystem : EntitySystem
         args.Handled = true;
         if (!_skills.Check(args.User, ProfessionalSkill.Medicine, 1, serverPopup: true)) return;
         if (!Apply(ent, target)) { Fail(ent, args.User); return; }
+        if (!ent.Comp.Vaccine && args.User != target)
+            EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().RecordTask(
+                args.User, Content.Shared._radiant.Careers.CareerObjectiveType.DiseaseTreatment, ent.Comp.Disease);
         _popup.PopupEntity(Loc.GetString("virology-administered"), target, args.User);
     }
     public bool Apply(EntityUid dose, EntityUid target)
@@ -207,6 +210,7 @@ public sealed partial class VirologyLabSystem : EntitySystem
                     && data.Diseases.Contains(args.Disease)) ent.Comp.Selected = args.Disease;
             }
             else if (!Start(ent, args.Command)) Fail(ent, user);
+            else ent.Comp.CareerOperator = EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().Capture(user);
         }
         Publish(ent);
     }
@@ -245,6 +249,9 @@ public sealed partial class VirologyLabSystem : EntitySystem
         if (sample != null && machine.Work == VirologyCommand.Analyze)
         {
             sample.Analyzed = true;
+            if (sample.Diseases.Count > 0)
+                EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().Complete(
+                    machine.CareerOperator, Content.Shared._radiant.Careers.CareerObjectiveType.DiseaseAnalysis);
             CompareAndArchive(uid, sample);
             var report = Spawn("RadiantVirologyReportPaper", Transform(uid).Coordinates);
             _metadata.SetEntityName(report, Loc.GetString("virology-report-paper-name"));
@@ -257,10 +264,14 @@ public sealed partial class VirologyLabSystem : EntitySystem
             var data = EnsureComp<VirologyDoseComponent>(dose);
             data.Disease = machine.Selected;
             data.Vaccine = vaccine;
+            EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().Complete(
+                machine.CareerOperator, Content.Shared._radiant.Careers.CareerObjectiveType.DiseaseProduction,
+                vaccine ? "Vaccine" : "Treatment");
             _metadata.SetEntityName(dose, Loc.GetString(vaccine ? "virology-vaccine-name" : "virology-treatment-name",
                 ("disease", Loc.GetString(_prototypes.Index<RadiantDiseasePrototype>(data.Disease).Name))));
         }
         machine.Work = null;
+        machine.CareerOperator = null;
         machine.Remaining = 0;
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg"), uid);
         Publish(uid);

@@ -125,4 +125,8 @@
     color1: 1, 1, 1
     color2: 0, 0, 0
     direction: 2
-    brightness: 1.35
+    hairAlpha: 1
+    hairBounds: 0, 0, 1, 1
+    framePixelSize: 0.03125, 0.03125
+    displaced: 0
+    displacementSize: 127

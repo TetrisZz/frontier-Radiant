@@ -6,8 +6,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Graphics;
 using Robust.Shared.Input;
 using Robust.Shared.Utility;
-using SixLabors.ImageSharp;
-using System.IO;
 using System.Numerics;
 
 namespace Content.Client._CorvaxGoob.Photo.UI;
@@ -20,6 +18,8 @@ public sealed partial class PhotoCameraWindow : FancyWindow
     public Vector2 MoveInput = Vector2.Zero;
     public float ZoomInput = 0;
     public event Action? OnTakeImageAttempt;
+    private bool _capturePending;
+    private bool _hasPaper;
 
     public PhotoCameraWindow()
     {
@@ -79,6 +79,8 @@ public sealed partial class PhotoCameraWindow : FancyWindow
     public void UpdateState(IEye? eye, bool hasPaper)
     {
         SetCameraView(eye);
+        _hasPaper = hasPaper;
+        PhotoButton.Disabled = _capturePending || !_hasPaper;
 
         PaperIndicator.TexturePath = "/Textures/_CorvaxGoob/Interface/Misc/Photo/paper_" + (hasPaper ? "on.png" : "off.png");
     }
@@ -90,16 +92,23 @@ public sealed partial class PhotoCameraWindow : FancyWindow
 
     public void RenderImage(Action<byte[]> callback)
     {
+        if (_capturePending || !_hasPaper)
+            return;
+
+        _capturePending = true;
+        PhotoButton.Disabled = true;
         CameraView.Screenshot(image =>
         {
-            using var data = new MemoryStream();
-
-            image.SaveAsPng(data);
-            var bytes = data.ToArray();
-
-            image.Dispose();
-
-            callback(bytes);
+            try
+            {
+                callback(PhotoImageEncoder.Encode(image));
+            }
+            finally
+            {
+                image.Dispose();
+                _capturePending = false;
+                PhotoButton.Disabled = !_hasPaper;
+            }
         });
     }
 

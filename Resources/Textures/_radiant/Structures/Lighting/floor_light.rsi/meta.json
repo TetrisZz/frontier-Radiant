@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from BlueMoon Station: icons/obj/lighting.dmi. Original contributors retain copyright. DMI states extracted, renamed and fitted to a maximum 64x64 canvas for Radiant sector.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "on"
+    },
+    {
+      "name": "emergency"
+    },
+    {
+      "name": "empty"
+    },
+    {
+      "name": "burned"
+    },
+    {
+      "name": "broken"
+    }
+  ]
+}

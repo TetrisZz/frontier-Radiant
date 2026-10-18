@@ -5,6 +5,15 @@
   id: NFBaseWeaponFrameSubMachineGun
   name: submachine gun
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SMGPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SMGDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SMGDrop
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus

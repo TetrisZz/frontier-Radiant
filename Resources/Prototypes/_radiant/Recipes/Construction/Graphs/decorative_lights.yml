@@ -1,0 +1,405 @@
+- type: constructionGraph
+  id: RadiantDecorativeLighting
+  start: start
+  graph:
+  - node: floorShielded
+    entity: RadiantFloorLightShieldedEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 1
+      - !type:DeleteEntity {}
+  - node: postShielded
+    entity: RadiantLampPostShieldedEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      - !type:DeleteEntity {}
+  - node: festiveShielded
+    entity: RadiantLampPostFestiveShieldedEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      - !type:DeleteEntity {}
+  - node: oneShielded
+    entity: RadiantLampPostOneShieldedEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      - !type:DeleteEntity {}
+  - node: twoShielded
+    entity: RadiantLampPostTwoShieldedEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      - !type:DeleteEntity {}
+  - node: threeShielded
+    entity: RadiantLampPostThreeShieldedEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      - !type:DeleteEntity {}
+  - node: fourShielded
+    entity: RadiantLampPostFourShieldedEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      - !type:DeleteEntity {}
+  - node: sidewalkShielded
+    entity: RadiantLampPostSidewalkShieldedEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      - !type:DeleteEntity {}
+  - node: start
+    edges:
+    - to: floor
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Glass
+        amount: 1
+        doAfter: 1
+    - to: post
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2
+      - material: Glass
+        amount: 2
+        doAfter: 1
+    - to: festive
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 2
+      - material: Glass
+        amount: 2
+        doAfter: 1
+    - to: one
+      steps:
+      - material: Steel
+        amount: 7
+        doAfter: 2
+      - material: Glass
+        amount: 3
+        doAfter: 1
+    - to: two
+      steps:
+      - material: Steel
+        amount: 7
+        doAfter: 2
+      - material: Glass
+        amount: 3
+        doAfter: 1
+    - to: three
+      steps:
+      - material: Steel
+        amount: 7
+        doAfter: 2
+      - material: Glass
+        amount: 3
+        doAfter: 1
+    - to: four
+      steps:
+      - material: Steel
+        amount: 7
+        doAfter: 2
+      - material: Glass
+        amount: 3
+        doAfter: 1
+    - to: sidewalk
+      steps:
+      - material: Steel
+        amount: 7
+        doAfter: 2
+      - material: Glass
+        amount: 3
+        doAfter: 1
+  - node: floor
+    entity: RadiantFloorLightEmpty
+    edges:
+    - to: floorShielded
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - material: Plasteel
+        amount: 1
+        doAfter: 2
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity {}
+
+  - node: post
+    entity: RadiantLampPostEmpty
+    edges:
+    - to: postShielded
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:DeleteEntity {}
+
+  - node: festive
+    entity: RadiantLampPostFestiveEmpty
+    edges:
+    - to: festiveShielded
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:DeleteEntity {}
+
+  - node: one
+    entity: RadiantLampPostOneEmpty
+    edges:
+    - to: oneShielded
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:DeleteEntity {}
+
+  - node: two
+    entity: RadiantLampPostTwoEmpty
+    edges:
+    - to: twoShielded
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:DeleteEntity {}
+
+  - node: three
+    entity: RadiantLampPostThreeEmpty
+    edges:
+    - to: threeShielded
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:DeleteEntity {}
+
+  - node: four
+    entity: RadiantLampPostFourEmpty
+    edges:
+    - to: fourShielded
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:DeleteEntity {}
+
+  - node: sidewalk
+    entity: RadiantLampPostSidewalkEmpty
+    edges:
+    - to: sidewalkShielded
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: light_bulb
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 7
+      - !type:DeleteEntity {}

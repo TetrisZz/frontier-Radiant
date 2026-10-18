@@ -1,28 +1,51 @@
 uniform highp vec3 color1;
 uniform highp vec3 color2;
-// 0=L→R, 1=R→L, 2=T→B, 3=B→T, 4=TL→BR, 5=BL→TR
+uniform highp float hairAlpha;
+uniform highp vec4 hairBounds;
+// 0=L->R, 1=R->L, 2=T->B, 3=B->T, 4=TL->BR, 5=BL->TR
 uniform highp float direction;
-uniform highp float brightness;
+uniform highp float displaced;
+uniform sampler2D displacementMap;
+uniform highp float displacementSize;
+uniform highp vec4 displacementUV;
+uniform highp vec2 framePixelSize;
+varying highp vec2 displacementUVOut;
+
+void vertex() {
+    displacementUVOut = mix(displacementUV.xy, displacementUV.zw, tCoord2);
+}
 
 void fragment() {
-    highp vec4 base = zTexture(UV);
+    highp vec2 sampleUV = UV;
+    // Quad UVs start at the bottom, while hair bounds use image coordinates.
+    highp vec2 position = vec2(UV2.x, 1.0 - UV2.y);
+    highp float maskAlpha = 1.0;
+    if (displaced > 0.5) {
+        highp vec4 displacementSample = texture2D(displacementMap, displacementUVOut);
+        highp vec2 offset = (displacementSample.xy - vec2(128.0 / 255.0)) / (1.0 - 128.0 / 255.0) * displacementSize;
+        sampleUV += offset * TEXTURE_PIXEL_SIZE * vec2(1.0, -1.0);
+        position += offset * framePixelSize;
+        maskAlpha = displacementSample.a;
+    }
+    highp vec4 base = zTexture(sampleUV);
+    highp vec2 span = max(hairBounds.zw - hairBounds.xy, framePixelSize);
+    highp vec2 local = clamp((position - hairBounds.xy) / span, vec2(0.0), vec2(1.0));
     highp float t;
 
     if (direction < 0.5) {
-        t = UV2.x;
+        t = local.x;
     } else if (direction < 1.5) {
-        t = 1.0 - UV2.x;
+        t = 1.0 - local.x;
     } else if (direction < 2.5) {
-        t = UV2.y;
+        t = local.y;
     } else if (direction < 3.5) {
-        t = 1.0 - UV2.y;
+        t = 1.0 - local.y;
     } else if (direction < 4.5) {
-        t = (UV2.x + UV2.y) * 0.5;
+        t = (local.x + local.y) * 0.5;
     } else {
-        t = (UV2.x + (1.0 - UV2.y)) * 0.5;
+        t = (local.x + (1.0 - local.y)) * 0.5;
     }
 
-    highp vec3 boostedColor2 = min(color2 * brightness, vec3(1.0));
-    highp vec3 gradient = mix(color1, boostedColor2, clamp(t, 0.0, 1.0));
-    COLOR = vec4(base.rgb * gradient, base.a);
+    highp vec3 gradient = mix(color1, color2, t);
+    COLOR = vec4(base.rgb * gradient, base.a * hairAlpha * maskAlpha);
 }

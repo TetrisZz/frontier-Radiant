@@ -17,6 +17,8 @@
   spawnGroup: MarketStation
   gridPath: /Maps/_NF/POI/trademall.yml
   addComponents:
+  - type: CareerSalePoint
+    location: Trade
   - type: IFF
     color: "#37C837"
   - type: StationTransit
@@ -44,6 +46,8 @@
     TradeMall:
       stationProto: MarketFrontierOutpost
       components:
+        - type: CareerSalePoint
+          location: Trade
         - type: StationNameSetup
           mapNameTemplate: 'Торговый Центр'
         - type: StationDeadDrop

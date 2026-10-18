@@ -1,0 +1,46 @@
+- type: loadoutGroup
+  id: CareerEngineeringHead
+  name: loadout-group-station-engineer-head
+  minLimit: 0
+  loadouts:
+  - StationEngineerHardhatYellow
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatRed
+  - CareerEngineeringBeret
+
+- type: loadout
+  id: CareerEngineeringBeret
+  equipment:
+    head: ClothingHeadHatBeretEngineering
+
+- type: loadoutGroup
+  id: CareerEngineeringUniform
+  name: loadout-group-station-engineer-jumpsuit
+  loadouts:
+  - StationEngineerJumpsuit
+  - StationEngineerJumpskirt
+  - StationEngineerHazardsuit
+  - CareerEngineeringSeniorJumpsuit
+  - CareerEngineeringSeniorJumpskirt
+
+- type: loadout
+  id: CareerEngineeringSeniorJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorEngineer
+
+- type: loadout
+  id: CareerEngineeringSeniorJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSeniorEngineer
+
+- type: loadoutGroup
+  id: CareerEngineeringPDA
+  name: loadout-group-station-engineer-id
+  loadouts:
+  - StationEngineerPDA
+  - CareerEngineeringSeniorPDA
+
+- type: loadout
+  id: CareerEngineeringSeniorPDA
+  equipment:
+    id: SeniorEngineerPDA

@@ -1,0 +1,177 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: WashablePaintCan
+  name: spray paint
+  description: Temporary spray paint for clothing and items. Washes off with water, soap or a laundry cycle.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/washable_paint.rsi
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+  - type: Appearance
+  - type: ItemToggle
+    verbToggleOn: paint-can-open
+    verbToggleOff: paint-can-close
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        body:
+          True: { state: can }
+          False: { state: capped }
+        color:
+          True: { state: color }
+          False: { state: cap-color }
+  - type: Item
+    size: Small
+    sprite: _radiant/Objects/Tools/washable_paint_inhands.rsi
+  - type: PaintCan
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintRed
+  name: red paint
+  components:
+  - type: PaintCan
+    color: "#D04450"
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+      color: "#D04450"
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintOrange
+  name: orange paint
+  components:
+  - type: PaintCan
+    color: "#E48735"
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+      color: "#E48735"
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintYellow
+  name: yellow paint
+  components:
+  - type: PaintCan
+    color: "#E8CF48"
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+      color: "#E8CF48"
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintGreen
+  name: green paint
+  components:
+  - type: PaintCan
+    color: "#49B75E"
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+      color: "#49B75E"
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintBlue
+  name: blue paint
+  components:
+  - type: PaintCan
+    color: "#4B84DD"
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+      color: "#4B84DD"
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintPurple
+  name: purple paint
+  components:
+  - type: PaintCan
+    color: "#A05CD2"
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+      color: "#A05CD2"
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintWhite
+  name: white paint
+  components:
+  - type: PaintCan
+    color: "#EEEEEE"
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+      color: "#EEEEEE"
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintBlack
+  name: black paint
+  components:
+  - type: PaintCan
+    color: "#505058"
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      map: [color]
+      color: "#505058"
+
+- type: entity
+  parent: WashablePaintCan
+  id: WashablePaintRandom
+  name: paint
+  description: Spray paint for clothing and items. The label has worn off.
+  components:
+  - type: Sprite
+    layers:
+    - state: capped
+      map: [body]
+    - state: cap-color
+      color: "#808080"
+      map: [color]
+  - type: RandomPaintColor
+    colors:
+    - "#D04450"
+    - "#E48735"
+    - "#E8CF48"
+    - "#49B75E"
+    - "#4B84DD"
+    - "#A05CD2"
+    - "#EEEEEE"
+    - "#505058"

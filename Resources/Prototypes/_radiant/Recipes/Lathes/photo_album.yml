@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: PhotoAlbum
+  result: PhotoAlbum
+  categories:
+  - General
+  completetime: 2
+  materials:
+    Paper: 200
+    Cloth: 50

@@ -42,6 +42,7 @@
     snap:
     - Bed
   components:
+  - type: HLPersistOnShipSave
   - type: Sprite
     sprite: _radiant/Objects/Misc/doublebedsheets.rsi
     noRot: true

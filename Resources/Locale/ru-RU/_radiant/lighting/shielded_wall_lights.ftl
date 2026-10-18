@@ -1,0 +1,10 @@
+ent-NFPoweredlightShieldedEmpty = укреплённый светильник
+    .desc = Светильник, усиленный пласталью для защиты от солнечных вспышек. Работает от электросети со вставленной лампой-трубкой.
+    .suffix = Без лампочки
+ent-NFPoweredlightShielded = { ent-NFPoweredlightShieldedEmpty }
+    .desc = { ent-NFPoweredlightShieldedEmpty.desc }
+ent-NFPoweredSmallLightShieldedEmpty = укреплённый маленький светильник
+    .desc = Маленький светильник, усиленный пласталью для защиты от солнечных вспышек. Работает от электросети со вставленной лампочкой.
+    .suffix = Без лампочки
+ent-NFPoweredSmallLightShielded = { ent-NFPoweredSmallLightShieldedEmpty }
+    .desc = { ent-NFPoweredSmallLightShieldedEmpty.desc }

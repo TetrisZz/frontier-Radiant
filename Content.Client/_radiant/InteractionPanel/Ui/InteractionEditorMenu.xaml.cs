@@ -485,6 +485,8 @@ namespace Content.Client.Interaction.Panel.Ui
                 RequiredClothingSlots = _prototype.RequiredClothingSlots,
                 UserBlockedClothingSlots = _prototype.UserBlockedClothingSlots,
                 TargetBlockedClothingSlots = _prototype.TargetBlockedClothingSlots,
+                UserRequiredBodyFeatures = _prototype.UserRequiredBodyFeatures,
+                TargetRequiredBodyFeatures = _prototype.TargetRequiredBodyFeatures,
                 RequiresStrapon = _prototype.RequiresStrapon,
                 RequiresVibrator = _prototype.RequiresVibrator,
                 RequiresDildo = _prototype.RequiresDildo,

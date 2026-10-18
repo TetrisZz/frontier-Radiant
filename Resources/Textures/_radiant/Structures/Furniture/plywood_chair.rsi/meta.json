@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from BlueMoon-Station, icons/obj/chairs.dmi, user-provided source archive. Original sprites licensed CC-BY-SA-3.0 per source README.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chair",
+      "directions": 4
+    },
+    {
+      "name": "armrest",
+      "directions": 4
+    }
+  ]
+}

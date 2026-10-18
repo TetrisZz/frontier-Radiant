@@ -1,6 +1,7 @@
 #radiant_sector
 - type: marking
   id: FoxTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, Felinid, Vulpkanin, Tajaran]

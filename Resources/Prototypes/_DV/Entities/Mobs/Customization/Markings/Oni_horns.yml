@@ -10,6 +10,7 @@
 
 - type: marking
   id: OniHornBull
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false

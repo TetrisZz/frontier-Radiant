@@ -22,14 +22,14 @@ public sealed class EmbeddedGlassTest
     public async Task FootFragmentsCanBeRemovedAndVendorsSpawn()
     {
         // No graphical client: this tests authoritative anatomy and surgery events.
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var entities = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {
             var maps = server.ResolveDependency<IEntityManager>().System<SharedMapSystem>();
             var map = maps.CreateMap();
-            var coordinates = new MapCoordinates(0, 0, map);
+            var coordinates = new EntityCoordinates(map, 0, 0);
             var patient = entities.SpawnEntity("MobHuman", coordinates);
             var anatomy = entities.System<SharedBodySystem>();
             var feet = anatomy.GetBodyChildren(patient).Where(part => part.Component.PartType == BodyPartType.Foot).ToArray();

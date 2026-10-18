@@ -25,7 +25,17 @@ namespace Content.Client.Hands
 
         public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
-        public Texture? IconOverride;
+        private Texture? _iconOverride;
+        public Texture? IconOverride
+        {
+            get => _iconOverride;
+            set
+            {
+                _iconOverride = value;
+                IconOverrideScale = 1f;
+            }
+        }
+        public float IconOverrideScale { get; set; } = 1f;
         public EntityUid? EntityOverride;
 
         public ShowHandItemOverlay()
@@ -70,7 +80,9 @@ namespace Content.Client.Hands
 
             if (IconOverride != null)
             {
-                screen.DrawTexture(IconOverride, mousePos.Position - IconOverride.Size / 2 + offsetVec, Color.White.WithAlpha(0.75f));
+                var size = (Vector2) IconOverride.Size * IconOverrideScale;
+                var bounds = UIBox2.FromDimensions(mousePos.Position - size / 2 + offsetVec, size);
+                screen.DrawTextureRect(IconOverride, bounds, Color.White.WithAlpha(0.75f));
                 return;
             }
 

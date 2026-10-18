@@ -22,8 +22,8 @@ public sealed class GeneticAdaptationTest
     [Test]
     public async Task BenefitsComplicationsAndTargetedRemoval()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var em = server.ResolveDependency<IEntityManager>();
         var prototypes = server.ResolveDependency<IPrototypeManager>();
         await server.WaitAssertion(() =>

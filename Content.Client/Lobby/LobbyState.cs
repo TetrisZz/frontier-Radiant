@@ -1,4 +1,5 @@
 using Content.Client._NF.LateJoin;
+using Content.Client._radiant.Careers;
 using Content.Client.Audio;
 using Content.Client.Eui;
 using Content.Client.GameTicking.Managers;
@@ -94,6 +95,7 @@ namespace Content.Client.Lobby
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+            _entityManager.System<CareerSystem>().CloseWindow();
 
             Lobby = null;
         }

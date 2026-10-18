@@ -2,6 +2,7 @@ using System;
 using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Damage;
+using Content.Client._radiant.Humanoid;
 using Content.Shared._radiant.Humanoid;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
@@ -24,6 +25,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly HairGradientSystem _hairGradient = default!;
     [Dependency] private readonly DamageVisualsSystem _damageVisuals = default!; // Radiant sector: limb-aware wounds.
 
     public override void Initialize()
@@ -368,6 +370,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             }
 
             var layerId = $"{marking.MarkingId}-{rsi.RsiState}";
+            _sprite.RemoveLayer(spriteEnt.AsNullable(), $"{layerId}-displacement", false);
             if (!_sprite.LayerMapTryGet(spriteEnt.AsNullable(), layerId, out var index, false))
             {
                 continue;
@@ -467,7 +470,9 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
             if (humanoid.MarkingsDisplacement.TryGetValue(markingPrototype.BodyPart, out var displacementData) && markingPrototype.CanBeDisplaced)
             {
-                _displacement.TryAddDisplacement(displacementData, (entity.Owner, sprite), targetLayer + j + 1, layerId, out _);
+                if (_sprite.LayerMapTryGet((entity.Owner, sprite), layerId, out var displacedLayer, false))
+                    _displacement.TryAddDisplacement(displacementData, (entity.Owner, sprite), displacedLayer, layerId, out _,
+                        overrideShader: !ShouldUseHairGradientShader(markingPrototype, colors, humanoid));
             }
         }
     }
@@ -491,12 +496,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             var direction = markingPrototype.BodyPart == HumanoidVisualLayers.Hair
                 ? humanoid.HairGradientDirection
                 : humanoid.FacialHairGradientDirection;
-            var shader = _prototypeManager.Index<ShaderPrototype>(HairColoringHelper.GradientShader).InstanceUnique();
-
-            shader.SetParameter("color1", new Vector3(primary.R, primary.G, primary.B));
-            shader.SetParameter("color2", new Vector3(secondary.R, secondary.G, secondary.B));
-            shader.SetParameter("direction", HairColoringHelper.DirectionToShaderParam(direction));
-            shader.SetParameter("brightness", 1.35f);
+            var displaced = markingPrototype.CanBeDisplaced && humanoid.MarkingsDisplacement.ContainsKey(markingPrototype.BodyPart);
+            var shader = _hairGradient.CreateShader(markingPrototype, colorIndex, primary, secondary, direction, displaced);
             sprite.LayerSetShader(layerIndex, shader, HairColoringHelper.GradientShader);
             return;
         }
@@ -519,7 +520,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         if (colors == null)
             return false;
 
-        if (!HairColoringHelper.CanUseCustomHairColor(humanoid.Species, markingPrototype.BodyPart, _markingManager, _prototypeManager))
+        if (!HairColoringHelper.CanUseHairGradient(humanoid.Species, markingPrototype.BodyPart, _markingManager, _prototypeManager))
             return false;
 
         return markingPrototype.BodyPart switch

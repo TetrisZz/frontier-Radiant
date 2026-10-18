@@ -4,6 +4,8 @@
   name: dresser
   description: Wooden dresser, can store things inside itself, ideal for underwear, and someone's kidneys?...
   components:
+  - type: HLPersistOnShipSave
+    saveContents: false
   - type: Sprite
     sprite: Structures/Furniture/furniture.rsi
     state: dresser

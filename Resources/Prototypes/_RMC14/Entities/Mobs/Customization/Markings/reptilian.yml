@@ -1,5 +1,6 @@
 - type: marking
   id: RMCLizardChestDragonwings
+  bodyFeatures: [Wings]
   bodyPart: Tail
   markingCategory: Chest
   speciesRestriction: [Reptilian]
@@ -11,6 +12,7 @@
 
 - type: marking
   id: RMCLizardSnakeTail
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -20,6 +22,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailAlt
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -31,6 +34,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailStripe
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -42,6 +46,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailStripeAlt
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -53,6 +58,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailUnder
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -64,6 +70,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -73,6 +80,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailAltAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -84,6 +92,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailStripeAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -95,6 +104,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailStripeAltAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -106,6 +116,7 @@
 
 - type: marking
   id: RMCLizardSnakeTailUnderAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []

@@ -1,0 +1,39 @@
+- type: entity
+  parent: NFBlueprintMedical
+  id: CareerMedicalChemistryBlueprint
+  name: medical chemistry blueprints
+  components:
+  - type: Blueprint
+    providedRecipes: [JugBluespace, ReinforcedJug]
+
+- type: entity
+  parent: NFBlueprintMedical
+  id: CareerMedicalSurgeryBlueprint
+  name: surgical kit blueprints
+  components:
+  - type: Blueprint
+    providedRecipes: [SurgicalKitMedical]
+
+- type: entity
+  parent: NFBlueprintMedical
+  id: CareerMedicalImplantsBlueprint
+  name: basic medical augmentation blueprints
+  components:
+  - type: Blueprint
+    providedRecipes: [DecorativeCyberEyesConfigurable, BudgetCyberEyes, BudgetCyberTongue, BudgetCyberLiver, BudgetCyberStomach, BudgetCyberKidneys]
+
+- type: entity
+  parent: NFBlueprintMedical
+  id: CareerMedicalGeneticsBlueprint
+  name: genetic laboratory blueprints
+  components:
+  - type: Blueprint
+    providedRecipes: [GeneticResearchConsoleCircuitboard, GeneticBodyGrowerMachineCircuitboard, GeneticSampleCartridge, GeneticResearchDisk]
+
+- type: entity
+  parent: NFBlueprintMedical
+  id: CareerMedicalVirologyBlueprint
+  name: virology laboratory blueprints
+  components:
+  - type: Blueprint
+    providedRecipes: [DiagnoserMachineCircuitboard, VaccinatorMachineCircuitboard, VirologySwab]

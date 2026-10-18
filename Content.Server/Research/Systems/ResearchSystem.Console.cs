@@ -30,6 +30,8 @@ public sealed partial class ResearchSystem
 
     private void OnConsoleUnlock(EntityUid uid, ResearchConsoleComponent component, ConsoleUnlockTechnologyMessage args)
     {
+        if (component.BlueprintResearch)
+            return;
         var act = args.Actor;
 
         if (!this.IsPowered(uid, EntityManager))
@@ -79,6 +81,12 @@ public sealed partial class ResearchSystem
     {
         if (!Resolve(uid, ref component, ref clientComponent, false))
             return;
+
+        if (component.BlueprintResearch)
+        {
+            EntityManager.System<Content.Server._radiant.ResearchBlueprints.BlueprintResearchSystem>().UpdateConsole(uid, component);
+            return;
+        }
 
         // Frontier: R&D Console Rework Start
         var allTechs = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>();

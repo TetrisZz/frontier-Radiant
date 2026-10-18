@@ -208,6 +208,13 @@ public sealed class InterviewHologramSystem : SharedInterviewHologramSystem
             return;
         }
 
+        if (!EntityManager.System<Content.Server._radiant.Careers.CareerFleetSystem>()
+            .CanJoin(session, ent.Comp.Station, ent.Comp.Job, out var careerReason))
+        {
+            _chat.DispatchServerMessage(session, careerReason!);
+            return;
+        }
+
         HumanoidCharacterProfile profile;
         if (_prefs.GetPreferences(session.UserId).SelectedCharacter is HumanoidCharacterProfile currentProfile)
             profile = currentProfile;

@@ -152,6 +152,9 @@ public sealed partial class GeneticBodySystem
         if (exact == 6)
         {
             research.Decoded.Add(machine.SelectedGene);
+            EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().Complete(
+                machine.CareerOperator, Content.Shared._radiant.Careers.CareerObjectiveType.GeneticSequence,
+                machine.SelectedGene);
             research.Evidence[machine.SelectedGene] = answer;
             machine.Discoveries.Add(machine.SelectedGene);
             research.History[machine.SelectedGene] = Loc.GetString("genetics-sequence-discovered");

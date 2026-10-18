@@ -5,6 +5,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Content.Shared.Access;
 using Content.Shared._NF.Bank.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._NF.Shipyard.Components;
@@ -56,6 +57,15 @@ public sealed partial class ShipyardConsoleComponent : Component
     /// </summary>
     [DataField]
     public bool CanTransferDeed = true;
+
+    [DataField]
+    public EntityWhitelist? ShipSaveWhitelist;
+
+    [DataField]
+    public EntityWhitelist? ShipSaveBlacklist;
+
+    [DataField]
+    public bool AllowShipSaving = true;
 
     /// <summary>
     /// The accounts to receive payment, and the tax rate to apply for ship sales from this console.

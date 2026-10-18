@@ -137,6 +137,8 @@
       Unsexed: MaleVulpkanin
   - type: BarkAccent
   - type: DogVision
+  - type: Smeller # Radiant sector
+    perception: Partial
   - type: Temperature
     heatDamageThreshold: 320 # 5 lower than base # Frontier: 315<320
     coldDamageThreshold: 220 # 40 lower than base, very insulating fur

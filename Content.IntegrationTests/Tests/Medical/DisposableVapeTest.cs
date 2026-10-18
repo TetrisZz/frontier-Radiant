@@ -13,8 +13,8 @@ public sealed class DisposableVapeTest
     [Test]
     public async Task WornVapeCanBeUsedRepeatedlyWithEitherActiveHand()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var entities = server.ResolveDependency<IEntityManager>();
         var hands = entities.System<Content.Shared.Hands.EntitySystems.SharedHandsSystem>();
         EntityUid user = default;
@@ -51,8 +51,8 @@ public sealed class DisposableVapeTest
     [Test]
     public async Task SealedVapeRequiresMaskAndStopsAfterThirtyPuffs()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var entities = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {

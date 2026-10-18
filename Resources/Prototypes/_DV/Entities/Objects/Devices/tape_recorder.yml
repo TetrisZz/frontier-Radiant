@@ -79,6 +79,21 @@
   name: cassette tape
   description: A magnetic tape that can hold up to ten minutes of content on either side. # Frontier two<ten
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/tape_pickup.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/tape_drop.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/tape_drop.wav
+      params:
+        volume: -4
   - type: Sprite
     sprite: _DV/Objects/Devices/cassette_tapes.rsi
     layers:

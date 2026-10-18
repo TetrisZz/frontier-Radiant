@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Extracted from upstream game assets; see source.txt",
+  "copyright": "Imported from BlueMoon Station: icons/obj/vending.dmi. Original contributors retain copyright. Original pixels and animation timing preserved.",
   "size": {
     "x": 32,
     "y": 32
@@ -9,7 +9,6 @@
   "states": [
     {
       "name": "normal",
-      "directions": 1,
       "delays": [
         [
           0.2,
@@ -23,12 +22,55 @@
       ]
     },
     {
-      "name": "off",
-      "directions": 1
+      "name": "fill1",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
     },
     {
-      "name": "broken",
-      "directions": 1
+      "name": "fill2",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fill3",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "broken"
+    },
+    {
+      "name": "off"
+    },
+    {
+      "name": "panel"
     }
   ]
 }

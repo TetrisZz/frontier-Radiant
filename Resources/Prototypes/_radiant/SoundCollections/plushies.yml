@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: PlushieYuchiVoice
+  files:
+  # Preserve the original 2:1 chirp-to-trill probability.
+  - /Audio/_radiant/Items/Plushies/yuchi_chirp.ogg
+  - /Audio/_radiant/Items/Plushies/yuchi_chirp.ogg
+  - /Audio/_radiant/Items/Plushies/yuchi_trill.ogg

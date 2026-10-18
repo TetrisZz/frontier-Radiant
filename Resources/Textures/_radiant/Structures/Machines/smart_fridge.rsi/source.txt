@@ -1,5 +1,5 @@
 Source: BlueMoon Station, https://github.com/BlueMoonSS13/BlueMoon-Station
-Local source snapshot: BlueMoon-Station12-master, icons/obj/vending.dmi: smartfridge
+Local source snapshot: BlueMoon-Station-master, icons/obj/vending.dmi: smartfridge, smartfridge1, smartfridge2, smartfridge3, smartfridge-off, smartfridge-broken, smartfridge-panel
 Authors: upstream sprite contributors.
 License: CC-BY-SA-3.0 (source README, icons/images/sounds licensing).
 Modification: selected states extracted to RSI; animation timing preserved.

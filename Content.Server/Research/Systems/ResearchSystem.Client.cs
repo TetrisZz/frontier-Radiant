@@ -59,6 +59,7 @@ public sealed partial class ResearchSystem
     private void OnClientRegistrationChanged(EntityUid uid, ResearchClientComponent component, ref ResearchRegistrationChangedEvent args)
     {
         UpdateClientInterface(uid, component);
+        EntityManager.System<Content.Server._radiant.ResearchBlueprints.BlueprintResearchSystem>().OnRegistration(uid, component, ref args);
     }
 
     private void OnClientMapInit(EntityUid uid, ResearchClientComponent component, MapInitEvent args)

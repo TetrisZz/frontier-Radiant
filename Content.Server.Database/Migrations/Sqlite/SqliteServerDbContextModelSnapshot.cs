@@ -17,6 +17,126 @@ namespace Content.Server.Database.Migrations.Sqlite
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
+            modelBuilder.Entity("Content.Server.Database.TriadShipyardAuditEvent", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("triad_shipyard_audit_events_id");
+
+                    b.Property<Guid?>("AdminUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("admin_user_id");
+
+                    b.Property<DateTime>("At")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("at");
+
+                    b.Property<string>("DeedHolderEntity")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("deed_holder_entity");
+
+                    b.Property<int>("EventType")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("event_type");
+
+                    b.Property<int?>("LoadTimeAppraisal")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("load_time_appraisal");
+
+                    b.Property<string>("MapId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("map_id");
+
+                    b.Property<string>("PlayerName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_name");
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<byte[]>("PublicKey")
+                        .HasColumnType("BLOB")
+                        .HasColumnName("public_key");
+
+                    b.Property<int?>("RoundId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("round_id");
+
+                    b.Property<int?>("SaveTimeAppraisal")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("save_time_appraisal");
+
+                    b.Property<string>("ServerName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("server_name");
+
+                    b.Property<byte[]>("ShipHash")
+                        .IsRequired()
+                        .HasColumnType("BLOB")
+                        .HasColumnName("ship_hash");
+
+                    b.Property<string>("ShipName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ship_name");
+
+                    b.Property<int?>("SigningKeyId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("signing_key_id");
+
+                    b.Property<string>("SourceFilePath")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("source_file_path");
+
+                    b.Property<string>("VesselId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("vessel_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_triad_shipyard_audit_events");
+
+                    b.HasIndex("EventType", "At");
+
+                    b.HasIndex("PlayerUserId", "At");
+
+                    b.HasIndex("ShipHash", "At");
+
+                    b.ToTable("triad_shipyard_audit_events", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.TriadShipyardMigrationPermit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("triad_shipyard_migration_permits_id");
+
+                    b.Property<DateTime>("GrantedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("granted_at");
+
+                    b.Property<Guid>("GrantedByAdminId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("granted_by_admin_id");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("notes");
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_user_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_triad_shipyard_migration_permits");
+
+                    b.HasIndex("PlayerUserId")
+                        .IsUnique();
+
+                    b.ToTable("triad_shipyard_migration_permits", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -817,6 +937,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("construction_favorites");
 
+                    b.Property<string>("GhostSkin")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ghost_skin");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");
@@ -864,6 +989,13 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<string>("BloodGroup").IsRequired().HasColumnType("TEXT").HasColumnName("blood_group");
                     b.Property<string>("DistinguishingFeatures").IsRequired().HasColumnType("TEXT").HasColumnName("distinguishing_features");
                     b.Property<string>("DossierJson").IsRequired().HasColumnType("TEXT").HasColumnName("dossier_json");
+
+                    b.Property<string>("CareerJson")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasDefaultValue("{}")
+                        .HasColumnName("career_json");
                     b.Property<string>("EmergencyContact").IsRequired().HasColumnType("TEXT").HasColumnName("emergency_contact");
                     b.Property<string>("FamilyStatus").IsRequired().HasColumnType("TEXT").HasColumnName("family_status");
                     b.Property<string>("Residence").IsRequired().HasColumnType("TEXT").HasColumnName("residence");

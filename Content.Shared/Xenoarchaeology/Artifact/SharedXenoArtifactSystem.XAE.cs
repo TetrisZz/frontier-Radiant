@@ -64,7 +64,7 @@ public abstract partial class SharedXenoArtifactSystem
     {
         if (user is { } actor
             && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(actor, Content.Shared._radiant.Skills.ProfessionalSkill.Science, 1))
+                .Check(actor, Content.Shared._radiant.Skills.ProfessionalSkill.Science, 2))
             return false;
 
         XenoArtifactComponent xenoArtifactComponent = artifact;

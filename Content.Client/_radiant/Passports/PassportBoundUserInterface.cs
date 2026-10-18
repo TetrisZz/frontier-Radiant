@@ -46,7 +46,7 @@ public sealed class PassportBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
     }
 }
 
-public sealed class PassportWindow : DefaultWindow
+public sealed class PassportWindow : BaseWindow
 {
     private static readonly Color Paper = Color.FromHex("#F3EBD8");
     private static readonly Color Ink = Color.FromHex("#252D38");
@@ -64,19 +64,28 @@ public sealed class PassportWindow : DefaultWindow
 
     public PassportWindow()
     {
-        Title = Loc.GetString("passport-ui-title");
+        MouseFilter = MouseFilterMode.Stop;
+        Resizable = false;
         MinWidth = 800;
         MinHeight = 480;
         SetSize = new Vector2(930, 550);
-        Contents.AddChild(_pages);
+        AddChild(_pages);
+    }
+
+    protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
+    {
+        // Move the document by its cover margin without a separate window header.
+        const float coverMargin = 13;
+        return relativeMousePos.X < coverMargin || relativeMousePos.X > Size.X - coverMargin ||
+               relativeMousePos.Y < coverMargin || relativeMousePos.Y > Size.Y - coverMargin
+            ? DragMode.Move
+            : DragMode.None;
     }
 
     public void Update(PassportUiState passport)
     {
         ClearPortrait();
         _pages.RemoveAllChildren();
-        Title = Loc.GetString(passport.IsTemporary ? "passport-ui-temporary-title"
-            : passport.Citizenship == RadiantCitizenship.NT ? "passport-ui-card-title" : "passport-ui-title");
         var accent = passport.IsTemporary ? Color.FromHex("#2C67AD") : PassportColor(passport.Citizenship);
         var nation = Loc.GetString($"radiant-citizenship-{passport.Citizenship.ToString().ToLowerInvariant()}");
         if (passport.Citizenship == RadiantCitizenship.NT && !passport.IsTemporary)
@@ -86,6 +95,7 @@ public sealed class PassportWindow : DefaultWindow
         }
 
         var cover = Panel(Ink, accent, 3);
+        cover.Name = "PassportCover";
         cover.HorizontalExpand = true;
         cover.VerticalExpand = true;
         _pages.AddChild(cover);
@@ -273,6 +283,7 @@ public sealed class PassportWindow : DefaultWindow
     private void UpdateCorporateCard(PassportUiState passport, Color accent)
     {
         var card = Panel(Color.FromHex("#E7EFF0"), accent, 4);
+        card.Name = "PassportCover";
         card.HorizontalExpand = true;
         card.VerticalExpand = true;
         _pages.AddChild(card);

@@ -4,11 +4,8 @@
   description: job-description-doctor
   playTimeTracker: JobMedicalDoctor
   setPreference: false # Frontier
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 9000 #2.5 hrs
-  startingGear: DoctorGear
+  # Entry role for the medical career; professional skill requirements apply in the career selector.
+  # Equipment is selected through the JobMedicalDoctor loadout.
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-hire # Frontier
   accessGroups: # Frontier

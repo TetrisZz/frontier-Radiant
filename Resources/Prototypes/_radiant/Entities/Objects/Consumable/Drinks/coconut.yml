@@ -1,0 +1,73 @@
+- type: entity
+  parent: DrinkBase
+  id: DrinkCoconut
+  name: coconut
+  description: A fresh coconut. Open it with a knife or screwdriver. A sheet of paper can make a drinking straw.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Drinks/coconut.rsi
+    scale: 0.7, 0.7
+    layers:
+    - state: coconut
+      map: [coconut]
+  - type: CoconutDrink
+  - type: Openable
+    openableByHand: false
+    sound: null
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CoconutDrinkVisuals.State:
+        coconut:
+          Closed: { state: coconut }
+          Carved: { state: coconut_carved }
+          Chopped: { state: coconut_chopped }
+          CarvedStraw: { state: coconut_carved_straw }
+          ChoppedStraw: { state: coconut_chopped_straw }
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: CoconutWater
+          Quantity: 50
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: DrinkCoconut
+  id: DrinkCoconutCarved
+  suffix: Carved
+  components:
+  - type: CoconutDrink
+    state: Carved
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: DrinkCoconut
+  id: DrinkCoconutChopped
+  suffix: Chopped
+  components:
+  - type: CoconutDrink
+    state: Chopped
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: DrinkCoconutCarved
+  id: DrinkCoconutCarvedStraw
+  suffix: Carved, Straw
+  components:
+  - type: CoconutDrink
+    state: CarvedStraw
+
+- type: entity
+  parent: DrinkCoconutChopped
+  id: DrinkCoconutChoppedStraw
+  suffix: Chopped, Straw
+  components:
+  - type: CoconutDrink
+    state: ChoppedStraw

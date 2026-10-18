@@ -69,6 +69,7 @@ public sealed partial class GeneticBodyGrowerComponent : Component
     public HashSet<string> Discoveries = new();
     public string SelectedGene = "RadiantHematopoiesis";
     public string PendingSequence = "";
+    public Content.Server._radiant.Careers.MedicalCredit? CareerOperator;
     [DataField] public SoundSpecifier StartSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default.WithVolume(-8));
     [DataField] public SoundSpecifier FinishSound = new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg", AudioParams.Default.WithVolume(-6));
     [DataField] public SoundSpecifier ReleaseSound = new SoundPathSpecifier("/Audio/Items/hiss.ogg", AudioParams.Default.WithVolume(-6));
@@ -196,7 +197,7 @@ public sealed partial class GeneticBodySystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("genetics-console-required"), ent, args.User);
                 return;
             }
-            if ((_skills.Level(args.User, ProfessionalSkill.Science) < 2 && _skills.Level(args.User, ProfessionalSkill.Medicine) < 4)
+            if ((_skills.Level(args.User, ProfessionalSkill.Science) < 3 && _skills.Level(args.User, ProfessionalSkill.Medicine) < 4)
                 || !TryInsertResearchDisk(ent, args.Used))
                 _popup.PopupEntity(Loc.GetString("genetics-disk-insert-failed"), ent, args.User);
             PublishUi(ent);
@@ -309,6 +310,7 @@ public sealed partial class GeneticBodySystem : EntitySystem
         machine.PowerFailure = 0;
         machine.OutputPrototype = null;
         machine.PendingSequence = "";
+        machine.CareerOperator = null;
         machine.ProductionSample = null;
     }
 

@@ -1,6 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Emag.Systems;
+using Content.Shared._radiant.ResearchBlueprints;
+using Content.Shared.Research.Components;
+using Robust.Shared.Containers;
 using Content.Shared.Examine;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
@@ -20,9 +23,41 @@ public abstract class SharedLatheSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
     public const int MaxItemsPerRequest = 10_000;
+    public const int ProductionTimeMultiplier = 3;
+
+    public BlueprintModifiers? GetBlueprintModifiers(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component)
+    {
+        if (component.BlueprintRecipes.TryGetValue(recipe.ID, out var selected))
+            return selected;
+        if (!TryComp<BlueprintReceiverComponent>(uid, out var receiver) ||
+            !_containers.TryGetContainer(uid, receiver.ContainerId, out var container))
+            return null;
+        foreach (var blueprint in container.ContainedEntities)
+            if (TryComp<BlueprintComponent>(blueprint, out var data) && data.Modifiers != null &&
+                data.ProvidedRecipes.Contains(recipe.ID) && MatchesBlueprintLathe(uid, component, data.Modifiers))
+                return data.Modifiers;
+        return null;
+    }
+
+    public bool MatchesBlueprintLathe(EntityUid uid, LatheComponent component, BlueprintModifiers modifiers)
+    {
+        if (component.LatheBlueprint == null || !_proto.TryIndex(component.LatheBlueprint, out var group))
+            return false;
+        var machine = MetaData(uid).EntityPrototype;
+        if (machine == null)
+            return false;
+        if (modifiers.Lathe == null)
+            return true;
+        var targets = modifiers.GetLathes().Where(group.Lathe.Contains).ToHashSet();
+        return _proto.EnumerateParents(machine, includeSelf: true).Any(parent => targets.Contains(new EntProtoId(parent.ID)));
+    }
+
+    public Dictionary<ProtoId<MaterialPrototype>, int> GetMaterials(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component)
+        => BlueprintModifiers.Materials(recipe, GetBlueprintModifiers(uid, recipe, component), component.FinalMaterialUseMultiplier);
 
     public override void Initialize()
     {
@@ -50,6 +85,19 @@ public abstract class SharedLatheSystem : EntitySystem
         foreach (var pack in component.DynamicPacks)
         {
             recipes.UnionWith(_proto.Index(pack).Recipes);
+        }
+
+        if (component.LatheBlueprint is { } groupId && _proto.TryIndex(groupId, out var group))
+        {
+            var targets = group.Lathe.ToHashSet();
+            foreach (var other in _proto.EnumeratePrototypes<LatheBlueprintPrototype>())
+                if (other.Lathe.Any(group.Lathe.Contains)) targets.UnionWith(other.Lathe);
+            foreach (var technology in _proto.EnumeratePrototypes<TechnologyBlueprintsPrototype>())
+                if (targets.Contains(technology.Lathe) || technology.AdditionalLathes.Any(targets.Contains))
+                {
+                    recipes.UnionWith(technology.Recipe);
+                    recipes.UnionWith(technology.RecipeForce);
+                }
         }
 
         return recipes;
@@ -98,11 +146,9 @@ public abstract class SharedLatheSystem : EntitySystem
         if (amount <= 0) // Frontier
             return false; // Frontier
 
-        foreach (var (material, needed) in recipe.Materials)
+        foreach (var (material, needed) in GetMaterials(uid, recipe, component))
         {
-            var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, component.FinalMaterialUseMultiplier); // Frontier: FinalMaterialUseMultiplier<MaterialUseMultiplier
-
-            if (_materialStorage.GetMaterialAmount(uid, material) < adjustedAmount * amount)
+            if (_materialStorage.GetMaterialAmount(uid, material) < (long) needed * amount)
                 return false;
         }
         return true;

@@ -16,7 +16,7 @@
 - type: entity
   parent: RubberStampBase
   id: RadiantRubberStampHorny
-  name: IN HORNY stamp
+  name: IM HORNY stamp
   description: A rubber stamp with a distinctive illustrated impression.
   components:
   - type: Sprite

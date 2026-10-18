@@ -1,0 +1,47 @@
+- type: Tag
+  id: Cookie
+
+- type: entity
+  parent: [BoxCardboard, BaseBagOpenClose]
+  id: FoodBoxCookiesEmpty
+  name: cookie box
+  description: An elegant box with room for eight cookies.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/Food/cookie_box.rsi
+    layers:
+    - state: chocolatebox
+      map: [closeLayer]
+    - state: chocolatebox-0
+      map: [openLayer, enum.StorageFillLayers.Fill]
+      visible: false
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags: [Cookie]
+  - type: Appearance
+  - type: ContainerCountVisualizer
+    containerName: storagebase
+    maxCount: 8
+    maxFillLevels: 9
+    fillBaseName: chocolatebox
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: StaticPrice
+    price: 10
+
+- type: latheRecipe
+  id: FoodBoxCookiesEmpty
+  result: FoodBoxCookiesEmpty
+  categories:
+  - KitchenNF
+  completetime: 2
+  materials:
+    Cardboard: 100

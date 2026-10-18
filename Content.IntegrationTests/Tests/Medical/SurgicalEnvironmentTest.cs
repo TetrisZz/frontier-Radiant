@@ -21,8 +21,8 @@ public sealed class SurgicalEnvironmentTest
     [Test]
     public async Task ActiveHandDrainAndMechProtection()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var entities = server.ResolveDependency<IEntityManager>();
         await server.WaitAssertion(() =>
         {

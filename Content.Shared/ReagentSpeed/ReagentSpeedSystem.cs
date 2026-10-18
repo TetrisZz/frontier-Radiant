@@ -6,6 +6,19 @@ public sealed class ReagentSpeedSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
+    public TimeSpan PreviewSpeed(Entity<ReagentSpeedComponent?> ent, TimeSpan time)
+    {
+        if (!Resolve(ent, ref ent.Comp, false) || ent.Comp.Cost <= 0 ||
+            !_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out _, out var solution))
+            return time;
+        foreach (var (reagent, fullModifier) in ent.Comp.Modifiers)
+        {
+            var used = Math.Min(solution.GetTotalPrototypeQuantity(reagent.Id).Float(), ent.Comp.Cost.Float());
+            time *= 1f - (1f - fullModifier) * used / ent.Comp.Cost.Float();
+        }
+        return time;
+    }
+
     /// <summary>
     /// Consumes reagents and modifies the duration.
     /// This can be production time firing delay etc.

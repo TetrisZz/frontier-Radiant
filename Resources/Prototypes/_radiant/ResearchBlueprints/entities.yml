@@ -1,0 +1,83 @@
+- type: entity
+  parent: NFBaseBlueprint
+  id: ResearchRandomBlueprint
+  name: research blueprint
+  components:
+  - type: Tag
+    tags: [NFBlueprintAdvanced, Document, Paper]
+
+- type: entity
+  id: BlueprintLithograph
+  parent: [BaseMachinePowered, ConstructibleMachine]
+  name: blueprint lithograph
+  description: Stores blueprints and assigns fabrication recipes to the research server.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Machines/blueprint_printer.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: WiresVisuals
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: BlueprintLibrary
+  - type: BlueprintReceiver
+    whitelist:
+      components: [Blueprint]
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers: [blueprint]
+  - type: ResearchClient
+  - type: TechnologyDatabase
+  - type: WiresPanel
+  - type: ActivatableUI
+    key: enum.BlueprintLibraryUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.BlueprintLibraryUiKey.Key:
+        type: BlueprintLibraryBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: StaticPrice
+    price: 800
+  - type: Machine
+    board: BlueprintLithographMachineCircuitboard
+  - type: RequireProjectileTarget
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: [Destruction]

@@ -5,12 +5,35 @@
   description: A gadget which can open and bolt doors remotely.
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/handling/door_remote_pick_up1.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/door_remote_drop1.wav
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/door_remote_drop1.wav
+      params:
+        volume: -4
   - type: Sprite
     sprite: Objects/Devices/door_remote.rsi
   - type: Item
     storedRotation: -90
   - type: Access
   - type: DoorRemote
+    switchSound:
+      collection: DoorRemoteSwitch
+      params:
+        volume: -4
+    actionSound:
+      collection: DoorRemoteAction
+      params:
+        volume: -4
   - type: StealTarget
     stealGroup: DoorRemote
 

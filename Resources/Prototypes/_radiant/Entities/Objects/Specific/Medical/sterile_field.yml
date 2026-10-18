@@ -4,6 +4,21 @@
   name: disposable sterile surgical drape
   description: Protects one surgical site. Discarded when removed or when the incision is closed.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_radiant/Items/medical/drape_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_radiant/Items/handling/cloth_drop.ogg
+      params:
+        volume: -6
   - type: SurgicalDrape
   - type: Sprite
     sprite: _radiant/Objects/Medical/sterile_drape.rsi

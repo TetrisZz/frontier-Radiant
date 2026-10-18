@@ -54,4 +54,7 @@ public class ShuttleRecord(
 
     [ViewVariables]
     public bool PurchasedWithVoucher { get; set; } = purchasedWithVoucher;
+
+    [ViewVariables]
+    public bool LoadedFromSave { get; set; }
 }

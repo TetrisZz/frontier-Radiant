@@ -74,6 +74,7 @@
 
 - type: marking
   id: LizardHornsAngler
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -83,6 +84,7 @@
 
 - type: marking
   id: LizardHornsCurled
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -92,6 +94,7 @@
 
 - type: marking
   id: LizardHornsRam
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -101,6 +104,7 @@
 
 - type: marking
   id: LizardHornsShort
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -110,6 +114,7 @@
 
 - type: marking
   id: LizardHornsSimple
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -119,6 +124,7 @@
 
 - type: marking
   id: LizardHornsDouble
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -128,6 +134,7 @@
 
 - type: marking
   id: LizardTailSmooth
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -139,6 +146,7 @@
 
 - type: marking
   id: LizardTailLarge
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -148,6 +156,7 @@
 
 - type: marking
   id: LizardTailSpikes
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -157,6 +166,7 @@
 
 - type: marking
   id: LizardTailLTiger
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -166,6 +176,7 @@
 
 - type: marking
   id: LizardTailDTiger
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -175,6 +186,7 @@
 
 - type: marking
   id: LizardTailAquatic
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
@@ -269,6 +281,7 @@
 
 - type: marking
   id: LizardHornsArgali
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -278,6 +291,7 @@
 
 - type: marking
   id: LizardHornsAyrshire
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -287,6 +301,7 @@
 
 - type: marking
   id: LizardHornsMyrsore
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -296,6 +311,7 @@
 
 - type: marking
   id: LizardHornsBighorn
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -305,6 +321,7 @@
 
 - type: marking
   id: LizardHornsDemonic
+  bodyFeatures: [Horns]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -314,6 +331,7 @@
 
 - type: marking
   id: LizardHornsKoboldEars
+  bodyFeatures: [Ears]
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
@@ -323,6 +341,7 @@
 
 - type: marking
   id: LizardHornsFloppyKoboldEars
+  bodyFeatures: [Ears]
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian]
@@ -360,6 +379,7 @@
 # Animated
 - type: marking
   id: LizardTailSmoothAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -371,6 +391,7 @@
 
 - type: marking
   id: LizardTailLargeAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -380,6 +401,7 @@
 
 - type: marking
   id: LizardTailSpikesAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -389,6 +411,7 @@
 
 - type: marking
   id: LizardTailLTigerAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -398,6 +421,7 @@
 
 - type: marking
   id: LizardTailDTigerAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
@@ -407,6 +431,7 @@
 
 - type: marking
   id: LizardTailAquaticAnimated
+  bodyFeatures: [Tail]
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []

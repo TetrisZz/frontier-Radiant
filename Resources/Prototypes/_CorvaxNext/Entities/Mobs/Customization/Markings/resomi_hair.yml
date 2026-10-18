@@ -32,6 +32,7 @@
       state: ResomiDroopy
 - type: marking
   id: HairResomiEars
+  bodyFeatures: [Ears]
   bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]

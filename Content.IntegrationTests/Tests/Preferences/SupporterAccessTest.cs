@@ -16,8 +16,8 @@ public sealed class SupporterAccessTest
     [Test]
     public async Task RoleEventsPersistOfflineAccessAndRevocation()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var db = server.ResolveDependency<IServerDbManager>();
         var account = new NetUserId(Guid.NewGuid());
         const ulong discord = 123456789012345679;
@@ -61,8 +61,8 @@ public sealed class SupporterAccessTest
     [Test]
     public async Task AccountLinksAreUniqueAndUnverifiedSubscriptionsCannotUnlockLoadouts()
     {
-        var (instance, _) = await PoolManager.GenerateServer(new PoolSettings(), TestContext.Out);
-        using var server = instance;
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var server = pair.Server;
         var db = server.ResolveDependency<IServerDbManager>();
         var first = new NetUserId(Guid.NewGuid());
         var second = new NetUserId(Guid.NewGuid());
