@@ -1,0 +1,14 @@
+marking-FeroxiTailAngular = Ферокси, хвост (Угловатый) (NEW)
+marking-FeroxiTailAngular-tail_body = Основа хвоста
+marking-FeroxiTailAngular-tail_details = Детали
+marking-FeroxiTailAngular-tail_tips = Кончики плавников
+marking-FeroxiTailAngularDorsal = Ферокси, хвост (Угловатый, с плавником) (NEW)
+marking-FeroxiTailAngularDorsal-tail_body = Основа хвоста
+marking-FeroxiTailAngularDorsal-tail_details = Детали
+marking-FeroxiTailAngularDorsal-tail_tips = Кончики плавников
+marking-FeroxiTailAngularDorsal-dorsal = Спинной плавник
+marking-FeroxiTailAngularDorsalAnimated = Ферокси, хвост (Угловатый, с плавником, анимированный) (NEW)
+marking-FeroxiTailAngularDorsalAnimated-tail_body_wagging = Основа хвоста
+marking-FeroxiTailAngularDorsalAnimated-tail_details_wagging = Детали
+marking-FeroxiTailAngularDorsalAnimated-tail_tips_wagging = Кончики плавников
+marking-FeroxiTailAngularDorsalAnimated-dorsal_wagging = Спинной плавник

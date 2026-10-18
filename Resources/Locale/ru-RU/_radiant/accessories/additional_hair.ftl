@@ -1,0 +1,8 @@
+marking-HumanHairAllTheFuzzRS = Пушистая (NEW)
+marking-HumanHairBedhead4RS = Растрёпанная 4x (NEW)
+marking-HumanHairCometRS = Комета (NEW)
+marking-HumanHairLongStraightTwintailsRS = Длинные прямые хвостики (NEW)
+marking-HumanHairRockstarRS = Рок-звезда (NEW)
+marking-HumanHairJillRS = Джилл (NEW)
+marking-HumanHairSpikyPonytailAltRS = Колючий хвост (альтернативный) (NEW)
+marking-HumanHairTriBunRS = Три пучка (NEW)

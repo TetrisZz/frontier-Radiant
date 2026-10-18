@@ -1,0 +1,12 @@
+ent-MattressPillow = mattress with a pillow
+    .desc = A simple mattress with a small pillow. Almost a proper bed.
+ent-MattressStained = stained mattress
+    .desc = A mattress covered in old yellow stains. Best not to ask.
+ent-MattressBloodstained = bloodstained mattress
+    .desc = A mattress with a dark bloodstain. Someone had a bad night.
+ent-MattressBloodsoaked = blood-soaked mattress
+    .desc = A mattress with a large, dried bloodstain. Probably not worth salvaging.
+ent-MattressMouldy = mouldy mattress
+    .desc = A damp mattress covered in greenish stains. A terrible place to rest.
+ent-MattressTorn = torn mattress
+    .desc = A worn-out mattress with a hole in the middle. Still better than the floor.

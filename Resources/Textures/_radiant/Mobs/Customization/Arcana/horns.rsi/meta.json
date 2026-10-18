@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Spiked: original contributors at https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station, modular_bluemoon/icons/mob/mutant_bodyparts.dmi, state m_horns_spikehorns_HORNS; original pixels preserved. Drake, branched, long and curled ram: original contributors at https://github.com/ParadiseSS13/Paradise, icons/mob/sprite_accessories/unathi/unathi_hair.dmi, states drake_horns_s, guilmon_horns_s, long_horns_s and ram_horns_s respectively; converted to a white grayscale tint base, preserving alpha and shading order. Dragon, simple and side swept: original contributors at https://github.com/Skyrat-SS13/Skyrat-tg, modular_skyrat/master_files/icons/mob/sprite_accessory/horns.dmi (Git blob 7c2101dcea688855ef482f54c0f4d8b12a28c4a9), states m_horns_dragon_FRONT, m_horns_simple_FRONT and m_horns_sideswept_FRONT respectively; converted to a white grayscale tint base, preserving alpha and shading order. Side swept shifted upward by 2 pixels in all four directions for Arcana head placement. Short antlers, long dragon and upright: original contributors at https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13, modular_splurt/icons/mob/mutant_bodyparts.dmi (Git blob 15c0572412ed09530cd107e9ef6294b460214e3f), states m_horns_analyticalantlers_HORNS, m_horns_dragonlong_HORNS and m_horns_hopefulhorns_HORNS respectively; converted to a white grayscale tint base, preserving alpha and shading order. All states repacked and renamed for RSI. Asset license: CC-BY-SA-3.0, per source READMEs.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "horns_spiked",
+      "directions": 4
+    },
+    {
+      "name": "horns_drake",
+      "directions": 4
+    },
+    {
+      "name": "horns_branched",
+      "directions": 4
+    },
+    {
+      "name": "horns_long",
+      "directions": 4
+    },
+    {
+      "name": "horns_ram_curled",
+      "directions": 4
+    },
+    {
+      "name": "horns_dragon",
+      "directions": 4
+    },
+    {
+      "name": "horns_simple",
+      "directions": 4
+    },
+    {
+      "name": "horns_side_swept",
+      "directions": 4
+    },
+    {
+      "name": "horns_antlers_short",
+      "directions": 4
+    },
+    {
+      "name": "horns_dragon_long",
+      "directions": 4
+    },
+    {
+      "name": "horns_upright",
+      "directions": 4
+    }
+  ]
+}

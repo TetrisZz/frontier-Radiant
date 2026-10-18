@@ -1,0 +1,8 @@
+marking-HumanHairAllTheFuzzRS = All The Fuzz (NEW)
+marking-HumanHairBedhead4RS = Bedhead 4x (NEW)
+marking-HumanHairCometRS = Comet (NEW)
+marking-HumanHairLongStraightTwintailsRS = Long Straight Twintails (NEW)
+marking-HumanHairRockstarRS = Rockstar (NEW)
+marking-HumanHairJillRS = Jill (NEW)
+marking-HumanHairSpikyPonytailAltRS = Ponytail (Spiky) ALT (NEW)
+marking-HumanHairTriBunRS = Tri Bun (NEW)

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "all_the_fuzz: original contributors at https://github.com/Skyrat-SS13/Skyrat-tg/blob/e507f9120bb0c3beecfe169d14193d90e7229a58/icons/mob/human/human_face.dmi, original state hair_allthefuzz, DMI SHA256 ab73d43815feb21b6f6a7c0cebde8ca21590c9ac5b9589a710da757e9528f7ba. bedhead4: original contributors at https://github.com/Skyrat-SS13/Skyrat-tg/blob/e507f9120bb0c3beecfe169d14193d90e7229a58/icons/mob/human/human_face.dmi, original state hair_bedheadv4, DMI SHA256 ab73d43815feb21b6f6a7c0cebde8ca21590c9ac5b9589a710da757e9528f7ba. comet: original contributors at https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/modular_bluemoon/icons/mob/hair.dmi, original state hair_comet, DMI SHA256 61a12271e3121a4e62277862e49ed7e3a7d15e3871743d9cace227096cb346b3. long_straight_twintails: original contributors at https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/icons/mob/hair.dmi, original state hair_longstraighttwintails, DMI SHA256 4209b1a0cb26ba362f467b4fb3262bc9c825f48db717d019e81c26eb377b5506. rockstar: original contributors at https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/icons/mob/hair.dmi, original state hair_rockstar, DMI SHA256 4209b1a0cb26ba362f467b4fb3262bc9c825f48db717d019e81c26eb377b5506. jill: original contributors at https://github.com/ParadiseSS13/Paradise/blob/master/icons/mob/sprite_accessories/human/human_hair.dmi, original state jill_s, DMI SHA256 5cbdd158361511e93c59546639c16a7da6e3045eb4ea8f60f5d63b9bb54a8cf8. spiky_ponytail_alt: original contributors at https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station/blob/master/modular_bluemoon/icons/mob/hair.dmi, original state hair_spikyponytail_alt, DMI SHA256 61a12271e3121a4e62277862e49ed7e3a7d15e3871743d9cace227096cb346b3. tri_bun: original contributors at https://github.com/Skyrat-SS13/Skyrat-tg/blob/e507f9120bb0c3beecfe169d14193d90e7229a58/modular_skyrat/master_files/icons/mob/sprite_accessory/hair.dmi, original state hair_tri_bun, DMI SHA256 ec52b75aeb4b91e61aafd73368682c1e1796c1de97b0d8c263c349f092254129. Changes: DMI repacked to RSI S,N,E,W; palette converted to neutral grayscale for SS14 hair tinting. Original alpha, 32x32 geometry and pixel positions retained. Source repository default asset licenses: https://creativecommons.org/licenses/by-sa/3.0/.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "all_the_fuzz",
+      "directions": 4
+    },
+    {
+      "name": "bedhead4",
+      "directions": 4
+    },
+    {
+      "name": "comet",
+      "directions": 4
+    },
+    {
+      "name": "long_straight_twintails",
+      "directions": 4
+    },
+    {
+      "name": "rockstar",
+      "directions": 4
+    },
+    {
+      "name": "jill",
+      "directions": 4
+    },
+    {
+      "name": "spiky_ponytail_alt",
+      "directions": 4
+    },
+    {
+      "name": "tri_bun",
+      "directions": 4
+    }
+  ]
+}

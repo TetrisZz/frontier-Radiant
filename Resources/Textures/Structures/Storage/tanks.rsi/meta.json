@@ -1,12 +1,34 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/8442af39ee82b813194f71db82edd2923d97818d, watercooler Taken from paradise at https://github.com/ParadiseSS13/Paradise/commit/ae2258d9235752ac6d80ec11e36553fe3b6ae59e, dispensers taken from paradise at https://github.com/ParadiseSS13/Paradise/commit/846ce475b2258a4336d8895f07f2c0f4053963bc",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/8442af39ee82b813194f71db82edd2923d97818d, watercooler Taken from paradise at https://github.com/ParadiseSS13/Paradise/commit/ae2258d9235752ac6d80ec11e36553fe3b6ae59e, dispensers taken from paradise at https://github.com/ParadiseSS13/Paradise/commit/846ce475b2258a4336d8895f07f2c0f4053963bc. Water/fuel tank icons and -2 bases: original contributors at https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station, icons/obj/objects.dmi, states water, water_high, fuel and fuel_high. Icons preserve source pixels; -2 bases adapt the display for new SS14 reagent-colored meter states. Source asset license CC-BY-SA-3.0 per README. Original fill overlays retained for compatibility and GenericTank.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    { "name": "watertank-meter-1" },
+    { "name": "watertank-meter-2" },
+    { "name": "watertank-meter-3" },
+    { "name": "watertank-meter-4" },
+    { "name": "watertank-meter-5" },
+    { "name": "fueltank-meter-1" },
+    { "name": "fueltank-meter-2" },
+    { "name": "fueltank-meter-3" },
+    { "name": "highwatertank-meter-1" },
+    { "name": "highwatertank-meter-2" },
+    { "name": "highwatertank-meter-3" },
+    { "name": "highwatertank-meter-4" },
+    { "name": "highwatertank-meter-5" },
+    { "name": "highwatertank-meter-6" },
+    { "name": "highwatertank-meter-7" },
+    { "name": "highfueltank-meter-1" },
+    { "name": "highfueltank-meter-2" },
+    { "name": "highfueltank-meter-3" },
+    { "name": "highfueltank-meter-4" },
+    { "name": "highfueltank-meter-5" },
+    { "name": "highfueltank-meter-6" },
+    { "name": "highfueltank-meter-7" },
     {
       "name": "watertank"
     },
