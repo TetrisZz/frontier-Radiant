@@ -1,11 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
-using Content.Shared._Goobstation.Languages;
+using System.Linq;
+using Content.Server.Speech.EntitySystems;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Configuration;
+using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -40,15 +43,26 @@ public sealed partial class TTSSystem : EntitySystem
         };
 
     private const int MaxMessageChars = 100 * 2; // same as SingleBubbleCharLimit * 2
+    private const string BorgSpeechEffect = "robotic";
     private bool _isEnabled = false;
+    private int _roundGeneration;
 
     public override void Initialize()
     {
-        _cfg.OnValueChanged(CCCVars.TTSEnabled, v => _isEnabled = v, true);
+        _cfg.OnValueChanged(CCCVars.TTSEnabled, v =>
+        {
+            if (_isEnabled && !v)
+            {
+                _roundGeneration++;
+                _ttsManager.ResetCache();
+            }
+            _isEnabled = v;
+        }, true);
 
         SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeech);
-        SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);
+        SubscribeLocalEvent<EntitySpokeEvent>(OnEntitySpoke, after: new[] { typeof(ListeningSystem) });
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
+        InitializeBroadcasts();
 
         SubscribeNetworkEvent<RequestPreviewTTSEvent>(OnRequestPreviewTTS);
 
@@ -58,6 +72,7 @@ public sealed partial class TTSSystem : EntitySystem
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
         _ttsManager.ResetCache();
+        _roundGeneration++;
     }
 
     private async void OnRequestPreviewTTS(RequestPreviewTTSEvent ev, EntitySessionEventArgs args)
@@ -66,109 +81,75 @@ public sealed partial class TTSSystem : EntitySystem
             !_prototypeManager.TryIndex<TTSVoicePrototype>(ev.VoiceId, out var protoVoice))
             return;
 
+        if (ev.Robotic && (args.SenderSession.AttachedEntity is not { Valid: true } borg ||
+            !HasComp<BorgChassisComponent>(borg)))
+            return;
+
         if (HandleRateLimit(args.SenderSession) != RateLimitStatus.Allowed)
             return;
 
         var previewText = _rng.Pick(_sampleText);
-        var soundData = await GenerateTTS(previewText, protoVoice.Speaker);
-        if (soundData is null)
+        var generation = _roundGeneration;
+        var soundData = await GenerateTTS(previewText, protoVoice.Speaker, ev.Robotic ? BorgSpeechEffect : null);
+        if (soundData is null || !_isEnabled || generation != _roundGeneration ||
+            args.SenderSession.Status != SessionStatus.InGame && args.SenderSession.Status != SessionStatus.Connected)
             return;
 
-        RaiseNetworkEvent(new PlayTTSEvent(soundData), Filter.SinglePlayer(args.SenderSession));
+        RaiseNetworkEvent(new PlayTTSEvent(soundData, kind: TTSPlaybackKind.Preview),
+            Filter.SinglePlayer(args.SenderSession), recordReplay: false);
     }
 
-    private async void OnEntitySpoke(EntityUid uid, TTSComponent component, EntitySpokeEvent args)
+    private void OnEntitySpoke(EntitySpokeEvent args)
     {
-        var voiceId = component.VoicePrototypeId;
-        if (!_isEnabled ||
-            args.Message.Length > MaxMessageChars ||
-            voiceId == null)
+        if (!_isEnabled || args.ObfuscatedMessage != null || args.Message.Length > MaxMessageChars ||
+            !TryGetSpeaker(args.Source, out var speaker))
             return;
 
-        var voiceEv = new TransformSpeakerVoiceEvent(uid, voiceId);
-        RaiseLocalEvent(uid, voiceEv);
-        voiceId = voiceEv.VoiceId;
-
-        if (!_prototypeManager.TryIndex<TTSVoicePrototype>(voiceId, out var protoVoice))
-            return;
-
-        if (args.ObfuscatedMessage != null)
-        {
-            HandleWhisper(uid, args.Message, args.ObfuscatedMessage, args.Language, protoVoice.Speaker);
-            return;
-        }
-
-        HandleSay(uid, args.Message, args.Language, protoVoice.Speaker);
+        HandleSay(args.Message, args.Language, speaker, args.AudioRelays.Append(args.Source).Distinct().ToArray(),
+            HasComp<BorgChassisComponent>(args.Source) ? BorgSpeechEffect : null);
     }
 
     /// <summary>
     /// Radiant Sector: never send intelligible or replacement TTS to a listener who cannot understand the speech.
     /// </summary>
-    private async void HandleSay(EntityUid uid, string message, string? language, string speaker)
+    private async void HandleSay(string message, string? language, string speaker, EntityUid[] emitters, string? effect)
     {
-        var soundData = await GenerateTTS(message, speaker);
-        if (soundData is null) return;
+        var generation = _roundGeneration;
+        var soundData = await GenerateTTS(message, speaker, effect);
+        if (soundData is null || generation != _roundGeneration || !_isEnabled) return;
 
-        foreach (var session in Filter.Pvs(uid).Recipients)
+        // Generate once and use a positional emitter at each end of the call.
+        // A listener close to both ends must still hear only one copy.
+        var recipients = new Dictionary<ICommonSession, (EntityUid Emitter, float Distance)>();
+        foreach (var emitter in emitters)
         {
-            if (session.AttachedEntity is not { Valid: true } listener)
-                continue;
-
-            var understands = language == null
-                ? !HasComp<NativeLanguageOnlyComponent>(listener)
-                : _chatSystem.TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
-
-            if (understands)
-                RaiseNetworkEvent(new PlayTTSEvent(soundData, GetNetEntity(uid)), session);
+            if (TerminatingOrDeleted(emitter)) continue;
+            var position = _xforms.GetMapCoordinates(emitter);
+            foreach (var session in Filter.Pvs(emitter).Recipients)
+            {
+                if (session.AttachedEntity is not { Valid: true } listener ||
+                    !_chatSystem.UnderstandsLanguage(listener, language)) continue;
+                var target = _xforms.GetMapCoordinates(listener);
+                var distance = (position.Position - target.Position).LengthSquared();
+                if (position.MapId != target.MapId || distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
+                    continue;
+                if (!recipients.TryGetValue(session, out var old) || distance < old.Distance)
+                    recipients[session] = (emitter, distance);
+            }
         }
-    }
-
-    /// <summary>
-    /// Radiant Sector: preserves both ordinary whisper falloff and native language comprehension for TTS.
-    /// </summary>
-    private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string? language, string speaker)
-    {
-        var fullSoundData = await GenerateTTS(message, speaker, true);
-        if (fullSoundData is null) return;
-
-        var obfSoundData = await GenerateTTS(obfMessage, speaker, true);
-        if (obfSoundData is null) return;
-
-        var fullTtsEvent = new PlayTTSEvent(fullSoundData, GetNetEntity(uid), true);
-        var obfTtsEvent = new PlayTTSEvent(obfSoundData, GetNetEntity(uid), true);
-
-        // TODO: Check obstacles
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var sourcePos = _xforms.GetWorldPosition(xformQuery.GetComponent(uid), xformQuery);
-        var receptions = Filter.Pvs(uid).Recipients;
-        foreach (var session in receptions)
-        {
-            if (!session.AttachedEntity.HasValue) continue;
-            var xform = xformQuery.GetComponent(session.AttachedEntity.Value);
-            var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
-            if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
-                continue;
-
-            var listener = session.AttachedEntity.Value;
-            var understands = language == null
-                ? !HasComp<NativeLanguageOnlyComponent>(listener)
-                : _chatSystem.TryGetNativeLanguage(listener) == language && !HasComp<NativeLanguageUnfamiliarComponent>(listener);
-
-            if (!understands)
-                continue;
-
-            RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);
-        }
+        foreach (var (session, recipient) in recipients)
+            RaiseNetworkEvent(new PlayTTSEvent(soundData, GetNetEntity(recipient.Emitter)),
+                Filter.SinglePlayer(session), recordReplay: false);
     }
 
     // ReSharper disable once InconsistentNaming
-    private async Task<byte[]?> GenerateTTS(string text, string speaker, bool isWhisper = false)
+    private async Task<byte[]?> GenerateTTS(string text, string speaker, string? effect = null)
     {
         var textSanitized = Sanitize(text);
         if (textSanitized == "") return null;
         if (char.IsLetter(textSanitized[^1]))
             textSanitized += ".";
 
-        return await _ttsManager.ConvertTextToSpeech(speaker, textSanitized);
+        return await _ttsManager.ConvertTextToSpeech(speaker, textSanitized, effect);
     }
 }

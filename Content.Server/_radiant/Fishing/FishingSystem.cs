@@ -39,6 +39,7 @@ public sealed partial class FishingSystem : SharedFishingSystem
         SubscribeLocalEvent<FishingRodComponent, UseInHandEvent>(OnFishingInteract);
         SubscribeLocalEvent<FishingRodComponent, ExaminedEvent>(OnRodExamined);
         SubscribeLocalEvent<FishingBaitComponent, AfterInteractEvent>(OnApplyBait);
+        SubscribeLocalEvent<FishingLineComponent, ExaminedEvent>(OnLineExamined);
     }
 
     #region Event handling
@@ -112,6 +113,12 @@ public sealed partial class FishingSystem : SharedFishingSystem
             return;
 
         args.Handled = true;
+        if (!HasComp<FishingHookComponent>(GetTackle(target, HookSlot)))
+        {
+            _popup.PopupEntity(Loc.GetString("fishing-hook-missing"), target, args.User);
+            return;
+        }
+
         if (rod.FishingLure != null)
         {
             _popup.PopupEntity(Loc.GetString("fishing-bait-line-cast"), target, args.User);
@@ -139,6 +146,38 @@ public sealed partial class FishingSystem : SharedFishingSystem
             _ => "fishing-rod-bait-none",
         };
         args.PushMarkup(Loc.GetString(key));
+        var hook = GetTackle(ent, HookSlot);
+        var line = GetTackle(ent, LineSlot);
+        args.PushText(Loc.GetString("fishing-rod-hook", ("hook", hook == null ? Loc.GetString("fishing-tackle-none") : Name(hook.Value))));
+        if (TryComp<FishingLineComponent>(line, out var lineComp))
+            args.PushText(Loc.GetString("fishing-rod-line", ("line", Name(line!.Value)),
+                ("remaining", lineComp.Durability), ("maximum", lineComp.MaxDurability)));
+        else
+            args.PushText(Loc.GetString("fishing-rod-line-missing"));
+    }
+
+    private void OnLineExamined(Entity<FishingLineComponent> ent, ref ExaminedEvent args) =>
+        args.PushText(Loc.GetString("fishing-line-condition", ("remaining", ent.Comp.Durability), ("maximum", ent.Comp.MaxDurability)));
+
+    protected override void WearTackle(Entity<FishingRodComponent> rod, EntityUid? fisher, bool strained)
+    {
+        var lineUid = GetTackle(rod, LineSlot);
+        if (!TryComp<FishingLineComponent>(lineUid, out var line))
+            return;
+
+        line.Durability = Math.Max(0, line.Durability - Math.Max(1, line.WearPerCast) * (strained ? 2 : 1));
+        var snapped = line.Durability == 0 || strained && _random.Prob(Math.Clamp(line.SnapChance, 0f, 1f));
+        if (snapped)
+            line.Durability = 0;
+        Dirty(lineUid.Value, line);
+        if (!snapped)
+            return;
+
+        QueueDel(lineUid.Value);
+        if (GetTackle(rod, HookSlot) is { } hook)
+            QueueDel(hook);
+        if (fisher is { } user && Exists(user))
+            _popup.PopupEntity(Loc.GetString("fishing-line-snapped"), rod, user);
     }
 
     private void OnFishingInteract(EntityUid uid, FishingRodComponent component, UseInHandEvent args)
@@ -150,7 +189,8 @@ public sealed partial class FishingSystem : SharedFishingSystem
             !Timing.IsFirstTimePredicted)
             return;
 
-        fisherComp.TotalProgress += fisherComp.ProgressPerUse * component.Efficiency;
+        var hookEfficiency = TryComp<FishingHookComponent>(GetTackle(uid, HookSlot), out var hook) ? hook.EfficiencyMultiplier : 1f;
+        fisherComp.TotalProgress += fisherComp.ProgressPerUse * component.Efficiency * hookEfficiency;
         Dirty(args.User, fisherComp); // That's a bit evil, but we want to keep numbers real.
 
         args.Handled = true;

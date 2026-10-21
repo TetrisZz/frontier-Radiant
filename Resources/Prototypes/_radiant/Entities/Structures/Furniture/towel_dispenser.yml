@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseStructure
+  id: TowelDispenser
+  name: towel basket
+  description: A basket for storing folded towels.
+  suffix: Empty
+  components:
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/towel_dispenser.rsi
+    noRot: true
+    layers:
+    - state: fill-0
+      map: ["enum.StorageFillLayers.Fill"]
+  - type: Appearance
+  - type: Bin
+    maxItems: 10
+    insertOnInteract: true
+    whitelist:
+      tags: [Towel]
+  - type: ContainerContainer
+    containers:
+      bin-container: !type:Container
+  - type: ContainerCountVisualizer
+    containerName: bin-container
+    maxCount: 6
+    maxFillLevels: 3
+    fillBaseName: fill
+  - type: Construction
+    graph: TowelDispenser
+    node: finished
+    containers: [bin-container]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:EmptyAllContainersBehaviour {}
+      - !type:DoActsBehavior
+        acts: [Destruction]
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: TowelDispenser
+  id: TowelDispenserFilled
+  suffix: Filled
+  components:
+  - type: Bin
+    initialContents:
+    - TowelColorWhite
+    - TowelColorWhite
+    - TowelColorWhite
+    - TowelColorWhite
+    - TowelColorWhite
+    - TowelColorWhite
+    - TowelColorWhite
+    - TowelColorWhite
+    - TowelColorWhite
+    - TowelColorWhite

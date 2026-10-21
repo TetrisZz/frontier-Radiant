@@ -27,7 +27,7 @@ public sealed class RadiantClothingImportTest
                 "ClothingOuterCoatNavyGoldLong2", "ClothingOuterCoatNavyGoldLong",
                 "ClothingOuterCloakNavyKomandor", "ClothingOuterCloakNavyCaptain",
                 "ClothingUniformRadiantWhiteTshirt", "ClothingUniformRadiantGrayTshirt",
-                "ClothingUniformRadiantSlimBodyShorts", "ClothingHeadRadiantBlueFlame",
+                "ClothingUniformRadiantSlimBodyShorts", "ClothingOuterCoatOccult",
                 "ClothingUnderwearBottomRadiantStriped", "ClothingUnderwearBottomRadiantBee",
                 "DisposableVapeBlack", "DisposableVapeBlue", "DisposableVapeGreen", "DisposableVapeOrange",
                 "DisposableVapePurple", "DisposableVapeRed", "DisposableVapeWhite", "DisposableVapeYellow",
@@ -48,15 +48,6 @@ public sealed class RadiantClothingImportTest
                 if (id is "ClothingUniformRadiantWhiteTshirt" or "ClothingUniformRadiantGrayTshirt")
                     foreach (var hand in new[] { "left", "right" })
                         Assert.That(rsi.TryGetState("inhand-" + hand, out _), Is.True, id);
-                if (id == "ClothingHeadRadiantBlueFlame")
-                {
-                    Assert.That(worn.Icons.Length, Is.EqualTo(4));
-                    Assert.That(worn.DelayCount, Is.EqualTo(7));
-                    Assert.That(worn.AnimationLength, Is.EqualTo(1.05f).Within(0.001f));
-                    Assert.That(rsi.TryGetState("icon", out var icon), Is.True);
-                    Assert.That(icon.DelayCount, Is.EqualTo(6));
-                    Assert.That(icon.AnimationLength, Is.EqualTo(0.6f).Within(0.001f));
-                }
                 if (id.Contains("ParamedicDark"))
                     Assert.That(rsi.TryGetState("folded-equipped-INNERCLOTHING", out _), Is.True, id);
                 if (slot == "UNDERWEARB")
@@ -64,7 +55,7 @@ public sealed class RadiantClothingImportTest
                         Assert.That(rsi.TryGetState("equipped-UNDERWEARB-" + species, out _), Is.True, id + species);
                 client.EntMan.DeleteEntity(uid);
             }
-            TestContext.Out.WriteLine("Imported clothing sprites, in-hand states and blue flame animation assertions completed");
+            TestContext.Out.WriteLine("Imported clothing sprites and in-hand states assertions completed");
         });
         await pair.Server.WaitAssertion(() =>
         {
@@ -97,7 +88,7 @@ public sealed class RadiantClothingImportTest
             foreach (var id in new[]
             {
                 "ClothingUniformRadiantWhiteTshirt", "ClothingUniformRadiantGrayTshirt",
-                "ClothingUniformRadiantSlimBodyShorts", "ClothingHeadRadiantBlueFlame",
+                "ClothingUniformRadiantSlimBodyShorts", "ClothingOuterCoatOccult",
             })
             {
                 Assert.That(prototypes.HasIndex<EntityPrototype>(id), Is.True, id);

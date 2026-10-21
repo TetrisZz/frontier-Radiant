@@ -4,6 +4,8 @@
   loots:
     - !type:RandomSpawnsLoot
       entries:
+        - proto: SalvageStoryRelicSpawner
+          prob: 0.03
         - proto: SalvageSpawnerEquipmentValuable100
           prob: 0.1
         - proto: SalvageSpawnerEquipment100
@@ -18,6 +20,8 @@
   loots:
     - !type:RandomSpawnsLoot
       entries:
+        - proto: SalvageStoryRelicSpawner
+          prob: 0.05
         - proto: SalvageSpawnerEquipmentValuable100
           prob: 0.2
         - proto: SalvageSpawnerEquipment100
@@ -32,6 +36,8 @@
   loots:
     - !type:RandomSpawnsLoot
       entries:
+        - proto: SalvageStoryRelicSpawner
+          prob: 0.08
         - proto: SalvageSpawnerEquipmentValuable100
           prob: 0.3
         - proto: SalvageSpawnerEquipment100

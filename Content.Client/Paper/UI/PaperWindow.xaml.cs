@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Shared.Paper;
 using Content.Shared._radiant.Dossiers;
 using Content.Client._radiant.Passports;
+using Content.Client._radiant.Paperwork;
 using Content.Client.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -592,10 +593,17 @@ namespace Content.Client.Paper.UI
 
             // Create the popup dialog structure
             var popup = new Popup();
-            var vbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(10) };
+            popup.OnPopupHide += () =>
+            {
+                if (formButton != null)
+                    formButton.ModulateSelfOverride = Color.White;
+            };
+            var panel = new PanelContainer { StyleClasses = { "AngleRect" } };
+            var vbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(12), SeparationOverride = 8 };
+            vbox.AddChild(new Label { Text = Loc.GetString("paper-form-dialog-title") });
             var editContainer = new PanelContainer { StyleClasses = { "TransparentBorderedWindowPanel" } };
-            var edit = new LineEdit { MinSize = new Vector2(200, 0), Margin = new Thickness(5) };
-            var hbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal };
+            var edit = new LineEdit { MinSize = new Vector2(280, 0), Margin = new Thickness(5) };
+            var hbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalAlignment = HAlignment.Right, SeparationOverride = 6 };
             var ok = new Button { Text = Loc.GetString("paper-form-dialog-ok") };
             var cancel = new Button { Text = Loc.GetString("paper-form-dialog-cancel") };
 
@@ -609,16 +617,12 @@ namespace Content.Client.Paper.UI
                     var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
                     OnSaved?.Invoke(newText);
                 }
-                if (formButton != null)
-                    formButton.ModulateSelfOverride = null;
                 popup.Close();
             };
 
             // Handle Cancel button - just close without saving
             cancel.OnPressed += _ =>
             {
-                if (formButton != null)
-                    formButton.ModulateSelfOverride = null;
                 popup.Close();
             };
 
@@ -638,7 +642,8 @@ namespace Content.Client.Paper.UI
             hbox.AddChild(cancel);
             vbox.AddChild(editContainer);
             vbox.AddChild(hbox);
-            popup.AddChild(vbox);
+            panel.AddChild(vbox);
+            popup.AddChild(panel);
             AddChild(popup);
             popup.Open();
             edit.GrabKeyboardFocus(); // Focus the text input for immediate typing
@@ -658,7 +663,7 @@ namespace Content.Client.Paper.UI
         /// </summary>
         private Button? FindFormButton(int formIndex)
         {
-            return FindButtonRecursive(WrittenTextLabel, "Fill", formIndex);
+            return FindButtonRecursive(WrittenTextLabel, formIndex);
         }
 
         /// <summary>
@@ -698,17 +703,17 @@ namespace Content.Client.Paper.UI
         }
 
         /// <summary>
-        /// Recursively searches for a button with specific text and index.
+        /// Finds a field by document order, independently of its localized label.
         /// </summary>
-        private Button? FindButtonRecursive(Control control, string buttonText, int targetIndex)
+        private Button? FindButtonRecursive(Control control, int targetIndex)
         {
             var currentIndex = 0;
-            return FindButtonRecursiveHelper(control, buttonText, targetIndex, ref currentIndex);
+            return FindButtonRecursiveHelper(control, targetIndex, ref currentIndex);
         }
 
-        private Button? FindButtonRecursiveHelper(Control control, string buttonText, int targetIndex, ref int currentIndex)
+        private Button? FindButtonRecursiveHelper(Control control, int targetIndex, ref int currentIndex)
         {
-            if (control is Button btn && btn.Text == buttonText)
+            if (control is PaperFormButton btn)
             {
                 if (currentIndex == targetIndex)
                     return btn;
@@ -717,7 +722,7 @@ namespace Content.Client.Paper.UI
 
             foreach (Control child in control.Children)
             {
-                var result = FindButtonRecursiveHelper(child, buttonText, targetIndex, ref currentIndex);
+                var result = FindButtonRecursiveHelper(child, targetIndex, ref currentIndex);
                 if (result != null)
                     return result;
             }

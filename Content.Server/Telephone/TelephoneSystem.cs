@@ -4,7 +4,6 @@ using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Chat;
-using Content.Shared.Corvax.TTS;
 using Content.Shared.Database;
 using Content.Shared.Labels.Components;
 using Content.Shared.Mind.Components;
@@ -89,7 +88,8 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         if (!_recentChatMessages.Add((args.Source, args.Message, entity)))
             return;
 
-        SendTelephoneMessage(args.Source, args.Message, entity, language: args.Language); // Radiant Sector: holopads/telephones must preserve the spoken language.
+        SendTelephoneMessage(args.Source, args.Message, entity, language: args.Language,
+            audioRelays: args.IsWhisper ? null : args.AudioRelays);
     }
 
     private void OnTelephoneMessageReceived(Entity<TelephoneComponent> entity, ref TelephoneMessageReceivedEvent args)
@@ -115,18 +115,8 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         var range = args.TelephoneSource.Comp.LinkedTelephones.Count > 1 ? ChatTransmitRange.HideChat : ChatTransmitRange.GhostRangeLimitNoAdminCheck; // Frontier: GhostRangeLimit<GhostRangeLimitNoAdminCheck
         var volume = entity.Comp.SpeakerVolume == TelephoneVolume.Speak ? InGameICChatType.Speak : InGameICChatType.Whisper;
 
-        // Corvax-TTS-Start
-        // If speaker entity has TTS, the telephone will speak with the same voice
-        if(TryComp<TTSComponent>(args.MessageSource, out var ttsSpeaker))
-        {
-            EnsureComp<TTSComponent>(speaker, out var ttsTelephone);
-            ttsTelephone.VoicePrototypeId = ttsSpeaker.VoicePrototypeId;
-        }
-        else // Remove TTS if the speaker has no TTS
-        {
-            RemComp<TTSComponent>(speaker);
-        }
-        // Corvax-TTS-End
+        if (entity.Comp.SpeakerVolume == TelephoneVolume.Speak)
+            args.AudioRelays?.Add(speaker);
 
         // Radiant Sector: relay the original language instead of re-speaking as the holopad/speaker entity.
         _chat.SendRadioRelayInVoiceRange(speaker, args.Message, volume, name, args.Language);
@@ -342,7 +332,8 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         SetTelephoneMicrophoneState(entity, false);
     }
 
-    private void SendTelephoneMessage(EntityUid messageSource, string message, Entity<TelephoneComponent> source, bool escapeMarkup = true, string? language = null)
+    private void SendTelephoneMessage(EntityUid messageSource, string message, Entity<TelephoneComponent> source,
+        bool escapeMarkup = true, string? language = null, HashSet<EntityUid>? audioRelays = null)
     {
         // This method assumes that you've already checked that this
         // telephone is able to transmit messages and that it can
@@ -385,7 +376,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         RaiseLocalEvent(source, ref evSentMessage);
         source.Comp.StateStartTime = _timing.CurTime;
 
-        var evReceivedMessage = new TelephoneMessageReceivedEvent(message, chatMsg, messageSource, source, language);
+        var evReceivedMessage = new TelephoneMessageReceivedEvent(message, chatMsg, messageSource, source, language, audioRelays);
 
         foreach (var receiver in source.Comp.LinkedTelephones)
         {

@@ -2218,16 +2218,13 @@ namespace Content.Client.Lobby.UI
                 return;
 
             StartExport();
-            await using var file = await _dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
-
-            if (file == null)
-            {
-                EndExport();
-                return;
-            }
-
             try
             {
+                await using var file = await _dialogManager.OpenFile(
+                    new FileDialogFilters(new FileDialogFilters.Group("yml", "yaml")), FileAccess.Read);
+                if (file == null || Disposed)
+                    return;
+
                 var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!);
                 var oldProfile = Profile;
                 profile = profile.WithBankBalance(oldProfile.BankBalance); // Frontier: no free money (enforce import, don't care about import)
@@ -2239,10 +2236,16 @@ namespace Content.Client.Lobby.UI
                 SetProfile(profile, CharacterSlot);
 
                 IsDirty = !profile.MemberwiseEquals(oldProfile);
+                SetProfileFileStatus("humanoid-profile-editor-import-success");
             }
             catch (Exception exc)
             {
-                _sawmill.Error($"Error when importing profile\n{exc.StackTrace}");
+                _sawmill.Error($"Error when importing profile\n{exc}");
+                var message = exc is InvalidDataException &&
+                    exc.Message is "humanoid-profile-editor-import-empty" or "humanoid-profile-editor-import-invalid"
+                    ? exc.Message
+                    : "humanoid-profile-editor-import-failed";
+                SetProfileFileStatus(message);
             }
             finally
             {
@@ -2256,33 +2259,45 @@ namespace Content.Client.Lobby.UI
                 return;
 
             StartExport();
-            var file = await _dialogManager.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
-
-            if (file == null)
-            {
-                EndExport();
-                return;
-            }
-
             try
             {
                 var dataNode = _entManager.System<HumanoidAppearanceSystem>().ToDataNode(Profile);
-                await using var writer = new StreamWriter(file.Value.fileStream);
-                dataNode.Write(writer);
+                // Prepare the entire document before the save dialog can truncate an existing file.
+                using var yaml = new StringWriter();
+                dataNode.Write(yaml);
+                var file = await _dialogManager.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
+                if (file == null)
+                    return;
+
+                await using var stream = file.Value.fileStream;
+                await using var writer = new StreamWriter(stream, EncodingHelpers.UTF8);
+                await writer.WriteAsync(yaml.ToString());
+                await writer.FlushAsync();
+                SetProfileFileStatus("humanoid-profile-editor-export-success");
             }
             catch (Exception exc)
             {
-                _sawmill.Error($"Error when exporting profile\n{exc.StackTrace}");
+                _sawmill.Error($"Error when exporting profile\n{exc}");
+                SetProfileFileStatus("humanoid-profile-editor-export-failed");
             }
             finally
             {
                 EndExport();
-                await file.Value.fileStream.DisposeAsync();
             }
+        }
+
+        private void SetProfileFileStatus(string message)
+        {
+            if (Disposed)
+                return;
+
+            ProfileFileStatus.SetMessage(Loc.GetString(message));
+            ProfileFileStatus.Visible = true;
         }
 
         private void StartExport()
         {
+            ProfileFileStatus.Visible = false;
             _exporting = true;
             ImportButton.Disabled = true;
             ExportButton.Disabled = true;
@@ -2291,6 +2306,9 @@ namespace Content.Client.Lobby.UI
         private void EndExport()
         {
             _exporting = false;
+            if (Disposed)
+                return;
+
             ImportButton.Disabled = false;
             ExportButton.Disabled = false;
         }

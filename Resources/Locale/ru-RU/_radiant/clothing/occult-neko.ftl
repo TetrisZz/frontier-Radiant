@@ -1,0 +1,12 @@
+ent-ClothingOuterCoatOccult = пальто с капюшоном
+    .desc = Тяжёлое кожаное пальто с подкладкой цвета слоновой кости и глубоким капюшоном.
+ent-ClothingHeadHoodOccult = капюшон пальто
+    .desc = Глубокий капюшон со светлой подкладкой.
+ent-ClothingUnderwearTopNekoWhite = белый бюстгальтер «Неко»
+    .desc = Белый бюстгальтер с кошачьими ушками и маленьким колокольчиком.
+ent-ClothingUnderwearBottomPantiesNekoWhite = белые трусики «Неко»
+    .desc = Белые трусики с отделкой в виде кошачьих ушек.
+ent-ClothingUnderwearTopRadiantNeeeekoUwU = чёрный бюстгальтер «Неко»
+    .desc = Чёрный бюстгальтер с кошачьими ушками и маленьким колокольчиком.
+ent-ClothingUnderwearBottomPantiesMaid = чёрные трусики «Неко»
+    .desc = Чёрные трусики с отделкой в виде кошачьих ушек.

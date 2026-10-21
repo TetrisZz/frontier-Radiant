@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Adapted from https://github.com/Skyrat-SS13/Skyrat-tg, icons/obj/aquarium/tanks.dmi. Source assets CC-BY-SA-3.0 per README; original artists not specified. States renamed and packed for SS14.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "aquarium_map"
+    },
+    {
+      "name": "aquarium_base"
+    },
+    {
+      "name": "aquarium_panel"
+    },
+    {
+      "name": "aquarium_glass_water"
+    },
+    {
+      "name": "aquarium_glass_water_broken"
+    },
+    {
+      "name": "aquarium_glass_air"
+    },
+    {
+      "name": "aquarium_glass_air_broken"
+    },
+    {
+      "name": "aquarium_borders"
+    },
+    {
+      "name": "aquarium_glass_cracks"
+    },
+    {
+      "name": "bioelec_map"
+    },
+    {
+      "name": "bioelec_base"
+    },
+    {
+      "name": "bioelec_panel"
+    },
+    {
+      "name": "bioelec_glass_water"
+    },
+    {
+      "name": "bioelec_glass_water_broken"
+    },
+    {
+      "name": "bioelec_glass_air"
+    },
+    {
+      "name": "bioelec_glass_air_broken"
+    },
+    {
+      "name": "bioelec_borders"
+    },
+    {
+      "name": "bioelec_glass_cracks"
+    }
+  ]
+}

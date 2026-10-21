@@ -22,6 +22,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
+using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 
@@ -81,12 +82,22 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     public HumanoidCharacterProfile FromStream(Stream stream, ICommonSession session)
     {
-        using var reader = new StreamReader(stream, EncodingHelpers.UTF8);
+        using var reader = new StreamReader(stream, EncodingHelpers.UTF8, leaveOpen: true);
         var yamlStream = new YamlStream();
         yamlStream.Load(reader);
 
-        var root = yamlStream.Documents[0].RootNode;
-        var export = _serManager.Read<HumanoidProfileExport>(root.ToDataNode(), notNullableOverride: true);
+        if (yamlStream.Documents.Count == 0)
+            throw new InvalidDataException("humanoid-profile-editor-import-empty");
+
+        if (yamlStream.Documents.Count != 1)
+            throw new InvalidDataException("humanoid-profile-editor-import-invalid");
+
+        var root = yamlStream.Documents[0].RootNode.ToDataNode();
+        if (root is not MappingDataNode mapping || !mapping.TryGetValue("profile", out var profileNode) ||
+            profileNode is not MappingDataNode)
+            throw new InvalidDataException("humanoid-profile-editor-import-invalid");
+
+        var export = _serManager.Read<HumanoidProfileExport>(root, notNullableOverride: true);
 
         /*
          * Add custom handling here for forks / version numbers if you care.

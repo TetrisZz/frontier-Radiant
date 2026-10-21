@@ -4,9 +4,34 @@
   name: шест
   description: Палка с амбициями.
   components:
+  - type: DancePole
+  - type: Appearance
+  - type: ActivatableUI
+    key: enum.DancePoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DancePoleUiKey.Key:
+        type: DancePoleBoundUserInterface
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 1.5
+    color: "#FF7598"
+  - type: Strap
+    size: 100
+    buckleOffset: 0,-0.05
+  - type: GenericVisualizer
+    visuals:
+      enum.DancePoleVisuals.Finish:
+        base:
+          0: {color: "#FFFFFF"}
+          1: {color: "#E3C36F"}
+          2: {color: "#748D9E"}
   - type: Sprite
     sprite: _radiant/Structures/Decoration/pole.rsi
-    state: pole
+    layers:
+    - state: pole
+      map: [base]
     offset: 0,0.3
     noRot: true
 

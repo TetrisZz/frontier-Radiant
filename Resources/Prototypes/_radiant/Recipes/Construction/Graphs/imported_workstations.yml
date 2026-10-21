@@ -1,0 +1,240 @@
+- type: constructionGraph
+  id: RadiantStairsOpenSteel
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+  - node: finished
+    entity: RadiantStairsOpenSteel
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: PartRodMetal
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3
+
+- type: constructionGraph
+  id: RadiantStairsOpenWood
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: WoodPlank
+        amount: 4
+        doAfter: 1
+  - node: finished
+    entity: RadiantStairsOpenWood
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 4
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3
+
+- type: constructionGraph
+  id: RadiantTestTubeRack
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 1
+      - material: Steel
+        amount: 1
+        doAfter: 1
+  - node: finished
+    entity: RadiantTestTubeRack
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3
+
+- type: constructionGraph
+  id: RadiantSurgicalCart
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 1
+      - material: MetalRod
+        amount: 4
+        doAfter: 1
+  - node: finished
+    entity: RadiantSurgicalCart
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: PartRodMetal
+        amount: 4
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3
+
+- type: constructionGraph
+  id: RadiantAquarium
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Glass
+        amount: 5
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 1
+  - node: finished
+    entity: RadiantAquarium
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: SheetGlass1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3
+
+- type: constructionGraph
+  id: RadiantBeehive
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: WoodPlank
+        amount: 10
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 1
+  - node: finished
+    entity: RadiantBeehive
+    edges:
+    - to: start
+      conditions:
+      - !type:ApiaryUnoccupied {}
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 10
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3
+
+- type: constructionGraph
+  id: RadiantHoneyFrame
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 1
+  - node: finished
+    entity: RadiantHoneyFrame
+    edges:
+    - to: start
+      conditions:
+      - !type:SolutionEmpty
+        solution: honey
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3
+
+- type: constructionGraph
+  id: RadiantHourglass
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Glass
+        amount: 2
+        doAfter: 1
+      - material: WoodPlank
+        amount: 1
+        doAfter: 1
+  - node: finished
+    entity: RadiantHourglass
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: SheetGlass1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 1
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3

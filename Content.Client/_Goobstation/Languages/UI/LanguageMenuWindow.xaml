@@ -35,6 +35,22 @@
                 <Button Name="NativeInfoButton" Text="?" ToolTip="О родном языке" MinSize="34 34" />
             </BoxContainer>
             <Label Text="Для других рас речь искажается." HorizontalAlignment="Center" StyleClasses="LabelSubText" />
+            <BoxContainer Name="VoiceSection" Orientation="Vertical" SeparationOverride="8" Visible="False">
+                <PanelContainer SetHeight="1">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#315D7D" />
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+                <Label Text="{Loc 'tts-borg-voice-title'}" />
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <OptionButton Name="VoiceButton" Filterable="True" HorizontalExpand="True" MinHeight="34" />
+                    <Button Name="VoicePreviewButton" ToolTip="{Loc 'tts-borg-voice-preview'}" MinSize="34 34">
+                        <TextureRect SetSize="20 20" Stretch="KeepAspectCentered"
+                                     TexturePath="/Textures/Interface/AdminActions/play.png" />
+                    </Button>
+                </BoxContainer>
+                <Button Name="VoiceApplyButton" Text="{Loc 'tts-borg-voice-apply'}" MinHeight="34" />
+            </BoxContainer>
         </BoxContainer>
     </PanelContainer>
 </DefaultWindow>

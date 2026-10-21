@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original source contributors. https://github.com/BlueMoon-Labs/BlueMoon-Station, modular_bluemoon/icons/obj/aesthetics/sauna/sauna_oven.dmi, state sauna_oven -> idle. https://github.com/BlueMoon-Labs/BlueMoon-Station, modular_bluemoon/icons/obj/aesthetics/sauna/sauna_oven.dmi, state sauna_oven_on -> lit. Lossless extraction; original pixels, directions and animation timing preserved. DMI frame-major order repacked into RSI direction-major order. Asset license per source README.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "idle"
+    },
+    {
+      "name": "lit",
+      "delays": [
+        [
+          0.30000000000000004,
+          0.30000000000000004,
+          0.6000000000000001
+        ]
+      ]
+    }
+  ]
+}

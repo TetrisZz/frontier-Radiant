@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Adapted from https://github.com/Skyrat-SS13/Skyrat-tg, icons/obj/medical/medicart.dmi. Source assets CC-BY-SA-3.0 per README; original artists not specified. States renamed and packed for SS14.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "medicart",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "drapes"
+    },
+    {
+      "name": "filter"
+    },
+    {
+      "name": "drill_normal"
+    },
+    {
+      "name": "scalpel_normal"
+    },
+    {
+      "name": "cautery_normal"
+    },
+    {
+      "name": "razor"
+    },
+    {
+      "name": "saw_normal"
+    },
+    {
+      "name": "hemostat_normal"
+    },
+    {
+      "name": "retractor_normal"
+    },
+    {
+      "name": "retractor_advanced"
+    },
+    {
+      "name": "hemostat_alien"
+    },
+    {
+      "name": "retractor_alien"
+    },
+    {
+      "name": "drill_alien",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "scalpel_alien",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cautery_alien",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "saw_alien"
+    },
+    {
+      "name": "scalpel_advanced"
+    },
+    {
+      "name": "cautery_advanced"
+    },
+    {
+      "name": "bonesetter"
+    },
+    {
+      "name": "tape"
+    },
+    {
+      "name": "gel"
+    },
+    {
+      "name": "tray"
+    },
+    {
+      "name": "tape_out"
+    },
+    {
+      "name": "gel_out"
+    },
+    {
+      "name": "bonesetter_out"
+    },
+    {
+      "name": "scalpel_cruel"
+    },
+    {
+      "name": "cautery_cruel"
+    },
+    {
+      "name": "hemostat_cruel"
+    },
+    {
+      "name": "retractor_cruel"
+    }
+  ]
+}

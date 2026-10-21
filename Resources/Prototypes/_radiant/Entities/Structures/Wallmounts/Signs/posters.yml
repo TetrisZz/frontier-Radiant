@@ -120,7 +120,7 @@
   description: Подпольная реклама с недвусмысленным призывом любить хлеб.
   components:
   - type: Sprite
-    sprite: _radiant/Structures/Wallmounts/bluemoon_posters.rsi
+    sprite: _radiant/Structures/Wallmounts/decorative_posters.rsi
     state: poster_bread
 
 - type: entity

@@ -15,15 +15,15 @@ public sealed class MessengerUiFragment : BoxContainer
     private readonly BoxContainer _messages = new() { Name = "MessengerMessages", HorizontalExpand = true, Orientation = LayoutOrientation.Vertical, SeparationOverride = 8 };
     private readonly LineEdit _search = new() { PlaceHolder = Loc.GetString("messenger-search") };
     private readonly LineEdit _input = new() { Name = "MessengerInput", PlaceHolder = Loc.GetString("messenger-input"), HorizontalExpand = true };
-    private readonly Button _dialogsTab = new() { Name = "MessengerDialogsTab", ToggleMode = true, ClipText = true, HorizontalExpand = true, Text = Loc.GetString("messenger-tab-dialogs") };
-    private readonly Button _contactsTab = new() { Name = "MessengerContactsTab", ToggleMode = true, ClipText = true, Pressed = true, HorizontalExpand = true, Text = Loc.GetString("messenger-tab-contacts") };
+    private readonly Button _dialogsTab = new MessengerButton { Name = "MessengerDialogsTab", ToggleMode = true, HorizontalExpand = true, MinWidth = 98, SetHeight = 32, Text = Loc.GetString("messenger-tab-dialogs") };
+    private readonly Button _contactsTab = new MessengerButton { Name = "MessengerContactsTab", ToggleMode = true, Pressed = true, HorizontalExpand = true, MinWidth = 98, SetHeight = 32, Text = Loc.GetString("messenger-tab-contacts") };
     private readonly Label _online = new() { ClipText = true, FontColorOverride = Color.FromHex("#A5B2BC") };
     private readonly Label _length = new() { HorizontalAlignment = HAlignment.Right, FontColorOverride = Color.FromHex("#A5B2BC") };
     private readonly Label _title = new() { ClipText = true, HorizontalExpand = true };
     private readonly Label _status = new() { ClipText = true, FontColorOverride = Color.FromHex("#93ACA5") };
     private readonly Label _error = new() { FontColorOverride = Color.FromHex("#E6A18B"), ClipText = true };
     private readonly CheckBox _mute = new() { Text = Loc.GetString("messenger-notifications"), Pressed = true };
-    private readonly TextureButton _send = new()
+    private readonly TextureButton _send = new MessengerSendButton()
     {
         TexturePath = "/Textures/Interface/Default/filled_right_arrow.svg.192dpi.png",
         Name = "MessengerSend",
@@ -35,6 +35,7 @@ public sealed class MessengerUiFragment : BoxContainer
     private bool _scrollToEnd;
     private bool _showContacts = true;
     private readonly Dictionary<NetEntity, string> _drafts = new();
+    private readonly List<(PanelContainer Panel, RichTextLabel Text)> _bubbles = new();
 
     public MessengerUiFragment()
     {
@@ -43,14 +44,16 @@ public sealed class MessengerUiFragment : BoxContainer
         SeparationOverride = 0;
         var heading = new BoxContainer { HorizontalExpand = true, SeparationOverride = 8, Margin = new Thickness(8, 6) };
         heading.AddChild(new Label { Text = Loc.GetString("messenger-title"), ClipText = true, HorizontalExpand = true, FontColorOverride = Color.FromHex("#76D6B5") });
-        heading.AddChild(_mute);
+        var notificationRow = new BoxContainer { HorizontalExpand = true, Margin = new Thickness(8, 0, 8, 6) };
+        notificationRow.AddChild(_mute);
         AddChild(heading);
+        AddChild(notificationRow);
         var body = new BoxContainer { HorizontalExpand = true, VerticalExpand = true, SeparationOverride = 1 };
         AddChild(body);
         var sidebar = new BoxContainer { Orientation = LayoutOrientation.Vertical, SeparationOverride = 8 };
         sidebar.AddChild(_online);
         sidebar.AddChild(_search);
-        var tabs = new BoxContainer { HorizontalExpand = true, SeparationOverride = 0 };
+        var tabs = new BoxContainer { Name = "MessengerTabs", HorizontalExpand = true, SeparationOverride = 4 };
         var tabGroup = new ButtonGroup();
         _dialogsTab.Group = _contactsTab.Group = tabGroup;
         tabs.AddChild(_dialogsTab);
@@ -62,11 +65,12 @@ public sealed class MessengerUiFragment : BoxContainer
         var sidePanel = Panel("#202628", sidebar, 8);
         sidePanel.Name = "MessengerSidebar";
         sidePanel.HorizontalExpand = false;
-        sidePanel.MinWidth = sidePanel.MaxWidth = 180;
+        sidePanel.RectClipContent = true;
+        sidePanel.MinWidth = sidePanel.MaxWidth = 216;
         body.AddChild(sidePanel);
 
         var conversation = new BoxContainer { Orientation = LayoutOrientation.Vertical, HorizontalExpand = true, SeparationOverride = 6 };
-        var header = new BoxContainer { Orientation = LayoutOrientation.Vertical, SeparationOverride = 2 };
+        var header = new BoxContainer { Orientation = LayoutOrientation.Vertical, SeparationOverride = 2, MinHeight = 44 };
         header.AddChild(_title);
         header.AddChild(_status);
         conversation.AddChild(header);
@@ -159,6 +163,7 @@ public sealed class MessengerUiFragment : BoxContainer
         if (changed)
         {
             _messages.DisposeAllChildren();
+            _bubbles.Clear();
             if (state.Messages.Count == 0)
             {
                 var empty = new RichTextLabel { Margin = new Thickness(8), HorizontalExpand = true };
@@ -169,9 +174,9 @@ public sealed class MessengerUiFragment : BoxContainer
             {
                 var row = new BoxContainer { HorizontalExpand = true };
                 if (!message.Incoming)
-                    row.AddChild(new Control { MinWidth = 24 });
-                var bubble = new BoxContainer { Orientation = LayoutOrientation.Vertical, HorizontalExpand = true };
-                var text = new RichTextLabel { HorizontalExpand = true };
+                    row.AddChild(new Control { MinWidth = 20, HorizontalExpand = true });
+                var bubble = new BoxContainer { Orientation = LayoutOrientation.Vertical, SeparationOverride = 3 };
+                var text = new RichTextLabel { MaxWidth = 280 };
                 text.SetMessage(FormattedMessage.FromUnformatted(message.Text));
                 bubble.AddChild(text);
                 bubble.AddChild(new Label
@@ -180,9 +185,13 @@ public sealed class MessengerUiFragment : BoxContainer
                     HorizontalAlignment = HAlignment.Right,
                     FontColorOverride = Color.FromHex("#ADC0B8"),
                 });
-                row.AddChild(Panel(message.Incoming ? "#2C3438" : "#24483F", bubble, 8));
+                var messagePanel = Panel(message.Incoming ? "#2C3438" : "#24483F", bubble, 8);
+                messagePanel.HorizontalExpand = false;
+                messagePanel.MaxWidth = 296;
+                row.AddChild(messagePanel);
+                _bubbles.Add((messagePanel, text));
                 if (message.Incoming)
-                    row.AddChild(new Control { MinWidth = 24 });
+                    row.AddChild(new Control { MinWidth = 20, HorizontalExpand = true });
                 _messages.AddChild(row);
             }
             _scrollToEnd = followMessages;
@@ -200,7 +209,7 @@ public sealed class MessengerUiFragment : BoxContainer
                      (_showContacts ? c.Available : c.Preview.Length > 0 || c.Unread > 0) &&
                      c.Name.Contains(search, StringComparison.CurrentCultureIgnoreCase)))
         {
-            var button = new ContainerButton { HorizontalExpand = true };
+            var button = new MessengerContactButton { HorizontalExpand = true, Selected = contact.Address == _state.Selected };
             var body = new BoxContainer { Orientation = LayoutOrientation.Vertical, HorizontalExpand = true };
             var nameRow = new BoxContainer();
             nameRow.AddChild(new Label { Text = contact.Name, ClipText = true, HorizontalExpand = true, ToolTip = contact.Name });
@@ -219,7 +228,8 @@ public sealed class MessengerUiFragment : BoxContainer
                 SetWidth = 3,
                 PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex(contact.Available ? "#76D6B5" : "#68717B") },
             });
-            row.AddChild(Panel(contact.Address == _state.Selected ? "#354D46" : "#262E31", body, 6));
+            body.Margin = new Thickness(7, 6);
+            row.AddChild(body);
             button.AddChild(row);
             button.OnPressed += _ => OnMessage?.Invoke(new MessengerUiMessage(MessengerAction.Select, contact.Address));
             _contacts.AddChild(button);
@@ -249,6 +259,12 @@ public sealed class MessengerUiFragment : BoxContainer
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
+        var width = Math.Max(48, _scroll.Size.X - 40);
+        foreach (var (panel, text) in _bubbles)
+        {
+            panel.MaxWidth = width + 16;
+            text.MaxWidth = width;
+        }
         if (!_scrollToEnd)
             return;
         _scroll.VScrollTarget = float.MaxValue;

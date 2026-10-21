@@ -14,3 +14,41 @@
   id: RadiantFishingStatic
   recipes:
   - RadiantFishingRod
+  - RadiantFishingHook
+  - RadiantFishingHookReinforced
+  - RadiantFishingLine
+  - RadiantFishingLineReinforced
+
+- type: latheRecipe
+  id: RadiantFishingHook
+  result: RadiantFishingHook
+  categories: [Tools]
+  completetime: 1
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  id: RadiantFishingHookReinforced
+  result: RadiantFishingHookReinforced
+  categories: [Tools]
+  completetime: 2
+  materials:
+    Steel: 100
+    Silver: 25
+
+- type: latheRecipe
+  id: RadiantFishingLine
+  result: RadiantFishingLine
+  categories: [Tools]
+  completetime: 2
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: RadiantFishingLineReinforced
+  result: RadiantFishingLineReinforced
+  categories: [Tools]
+  completetime: 3
+  materials:
+    Plastic: 200
+    Durathread: 50

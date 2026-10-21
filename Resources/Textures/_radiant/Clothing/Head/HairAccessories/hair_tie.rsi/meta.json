@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original source contributors. https://github.com/Skyrat-SS13/Skyrat-tg, modular_skyrat/modules/salon/icons/items.dmi, state hairtie -> hair_tie. https://github.com/Skyrat-SS13/Skyrat-tg, icons/obj/clothing/head/costume.dmi, state hairpin_fancy -> hair_clip. https://github.com/Skyrat-SS13/Skyrat-tg, icons/mob/clothing/head/costume.dmi, state hairpin_fancy -> hair_clip_equipped. Lossless extraction; original pixels, directions and animation timing preserved. DMI frame-major order repacked into RSI direction-major order. Asset license per source README.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "hair_tie"
+    },
+    {
+      "name": "hair_clip"
+    },
+    {
+      "name": "hair_clip_equipped",
+      "directions": 4
+    }
+  ]
+}

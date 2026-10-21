@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopNekoWhite
+  name: white neko bra
+  description: A white bra with little cat ears and a tiny bell.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/top/neko_white.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomPantiesNekoWhite
+  name: white neko panties
+  description: White panties with a little cat-ear trim.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Underwear/bottom/neko_white.rsi

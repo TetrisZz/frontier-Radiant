@@ -9,6 +9,8 @@ using Content.Server.Preferences.Managers;
 using Content.Server._NF.CryoSleep;
 using Content.Shared.Body.Systems;
 using Content.Shared._radiant.Dossiers;
+using Content.Shared._radiant.Social;
+using System.Linq;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
@@ -248,6 +250,13 @@ public sealed partial class DossierSystem : EntitySystem
                 Log.Error($"Invalid character dossier data: {error}");
             }
             current.Loaded = true;
+            current.Record.Tattoos ??= new();
+            current.Record.Tattoos = current.Record.Tattoos.Where(t => t != null && TextTattooRules.Valid(t))
+                .Take(TextTattooRules.MaximumTattoos).ToList();
+            var tattoos = EnsureComp<TextTattooComponent>(mob);
+            tattoos.Tattoos = current.Record.Tattoos.Where(TextTattooRules.Valid)
+                .Take(TextTattooRules.MaximumTattoos).Select(t => t.Clone()).ToList();
+            Dirty(mob, tattoos);
             RememberOnBrain(mob, current);
         });
     }
@@ -514,6 +523,22 @@ public sealed partial class DossierSystem : EntitySystem
         holder.Record = memory.Record;
         holder.Loaded = true;
         memory.Source = patient;
+    }
+
+    public bool SaveTattoos(EntityUid body, List<TextTattoo> tattoos)
+    {
+        if (!TryComp<DossierHolderComponent>(body, out var holder) || !holder.Loaded || holder.Archived)
+            return false;
+        holder.Record.Tattoos = tattoos.Where(TextTattooRules.Valid).Take(TextTattooRules.MaximumTattoos)
+            .Select(t => t.Clone()).ToList();
+        var component = EnsureComp<TextTattooComponent>(body);
+        component.Tattoos = holder.Record.Tattoos.Select(t => t.Clone()).ToList();
+        Dirty(body, component);
+        var key = (holder.UserId, holder.Slot);
+        _pendingSaves[key] = SaveAsync(_pendingSaves.GetValueOrDefault(key, Task.CompletedTask),
+            holder.UserId, holder.Slot, JsonSerializer.Serialize(holder.Record));
+        RememberOnBrain(body, holder);
+        return true;
     }
 
     private async Task SaveAsync(Task previous, NetUserId userId, int slot, string json)

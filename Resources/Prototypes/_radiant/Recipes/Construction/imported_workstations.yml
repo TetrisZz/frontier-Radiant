@@ -1,0 +1,83 @@
+- type: construction
+  id: RadiantStairsOpenSteel
+  graph: RadiantStairsOpenSteel
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}
+
+- type: construction
+  id: RadiantStairsOpenWood
+  graph: RadiantStairsOpenWood
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}
+
+- type: construction
+  id: RadiantTestTubeRack
+  graph: RadiantTestTubeRack
+  startNode: start
+  targetNode: finished
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: RadiantSurgicalCart
+  graph: RadiantSurgicalCart
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}
+
+- type: construction
+  id: RadiantAquarium
+  graph: RadiantAquarium
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}
+
+- type: construction
+  id: RadiantBeehive
+  graph: RadiantBeehive
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}
+
+- type: construction
+  id: RadiantHoneyFrame
+  graph: RadiantHoneyFrame
+  startNode: start
+  targetNode: finished
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: RadiantHourglass
+  graph: RadiantHourglass
+  startNode: start
+  targetNode: finished
+  category: construction-category-tools
+  objectType: Item

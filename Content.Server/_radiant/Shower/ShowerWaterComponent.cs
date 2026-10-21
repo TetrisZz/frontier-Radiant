@@ -1,5 +1,6 @@
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Map;
 
 namespace Content.Server._radiant.Shower;
 
@@ -20,3 +21,7 @@ public sealed partial class ShowerWaterComponent : Component
 
     public float Accumulator;
 }
+
+[ByRefEvent]
+public readonly record struct ShowerSprayEvent(EntityUid Source, EntityCoordinates Coordinates,
+    string Reagent, float Amount, float Range);

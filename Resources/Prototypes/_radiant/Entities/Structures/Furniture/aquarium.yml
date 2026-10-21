@@ -1,0 +1,177 @@
+- type: entity
+  parent: BaseStructure
+  id: RadiantAquarium
+  name: aquarium
+  description: A glass tank for four fish, with space for aquatic decorations.
+  components:
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Icon
+    sprite: _radiant/Structures/Furniture/aquarium.rsi
+    state: aquarium_map
+  - type: Sprite
+    noRot: true
+    sprite: _radiant/Structures/Furniture/aquarium.rsi
+    layers:
+    - state: aquarium_base
+    - state: aquarium_glass_air
+    - state: aquarium_glass_water
+      map: [water]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_supplies.rsi
+      state: sand
+      map: [sand]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_supplies.rsi
+      state: rocks
+      map: [rocks]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_supplies.rsi
+      state: seaweeds_front
+      map: [seaweeds_front]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_supplies.rsi
+      state: treasure
+      map: [treasure]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_fish.rsi
+      state: bass
+      offset: -0.18,-0.03
+      map: [fish0]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_fish.rsi
+      state: bass
+      offset: 0.18,-0.03
+      map: [fish1]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_fish.rsi
+      state: bass
+      offset: -0.18,0.22
+      map: [fish2]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_fish.rsi
+      state: bass
+      offset: 0.18,0.22
+      map: [fish3]
+      visible: false
+    - state: aquarium_borders
+  - type: Aquarium
+  - type: AquariumBreeding
+  - type: Appearance
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    maxItemSize: Normal
+    whitelist:
+      components: [Fish, AquariumDecoration]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container {}
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 200
+  - type: RefillableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank
+    exactVolume: true
+  - type: Construction
+    graph: RadiantAquarium
+    node: finished
+    containers: [storagebase]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:EmptyAllContainersBehaviour {}
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [Destruction]
+
+- type: entity
+  parent: RadiantAquarium
+  id: RadiantAquariumFilled
+  suffix: Filled with water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 200
+        reagents:
+        - ReagentId: Water
+          Quantity: 200
+
+- type: entity
+  parent: BaseItem
+  id: RadiantAquariumFeed
+  name: fish food
+  description: A tin of fish feed with twenty portions.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Fishing/aquarium_supplies.rsi
+    state: fish_feed
+  - type: AquariumFeed
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BaseItem
+  id: RadiantAquariumRocks
+  name: aquarium rocks
+  description: Smooth stones for decorating a fish tank.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Fishing/aquarium_supplies.rsi
+    state: rocks
+  - type: Item
+    size: Tiny
+  - type: AquariumDecoration
+    state: rocks
+
+- type: entity
+  parent: RadiantAquariumRocks
+  id: RadiantAquariumSeaweed
+  name: aquarium plants
+  description: Artificial aquatic plants that sway gently in the water.
+  components:
+  - type: Sprite
+    state: seaweeds_front
+  - type: AquariumDecoration
+    state: seaweeds_front
+
+- type: entity
+  parent: RadiantAquariumRocks
+  id: RadiantAquariumTreasure
+  name: miniature treasure chest
+  description: A little treasure chest for a fish tank.
+  components:
+  - type: Sprite
+    state: treasure
+  - type: AquariumDecoration
+    state: treasure
+
+- type: entity
+  parent: RadiantAquariumRocks
+  id: RadiantAquariumSand
+  name: aquarium sand
+  description: Clean sand for the bottom of a fish tank.
+  components:
+  - type: Sprite
+    state: sand
+  - type: AquariumDecoration
+    state: sand

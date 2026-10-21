@@ -1,11 +1,10 @@
-using System.Numerics;
 using System.Diagnostics.CodeAnalysis;
 using Robust.Client.UserInterface.RichText;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
 using Robust.Shared.Utility;
 using Content.Client.Paper.UI;
-using Robust.Client.Graphics;
+using Content.Client._radiant.Paperwork;
 
 namespace Content.Client.UserInterface.RichText;
 
@@ -52,7 +51,7 @@ public sealed class FormTagHandler : IMarkupTagHandler
         var root = clickedButton;
 
         // Find the root container
-        while (root.Parent != null)
+        while (root.Parent != null && root is not PaperWindow)
             root = root.Parent;
 
         // Count form buttons in document order
@@ -65,7 +64,7 @@ public sealed class FormTagHandler : IMarkupTagHandler
     {
         if (found) return;
 
-        if (control is Button btn && btn.Text == Loc.GetString("paper-form-fill-button"))
+        if (control is PaperFormButton btn)
         {
             if (control == target)
             {
@@ -110,15 +109,7 @@ public sealed class FormTagHandler : IMarkupTagHandler
     /// </summary>
     public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
-        var btn = new Button
-        {
-            Text = "Fill",
-            MinSize = new Vector2(32, FontLineHeight + 2),
-            MaxSize = new Vector2(32, FontLineHeight + 2),
-            Margin = new Thickness(1, 0, 1, 0),
-            StyleClasses = { "ButtonSquare" },
-            TextAlign = Label.AlignMode.Center
-        };
+        var btn = new PaperFormButton(FontLineHeight);
 
         var formIndex = GetFormIndex(node);
         btn.Name = $"form_{formIndex}";

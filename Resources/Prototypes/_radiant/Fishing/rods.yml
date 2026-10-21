@@ -22,6 +22,24 @@
       types:
         Blunt: 5
   - type: FishingRod
+  - type: ItemSlots
+    slots:
+      fishing_hook:
+        name: fishing-slot-hook
+        startingItem: RadiantFishingHook
+        insertSound: /Audio/Items/toolbox_insert.ogg
+        ejectSound: /Audio/Items/toolbox_remove.ogg
+        whitelist:
+          components:
+          - FishingHook
+      fishing_line:
+        name: fishing-slot-line
+        startingItem: RadiantFishingLine
+        insertSound: /Audio/Items/toolbox_insert.ogg
+        ejectSound: /Audio/Items/toolbox_remove.ogg
+        whitelist:
+          components:
+          - FishingLine
 
 # Variation of a normal rod
 - type: entity

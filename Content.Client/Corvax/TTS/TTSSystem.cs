@@ -1,119 +1,179 @@
+using System.IO;
+using System.Linq;
 using Content.Shared.Chat;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;
+using Content.Shared.GameTicking;
 using Robust.Client.Audio;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
-using Robust.Shared.ContentPack;
-using Robust.Shared.Utility;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Corvax.TTS;
 
-/// <summary>
-/// Plays TTS audio in world
-/// </summary>
-// ReSharper disable once InconsistentNaming
 public sealed class TTSSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IResourceManager _res = default!;
+    [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
+    private readonly TTSPlaybackQueue _queue = new();
+    private readonly Dictionary<TTSPlaybackQueue.Lane, Playback> _playing = new();
     private ISawmill _sawmill = default!;
-    private static MemoryContentRoot _contentRoot = new();
-    private static readonly ResPath Prefix = ResPath.Root / "TTS";
 
-    private static bool _contentRootAdded;
-
-    /// <summary>
-    /// Reducing the volume of the TTS when whispering. Will be converted to logarithm.
-    /// </summary>
-    private const float WhisperFade = 4f;
-
-    /// <summary>
-    /// The volume at which the TTS sound will not be heard.
-    /// </summary>
-    private const float MinimalVolume = -10f;
-
-    private float _volume = 0.0f;
-    private int _fileIdx = 0;
+    private sealed record Playback(EntityUid Entity, AudioStream Stream, PlayTTSEvent Message);
 
     public override void Initialize()
     {
-        if (!_contentRootAdded)
-        {
-            _contentRootAdded = true;
-            _res.AddRoot(Prefix, _contentRoot);
-        }
-
+        UpdatesAfter.Add(typeof(AudioSystem));
         _sawmill = Logger.GetSawmill("tts");
-        _cfg.OnValueChanged(CCCVars.TTSVolume, OnTtsVolumeChanged, true);
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => ClearPlayback());
     }
 
     public override void Shutdown()
     {
+        ClearPlayback();
         base.Shutdown();
-        _cfg.UnsubValueChanged(CCCVars.TTSVolume, OnTtsVolumeChanged);
     }
 
-    public void RequestPreviewTTS(string voiceId)
+    public void RequestPreviewTTS(string voiceId, bool robotic = false) =>
+        RaiseNetworkEvent(new RequestPreviewTTSEvent(voiceId, robotic));
+
+    private bool IsEnabled(PlayTTSEvent message)
     {
-        RaiseNetworkEvent(new RequestPreviewTTSEvent(voiceId));
-    }
-
-    private void OnTtsVolumeChanged(float volume)
-    {
-        _volume = volume;
-    }
-
-    private void OnPlayTTS(PlayTTSEvent ev)
-    {
-        _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
-
-        var filePath = new ResPath($"{_fileIdx++}.ogg");
-        _contentRoot.AddOrUpdateFile(filePath, ev.Data);
-
-        var audioResource = new AudioResource();
-        audioResource.Load(IoCManager.Instance!, Prefix / filePath);
-
-        var audioParams = AudioParams.Default
-            .WithVolume(AdjustVolume(ev.IsWhisper))
-            .WithMaxDistance(AdjustDistance(ev.IsWhisper));
-
-        var soundSpecifier = new ResolvedPathSpecifier(Prefix / filePath);
-
-        if (ev.SourceUid != null)
+        if (_cfg.GetCVar(CCCVars.TTSVolume) <= 0)
+            return false;
+        if (message.Kind == TTSPlaybackKind.Radio &&
+            IsChannelMuted(_cfg.GetCVar(CCCVars.TTSMutedRadioChannels), message.RadioChannel))
+            return false;
+        if (message.Automatic)
+            return _cfg.GetCVar(CCCVars.TTSAutomaticEnabled) && _cfg.GetCVar(CCCVars.TTSAutomaticVolume) > 0;
+        return message.Kind switch
         {
-            if (!TryGetEntity(ev.SourceUid.Value, out _))
-                return;
-            var sourceUid = GetEntity(ev.SourceUid.Value);
-            _audio.PlayEntity(audioResource.AudioStream, sourceUid, soundSpecifier, audioParams);
-        }
-        else
-        {
-            _audio.PlayGlobal(audioResource.AudioStream, soundSpecifier, audioParams);
-        }
-
-        _contentRoot.RemoveFile(filePath);
+            TTSPlaybackKind.Radio => _cfg.GetCVar(CCCVars.TTSRadioVolume) > 0,
+            TTSPlaybackKind.Announcement => _cfg.GetCVar(CCCVars.TTSAnnouncementVolume) > 0,
+            _ => true,
+        };
     }
 
-    private float AdjustVolume(bool isWhisper)
-    {
-        var volume = MinimalVolume + SharedAudioSystem.GainToVolume(_volume);
+    public static bool IsChannelMuted(string mutedChannels, string? channel) => channel != null &&
+        mutedChannels.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Contains(channel, StringComparer.Ordinal);
 
-        if (isWhisper)
+    private void OnPlayTTS(PlayTTSEvent message)
+    {
+        if (IsEnabled(message) && message.Data.Length > 0)
+            _queue.Enqueue(message, _timing.RealTime);
+    }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+        if (_cfg.GetCVar(CCCVars.TTSVolume) <= 0)
         {
-            volume -= SharedAudioSystem.GainToVolume(WhisperFade);
+            ClearPlayback();
+            return;
         }
 
-        return volume;
+        foreach (var (lane, playback) in _playing.ToArray())
+        {
+            if (TerminatingOrDeleted(playback.Entity) || !TryComp<AudioComponent>(playback.Entity, out var audio) ||
+                !audio.Playing || !IsEnabled(playback.Message))
+            {
+                Release(playback);
+                _playing.Remove(lane);
+            }
+            else
+            {
+                _audio.SetVolume(playback.Entity, GetVolume(playback.Message), audio);
+            }
+        }
+
+        foreach (var lane in _queue.Lanes)
+        {
+            if (_playing.ContainsKey(lane) || _playing.Count >= TTSPlaybackQueue.MaximumLanes)
+                continue;
+            while (_queue.TryDequeue(lane, _timing.RealTime, out var message))
+            {
+                if (message != null && IsEnabled(message) && TryPlay(message, out var playback))
+                {
+                    _playing[lane] = playback;
+                    break;
+                }
+            }
+        }
     }
 
-    private float AdjustDistance(bool isWhisper)
+    private bool TryPlay(PlayTTSEvent message, out Playback playback)
     {
-        return isWhisper ? SharedChatSystem.WhisperMuffledRange : SharedChatSystem.VoiceRange;
+        playback = default!;
+        EntityUid? source = null;
+        if (message.SourceUid is { } netSource)
+        {
+            if (!TryGetEntity(netSource, out var entity) || entity is not { } uid || TerminatingOrDeleted(uid))
+                return false;
+            source = uid;
+        }
+
+        AudioStream? stream = null;
+        (EntityUid Entity, AudioComponent Component)? audio = null;
+        try
+        {
+            using var data = new MemoryStream(message.Data, false);
+            stream = _audioManager.LoadAudioOggVorbis(data);
+            var parameters = AudioParams.Default.WithVolume(GetVolume(message))
+                .WithMaxDistance(SharedChatSystem.VoiceRange);
+            audio = source is { } emitter
+                ? _audio.PlayEntity(stream, emitter, null, parameters)
+                : _audio.PlayGlobal(stream, null, parameters);
+            if (audio == null)
+            {
+                stream.Dispose();
+                return false;
+            }
+
+            playback = new Playback(audio.Value.Entity, stream, message);
+            return true;
+        }
+        catch (Exception exception)
+        {
+            if (audio is { } playing && Exists(playing.Entity))
+                Del(playing.Entity);
+            stream?.Dispose();
+            _sawmill.Warning($"Unable to play synthesized speech: {exception.Message}");
+            return false;
+        }
+    }
+
+    private void Release(Playback playback)
+    {
+        // The AL source must be detached before freeing its sample buffer.
+        if (Exists(playback.Entity)) Del(playback.Entity);
+        playback.Stream.Dispose();
+    }
+
+    private float GetVolume(PlayTTSEvent message)
+    {
+        var gain = _cfg.GetCVar(CCCVars.TTSVolume);
+        gain *= message.Automatic ? _cfg.GetCVar(CCCVars.TTSAutomaticVolume) : message.Kind switch
+        {
+            TTSPlaybackKind.Radio => _cfg.GetCVar(CCCVars.TTSRadioVolume),
+            TTSPlaybackKind.Announcement => _cfg.GetCVar(CCCVars.TTSAnnouncementVolume),
+            _ => 1f,
+        };
+        var radioAttenuation = message.Kind == TTSPlaybackKind.Radio ? -3f : 0f;
+        return -10f + SharedAudioSystem.GainToVolume(gain) + radioAttenuation;
+    }
+
+    private void ClearPlayback()
+    {
+        _queue.Clear();
+        foreach (var playback in _playing.Values)
+            Release(playback);
+        _playing.Clear();
     }
 }

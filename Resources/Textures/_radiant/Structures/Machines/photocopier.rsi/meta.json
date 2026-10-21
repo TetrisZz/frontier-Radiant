@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original source contributors. https://github.com/BlueMoon-Labs/BlueMoon-Station, icons/obj/library.dmi, state photocopier -> photocopier. Lossless extraction; original pixels, directions and animation timing preserved. DMI frame-major order repacked into RSI direction-major order. Asset license per source README.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "photocopier"
+    }
+  ]
+}

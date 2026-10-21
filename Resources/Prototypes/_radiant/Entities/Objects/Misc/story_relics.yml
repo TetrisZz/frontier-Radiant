@@ -1,0 +1,57 @@
+- type: entity
+  parent: BaseItem
+  id: SalvageStoryDogTag
+  name: worn crew tag
+  description: A battered identification tag with a barely legible engraving.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Misc/story_relics.rsi
+    state: tag
+  - type: StoryRelic
+    story: story-relic-tag
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  parent: SalvageStoryDogTag
+  id: SalvageStoryRecorder
+  name: damaged flight recorder
+  description: A fragment of a ship's recorder. Most of the memory is unreadable.
+  components:
+  - type: Sprite
+    state: recorder
+  - type: StoryRelic
+    story: story-relic-recorder
+
+- type: entity
+  parent: SalvageStoryDogTag
+  id: SalvageStorySample
+  name: sealed expedition sample
+  description: An old sample container with a handwritten label.
+  components:
+  - type: Sprite
+    state: sample
+  - type: StoryRelic
+    story: story-relic-sample
+
+- type: entity
+  parent: SalvageStoryDogTag
+  id: SalvageStoryMemento
+  name: expedition keepsake
+  description: A small keepsake found among the remains of an expedition.
+  components:
+  - type: Sprite
+    state: memento
+  - type: StoryRelic
+    story: story-relic-memento
+
+- type: entity
+  parent: MarkerBase
+  id: SalvageStoryRelicSpawner
+  name: expedition keepsake spawner
+  components:
+  - type: RandomSpawner
+    prototypes: [SalvageStoryDogTag, SalvageStoryRecorder, SalvageStorySample, SalvageStoryMemento]
+    chance: 1

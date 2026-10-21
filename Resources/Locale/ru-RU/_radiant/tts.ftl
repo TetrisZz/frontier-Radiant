@@ -1,0 +1,13 @@
+tts-settings-title = Озвучка речи (TTS)
+tts-settings-volume = Общая громкость TTS
+tts-settings-radio-volume = Громкость рации
+tts-settings-announcement-volume = Громкость объявлений
+tts-settings-automatic = Автоматические оповещения
+tts-settings-automatic-enabled = Озвучивать автоматические оповещения
+tts-settings-automatic-volume = Громкость автоматических оповещений
+tts-settings-channels = Озвучиваемые каналы рации
+tts-settings-all = Включить все
+tts-settings-none = Выключить все
+tts-borg-voice-title = Голос борга
+tts-borg-voice-preview = Прослушать голос
+tts-borg-voice-apply = Применить голос

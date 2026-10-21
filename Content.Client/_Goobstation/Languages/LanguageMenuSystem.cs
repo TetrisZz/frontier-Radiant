@@ -7,11 +7,11 @@ namespace Content.Client._Goobstation.Languages;
 /// </summary>
 public sealed class LanguageMenuSystem : EntitySystem
 {
-    public event Action<string, bool, bool, bool>? OnLanguageMenuState;
+    public event Action<LanguageMenuStateEvent>? OnLanguageMenuState;
 
     // Radiant Sector: lets the UI open immediately with the last authoritative state,
     // while a fresh request is still travelling to the server.
-    public (string NativeLanguage, bool NativeSelected, bool CanUseNative, bool CanUseGalactic)? CachedState { get; private set; }
+    public LanguageMenuStateEvent? CachedState { get; private set; }
 
     public override void Initialize()
     {
@@ -28,9 +28,11 @@ public sealed class LanguageMenuSystem : EntitySystem
         RaiseNetworkEvent(new LanguageMenuSelectEvent(native));
     }
 
+    public void SelectVoice(string voiceId) => RaiseNetworkEvent(new LanguageMenuVoiceSelectEvent(voiceId));
+
     private void OnLanguageMenuStateReceived(LanguageMenuStateEvent ev)
     {
-        CachedState = (ev.NativeLanguage, ev.NativeSelected, ev.CanUseNative, ev.CanUseGalactic);
-        OnLanguageMenuState?.Invoke(ev.NativeLanguage, ev.NativeSelected, ev.CanUseNative, ev.CanUseGalactic);
+        CachedState = ev;
+        OnLanguageMenuState?.Invoke(ev);
     }
 }

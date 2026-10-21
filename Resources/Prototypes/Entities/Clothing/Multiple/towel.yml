@@ -5,6 +5,12 @@
   description: If you want to survive out here, you gotta know where your towel is.
   parent: [ UnsensoredClothingUniformBase, ClothingHeadBase, ClothingBeltBase ]
   components:
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - Towel
   - type: Sprite
     sprite: _radiant/Clothing/Multiple/towel.rsi # Radiant Sector
   - type: Clothing

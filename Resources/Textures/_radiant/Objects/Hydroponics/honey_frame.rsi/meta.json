@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Adapted from https://github.com/Skyrat-SS13/Skyrat-tg, icons/obj/service/hydroponics/equipment.dmi honey_frame, harvest.dmi honeycomb and honey; filled icon composites the original comb inside the frame. Source assets CC-BY-SA-3.0 per README; original artists not specified. States renamed and packed for SS14.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "empty"
+    },
+    {
+      "name": "filled"
+    }
+  ]
+}

@@ -38,9 +38,3 @@
   id: ACORPClothingUnderwearBottomPantiesWhite
   equipment:
     underwearb: ClothingUnderwearBottomPantiesWhite
-    
-- type: loadout
-  id: ACORPClothingUnderwearBottomPantiesNeko
-  equipment:
-    underwearb: ClothingUnderwearBottomPantiesNeko
-    

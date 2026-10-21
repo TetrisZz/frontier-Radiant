@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Adapted from https://github.com/Skyrat-SS13/Skyrat-tg, icons/obj/aquarium/supplies.dmi. Source assets CC-BY-SA-3.0 per README; original artists not specified. States renamed and packed for SS14.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fish_feed"
+    },
+    {
+      "name": "bioelec_kit"
+    },
+    {
+      "name": "construction_kit"
+    },
+    {
+      "name": "rocks"
+    },
+    {
+      "name": "seaweeds_front",
+      "delays": [
+        [
+          0.30000000000000004,
+          0.30000000000000004,
+          0.30000000000000004,
+          0.30000000000000004,
+          0.30000000000000004,
+          0.30000000000000004,
+          0.30000000000000004,
+          0.30000000000000004
+        ]
+      ]
+    },
+    {
+      "name": "seaweeds_back"
+    },
+    {
+      "name": "treasure"
+    },
+    {
+      "name": "sand"
+    }
+  ]
+}

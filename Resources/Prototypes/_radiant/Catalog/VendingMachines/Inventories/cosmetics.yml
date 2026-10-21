@@ -1,0 +1,19 @@
+- type: vendingMachineInventory
+  id: CosmeticsVendInventory
+  startingInventory:
+    PerfumeCherryLiqueur: 6
+    PerfumeTobaccoVanilla: 6
+    PerfumePearSilk: 6
+    PerfumeWhiteTea: 6
+    PerfumeMidnightCoffee: 6
+    PerfumeSaltedSkin: 6
+    SoapDeluxe: 6
+    SoapHomemade: 6
+    TowelColorWhite: 4
+    TowelColorPink: 4
+    BarberScissors: 2
+    ClothingHeadHairTie: 8
+    ClothingHeadHairClip: 6
+    TattooMachine: 3
+    ClothingHeadHatHairflower: 4
+    ClothingHeadHatFlowerWreath: 4

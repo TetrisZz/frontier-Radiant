@@ -7,6 +7,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Robust.Shared.Map;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -27,6 +28,10 @@ public abstract partial class SharedFishingSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+
+    public const string HookSlot = "fishing_hook";
+    public const string LineSlot = "fishing_line";
 
     protected EntityQuery<ActiveFisherComponent> FisherQuery;
     protected EntityQuery<ActiveFishingSpotComponent> ActiveFishSpotQuery;
@@ -49,6 +54,9 @@ public abstract partial class SharedFishingSystem : EntitySystem
         SubscribeLocalEvent<FishingRodComponent, ThrowFishingLureActionEvent>(OnThrowFloat);
         SubscribeLocalEvent<FishingRodComponent, PullFishingLureActionEvent>(OnPullFloat);
         SubscribeLocalEvent<FishingRodComponent, EntParentChangedMessage>(OnRodParentChanged);
+        SubscribeLocalEvent<FishingRodComponent, ContainerIsRemovingAttemptEvent>(OnTackleRemoving);
+        SubscribeLocalEvent<FishingRodComponent, ContainerIsInsertingAttemptEvent>(OnTackleInserting);
+        SubscribeLocalEvent<FishingRodComponent, EntRemovedFromContainerMessage>(OnTackleRemoved);
 
         SubscribeLocalEvent<FishingRodComponent, EntityTerminatingEvent>(OnRodTerminating);
         SubscribeLocalEvent<FishingLureComponent, EntityTerminatingEvent>(OnLureTerminating);
@@ -93,7 +101,7 @@ public abstract partial class SharedFishingSystem : EntitySystem
                 case < 0f:
                     // It's over
                     _popup.PopupEntity(Loc.GetString("fishing-progress-fail"), fisher, fisher);
-                    StopFishing((fishRod, fishingRodComp), fisher);
+                    StopFishing((fishRod, fishingRodComp), fisher, strained: true);
                     continue;
 
                 case >= 1f:
@@ -168,7 +176,7 @@ public abstract partial class SharedFishingSystem : EntitySystem
                 !HasComp<ActorComponent>(fisher))
             {
                 var rod = (lureComp.FishingRod, fishingRodComp);
-                StopFishing(rod, fisher);
+                StopFishing(rod, fisher, strained: distance.Length() > fishingRodComp.BreakOnDistance);
                 ToggleFishingActions(rod, fisher, false);
             }
         }
@@ -207,12 +215,24 @@ public abstract partial class SharedFishingSystem : EntitySystem
     /// </summary>
     protected abstract void ThrowFishReward(EntProtoId fishId, EntityUid fishSpot, EntityUid target);
 
+    protected virtual void WearTackle(Entity<FishingRodComponent> rod, EntityUid? fisher, bool strained) {}
+
+    public EntityUid? GetTackle(EntityUid rod, string slot) =>
+        _containers.TryGetContainer(rod, slot, out var container) && container.ContainedEntities.Count > 0
+            ? container.ContainedEntities[0]
+            : null;
+
+    public bool HasUsableTackle(EntityUid rod) =>
+        TryComp<FishingHookComponent>(GetTackle(rod, HookSlot), out _) &&
+        TryComp<FishingLineComponent>(GetTackle(rod, LineSlot), out var line) && line.Durability > 0;
+
     /// <summary>
     /// Reels the fishing rod back and stops fishing progress if arguments are passed to it.
     /// </summary>
     private void StopFishing(
         Entity<FishingRodComponent> fishingRod,
-        EntityUid? fisher)
+        EntityUid? fisher,
+        bool strained = false)
     {
         var nullOrDeleted =
             fishingRod.Comp.FishingLure == null || TerminatingOrDeleted(fishingRod.Comp.FishingLure.Value);
@@ -233,8 +253,10 @@ public abstract partial class SharedFishingSystem : EntitySystem
         }
 
         fishingRod.Comp.FishingLure = null;
-        if (Net.IsServer && !TerminatingOrDeleted(fishingRod))
+        if (Net.IsServer && !nullOrDeleted && !TerminatingOrDeleted(fishingRod))
         {
+            // Charge once per actual cast, never for picking up or moving an idle rod.
+            WearTackle(fishingRod, fisher, strained);
             fishingRod.Comp.LoadedBait = FishingBaitKind.None;
             Dirty(fishingRod.Owner, fishingRod.Comp);
         }
@@ -275,7 +297,8 @@ public abstract partial class SharedFishingSystem : EntitySystem
     /// </summary>
     private void TryStopFishing(Entity<FishingLureComponent> lure)
     {
-        if (!FishRodQuery.TryComp(lure.Comp.FishingRod, out var rodComp))
+        // A deferred deletion from an earlier cast must not cancel the next cast.
+        if (!FishRodQuery.TryComp(lure.Comp.FishingRod, out var rodComp) || rodComp.FishingLure != lure.Owner)
             return;
 
         TryStopFishing((lure.Comp.FishingRod, rodComp));
@@ -289,7 +312,8 @@ public abstract partial class SharedFishingSystem : EntitySystem
         if (!FishLureQuery.TryComp(spot.Comp.AttachedFishingLure, out var lureComp))
             return;
 
-        if (!FishRodQuery.TryComp(lureComp.FishingRod, out var rodComp))
+        if (!FishRodQuery.TryComp(lureComp.FishingRod, out var rodComp) ||
+            rodComp.FishingLure != spot.Comp.AttachedFishingLure)
             return;
 
         TryStopFishing((lureComp.FishingRod, rodComp));
@@ -299,12 +323,43 @@ public abstract partial class SharedFishingSystem : EntitySystem
 
     #region Event Handling
 
+    private void OnTackleRemoving(Entity<FishingRodComponent> ent, ref ContainerIsRemovingAttemptEvent args)
+    {
+        if (ent.Comp.FishingLure != null && args.Container.ID is HookSlot or LineSlot)
+            args.Cancel();
+    }
+
+    private void OnTackleInserting(Entity<FishingRodComponent> ent, ref ContainerIsInsertingAttemptEvent args)
+    {
+        if (ent.Comp.FishingLure != null && args.Container.ID is HookSlot or LineSlot)
+            args.Cancel();
+    }
+
+    private void OnTackleRemoved(Entity<FishingRodComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        if (args.Container.ID != HookSlot || TerminatingOrDeleted(ent))
+            return;
+
+        ent.Comp.LoadedBait = FishingBaitKind.None;
+        Dirty(ent);
+    }
+
     private void OnThrowFloat(Entity<FishingRodComponent> ent, ref ThrowFishingLureActionEvent args)
     {
         if (args.Handled || !Timing.IsFirstTimePredicted)
             return;
 
         var player = args.Performer;
+
+        if (!_hands.IsHolding(player, ent.Owner))
+            return;
+
+        if (!HasUsableTackle(ent))
+        {
+            _popup.PopupPredicted(Loc.GetString("fishing-tackle-missing"), ent, player);
+            args.Handled = true;
+            return;
+        }
 
         if (ent.Comp.FishingLure != null || !Xform.IsValid(args.Target))
         {

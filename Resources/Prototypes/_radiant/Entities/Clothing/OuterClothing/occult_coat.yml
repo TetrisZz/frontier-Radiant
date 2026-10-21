@@ -1,0 +1,31 @@
+- type: entity
+  parent: ClothingOuterStorageToggleableBase
+  id: ClothingOuterCoatOccult
+  name: hooded coat
+  description: A heavy leather coat lined with ivory cloth and fitted with a deep hood.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/occult.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/occult.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHoodOccult
+  - type: StaticPrice
+    price: 150
+    vendPrice: 1500
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodOccult
+  categories: [HideSpawnMenu]
+  name: coat hood
+  description: A deep hood lined with ivory cloth.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/Hoods/occult.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/Hoods/occult.rsi
+    quickEquip: false
+  - type: HideLayerClothing
+    slots:
+    - Hair

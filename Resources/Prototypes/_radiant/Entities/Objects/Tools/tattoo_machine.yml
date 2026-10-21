@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseItem
+  id: TattooMachine
+  name: tattoo machine
+  description: Applies a permanent textual tattoo with the recipient's consent. Removal requires surgery.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Tools/tattoo_machine.rsi
+    state: machine
+  - type: TattooMachine
+  - type: Item
+    size: Small
+  - type: UserInterface
+    interfaces:
+      enum.TattooUiKey.Editor:
+        type: TattooEditorBoundUserInterface
+      enum.TattooUiKey.Consent:
+        type: TattooConsentBoundUserInterface
+        # The recipient answers a request on a machine held by the artist.
+        # TattooMachineSystem validates the recipient and the artist's reach instead.
+        interactionRange: 0
+        requireInputValidation: false
+  - type: StaticPrice
+    price: 250

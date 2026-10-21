@@ -19,10 +19,11 @@ public sealed class ListeningSystem : EntitySystem
 
     private void OnSpeak(EntitySpokeEvent ev)
     {
-        PingListeners(ev.Source, ev.Message, ev.ObfuscatedMessage, ev.Language); // Radiant Sector: retain language for portable radios.
+        PingListeners(ev.Source, ev.Message, ev.ObfuscatedMessage, ev.Language, ev.AudioRelays);
     }
 
-    public void PingListeners(EntityUid source, string message, string? obfuscatedMessage, string? language = null)
+    public void PingListeners(EntityUid source, string message, string? obfuscatedMessage, string? language = null,
+        HashSet<EntityUid>? audioRelays = null)
     {
         // TODO whispering / audio volume? Microphone sensitivity?
         // for now, whispering just arbitrarily reduces the listener's max range.
@@ -32,8 +33,8 @@ public sealed class ListeningSystem : EntitySystem
         var sourcePos = _xforms.GetWorldPosition(sourceXform, xformQuery);
 
         var attemptEv = new ListenAttemptEvent(source);
-        var ev = new ListenEvent(message, source, language);
-        var obfuscatedEv = obfuscatedMessage == null ? null : new ListenEvent(obfuscatedMessage, source, language);
+        var ev = new ListenEvent(message, source, language, obfuscatedMessage != null, audioRelays);
+        var obfuscatedEv = obfuscatedMessage == null ? null : new ListenEvent(obfuscatedMessage, source, language, true, audioRelays);
         var query = EntityQueryEnumerator<ActiveListenerComponent, TransformComponent>();
 
         while (query.MoveNext(out var listenerUid, out var listener, out var xform))

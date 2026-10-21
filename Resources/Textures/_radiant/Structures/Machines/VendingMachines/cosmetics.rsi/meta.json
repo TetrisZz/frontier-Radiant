@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original contributors at https://github.com/Skyrat-SS13/Skyrat-tg, modular_skyrat/modules/salon/icons/vendor.dmi, states barbervend, barbervend-deny, barbervend-off, barbervend-broken, barbervend-panel and barbervend-light-mask. Lossless DMI extraction with original 32x32 pixels and animation timing; states renamed for SS14. Screen overlay extracted from normal frames using the main connected region of the source light mask; status LEDs excluded to preserve the denial animation. CC-BY-SA-3.0 per source README.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "normal", "delays": [[1.0, 0.2, 0.2, 0.2, 0.2, 0.2]] },
+    { "name": "deny", "delays": [[0.1, 0.1]] },
+    { "name": "off" },
+    { "name": "broken" },
+    { "name": "panel" },
+    { "name": "screen", "delays": [[1.0, 0.2, 0.2, 0.2, 0.2, 0.2]] }
+  ]
+}

@@ -1,0 +1,34 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHairTie
+  name: hair tie
+  description: Gathers hair into the selected style. Removing it restores the previous hairstyle.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Head/HairAccessories/hair_tie.rsi
+    state: hair_tie
+  - type: Clothing
+    clothingVisuals:
+      head: []
+  - type: HairAccessory
+  - type: UserInterface
+    interfaces:
+      enum.HairAccessoryUiKey.Key:
+        type: HairAccessoryBoundUserInterface
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ClothingHeadHairTie
+  id: ClothingHeadHairClip
+  name: hair clip
+  components:
+  - type: Sprite
+    state: hair_clip
+  - type: Clothing
+    sprite: _radiant/Clothing/Head/HairAccessories/hair_tie.rsi
+    clothingVisuals:
+      head:
+      - state: hair_clip_equipped
+  - type: HairAccessory
+    style: HumanHairBun

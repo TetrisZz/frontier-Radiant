@@ -1,0 +1,23 @@
+- type: construction
+  id: Photocopier
+  graph: Photocopier
+  startNode: start
+  targetNode: finished
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}
+
+- type: construction
+  id: SaunaHeater
+  graph: SaunaHeater
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}

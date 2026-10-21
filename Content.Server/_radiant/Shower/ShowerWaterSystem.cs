@@ -19,7 +19,7 @@ public sealed partial class ShowerWaterSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<ShowerWaterComponent, ItemToggleComponent, TransformComponent>();
-        while (query.MoveNext(out _, out var shower, out var toggle, out var transform))
+        while (query.MoveNext(out var uid, out var shower, out var toggle, out var transform))
         {
             if (!toggle.Activated)
             {
@@ -39,6 +39,9 @@ public sealed partial class ShowerWaterSystem : EntitySystem
                 var coordinates = transform.Coordinates.Offset(direction * distance);
                 var solution = new Solution(shower.Reagent, FixedPoint2.New(shower.WaterPerTile));
                 _puddle.TrySpillAt(coordinates, solution, out _, sound: false);
+                var ev = new ShowerSprayEvent(uid, coordinates, shower.Reagent.Id,
+                    shower.WaterPerTile, shower.SpillTiles + 0.5f);
+                RaiseLocalEvent(ref ev);
             }
         }
     }

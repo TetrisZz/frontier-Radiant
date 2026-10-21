@@ -1,0 +1,10 @@
+bouquet-note-slot = Note or postcard
+bouquet-note-blank = A blank note is attached to the bouquet.
+bouquet-note-text = A note attached to the bouquet reads: "{ $text }".
+ent-ClothingHeadHairTie = hair tie
+    .desc = Gathers hair into the selected style. Removing it restores the previous hairstyle.
+ent-ClothingHeadHairClip = hair clip
+    .desc = Holds the hair in a tidy style. Removing it restores the previous hairstyle.
+hair-accessory-no-hair = There is no hair to tie up.
+hair-accessory-style = Hairstyle: { $style }
+bouquet-note-unreadable = A note is attached to the bouquet, written in a language you cannot read.

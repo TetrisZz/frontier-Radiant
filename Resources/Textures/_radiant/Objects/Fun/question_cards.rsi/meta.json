@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original source contributors. https://github.com/BlueMoon-Labs/BlueMoon-Station, modular_bluemoon/icons/obj/toys/love_cards.dmi, state deck_truth_full -> questions. https://github.com/BlueMoon-Labs/BlueMoon-Station, modular_bluemoon/icons/obj/toys/love_cards.dmi, state deck_actions_full -> dares. https://github.com/BlueMoon-Labs/BlueMoon-Station, modular_bluemoon/icons/obj/toys/love_cards.dmi, state deck_kinks_full -> adult. https://github.com/BlueMoon-Labs/BlueMoon-Station, modular_bluemoon/icons/obj/toys/love_cards.dmi, state deck_blanks_full -> blanks. https://github.com/BlueMoon-Labs/BlueMoon-Station, modular_bluemoon/icons/obj/toys/love_cards.dmi, state sc_blanks_blank -> card. Lossless extraction; original pixels, directions and animation timing preserved. DMI frame-major order repacked into RSI direction-major order. Asset license per source README.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "questions"
+    },
+    {
+      "name": "dares"
+    },
+    {
+      "name": "adult"
+    },
+    {
+      "name": "blanks"
+    },
+    {
+      "name": "card"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+- type: documentForm
+  id: GeneralDocument
+  name: document-form-general
+  category: document-category-frontier
+  letterhead: document-letterhead-frontier
+  content: document-content-general
+
+- type: documentForm
+  id: SalaryRequest
+  name: document-form-salary
+  category: document-category-frontier
+  letterhead: document-letterhead-frontier
+  content: document-content-salary
+
+- type: documentForm
+  id: MercenaryLicense
+  name: document-form-mercenary
+  category: document-category-security
+  letterhead: document-letterhead-security
+  content: document-content-mercenary
+
+- type: documentForm
+  id: ArrestWarrant
+  name: document-form-arrest
+  category: document-category-security
+  letterhead: document-letterhead-security
+  content: document-content-arrest
+
+- type: documentForm
+  id: SearchWarrant
+  name: document-form-search
+  category: document-category-security
+  letterhead: document-letterhead-security
+  content: document-content-search
+
+- type: documentForm
+  id: FineNotice
+  name: document-form-fine
+  category: document-category-security
+  letterhead: document-letterhead-security
+  content: document-content-fine
+
+- type: documentForm
+  id: AcorpDocument
+  name: document-form-acorp-general
+  category: document-category-acorp
+  letterhead: document-letterhead-acorp
+  content: document-content-acorp-general
+
+- type: documentForm
+  id: AcorpWorkReport
+  name: document-form-acorp-work
+  category: document-category-acorp
+  letterhead: document-letterhead-acorp
+  content: document-content-acorp-work
+
+- type: documentForm
+  id: AcorpArtifactReport
+  name: document-form-acorp-artifact
+  category: document-category-acorp
+  letterhead: document-letterhead-acorp
+  content: document-content-acorp-artifact
+
+- type: documentForm
+  id: AcorpAnomalyReport
+  name: document-form-acorp-anomaly
+  category: document-category-acorp
+  letterhead: document-letterhead-acorp
+  content: document-content-acorp-anomaly
+
+- type: documentForm
+  id: SeparatistSaleContract
+  name: document-form-separatist-sale
+  category: document-category-separatists
+  letterhead: document-letterhead-separatists
+  content: document-content-separatist-sale
+
+- type: documentForm
+  id: SeparatistLeaseContract
+  name: document-form-separatist-lease
+  category: document-category-separatists
+  letterhead: document-letterhead-separatists
+  content: document-content-separatist-lease
+
+- type: documentForm
+  id: ShuttleCrewContract
+  name: document-form-crew
+  category: document-category-frontier
+  letterhead: document-letterhead-frontier
+  content: document-content-crew
+
+- type: documentForm
+  id: ExpeditionReport
+  name: document-form-expedition
+  category: document-category-frontier
+  letterhead: document-letterhead-frontier
+  content: document-content-expedition
+
+- type: documentForm
+  id: CargoHandover
+  name: document-form-handover
+  category: document-category-frontier
+  letterhead: document-letterhead-frontier
+  content: document-content-handover
+
+- type: documentForm
+  id: MedicalConsent
+  name: document-form-medical-consent
+  category: document-category-medical
+  letterhead: document-letterhead-medical
+  content: document-content-medical-consent

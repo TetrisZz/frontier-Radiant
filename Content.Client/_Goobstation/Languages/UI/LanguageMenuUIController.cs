@@ -76,19 +76,19 @@ public sealed partial class LanguageMenuUIController : UIController, IOnStateCha
         if (TryGetLocalNativeLanguage(out var nativeLanguage))
         {
             if (_languageMenu?.CachedState is { } cached && cached.NativeLanguage == nativeLanguage)
-                OpenOrUpdate(cached.NativeLanguage, cached.NativeSelected, cached.CanUseNative, cached.CanUseGalactic);
+                OpenOrUpdate(cached);
             else
-                OpenOrUpdate(nativeLanguage, false, true, true);
+                OpenOrUpdate(new LanguageMenuStateEvent(nativeLanguage, false, true, true));
         }
         else if (_languageMenu?.CachedState is { } cached)
         {
-            OpenOrUpdate(cached.NativeLanguage, cached.NativeSelected, cached.CanUseNative, cached.CanUseGalactic);
+            OpenOrUpdate(cached);
         }
 
         _languageMenu?.RequestMenu();
     }
 
-    private void OpenOrUpdate(string nativeLanguage, bool nativeSelected, bool canUseNative, bool canUseGalactic)
+    private void OpenOrUpdate(LanguageMenuStateEvent state)
     {
         if (_window == null)
         {
@@ -97,7 +97,7 @@ public sealed partial class LanguageMenuUIController : UIController, IOnStateCha
             _window.OpenCentered();
         }
 
-        _window.UpdateState(nativeLanguage, nativeSelected, canUseNative, canUseGalactic);
+        _window.UpdateState(state);
         if (LanguageButton != null)
             LanguageButton.Pressed = true;
     }

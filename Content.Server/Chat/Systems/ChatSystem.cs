@@ -12,6 +12,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Corvax.TTS;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -89,6 +91,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
         SubscribeNetworkEvent<LanguageMenuRequestEvent>(OnLanguageMenuRequest); // Radiant Sector
         SubscribeNetworkEvent<LanguageMenuSelectEvent>(OnLanguageMenuSelect); // Radiant Sector
+        SubscribeNetworkEvent<LanguageMenuVoiceSelectEvent>(OnLanguageMenuVoiceSelect);
     }
 
     private void OnLoocEnabledChanged(bool val)
@@ -388,16 +391,23 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
+        Color? colorOverride = null,
+        bool playTts = true
         )
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
-        if (playSound)
+        var sound = AnnouncementAudio.WithoutRecordedSpeech(announcementSound ?? DefaultAnnouncementSound);
+        if (playSound && sound != null)
         {
-            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayGlobal(sound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+        }
+        if (playTts)
+        {
+            var ev = new AutomaticAnnouncementEvent(message, Filter.Broadcast(), playSound ? sound : null);
+            RaiseLocalEvent(ref ev);
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
@@ -419,15 +429,23 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool playTts = true)
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
-        if (playSound)
+        var sound = AnnouncementAudio.WithoutRecordedSpeech(announcementSound ?? DefaultAnnouncementSound);
+        if (playSound && sound != null)
         {
-            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayGlobal(sound, filter, true, AudioParams.Default.WithVolume(-2f));
+        }
+        if (playTts)
+        {
+            var ev = new AutomaticAnnouncementEvent(message, filter,
+                playSound ? sound : AnnouncementAudio.WithoutRecordedSpeech(announcementSound));
+            RaiseLocalEvent(ref ev);
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
     }
@@ -446,7 +464,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playDefaultSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool playTts = true)
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
@@ -465,9 +484,15 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source, false, true, colorOverride);
 
-        if (playDefaultSound)
+        var sound = AnnouncementAudio.WithoutRecordedSpeech(announcementSound ?? DefaultAnnouncementSound);
+        if (playDefaultSound && sound != null)
         {
-            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayGlobal(sound, filter, true, AudioParams.Default.WithVolume(-2f));
+        }
+        if (playTts)
+        {
+            var ev = new AutomaticAnnouncementEvent(message, filter, playDefaultSound ? sound : null);
+            RaiseLocalEvent(ref ev);
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
@@ -1005,7 +1030,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     /// Radiant Sector: checks whether a listener understands a spoken language. Borgs understand every language.
     /// </summary>
-    private bool UnderstandsLanguage(EntityUid listener, string? language)
+    internal bool UnderstandsLanguage(EntityUid listener, string? language)
     {
         if (TryGetNativeLanguage(listener) == "Двоичный")
             return true;
@@ -1089,7 +1114,23 @@ public sealed partial class ChatSystem : SharedChatSystem
         var canUseNative = !HasComp<NativeLanguageUnfamiliarComponent>(speaker);
         var canUseGalactic = !HasComp<NativeLanguageOnlyComponent>(speaker);
         var nativeSelected = canUseNative && (!canUseGalactic || _nativeLanguageSelected.Contains(speaker));
-        RaiseNetworkEvent(new LanguageMenuStateEvent(nativeLanguage, nativeSelected, canUseNative, canUseGalactic), recipient);
+        var canSelectVoice = HasComp<BorgChassisComponent>(speaker);
+        var voice = TryComp<TTSComponent>(speaker, out var tts) ? tts.VoicePrototypeId : null;
+        RaiseNetworkEvent(new LanguageMenuStateEvent(nativeLanguage, nativeSelected, canUseNative, canUseGalactic,
+            canSelectVoice, voice), recipient);
+    }
+
+    private void OnLanguageMenuVoiceSelect(LanguageMenuVoiceSelectEvent ev, EntitySessionEventArgs args)
+    {
+        // The client supplies only a voice, never the entity whose voice should be changed.
+        if (args.SenderSession.AttachedEntity is not { Valid: true } speaker ||
+            !HasComp<BorgChassisComponent>(speaker) || HasComp<GhostComponent>(speaker) ||
+            string.IsNullOrWhiteSpace(ev.VoiceId) ||
+            !_prototypeManager.TryIndex<TTSVoicePrototype>(ev.VoiceId, out var voice) || !voice.RoundStart)
+            return;
+
+        EnsureComp<TTSComponent>(speaker).VoicePrototypeId = voice.ID;
+        SendLanguageMenuState(speaker, args.SenderSession);
     }
 
     /// <summary>
@@ -1465,9 +1506,17 @@ public sealed class CheckIgnoreSpeechBlockerEvent : EntityEventArgs
 /// </summary>
 public sealed class EntitySpokeEvent : EntityEventArgs
 {
+    // Filled by validated telephone relays before speech audio is generated.
+    public readonly HashSet<EntityUid> AudioRelays = new();
     public readonly EntityUid Source;
     public readonly string Message;
     public readonly string? ObfuscatedMessage; // not null if this was a whisper
+
+    /// <summary>
+    /// An actual whisper, not the quiet local copy of a message sent with a radio prefix.
+    /// Capture this before radio handlers clear Channel to prevent duplicate transmissions.
+    /// </summary>
+    public readonly bool IsWhisper;
 
     /// <summary>
     ///     Radiant Sector: native language selected by the speaker, if any.
@@ -1486,6 +1535,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         Message = message;
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
+        IsWhisper = obfuscatedMessage != null && channel == null;
         Language = language;
     }
 }

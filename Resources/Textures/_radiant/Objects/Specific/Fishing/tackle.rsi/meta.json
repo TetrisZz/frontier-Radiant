@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Adapted from https://github.com/Skyrat-SS13/Skyrat-tg; assets CC-BY-SA-3.0 per source README. icons/obj/fishing.dmi, states bait_can_open, lure_light, hook, weighted, reel_white, reel_green. Pixels unchanged.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bait-natural"
+    },
+    {
+      "name": "bait-luminous"
+    },
+    {
+      "name": "hook"
+    },
+    {
+      "name": "hook-reinforced"
+    },
+    {
+      "name": "line"
+    },
+    {
+      "name": "line-reinforced"
+    }
+  ]
+}
