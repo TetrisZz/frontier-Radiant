@@ -36,8 +36,11 @@ public sealed class TowelDispenserTest
         var whitelist = (YamlMappingNode) bin.Children[new YamlScalarNode("whitelist")];
         Assert.That(((YamlSequenceNode) whitelist.Children[new YamlScalarNode("tags")]).Children.Select(n => n.ToString()),
             Is.EqualTo(new[] { "Towel" }));
-        var filled = Component(Find(path, "TowelDispenserFilled"), "Bin");
-        var contents = ((YamlSequenceNode) filled.Children[new YamlScalarNode("initialContents")]).Children;
+        var persist = Component(Find(path, "TowelDispenser"), "HLPersistOnShipSave");
+        Assert.That(persist.Children[new YamlScalarNode("saveContents")].ToString(), Is.EqualTo("true"));
+        var filled = Component(Find(path, "TowelDispenserFilled"), "ContainerFill");
+        var containers = (YamlMappingNode) filled.Children[new YamlScalarNode("containers")];
+        var contents = ((YamlSequenceNode) containers.Children[new YamlScalarNode("bin-container")]).Children;
         Assert.That(contents, Has.Count.EqualTo(10));
         Assert.That(contents.Select(n => n.ToString()), Is.All.EqualTo("TowelColorWhite"));
         var graph = Find("_radiant/Recipes/Construction/Graphs/towel_dispenser.yml", "TowelDispenser");

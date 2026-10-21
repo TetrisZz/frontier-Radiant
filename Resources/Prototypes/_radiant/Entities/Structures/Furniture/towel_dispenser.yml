@@ -5,6 +5,8 @@
   description: A basket for storing folded towels.
   suffix: Empty
   components:
+  - type: HLPersistOnShipSave
+    saveContents: true
   - type: InteractionOutline
   - type: Anchorable
   - type: Sprite
@@ -50,15 +52,16 @@
   id: TowelDispenserFilled
   suffix: Filled
   components:
-  - type: Bin
-    initialContents:
-    - TowelColorWhite
-    - TowelColorWhite
-    - TowelColorWhite
-    - TowelColorWhite
-    - TowelColorWhite
-    - TowelColorWhite
-    - TowelColorWhite
-    - TowelColorWhite
-    - TowelColorWhite
-    - TowelColorWhite
+  - type: ContainerFill
+    containers:
+      bin-container:
+      - TowelColorWhite
+      - TowelColorWhite
+      - TowelColorWhite
+      - TowelColorWhite
+      - TowelColorWhite
+      - TowelColorWhite
+      - TowelColorWhite
+      - TowelColorWhite
+      - TowelColorWhite
+      - TowelColorWhite
