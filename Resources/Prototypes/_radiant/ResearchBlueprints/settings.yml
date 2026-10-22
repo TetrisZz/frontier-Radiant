@@ -1,6 +1,6 @@
 - type: blueprintResearch
   id: Default
-  cost: 30000
+  cost: 20000
   tier: 1
   blueprint: ResearchRandomBlueprint
   timeChance: 0.25
@@ -19,7 +19,7 @@
 
 - type: blueprintMaterialTier
   id: Uncommon
-  materials: [Gold, Silver, Uranium, Plasma]
+  materials: [Gold, Silver, Uranium, Plasma, Brass, Plasteel, Bananium, Durathread]
   minimum: 67
   maximum: 3334
   weight: 30

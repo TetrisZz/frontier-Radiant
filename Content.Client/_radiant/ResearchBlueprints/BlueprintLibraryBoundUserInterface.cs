@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Numerics;
 using Content.Shared._radiant.ResearchBlueprints;
@@ -21,8 +22,10 @@ public sealed class BlueprintLibraryBoundUserInterface(EntityUid owner, Enum uiK
     protected override void Open()
     {
         base.Open();
-        _window = this.CreateWindowCenteredRight<BlueprintLibraryWindow>();
+        _window = this.CreateWindow<BlueprintLibraryWindow>();
         _window.OnSelect += (recipe, blueprint) => SendMessage(new BlueprintLibrarySelectMessage(recipe, blueprint));
+        _window.OnUnselect += (recipe, blueprint) =>
+            SendMessage(new BlueprintLibraryUnselectMessage(recipe, blueprint));
         _window.OnEject += blueprint => SendMessage(new BlueprintLibraryEjectMessage(blueprint));
         _window.Servers.OnPressed += _ => SendMessage(new ConsoleServerSelectionMessage());
     }
@@ -36,6 +39,7 @@ public sealed class BlueprintLibraryBoundUserInterface(EntityUid owner, Enum uiK
 public sealed partial class BlueprintLibraryWindow : DefaultWindow
 {
     public Action<string, NetEntity>? OnSelect;
+    public Action<string, NetEntity>? OnUnselect;
     public Action<NetEntity>? OnEject;
     public readonly Button Servers = new() { Text = Loc.GetString("research-console-menu-server-selection-button") };
     private readonly IPrototypeManager _prototypes;
@@ -180,9 +184,23 @@ public sealed partial class BlueprintLibraryWindow : DefaultWindow
         _variants.RemoveAllChildren();
         _details.RemoveAllChildren();
         _actions.RemoveAllChildren();
-        var recipes = _state.Blueprints.SelectMany(b => b.Recipes).Distinct().Where(r => _prototypes.HasIndex(r))
-            .GroupBy(Key).Where(g => _lathe.GetRecipeName(g.First()).Contains(_search.Text, StringComparison.OrdinalIgnoreCase))
-            .OrderBy(g => _lathe.GetRecipeName(g.First())).ToArray();
+        var latestBlueprintOrder = _state.Blueprints
+            .SelectMany((blueprint, index) => blueprint.Recipes
+                .Where(r => _prototypes.HasIndex(r))
+                .Select(r => new { ItemKey = Key(r), Index = index }))
+            .GroupBy(x => x.ItemKey)
+            .ToDictionary(g => g.Key, g => g.Max(x => x.Index));
+
+        var recipes = _state.Blueprints
+            .SelectMany(b => b.Recipes)
+            .Distinct()
+            .Where(r => _prototypes.HasIndex(r))
+            .GroupBy(Key)
+            .Where(g => _lathe.GetRecipeName(g.First())
+                .Contains(_search.Text, StringComparison.OrdinalIgnoreCase))
+            .OrderByDescending(g => latestBlueprintOrder.GetValueOrDefault(g.Key, -1))
+            .ThenBy(g => _lathe.GetRecipeName(g.First()))
+            .ToArray();
         if (recipes.All(g => g.Key != _item)) _item = recipes.FirstOrDefault()?.Key;
         var visibleCount = 0;
         foreach (var group in recipes)
@@ -268,6 +286,20 @@ public sealed partial class BlueprintLibraryWindow : DefaultWindow
         select.AddStyleClass("ButtonColorGreen");
         select.OnPressed += _ => OnSelect?.Invoke(selectedRecipe.Id, chosen.Entity);
         _actions.AddChild(select);
+        var unselect = new Button
+        {
+            Name = "BlueprintUnassign",
+            Text = Loc.GetString("research-blueprint-unassign"),
+            Disabled = !_state.Connected || !active,
+            MinHeight = 36,
+            HorizontalExpand = true,
+        };
+
+        unselect.AddStyleClass("ButtonColorRed");
+        unselect.OnPressed += _ =>
+            OnUnselect?.Invoke(selectedRecipe.Id, chosen.Entity);
+
+        _actions.AddChild(unselect);
         var eject = new Button { Text = Loc.GetString("research-blueprint-eject"), MinHeight = 36, HorizontalExpand = true };
         eject.OnPressed += _ => OnEject?.Invoke(chosen.Entity);
         _actions.AddChild(eject);
@@ -282,11 +314,13 @@ internal sealed class BlueprintLibraryColumns(bool vertical = false, Control? fi
 
     private float FirstHeight(float height)
     {
-        var frame = GetChild(0).GetChild(0).DesiredSize.Y + 12;
-        var firstRow = firstContent is { ChildCount: > 0 } ? firstContent.GetChild(0).DesiredSize.Y : 0;
-        var desired = Math.Max(160, frame + (firstContent?.DesiredSize.Y ?? 0));
-        var limit = Math.Max(height * 0.45f, frame + firstRow);
-        return Math.Min(Math.Max(0, height - 120), Math.Min(desired, limit));
+        const float CellHeight = 112f;
+        const float Gap = 6f;
+        const float Padding = 12f;
+
+        var heading = GetChild(0).GetChild(0).DesiredSize.Y;
+
+        return heading + Padding + CellHeight * 2 + Gap;
     }
 
     protected override Vector2 MeasureOverride(Vector2 availableSize)

@@ -16,33 +16,47 @@
   table: !type:GroupSelector
     children:
     # Mats
-    - id: SheetSteelRandomReduced
+#    - id: SheetSteelRandomReduced
+    - id: SheetSteelRandomVeryReducedRS # Radiant Sector
       weight: 0.15
-    - id: SheetGlassRandomReduced
+#    - id: SheetGlassRandomReduced
+    - id: SheetGlassRandomVeryReducedRS # Radiant Sector
       weight: 0.15
-    - id: SheetPlasmaRandomLow
+#    - id: SheetPlasmaRandomLow
+    - id: SheetPlasmaRandomVeryLowRS # Radiant Sector
       weight: 0.1
-    - id: IngotGoldRandomLow
+#    - id: IngotGoldRandomLow
+    - id: IngotGoldRandomVeryLowRS # Radiant Sector
       weight: 0.1
-    - id: IngotSilverRandomLow
+#    - id: IngotSilverRandomLow
+    - id: IngotSilverRandomVeryReducedRS # Radiant Sector
       weight: 0.1
-    - id: SheetPlasticRandomLow
+#    - id: SheetPlasticRandomLow
+    - id: SheetPlasticRandomVeryReducedRS # Radiant Sector
       weight: 0.1
-    - id: SheetUraniumRandomLow
+#    - id: SheetUraniumRandomLow
+    - id: SheetUraniumRandomVeryReducedRS # Radiant Sector
       weight: 0.1
-    - id: SheetPlasteelRandomLow
+#    - id: SheetPlasteelRandomLow
+    - id: SheetPlasteelRandomVeryReducedRS # Radiant Sector
       weight: 0.1
-    - id: MaterialWoodPlankRandomLow
+#    - id: MaterialWoodPlankRandomLow
+    - id: MaterialWoodPlankRandomVeryReducedRS # Radiant Sector
       weight: 0.1
-    - id: MaterialClothRandomLow
+#    - id: MaterialClothRandomLow
+    - id: MaterialClothRandomVeryReducedRS # Radiant Sector
       weight: 0.1
-    - id: MaterialDurathreadRandomLow
+#    - id: MaterialDurathreadRandomLow
+    - id: MaterialDurathreadRandomVeryReducedRS # Radiant Sector
       weight: 0.01
-    - id: MaterialCardboardRandomLow
+#    - id: MaterialCardboardRandomLow
+    - id: MaterialCardboardRandomVeryReducedRS # Radiant Sector
       weight: 0.01
-    - id: SheetPaperRandomLow
+#    - id: SheetPaperRandomLow
+    - id: SheetPaperRandomVeryReducedRS # Radiant Sector
       weight: 0.01
-    - id: SheetBrassRandomLow
+#    - id: SheetBrassRandomLow
+    - id: SheetBrassRandomVeryReducedRS # Radiant Sector
       weight: 0.01
     - id: MaterialBananiumRandomVeryLow
       weight: 0.002

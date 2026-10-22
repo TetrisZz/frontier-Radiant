@@ -156,7 +156,8 @@
   components:
   - type: RandomSpawner
     prototypes:
-    - ScrapOre3
+#    - ScrapOre3 # Radiant Sector
+    - ScrapOre1 # Radiant Sector
     rarePrototypes:
     - ScrapOreTech3
     rareChance: 0.1
@@ -313,7 +314,7 @@
       - id: AdvancedCapacitorStockPart
       - id: NanoManipulatorStockPart
       - id: AdvancedMatterBinStockPart
-      - id: PowerCellHighPrinted
+#      - id: PowerCellHighPrinted # Radiant Sector
     - !type:GroupSelector
       # T2: more advanced tools and parts
       weight: 18
@@ -325,7 +326,8 @@
       - id: SuperCapacitorStockPart
       - id: PicoManipulatorStockPart
       - id: SuperMatterBinStockPart
-      - id: PowerCellHyperPrinted
+#      - id: PowerCellHyperPrinted # Radiant Sector
+      - id: PowerCellHighPrinted # Radiant Sector
     - !type:GroupSelector
       # T3: cool tools and parts
       weight: 2
@@ -333,6 +335,7 @@
       - id: WelderExperimental
       - id: MiningDrillDiamond
       - id: HoloprojectorFieldEmpty
+      - id: PowerCellHyperPrinted # Radiant Sector
 
 - type: entity
   name: reprocessed scrap materials

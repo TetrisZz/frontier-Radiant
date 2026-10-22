@@ -193,7 +193,8 @@
   result: MaterialDiamond1
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)
   materials:
-    RawDiamond: 100
+#    RawDiamond: 100 # Radiant Sector
+    RawDiamond: 150 # Radiant Sector
 
 - type: latheRecipe
   id: SheetUranium1

@@ -458,14 +458,14 @@ public sealed class PassportWindow : BaseWindow
     {
         var country = passport.IsTemporary ? "TMP" : passport.Citizenship switch
         {
-            RadiantCitizenship.Asgard => "ASG",
+            RadiantCitizenship.Asgard => "CYT",
             RadiantCitizenship.Hesperia => "HES",
-            RadiantCitizenship.Aurum => "AUR",
-            RadiantCitizenship.Zon => "ZON",
-            RadiantCitizenship.Midgard => "MID",
+            RadiantCitizenship.Aurum => "AVL",
+            RadiantCitizenship.Zon => "ENO",
+            RadiantCitizenship.Midgard => "LIT",
             RadiantCitizenship.Avrelia => "AVR",
             RadiantCitizenship.NT => "NANOTRASEN",
-            _ => "ASG",
+            _ => "ENO",
         };
         var name = passport.OwnerName.ToUpperInvariant().Replace(' ', '<');
         var serial = passport.Number.Replace("-", "");
@@ -479,27 +479,27 @@ public sealed class PassportWindow : BaseWindow
     }
 
     private static string PortraitUniform(PassportUiState passport) => passport.IsTemporary
-        ? "ClothingUniformJumpsuitCentcomAgent"
+        ? "ClothingUniformJumpsuitMilitaryColorDarkBlue"
         : passport.Citizenship switch
         {
-            RadiantCitizenship.Asgard => "ClothingUniformJumpsuitSuitRed",
-            RadiantCitizenship.Hesperia => "ClothingUniformJumpsuitQMFormal",
+            RadiantCitizenship.Asgard => "ClothingUniformJumpsuitHoSAlt",
+            RadiantCitizenship.Hesperia => "ClothingUniformJumpsuitSuitRed",
             RadiantCitizenship.Aurum => "ClothingUniformJumpsuitCapFormal",
-            RadiantCitizenship.Zon => "ClothingUniformJumpsuitCentcomFormal",
-            RadiantCitizenship.Midgard => "ClothingUniformJumpsuitCentcomOfficer",
-            RadiantCitizenship.Avrelia => "ClothingUniformJumpsuitScientistFormal",
+            RadiantCitizenship.Zon => "ClothingUniformJumpsuitMilitaryColorGrey",
+            RadiantCitizenship.Midgard => "ClothingUniformJumpsuitScientistFormal",
+            RadiantCitizenship.Avrelia => "ClothingUniformJumpsuitQMFormal",
             RadiantCitizenship.NT => "ClothingUniformJumpsuitNanotrasen",
             _ => "ClothingUniformJumpsuitCapFormal",
         };
 
     private static Color PassportColor(RadiantCitizenship citizenship) => citizenship switch
     {
-        RadiantCitizenship.Asgard => Color.FromHex("#A9414A"),
-        RadiantCitizenship.Hesperia => Color.FromHex("#A66418"),
-        RadiantCitizenship.Aurum => Color.FromHex("#A47418"),
-        RadiantCitizenship.Zon => Color.FromHex("#1A7558"),
-        RadiantCitizenship.Midgard => Color.FromHex("#2C67AD"),
-        RadiantCitizenship.Avrelia => Color.FromHex("#167F85"),
+        RadiantCitizenship.Asgard => Color.FromHex("#A47418"),
+        RadiantCitizenship.Hesperia => Color.FromHex("#A9414A"),
+        RadiantCitizenship.Aurum => Color.FromHex("#29941E"),
+        RadiantCitizenship.Zon => Color.FromHex("#167F85"),
+        RadiantCitizenship.Midgard => Color.FromHex("#23AD4A"),
+        RadiantCitizenship.Avrelia => Color.FromHex("#A66418"),
         RadiantCitizenship.NT => Color.FromHex("#257C9A"),
         _ => Color.FromHex("#2C67AD"),
     };
@@ -643,10 +643,12 @@ public sealed class PassportSeal(Color ink, RadiantCitizenship citizenship, bool
                 Quad(-4, -4, 0, -10, 4, -4, 0, 3);
                 break;
             case RadiantCitizenship.Hesperia:
-                screen.DrawCircle(center, 16 * scale, ink, false);
-                screen.DrawCircle(center, 5 * scale, ink, true);
-                screen.DrawCircle(Point(-16, 0), 3 * scale, ink, true);
-                screen.DrawCircle(Point(16, 0), 3 * scale, ink, true);
+                Line(0, 18, 0, -15);
+                Line(0, 7, -13, -7);
+                Line(0, 1, 13, -13);
+                Line(-13, -7, -16, -16);
+                Line(13, -13, 16, -20);
+                screen.DrawCircle(Point(0, -17), 4 * scale, ink, true);
                 break;
             case RadiantCitizenship.Aurum:
                 Line(-17, 11, 17, 11);
@@ -659,12 +661,10 @@ public sealed class PassportSeal(Color ink, RadiantCitizenship citizenship, bool
                 Line(16, -8, 17, 11);
                 break;
             case RadiantCitizenship.Zon:
-                Line(0, 18, 0, -15);
-                Line(0, 7, -13, -7);
-                Line(0, 1, 13, -13);
-                Line(-13, -7, -16, -16);
-                Line(13, -13, 16, -20);
-                screen.DrawCircle(Point(0, -17), 4 * scale, ink, true);
+                screen.DrawCircle(center, 16 * scale, ink, false);
+                screen.DrawCircle(center, 5 * scale, ink, true);
+                screen.DrawCircle(Point(-16, 0), 3 * scale, ink, true);
+                screen.DrawCircle(Point(16, 0), 3 * scale, ink, true);
                 break;
             case RadiantCitizenship.Midgard:
                 screen.DrawCircle(center, 17 * scale, ink, false);

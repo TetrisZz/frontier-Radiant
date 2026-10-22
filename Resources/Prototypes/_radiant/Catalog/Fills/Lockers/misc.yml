@@ -1,0 +1,187 @@
+#EMERGENCY
+- type: entity
+  abstract: true
+  id: StorageFillO2N2RandomRS
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterSuitEmergency
+        prob: 0.2
+      - id: ClothingMaskBreath
+        prob: 0.5
+      - id: EmergencyOxygenTank
+        prob: 0.25
+        orGroup: EmergencyO2TankOrRegularTank
+      - id: EmergencyOxygenTankFilled
+        prob: 0.25
+        orGroup: EmergencyO2TankOrRegularTank
+      - id: OxygenTank
+        prob: 0.25
+        orGroup: EmergencyO2TankOrRegularTank
+      - id: OxygenTankFilled
+        prob: 0.25
+        orGroup: EmergencyO2TankOrRegularTank
+      - id: EmergencyNitrogenTank
+        prob: 0.25
+        orGroup: EmergencyN2TankOrRegularTank
+      - id: EmergencyNitrogenTankFilled
+        prob: 0.25
+        orGroup: EmergencyN2TankOrRegularTank
+      - id: NitrogenTank
+        prob: 0.25
+        orGroup: EmergencyN2TankOrRegularTank
+      - id: NitrogenTankFilled
+        prob: 0.25
+        orGroup: EmergencyN2TankOrRegularTank
+      - id: ToolboxEmergencyFilled
+        prob: 0.4
+      - id: MedkitOxygenFilled
+        prob: 0.1
+      - id: WeaponFlareGun
+        prob: 0.05
+
+- type: entityTable
+  id: FillLockerEmergencyStandardRS
+  table: !type:AllSelector
+    children:
+    - id: ClothingMaskBreath
+      prob: 0.5
+    - id: ClothingOuterSuitEmergency
+      prob: 0.2
+    - !type:GroupSelector
+      children:
+      - id: EmergencyOxygenTank
+      - id: EmergencyOxygenTankFilled
+      - id: ExtendedEmergencyOxygenTank
+      - id: ExtendedEmergencyOxygenTankFilled
+      - id: OxygenTank
+      - id: OxygenTankFilled
+      - id: OxygenTank
+      - id: OxygenTank
+    - id: ToolboxEmergencyFilled
+      prob: 0.4
+    - id: WeaponFlareGun
+      prob: 0.1
+
+- type: entityTable
+  id: FillLockerEmergencyN2StandardRS
+  table: !type:AllSelector
+    children:
+    - id: ClothingMaskBreath
+      prob: 0.5
+    - id: ClothingOuterSuitEmergency
+      prob: 0.2
+    - id: ToolboxEmergencyFilled
+      prob: 0.05
+    - id: Flare
+      prob: 0.2
+    - !type:GroupSelector
+      children:
+      - id: EmergencyNitrogenTank
+      - id: EmergencyNitrogenTankFilled
+      - id: ExtendedEmergencyNitrogenTank
+      - id: ExtendedEmergencyNitrogenTankFilled
+      - id: NitrogenTank
+      - id: NitrogenTankFilled
+      - id: NitrogenTank
+      - id: NitrogenTank
+
+- type: entity
+  parent: [ClosetO2N2, StorageFillO2N2Random]
+  id: ClosetO2N2FilledRandomRS
+  suffix: Filled, Random
+
+- type: entity
+  id: ClosetEmergencyFilledRandomRS
+  parent: ClosetEmergency
+  suffix: Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEmergencyStandardRS
+
+- type: entity
+  id: ClosetEmergencyN2FilledRandomRS
+  parent: ClosetEmergencyN2
+  suffix: Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEmergencyN2StandardRS
+
+- type: entity
+  name: salvage Emergency locker spawner
+  id: NFSalvageEmergencyLockerSpawnerRS
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Storage/closet.rsi
+      state: alien
+  - type: RandomSpawner
+    prototypes:
+    - ClosetEmergencyN2FilledRandomRS
+    - ClosetEmergencyFilledRandomRS
+    - ClosetO2N2FilledRandomRS
+
+- type: entity
+  id: ClosetToolFilledRS
+  parent: ClosetTool
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillClosetTool
+
+- type: entityTable
+  id: FillClosetToolRS
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterVestHazard
+      prob: 0.2
+    - id: FlashlightLantern
+      prob: 0.3
+    - id: Screwdriver
+      prob: 0.3
+    - id: Wrench
+      prob: 0.3
+    - id: Welder
+      prob: 0.3
+    - id: Crowbar
+      prob: 0.3
+    - id: Wirecutter
+      prob: 0.3
+    - id: Multitool
+      prob: 0.1
+    - id: trayScanner
+      prob: 0.3
+    - id: GasAnalyzer
+      prob: 0.3
+    - id: ClothingBeltUtility
+      prob: 0.1
+    - !type:GroupSelector
+      prob: 0.05
+      children:
+      - id: ClothingHandsGlovesColorYellow
+      - id: ClothingHandsGlovesColorYellowBudget
+    - !type:GroupSelector
+      prob: 0.2
+      children:
+      - id: ClothingHeadHatHardhatRed
+      - id: ClothingHeadHatHardhatBlue
+      - id: ClothingHeadHatHardhatOrange
+      - id: ClothingHeadHatHardhatWhite
+      - id: ClothingHeadHatHardhatYellow
+      - id: ClothingHeadHatHardhatYellowDark
+    - id: CableApcStack
+      prob: 0.1
+      rolls: !type:ConstantNumberSelector
+        value: 3
+    - id: SprayPainter
+      prob: 0.3
+    - id: MaintenanceJack # Frontier
+      prob: 0.1 # Frontier

@@ -633,17 +633,21 @@
       state: alien
   - type: RandomSpawner
     prototypes:
-    - ClosetToolFilled
+#    - ClosetToolFilled
+    - ClosetToolFilledRS # Radiant Sector
     - LockerElectricalSuppliesFilled
     - LockerWeldingSuppliesFilled
 #    - ClosetEmergencyFilledRandom # Medical gameplay anyone?
     - ClosetMaintenanceFilledRandom
+    - NFSalvageEmergencyLockerSpawnerRS # Radiant Sector
     chance: 0.95
     rarePrototypes:
 #    - LockerMedicineFilled # Medical gameplay anyone?
 #    - LockerMedicalFilled # Medical gameplay anyone?
 #    - LockerChemistryFilled # Medical gameplay anyone?
 #    - LockerParamedicFilled # Medical gameplay anyone?
+    - LockerChemistry # Radiant Sector
+    - LockerMedical # Radiant Sector
     - LockerAtmosphericsFilledHardsuit
     - LockerAtmosphericsFilled
     - LockerSalvageSpecialistFilledHardsuit
@@ -658,7 +662,8 @@
     - ClosetRadiationSuitFilled
     - LockerSalvageSpecialistFilled
     - ClosetL3Filled
-    rareChance: 0.25
+#    rareChance: 0.25 # Radiant Sector
+    rareChance: 0.1 # Radiant Sector
     offset: 0.0
 
 - type: entity

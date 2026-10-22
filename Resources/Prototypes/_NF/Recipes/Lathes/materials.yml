@@ -49,4 +49,5 @@
   result: MaterialBluespace1
   completetime: 0.06
   materials:
-    RawBluespace: 100
+#    RawBluespace: 100 # Radiant Sector
+    RawBluespace: 150 # Radiant Sector

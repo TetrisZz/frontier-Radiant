@@ -250,6 +250,7 @@
     - id: OreBag
 #    - id: HandheldGPSBasic # Frontier - Useless
     - id: PowerCellHighPrinted
+      weight: 0.3 # Radiant Sector
     - id: RadioHandheldNF # Frontier RadioHandheld<RadioHandheldNF
     - id: ClothingBeltUtility
     - id: Floodlight
@@ -306,7 +307,9 @@
 #    - id: BlueprintSeismicCharge # Frontier
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
+      weight: 0.4 # Radiant Sector
     - id: ChemistryBottleOmnizine
+      weight: 0.5 # Radiant Sector
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled
@@ -317,6 +320,7 @@
     #   - id: PKAUpgradeRange # Frontier
     #   - id: PKAUpgradeFireRate # Frontier
     - id: PowerCellAntiqueProto # Frontier
+      weight: 0.2 # Radiant Sector
     - id: NFShovel # Frontier
 
 - type: entityTable

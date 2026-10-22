@@ -14,30 +14,37 @@ using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
+using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using System;
+using System.Collections.Generic;
 
 namespace Content.Server._radiant.ResearchBlueprints;
 
-public sealed class BlueprintResearchSystem : SharedBlueprintResearchSystem
+public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ResearchSystem _research = default!;
-    [Dependency] private readonly LatheSystem _lathes = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly MaterialStorageSystem _materials = default!;
-    [Dependency] private readonly IAdminLogManager _logs = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ResearchSystem _research = default!;
+    [Dependency] private LatheSystem _lathes = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private MaterialStorageSystem _materials = default!;
+    [Dependency] private IAdminLogManager _logs = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<ResearchConsoleComponent, ResearchBlueprintRollMessage>(OnRoll);
         SubscribeLocalEvent<LatheComponent, ComponentInit>(OnLatheInit);
         SubscribeLocalEvent<BlueprintLibraryComponent, BlueprintLibrarySelectMessage>(OnSelect);
+        SubscribeLocalEvent<BlueprintLibraryComponent, BlueprintLibraryUnselectMessage>(OnUnselect);
         SubscribeLocalEvent<BlueprintLibraryComponent, BlueprintLibraryEjectMessage>(OnEject);
         SubscribeLocalEvent<BlueprintLibraryComponent, BeforeActivatableUIOpenEvent>((uid, _, _) => UpdateLibrary(uid));
         SubscribeLocalEvent<BlueprintLibraryComponent, EntInsertedIntoContainerMessage>((uid, _, _) => UpdateLibrary(uid));
@@ -55,19 +62,105 @@ public sealed class BlueprintResearchSystem : SharedBlueprintResearchSystem
         => this.IsPowered(machine, EntityManager) &&
            (!TryComp<AccessReaderComponent>(machine, out var access) || _access.IsAllowed(actor, machine, access));
 
-    private void OnRoll(EntityUid uid, ResearchConsoleComponent comp, ResearchBlueprintRollMessage args)
+    private void OnRoll(
+        EntityUid uid,
+        ResearchConsoleComponent comp,
+        ResearchBlueprintRollMessage args)
     {
-        if (Allowed(uid, args.Actor) && comp.BlueprintResearch)
-            TryRoll(uid, comp);
+        if (HasComp<BlueprintResearchPrintingComponent>(uid))
+            return;
+
+        if (!Allowed(uid, args.Actor) ||
+            !comp.BlueprintResearch ||
+            !TryGetRollInfo(uid, comp, out var serverUid, out var server, out var settings) ||
+            !TryComp<BlueprintResearchPrinterComponent>(uid, out var printer) ||
+            printer.Duration <= TimeSpan.Zero)
+        {
+            UpdateConsole(uid, comp);
+            return;
+        }
+
+        var now = _timing.CurTime;
+
+        var printing = EnsureComp<BlueprintResearchPrintingComponent>(uid);
+        printing.ServerUid = serverUid;
+        printing.StartTime = now;
+        printing.Duration = printer.Duration;
+        printing.FinishTime = now + printer.Duration;
+
+        printing.PrintSoundTime = now +
+            TimeSpan.FromSeconds(Math.Max(0, printer.Duration.TotalSeconds - 2));
+
+        printing.NextUiUpdate = now;
+        printing.PrintSoundPlayed = false;
+
+        _research.ModifyServerPoints(serverUid, -settings.Cost, server);
+
+        _audio.PlayPvs(printer.ScanFinishSound, uid);
+
         UpdateConsole(uid, comp);
+    }
+
+    private bool TryGetRollInfo(
+    EntityUid uid,
+    ResearchConsoleComponent comp,
+    out EntityUid serverUid,
+    out ResearchServerComponent server,
+    out BlueprintResearchPrototype settings)
+    {
+        serverUid = default;
+        server = null!;
+        settings = null!;
+
+        if (!this.IsPowered(uid, EntityManager) ||
+            !_research.TryGetClientServer(uid, out var linkedServerUid, out var linkedServer) ||
+            linkedServerUid is null ||
+            linkedServer is null ||
+            !this.IsPowered(linkedServerUid.Value, EntityManager) ||
+            !_proto.TryIndex(comp.BlueprintResearchPreset, out var preset) ||
+            preset.Cost <= 0 ||
+            linkedServer.Points < preset.Cost)
+            return false;
+
+        var hasTechnologies = _proto
+            .EnumeratePrototypes<TechnologyBlueprintsPrototype>()
+            .Any(t => t.SupportsTier(preset.Tier) &&
+                      double.IsFinite(t.Rare) &&
+                      t.Rare > 0 &&
+                      (t.Recipe.Count > 0 || t.RecipeForce.Count > 0));
+
+        if (!hasTechnologies)
+            return false;
+
+        serverUid = linkedServerUid.Value;
+        server = linkedServer;
+        settings = preset;
+
+        return true;
     }
 
     public bool TryRoll(EntityUid uid, ResearchConsoleComponent comp)
     {
         if (!this.IsPowered(uid, EntityManager) ||
             !_research.TryGetClientServer(uid, out var serverId, out var server) ||
-            !this.IsPowered(serverId.Value, EntityManager) ||
-            !_proto.TryIndex(comp.BlueprintResearchPreset, out var settings) || settings.Cost <= 0 || server.Points < settings.Cost)
+            serverId is null ||
+            server is null ||
+            !this.IsPowered(serverId.Value, EntityManager))
+            return false;
+
+        return TryRoll(uid, comp, serverId.Value, server, costPaid: false);
+    }
+
+    private bool TryRoll(
+        EntityUid uid,
+        ResearchConsoleComponent comp,
+        EntityUid serverUid,
+        ResearchServerComponent server,
+        bool costPaid)
+    {
+        if (!_proto.TryIndex(comp.BlueprintResearchPreset, out var settings) ||
+            settings.Cost <= 0 ||
+            (!costPaid && server.Points < settings.Cost))
             return false;
         var technologies = _proto.EnumeratePrototypes<TechnologyBlueprintsPrototype>()
             .Where(t => t.SupportsTier(settings.Tier) && double.IsFinite(t.Rare) && t.Rare > 0 &&
@@ -95,8 +188,9 @@ public sealed class BlueprintResearchSystem : SharedBlueprintResearchSystem
             Recipes = recipes.OrderBy(r => r.Id).ToList(), RareLoc = modifiers.RareLoc,
         });
         if (server.BlueprintResults.Count > 50) server.BlueprintResults.RemoveRange(50, server.BlueprintResults.Count - 50);
-        Dirty(serverId.Value, server);
-        _research.ModifyServerPoints(serverId.Value, -settings.Cost, server);
+        Dirty(serverUid, server);
+        if (!costPaid)
+            _research.ModifyServerPoints(serverUid, -settings.Cost, server);
         _logs.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(uid)} issued blueprint {modifiers.InstanceId} ({technology.ID}) for {settings.Cost} research points");
         return true;
     }
@@ -104,9 +198,39 @@ public sealed class BlueprintResearchSystem : SharedBlueprintResearchSystem
     public void UpdateConsole(EntityUid uid, ResearchConsoleComponent comp)
     {
         if (!_proto.TryIndex(comp.BlueprintResearchPreset, out var settings)) return;
-        var connected = _research.TryGetClientServer(uid, out var serverUid, out var server) && this.IsPowered(serverUid.Value, EntityManager);
-        _ui.SetUiState(uid, ResearchConsoleUiKey.Key, new ResearchBlueprintConsoleState(
-            connected ? server!.Points : 0, settings.Cost, connected, connected ? new(server!.BlueprintResults) : new()));
+        var connected = _research.TryGetClientServer(uid, out var serverUid, out var server)
+                && serverUid is not null
+                && server is not null
+                && this.IsPowered(serverUid.Value, EntityManager);
+        var isPrinting = TryComp<BlueprintResearchPrintingComponent>(uid, out var printing);
+
+        var duration = isPrinting
+            ? Math.Max(0.01, printing!.Duration.TotalSeconds)
+            : 10.0;
+
+        var remaining = isPrinting
+            ? Math.Clamp((printing!.FinishTime - _timing.CurTime).TotalSeconds, 0, duration)
+            : 0.0;
+
+        var points = connected ? server!.Points : 0;
+        var results = connected
+            ? new List<BlueprintResearchResult>(server!.BlueprintResults)
+            : new List<BlueprintResearchResult>();
+
+        var state = new ResearchBlueprintConsoleState(
+            points,
+            settings.Cost,
+            connected,
+            results)
+        {
+            Printing = isPrinting,
+            PrintRemaining = (float)remaining,
+            PrintProgress = isPrinting
+                ? (float)Math.Clamp(1.0 - remaining / duration, 0.0, 1.0)
+                : 0f
+        };
+
+        _ui.SetUiState(uid, ResearchConsoleUiKey.Key, state);
     }
 
     private List<EntityUid> Contents(EntityUid library)
@@ -153,6 +277,50 @@ public sealed class BlueprintResearchSystem : SharedBlueprintResearchSystem
         });
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<
+            BlueprintResearchPrintingComponent,
+            ResearchConsoleComponent>();
+
+        while (query.MoveNext(out var uid, out var printing, out var console))
+        {
+            var now = _timing.CurTime;
+
+            if (!printing.PrintSoundPlayed && now >= printing.PrintSoundTime)
+            {
+                if (TryComp<BlueprintResearchPrinterComponent>(uid, out var printer))
+                    _audio.PlayPvs(printer.PrintSound, uid);
+
+                printing.PrintSoundPlayed = true;
+            }
+
+            if (now >= printing.FinishTime)
+            {
+                var serverUid = printing.ServerUid;
+
+                RemComp<BlueprintResearchPrintingComponent>(uid);
+
+                if (!TerminatingOrDeleted(serverUid) &&
+                    TryComp<ResearchServerComponent>(serverUid, out var server))
+                {
+                    TryRoll(uid, console, serverUid, server, costPaid: true);
+                }
+
+                UpdateConsole(uid, console);
+                continue;
+            }
+
+            if (now >= printing.NextUiUpdate)
+            {
+                printing.NextUiUpdate = now + TimeSpan.FromMilliseconds(100);
+                UpdateConsole(uid, console);
+            }
+        }
+    }
+
     private void OnSelect(EntityUid uid, BlueprintLibraryComponent comp, BlueprintLibrarySelectMessage args)
     {
         if (Allowed(uid, args.Actor)) TrySelectBlueprint(uid, GetEntity(args.Blueprint), args.Recipe);
@@ -173,6 +341,57 @@ public sealed class BlueprintResearchSystem : SharedBlueprintResearchSystem
         server.BlueprintRecipes[recipe] = Data(blueprint, data);
         server.BlueprintSources[recipe] = uid;
         Publish(serverUid.Value, server);
+        return true;
+    }
+
+    private void OnUnselect(
+    EntityUid uid,
+    BlueprintLibraryComponent comp,
+    BlueprintLibraryUnselectMessage args)
+    {
+        if (!Allowed(uid, args.Actor))
+            return;
+
+        TryUnselectBlueprint(uid, GetEntity(args.Blueprint), args.Recipe);
+    }
+
+    public bool TryUnselectBlueprint(
+        EntityUid uid,
+        EntityUid blueprint,
+        string recipe)
+    {
+        if (!HasComp<BlueprintLibraryComponent>(uid) ||
+            !this.IsPowered(uid, EntityManager) ||
+            !Contents(uid).Contains(blueprint) ||
+            !TryComp<BlueprintComponent>(blueprint, out var data) ||
+            !data.ProvidedRecipes.Contains(recipe) ||
+            !_research.TryGetClientServer(uid, out var serverUid, out var server) ||
+            serverUid is null ||
+            server is null ||
+            !this.IsPowered(serverUid.Value, EntityManager))
+        {
+            return false;
+        }
+
+        if (!server.BlueprintSources.TryGetValue(recipe, out var source) ||
+            source != uid)
+        {
+            return false;
+        }
+
+        if (!server.BlueprintRecipes.TryGetValue(recipe, out var assigned) ||
+            assigned.InstanceId != Data(blueprint, data).InstanceId)
+        {
+            return false;
+        }
+
+        if (!server.BlueprintRecipes.Remove(recipe))
+            return false;
+
+        server.BlueprintSources.Remove(recipe);
+
+        Publish(serverUid.Value, server);
+
         return true;
     }
 

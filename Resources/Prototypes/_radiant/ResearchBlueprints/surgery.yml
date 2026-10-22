@@ -4,7 +4,7 @@
   name: starlight-research-engineering-cyberarms
   entityIcon: LeftArmCyberEngineer
   discipline: NFEngineering
-  rare: 200
+  rare: 100
   rareLoc: research-technology-blueprint-rare
   tier: 1
   lathe: EngineeringTechFab
@@ -19,7 +19,7 @@
   name: starlight-research-gorilla-cyberarms
   entityIcon: LeftArmCyberGorilla
   discipline: NFScience
-  rare: 150
+  rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: Protolathe
@@ -34,7 +34,7 @@
   name: starlight-research-investigator-cyberarms
   entityIcon: LeftArmCyberInvestigator
   discipline: NFScience
-  rare: 150
+  rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: Protolathe
@@ -49,8 +49,8 @@
   name: starlight-research-basic-surgery
   entityIcon: Scalpel
   discipline: NFMedical
-  rare: 100
-  rareLoc: research-technology-blueprint-uncommon
+  rare: 50
+  rareLoc: research-technology-blueprint-common
   tier: 1
   lathe: MedicalTechFab
   recipe:
@@ -74,8 +74,8 @@
   name: starlight-research-advanced-surgery
   entityIcon: ScalpelAdvanced
   discipline: NFMedical
-  rare: 150
-  rareLoc: research-technology-blueprint-uncommon
+  rare: 299
+  rareLoc: research-technology-blueprint-rare
   tier: 1
   lathe: MedicalTechFab
   recipeLinks:
@@ -96,7 +96,7 @@
   name: starlight-research-angel-cyberarms
   entityIcon: LeftArmCyberAngel
   discipline: NFMedical
-  rare: 150
+  rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: MedicalTechFab
@@ -126,8 +126,8 @@
   name: starlight-research-budget-cyber-organs
   entityIcon: BudgetCyberLiver
   discipline: NFMedical
-  rare: 100
-  rareLoc: research-technology-blueprint-uncommon
+  rare: 50
+  rareLoc: research-technology-blueprint-common
   tier: 1
   lathe: MedicalTechFab
   recipe:
@@ -168,7 +168,7 @@
   name: starlight-research-olfactory-implant
   entityIcon: NoseImplantOlfactory
   discipline: NFMedical
-  rare: 150
+  rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: MedicalTechFab
@@ -180,8 +180,8 @@
   name: starlight-research-insulated-implant
   entityIcon: HandImplantInsulated
   discipline: NFMedical
-  rare: 150
-  rareLoc: research-technology-blueprint-uncommon
+  rare: 50
+  rareLoc: research-technology-blueprint-common
   tier: 1
   lathe: MedicalTechFab
   recipe:
@@ -192,7 +192,7 @@
   name: starlight-research-mechanic-cargo-cyberarms
   entityIcon: LeftArmCyberMechwright
   discipline: NFEngineering
-  rare: 150
+  rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: EngineeringTechFab
@@ -240,7 +240,7 @@
   name: starlight-research-spacer-cyberarms
   entityIcon: LeftArmCyberSpacer
   discipline: NFSalvage
-  rare: 150
+  rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: SalvageTechfabNF
@@ -255,7 +255,7 @@
   name: starlight-research-combat-cyberarms
   entityIcon: LeftArmCyberMantisBlade
   discipline: NFArsenalMercenary
-  rare: 250
+  rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
   lathe: MercenaryTechFab
@@ -275,8 +275,8 @@
   name: starlight-research-decorative-eyes
   entityIcon: DecorativeCyberEyesConfigurable
   discipline: NFMedical
-  rare: 100
-  rareLoc: research-technology-blueprint-uncommon
+  rare: 50
+  rareLoc: research-technology-blueprint-common
   tier: 1
   lathe: MedicalTechFab
   recipe:

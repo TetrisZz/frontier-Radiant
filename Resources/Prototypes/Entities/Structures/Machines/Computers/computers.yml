@@ -524,6 +524,7 @@
       state: generic_panel_open
   - type: ResearchClient
   - type: ResearchConsole
+  - type: BlueprintResearchPrinter # Radiant sector
   - type: ActiveRadio
     channels:
     - Science

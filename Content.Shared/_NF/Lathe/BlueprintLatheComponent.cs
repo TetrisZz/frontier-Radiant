@@ -109,7 +109,7 @@ public sealed partial class BlueprintLatheComponent : Component
     /// The value that is used to calculate the modified <see cref="TimeMultiplier"/>
     /// </summary>
     [DataField]
-    public float PartRatingPrintTimeMultiplier = 0.5f;
+    public float PartRatingPrintTimeMultiplier = 0.7f; // Radiant Sector 0.5 > 0.7
 
     /// <summary>
     /// The machine part that reduces how much material it takes to print a recipe.

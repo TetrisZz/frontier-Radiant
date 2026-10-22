@@ -2,6 +2,7 @@ using Content.Shared.Research.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using System;
 
 namespace Content.Shared._radiant.ResearchBlueprints;
 
@@ -16,6 +17,15 @@ public enum BlueprintLibraryUiKey : byte { Key }
 
 [Serializable, NetSerializable]
 public sealed class BlueprintLibrarySelectMessage(string recipe, NetEntity blueprint) : BoundUserInterfaceMessage
+{
+    public string Recipe = recipe;
+    public NetEntity Blueprint = blueprint;
+}
+
+[Serializable, NetSerializable]
+public sealed class BlueprintLibraryUnselectMessage(
+    string recipe,
+    NetEntity blueprint) : BoundUserInterfaceMessage
 {
     public string Recipe = recipe;
     public NetEntity Blueprint = blueprint;
@@ -75,4 +85,7 @@ public sealed class ResearchBlueprintConsoleState(int points, int cost, bool con
     public int Cost = cost;
     public bool Connected = connected;
     public List<BlueprintResearchResult> History = history;
+    public bool Printing { get; set; }
+    public float PrintRemaining { get; set; }
+    public float PrintProgress { get; set; }
 }
