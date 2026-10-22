@@ -81,6 +81,7 @@ public sealed class TraitorRuleTest
         await pair.SetAntagPreference(TraitorAntagRoleName, true);
 
         // Add the game rule
+        await pair.SelectMinimumSkillsForLobbyPlayers();
         TraitorRuleComponent traitorRule = null;
         await server.WaitPost(() =>
         {

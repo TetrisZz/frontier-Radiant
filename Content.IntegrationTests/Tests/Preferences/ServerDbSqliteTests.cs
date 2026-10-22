@@ -130,6 +130,30 @@ namespace Content.IntegrationTests.Tests.Preferences
         }
 
         [Test]
+        public async Task CitizenshipCanBeChangedWithoutReplacingTheCharacter()
+        {
+            await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+            var db = GetDb(pair.Server);
+            var user = NewUserId();
+            var profile = CharlieCharlieson();
+            Assert.That(profile.Citizenship, Is.EqualTo(Content.Shared._radiant.Passports.RadiantCitizenship.Zon));
+            await db.InitPrefsAsync(user, profile);
+            var initial = await db.GetPlayerPreferencesAsync(user);
+            var characterId = ((HumanoidCharacterProfile) initial!.Characters[0]).Career.CharacterId;
+            foreach (var citizenship in Enum.GetValues<Content.Shared._radiant.Passports.RadiantCitizenship>())
+            {
+                await db.SaveCharacterSlotAsync(user, profile.WithCitizenship(citizenship), 0);
+                var prefs = await db.GetPlayerPreferencesAsync(user);
+                var saved = (HumanoidCharacterProfile) prefs!.Characters[0];
+                Assert.That(saved.Citizenship, Is.EqualTo(citizenship));
+                Assert.That(saved.Career.CharacterId, Is.EqualTo(characterId));
+                Assert.That(saved.BankBalance, Is.EqualTo(profile.BankBalance));
+            }
+            TestContext.Out.WriteLine("Editable citizenship database assertions completed.");
+            await pair.CleanReturnAsync();
+        }
+
+        [Test]
         public async Task TestDossierPersistence()
         {
             await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });

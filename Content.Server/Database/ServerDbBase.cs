@@ -147,12 +147,6 @@ namespace Content.Server.Database
                 : DossierBloodGroup.IsValid(humanoid.BloodGroup)
                     ? humanoid.BloodGroup
                     : DossierBloodGroup.Roll(Random.Shared.Next(100));
-            // Existing unmarked values (including the generated default slot) get one choice.
-            // Marked values are authoritative even if a modified client resends another one.
-            if (!replaceCharacter && oldProfile != null && oldProfile.Citizenship.StartsWith("Locked:", StringComparison.Ordinal) &&
-                !Content.Shared._radiant.Passports.RadiantCitizenships.IsLegacy(oldProfile.Citizenship))
-                humanoid.Citizenship = Content.Shared._radiant.Passports.RadiantCitizenships.Parse(oldProfile.Citizenship[7..]);
-            humanoid.CitizenshipLocked = oldProfile != null;
             if (replaceCharacter && oldProfile != null)
                 oldProfile.DossierJson = "{}";
             if (oldProfile != null)
@@ -493,11 +487,7 @@ namespace Content.Server.Database
             {
                 Career = ReadCareer(profile),
                 Residence = profile.Residence,
-                Citizenship = Content.Shared._radiant.Passports.RadiantCitizenships.Parse(
-                    profile.Citizenship.StartsWith("Locked:", StringComparison.Ordinal)
-                        ? profile.Citizenship[7..] : profile.Citizenship),
-                CitizenshipLocked = profile.Citizenship.StartsWith("Locked:", StringComparison.Ordinal) &&
-                    !Content.Shared._radiant.Passports.RadiantCitizenships.IsLegacy(profile.Citizenship),
+                Citizenship = Content.Shared._radiant.Passports.RadiantCitizenships.Parse(profile.Citizenship),
                 FamilyStatus = profile.FamilyStatus,
                 Children = profile.Children,
                 EmergencyContact = profile.EmergencyContact,
@@ -535,8 +525,7 @@ namespace Content.Server.Database
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.Residence = humanoid.Residence;
-            profile.Citizenship = humanoid.CitizenshipLocked
-                ? $"Locked:{humanoid.Citizenship}" : humanoid.Citizenship.ToString();
+            profile.Citizenship = humanoid.Citizenship.ToString();
             profile.FamilyStatus = humanoid.FamilyStatus;
             profile.Children = humanoid.Children;
             profile.EmergencyContact = humanoid.EmergencyContact;

@@ -102,6 +102,8 @@ namespace Content.Client.Lobby
 
         public void SwitchState(LobbyGui.LobbyGuiState state)
         {
+            if (state == LobbyGui.LobbyGuiState.CharacterSetup)
+                _pickerWindow?.Close();
             // Yeah I hate this but LobbyState contains all the badness for now.
             Lobby?.SwitchState(state);
         }
@@ -118,6 +120,8 @@ namespace Content.Client.Lobby
             {
                 return;
             }
+            if (!_entityManager.System<Content.Client._radiant.Skills.SkillSelectionSystem>().CheckSelection())
+                return;
             // Frontier to downstream: if you want to skip the first window and go straight to station picker,
             // simply change the enum to station or crew in the PickerWindow constructor.
             _pickerWindow ??= new PickerWindow();
@@ -274,6 +278,12 @@ namespace Content.Client.Lobby
         {
             if (_gameTicker.IsGameStarted)
             {
+                return;
+            }
+
+            if (newReady && !_entityManager.System<Content.Client._radiant.Skills.SkillSelectionSystem>().CheckSelection())
+            {
+                Lobby!.ReadyButton.Pressed = false;
                 return;
             }
 

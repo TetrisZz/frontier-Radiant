@@ -12,7 +12,7 @@ public sealed partial class BlueprintModifiers
 {
     [DataField] public string InstanceId = string.Empty;
     [DataField] public ProtoId<TechnologyBlueprintsPrototype>? Technology;
-    [DataField] public LocId RareLoc = "research-technology-blueprint-common";
+    [DataField] public LocId RareLoc = "research-technology-blueprint-unique";
     [DataField] public int TimeMultiplier = 1;
     [DataField] public int MaterialMultiplier = 1;
     [DataField] public Dictionary<ProtoId<MaterialPrototype>, int> ExtraMaterials = new();

@@ -7,6 +7,15 @@
     tags: [NFBlueprintAdvanced, Document, Paper]
 
 - type: entity
+  parent: MarkerBasePlaceFree
+  id: SpawnScrapResearchBlueprint
+  name: common research blueprint spawner
+  categories: [HideSpawnMenu]
+  components:
+  - type: BlueprintResearchSpawner
+    preset: ScrapProcessor
+
+- type: entity
   id: BlueprintLithograph
   parent: [BaseMachinePowered, ConstructibleMachine]
   name: blueprint lithograph

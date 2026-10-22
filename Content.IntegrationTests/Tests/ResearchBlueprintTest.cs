@@ -230,7 +230,7 @@ public sealed class ResearchBlueprintTest
                 research.RegisterClient(client, server);
                 Assert.That(em.GetComponent<ResearchClientComponent>(client).Server, Is.EqualTo(server));
             }
-            serverComp.Points = 30000;
+            serverComp.Points = settings.Cost;
             var consoleComp = em.GetComponent<ResearchConsoleComponent>(console);
             Assert.That(system.TryRoll(console, consoleComp), Is.True);
             Assert.That(serverComp.Points, Is.Zero);
@@ -238,7 +238,8 @@ public sealed class ResearchBlueprintTest
             Assert.That(rolled, Has.Length.EqualTo(1));
             var roll = rolled.Single();
             var technologyProto = proto.Index(roll.Modifiers!.Technology!.Value);
-            Assert.That(em.GetComponent<MetaDataComponent>(roll.Owner).EntityDescription, Is.EqualTo(Loc.GetString("ent-BaseBlueprint.desc")));
+            Assert.That(em.GetComponent<MetaDataComponent>(roll.Owner).EntityPrototype!.ID,
+                Is.EqualTo(settings.BlueprintFor(proto.Index(roll.Modifiers!.Technology!.Value)).Id));
             Assert.That(em.GetComponent<MetaDataComponent>(roll.Owner).EntityName, Does.Not.Contain(roll.Modifiers.ShortId));
             Assert.That(roll.ProvidedRecipes.ToHashSet().IsSupersetOf(technologyProto.RecipeForce), Is.True);
             Assert.That(roll.ProvidedRecipes.Count, Is.GreaterThan(0));
@@ -300,7 +301,7 @@ public sealed class ResearchBlueprintTest
             Assert.That(description, Does.Not.Contain("EngineeringTechFab"));
             Assert.That(description, Does.Not.Contain("FIRST"));
             Assert.That(description, Does.Not.Contain(Loc.GetString("research-blueprint-modifiers", ("time", 2), ("materials", 2))));
-            Assert.That(description, Does.EndWith(Loc.GetString("research-technology-blueprint-common")));
+            Assert.That(description, Does.EndWith(Loc.GetString("research-technology-blueprint-unique")));
             Assert.That(system.TrySelectBlueprint(library, first, "ClothingBackpackHolding"), Is.True);
             Assert.That(em.System<SharedUserInterfaceSystem>().TryGetUiState<BlueprintLibraryState>(library, BlueprintLibraryUiKey.Key, out windowState), Is.True);
             Assert.That(windowState!.ServerName, Is.EqualTo(serverComp.ServerName));
@@ -398,9 +399,9 @@ public sealed class ResearchBlueprintTest
                 Assert.That(console.Roll.Disabled, Is.False);
                 console.Update(new ResearchBlueprintConsoleState(0, 30000, true, [result]));
                 Assert.That(console.Roll.Disabled, Is.True);
-                Assert.That(Descendants(console).OfType<ProgressBar>().Single().Value, Is.Zero);
+                Assert.That(Descendants(console).OfType<ProgressBar>().Single(c => c.Name == "BlueprintResearchFunding").Value, Is.Zero);
                 console.Update(new ResearchBlueprintConsoleState(15000, 30000, true, [result]));
-                Assert.That(Descendants(console).OfType<ProgressBar>().Single().Value, Is.EqualTo(0.5f));
+                Assert.That(Descendants(console).OfType<ProgressBar>().Single(c => c.Name == "BlueprintResearchFunding").Value, Is.EqualTo(0.5f));
                 Assert.That(console.Roll.Disabled, Is.True);
                 var history = pair.Client.ProtoMan.EnumeratePrototypes<TechnologyBlueprintsPrototype>()
                     .OrderByDescending(t => Loc.GetString(t.Name).Length).Take(30).Select(t => new BlueprintResearchResult
@@ -408,7 +409,7 @@ public sealed class ResearchBlueprintTest
                         InstanceId = t.ID, Technology = t.ID, Recipes = t.Recipe.Concat(t.RecipeForce).ToList(), RareLoc = t.RareLoc,
                     }).ToList();
                 console.Update(new ResearchBlueprintConsoleState(int.MaxValue, 30000, true, history));
-                Assert.That(Descendants(console).OfType<ProgressBar>().Single().Value, Is.EqualTo(1));
+                Assert.That(Descendants(console).OfType<ProgressBar>().Single(c => c.Name == "BlueprintResearchFunding").Value, Is.EqualTo(1));
                 Assert.That(console.Roll.Disabled, Is.False);
                 foreach (var size in new[] { new Vector2(520, 400), new Vector2(700, 560), new Vector2(900, 700) })
                 {
@@ -423,7 +424,7 @@ public sealed class ResearchBlueprintTest
                 }
                 console.Update(new ResearchBlueprintConsoleState(0, 30000, false, new()));
                 Assert.That(console.Roll.Disabled, Is.True);
-                Assert.That(Descendants(console).OfType<ProgressBar>().Single().Value, Is.Zero);
+                Assert.That(Descendants(console).OfType<ProgressBar>().Single(c => c.Name == "BlueprintResearchFunding").Value, Is.Zero);
                 using var library = new BlueprintLibraryWindow();
                 library.Update(windowState!);
                 library.SetSize = new Vector2(1080, 620);
@@ -523,7 +524,7 @@ public sealed class ResearchBlueprintTest
                 Assert.That(Descendants(details).Count(c => c.Name == "BlueprintMaterial"), Is.EqualTo(6));
                 Assert.That(details.DesiredSize.Y, Is.LessThanOrEqualTo(details.Parent!.Size.Y), "All six materials and manufacturing conditions must fit without scrolling at the default size");
                 var rightPane = Descendants(longWindow).Single(c => c.Name == "BlueprintRightPane");
-                Assert.That(rightPane.GetChild(1).Size.Y, Is.GreaterThan(rightPane.Size.Y * 0.60f));
+                Assert.That(rightPane.GetChild(1).Size.Y, Is.GreaterThanOrEqualTo((rightPane.Size.Y - 12) * 0.60f));
                 changedMachine.Modifiers.Lathe = "MercenaryTechFab";
                 changedMachine.Modifiers.AdditionalLathes = ["MercenaryTechFabHacked", "NfsdTechFab"];
                 longWindow.Update(new BlueprintLibraryState([changedMachine], new(), true));

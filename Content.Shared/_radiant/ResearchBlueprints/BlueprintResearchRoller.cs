@@ -53,13 +53,18 @@ public static class BlueprintResearchRoller
     public static BlueprintModifiers Roll(IRobustRandom random, TechnologyBlueprintsPrototype technology,
         BlueprintResearchPrototype settings, IReadOnlyList<BlueprintMaterialTierPrototype> tiers,
         IReadOnlyList<EntProtoId> machines, HashSet<ProtoId<MaterialPrototype>> required)
-    {
-        var result = new BlueprintModifiers
+        => Roll(random, settings, tiers, machines, required, new BlueprintModifiers
         {
-            InstanceId = Guid.NewGuid().ToString("N"), Technology = technology.ID,
-            RareLoc = technology.RareLoc, Lathe = technology.Lathe,
+            Technology = technology.ID, RareLoc = technology.RareLoc, Lathe = technology.Lathe,
             AdditionalLathes = new(technology.AdditionalLathes),
-        };
+        });
+
+    public static BlueprintModifiers Roll(IRobustRandom random, BlueprintResearchPrototype settings,
+        IReadOnlyList<BlueprintMaterialTierPrototype> tiers, IReadOnlyList<EntProtoId> machines,
+        HashSet<ProtoId<MaterialPrototype>> required, BlueprintModifiers basis)
+    {
+        var result = basis.Copy();
+        result.InstanceId = Guid.NewGuid().ToString("N");
         var availableTiers = tiers.Where(t => t.Weight > 0 && t.Materials.Any(m => !required.Contains(m))).ToList();
         void Time() => result.TimeMultiplier = random.Next(2, 8);
         void Material() => result.MaterialMultiplier = random.Next(2, 12);
@@ -82,7 +87,7 @@ public static class BlueprintResearchRoller
         }
         var unmodifiedChance = (double)settings.UnmodifiedChance;
 
-        switch (technology.RareLoc.ToString())
+        switch (result.RareLoc.ToString())
         {
             case "research-technology-blueprint-common":
                 unmodifiedChance *= 3;
@@ -96,7 +101,7 @@ public static class BlueprintResearchRoller
         unmodifiedChance = Math.Clamp(unmodifiedChance, 0.0, 1.0);
 
         if (result.TimeMultiplier == 1 && result.MaterialMultiplier == 1 && result.ExtraMaterials.Count == 0 &&
-            result.Lathe == technology.Lathe && random.NextDouble() >= unmodifiedChance)
+            result.Lathe == basis.Lathe && random.NextDouble() >= unmodifiedChance)
         {
             var choices = new List<(Action Apply, double Weight)>();
             if (settings.TimeChance > 0) choices.Add((Time, settings.TimeChance));

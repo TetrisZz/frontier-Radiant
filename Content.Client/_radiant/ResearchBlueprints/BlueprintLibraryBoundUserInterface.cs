@@ -49,7 +49,7 @@ public sealed partial class BlueprintLibraryWindow : DefaultWindow
     private readonly BoxContainer _variants = Column("BlueprintVariants");
     private readonly BoxContainer _details = Column("BlueprintDetails");
     private readonly RichTextLabel _connection = Text(string.Empty);
-    private readonly BoxContainer _actions = new() { Name = "BlueprintActions", HorizontalExpand = true, SeparationOverride = 8 };
+    private readonly BoxContainer _actions = new() { Name = "BlueprintActions", HorizontalExpand = true, SeparationOverride = 8, MinHeight = 36 };
     private readonly Label _itemsHeading = new();
     private readonly Label _variantsHeading = new();
     private readonly LineEdit _search = new() { PlaceHolder = Loc.GetString("research-blueprint-search") };

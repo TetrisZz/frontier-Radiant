@@ -79,6 +79,15 @@ namespace Content.Server.GameTicking
             Dictionary<NetUserId, HumanoidCharacterProfile> profiles,
             bool force)
         {
+            foreach (var player in readyPlayers.ToArray())
+            {
+                if (profiles.TryGetValue(player.UserId, out var profile) && CheckSkillSelection(player, profile))
+                    continue;
+                readyPlayers.Remove(player);
+                profiles.Remove(player.UserId);
+                _playerGameStatuses[player.UserId] = PlayerGameStatus.NotReadyToPlay;
+                RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
+            }
             // Allow game rules to spawn players by themselves if needed. (For example, nuke ops or wizard)
             RaiseLocalEvent(new RulePlayerSpawningEvent(readyPlayers, profiles, force));
 
@@ -447,6 +456,9 @@ namespace Content.Server.GameTicking
                 return;
 
             if (!_userDb.IsLoadComplete(player))
+                return;
+
+            if (!CheckSkillSelection(player))
                 return;
 
             SpawnPlayer(player, station, jobId, silent: silent);

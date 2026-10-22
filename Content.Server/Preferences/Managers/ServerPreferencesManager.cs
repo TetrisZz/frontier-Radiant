@@ -159,8 +159,6 @@ namespace Content.Server.Preferences.Managers
                 if (curPrefs.Characters.TryGetValue(slot, out var existingProfile) &&
                     existingProfile is HumanoidCharacterProfile humanoidEditingTarget)
                 {
-                    if (!replaceCharacter && humanoidEditingTarget.CitizenshipLocked)
-                        humanProfile.Citizenship = humanoidEditingTarget.Citizenship;
                     // A filled personal dossier field belongs to this character. Marriage is the
                     // one personal detail that can be corrected after the first save.
                     if (!replaceCharacter)
@@ -199,9 +197,6 @@ namespace Content.Server.Preferences.Managers
                 }
             }
             // End Frontier: check for profile modifications (based on Monolith's impl)
-
-            if (profile is HumanoidCharacterProfile savedProfile)
-                savedProfile.CitizenshipLocked = hadCharacter;
 
             var profiles = new Dictionary<int, ICharacterProfile>(curPrefs.Characters)
             {

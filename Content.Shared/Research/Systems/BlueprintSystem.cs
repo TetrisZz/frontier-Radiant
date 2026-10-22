@@ -177,6 +177,7 @@ public sealed class BlueprintSystem : EntitySystem
                 "research-technology-blueprint-uncommon" => "#33FF44",
                 "research-technology-blueprint-rare" => "#33CCFF",
                 "research-technology-blueprint-epic" => "#CC66FF",
+                "research-technology-blueprint-unique" => "#FFCC66",
                 _ => "#CCCCCC",
             };
             args.PushMarkup(Loc.GetString("research-blueprint-examine-rarity",

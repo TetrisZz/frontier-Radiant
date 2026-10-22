@@ -4,6 +4,7 @@ using Content.Shared.Research.Prototypes;
 using Content.Shared.Research.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Research.Components;
 
@@ -23,4 +24,21 @@ public sealed partial class BlueprintComponent : Component
 
     [DataField, AutoNetworkedField]
     public BlueprintModifiers? Modifiers;
+
+    /// <summary>Roll fabrication modifiers once when a populated blueprint spawns.</summary>
+    [DataField]
+    public bool RandomizeModifiers = true;
+
+    [DataField]
+    public ProtoId<BlueprintResearchPrototype> ModifierPreset = "Default";
+
+    /// <summary>Unspecified prototype blueprints are unique, not common research results.</summary>
+    [DataField]
+    public LocId Rarity = "research-technology-blueprint-unique";
+
+    [DataField]
+    public EntProtoId? ModifierLathe;
+
+    [DataField]
+    public List<EntProtoId> ModifierAdditionalLathes = new();
 }

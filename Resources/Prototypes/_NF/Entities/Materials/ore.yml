@@ -188,8 +188,7 @@
     - !type:NestedSelector
       tableId: TableScrapProcessorRandomBoard
       weight: 0.6
-    - !type:NestedSelector
-      tableId: TableRandomBlueprint # random blueprints with 1-2 (or 3) recipes on them
+    - id: SpawnScrapResearchBlueprint # Radiant: common research technologies only; configured by preset.
       weight: 0.25
     - !type:NestedSelector
       tableId: TableScrapProcessorRandomToolsParts

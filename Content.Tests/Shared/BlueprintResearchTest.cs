@@ -162,7 +162,7 @@ public sealed class BlueprintResearchTest
             new BlueprintResearchPrototype(), [tier], new EntProtoId[] { "AmmoTechFab", "MercenaryTechFab" }, required)).ToArray();
         Assert.That(results.Count(m => m.TimeMultiplier == 1 && m.MaterialMultiplier == 1 && m.ExtraMaterials.Count == 0 && m.Lathe == technology.Lathe), Is.LessThan(300));
         Assert.That(results.Count(m => m.Lathe != technology.Lathe), Is.LessThan(3000));
-        Assert.That(results.All(m => m.TimeMultiplier is >= 1 and <= 5 && m.MaterialMultiplier is >= 1 and <= 10), Is.True);
+        Assert.That(results.All(m => m.TimeMultiplier is >= 1 and <= 7 && m.MaterialMultiplier is >= 1 and <= 11), Is.True);
         Assert.That(results.Select(m => m.InstanceId).Distinct().Count(), Is.EqualTo(results.Length));
     }
 
@@ -172,5 +172,81 @@ public sealed class BlueprintResearchTest
         var technology = new TechnologyBlueprintsPrototype { Tier = 1, Tiers = [2, 3] };
         Assert.That(new[] { 1, 2, 3 }.All(technology.SupportsTier), Is.True);
         Assert.That(technology.SupportsTier(4), Is.False);
+    }
+
+    [Test]
+    public void PresetFiltersRarityAndTierTogether()
+    {
+        var preset = new BlueprintResearchPrototype
+        {
+            Tier = 2, AllowedRarities = ["research-technology-blueprint-common"],
+        };
+        var technology = new TechnologyBlueprintsPrototype
+        {
+            Tier = 1, Tiers = [2], Recipe = ["Test"], RareLoc = "research-technology-blueprint-common",
+            Discipline = "NFEngineering",
+        };
+        Assert.That(preset.Allows(technology), Is.True);
+        technology.RareLoc = "research-technology-blueprint-rare";
+        Assert.That(preset.Allows(technology), Is.False);
+        preset.AllowedRarities.Clear();
+        Assert.That(preset.Allows(technology), Is.True);
+        technology.Tiers.Clear();
+        Assert.That(preset.Allows(technology), Is.False);
+        technology.Tier = 2;
+        technology.Rare = 0;
+        Assert.That(preset.Allows(technology), Is.False);
+    }
+
+    [Test]
+    public void DisciplineSelectsConfiguredBlueprintWithFallback()
+    {
+        var preset = new BlueprintResearchPrototype
+        {
+            DisciplineBlueprints = new() { ["NFScience"] = "NFBlueprintScience" },
+        };
+        var technology = new TechnologyBlueprintsPrototype { Discipline = "NFScience" };
+        Assert.That(preset.BlueprintFor(technology).Id, Is.EqualTo("NFBlueprintScience"));
+        technology.Discipline = "NFEngineering";
+        Assert.That(preset.BlueprintFor(technology), Is.EqualTo(preset.Blueprint));
+    }
+
+    [Test]
+    public void FixedRecipeModifiersUseTheSameRollerWithoutInventingResearchRarity()
+    {
+        var random = new RobustRandom();
+        random.SetSeed(55);
+        var basis = new BlueprintModifiers { Lathe = "MercenaryTechFab", AdditionalLathes = ["NfsdTechFab"] };
+        var settings = new BlueprintResearchPrototype { TimeChance = 1, MaterialChance = 1, ExtraMaterialChance = 0, LatheChance = 0 };
+        var first = BlueprintResearchRoller.Roll(random, settings, [], [], [], basis);
+        var second = BlueprintResearchRoller.Roll(random, settings, [], [], [], basis);
+        Assert.That(first.TimeMultiplier, Is.InRange(2, 7));
+        Assert.That(first.MaterialMultiplier, Is.InRange(2, 11));
+        Assert.That(first.RareLoc.Id, Is.EqualTo("research-technology-blueprint-unique"));
+        Assert.That(first.Technology, Is.Null);
+        Assert.That(first.GetLathes(), Is.EquivalentTo(basis.GetLathes()));
+        Assert.That(first.InstanceId, Is.Not.Empty.And.Not.EqualTo(second.InstanceId));
+        Assert.That(basis.InstanceId, Is.Empty);
+        Assert.That(basis.TimeMultiplier, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void FaxPrintoutKeepsAnIndependentSnapshotOfRecipesAndModifiers()
+    {
+        var recipes = new HashSet<ProtoId<LatheRecipePrototype>> { "NFWeaponSubMachineGunC20r" };
+        var modifiers = new BlueprintModifiers
+        {
+            InstanceId = "fixed-instance", TimeMultiplier = 4, MaterialMultiplier = 3,
+            ExtraMaterials = new() { ["Silver"] = 100 },
+        };
+        var printout = new Content.Shared.Fax.Components.FaxPrintout("", "Blueprint",
+            blueprintRecipes: recipes, blueprintModifiers: modifiers);
+        recipes.Clear();
+        modifiers.ExtraMaterials.Clear();
+        modifiers.TimeMultiplier = 1;
+        Assert.That(printout.BlueprintRecipes.Select(r => r.Id), Is.EqualTo(new[] { "NFWeaponSubMachineGunC20r" }));
+        Assert.That(printout.BlueprintModifiers!.InstanceId, Is.EqualTo("fixed-instance"));
+        Assert.That(printout.BlueprintModifiers.TimeMultiplier, Is.EqualTo(4));
+        Assert.That(printout.BlueprintModifiers.ExtraMaterials["Silver"], Is.EqualTo(100));
     }
 }

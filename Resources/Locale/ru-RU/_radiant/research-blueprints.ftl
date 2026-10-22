@@ -46,6 +46,7 @@ research-technology-blueprint-common = Обычный чертёж
 research-technology-blueprint-uncommon = Необычный чертёж
 research-technology-blueprint-rare = Редкий чертёж
 research-technology-blueprint-epic = Очень редкий чертёж
+research-technology-blueprint-unique = Уникальный чертёж
 ent-ResearchRandomBlueprint = исследовательский чертёж
     .desc = { ent-BaseBlueprint.desc }
 ent-BlueprintLithographLegacy = литограф чертежей

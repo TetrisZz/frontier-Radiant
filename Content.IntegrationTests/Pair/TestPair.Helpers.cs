@@ -12,6 +12,21 @@ namespace Content.IntegrationTests.Pair;
 // Contains misc helper functions to make writing tests easier.
 public sealed partial class TestPair
 {
+    public async Task SelectMinimumSkillsForLobbyPlayers()
+    {
+        var preferences = Server.ResolveDependency<IServerPreferencesManager>();
+        foreach (var session in Server.PlayerMan.Sessions.ToArray())
+        {
+            var saved = preferences.GetPreferences(session.UserId);
+            var profile = (HumanoidCharacterProfile) saved.SelectedCharacter;
+            if (Content.Shared._radiant.Skills.ProfessionalSkillRules.CanJoin(profile.SkillLevels))
+                continue;
+            _modifiedProfiles.Add(session.UserId);
+            await Server.WaitPost(() => preferences.SetProfile(session.UserId, saved.SelectedCharacterIndex,
+                profile.WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 1)).Wait());
+        }
+    }
+
     public Task<TestMapData> CreateTestMap(bool initialized = true)
         => CreateTestMap(initialized, "Plating");
 

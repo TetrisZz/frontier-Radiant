@@ -94,6 +94,7 @@ public sealed class NukeOpsTest
         Assert.That(entMan.Count<NukeOperativeSpawnerComponent>(), Is.Zero);
 
         // Ready up and start nukeops
+        await pair.SelectMinimumSkillsForLobbyPlayers();
         ticker.ToggleReadyAll(true);
         Assert.That(ticker.PlayerGameStatuses.Values.All(x => x == PlayerGameStatus.ReadyToPlay));
         await pair.WaitCommand("forcepreset Nukeops");

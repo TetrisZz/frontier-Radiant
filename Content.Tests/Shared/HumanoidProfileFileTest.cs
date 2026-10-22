@@ -91,6 +91,19 @@ public sealed class HumanoidProfileFileTest
     }
 
     [Test]
+    public void OlderCitizenshipLockIsIgnoredWhenImportingAProfile()
+    {
+        var serialization = IoCManager.Resolve<ISerializationManager>();
+        var yaml = new YamlStream();
+        using var reader = new StringReader("forkId: test\nprofile:\n  name: Legacy\n  citizenship: Hesperia\n  citizenshipLocked: true\n");
+        yaml.Load(reader);
+        var result = serialization.Read<HumanoidProfileExport>(yaml.Documents[0].RootNode.ToDataNode(), notNullableOverride: true);
+        Assert.That(result.Profile.Citizenship, Is.EqualTo(Content.Shared._radiant.Passports.RadiantCitizenship.Hesperia));
+        Assert.That(result.Profile.WithCitizenship(Content.Shared._radiant.Passports.RadiantCitizenship.Zon).Citizenship,
+            Is.EqualTo(Content.Shared._radiant.Passports.RadiantCitizenship.Zon));
+    }
+
+    [Test]
     public void OlderProfilesWithoutCareerFieldsStillLoad()
     {
         var serialization = IoCManager.Resolve<ISerializationManager>();

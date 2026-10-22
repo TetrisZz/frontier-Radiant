@@ -88,6 +88,7 @@
           Quantity: 0.1
   - type: Blueprint
     providedRecipes: []
+    # Radiant: populated blueprints roll modifiers once. Set randomizeModifiers: false to opt out.
 
 - type: entity
   parent: NFBaseBlueprint
@@ -568,6 +569,9 @@
   parent: [ BaseC3SyndicateContraband, NFBaseBlueprintExpedition ]
   id: NFBaseBlueprintExpeditionSyndicate
   components:
+  - type: Blueprint
+    modifierLathe: MercenaryTechFab
+    modifierAdditionalLathes: [MercenaryTechFabHacked, NfsdTechFab, SecurityTechFab, SalvageTechfabNF, Protolathe]
   - type: Sprite
     layers:
       - state: icon-base

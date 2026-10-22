@@ -87,6 +87,7 @@ public sealed class JobTest
         Assert.That(ticker.PlayerGameStatuses[pair.Client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
 
         // Ready up and start the round
+        await pair.SelectMinimumSkillsForLobbyPlayers();
         ticker.ToggleReadyAll(true);
         Assert.That(ticker.PlayerGameStatuses[pair.Client.User!.Value], Is.EqualTo(PlayerGameStatus.ReadyToPlay));
         await pair.Server.WaitPost(() => ticker.StartRound());
@@ -117,6 +118,7 @@ public sealed class JobTest
         Assert.That(pair.Client.AttachedEntity, Is.Null);
 
         await pair.SetJobPriorities((Passenger, JobPriority.Medium), (Engineer, JobPriority.High));
+        await pair.SelectMinimumSkillsForLobbyPlayers();
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
@@ -126,6 +128,7 @@ public sealed class JobTest
         await pair.Server.WaitPost(() => ticker.RestartRound());
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
         await pair.SetJobPriorities((Passenger, JobPriority.High), (Engineer, JobPriority.Medium));
+        await pair.SelectMinimumSkillsForLobbyPlayers();
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
@@ -162,6 +165,7 @@ public sealed class JobTest
         Assert.That(engineer.Weight, Is.EqualTo(passenger.Weight));
 
         await pair.SetJobPriorities((Passenger, JobPriority.Medium), (Engineer, JobPriority.High), (Captain, JobPriority.Low));
+        await pair.SelectMinimumSkillsForLobbyPlayers();
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
@@ -203,6 +207,7 @@ public sealed class JobTest
             await pair.SetJobPriorities(engi, (Captain, JobPriority.Medium), (Engineer, JobPriority.High));
         }
 
+        await pair.SelectMinimumSkillsForLobbyPlayers();
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
         await pair.RunTicksSync(10);
