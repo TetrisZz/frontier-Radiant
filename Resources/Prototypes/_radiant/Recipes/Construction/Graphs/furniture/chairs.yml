@@ -6,6 +6,11 @@
       actions:
         - !type:DestroyEntity {}
       edges:
+        - to: chairOfficeGrey
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
         - to: comfyChairBrown
           steps:
             - material: Steel
@@ -25,6 +30,18 @@
           steps:
             - material: Steel
               amount: 2
+              doAfter: 1
+
+    - node: chairOfficeGrey
+      entity: ChairOfficeGrey
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
               doAfter: 1
 
     - node: comfyChairBrown

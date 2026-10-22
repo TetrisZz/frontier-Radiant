@@ -109,3 +109,45 @@
   category: document-category-medical
   letterhead: document-letterhead-medical
   content: document-content-medical-consent
+
+- type: documentForm
+  id: MedicalExamination
+  name: document-form-medical-examination
+  category: document-category-medical
+  letterhead: document-letterhead-medical
+  content: document-content-medical-examination
+
+- type: documentForm
+  id: MedicalReferral
+  name: document-form-medical-referral
+  category: document-category-medical
+  letterhead: document-letterhead-medical
+  content: document-content-medical-referral
+
+- type: documentForm
+  id: MedicalSurgeryReport
+  name: document-form-medical-surgery
+  category: document-category-medical
+  letterhead: document-letterhead-medical
+  content: document-content-medical-surgery
+
+- type: documentForm
+  id: MedicalDischarge
+  name: document-form-medical-discharge
+  category: document-category-medical
+  letterhead: document-letterhead-medical
+  content: document-content-medical-discharge
+
+- type: documentForm
+  id: MedicalPrescription
+  name: document-form-medical-prescription
+  category: document-category-medical
+  letterhead: document-letterhead-medical
+  content: document-content-medical-prescription
+
+- type: documentForm
+  id: MedicalDeathCertificate
+  name: document-form-medical-death
+  category: document-category-medical
+  letterhead: document-letterhead-medical
+  content: document-content-medical-death

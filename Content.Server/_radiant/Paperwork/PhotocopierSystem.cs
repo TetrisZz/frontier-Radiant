@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._radiant.GameRule.Components;
 using Content.Server.GameTicking;
 using Content.Server.Power.Components;
 using Content.Shared._radiant.Paperwork;
@@ -68,23 +69,11 @@ public sealed class PhotocopierSystem : EntitySystem
         {
             if (!_prototypes.TryIndex<DocumentFormPrototype>(formId, out var form))
                 return;
-            if (!Loc.TryGetString(form.Name, out var formTitle) || !Loc.TryGetString(form.Content, out var body) ||
-                !Loc.TryGetString(form.Letterhead, out var letterhead))
+            if (!TryRenderForm(ent, form, out title, out content))
             {
                 TemplateError(ent, args.Actor, formId);
                 return;
             }
-            title = formTitle;
-            var grid = Transform(ent).GridUid;
-            if (!Loc.TryGetString("photocopier-document-header", out var header,
-                ("title", FormattedMessage.EscapeText(title)), ("date", PaperworkClock.Date(DateTimeOffset.UtcNow)),
-                ("time", PaperworkClock.Shift(_ticker.RoundDuration())),
-                ("ship", grid is { } uid ? FormattedMessage.EscapeText(MetaData(uid).EntityName) : "[form]")))
-            {
-                TemplateError(ent, args.Actor, formId);
-                return;
-            }
-            content = letterhead + "\n\n" + header + "\n\n" + body;
         }
         else
         {
@@ -168,12 +157,51 @@ public sealed class PhotocopierSystem : EntitySystem
 
     private void UpdateState(Entity<PhotocopierComponent> ent)
     {
-        var forms = _prototypes.EnumeratePrototypes<DocumentFormPrototype>()
-            .Select(f => new DocumentFormEntry(f.ID, Loc.GetString(f.Name), Loc.GetString(f.Category),
-                Loc.GetString(f.Letterhead) + "\n\n[head=2]" + FormattedMessage.EscapeText(Loc.GetString(f.Name)) +
-                "[/head]\n\n" + Loc.GetString(f.Content)))
-            .OrderBy(f => f.Category).ThenBy(f => f.Name).ToList();
-        _ui.SetUiState(ent.Owner, PhotocopierUiKey.Key, new PhotocopierUiState(forms, ent.Comp.Paper, ent.Comp.Ink,
+        var forms = new List<DocumentFormEntry>();
+        foreach (var form in _prototypes.EnumeratePrototypes<DocumentFormPrototype>())
+        {
+            if (TryRenderForm(ent, form, out var title, out var content))
+                forms.Add(new DocumentFormEntry(form.ID, title, Loc.GetString(form.Category), content));
+        }
+        _ui.SetUiState(ent.Owner, PhotocopierUiKey.Key, new PhotocopierUiState(forms.OrderBy(f => f.Category).ThenBy(f => f.Name).ToList(), ent.Comp.Paper, ent.Comp.Ink,
             _slots.GetItemOrNull(ent, "original") != null, ent.Comp.ReadyAt <= _timing.CurTime));
+    }
+
+    private bool TryRenderForm(EntityUid printer, DocumentFormPrototype form, out string title, out string content)
+    {
+        title = string.Empty;
+        content = string.Empty;
+        var grid = Transform(printer).GridUid;
+        var ship = grid is { } uid ? FormattedMessage.EscapeText(MetaData(uid).EntityName) : "[form]";
+        if (!Loc.TryGetString(form.Name, out var name) || !Loc.TryGetString(form.Content, out var body) ||
+            !Loc.TryGetString(form.Letterhead, out var letterhead, ("ship", ship), ("base", ResearchBaseName(grid))) ||
+            !Loc.TryGetString("photocopier-document-header", out var header,
+                ("title", FormattedMessage.EscapeText(name)), ("date", PaperworkClock.Date(DateTimeOffset.UtcNow)),
+                ("time", PaperworkClock.Shift(_ticker.RoundDuration())), ("ship", ship)))
+            return false;
+
+        title = name;
+        content = letterhead + "\n\n" + header + "\n\n" + body + "\n\n" + Loc.GetString("document-stamp-area");
+        return true;
+    }
+
+    private string ResearchBaseName(EntityUid? printerGrid)
+    {
+        // The existing Acorp marker lives on an entity inside the active POI, not on its grid.
+        var bases = new HashSet<EntityUid>();
+        var query = EntityQueryEnumerator<AcolithComponent, TransformComponent>();
+        while (query.MoveNext(out _, out _, out var transform))
+        {
+            if (transform.GridUid is { } grid)
+                bases.Add(grid);
+        }
+
+        if (printerGrid is { } ownGrid && bases.Contains(ownGrid))
+            return FormattedMessage.EscapeText(MetaData(ownGrid).EntityName);
+        if (bases.Count == 1)
+            return FormattedMessage.EscapeText(MetaData(bases.Single()).EntityName);
+
+        // Never invent a base when none is loaded, or silently select one of several bases.
+        return Loc.GetString("document-research-base-unknown");
     }
 }

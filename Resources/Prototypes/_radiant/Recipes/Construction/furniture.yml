@@ -18,6 +18,18 @@
   placementMode: SnapgridCenter
 
 - type: construction
+  id: ChairOfficeGrey
+  graph: RadiantChairs
+  startNode: start
+  targetNode: chairOfficeGrey
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: RadiantComfyChairBrown
   graph: RadiantChairs
   startNode: start

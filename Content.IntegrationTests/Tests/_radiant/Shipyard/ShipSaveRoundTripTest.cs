@@ -214,7 +214,7 @@ public sealed class ShipSaveRoundTripTest
             var seats = new[]
             {
                 "Chair", "ChairWood", "ChairFolding", "ComfyChair", "ArmChair",
-                "ChairOfficeLight", "ChairOfficeWhiteRadiant",
+                "ChairOfficeLight", "ChairOfficeDark", "ChairOfficeGrey",
             };
             await server.WaitAssertion(() =>
             {

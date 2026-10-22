@@ -38,11 +38,15 @@ public sealed class RadiantTropicalItemsTest
                 var entities = pair.Server.ResolveDependency<IEntityManager>();
                 var palm = entities.SpawnEntity("FloraTreePalm", map.GridCoords);
                 var timer = entities.GetComponent<TimedSpawnerComponent>(palm);
-                Assert.That(timer.IntervalSeconds, Is.EqualTo(TimeSpan.FromMinutes(5)));
+                Assert.That(timer.IntervalSeconds, Is.EqualTo(TimeSpan.FromMinutes(10)));
                 Assert.That(timer.Prototypes.Single().Id, Is.EqualTo("DrinkCoconut"));
+                Assert.That(timer.NextFire, Is.EqualTo(pair.Server.ResolveDependency<IGameTiming>().CurTime + TimeSpan.FromMinutes(10)));
+                entities.System<SpawnerSystem>().Update(0);
+                Assert.That(entities.EntityQuery<CoconutDrinkComponent>().Count(), Is.Zero, "No coconut drops before the initial interval.");
                 timer.NextFire = pair.Server.ResolveDependency<IGameTiming>().CurTime;
                 entities.System<SpawnerSystem>().Update(0);
                 Assert.That(entities.EntityQuery<CoconutDrinkComponent>().Count(), Is.EqualTo(1));
+                Assert.That(timer.NextFire, Is.EqualTo(pair.Server.ResolveDependency<IGameTiming>().CurTime + TimeSpan.FromMinutes(10)));
                 entities.System<SpawnerSystem>().Update(0);
                 Assert.That(entities.EntityQuery<CoconutDrinkComponent>().Count(), Is.EqualTo(1));
                 entities.DeleteEntity(palm);

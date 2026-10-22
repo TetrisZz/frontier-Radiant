@@ -86,11 +86,18 @@ public sealed class PhotocopierLayoutTest
                     ("date", "21.10.3026"), ("time", "01:02:03"), ("ship", "Test shuttle"));
                 Assert.That(header, Does.Contain("21.10.3026").And.Contain("01:02:03").And.Contain("Test shuttle"), locale);
                 var forms = new List<DocumentFormEntry>();
+                var frontierLetterhead = loc.GetString("document-letterhead-frontier", ("ship", "XX-000"));
+                var logoLines = FormattedMessage.RemoveMarkupPermissive(frontierLetterhead).Split('\n');
+                var expectedLogo = new[] { "████░░░░████", "████░░░████░", "████░░████░░", "████░████░░░", "████░░████░░", "████░░░████░", "████░░░░████" };
+                Assert.That(logoLines.Length, Is.EqualTo(expectedLogo.Length));
+                for (var i = 0; i < expectedLogo.Length; i++)
+                    Assert.That(logoLines[i], Does.StartWith(expectedLogo[i]), "The seven-row K must not regress to the old N logo.");
+                Assert.That(loc.GetString("document-letterhead-acorp", ("base", "МНБ Икарус")), Does.Contain("МНБ Икарус").And.Not.Contain("Горизонт"));
                 string Value(YamlMappingNode node, string key) => ((YamlScalarNode) node.Children[new YamlScalarNode(key)]).Value!;
                 string Translate(YamlMappingNode node, string field)
                 {
                     var key = Value(node, field);
-                    Assert.That(loc.TryGetString(key, out var value), Is.True, locale + ": " + key);
+                    Assert.That(loc.TryGetString(key, out var value, ("ship", "Test shuttle"), ("base", "МНБ Икарус")), Is.True, locale + ": " + key);
                     Assert.That(value, Is.Not.Empty.And.Not.EqualTo(key));
                     return value!;
                 }
@@ -100,7 +107,7 @@ public sealed class PhotocopierLayoutTest
                     var body = Translate(prototype, "content");
                     var letterhead = Translate(prototype, "letterhead");
                     Assert.That(body, Does.Contain("[form]").And.Not.Contain("___"));
-                    Assert.That(letterhead, Does.Contain("[head=3]").And.Contain("[color="));
+                    Assert.That(letterhead, Does.Contain("[head=3]").And.Contain("[color=").And.Not.Contain("\u2605"));
                     forms.Add(new(Value(prototype, "id"), title, Translate(prototype, "category"),
                         letterhead + "\n\n[head=2]" + title + "[/head]\n\n" + body));
                 }
@@ -115,7 +122,7 @@ public sealed class PhotocopierLayoutTest
                     Assert.That(window.DesiredSize.X, Is.LessThanOrEqualTo(size.X));
                     Assert.That(window.DesiredSize.Y, Is.LessThanOrEqualTo(size.Y));
                     var buttons = Descendants(window).OfType<BaseButton>().Where(b => b.Name == "PhotocopierForm").ToArray();
-                    Assert.That(buttons.Length, Is.EqualTo(16));
+                    Assert.That(buttons.Length, Is.EqualTo(22));
                     foreach (var button in buttons)
                     {
                         var label = Descendants(button).OfType<RichTextLabel>().Single();
@@ -167,24 +174,55 @@ public sealed class PhotocopierLayoutTest
         }
         string? saved = null;
         paper.OnSaved += text => saved = text;
+        Assert.That(fields.All(field => field.Disabled), Is.True, "Reading without a pen must not enable fields.");
+        paper.BeginFormEntry(1);
+        Assert.That(Descendants(paper).OfType<LineEdit>().Any(edit => edit.Visible), Is.False);
+        var heldPen = true;
+        paper.CanFillForms = () => heldPen;
+        paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(original, [], PaperComponent.PaperAction.Write));
+        Assert.That(paper.Input.VisibleInTree, Is.False, "Forms remain formatted even when opened using a pen.");
+        fields = Descendants(paper).OfType<PaperFormButton>().ToArray();
         Click(fields[1]);
-        var popup = Descendants(paper).OfType<Popup>().Single();
-        popup.Measure(size);
-        popup.Arrange(UIBox2.FromDimensions(Vector2.Zero, popup.DesiredSize));
-        Descendants(popup).OfType<LineEdit>().Single().Text = "Captain";
-        Click(Descendants(popup).OfType<Button>().Single(button => button.Text == Loc.GetString("paper-form-dialog-ok")));
+        Assert.That(Descendants(paper).OfType<Popup>(), Is.Empty, "Field entry must not open a separate interface.");
+        var editor = Descendants(paper).OfType<LineEdit>().Single(edit => edit.Visible);
+        editor.Text = "Captain";
+        paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(original, []));
+        Assert.That(editor.Visible, Is.True, "Opening the same paper for reading must not discard a draft.");
+        Assert.That(editor.Text, Is.EqualTo("Captain"));
+        editor.ForceSubmitText();
         Assert.That(saved, Is.EqualTo("Name: [form]\nPosition: Captain\nContents: [form]"), "The second field must not overwrite the first.");
         paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(saved!, []));
         paper.Measure(size);
         paper.Arrange(UIBox2.FromDimensions(Vector2.Zero, size));
         fields = Descendants(paper).OfType<PaperFormButton>().ToArray();
         Click(fields[1]);
-        popup = Descendants(paper).OfType<Popup>().Single(control => control.Visible);
-        popup.Measure(size);
-        popup.Arrange(UIBox2.FromDimensions(Vector2.Zero, popup.DesiredSize));
-        Descendants(popup).OfType<LineEdit>().Single().Text = "Report";
-        Click(Descendants(popup).OfType<Button>().Single(button => button.Text == Loc.GetString("paper-form-dialog-ok")));
+        editor = Descendants(paper).OfType<LineEdit>().Single(edit => edit.Visible);
+        editor.Text = "Report";
+        heldPen = false;
+        editor.ForceSubmitText();
+        Assert.That(saved, Is.EqualTo("Name: [form]\nPosition: Captain\nContents: [form]"), "Putting the pen away before submitting must prevent saving.");
+        heldPen = true;
+        Click(fields[1]);
+        editor.Text = "Report";
+        editor.ReleaseKeyboardFocus();
+        Assert.That(editor.Visible, Is.False, "Leaving the field cancels editing.");
+        Click(fields[1]);
+        editor.Text = "Report";
+        editor.ForceSubmitText();
         Assert.That(saved, Is.EqualTo("Name: [form]\nPosition: Captain\nContents: Report"));
+        paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(original, []));
+        paper.BeginFormEntry(0);
+        editor = Descendants(paper).OfType<LineEdit>().Single(edit => edit.Visible);
+        editor.Text = "[bold]Name[/bold] [form]";
+        editor.ForceSubmitText();
+        var escapedName = FormattedMessage.EscapeText("[bold]Name[/bold] [form]");
+        Assert.That(saved, Is.EqualTo("Name: " + escapedName + "\nPosition: [form]\nContents: [form]"), "Field values are plain text, not executable document markup.");
+        paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(saved!, []));
+        paper.BeginFormEntry(0);
+        editor = Descendants(paper).OfType<LineEdit>().Single(edit => edit.Visible);
+        editor.Text = "Captain";
+        editor.ForceSubmitText();
+        Assert.That(saved, Is.EqualTo("Name: " + escapedName + "\nPosition: Captain\nContents: [form]"), "Literal escaped tags must not change field indices.");
     }
 
     private static void Click(BaseButton button)

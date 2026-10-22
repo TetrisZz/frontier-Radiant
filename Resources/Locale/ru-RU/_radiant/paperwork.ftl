@@ -8,45 +8,58 @@ photocopier-print = Напечатать бланк
 photocopier-copy = Скопировать оригинал
 photocopier-copies = Экземпляров:
 photocopier-original = Оригинал документа
+paper-form-writing-required = Держите ручку в руке. Документ должен быть доступен для записи.
 photocopier-copy-name = Копия: { $name }
 photocopier-no-supplies = Недостаточно бумаги или тонера.
 photocopier-template-error = Не удалось загрузить бланк. Печать отменена; бумага и тонер не потрачены.
 photocopier-supplies = Бумага: { $paper } листов • Тонер: { $ink } страниц
 photocopier-document-header =
+    { document-divider }
     { "[head=2]" }{ $title }[/head]
+    { document-divider }
     Дата печати: { $date }
     Время от начала смены: { $time }
     Станция / шаттл: { $ship }
+# Шапки адаптированы из https://radiantsector.fandom.com/ru/wiki/Бумажная_Работа?oldid=1312
+document-divider = ═════════════════════════════
+document-stamp-area =
+    { document-divider }
+    { "[italic]" }Место для подписей и печатей[/italic]
+document-research-base-unknown = МНБ [form]
 document-letterhead-frontier =
-    { "[mono][color=#1B487E]" }███░███░░░░██░░░░
-    ░██░████░░░██░░░░
-    ░░█░██░██░░██░█░░
-    ░░░░██░░██░██░██░
-    ░░░░██░░░████░███[/color][/mono]
-    { "[head=3][color=#1B487E]" }Аванпост Фронтир[/color][/head]
-    Администрация сектора
+    { "[mono][color=#1b487e]" }████░░░░████[/color][/mono]
+    { "[mono][color=#1b487e]" }████░░░████░[/color]  [/mono][head=3]Бланк документа[/head]
+    { "[mono][color=#1b487e]" }████░░████░░[/color][/mono]
+    { "[mono][color=#1b487e]" }████░████░░░[/color]  [/mono][bold]Шаттл { $ship }[/bold]
+    { "[mono][color=#1b487e]" }████░░████░░[/color][/mono]
+    { "[mono][color=#1b487e]" }████░░░████░[/color][/mono]
+    { "[mono][color=#1b487e]" }████░░░░████[/color][/mono]
 document-letterhead-security =
-    { "[mono][color=#003153]" }████░░░░████
-    ████░░░████░
-    ████░░████░░
-    ████░████░░░
-    ████░░████░░
-    ████░░░████░
-    ████░░░░████[/color][/mono]
-    { "[head=3][color=#003153]" }Форпост ОСК[/color][/head]
-    Департамент внутренней безопасности / Космический флот
+    { "[mono][color=#003153]" }████░░░░████[/color][/mono]
+    { "[mono][color=#003153]" }████░░░████░[/color]  [/mono][head=3]Бланк документа[/head]
+    { "[mono][color=#003153]" }████░░████░░[/color][/mono]
+    { "[mono][color=#003153]" }████░████░░░[/color]  [/mono][head=3]Форпост ОСК[/head]
+    { "[mono][color=#003153]" }████░░████░░[/color][/mono]
+    { "[mono][color=#003153]" }████░░░████░[/color][/mono]
+    { "[mono][color=#003153]" }████░░░░████[/color][/mono]
 document-letterhead-acorp =
-    { "[head=3][color=#354F66]" }Аколит Корпорейшн[/color][/head]
-    Командный центр / МНБ «Горизонт»
-    { "[color=#354F66]" }--------------------------------[/color]
+    { "[mono][color=black]" }██████░░░░░██████[/color][/mono]
+    { "[mono][color=black]" }█████░░███░░█████[/color]  [/mono][head=3]Бланк документа[/head]
+    { "[mono][color=black]" }█████░░░░░░░█████[/color]  [/mono][bold]{ $base }[/bold]
+    { "[mono][color=black]" }█████░░███░░█████[/color]  [/mono][head=3]Аколит Корпорейшн[/head]
+    { "[mono][color=black]" }█████░░███░░█████[/color][/mono]
 document-letterhead-separatists =
-    { "[head=3][color=#873D3D]" }Картель Сепаратистов[/color][/head]
-    Фракционная документация
-    { "[color=#873D3D]" }--------------------------------[/color]
+    { "[mono][color=#6e3b3b]" }█████░░░░░[/color][/mono]
+    { "[mono][color=#6e3b3b]" }██░░░░░░░░[/color]  [/mono][head=3]Бланк документа[/head]
+    { "[mono][color=#6e3b3b]" }██░░░░░░░░[/color][/mono]
+    { "[mono][color=#6e3b3b]" }██░░░░░░░░[/color]  [/mono][head=3]Картель Сепаратистов[/head]
+    { "[mono][color=#6e3b3b]" }█████░░░░░[/color][/mono]
 document-letterhead-medical =
-    { "[head=3][color=#28716B]" }Медицинская служба Фронтира[/color][/head]
-    Медицинская документация
-    { "[color=#28716B]" }--------------------------------[/color]
+    { "[mono][color=#28716b]" }░░░████░░░[/color][/mono]
+    { "[mono][color=#28716b]" }░░░████░░░[/color]  [/mono][head=3]Медицинская служба[/head]
+    { "[mono][color=#28716b]" }██████████[/color]  [/mono][bold]Фронтир[/bold]
+    { "[mono][color=#28716b]" }░░░████░░░[/color]  [/mono]Медицинская документация
+    { "[mono][color=#28716b]" }░░░████░░░[/color][/mono]
 
 document-category-frontier = Фронтир - общие документы
 document-category-security = Форпост ОСК - ДВБ и КФ
@@ -100,11 +113,16 @@ document-content-mercenary =
     Бланк сам по себе не предоставляет разрешений. Требуется оформление уполномоченным должностным лицом.
     Подписи и печати:
 document-content-arrest =
+    { "[head=3]" }Обвиняемый[/head]
     Обвиняемый: [form]
     Описание: [form]
+
+    { "[head=3]" }Сведения о правонарушении[/head]
     Номер дела: [form]
     Время и место правонарушения: [form]
     Обвинения: [form]
+
+    { "[head=3]" }Информация о заявителе[/head]
     Заявитель: [form]
     Уполномоченный сотрудник: [form]
 
@@ -153,6 +171,8 @@ document-content-acorp-work =
 document-content-acorp-artifact =
     Составитель и должность: [form]
     Получатель: [form]
+
+    { "[head=3]" }Результаты исследования[/head]
     Внешний вид артефакта: [form]
     Количество исследованных узлов: [form]
     Стимуляторы: [form]
@@ -167,6 +187,8 @@ document-content-acorp-anomaly =
     Ответственный и должность: [form]
     Тип аномалии: [form]
     Уровень угрозы: [form]
+
+    { "[head=3]" }Описание и принятые меры[/head]
     Описание события: [form]
     Принятые меры: [form]
     Статус инцидента: [form]
@@ -174,9 +196,12 @@ document-content-acorp-anomaly =
 
     Подписи и печати:
 document-content-separatist-sale =
+    { "[head=3]" }Раб[/head]
     Имя передаваемого лица: [form]
     Описание: [form]
     Состояние: [form]
+
+    { "[head=3]" }Сделка[/head]
     Продавец: Картель Сепаратистов
     Покупатель: [form]
     Сумма и валюта: [form]
@@ -185,8 +210,11 @@ document-content-separatist-sale =
     Фракционный документ Картеля. Не является разрешением властей Фронтира.
     Подписи сторон и печати:
 document-content-separatist-lease =
+    { "[head=3]" }Раб[/head]
     Имя передаваемого лица: [form]
     Описание и состояние: [form]
+
+    { "[head=3]" }Условия аренды[/head]
     Арендодатель: Картель Сепаратистов
     Арендатор: [form]
     Срок аренды: [form]
@@ -237,3 +265,85 @@ document-content-medical-consent =
     Заполнение бланка не заменяет фактического согласия пациента.
     Подпись пациента: [form]
     Подпись специалиста: [form]
+
+document-form-medical-examination = Медицинское заключение
+document-form-medical-referral = Направление на обследование
+document-form-medical-surgery = Протокол операции
+document-form-medical-discharge = Выписка из медицинской карты
+document-form-medical-prescription = Назначение лечения
+document-form-medical-death = Медицинское свидетельство о смерти
+document-content-medical-examination =
+    { "[head=3]" }Сведения о пациенте[/head]
+    Ф.И.О. и вид: [form]
+    Лечащий специалист: [form]
+    Время осмотра: [form]
+
+    { "[head=3]" }Результаты осмотра[/head]
+    Жалобы и анамнез: [form]
+    Объективное состояние и обследования: [form]
+    Заключение: [form]
+    Ограничения и рекомендации: [form]
+    Подпись специалиста: [form]
+document-content-medical-referral =
+    Пациент: [form]
+    Направляющий специалист: [form]
+    Медицинское подразделение / специалист: [form]
+    Срочность: [form]
+
+    { "[head=3]" }Основание направления[/head]
+    Жалобы и предварительное заключение: [form]
+    Требуемые обследования / консультация: [form]
+    Противопоказания и особые условия: [form]
+    Подпись специалиста: [form]
+document-content-medical-surgery =
+    Пациент: [form]
+    Оперирующий специалист и ассистенты: [form]
+    Основание вмешательства: [form]
+    Согласие пациента / основание экстренного вмешательства: [form]
+    Время начала и окончания: [form]
+
+    { "[head=3]" }Ход операции[/head]
+    Вмешательство и обезболивание: [form]
+    Импланты / удалённые ткани: [form]
+    Осложнения и принятые меры: [form]
+    Результат и состояние пациента: [form]
+    Послеоперационные назначения: [form]
+    Подпись специалиста: [form]
+document-content-medical-discharge =
+    Пациент: [form]
+    Время поступления и выписки: [form]
+    Лечащий специалист: [form]
+    Причина обращения / заключение: [form]
+
+    { "[head=3]" }Итоги лечения[/head]
+    Проведённые обследования и вмешательства: [form]
+    Состояние при выписке: [form]
+    Дальнейшее лечение и ограничения: [form]
+    Контрольный осмотр: [form]
+    Подпись специалиста: [form]
+document-content-medical-prescription =
+    Пациент: [form]
+    Назначивший специалист: [form]
+    Основание назначения: [form]
+
+    { "[head=3]" }План лечения[/head]
+    Препарат / процедура: [form]
+    Дозировка и способ применения: [form]
+    Частота и длительность: [form]
+    Ограничения и противопоказания: [form]
+    Контроль состояния и повторный осмотр: [form]
+    Назначение действительно после подписи медицинского специалиста.
+    Подпись специалиста: [form]
+document-content-medical-death =
+    Ф.И.О. умершего и вид: [form]
+    Способ установления личности: [form]
+    Дата, время и место обнаружения: [form]
+    Время констатации смерти: [form]
+
+    { "[head=3]" }Медицинское заключение[/head]
+    Признаки и предполагаемая причина смерти: [form]
+    Реанимационные мероприятия и результат: [form]
+    Возможность дальнейшего восстановления: [form]
+    Передача тела и личных вещей: [form]
+    Констатировавший специалист и подпись: [form]
+    Документ фиксирует медицинские обстоятельства и не заменяет расследование.

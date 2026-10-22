@@ -194,7 +194,7 @@ public sealed class SocialWorkshopTest
         using var reader = File.OpenText(Path.Combine(Resources, "Prototypes/_radiant/Paperwork/forms.yml"));
         yaml.Load(reader);
         var forms = ((YamlSequenceNode) yaml.Documents[0].RootNode).Children.Cast<YamlMappingNode>().ToArray();
-        Assert.That(forms.Length, Is.EqualTo(16));
+        Assert.That(forms.Length, Is.EqualTo(22));
         foreach (var locale in new[] { "ru-RU", "en-US" })
         {
             var text = File.ReadAllText(Path.Combine(Resources, "Locale", locale, "_radiant/paperwork.ftl"));

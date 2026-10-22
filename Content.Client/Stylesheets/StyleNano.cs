@@ -1653,6 +1653,19 @@ namespace Content.Client.Stylesheets
                 Element<LineEdit>().Class("PaperLineEdit")
                     .Prop(LineEdit.StylePropertyStyleBox, new StyleBoxEmpty()),
 
+                Element<LineEdit>().Class("PaperFormInput")
+                    .Prop("font-color", Color.FromHex("#264758"))
+                    .Prop(LineEdit.StylePropertyCursorColor, Color.FromHex("#264758"))
+                    .Prop(LineEdit.StylePropertySelectionColor, Color.FromHex("#A7BEC9"))
+                    .Prop(LineEdit.StylePropertyStyleBox, new StyleBoxFlat
+                    {
+                        BackgroundColor = Color.FromHex("#E2EBEF"),
+                        BorderColor = Color.FromHex("#6C8795"),
+                        BorderThickness = new Thickness(0, 0, 0, 1),
+                        ContentMarginLeftOverride = 5,
+                        ContentMarginRightOverride = 5,
+                    }),
+
                 // Red Button ---
                 Element<Button>().Class("ButtonColorRed")
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultRed),

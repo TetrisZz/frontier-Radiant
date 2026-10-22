@@ -1,11 +1,14 @@
 - type: entity
-  name: white office chair
+  name: grey office chair
   id: ChairOfficeGrey
   parent: RollingOfficeChairBase # Goobstation - rolling chair, definition under _Goobstation
   components:
   - type: Sprite
     sprite: _radiant/Structures/Furniture/chairs.rsi
     state: office-grey
+  - type: Construction
+    graph: RadiantChairs
+    node: chairOfficeGrey
 
 - type: entity
   name: удобное кресло

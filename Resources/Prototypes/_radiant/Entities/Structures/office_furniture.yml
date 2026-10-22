@@ -17,7 +17,7 @@
 - type: entity
   id: ChestDrawerRadiant
   parent: filingCabinetDrawer
-  name: тумба с ящиками
+  name: комод
   components:
   - type: Sprite
     sprite: _radiant/Structures/Storage/filing_cabinets.rsi
@@ -43,7 +43,7 @@
 - type: entity
   id: EmploymentCabinet
   parent: filingCabinet
-  name: шкаф отдела кадров
+  name: картотечный шкафчик
   description: Шкаф для личных дел и кадровых документов.
   components:
   - type: Sprite
@@ -53,21 +53,3 @@
     - state: employmentcabinet
     - state: employmentcabinet-open
       map: ["openLayer"]
-
-- type: entity
-  id: ChairOfficeWhiteRadiant
-  parent: ChairOfficeLight
-  name: белое офисное кресло
-  components:
-  - type: Sprite
-    sprite: _radiant/Structures/Furniture/office_chairs.rsi
-    state: officechair_white
-
-- type: entity
-  id: ChairOfficeDarkRadiant
-  parent: ChairOfficeLight
-  name: тёмное офисное кресло
-  components:
-  - type: Sprite
-    sprite: _radiant/Structures/Furniture/office_chairs.rsi
-    state: officechair_dark

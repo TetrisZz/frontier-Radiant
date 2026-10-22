@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Server._radiant.Fishing;
 using Content.Server._radiant.Social;
 using Content.Server._radiant.Dossiers;
+using Content.Server._radiant.GameRule.Components;
 using Content.Server.Power.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
@@ -28,6 +29,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Maths;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Server.GameObjects;
 using ServerHands = Content.Server.Hands.Systems.HandsSystem;
 
 namespace Content.IntegrationTests.Tests.Utility;
@@ -35,6 +37,48 @@ namespace Content.IntegrationTests.Tests.Utility;
 [TestFixture]
 public sealed class SocialWorkshopBehaviorTest
 {
+    [Test]
+    public async Task PhotocopierUsesTheLoadedResearchBaseAndPreviewsThePrintedMedicalForms()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+        var baseMap = await pair.CreateTestMap();
+        var shuttleMap = await pair.CreateTestMap();
+        await pair.Server.WaitAssertion(() =>
+        {
+            var em = pair.Server.ResolveDependency<IEntityManager>();
+            var metadata = em.System<MetaDataSystem>();
+            var marker = em.SpawnEntity(null, baseMap.GridCoords);
+            em.AddComponent<AcolithComponent>(marker);
+            var baseGrid = em.GetComponent<TransformComponent>(marker).GridUid!.Value;
+            var user = em.SpawnEntity("MobHumanDummy", shuttleMap.GridCoords);
+            var copier = em.SpawnEntity("Photocopier", shuttleMap.GridCoords);
+            var component = em.GetComponent<PhotocopierComponent>(copier);
+            em.GetComponent<ApcPowerReceiverComponent>(copier).Powered = true;
+            string Print(string form)
+            {
+                component.ReadyAt = TimeSpan.Zero;
+                var before = em.EntityQuery<PaperComponent>().ToHashSet();
+                em.EventBus.RaiseLocalEvent(copier,
+                    new PhotocopierPrintMessage(form, 1) { Actor = user, UiKey = PhotocopierUiKey.Key });
+                var printed = em.EntityQuery<PaperComponent>().Single(paper => !before.Contains(paper));
+                Assert.That(em.System<UserInterfaceSystem>().TryGetUiState<PhotocopierUiState>(copier, PhotocopierUiKey.Key, out var state), Is.True);
+                Assert.That(state!.Forms.Single(entry => entry.Id == form).Content, Is.EqualTo(printed.Content), "Preview and output must use the same layout and print metadata.");
+                return printed.Content;
+            }
+
+            metadata.SetEntityName(baseGrid, "МНБ Горизонт");
+            Assert.That(Print("AcorpDocument"), Does.Contain("МНБ Горизонт"));
+            metadata.SetEntityName(baseGrid, "МНБ Икарус");
+            Assert.That(Print("AcorpWorkReport"), Does.Contain("МНБ Икарус").And.Not.Contain("Горизонт"));
+            foreach (var id in new[] { "MedicalConsent", "MedicalExamination", "MedicalReferral", "MedicalSurgeryReport", "MedicalDischarge", "MedicalPrescription", "MedicalDeathCertificate" })
+                Assert.That(Print(id), Does.Contain("[color=#28716b]").And.Contain("[form]").And.Contain(PaperworkClock.Date(DateTimeOffset.UtcNow)));
+            em.RemoveComponent<AcolithComponent>(marker);
+            Assert.That(Print("AcorpDocument"), Does.Contain("[form]").And.Not.Contain("Горизонт").And.Not.Contain("Икарус"), "No base must not imply a hard-coded Horizon.");
+        });
+        TestContext.Out.WriteLine("All research-base, medical template, and print-preview assertions passed.");
+        await pair.CleanReturnAsync();
+    }
+
     [Test]
     public async Task TattooRequiresRecipientConsentAndRevocationDoesNotSpendInk()
     {

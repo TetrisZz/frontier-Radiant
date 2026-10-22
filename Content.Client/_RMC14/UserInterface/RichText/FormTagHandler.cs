@@ -9,7 +9,7 @@ using Content.Client._radiant.Paperwork;
 namespace Content.Client.UserInterface.RichText;
 
 /// <summary>
-/// Converts [form] tags into clickable buttons that open fill-in dialogs.
+/// Converts [form] tags into inline document fields.
 /// </summary>
 public sealed class FormTagHandler : IMarkupTagHandler
 {
@@ -109,7 +109,8 @@ public sealed class FormTagHandler : IMarkupTagHandler
     /// </summary>
     public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
-        var btn = new PaperFormButton(FontLineHeight);
+        var field = new PaperFormField(FontLineHeight);
+        var btn = field.Button;
 
         var formIndex = GetFormIndex(node);
         btn.Name = $"form_{formIndex}";
@@ -125,11 +126,11 @@ public sealed class FormTagHandler : IMarkupTagHandler
             {
                 // Count buttons to determine which [form] tag this represents
                 var buttonIndex = CountFormButtonsBefore(btn);
-                paperWindow.OpenFormDialog(buttonIndex);
+                paperWindow.BeginFormEntry(buttonIndex);
             }
         };
 
-        control = btn;
+        control = field;
         return true;
     }
 }
