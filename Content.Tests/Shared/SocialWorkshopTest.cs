@@ -83,7 +83,7 @@ public sealed class SocialWorkshopTest
     public void NewPaperworkAndConsentStatesRoundTripThroughNetworkSerializer()
     {
         var roots = new[] { typeof(PhotocopierUiState), typeof(PhotocopierPrintMessage), typeof(PhotocopierUiKey),
-            typeof(DocumentFormEntry), typeof(TattooUiState), typeof(TattooUiKey), typeof(TextTattoo),
+            typeof(DocumentFormEntry), typeof(PhotocopierVisuals), typeof(TattooUiState), typeof(TattooUiKey), typeof(TextTattoo),
             typeof(TattooProposeMessage), typeof(TattooConsentMessage), typeof(SaunaVisuals),
             typeof(HairAccessoryUiKey), typeof(HairAccessoryUiState), typeof(HairAccessorySelectMessage),
             typeof(FishScannerUiKey), typeof(FishScannerUiState), typeof(FishScanEntry),
@@ -211,6 +211,7 @@ public sealed class SocialWorkshopTest
     }
 
     [TestCase("Structures/Machines/photocopier.rsi", "photocopier", 1)]
+    [TestCase("Structures/Machines/photocopier.rsi", "photocopier1", 1)]
     [TestCase("Objects/Devices/printer_toner.rsi", "toner", 1)]
     [TestCase("Clothing/Head/HairAccessories/hair_tie.rsi", "hair_clip_equipped", 4)]
     [TestCase("Objects/Tools/tattoo_machine.rsi", "machine", 1)]

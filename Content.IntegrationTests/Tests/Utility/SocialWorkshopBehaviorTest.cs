@@ -53,6 +53,8 @@ public sealed class SocialWorkshopBehaviorTest
             var user = em.SpawnEntity("MobHumanDummy", shuttleMap.GridCoords);
             var copier = em.SpawnEntity("Photocopier", shuttleMap.GridCoords);
             var component = em.GetComponent<PhotocopierComponent>(copier);
+            component.Forms = ["AcorpDocument", "AcorpWorkReport", "MedicalConsent", "MedicalExamination",
+                "MedicalReferral", "MedicalSurgeryReport", "MedicalDischarge", "MedicalPrescription", "MedicalDeathCertificate"];
             em.GetComponent<ApcPowerReceiverComponent>(copier).Powered = true;
             string Print(string form)
             {
@@ -143,6 +145,7 @@ public sealed class SocialWorkshopBehaviorTest
             var user = em.SpawnEntity("MobHumanDummy", map.GridCoords);
             var copier = em.SpawnEntity("Photocopier", map.GridCoords);
             var printer = em.GetComponent<PhotocopierComponent>(copier);
+            printer.Forms = ["GeneralDocument"];
             var power = em.GetComponent<ApcPowerReceiverComponent>(copier);
             power.Powered = true;
             void Print(string? form, int copies = 1)

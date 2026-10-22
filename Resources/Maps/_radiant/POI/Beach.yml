@@ -4,8 +4,8 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/21/2026 21:06:11
-  entityCount: 10191
+  time: 10/21/2026 21:31:44
+  entityCount: 10233
 maps: []
 grids:
 - 1
@@ -9638,7 +9638,7 @@ entities:
           -4,4:
             0: 56575
           -4,5:
-            0: 64735
+            0: 64733
           -4,6:
             0: 61439
           -3,1:
@@ -10311,6 +10311,29 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 10.5,28.5
+  - uid: 10215
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 12.5,32.5
+  - uid: 10216
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 19.5,-42.5
+  - uid: 10217
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-38.5
+  - uid: 10218
+    components:
+    - type: Transform
+      parent: 1
+      pos: 24.5,-34.5
 - proto: AlwaysPoweredWallLight
   entities:
   - uid: 4770
@@ -24014,6 +24037,36 @@ entities:
     - type: Transform
       parent: 1
       pos: 24.5,5.5
+  - uid: 10195
+    components:
+    - type: Transform
+      parent: 1
+      pos: 6.5,3.5
+  - uid: 10196
+    components:
+    - type: Transform
+      parent: 1
+      pos: 7.5,3.5
+  - uid: 10197
+    components:
+    - type: Transform
+      parent: 1
+      pos: 8.5,3.5
+  - uid: 10198
+    components:
+    - type: Transform
+      parent: 1
+      pos: 9.5,3.5
+  - uid: 10199
+    components:
+    - type: Transform
+      parent: 1
+      pos: 10.5,3.5
+  - uid: 10200
+    components:
+    - type: Transform
+      parent: 1
+      pos: 10.5,4.5
 - proto: CableHV
   entities:
   - uid: 184
@@ -35266,7 +35319,7 @@ entities:
     components:
     - type: Transform
       parent: 1
-      pos: 32.00719,-16.703163
+      pos: 32.61986,-16.942436
   - uid: 4903
     components:
     - type: Transform
@@ -35645,6 +35698,7 @@ entities:
       pos: 3.5,48.5
       anchored: True
     - type: Physics
+      canCollide: False
       bodyType: Static
   - uid: 8276
     components:
@@ -35653,6 +35707,7 @@ entities:
       pos: 9.5,48.5
       anchored: True
     - type: Physics
+      canCollide: False
       bodyType: Static
   - uid: 8277
     components:
@@ -35679,6 +35734,7 @@ entities:
       pos: 3.5,-46.5
       anchored: True
     - type: Physics
+      canCollide: False
       bodyType: Static
   - uid: 8280
     components:
@@ -35696,6 +35752,7 @@ entities:
       pos: 9.5,-59.5
       anchored: True
     - type: Physics
+      canCollide: False
       bodyType: Static
   - uid: 8282
     components:
@@ -35704,6 +35761,7 @@ entities:
       pos: 3.5,-59.5
       anchored: True
     - type: Physics
+      canCollide: False
       bodyType: Static
 - proto: FloorWaterEntity
   entities:
@@ -54281,8 +54339,7 @@ entities:
     components:
     - type: Transform
       parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 7.5,56.5
+      pos: 8.5,60.5
   - uid: 9376
     components:
     - type: Transform
@@ -54335,8 +54392,89 @@ entities:
     components:
     - type: Transform
       parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-61.5
+  - uid: 10219
+    components:
+    - type: Transform
+      parent: 1
       rot: -1.5707963267948966 rad
-      pos: 7.5,-67.5
+      pos: 25.5,50.5
+  - uid: 10220
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 9.5,-64.5
+  - uid: 10222
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 8.5,-71.5
+  - uid: 10223
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 25.5,54.5
+  - uid: 10224
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 3.5,-64.5
+  - uid: 10225
+    components:
+    - type: Transform
+      parent: 1
+      pos: 3.5,53.5
+  - uid: 10226
+    components:
+    - type: Transform
+      parent: 1
+      pos: 4.5,60.5
+  - uid: 10227
+    components:
+    - type: Transform
+      parent: 1
+      pos: 9.5,53.5
+  - uid: 10228
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -12.5,54.5
+  - uid: 10229
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -12.5,50.5
+  - uid: 10230
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 25.5,-65.5
+  - uid: 10231
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 25.5,-61.5
+  - uid: 10232
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 4.5,-71.5
+  - uid: 10233
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-65.5
 - proto: PoweredlightOrange
   entities:
   - uid: 3827
@@ -54675,6 +54813,13 @@ entities:
       parent: 4102
     - type: Physics
       canCollide: False
+- proto: RadiantBasketballHoop
+  entities:
+  - uid: 10221
+    components:
+    - type: Transform
+      parent: 1
+      pos: 30.5,-25.5
 - proto: RadiantCrateFishingGear
   entities:
   - uid: 4107
@@ -61421,6 +61566,91 @@ entities:
     - type: Transform
       parent: 1
       pos: 30.5,-0.5
+- proto: SpawnMobButterfly
+  entities:
+  - uid: 10203
+    components:
+    - type: Transform
+      parent: 1
+      pos: 34.5,-12.5
+  - uid: 10204
+    components:
+    - type: Transform
+      parent: 1
+      pos: 11.5,-15.5
+  - uid: 10205
+    components:
+    - type: Transform
+      parent: 1
+      pos: 7.5,6.5
+  - uid: 10206
+    components:
+    - type: Transform
+      parent: 1
+      pos: -17.5,-3.5
+  - uid: 10207
+    components:
+    - type: Transform
+      parent: 1
+      pos: -16.5,-24.5
+  - uid: 10208
+    components:
+    - type: Transform
+      parent: 1
+      pos: 2.5,-26.5
+  - uid: 10209
+    components:
+    - type: Transform
+      parent: 1
+      pos: 3.5,-41.5
+  - uid: 10210
+    components:
+    - type: Transform
+      parent: 1
+      pos: -15.5,7.5
+  - uid: 10211
+    components:
+    - type: Transform
+      parent: 1
+      pos: -8.5,24.5
+- proto: SpawnMobJudaEmotionalSupport
+  entities:
+  - uid: 10201
+    components:
+    - type: Transform
+      parent: 1
+      pos: 21.5,-22.5
+- proto: SpawnMobKangarooWillow
+  entities:
+  - uid: 10202
+    components:
+    - type: Transform
+      parent: 1
+      pos: -17.5,-11.5
+- proto: SpawnMobMonkeyPunpun
+  entities:
+  - uid: 10194
+    components:
+    - type: Transform
+      parent: 1
+      pos: 20.5,-29.5
+- proto: SpawnMobParrot
+  entities:
+  - uid: 10212
+    components:
+    - type: Transform
+      parent: 1
+      pos: 21.5,-4.5
+  - uid: 10213
+    components:
+    - type: Transform
+      parent: 1
+      pos: 21.5,-29.5
+  - uid: 10214
+    components:
+    - type: Transform
+      parent: 1
+      pos: 33.5,-13.5
 - proto: StairDark
   entities:
   - uid: 3033
@@ -66076,6 +66306,18 @@ entities:
     - type: Transform
       parent: 1
       pos: -14.5,22.5
+  - uid: 10193
+    components:
+    - type: Transform
+      parent: 1
+      pos: -14.5,20.5
+- proto: WarpPoint
+  entities:
+  - uid: 10192
+    components:
+    - type: Transform
+      parent: 1
+      pos: 6.5,-9.5
 - proto: WeaponLauncherRocketToy
   entities:
   - uid: 4987
@@ -66504,7 +66746,7 @@ entities:
       pos: 21.5,20.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -27923.336
+      secondsUntilStateChange: -28708.824
   - uid: 3789
     components:
     - type: Transform

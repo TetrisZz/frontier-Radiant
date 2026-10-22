@@ -6,8 +6,40 @@
   components:
   - type: Sprite
     sprite: _radiant/Structures/Machines/photocopier.rsi
-    state: photocopier
+    layers:
+    - state: photocopier
+      map: ["body"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PhotocopierVisuals.Printing:
+        body:
+          True: { state: photocopier1 }
+          False: { state: photocopier }
   - type: Photocopier
+    printDuration: 2
+    # Available documentForm IDs. Use [] to allow copying originals only.
+    forms:
+    - GeneralDocument
+    - SalaryRequest
+    - MercenaryLicense
+    - ArrestWarrant
+    - SearchWarrant
+    - FineNotice
+    - AcorpDocument
+    - AcorpWorkReport
+    - AcorpArtifactReport
+    - AcorpAnomalyReport
+    - ShuttleCrewContract
+    - ExpeditionReport
+    - CargoHandover
+    - MedicalConsent
+    - MedicalExamination
+    - MedicalReferral
+    - MedicalSurgeryReport
+    - MedicalDischarge
+    - MedicalPrescription
+    - MedicalDeathCertificate
   - type: ApcPowerReceiver
     powerLoad: 250
   - type: ActivatableUI

@@ -18,6 +18,11 @@ public sealed partial class DocumentFormPrototype : IPrototype
 [RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class PhotocopierComponent : Component
 {
+    /// <summary>
+    /// The available documentForm IDs. An empty list permits copying originals only.
+    /// </summary>
+    [DataField] public List<ProtoId<DocumentFormPrototype>> Forms = new();
+    [DataField] public TimeSpan PrintDuration = TimeSpan.FromSeconds(2);
     [DataField] public int Paper = 20;
     [DataField] public int Capacity = 200;
     [DataField] public int Ink = 100;
@@ -37,6 +42,9 @@ public static class PaperworkClock
 
 [Serializable, NetSerializable]
 public enum PhotocopierUiKey : byte { Key }
+
+[Serializable, NetSerializable]
+public enum PhotocopierVisuals : byte { Printing }
 
 [Serializable, NetSerializable]
 public sealed record DocumentFormEntry(string Id, string Name, string Category, string Content);

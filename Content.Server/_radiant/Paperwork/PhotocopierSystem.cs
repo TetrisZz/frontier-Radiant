@@ -45,6 +45,8 @@ public sealed class PhotocopierSystem : EntitySystem
         });
         SubscribeLocalEvent<PhotocopierComponent, InteractUsingEvent>(OnRefill);
         SubscribeLocalEvent<PhotocopierComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<PhotocopierComponent, MapInitEvent>((Entity<PhotocopierComponent> ent, ref MapInitEvent _) => UpdateState(ent));
+        SubscribeLocalEvent<PhotocopierComponent, PowerChangedEvent>((Entity<PhotocopierComponent> ent, ref PowerChangedEvent _) => UpdateState(ent));
         SubscribeLocalEvent<PhotocopierComponent, EntInsertedIntoContainerMessage>((Entity<PhotocopierComponent> ent, ref EntInsertedIntoContainerMessage _) => UpdateState(ent));
         SubscribeLocalEvent<PhotocopierComponent, EntRemovedFromContainerMessage>((Entity<PhotocopierComponent> ent, ref EntRemovedFromContainerMessage _) => UpdateState(ent));
     }
@@ -67,7 +69,7 @@ public sealed class PhotocopierSystem : EntitySystem
         PaperComponent? original = null;
         if (args.Form is { } formId)
         {
-            if (!_prototypes.TryIndex<DocumentFormPrototype>(formId, out var form))
+            if (!ent.Comp.Forms.Contains(formId) || !_prototypes.TryIndex<DocumentFormPrototype>(formId, out var form))
                 return;
             if (!TryRenderForm(ent, form, out title, out content))
             {
@@ -104,7 +106,7 @@ public sealed class PhotocopierSystem : EntitySystem
         }
         ent.Comp.Paper -= args.Copies;
         ent.Comp.Ink -= args.Copies;
-        ent.Comp.ReadyAt = _timing.CurTime + TimeSpan.FromSeconds(args.Copies * 1.5);
+        ent.Comp.ReadyAt = _timing.CurTime + ent.Comp.PrintDuration * args.Copies;
         _audio.PlayPvs(new SoundCollectionSpecifier("PrinterPrint"), ent);
         UpdateState(ent);
     }
@@ -157,14 +159,17 @@ public sealed class PhotocopierSystem : EntitySystem
 
     private void UpdateState(Entity<PhotocopierComponent> ent)
     {
+        var powered = TryComp<ApcPowerReceiverComponent>(ent, out var power) && power.Powered;
+        var printing = ent.Comp.ReadyAt > _timing.CurTime;
+        _appearance.SetData(ent, PhotocopierVisuals.Printing, powered && printing);
         var forms = new List<DocumentFormEntry>();
-        foreach (var form in _prototypes.EnumeratePrototypes<DocumentFormPrototype>())
+        foreach (var id in ent.Comp.Forms.Distinct())
         {
-            if (TryRenderForm(ent, form, out var title, out var content))
+            if (_prototypes.TryIndex(id, out var form) && TryRenderForm(ent, form, out var title, out var content))
                 forms.Add(new DocumentFormEntry(form.ID, title, Loc.GetString(form.Category), content));
         }
         _ui.SetUiState(ent.Owner, PhotocopierUiKey.Key, new PhotocopierUiState(forms.OrderBy(f => f.Category).ThenBy(f => f.Name).ToList(), ent.Comp.Paper, ent.Comp.Ink,
-            _slots.GetItemOrNull(ent, "original") != null, ent.Comp.ReadyAt <= _timing.CurTime));
+            _slots.GetItemOrNull(ent, "original") != null, powered && !printing));
     }
 
     private bool TryRenderForm(EntityUid printer, DocumentFormPrototype form, out string title, out string content)

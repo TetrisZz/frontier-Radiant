@@ -62,6 +62,14 @@ public sealed class PhotocopierLayoutTest
             prototypesManager.LoadString(File.ReadAllText(Path.Combine(resources, "Prototypes/themes.yml")));
             prototypesManager.ResolveResults();
             IoCManager.Resolve<IUserInterfaceManager>().SetDefaultTheme("SS14DefaultTheme");
+            var copierSprite = IoCManager.Resolve<IResourceCache>().GetResource<RSIResource>(
+                new ResPath("/Textures/_radiant/Structures/Machines/photocopier.rsi")).RSI;
+            Assert.That(copierSprite.TryGetState("photocopier1", out var printing), Is.True);
+            Assert.That(printing!.IsAnimated, Is.True);
+            Assert.That(printing.DelayCount, Is.EqualTo(40));
+            Assert.That(printing.AnimationLength, Is.EqualTo(2).Within(0.0001));
+            Assert.That(copierSprite.TryGetState("photocopier", out var idle), Is.True);
+            Assert.That(idle!.IsAnimated, Is.False);
             // Register the production handlers without starting the rest of the content modules.
             var tagManager = IoCManager.Resolve<MarkupTagManager>();
             var tags = (Dictionary<string, IMarkupTagHandler>) typeof(MarkupTagManager)
@@ -76,6 +84,15 @@ public sealed class PhotocopierLayoutTest
             using var reader = File.OpenText(Path.Combine(resources, "Prototypes/_radiant/Paperwork/forms.yml"));
             yaml.Load(reader);
             var prototypes = ((YamlSequenceNode) yaml.Documents[0].RootNode).Children.Cast<YamlMappingNode>().ToArray();
+            var copierYaml = new YamlStream();
+            using var copierReader = File.OpenText(Path.Combine(resources, "Prototypes/_radiant/Entities/Structures/Machines/photocopier.yml"));
+            copierYaml.Load(copierReader);
+            var copier = ((YamlSequenceNode) copierYaml.Documents[0].RootNode).Children.Cast<YamlMappingNode>()
+                .Single(node => node.Children[new YamlScalarNode("id")].ToString() == "Photocopier");
+            var configuration = ((YamlSequenceNode) copier.Children[new YamlScalarNode("components")]).Children.Cast<YamlMappingNode>()
+                .Single(node => node.Children[new YamlScalarNode("type")].ToString() == "Photocopier");
+            var configuredForms = ((YamlSequenceNode) configuration.Children[new YamlScalarNode("forms")]).Children
+                .Select(node => node.ToString()).ToHashSet();
             foreach (var locale in new[] { "ru-RU", "en-US" })
             {
                 var culture = CultureInfo.GetCultureInfo(locale);
@@ -108,8 +125,9 @@ public sealed class PhotocopierLayoutTest
                     var letterhead = Translate(prototype, "letterhead");
                     Assert.That(body, Does.Contain("[form]").And.Not.Contain("___"));
                     Assert.That(letterhead, Does.Contain("[head=3]").And.Contain("[color=").And.Not.Contain("\u2605"));
-                    forms.Add(new(Value(prototype, "id"), title, Translate(prototype, "category"),
-                        letterhead + "\n\n[head=2]" + title + "[/head]\n\n" + body));
+                    if (configuredForms.Contains(Value(prototype, "id")))
+                        forms.Add(new(Value(prototype, "id"), title, Translate(prototype, "category"),
+                            letterhead + "\n\n[head=2]" + title + "[/head]\n\n" + body));
                 }
                 var theme = new StyleNano(IoCManager.Resolve<IResourceCache>()).Stylesheet;
                 using var window = new PhotocopierWindow { Stylesheet = theme };
@@ -122,7 +140,7 @@ public sealed class PhotocopierLayoutTest
                     Assert.That(window.DesiredSize.X, Is.LessThanOrEqualTo(size.X));
                     Assert.That(window.DesiredSize.Y, Is.LessThanOrEqualTo(size.Y));
                     var buttons = Descendants(window).OfType<BaseButton>().Where(b => b.Name == "PhotocopierForm").ToArray();
-                    Assert.That(buttons.Length, Is.EqualTo(22));
+                    Assert.That(buttons.Length, Is.EqualTo(configuredForms.Count));
                     foreach (var button in buttons)
                     {
                         var label = Descendants(button).OfType<RichTextLabel>().Single();
@@ -145,6 +163,10 @@ public sealed class PhotocopierLayoutTest
                     foreach (var action in Descendants(window).OfType<BaseButton>().Where(b => b.Name is "PhotocopierPrint" or "PhotocopierCopy"))
                         Assert.That(action.GlobalPosition.X + action.Size.X, Is.LessThanOrEqualTo(size.X));
                 }
+                window.Update(new PhotocopierUiState([], 20, 100, true, true));
+                Assert.That(Descendants(window).OfType<BaseButton>().Any(button => button.Name == "PhotocopierForm"), Is.False);
+                Assert.That(Descendants(window).OfType<BaseButton>().Single(button => button.Name == "PhotocopierPrint").Disabled, Is.True);
+                Assert.That(Descendants(window).OfType<BaseButton>().Single(button => button.Name == "PhotocopierCopy").Disabled, Is.False, "An empty catalog still permits copying originals.");
                 CheckPaperFields(theme, locale);
             }
         });
