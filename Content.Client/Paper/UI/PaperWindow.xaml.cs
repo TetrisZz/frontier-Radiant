@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Shared.Paper;
 using Content.Shared._radiant.Dossiers;
 using Content.Client._radiant.Passports;
+using Content.Client._radiant.Paperwork;
 using Content.Client.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -24,6 +25,7 @@ using Robust.Client.UserInterface.RichText;
 using Content.Client.UserInterface.RichText;
 using Robust.Shared.Input;
 using Robust.Shared.IoC; // RMC14
+using Robust.Shared.Timing;
 
 namespace Content.Client.Paper.UI
 {
@@ -77,6 +79,9 @@ namespace Content.Client.Paper.UI
         public event Action? Typing; // DeltaV
         public event Action? SubmitPressed; // DeltaV
         public event Action<int>? OnSignatureRequested; // RMC14
+        public Func<bool>? CanFillForms { get; set; }
+        private PaperFormField? _activeFormField;
+        private bool? _canFillForms;
 
         private int _MaxInputLength = -1;
         public int MaxInputLength
@@ -433,16 +438,19 @@ namespace Content.Client.Paper.UI
             // Radiant Sector: the BUI already hides the real language from readers who do not understand it.
             LanguageLabel.Text = Loc.GetString("paper-ui-language-label", ("language", state.Language ?? Loc.GetString("paper-ui-language-common")));
             LanguageLabel.Visible = state.Text.Length > 0 && state.Language != null;
-            bool isEditing = state.Mode == PaperComponent.PaperAction.Write;
+            var contentChanged = _currentState == null || state.Text != _currentRawText;
+            if (contentChanged)
+            {
+                _activeFormField?.CancelEdit();
+                _activeFormField = null;
+            }
+            bool isEditing = state.Mode == PaperComponent.PaperAction.Write && !state.Text.Contains("[form]", StringComparison.Ordinal);
             bool wasEditing = InputContainer.Visible;
             _currentState = state;
             _currentRawText = state.Text;
             // Show/hide UI elements based on edit mode
             InputContainer.Visible = isEditing;
             EditButtons.Visible = isEditing;
-
-            var msg = new FormattedMessage();
-            msg.AddMarkupPermissive(state.Text);
 
             // For premade documents, we want to be able to edit them rather than
             // replace them.
@@ -458,37 +466,25 @@ namespace Content.Client.Paper.UI
                 Input.InsertAtCursor(state.Text);
             }
 
-            // for (var i = 0; i <= state.StampedBy.Count * 3 + 1; i++) // Frontier
-            // { // Frontier
-            //     msg.AddMarkupPermissive("\r\n"); // Frontier
-            // } // Frontier
-
-            // Frontier: signatures shouldn't walk off the page
-            if (state.StampedBy.Count > 0)
-            {
-                for (int i = 0; i < 6; i++)
-                    msg.AddMarkupPermissive("\r\n");
-            }
-            // End Frontier
-
-            WrittenTextLabel.SetMessage(msg, _allowedTags, DefaultTextColor);
-
             WrittenTextLabel.Visible = !isEditing && state.Text.Length > 0;
             BlankPaperIndicator.Visible = !isEditing && state.Text.Length == 0;
 
             // Begin RMC14
             // Reset form, signature, and check counters before processing to ensure consistent indexing
             // This is crucial because the tag handlers maintain state between renders
-            FormTagHandler.SetFormText(state.Text);
-            FormTagHandler.ResetFormCounter();
-            SignatureTagHandler.ResetSignatureCounter();
-            CheckTagHandler.ResetCheckCounter();
+            // Opening the same sheet elsewhere must not discard an in-progress field entry.
+            if (contentChanged)
+            {
+                FormTagHandler.SetFormText(state.Text);
+                FormTagHandler.ResetFormCounter();
+                SignatureTagHandler.ResetSignatureCounter();
+                CheckTagHandler.ResetCheckCounter();
 
-            // Display text with markup processing (forms, signatures, colors, etc.)
-            // The markup system converts [form] and [signature] tags into interactive buttons
-            var fm = new FormattedMessage();
-            fm.AddMarkupPermissive(state.Text);
-            WrittenTextLabel.SetMessage(fm, _allowedTags, DefaultTextColor);
+                var fm = new FormattedMessage();
+                fm.AddMarkupPermissive(state.Text);
+                WrittenTextLabel.SetMessage(fm, _allowedTags, DefaultTextColor);
+            }
+            RefreshFormPermissions(force: true);
 
             // Add extra bottom margin based on tag count to prevent cutoff (only in read mode)
             var tagCount = CountTags(state.Text);
@@ -579,69 +575,61 @@ namespace Content.Client.Paper.UI
         }
 
         /// <summary>
-        /// Opens a modal dialog allowing the user to fill in a specific [form] tag.
-        /// Creates a popup with text input, OK/Cancel buttons, and handles form submission.
+        /// Replaces a field's button with a text input on the page itself.
         /// </summary>
         /// <param name="formIndex">Zero-based index of which [form] tag to replace</param>
-        public void OpenFormDialog(int formIndex)
+        public void BeginFormEntry(int formIndex)
         {
-            // Find and highlight the form button
-            var formButton = FindFormButton(formIndex);
-            if (formButton != null)
-                formButton.ModulateSelfOverride = Color.LightBlue;
+            if (CanFillForms?.Invoke() != true || FindFormButton(formIndex)?.Parent is not PaperFormField field)
+                return;
 
-            // Create the popup dialog structure
-            var popup = new Popup();
-            var vbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(10) };
-            var editContainer = new PanelContainer { StyleClasses = { "TransparentBorderedWindowPanel" } };
-            var edit = new LineEdit { MinSize = new Vector2(200, 0), Margin = new Thickness(5) };
-            var hbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal };
-            var ok = new Button { Text = Loc.GetString("paper-form-dialog-ok") };
-            var cancel = new Button { Text = Loc.GetString("paper-form-dialog-cancel") };
-
-            editContainer.AddChild(edit);
-
-            // Handle OK button press - save the form data if text was entered
-            ok.OnPressed += _ =>
+            _activeFormField?.CancelEdit();
+            _activeFormField = field;
+            var original = _currentRawText;
+            field.BeginEdit(text =>
             {
-                if (!string.IsNullOrEmpty(edit.Text))
-                {
-                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
-                    OnSaved?.Invoke(newText);
-                }
-                if (formButton != null)
-                    formButton.ModulateSelfOverride = null;
-                popup.Close();
-            };
+                _activeFormField = null;
+                if (CanFillForms?.Invoke() != true || original != _currentRawText || string.IsNullOrWhiteSpace(text))
+                    return;
 
-            // Handle Cancel button - just close without saving
-            cancel.OnPressed += _ =>
+                var updated = ReplaceNthFormTag(original, formIndex, FormattedMessage.EscapeText(text));
+                if (MaxInputLength != -1 && updated.Length > MaxInputLength)
+                    return;
+
+                OnSaved?.Invoke(updated);
+            });
+        }
+
+        protected override void FrameUpdate(FrameEventArgs args)
+        {
+            base.FrameUpdate(args);
+            RefreshFormPermissions();
+        }
+
+        private void RefreshFormPermissions(bool force = false)
+        {
+            var allowed = CanFillForms?.Invoke() == true;
+            if (!force && _canFillForms == allowed)
+                return;
+
+            _canFillForms = allowed;
+            SetFormPermissions(WrittenTextLabel, allowed);
+            if (!allowed)
             {
-                if (formButton != null)
-                    formButton.ModulateSelfOverride = null;
-                popup.Close();
-            };
+                _activeFormField?.CancelEdit();
+                _activeFormField = null;
+            }
+        }
 
-            // Handle Enter key in text field - same as OK button
-            edit.OnTextEntered += _ =>
+        private static void SetFormPermissions(Control control, bool allowed)
+        {
+            if (control is PaperFormButton button)
             {
-                if (!string.IsNullOrEmpty(edit.Text))
-                {
-                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
-                    OnSaved?.Invoke(newText);
-                }
-                popup.Close();
-            };
-
-            // Assemble the dialog layout and show it
-            hbox.AddChild(ok);
-            hbox.AddChild(cancel);
-            vbox.AddChild(editContainer);
-            vbox.AddChild(hbox);
-            popup.AddChild(vbox);
-            AddChild(popup);
-            popup.Open();
-            edit.GrabKeyboardFocus(); // Focus the text input for immediate typing
+                button.Disabled = !allowed;
+                button.ToolTip = allowed ? null : Loc.GetString("paper-form-writing-required");
+            }
+            foreach (var child in control.Children)
+                SetFormPermissions(child, allowed);
         }
 
         /// <summary>
@@ -658,7 +646,7 @@ namespace Content.Client.Paper.UI
         /// </summary>
         private Button? FindFormButton(int formIndex)
         {
-            return FindButtonRecursive(WrittenTextLabel, "Fill", formIndex);
+            return FindButtonRecursive(WrittenTextLabel, formIndex);
         }
 
         /// <summary>
@@ -698,17 +686,17 @@ namespace Content.Client.Paper.UI
         }
 
         /// <summary>
-        /// Recursively searches for a button with specific text and index.
+        /// Finds a field by document order, independently of its localized label.
         /// </summary>
-        private Button? FindButtonRecursive(Control control, string buttonText, int targetIndex)
+        private Button? FindButtonRecursive(Control control, int targetIndex)
         {
             var currentIndex = 0;
-            return FindButtonRecursiveHelper(control, buttonText, targetIndex, ref currentIndex);
+            return FindButtonRecursiveHelper(control, targetIndex, ref currentIndex);
         }
 
-        private Button? FindButtonRecursiveHelper(Control control, string buttonText, int targetIndex, ref int currentIndex)
+        private Button? FindButtonRecursiveHelper(Control control, int targetIndex, ref int currentIndex)
         {
-            if (control is Button btn && btn.Text == buttonText)
+            if (control is PaperFormButton btn)
             {
                 if (currentIndex == targetIndex)
                     return btn;
@@ -717,7 +705,7 @@ namespace Content.Client.Paper.UI
 
             foreach (Control child in control.Children)
             {
-                var result = FindButtonRecursiveHelper(child, buttonText, targetIndex, ref currentIndex);
+                var result = FindButtonRecursiveHelper(child, targetIndex, ref currentIndex);
                 if (result != null)
                     return result;
             }
@@ -860,6 +848,16 @@ namespace Content.Client.Paper.UI
             {
                 var foundPos = text.IndexOf(formTag, pos);
                 if (foundPos == -1) break; // No more tags found
+
+                // Literal "[form]" entered in a previous field is escaped, not a new field.
+                var escapes = 0;
+                for (var i = foundPos - 1; i >= 0 && text[i] == '\\'; i--)
+                    escapes++;
+                if (escapes % 2 != 0)
+                {
+                    pos = foundPos + formTag.Length;
+                    continue;
+                }
 
                 // Check if this is the tag we want to replace
                 if (currentIndex == index)

@@ -1,0 +1,12 @@
+ent-ClothingOuterCoatOccult = hooded coat
+    .desc = A heavy leather coat lined with ivory cloth and fitted with a deep hood.
+ent-ClothingHeadHoodOccult = coat hood
+    .desc = A deep hood lined with ivory cloth.
+ent-ClothingUnderwearTopNekoWhite = white neko bra
+    .desc = A white bra with little cat ears and a tiny bell.
+ent-ClothingUnderwearBottomPantiesNekoWhite = white neko panties
+    .desc = White panties with a little cat-ear trim.
+ent-ClothingUnderwearTopRadiantNeeeekoUwU = black neko bra
+    .desc = A black bra with little cat ears and a tiny bell.
+ent-ClothingUnderwearBottomPantiesMaid = black neko panties
+    .desc = Black panties with a little cat-ear trim.

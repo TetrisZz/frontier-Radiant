@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Adapted from https://github.com/Skyrat-SS13/Skyrat-tg; assets CC-BY-SA-3.0 per source README. modular_skyrat/master_files/icons/mob/clothing/underwear.dmi, female_neko_white. Split at y=18 into separate bra and briefs; no pixels recolored.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-UNDERWEART",
+      "directions": 4
+    }
+  ]
+}

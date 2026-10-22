@@ -1,0 +1,110 @@
+- type: marking
+  id: ArcanaHornsSpiked
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_spiked
+
+- type: marking
+  id: ArcanaHornsDrake
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_drake
+
+- type: marking
+  id: ArcanaHornsBranched
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_branched
+
+- type: marking
+  id: ArcanaHornsLong
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_long
+
+- type: marking
+  id: ArcanaHornsRamCurled
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_ram_curled
+
+- type: marking
+  id: ArcanaHornsDragon
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_dragon
+
+- type: marking
+  id: ArcanaHornsSimple
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_simple
+
+- type: marking
+  id: ArcanaHornsSideSwept
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_side_swept
+
+- type: marking
+  id: ArcanaHornsAntlersShort
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_antlers_short
+
+- type: marking
+  id: ArcanaHornsDragonLong
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_dragon_long
+
+- type: marking
+  id: ArcanaHornsUpright
+  bodyFeatures: [Horns]
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/horns.rsi
+    state: horns_upright
+

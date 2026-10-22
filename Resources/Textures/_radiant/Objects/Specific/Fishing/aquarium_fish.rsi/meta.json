@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Adapted from https://github.com/Skyrat-SS13/Skyrat-tg, icons/obj/aquarium/fish.dmi; dedicated small variants where available, centered and reduced with nearest-neighbor to fit the tank. Source assets CC-BY-SA-3.0 per README; original artists not specified. States renamed and packed for SS14.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "alien"
+    },
+    {
+      "name": "angler",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bass"
+    },
+    {
+      "name": "bingle"
+    },
+    {
+      "name": "blob"
+    },
+    {
+      "name": "blue_fintuna"
+    },
+    {
+      "name": "boy_fisher"
+    },
+    {
+      "name": "catfish"
+    },
+    {
+      "name": "clown"
+    },
+    {
+      "name": "disk"
+    },
+    {
+      "name": "gib"
+    },
+    {
+      "name": "mutant"
+    },
+    {
+      "name": "nuker"
+    },
+    {
+      "name": "pufferfish"
+    },
+    {
+      "name": "silverfish"
+    },
+    {
+      "name": "sun_tropical"
+    },
+    {
+      "name": "toxic"
+    },
+    {
+      "name": "tropical"
+    },
+    {
+      "name": "ian"
+    }
+  ]
+}

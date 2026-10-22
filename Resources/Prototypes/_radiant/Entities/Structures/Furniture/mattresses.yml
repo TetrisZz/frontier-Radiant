@@ -1,0 +1,53 @@
+- type: entity
+  parent: Mattress
+  id: MattressPillow
+  name: mattress with a pillow
+  description: A simple mattress with a small pillow. Almost a proper bed.
+  components:
+  - type: Sprite
+    state: mattress-pillow
+
+- type: entity
+  parent: Mattress
+  id: MattressStained
+  name: stained mattress
+  description: A mattress covered in old yellow stains. Best not to ask.
+  components:
+  - type: Sprite
+    state: mattress-stained
+
+- type: entity
+  parent: Mattress
+  id: MattressBloodstained
+  name: bloodstained mattress
+  description: A mattress with a dark bloodstain. Someone had a bad night.
+  components:
+  - type: Sprite
+    state: mattress-bloodstained
+
+- type: entity
+  parent: Mattress
+  id: MattressBloodsoaked
+  name: blood-soaked mattress
+  description: A mattress with a large, dried bloodstain. Probably not worth salvaging.
+  components:
+  - type: Sprite
+    state: mattress-bloodsoaked
+
+- type: entity
+  parent: Mattress
+  id: MattressMouldy
+  name: mouldy mattress
+  description: A damp mattress covered in greenish stains. A terrible place to rest.
+  components:
+  - type: Sprite
+    state: mattress-mouldy
+
+- type: entity
+  parent: Mattress
+  id: MattressTorn
+  name: torn mattress
+  description: A worn-out mattress with a hole in the middle. Still better than the floor.
+  components:
+  - type: Sprite
+    state: mattress-torn

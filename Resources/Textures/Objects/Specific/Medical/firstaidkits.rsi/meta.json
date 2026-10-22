@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/tree/727eb0a445bccbdc2d472e158e96b87fc0e997a1. Rad, toxin, o2, fire and adv by peptide, modified by ps3moira (github)",
+    "copyright": "Originally taken from tgstation at https://github.com/tgstation/tgstation/tree/727eb0a445bccbdc2d472e158e96b87fc0e997a1. Original rad, toxin, o2, fire and adv by peptide, modified by ps3moira (github). Kit states replaced with original contributors' sprites at https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station, icons/obj/storage.dmi: firstaid, firstaid-brute, firstaid-burn, firstaid-toxin, firstaid-o2, firstaid-rad, firstaid-tactical and medkit_advanced. Matching in-hands from icons/mob/inhands/equipment/medical_lefthand.dmi and medical_righthand.dmi (advanced uses medkit-advanced). Original pixels preserved; four-direction frames repacked for RSI. Source asset license CC-BY-SA-3.0 per README.",
 	"size": {
 		"x": 32,
 		"y": 32

@@ -9,14 +9,9 @@
   - type: FishingBait
     kind: Natural
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/jar.rsi
-    layers:
-    - state: icon
-    - state: fill-7
-      color: "#92714E"
-    - state: icon-front
+    sprite: _radiant/Objects/Specific/Fishing/tackle.rsi
+    state: bait-natural
   - type: Item
-    sprite: Objects/Consumable/Drinks/jar.rsi
     size: Tiny
 
 - type: entity
@@ -28,7 +23,7 @@
   - type: FishingBait
     kind: Luminous
   - type: Sprite
-    sprite: Objects/Misc/glowstick.rsi
-    state: glowstick_lit
+    sprite: _radiant/Objects/Specific/Fishing/tackle.rsi
+    state: bait-luminous
   - type: Item
     size: Tiny

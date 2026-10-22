@@ -1,0 +1,60 @@
+- type: entity
+  parent: BaseItem
+  id: RadiantFishingHook
+  name: fishing hook
+  description: A replaceable steel hook for a fishing rod.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Fishing/tackle.rsi
+    state: hook
+  - type: Item
+    size: Tiny
+  - type: FishingHook
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: RadiantFishingHook
+  id: RadiantFishingHookReinforced
+  name: weighted fishing hook
+  description: A carefully balanced hook that makes reeling in a catch easier.
+  components:
+  - type: Sprite
+    state: hook-reinforced
+  - type: FishingHook
+    efficiencyMultiplier: 1.15
+  - type: StaticPrice
+    price: 60
+
+- type: entity
+  parent: BaseItem
+  id: RadiantFishingLine
+  name: fishing line spool
+  description: A spool of line for twenty casts. Heavy strain wears it faster and can snap it.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Fishing/tackle.rsi
+    state: line
+  - type: Item
+    size: Tiny
+  - type: FishingLine
+    durability: 20
+    maxDurability: 20
+    snapChance: 0.25
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: RadiantFishingLine
+  id: RadiantFishingLineReinforced
+  name: reinforced fishing line spool
+  description: A stronger line for forty casts, less prone to snapping under strain.
+  components:
+  - type: Sprite
+    state: line-reinforced
+  - type: FishingLine
+    durability: 40
+    maxDurability: 40
+    snapChance: 0.08
+  - type: StaticPrice
+    price: 100

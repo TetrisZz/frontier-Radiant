@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original source contributors. https://github.com/BlueMoon-Labs/BlueMoon-Station, icons/obj/structures.dmi: linenbin-empty -> fill-0, linenbin-half -> fill-1, linenbin-full -> fill-2. Lossless extraction; original pixels preserved. Asset license per source README.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "fill-0" },
+    { "name": "fill-1" },
+    { "name": "fill-2" }
+  ]
+}

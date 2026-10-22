@@ -1,4 +1,5 @@
 using System.Threading;
+using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationEvents.Components;
@@ -59,7 +60,7 @@ namespace Content.Server.StationEvents.Events
             component.AnnounceCancelToken = new CancellationTokenSource();
             Timer.Spawn(3000, () =>
             {
-                Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
+                Audio.PlayGlobal(AnnouncementAudio.WithoutRecordedSpeech(component.PowerOnSound), Filter.Broadcast(), true);
             }, component.AnnounceCancelToken.Token);
             component.Unpowered.Clear();
         }

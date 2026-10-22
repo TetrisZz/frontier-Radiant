@@ -1,0 +1,199 @@
+- type: entity
+  parent: Stairs
+  id: RadiantStairsOpenSteel
+  name: open metal stairs
+  suffix: ""
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/open_stairs.rsi
+    state: stairs_frame
+    noRot: true
+    snapCardinals: true
+  - type: Construction
+    graph: RadiantStairsOpenSteel
+    node: finished
+
+- type: entity
+  parent: RadiantStairsOpenSteel
+  id: RadiantStairsOpenWood
+  name: open wooden stairs
+  components:
+  - type: Sprite
+    state: stairs_frame_wood
+  - type: Construction
+    graph: RadiantStairsOpenWood
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1: { min: 2, max: 3 }
+      - !type:DoActsBehavior
+        acts: [Destruction]
+
+- type: entity
+  parent: BaseStorageItem
+  id: RadiantTestTubeRack
+  name: test tube rack
+  description: A portable rack with space for eight vials.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Medical/tube_rack.rsi
+    layers:
+    - state: "0"
+      map: [rack]
+  - type: Item
+    size: Normal
+  - type: Storage
+    hideStackVisualsWhenClosed: false
+    grid:
+    - 0,0,7,0
+    maxItemSize: Tiny
+    whitelist:
+      tags: [CentrifugeCompatible]
+  - type: Appearance
+  - type: ItemCounter
+    count:
+      tags: [CentrifugeCompatible]
+    amount: 8
+    baseLayer: rack
+    layerStates: ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
+  - type: Construction
+    graph: RadiantTestTubeRack
+    node: finished
+
+- type: entity
+  parent: RadiantTestTubeRack
+  id: RadiantTestTubeRackFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: BaseChemistryEmptyVial
+      amount: 8
+
+- type: entity
+  parent: [BaseStructureDynamic, StructureWheeled]
+  id: RadiantSurgicalCart
+  name: surgical instrument trolley
+  description: A wheeled tray that keeps surgical instruments close at hand.
+  components:
+  - type: InteractionOutline
+  - type: Rotatable
+  - type: Sprite
+    sprite: _radiant/Structures/Storage/surgical_cart.rsi
+    layers:
+    - state: medicart
+    - state: scalpel_normal
+      map: [scalpel_normal]
+      visible: false
+    - state: scalpel_advanced
+      map: [scalpel_advanced]
+      visible: false
+    - state: scalpel_alien
+      map: [scalpel_alien]
+      visible: false
+    - state: scalpel_cruel
+      map: [scalpel_cruel]
+      visible: false
+    - state: cautery_normal
+      map: [cautery_normal]
+      visible: false
+    - state: cautery_advanced
+      map: [cautery_advanced]
+      visible: false
+    - state: cautery_alien
+      map: [cautery_alien]
+      visible: false
+    - state: cautery_cruel
+      map: [cautery_cruel]
+      visible: false
+    - state: drill_normal
+      map: [drill_normal]
+      visible: false
+    - state: hemostat_normal
+      map: [hemostat_normal]
+      visible: false
+    - state: hemostat_alien
+      map: [hemostat_alien]
+      visible: false
+    - state: hemostat_cruel
+      map: [hemostat_cruel]
+      visible: false
+    - state: retractor_normal
+      map: [retractor_normal]
+      visible: false
+    - state: retractor_advanced
+      map: [retractor_advanced]
+      visible: false
+    - state: retractor_alien
+      map: [retractor_alien]
+      visible: false
+    - state: retractor_cruel
+      map: [retractor_cruel]
+      visible: false
+    - state: saw_normal
+      map: [saw_normal]
+      visible: false
+    - state: saw_alien
+      map: [saw_alien]
+      visible: false
+    - state: bonesetter
+      map: [bonesetter]
+      visible: false
+    - state: gel
+      map: [gel]
+      visible: false
+    noRot: true
+    snapCardinals: true
+  - type: Storage
+    grid:
+    - 0,0,7,3
+    maxItemSize: Normal
+    whitelist:
+      components: [Scalpel, Cautery, SurgicalDrill, Hemostat, Retractor, BoneSaw, BoneSetter, BoneGel]
+      tags: [Syringe, Brutepack, Ointment, Gauze]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container {}
+  - type: Appearance
+  - type: SurgicalCartVisuals
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Construction
+    graph: RadiantSurgicalCart
+    node: finished
+    containers: [storagebase]
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:EmptyAllContainersBehaviour {}
+      - !type:DoActsBehavior
+        acts: [Destruction]
+
+- type: entity
+  parent: RadiantSurgicalCart
+  id: RadiantSurgicalCartFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Scalpel
+    - id: Cautery
+    - id: Drill
+    - id: Hemostat
+    - id: Retractor
+    - id: Saw
+    - id: BoneSetter
+    - id: BoneGel

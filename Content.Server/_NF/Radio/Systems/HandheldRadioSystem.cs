@@ -110,7 +110,9 @@ public sealed partial class HandheldRadioSystem : EntitySystem
         }
 
         //if (_recentlySent.Add((args.Message, args.Source, channel)))
-        _radio.SendRadioMessage(args.Args.SpeakEvent.Source, args.Args.SpeakEvent.Message, channel, entity, frequency: entity.Comp.Frequency);
+        _radio.SendRadioMessage(args.Args.SpeakEvent.Source, args.Args.SpeakEvent.Message, channel, entity,
+            frequency: entity.Comp.Frequency, language: args.Args.SpeakEvent.Language,
+            isWhisper: args.Args.SpeakEvent.IsWhisper, isAnnouncement: false);
     }
 
     /// <summary>
@@ -177,7 +179,8 @@ public sealed partial class HandheldRadioSystem : EntitySystem
 
         var channel = _protoMan.Index<RadioChannelPrototype>(component.Channel)!;
         //if (_recentlySent.Add((args.Message, args.Source, channel)))
-        _radio.SendRadioMessage(args.Source, args.Message, channel, uid, frequency: component.Frequency);
+        _radio.SendRadioMessage(args.Source, args.Message, channel, uid, frequency: component.Frequency,
+            language: args.Language, isWhisper: args.IsWhisper, isAnnouncement: false);
     }
 
     private void OnAttemptListen(EntityUid uid, HandheldRadioComponent component, ListenAttemptEvent args)

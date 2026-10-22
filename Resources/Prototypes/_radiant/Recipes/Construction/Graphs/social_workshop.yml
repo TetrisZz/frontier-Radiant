@@ -1,0 +1,36 @@
+- type: constructionGraph
+  id: Photocopier
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 6
+        doAfter: 3
+      - material: Glass
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: finished
+    entity: Photocopier
+
+- type: constructionGraph
+  id: SaunaHeater
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 6
+        doAfter: 3
+      - material: WoodPlank
+        amount: 4
+        doAfter: 2
+  - node: finished
+    entity: SaunaHeater

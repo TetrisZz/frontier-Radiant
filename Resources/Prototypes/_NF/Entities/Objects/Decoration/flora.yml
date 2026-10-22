@@ -7,7 +7,7 @@
   - type: TimedSpawner
     prototypes:
     - DrinkCoconut
-    intervalSeconds: 300
+    intervalSeconds: 600
   - type: Sprite
     sprite: _NF/Objects/Decoration/Flora/flora_tree_palm.rsi
     offset: 0,0.7

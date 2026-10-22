@@ -1,0 +1,63 @@
+- type: marking
+  id: HumanHairAllTheFuzzRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/additional_hair.rsi
+    state: all_the_fuzz
+
+- type: marking
+  id: HumanHairBedhead4RS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/additional_hair.rsi
+    state: bedhead4
+
+- type: marking
+  id: HumanHairCometRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/additional_hair.rsi
+    state: comet
+
+- type: marking
+  id: HumanHairLongStraightTwintailsRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/additional_hair.rsi
+    state: long_straight_twintails
+
+- type: marking
+  id: HumanHairRockstarRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/additional_hair.rsi
+    state: rockstar
+
+- type: marking
+  id: HumanHairJillRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/additional_hair.rsi
+    state: jill
+
+- type: marking
+  id: HumanHairSpikyPonytailAltRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/additional_hair.rsi
+    state: spiky_ponytail_alt
+
+- type: marking
+  id: HumanHairTriBunRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/additional_hair.rsi
+    state: tri_bun

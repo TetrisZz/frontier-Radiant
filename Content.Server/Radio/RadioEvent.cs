@@ -3,6 +3,12 @@ using Content.Shared.Radio;
 
 namespace Content.Server.Radio;
 
+/// <summary>
+/// Actual receivers after frequency, telecom, range and interference checks have succeeded.
+/// </summary>
+[ByRefEvent]
+public readonly record struct RadioMessageDeliveredEvent(RadioReceiveEvent Message, List<EntityUid> Receivers);
+
 [ByRefEvent]
 public readonly record struct RadioReceiveEvent(
     string Message,
@@ -10,7 +16,9 @@ public readonly record struct RadioReceiveEvent(
     RadioChannelPrototype Channel,
     EntityUid RadioSource,
     MsgChatMessage ChatMsg,
-    string? Language = null); // Radiant Sector: preserves the spoken language through radio relays.
+    string? Language = null,
+    bool IsWhisper = false,
+    bool IsAnnouncement = false);
 
 /// <summary>
 /// Event raised on the parent entity of a headset radio when a radio message is received

@@ -1,0 +1,9 @@
+- type: loadout
+  id: ContractorClothingOuterCoatOccult
+  price: 1500
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  equipment:
+    outerClothing: ClothingOuterCoatOccult
+  groupBy: OuterCoats

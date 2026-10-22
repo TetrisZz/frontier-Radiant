@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d5cb4288ec5f7cb9fb5b6f6e798f4c64cd82cd09, Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/9d7ff729b6b89eee0b3d750327f9fbaff4aeb045",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d5cb4288ec5f7cb9fb5b6f6e798f4c64cd82cd09, Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/9d7ff729b6b89eee0b3d750327f9fbaff4aeb045. Mattress states: original contributors at https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station, icons/obj/objects.dmi, states mattress0 through mattress6; mattress uses mattress2. Original pixels preserved and states renamed for RSI. Source asset license CC-BY-SA-3.0 per README.",
   "size": {
     "x": 32,
     "y": 32
@@ -18,6 +18,24 @@
     },
     {
       "name": "mattress"
+    },
+    {
+      "name": "mattress-pillow"
+    },
+    {
+      "name": "mattress-stained"
+    },
+    {
+      "name": "mattress-bloodstained"
+    },
+    {
+      "name": "mattress-bloodsoaked"
+    },
+    {
+      "name": "mattress-mouldy"
+    },
+    {
+      "name": "mattress-torn"
     },
     {
       "name": "psychbed"

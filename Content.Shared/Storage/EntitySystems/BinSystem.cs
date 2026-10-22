@@ -32,6 +32,7 @@ public sealed class BinSystem : EntitySystem
         SubscribeLocalEvent<BinComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<BinComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<BinComponent, InteractHandEvent>(OnInteractHand, before: new[] { typeof(SharedItemSystem) });
+        SubscribeLocalEvent<BinComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<BinComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<BinComponent, GetVerbsEvent<AlternativeVerb>>(OnAltInteractHand);
         SubscribeLocalEvent<BinComponent, ExaminedEvent>(OnExamined);
@@ -103,11 +104,25 @@ public sealed class BinSystem : EntitySystem
     /// </summary>
     private void OnAltInteractHand(EntityUid uid, BinComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (args.Using != null)
+        if (args.Using is not { } used || !args.CanAccess || !args.CanInteract
+            || component.Items.Count >= component.MaxItems
+            || _whitelistSystem.IsWhitelistFail(component.Whitelist, used))
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
         {
-            var canReach = args.CanAccess && args.CanInteract;
-            InsertIntoBin(args.User, args.Target, (EntityUid)args.Using, component, false, canReach);
-        }
+            Text = Name(used),
+            Category = VerbCategory.Insert,
+            Act = () => InsertIntoBin(args.User, uid, used, component, false, true)
+        });
+    }
+
+    private void OnInteractUsing(EntityUid uid, BinComponent component, InteractUsingEvent args)
+    {
+        if (args.Handled || !component.InsertOnInteract)
+            return;
+
+        args.Handled = InsertIntoBin(args.User, uid, args.Used, component, false, true);
     }
 
     private void OnAfterInteractUsing(EntityUid uid, BinComponent component, AfterInteractUsingEvent args)
@@ -116,15 +131,16 @@ public sealed class BinSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void InsertIntoBin(EntityUid user, EntityUid target, EntityUid itemInHand, BinComponent component, bool handled, bool canReach)
+    private bool InsertIntoBin(EntityUid user, EntityUid target, EntityUid itemInHand, BinComponent component, bool handled, bool canReach)
     {
         if (handled || !canReach)
-            return;
+            return false;
 
         if (!TryInsertIntoBin(target, itemInHand, component))
-            return;
+            return false;
 
-        _admin.Add(LogType.Pickup, LogImpact.Low, $"{ToPrettyString(target):player} inserted {ToPrettyString(user)} into bin {ToPrettyString(target)}.");
+        _admin.Add(LogType.Pickup, LogImpact.Low, $"{ToPrettyString(user):player} inserted {ToPrettyString(itemInHand)} into bin {ToPrettyString(target)}.");
+        return true;
     }
 
     /// <summary>
@@ -145,7 +161,8 @@ public sealed class BinSystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFail(component.Whitelist, toInsert))
             return false;
 
-        _container.Insert(toInsert, component.ItemContainer);
+        if (!_container.Insert(toInsert, component.ItemContainer))
+            return false;
         Dirty(uid, component);
         return true;
     }

@@ -473,7 +473,9 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
             .Select(marking => marking.MarkingId)
             .ToArray();
 
-        if (tattoos.Length == 0)
+        var hasTextTattoos = TryComp<Content.Shared._radiant.Social.TextTattooComponent>(args.Body, out var textTattoos) &&
+            textTattoos.Tattoos.Any(tattoo => Content.Shared._radiant.Social.TextTattooRules.Matches(tattoo, part));
+        if (tattoos.Length == 0 && !hasTextTattoos)
         {
             args.IsCancelled = true;
             return;
@@ -481,6 +483,9 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
         foreach (var tattoo in tattoos)
             _humanoidAppearance.RemoveMarking(args.Body, tattoo, humanoid: humanoid);
+        if (hasTextTattoos)
+            EntityManager.System<Content.Server._radiant.Dossiers.DossierSystem>().SaveTattoos(args.Body,
+                textTattoos!.Tattoos.Where(tattoo => !Content.Shared._radiant.Social.TextTattooRules.Matches(tattoo, part)).ToList());
     }
 
     private void OnDecorativeEyesImplanted(Entity<DecorativeCyberEyesComponent> ent, ref SurgeryOrganImplantationCompleted args)

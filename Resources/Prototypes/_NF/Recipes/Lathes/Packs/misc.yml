@@ -65,6 +65,7 @@
 - type: latheRecipePack
   id: NFServiceToolsStatic
   recipes:
+  - FishScanner
   - ClothingHeadHatCone
   - SprayBottle
   - LightReplacer

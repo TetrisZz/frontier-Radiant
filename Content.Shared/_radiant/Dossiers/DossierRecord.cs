@@ -1,4 +1,5 @@
 using Robust.Shared.Serialization;
+using Content.Shared._radiant.Social;
 
 namespace Content.Shared._radiant.Dossiers;
 
@@ -28,6 +29,7 @@ public sealed class DossierRecord
     public string SecurityNotes { get; set; } = "";
     public string LastMedicalEditor { get; set; } = "";
     public string LastSecurityEditor { get; set; } = "";
+    public List<TextTattoo> Tattoos { get; set; } = new();
 }
 
 [Serializable, NetSerializable]

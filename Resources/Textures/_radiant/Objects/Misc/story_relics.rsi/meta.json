@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "tag: copied unchanged from _radiant/Clothing/Neck/hateredsoul_dogtag_1.rsi/icon.png, originally BlueMoon Station modular_bluemoon/fluffs/icons/obj/clothing/accessories.dmi, state hateredsoul_dogtag_1; original artist not specified. recorder: copied unchanged from Objects/Materials/Scrap/generic.rsi/junk-pai.png, made by Flareguy & EmoGarbage404 using assets from https://github.com/tgstation/tgstation at commit 6665eec76c98a4f3f89bebcd10b34b47dcc0b8ae. sample and memento: original source contributors, https://github.com/BlueMoon-Labs/BlueMoon-Station, icons/obj/chemical.dmi state bottle1 and icons/obj/clothing/accessories.dmi state locket. All source assets licensed CC-BY-SA-3.0; original pixels preserved.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tag"
+    },
+    {
+      "name": "recorder"
+    },
+    {
+      "name": "sample"
+    },
+    {
+      "name": "memento"
+    }
+  ]
+}

@@ -48,12 +48,6 @@
   equipment:
     underwearb: ClothingUnderwearBottomBoxersCap
 
-- type: loadout
-  id: ContractorClothingUnderwearBottomPantiesNeko
-  price: 100
-  equipment:
-    underwearb: ClothingUnderwearBottomPantiesNeko
-
 #Panties
 
 - type: loadout

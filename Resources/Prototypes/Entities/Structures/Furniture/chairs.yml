@@ -163,7 +163,8 @@
   parent: RollingOfficeChairBase # Goobstation - rolling chair, definition under _Goobstation
   components:
   - type: Sprite
-    state: office-white
+    sprite: _radiant/Structures/Furniture/office_chairs.rsi
+    state: officechair_white
   - type: Construction
     graph: Seat
     node: chairOffice
@@ -174,7 +175,8 @@
   parent: ChairOfficeLight
   components:
   - type: Sprite
-    state: office-dark
+    sprite: _radiant/Structures/Furniture/office_chairs.rsi
+    state: officechair_dark
   - type: Construction
     graph: Seat
     node: chairOfficeDark

@@ -1,0 +1,19 @@
+- type: marking
+  id: ArcanaWingsMiniature
+  bodyFeatures: [Wings]
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/bat_wings.rsi
+    state: wings_miniature
+
+- type: marking
+  id: ArcanaWingsTiny
+  bodyFeatures: [Wings]
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [DemonSpecies]
+  sprites:
+  - sprite: _radiant/Mobs/Customization/Arcana/bat_wings.rsi
+    state: wings_tiny

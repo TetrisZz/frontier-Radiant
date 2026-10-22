@@ -9,11 +9,6 @@
     underwearb: ClothingUnderwearBottomPantiesWhite
 
 - type: loadout
-  id: WhitePantiesNeko
-  equipment:
-    underwearb: ClothingUnderwearBottomPantiesNeko
-
-- type: loadout
   id: PantiesLace
   equipment:
     underwearb: ClothingUnderwearBottomPantiesLace

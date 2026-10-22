@@ -1,0 +1,158 @@
+- type: entity
+  parent: BaseItem
+  id: BasePerfume
+  abstract: true
+  name: perfume
+  description: A small atomizer with a delicate fragrance.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Consumable/perfume.rsi
+    state: rose
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left: []
+      right: []
+  - type: Perfume
+    fragrance: perfume-scent-rose
+    uses: 30
+    duration: 1200
+    applyDelay: 0.75
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeRose
+  name: rose perfume
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeLavender
+  name: lavender perfume
+  components:
+  - type: Sprite
+    state: lavender
+  - type: Perfume
+    fragrance: perfume-scent-lavender
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeCitrus
+  name: citrus perfume
+  components:
+  - type: Sprite
+    state: citrus
+  - type: Perfume
+    fragrance: perfume-scent-citrus
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumePine
+  name: pine perfume
+  components:
+  - type: Sprite
+    state: pine
+  - type: Perfume
+    fragrance: perfume-scent-pine
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeOcean
+  name: ocean perfume
+  components:
+  - type: Sprite
+    state: ocean
+  - type: Perfume
+    fragrance: perfume-scent-ocean
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeVanilla
+  name: vanilla perfume
+  components:
+  - type: Sprite
+    state: vanilla
+  - type: Perfume
+    fragrance: perfume-scent-vanilla
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeCherryLiqueur
+  name: cherry liqueur perfume
+  description: Ripe cherries, bitter almonds and a lingering liqueur accord.
+  components:
+  - type: Sprite
+    state: rose
+  - type: Perfume
+    fragrance: perfume-scent-cherry-liqueur
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeTobaccoVanilla
+  name: tobacco and vanilla perfume
+  description: Warm tobacco leaves, soft vanilla and a pinch of spice.
+  components:
+  - type: Sprite
+    state: vanilla
+  - type: Perfume
+    fragrance: perfume-scent-tobacco-vanilla
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumePearSilk
+  name: pear silk perfume
+  description: Juicy pear, white flowers and a soft musky trail.
+  components:
+  - type: Sprite
+    state: citrus
+  - type: Perfume
+    fragrance: perfume-scent-pear-silk
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeWhiteTea
+  name: white tea perfume
+  description: White tea, bright bergamot and dry cedarwood.
+  components:
+  - type: Sprite
+    state: pine
+  - type: Perfume
+    fragrance: perfume-scent-white-tea
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeMidnightCoffee
+  name: midnight coffee perfume
+  description: Dark coffee, jasmine and a warm vanilla finish.
+  components:
+  - type: Sprite
+    state: lavender
+  - type: Perfume
+    fragrance: perfume-scent-midnight-coffee
+
+- type: entity
+  parent: BasePerfume
+  id: PerfumeSaltedSkin
+  name: salted skin perfume
+  description: Sea salt, sage and sun-warmed wood.
+  components:
+  - type: Sprite
+    state: ocean
+  - type: Perfume
+    fragrance: perfume-scent-salted-skin
+
+- type: entity
+  id: PerfumeMist
+  name: perfume mist
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: Effects/chempuff.rsi
+    state: chempuff
+    color: "#e5e9f480"
+    drawdepth: Effects
+    noRot: true
+    scale: 0.45,0.45
+  - type: TimedDespawn
+    lifetime: 0.25

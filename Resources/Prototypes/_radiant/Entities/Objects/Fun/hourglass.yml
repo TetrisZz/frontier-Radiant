@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseItem
+  id: RadiantHourglass
+  name: hourglass
+  description: A small sand timer that can be set for one, three or five minutes.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Fun/hourglass.rsi
+    layers:
+    - state: hourglass_idle
+      map: [timer]
+  - type: Item
+    size: Small
+  - type: Hourglass
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.HourglassVisuals.State:
+        timer:
+          idle: { state: hourglass_idle }
+          flip: { state: hourglass_flip }
+          stage1: { state: hourglass_1 }
+          stage2: { state: hourglass_2 }
+          stage3: { state: hourglass_3 }
+          stage4: { state: hourglass_4 }
+          stage5: { state: hourglass_5 }
+          stage6: { state: hourglass_6 }
+          stage7: { state: hourglass_7 }
+  - type: Construction
+    graph: RadiantHourglass
+    node: finished

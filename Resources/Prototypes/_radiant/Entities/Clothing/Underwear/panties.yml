@@ -23,17 +23,6 @@
 
 - type: entity
   parent: ClothingUnderwearBottomBase
-  id: ClothingUnderwearBottomPantiesNeko
-  name: трусики «Кошачьи лапки»
-  description: Мягкие трусики с игривым кошачьим узором.
-  components:
-  - type: Sprite
-    sprite: _radiant/Clothing/Underwear/bottom/nekopanties.rsi
-  - type: StealTarget
-    stealGroup: Panties
-
-- type: entity
-  parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesLace
   name: белые кружевные трусики
   description: Нежные белые трусики с тонкой кружевной отделкой.
@@ -193,8 +182,8 @@
 - type: entity
   parent: ClothingUnderwearBottomBase
   id: ClothingUnderwearBottomPantiesMaid
-  name: трусики горничной
-  description: Кокетливые трусики с контрастной отделкой в стиле горничной.
+  name: чёрные трусики «Неко»
+  description: Чёрные трусики с отделкой в виде кошачьих ушек.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/bottom/maidpanties.rsi

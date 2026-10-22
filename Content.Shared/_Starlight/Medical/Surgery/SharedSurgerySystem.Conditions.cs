@@ -10,6 +10,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared._radiant;
 using Content.Shared._radiant.ERP;
 using Content.Shared.DetailExaminable;
+using Content.Shared._radiant.Social;
 
 namespace Content.Shared._Starlight.Medical.Surgery;
 // Based on the RMC14.
@@ -51,6 +52,10 @@ public abstract partial class SharedSurgerySystem
             args.Cancelled = true;
             return;
         }
+
+        if (TryComp<TextTattooComponent>(args.Body, out var textTattoos) &&
+            textTattoos.Tattoos.Any(tattoo => TextTattooRules.Matches(tattoo, part)))
+            return;
 
         foreach (var marking in humanoid.MarkingSet.Markings.Values.SelectMany(markings => markings))
         {

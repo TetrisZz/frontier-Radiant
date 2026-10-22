@@ -56,4 +56,10 @@ public sealed partial class BinComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int MaxItems = 20;
+
+    /// <summary>
+    /// Insert before the held item's fallback interaction, e.g. a towel's mopping action.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool InsertOnInteract;
 }

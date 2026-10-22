@@ -1,0 +1,10 @@
+bouquet-note-slot = Записка или открытка
+bouquet-note-blank = На букете видна пустая записка.
+bouquet-note-text = На букете видна записка с надписью: «{ $text }».
+ent-ClothingHeadHairTie = резинка для волос
+    .desc = Собирает волосы в выбранную причёску. При снятии возвращает прежнюю укладку.
+ent-ClothingHeadHairClip = заколка для волос
+    .desc = Подбирает волосы в аккуратную укладку. При снятии возвращает прежнюю причёску.
+hair-accessory-no-hair = Здесь нечего собирать резинкой.
+hair-accessory-style = Укладка: { $style }
+bouquet-note-unreadable = На букете видна записка на незнакомом вам языке.

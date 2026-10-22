@@ -4,6 +4,16 @@
   id: BlackBouquet
   description: Букет чёрных цветов, пахнет цветами и кажется дымом.
   components:
+  - type: BouquetNote
+  - type: ItemSlots
+    slots:
+      note:
+        name: bouquet-note-slot
+        whitelist:
+          components: [Paper]
+  - type: ContainerContainer
+    containers:
+      note: !type:ContainerSlot
   - type: Sprite
     sprite: _radiant/Objects/Decoration/bouquets/black-bouquet.rsi
     state: item

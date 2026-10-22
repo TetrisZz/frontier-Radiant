@@ -19,6 +19,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.1
     baseSprintSpeed: 0.1
+  - type: Hunger
+    baseDecayRate: 0
+  - type: Thirst
+    baseDecayRate: 0
   - type: PassiveDamage
     allowedStates:
     - Alive
@@ -65,6 +69,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: alien
+  - type: Fish
+    aquariumState: alien
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -77,6 +83,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: angler
+  - type: Fish
+    aquariumState: angler
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -86,9 +94,12 @@
   name: bass fish
   description: Probably the most normal fish in existence. Unless you use it as bass guitar.
   components:
+  - type: FishBreeding
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: bass
+  - type: Fish
+    aquariumState: bass
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -101,6 +112,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: bingle
+  - type: Fish
+    aquariumState: bingle
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -113,6 +126,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: blob
+  - type: Fish
+    aquariumState: blob
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -125,6 +140,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: blue_fintuna
+  - type: Fish
+    aquariumState: blue_fintuna
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -137,6 +154,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: boy_fisher
+  - type: Fish
+    aquariumState: boy_fisher
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -149,6 +168,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: catfish
+  - type: Fish
+    aquariumState: catfish
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -158,9 +179,12 @@
   name: clown clown fish
   description: That is almost certanly some kind of joke.
   components:
+  - type: FishBreeding
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: clown
+  - type: Fish
+    aquariumState: clown
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
   - type: Bloodstream
@@ -178,6 +202,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: disk
+  - type: Fish
+    aquariumState: disk
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -190,6 +216,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: gib
+  - type: Fish
+    aquariumState: gib
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -202,6 +230,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: mutant
+  - type: Fish
+    aquariumState: mutant
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -214,6 +244,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: nuker
+  - type: Fish
+    aquariumState: nuker
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -226,6 +258,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: pufferfish
+  - type: Fish
+    aquariumState: pufferfish
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -238,6 +272,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: silverfish
+  - type: Fish
+    aquariumState: silverfish
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -250,6 +286,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: sun_tropical
+  - type: Fish
+    aquariumState: sun_tropical
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -262,6 +300,8 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: toxic
+  - type: Fish
+    aquariumState: toxic
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
@@ -271,9 +311,12 @@
   name: clown fish
   description: This fish is always searching for something... Or maybe someone?
   components:
+  - type: FishBreeding
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: tropical
+  - type: Fish
+    aquariumState: tropical
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
   - type: Bloodstream
@@ -291,5 +334,7 @@
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
     state: ian
+  - type: Fish
+    aquariumState: ian
   - type: Item
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi

@@ -649,3 +649,7 @@ SpawnMobWizFedWizardSoapHardsuit: SpawnNFMobWizardPurpleMaster
 
 # 2026-05-29 Estoc Port
 WeaponRifleEstoc: NFWeaponRifleAssaultEstoc
+
+# 2026-10-22 Radiant office chair sprites now use the standard office chair IDs.
+ChairOfficeWhiteRadiant: ChairOfficeLight
+ChairOfficeDarkRadiant: ChairOfficeDark

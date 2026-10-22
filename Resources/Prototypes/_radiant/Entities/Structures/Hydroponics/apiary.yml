@@ -1,0 +1,82 @@
+- type: entity
+  parent: BaseStructure
+  id: RadiantBeehive
+  name: beehive
+  description: A wooden hive with three removable honey frames.
+  components:
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Sprite
+    sprite: _radiant/Structures/Hydroponics/beehive.rsi
+    state: beehive
+    noRot: true
+  - type: Beehive
+  - type: ItemSlots
+    slots:
+      frame1:
+        name: apiary-slot-frame1
+        whitelist:
+          components: [HoneyFrame]
+      frame2:
+        name: apiary-slot-frame2
+        whitelist:
+          components: [HoneyFrame]
+      frame3:
+        name: apiary-slot-frame3
+        whitelist:
+          components: [HoneyFrame]
+  - type: Construction
+    graph: RadiantBeehive
+    node: finished
+    containers: [frame1, frame2, frame3]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:EmptyAllContainersBehaviour {}
+      - !type:DoActsBehavior
+        acts: [Destruction]
+
+- type: entity
+  parent: BaseItem
+  id: RadiantHoneyFrame
+  name: honey frame
+  description: A reusable wooden frame for honeycomb. Honey can be drained into a container.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Hydroponics/honey_frame.rsi
+    layers:
+    - state: empty
+    - state: filled
+      visible: false
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    size: Small
+  - type: HoneyFrame
+  - type: SolutionContainerManager
+    solutions:
+      honey:
+        maxVol: 40
+  - type: DrainableSolution
+    solution: honey
+  - type: ExaminableSolution
+    solution: honey
+    exactVolume: true
+  - type: SolutionTransfer
+    canReceive: false
+    canSend: true
+    transferAmount: 10
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.HoneyFrameVisuals.Filled:
+        enum.SolutionContainerLayers.Fill:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Construction
+    graph: RadiantHoneyFrame
+    node: finished

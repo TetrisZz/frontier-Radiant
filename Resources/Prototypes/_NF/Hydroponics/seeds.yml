@@ -127,34 +127,6 @@
       PotencyDivisor: 25
 
 - type: seed
-  id: bees
-  name: seeds-bees-name
-  noun: seeds-noun-nothing
-  packetName: botany-seed-jar-name
-  displayName: seeds-bees-display-name
-  plantRsi: _NF/Objects/Specific/Hydroponics/bees.rsi
-  packetPrototype: BeeSeeds
-  productPrototypes:
-    - FoodHoneyComb
-  lifespan: 60
-  maturation: 7
-  production: 5
-  yield: 4
-  potency: 10
-  growthStages: 4
-  harvestRepeat: Repeat
-  chemicals:
-    Nutriment:
-      Min: 1
-      Max: 10
-      PotencyDivisor: 10
-    Vitamin:
-      Min: 1
-      Max: 4
-      PotencyDivisor: 25
-  preventSwabbing: true # they're bees
-
-- type: seed
   id: everyspice
   name: seeds-everyspice-name
   noun: seeds-noun-seeds

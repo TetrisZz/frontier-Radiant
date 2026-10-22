@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using System.Reflection;
+using System.Globalization;
+using Content.Client.Stylesheets;
 using Content.Client._radiant.Messenger;
 using Content.Shared._radiant.Messenger;
 using Robust.Client;
@@ -13,14 +16,20 @@ using Robust.Shared.IoC;
 using Robust.Shared.Maths;
 using Robust.Shared;
 using Robust.Shared.Utility;
+using Robust.Shared.Input;
+using Robust.Shared.Map;
+using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
+using Robust.Shared.Localization;
 using Robust.UnitTesting;
 
 namespace Content.IntegrationTests.Tests.Utility;
 
 public sealed class MessengerLayoutTest
 {
-    [Test]
-    public async Task SidebarAndComposerFitCompactPdaWithoutResettingConversation()
+    [TestCase("ru-RU")]
+    [TestCase("en-US")]
+    public async Task SidebarAndComposerFitCompactPdaWithoutResettingConversation(string locale)
     {
         var options = new RobustIntegrationTest.ClientIntegrationOptions
         {
@@ -49,7 +58,15 @@ public sealed class MessengerLayoutTest
         await client.WaitIdleAsync();
         await client.WaitAssertion(() =>
         {
-            using var ui = new MessengerUiFragment();
+            var loc = IoCManager.Resolve<ILocalizationManager>();
+            var culture = CultureInfo.GetCultureInfo(locale);
+            if (!loc.HasCulture(culture))
+                loc.LoadCulture(culture);
+            loc.DefaultCulture = culture;
+            using var ui = new MessengerUiFragment
+            {
+                Stylesheet = new StyleNano(IoCManager.Resolve<IResourceCache>()).Stylesheet,
+            };
             var send = (TextureButton) Descendants(ui).Single(c => c.Name == "MessengerSend");
             Assert.That(send.Disabled, Is.True, "No sending before the first server state");
             var peer = new NetEntity(42);
@@ -69,13 +86,26 @@ public sealed class MessengerLayoutTest
                 var sidebar = Descendants(ui).Single(c => c.Name == "MessengerSidebar");
                 var conversation = Descendants(ui).Single(c => c.Name == "MessengerConversation");
                 var composer = Descendants(ui).Single(c => c.Name == "MessengerComposer");
-                Assert.That(sidebar.Size.X, Is.EqualTo(180).Within(1));
+                Assert.That(sidebar.Size.X, Is.EqualTo(216).Within(1));
                 Assert.That(conversation.GlobalPosition.X, Is.GreaterThanOrEqualTo(sidebar.GlobalPosition.X + sidebar.Size.X));
                 Assert.That(composer.Size.X, Is.GreaterThan(100));
                 Assert.That(composer.GlobalPosition.Y + composer.Size.Y, Is.LessThanOrEqualTo(size.Y + 1));
                 Assert.That(send.Size.X, Is.EqualTo(28).Within(1));
                 Assert.That(send.Size.Y, Is.EqualTo(28).Within(1));
                 Assert.That(send.GlobalPosition.X + send.Size.X, Is.LessThanOrEqualTo(size.X + 1));
+                var dialogs = (Button) Descendants(ui).Single(c => c.Name == "MessengerDialogsTab");
+                var contacts = (Button) Descendants(ui).Single(c => c.Name == "MessengerContactsTab");
+                Assert.That(dialogs.GlobalPosition.X + dialogs.Size.X + 3, Is.LessThanOrEqualTo(contacts.GlobalPosition.X));
+                foreach (var tab in new[] { dialogs, contacts })
+                {
+                    Assert.That(tab.Size.X, Is.EqualTo(98).Within(1));
+                    Assert.That(tab.Size.Y, Is.EqualTo(32).Within(1));
+                    Assert.That(tab.ClipText, Is.False);
+                    var available = tab.Label.Size.X;
+                    tab.Label.Measure(new Vector2(float.PositiveInfinity, 32));
+                    Assert.That(tab.Label.DesiredSize.X, Is.LessThanOrEqualTo(available), tab.Text);
+                    Assert.That(tab.ActualModulateSelf, Is.EqualTo(Color.White), "PDA styles must not multiply the background color");
+                }
             }
             var history = Descendants(ui).Single(c => c.Name == "MessengerMessages");
             var firstMessage = history.Children.First();
@@ -86,7 +116,7 @@ public sealed class MessengerLayoutTest
             var contactsList = Descendants(ui).Single(c => c.Name == "MessengerContacts");
             Assert.That(contactsList.Children.OfType<ContainerButton>(), Is.Empty, "Offline characters are not discoverable contacts");
             var dialogsTab = (Button) Descendants(ui).Single(c => c.Name == "MessengerDialogsTab");
-            dialogsTab.Pressed = true;
+            Click(dialogsTab);
             Assert.That(contactsList.Children.OfType<ContainerButton>().Count(), Is.EqualTo(1), "Offline correspondence remains in chats");
             var input = (LineEdit) Descendants(ui).Single(c => c.Name == "MessengerInput");
             var other = new MessengerContact(new NetEntity(43), "Other character", true, 0, "");
@@ -100,7 +130,36 @@ public sealed class MessengerLayoutTest
             ui.UpdateState(new MessengerUiState([contact, other],
                 [.. messages, new(peer, contact.Name, "Unsent draft", TimeSpan.FromMinutes(125), false)], peer, false, null));
             Assert.That(input.Text, Is.Empty, "Only confirmed delivery clears the draft");
+            var button = (MessengerButton) Descendants(ui).Single(c => c.Name == "MessengerDialogsTab");
+            var normal = ((StyleBoxFlat) button.StyleBoxOverride!).BackgroundColor;
+            SendKey(button, "KeyBindDown", BoundKeyState.Down);
+            var pressed = ((StyleBoxFlat) button.StyleBoxOverride!).BackgroundColor;
+            Assert.That(pressed.R + pressed.G + pressed.B, Is.LessThan(normal.R + normal.G + normal.B),
+                "Pressed buttons must become darker, not brighter");
+            SendKey(button, "KeyBindUp", BoundKeyState.Up);
+            Assert.That(((StyleBoxFlat) button.StyleBoxOverride!).BackgroundColor, Is.EqualTo(normal),
+                "Releasing the selected tab restores its selected color");
+            SendKey(button, "KeyBindDown", BoundKeyState.Down);
+            typeof(BaseButton).GetMethod("ControlFocusExited", BindingFlags.Instance | BindingFlags.NonPublic)!.Invoke(button, null);
+            Assert.That(((StyleBoxFlat) button.StyleBoxOverride!).BackgroundColor, Is.EqualTo(normal),
+                "Losing focus must not leave a button permanently dark");
         });
+    }
+
+    private static void Click(BaseButton button)
+    {
+        foreach (var (name, state) in new[] { ("KeyBindDown", BoundKeyState.Down), ("KeyBindUp", BoundKeyState.Up) })
+            SendKey(button, name, state);
+    }
+
+    private static void SendKey(BaseButton button, string name, BoundKeyState state)
+    {
+        button.MuteSounds = true;
+        var position = button.GlobalPixelPosition + button.PixelSize / 2;
+        var pointer = new ScreenCoordinates(position, button.Window?.Id ?? default);
+        var args = new GUIBoundKeyEventArgs(EngineKeyFunctions.UIClick, state, pointer, default,
+            button.Size / 2, button.PixelSize / 2);
+        typeof(BaseButton).GetMethod(name, BindingFlags.Instance | BindingFlags.NonPublic)!.Invoke(button, [args]);
     }
 
     private static IEnumerable<Control> Descendants(Control parent)

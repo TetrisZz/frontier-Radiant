@@ -31,6 +31,10 @@ public sealed partial class PaperBoundUserInterface : BoundUserInterface // Delt
         base.Open();
 
         _window = this.CreateWindow<PaperWindow>();
+        _window.CanFillForms = () => _playerManager.LocalEntity is { } player &&
+            EntMan.TryGetComponent<PaperComponent>(Owner, out var component) &&
+            (string.IsNullOrWhiteSpace(component.Content) || UnderstandsLanguage(component.Language)) &&
+            EntMan.System<PaperSystem>().CanWrite(Owner, player, fillingForm: true);
         _window.OnSaved += InputOnTextEntered;
         _window.Typing += OnTyping; // DeltaV
         _window.SubmitPressed += OnSubmit; // DeltaV

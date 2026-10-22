@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: TowelDispenser
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: WoodPlank
+        amount: 6
+        doAfter: 2
+  - node: finished
+    entity: TowelDispenser
+    edges:
+    - to: start
+      completed:
+      - !type:EmptyAllContainers {}
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 6
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 3

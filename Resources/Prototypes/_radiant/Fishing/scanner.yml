@@ -1,0 +1,35 @@
+- type: entity
+  parent: [BaseItem, PowerCellSlotSmallItem]
+  id: FishScanner
+  name: fish scanner
+  description: Checks fish health, maturity and breeding compatibility.
+  components:
+  - type: FishScanner
+  - type: PowerCellDraw
+    drawRate: 0
+    useRate: 40
+  - type: ActivatableUI
+    key: enum.FishScannerUiKey.Key
+    inHandsOnly: true
+  - type: ActivatableUIRequiresPowerCell
+  - type: UserInterface
+    interfaces:
+      enum.FishScannerUiKey.Key:
+        type: FishScannerBoundUserInterface
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Fishing/fish_scanner.rsi
+    state: scanner
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  parent: FishScanner
+  id: FishScannerEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

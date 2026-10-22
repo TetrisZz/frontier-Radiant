@@ -1,0 +1,45 @@
+- type: entity
+  parent: CratePlasticBiodegradable
+  id: CratePhotocopierSupplies
+  name: photocopier supplies crate
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetPaper
+      amount: 2
+    - id: PrinterToner
+      amount: 2
+
+- type: cargoProduct
+  id: PhotocopierSupplies
+  icon:
+    sprite: _radiant/Objects/Devices/printer_toner.rsi
+    state: toner
+  product: CratePhotocopierSupplies
+  cost: 250
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: entity
+  parent: CratePlasticBiodegradable
+  id: CrateSocialCardGames
+  name: conversation card games crate
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxQuestionDeck
+    - id: BoxDareDeck
+    - id: BoxAdultQuestionDeck
+    - id: BoxBlankCardDeck
+    - id: Pen
+      amount: 2
+
+- type: cargoProduct
+  id: SocialCardGames
+  icon:
+    sprite: _radiant/Objects/Fun/question_cards.rsi
+    state: questions
+  product: CrateSocialCardGames
+  cost: 350
+  category: cargoproduct-category-name-service
+  group: market

@@ -1,0 +1,13 @@
+tts-settings-title = Text-to-speech (TTS)
+tts-settings-volume = Overall TTS volume
+tts-settings-radio-volume = Radio volume
+tts-settings-announcement-volume = Announcement volume
+tts-settings-automatic = Automated notifications
+tts-settings-automatic-enabled = Read automated notifications aloud
+tts-settings-automatic-volume = Automated notification volume
+tts-settings-channels = Spoken radio channels
+tts-settings-all = Enable all
+tts-settings-none = Disable all
+tts-borg-voice-title = Cyborg voice
+tts-borg-voice-preview = Preview voice
+tts-borg-voice-apply = Apply voice

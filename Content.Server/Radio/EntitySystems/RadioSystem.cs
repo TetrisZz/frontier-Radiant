@@ -51,7 +51,7 @@ public sealed class RadioSystem : EntitySystem
     {
         if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
         {
-            SendRadioMessage(uid, args.Message, args.Channel, uid, language: args.Language); // Radiant Sector: preserve species language over radio.
+            SendRadioMessage(uid, args.Message, args.Channel, uid, language: args.Language, isWhisper: args.IsWhisper, isAnnouncement: false);
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
     }
@@ -82,9 +82,9 @@ public sealed class RadioSystem : EntitySystem
     /// <summary>
     /// Send radio message to all active radio listeners
     /// </summary>
-    public void SendRadioMessage(EntityUid messageSource, string message, ProtoId<RadioChannelPrototype> channel, EntityUid radioSource, int? frequency = null, bool escapeMarkup = true, bool hideCoordinates = false, string? language = null) // Frontier: added frequency; Radiant Sector: language
+    public void SendRadioMessage(EntityUid messageSource, string message, ProtoId<RadioChannelPrototype> channel, EntityUid radioSource, int? frequency = null, bool escapeMarkup = true, bool hideCoordinates = false, string? language = null, bool isWhisper = false, bool isAnnouncement = true)
     {
-        SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, frequency: frequency, escapeMarkup: escapeMarkup, hideCoordinates: hideCoordinates, language: language); // Frontier: added frequency; Radiant Sector
+        SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, frequency: frequency, escapeMarkup: escapeMarkup, hideCoordinates: hideCoordinates, language: language, isWhisper: isWhisper, isAnnouncement: isAnnouncement);
     }
 
     /// <summary>
@@ -92,7 +92,8 @@ public sealed class RadioSystem : EntitySystem
     /// </summary>
     /// <param name="messageSource">Entity that spoke the message</param>
     /// <param name="radioSource">Entity that picked up the message and will send it, e.g. headset</param>
-    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, int? frequency = null, bool escapeMarkup = true, bool hideCoordinates = false, string? language = null) // Nuclear-14: add frequency; Radiant Sector: language
+    /// <param name="isAnnouncement">Automated notification. Live speech relays explicitly set this to false.</param>
+    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, int? frequency = null, bool escapeMarkup = true, bool hideCoordinates = false, string? language = null, bool isWhisper = false, bool isAnnouncement = true)
     {
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
@@ -155,7 +156,7 @@ public sealed class RadioSystem : EntitySystem
             NetEntity.Invalid,
             null);
         var chatMsg = new MsgChatMessage { Message = chat };
-        var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg, language); // Radiant Sector
+        var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg, language, isWhisper, isAnnouncement);
 
         var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
         RaiseLocalEvent(ref sendAttemptEv);
@@ -167,6 +168,7 @@ public sealed class RadioSystem : EntitySystem
         var sourceServerExempt = _exemptQuery.HasComp(radioSource);
 
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
+        var delivered = new List<EntityUid>();
 
         if (frequency == null) // Nuclear-14
             frequency = GetFrequency(messageSource, channel); // Nuclear-14
@@ -211,7 +213,11 @@ public sealed class RadioSystem : EntitySystem
 
             // send the message
             RaiseLocalEvent(receiver, ref ev);
+            delivered.Add(receiver);
         }
+
+        var deliveredEvent = new RadioMessageDeliveredEvent(ev, delivered);
+        RaiseLocalEvent(ref deliveredEvent);
 
         if (name != Name(messageSource))
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} as {name} on {channel.LocalizedName}: {message}");

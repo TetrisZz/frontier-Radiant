@@ -1,0 +1,25 @@
+- type: entity
+  parent: CratePlasticBiodegradable
+  id: RadiantCrateAquariumSupplies
+  name: aquarium supplies crate
+  description: Fish food and decorations for a home aquarium.
+  components:
+  - type: StorageFill
+    contents:
+    - id: RadiantAquariumFeed
+      amount: 2
+    - id: RadiantAquariumRocks
+    - id: RadiantAquariumSeaweed
+    - id: RadiantAquariumTreasure
+    - id: RadiantAquariumSand
+    - id: FishScanner
+
+- type: cargoProduct
+  id: RadiantAquariumSupplies
+  icon:
+    sprite: _radiant/Objects/Specific/Fishing/aquarium_supplies.rsi
+    state: fish_feed
+  product: RadiantCrateAquariumSupplies
+  cost: 500
+  category: cargoproduct-category-name-service
+  group: market

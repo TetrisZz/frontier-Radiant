@@ -22,6 +22,8 @@ using Content.Shared.IdentityManagement; // RMC14
 using Content.Shared.IdentityManagement.Components; // RMC14
 using Content.Shared.Mind.Components; // RMC14
 using Content.Shared.Roles; // RMC14
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.ActionBlocker;
 
 namespace Content.Shared.Paper;
 
@@ -38,6 +40,8 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!; // Frontier
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
 
     private const int ReapplyLimit = 10; // Frontier: limits on reapplied stamps
     private const int StampLimit = 100; // Frontier: limits on total stamps on a page (should be able to get a signature from everybody on the server on a page)
@@ -256,10 +260,38 @@ public sealed class PaperSystem : EntitySystem
         };
     }
 
+    /// <summary>
+    /// A writing tool must remain held, even when the document was opened for reading.
+    /// Dossier templates are immutable, but their dedicated fields may be filled.
+    /// </summary>
+    public bool CanWrite(EntityUid paper, EntityUid user, bool fillingForm = false)
+    {
+        if (!TryComp<PaperComponent>(paper, out var component) ||
+            component.EditingDisabled && !(fillingForm && HasComp<DossierPrintoutComponent>(paper)) ||
+            !_blocker.CanInteract(user, paper) ||
+            !_interaction.IsAccessible(user, paper) || !_interaction.InRangeUnobstructed(user, paper))
+            return false;
+
+        foreach (var held in _hands.EnumerateHeld(user))
+        {
+            if (!_tagSystem.HasTag(held, WriteTag) || !_blocker.CanUseHeldEntity(user, held))
+                continue;
+
+            if (component.StampedBy.Count == 0 || _tagSystem.HasTag(held, WriteIgnoreStampsTag) ||
+                _tagSystem.HasTag(held, NFWriteIgnoreUnprotectedStampsTag) && !_tagSystem.HasTag(paper, NFPaperStampProtectedTag))
+                return true;
+        }
+
+        return false;
+    }
+
     private void OnInputTextMessage(Entity<PaperComponent> entity, ref PaperInputTextMessage args)
     {
         // Printed dossiers may only fill one remaining form field; their template is immutable.
         var dossierPrintout = HasComp<DossierPrintoutComponent>(entity);
+        if (!CanWrite(entity, args.Actor, fillingForm: dossierPrintout))
+            return;
+
         if (dossierPrintout && !IsSingleDossierFieldFill(entity.Comp.Content, args.Text))
             return;
 

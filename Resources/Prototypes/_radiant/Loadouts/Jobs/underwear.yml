@@ -27,3 +27,15 @@
   price: 100
   equipment:
     socks: ClothingUnderwearSocksTroubleneko
+
+- type: loadout
+  id: ContractorClothingUnderwearTopNekoWhite
+  price: 100
+  equipment:
+    underweart: ClothingUnderwearTopNekoWhite
+
+- type: loadout
+  id: ContractorClothingUnderwearBottomPantiesNekoWhite
+  price: 100
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesNekoWhite

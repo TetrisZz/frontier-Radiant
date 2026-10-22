@@ -1,0 +1,40 @@
+- type: entity
+  parent: [BaseStructureDisableAnchoring, VendingMachine]
+  id: VendingMachineCosmetics
+  name: cosmetics vendor
+  description: Perfumes, personal care products and little finishing touches.
+  components:
+  - type: VendingMachine
+    pack: CosmeticsVendInventory
+    offState: off
+    normalState: normal
+    brokenState: broken
+    denyState: deny
+    ejectState: normal
+    screenState: screen
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/VendingMachines/cosmetics.rsi
+    layers:
+    - state: off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: normal
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+    - state: screen
+      shader: unshaded
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.2
+    color: "#ceadef"
+
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockCosmetics
+  name: cosmetics vendor restock
+  description: A selection of perfumes and personal care products for a cosmetics vendor.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - CosmeticsVendInventory

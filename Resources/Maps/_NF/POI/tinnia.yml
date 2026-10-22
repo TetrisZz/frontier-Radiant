@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 05/31/2026 05:50:06
-  entityCount: 2976
+  entityCount: 2975
 maps: []
 grids:
 - 1
@@ -9437,14 +9437,6 @@ entities:
       rot: -6.283185307179586 rad
       pos: 5.500661,7.03342
       parent: 1
-- proto: ClothingUnderwearBottomPantiesNeko
-  entities:
-  - uid: 1442
-    components:
-    - type: Transform
-      parent: 1439
-    - type: Physics
-      canCollide: False
 - proto: ClothingUnderwearBottomRadiantPantiesTrusikiblack
   entities:
   - uid: 1443
@@ -10707,9 +10699,6 @@ entities:
         1443:
           position: 6,1
           _rotation: South
-        1442:
-          position: 6,2
-          _rotation: South
         1445:
           position: 6,3
           _rotation: South
@@ -10727,7 +10716,6 @@ entities:
           - 1448
           - 1444
           - 1443
-          - 1442
           - 1445
   - uid: 1631
     components:

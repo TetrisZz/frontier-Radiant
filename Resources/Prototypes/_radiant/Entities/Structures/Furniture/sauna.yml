@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseStructure
+  id: SaunaHeater
+  name: sauna heater
+  description: A wood-fired stone heater. Fill the basin with water and add wooden planks as fuel.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/sauna_heater.rsi
+    layers:
+    - state: idle
+      map: [base]
+  - type: Appearance
+  - type: SaunaHeater
+  - type: GenericVisualizer
+    visuals:
+      enum.SaunaVisuals.Lit:
+        base:
+          True: {state: lit}
+          False: {state: idle}
+  - type: SolutionContainerManager
+    solutions:
+      water:
+        maxVol: 50
+  - type: RefillableSolution
+    solution: water
+  - type: ExaminableSolution
+    solution: water
+    exactVolume: true
+  - type: Construction
+    graph: SaunaHeater
+    node: finished
+
+- type: entity
+  parent: PerfumeMist
+  id: SaunaSteam
+  name: steam
+  components:
+  - type: Sprite
+    color: "#f0f4f580"
+    scale: 0.8,0.8
+  - type: TimedDespawn
+    lifetime: 1

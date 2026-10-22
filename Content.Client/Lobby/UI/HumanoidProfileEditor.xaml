@@ -45,6 +45,7 @@
                     </ui:HighlightedContainer>
                 </BoxContainer>
             </BoxContainer>
+            <RichTextLabel Name="ProfileFileStatus" Visible="False" MaxWidth="600" Margin="0 5 0 0" />
             <Control MinHeight="10" />
             <!-- tabContainer -->
             <TabContainer Name="TabContainer" VerticalExpand="True">
