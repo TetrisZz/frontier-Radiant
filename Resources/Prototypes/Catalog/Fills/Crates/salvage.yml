@@ -8,20 +8,35 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitSalvage
+        prob: 0.1 # Radiant Sector
       - id: ClothingMaskBreath
+        prob: 0.1 # Radiant Sector
       - id: OxygenTankFilled
+        prob: 0.1 # Radiant Sector
       - id: FireExtinguisher
+        prob: 0.1 # Radiant Sector
       - id: ClothingShoesBootsMag
+        prob: 0.1 # Radiant Sector
       - id: HandHeldMassScanner
+        prob: 0.4 # Radiant Sector
       - id: Pickaxe
+        prob: 0.1 # Radiant Sector
       - id: Welder
+        prob: 0.1 # Radiant Sector
       - id: Wrench
+        prob: 0.1 # Radiant Sector
       - id: Screwdriver
+        prob: 0.1 # Radiant Sector
       - id: Crowbar
+        prob: 0.1 # Radiant Sector
       - id: Wirecutter
+        prob: 0.1 # Radiant Sector
       - id: ClothingBeltUtility
+        prob: 0.1 # Radiant Sector
       - id: OreBag
+        prob: 0.1 # Radiant Sector
       - id: ClothingBeltSalvageWebbing
+        prob: 0.1 # Radiant Sector
 
 - type: entity
   id: CrateSalvageAssortedGoodies

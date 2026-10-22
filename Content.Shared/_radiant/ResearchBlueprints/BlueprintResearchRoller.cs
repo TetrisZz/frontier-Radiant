@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Content.Shared.Materials;
 using Content.Shared.Research.Prototypes;
@@ -60,8 +61,8 @@ public static class BlueprintResearchRoller
             AdditionalLathes = new(technology.AdditionalLathes),
         };
         var availableTiers = tiers.Where(t => t.Weight > 0 && t.Materials.Any(m => !required.Contains(m))).ToList();
-        void Time() => result.TimeMultiplier = random.Next(2, 6);
-        void Material() => result.MaterialMultiplier = random.Next(2, 11);
+        void Time() => result.TimeMultiplier = random.Next(2, 8);
+        void Material() => result.MaterialMultiplier = random.Next(2, 12);
         void Extra()
         {
             if (availableTiers.Count == 0)
@@ -79,8 +80,23 @@ public static class BlueprintResearchRoller
             result.Lathe = alternatives[random.Next(alternatives.Length)];
             result.AdditionalLathes.Clear();
         }
+        var unmodifiedChance = (double)settings.UnmodifiedChance;
+
+        switch (technology.RareLoc.ToString())
+        {
+            case "research-technology-blueprint-common":
+                unmodifiedChance *= 3;
+                break;
+
+            case "research-technology-blueprint-epic":
+                unmodifiedChance = 0;
+                break;
+        }
+
+        unmodifiedChance = Math.Clamp(unmodifiedChance, 0.0, 1.0);
+
         if (result.TimeMultiplier == 1 && result.MaterialMultiplier == 1 && result.ExtraMaterials.Count == 0 &&
-            result.Lathe == technology.Lathe && random.NextDouble() >= settings.UnmodifiedChance)
+            result.Lathe == technology.Lathe && random.NextDouble() >= unmodifiedChance)
         {
             var choices = new List<(Action Apply, double Weight)>();
             if (settings.TimeChance > 0) choices.Add((Time, settings.TimeChance));

@@ -33,6 +33,7 @@ research-blueprint-destinations = Подходящие станки ({ $count })
 research-blueprint-no-destinations = Подходящие станки не подключены к этому серверу.
 research-blueprint-lathe-legacy = Станки со штатной поддержкой этого рецепта
 research-blueprint-select = Назначить рецепт
+research-blueprint-unassign = Снять назначение
 research-blueprint-eject = Извлечь чертёж
 research-blueprint-modifiers = Время ×{ $time }, ресурсы ×{ $materials }
 research-blueprint-lathe = Станок: { $lathe }

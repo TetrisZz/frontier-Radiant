@@ -1,9 +1,9 @@
 radiant-citizenship-label = Сектор регистрации
-radiant-citizenship-asgard = Асгард
+radiant-citizenship-asgard = Циторий
 radiant-citizenship-hesperia = Гесперия
-radiant-citizenship-aurum = Аурум
-radiant-citizenship-zon = Зон
-radiant-citizenship-midgard = Мидгард
+radiant-citizenship-aurum = Авлурум
+radiant-citizenship-zon = Энор
+radiant-citizenship-midgard = Литорий
 radiant-citizenship-avrelia = Аврелия
 radiant-citizenship-nt = NanoTrasen
 ee-passport-citizenship = Сектор регистрации: {$citizenship}

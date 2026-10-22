@@ -3,8 +3,8 @@
   name: research-technology-arsenal-module
   entityIcon: BorgModuleCombatLethal
   discipline: NFArsenalMercenary
-  rare: 200
-  rareLoc: research-technology-blueprint-rare
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
@@ -18,8 +18,8 @@
   name: research-technology-arsenal-cyborg_armour
   entityIcon: CyborgArmour
   discipline: NFArsenalMercenary
-  rare: 250
-  rareLoc: research-technology-blueprint-rare
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
@@ -31,7 +31,7 @@
   name: nf-research-technology-clarke
   entityIcon: MechClarke
   discipline: NFSalvage
-  rare: 250
+  rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
   lathe: ExosuitFabricator
@@ -54,8 +54,8 @@
   name: nf-research-technology-clarke-advanced-mining
   entityIcon: WeaponMechMeleeDrillDiamond
   discipline: NFSalvage
-  rare: 300
-  rareLoc: research-technology-blueprint-rare
+  rare: 500
+  rareLoc: research-technology-blueprint-epic
   tier: 1
   tiers: [2]
   lathe: ExosuitFabricator
@@ -67,8 +67,8 @@
   name: research-technology-document-translation
   entityIcon: HandheldLanguageTranslator
   discipline: NFService
-  rare: 50
-  rareLoc: research-technology-blueprint-uncommon
+  rare: 20
+  rareLoc: research-technology-blueprint-common
   tier: 1
   lathe: ServiceTechFab
   recipe:
@@ -79,8 +79,8 @@
   name: research-technology-radiant-ftl-drive
   entityIcon: BlueSpaceRepairKit
   discipline: NFEngineering
-  rare: 250
-  rareLoc: research-technology-blueprint-rare
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
   tier: 1
   lathe: EngineeringTechFab
   recipe:

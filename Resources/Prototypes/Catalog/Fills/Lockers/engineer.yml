@@ -69,7 +69,8 @@
   table: !type:AllSelector
     children:
     - id: ToolboxElectricalFilled
-      prob: 0.7
+#      prob: 0.7 # Radiant Sector
+      prob: 0.3 # Radiant Sector
     - id: FirelockElectronics
       prob: 0.05
     - id: APCElectronics
@@ -95,11 +96,13 @@
         - !type:NestedSelector
           tableId: FillWelderSupplies
           rolls: !type:ConstantNumberSelector
-            value: 3
+#            value: 3 # Radiant Sector
+            value: 2 # Radiant Sector
         - !type:NestedSelector
           tableId: FillWelderSuppliesMask
           rolls: !type:ConstantNumberSelector
-            value: 3
+#            value: 3 # Radiant Sector
+            value: 2 # Radiant Sector
 
 - type: entityTable
   id: FillWelderSupplies
