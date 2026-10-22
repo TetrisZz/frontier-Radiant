@@ -439,7 +439,7 @@ namespace Content.Server.Database
         public string DossierJson { get; set; } = "{}";
         public string CareerJson { get; set; } = "{}";
         public string Residence { get; set; } = "";
-        public string Citizenship { get; set; } = "Asgard";
+        public string Citizenship { get; set; } = "Zon";
         public string FamilyStatus { get; set; } = "";
         public string Children { get; set; } = "";
         public string EmergencyContact { get; set; } = "";

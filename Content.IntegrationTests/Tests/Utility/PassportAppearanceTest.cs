@@ -50,10 +50,15 @@ public sealed class PassportAppearanceTest
                 window.Measure(size);
                 window.Arrange(UIBox2.FromDimensions(Vector2.Zero, size));
                 Assert.That(window.ChildCount, Is.EqualTo(1));
-                Assert.That(Descendants(window).Any(c => c.Name is "WindowHeader" or "TitleLabel" or "CloseButton"), Is.False);
+                Assert.That(Descendants(window).Any(c => c.Name is "WindowHeader" or "TitleLabel"), Is.False);
+                var close = Descendants(window).OfType<Robust.Client.UserInterface.Controls.TextureButton>()
+                    .Single(c => c.Name == "CloseButton");
+                Assert.That(close.Disabled, Is.False);
+                Assert.That(close.GlobalPosition.X + close.Size.X, Is.GreaterThan(window.GlobalPosition.X + size.X - 60));
                 var cover = Descendants(window).Single(c => c.Name == "PassportCover");
-                Assert.That(cover.GlobalPosition, Is.EqualTo(window.GlobalPosition));
-                Assert.That(cover.Size, Is.EqualTo(size));
+                Assert.That(cover.Size.X, Is.EqualTo(size.X));
+                Assert.That(cover.GlobalPosition.Y, Is.GreaterThanOrEqualTo(close.GlobalPosition.Y + close.Size.Y));
+                Assert.That(cover.GlobalPosition.Y + cover.Size.Y, Is.EqualTo(window.GlobalPosition.Y + size.Y));
                 var seal = (PassportSeal) Descendants(window).Single(c => c.Name == "PassportWatermark");
                 Assert.That(seal.Size.X, Is.EqualTo(270).Within(1));
                 Assert.That(seal.Size.Y, Is.EqualTo(270).Within(1));
@@ -66,6 +71,7 @@ public sealed class PassportAppearanceTest
                     "The document must not have page-switching buttons.");
                 window.Update(state);
                 Assert.That(Descendants(window).Count(c => c.Name == "PassportWatermark"), Is.EqualTo(1));
+                Assert.That(Descendants(window).Count(c => c.Name == "CloseButton"), Is.EqualTo(1));
                 var closed = false;
                 window.OnClose += () => closed = true;
                 window.OpenCentered();

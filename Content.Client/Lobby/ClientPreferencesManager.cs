@@ -78,19 +78,9 @@ namespace Content.Client.Lobby
         }
 
         public void UpdateCharacter(ICharacterProfile profile, int slot, bool replaceCharacter = false)
-            => UpdateCharacter(profile, slot, finalizeCitizenship: true, replaceCharacter);
-
-        private void UpdateCharacter(ICharacterProfile profile, int slot, bool finalizeCitizenship, bool replaceCharacter)
         {
             var collection = IoCManager.Instance!;
             profile.EnsureValid(_playerManager.LocalSession!, collection);
-            if (profile is HumanoidCharacterProfile humanoid)
-            {
-                if (!replaceCharacter && Preferences.Characters.TryGetValue(slot, out var saved) &&
-                    saved is HumanoidCharacterProfile { CitizenshipLocked: true } old)
-                    humanoid.Citizenship = old.Citizenship;
-                humanoid.CitizenshipLocked = finalizeCitizenship;
-            }
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
             // Saving (or creating) a character also selects that slot, matching the server.
             Preferences = new PlayerPreferences(characters, slot, Preferences.AdminOOCColor, Preferences.ConstructionFavorites, Preferences.GhostSkin);
@@ -115,7 +105,7 @@ namespace Content.Client.Lobby
                 throw new InvalidOperationException("Out of character slots!");
             }
 
-            UpdateCharacter(profile, lowest.Value, finalizeCitizenship: false, replaceCharacter: false);
+            UpdateCharacter(profile, lowest.Value);
         }
 
         public void DeleteCharacter(ICharacterProfile profile)

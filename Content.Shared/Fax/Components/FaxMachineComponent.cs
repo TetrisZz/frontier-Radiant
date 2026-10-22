@@ -1,3 +1,4 @@
+using Content.Shared._radiant.ResearchBlueprints;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Paper;
 using Content.Shared.Research.Prototypes;
@@ -209,11 +210,14 @@ public sealed partial class FaxPrintout
     [DataField] // Frontier
     public HashSet<ProtoId<LatheRecipePrototype>> BlueprintRecipes { get; private set; } = new(); // Frontier
 
+    [DataField]
+    public BlueprintModifiers? BlueprintModifiers { get; private set; }
+
     private FaxPrintout()
     {
     }
 
-    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, EntityUid? entityUid = null, bool stampProtected = false, HashSet<ProtoId<LatheRecipePrototype>>? blueprintRecipes = null, string? language = null)
+    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, EntityUid? entityUid = null, bool stampProtected = false, HashSet<ProtoId<LatheRecipePrototype>>? blueprintRecipes = null, string? language = null, BlueprintModifiers? blueprintModifiers = null)
     {
         Content = content;
         Name = name;
@@ -224,7 +228,8 @@ public sealed partial class FaxPrintout
         Locked = locked;
         EntityUid = entityUid; // CorvaxGoob-PhotoCamera
         StampProtected = stampProtected; // Frontier
-        BlueprintRecipes = blueprintRecipes ?? new(); // Frontier
+        BlueprintRecipes = blueprintRecipes == null ? new() : new(blueprintRecipes); // Frontier
+        BlueprintModifiers = blueprintModifiers?.Copy();
         Language = language; // Radiant Sector
     }
 }

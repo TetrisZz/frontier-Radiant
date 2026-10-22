@@ -69,7 +69,23 @@ public sealed class PassportWindow : BaseWindow
         MinWidth = 800;
         MinHeight = 480;
         SetSize = new Vector2(930, 550);
-        AddChild(_pages);
+        var contents = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            SeparationOverride = 0,
+        };
+        AddChild(contents);
+        var closeFrame = new PanelContainer
+        {
+            HorizontalAlignment = HAlignment.Right,
+            Margin = new Thickness(6),
+            StyleClasses = { "AngleRect" },
+        };
+        var close = new TextureButton { Name = "CloseButton", StyleClasses = { "windowCloseButton" } };
+        close.OnPressed += _ => Close();
+        closeFrame.AddChild(close);
+        contents.AddChild(closeFrame);
+        contents.AddChild(_pages);
     }
 
     protected override DragMode GetDragModeFor(Vector2 relativeMousePos)

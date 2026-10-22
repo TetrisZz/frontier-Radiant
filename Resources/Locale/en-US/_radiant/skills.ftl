@@ -1,4 +1,8 @@
 professional-skills-tab = Skills and abilities
+professional-skills-minimum = Spend at least { $minimum } skill point to join the round. You may leave the remaining points unspent.
+professional-skills-selection-title = Select character skills
+professional-skills-selection-required = Before joining, spend at least { $minimum } point in Skills and abilities and save your character. You do not have to spend every point.
+professional-skills-selection-open = Configure character
 professional-skills-current-level = { $skill } · Level { $level }
 professional-skills-experience-0 = You only know this field by hearsay. Complex work is best left to someone with training.
 professional-skills-experience-1 = Your first lessons are behind you. You can handle the basics, but difficult tasks still call for a specialist.

@@ -45,6 +45,7 @@ research-technology-blueprint-common = Common blueprint
 research-technology-blueprint-uncommon = Uncommon blueprint
 research-technology-blueprint-rare = Rare blueprint
 research-technology-blueprint-epic = Very rare blueprint
+research-technology-blueprint-unique = Unique blueprint
 ent-ResearchRandomBlueprint = research blueprint
     .desc = { ent-BaseBlueprint.desc }
 ent-BlueprintLithographLegacy = blueprint lithograph

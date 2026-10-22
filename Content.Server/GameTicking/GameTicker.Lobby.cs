@@ -157,6 +157,8 @@ namespace Content.Server.GameTicking
                 _playerGameStatuses[playerUserId] = status;
                 if (!_playerManager.TryGetSessionById(playerUserId, out var playerSession))
                     continue;
+                if (ready && !CheckSkillSelection(playerSession))
+                    _playerGameStatuses[playerUserId] = PlayerGameStatus.NotReadyToPlay;
                 RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
             }
         }
@@ -173,6 +175,9 @@ namespace Content.Server.GameTicking
             {
                 return;
             }
+
+            if (ready && !CheckSkillSelection(player))
+                return;
 
             var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;

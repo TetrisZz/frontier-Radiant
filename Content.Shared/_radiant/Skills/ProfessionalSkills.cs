@@ -1,3 +1,4 @@
+using System.Linq;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -14,6 +15,9 @@ public static class ProfessionalSkillRules
 {
     public const int Budget = 10;
     public const int Count = 8;
+    public const int MinimumSpent = 1;
+
+    public static bool CanJoin(int[]? levels) => Normalize(levels).Sum() >= MinimumSpent;
 
     public static int Maximum(ProfessionalSkill skill) => skill switch
     {
@@ -41,6 +45,9 @@ public static class ProfessionalSkillRules
         return result;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class SkillSelectionRequiredEvent : EntityEventArgs;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ProfessionalSkillsComponent : Component

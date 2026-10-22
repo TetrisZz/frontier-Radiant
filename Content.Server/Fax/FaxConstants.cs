@@ -33,5 +33,6 @@ public static class FaxConstants
     public const string FaxPaperLockedData = "fax_data_locked";
     public const string FaxPaperStampProtectedData = "fax_data_stamp_protected"; // Frontier: stamp protection
     public const string FaxBlueprintRecipes = "fax_blueprint_recipes"; // Frontier: faxable blueprints
+    public const string FaxBlueprintModifiers = "fax_blueprint_modifiers";
     public const string FaxPhotoImageData = "fax_data_photo_image"; // CorvaxGoob-Port: photo camera
 }

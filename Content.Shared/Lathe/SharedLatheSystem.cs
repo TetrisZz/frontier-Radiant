@@ -45,13 +45,13 @@ public abstract class SharedLatheSystem : EntitySystem
 
     public bool MatchesBlueprintLathe(EntityUid uid, LatheComponent component, BlueprintModifiers modifiers)
     {
+        if (modifiers.Lathe == null)
+            return true;
         if (component.LatheBlueprint == null || !_proto.TryIndex(component.LatheBlueprint, out var group))
             return false;
         var machine = MetaData(uid).EntityPrototype;
         if (machine == null)
             return false;
-        if (modifiers.Lathe == null)
-            return true;
         var targets = modifiers.GetLathes().Where(group.Lathe.Contains).ToHashSet();
         return _proto.EnumerateParents(machine, includeSelf: true).Any(parent => targets.Contains(new EntProtoId(parent.ID)));
     }

@@ -17,17 +17,15 @@ public enum RadiantCitizenship : byte
 public static class RadiantCitizenships
 {
     public static RadiantCitizenship Normalize(RadiantCitizenship value)
-        => Enum.IsDefined(value) ? value : RadiantCitizenship.Asgard;
-
-    public static bool IsLegacy(string? value)
-    {
-        if (value?.StartsWith("Locked:", StringComparison.Ordinal) == true)
-            value = value[7..];
-        return value is "Confederation" or "Empire" or "USSR" or "OPZ";
-    }
+        => Enum.IsDefined(value) ? value : RadiantCitizenship.Zon;
 
     public static RadiantCitizenship Parse(string? value)
-        => Enum.TryParse<RadiantCitizenship>(value, out var parsed)
+    {
+        // Older profiles stored the selection lock in this string.
+        if (value?.StartsWith("Locked:", StringComparison.Ordinal) == true)
+            value = value[7..];
+        return Enum.TryParse<RadiantCitizenship>(value, out var parsed)
             ? Normalize(parsed)
-            : RadiantCitizenship.Asgard;
+            : RadiantCitizenship.Zon;
+    }
 }

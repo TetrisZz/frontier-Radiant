@@ -197,7 +197,11 @@ public sealed class BlueprintLatheSystem : SharedBlueprintLatheSystem
             }
 
             if (anyRecipes)
+            {
+                EntityManager.System<Content.Server._radiant.ResearchBlueprints.BlueprintResearchSystem>()
+                    .InitializeBlueprint((blueprint, blueprintComp));
                 Dirty(blueprint, blueprintComp);
+            }
             else
                 QueueDel(blueprint);
         }

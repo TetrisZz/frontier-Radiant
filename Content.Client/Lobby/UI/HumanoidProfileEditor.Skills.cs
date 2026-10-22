@@ -74,6 +74,7 @@ public sealed partial class HumanoidProfileEditor
         root.VerticalExpand = true;
         _skillPoints = new Label();
         root.AddChild(_skillPoints);
+        root.AddChild(SkillText(Loc.GetString("professional-skills-minimum", ("minimum", ProfessionalSkillRules.MinimumSpent))));
 
         var columns = new BoxContainer
         {
@@ -252,6 +253,8 @@ public sealed partial class HumanoidProfileEditor
         _skillPoints.Text = Loc.GetString("professional-skills-points",
             ("remaining", ProfessionalSkillRules.Budget - (Profile?.SkillPointsSpent ?? 0)),
             ("total", ProfessionalSkillRules.Budget));
+        _skillPoints.FontColorOverride = ProfessionalSkillRules.CanJoin(Profile?.SkillLevels) ? null : Color.FromHex("#EB6464");
+        _skillPoints.ToolTip = Loc.GetString("professional-skills-minimum", ("minimum", ProfessionalSkillRules.MinimumSpent));
         _skillsList.DisposeAllChildren();
         foreach (var skill in Enum.GetValues<ProfessionalSkill>())
         {

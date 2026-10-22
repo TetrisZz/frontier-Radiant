@@ -42,6 +42,8 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
     public override void Initialize()
     {
         SubscribeLocalEvent<ResearchConsoleComponent, ResearchBlueprintRollMessage>(OnRoll);
+        SubscribeLocalEvent<BlueprintComponent, MapInitEvent>(OnBlueprintMapInit);
+        SubscribeLocalEvent<BlueprintResearchSpawnerComponent, MapInitEvent>(OnResearchSpawnerMapInit);
         SubscribeLocalEvent<LatheComponent, ComponentInit>(OnLatheInit);
         SubscribeLocalEvent<BlueprintLibraryComponent, BlueprintLibrarySelectMessage>(OnSelect);
         SubscribeLocalEvent<BlueprintLibraryComponent, BlueprintLibraryUnselectMessage>(OnUnselect);
@@ -124,10 +126,7 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
 
         var hasTechnologies = _proto
             .EnumeratePrototypes<TechnologyBlueprintsPrototype>()
-            .Any(t => t.SupportsTier(preset.Tier) &&
-                      double.IsFinite(t.Rare) &&
-                      t.Rare > 0 &&
-                      (t.Recipe.Count > 0 || t.RecipeForce.Count > 0));
+            .Any(preset.Allows);
 
         if (!hasTechnologies)
             return false;
@@ -162,30 +161,13 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
             settings.Cost <= 0 ||
             (!costPaid && server.Points < settings.Cost))
             return false;
-        var technologies = _proto.EnumeratePrototypes<TechnologyBlueprintsPrototype>()
-            .Where(t => t.SupportsTier(settings.Tier) && double.IsFinite(t.Rare) && t.Rare > 0 &&
-                (t.Recipe.Count > 0 || t.RecipeForce.Count > 0)).OrderBy(t => t.ID).ToArray();
-        if (technologies.Length == 0)
+        if (!TryCreateBlueprint(Transform(uid).Coordinates, settings, out var blueprint, out var technology))
             return false;
-        var technology = BlueprintResearchRoller.PickWeighted(_random, technologies, t => 1 / t.Rare);
-        var recipes = BlueprintResearchRoller.RollRecipes(_random, technology);
-        if (recipes.Any(r => !_proto.HasIndex(r)))
-            return false;
-        var required = recipes.SelectMany(r => _proto.Index(r).Materials.Keys).ToHashSet();
-        LatheBlueprintPrototype? group = null;
-        if (_proto.Index(technology.Lathe).TryGetComponent<LatheComponent>(out var machineLathe, EntityManager.ComponentFactory) &&
-            machineLathe.LatheBlueprint is { } groupId)
-            _proto.TryIndex(groupId, out group);
-        var modifiers = BlueprintResearchRoller.Roll(_random, technology, settings,
-            settings.MaterialTiers.Select(t => _proto.Index(t)).ToArray(), group?.Lathe ?? new List<EntProtoId>(), required);
-        var blueprint = Spawn(settings.Blueprint, Transform(uid).Coordinates);
-        SetBlueprint((blueprint, EnsureComp<BlueprintComponent>(blueprint)), recipes, modifiers);
-        var item = string.Join(", ", recipes.OrderBy(r => r.Id).Select(recipe => _lathes.GetRecipeName(_proto.Index(recipe))));
-        _metadata.SetEntityName(blueprint, Loc.GetString("research-blueprint-paper-name", ("item", item)));
+        var modifiers = blueprint.Comp.Modifiers!;
         server.BlueprintResults.Insert(0, new BlueprintResearchResult
         {
             InstanceId = modifiers.InstanceId, Technology = technology.ID,
-            Recipes = recipes.OrderBy(r => r.Id).ToList(), RareLoc = modifiers.RareLoc,
+            Recipes = blueprint.Comp.ProvidedRecipes.OrderBy(r => r.Id).ToList(), RareLoc = modifiers.RareLoc,
         });
         if (server.BlueprintResults.Count > 50) server.BlueprintResults.RemoveRange(50, server.BlueprintResults.Count - 50);
         Dirty(serverUid, server);

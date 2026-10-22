@@ -1132,8 +1132,8 @@ namespace Content.Client.Lobby.UI
                     ? Loc.GetString(species.Name) : Profile.Species.Id));
             DossierResidence.TextRope = new Rope.Leaf(Profile?.Residence ?? "");
             DossierBirthplace.TextRope = new Rope.Leaf(Profile?.Birthplace ?? "");
-            DossierCitizenship.SelectId((int) (Profile?.Citizenship ?? RadiantCitizenship.Asgard));
-            DossierCitizenship.Disabled = Profile?.CitizenshipLocked ?? false;
+            DossierCitizenship.SelectId((int) (Profile?.Citizenship ?? RadiantCitizenship.Zon));
+            DossierCitizenship.Disabled = Profile == null;
             RefreshFamilyOptions();
             DossierEmergency.TextRope = new Rope.Leaf(Profile?.EmergencyContact ?? "");
             DossierFeatures.TextRope = new Rope.Leaf(Profile?.DistinguishingFeatures ?? "");
@@ -2184,7 +2184,8 @@ namespace Content.Client.Lobby.UI
             var previous = Profile;
             var oldBank = previous?.BankBalance ?? HumanoidCharacterProfile.DefaultBalance; // Frontier
             Profile = HumanoidCharacterProfile.Random().WithBankBalance(oldBank); // Frontier: add WithBankBalance(oldBank)
-            var replacingSavedCharacter = ReplaceCharacterOnSave || previous?.CitizenshipLocked == true;
+            var replacingSavedCharacter = ReplaceCharacterOnSave || CharacterSlot is { } slot &&
+                _preferencesManager.Preferences?.Characters.ContainsKey(slot) == true;
             SetProfile(Profile, CharacterSlot);
             ReplaceCharacterOnSave = replacingSavedCharacter;
             RefreshPersonalDossier();

@@ -1,4 +1,5 @@
 using Content.Server._CorvaxGoob.Photo;
+using Content.Shared._radiant.ResearchBlueprints;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -58,6 +59,7 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly TagSystem _tag = default!; // Frontier
     [Dependency] private readonly BlueprintLatheSystem _blueprint = default!; // Frontier
+    [Dependency] private readonly Content.Server._radiant.ResearchBlueprints.BlueprintResearchSystem _blueprintResearch = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
@@ -354,8 +356,9 @@ public sealed class FaxSystem : EntitySystem
                     args.Data.TryGetValue(FaxConstants.FaxPaperLanguageData, out string? language); // Radiant Sector
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampProtectedData, out bool? stampProtected); // Frontier
                     args.Data.TryGetValue(FaxConstants.FaxBlueprintRecipes, out HashSet<ProtoId<LatheRecipePrototype>>? blueprintRecipes); // Frontier
+                    args.Data.TryGetValue(FaxConstants.FaxBlueprintModifiers, out BlueprintModifiers? blueprintModifiers);
 
-                    var Printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, entityUid: null, stampProtected: stampProtected ?? false, blueprintRecipes: blueprintRecipes, language: language); // Frontier: add stampProtected, blueprintRecipes, Port-Photo; Radiant Sector: language
+                    var Printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, entityUid: null, stampProtected: stampProtected ?? false, blueprintRecipes: blueprintRecipes, language: language, blueprintModifiers: blueprintModifiers); // Frontier: add stampProtected, blueprintRecipes, Port-Photo; Radiant Sector: language
                     Receive(uid, Printout, args.SenderAddress);
 
                     break;
@@ -540,7 +543,8 @@ public sealed class FaxSystem : EntitySystem
                 entityUid: null,
                  stampProtected: _tag.HasTag(sendEntity.Value, NFPaperStampProtectedTag), // Frontier
                  blueprintRecipes: blueprintRecipes, // Frontier
-                 language: paper.Language // Radiant Sector
+                 language: paper.Language, // Radiant Sector
+                 blueprintModifiers: blueprints?.Modifiers
             );
         }
         else if (TryComp<PhotoCardComponent>(sendEntity, out var photo) )
@@ -654,6 +658,8 @@ public sealed class FaxSystem : EntitySystem
         if (TryComp<BlueprintComponent>(sendEntity, out var blueprint))
         {
             payload[FaxConstants.FaxBlueprintRecipes] = blueprint.ProvidedRecipes;
+            if (blueprint.Modifiers is { } modifiers)
+                payload[FaxConstants.FaxBlueprintModifiers] = modifiers.Copy();
         }
         // End Frontier: blueprint recipes
 
@@ -758,7 +764,13 @@ public sealed class FaxSystem : EntitySystem
 
         // Frontier: blueprint recipes
         if (TryComp<BlueprintComponent>(printed, out var blueprint))
+        {
             _blueprint.SetBlueprintRecipes((printed, blueprint), printout.BlueprintRecipes);
+            if (printout.BlueprintModifiers is { } modifiers)
+                _blueprintResearch.SetBlueprint((printed, blueprint), printout.BlueprintRecipes, modifiers);
+            else
+                _blueprintResearch.InitializeBlueprint((printed, blueprint));
+        }
         // End Frontier: blueprint recipes
 
         _metaData.SetEntityName(printed, printout.Name);

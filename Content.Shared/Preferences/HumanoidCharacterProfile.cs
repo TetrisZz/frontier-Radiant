@@ -86,8 +86,7 @@ namespace Content.Shared.Preferences
         public string FlavorText { get; set; } = string.Empty;
 
         [DataField] public string Residence { get; set; } = string.Empty;
-        [DataField] public RadiantCitizenship Citizenship { get; set; } = RadiantCitizenship.Asgard;
-        [DataField] public bool CitizenshipLocked { get; set; }
+        [DataField] public RadiantCitizenship Citizenship { get; set; } = RadiantCitizenship.Zon;
         [DataField] public string FamilyStatus { get; set; } = string.Empty;
         [DataField] public string Children { get; set; } = string.Empty;
         [DataField] public string EmergencyContact { get; set; } = string.Empty;
@@ -223,7 +222,6 @@ namespace Content.Shared.Preferences
             Career = other.Career.Clone();
             Residence = other.Residence;
             Citizenship = other.Citizenship;
-            CitizenshipLocked = other.CitizenshipLocked;
             FamilyStatus = other.FamilyStatus;
             Children = other.Children;
             EmergencyContact = other.EmergencyContact;
@@ -260,7 +258,6 @@ namespace Content.Shared.Preferences
             Career = other.Career.Clone();
             Residence = other.Residence;
             Citizenship = other.Citizenship;
-            CitizenshipLocked = other.CitizenshipLocked;
             FamilyStatus = other.FamilyStatus;
             Children = other.Children;
             EmergencyContact = other.EmergencyContact;
@@ -645,7 +642,7 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
-            if (Citizenship != other.Citizenship || CitizenshipLocked != other.CitizenshipLocked || Residence != other.Residence || FamilyStatus != other.FamilyStatus || Children != other.Children ||
+            if (Citizenship != other.Citizenship || Residence != other.Residence || FamilyStatus != other.FamilyStatus || Children != other.Children ||
                 EmergencyContact != other.EmergencyContact || DistinguishingFeatures != other.DistinguishingFeatures) return false;
             if (Birthplace != other.Birthplace || Occupation != other.Occupation || Education != other.Education ||
                 Allergies != other.Allergies || MedicalHistory != other.MedicalHistory || BloodGroup != other.BloodGroup) return false;

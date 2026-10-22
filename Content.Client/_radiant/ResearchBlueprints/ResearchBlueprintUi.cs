@@ -21,6 +21,7 @@ internal static class ResearchBlueprintUi
         "research-technology-blueprint-uncommon" => Color.FromHex("#33FF44"),
         "research-technology-blueprint-rare" => Color.FromHex("#33CCFF"),
         "research-technology-blueprint-epic" => Color.FromHex("#CC66FF"),
+        "research-technology-blueprint-unique" => Color.FromHex("#FFCC66"),
         _ => Muted,
     };
 
