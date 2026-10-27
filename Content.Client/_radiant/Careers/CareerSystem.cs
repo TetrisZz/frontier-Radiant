@@ -22,11 +22,13 @@ public sealed class CareerSystem : EntitySystem
         base.Initialize();
         SubscribeNetworkEvent<CareerStateEvent>(OnState);
         SubscribeLocalEvent<CharacterInfoSystem.GetCharacterInfoControlsEvent>(OnCharacterControls);
+        _prefs.OnServerDataLoaded += OnPreferencesLoaded;
     }
 
     public override void Shutdown()
     {
         CloseWindow();
+        _prefs.OnServerDataLoaded -= OnPreferencesLoaded;
         base.Shutdown();
     }
 
@@ -37,16 +39,18 @@ public sealed class CareerSystem : EntitySystem
         return button;
     }
 
+    private void OnPreferencesLoaded() => _requirements.RefreshCareerRequirements();
+
     public void OpenWindow()
     {
         if (_window == null)
         {
             var window = new CareerWindow();
             _window = window;
-            window.SelectRequested += OnSelect;
+            window.SelectRequested += SelectProfession;
             window.OnClose += () =>
             {
-                window.SelectRequested -= OnSelect;
+                window.SelectRequested -= SelectProfession;
                 _window = null;
                 window.Dispose();
             };
@@ -64,7 +68,7 @@ public sealed class CareerSystem : EntitySystem
         RaiseNetworkEvent(new CareerSelectJobTitleEvent(characterId, title));
     }
 
-    private void OnSelect(string profession, bool confirmReset)
+    public void SelectProfession(string profession, bool confirmReset)
     {
         RaiseNetworkEvent(new CareerSelectEvent(profession, confirmReset));
     }

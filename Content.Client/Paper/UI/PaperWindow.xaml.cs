@@ -173,15 +173,26 @@ namespace Content.Client.Paper.UI
 
 
             // Then the header:
+            var fullWidthHeader = visuals.HeaderImageFullWidth && visuals.HeaderImagePath != null;
+            HeaderImage.Visible = !fullWidthHeader;
+            FullWidthHeaderImage.Visible = fullWidthHeader;
             if (visuals.HeaderImagePath != null)
             {
-                HeaderImage.TexturePath = visuals.HeaderImagePath;
-                HeaderImage.MinSize = HeaderImage.TextureNormal?.Size ?? Vector2.Zero;
+                if (fullWidthHeader)
+                    FullWidthHeaderImage.TexturePath = visuals.HeaderImagePath;
+                else
+                {
+                    HeaderImage.TexturePath = visuals.HeaderImagePath;
+                    HeaderImage.Scale = visuals.HeaderImageScale;
+                    HeaderImage.MinSize = (HeaderImage.TextureNormal?.Size ?? Vector2.Zero) * visuals.HeaderImageScale;
+                }
             }
 
             HeaderImage.ModulateSelfOverride = visuals.HeaderImageModulate;
             HeaderImage.Margin = new Thickness(visuals.HeaderMargin.Left, visuals.HeaderMargin.Top,
                     visuals.HeaderMargin.Right, visuals.HeaderMargin.Bottom);
+            FullWidthHeaderImage.ModulateSelfOverride = visuals.HeaderImageModulate;
+            FullWidthHeaderImage.Margin = HeaderImage.Margin;
 
             // Then the footer
             if (visuals.FooterImagePath is {} path)
@@ -415,7 +426,8 @@ namespace Content.Client.Paper.UI
                 // text to be offset from a line)
                 // Calculate padding to ensure text aligns with paper lines even with headers
                 // This prevents header images from throwing off the text-to-line alignment
-                var headerHeight = HeaderImage.Size.Y + HeaderImage.Margin.Top + HeaderImage.Margin.Bottom;
+                Control header = FullWidthHeaderImage.Visible ? FullWidthHeaderImage : HeaderImage;
+                var headerHeight = header.Size.Y + header.Margin.Top + header.Margin.Bottom;
                 var headerInLines = headerHeight / (fontLineHeight * _paperContentLineScale);
                 var paddingRequiredInLines = (float)Math.Ceiling(headerInLines) - headerInLines;
                 var verticalMargin = fontLineHeight * paddingRequiredInLines * _paperContentLineScale;

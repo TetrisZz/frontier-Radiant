@@ -90,6 +90,8 @@
   - RightArmCyberRipper
   - GeneticBodyGrowerMachineCircuitboard
   - GeneticResearchConsoleCircuitboard
+  - DnaVaultMachineCircuitboard
+  - VirologySequencerMachineCircuitboard
 
 - type: technologyBlueprints
   id: StarlightAngelCyberarms

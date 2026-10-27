@@ -59,6 +59,9 @@ namespace Content.Server.Singularity.EntitySystems
         {
             if (args.Handled || !args.Complex)
                 return;
+            if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .CanUse(args.User, uid, Content.Shared._radiant.Skills.SkillAction.Interact))
+                return;
 
             if (TryComp(uid, out LockComponent? lockComp) && lockComp.Locked)
             {

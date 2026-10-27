@@ -219,16 +219,20 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     /// </summary>
     /// <param name="sources">The list of source port prototypes to get the default links for</param>
     /// <returns>A list of sink and source port ids</returns>
-    public List<(string source, string sink)> GetDefaults(List<SourcePortPrototype> sources)
+    public List<(string source, string sink)> GetDefaults(List<SourcePortPrototype> sources,
+        IReadOnlyCollection<ProtoId<SinkPortPrototype>>? sinks = null)
     {
         var defaults = new List<(string, string)>();
         foreach (var source in sources)
         {
             if (source.DefaultLinks == null)
-                return new List<(string, string)>();
+                continue;
 
             foreach (var defaultLink in source.DefaultLinks)
             {
+                if (sinks != null && !sinks.Contains(defaultLink))
+                    continue;
+
                 defaults.Add((source.ID, defaultLink));
             }
         }
@@ -260,8 +264,9 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low, $"linking defaults between {ToPrettyString(sourceUid):source} and {ToPrettyString(sinkUid):sink}");
 
         var sourcePorts = GetSourcePorts(sourceUid, sourceComponent);
-        var defaults = GetDefaults(sourcePorts);
-        SaveLinks(userId, sourceUid, sinkUid, defaults, sourceComponent, sinkComponent);
+        var defaults = GetDefaults(sourcePorts, sinkComponent.Ports);
+        if (defaults.Count == 0 || !SaveLinks(userId, sourceUid, sinkUid, defaults, sourceComponent, sinkComponent))
+            return;
 
         if (userId != null)
             _popupSystem.PopupCursor(Loc.GetString("signal-linking-verb-success", ("machine", sourceUid)), userId.Value);
@@ -278,7 +283,8 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     /// <param name="links">List of source and sink ids to link</param>
     /// <param name="sourceComponent"></param>
     /// <param name="sinkComponent"></param>
-    public void SaveLinks(
+    /// <returns>Whether at least one link was saved, or an empty link list was successfully applied.</returns>
+    public bool SaveLinks(
         EntityUid? userId,
         EntityUid sourceUid,
         EntityUid sinkUid,
@@ -287,14 +293,14 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
         DeviceLinkSinkComponent? sinkComponent = null)
     {
         if (!Resolve(sourceUid, ref sourceComponent) || !Resolve(sinkUid, ref sinkComponent))
-            return;
+            return false;
 
         if (!InRange(sourceUid, sinkUid, sourceComponent.Range))
         {
             if (userId != null)
                 _popupSystem.PopupCursor(Loc.GetString("signal-linker-component-out-of-range"), userId.Value);
 
-            return;
+            return false;
         }
 
         RemoveSinkFromSource(sourceUid, sinkUid, sourceComponent);
@@ -315,8 +321,13 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             SendNewLinkEvent(userId, sourceUid, source, sinkUid, sink);
         }
 
-        if (links.Count > 0)
+        if (sourceComponent.LinkedPorts.TryGetValue(sinkUid, out var savedLinks) && savedLinks.Count > 0)
+        {
             sinkComponent.LinkedSources.Add(sourceUid);
+            return true;
+        }
+
+        return links.Count == 0;
     }
 
     /// <summary>
@@ -420,8 +431,9 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             RaiseLocalEvent(sourceUid, new PortDisconnectedEvent(source));
             RaiseLocalEvent(sinkUid, new PortDisconnectedEvent(sink));
 
-            outputs.Remove(sinkUid);
             linkedPorts.Remove((source, sink));
+            if (!linkedPorts.Any(link => link.Source == source))
+                outputs.Remove(sinkUid);
 
             if (linkedPorts.Count != 0)
                 return true;

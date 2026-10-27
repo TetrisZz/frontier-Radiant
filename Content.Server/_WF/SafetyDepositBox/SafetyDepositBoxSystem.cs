@@ -72,6 +72,12 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         UpdateUI(uid, component, player);
     }
 
+    public void RefreshCareerUi(EntityUid console, EntityUid player)
+    {
+        if (TryComp<SafetyDepositConsoleComponent>(console, out var terminal) && Exists(player))
+            UpdateUI(console, terminal, player);
+    }
+
     private async void UpdateUI(EntityUid consoleUid, SafetyDepositConsoleComponent component, EntityUid player)
     {
         if (!TryComp<ActorComponent>(player, out var actor))
@@ -155,6 +161,10 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             _gameTicker.RoundId
         );
 
+        if (!Exists(consoleUid) || TerminatingOrDeleted(consoleUid) || !Exists(player))
+            return;
+        state.Career = EntityManager.System<Content.Server._radiant.Careers.CareerRewardSystem>()
+            .GetSafeState(consoleUid, player);
         _uiSystem.SetUiState(consoleUid, SafetyDepositConsoleUiKey.Key, state);
     }
 

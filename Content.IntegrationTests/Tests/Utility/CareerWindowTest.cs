@@ -1,7 +1,14 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client._radiant.Careers;
+using Content.Client._NF.LateJoin.Controls;
+using Content.Client._NF.LateJoin.Interfaces;
+using Content.Client._NF.LateJoin.ListItems;
 using Content.Shared._radiant.Careers;
+using Content.Shared.GameTicking;
+using Content.Shared.Roles;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Maths;
@@ -14,7 +21,9 @@ public sealed class CareerWindowTest
     [Test]
     public async Task ProfessionListRewardsAndLiveProgress()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, Fresh = true, Destructive = true });
+        try
+        {
         await pair.Client.WaitAssertion(() =>
         {
             using var window = new CareerWindow();
@@ -25,9 +34,9 @@ public sealed class CareerWindowTest
             };
             window.UpdateState(new CareerStateEvent(career, false));
             var list = Descendants(window).OfType<ItemList>().Single();
-            Assert.That(list.Count, Is.EqualTo(2));
+            Assert.That(list.Count, Is.EqualTo(4));
             Assert.That(list.All(item => item.Icon != null), Is.True);
-            Assert.That(Descendants(window).OfType<OptionButton>().Single().ItemCount, Is.EqualTo(3));
+            Assert.That(Descendants(window).OfType<OptionButton>(), Is.Empty, "Other stages cannot be browsed.");
             Assert.That(Descendants(window).Single(c => c.Name == "SelectProfession").Visible, Is.False);
 
             var bar = Descendants(window).OfType<ProgressBar>().First();
@@ -58,10 +67,34 @@ public sealed class CareerWindowTest
             window.SetLoading();
             window.UpdateState(new CareerStateEvent(career, true));
             Assert.That(Descendants(window).Single(c => c.Name == "SelectProfession").Visible, Is.True);
-            Assert.That(Descendants(window).OfType<OptionButton>().Single().ItemCount, Is.EqualTo(3));
+            Assert.That(Descendants(window).OfType<OptionButton>(), Is.Empty);
+            career.Level = 3;
+            window.UpdateState(new CareerStateEvent(career, true));
+            Assert.That(Descendants(window).OfType<ProgressBar>(), Is.Empty, "Completed stages cannot be inspected.");
+            foreach (var stationTab in new[] { true, false })
+            {
+                using PickerControl picker = stationTab ? new StationPickerControl() : new CrewPickerControl();
+                for (var id = 1; id <= 2; id++)
+                {
+                    var data = new System.Collections.Generic.Dictionary<NetEntity, StationJobInformation>
+                    {
+                        [new NetEntity(id)] = new($"Career destination {id}",
+                            new System.Collections.Generic.Dictionary<ProtoId<JobPrototype>, int?> { ["ContractorInterview"] = 1 },
+                            stationTab, null, null),
+                    };
+                    picker.UpdateUi(data);
+                    Assert.That(Descendants(picker).OfType<Label>().Where(c => c.Name == "StationName")
+                        .All(c => c.Text?.Contains($"Career destination {id}") == true), Is.True,
+                        "A profession change must not retain the old destination.");
+                    Assert.That(Descendants(picker).OfType<JobListItem>().Count(), Is.EqualTo(1));
+                }
+                picker.UpdateUi(new System.Collections.Generic.Dictionary<NetEntity, StationJobInformation>());
+                Assert.That(Descendants(picker).OfType<JobListItem>(), Is.Empty);
+            }
             TestContext.Out.WriteLine("Career list, reward icons, compact layout and live progress assertions completed");
         });
-        await pair.CleanReturnAsync();
+        }
+        finally { await pair.CleanReturnAsync(); }
     }
 
     private static System.Collections.Generic.IEnumerable<Control> Descendants(Control control)

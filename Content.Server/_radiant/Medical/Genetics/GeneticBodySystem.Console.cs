@@ -128,6 +128,7 @@ public sealed partial class GeneticBodySystem
                 : _serialization.CreateCopy(sample.BrainAppearance, notNullableOverride: true),
         };
         pod.Product = research.Product;
+        pod.ProductionVariant = research.Variant;
         pod.OutputPrototype = OrganPrototype(sample, pod.Product);
         pod.Stage = GeneticGrowthStage.Growing;
         pod.Remaining = Duration(pod);

@@ -1,6 +1,7 @@
 using Content.Client.UserInterface.Controls;
 using Content.Shared._WF.SafetyDepositBox.BUI;
 using Content.Shared._WF.SafetyDepositBox.Events;
+using Content.Shared._radiant.Careers;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
@@ -25,6 +26,7 @@ public sealed class SafetyDepositConsoleBoundUserInterface : BoundUserInterface
         _window.OnDepositPressed += OnDepositPressed;
         _window.OnWithdrawPressed += OnWithdrawPressed;
         _window.OnReclaimPressed += OnReclaimPressed;
+        _window.OnCareerAction += action => SendMessage(new CareerSafeActionMessage(action));
     }
 
     private void OnPurchasePressed(EntProtoId boxSize)

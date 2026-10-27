@@ -1,0 +1,23 @@
+- type: entity
+  id: FishBag
+  parent: NFBaseClothingBeltStorageBag
+  name: fish bag
+  description: A colorful belt bag for gathering your catch.
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Specific/Fishing/fish_bag.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Objects/Specific/Fishing/fish_bag.rsi
+    quickEquip: false
+    slots: [belt]
+  - type: Storage
+    grid:
+    - 0,0,11,3
+    maxItemSize: Normal
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      components:
+      - Fish
+  - type: Dumpable

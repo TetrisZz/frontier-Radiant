@@ -34,6 +34,14 @@
   - type: AccessReader
     access: [["Separatists"]]
 
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSeparatistsCommander
+  suffix: Separatists Commander, Locked
+  components:
+  - type: AccessReader
+    access: [["SeparatistsCommander"]]
+
 # Navy
 
 - type: entity

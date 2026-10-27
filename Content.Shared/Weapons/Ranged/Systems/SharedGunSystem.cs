@@ -102,6 +102,18 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<GunComponent, ComponentStartup>(OnGunStartup);
+    }
+
+    private void OnGunStartup(Entity<GunComponent> gun, ref ComponentStartup args)
+    {
+        // Saved entities can already be map-initialized. Rebuild derived stats on restoration;
+        // modifiers are serialized, but FireRateModified and the other cached values are not.
+        if (!_netManager.IsServer)
+            return;
+        RefreshModifiers((gun, gun));
+        var started = new GunStartupEvent();
+        RaiseLocalEvent(gun, ref started);
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)

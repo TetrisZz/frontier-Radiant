@@ -4,6 +4,7 @@
   description: career-profession-engineering-description
   icon: RCD
   jobs: [StationEngineer]
+  interviewJob: StationEngineerInterview
   requiredSkill: Engineering
   requiredSkillLevel: 1
   levels: [EngineeringLevel1, EngineeringLevel2, EngineeringLevel3]

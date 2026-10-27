@@ -48,7 +48,7 @@ public sealed class HypospraySystem : EntitySystem
         if (args.Cancelled || args.Handled || args.Args.Target == null)
             return;
 
-        args.Handled = TryDoInject(entity, args.Args.Target.Value, args.Args.User);
+        args.Handled = InjectNow(entity, args.Args.Target.Value, args.Args.User);
     }
     // End Frontier
 
@@ -58,7 +58,7 @@ public sealed class HypospraySystem : EntitySystem
         if (args.Handled)
             return;
 
-        args.Handled = TryDoInject(entity, args.User, args.User);
+        args.Handled = TryUseHypospray(entity, args.User, args.User);
     }
 
     private void OnAfterInteract(Entity<HyposprayComponent> entity, ref AfterInteractEvent args)
@@ -77,7 +77,7 @@ public sealed class HypospraySystem : EntitySystem
         if (entity.Comp.PreventCombatInjection) // Frontier
             return; // Frontier
 
-        TryDoInject(entity, args.HitEntities[0], args.User);
+        TryUseHypospray(entity, args.HitEntities[0], args.User);
     }
 
     #endregion
@@ -85,8 +85,8 @@ public sealed class HypospraySystem : EntitySystem
     #region Draw/Inject
     private bool TryUseHypospray(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)
     {
-        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+        var skills = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+        if (!skills.CanUse(user, entity, Content.Shared._radiant.Skills.SkillAction.Use))
             return false;
         // if target is ineligible but is a container, try to draw from the container if allowed
         if (entity.Comp.CanContainerDraw
@@ -98,7 +98,10 @@ public sealed class HypospraySystem : EntitySystem
 
 
         // Frontier - Upstream: #30704 - MIT
-        if (entity.Comp.DoAfterTime > 0 && target != user)
+        var novice = HasComp<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(user)
+            && skills.Level(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) == 0;
+        var injectionDelay = novice ? Math.Max(3f, entity.Comp.DoAfterTime) : entity.Comp.DoAfterTime;
+        if (injectionDelay > 0 && (target != user || novice))
         {
             // Is the target a mob? If yes, use a do-after to give them time to respond.
             if (HasComp<MobStateComponent>(target) || HasComp<BloodstreamComponent>(target))
@@ -106,7 +109,7 @@ public sealed class HypospraySystem : EntitySystem
                 //If the injection would fail the doAfter can be skipped at this step
                 if (InjectionFailureCheck(entity, target, user, out _, out _, out _, out _))
                 {
-                    _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, entity.Comp.DoAfterTime, new HyposprayDoAfterEvent(), entity.Owner, target: target, used: entity.Owner)
+                    _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, injectionDelay, new HyposprayDoAfterEvent(), entity.Owner, target: target, used: entity.Owner)
                     {
                         BreakOnMove = true,
                         BreakOnWeightlessMove = false,
@@ -121,13 +124,16 @@ public sealed class HypospraySystem : EntitySystem
         }
         // End Frontier
 
-        return TryDoInject(entity, target, user);
+        return InjectNow(entity, target, user);
     }
 
     public bool TryDoInject(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)
+        => TryUseHypospray(entity, target, user);
+
+    private bool InjectNow(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)
     {
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+                .CanUse(user, entity, Content.Shared._radiant.Skills.SkillAction.Use))
             return false;
         var (uid, component) = entity;
 

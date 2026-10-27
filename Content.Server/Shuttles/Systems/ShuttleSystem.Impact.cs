@@ -87,7 +87,7 @@ public sealed partial class ShuttleSystem
                 break;
             }
         }
-        var ignore = experienced && _random.Prob(0.75f);
+        var ignore = experienced && _random.Prob(0.8f);
         var result = (now + TimeSpan.FromMilliseconds(500), ignore);
         // Both grid callbacks and contact points share one roll, rather than retrying until damage occurs.
         _skillImpacts[(first, second)] = result;

@@ -62,6 +62,8 @@ public class GeneticBodyWindow : DefaultWindow
     private readonly Label _pattern = new();
     private readonly Label _materials = new();
     private readonly Label _status = new();
+    private readonly RichTextLabel _therapyDetails = new();
+    private readonly OptionButton _variant = new() { HorizontalExpand = true };
     private readonly ProgressBar _progress = new() { MinValue = 0, MaxValue = 1, HorizontalExpand = true };
     private readonly OptionButton _gene = new() { HorizontalExpand = true };
     private readonly OptionButton _product = new() { HorizontalExpand = true };
@@ -89,16 +91,20 @@ public class GeneticBodyWindow : DefaultWindow
     protected GeneticBodyWindow(bool console)
     {
         _console = console;
+        foreach (var selector in new[] { _gene, _product, _variant }) MedicalLabUi.FitSelector(selector);
         Title = Loc.GetString(console ? "genetics-console-title" : "genetics-ui-title");
         MinWidth = 500;
         SetSize = new System.Numerics.Vector2(console ? 820 : 650, console ? 740 : 620);
         var root = Column();
-        root.AddChild(_nextStep);
+        root.AddChild(MedicalLabUi.Card("genetics-lab-workflow", _nextStep));
         var production = Column();
         production.AddChild(_connection);
         production.AddChild(_productionStatus);
         production.AddChild(_product);
-        production.AddChild(_description);
+        production.AddChild(MedicalLabUi.Card("genetics-lab-order", _description, _variant, _therapyDetails));
+        foreach (var variant in Enum.GetValues<GeneticTherapyVariant>())
+            _variant.AddItem(Loc.GetString("genetics-variant-" + variant.ToString().ToLowerInvariant()), (int) variant);
+        _variant.OnItemSelected += args => Send(GeneticCommand.SelectVariant, ((GeneticTherapyVariant) args.Id).ToString());
         production.AddChild(_materials);
         production.AddChild(_grow);
         if (console)
@@ -106,18 +112,16 @@ public class GeneticBodyWindow : DefaultWindow
             var tabs = new TabContainer { HorizontalExpand = true, VerticalExpand = true };
             root.AddChild(tabs);
             var sample = Column();
-            sample.AddChild(_sample);
-            sample.AddChild(_profile);
+            sample.AddChild(MedicalLabUi.Card("genetics-tab-sample", _sample, _profile));
             sample.AddChild(_analyze);
             sample.AddChild(_eject);
             AddTab(tabs, sample, "genetics-tab-sample");
             var research = Column();
             research.AddChild(_gene);
-            research.AddChild(_geneHelp);
-            research.AddChild(_composition);
+            research.AddChild(MedicalLabUi.Card("genetics-lab-evidence", _geneHelp, _composition));
             research.AddChild(_spectrum);
             research.AddChild(_research);
-            research.AddChild(_pattern);
+            research.AddChild(MedicalLabUi.Card("genetics-lab-sequence", _pattern));
             var sequence = new BoxContainer { SeparationOverride = 8 };
             for (var i = 0; i < _bases.Length; i++)
             {
@@ -132,10 +136,10 @@ public class GeneticBodyWindow : DefaultWindow
             research.AddChild(sequence);
             research.AddChild(_fill);
             research.AddChild(_check);
-            research.AddChild(_feedback);
+            research.AddChild(MedicalLabUi.Card("genetics-lab-history", _feedback));
             AddTab(tabs, research, "genetics-tab-research");
             var archive = Column();
-            archive.AddChild(_archive);
+            archive.AddChild(MedicalLabUi.Card("genetics-tab-archive", _archive));
             archive.AddChild(_ejectDisk);
             AddTab(tabs, archive, "genetics-tab-archive");
             AddTab(tabs, production, "genetics-tab-production");
@@ -167,7 +171,7 @@ public class GeneticBodyWindow : DefaultWindow
         _ejectDisk.OnPressed += _ => Send(GeneticCommand.EjectDisk);
     }
 
-    private static Button MakeButton(string key) => new() { Text = Loc.GetString(key), HorizontalExpand = true };
+    private static Button MakeButton(string key) => MedicalLabUi.Button(key);
     private static BoxContainer Column() => new() { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 10, HorizontalExpand = true };
     private static ScrollContainer Scroll(Control child)
     {
@@ -201,6 +205,12 @@ public class GeneticBodyWindow : DefaultWindow
         _nextStep.SetMessage(_console ? state.NextStep :
             state.CanAnalyze ? Loc.GetString("genetics-pod-analyze-help") : Loc.GetString("genetics-pod-help"));
         _description.SetMessage(state.ProductDescription);
+        _therapyDetails.SetMessage(state.TherapyDetails);
+        var removal = state.Selected.ToString().EndsWith("Removal", StringComparison.Ordinal);
+        _variant.Visible = state.Selected >= GeneticProduct.Hematopoiesis && !removal;
+        _therapyDetails.Visible = !removal;
+        _variant.SelectId((int) state.Variant);
+        _variant.Disabled = !state.CanSelect;
         _connection.SetMessage(state.Connection);
         _productionStatus.SetMessage(state.ProductionStatus);
         _archive.SetMessage(state.Archive);

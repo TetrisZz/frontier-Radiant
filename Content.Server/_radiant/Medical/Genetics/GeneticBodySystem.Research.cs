@@ -64,6 +64,7 @@ public sealed partial class GeneticBodySystem
         var therapy = Comp<GeneticTherapyComponent>(result);
         therapy.Dna = sample.Dna;
         therapy.Species = sample.Species;
+        therapy.Variant = machine.ProductionVariant;
         _metadata.SetEntityName(result, Loc.GetString("genetics-therapy-labelled",
             ("name", Name(result)), ("donor", sample.Donor)));
         Reset(machine);

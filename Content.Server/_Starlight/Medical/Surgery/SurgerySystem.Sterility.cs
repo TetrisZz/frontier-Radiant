@@ -214,6 +214,11 @@ public sealed partial class SurgerySystem
         added += EnvironmentRisk(args.Body);
 
         added = SurgicalSterilityRules.ApplyFieldProtection(added, wound.Draped.Contains(site));
+        // Careful technique reduces incidental exposure, but does not sterilize dirty equipment.
+        if (HasComp<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(args.User)
+            && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Level(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) >= 4)
+            added = (int) Math.Ceiling(added * 0.85f);
         if (HasComp<SurgeryClearProgressComponent>(step)
             || TryComp<SurgeryStepCavityEffectComponent>(step, out var closing) && !closing.Open)
             wound.Draped.Remove(site);

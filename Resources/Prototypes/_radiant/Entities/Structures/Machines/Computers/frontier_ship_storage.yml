@@ -1,0 +1,7 @@
+- type: entity
+  id: ComputerShipyardFrontier
+  parent: ComputerShipyard
+  suffix: Frontier, ship storage
+  components:
+  - type: ShipyardConsole
+    allowShipSaving: true

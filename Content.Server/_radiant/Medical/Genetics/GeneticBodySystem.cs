@@ -69,6 +69,8 @@ public sealed partial class GeneticBodyGrowerComponent : Component
     public HashSet<string> Discoveries = new();
     public string SelectedGene = "RadiantHematopoiesis";
     public string PendingSequence = "";
+    public GeneticTherapyVariant Variant;
+    public GeneticTherapyVariant ProductionVariant;
     public Content.Server._radiant.Careers.MedicalCredit? CareerOperator;
     [DataField] public SoundSpecifier StartSound = new SoundPathSpecifier("/Audio/Machines/button.ogg", AudioParams.Default.WithVolume(-8));
     [DataField] public SoundSpecifier FinishSound = new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg", AudioParams.Default.WithVolume(-6));
@@ -287,6 +289,7 @@ public sealed partial class GeneticBodySystem : EntitySystem
             if (!_materials.TryChangeMaterialAmount(uid, "Biomass", -Cost(machine)))
                 return false;
             machine.OutputPrototype = organ;
+            machine.ProductionVariant = machine.Variant;
             machine.Stage = GeneticGrowthStage.Growing;
             machine.Remaining = Duration(machine);
         }

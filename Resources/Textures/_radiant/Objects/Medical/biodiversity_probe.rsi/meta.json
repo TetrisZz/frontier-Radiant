@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/BlueMoon-Station, icons/obj/syringe.dmi and icons/mob/inhands/equipment/medical_lefthand.dmi / medical_righthand.dmi, state sampler (DNA sampler). Original source contributors retain copyright. Lossless conversion to RSI; original pixels and all four in-hand directions preserved. Asset license per source README.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

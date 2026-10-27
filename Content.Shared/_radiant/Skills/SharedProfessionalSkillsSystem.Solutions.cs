@@ -16,8 +16,7 @@ public sealed partial class SharedProfessionalSkillsSystem
         if (Requirement(targetEntity, SkillAction.Pour) is { } planting)
         {
             var mutagen = source.Contents.Any(r => r.Reagent.Prototype is "UnstableMutagen" or "Left4Zed");
-            var fertilizer = source.Contents.Any(r => r.Reagent.Prototype != "Water");
-            if (!Check(user, ProfessionalSkill.Botany, mutagen ? 3 : fertilizer ? planting.Level : 0))
+            if (!Check(user, ProfessionalSkill.Botany, mutagen ? 3 : Math.Max(1, planting.Level)))
                 return false;
         }
 

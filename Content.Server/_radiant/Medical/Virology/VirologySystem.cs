@@ -8,6 +8,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
@@ -60,10 +61,11 @@ public sealed partial class VirologySystem : EntitySystem
     public bool Expose(EntityUid uid, string disease, float dose)
     {
         if (dose <= 0 || !float.IsFinite(dose) || !Susceptible(uid)
-            || !_prototypes.TryIndex<RadiantDiseasePrototype>(disease, out var proto))
+            || !VirologyStrains.TryResolve(_prototypes, disease, out var proto))
             return false;
         var carrier = EnsureComp<VirologyCarrierComponent>(uid);
-        if (carrier.Infections.ContainsKey(disease) || carrier.Immunity.GetValueOrDefault(disease) > 0
+        if (carrier.Infections.Keys.Any(id => VirologyStrains.Family(id) == VirologyStrains.Family(disease))
+            || carrier.Immunity.GetValueOrDefault(VirologyStrains.Family(disease)) > 0
             || carrier.Infections.Count >= 2)
             return false;
         var total = carrier.Exposure.GetValueOrDefault(disease) + dose;
@@ -80,21 +82,23 @@ public sealed partial class VirologySystem : EntitySystem
 
     public bool ApplyDose(EntityUid uid, string disease, bool vaccine)
     {
-        if (!Susceptible(uid) || !_prototypes.TryIndex<RadiantDiseasePrototype>(disease, out var proto))
+        if (!Susceptible(uid) || !VirologyStrains.TryResolve(_prototypes, disease, out var proto))
             return false;
         var carrier = EnsureComp<VirologyCarrierComponent>(uid);
         if (vaccine)
         {
-            if (carrier.Infections.ContainsKey(disease) || carrier.Immunity.GetValueOrDefault(disease) > 0)
+            var family = VirologyStrains.Family(disease);
+            if (carrier.Infections.Keys.Any(id => VirologyStrains.Family(id) == family) || carrier.Immunity.GetValueOrDefault(family) > 0)
                 return false;
-            carrier.Immunity[disease] = proto.ImmunitySeconds;
-            carrier.Exposure.Remove(disease);
+            carrier.Immunity[family] = proto.ImmunitySeconds;
+            foreach (var id in carrier.Exposure.Keys.Where(id => VirologyStrains.Family(id) == family).ToArray()) carrier.Exposure.Remove(id);
         }
         else
         {
-            if (!carrier.Infections.ContainsKey(disease) || carrier.Treatment.ContainsKey(disease))
+            var matching = carrier.Infections.Keys.Where(id => VirologyStrains.Family(id) == VirologyStrains.Family(disease)).ToArray();
+            if (matching.Length == 0 || matching.All(carrier.Treatment.ContainsKey))
                 return false;
-            carrier.Treatment[disease] = proto.TreatmentSeconds;
+            foreach (var id in matching) carrier.Treatment[id] = Math.Min(Disease(id).TreatmentSeconds, 180);
         }
         RefreshSymptoms(uid, carrier);
         _logs.Add(LogType.Healed, LogImpact.Low, $"{ToPrettyString(uid):target} received virology treatment for {disease}, vaccine={vaccine}");
@@ -103,6 +107,13 @@ public sealed partial class VirologySystem : EntitySystem
 
     private void OnReaction(Entity<BloodstreamComponent> ent, ref ReactionEntityEvent args)
     {
+        if (args.ReagentQuantity.Reagent.Data?.OfType<VirologyStrainData>().FirstOrDefault() is { } strain)
+        {
+            if (VirologyStrains.TryResolve(_prototypes, strain.Strain, out var profile) && profile.Reagent == args.Reagent.ID
+                && (args.Method == ReactionMethod.Injection || args.Method == ReactionMethod.Ingestion && profile.Route == "ingestion"))
+                Expose(ent, strain.Strain, args.ReagentQuantity.Quantity.Float() * profile.LiquidDose);
+            return;
+        }
         foreach (var disease in _prototypes.EnumeratePrototypes<RadiantDiseasePrototype>())
         {
             if (args.Reagent.ID != disease.Reagent)
@@ -120,13 +131,14 @@ public sealed partial class VirologySystem : EntitySystem
             return;
         foreach (var (id, age) in carrier.Infections)
         {
-            var disease = _prototypes.Index<RadiantDiseasePrototype>(id);
+            var disease = Disease(id);
             if (disease.Route != route || age < disease.Incubation)
                 continue;
             var amount = FixedPoint2.Min(solution.Volume, FixedPoint2.New(solution.Volume.Float() * 0.01f));
             if (amount <= 0) continue;
             solution.SplitSolution(amount);
-            solution.AddReagent(disease.Reagent, amount);
+            solution.AddReagent(new ReagentId(disease.Reagent, id == VirologyStrains.Family(id) ? null
+                : new List<ReagentData> { new VirologyStrainData { Strain = id } }), amount);
         }
     }
 
@@ -143,8 +155,10 @@ public sealed partial class VirologySystem : EntitySystem
 
     private void OnOrganRemoved(Entity<OrganComponent> ent, ref OrganRemovedFromBodyEvent args)
     {
+        // Body cleanup also removes organs, but terminating entities cannot retain infections.
+        if (TerminatingOrDeleted(ent.Owner)) return;
         if (!TryComp<VirologyCarrierComponent>(args.OldBody, out var carrier)) return;
-        var diseases = carrier.Infections.Keys.Where(id => _prototypes.Index<RadiantDiseasePrototype>(id).Route == "blood").ToList();
+        var diseases = carrier.Infections.Keys.Where(id => Disease(id).Route == "blood").ToList();
         if (diseases.Count == 0) return;
         EnsureComp<VirologyOrganComponent>(ent).Diseases = diseases;
     }
@@ -152,7 +166,7 @@ public sealed partial class VirologySystem : EntitySystem
     private void OnOrganAdded(Entity<VirologyOrganComponent> ent, ref OrganAddedToBodyEvent args)
     {
         foreach (var disease in ent.Comp.Diseases)
-            Expose(args.Body, disease, _prototypes.Index<RadiantDiseasePrototype>(disease).ExposureThreshold);
+            Expose(args.Body, disease, Disease(disease).ExposureThreshold);
     }
 
     private void OnRejuvenate(Entity<VirologyCarrierComponent> ent, ref RejuvenateEvent args)
@@ -216,7 +230,7 @@ public sealed partial class VirologySystem : EntitySystem
         }
         foreach (var id in carrier.Exposure.Keys.ToArray())
         {
-            carrier.Exposure[id] -= _prototypes.Index<RadiantDiseasePrototype>(id).ExposureDecay * seconds;
+            carrier.Exposure[id] -= Disease(id).ExposureDecay * seconds;
             if (carrier.Exposure[id] <= 0) carrier.Exposure.Remove(id);
         }
 
@@ -225,7 +239,7 @@ public sealed partial class VirologySystem : EntitySystem
         if (pulse) carrier.SymptomClock %= 45;
         foreach (var id in carrier.Infections.Keys.ToArray())
         {
-            var disease = _prototypes.Index<RadiantDiseasePrototype>(id);
+            var disease = Disease(id);
             carrier.Infections[id] += seconds;
             var age = carrier.Infections[id];
             if (carrier.Treatment.ContainsKey(id)) carrier.Treatment[id] -= seconds;
@@ -233,12 +247,15 @@ public sealed partial class VirologySystem : EntitySystem
             {
                 carrier.Infections.Remove(id);
                 carrier.Treatment.Remove(id);
-                carrier.Immunity[id] = disease.ImmunitySeconds;
+                carrier.Immunity[VirologyStrains.Family(id)] = disease.ImmunitySeconds;
                 _popup.PopupEntity(Loc.GetString("virology-recover"), uid, uid);
                 continue;
             }
             if (age < disease.Incubation || !pulse) continue;
-            _popup.PopupEntity(Loc.GetString("virology-symptom-" + disease.Route), uid, uid);
+            if (!disease.SuppressEarlyWarnings || age >= disease.SevereAfter)
+                _popup.PopupEntity(Loc.GetString("virology-symptom-" + disease.Route), uid, uid);
+            if (disease.WaterPerPulse > 0 && TryComp<ThirstComponent>(uid, out var water))
+                _thirst.ModifyThirst(uid, water, -disease.WaterPerPulse);
             if (disease.Route == "droplet") Cough(uid, disease);
             if (disease.Route == "ingestion" && TryComp<ThirstComponent>(uid, out var thirst))
                 _thirst.ModifyThirst(uid, thirst, -2);
@@ -261,7 +278,7 @@ public sealed partial class VirologySystem : EntitySystem
         var bloodRecovery = 1f;
         foreach (var (id, age) in carrier.Infections)
         {
-            var disease = _prototypes.Index<RadiantDiseasePrototype>(id);
+            var disease = Disease(id);
             severity = Math.Max(severity, age >= disease.SevereAfter ? 2 : age >= disease.Incubation ? 1 : 0);
             if (age >= disease.Incubation && !carrier.Treatment.ContainsKey(id))
             {
@@ -278,4 +295,11 @@ public sealed partial class VirologySystem : EntitySystem
         Dirty(uid, symptoms);
         EntityManager.System<Content.Shared.Movement.Systems.MovementSpeedModifierSystem>().RefreshMovementSpeedModifiers(uid);
     }
+
+    public RadiantDiseasePrototype Disease(string id) => VirologyStrains.TryResolve(_prototypes, id, out var disease)
+        ? disease : _prototypes.Index<RadiantDiseasePrototype>(VirologyStrains.Family(id));
+
+    public string DiseaseName(string id) => Loc.GetString(Disease(id).Name)
+        + (id.Contains('~') ? " · " + string.Join(", ", VirologyStrains.Symptoms(id)
+            .Select(s => Loc.GetString(_prototypes.Index<VirologySymptomPrototype>(s).Name))) : "");
 }

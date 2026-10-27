@@ -168,8 +168,56 @@ public sealed class PhotocopierLayoutTest
                 Assert.That(Descendants(window).OfType<BaseButton>().Single(button => button.Name == "PhotocopierPrint").Disabled, Is.True);
                 Assert.That(Descendants(window).OfType<BaseButton>().Single(button => button.Name == "PhotocopierCopy").Disabled, Is.False, "An empty catalog still permits copying originals.");
                 CheckPaperFields(theme, locale);
+                CheckBodyPrintImages(theme, resources);
             }
         });
+    }
+
+    private static void CheckBodyPrintImages(Stylesheet theme, string resources)
+    {
+        var yaml = new YamlStream();
+        using var reader = File.OpenText(Path.Combine(resources, "Prototypes/_radiant/Entities/Objects/Misc/body_photocopies.yml"));
+        yaml.Load(reader);
+        var prototypes = ((YamlSequenceNode) yaml.Documents[0].RootNode).Children.Cast<YamlMappingNode>().ToArray();
+        var ids = prototypes.Select(node => node.Children[new YamlScalarNode("id")].ToString()).ToArray();
+        foreach (var removed in new[] { "PaperBodyPrintGrey", "PaperBodyPrintDrone", "PaperBodyPrintPlasma", "PaperBodyPrintAlien" })
+            Assert.That(ids, Does.Not.Contain(removed));
+        var baseVisuals = ((YamlSequenceNode) prototypes[0].Children[new YamlScalarNode("components")]).Children
+            .Cast<YamlMappingNode>().Single(node => node.Children[new YamlScalarNode("type")].ToString() == "PaperVisuals");
+        Assert.That(baseVisuals.Children[new YamlScalarNode("headerImageFullWidth")].ToString(), Is.EqualTo("true"));
+        foreach (var prototype in prototypes.Skip(1))
+        {
+            var visuals = ((YamlSequenceNode) prototype.Children[new YamlScalarNode("components")]).Children.Cast<YamlMappingNode>().Single();
+            var path = visuals.Children[new YamlScalarNode("headerImagePath")].ToString();
+            using var paper = new PaperWindow { Stylesheet = theme };
+            paper.InitVisuals(default, new PaperVisualsComponent { HeaderImagePath = path, HeaderImageFullWidth = true });
+            foreach (var mode in new[] { PaperComponent.PaperAction.Read, PaperComponent.PaperAction.Write })
+            {
+                paper.Populate(new PaperComponent.PaperBoundUserInterfaceState("Photocopy", [], mode));
+                foreach (var size in new[] { new Vector2(350, 450), new Vector2(510, 660), new Vector2(720, 820) })
+                {
+                    paper.SetSize = size;
+                    paper.Measure(size);
+                    paper.Arrange(UIBox2.FromDimensions(Vector2.Zero, size));
+                    var image = Descendants(paper).OfType<PaperIllustration>().Single();
+                    Assert.That(image.Texture, Is.Not.Null, path);
+                    Assert.That(image.Visible, Is.True);
+                    Assert.That(image.Size.X, Is.GreaterThan(size.X * 0.75f), "The imprint must fill the paper width, not remain a small icon.");
+                    Assert.That(image.Size.Y / image.Size.X,
+                        Is.EqualTo((float) image.Texture!.Height / image.Texture.Width).Within(0.01), "Do not distort the artwork.");
+                    var content = Descendants(paper).Single(control => control.Name == "PaperContent");
+                    Assert.That(image.Size.X, Is.EqualTo(content.Size.X).Within(12), "Only the reserved scrollbar gutter may remain beside the imprint.");
+                    Assert.That(paper.DesiredSize.X, Is.LessThanOrEqualTo(size.X));
+                    Assert.That(Descendants(paper).Single(control => control.Name == "HeaderImage").Visible, Is.False);
+                    Assert.That(Descendants(paper).Single(control => control.Name == "InputContainer").Visible,
+                        Is.EqualTo(mode == PaperComponent.PaperAction.Write), "The enlarged imprint must still allow writing below it.");
+                }
+            }
+            paper.InitVisuals(default, new PaperVisualsComponent { HeaderImagePath = path, HeaderImageScale = new Vector2(4) });
+            Assert.That(Descendants(paper).OfType<PaperIllustration>().Single().Visible, Is.False);
+            Assert.That(Descendants(paper).Single(control => control.Name == "HeaderImage").Visible, Is.True,
+                "Normal paper headers keep their existing layout.");
+        }
     }
 
     private static void CheckPaperFields(Stylesheet theme, string locale)

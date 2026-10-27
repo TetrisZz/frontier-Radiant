@@ -80,6 +80,10 @@ public sealed partial class ShipyardSystem
         return true;
     }
 
+    public bool CanSaveVessel(EntityUid grid)
+        => TryComp<SavedShipComponent>(grid, out var saved) && saved.VesselId is { } vesselId
+            && _prototypeManager.TryIndex<VesselPrototype>(vesselId, out var vessel) && vessel.CanSave;
+
     private void SaveError(EntityUid uid, ShipyardConsoleComponent console, EntityUid player, string locId)
     {
         ConsolePopup(player, Loc.GetString(locId));
@@ -97,6 +101,12 @@ public sealed partial class ShipyardSystem
             || !HasComp<MapGridComponent>(grid) || !HasComp<ShuttleComponent>(grid))
         {
             SaveError(uid, console, player, "shipyard-console-no-deed");
+            return;
+        }
+
+        if (!CanSaveVessel(grid))
+        {
+            SaveError(uid, console, player, "shipyard-save-vessel-disabled");
             return;
         }
 
@@ -251,6 +261,11 @@ public sealed partial class ShipyardSystem
             VesselPrototype? careerVessel = null;
             if (ownership.VesselId is { } savedVesselId)
                 _prototypeManager.TryIndex(savedVesselId, out careerVessel);
+            if (careerVessel?.CanSave != true)
+            {
+                SaveError(uid, console, player, "shipyard-save-vessel-disabled");
+                return;
+            }
             if ((HasComp<CareerFleetGridComponent>(grid) && careerVessel?.CareerProfession == null)
                 || (careerVessel == null && EntityManager.System<CareerSystem>().GetProfession(session) != "Adventurer")
                 || careerVessel?.CareerFree == true)

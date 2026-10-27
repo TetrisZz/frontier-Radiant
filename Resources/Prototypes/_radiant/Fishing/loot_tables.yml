@@ -50,7 +50,6 @@
     - id: FishCat
     - id: FishTropicalClown
     - id: FishPuffer
-    - id: FishSilver
     - id: FishTropicalSun
     - id: FishTropical
 
@@ -78,7 +77,6 @@
     - id: FishBlueFintuna
     - id: FishTropical
     - id: FishTropicalSun
-    - id: FishSilver
 
 - type: entityTable
   id: ExpeditionRareFishTable
@@ -102,7 +100,6 @@
   id: WaterLuminousBaitFishTable
   table: !type:GroupSelector
     children:
-    - id: FishSilver
     - id: FishTropicalSun
     - id: FishTropicalClown
     - id: FishIan

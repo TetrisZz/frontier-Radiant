@@ -32,7 +32,7 @@ public sealed class CareerFleetSystem : EntitySystem
 
     public bool IsFleetJob(string profession, string job) =>
         _prototypes.TryIndex<Content.Shared._radiant.Careers.CareerProfessionPrototype>(profession, out var definition)
-        && definition.Jobs.Contains(job);
+        && (definition.Jobs.Contains(job) || definition.InterviewJob?.Id == job);
 
     private string EntryJob(string profession) =>
         _prototypes.Index<Content.Shared._radiant.Careers.CareerProfessionPrototype>(profession).Jobs[0];
@@ -210,6 +210,11 @@ public sealed class CareerFleetSystem : EntitySystem
         }
         if (profession != "Adventurer")
         {
+            // Civilian captains may hire a professional through their advertised interview slot.
+            if (_prototypes.TryIndex<Content.Shared._radiant.Careers.CareerProfessionPrototype>(profession, out var definition)
+                && definition.InterviewJob is { } interview && IsFleetJob(profession, job)
+                && HasComp<StationJobsComponent>(station) && Jobs.TryGetJobSlot(station, interview, out _))
+                return true;
             if (!TryComp<CareerBaseStationComponent>(station, out var careerBase) || !careerBase.Allows(profession))
             {
                 reason = Loc.GetString("career-fleet-unavailable");

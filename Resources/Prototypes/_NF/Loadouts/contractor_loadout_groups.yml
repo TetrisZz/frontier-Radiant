@@ -11,6 +11,9 @@
   - ContractorClothingUniformSheyaDress # Radiant Sector
   - ContractorClothingUniformGothicLaceDress # Radiant Sector
   - ContractorClothingUniformTuxedo # Radiant Sector
+  - ContractorClothingUniformCrimsonDress # Radiant Sector
+  - ContractorClothingUniformCorsetDressWhite # Radiant Sector
+  - ContractorClothingUniformCorsetDressBlue # Radiant Sector
   - ContractorClothingUniformJumpskirtKimonoRS # Radiant Sector
   - ContractorClothingUniformJumpsuitColorGrey
   - ContractorClothingUniformJumpskirtColorGrey
@@ -365,6 +368,7 @@
   - ContractorClothingOuterApronBotanist
   - ContractorClothingOuterCoatRadiantElite
   - ContractorClothingOuterCoatOccult
+  - ContractorClothingOuterCoatSkeletonTuxedo
   - ContractorClothingOuterApronChef
   - ContractorClothingOuterHoodieBlack
   - ContractorClothingOuterCoatJensen
@@ -746,6 +750,7 @@
   - ContractorClothingNeckNinjaScarfClassic # Radiant Sector
   - ContractorClothingNeckNinjaScarfNew # Radiant Sector
   - ContractorClothingNeckScarfStripedBlack
+  - ContractorClothingNeckFurScarf # Radiant Sector
   - ContractorClothingNeckScarfStripedBlue
   - ContractorClothingNeckScarfStripedBrown
   - ContractorClothingNeckScarfStripedGreen

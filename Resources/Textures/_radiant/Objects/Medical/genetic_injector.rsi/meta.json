@@ -1,17 +1,25 @@
 {
   "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/BlueMoon-Station, icons/obj/syringe.dmi (dnainjector, dnainjector0) and icons/mob/inhands/equipment/medical_lefthand.dmi / medical_righthand.dmi (dnainjector). Original source contributors retain copyright. Lossless extraction; all four in-hand directions preserved. Asset license per source README.",
   "size": {
     "x": 32,
     "y": 32
   },
-  "license": "CC-BY-SA-3.0",
-  "copyright": "DNA injector sprites from BlueMoon Station (tgstation-derived), icons/obj/syringe.dmi, dnainjector and dnainjector0. Source repository named in source README: https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station . Asset license as stated in source README; extracted without pixel changes.",
   "states": [
     {
       "name": "icon"
     },
     {
       "name": "used"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
     }
   ]
 }

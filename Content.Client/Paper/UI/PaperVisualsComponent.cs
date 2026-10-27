@@ -48,6 +48,13 @@ public sealed partial class PaperVisualsComponent : Component
     [DataField("headerImagePath")]
     public string? HeaderImagePath;
 
+    [DataField]
+    public Vector2 HeaderImageScale = Vector2.One;
+
+    /// <summary>Fit the illustration to the paper width while preserving its aspect ratio.</summary>
+    [DataField]
+    public bool HeaderImageFullWidth;
+
     /// <summary>
     ///     Modulate the header image by this color
     /// </summary>

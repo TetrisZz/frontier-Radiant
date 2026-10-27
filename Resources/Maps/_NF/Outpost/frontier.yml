@@ -14369,7 +14369,7 @@ entities:
     - type: Transform
       pos: 47.5,26.5
       parent: 2173
-- proto: ComputerShipyard
+- proto: ComputerShipyardFrontier
   entities:
   - uid: 2120
     components:

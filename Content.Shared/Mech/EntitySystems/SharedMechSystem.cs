@@ -373,7 +373,9 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        return IsEmpty(component) && _actionBlocker.CanMove(toInsert);
+        return IsEmpty(component) && _actionBlocker.CanMove(toInsert)
+            && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(toInsert, uid, Content.Shared._radiant.Skills.SkillAction.Pilot, false);
     }
 
     /// <summary>
@@ -401,11 +403,11 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (toInsert == null || component.PilotSlot.ContainedEntity == toInsert)
             return false;
 
-        if (!CanInsert(uid, toInsert.Value, component))
-            return false;
-
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
                 .CanUse(toInsert.Value, uid, Content.Shared._radiant.Skills.SkillAction.Pilot))
+            return false;
+
+        if (!CanInsert(uid, toInsert.Value, component))
             return false;
 
         SetupUser(uid, toInsert.Value);

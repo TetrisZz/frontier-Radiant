@@ -25,6 +25,9 @@ public abstract class SharedEmitterSystem : EntitySystem
     {
         if (!args.CanAccess || !args.CanInteract || !args.CanComplexInteract || args.Hands == null)
             return;
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(args.User, ent, Content.Shared._radiant.Skills.SkillAction.Interact, false))
+            return;
 
         if (TryComp<LockComponent>(ent.Owner, out var lockComp) && lockComp.Locked)
             return;

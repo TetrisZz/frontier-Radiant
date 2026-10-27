@@ -8,6 +8,8 @@ namespace Content.Shared._radiant.Medical.Virology;
 [Prototype("radiantDisease")]
 public sealed partial class RadiantDiseasePrototype : IPrototype
 {
+    public RadiantDiseasePrototype() { }
+    public RadiantDiseasePrototype(string id) { ID = id; }
     [IdDataField] public string ID { get; private set; } = default!;
     [DataField(required: true)] public string Name = "";
     [DataField(required: true)] public string Description = "";
@@ -27,6 +29,8 @@ public sealed partial class RadiantDiseasePrototype : IPrototype
     [DataField] public float BloodRegenerationMultiplier = 1;
     [DataField] public float BloodLossPerPulse;
     [DataField] public float SevereBloodLossPerPulse;
+    public float WaterPerPulse;
+    public bool SuppressEarlyWarnings;
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -48,7 +52,7 @@ public enum VirologyUiKey : byte { Key }
 [Serializable, NetSerializable]
 public enum VirologyMachineVisuals : byte { Running, Powered }
 [Serializable, NetSerializable]
-public enum VirologyCommand : byte { Analyze, Treat, Vaccinate, Eject, Select }
+public enum VirologyCommand : byte { Analyze, Treat, Vaccinate, Eject, Select, Study, Culture, ToggleSymptom }
 [Serializable, NetSerializable]
 public sealed class VirologyMessage(VirologyCommand command, string disease = "") : BoundUserInterfaceMessage
 {
@@ -58,6 +62,11 @@ public sealed class VirologyMessage(VirologyCommand command, string disease = ""
 [Serializable, NetSerializable]
 public sealed class VirologyState : BoundUserInterfaceState
 {
+    public Dictionary<string, string> Symptoms = new();
+    public List<string> Draft = new();
+    public string Design = "", Study = "";
+    public bool CanCulture, CanStudy, CanDesign;
+    public int Tier;
     public string Report = "";
     public string Archive = "";
     public string Status = "";

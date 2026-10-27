@@ -43,6 +43,9 @@ public sealed partial class CrewPickerControl : PickerControl
     public override void UpdateUi(IReadOnlyDictionary<NetEntity, StationJobInformation> obj)
     {
         _lobbyJobs = new Dictionary<NetEntity, StationJobInformation>(obj);
+        if (_lastSelectedStation != null && (!obj.TryGetValue(_lastSelectedStation.StationEntity, out var selected)
+            || selected.IsLateJoinStation))
+            _lastSelectedStation = null;
         StationItemList.RemoveAllChildren();
 
         foreach (var stationViewState in BuildStationViewStateList(_lobbyJobs))

@@ -60,7 +60,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         SubscribeLocalEvent<NetworkConfiguratorComponent, BoundUIClosedEvent>(OnUiClosed);
         SubscribeLocalEvent<NetworkConfiguratorComponent, NetworkConfiguratorRemoveDeviceMessage>(OnRemoveDevice);
         SubscribeLocalEvent<NetworkConfiguratorComponent, NetworkConfiguratorClearDevicesMessage>(OnClearDevice);
-        SubscribeLocalEvent<NetworkConfiguratorComponent, NetworkConfiguratorLinksSaveMessage>(OnSaveLinks);
+        SubscribeLocalEvent<NetworkConfiguratorComponent, NetworkConfiguratorLinkDefaultsMessage>(OnLinkDefaults);
         SubscribeLocalEvent<NetworkConfiguratorComponent, NetworkConfiguratorClearLinksMessage>(OnClearLinks);
         SubscribeLocalEvent<NetworkConfiguratorComponent, NetworkConfiguratorToggleLinkMessage>(OnToggleLinks);
         SubscribeLocalEvent<NetworkConfiguratorComponent, NetworkConfiguratorButtonPressedMessage>(OnConfigButtonPressed);
@@ -201,7 +201,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         if (configurator.ActiveDeviceLink == target)
         {
             _popupSystem.PopupEntity(Loc.GetString("network-configurator-link-mode-stopped"), target.Value, user);
-            configurator.ActiveDeviceLink = null;
+            ResetLinkSelection(uid, configurator);
             return;
         }
 
@@ -215,15 +215,22 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             return;
         }
 
-        if (HasComp<DeviceLinkSourceComponent>(target) && HasComp<DeviceLinkSourceComponent>(configurator.ActiveDeviceLink)
-            || HasComp<DeviceLinkSinkComponent>(target) && HasComp<DeviceLinkSinkComponent>(configurator.ActiveDeviceLink))
-            return;
-
+        // A completed pair must not prevent selecting another device of the same kind.
+        // Close the previous pair before changing the selection: closing the UI clears it too.
+        ResetLinkSelection(uid, configurator);
         _popupSystem.PopupEntity(Loc.GetString("network-configurator-link-mode-started", ("device", Name(target.Value))), target.Value, user);
         configurator.ActiveDeviceLink = target;
     }
 
-    private void TryLinkDefaults(EntityUid _, NetworkConfiguratorComponent configurator, EntityUid? targetUid, EntityUid user)
+    private void ResetLinkSelection(EntityUid uid, NetworkConfiguratorComponent configurator)
+    {
+        _uiSystem.CloseUi(uid, NetworkConfiguratorUiKey.Link);
+        configurator.ActiveDeviceLink = null;
+        configurator.DeviceLinkTarget = null;
+        configurator.LinkContext++;
+    }
+
+    private void TryLinkDefaults(EntityUid uid, NetworkConfiguratorComponent configurator, EntityUid? targetUid, EntityUid user)
     {
         if (!configurator.LinkModeActive || !configurator.ActiveDeviceLink.HasValue
             || !targetUid.HasValue || configurator.ActiveDeviceLink == targetUid)
@@ -235,10 +242,14 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         if (TryComp(configurator.ActiveDeviceLink, out DeviceLinkSourceComponent? activeSource) && TryComp(targetUid, out DeviceLinkSinkComponent? targetSink))
         {
             _deviceLinkSystem.LinkDefaults(user, configurator.ActiveDeviceLink.Value, targetUid.Value, activeSource, targetSink);
+            if (configurator.DeviceLinkTarget == targetUid)
+                UpdateLinkUiState(uid, configurator.ActiveDeviceLink.Value, targetUid.Value, activeSource, targetSink);
         }
         else if (TryComp(configurator.ActiveDeviceLink, out DeviceLinkSinkComponent? activeSink) && TryComp(targetUid, out DeviceLinkSourceComponent? targetSource))
         {
             _deviceLinkSystem.LinkDefaults(user, targetUid.Value, configurator.ActiveDeviceLink.Value, targetSource, activeSink);
+            if (configurator.DeviceLinkTarget == targetUid)
+                UpdateLinkUiState(uid, targetUid.Value, configurator.ActiveDeviceLink.Value, targetSource, activeSink);
         }
     }
 
@@ -275,7 +286,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             return;
 
         if (!configurator.LinkModeActive)
-            configurator.ActiveDeviceLink = null;
+            ResetLinkSelection(configuratorUid, configurator);
 
         UpdateModeAppearance(userUid.Value, configuratorUid, configurator);
     }
@@ -288,7 +299,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         configurator.LinkModeActive = linkMode;
 
         if (!linkMode)
-            configurator.ActiveDeviceLink = null;
+            ResetLinkSelection(configuratorUid, configurator);
 
         UpdateModeAppearance(userUid, configuratorUid, configurator);
     }
@@ -515,6 +526,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 
         _uiSystem.OpenUi(configuratorUid, NetworkConfiguratorUiKey.Link, userUid);
         configurator.DeviceLinkTarget = targetUid;
+        configurator.LinkContext++;
 
 
         if (TryComp(configurator.ActiveDeviceLink, out DeviceLinkSourceComponent? activeSource) && TryComp(targetUid, out DeviceLinkSinkComponent? targetSink))
@@ -538,13 +550,16 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         var sources = _deviceLinkSystem.GetSourcePorts(sourceUid, sourceComponent);
         var sinks = _deviceLinkSystem.GetSinkPortIds((sinkUid, sinkComponent));
         var links = _deviceLinkSystem.GetLinks(sourceUid, sinkUid, sourceComponent);
-        var defaults = _deviceLinkSystem.GetDefaults(sources);
+        var defaults = _deviceLinkSystem.GetDefaults(sources, sinks);
         var sourceIds = sources.Select(s => (ProtoId<SourcePortPrototype>)s.ID).ToArray();
 
-        var sourceAddress = Resolve(sourceUid, ref sourceNetworkComponent, false) ? sourceNetworkComponent.Address : "";
-        var sinkAddress = Resolve(sinkUid, ref sinkNetworkComponent, false) ? sinkNetworkComponent.Address : "";
+        var sourceAddress = Resolve(sourceUid, ref sourceNetworkComponent, false) && !string.IsNullOrWhiteSpace(sourceNetworkComponent.Address)
+            ? sourceNetworkComponent.Address : Name(sourceUid);
+        var sinkAddress = Resolve(sinkUid, ref sinkNetworkComponent, false) && !string.IsNullOrWhiteSpace(sinkNetworkComponent.Address)
+            ? sinkNetworkComponent.Address : Name(sinkUid);
 
-        var state = new DeviceLinkUserInterfaceState(sourceIds, sinks, links, sourceAddress, sinkAddress, defaults);
+        var state = new DeviceLinkUserInterfaceState(sourceIds, sinks, links, sourceAddress, sinkAddress, defaults,
+            Comp<NetworkConfiguratorComponent>(configuratorUid).LinkContext);
         _uiSystem.SetUiState(configuratorUid, NetworkConfiguratorUiKey.Link, state);
     }
 
@@ -632,6 +647,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         {
             component.ActiveDeviceLink = null;
             component.DeviceLinkTarget = null;
+            component.LinkContext++;
         }
     }
 
@@ -686,7 +702,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 
     private void OnClearLinks(EntityUid uid, NetworkConfiguratorComponent configurator, NetworkConfiguratorClearLinksMessage args)
     {
-        if (!configurator.ActiveDeviceLink.HasValue || !configurator.DeviceLinkTarget.HasValue)
+        if (args.LinkContext != configurator.LinkContext || !configurator.ActiveDeviceLink.HasValue || !configurator.DeviceLinkTarget.HasValue)
             return;
 
         _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low,
@@ -722,7 +738,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 
     private void OnToggleLinks(EntityUid uid, NetworkConfiguratorComponent configurator, NetworkConfiguratorToggleLinkMessage args)
     {
-        if (!configurator.ActiveDeviceLink.HasValue || !configurator.DeviceLinkTarget.HasValue)
+        if (args.LinkContext != configurator.LinkContext || !configurator.ActiveDeviceLink.HasValue || !configurator.DeviceLinkTarget.HasValue)
             return;
 
         if (TryComp(configurator.ActiveDeviceLink, out DeviceLinkSourceComponent? activeSource) && TryComp(configurator.DeviceLinkTarget, out DeviceLinkSinkComponent? targetSink))
@@ -756,20 +772,19 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     }
 
     /// <summary>
-    /// Saves links set by the device link UI
+    /// Resolves defaults on the server for the pair currently displayed by the link UI.
     /// </summary>
-    private void OnSaveLinks(EntityUid uid, NetworkConfiguratorComponent configurator, NetworkConfiguratorLinksSaveMessage args)
+    private void OnLinkDefaults(EntityUid uid, NetworkConfiguratorComponent configurator, NetworkConfiguratorLinkDefaultsMessage args)
     {
-        if (!configurator.ActiveDeviceLink.HasValue || !configurator.DeviceLinkTarget.HasValue)
+        if (args.LinkContext != configurator.LinkContext || !configurator.ActiveDeviceLink.HasValue || !configurator.DeviceLinkTarget.HasValue)
             return;
 
         if (TryComp(configurator.ActiveDeviceLink, out DeviceLinkSourceComponent? activeSource) && TryComp(configurator.DeviceLinkTarget, out DeviceLinkSinkComponent? targetSink))
         {
-            _deviceLinkSystem.SaveLinks(
+            _deviceLinkSystem.LinkDefaults(
                 args.Actor,
                 configurator.ActiveDeviceLink.Value,
                 configurator.DeviceLinkTarget.Value,
-                args.Links,
                 activeSource,
                 targetSink
                 );
@@ -783,11 +798,10 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         }
         else if (TryComp(configurator.DeviceLinkTarget, out DeviceLinkSourceComponent? targetSource) && TryComp(configurator.ActiveDeviceLink, out DeviceLinkSinkComponent? activeSink))
         {
-            _deviceLinkSystem.SaveLinks(
+            _deviceLinkSystem.LinkDefaults(
                 args.Actor,
                 configurator.DeviceLinkTarget.Value,
                 configurator.ActiveDeviceLink.Value,
-                args.Links,
                 targetSource,
                 activeSink
                 );

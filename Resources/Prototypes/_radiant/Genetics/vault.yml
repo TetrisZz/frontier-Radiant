@@ -1,0 +1,77 @@
+- type: entity
+  id: DnaVault
+  parent: [BaseMachinePowered, SmallConstructibleMachine]
+  name: DNA archive
+  description: A medical biodiversity archive with a built-in personal preparation unit.
+  components:
+  - type: DnaVault
+    randomizeGoals: true
+    minimumSamples: 2
+    maximumSamples: 5
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/dna_vault.rsi
+    offset: 0, 0.5
+    layers:
+    - state: vault-off
+      map: ["base"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        base:
+          True: { state: vault }
+          False: { state: vault-off }
+  - type: MaterialStorage
+    materialWhiteList: [Biomass]
+  - type: ApcPowerReceiver
+    powerLoad: 750
+  - type: ActivatableUI
+    key: enum.DnaVaultUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DnaVaultUiKey.Key:
+        type: DnaVaultBoundUserInterface
+  - type: Machine
+    board: DnaVaultMachineCircuitboard
+  - type: EmptyOnMachineDeconstruct
+    containers: [dna-vault-sample]
+  - type: GuideHelp
+    guides: [RadiantGenetics]
+
+- type: entity
+  id: BiodiversityProbe
+  parent: BaseItem
+  name: biodiversity probe
+  description: A portable sampler for the DNA archive. Stores records without consuming the sampled organism.
+  components:
+  - type: BiodiversityProbe
+  - type: Sprite
+    sprite: _radiant/Objects/Medical/biodiversity_probe.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _radiant/Objects/Medical/biodiversity_probe.rsi
+  - type: GuideHelp
+    guides: [RadiantGenetics]
+
+- type: entity
+  id: DnaVaultMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: DNA archive machine board
+  components:
+  - type: MachineBoard
+    prototype: DnaVault
+    stackRequirements: {Steel: 10, Glass: 5, Cable: 5}
+
+- type: latheRecipe
+  id: DnaVaultMachineCircuitboard
+  parent: BaseMedicalMachineRecipeCategory
+  result: DnaVaultMachineCircuitboard
+  completetime: 5
+  materials: {Glass: 1500, Gold: 1000}
+
+- type: latheRecipe
+  id: BiodiversityProbe
+  result: BiodiversityProbe
+  completetime: 3
+  materials: {Plastic: 300, Glass: 200, Steel: 100}

@@ -1,0 +1,7 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectSurgicalAnalgesia
+  name: surgical analgesia
+  components:
+  - type: SurgicalAnalgesiaStatusEffect
+  - type: RejuvenateRemovedStatusEffect

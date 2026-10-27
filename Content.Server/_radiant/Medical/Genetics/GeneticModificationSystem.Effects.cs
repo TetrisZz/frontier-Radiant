@@ -30,7 +30,8 @@ public sealed partial class GeneticModificationSystem
 
     private void RollComplication(GeneticProfileComponent profile, GeneticModificationPrototype gene)
     {
-        if (gene.Complications.Count > 0 && _mutationRandom.Prob(Math.Clamp(gene.ComplicationChance, 0, 1)))
+        if (gene.Complications.Count > 0 && _mutationRandom.Prob(GeneticTherapyBalance.Risk(
+                gene.ComplicationChance, profile.Variants.GetValueOrDefault(gene.ID))))
             profile.Complications[gene.ID] = gene.Complications[_mutationRandom.Next(gene.Complications.Count)];
     }
 
@@ -48,7 +49,8 @@ public sealed partial class GeneticModificationSystem
         var active = profile.Modifications.Where(pair => pair.Value <= 0).Select(pair => pair.Key).ToHashSet();
         var flaws = profile.Complications.Where(pair => active.Contains(pair.Key)).Select(pair => pair.Value).ToHashSet();
         var effects = EnsureComp<GeneticBodyEffectsComponent>(uid);
-        var strength = active.Contains("RadiantStrength") ? 1.25f : 1f;
+        var strength = active.Contains("RadiantStrength")
+            ? 1 + 0.10f * GeneticTherapyBalance.Effect(profile.Variants.GetValueOrDefault("RadiantStrength")) : 1f;
         if (flaws.Contains("weakness")) strength = .5f;
         var speed = flaws.Contains("weakness") ? .9f : 1;
         var poorVision = flaws.Contains("poorvision");
@@ -110,6 +112,6 @@ public sealed partial class GeneticModificationSystem
         if (profile.TicTimer > 0) return;
         profile.TicTimer = _mutationRandom.Next(90, 181);
         _geneticChat.TrySendInGameICMessage(uid, Loc.GetString("genetics-tic-utterance"), InGameICChatType.Speak, false);
-        _geneticStun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(_mutationRandom.Next(2, 31)));
+        _geneticStun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(1));
     }
 }

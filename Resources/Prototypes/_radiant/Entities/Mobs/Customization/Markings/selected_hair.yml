@@ -1,0 +1,15 @@
+- type: marking
+  id: HumanHairBeachwaveRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/selected_hair.rsi
+    state: beachwave
+
+- type: marking
+  id: HumanHairGentleBunRS
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _radiant/Mobs/Customization/selected_hair.rsi
+    state: gentle_bun

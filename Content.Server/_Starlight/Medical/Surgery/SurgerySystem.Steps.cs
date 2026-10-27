@@ -15,6 +15,8 @@ using Content.Shared._Starlight;
 using Content.Shared._Starlight.Medical.Surgery.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared._radiant.ERP;
+using Content.Shared._radiant.Medical.Surgery;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Animals;
 using Content.Shared.Popups;
 using Content.Server.Humanoid;
@@ -34,6 +36,7 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
     [Dependency] private SharedBloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private StatusEffectsSystem _surgicalStatusEffects = default!;
 
     public void InitializeSteps()
     {
@@ -510,6 +513,8 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
 
     private void OnStepEmoteEffectComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
     {
+        if (_surgicalStatusEffects.HasEffectComp<SurgicalAnalgesiaStatusEffectComponent>(args.Body))
+            return;
 
         if (!HasComp<PainNumbnessComponent>(args.Body) && !HasComp<SleepingComponent>(args.Body))
             _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote);

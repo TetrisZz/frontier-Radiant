@@ -10,7 +10,7 @@ using Content.Shared._WF.SafetyDepositBox.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
 using Content.Shared.Storage;
-using Content.Shared.Verbs;
+using Content.Server._WF.SafetyDepositBox;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -32,8 +32,15 @@ public sealed class CareerRewardSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<SafetyDepositConsoleComponent, GetVerbsEvent<Verb>>(OnVerbs);
-        SubscribeNetworkEvent<CareerClaimRewardsEvent>(OnClaimMessage);
+        SubscribeLocalEvent<SafetyDepositConsoleComponent, CareerSafeActionMessage>(OnAction);
+        SubscribeLocalEvent<CareerStageChangedEvent>(OnStageChanged);
+    }
+
+    private void OnStageChanged(CareerStageChangedEvent args)
+    {
+        foreach (var (console, _) in EntityManager.System<Robust.Server.GameObjects.UserInterfaceSystem>().GetActorUis(args.Player))
+            if (HasComp<SafetyDepositConsoleComponent>(console))
+                RefreshUi(console, args.Player);
     }
 
     private bool CanUse(EntityUid console, EntityUid player) => Exists(console) && Exists(player)
@@ -43,26 +50,40 @@ public sealed class CareerRewardSystem : EntitySystem
         && _careers.IsWorking(player) && _careers.TryGetCareer(player, out var career)
         && !_busy.Contains(career.CharacterId);
 
-    private void OnVerbs(Entity<SafetyDepositConsoleComponent> ent, ref GetVerbsEvent<Verb> args)
+    public CareerSafeState? GetSafeState(EntityUid console, EntityUid player)
     {
-        if (!args.CanAccess || !args.CanInteract || !_careers.TryGetCareer(args.User, out var career)
-            || !_careers.IsWorking(args.User))
-            return;
-        var player = args.User;
-        if (career.PendingRewards.Count > 0)
-            args.Verbs.Add(new Verb { Text = Loc.GetString("career-claim-rewards"), Act = () => Claim(ent, player) });
-        if (!career.StarterBoxGranted)
-            args.Verbs.Add(new Verb { Text = Loc.GetString("career-starter-box"), Act = () => GrantBox(ent, player) });
-        else if (career.BoxTier < UnlockedTier(career) && ent.Comp.BoxSlot.Item != null)
-            args.Verbs.Add(new Verb { Text = Loc.GetString("career-upgrade-box"), Act = () => UpgradeBox(ent, player) });
+        if (!_careers.TryGetCareer(player, out var career) || !_careers.IsWorking(player)
+            || !_prototypes.TryIndex<CareerProfessionPrototype>(career.Profession, out var profession))
+            return null;
+        var canUse = CanUse(console, player);
+        return new CareerSafeState(Loc.GetString(profession.Name), career.Level, career.BoxTier, UnlockedTier(career),
+            career.PendingRewards.Count, canUse && career.PendingRewards.Count > 0,
+            canUse && !career.StarterBoxGranted, canUse && CanUpgradeBox(console, player, career),
+            _busy.Contains(career.CharacterId));
     }
 
-    private void OnClaimMessage(CareerClaimRewardsEvent args, EntitySessionEventArgs session)
+    private void OnAction(Entity<SafetyDepositConsoleComponent> ent, ref CareerSafeActionMessage args)
     {
-        if (session.SenderSession.AttachedEntity is { } player && TryGetEntity(args.Console, out var console)
-            && console != null)
-            Claim(console.Value, player);
+        if (!CanUse(ent, args.Actor))
+            return;
+        switch (args.Action)
+        {
+            case CareerSafeAction.ClaimRewards: Claim(ent, args.Actor); break;
+            case CareerSafeAction.ClaimStarterBox: GrantBox(ent, args.Actor); break;
+            case CareerSafeAction.UpgradeBox: UpgradeBox(ent, args.Actor); break;
+        }
     }
+
+    private void RefreshUi(EntityUid console, EntityUid player)
+        => EntityManager.System<SafetyDepositBoxSystem>().RefreshCareerUi(console, player);
+
+    private bool CanUpgradeBox(EntityUid console, EntityUid player, CareerData career)
+        => career.StarterBoxGranted && career.BoxTier < UnlockedTier(career) && career.BoxId is { } boxId
+            && TryComp<CareerActorComponent>(player, out var actor)
+            && TryComp<SafetyDepositConsoleComponent>(console, out var terminal)
+            && terminal.BoxSlot.Item is { } oldBox && TryComp<SafetyDepositBoxComponent>(oldBox, out var box)
+            && box.BoxId == boxId && box.OwnerId == actor.User.UserId && box.CharacterIndex == actor.Slot
+            && TryComp<StorageComponent>(oldBox, out var storage) && storage.Container.ContainedEntities.Count == 0;
 
     private void Claim(EntityUid console, EntityUid player)
     {
@@ -92,6 +113,7 @@ public sealed class CareerRewardSystem : EntitySystem
         }
         _careers.Save(player);
         _popup.PopupEntity(Loc.GetString("career-reward-success"), console, player);
+        RefreshUi(console, player);
     }
 
     private int UnlockedTier(CareerData career)
@@ -117,6 +139,7 @@ public sealed class CareerRewardSystem : EntitySystem
             || career.StarterBoxGranted || !TryComp<CareerActorComponent>(player, out var actor))
             return;
         _busy.Add(career.CharacterId);
+        RefreshUi(console, player);
         try
         {
             var record = await _db.PurchaseSafetyDepositBox(actor.User.UserId, actor.Slot,
@@ -144,6 +167,7 @@ public sealed class CareerRewardSystem : EntitySystem
         finally
         {
             _busy.Remove(career.CharacterId);
+            RefreshUi(console, player);
         }
     }
 
@@ -158,6 +182,7 @@ public sealed class CareerRewardSystem : EntitySystem
             || !TryComp<StorageComponent>(oldBox, out var storage) || storage.Container.ContainedEntities.Count != 0)
             return;
         _busy.Add(career.CharacterId);
+        RefreshUi(console, player);
         var tier = UnlockedTier(career);
         try
         {
@@ -189,6 +214,7 @@ public sealed class CareerRewardSystem : EntitySystem
         finally
         {
             _busy.Remove(career.CharacterId);
+            RefreshUi(console, player);
         }
     }
 

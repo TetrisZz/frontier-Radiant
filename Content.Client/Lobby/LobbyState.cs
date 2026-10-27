@@ -95,7 +95,10 @@ namespace Content.Client.Lobby
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
-            _entityManager.System<CareerSystem>().CloseWindow();
+            // Disconnect unloads entity systems before switching away from the lobby.
+            // CareerSystem.Shutdown already closes its window in that case.
+            if (_entityManager.TrySystem<CareerSystem>(out var careers))
+                careers.CloseWindow();
 
             Lobby = null;
         }

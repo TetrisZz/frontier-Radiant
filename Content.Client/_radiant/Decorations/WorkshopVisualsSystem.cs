@@ -21,17 +21,17 @@ public sealed class WorkshopVisualsSystem : EntitySystem
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<AquariumComponent, SpriteComponent>();
-        while (query.MoveNext(out var uid, out _, out var sprite))
+        while (query.MoveNext(out var uid, out var aquarium, out var sprite))
         {
             if (!_appearance.TryGetData<AquariumFishVisualState>(uid, AquariumVisuals.Fish, out var fish))
                 continue;
-            for (var i = 0; i < 4; i++)
+            for (var i = 0; i < Math.Min(4, aquarium.FishOffsets.Length); i++)
             {
                 if (i >= fish.Alive.Length || !fish.Alive[i])
                     continue;
                 var phase = (float)_timing.CurTime.TotalSeconds * 0.7f + i * 1.7f + uid.GetHashCode() % 31;
-                var offset = new Vector2((i % 2 == 0 ? -0.18f : 0.18f) + MathF.Sin(phase) * 0.025f,
-                    (i < 2 ? -0.03f : 0.22f) + MathF.Sin(phase * 0.8f) * 0.018f);
+                var offset = aquarium.FishOffsets[i] + new Vector2(MathF.Sin(phase) * 0.025f,
+                    MathF.Sin(phase * 0.8f) * 0.018f);
                 _sprites.LayerSetOffset((uid, sprite), "fish" + i, offset);
             }
         }

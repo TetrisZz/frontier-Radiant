@@ -31,6 +31,7 @@ public sealed partial class FireControlWindow : FancyWindow
     private readonly Dictionary<NetEntity, ShipGunType> _weaponTypes = new();
 
     private FireControlConsoleBoundInterfaceState? _currentState;
+    private bool _canFire;
 
     public FireControlWindow()
     {
@@ -42,6 +43,33 @@ public sealed partial class FireControlWindow : FancyWindow
         SelectBallisticButton.OnPressed += SelectBallisticWeapons;
         SelectEnergyButton.OnPressed += SelectEnergyWeapons;
         SelectMissileButton.OnPressed += SelectMissileWeapons;
+        SetFiringPermission(false);
+    }
+
+    public void SetFiringPermission(bool allowed)
+    {
+        _canFire = allowed;
+        SkillRestriction.Visible = !allowed;
+        SelectAllButton.Disabled = !allowed || WeaponsList.Count == 0;
+        UnselectAllButton.Disabled = !allowed || WeaponsList.Count == 0;
+        SelectBallisticButton.Disabled = !allowed || !_weaponTypes.ContainsValue(ShipGunType.Ballistic);
+        SelectEnergyButton.Disabled = !allowed || !_weaponTypes.ContainsValue(ShipGunType.Energy);
+        SelectMissileButton.Disabled = !allowed || !_weaponTypes.ContainsValue(ShipGunType.Missile);
+        var deselected = false;
+        foreach (var button in WeaponsList.Values)
+        {
+            button.Disabled = !allowed;
+            if (!allowed && button.Pressed)
+            {
+                button.Pressed = false;
+                deselected = true;
+            }
+        }
+        if (deselected)
+        {
+            OnWeaponSelectionChanged?.Invoke();
+            UpdateAllWeaponButtonTexts();
+        }
     }
 
     private void SelectAllWeapons(BaseButton.ButtonEventArgs args)
@@ -202,29 +230,7 @@ public sealed partial class FireControlWindow : FancyWindow
 
         UpdateAllWeaponButtonTexts();
 
-        // Update the category buttons state based on whether weapons of that type are available
-        bool hasBallisticWeapons = false;
-        bool hasEnergyWeapons = false;
-        bool hasMissileWeapons = false;
-
-        foreach (var kvp in _weaponTypes)
-        {
-            var type = kvp.Value;
-
-            if (type == ShipGunType.Ballistic)
-                hasBallisticWeapons = true;
-            else if (type == ShipGunType.Energy)
-                hasEnergyWeapons = true;
-            else if (type == ShipGunType.Missile)
-                hasMissileWeapons = true;
-
-            if (hasBallisticWeapons && hasEnergyWeapons && hasMissileWeapons)
-                break;
-        }
-
-        SelectBallisticButton.Disabled = !hasBallisticWeapons;
-        SelectEnergyButton.Disabled = !hasEnergyWeapons;
-        SelectMissileButton.Disabled = !hasMissileWeapons;
+        SetFiringPermission(_canFire);
     }
 
     private void UpdateWeaponsList(FireControlConsoleBoundInterfaceState state)

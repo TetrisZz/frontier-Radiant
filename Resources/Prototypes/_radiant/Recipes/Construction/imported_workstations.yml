@@ -32,6 +32,8 @@
 
 - type: construction
   id: RadiantSurgicalCart
+  name: construction-radiant-surgical-cart-name
+  description: construction-radiant-surgical-cart-desc
   graph: RadiantSurgicalCart
   startNode: start
   targetNode: finished

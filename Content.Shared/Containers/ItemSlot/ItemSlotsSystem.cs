@@ -525,6 +525,9 @@ namespace Content.Shared.Containers.ItemSlots
         /// </remarks>
         public bool CanEject(EntityUid uid, EntityUid? user, ItemSlot slot, EntityUid? popup = null)
         {
+            if (user is { } actor && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .CanUse(actor, uid, Content.Shared._radiant.Skills.SkillAction.Reload, popup.HasValue))
+                return false;
             if (slot.Locked)
             {
                 if (popup.HasValue && slot.LockedFailPopup.HasValue)

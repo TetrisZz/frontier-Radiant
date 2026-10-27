@@ -49,12 +49,18 @@ public sealed class GeneticAdaptationTest
             try
             {
                 foreach (var gene in genes) gene.ComplicationChance = 0;
-                bool Inject(string id) => genetics.Apply(em.SpawnEntity(id, pos), patient);
+                bool Inject(string id)
+                {
+                    // Separate successive procedures by the newly required recovery period.
+                    if (id.EndsWith("Injector") && em.TryGetComponent<GeneticProfileComponent>(patient, out var recovering))
+                        genetics.Advance(patient, recovering.Recovery);
+                    return genetics.Apply(em.SpawnEntity(id, pos), patient);
+                }
                 var baseDamage = melee.GetDamage(patient, patient).GetTotal().Float();
                 Assert.That(Inject("GeneticStrengthInjector"), Is.True);
                 Assert.That(melee.GetDamage(patient, patient).GetTotal().Float(), Is.EqualTo(baseDamage));
                 genetics.Advance(patient, 120);
-                Assert.That(melee.GetDamage(patient, patient).GetTotal().Float(), Is.EqualTo(baseDamage * 1.25f).Within(.02));
+                Assert.That(melee.GetDamage(patient, patient).GetTotal().Float(), Is.EqualTo(baseDamage * 1.10f).Within(.02));
                 var profile = em.GetComponent<GeneticProfileComponent>(patient);
                 Assert.That(profile.Complications, Is.Empty);
 
@@ -118,5 +124,6 @@ public sealed class GeneticAdaptationTest
                 foreach (var gene in genes) gene.ComplicationChance = chances[gene.ID];
             }
         });
+        await pair.CleanReturnAsync();
     }
 }

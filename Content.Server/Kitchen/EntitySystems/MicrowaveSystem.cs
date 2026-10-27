@@ -616,9 +616,6 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             if (user is { } recipeUser && !CanCookContents(uid, component, recipeUser))
                 return;
-            if (user is { } cook && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                    .Check(cook, Content.Shared._radiant.Skills.ProfessionalSkill.Cooking, 1))
-                return;
             if (!HasContents(component) || HasComp<ActiveMicrowaveComponent>(uid) || !(TryComp<ApcPowerReceiverComponent>(uid, out var apc) && apc.Powered))
                 return;
 

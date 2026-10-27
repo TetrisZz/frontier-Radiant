@@ -17,6 +17,7 @@
   newPlayerMessage: false
   access:
   - Separatists
+  - SeparatistsCommander
   accessGroups: # Frontier
   - GeneralAccess
   special:

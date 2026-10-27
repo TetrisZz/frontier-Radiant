@@ -21,7 +21,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._radiant.Paperwork;
 
-public sealed class PhotocopierSystem : EntitySystem
+public sealed partial class PhotocopierSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -38,6 +38,7 @@ public sealed class PhotocopierSystem : EntitySystem
 
     public override void Initialize()
     {
+        InitializeBodyScanner();
         Subs.BuiEvents<PhotocopierComponent>(PhotocopierUiKey.Key, subs =>
         {
             subs.Event<BoundUIOpenedEvent>((Entity<PhotocopierComponent> ent, ref BoundUIOpenedEvent _) => UpdateState(ent));
@@ -67,6 +68,7 @@ public sealed class PhotocopierSystem : EntitySystem
         string content;
         string title;
         PaperComponent? original = null;
+        string printPrototype = "Paper";
         if (args.Form is { } formId)
         {
             if (!ent.Comp.Forms.Contains(formId) || !_prototypes.TryIndex<DocumentFormPrototype>(formId, out var form))
@@ -84,11 +86,13 @@ public sealed class PhotocopierSystem : EntitySystem
                 return;
             title = Loc.GetString("photocopier-copy-name", ("name", MetaData(sourceUid).EntityName));
             content = original.Content;
+            if (HasComp<BodyPhotocopyComponent>(sourceUid))
+                printPrototype = MetaData(sourceUid).EntityPrototype?.ID ?? "Paper";
         }
 
         for (var i = 0; i < args.Copies; i++)
         {
-            var sheet = Spawn("Paper", Transform(ent).Coordinates);
+            var sheet = Spawn(printPrototype, Transform(ent).Coordinates);
             _metadata.SetEntityName(sheet, title);
             _paper.SetContent(sheet, content);
             if (original != null)

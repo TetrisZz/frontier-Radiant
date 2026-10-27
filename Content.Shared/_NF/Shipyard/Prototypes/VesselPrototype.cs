@@ -38,6 +38,9 @@ public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
     [DataField] public int CareerLevel;
     [DataField] public bool CareerFree;
 
+    /// <summary>Saving and loading this vessel is opt-in, independently of its shipyard listing.</summary>
+    [DataField] public bool CanSave;
+
     /// <summary>
     ///     The size of the vessel. (e.g. Small, Medium, Large etc.)
     /// </summary>

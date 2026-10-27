@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/BlueMoon-Station/commit/244fb87f5d7805b44a1eb6bfb4b6b5158100fda9. Original authors retain their copyright. Source state arsmaid_suit in: modular_bluemoon/fluffs/icons/obj/clothing/suit.dmi, modular_bluemoon/fluffs/icons/mob/clothing/suit.dmi, modular_bluemoon/fluffs/icons/mob/inhands/clothing_left.dmi, modular_bluemoon/fluffs/icons/mob/inhands/clothing_right.dmi. Converted to RSI without rescaling or repainting. Renamed for Radiant Sector.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

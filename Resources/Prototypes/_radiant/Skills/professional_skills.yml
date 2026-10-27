@@ -3,45 +3,89 @@
   skill: Shooting
   level: 1
   actions: Shoot
-  targets: [BaseWeaponPistol, BaseWeaponRevolver, NFBaseWeaponFramePistol, NFBaseWeaponFrameRevolver]
-  inaccurateAtLevel: 1
-  misfireChance: 0.1
+  targets: [BaseWeaponPistol, NFBaseWeaponFramePistol, BaseWeaponRevolver, NFBaseWeaponFrameRevolver, RevolverCapGunFake, NFRevolverCapGunFake]
 
 - type: professionalSkillRequirement
   id: EnergyWeapons
   skill: Shooting
   level: 1
   actions: Shoot
-  targets: [BaseWeaponBattery, BaseWeaponPowerCell, NFBaseWeaponFrameEnergyPistol, NFBaseWeaponFramePowerCellPistol, NFBaseWeaponFrameEnergyRifle, NFBaseWeaponFrameMachinePistol]
-  inaccurateAtLevel: 1
-  misfireChance: 0.1
+  targets: [BaseWeaponBattery, BaseWeaponPowerCell, NFBaseWeaponFrameEnergyPistol, NFBaseWeaponFramePowerCellPistol, NFBaseWeaponFrameEnergyRifle]
 
 - type: professionalSkillRequirement
   id: LongGuns
   skill: Shooting
   level: 2
   actions: Shoot
-  targets: [BaseWeaponSubMachineGun, BaseWeaponRifle, BaseWeaponShotgun, BaseWeaponSniper, NFBaseWeaponFrameSubMachineGun, NFBaseWeaponFrameRifle, NFBaseWeaponFrameRifleAssault, NFBaseWeaponFrameRifleSniper, NFBaseWeaponFrameShotgun, NFBaseWeaponFrameEnergySubMachineGun, NFBaseWeaponFrameEnergyRifleAssault, NFBaseWeaponFrameEnergyRifleSniper]
-  inaccurateAtLevel: 2
-  misfireChance: 0.1
+  targets: [BaseWeaponShotgun, BaseWeaponSniper, NFBaseWeaponFrameRifle, NFBaseWeaponFrameRifleSniper, NFBaseWeaponFrameShotgun, NFBaseWeaponFrameEnergyRifleSniper, BaseCrossbow]
+
+- type: professionalSkillRequirement
+  id: AutomaticGuns
+  skill: Shooting
+  level: 3
+  actions: Shoot
+  targets: [BaseWeaponSubMachineGun, BaseWeaponRifle, NFBaseWeaponFrameMachinePistol, NFBaseWeaponFrameSubMachineGun, NFBaseWeaponFrameRifleAssault, NFBaseWeaponFrameEnergySubMachineGun, NFBaseWeaponFrameEnergyRifleAssault, NFWeaponShotgunBulldog, NFWeaponShotgunBulldogRS, WeaponShotgunBulldog, WeaponSubMachineGunC20rROW, NFWeaponEnergySubMachineGunDeltaVBorg]
 
 - type: professionalSkillRequirement
   id: HeavyGuns
   skill: Shooting
-  level: 3
+  level: 4
   actions: Shoot
-  targets: [BaseWeaponLightMachineGun, BaseWeaponLauncher, NFBaseWeaponFrameLightMachineGun, NFBaseWeaponFrameLauncher, WeaponLauncherM203]
+  targets: [BaseWeaponLightMachineGun, BaseWeaponLauncher, NFBaseWeaponFrameLightMachineGun, NFBaseWeaponFrameLauncher, WeaponLauncherM203, NFWeaponLightMachineGunL6C]
+
+# Specific exceptions live in prototypes so weapon balance does not require C# changes.
+- type: professionalSkillRequirement
+  id: LightWeaponExceptions
+  skill: Shooting
+  level: 1
+  actions: Shoot
+  targets: [NFWeaponPistolViper, NFWeaponEnergyRifleAssaultLaserRepeater, NFWeaponEnergySubMachineGunDeltaV, NFWeaponShotgunHandmade, NFWeaponPistolFlintlock]
+
+- type: professionalSkillRequirement
+  id: AdvancedEnergyWeapons
+  skill: Shooting
+  level: 2
+  actions: Shoot
+  targets: [WeaponPulsePistol, WeaponPulseCarbine, WeaponPulseRifle, WeaponXrayCannon, WeaponLaserCannon, NFWeaponEnergyPistolPulse, NFWeaponEnergyRiflePulse, NFWeaponEnergyRifleAssaultPulseCarbine, NFWeaponEnergyRifleSniperCannon, NFWeaponEnergyRifleSniperXrayCannon, NFWeaponEnergyLightMachineGunTurbo, WeaponEnergyShotgunRS]
+
+- type: professionalSkillRequirement
+  id: NonAutomaticRifles
+  skill: Shooting
+  level: 2
+  actions: Shoot
+  targets: [NFWeaponRifleSVS, NFWeaponRifleBarlowsBolt, NFWeaponRifleMusket, NFWeaponRifleCeremonial, NFWeaponRifleRepeater, NFWeaponRifleAssaultSm, NFWeaponRifleAssaultVulcan, NFWeaponRifleAssaultVulcanRS, NFWeaponRifleAssaultVulcanRSWrittenoff, NFWeaponRifleAssaultNovaliteC1, NFWeaponRifleAssaultGestio]
 
 - type: professionalSkillRequirement
   id: ToyGuns
   skill: Shooting
   level: 0
   actions: Shoot
-  targets: [NFBaseWeaponFrameRevolverFoamForce, NFBaseWeaponFrameRifleFoamForce, NFBaseWeaponEnergyGunPractice]
+  targets: [NFBaseWeaponFrameRevolverFoamForce, NFBaseWeaponFrameRifleFoamForce, NFBaseWeaponEnergyGunPractice, WeaponLaserCarbinePractice, WeaponDisablerPractice, NFWeaponEnergyRifleCarbinePractice, WeaponRifleBB, ToyGunBase, FoamWeaponBase]
+
+- type: professionalSkillRequirement
+  id: CivilianGuns
+  skill: Shooting
+  level: 0
+  actions: Shoot
+  targets: [WeaponSprayNozzle, NFWeaponLauncherMail]
+
+- type: professionalSkillRequirement
+  id: MagicStaves
+  skill: Shooting
+  level: 0
+  actions: Shoot
+  targets: [WeaponStaffBase, WeaponInertStaffBase, WeaponChargedStaffBase]
+
+- type: professionalSkillRequirement
+  id: StunWeapons
+  skill: Shooting
+  level: 1
+  actions: Shoot
+  targets: [WeaponTaser, WeaponTaserSuper, WeaponDisabler, WeaponDisablerSMG, NFWeaponEnergyPistolDisabler, NFWeaponEnergySubMachineGunDisabler, NFWeaponEnergySubMachineGunDisablerBorg, WeaponTaserBorg]
 
 - type: professionalSkillRequirement
   id: MiningGuns
-  skill: Salvage
+  skill: Shooting
   level: 1
   actions: Shoot
   targets: [NFBaseWeaponFramePka]
@@ -49,9 +93,9 @@
 - type: professionalSkillRequirement
   id: MiningScanner
   skill: Salvage
-  level: 3
+  level: 1
   actions: Use
-  targets: [AdvancedMineralScannerUnpowered]
+  targets: [AdvancedMineralScannerUnpowered, MineralScannerUnpowered]
 
 - type: professionalSkillRequirement
   id: Welding
@@ -96,17 +140,24 @@
   targets: [BasePlantAnalyzer]
 
 - type: professionalSkillRequirement
+  id: PlantAnalysisInterface
+  skill: Botany
+  level: 2
+  actions: Interface
+  targets: [BasePlantAnalyzer]
+
+- type: professionalSkillRequirement
   id: Cooking
   skill: Cooking
   level: 1
   actions: Interface
-  targets: [KitchenMicrowave]
+  targets: [KitchenMicrowave, KitchenElectricRange]
   uiMessages: [MicrowaveStartCookMessage, AssemblerStartCookMessage]
 
 - type: professionalSkillRequirement
   id: Chemistry
   skill: Medicine
-  level: 2
+  level: 4
   actions: Interface
   targets: [ChemMaster]
   uiMessages: [ChemMasterReagentAmountButtonMessage, ChemMasterCreatePillsMessage, ChemMasterOutputToBottleMessage]
@@ -125,7 +176,6 @@
   level: 2
   actions: Interface
   targets: [ComputerAnalysisConsole]
-  uiMessages: [AnalysisConsoleExtractButtonPressedMessage]
 
 - type: professionalSkillRequirement
   id: Research
@@ -170,7 +220,7 @@
   skill: Shooting
   level: 0
   actions: Shoot
-  targets: [NFWeaponHoloflareGun]
+  targets: [NFWeaponHoloflareGun, WeaponFlareGun]
 
 - type: professionalSkillRequirement
   id: Grapple
@@ -178,8 +228,6 @@
   level: 0
   actions: Shoot
   targets: [WeaponGrapplingGun, WeaponGrapplingGunCyber]
-  inaccurateAtLevel: 0
-  misfireChance: 0.8
 
 - type: professionalSkillRequirement
   id: MiningMelee
@@ -191,14 +239,14 @@
 - type: professionalSkillRequirement
   id: DiamondDrill
   skill: Salvage
-  level: 3
+  level: 1
   actions: Use
   targets: [MiningDrillDiamond]
 
 - type: professionalSkillRequirement
   id: SpaceOreBag
   skill: Salvage
-  level: 3
+  level: 0
   actions: Use
   targets: [OreBagOfHolding]
 
@@ -221,7 +269,21 @@
   skill: Medicine
   level: 1
   actions: Use
-  targets: [Syringe, Hypospray, ChemicalMedipen]
+  targets: [Syringe]
+
+- type: professionalSkillRequirement
+  id: Medipens
+  skill: Medicine
+  level: 0
+  actions: Use
+  targets: [ChemicalMedipen]
+
+- type: professionalSkillRequirement
+  id: Hyposprays
+  skill: Medicine
+  level: 2
+  actions: Use
+  targets: [Hypospray, SyndiHypo, BorgHypo, BorgHypoNoRefill, HypoMini, HyposprayAcorp, HyposprayAcorpWhite, Hypopen]
 
 - type: professionalSkillRequirement
   id: ShipAmmo
@@ -233,16 +295,23 @@
 - type: professionalSkillRequirement
   id: Crusher
   skill: Salvage
+  level: 2
+  actions: Use
+  targets: [BaseWeaponCrusher]
+
+- type: professionalSkillRequirement
+  id: OreContainers
+  skill: Salvage
   level: 1
   actions: Use
-  targets: [BaseWeaponCrusher, MineralScannerUnpowered, OreBox, NFMagnetBoxOre]
+  targets: [OreBox, NFMagnetBoxOre]
 
 - type: professionalSkillRequirement
   id: Fertilizing
   skill: Botany
   level: 1
   actions: Pour
-  targets: [hydroponicsSoil]
+  targets: [hydroponicsSoil, hydroponicsTray]
 
 - type: professionalSkillRequirement
   id: MedicalAnalyzer
@@ -254,7 +323,7 @@
 - type: professionalSkillRequirement
   id: Gunnery
   skill: Shooting
-  level: 3
+  level: 4
   actions: Interface
   targets: [ComputerGunneryConsole]
   uiMessages: [FireControlConsoleFireMessage]
@@ -262,7 +331,7 @@
 - type: professionalSkillRequirement
   id: CivilianSmelting
   skill: Salvage
-  level: 1
+  level: 0
   actions: Interface
   targets: [OreProcessorCivilian]
   uiMessages: [LatheQueueRecipeMessage]
@@ -278,7 +347,7 @@
 - type: professionalSkillRequirement
   id: IndustrialSmelting
   skill: Salvage
-  level: 4
+  level: 3
   actions: Interface
   targets: [OreProcessorIndustrial]
   uiMessages: [LatheQueueRecipeMessage]
@@ -286,7 +355,7 @@
 - type: professionalSkillRequirement
   id: ChemicalDispensing
   skill: Medicine
-  level: 2
+  level: 4
   actions: Interface
   targets: [ChemDispenserEmpty]
   uiMessages: [ReagentDispenserDispenseReagentMessage, ReagentDispenserClearContainerSolutionMessage]
@@ -325,7 +394,7 @@
 - type: professionalSkillRequirement
   id: CrusherShooting
   skill: Salvage
-  level: 1
+  level: 2
   actions: Shoot
   targets: [BaseWeaponCrusher]
 
@@ -344,3 +413,102 @@
   - AirAlarmUpdateDeviceDataMessage
   - AirAlarmCopyDeviceDataMessage
   - AirAlarmUpdateAlarmThresholdMessage
+
+- type: professionalSkillRequirement
+  id: ClarkePiloting
+  skill: Salvage
+  level: 3
+  actions: Pilot
+  targets: [MechClarke]
+
+- type: professionalSkillRequirement
+  id: Gardening
+  skill: Botany
+  level: 1
+  actions: Interact
+  targets: [hydroponicsTray, hydroponicsSoil]
+
+- type: professionalSkillRequirement
+  id: GardeningControls
+  skill: Botany
+  level: 1
+  actions: Interface
+  targets: [hydroponicsTray, hydroponicsSoil]
+
+- type: professionalSkillRequirement
+  id: GardeningTools
+  skill: Botany
+  level: 1
+  actions: Use
+  targets: [HydroponicsToolMiniHoe, HydroponicsToolClippers, HydroponicsToolScythe, HydroponicsToolHatchet, HydroponicsToolSpade]
+
+- type: professionalSkillRequirement
+  id: SeedExtraction
+  skill: Botany
+  level: 2
+  actions: Interact
+  targets: [SeedExtractor]
+
+- type: professionalSkillRequirement
+  id: AnomalyScanning
+  skill: Science
+  level: 3
+  actions: Use
+  targets: [AnomalyScanner]
+
+- type: professionalSkillRequirement
+  id: AnomalyScannerInterface
+  skill: Science
+  level: 3
+  actions: Interface
+  targets: [AnomalyScanner]
+
+- type: professionalSkillRequirement
+  id: AnomalyParticlePistol
+  skill: Science
+  level: 3
+  actions: Shoot
+  targets: [WeaponPistolCHIMP, WeaponPistolCHIMPUpgraded]
+
+- type: professionalSkillRequirement
+  id: HighEnergyEquipment
+  skill: Engineering
+  level: 3
+  actions: Interact
+  targets: [TeslaGenerator, TeslaCoil, TeslaGroundingRod, RadiationCollector, SingularityGenerator, ContainmentFieldGenerator, ParticleAcceleratorBase, Emitter]
+
+- type: professionalSkillRequirement
+  id: HighEnergyControls
+  skill: Engineering
+  level: 3
+  actions: Interface
+  targets: [TeslaGenerator, TeslaCoil, TeslaGroundingRod, RadiationCollector, SingularityGenerator, ContainmentFieldGenerator, ParticleAcceleratorBase, Emitter]
+
+- type: professionalSkillRequirement
+  id: HighEnergyInstallation
+  skill: Engineering
+  level: 3
+  actions: Anchor
+  targets: [TeslaGenerator, TeslaCoil, TeslaGroundingRod, RadiationCollector, SingularityGenerator, ContainmentFieldGenerator, ParticleAcceleratorBase, Emitter]
+
+- type: professionalSkillRequirement
+  id: AntimatterFuel
+  skill: Engineering
+  level: 1
+  actions: Reload
+  targets: [AmeController]
+
+- type: professionalSkillRequirement
+  id: MedicalAssembly
+  skill: Medicine
+  level: 4
+  actions: Interface
+  targets: [MedicalAssembler]
+  uiMessages: [MicrowaveStartCookMessage, AssemblerStartCookMessage]
+
+- type: professionalSkillRequirement
+  id: CookingAppliances
+  skill: Cooking
+  level: 1
+  actions: Interact
+  targets: [KitchenElectricGrill, KitchenDeepFryer, KitchenElectricRange]

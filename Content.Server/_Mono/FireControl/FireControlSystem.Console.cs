@@ -1,4 +1,5 @@
 using Content.Server.Shuttles.Systems;
+using Content.Shared._radiant.Skills;
 using Content.Shared._Mono.FireControl;
 using Content.Shared.Power;
 using Content.Shared.Shuttles.BUIStates;
@@ -53,6 +54,12 @@ public sealed partial class FireControlSystem : EntitySystem
 
     private void OnFire(EntityUid uid, FireControlConsoleComponent component, FireControlConsoleFireMessage args)
     {
+        // This UI disables generic input validation. Check the real operator here, not
+        // the turret entity passed as the shooter by FireWeapons. Viewing stays available.
+        if (!EntityManager.System<SharedProfessionalSkillsSystem>()
+                .CanControlShipWeapons(args.Actor, uid, popup: args.Selected.Count > 0, serverPopup: true))
+            return;
+
         if (component.ConnectedServer == null || !TryComp<FireControlServerComponent>(component.ConnectedServer, out var server))
             return;
 

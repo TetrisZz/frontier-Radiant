@@ -19,12 +19,6 @@ public sealed partial class GunComponent : Component
     [DataField, AutoNetworkedField]
     public Content.Shared._radiant.Skills.ProfessionalSkill RequiredSkill = Content.Shared._radiant.Skills.ProfessionalSkill.Shooting;
 
-    [DataField, AutoNetworkedField]
-    public int? InaccurateAtSkillLevel;
-
-    [DataField, AutoNetworkedField]
-    public float SkillMisfireChance = 0.1f;
-
     #region Sound
 
     /// <summary>

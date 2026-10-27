@@ -39,3 +39,12 @@
 
 - type: Tag
   id: Towel
+
+# Shared by the local Vulcan variants, their cartridges and magazines.
+- type: Tag
+  id: NFMagazineRifle3006
+
+- type: Tag
+  id: NFCartridgeRifle3006
+- type: Tag
+  id: Unstashable

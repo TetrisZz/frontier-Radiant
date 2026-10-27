@@ -1,0 +1,90 @@
+- type: virologySymptom
+  id: Fatigue
+  name: virology-symptom-fatigue-name
+  description: virology-symptom-fatigue-desc
+  speedPenalty: 0.02
+
+- type: virologySymptom
+  id: Thirst
+  name: virology-symptom-thirst-name
+  description: virology-symptom-thirst-desc
+  water: 1
+
+- type: virologySymptom
+  id: Cough
+  name: virology-symptom-cough-name
+  description: virology-symptom-cough-desc
+  routes: [droplet]
+  cough: 1.15
+
+- type: virologySymptom
+  id: Accelerated
+  name: virology-symptom-accelerated-name
+  description: virology-symptom-accelerated-desc
+  cost: 2
+  incubation: 0.8
+
+- type: virologySymptom
+  id: Persistent
+  name: virology-symptom-persistent-name
+  description: virology-symptom-persistent-desc
+  cost: 2
+  recovery: 1.2
+  treatment: 1.2
+
+- type: virologySymptom
+  id: Quiet
+  name: virology-symptom-quiet-name
+  description: virology-symptom-quiet-desc
+  cost: 2
+  quiet: true
+  incubation: 1.2
+
+- type: entity
+  id: VirologySequencer
+  parent: Vaccinator
+  name: culture sequencer
+  description: An upgraded medical synthesizer for reproducing combinations of previously studied properties.
+  components:
+  - type: VirologyMachine
+    producer: true
+    tier: 4
+    cultureSeconds: 120
+  - type: Machine
+    board: VirologySequencerMachineCircuitboard
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/culture_sequencer.rsi
+    layers:
+    - state: idle
+      map: ["enum.DiseaseMachineVisualLayers.IsRunning"]
+    - state: off
+      map: ["enum.DiseaseMachineVisualLayers.IsOn"]
+  - type: GenericVisualizer
+    visuals:
+      enum.VirologyMachineVisuals.Running:
+        enum.DiseaseMachineVisualLayers.IsRunning:
+          True: { state: working }
+          False: { state: idle }
+      enum.VirologyMachineVisuals.Powered:
+        enum.DiseaseMachineVisualLayers.IsRunning:
+          True: { visible: true }
+          False: { visible: false }
+        enum.DiseaseMachineVisualLayers.IsOn:
+          True: { visible: false }
+          False: { visible: true }
+
+- type: entity
+  id: VirologySequencerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: culture sequencer machine board
+  components:
+  - type: MachineBoard
+    prototype: VirologySequencer
+    stackRequirements: {Steel: 5, Glass: 5, Cable: 5}
+
+- type: latheRecipe
+  id: VirologySequencerMachineCircuitboard
+  parent: BaseMedicalMachineRecipeCategory
+  result: VirologySequencerMachineCircuitboard
+  completetime: 5
+  materials: {Glass: 1500, Gold: 1000, Silver: 500}

@@ -38,6 +38,11 @@ public sealed partial class NetworkConfiguratorComponent : Component
     public EntityUid? DeviceLinkTarget;
 
     /// <summary>
+    /// Identifies the currently displayed link operation. Old UI messages must not edit another pair.
+    /// </summary>
+    public uint LinkContext;
+
+    /// <summary>
     /// The list of devices stored in the configurator
     /// </summary>
     [DataField]

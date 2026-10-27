@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Lynx tail contributed by Lev1932 in https://github.com/BlueMoon-Labs/BlueMoon-Station/pull/4244. Source: modular_bluemoon/icons/mob/bm_tails.dmi, m_tail_lynx_BEHIND and m_tail_lynx_FRONT. Red and green color channels separated into independently tintable grayscale masks, preserving source shading and directional placement. Converted to RSI for Radiant Sector.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "lynx_main",
+      "directions": 4
+    },
+    {
+      "name": "lynx_tip",
+      "directions": 4
+    }
+  ]
+}

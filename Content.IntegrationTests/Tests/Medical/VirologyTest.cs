@@ -119,6 +119,7 @@ public sealed class VirologyTest
             Assert.That(system.Expose(patient, "Enteric", 100), Is.True);
             Assert.That(system.Expose(patient, "Hematic", 100), Is.False, "At most two concurrent infections.");
         });
+        await pair.CleanReturnAsync();
     }
 
     [Test]
@@ -187,5 +188,6 @@ public sealed class VirologyTest
             Assert.That(disease.Expose(healthy, "Hematic", 1000), Is.False);
             Assert.That(lab.Start(vaccinator, VirologyCommand.Treat), Is.False);
         });
+        await pair.CleanReturnAsync();
     }
 }

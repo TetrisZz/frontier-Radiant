@@ -3,6 +3,7 @@ using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Components;
 using Content.Shared.StationRecords;
 using Content.Shared._radiant.Dossiers;
+using Content.Shared._radiant.Careers;
 using Robust.Server.GameObjects;
 using Content.Shared.Roles; // Frontier
 using Robust.Shared.Prototypes; // Frontier
@@ -113,7 +114,8 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
                 }
             }
             // End Frontier
-            _stationJobsSystem.TryAdjustJobSlot(station, msg.JobProto, msg.Amount, false, true);
+            _stationJobsSystem.TryAdjustJobSlot(station, msg.JobProto, msg.Amount,
+                GetHiringJobs(station).ContainsKey(msg.JobProto), true);
             UpdateUserInterface(ent);
         }
     }
@@ -141,6 +143,16 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
     }
     // End Frontier: job counts, advertisements
 
+    public IReadOnlyDictionary<ProtoId<JobPrototype>, int?> GetHiringJobs(EntityUid station)
+    {
+        var jobs = _stationJobsSystem.GetJobs(station).ToDictionary(entry => entry.Key, entry => entry.Value);
+        if (jobs.ContainsKey("ContractorInterview") || jobs.ContainsKey("PilotInterview") || jobs.ContainsKey("MercenaryInterview"))
+            foreach (var profession in _proto.EnumeratePrototypes<CareerProfessionPrototype>())
+                if (profession.InterviewJob is { } interview)
+                    jobs.TryAdd(interview, 0);
+        return jobs;
+    }
+
     private void UpdateUserInterface(Entity<GeneralStationRecordConsoleComponent> ent)
     {
         var (uid, console) = ent;
@@ -151,7 +163,7 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         string? advertisement = null;
         if (owningStation != null)
         {
-            jobList = _stationJobsSystem.GetJobs(owningStation.Value);
+            jobList = GetHiringJobs(owningStation.Value);
             if (TryComp<ExtraShuttleInformationComponent>(owningStation, out var extraVessel))
                 advertisement = extraVessel.Advertisement;
         }

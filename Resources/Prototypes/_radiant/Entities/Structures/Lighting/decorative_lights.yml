@@ -71,7 +71,7 @@
     energy: 1
     softness: 1.1
     color: "#FFD1A3"
-    offset: 0, 1
+    offset: 0, 0 # Light offsets move across the map, not up the pole sprite.
   - type: Construction
     graph: RadiantDecorativeLighting
     node: post
@@ -111,7 +111,7 @@
     energy: 1
     softness: 1.1
     color: "#FFD1A3"
-    offset: 0, 1
+    offset: 0, 0
   - type: Construction
     graph: RadiantDecorativeLighting
     node: festive
@@ -151,7 +151,7 @@
     energy: 1
     softness: 1.1
     color: "#FFD1A3"
-    offset: 0, 2.5
+    offset: 0, 0
   - type: Construction
     graph: RadiantDecorativeLighting
     node: one
@@ -191,7 +191,7 @@
     energy: 1
     softness: 1.1
     color: "#FFD1A3"
-    offset: 0, 2.5
+    offset: 0, 0
   - type: Construction
     graph: RadiantDecorativeLighting
     node: two
@@ -231,7 +231,7 @@
     energy: 1
     softness: 1.1
     color: "#FFD1A3"
-    offset: 0, 2.5
+    offset: 0, 0
   - type: Construction
     graph: RadiantDecorativeLighting
     node: three
@@ -271,7 +271,7 @@
     energy: 1
     softness: 1.1
     color: "#FFD1A3"
-    offset: 0, 2.5
+    offset: 0, 0
   - type: Construction
     graph: RadiantDecorativeLighting
     node: four
@@ -311,7 +311,7 @@
     energy: 1
     softness: 1.1
     color: "#FFD1A3"
-    offset: 0, 2.5
+    offset: 0, 0
   - type: Construction
     graph: RadiantDecorativeLighting
     node: sidewalk

@@ -107,6 +107,8 @@
   recipes:
   - GeneticBodyGrowerMachineCircuitboard
   - GeneticResearchConsoleCircuitboard
+  - DnaVaultMachineCircuitboard
+  - VirologySequencerMachineCircuitboard
   - SurgicalSterilizerMachineCircuitboard # Radiant: unlocked by basic surgery.
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard

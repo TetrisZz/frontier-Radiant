@@ -34,18 +34,6 @@ public sealed partial class StationOrCrewLargeControl : PickerControl
         NoCrewsAvailableLabel.Visible = !StationJobInformationExtensions.IsAnyCrewJobAvailable(obj);
     }
 
-    protected override void EnteredTree()
-    {
-        base.EnteredTree();
-        _gameTicker.LobbyJobsAvailableUpdated += UpdateUi;
-    }
-
-    protected override void ExitedTree()
-    {
-        base.ExitedTree();
-        _gameTicker.LobbyJobsAvailableUpdated -= UpdateUi;
-    }
-
     private void StationButtonOnOnPressed(BaseButton.ButtonEventArgs obj)
     {
         OnTabChange?.Invoke(Windows.PickerWindow.PickerType.Station);

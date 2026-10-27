@@ -31,7 +31,7 @@ public sealed class SeedExtractorSystem : EntitySystem
 
         if (!TryComp(args.Used, out ProduceComponent? produce)) return;
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 1, serverPopup: true))
+                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 2, serverPopup: true))
             return;
         if (!_botanySystem.TryGetSeed(produce, out var seed) || seed.Seedless || seed.PermanentlySeedless) // Frontier: add permanently seedless
         {

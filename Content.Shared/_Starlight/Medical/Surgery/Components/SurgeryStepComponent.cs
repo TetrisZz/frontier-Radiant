@@ -15,7 +15,7 @@ public sealed partial class SurgeryStepComponent : Component
     public float Duration = 2;
 
     [DataField]
-    public int MedicalSkillLevel = 3;
+    public int MedicalSkillLevel = 2;
 
     [DataField]
     public ComponentRegistry? Tools;

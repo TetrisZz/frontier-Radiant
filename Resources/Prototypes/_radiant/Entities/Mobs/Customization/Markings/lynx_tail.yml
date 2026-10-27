@@ -1,0 +1,19 @@
+- type: marking
+  id: RadiantTailLynx
+  bodyFeatures: [Tail]
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin, Felinid]
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+    layers:
+      lynx_tip:
+        type: !type:SimpleColoring
+          color: "#404040"
+  sprites:
+  - sprite: _radiant/Mobs/Customization/lynx_tail.rsi
+    state: lynx_main
+  - sprite: _radiant/Mobs/Customization/lynx_tail.rsi
+    state: lynx_tip

@@ -94,8 +94,11 @@ public sealed partial class MicrowaveSystem : EntitySystem
         }
 
         // We're actually microwaving things, run the wzhzhzh checks
+        var medical = (component.ValidRecipeTypes & (int) MicrowaveRecipeType.MedicalAssembler) != 0;
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Cooking, portionedRecipe.Item1.RequiredCookingLevel))
+                .Check(user, medical ? Content.Shared._radiant.Skills.ProfessionalSkill.Medicine
+                    : Content.Shared._radiant.Skills.ProfessionalSkill.Cooking,
+                    medical ? 4 : portionedRecipe.Item1.RequiredCookingLevel))
             return;
         foreach (var item in component.Storage.ContainedEntities.ToArray())
         {

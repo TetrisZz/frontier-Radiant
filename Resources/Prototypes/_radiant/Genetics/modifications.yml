@@ -39,6 +39,7 @@
     modification: RadiantHematopoiesis
   - type: Item
     size: Tiny
+    sprite: _radiant/Objects/Medical/genetic_injector.rsi
   - type: Sprite
     sprite: _radiant/Objects/Medical/genetic_injector.rsi
     color: "#ffa8a8"
@@ -66,19 +67,20 @@
     remove: true
   - type: Item
     size: Tiny
+    sprite: _radiant/Objects/Medical/genetic_injector.rsi
   - type: Sprite
-    sprite: Objects/Specific/Medical/medipen.rsi
+    sprite: _radiant/Objects/Medical/genetic_injector.rsi
     color: "#ffa8a8"
     layers:
-    - state: medipen
+    - state: icon
       map: ["base"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.GeneticTherapyVisuals.Used:
         base:
-          True: { state: medipen_empty }
-          False: { state: medipen }
+          True: { state: used }
+          False: { state: icon }
   - type: GuideHelp
     guides: [RadiantGenetics]
 

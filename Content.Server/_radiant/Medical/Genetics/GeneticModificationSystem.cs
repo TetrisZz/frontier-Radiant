@@ -28,6 +28,10 @@ public sealed partial class GeneticProfileComponent : Component
     [DataField] public Dictionary<string, float> Modifications = new();
     public float Accumulator;
     [DataField] public Dictionary<string, string> Complications = new();
+    [DataField] public Dictionary<string, GeneticTherapyVariant> Variants = new();
+    [DataField] public Dictionary<string, float> Lifetimes = new();
+    [DataField] public float Recovery;
+    [DataField] public float Rest;
     public Dictionary<Type, Component> OwnedEffects = new();
     public float TicTimer = 120;
 }
@@ -40,6 +44,7 @@ public sealed partial class GeneticTherapyComponent : Component
     [DataField] public bool Used;
     [DataField] public string? Dna;
     [DataField] public string? Species;
+    [DataField] public GeneticTherapyVariant Variant;
 }
 
 public sealed partial class GeneticModificationSystem : EntitySystem
@@ -61,10 +66,12 @@ public sealed partial class GeneticModificationSystem : EntitySystem
         SubscribeLocalEvent<GeneticTherapyComponent, AfterInteractEvent>(OnInteract);
         SubscribeLocalEvent<GeneticTherapyComponent, GeneticTherapyDoAfterEvent>(OnInjected);
         SubscribeLocalEvent<GeneticTherapyComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<GeneticProfileComponent, DamageChangedEvent>(OnDamageChanged);
     }
 
     public int Load(GeneticProfileComponent profile)
-        => profile.Modifications.Keys.Sum(id => _prototypes.TryIndex<GeneticModificationPrototype>(id, out var gene) ? gene.Load : 0);
+        => profile.Modifications.Keys.Sum(id => _prototypes.TryIndex<GeneticModificationPrototype>(id, out var gene)
+            ? GeneticTherapyBalance.Load(gene.Load, profile.Variants.GetValueOrDefault(id)) : 0);
 
     public string ProfileText(EntityUid patient)
     {
@@ -82,6 +89,9 @@ public sealed partial class GeneticModificationSystem : EntitySystem
                 ("name", Loc.GetString(gene.Name)), ("seconds", (int) Math.Ceiling(seconds))));
             if (seconds <= 0 && profile.Complications.TryGetValue(id, out var flaw))
                 lines.Add(Loc.GetString("genetics-complication-" + flaw));
+            lines.Add(Loc.GetString("genetics-variant-" + profile.Variants.GetValueOrDefault(id).ToString().ToLowerInvariant()));
+            if (profile.Lifetimes.TryGetValue(id, out var lifetime))
+                lines.Add(Loc.GetString("genetics-lab-lifetime", ("seconds", (int) Math.Ceiling(lifetime))));
         }
         return string.Join("\n", lines);
     }
@@ -103,11 +113,13 @@ public sealed partial class GeneticModificationSystem : EntitySystem
             return present ? null : "genetics-therapy-not-present";
         if (present)
             return "genetics-therapy-already-present";
+        if (!Enum.IsDefined(therapy.Variant)) return "genetics-therapy-incompatible";
+        if (profile?.Recovery > 0) return "genetics-lab-recovering";
         var gene = _prototypes.Index(therapy.Modification);
         if (profile != null && profile.Modifications.Keys.Any(id =>
                 gene.Conflicts.Contains(id) || _prototypes.Index<GeneticModificationPrototype>(id).Conflicts.Contains(gene.ID)))
             return "genetics-therapy-conflict";
-        if ((profile == null ? 0 : Load(profile)) + gene.Load > (profile?.Capacity ?? 100))
+        if ((profile == null ? 0 : Load(profile)) + GeneticTherapyBalance.Load(gene.Load, therapy.Variant) > Math.Min(profile?.Capacity ?? 100, 100))
             return "genetics-therapy-overload";
         return null;
     }
@@ -123,10 +135,16 @@ public sealed partial class GeneticModificationSystem : EntitySystem
         {
             profile.Modifications.Remove(therapy.Modification.Id);
             profile.Complications.Remove(therapy.Modification.Id);
+            profile.Variants.Remove(therapy.Modification.Id);
+            profile.Lifetimes.Remove(therapy.Modification.Id);
+            profile.Recovery = GeneticTherapyBalance.RecoverySeconds;
         }
         else
         {
             profile.Modifications.Add(therapy.Modification.Id, _prototypes.Index(therapy.Modification).AdaptationSeconds);
+            profile.Variants[therapy.Modification.Id] = therapy.Variant;
+            if (therapy.Variant == GeneticTherapyVariant.Temporary)
+                profile.Lifetimes[therapy.Modification.Id] = GeneticTherapyBalance.TemporarySeconds;
             RollComplication(profile, _prototypes.Index(therapy.Modification));
         }
         RefreshGeneticEffects(patient, profile);
@@ -142,6 +160,8 @@ public sealed partial class GeneticModificationSystem : EntitySystem
             args.PushText(Loc.GetString("genetics-therapy-spent"));
         else if (ent.Comp.Dna != null)
             args.PushText(Loc.GetString("genetics-therapy-personal"));
+        if (!ent.Comp.Used && !ent.Comp.Remove)
+            args.PushText(Loc.GetString("genetics-variant-help-" + ent.Comp.Variant.ToString().ToLowerInvariant()));
     }
 
     private void OnInteract(Entity<GeneticTherapyComponent> ent, ref AfterInteractEvent args)
@@ -195,10 +215,18 @@ public sealed partial class GeneticModificationSystem : EntitySystem
         }
     }
 
+    private void OnDamageChanged(Entity<GeneticProfileComponent> ent, ref DamageChangedEvent args)
+    {
+        if (args.DamageIncreased) ent.Comp.Rest = GeneticTherapyBalance.RestSeconds;
+    }
+
     public void Advance(EntityUid uid, float seconds)
     {
         if (seconds <= 0 || _mobs.IsDead(uid) || !TryComp<GeneticProfileComponent>(uid, out var profile))
             return;
+        var resting = Math.Max(0, seconds - profile.Rest);
+        profile.Rest = Math.Max(0, profile.Rest - seconds);
+        profile.Recovery = Math.Max(0, profile.Recovery - seconds);
         foreach (var id in profile.Modifications.Keys.ToArray())
         {
             if (!_prototypes.TryIndex<GeneticModificationPrototype>(id, out var gene))
@@ -206,6 +234,26 @@ public sealed partial class GeneticModificationSystem : EntitySystem
             var pending = profile.Modifications[id];
             profile.Modifications[id] = Math.Max(0, pending - seconds);
             var activeSeconds = Math.Max(0, seconds - pending);
+            if (profile.Lifetimes.TryGetValue(id, out var lifetime))
+            {
+                var worked = Math.Min(activeSeconds, lifetime);
+                profile.Lifetimes[id] = Math.Max(0, lifetime - activeSeconds);
+                activeSeconds = worked;
+                if (profile.Lifetimes[id] <= 0)
+                {
+                    profile.Modifications.Remove(id);
+                    profile.Complications.Remove(id);
+                    profile.Variants.Remove(id);
+                    profile.Lifetimes.Remove(id);
+                    profile.Recovery = GeneticTherapyBalance.RecoverySeconds;
+                    continue;
+                }
+            }
+            activeSeconds = Math.Min(activeSeconds, resting);
+            if (_mobs.IsCritical(uid)) continue;
+            var variant = profile.Variants.GetValueOrDefault(id);
+            activeSeconds *= GeneticTherapyBalance.Effect(variant);
+            var nutrition = GeneticTherapyBalance.Nutrition(variant);
             if (activeSeconds <= 0 || Load(profile) > profile.Capacity
                 || !TryComp<BloodstreamComponent>(uid, out var blood)
                 || !TryComp<HungerComponent>(uid, out var hunger)
@@ -214,7 +262,7 @@ public sealed partial class GeneticModificationSystem : EntitySystem
             // Deliberate upkeep for tissue repair and clotting. Never revives, restores organs or treats infection.
             if (gene.NutritionPerSecond > 0)
             {
-                var upkeepSeconds = Math.Min(activeSeconds, Math.Max(0, _hunger.GetHunger(hunger)) / gene.NutritionPerSecond);
+                var upkeepSeconds = Math.Min(activeSeconds, Math.Max(0, _hunger.GetHunger(hunger)) / (gene.NutritionPerSecond * nutrition));
                 var worked = false;
                 if (gene.ClottingPerSecond > 0 && blood.BleedAmount > 0 && upkeepSeconds > 0)
                 {
@@ -234,7 +282,7 @@ public sealed partial class GeneticModificationSystem : EntitySystem
                     }
                 }
                 if (worked)
-                    _hunger.ModifyHunger(uid, -gene.NutritionPerSecond * upkeepSeconds, hunger);
+                    _hunger.ModifyHunger(uid, -gene.NutritionPerSecond * upkeepSeconds * nutrition, hunger);
             }
             var solution = blood.BloodSolution;
             if (!_solutions.ResolveSolution(uid, blood.BloodSolutionName, ref solution, out var contents))
@@ -245,10 +293,10 @@ public sealed partial class GeneticModificationSystem : EntitySystem
                 continue;
             // Bound the effect by available nutrition, including long server frames.
             if (gene.NutritionPerBlood > 0)
-                amount = Math.Min(amount, Math.Max(0, _hunger.GetHunger(hunger)) / gene.NutritionPerBlood);
+                amount = Math.Min(amount, Math.Max(0, _hunger.GetHunger(hunger)) / (gene.NutritionPerBlood * nutrition));
             var added = FixedPoint2.New(amount);
             if (added > 0 && _blood.TryModifyBloodLevel((uid, blood), added))
-                _hunger.ModifyHunger(uid, -added.Float() * gene.NutritionPerBlood, hunger);
+                _hunger.ModifyHunger(uid, -added.Float() * gene.NutritionPerBlood * nutrition, hunger);
         }
         RefreshGeneticEffects(uid, profile);
         AdvanceComplications(uid, profile, seconds);

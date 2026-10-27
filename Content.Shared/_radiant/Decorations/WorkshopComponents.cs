@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -31,6 +32,10 @@ public sealed partial class AquariumComponent : Component
     [DataField] public int Food = 30;
     [DataField] public int MaxFood = 100;
     [DataField] public int Capacity = 4;
+    [DataField] public Vector2[] FishOffsets =
+    [
+        new(-0.18f, -0.03f), new(0.18f, -0.03f), new(-0.18f, 0.22f), new(0.18f, 0.22f),
+    ];
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField] public TimeSpan NextFeeding;
 }
 
