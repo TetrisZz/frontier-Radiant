@@ -182,9 +182,12 @@ public sealed class GeneticModificationTest
             var unused = em.SpawnEntity("GeneticHematopoiesisRemover", pos);
             Assert.That(modifications.Apply(unused, patient), Is.False);
             Assert.That(em.GetComponent<GeneticTherapyComponent>(unused).Used, Is.False);
+            Assert.That(modifications.Apply(duplicate, patient), Is.False, "The body needs recovery after suppression.");
+            modifications.Advance(patient, 180);
             Assert.That(modifications.Apply(duplicate, patient), Is.True);
             Assert.That(modifications.Apply(unused, patient), Is.True);
             Assert.That(profile.Modifications, Is.Empty);
+            modifications.Advance(patient, 180);
             Assert.That(modifications.Apply(clotting, patient), Is.True);
             em.System<Content.Shared.Body.Systems.SharedBloodstreamSystem>().TryModifyBleedAmount((patient, blood), 5 - blood.BleedAmount);
             modifications.Advance(patient, 120);
@@ -196,6 +199,7 @@ public sealed class GeneticModificationTest
             modifications.Advance(patient, 60);
             Assert.That(blood.BleedAmount, Is.EqualTo(3.8f).Within(.01));
             var repair = em.SpawnEntity("GeneticRegenerationInjector", pos);
+            modifications.Advance(patient, 120);
             Assert.That(modifications.Apply(repair, patient), Is.True);
             var damage = new Content.Shared.Damage.DamageSpecifier();
             damage.DamageDict["Blunt"] = FixedPoint2.New(10);
@@ -214,5 +218,6 @@ public sealed class GeneticModificationTest
             Assert.That(em.GetComponent<GeneticResearchDiskComponent>(disk).Discoveries, Does.Contain("RadiantHematopoiesis"),
                 "Changing one donor's code does not erase general gene knowledge.");
         });
+        await pair.CleanReturnAsync();
     }
 }

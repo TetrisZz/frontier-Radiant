@@ -20,6 +20,14 @@
   - RadiantFishingLineReinforced
 
 - type: latheRecipe
+  id: FishBag
+  parent: NFBaseToolsRecipe
+  result: FishBag
+  materials:
+    Steel: 500
+    Cloth: 500
+
+- type: latheRecipe
   id: RadiantFishingHook
   result: RadiantFishingHook
   categories: [Tools]

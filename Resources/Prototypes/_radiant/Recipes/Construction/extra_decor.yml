@@ -1,0 +1,35 @@
+- type: construction
+  id: RadiantSmallStairs
+  graph: RadiantSmallStairs
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}
+
+- type: construction
+  id: RadiantAquariumTech
+  graph: RadiantAquariumTech
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}
+
+- type: construction
+  id: RadiantAquariumCompact
+  graph: RadiantAquariumCompact
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked {}

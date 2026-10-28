@@ -21422,6 +21422,8 @@ entities:
     - type: Transform
       parent: 1
       pos: 7.5,-8.5
+- proto: ComputerShipyardCareerMedical
+  entities:
   - uid: 2732
     components:
     - type: Transform

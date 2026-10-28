@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "tgstation contributors. Source: https://github.com/tgstation/tgstation, icons/obj/aquarium/tanks.dmi. Extracted losslessly from the user-provided checkout; state names and frame layout adapted for RSI.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "aquarium_map"
+    },
+    {
+      "name": "aquarium_base"
+    },
+    {
+      "name": "aquarium_glass_air"
+    },
+    {
+      "name": "aquarium_glass_water"
+    },
+    {
+      "name": "aquarium_borders"
+    }
+  ]
+}

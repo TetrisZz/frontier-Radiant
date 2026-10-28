@@ -28,7 +28,14 @@ public sealed class CareerStateEvent(CareerData career, bool canChange, string? 
 }
 
 [Serializable, NetSerializable]
-public sealed class CareerClaimRewardsEvent(NetEntity console) : EntityEventArgs
+public sealed class CareerSafeActionMessage(CareerSafeAction action) : BoundUserInterfaceMessage
 {
-    public NetEntity Console = console;
+    public CareerSafeAction Action = action;
 }
+
+[Serializable, NetSerializable]
+public enum CareerSafeAction : byte { ClaimRewards, ClaimStarterBox, UpgradeBox }
+
+[Serializable, NetSerializable]
+public sealed record CareerSafeState(string Profession, int Level, int BoxTier, int UnlockedTier,
+    int PendingRewards, bool CanClaimRewards, bool CanClaimStarterBox, bool CanUpgradeBox, bool Busy);

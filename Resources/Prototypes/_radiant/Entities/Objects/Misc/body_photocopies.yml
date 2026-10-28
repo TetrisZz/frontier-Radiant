@@ -1,0 +1,61 @@
+- type: entity
+  abstract: true
+  parent: Paper
+  id: PaperBodyPrint
+  name: butt photocopy
+  description: A monochrome imprint. Some people really should not be left alone with office equipment.
+  components:
+  - type: BodyPhotocopy
+  - type: PaperVisuals
+    headerImageFullWidth: true
+    headerMargin: 0, 0, 0, 12
+
+- type: entity
+  parent: PaperBodyPrint
+  id: PaperBodyPrintMale
+  components:
+  - type: PaperVisuals
+    headerImagePath: /Textures/_radiant/Interface/Paper/BodyPrints/male.png
+
+- type: entity
+  parent: PaperBodyPrint
+  id: PaperBodyPrintFemale
+  components:
+  - type: PaperVisuals
+    headerImagePath: /Textures/_radiant/Interface/Paper/BodyPrints/female.png
+
+- type: entity
+  parent: PaperBodyPrint
+  id: PaperBodyPrintLizard
+  components:
+  - type: PaperVisuals
+    headerImagePath: /Textures/_radiant/Interface/Paper/BodyPrints/lizard.png
+
+- type: entity
+  parent: PaperBodyPrint
+  id: PaperBodyPrintCat
+  components:
+  - type: PaperVisuals
+    headerImagePath: /Textures/_radiant/Interface/Paper/BodyPrints/cat.png
+
+- type: entity
+  parent: PaperBodyPrint
+  id: PaperBodyPrintFluffy
+  components:
+  - type: PaperVisuals
+    headerImagePath: /Textures/_radiant/Interface/Paper/BodyPrints/fluffy.png
+
+- type: entity
+  parent: PaperBodyPrint
+  id: PaperBodyPrintSlime
+  components:
+  - type: PaperVisuals
+    headerImagePath: /Textures/_radiant/Interface/Paper/BodyPrints/slime.png
+
+- type: entity
+  parent: PaperBodyPrint
+  id: PaperBodyPrintMachine
+  components:
+  - type: PaperVisuals
+    headerImagePath: /Textures/_radiant/Interface/Paper/BodyPrints/machine.png
+

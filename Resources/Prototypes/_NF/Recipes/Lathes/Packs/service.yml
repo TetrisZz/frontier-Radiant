@@ -2,6 +2,7 @@
   id: NFServiceStorageStatic
   recipes:
   - FoodBoxCookiesEmpty
+  - FishBag
   - NFBoxMREEmpty
   - NFHappyHonkEmpty
   - NFHappyHonkMimeEmpty

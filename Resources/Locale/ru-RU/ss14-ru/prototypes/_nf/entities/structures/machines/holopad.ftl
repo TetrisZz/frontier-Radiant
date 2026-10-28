@@ -42,7 +42,7 @@ ent-NFHolopadNFSDSheriff = { ent-NFHolopadLaboratory }
     .desc = { ent-NFHolopadLaboratory.desc }
 ent-NFHolopadShip = { ent-NFHolopadLaboratory }
     .suffix = шаттл
-    .desc = { ent-NFHolopadLaboratory.desc }Resources/Locale/ru-RU/ss14-ru/prototypes/_nf/entities/objects/weapons/guns/launchers/launchers.ftl
+    .desc = { ent-NFHolopadLaboratory.desc }
 ent-NFHolopadShipAntag = { ent-NFHolopadLaboratory }
     .suffix = шаттл, антаг
     .desc = { ent-NFHolopadLaboratory.desc }
@@ -58,3 +58,7 @@ ent-NFHolopadTradeStationSTC = { ent-NFHolopadLaboratory }
 
 ent-NFHolopadGrid = локальный голопад
     .suffix = Локальная
+
+ent-NFHolopadBarrier = { ent-NFHolopadLaboratory }
+    .desc = { ent-NFHolopadLaboratory.desc }
+    .suffix = Барьерные врата, POI

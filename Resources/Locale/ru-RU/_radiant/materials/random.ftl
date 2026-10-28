@@ -1,0 +1,12 @@
+ent-MaterialBluespaceRandomVeryReducedRS = { ent-MaterialBluespace }
+    .desc = { ent-MaterialBluespace.desc }
+    .suffix = { ent-MaterialBluespaceRandomReduced.suffix }
+ent-MaterialBluespaceRandomVeryLowRS = { ent-MaterialBluespace }
+    .desc = { ent-MaterialBluespace.desc }
+    .suffix = { ent-MaterialBluespaceRandomVeryLow.suffix }
+ent-MaterialBonesRandomVeryReducedRS = { ent-MaterialBones }
+    .desc = { ent-MaterialBones.desc }
+    .suffix = { ent-MaterialBonesRandomReduced.suffix }
+ent-MaterialBonesRandomVeryLowRS = { ent-MaterialBones }
+    .desc = { ent-MaterialBones.desc }
+    .suffix = { ent-MaterialBonesRandomVeryLow.suffix }

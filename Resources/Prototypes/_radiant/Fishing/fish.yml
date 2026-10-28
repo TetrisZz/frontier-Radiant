@@ -264,20 +264,6 @@
     sprite: _radiant/Objects/Specific/Fishing/fish.rsi
 
 - type: entity
-  id: FishSilver
-  parent: BaseFish
-  name: silver fish
-  description: Actually contains silver.
-  components:
-  - type: Sprite
-    sprite: _radiant/Objects/Specific/Fishing/fish.rsi
-    state: silverfish
-  - type: Fish
-    aquariumState: silverfish
-  - type: Item
-    sprite: _radiant/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
   id: FishTropicalSun
   parent: BaseFish
   name: tropical sun fish

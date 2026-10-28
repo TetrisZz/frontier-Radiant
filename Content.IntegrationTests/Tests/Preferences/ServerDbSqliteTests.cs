@@ -46,7 +46,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                 Species = "Human",
                 Height = 1,
                 Width = 1,
-				Voice = "Arc_warden_dota_2", // Corvax-TTS
+                Voice = "Arc_warden_dota_2", // Corvax-TTS
                 Age = 21,
                 Appearance = new(
                     "Afro",
@@ -55,7 +55,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                     Color.Aquamarine,
                     Color.Azure,
                     Color.Beige,
-                    new ())
+                    new())
             }.WithBankBalance(27000); // Frontier - accessor issue
         }
 
@@ -99,34 +99,41 @@ namespace Content.IntegrationTests.Tests.Preferences
         public async Task TestProfessionalSkillPersistence()
         {
             await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
-            var server = pair.Server;
-            var db = GetDb(server);
-            Assert.That(await db.HasPendingModelChanges(), Is.False);
-            var user = NewUserId();
-            var profile = CharlieCharlieson()
-                .WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 4)
-                .WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 3);
-            await db.InitPrefsAsync(user, profile);
-            var prefs = await db.GetPlayerPreferencesAsync(user);
-            Assert.That(((HumanoidCharacterProfile) prefs!.Characters[0]).SkillLevels, Is.EqualTo(profile.SkillLevels));
-            profile = profile.WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1);
-            await db.SaveCharacterSlotAsync(user, profile, 0);
-            prefs = await db.GetPlayerPreferencesAsync(user);
-            Assert.That(((HumanoidCharacterProfile) prefs!.Characters[0]).SkillLevels, Is.EqualTo(profile.SkillLevels));
-            await server.WaitAssertion(() =>
+            try
             {
-                var entities = server.ResolveDependency<Robust.Shared.GameObjects.IEntityManager>();
-                var system = entities.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
-                var userEntity = entities.SpawnEntity(null, Robust.Shared.Map.MapCoordinates.Nullspace);
-                var welder = entities.SpawnEntity("PowerDrill", Robust.Shared.Map.MapCoordinates.Nullspace);
-                Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.True);
-                var skills = entities.AddComponent<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(userEntity);
-                Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.False);
-                skills.Levels[(int) Content.Shared._radiant.Skills.ProfessionalSkill.Engineering] = 1;
-                Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.True);
-                entities.DeleteEntity(welder);
-                entities.DeleteEntity(userEntity);
-            });
+                var server = pair.Server;
+                var db = GetDb(server);
+                Assert.That(await db.HasPendingModelChanges(), Is.False);
+                var user = NewUserId();
+                var profile = CharlieCharlieson()
+                    .WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 4)
+                    .WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 3);
+                await db.InitPrefsAsync(user, profile);
+                var prefs = await db.GetPlayerPreferencesAsync(user);
+                Assert.That(((HumanoidCharacterProfile)prefs!.Characters[0]).SkillLevels, Is.EqualTo(profile.SkillLevels));
+                profile = profile.WithSkillLevel(Content.Shared._radiant.Skills.ProfessionalSkill.Piloting, 1);
+                await db.SaveCharacterSlotAsync(user, profile, 0);
+                prefs = await db.GetPlayerPreferencesAsync(user);
+                Assert.That(((HumanoidCharacterProfile)prefs!.Characters[0]).SkillLevels, Is.EqualTo(profile.SkillLevels));
+                await server.WaitAssertion(() =>
+                {
+                    var entities = server.ResolveDependency<Robust.Shared.GameObjects.IEntityManager>();
+                    var system = entities.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
+                    var userEntity = entities.SpawnEntity(null, Robust.Shared.Map.MapCoordinates.Nullspace);
+                    var welder = entities.SpawnEntity("PowerDrill", Robust.Shared.Map.MapCoordinates.Nullspace);
+                    Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.True);
+                    var skills = entities.AddComponent<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(userEntity);
+                    Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.False);
+                    skills.Levels[(int)Content.Shared._radiant.Skills.ProfessionalSkill.Engineering] = 1;
+                    Assert.That(system.CanUse(userEntity, welder, Content.Shared._radiant.Skills.SkillAction.Use, false), Is.True);
+                    entities.DeleteEntity(welder);
+                    entities.DeleteEntity(userEntity);
+                });
+            }
+            finally
+            {
+                await pair.CleanReturnAsync();
+            }
         }
 
         [Test]
@@ -139,12 +146,12 @@ namespace Content.IntegrationTests.Tests.Preferences
             Assert.That(profile.Citizenship, Is.EqualTo(Content.Shared._radiant.Passports.RadiantCitizenship.Zon));
             await db.InitPrefsAsync(user, profile);
             var initial = await db.GetPlayerPreferencesAsync(user);
-            var characterId = ((HumanoidCharacterProfile) initial!.Characters[0]).Career.CharacterId;
+            var characterId = ((HumanoidCharacterProfile)initial!.Characters[0]).Career.CharacterId;
             foreach (var citizenship in Enum.GetValues<Content.Shared._radiant.Passports.RadiantCitizenship>())
             {
                 await db.SaveCharacterSlotAsync(user, profile.WithCitizenship(citizenship), 0);
                 var prefs = await db.GetPlayerPreferencesAsync(user);
-                var saved = (HumanoidCharacterProfile) prefs!.Characters[0];
+                var saved = (HumanoidCharacterProfile)prefs!.Characters[0];
                 Assert.That(saved.Citizenship, Is.EqualTo(citizenship));
                 Assert.That(saved.Career.CharacterId, Is.EqualTo(characterId));
                 Assert.That(saved.BankBalance, Is.EqualTo(profile.BankBalance));
@@ -169,7 +176,7 @@ namespace Content.IntegrationTests.Tests.Preferences
             await db.SaveCharacterSlotAsync(user, profile.WithPersonalDetails("Prospekt, 14", "Married", "One child",
                 "NT-5755", "Scar above left brow", "", "", "", ""), 0);
             var reloaded = await db.GetPlayerPreferencesAsync(user);
-            Assert.That(((HumanoidCharacterProfile) reloaded!.Characters[0]).Residence, Is.EqualTo("Prospekt, 14"));
+            Assert.That(((HumanoidCharacterProfile)reloaded!.Characters[0]).Residence, Is.EqualTo("Prospekt, 14"));
             Assert.That(await db.GetCharacterDossierAsync(user, 0), Does.Contain("Allergy"));
 
             // A randomized replacement in the same slot must not inherit the former identity.
@@ -178,7 +185,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                 "", "", "", "", "", "").WithCitizenship(Content.Shared._radiant.Passports.RadiantCitizenship.NT);
             await db.SaveCharacterSlotAsync(user, replacement, 0, replaceCharacter: true);
             reloaded = await db.GetPlayerPreferencesAsync(user);
-            var replaced = (HumanoidCharacterProfile) reloaded!.Characters[0];
+            var replaced = (HumanoidCharacterProfile)reloaded!.Characters[0];
             Assert.That(replaced.Name, Is.EqualTo("Aileen Abbott"));
             Assert.That(replaced.Species.Id, Is.EqualTo("SlimePerson"));
             Assert.That(replaced.Citizenship, Is.EqualTo(replacement.Citizenship));

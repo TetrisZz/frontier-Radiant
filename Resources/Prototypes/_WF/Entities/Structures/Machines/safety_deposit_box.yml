@@ -118,6 +118,7 @@
       safety-deposit-console-boxSlot: !type:ContainerSlot
   - type: ActivatableUI
     key: enum.SafetyDepositConsoleUiKey.Key
+    singleUser: true
   - type: InteractionOutline
   - type: UserInterface
     interfaces:

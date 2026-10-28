@@ -52,20 +52,20 @@ public sealed class NetworkConfiguratorBoundUserInterface : BoundUserInterface
                 _configurationMenu.OnRemoveAddress += OnRemoveButtonPressed;
                 break;
             case NetworkConfiguratorUiKey.Link:
-                _linkMenu = this.CreateWindow<NetworkConfiguratorLinkMenu>();
-                _linkMenu.OnLinkDefaults += args =>
+                var linkMenu = _linkMenu = this.CreateWindow<NetworkConfiguratorLinkMenu>();
+                linkMenu.OnLinkDefaults += () =>
                 {
-                    SendMessage(new NetworkConfiguratorLinksSaveMessage(args));
+                    SendMessage(new NetworkConfiguratorLinkDefaultsMessage(linkMenu.LinkContext));
                 };
 
-                _linkMenu.OnToggleLink += (left, right) =>
+                linkMenu.OnToggleLink += (left, right) =>
                 {
-                    SendMessage(new NetworkConfiguratorToggleLinkMessage(left, right));
+                    SendMessage(new NetworkConfiguratorToggleLinkMessage(left, right, linkMenu.LinkContext));
                 };
 
-                _linkMenu.OnClearLinks += () =>
+                linkMenu.OnClearLinks += () =>
                 {
-                    SendMessage(new NetworkConfiguratorClearLinksMessage());
+                    SendMessage(new NetworkConfiguratorClearLinksMessage(linkMenu.LinkContext));
                 };
                 break;
         }

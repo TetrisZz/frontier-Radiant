@@ -24,6 +24,7 @@ public sealed partial class VirologySampleComponent : Component
     [DataField] public VirologyArchiveMatch ArchiveMatch;
     [DataField] public int ArchiveProfile;
     [DataField] public List<string> SharedDiseases = new();
+    [DataField] public HashSet<string> KnownSymptoms = new();
 }
 
 public enum VirologyArchiveMatch : byte
@@ -48,6 +49,7 @@ public sealed partial class VirologyArchiveRecord
 [RegisterComponent]
 public sealed partial class VirologyArchiveComponent : Component
 {
+    [DataField] public HashSet<string> KnownSymptoms = new();
     [DataField] public List<VirologyArchiveRecord> Records = new();
 }
 
@@ -68,6 +70,11 @@ public sealed partial class VirologyDoseComponent : Component
 [RegisterComponent]
 public sealed partial class VirologyMachineComponent : Component
 {
+    [DataField] public int Tier = 1;
+    [DataField] public float StudySeconds = 90;
+    [DataField] public float CultureSeconds = 90;
+    public List<string> Draft = new();
+    public string PendingProfile = "";
     [DataField] public bool Producer;
     [DataField] public float AnalysisSeconds = 30;
     [DataField] public float ProductionSeconds = 60;

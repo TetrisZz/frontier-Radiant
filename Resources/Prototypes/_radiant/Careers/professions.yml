@@ -10,6 +10,7 @@
   description: career-profession-mining-description
   icon: MiningDrill
   jobs: [SalvageSpecialist]
+  interviewJob: SalvageSpecialistInterview
   requiredSkill: Salvage
   requiredSkillLevel: 2
   levels: [MiningLevel1, MiningLevel2, MiningLevel3]

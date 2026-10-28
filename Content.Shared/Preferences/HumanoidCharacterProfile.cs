@@ -786,7 +786,9 @@ namespace Content.Shared.Preferences
             };
 
             var priorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>(JobPriorities
-                .Where(p => prototypeManager.TryIndex<JobPrototype>(p.Key, out var job) && job.SetPreference && p.Value switch
+                .Where(p => prototypeManager.TryIndex<JobPrototype>(p.Key, out var job)
+                    && (job.SetPreference || Content.Shared._radiant.Careers.CareerJobRules.IsCareerPreference(
+                        prototypeManager, Career.Profession, job.ID)) && p.Value switch
                 {
                     JobPriority.Never => false, // Drop never since that's assumed default.
                     JobPriority.Low => true,

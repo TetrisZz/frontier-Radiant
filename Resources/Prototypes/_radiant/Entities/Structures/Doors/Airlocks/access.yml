@@ -287,6 +287,24 @@
       board: [ DoorElectronicsSeparatists ]
 
 - type: entity
+  parent: AirlockSeparatistsMiningLocked
+  id: AirlockSeparatistsMiningCommanderLocked
+  suffix: Separatists Commander, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeparatistsCommander ]
+
+- type: entity
+  parent: AirlockAcorpMiningGlass
+  id: AirlockSeparatistsMiningGlassCommanderLocked
+  suffix: Separatists Commander, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSeparatistsCommander ]
+
+- type: entity
   parent: AirlockHatch
   id: AirlockHatchSeparatistsLocked
   suffix: Separatists, Locked

@@ -263,18 +263,18 @@ public abstract partial class SharedSurgerySystem
         var skillSystem = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
         var medicalLevel = ent.Comp.MedicalSkillLevel;
         if (HasComp<SurgeryDisinfectionComponent>(ent) || HasComp<SurgeryExtractGlassComponent>(ent))
-            medicalLevel = 3;
+            medicalLevel = 2;
         if (HasComp<SurgerySiteTreatmentComponent>(ent))
-            medicalLevel = 3;
+            medicalLevel = 2;
         if (HasComp<SurgeryStepOrganInsertComponent>(ent) || HasComp<SurgeryStepOrganExtractComponent>(ent))
-            medicalLevel = Math.Max(medicalLevel, 4);
+            medicalLevel = Math.Max(medicalLevel, 3);
         if (TryComp<SurgeryStepOrganInsertComponent>(ent, out var insertion)
             && insertion.Slot.Contains("implant", StringComparison.OrdinalIgnoreCase)
             || TryComp<SurgeryStepOrganExtractComponent>(ent, out var extraction)
             && extraction.Slot != null && extraction.Slot.Contains("implant", StringComparison.OrdinalIgnoreCase))
-            medicalLevel = Math.Max(medicalLevel, 4);
+            medicalLevel = Math.Max(medicalLevel, 3);
         if (HasComp<SurgeryStepAdultOrganComponent>(ent))
-            medicalLevel = Math.Max(medicalLevel, 4);
+            medicalLevel = Math.Max(medicalLevel, 3);
         if (!skillSystem.Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, medicalLevel, false))
         {
             args.Invalid = StepInvalidReason.Skill;

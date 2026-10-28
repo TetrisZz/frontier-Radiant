@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "BlueMoon Station and upstream contributors. Source: https://github.com/BlueMoon-Labs/BlueMoon-Station, icons/ass. Original PNGs copied losslessly from the user-provided checkout; only filenames changed. Asset license specified in the source README.md.",
+  "files": [
+    { "name": "male.png", "source": "icons/ass/assmale.png" },
+    { "name": "female.png", "source": "icons/ass/assfemale.png" },
+    { "name": "lizard.png", "source": "icons/ass/asslizard.png" },
+    { "name": "cat.png", "source": "icons/ass/asscat.png" },
+    { "name": "fluffy.png", "source": "icons/ass/assfluffy.png" },
+    { "name": "slime.png", "source": "icons/ass/assslime.png" },
+    { "name": "machine.png", "source": "icons/ass/assmachine.png" }
+  ]
+}

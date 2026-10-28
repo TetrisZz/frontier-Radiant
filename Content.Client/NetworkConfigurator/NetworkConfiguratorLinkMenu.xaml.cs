@@ -29,9 +29,11 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
 
     private List<(string left, string right)>? _defaults;
 
+    public uint LinkContext { get; private set; }
+
     public event Action? OnClearLinks;
     public event Action<string, string>? OnToggleLink;
-    public event Action<List<(string left, string right)>>? OnLinkDefaults;
+    public event Action? OnLinkDefaults;
 
     public NetworkConfiguratorLinkMenu()
     {
@@ -61,6 +63,8 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
 
     public void UpdateState(DeviceLinkUserInterfaceState linkState)
     {
+        LinkContext = linkState.LinkContext;
+        _selectedButton = null;
         ButtonContainerLeft.RemoveAllChildren();
         ButtonContainerRight.RemoveAllChildren();
 
@@ -92,17 +96,17 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
         _links.Links.AddRange(linkState.Links);
         _defaults = linkState.Defaults;
 
-        ButtonLinkDefault.Disabled = _defaults == default;
+        ButtonLinkDefault.Disabled = _defaults == null || _defaults.Count == 0;
         FromAddressLabel.Text = linkState.SourceAddress;
         ToAddressLabel.Text = linkState.SinkAddress;
     }
 
     private void LinkDefaults()
     {
-        if (_defaults == default)
+        if (_defaults == null || _defaults.Count == 0)
             return;
 
-        OnLinkDefaults?.Invoke(_defaults);
+        OnLinkDefaults?.Invoke();
     }
 
     private Button CreateButton(ButtonPosition position, string name, string description, string id, int index)
@@ -142,8 +146,6 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
         var left = _selectedButton.Value.position == ButtonPosition.Left ? _selectedButton.Value.id : id;
         var right = _selectedButton.Value.position == ButtonPosition.Left ? id : _selectedButton.Value.id;
 
-        OnToggleLink?.Invoke(left, right);
-
         args.Button.Pressed = false;
 
         var container = _selectedButton.Value.position == ButtonPosition.Left ? ButtonContainerLeft : ButtonContainerRight;
@@ -151,6 +153,7 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
             button.Pressed = false;
 
         _selectedButton = null;
+        OnToggleLink?.Invoke(left, right);
     }
 
     private enum ButtonPosition

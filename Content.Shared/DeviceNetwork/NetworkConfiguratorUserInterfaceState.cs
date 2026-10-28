@@ -35,6 +35,7 @@ public sealed class DeviceLinkUserInterfaceState : BoundUserInterfaceState
     public readonly List<(string source, string sink)>? Defaults;
     public readonly string SourceAddress;
     public readonly string SinkAddress;
+    public readonly uint LinkContext;
 
     public DeviceLinkUserInterfaceState(
         ProtoId<SourcePortPrototype>[] sources,
@@ -42,13 +43,16 @@ public sealed class DeviceLinkUserInterfaceState : BoundUserInterfaceState
         HashSet<(ProtoId<SourcePortPrototype> source, ProtoId<SinkPortPrototype> sink)> links,
         string sourceAddress,
         string sinkAddress,
-        List<(string source, string sink)>? defaults = default)
+        List<(string source, string sink)>? defaults = default,
+        uint linkContext = 0)
     {
-        Links = links;
+        // UI states must not change when the device's live link set is edited.
+        Links = new(links);
         SourceAddress = sourceAddress;
         SinkAddress = sinkAddress;
         Defaults = defaults;
         Sources = sources;
         Sinks = sinks;
+        LinkContext = linkContext;
     }
 }

@@ -1,0 +1,65 @@
+- type: job
+  id: SalvageSpecialistInterview
+  name: career-interview-mining
+  description: job-description-salvagespec
+  playTimeTracker: JobSalvageSpecialistInterview
+  icon: JobIconSalvageSpecialist
+  setPreference: false
+  startingGear: ContractorHologramGear
+  jobEntity: InterviewHologramCareerMining
+  newPlayerMessage: false
+
+- type: job
+  id: MedicalDoctorInterview
+  name: career-interview-medical
+  description: job-description-doctor
+  playTimeTracker: JobMedicalDoctorInterview
+  icon: JobIconMedicalDoctor
+  setPreference: false
+  startingGear: ContractorHologramGear
+  jobEntity: InterviewHologramCareerMedical
+  newPlayerMessage: false
+
+- type: job
+  id: StationEngineerInterview
+  name: career-interview-engineering
+  description: job-description-engineer
+  playTimeTracker: JobStationEngineerInterview
+  icon: JobIconStationEngineer
+  setPreference: false
+  startingGear: ContractorHologramGear
+  jobEntity: InterviewHologramCareerEngineering
+  newPlayerMessage: false
+
+- type: entity
+  id: InterviewHologramCareerMining
+  parent: InterviewHologram
+  categories: [HideSpawnMenu, DoNotMap]
+  components:
+  - type: InterviewHologram
+    job: SalvageSpecialist
+
+- type: entity
+  id: InterviewHologramCareerMedical
+  parent: InterviewHologram
+  categories: [HideSpawnMenu, DoNotMap]
+  components:
+  - type: InterviewHologram
+    job: MedicalDoctor
+
+- type: entity
+  id: InterviewHologramCareerEngineering
+  parent: InterviewHologram
+  categories: [HideSpawnMenu, DoNotMap]
+  components:
+  - type: InterviewHologram
+    job: StationEngineer
+
+- type: playTimeTracker
+  id: JobSalvageSpecialistInterview
+
+- type: playTimeTracker
+  id: JobMedicalDoctorInterview
+
+- type: playTimeTracker
+  id: JobStationEngineerInterview

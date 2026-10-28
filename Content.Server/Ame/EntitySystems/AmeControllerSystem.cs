@@ -214,6 +214,9 @@ public sealed class AmeControllerSystem : EntitySystem
 
     public void TryEject(EntityUid uid, EntityUid? user = null, AmeControllerComponent? controller = null)
     {
+        if (user is { } actor && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(actor, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering, 1, serverPopup: true))
+            return;
         if (!Resolve(uid, ref controller))
             return;
 
@@ -337,6 +340,10 @@ public sealed class AmeControllerSystem : EntitySystem
     {
         var user = msg.Actor;
         if (!Exists(user))
+            return;
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering,
+                    1, serverPopup: true))
             return;
 
         var needsPower = msg.Button switch

@@ -1,0 +1,12 @@
+ent-ClothingOuterCoatSkeletonTuxedo = смокинг со скелетом
+    .desc = Стильный чёрный костюм с белым рисунком скелета.
+ent-ClothingOuterMaidDress = чёрно-белый костюм горничной
+    .desc = Чёрно-белый костюм горничной с аккуратным фартуком и кружевной отделкой.
+ent-ClothingUniformCrimsonDress = багровое платье
+    .desc = Багровое платье с чёрными рукавами и приталенным корсетом.
+ent-ClothingUniformCorsetDressWhite = белое платье с корсетом
+    .desc = Белое платье с чёрными рукавами и приталенным корсетом.
+ent-ClothingUniformCorsetDressBlue = синее платье с корсетом
+    .desc = Синее платье с чёрными рукавами и приталенным корсетом.
+ent-ClothingNeckFurScarf = меховой шарф
+    .desc = Мягкий пушистый шарф из тёмного меха.

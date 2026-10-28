@@ -410,9 +410,15 @@ public sealed class PassportWindow : BaseWindow
             .WithCharacterAppearance(new HumanoidCharacterAppearance(passport.Portrait));
         _portraitDummy = _entities.SpawnEntity(species.DollPrototype, MapCoordinates.Nullspace);
         _entities.System<HumanoidAppearanceSystem>().LoadProfile(_portraitDummy.Value, profile);
+        // These are local portrait dolls; never alter the holder's actual appearance.
+        var appearance = _entities.System<HumanoidAppearanceSystem>();
+        appearance.SetLayerVisibility(_portraitDummy.Value, HumanoidVisualLayers.Tail, false);
+        appearance.SetLayerVisibility(_portraitDummy.Value, HumanoidVisualLayers.Wings, false);
+        _entities.AddComponent<PassportPortraitComponent>(_portraitDummy.Value);
         var uniform = _entities.SpawnEntity(PortraitUniform(passport), MapCoordinates.Nullspace);
         if (!_entities.System<InventorySystem>().TryEquip(_portraitDummy.Value, uniform, "jumpsuit", true, true))
             _entities.DeleteEntity(uniform);
+        _entities.System<PassportPortraitSystem>().Prepare(_portraitDummy.Value);
         var portrait = new SpriteView
         {
             Scale = new Vector2(8, 8),

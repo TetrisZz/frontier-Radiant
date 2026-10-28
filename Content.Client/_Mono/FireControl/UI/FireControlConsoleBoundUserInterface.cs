@@ -1,5 +1,7 @@
 using Content.Shared._Mono.FireControl;
+using Content.Shared._radiant.Skills;
 using JetBrains.Annotations;
+using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.Map;
 
@@ -19,6 +21,7 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _window = this.CreateWindow<FireControlWindow>();
+        UpdateFiringPermission();
 
         _window.OnServerRefresh += OnRefreshServer;
 
@@ -67,7 +70,7 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
 
     private void SendFireMessage(NetCoordinates coordinates)
     {
-        if (_window == null)
+        if (_window == null || !UpdateFiringPermission())
             return;
 
         var selected = new List<NetEntity>();
@@ -83,6 +86,8 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
 
     private void SendCursorUpdateMessage(NetCoordinates coordinates)
     {
+        if (!UpdateFiringPermission())
+            return;
         // Send an empty weapon list to indicate this is just a cursor update, not a firing action
         SendMessage(new FireControlConsoleFireMessage(new List<NetEntity>(), coordinates));
     }
@@ -95,6 +100,7 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
             return;
 
         _window?.UpdateStatus(castState);
+        UpdateFiringPermission();
         if (_window?.Radar is FireControlNavControl navControl)
         {
             navControl.SetConsole(Owner);
@@ -103,5 +109,19 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
 			// Update selected weapons when state updates
             UpdateSelectedWeapons();
 		}
+    }
+
+    private bool UpdateFiringPermission()
+    {
+        var allowed = IoCManager.Resolve<IPlayerManager>().LocalEntity is { } user
+            && EntMan.System<SharedProfessionalSkillsSystem>().CanControlShipWeapons(user, Owner);
+        _window?.SetFiringPermission(allowed);
+        return allowed;
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        UpdateFiringPermission();
     }
 }

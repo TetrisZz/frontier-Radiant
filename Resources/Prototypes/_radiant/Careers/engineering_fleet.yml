@@ -1,0 +1,75 @@
+- type: entity
+  id: CareerEngineeringStation
+  parent: StandardFrontierExpeditionVessel
+  categories: [HideSpawnMenu]
+  components:
+  - type: CareerFleet
+    profession: Engineering
+  - type: StationJobs
+    availableJobs:
+      StationEngineer: [0, 3]
+  - type: ExtraShuttleInformation
+    hiddenWithoutOpenJobs: true
+
+- type: vessel
+  id: CareerEngineeringStarter
+  parent: Hammer
+  name: Engineering Hammer
+  description: A starter repair vessel for a three-person engineering crew.
+  price: 0
+  careerProfession: Engineering
+  careerLevel: 0
+  careerFree: true
+
+- type: gameMap
+  id: CareerEngineeringStarter
+  mapName: Engineering Hammer
+  mapPath: /Maps/_NF/Shuttles/hammer.yml
+  minPlayers: 0
+  stations:
+    CareerEngineeringStarter:
+      stationProto: CareerEngineeringStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Engineering Hammer {1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+- type: vessel
+  id: CareerEngineeringUpgrade
+  parent: Comet
+  name: Engineering Comet
+  description: A larger construction and repair vessel for an experienced engineering crew.
+  careerProfession: Engineering
+  careerLevel: 1
+  careerFree: false
+
+- type: gameMap
+  id: CareerEngineeringUpgrade
+  mapName: Engineering Comet
+  mapPath: /Maps/_NF/Shuttles/comet.yml
+  minPlayers: 0
+  stations:
+    CareerEngineeringUpgrade:
+      stationProto: CareerEngineeringStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Engineering Comet {1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+- type: entity
+  id: ComputerShipyardCareerEngineering
+  parent: ComputerShipyardBase
+  name: engineering fleet shipyard
+  components:
+  - type: ShipyardConsole
+    newJobTitle: null
+  - type: ShipyardListing
+    shuttles: [CareerEngineeringStarter, CareerEngineeringUpgrade]
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Custom
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Custom:
+        type: ShipyardConsoleBoundUserInterface

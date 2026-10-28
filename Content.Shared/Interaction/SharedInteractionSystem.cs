@@ -487,6 +487,10 @@ namespace Content.Shared.Interaction
             if (IsDeleted(user) || IsDeleted(target))
                 return;
 
+            if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .CanUse(user, target, Content.Shared._radiant.Skills.SkillAction.Interact))
+                return;
+
             var complexInteractions = _actionBlockerSystem.CanComplexInteract(user);
             if (!complexInteractions)
             {
@@ -1041,6 +1045,10 @@ namespace Content.Shared.Interaction
             if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, used))
                 return false;
 
+            if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .CanUse(user, target, Content.Shared._radiant.Skills.SkillAction.Interact))
+                return false;
+
             if (!skillDelayComplete && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
                     .DelayNoviceTool(user, used, target))
                 return true;
@@ -1150,6 +1158,10 @@ namespace Content.Shared.Interaction
             bool checkDeletion = true)
         {
             if (checkDeletion && (IsDeleted(user) || IsDeleted(used)))
+                return false;
+
+            if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .CanUse(user, used, Content.Shared._radiant.Skills.SkillAction.Interact))
                 return false;
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(used));

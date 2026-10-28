@@ -105,9 +105,9 @@ public sealed partial class PickerWindow : FancyWindow
                 kvp.Value.IsLateJoinStation, kvp.Value.StationDisplayInfo, kvp.Value.VesselDisplayInformation));
             availableJobs = availableJobs.Where(kvp => kvp.Value.JobsAvailable.Any(job => job.Value != 0))
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-            if (profile.Career.Profession == "Mining" && availableJobs.Values.Any(station =>
+            if (profile.Career.Profession != "Adventurer" && availableJobs.Values.Any(station =>
                     !station.IsLateJoinStation && station.VesselDisplayInformation?.Vessel is { } vessel
-                    && _prototypes.TryIndex(vessel, out var prototype) && prototype.CareerProfession == "Mining"))
+                    && _prototypes.TryIndex(vessel, out var prototype) && prototype.CareerProfession == profile.Career.Profession))
                 availableJobs = availableJobs.Where(kvp => !kvp.Value.IsLateJoinStation)
                     .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         }

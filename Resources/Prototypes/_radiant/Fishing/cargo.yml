@@ -10,6 +10,7 @@
     contents:
     - id: FishingRod
     - id: FishingRodClassic
+    - id: FishBag
     - id: ClothingHeadFishCap
     - id: RadiantFishingHook
       amount: 4
@@ -28,8 +29,8 @@
 - type: cargoProduct
   id: RadiantFishingGear
   icon:
-    sprite: _radiant/Objects/Specific/Fishing/fishing_rod.rsi
-    state: icon
+    sprite: _radiant/Objects/Specific/Fishing/rods.rsi
+    state: fishing_rod
   product: RadiantCrateFishingGear
   cost: 1000
   category: cargoproduct-category-name-service

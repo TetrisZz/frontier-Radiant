@@ -17,7 +17,7 @@ public sealed class PhotocopierConfigurationBehaviorTest
     [Test]
     public async Task CatalogControlsPrintingAndAnimationFollowsSuccessfulPoweredJobs()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
         var map = await pair.CreateTestMap();
         await pair.Server.WaitAssertion(() =>
         {

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation, icons/obj/machines/smartfridge.dmi, smartfridge and viro contents states. Original source contributors retain copyright. Base, contents, glass and powered overlays composited in the source update_overlays order; original 32x32 pixels preserved. Panel and animated light mask extracted losslessly.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "off"
+    },
+    {
+      "name": "normal"
+    },
+    {
+      "name": "fill1"
+    },
+    {
+      "name": "fill2"
+    },
+    {
+      "name": "fill3"
+    },
+    {
+      "name": "broken"
+    },
+    {
+      "name": "panel"
+    },
+    {
+      "name": "light",
+      "delays": [
+        [
+          0.4,
+          0.1,
+          1.6,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

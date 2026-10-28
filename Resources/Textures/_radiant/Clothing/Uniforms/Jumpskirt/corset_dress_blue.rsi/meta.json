@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/BlueMoon-Station. Original authors retain their copyright. Sources: modular_bluemoon/fluffs/icons/mob/clothing/under.dmi, modular_bluemoon/fluffs/icons/obj/clothing/under.dmi. DMI frames converted to RSI without rescaling or repainting. Modified by Homka.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    }
+  ]
+}

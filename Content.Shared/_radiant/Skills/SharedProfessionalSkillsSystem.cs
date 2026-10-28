@@ -60,7 +60,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
             || reagent.ID is "Water" or "Blood" or "InsectBlood" or "CopperBlood" or "AmmoniaBlood";
 
     public bool CanIdentifyReagent(EntityUid user, string? id)
-        => Level(user, ProfessionalSkill.Medicine) >= 2
+        => Level(user, ProfessionalSkill.Medicine) >= 4
             || id != null && _prototypes.TryIndex<Content.Shared.Chemistry.Reagent.ReagentPrototype>(id, out var reagent)
                 && IsCommonReagent(reagent);
 
@@ -68,9 +68,9 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
     {
         if (graph.Contains("Tesla", StringComparison.OrdinalIgnoreCase)
             || graph.Contains("Singularity", StringComparison.OrdinalIgnoreCase)
-            || graph.StartsWith("Teg", StringComparison.OrdinalIgnoreCase)
-            || graph.Contains("ThermoElectric", StringComparison.OrdinalIgnoreCase)
-            || graph.StartsWith("Ame", StringComparison.OrdinalIgnoreCase))
+            || graph.Contains("ParticleAccelerator", StringComparison.OrdinalIgnoreCase)
+            || graph.Contains("Containment", StringComparison.OrdinalIgnoreCase)
+            || graph.Contains("Emitter", StringComparison.OrdinalIgnoreCase))
             return 3;
         if (graph.Contains("Pipe", StringComparison.OrdinalIgnoreCase)
             || graph.Contains("Canister", StringComparison.OrdinalIgnoreCase)
@@ -99,7 +99,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
             foreach (var rule in _prototypes.EnumeratePrototypes<ProfessionalSkillRequirementPrototype>())
             {
                 if ((rule.Actions & action) != 0 && rule.Targets.Contains(id) &&
-                    (uiMessage == null || rule.UiMessages.Contains(uiMessage)))
+                    (uiMessage == null || rule.UiMessages.Count == 0 || rule.UiMessages.Contains(uiMessage)))
                     return _cache[key] = rule;
             }
         }
@@ -134,32 +134,43 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
 
     public float GunMisfireChance(EntityUid user, Entity<GunComponent> gun)
     {
-        if (!HasComp<ProfessionalSkillsComponent>(user))
+        if (!HasGunSkillPenalty(user, gun, out var level) || level >= 3)
             return 0;
-        var rule = Requirement(gun, SkillAction.Shoot);
-        var (skill, required) = GunRequirement(gun);
-        var inaccurateAt = gun.Comp.InaccurateAtSkillLevel ?? rule?.InaccurateAtLevel;
-        if (inaccurateAt == null || Level(user, skill) > inaccurateAt || Level(user, skill) < required)
-            return 0;
-        return Math.Clamp(gun.Comp.InaccurateAtSkillLevel != null ? gun.Comp.SkillMisfireChance : rule!.MisfireChance, 0, 1);
+        return 0.1f;
     }
 
-    public double GunSkillSpreadDegrees(EntityUid user, Entity<GunComponent> gun)
+    /// <summary>Additional cone width, including weapons with no native spread.</summary>
+    public Angle GunSkillSpread(EntityUid user, Entity<GunComponent> gun)
+        => HasGunSkillPenalty(user, gun, out var level) && level <= 3 ? Angle.FromDegrees(5) : Angle.Zero;
+
+    private bool HasGunSkillPenalty(EntityUid user, Entity<GunComponent> gun, out int level)
     {
+        level = Level(user, ProfessionalSkill.Shooting);
         var (skill, required) = GunRequirement(gun);
-        if (!HasComp<ProfessionalSkillsComponent>(user) || skill != ProfessionalSkill.Shooting || required == 0)
-            return 0;
-        var level = Level(user, skill);
-        if (level < required)
-            return 0;
-        return level switch { 1 => 10, 2 => 5, _ => 0 };
+        // Tools gated by another profession have no shooting prerequisite, but still use Gun.
+        var shootingTier = skill == ProfessionalSkill.Shooting ? required : 0;
+        return HasComp<ProfessionalSkillsComponent>(user) && Level(user, skill) >= required && level == shootingTier;
+    }
+
+    public bool CanControlShipWeapons(EntityUid user, EntityUid console, bool popup = false, bool serverPopup = false)
+    {
+        var rule = Requirement(console, SkillAction.Interface,
+            nameof(Content.Shared._Mono.FireControl.FireControlConsoleFireMessage));
+        return Check(user, rule?.Skill ?? ProfessionalSkill.Shooting, rule?.Level ?? 4, popup, serverPopup);
     }
 
     private void OnInterface(BoundUserInterfaceMessageAttempt args)
     {
-        // Opening/reading/closing remains available. Reject actual commands on the server.
-        if (args.Cancelled || args.Message is OpenBoundInterfaceMessage or CloseBoundInterfaceMessage)
+        if (args.Cancelled || args.Message is CloseBoundInterfaceMessage)
             return;
+        // Selective rules allow inspection. Rules without a command list gate the entire interface.
+        if (args.Message is OpenBoundInterfaceMessage)
+        {
+            if (Requirement(args.Target, SkillAction.Interface) is { UiMessages.Count: 0 } opening
+                && !Check(args.Actor, opening.Skill, opening.Level, serverPopup: true))
+                args.Cancel();
+            return;
+        }
         if (args.Message is Content.Shared.Cloning.CloningConsole.UiButtonPressedMessage
             { Button: Content.Shared.Cloning.CloningConsole.UiButton.Eject })
             return;

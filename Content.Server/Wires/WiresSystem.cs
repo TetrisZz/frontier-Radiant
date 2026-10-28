@@ -608,6 +608,10 @@ public sealed class WiresSystem : SharedWiresSystem
 
     private void TryDoWireAction(EntityUid target, EntityUid user, EntityUid toolEntity, int id, WiresAction action, WiresComponent? wires = null, ToolComponent? tool = null)
     {
+        if (HasComp<Content.Shared.Doors.Components.DoorComponent>(target)
+            && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering, 1, serverPopup: true))
+            return;
         if (!Resolve(target, ref wires)
             || !Resolve(toolEntity, ref tool))
             return;
@@ -687,6 +691,13 @@ public sealed class WiresSystem : SharedWiresSystem
 
     private void UpdateWires(EntityUid used, EntityUid user, EntityUid toolEntity, int id, WiresAction action, WiresComponent? wires = null, ToolComponent? tool = null)
     {
+        if (HasComp<Content.Shared.Doors.Components.DoorComponent>(used)
+            && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering, 1, serverPopup: true))
+        {
+            wires?.WiresQueue.Remove(id);
+            return;
+        }
         if (!Resolve(used, ref wires))
             return;
 

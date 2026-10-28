@@ -7,6 +7,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared._radiant.WeaponSerial;
 using Content.Shared._radiant.WeaponSerial.Components;
 using Robust.Server.GameObjects;
@@ -51,11 +52,8 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
         // The _NF base gun prototype already declares it, but vanilla (upstream)
         // guns are not parented to those bases — this fallback covers them, so
         // the "wiped" examine note exists on every gun, no exceptions.
-        // The directed pair (GunComponent, ComponentStartup) is free; MapInit
-        // on GunComponent is already taken by SharedGunSystem (the directed bus
-        // allows only ONE handler per component/event pair), and ComponentInit
-        // is taken by GunSystem and GunUpgradeSystem.
-        SubscribeLocalEvent<GunComponent, ComponentStartup>(OnGunStartup);
+        // SharedGunSystem owns ComponentStartup and rebuilds restored gun stats first.
+        SubscribeLocalEvent<GunComponent, GunStartupEvent>(OnGunStartup);
 
         // OSK weapon registry cartridge (a standalone program, separate from the
         // wanted list cartridge). Subscribed through its own component: the
@@ -229,8 +227,8 @@ public sealed partial class WeaponSerialSystem : SharedWeaponSerialSystem
     ///     component starts up — see Initialize for why MapInit/ComponentInit
     ///     are unavailable for (GunComponent, ...).
     /// </summary>
-    private void OnGunStartup(EntityUid uid, GunComponent component, ComponentStartup args)
-        => EnsureComp<WeaponSerialComponent>(uid);
+    private void OnGunStartup(Entity<GunComponent> gun, ref GunStartupEvent args)
+        => EnsureComp<WeaponSerialComponent>(gun);
 
     /// <summary>
     ///     The one-time "stamp the number and enter it into the database" button.

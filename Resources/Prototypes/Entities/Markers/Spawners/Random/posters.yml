@@ -141,6 +141,14 @@
       - PosterContrabandDuffyRS
       - PosterContrabandBreadRS
       - PosterContrabandDymaiRS
+      - PosterContrabandRabbitHoleRS
+      - PosterContrabandBridgeBunnyRS
+      - PosterContrabandDoubleGunshowRS
+      - PosterContrabandRabbitSwoleRS
+      - PosterRushPropagandaRS
+      - PosterMidtownSliceRS
+      - PosterHolidayCakeRS
+      - PosterHolidayLoveRS
       # End Radiant Sector
     chance: 1
 
@@ -229,5 +237,13 @@
       # Radiant Sector
       - PosterContrabandStockingsRS
       - PosterContrabandDuffyRS
+      - PosterContrabandRabbitHoleRS
+      - PosterContrabandBridgeBunnyRS
+      - PosterContrabandDoubleGunshowRS
+      - PosterContrabandRabbitSwoleRS
+      - PosterRushPropagandaRS
+      - PosterMidtownSliceRS
+      - PosterHolidayCakeRS
+      - PosterHolidayLoveRS
       # End Radiant Sector
     chance: 1

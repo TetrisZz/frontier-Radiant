@@ -90,19 +90,13 @@ public sealed partial class GunSystem : SharedGunSystem
         var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates);
         var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var mapDirection = toMap - fromMap.Position;
-        if (user is { } spreadShooter)
-        {
-            var spread = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .GunSkillSpreadDegrees(spreadShooter, (gunUid, gun));
-            if (spread > 0)
-                mapDirection = (mapDirection.ToAngle() + Angle.FromDegrees((Random.NextDouble() * 2 - 1) * spread))
-                    .ToVec() * mapDirection.Length();
-        }
+        var skillSpread = user is { } spreadShooter
+            ? EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .GunSkillSpread(spreadShooter, (gunUid, gun)) : Angle.Zero;
         if (user is { } skillShooter && Random.NextDouble() < EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
                 .GunMisfireChance(skillShooter, (gunUid, gun)))
             mapDirection = new Angle(Random.NextDouble() * Math.Tau).ToVec() * mapDirection.Length();
-        var mapAngle = mapDirection.ToAngle();
-        var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
+        var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle(), skillSpread);
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = Maps.TryFindGridAt(fromMap, out var gridUid, out _)
@@ -307,8 +301,8 @@ public sealed partial class GunSystem : SharedGunSystem
                 var spreadEvent = new GunGetAmmoSpreadEvent(ammoSpreadComp.Spread);
                 RaiseLocalEvent(gunUid, ref spreadEvent);
 
-                var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
-                    mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
+                var angles = LinearSpread(angle - spreadEvent.Spread / 2,
+                    angle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
 
                 ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user);
                 shotProjectiles.Add(ammoEnt);
@@ -375,7 +369,7 @@ public sealed partial class GunSystem : SharedGunSystem
         return angles;
     }
 
-    private Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction)
+    private Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction, Angle skillSpread)
     {
         var timeSinceLastFire = (curTime - component.LastFire).TotalSeconds;
         var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncreaseModified.Theta - component.AngleDecayModified.Theta * timeSinceLastFire, component.MinAngleModified.Theta, component.MaxAngleModified.Theta);
@@ -384,9 +378,9 @@ public sealed partial class GunSystem : SharedGunSystem
 
         // Convert it so angle can go either side.
         var random = Random.NextFloat(-0.5f, 0.5f);
-        var spread = component.CurrentAngle.Theta * random;
-        var angle = new Angle(direction.Theta + component.CurrentAngle.Theta * random);
-        DebugTools.Assert(spread <= component.MaxAngleModified.Theta);
+        var spread = (component.CurrentAngle.Theta + skillSpread.Theta) * random;
+        var angle = new Angle(direction.Theta + spread);
+        DebugTools.Assert(Math.Abs(spread) <= (component.MaxAngleModified.Theta + skillSpread.Theta) / 2 + 0.000001);
         return angle;
     }
 

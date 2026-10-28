@@ -65,7 +65,7 @@ public sealed partial class ShipyardConsoleComponent : Component
     public EntityWhitelist? ShipSaveBlacklist;
 
     [DataField]
-    public bool AllowShipSaving = true;
+    public bool AllowShipSaving;
 
     /// <summary>
     /// The accounts to receive payment, and the tax rate to apply for ship sales from this console.

@@ -21,9 +21,9 @@ public static class ProfessionalSkillRules
 
     public static int Maximum(ProfessionalSkill skill) => skill switch
     {
-        ProfessionalSkill.Piloting or ProfessionalSkill.Shooting or ProfessionalSkill.Engineering
+        ProfessionalSkill.Piloting or ProfessionalSkill.Salvage or ProfessionalSkill.Engineering
             or ProfessionalSkill.Botany or ProfessionalSkill.Cooking => 3,
-        ProfessionalSkill.Medicine or ProfessionalSkill.Salvage => 4,
+        ProfessionalSkill.Medicine or ProfessionalSkill.Shooting => 4,
         ProfessionalSkill.Science => 3,
         _ => 0,
     };

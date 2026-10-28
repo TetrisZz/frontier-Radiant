@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Source: Goob-Station/Goob-Station, commit 298bbad55cb1e454991c5c1f2d1f5621ff23dc19,
+# Resources/Prototypes/_EinsteinEngines/Recipes/Reactions/chemicals.yml.
+- type: reaction
+  id: Morphine
+  reactants:
+    Phenol:
+      amount: 2
+    Nitrogen:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Morphine: 4

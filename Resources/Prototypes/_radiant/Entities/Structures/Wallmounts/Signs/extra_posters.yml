@@ -1,0 +1,39 @@
+- type: entity
+  parent: PosterBase
+  id: PosterRushPropagandaRS
+  name: A New Life
+  description: An old colonization poster depicting wide, unspoiled lands.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/extra_posters.rsi
+    state: rush_propaganda
+
+- type: entity
+  parent: PosterBase
+  id: PosterMidtownSliceRS
+  name: Midtown Slice
+  description: A colorful advertisement for a pizzeria.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/extra_posters.rsi
+    state: midtown_slice
+
+- type: entity
+  parent: PosterBase
+  id: PosterHolidayCakeRS
+  name: Birthday Cake
+  description: A cheerful poster with a cake and lit candles.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/extra_posters.rsi
+    state: holiday_cake
+
+- type: entity
+  parent: PosterBase
+  id: PosterHolidayLoveRS
+  name: Love
+  description: A romantic poster with two silhouettes leaning towards each other.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/extra_posters.rsi
+    state: holiday_love

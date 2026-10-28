@@ -1,0 +1,37 @@
+- type: loadout
+  id: ContractorClothingOuterCoatSkeletonTuxedo
+  price: 1500
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFCoatCapable
+  equipment:
+    outerClothing: ClothingOuterCoatSkeletonTuxedo
+  groupBy: OuterCoats
+
+- type: loadout
+  id: ContractorClothingUniformCrimsonDress
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformCrimsonDress
+  groupBy: dresses
+
+- type: loadout
+  id: ContractorClothingUniformCorsetDressWhite
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformCorsetDressWhite
+  groupBy: dresses
+
+- type: loadout
+  id: ContractorClothingUniformCorsetDressBlue
+  price: 200
+  equipment:
+    jumpsuit: ClothingUniformCorsetDressBlue
+  groupBy: dresses
+
+- type: loadout
+  id: ContractorClothingNeckFurScarf
+  price: 500
+  equipment:
+    neck: ClothingNeckFurScarf
+  groupBy: NeckScarfs

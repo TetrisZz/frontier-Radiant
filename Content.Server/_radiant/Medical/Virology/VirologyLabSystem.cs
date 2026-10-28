@@ -69,8 +69,17 @@ public sealed partial class VirologyLabSystem : EntitySystem
             data.Diseases.AddRange(organ.Diseases);
         else if (_solutions.TryGetDrawableSolution(target, out _, out var liquid))
         {
-            foreach (var proto in _prototypes.EnumeratePrototypes<RadiantDiseasePrototype>())
-                if (liquid.GetTotalPrototypeQuantity(proto.Reagent) > 0) data.Diseases.Add(proto.ID);
+            foreach (var content in liquid.Contents)
+            {
+                var profile = content.Reagent.Data?.OfType<VirologyStrainData>().FirstOrDefault();
+                if (profile != null && VirologyStrains.TryResolve(_prototypes, profile.Strain, out var strain)
+                    && strain.Reagent == content.Reagent.Prototype)
+                    data.Diseases.Add(profile.Strain);
+                else if (profile == null)
+                    foreach (var proto in _prototypes.EnumeratePrototypes<RadiantDiseasePrototype>())
+                        if (proto.Reagent == content.Reagent.Prototype) data.Diseases.Add(proto.ID);
+            }
+            data.Diseases = data.Diseases.Distinct().ToList();
         }
         else return false;
         data.Collected = true;
@@ -132,8 +141,8 @@ public sealed partial class VirologyLabSystem : EntitySystem
     private void OnDoseExamined(Entity<VirologyDoseComponent> ent, ref ExaminedEvent args)
     {
         if (ent.Comp.Used) args.PushText(Loc.GetString("virology-used-dose"));
-        else if (_prototypes.TryIndex<RadiantDiseasePrototype>(ent.Comp.Disease, out var disease))
-            args.PushText(Loc.GetString("virology-dose-label", ("disease", Loc.GetString(disease.Name))));
+        else if (VirologyStrains.TryResolve(_prototypes, ent.Comp.Disease, out _))
+            args.PushText(Loc.GetString("virology-dose-label", ("disease", DiseaseName(ent.Comp.Disease))));
         else args.PushText(Loc.GetString("virology-unconfigured"));
     }
     private void OnSampleExamined(Entity<VirologySampleComponent> ent, ref ExaminedEvent args)
@@ -152,7 +161,10 @@ public sealed partial class VirologyLabSystem : EntitySystem
         if (machine.Work != null || machine.Sample.ContainedEntity != null
             || !TryComp<VirologySampleComponent>(sample, out var data) || !data.Collected)
             return false;
-        return _containers.Insert(sample, machine.Sample);
+        if (!_containers.Insert(sample, machine.Sample)) return false;
+        machine.Draft.Clear();
+        machine.Selected = data.Diseases.FirstOrDefault() ?? "";
+        return true;
     }
     private void OnInsert(Entity<VirologyMachineComponent> ent, ref InteractUsingEvent args)
     {
@@ -173,6 +185,8 @@ public sealed partial class VirologyLabSystem : EntitySystem
         var machine = Comp<VirologyMachineComponent>(uid);
         var sample = Sample(machine);
         if (!Powered(uid) || machine.Work != null || sample == null) return false;
+        if (command is VirologyCommand.Study or VirologyCommand.Culture)
+            return StartExperimental(uid, machine, sample, command);
         if (command == VirologyCommand.Analyze)
         {
             if (machine.Producer || sample.Analyzed) return false;
@@ -203,11 +217,19 @@ public sealed partial class VirologyLabSystem : EntitySystem
         }
         else
         {
+            if (args.Command is VirologyCommand.Study or VirologyCommand.Culture or VirologyCommand.ToggleSymptom
+                && !_skills.Check(user, ProfessionalSkill.Medicine, 4, serverPopup: true)) return;
             if (!_skills.Check(user, ProfessionalSkill.Medicine, 3, serverPopup: true)) return;
-            if (args.Command == VirologyCommand.Select)
+            if (args.Command == VirologyCommand.ToggleSymptom)
+                ToggleSymptom(ent, args.Disease);
+            else if (args.Command == VirologyCommand.Select)
             {
                 if (ent.Comp.Work == null && Sample(ent.Comp) is { Analyzed: true } data
-                    && data.Diseases.Contains(args.Disease)) ent.Comp.Selected = args.Disease;
+                    && data.Diseases.Contains(args.Disease))
+                {
+                    ent.Comp.Selected = args.Disease;
+                    ent.Comp.Draft.Clear();
+                }
             }
             else if (!Start(ent, args.Command)) Fail(ent, user);
             else ent.Comp.CareerOperator = EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().Capture(user);
@@ -246,9 +268,12 @@ public sealed partial class VirologyLabSystem : EntitySystem
             return;
         }
         var sample = Sample(machine);
-        if (sample != null && machine.Work == VirologyCommand.Analyze)
+        if (sample != null && machine.Work is VirologyCommand.Study or VirologyCommand.Culture)
+            FinishExperimental(uid, machine, sample);
+        else if (sample != null && machine.Work == VirologyCommand.Analyze)
         {
             sample.Analyzed = true;
+            DiscoverSample(uid, sample);
             if (sample.Diseases.Count > 0)
                 EntityManager.System<Content.Server._radiant.Careers.CareerMedicalSystem>().Complete(
                     machine.CareerOperator, Content.Shared._radiant.Careers.CareerObjectiveType.DiseaseAnalysis);
@@ -268,7 +293,7 @@ public sealed partial class VirologyLabSystem : EntitySystem
                 machine.CareerOperator, Content.Shared._radiant.Careers.CareerObjectiveType.DiseaseProduction,
                 vaccine ? "Vaccine" : "Treatment");
             _metadata.SetEntityName(dose, Loc.GetString(vaccine ? "virology-vaccine-name" : "virology-treatment-name",
-                ("disease", Loc.GetString(_prototypes.Index<RadiantDiseasePrototype>(data.Disease).Name))));
+                ("disease", DiseaseName(data.Disease))));
         }
         machine.Work = null;
         machine.CareerOperator = null;
@@ -284,8 +309,8 @@ public sealed partial class VirologyLabSystem : EntitySystem
         var findings = sample.Diseases.Count == 0 ? Loc.GetString("virology-negative")
             : string.Join("\n\n", sample.Diseases.Select(id =>
         {
-            var disease = _prototypes.Index<RadiantDiseasePrototype>(id);
-            return Loc.GetString(disease.Name) + "\n" + Loc.GetString(disease.Description)
+            var disease = _diseases.Disease(id);
+            return DiseaseName(id) + "\n" + Loc.GetString(disease.Description)
                 + "\n" + Loc.GetString("virology-route-" + disease.Route);
         }));
         return title + "\n\n" + findings + ArchiveComparison(sample);
@@ -357,7 +382,7 @@ public sealed partial class VirologyLabSystem : EntitySystem
         return text.Length == 0 ? "" : "\n\n" + text;
     }
 
-    private string DiseaseName(string id) => Loc.GetString(_prototypes.Index<RadiantDiseasePrototype>(id).Name);
+    private string DiseaseName(string id) => _diseases.DiseaseName(id);
 
     private string ArchiveReport(EntityUid machine)
     {
@@ -393,10 +418,11 @@ public sealed partial class VirologyLabSystem : EntitySystem
         };
         if (sample is { Analyzed: true })
             foreach (var id in sample.Diseases)
-                state.Diseases[id] = Loc.GetString(_prototypes.Index<RadiantDiseasePrototype>(id).Name);
+                state.Diseases[id] = DiseaseName(id);
         if (!state.Diseases.ContainsKey(machine.Selected))
             machine.Selected = state.Diseases.Keys.FirstOrDefault() ?? "";
         state.Selected = machine.Selected;
+        ExperimentalState(uid, machine, sample, state);
         return state;
     }
     private void Publish(EntityUid uid)

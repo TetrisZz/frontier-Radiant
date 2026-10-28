@@ -62,12 +62,26 @@ public sealed class ProfessionalSkillsTest
         Assert.That(profile.WithName("Test").SkillLevels, Is.EqualTo(profile.SkillLevels));
     }
 
+    [Test]
+    public void NewSkillCapsPreserveSavedLevelsAndRefundTheRemovedSalvageRank()
+    {
+        Assert.That(ProfessionalSkillRules.Maximum(ProfessionalSkill.Shooting), Is.EqualTo(4));
+        Assert.That(ProfessionalSkillRules.Maximum(ProfessionalSkill.Salvage), Is.EqualTo(3));
+        var previous = new[] { 0, 3, 0, 0, 4, 0, 0, 0 };
+        var normalized = ProfessionalSkillRules.Normalize(previous);
+        Assert.That(normalized, Is.EqualTo(new[] { 0, 3, 0, 0, 3, 0, 0, 0 }));
+        Assert.That(previous[4], Is.EqualTo(4));
+        Assert.That(ProfessionalSkillRules.Normalize(normalized), Is.EqualTo(normalized));
+    }
+
     [TestCase("MachineFrame", 1)]
     [TestCase("IntegratedCircuit", 1)]
     [TestCase("GasUnary", 2)]
-    [TestCase("AmeShielding", 3)]
+    [TestCase("AmeShielding", 1)]
     [TestCase("TeslaGeneratorMachineCircuitboard", 3)]
-    [TestCase("TEG", 3)]
+    [TestCase("TEG", 1)]
+    [TestCase("ParticleAcceleratorControlBox", 3)]
+    [TestCase("ContainmentFieldGenerator", 3)]
     public void ConstructionCategoriesDoNotConfuseFramesWithAme(string graph, int expected)
     {
         Assert.That(SharedProfessionalSkillsSystem.ConstructionLevel(graph), Is.EqualTo(expected));

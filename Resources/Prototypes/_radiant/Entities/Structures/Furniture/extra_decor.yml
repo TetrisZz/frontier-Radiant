@@ -1,0 +1,156 @@
+- type: entity
+  parent: Stairs
+  id: RadiantSmallStairs
+  name: small metal steps
+  description: Compact steps for a low platform.
+  suffix: ""
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/small_stairs.rsi
+    state: iron
+    noRot: true
+    snapCardinals: true
+    offset: 0, 0.25
+  - type: Construction
+    graph: RadiantSmallStairs
+    node: finished
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1: {min: 2, max: 2}
+      - !type:DoActsBehavior
+        acts: [Destruction]
+
+- type: entity
+  parent: RadiantAquarium
+  id: RadiantAquariumTech
+  name: technical aquarium
+  description: A glass tank for four fish with a bulky technical base.
+  components:
+  - type: Icon
+    sprite: _radiant/Structures/Furniture/aquarium_tech.rsi
+    state: aquarium_map
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/aquarium_tech.rsi
+  - type: Construction
+    graph: RadiantAquariumTech
+
+- type: entity
+  parent: RadiantAquariumTech
+  id: RadiantAquariumTechFilled
+  suffix: Filled with water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 200
+        reagents:
+        - ReagentId: Water
+          Quantity: 200
+
+- type: entity
+  parent: RadiantAquarium
+  id: RadiantAquariumCompact
+  name: compact aquarium
+  description: A portable tank for two fish with a handle on the lid.
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        layer: []
+  - type: Item
+    size: Huge
+    inhandVisuals:
+      left:
+      - sprite: _radiant/Structures/Furniture/aquarium_compact.rsi
+        state: aquarium_map
+        scale: 0.75, 0.75
+        offset: 0.25, -0.15
+      right:
+      - sprite: _radiant/Structures/Furniture/aquarium_compact.rsi
+        state: aquarium_map
+        scale: 0.75, 0.75
+        offset: -0.25, -0.15
+  - type: Icon
+    sprite: _radiant/Structures/Furniture/aquarium_compact.rsi
+    state: aquarium_map
+  - type: Sprite
+    sprite: _radiant/Structures/Furniture/aquarium_compact.rsi
+    drawdepth: Items
+    layers:
+    - state: aquarium_base
+    - state: aquarium_glass_air
+    - state: aquarium_glass_water
+      map: [water]
+      visible: false
+    - state: sand
+      map: [sand]
+      visible: false
+    - state: rocks
+      map: [rocks]
+      visible: false
+    - state: seaweeds_front
+      map: [seaweeds_front]
+      visible: false
+    - state: treasure
+      map: [treasure]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_fish.rsi
+      state: bass
+      offset: -0.16,-0.2
+      map: [fish0]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_fish.rsi
+      state: bass
+      offset: 0.16,-0.2
+      map: [fish1]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_fish.rsi
+      state: bass
+      map: [fish2]
+      visible: false
+    - sprite: _radiant/Objects/Specific/Fishing/aquarium_fish.rsi
+      state: bass
+      map: [fish3]
+      visible: false
+    - state: aquarium_borders
+  - type: Aquarium
+    capacity: 2
+    fishOffsets:
+    - -0.16,-0.2
+    - 0.16,-0.2
+    - 0,-0.2
+    - 0,-0.2
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 100
+  - type: Construction
+    graph: RadiantAquariumCompact
+
+- type: entity
+  parent: RadiantAquariumCompact
+  id: RadiantAquariumCompactFilled
+  suffix: Filled with water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 100

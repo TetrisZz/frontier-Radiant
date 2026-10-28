@@ -1,0 +1,88 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterCoatSkeletonTuxedo
+  name: skeleton tuxedo
+  description: A smart black suit decorated with a white skeletal pattern.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Coats/skeleton_tuxedo.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Coats/skeleton_tuxedo.rsi
+  - type: StaticPrice
+    price: 200
+    vendPrice: 1500
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterMaidDress
+  name: black and white maid outfit
+  description: A black and white maid outfit with a neat apron and lace trim.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/OuterClothing/Misc/black_white_maid.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/OuterClothing/Misc/black_white_maid.rsi
+  - type: Item
+    sprite: _radiant/Clothing/OuterClothing/Misc/black_white_maid.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: StaticPrice
+    price: 200
+    vendPrice: 1500
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCrimsonDress
+  name: crimson dress
+  description: A crimson dress with black sleeves and a fitted corset.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/crimson_dress.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/crimson_dress.rsi
+  - type: StaticPrice
+    price: 200
+    vendPrice: 1500
+
+- type: entity
+  parent: ClothingUniformCrimsonDress
+  id: ClothingUniformCorsetDressWhite
+  name: white corset dress
+  description: A white dress with black sleeves and a fitted corset.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/corset_dress_white.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/corset_dress_white.rsi
+
+- type: entity
+  parent: ClothingUniformCrimsonDress
+  id: ClothingUniformCorsetDressBlue
+  name: blue corset dress
+  description: A blue dress with black sleeves and a fitted corset.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/corset_dress_blue.rsi
+  - type: Clothing
+    sprite: _radiant/Clothing/Uniforms/Jumpskirt/corset_dress_blue.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckFurScarf
+  name: fur scarf
+  description: A soft, fluffy scarf made from dark fur.
+  components:
+  - type: Sprite
+    sprite: _radiant/Clothing/Neck/Scarfs/fur_scarf.rsi
+    state: icon
+  - type: Clothing
+    sprite: _radiant/Clothing/Neck/Scarfs/fur_scarf.rsi
+  - type: StaticPrice
+    price: 100
+    vendPrice: 500

@@ -8,10 +8,10 @@
   description: A light rod with a sturdy line and float.
   components:
   - type: Sprite
-    sprite: _radiant/Objects/Specific/Fishing/fishing_rod.rsi
-    state: icon
+    sprite: _radiant/Objects/Specific/Fishing/rods.rsi
+    state: fishing_rod
   - type: Item
-    sprite: _radiant/Objects/Specific/Fishing/fishing_rod.rsi
+    sprite: _radiant/Objects/Specific/Fishing/rod_inhands.rsi
     size: Normal
   - type: UseDelay # Just for visuals and to prevent autoclickers
     delay: 0.08 # 12,5 CPS at max
@@ -50,10 +50,10 @@
   description: A well-worn rod with a sturdy line.
   components:
   - type: Sprite
-    sprite: _radiant/Objects/Specific/Fishing/classic_rod.rsi
-    state: icon
+    sprite: _radiant/Objects/Specific/Fishing/rods.rsi
+    state: fishing_rod_telescopic
   - type: Item
-    sprite: _radiant/Objects/Specific/Fishing/classic_rod.rsi
+    sprite: _radiant/Objects/Specific/Fishing/rod_inhands.rsi
     size: Normal
   - type: FishingRod
     biteTimeMultiplier: 0.8
@@ -67,10 +67,10 @@
   description: A rod assembled from spare materials.
   components:
   - type: Sprite
-    sprite: _radiant/Objects/Specific/Fishing/makeshift_rod.rsi
-    state: icon
+    sprite: _radiant/Objects/Specific/Fishing/rods.rsi
+    state: fishing_rod_bone
   - type: Item
-    sprite: _radiant/Objects/Specific/Fishing/makeshift_rod.rsi
+    sprite: _radiant/Objects/Specific/Fishing/rod_inhands.rsi
     size: Normal
   - type: FishingRod
     floatPrototype: FishingLureMakeshift
@@ -85,10 +85,10 @@
   description: A polished rod with an unusually smooth reel.
   components:
   - type: Sprite
-    sprite: _radiant/Objects/Specific/Fishing/golden_rod.rsi
-    state: icon
+    sprite: _radiant/Objects/Specific/Fishing/rods.rsi
+    state: fishing_rod_master
   - type: Item
-    sprite: _radiant/Objects/Specific/Fishing/golden_rod.rsi
+    sprite: _radiant/Objects/Specific/Fishing/rod_inhands.rsi
     size: Normal
   - type: FishingRod
     efficiency: 1.3

@@ -27,6 +27,7 @@ public sealed class CareerSystem : EntitySystem
     [Dependency] private readonly GameTicker _ticker = default!;
 
     private readonly Dictionary<(NetUserId, Guid), Task> _saves = new();
+    private readonly HashSet<NetUserId> _changing = new();
 
     public override void Initialize()
     {
@@ -167,17 +168,17 @@ public sealed class CareerSystem : EntitySystem
     {
         if (!TryComp<CareerActorComponent>(player, out var actor) || !TryGetCareer(player, out var career))
             return;
-        QueueSave(actor.User, actor.Slot, career);
+        _ = QueueSave(actor.User, actor.Slot, career);
         if (_players.TryGetSessionById(actor.User, out var session))
             SendState(session);
     }
 
-    private void QueueSave(NetUserId user, int slot, CareerData career)
+    private Task QueueSave(NetUserId user, int slot, CareerData career)
     {
         var snapshot = career.Clone();
         var key = (user, snapshot.CharacterId);
         _saves.TryGetValue(key, out var previous);
-        _saves[key] = SaveAfter(previous, user, slot, snapshot);
+        return _saves[key] = SaveAfter(previous, user, slot, snapshot);
     }
 
     private async Task SaveAfter(Task? previous, NetUserId user, int slot, CareerData snapshot)
@@ -215,7 +216,7 @@ public sealed class CareerSystem : EntitySystem
         }
 
         profile.Career.JobTitle = title.Id;
-        QueueSave(sender.UserId, slot, profile.Career);
+        _ = QueueSave(sender.UserId, slot, profile.Career);
         SendState(sender);
     }
 
@@ -231,6 +232,8 @@ public sealed class CareerSystem : EntitySystem
     private async void OnSelect(CareerSelectEvent args, EntitySessionEventArgs session)
     {
         var sender = session.SenderSession;
+        if (_changing.Contains(sender.UserId))
+            return;
         if (_ticker.UserHasJoinedGame(sender) || !TryProfile(sender.UserId, null, out var profile, out var slot) ||
             !_prototypes.TryIndex<CareerProfessionPrototype>(args.Profession, out var profession))
         {
@@ -252,21 +255,27 @@ public sealed class CareerSystem : EntitySystem
             SendState(sender, "career-skill-required");
             return;
         }
-        profile.Career = new CareerData { CharacterId = profile.Career.CharacterId, Profession = profession.ID };
-        QueueSave(sender.UserId, slot, profile.Career);
-        if (profession.Jobs.Count > 0)
+        _changing.Add(sender.UserId);
+        try
         {
-            // A new profession must have a candidate for round-start assignment immediately.
-            try
-            {
-                await _prefs.SetProfile(sender.UserId, slot,
-                    profile.WithJobPriority(profession.Jobs[0], JobPriority.High), validateFields: false);
-                await _prefs.RefreshPreferencesAsync(sender, default);
-            }
-            catch (Exception exception)
-            {
-                Log.Error($"Failed refreshing career job preferences for {sender.UserId}: {exception}");
-            }
+            profile.Career = new CareerData { CharacterId = profile.Career.CharacterId, Profession = profession.ID };
+            // Finish the career write before reloading preferences; otherwise the old career
+            // can win the DB read and overwrite the new selection on the client.
+            await QueueSave(sender.UserId, slot, profile.Career);
+            foreach (var job in profile.JobPriorities.Keys.ToArray())
+                if (!CareerJobRules.IsAllowed(_prototypes, profession.ID, job))
+                    profile = profile.WithJobPriority(job, JobPriority.Never);
+            profile = profile.WithJobPriority(profession.Jobs.FirstOrDefault() ?? "Contractor", JobPriority.High);
+            await _prefs.SetProfile(sender.UserId, slot, profile, validateFields: false);
+            await _prefs.RefreshPreferencesAsync(sender, default);
+        }
+        catch (Exception exception)
+        {
+            Log.Error($"Failed refreshing career job preferences for {sender.UserId}: {exception}");
+        }
+        finally
+        {
+            _changing.Remove(sender.UserId);
         }
         SendState(sender);
     }

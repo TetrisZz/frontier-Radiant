@@ -37,7 +37,7 @@ public sealed class GeneticBodyEffectsSystem : EntitySystem
 
     private void OnShock(EntityUid uid, GeneticBodyEffectsComponent comp, ElectrocutionAttemptEvent args)
     {
-        if (comp.Insulated) args.SiemensCoefficient = 0;
+        if (comp.Insulated) args.SiemensCoefficient *= 0.5f;
     }
 
     private void OnBlur(EntityUid uid, GeneticBodyEffectsComponent comp, GetBlurEvent args)

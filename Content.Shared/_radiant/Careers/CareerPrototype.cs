@@ -1,4 +1,5 @@
 using Content.Shared._radiant.Skills;
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -12,6 +13,7 @@ public sealed partial class CareerProfessionPrototype : IPrototype
     [DataField] public LocId? Description;
     [DataField] public EntProtoId? Icon;
     [DataField] public List<string> Jobs = new();
+    [DataField] public ProtoId<JobPrototype>? InterviewJob;
     [DataField] public ProfessionalSkill? RequiredSkill;
     [DataField] public int RequiredSkillLevel;
     [DataField] public List<ProtoId<CareerLevelPrototype>> Levels = new();

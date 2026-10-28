@@ -1,0 +1,39 @@
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandRabbitHoleRS
+  name: Down the Rabbit Hole
+  description: A brightly striped poster with the silhouette of a bunny girl.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/pinup_posters.rsi
+    state: rabbit_hole
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandBridgeBunnyRS
+  name: Bridge Bunny
+  description: A pin-up poster of a bunny girl in a bridge uniform.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/pinup_posters.rsi
+    state: nt-bunny
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandDoubleGunshowRS
+  name: Double Gunshow
+  description: A rainbow poster of a muscular bunny showing off his biceps.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/pinup_posters.rsi
+    state: double_gunshow
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandRabbitSwoleRS
+  name: Rabbit Swole
+  description: A colourful poster of a bunny striking a muscular pose.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Wallmounts/pinup_posters.rsi
+    state: rabbit_swole

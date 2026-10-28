@@ -22,6 +22,7 @@ public sealed partial class HumanoidProfileEditor
     private Label? _skillPoints;
     private ProfessionalSkill _selectedSkill;
     private Button? _professionButton;
+    private readonly CareerSystem _careerSystem;
 
     private static Color SkillColor(ProfessionalSkill skill) => Color.FromHex(skill switch
     {
@@ -98,14 +99,13 @@ public sealed partial class HumanoidProfileEditor
         main.AddChild(_skillsList);
         _skillDetails = SkillColumn();
         main.AddChild(SkillPanel(_skillDetails));
-        _professionButton = new Button { Text = Loc.GetString("careers-client-button") };
+        _professionButton = ProfessionButton;
         _professionButton.OnPressed += _ =>
         {
             if (!IsDirty && Profile != null && CharacterSlot == _preferencesManager.Preferences?.SelectedCharacterIndex)
-                _entManager.System<CareerSystem>().OpenWindow();
+                _careerSystem.OpenWindow();
         };
-        main.AddChild(_professionButton);
-        _entManager.System<CareerSystem>().StateUpdated += OnCareerUpdated;
+        _careerSystem.StateUpdated += OnCareerUpdated;
 
         var languages = SkillColumn();
         languages.HorizontalExpand = false;
@@ -228,7 +228,7 @@ public sealed partial class HumanoidProfileEditor
                     titles.SelectId(i);
             }
             var characterId = Profile.Career.CharacterId;
-            titles.OnItemSelected += args => _entManager.System<CareerSystem>()
+            titles.OnItemSelected += args => _careerSystem
                 .SelectJobTitle(characterId, profession.JobTitles[args.Id].Id);
             titleRow.AddChild(titles);
             category.AddChild(titleRow);

@@ -9,7 +9,7 @@ public enum GeneticBodyUiKey : byte { Key }
 public enum GeneticProduct : byte { Body, Heart, Lungs, Liver, Kidneys, Stomach, Eyes, Tongue, Hematopoiesis, HematopoiesisRemoval, Coagulation, CoagulationRemoval, Regeneration, RegenerationRemoval, Ultravision, UltravisionRemoval, Strength, StrengthRemoval, Sobriety, SobrietyRemoval, Insulation, InsulationRemoval }
 
 [Serializable, NetSerializable]
-public enum GeneticCommand : byte { Analyze, Grow, Release, Eject, Select, Research, SelectGene, CheckSequence, EjectDisk, Spectrum }
+public enum GeneticCommand : byte { Analyze, Grow, Release, Eject, Select, Research, SelectGene, CheckSequence, EjectDisk, Spectrum, SelectVariant }
 
 [Serializable, NetSerializable]
 public sealed class GeneticBodyMessage(GeneticCommand command, GeneticProduct product = GeneticProduct.Body, string text = "") : BoundUserInterfaceMessage
@@ -22,6 +22,8 @@ public sealed class GeneticBodyMessage(GeneticCommand command, GeneticProduct pr
 [Serializable, NetSerializable]
 public sealed class GeneticBodyState : BoundUserInterfaceState
 {
+    public GeneticTherapyVariant Variant;
+    public string TherapyDetails = "";
     public string Sample = "";
     public NetEntity? SampleEntity;
     public string Status = "";

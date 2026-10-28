@@ -28,8 +28,8 @@
   components:
   - type: Action
     icon:
-      sprite: _radiant/Objects/Specific/Fishing/fishing_rod.rsi
-      state: icon
+      sprite: _radiant/Objects/Specific/Fishing/rods.rsi
+      state: fishing_rod
     sound:
       path: /Audio/_radiant/Items/Fishing/fishing_rod_reel.ogg
     itemIconStyle: NoItem

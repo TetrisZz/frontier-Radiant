@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Adapted from Goob-Station/Goob-Station, commit 298bbad55cb1e454991c5c1f2d1f5621ff23dc19,
+# Resources/Prototypes/_EinsteinEngines/Reagents/narcotics.yml.
+# Local surgery uses timed analgesia; respiratory depression uses asphyxiation damage.
+- type: reagent
+  id: Morphine
+  name: reagent-name-morphine
+  group: Narcotics
+  desc: reagent-desc-morphine
+  flavor: bitter
+  color: "#ffde7448"
+  physicalDesc: reagent-physical-desc-translucent
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:Emote
+        emote: Yawn
+        showInChat: true
+        probability: 0.03
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2.5
+        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSurgicalAnalgesia
+        time: 30
+        type: Add
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Morphine
+          min: 16
+        damage:
+          types:
+            Asphyxiation: 2

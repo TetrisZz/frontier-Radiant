@@ -82,7 +82,7 @@ public sealed class HealingSystem : EntitySystem
 
         var trained = HasComp<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(args.User)
             && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Level(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) >= 3;
+                .Level(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) >= 2;
         var healed = _damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier * (trained ? 1.15f : 1f), true, origin: args.Args.User);
 
         if (healed == null && healing.BloodlossModifier != 0)
@@ -224,7 +224,7 @@ public sealed class HealingSystem : EntitySystem
             : healing.Comp.Delay * GetScaledHealingPenalty(target, healing.Comp.SelfHealPenaltyMultiplier);
         if (HasComp<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(user)
             && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Level(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) >= 2)
+                .Level(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) >= 3)
             delay *= 0.85f;
 
         var doAfterEventArgs =

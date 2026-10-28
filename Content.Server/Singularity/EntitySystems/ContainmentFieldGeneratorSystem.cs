@@ -94,6 +94,9 @@ public sealed class ContainmentFieldGeneratorSystem : EntitySystem
     {
         if (args.Handled)
             return;
+        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(args.User, generator, Content.Shared._radiant.Skills.SkillAction.Interact))
+            return;
 
         if (TryComp(generator, out TransformComponent? transformComp) && transformComp.Anchored)
         {

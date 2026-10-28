@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation, icons/obj/poster.dmi. rabbit_hole by OnlineGirlfriend and nt-bunny by monsterlord59: https://github.com/tgstation/tgstation/pull/97777. double_gunshow and rabbit_swole by vinylspiders: https://github.com/tgstation/tgstation/pull/97801. Original authors retain their copyright. DMI frames extracted to RSI without rescaling, recoloring or repainting.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "rabbit_hole"
+    },
+    {
+      "name": "nt-bunny"
+    },
+    {
+      "name": "double_gunshow"
+    },
+    {
+      "name": "rabbit_swole"
+    }
+  ]
+}

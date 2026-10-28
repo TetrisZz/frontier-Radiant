@@ -23544,7 +23544,7 @@ entities:
     - type: Transform
       parent: 2
       pos: 21.5,-18.5
-- proto: ComputerShipyard
+- proto: ComputerShipyardFrontier
   entities:
   - uid: 733
     components:
@@ -23570,6 +23570,8 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: 36.5,20.5
+- proto: ComputerShipyardCareerEngineering
+  entities:
   - uid: 3096
     components:
     - type: Transform

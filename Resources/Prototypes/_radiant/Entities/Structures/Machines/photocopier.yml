@@ -40,6 +40,18 @@
     - MedicalDischarge
     - MedicalPrescription
     - MedicalDeathCertificate
+  - type: PhotocopierBodyScanner
+    malePrint: PaperBodyPrintMale
+    femalePrint: PaperBodyPrintFemale
+    siliconPrint: PaperBodyPrintMachine
+    speciesPrints:
+      Reptilian: PaperBodyPrintLizard
+      Vox: PaperBodyPrintLizard
+      SlimePerson: PaperBodyPrintSlime
+      Felinid: PaperBodyPrintCat
+      Vulpkanin: PaperBodyPrintFluffy
+      Tajaran: PaperBodyPrintFluffy
+      Shadowkin: PaperBodyPrintFluffy
   - type: ApcPowerReceiver
     powerLoad: 250
   - type: ActivatableUI

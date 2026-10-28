@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared._radiant.Careers;
 
 namespace Content.Shared._WF.SafetyDepositBox.BUI;
 
@@ -48,6 +49,7 @@ public sealed class SafetyDepositConsoleState : BoundUserInterfaceState
     /// The current round ID, used to determine if boxes are lost.
     /// </summary>
     public int CurrentRoundId;
+    public CareerSafeState? Career;
 
     public SafetyDepositConsoleState(
         List<SafetyDepositBoxInfo> ownedBoxes,

@@ -75,6 +75,7 @@ public sealed class GeneticBodyTest
             Assert.That(body.GetBodyChildren(grown.Value).SelectMany(p => body.GetPartOrgans(p.Id))
                 .Any(o => em.HasComponent<BrainComponent>(o.Id)), Is.False);
         });
+        await pair.CleanReturnAsync();
     }
 
     [Test]
@@ -194,5 +195,6 @@ public sealed class GeneticBodyTest
                 Assert.That(genetics.TryRelease(pod), Is.Null);
             }
         });
+        await pair.CleanReturnAsync();
     }
 }

@@ -1,0 +1,26 @@
+- type: entity
+  parent: SmartFridgeRadiant
+  id: SmartFridgeVirologyRadiant
+  name: culture refrigerator
+  description: A refrigerated laboratory dispenser for sealed samples, cultures and medical preparations.
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Machines/culture_fridge.rsi
+    layers:
+    - state: normal
+      map: ["enum.StorageVisualLayers.Base"]
+  - type: SmartFridge
+    flavorText: radiant-culture-fridge-request
+    whitelist:
+      components:
+      - VirologySample
+      - VirologyDose
+      - GeneticSample
+      - GeneticTherapy
+      tags:
+      - Bottle
+      - Syringe
+      - ChemDispensable
+      - PillCanister
+  - type: GuideHelp
+    guides: [RadiantVirology, RadiantGenetics]

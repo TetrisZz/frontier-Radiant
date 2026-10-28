@@ -153,6 +153,7 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical">
                     <!-- Jobs -->
+                    <Button Name="ProfessionButton" Text="{Loc 'careers-client-button'}" Margin="4 4 4 8" MinHeight="36"/>
                     <OptionButton Name="PreferenceUnavailableButton" />
                     <ScrollContainer VerticalExpand="True">
                         <BoxContainer Name="JobList" Orientation="Vertical" />

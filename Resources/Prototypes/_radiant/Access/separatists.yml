@@ -1,8 +1,13 @@
 - type: accessLevel
   id: Separatists
   name: id-card-access-level-separatists
+
+- type: accessLevel
+  id: SeparatistsCommander
+  name: id-card-access-level-separatists-commander
   
 - type: accessGroup
   id: SeparatistsGroup
   tags:
   - Separatists
+  - SeparatistsCommander

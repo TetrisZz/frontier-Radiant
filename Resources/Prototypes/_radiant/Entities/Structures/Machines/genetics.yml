@@ -33,48 +33,23 @@
       enum.GeneticBodyUiKey.Key:
         type: GeneticBodyBoundUserInterface
   - type: Sprite
-    sprite: _radiant/Structures/Machines/body_grower.rsi
-    offset: 0, 0.5
+    sprite: _radiant/Structures/Machines/genetic_infuser.rsi
     layers:
-    - state: pod_0
+    - state: open
       map: ["base"]
-    - state: cover-on
-      visible: false
-      map: ["cover"]
-    - state: panel
-      visible: false
-      map: ["panel"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.GeneticBodyVisuals.State:
         base:
-          Off: { state: pod_0 }
-          Idle: { state: pod_0 }
-          Analyzing: { state: pod_0 }
-          Researching: { state: pod_0 }
-          Sequencing: { state: pod_0 }
-          Spectrometry: { state: pod_0 }
-          Growing: { state: pod_1 }
-          Ready: { state: pod_1 }
-        cover:
-          Off: { visible: false }
-          Idle: { visible: false }
-          Analyzing: { visible: false }
-          Researching: { visible: false }
-          Sequencing: { visible: false }
-          Spectrometry: { visible: false }
-          Growing: { visible: true }
-          Ready: { visible: false }
-        panel:
-          Off: { visible: false }
-          Idle: { visible: false }
-          Analyzing: { visible: true }
-          Researching: { visible: true }
-          Sequencing: { visible: true }
-          Spectrometry: { visible: true }
-          Growing: { visible: true }
-          Ready: { visible: true }
+          Off: { state: closed }
+          Idle: { state: open }
+          Analyzing: { state: working }
+          Researching: { state: working }
+          Sequencing: { state: working }
+          Spectrometry: { state: working }
+          Growing: { state: working }
+          Ready: { state: open }
   - type: MaterialStorage
     materialWhiteList: [Biomass]
   - type: Machine

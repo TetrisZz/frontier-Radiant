@@ -57,7 +57,12 @@ public sealed class NetworkConfiguratorButtonPressedMessage : BoundUserInterface
 [Serializable, NetSerializable]
 public sealed class NetworkConfiguratorClearLinksMessage : BoundUserInterfaceMessage
 {
+    public readonly uint LinkContext;
 
+    public NetworkConfiguratorClearLinksMessage(uint linkContext = 0)
+    {
+        LinkContext = linkContext;
+    }
 }
 
 [Serializable, NetSerializable]
@@ -65,21 +70,23 @@ public sealed class NetworkConfiguratorToggleLinkMessage : BoundUserInterfaceMes
 {
     public readonly string Source;
     public readonly string Sink;
+    public readonly uint LinkContext;
 
-    public NetworkConfiguratorToggleLinkMessage(string source, string sink)
+    public NetworkConfiguratorToggleLinkMessage(string source, string sink, uint linkContext = 0)
     {
         Source = source;
         Sink = sink;
+        LinkContext = linkContext;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class NetworkConfiguratorLinksSaveMessage : BoundUserInterfaceMessage
+public sealed class NetworkConfiguratorLinkDefaultsMessage : BoundUserInterfaceMessage
 {
-    public readonly List<(string source, string sink)> Links;
+    public readonly uint LinkContext;
 
-    public NetworkConfiguratorLinksSaveMessage(List<(string source, string sink)> links)
+    public NetworkConfiguratorLinkDefaultsMessage(uint linkContext)
     {
-        Links = links;
+        LinkContext = linkContext;
     }
 }

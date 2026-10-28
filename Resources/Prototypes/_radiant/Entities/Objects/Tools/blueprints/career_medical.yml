@@ -28,7 +28,7 @@
   name: genetic laboratory blueprints
   components:
   - type: Blueprint
-    providedRecipes: [GeneticResearchConsoleCircuitboard, GeneticBodyGrowerMachineCircuitboard, GeneticSampleCartridge, GeneticResearchDisk]
+    providedRecipes: [GeneticResearchConsoleCircuitboard, GeneticBodyGrowerMachineCircuitboard, GeneticSampleCartridge, GeneticResearchDisk, DnaVaultMachineCircuitboard, BiodiversityProbe]
 
 - type: entity
   parent: NFBlueprintMedical
@@ -36,4 +36,4 @@
   name: virology laboratory blueprints
   components:
   - type: Blueprint
-    providedRecipes: [DiagnoserMachineCircuitboard, VaccinatorMachineCircuitboard, VirologySwab]
+    providedRecipes: [DiagnoserMachineCircuitboard, VaccinatorMachineCircuitboard, VirologySwab, VirologySequencerMachineCircuitboard]

@@ -52,6 +52,9 @@ public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
     /// </remarks>
     protected override void ChangeSetting(Entity<EntityHeaterComponent> ent, EntityHeaterSetting setting, EntityUid? user = null)
     {
+        if (user is { } actor && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(actor, ent, Content.Shared._radiant.Skills.SkillAction.Interact))
+            return;
         base.ChangeSetting(ent, setting, user);
 
         if (!TryComp<ApcPowerReceiverComponent>(ent, out var power))

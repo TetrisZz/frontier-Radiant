@@ -4,6 +4,7 @@ using Content.Client.Administration.UI.CustomControls;
 using Content.Shared._radiant.Careers;
 using Content.Shared._radiant.Skills;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
@@ -19,7 +20,6 @@ public sealed class CareerWindow : DefaultWindow
     public event Action<string, bool>? SelectRequested;
 
     private readonly ItemList _professions = new() { Name = "ProfessionList", SetWidth = 180, VerticalExpand = true, ItemSeparation = 6 };
-    private readonly OptionButton _stages = new() { HorizontalExpand = true };
     private readonly ScrollContainer _scroll = new() { VerticalExpand = true, HorizontalExpand = true, HScrollEnabled = false };
     private readonly RichTextLabel _status = new();
     private readonly BoxContainer _details = new() { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 8, HorizontalExpand = true };
@@ -42,9 +42,16 @@ public sealed class CareerWindow : DefaultWindow
         MinSize = new Vector2(620, 420);
         SetSize = new Vector2(780, 620);
 
-        var body = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 6 };
+        var body = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 10, Margin = new Thickness(10) };
         Contents.AddChild(body);
-        body.AddChild(_status);
+        var header = new PanelContainer
+        {
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#1D3039") },
+            Margin = new Thickness(0, 0, 0, 4),
+        };
+        _status.Margin = new Thickness(12);
+        header.AddChild(_status);
+        body.AddChild(header);
         var columns = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, SeparationOverride = 16, VerticalExpand = true };
         body.AddChild(columns);
         var list = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 8 };
@@ -54,6 +61,7 @@ public sealed class CareerWindow : DefaultWindow
         _scroll.AddChild(_details);
         _scroll.OnResized += () => _details.MaxWidth = Math.Max(1, _scroll.Size.X - 16);
         columns.AddChild(_scroll);
+        _select.MinHeight = 36;
         body.AddChild(_select);
         _confirmation.AddChild(_confirmationText);
         var actions = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, SeparationOverride = 6 };
@@ -69,12 +77,6 @@ public sealed class CareerWindow : DefaultWindow
             _selected = _choices[args.ItemIndex];
             _stage = DefaultStage();
             _confirmation.Visible = false;
-            _scroll.VScrollTarget = 0;
-            Render();
-        };
-        _stages.OnItemSelected += args =>
-        {
-            _stage = args.Id;
             _scroll.VScrollTarget = 0;
             Render();
         };
@@ -114,7 +116,6 @@ public sealed class CareerWindow : DefaultWindow
         _waiting = true;
         _message = null;
         _confirmation.Visible = false;
-        _stages.Orphan();
         _details.DisposeAllChildren();
         _professions.Clear();
         _progress.Clear();
@@ -166,8 +167,8 @@ public sealed class CareerWindow : DefaultWindow
         Render();
     }
 
-    private int DefaultStage() => _selected == null || _selected.Levels.Count == 0 ? -1
-        : Math.Clamp(_selected.ID == _career?.Profession ? _career.Level : 0, 0, _selected.Levels.Count - 1);
+    private int DefaultStage() => _selected?.ID == _career?.Profession && _career != null
+        && _career.Level < _selected!.Levels.Count ? _career.Level : -1;
 
     private bool CanSelect() => !_waiting && _canChange && _career != null && _selected != null
         && _selected.ID != _career.Profession;
@@ -178,7 +179,6 @@ public sealed class CareerWindow : DefaultWindow
         _select.Visible = _canChange;
         foreach (var choice in _professions)
             choice.Disabled = _waiting;
-        _stages.Orphan();
         _details.DisposeAllChildren();
         _progress.Clear();
         if (_career == null)
@@ -209,22 +209,12 @@ public sealed class CareerWindow : DefaultWindow
                 : Loc.GetString("careers-client-no-required-skill"));
 
             var isCurrent = _selected.ID == _career.Profession;
-            _stages.Clear();
-            for (var i = 0; i < _selected.Levels.Count; i++)
-            {
-                var key = isCurrent && i < _career.Level ? "careers-client-stage-completed"
-                    : isCurrent && i == _career.Level ? "careers-client-stage-current" : "careers-client-stage-preview";
-                _stages.AddItem(Loc.GetString(key, ("level", i + 1)), i);
-            }
             var stage = _stage;
             if (stage >= 0)
-            {
-                _stages.SelectId(stage);
-                _details.AddChild(_stages);
-            }
+                AddHeading(Loc.GetString("careers-client-stage-current", ("level", stage + 1)));
             if (isCurrent && _career.Level >= _selected.Levels.Count && _selected.Levels.Count > 0)
                 AddText(Loc.GetString("careers-client-complete"));
-            if (stage >= 0 && stage < _selected.Levels.Count
+            if (isCurrent && stage == _career.Level && stage >= 0 && stage < _selected.Levels.Count
                 && _prototypes.TryIndex(_selected.Levels[stage], out var level))
             {
                 AddHeading(Loc.GetString("careers-client-objectives"));
@@ -246,7 +236,8 @@ public sealed class CareerWindow : DefaultWindow
                 UpdateProgress();
                 AddHeading(Loc.GetString("careers-client-rewards"));
                 AddText(Loc.GetString("careers-client-reward-money", ("amount", level.RewardMoney)));
-                AddText(Loc.GetString("careers-client-reward-tier", ("tier", level.BoxTier)));
+                if (level.BoxTier > Math.Max(1, _career.BoxTier))
+                    AddText(Loc.GetString("careers-client-reward-tier", ("tier", level.BoxTier)));
                 foreach (var item in level.RewardItems)
                 {
                     var name = _prototypes.TryIndex(item, out var prototype)
@@ -269,9 +260,8 @@ public sealed class CareerWindow : DefaultWindow
             }
             else
             {
-                AddText(Loc.GetString(stage >= _selected.Levels.Count && _selected.Levels.Count > 0
-                    ? "careers-client-complete"
-                    : "careers-client-no-objectives"));
+                AddText(Loc.GetString(isCurrent && _career.Level >= _selected.Levels.Count && _selected.Levels.Count > 0
+                    ? "careers-client-complete" : "careers-client-current-stage-only"));
             }
         }
 

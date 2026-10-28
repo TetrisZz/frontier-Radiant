@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/BlueMoon-Labs/BlueMoon-Station. Original authors retain their copyright. Sources: modular_bluemoon/fluffs/icons/mob/clothing/suit.dmi, modular_bluemoon/fluffs/icons/mob/clothing/suit_digi.dmi, modular_bluemoon/fluffs/icons/obj/clothing/suit.dmi. DMI frames converted to RSI without rescaling or repainting.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-tajaran",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-feroxi",
+      "directions": 4
+    }
+  ]
+}

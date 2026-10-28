@@ -1,0 +1,12 @@
+ent-ClothingOuterCoatSkeletonTuxedo = skeleton tuxedo
+    .desc = A smart black suit decorated with a white skeletal pattern.
+ent-ClothingOuterMaidDress = black and white maid outfit
+    .desc = A black and white maid outfit with a neat apron and lace trim.
+ent-ClothingUniformCrimsonDress = crimson dress
+    .desc = A crimson dress with black sleeves and a fitted corset.
+ent-ClothingUniformCorsetDressWhite = white corset dress
+    .desc = A white dress with black sleeves and a fitted corset.
+ent-ClothingUniformCorsetDressBlue = blue corset dress
+    .desc = A blue dress with black sleeves and a fitted corset.
+ent-ClothingNeckFurScarf = fur scarf
+    .desc = A soft, fluffy scarf made from dark fur.

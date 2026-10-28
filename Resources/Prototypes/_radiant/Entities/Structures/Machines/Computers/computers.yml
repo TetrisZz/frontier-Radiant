@@ -1,4 +1,13 @@
 - type: entity
+  parent: ComputerTabletopStationRecords
+  id: ComputerTabletopStationRecordsSeparatistsCommander
+  suffix: Separatists Commander
+  components:
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access: [["SeparatistsCommander"]]
+
+- type: entity
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputerShuttle]
   id: ComputerShuttleAcorp
   name: консоль управления

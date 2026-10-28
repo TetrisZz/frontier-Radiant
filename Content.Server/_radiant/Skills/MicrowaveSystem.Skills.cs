@@ -12,6 +12,8 @@ public sealed partial class MicrowaveSystem
     private bool CanCookContents(EntityUid uid, MicrowaveComponent microwave, EntityUid user)
     {
         var skills = EntityManager.System<SharedProfessionalSkillsSystem>();
+        if ((microwave.ValidRecipeTypes & (int) MicrowaveRecipeType.MedicalAssembler) != 0)
+            return skills.Check(user, ProfessionalSkill.Medicine, 4);
         if (skills.Level(user, ProfessionalSkill.Cooking) >= 3)
             return true;
         var solids = new Dictionary<string, int>();
@@ -31,11 +33,10 @@ public sealed partial class MicrowaveSystem
         }
         var secret = new GetSecretRecipesEvent();
         RaiseLocalEvent(uid, ref secret);
-        // A batch can satisfy several recipes. A simple recipe must not hide a harder one.
+        // Check the same first matching recipe that Wzhzhzh will actually cook.
         foreach (var recipe in secret.Recipes.Concat(_recipeManager.Recipes))
-            if (CanSatisfyRecipe(microwave, recipe, solids, reagents).Item2 > 0
-                && !skills.Check(user, ProfessionalSkill.Cooking, recipe.RequiredCookingLevel))
-                return false;
+            if (CanSatisfyRecipe(microwave, recipe, solids, reagents).Item2 > 0)
+                return skills.Check(user, ProfessionalSkill.Cooking, recipe.RequiredCookingLevel);
         return skills.Check(user, ProfessionalSkill.Cooking, 1);
     }
 }

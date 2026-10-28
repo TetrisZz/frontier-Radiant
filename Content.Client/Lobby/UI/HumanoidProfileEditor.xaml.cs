@@ -150,6 +150,8 @@ namespace Content.Client.Lobby.UI
             _sawmill = logManager.GetSawmill("profile.editor");
             _cfgManager = configurationManager;
             _entManager = entManager;
+            // Keep the subscribed instance: systems may already be unloaded when the editor is disposed.
+            _careerSystem = entManager.System<Content.Client._radiant.Careers.CareerSystem>();
             _dialogManager = dialogManager;
             _playerManager = playerManager;
             _prototypeManager = prototypeManager;
@@ -1076,7 +1078,7 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void SetProfile(HumanoidCharacterProfile? profile, int? slot)
         {
-            _entManager.System<Content.Client._radiant.Careers.CareerSystem>().CloseWindow();
+            _careerSystem.CloseWindow();
             ReplaceCharacterOnSave = false;
             Profile = profile?.Clone();
             CharacterSlot = slot;
@@ -1626,7 +1628,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _preferencesManager.OnDossierReceived -= OnDossierReceived;
-            _entManager.System<Content.Client._radiant.Careers.CareerSystem>().StateUpdated -= OnCareerUpdated;
+            _careerSystem.StateUpdated -= OnCareerUpdated;
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
         }

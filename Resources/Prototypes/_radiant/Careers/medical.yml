@@ -4,6 +4,7 @@
   description: career-profession-medical-description
   icon: Medkit
   jobs: [MedicalDoctor]
+  interviewJob: MedicalDoctorInterview
   requiredSkill: Medicine
   requiredSkillLevel: 1
   levels: [MedicalLevel1, MedicalLevel2, MedicalLevel3, MedicalLevel4, MedicalLevel5, MedicalLevel6]
@@ -64,7 +65,7 @@
     qualifiers: [Dylovene]
   rewardItems: [MedicalPouchFilledLow]
   rewardMoney: 20000
-  boxTier: 1
+  boxTier: 2
 
 - type: careerLevel
   id: MedicalLevel3
@@ -100,7 +101,7 @@
     qualifiers: [Puncturase]
   rewardItems: [CareerMedicalChemistryBlueprint, CareerMedicalSurgeryBlueprint]
   rewardMoney: 30000
-  boxTier: 2
+  boxTier: 3
 
 - type: careerLevel
   id: MedicalLevel4
@@ -111,7 +112,7 @@
     target: 1
   rewardItems: [CareerMedicalImplantsBlueprint]
   rewardMoney: 40000
-  boxTier: 2
+  boxTier: 3
 
 - type: careerLevel
   id: MedicalLevel5

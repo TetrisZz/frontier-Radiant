@@ -87,6 +87,8 @@ public sealed partial class GeneticBodySystem
         if (machine.Stage == GeneticGrowthStage.Spectrometry) duration = 30;
         var state = new GeneticBodyState
         {
+            Variant = machine.Variant,
+            TherapyDetails = TherapyDetails(machine),
             Sample = sample == null ? Loc.GetString("genetics-ui-no-sample") : SampleDescription(sample),
             SampleEntity = machine.Sample.ContainedEntity is { } cartridge ? GetNetEntity(cartridge) : null,
             NextStep = NextStep(machine, sample, powered),
@@ -205,6 +207,14 @@ public sealed partial class GeneticBodySystem
         var success = false;
         switch (args.Command)
         {
+            case GeneticCommand.SelectVariant:
+                if (ent.Comp.Stage == GeneticGrowthStage.Idle
+                    && Enum.TryParse<GeneticTherapyVariant>(args.Text, out var variant) && Enum.IsDefined(variant))
+                {
+                    ent.Comp.Variant = variant;
+                    success = true;
+                }
+                break;
             case GeneticCommand.Spectrum:
                 success = TrySpectrum(ent);
                 break;
@@ -265,5 +275,14 @@ public sealed partial class GeneticBodySystem
         if (!success)
             _popup.PopupEntity(Loc.GetString("genetics-ui-action-failed"), ent, args.Actor);
         PublishUi(ent);
+    }
+
+    private string TherapyDetails(GeneticBodyGrowerComponent machine)
+    {
+        if (GeneFor(machine.Product) is not { } id) return Loc.GetString("genetics-lab-surgery");
+        var gene = _prototypes.Index<GeneticModificationPrototype>(id);
+        return Loc.GetString("genetics-lab-therapy", ("load", GeneticTherapyBalance.Load(gene.Load, machine.Variant)),
+            ("risk", (int) Math.Round(100 * GeneticTherapyBalance.Risk(gene.ComplicationChance, machine.Variant))),
+            ("seconds", (int) gene.AdaptationSeconds)) + "\n" + Loc.GetString("genetics-variant-help-" + machine.Variant.ToString().ToLowerInvariant());
     }
 }

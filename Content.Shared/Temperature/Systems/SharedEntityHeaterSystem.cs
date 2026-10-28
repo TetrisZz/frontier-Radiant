@@ -66,6 +66,9 @@ public abstract partial class SharedEntityHeaterSystem : EntitySystem
 
     protected virtual void ChangeSetting(Entity<EntityHeaterComponent> ent, EntityHeaterSetting setting, EntityUid? user = null)
     {
+        if (user is { } actor && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .CanUse(actor, ent, Content.Shared._radiant.Skills.SkillAction.Interact))
+            return;
         // Still allow changing the setting without power
         ent.Comp.Setting = setting;
         _audio.PlayPredicted(ent.Comp.SettingSound, ent, user);

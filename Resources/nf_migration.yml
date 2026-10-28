@@ -653,3 +653,6 @@ WeaponRifleEstoc: NFWeaponRifleAssaultEstoc
 # 2026-10-22 Radiant office chair sprites now use the standard office chair IDs.
 ChairOfficeWhiteRadiant: ChairOfficeLight
 ChairOfficeDarkRadiant: ChairOfficeDark
+
+# 2026-10-24 Removed silver fish from fishing and saved maps.
+FishSilver: null

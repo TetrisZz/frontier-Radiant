@@ -131,5 +131,6 @@ public sealed class GeneticConsoleTest
             Assert.That(genetics.TryOrder(console), Is.False);
             Assert.That(research.Discoveries, Does.Contain("RadiantHematopoiesis"));
         });
+        await pair.CleanReturnAsync();
     }
 }

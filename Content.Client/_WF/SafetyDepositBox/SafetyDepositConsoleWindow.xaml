@@ -1,6 +1,6 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      MinSize="650 550"
+                      MinSize="650 680"
                       Title="{Loc 'safety-deposit-console-title'}">
     <BoxContainer Orientation="Vertical" Margin="15">
         <!-- Header -->
@@ -8,6 +8,19 @@
                StyleClasses="LabelHeading"
                Margin="0 0 0 15"
                HorizontalAlignment="Center"/>
+
+        <PanelContainer Name="CareerSection" Visible="False" StyleClasses="AngleRect" Margin="0 0 0 12">
+            <BoxContainer Orientation="Vertical" Margin="12" SeparationOverride="6">
+                <Label Text="{Loc 'career-safe-heading'}" StyleClasses="LabelSubHeading"/>
+                <RichTextLabel Name="CareerSummary"/>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                    <Button Name="CareerClaimButton" Text="{Loc 'career-claim-rewards'}" HorizontalExpand="True" MinHeight="32"/>
+                    <Button Name="CareerStarterButton" Text="{Loc 'career-starter-box'}" HorizontalExpand="True" MinHeight="32"/>
+                    <Button Name="CareerUpgradeButton" Text="{Loc 'career-upgrade-box'}" HorizontalExpand="True" MinHeight="32"/>
+                </BoxContainer>
+                <RichTextLabel Name="CareerHelp"/>
+            </BoxContainer>
+        </PanelContainer>
 
         <!-- Top Action Cells -->
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 15" HorizontalExpand="True">
