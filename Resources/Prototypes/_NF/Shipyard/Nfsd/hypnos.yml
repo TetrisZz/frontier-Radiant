@@ -43,6 +43,7 @@
 - type: vessel
   id: Hypnos
   parent: BaseVessel
+  canSave: false
   name: NSF Hypnos
   description: A light medium ship with a recommended crew of 2 to 3 officers, the Hypnos is a dedicated interdiction vessel outfitted with a powerful EMP device for tackling escaping vessels.
   price: 34500

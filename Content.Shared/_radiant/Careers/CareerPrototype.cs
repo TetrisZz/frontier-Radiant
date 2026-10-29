@@ -12,6 +12,8 @@ public sealed partial class CareerProfessionPrototype : IPrototype
     [DataField(required: true)] public LocId Name;
     [DataField] public LocId? Description;
     [DataField] public EntProtoId? Icon;
+    /// <summary>Dedicated mass-scanner color for this profession's fleet.</summary>
+    [DataField] public Color? RadarColor;
     [DataField] public List<string> Jobs = new();
     [DataField] public ProtoId<JobPrototype>? InterviewJob;
     /// <summary>Only this profession may use this shipyard, and its members may only buy ships there.</summary>

@@ -16,6 +16,7 @@
   price: 30000 # 26264 0.05 27577.2
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/garden.yml
   guidebookPage: ShipyardGarden
   class:

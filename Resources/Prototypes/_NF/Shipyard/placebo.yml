@@ -16,6 +16,7 @@
   price: 18500 # 16100 0.05 16905
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/placebo.yml
   guidebookPage: ShipyardPlacebo
   class:

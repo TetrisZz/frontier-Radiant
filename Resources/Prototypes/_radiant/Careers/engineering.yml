@@ -1,5 +1,6 @@
 - type: careerProfession
   id: Engineering
+  radarColor: "#FF9166"
   name: career-profession-engineering
   description: career-profession-engineering-description
   icon: RCD

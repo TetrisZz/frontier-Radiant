@@ -16,6 +16,7 @@
   price: 22000 # 19706 0.05 20691.3
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/prospector.yml
   guidebookPage: ShipyardProspector
   class:

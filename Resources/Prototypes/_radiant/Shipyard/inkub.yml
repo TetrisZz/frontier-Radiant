@@ -16,6 +16,7 @@
   price: 174500
   category: Large
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_radiant/Shuttles/Inkub.yml
   guidebookPage: Null
   class:

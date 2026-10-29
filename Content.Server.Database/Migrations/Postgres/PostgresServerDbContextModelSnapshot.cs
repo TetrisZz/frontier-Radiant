@@ -26,6 +26,16 @@ namespace Content.Server.Database.Migrations.Postgres
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Content.Server.Database.RadiantMachineStorage", b =>
+                {
+                    b.Property<string>("StorageId").HasMaxLength(128).HasColumnType("character varying(128)").HasColumnName("storage_id");
+                    b.Property<string>("Kind").IsRequired().HasColumnType("text").HasColumnName("kind");
+                    b.Property<string>("Payload").IsRequired().HasColumnType("text").HasColumnName("payload");
+                    b.Property<long>("Revision").HasColumnType("bigint").HasColumnName("revision");
+                    b.HasKey("StorageId").HasName("pk_radiant_machine_storage");
+                    b.ToTable("radiant_machine_storage");
+                });
+
             modelBuilder.Entity("Content.Server.Database.TriadShipyardAuditEvent", b =>
                 {
                     b.Property<long>("Id")

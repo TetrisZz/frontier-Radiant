@@ -16,6 +16,7 @@
   price: 95000
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_radiant/Shuttles/Sukkub.yml
   guidebookPage: Null
   class:

@@ -283,15 +283,16 @@ public sealed class CareerServiceRegressionTest
                 }
                 var combined = em.SpawnEntity("ComputerShipyardCareers", map.GridCoords);
                 Assert.That(em.GetComponent<ShipyardListingComponent>(combined).Shuttles,
-                    Is.EquivalentTo(new[] { "CareerMiningStarter", "CareerMiningUpgrade", "CareerMedicalStarter", "CareerMedicalUpgrade" }));
+                    Is.EquivalentTo(new[] { "Kestrel", "Bulker", "Barge", "Hauler", "Gornyak", "CareerMedicalStarter", "Stasis", "Eagle", "Vitalis", "Salomandra", "Caladrius" }));
                 foreach (var profession in new[] { "Mining", "Medical", "Engineering" })
                 {
                     var console = em.SpawnEntity("ComputerShipyardCareer" + profession, map.GridCoords);
-                    var expected = new List<string> { "Career" + profession + "Starter", "Career" + profession + "Upgrade" };
-                    if (profession == "Mining")
-                        expected.Add("Gornyak");
-                    if (profession == "Engineering")
-                        expected.Add("Castor");
+                    var expected = profession switch
+                    {
+                        "Mining" => new[] { "Kestrel", "Bulker", "Barge", "Hauler", "Gornyak" },
+                        "Medical" => new[] { "CareerMedicalStarter", "Stasis", "Eagle", "Vitalis", "Salomandra", "Caladrius" },
+                        _ => new[] { "CareerEngineeringStarter", "Retort", "Gasbender", "Ambition", "Hephaestus", "Comet", "Castor" },
+                    };
                     Assert.That(em.GetComponent<ShipyardListingComponent>(console).Shuttles,
                         Is.EquivalentTo(expected));
                 }

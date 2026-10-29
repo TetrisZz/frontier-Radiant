@@ -1,11 +1,14 @@
 using System.Linq;
+using Content.Shared._radiant.Careers;
 using Content.Shared.Shuttles.Components;
 using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Shuttles.Systems;
 
 public abstract partial class SharedShuttleSystem
 {
+    [Dependency] private readonly IPrototypeManager _careerRadarPrototypes = default!;
     /*
      * Handles the label visibility on radar controls. This can be hiding the label or applying other effects.
      */
@@ -14,6 +17,9 @@ public abstract partial class SharedShuttleSystem
 
     public Color GetIFFColor(EntityUid gridUid, bool self = false, IFFComponent? component = null)
     {
+        if (GetRadarProfession(gridUid)?.RadarColor is { } careerColor)
+            return careerColor;
+
         if (self)
         {
             return IFFComponent.SelfColor;
@@ -46,6 +52,10 @@ public abstract partial class SharedShuttleSystem
 
         return string.IsNullOrEmpty(entName) ? Loc.GetString("shuttle-console-unknown") : entName + suffix;
     }
+
+    private CareerProfessionPrototype? GetRadarProfession(EntityUid grid)
+        => TryComp<CareerRadarComponent>(grid, out var radar) && _careerRadarPrototypes.TryIndex(radar.Profession, out var definition)
+            ? definition : null;
 
     /// <summary>
     /// Sets the color for this grid to appear as on radar.

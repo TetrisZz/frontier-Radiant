@@ -16,6 +16,7 @@
   price: 31000 # 29305 x 1.05 = 30770
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/dragoon.yml
   guidebookPage: ShipyardDragoon
   class:

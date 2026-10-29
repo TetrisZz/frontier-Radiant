@@ -21,9 +21,11 @@
 - type: vessel
   id: CareerMiningStarter
   parent: Prospector
+  group: Custom
   name: Mining Prospector
   description: A starter mining vessel for a three-person crew.
   price: 0
+  canSave: false
   careerProfession: Mining
   careerLevel: 0
   careerFree: true
@@ -46,6 +48,8 @@
 - type: vessel
   id: CareerMiningUpgrade
   parent: Barge
+  group: Custom
+  canSave: false
   name: Mining Barge
   description: A larger mining vessel for an experienced three-person crew.
   careerProfession: Mining
@@ -76,8 +80,10 @@
     newJobTitle: null
   - type: ShipyardListing
     shuttles:
-    - CareerMiningStarter
-    - CareerMiningUpgrade
+    - Kestrel
+    - Bulker
+    - Barge
+    - Hauler
     - Gornyak
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Custom

@@ -1,0 +1,4 @@
+- type: shader
+  id: RadiantBlueprintBlack
+  kind: source
+  path: /Textures/_radiant/Shaders/blueprint_black.swsl

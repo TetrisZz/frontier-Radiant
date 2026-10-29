@@ -1,6 +1,7 @@
 - type: vessel
   id: Galant
   parent: BaseVessel
+  canSave: false
   name: NSF Галант
   description: A medium-sized patrol craft, the Prowler class is a dedicated deep space pursuit vessel with an advanced sensor suite. 
   price: 57000

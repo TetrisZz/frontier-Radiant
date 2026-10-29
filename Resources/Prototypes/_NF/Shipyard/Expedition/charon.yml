@@ -16,6 +16,7 @@
   price: 82000 #67630 0.2 81156  
   category: Medium
   group: Expedition
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Expedition/charon.yml
   guidebookPage: ShipyardCharon
   class:

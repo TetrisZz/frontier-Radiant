@@ -14,6 +14,8 @@
 - type: vessel
   id: CareerMedicalStarter
   parent: Apothecary
+  canSave: false
+  group: Custom
   name: Medical Apothecary
   description: A small duty vessel for a three-person medical crew.
   price: 0
@@ -39,6 +41,8 @@
 - type: vessel
   id: CareerMedicalUpgrade
   parent: Stasis
+  canSave: false
+  group: Custom
   name: Medical Stasis
   description: A larger medical duty vessel for an experienced crew.
   careerProfession: Medical
@@ -68,7 +72,7 @@
   - type: ShipyardConsole
     newJobTitle: null
   - type: ShipyardListing
-    shuttles: [CareerMedicalStarter, CareerMedicalUpgrade]
+    shuttles: [CareerMedicalStarter, Stasis, Eagle, Vitalis, Salomandra, Caladrius]
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Custom
   - type: UserInterface

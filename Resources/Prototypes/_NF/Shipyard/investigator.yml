@@ -16,6 +16,7 @@
   price: 49000 #44144 + 10%
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/investigator.yml
   guidebookPage: ShipyardInvestigator
   class:

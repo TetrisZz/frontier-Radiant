@@ -16,6 +16,7 @@
   price: 60000 # 53624 0.1 58986.4
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/lyrae.yml
   guidebookPage: ShipyardLyrae
   class:

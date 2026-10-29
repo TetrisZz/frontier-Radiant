@@ -47,6 +47,15 @@ public sealed partial class PuddleSystem
             if (_openable.IsClosed(entity))
                 return;
 
+            var transfer = new Content.Shared.Chemistry.DumpSolutionEvent(args.User, soln.Value, dumpableSoln.Value);
+            RaiseLocalEvent(args.Target, ref transfer);
+            if (transfer.Handled)
+            {
+                if (transfer.Transferred)
+                    _audio.PlayPvs(AbsorbentComponent.DefaultTransferSound, args.Target);
+                return;
+            }
+
             bool success = true;
             if (dump.Unlimited)
             {

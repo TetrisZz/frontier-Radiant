@@ -1,7 +1,8 @@
 - type: vessel
   id: Castor
   parent: BaseVessel
-  name: Кастор
+  canSave: false
+  name: Engineering Кастор
   description: Инженерный шаттл для ремонтных и строительных работ.
   price: 60000
   category: Medium
@@ -16,7 +17,7 @@
 
 - type: gameMap
   id: Castor
-  mapName: Кастор
+  mapName: Engineering Кастор
   mapPath: /Maps/_radiant/Shuttles/Сastor.yml
   minPlayers: 0
   stations:
@@ -24,6 +25,6 @@
       stationProto: CareerEngineeringStation
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Кастор {1}'
+        mapNameTemplate: 'Engineering Кастор {1}'
         nameGenerator: !type:NanotrasenNameGenerator
           prefixCreator: '14'

@@ -16,6 +16,7 @@
   price: 132000 # $109804 0.2 131764.8
   category: Large
   group: Expedition
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Expedition/anchor.yml
   guidebookPage: ShipyardAnchor
   class:

@@ -4,7 +4,7 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/24/2026 07:29:48
+  time: 10/29/2026 17:01:43
   entityCount: 4499
 maps: []
 grids:
@@ -7921,7 +7921,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 11.5,-36.5
-- proto: BlueprintLithograph
+- proto: BlueprintLithographAcorpPersistent
   entities:
   - uid: 484
     components:
@@ -23966,7 +23966,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 6.5,-12.5
-- proto: KitchenDeepFryer
+- proto: KitchenDeepFryerCauldron
   entities:
   - uid: 4057
     components:

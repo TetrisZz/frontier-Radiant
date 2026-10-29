@@ -17,6 +17,7 @@
   price: 15000 # ~13250 0.1 ~14575
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/camper.yml
   guidebookPage: ShipyardCamper
   class:

@@ -16,6 +16,7 @@
   price: 50000
   category: Medium
   group: Expedition
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Expedition/aegis.yml
   guidebookPage: ShipyardAegis
   class:

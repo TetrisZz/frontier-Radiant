@@ -16,6 +16,7 @@
   price: 26000 # 24,602 5% 25,832
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/backpacker.yml
   guidebookPage: ShipyardBackpacker
   class:

@@ -62,6 +62,7 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
 
     private bool Allowed(EntityUid machine, EntityUid actor)
         => this.IsPowered(machine, EntityManager) &&
+           (!TryComp<Content.Server._radiant.Machines.PersistentMachineComponent>(machine, out var storage) || storage.Available) &&
            (!TryComp<AccessReaderComponent>(machine, out var access) || _access.IsAllowed(actor, machine, access));
 
     private void OnRoll(

@@ -11,6 +11,7 @@
 - type: vessel
   id: Vita
   parent: BaseVessel
+  canSave: false
   name: ACORP Вита
   description: Малогабаритный гидропонный шаттл с собственной мини-лабораторией и двумя фитотронами.
   price: 25500

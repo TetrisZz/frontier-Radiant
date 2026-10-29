@@ -6,6 +6,7 @@
   price: 9700
   category: Small
   group: Scrap
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Scrap/tide.yml
   guidebookPage: ShipyardTide
   class:

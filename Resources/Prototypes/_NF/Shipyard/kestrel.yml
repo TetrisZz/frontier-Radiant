@@ -11,11 +11,13 @@
 - type: vessel
   id: Kestrel
   parent: BaseVessel
-  name: NC Kestrel
+  careerProfession: Mining
+  name: Mining Kestrel
   description: Once a local shipping lane freighter, this model has been converted for use in debris field mining and salvage operations.
   price: 47000 # ~44235 x 1.06 = 46889
   category: Small
-  group: Shipyard
+  group: Custom
+  canSave: false
   shuttlePath: /Maps/_NF/Shuttles/kestrel.yml
   guidebookPage: ShipyardKestrel
   class:
@@ -25,20 +27,15 @@
 
 - type: gameMap
   id: Kestrel
-  mapName: 'NC Kestrel'
+  mapName: Mining Kestrel
   mapPath: /Maps/_NF/Shuttles/kestrel.yml
   minPlayers: 0
   stations:
     Kestrel:
-      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      stationProto: CareerMiningStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Kestrel {1}'
+          mapNameTemplate: 'Mining Kestrel {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
-            ContractorInterview: [ 0, 0 ]
-            PilotInterview: [ 0, 0 ]
-            MercenaryInterview: [ 0, 0 ]

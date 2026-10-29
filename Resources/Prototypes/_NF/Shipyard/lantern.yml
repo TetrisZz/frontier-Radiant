@@ -16,6 +16,7 @@
   price: 33000 # $30035 0.1 33039
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/lanternmk2.yml
   guidebookPage: ShipyardLanternMk2
   class:

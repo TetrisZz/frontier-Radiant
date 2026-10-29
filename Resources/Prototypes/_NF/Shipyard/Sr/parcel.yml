@@ -11,6 +11,7 @@
 - type: vessel
   id: Parcel
   parent: BaseVessel
+  canSave: false
   name: NC Parcel
   description: A reliable shuttle for delivering mail and packages.
   price: 17000 # 14732 0.05 15468.6

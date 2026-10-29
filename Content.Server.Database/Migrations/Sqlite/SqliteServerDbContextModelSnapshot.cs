@@ -17,6 +17,16 @@ namespace Content.Server.Database.Migrations.Sqlite
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
+            modelBuilder.Entity("Content.Server.Database.RadiantMachineStorage", b =>
+                {
+                    b.Property<string>("StorageId").HasMaxLength(128).HasColumnType("TEXT").HasColumnName("storage_id");
+                    b.Property<string>("Kind").IsRequired().HasColumnType("TEXT").HasColumnName("kind");
+                    b.Property<string>("Payload").IsRequired().HasColumnType("TEXT").HasColumnName("payload");
+                    b.Property<long>("Revision").HasColumnType("INTEGER").HasColumnName("revision");
+                    b.HasKey("StorageId").HasName("pk_radiant_machine_storage");
+                    b.ToTable("radiant_machine_storage");
+                });
+
             modelBuilder.Entity("Content.Server.Database.TriadShipyardAuditEvent", b =>
                 {
                     b.Property<long>("Id")

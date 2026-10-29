@@ -1,6 +1,7 @@
 - type: vessel
   id: Ravager
   parent: BaseVessel
+  canSave: false
   name: NSF Реведжер
   description: Крейсер-эсминец типа «Реведжер» предназначен для оперативных перехватов судов и длительного патрулирования дальнего космоса.
   price: 74000

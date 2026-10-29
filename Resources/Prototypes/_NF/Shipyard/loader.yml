@@ -16,6 +16,7 @@
   price: 21000 # 19614 0.05 20594
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/loader.yml
   guidebookPage: ShipyardLoader
   class:

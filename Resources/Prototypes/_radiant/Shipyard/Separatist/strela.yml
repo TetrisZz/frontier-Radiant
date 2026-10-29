@@ -1,6 +1,7 @@
 - type: vessel
   id: Strela
   parent: BaseVesselAntag
+  canSave: false
   name: Стрела
   description: Лёгкое разведывательно-боевое судно, предназначенное для скрытного проникновения и быстрых атак
   price: 60000

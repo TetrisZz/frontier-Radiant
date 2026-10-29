@@ -16,6 +16,7 @@
   price: 43000 # 38027 0.15 43731.05 - ~13% markup
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/hammer.yml
   guidebookPage: ShipyardHammer
   class:

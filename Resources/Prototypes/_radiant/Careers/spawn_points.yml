@@ -28,4 +28,4 @@
   name: career fleet shipyard
   components:
   - type: ShipyardListing
-    shuttles: [CareerMiningStarter, CareerMiningUpgrade, CareerMedicalStarter, CareerMedicalUpgrade]
+    shuttles: [Kestrel, Bulker, Barge, Hauler, Gornyak, CareerMedicalStarter, Stasis, Eagle, Vitalis, Salomandra, Caladrius]

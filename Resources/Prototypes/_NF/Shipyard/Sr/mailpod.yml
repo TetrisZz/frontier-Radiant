@@ -11,6 +11,7 @@
 - type: vessel
   id: MailPod
   parent: BaseVessel
+  canSave: false
   name: NC Mail Pod
   description: A cramped yet reliable shuttle for delivering packages.
   price: 12750 # 10826 0.05 11367.3

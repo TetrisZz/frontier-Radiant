@@ -23,12 +23,14 @@ public sealed class CareerSystem : EntitySystem
         SubscribeNetworkEvent<CareerStateEvent>(OnState);
         SubscribeLocalEvent<CharacterInfoSystem.GetCharacterInfoControlsEvent>(OnCharacterControls);
         _prefs.OnServerDataLoaded += OnPreferencesLoaded;
+        _prefs.OnSelectedCharacterChanged += OnPreferencesLoaded;
     }
 
     public override void Shutdown()
     {
         CloseWindow();
         _prefs.OnServerDataLoaded -= OnPreferencesLoaded;
+        _prefs.OnSelectedCharacterChanged -= OnPreferencesLoaded;
         base.Shutdown();
     }
 

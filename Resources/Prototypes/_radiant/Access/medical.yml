@@ -2,9 +2,14 @@
   id: MedicalPhoenix
   name: id-card-access-level-medical_phoenix
 
+- type: accessLevel
+  id: MedicalPhoenixAgent
+  name: id-card-access-level-medical-phoenix-agent
+
 - type: accessGroup
   id: MedicalPhoenixAgent
   tags:
+  - MedicalPhoenixAgent
   - Maintenance
   - External
   - Brig

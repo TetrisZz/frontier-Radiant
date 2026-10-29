@@ -11,11 +11,13 @@
 - type: vessel
   id: Gasbender
   parent: BaseVessel
-  name: LVHI Gasbender
+  careerProfession: Engineering
+  name: Engineering Gasbender
   description: The Gasbender is a medium-sized engineering vessel outfitted for deep space construction projects. Features atmospherics setup with mixing/ignition chamber. Designed to work in pair with smaller salvage ship. Manufactured by Langstad-Voigt Heavy Industries.
   price: 83000 # ~74935 0.1 82428.5
   category: Medium
-  group: Shipyard
+  group: Custom
+  canSave: false
   shuttlePath: /Maps/_NF/Shuttles/gasbender.yml
   guidebookPage: ShipyardGasbender
   class:
@@ -25,20 +27,15 @@
 
 - type: gameMap
   id: Gasbender
-  mapName: 'Gasbender'
+  mapName: Engineering Gasbender
   mapPath: /Maps/_NF/Shuttles/gasbender.yml
   minPlayers: 0
   stations:
     Gasbender:
-      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      stationProto: CareerEngineeringStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Gasbender {1}'
+          mapNameTemplate: 'Engineering Gasbender {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
-            ContractorInterview: [ 0, 0 ]
-            PilotInterview: [ 0, 0 ]
-            MercenaryInterview: [ 0, 0 ]

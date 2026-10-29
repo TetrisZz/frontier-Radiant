@@ -11,6 +11,7 @@
 - type: vessel
   id: Entropia
   parent: BaseVessel
+  canSave: false
   name: ACORP Энтропия
   description: Небольшое утилизационное судно.
   price: 31000

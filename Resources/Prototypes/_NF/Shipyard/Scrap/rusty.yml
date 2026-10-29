@@ -10,6 +10,7 @@
   price: 9000 # 8321 x 1.05 = 8876
   category: Micro
   group: Scrap
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Scrap/rusty.yml
   guidebookPage: ShipyardRusty
   class:

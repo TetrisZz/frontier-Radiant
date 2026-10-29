@@ -16,6 +16,7 @@
   price: 300000 # 260,000 + 15%
   category: Large
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/crescent.yml
   guidebookPage: Null
   class:

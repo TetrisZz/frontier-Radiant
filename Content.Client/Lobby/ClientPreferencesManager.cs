@@ -22,6 +22,7 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public event Action? OnServerDataLoaded;
+        public event Action? OnSelectedCharacterChanged;
         public event Action<int, DossierRecord>? OnDossierReceived;
 
         public GameSettings Settings { get; private set; } = default!;
@@ -75,6 +76,7 @@ namespace Content.Client.Lobby
                 SelectedCharacterIndex = slot
             };
             _netManager.ClientSendMessage(msg);
+            OnSelectedCharacterChanged?.Invoke();
         }
 
         public void UpdateCharacter(ICharacterProfile profile, int slot, bool replaceCharacter = false)
@@ -91,6 +93,7 @@ namespace Content.Client.Lobby
                 ReplaceCharacter = replaceCharacter
             };
             _netManager.ClientSendMessage(msg);
+            OnSelectedCharacterChanged?.Invoke();
         }
 
         public void CreateCharacter(ICharacterProfile profile)

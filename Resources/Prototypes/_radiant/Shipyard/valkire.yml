@@ -16,6 +16,7 @@
   price: 83200
   category: Large
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_radiant/Shuttles/valkire.yml
   guidebookPage: Null
   class:

@@ -1,11 +1,13 @@
 - type: vessel
   id: Hephaestus
   parent: BaseVessel
-  name: UUS Гефест
+  careerProfession: Engineering
+  name: Engineering Гефест
   description: Судно, созданное для добычи и транспортировки газов в глубоком космосе.
   price: 82500
   category: Medium
-  group: Shipyard
+  group: Custom
+  canSave: false
   shuttlePath: /Maps/_radiant/Shuttles/Hephaestus.yml
   guidebookPage: Null
   class:
@@ -15,20 +17,15 @@
 
 - type: gameMap
   id: Hephaestus
-  mapName: 'UUS Гефест'
+  mapName: Engineering Гефест
   mapPath: /Maps/_radiant/Shuttles/Hephaestus.yml
   minPlayers: 0
   stations:
     Hephaestus:
-      stationProto: StandardFrontierExpeditionVessel
+      stationProto: CareerEngineeringStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Гефест {1}'
+          mapNameTemplate: 'Engineering Гефест {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
-            ContractorInterview: [ 0, 0 ]
-            PilotInterview: [ 0, 0 ]
-            MercenaryInterview: [ 0, 0 ]

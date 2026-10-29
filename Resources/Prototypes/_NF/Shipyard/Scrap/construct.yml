@@ -6,6 +6,7 @@
   price: 10500
   category: Micro
   group: Scrap
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Scrap/construct.yml
   guidebookPage: ShipyardConstruct
   class:

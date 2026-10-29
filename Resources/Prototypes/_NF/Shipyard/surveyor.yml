@@ -16,6 +16,7 @@
   price: 21000 # 19899 x 1.05 = 20894
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/surveyor.yml
   guidebookPage: ShipyardSurveyor
   class:

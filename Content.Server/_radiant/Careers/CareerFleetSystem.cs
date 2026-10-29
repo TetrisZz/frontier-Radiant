@@ -2,11 +2,13 @@ using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.Power.Components;
 using Content.Server.Station.Components;
+using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Components;
 using Content.Shared._NF.Roles.Components;
 using Content.Shared._NF.Shipyard.Components;
 using Content.Shared._NF.Shipyard.Prototypes;
+using Content.Shared._radiant.Careers;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Station.Components;
@@ -45,6 +47,25 @@ public sealed class CareerFleetSystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawn);
         SubscribeLocalEvent<ShipyardConsoleComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<ShipyardConsoleComponent, ActivatableUIOpenAttemptEvent>(OnShipyardOpen);
+        SubscribeLocalEvent<CareerFleetComponent, StationPostInitEvent>(OnFleetInitialized);
+        SubscribeLocalEvent<CareerFleetComponent, StationGridAddedEvent>((uid, comp, args) => ApplyRadarAppearance(args.GridId, comp.Profession));
+    }
+
+    private void OnFleetInitialized(Entity<CareerFleetComponent> ent, ref StationPostInitEvent args)
+    {
+        foreach (var grid in args.Station.Comp.Grids)
+            ApplyRadarAppearance(grid, ent.Comp.Profession);
+    }
+
+    private void ApplyRadarAppearance(EntityUid grid, string profession)
+    {
+        if (!_prototypes.TryIndex<CareerProfessionPrototype>(profession, out var definition) || definition.RadarColor == null)
+            return;
+        var radar = EnsureComp<CareerRadarComponent>(grid);
+        if (radar.Profession.Id == profession)
+            return;
+        radar.Profession = profession;
+        Dirty(grid, radar);
     }
 
     public bool CanUseShipyard(ICommonSession session, EntityUid console, out string? reason, bool forPurchase = true)
@@ -293,6 +314,7 @@ public sealed class CareerFleetSystem : EntitySystem
         fleet.UnpoweredSince = null;
         fleet.SpawnEnabled = true;
         EnsureComp<CareerFleetGridComponent>(grid).Vessel = vessel.ID;
+        ApplyRadarAppearance(grid, vessel.CareerProfession);
         RemComp<ShipOwnershipComponent>(grid);
 
         if (previous != null)

@@ -13,6 +13,7 @@
   price: 63000 # 57217 0.1 62938.7
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/mccargo.yml
   guidebookPage: ShipyardMcCargo
   class:

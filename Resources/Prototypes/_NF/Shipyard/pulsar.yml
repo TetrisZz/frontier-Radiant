@@ -16,6 +16,7 @@
   price: 47500 # 42014 0.1 46215.4
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/pulsar.yml
   guidebookPage: ShipyardPulsar
   class:

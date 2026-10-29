@@ -6,6 +6,7 @@
 
 - type: careerProfession
   id: Mining
+  radarColor: "#D597FF"
   name: career-profession-mining
   description: career-profession-mining-description
   icon: MiningDrill

@@ -7,11 +7,13 @@
 - type: vessel
   id: Eagle
   parent: BaseVessel
-  name: NM Eagle
+  canSave: false
+  careerProfession: Medical
+  name: Medical Eagle
   description: "A medium-sized engineering and medical vessel. Focused on responding to shuttle distress, the Eagle comes equipped to restore most crew and shuttles to good health."
   price: 72500 # 60603 0.2 72723
   category: Medium
-  group: Medical
+  group: Custom
   shuttlePath: /Maps/_NF/Shuttles/eagle.yml
   guidebookPage: ShipyardEagle
   class:
@@ -22,20 +24,15 @@
 
 - type: gameMap
   id: Eagle
-  mapName: 'NM Eagle'
+  mapName: Medical Eagle
   mapPath: /Maps/_NF/Shuttles/eagle.yml
   minPlayers: 0
   stations:
     Eagle:
-      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      stationProto: CareerMedicalStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Eagle {1}'
+          mapNameTemplate: 'Medical Eagle {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
-            ContractorInterview: [ 0, 0 ]
-            PilotInterview: [ 0, 0 ]
-            MercenaryInterview: [ 0, 0 ]

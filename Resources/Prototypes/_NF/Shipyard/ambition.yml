@@ -11,11 +11,13 @@
 - type: vessel
   id: Ambition
   parent: BaseVessel
-  name: UAC Ambition
+  careerProfession: Engineering
+  name: Engineering Ambition
   description: Declassified gas production and distribution platform seized in a hostile takeover of an Atmosian conglomerate. For the ultimate insurgent.
   price: 190000 # 145890 1.3 189657
   category: Large
-  group: Shipyard
+  group: Custom
+  canSave: false
   shuttlePath: /Maps/_NF/Shuttles/ambition.yml
   guidebookPage: ShipyardAmbition
   class:
@@ -25,20 +27,15 @@
 
 - type: gameMap
   id: Ambition
-  mapName: 'UAC Ambition'
+  mapName: Engineering Ambition
   mapPath: /Maps/_NF/Shuttles/ambition.yml
   minPlayers: 0
   stations:
     Ambition:
-      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      stationProto: CareerEngineeringStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Ambition {1}'
+          mapNameTemplate: 'Engineering Ambition {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
-            ContractorInterview: [ 0, 0 ]
-            PilotInterview: [ 0, 0 ]
-            MercenaryInterview: [ 0, 0 ]

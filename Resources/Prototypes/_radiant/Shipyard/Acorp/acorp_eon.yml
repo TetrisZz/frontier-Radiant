@@ -11,6 +11,7 @@
 - type: vessel
   id: Eon
   parent: BaseVessel
+  canSave: false
   name: ACORP Эон
   description: Крупногабаритный экспедиционный шаттл, снабженный для долгих самодостаточных путешествий по космосу.
   price: 75000

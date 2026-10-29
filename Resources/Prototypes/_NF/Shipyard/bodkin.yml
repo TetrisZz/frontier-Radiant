@@ -16,6 +16,7 @@
   price: 42000 #36657 0.15 42155.6
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/bodkin.yml
   guidebookPage: ShipyardBodkin
   class:

@@ -1,6 +1,7 @@
 - type: vessel
   id: Normandy
   parent: BaseVesselNavy
+  canSave: false
   name: COF Нормандия
   description: Крейсер со средним вооружением.
   price: 74500

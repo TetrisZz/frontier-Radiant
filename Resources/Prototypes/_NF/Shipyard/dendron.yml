@@ -12,6 +12,7 @@
   price: 58000 #50805 * 1.15 = 58425.75
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/dendron.yml
   guidebookPage: ShipyardDendron
   class:

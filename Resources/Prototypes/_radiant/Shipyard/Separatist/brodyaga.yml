@@ -1,6 +1,7 @@
 - type: vessel
   id: Brodyaga
   parent: BaseVesselAntag
+  canSave: false
   name: Бродяга
   description: Судно ранее бывшее круизным кораблем, имеет хорошую обзорную площадку, а теперь это модернизированный корвет работорговцев.
   price: 60000

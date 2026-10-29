@@ -4,7 +4,7 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/23/2026 19:23:54
+  time: 10/29/2026 17:03:03
   entityCount: 5663
 maps: []
 grids:
@@ -12373,7 +12373,7 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 6.5,-43.5
-- proto: BlueprintLithograph
+- proto: BlueprintLithographAcorpPersistent
   entities:
   - uid: 910
     components:
@@ -18071,7 +18071,7 @@ entities:
     - type: ItemPlacer
       placedEntities:
       - 2662
-      lastPlaceable: True
+      lastPlaceable: False
     - type: PlaceableSurface
       isPlaceable: False
 - proto: ChemMaster

@@ -16,6 +16,7 @@
   price: 62000 # 56428 10%= 5642.8
   category: Large
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/stronghold.yml
   guidebookPage: ShipyardStronghold
   class:

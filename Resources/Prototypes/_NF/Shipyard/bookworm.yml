@@ -16,6 +16,7 @@
   price: 32500 # 30840 x 1.05 = 32382
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/bookworm.yml
   guidebookPage: ShipyardBookworm
   class:

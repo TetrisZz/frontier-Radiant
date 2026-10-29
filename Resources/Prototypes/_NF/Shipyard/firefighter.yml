@@ -12,6 +12,7 @@
   price: 44000 #39885~, 1.12 44671
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/firefighter.yml
   guidebookPage: ShipyardFirefighter
   class:

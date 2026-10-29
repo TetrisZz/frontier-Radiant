@@ -49,6 +49,8 @@ namespace Content.Server.Database
         /// <summary>Updates only career data. Missing slots and mismatched character IDs are ignored.</summary>
         /// <exception cref="DbUpdateConcurrencyException">The career changed during the update.</exception>
         Task SaveCharacterCareerAsync(NetUserId userId, int slot, Guid characterId, CareerData career);
+        Task<RadiantMachineStorage?> GetMachineStorageAsync(string storageId);
+        Task SaveMachineStorageAsync(string storageId, string kind, string payload);
 
         Task<string?> GetCharacterDossierAsync(NetUserId userId, int slot);
         Task SaveCharacterDossierAsync(NetUserId userId, int slot, string dossierJson);
@@ -544,6 +546,18 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             var snapshot = career.Clone();
             return RunDbCommand(() => _db.SaveCharacterCareerAsync(userId, slot, characterId, snapshot));
+        }
+
+        public Task<RadiantMachineStorage?> GetMachineStorageAsync(string storageId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetMachineStorageAsync(storageId));
+        }
+
+        public Task SaveMachineStorageAsync(string storageId, string kind, string payload)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveMachineStorageAsync(storageId, kind, payload));
         }
 
         public Task<Dictionary<NetUserId, (string DiscordId, string RoleId)>> GetSupporterLinksAsync()

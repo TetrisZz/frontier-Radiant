@@ -10,6 +10,7 @@
   price: 8000
   category: Micro
   group: Scrap
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Scrap/canister.yml
   guidebookPage: Null
   class:

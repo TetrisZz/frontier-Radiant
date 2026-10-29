@@ -16,6 +16,7 @@
   price: 17500 # 16255 0.05 17067
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/pts.yml
   guidebookPage: Null
   class:
