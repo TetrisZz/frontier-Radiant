@@ -14,10 +14,16 @@ ent-CrateTradeContrabandSecureCyberSun = ящик контрабанды Cybersu
     .desc = { ent-CrateTradeBaseSecure.desc }
 ent-CrateNfsdBrigmedic = ящик коронера
     .desc = { ent-CrateSecgear.desc }
+    .suffix = Защищённый
+
 ent-CrateNfsdSecure1 = ящик ОСК
     .desc = { ent-CrateSecgear.desc }
+    .suffix = Защищённый
+
 ent-CrateNfsdSecure2 = ящик ОСК
     .desc = { ent-CrateSecgear.desc }
+    .suffix = Защищённый
+
 ent-CratePirateGrey = пиратский ящик
     .desc = Пиратский сундук, не для стационарных крыс.
 ent-CratePirateBounty = сундук пиратской добычи

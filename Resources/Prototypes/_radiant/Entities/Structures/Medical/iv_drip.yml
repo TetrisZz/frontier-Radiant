@@ -8,6 +8,30 @@
     sprite: _radiant/Structures/Medical/iv_drip.rsi
     state: iv_drip
     noRot: true
+    layers:
+    - state: iv_drip
+      map: ["enum.IVDripVisuals.Stand"]
+    - state: reagent0
+      map: ["enum.IVDripVisuals.Liquid"]
+      visible: false
+  - type: IVDrip
+    transferAmount: 5
+    transferAmounts: [1, 5, 10, 15]
+    transferInterval: 3
+  - type: ItemSlots
+    slots:
+      iv_bag:
+        name: radiant-iv-bag-slot
+        insertOnInteract: true
+        ejectOnInteract: true
+        whitelist:
+          components: [IVBag]
+  - type: ContainerContainer
+    containers:
+      iv_bag: !type:ContainerSlot {}
+  - type: Construction
+    graph: RadiantIVDrip
+    node: stand
   - type: InteractionOutline
   - type: Fixtures
     fixtures:
@@ -27,5 +51,16 @@
   name: telescopic IV drip stand
   description: A compact stand for intravenous infusions.
   components:
+  - type: IVDrip
+    telescopic: true
   - type: Sprite
     state: iv_drip_tele
+    layers:
+    - state: iv_drip_tele
+      map: ["enum.IVDripVisuals.Stand"]
+    - state: reagent0
+      map: ["enum.IVDripVisuals.Liquid"]
+      visible: false
+  - type: Construction
+    graph: RadiantIVDripTelescopic
+    node: stand

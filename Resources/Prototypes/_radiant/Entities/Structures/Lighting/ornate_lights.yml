@@ -49,8 +49,8 @@
   - type: PoweredLightVisuals
   - type: PointLight
     enabled: true
-    radius: 6
-    energy: 1
+    radius: 15
+    energy: 2
     softness: 1.1
     color: "#FFD1A3"
     offset: 0, 0 # Keep the light on its tile; Sprite.offset only raises the artwork.

@@ -132,7 +132,12 @@ public sealed partial class SafetyDepositConsoleWindow : FancyWindow
                 string statusText;
                 Color statusColor;
 
-                if (box.IsDeposited)
+                if (box.Busy)
+                {
+                    statusText = Loc.GetString("safety-deposit-console-box-processing");
+                    statusColor = Color.Yellow;
+                }
+                else if (box.IsDeposited)
                 {
                     statusText = Loc.GetString("safety-deposit-console-box-deposited");
                     statusColor = Color.LightGreen;
@@ -172,7 +177,7 @@ public sealed partial class SafetyDepositConsoleWindow : FancyWindow
                     Text = isLost
                         ? Loc.GetString("safety-deposit-console-reclaim-button")
                         : Loc.GetString("safety-deposit-console-withdraw-button"),
-                    Disabled = !box.IsDeposited && !isLost,
+                    Disabled = box.Busy || !box.IsDeposited && !isLost,
                     MinWidth = 100,
                     HorizontalAlignment = Control.HAlignment.Right,
                     VerticalAlignment = Control.VAlignment.Center

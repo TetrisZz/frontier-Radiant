@@ -158,6 +158,7 @@ public sealed class CareerSystem : EntitySystem
             career.Level++;
             career.PendingRewards.Add(career.Level);
             career.Progress.Clear();
+            career.PatientHealing.Clear();
             RaiseLocalEvent(new CareerStageChangedEvent(player));
         }
         Save(player);
@@ -258,7 +259,15 @@ public sealed class CareerSystem : EntitySystem
         _changing.Add(sender.UserId);
         try
         {
-            profile.Career = new CareerData { CharacterId = profile.Career.CharacterId, Profession = profession.ID };
+            // The service storage belongs to the character, independently of their current profession.
+            profile.Career = new CareerData
+            {
+                CharacterId = profile.Career.CharacterId,
+                Profession = profession.ID,
+                StarterBoxGranted = profile.Career.StarterBoxGranted,
+                BoxTier = profile.Career.BoxTier,
+                BoxId = profile.Career.BoxId,
+            };
             // Finish the career write before reloading preferences; otherwise the old career
             // can win the DB read and overwrite the new selection on the client.
             await QueueSave(sender.UserId, slot, profile.Career);

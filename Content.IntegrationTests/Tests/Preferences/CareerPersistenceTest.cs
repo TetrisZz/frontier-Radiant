@@ -19,12 +19,15 @@ public sealed class CareerPersistenceTest
         {
             CharacterId = Guid.NewGuid(), Profession = "Mining", Level = 1,
             Progress = new() { ["duty"] = 42 }, PendingRewards = new() { 1 }, BoxId = Guid.NewGuid(),
+            PatientHealing = new() { ["patient"] = 200 },
         };
         var copy = original.Clone();
         copy.Progress["duty"] = 100;
         copy.PendingRewards.Clear();
+        copy.PatientHealing.Clear();
         Assert.That(original.Progress["duty"], Is.EqualTo(42));
         Assert.That(original.PendingRewards, Has.Count.EqualTo(1));
+        Assert.That(original.PatientHealing["patient"], Is.EqualTo(200));
         Assert.That(copy.CharacterId, Is.EqualTo(original.CharacterId));
         Assert.That(copy.BoxId, Is.EqualTo(original.BoxId));
     }
@@ -32,7 +35,7 @@ public sealed class CareerPersistenceTest
     [Test]
     public async Task CareerWritesPreserveAppearanceBankAndReplacementIdentity()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
         using var connection = new SqliteConnection("Data Source=:memory:");
         connection.Open();
         var options = new DbContextOptionsBuilder<SqliteServerDbContext>().UseSqlite(connection).Options;
@@ -54,6 +57,7 @@ public sealed class CareerPersistenceTest
                 CharacterId = id, Profession = "Mining", Level = 2,
                 Progress = new() { ["wildlife"] = 95 }, PendingRewards = new() { 1, 2 },
                 StarterBoxGranted = true, BoxTier = 2, BoxId = Guid.NewGuid(),
+                PatientHealing = new() { ["patient"] = 200 },
             };
             await db.SaveCharacterCareerAsync(user, 0, id, progress);
             await db.SaveCharacterSlotAsync(user, staleEditor.WithName("Career Renamed").WithBankBalance(777), 0);
@@ -63,6 +67,7 @@ public sealed class CareerPersistenceTest
             Assert.That(loaded.Career.Profession, Is.EqualTo("Mining"));
             Assert.That(loaded.Career.Progress["wildlife"], Is.EqualTo(95));
             Assert.That(loaded.Career.BoxId, Is.EqualTo(progress.BoxId));
+            Assert.That(loaded.Career.PatientHealing["patient"], Is.EqualTo(200));
             await db.SaveCharacterCareerAsync(user, 0, id, progress);
             loaded = (HumanoidCharacterProfile) (await db.GetPlayerPreferencesAsync(user))!.Characters[0];
             Assert.That(loaded.BankBalance, Is.EqualTo(777), "Career-only writes cannot restore stale money");

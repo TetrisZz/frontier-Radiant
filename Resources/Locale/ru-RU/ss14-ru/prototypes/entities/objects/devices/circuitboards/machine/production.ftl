@@ -24,6 +24,8 @@ ent-ResearchAndDevelopmentServerMachineCircuitboard = сервер РнД (ма�
     .desc = Машинная плата для сервера РнД.
 ent-BiogeneratorMachineCircuitboard = биогенератор (машинная плата)
     .desc = Машинная плата для биогенератора.
+    .suffix = Машинная плата
+
 ent-UniformPrinterMachineCircuitboard = принтер униформы (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-VaccinatorMachineCircuitboard = вакцинатор (машинная плата)

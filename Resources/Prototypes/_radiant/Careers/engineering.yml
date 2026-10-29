@@ -5,6 +5,7 @@
   icon: RCD
   jobs: [StationEngineer]
   interviewJob: StationEngineerInterview
+  exclusiveShipyard: ComputerShipyardCareerEngineering
   requiredSkill: Engineering
   requiredSkillLevel: 1
   levels: [EngineeringLevel1, EngineeringLevel2, EngineeringLevel3]
@@ -35,7 +36,7 @@
     target: 100
     prototypes: [SheetPlastic]
   rewardItems: [ClothingEyesGlassesMeson]
-  rewardMoney: 10000
+  rewardMoney: 5000
   boxTier: 1
 
 - type: careerLevel
@@ -56,7 +57,7 @@
     target: 2
     prototypes: [Gyroscope]
   rewardItems: [ShipyardRCD, CareerEngineeringRCDAmmoBlueprint]
-  rewardMoney: 20000
+  rewardMoney: 10000
   boxTier: 2
 
 - type: careerLevel
@@ -97,5 +98,5 @@
     target: 1
     prototypes: [BaseSMES]
   rewardItems: [RPED]
-  rewardMoney: 30000
+  rewardMoney: 15000
   boxTier: 3

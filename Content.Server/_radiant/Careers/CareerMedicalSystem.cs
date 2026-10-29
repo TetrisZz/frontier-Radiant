@@ -3,6 +3,7 @@ using Content.Shared._radiant.Careers;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
 
@@ -126,14 +127,9 @@ public sealed class CareerMedicalSystem : EntitySystem
             || !TryComp<CareerMedicationCreditComponent>(args.Patient, out var credit)
             || !credit.Reagents.TryGetValue(args.Reagent, out var source) || !Current(source))
             return;
-        var level = _careers.GetLevel(source.User);
         var healed = args.Healed.DamageDict.Where(pair => pair.Value < 0).ToArray();
-        RecordTask(source.User, CareerObjectiveType.Healing, amount: -healed.Sum(pair => pair.Value.Double()));
-        // A healing tick must not carry credit into a newly unlocked stage.
-        if (_careers.GetLevel(source.User) != level)
-            return;
-        foreach (var (type, amount) in healed)
-            RecordTask(source.User, CareerObjectiveType.ChemicalHealing, type, -amount.Double());
+        CreditPatientHealing(source.User, args.Patient, -healed.Sum(pair => pair.Value.Double()),
+            healed.Select(pair => (pair.Key, -pair.Value.Double())).ToArray());
     }
 
     public void RecordHealing(EntityUid uid, DamageChangedEvent args)
@@ -143,6 +139,40 @@ public sealed class CareerMedicalSystem : EntitySystem
             return;
         var healed = -args.DamageDelta.DamageDict.Values.Where(value => value < 0).Sum(value => value.Double());
         if (healed > 0)
-            RecordTask(user, CareerObjectiveType.Healing, amount: healed);
+            CreditPatientHealing(user, uid, healed);
+    }
+
+    private void CreditPatientHealing(EntityUid user, EntityUid patient, double amount,
+        (string Type, double Amount)[]? chemical = null)
+    {
+        if (!IsDoctor(user) || user == patient || !double.IsFinite(amount) || amount <= 0)
+            return;
+        // Player identity survives a new body or reconnect; DNA identifies other organic patients.
+        var patientKey = TryComp<CareerActorComponent>(patient, out var patientActor)
+            ? $"character:{patientActor.CharacterId}"
+            : TryComp<DnaComponent>(patient, out var dna) && !string.IsNullOrEmpty(dna.DNA)
+                ? $"dna:{dna.DNA}" : $"entity:{patient}";
+        foreach (var participant in _careers.GetProgressParticipants(user).Distinct().ToArray())
+        {
+            if (!_careers.TryGetCareer(participant, out var career))
+                continue;
+            var credited = career.PatientHealing.GetValueOrDefault(patientKey);
+            var accepted = Math.Min(amount, Math.Max(0, 200 - credited));
+            if (accepted <= 0)
+                continue;
+            career.PatientHealing[patientKey] = credited + accepted;
+            var level = career.Level;
+            _careers.RecordActivity(participant, CareerObjectiveType.Healing, accepted, [], []);
+            // Completion resets the per-stage ledger; the same tick cannot count for the next stage.
+            if (career.Level == level && chemical != null)
+                foreach (var (type, healed) in chemical)
+                {
+                    if (career.Level != level)
+                        break;
+                    _careers.RecordActivity(participant, CareerObjectiveType.ChemicalHealing,
+                        healed * accepted / amount, [], [], qualifier: type);
+                }
+            _careers.Save(participant);
+        }
     }
 }

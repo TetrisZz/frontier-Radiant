@@ -72,8 +72,9 @@ ent-NFPosterContrabandFscLogo = Лого ФСК
     .desc = Far Star Commerce: без венчурного капитала не бывает приключений.
 ent-NFPosterContrabandFscSurveyor = Surveyor от ФСК
     .desc = Surveyor ФСК — лучший выбор, когда вариантов больше нет.
-ent-NFPosterContrabandFscCourier = Courier от ФСК
+ent-NFPosterContrabandFscCourier = «Курьер» ФСК
     .desc = Courier ФСК — доставляем звёзды.
+
 ent-NFPosterContrabandFsbDruid = Druid от ФСБ
     .desc = Druid ФСБ — выращиваем миры по яйцу за раз.
 ent-NFPosterContrabandGas = Группа атмосферных проказ

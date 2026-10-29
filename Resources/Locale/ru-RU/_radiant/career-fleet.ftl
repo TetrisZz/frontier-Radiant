@@ -2,6 +2,8 @@ ent-ComputerShipyardCareerMining = консоль верфи шахтёрско�
     .desc = Терминал выдачи и замены служебных кораблей для шахтёрских экипажей из трёх человек.
 
 career-fleet-profession-required = Выбранная профессия не даёт доступа к этому кораблю или должности.
+career-fleet-shipyard-restricted = Эта верфь доступна только персонажам с профессией «{ $profession }».
+career-fleet-use-exclusive-shipyard = Для покупки кораблей пользуйтесь отдельной верфью своей профессии.
 career-fleet-level-required = Для покупки нужна соответствующая профессия с уровнем карьеры не ниже { $level }.
 career-fleet-limit = Достигнут лимит служебных экипажей вашей профессии: { $active } из { $limit }.
 career-fleet-unavailable = Этот служебный корабль или место в экипаже сейчас недоступны.

@@ -14,6 +14,8 @@ public sealed partial class CareerProfessionPrototype : IPrototype
     [DataField] public EntProtoId? Icon;
     [DataField] public List<string> Jobs = new();
     [DataField] public ProtoId<JobPrototype>? InterviewJob;
+    /// <summary>Only this profession may use this shipyard, and its members may only buy ships there.</summary>
+    [DataField] public EntProtoId? ExclusiveShipyard;
     [DataField] public ProfessionalSkill? RequiredSkill;
     [DataField] public int RequiredSkillLevel;
     [DataField] public List<ProtoId<CareerLevelPrototype>> Levels = new();

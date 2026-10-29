@@ -10,6 +10,8 @@ using Content.Shared._NF.Shipyard.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Station.Components;
+using Content.Shared.UserInterface;
+using Content.Shared.Popups;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
@@ -25,6 +27,7 @@ public sealed class CareerFleetSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StationSystem _stations = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private static readonly TimeSpan Grace = TimeSpan.FromMinutes(5);
     private CareerSystem Careers => EntityManager.System<CareerSystem>();
@@ -41,6 +44,40 @@ public sealed class CareerFleetSystem : EntitySystem
     {
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawn);
         SubscribeLocalEvent<ShipyardConsoleComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<ShipyardConsoleComponent, ActivatableUIOpenAttemptEvent>(OnShipyardOpen);
+    }
+
+    public bool CanUseShipyard(ICommonSession session, EntityUid console, out string? reason, bool forPurchase = true)
+    {
+        reason = null;
+        var profession = Careers.GetProfession(session);
+        var consoleId = MetaData(console).EntityPrototype?.ID;
+        foreach (var definition in _prototypes.EnumeratePrototypes<Content.Shared._radiant.Careers.CareerProfessionPrototype>())
+        {
+            if (definition.ExclusiveShipyard is not { } shipyard)
+                continue;
+            if (consoleId == shipyard.Id && profession != definition.ID)
+            {
+                reason = Loc.GetString("career-fleet-shipyard-restricted", ("profession", Loc.GetString(definition.Name)));
+                return false;
+            }
+            if (forPurchase && profession == definition.ID && consoleId != shipyard.Id)
+            {
+                reason = Loc.GetString("career-fleet-use-exclusive-shipyard");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void OnShipyardOpen(EntityUid uid, ShipyardConsoleComponent component, ActivatableUIOpenAttemptEvent args)
+    {
+        string? reason = null;
+        if (_players.TryGetSessionByEntity(args.User, out var session) && CanUseShipyard(session, uid, out reason, forPurchase: false))
+            return;
+        args.Cancel();
+        if (reason != null)
+            _popup.PopupEntity(reason, uid, args.User);
     }
 
     private bool Online(NetUserId user) => _players.TryGetSessionById(user, out var session)

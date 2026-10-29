@@ -103,7 +103,7 @@ ent-NFMobSpawnScrapbotLaser = спавнер робота-мусорщика
     .desc = { "" }
     .suffix = Фронтир, Лазерный
 
-ent-NFChromiteRoomMarker = маркер сверхплотного хромита
+ent-NFChromiteRoomMarker = маркер сверхплотной породы: хромит
     .desc = { "" }
 
 ent-GasMinerOil = газодобытчик нефти
@@ -889,4 +889,3 @@ ent-NFBulletFoam = { ent-BulletFoam }
 
 ent-NFSpeedLoaderCap = { ent-SpeedLoaderCap }
     .desc = { ent-SpeedLoaderCap.desc }
-

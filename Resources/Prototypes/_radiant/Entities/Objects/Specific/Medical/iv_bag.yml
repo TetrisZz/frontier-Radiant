@@ -1,0 +1,64 @@
+- type: entity
+  id: RadiantIVBag
+  parent: BaseItem
+  name: IV fluid bag
+  description: A refillable sterile bag for an IV drip stand.
+  suffix: Empty
+  components:
+  - type: IVBag
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi
+    layers:
+    - state: bloodpack-empty
+    - state: bloodpack-liquid-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Small
+    sprite: Objects/Specific/Medical/medical.rsi
+    heldPrefix: bloodpack
+  - type: SolutionContainerManager
+    solutions:
+      iv_bag:
+        maxVol: 200
+  - type: MixableSolution
+    solution: iv_bag
+  - type: RefillableSolution
+    solution: iv_bag
+  - type: DrainableSolution
+    solution: iv_bag
+  - type: DrawableSolution
+    solution: iv_bag
+  - type: InjectableSolution
+    solution: iv_bag
+  - type: ExaminableSolution
+    solution: iv_bag
+    exactVolume: true
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: iv_bag
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: bloodpack-liquid-
+    solutionName: iv_bag
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  id: RadiantIVBagBlood
+  parent: RadiantIVBag
+  suffix: Blood, Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      iv_bag:
+        maxVol: 200
+        reagents:
+        - ReagentId: Blood
+          Quantity: 200

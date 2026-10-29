@@ -1,17 +1,24 @@
-ent-AtmosFixBlockerMarker = Atmos Fix Vacuum Marker
-    .desc = Vacuum, T20C
-ent-AtmosFixOxygenMarker = Atmos Fix Oxygen Marker
-    .desc = Oxygen @ gas miner pressure, T20C
-ent-AtmosFixNitrogenMarker = Atmos Fix Nitrogen Marker
-    .desc = Nitrogen @ gas miner pressure, T20C
-ent-AtmosFixPlasmaMarker = Atmos Fix Plasma Marker
-    .desc = Plasma @ gas miner pressure, T20C
-ent-AtmosFixInstantPlasmaFireMarker = Atmos Fix Instant Plasmafire Marker
-    .desc = INSTANT PLASMAFIRE
-ent-AtmosFixFreezerMarker = Atmos Fix Freezer Marker
-    .desc = Change air temp to 235K, for freezer with a big of wiggle room to get set up.
+ent-AtmosFixBlockerMarker = маркер атмосферы: вакуум
+    .desc = Вакуум, температура 20 °C.
+
+ent-AtmosFixOxygenMarker = маркер атмосферы: кислород
+    .desc = Кислород при давлении газодобытчика, температура 20 °C.
+
+ent-AtmosFixNitrogenMarker = маркер атмосферы: азот
+    .desc = Азот при давлении газодобытчика, температура 20 °C.
+
+ent-AtmosFixPlasmaMarker = маркер атмосферы: плазма
+    .desc = Плазма при давлении газодобытчика, температура 20 °C.
+
+ent-AtmosFixInstantPlasmaFireMarker = маркер атмосферы: плазменный пожар
+    .desc = Мгновенно создаёт плазменный пожар.
+
+ent-AtmosFixFreezerMarker = маркер атмосферы: морозильник
+    .desc = Устанавливает температуру воздуха 235 К с запасом для настройки морозильной камеры.
+
 ent-AtmosFixVoxMarker = { ent-AtmosFixNitrogenMarker }
-    .desc = Nitrogen @ 101 kPa, 20C
-    .suffix = Vox Atmosphere
-ent-AtmosFixAirMarker = Atmos Fix Air Marker
-    .desc = Oxygen (21%) and nitrogen (79%) @ gas miner pressure, T20C
+    .desc = Азот при давлении 101 кПа, температура 20 °C.
+    .suffix = Атмосфера воксов
+
+ent-AtmosFixAirMarker = маркер атмосферы: воздух
+    .desc = Кислород (21%) и азот (79%) при давлении газодобытчика, температура 20 °C.

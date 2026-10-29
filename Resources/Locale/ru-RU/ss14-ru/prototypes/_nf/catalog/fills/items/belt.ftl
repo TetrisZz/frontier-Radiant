@@ -3,6 +3,8 @@ ent-ClothingBeltPilotFilled = { ent-ClothingBeltPilot }
     .desc = { ent-ClothingBeltPilot.desc }
 ent-ClothingBeltNfsdFilled = { ent-ClothingBeltNfsd }
     .desc = { ent-ClothingBeltNfsd.desc }
+    .suffix = Заполненный
+
 ent-ClothingBeltNfsdWebbingFilledBrigmedic = { ent-ClothingBeltNfsdWebbing }
     .suffix = Заполненный, Коронер
     .desc = { ent-ClothingBeltNfsdWebbing.desc }

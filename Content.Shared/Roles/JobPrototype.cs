@@ -14,6 +14,10 @@ namespace Content.Shared.Roles
     [Prototype]
     public sealed partial class JobPrototype : IPrototype
     {
+        /// <summary>Whether joining this job automatically issues a personal passport.</summary>
+        [DataField]
+        public bool SpawnPassport = true;
+
         [ViewVariables]
         [IdDataField]
         public string ID { get; private set; } = default!;

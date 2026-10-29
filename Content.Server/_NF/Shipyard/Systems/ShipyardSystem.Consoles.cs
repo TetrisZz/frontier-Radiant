@@ -88,6 +88,16 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
+        // Enforce career-console restrictions here as well as when opening the UI.
+        if (!_player.TryGetSessionByEntity(player, out var careerSession))
+            return;
+        if (!_careerFleet.CanUseShipyard(careerSession, shipyardConsoleUid, out var shipyardReason))
+        {
+            ConsolePopup(player, shipyardReason!);
+            PlayDenySound(player, shipyardConsoleUid, component);
+            return;
+        }
+
         if (component.TargetIdSlot.ContainerSlot?.ContainedEntity is not { Valid: true } targetId)
         {
             ConsolePopup(player, Loc.GetString("shipyard-console-no-idcard"));
@@ -136,8 +146,6 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (vessel.Price <= 0 && !vessel.CareerFree)
             return;
 
-        if (!_player.TryGetSessionByEntity(player, out var careerSession))
-            return;
         if (!_careerFleet.CanPurchase(careerSession, vessel, out var careerReason))
         {
             ConsolePopup(player, careerReason!);

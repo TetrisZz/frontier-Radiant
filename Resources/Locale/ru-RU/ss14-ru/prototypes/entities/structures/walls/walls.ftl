@@ -15,9 +15,10 @@ ent-WallMeat = мясная стена
     .desc = Липко.
 ent-WallCult = стена культа
     .desc = { ent-BaseWall.desc }
-ent-WallDebug = debug wall
-    .suffix = DEBUG
+ent-WallDebug = отладочная стена
     .desc = { ent-BaseWall.desc }
+    .suffix = DEBUG
+
 ent-WallDiamond = бриллиантовая стена
     .desc = { ent-BaseWall.desc }
 ent-WallGold = золотая стена

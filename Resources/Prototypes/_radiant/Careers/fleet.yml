@@ -78,6 +78,7 @@
     shuttles:
     - CareerMiningStarter
     - CareerMiningUpgrade
+    - Gornyak
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Custom
   - type: UserInterface

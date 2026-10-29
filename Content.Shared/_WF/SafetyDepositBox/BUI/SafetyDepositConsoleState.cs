@@ -83,5 +83,6 @@ public record struct SafetyDepositBoxInfo(
     string? Nickname,
     string ProtoId,
     DateTime? LastWithdrawn,
-    int? LastWithdrawnRoundId
+    int? LastWithdrawnRoundId,
+    bool Busy = false
 );

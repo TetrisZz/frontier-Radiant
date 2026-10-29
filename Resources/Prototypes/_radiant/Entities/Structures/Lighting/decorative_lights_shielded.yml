@@ -8,7 +8,7 @@
     solarFlareShieldingCoefficient: 0
   - type: PointLight
     enabled: true
-    radius: 6
+    radius: 10
     energy: 1
     softness: 1.1
     color: "#FFD1A3"

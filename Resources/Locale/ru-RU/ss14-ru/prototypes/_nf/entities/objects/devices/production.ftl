@@ -6,10 +6,14 @@ ent-SalvageTechFabCircuitboardNF = утилизационный техфаб (м
     .desc = Печатная плата утилизационного техфаба.
 ent-NfsdTechFabCircuitboard = техфаб Конфедерации (машинная плата)
     .desc = Печатная плата техфабрикатора Конфедерации.
+    .suffix = Машинная плата
+
 ent-ThrusterSecurityMachineCircuitboard = двигатель Конфедерации (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-ThrusterNfsdMachineCircuitboard = двигатель Конфедерации (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
+    .suffix = Машинная плата
+
 ent-SmallThrusterMachineCircuitboard = малый двигатель (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-GyroscopeSecurityMachineCircuitboard = гироскоп Конфедерации (машинная плата)
@@ -18,6 +22,8 @@ ent-SmallGyroscopeSecurityMachineCircuitboard = малый гироскоп Ко
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-GyroscopeNfsdMachineCircuitboard = гироскоп Конфедерации (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
+    .suffix = Машинная плата
+
 ent-SmallGyroscopeNfsdMachineCircuitboard = малый гироскоп Конфедерации (машинная плата)
     .desc = { ent-BaseMachineCircuitboard.desc }
 ent-SmallGyroscopeMachineCircuitboard = малый гироскоп (машинная плата)

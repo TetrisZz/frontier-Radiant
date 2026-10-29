@@ -6,6 +6,8 @@ ent-ComputerTabletopShipyardSecurity = { ent-ComputerShipyardSecurity }
     .desc = { ent-ComputerShipyardSecurity.desc }
 ent-ComputerTabletopShipyardNfsd = { ent-ComputerShipyardNfsd }
     .desc = { ent-ComputerShipyardNfsd.desc }
+    .suffix = Настольный
+
 ent-ComputerTabletopShipyardBlackMarket = { ent-ComputerShipyardBlackMarket }
     .desc = { ent-ComputerShipyardBlackMarket.desc }
 ent-ComputerTabletopShipyardExpedition = { ent-ComputerShipyardExpedition }
