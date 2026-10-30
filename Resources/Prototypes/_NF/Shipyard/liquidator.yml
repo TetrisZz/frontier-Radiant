@@ -16,6 +16,7 @@
   price: 26000 # 23321 0.1 25653.1
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/liquidator.yml
   guidebookPage: ShipyardLiquidator
   class:

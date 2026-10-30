@@ -17,6 +17,7 @@
   price: 150000
   category: Large
   group: Expedition
+  canSave: true
   shuttlePath: /Maps/_radiant/Shuttles/Mizar.yml
   guidebookPage: Null
   class:

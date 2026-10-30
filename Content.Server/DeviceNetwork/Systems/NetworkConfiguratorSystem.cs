@@ -523,8 +523,6 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         if (!targetUid.HasValue || !configurator.ActiveDeviceLink.HasValue || !AccessCheck(targetUid.Value, userUid, configurator))
             return;
 
-
-        _uiSystem.OpenUi(configuratorUid, NetworkConfiguratorUiKey.Link, userUid);
         configurator.DeviceLinkTarget = targetUid;
         configurator.LinkContext++;
 
@@ -538,6 +536,9 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         {
             UpdateLinkUiState(configuratorUid, targetUid.Value, configurator.ActiveDeviceLink.Value, targetSource, activeSink);
         }
+
+        // Publish the selected pair and its context before opening the window.
+        _uiSystem.OpenUi(configuratorUid, NetworkConfiguratorUiKey.Link, userUid);
     }
 
     private void UpdateLinkUiState(EntityUid configuratorUid, EntityUid sourceUid, EntityUid sinkUid,

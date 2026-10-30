@@ -13,6 +13,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
+using Content.Shared._radiant.Careers;
 using Content.Shared._radiant.Supporters;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
@@ -129,7 +130,15 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             {
                 loadout = new RoleLoadout(jobLoadout);
                 loadout.SetDefault(profile, _actors.GetSession(entity), _prototypeManager);
-                loadout.EnsureValid(profile!, session, _dependencyCollection); // Frontier - profile must not be null, but if it was, TryGetValue above should fail
+                loadout.EnsureValid(profile!, session, _dependencyCollection);
+            }
+            else if (prototype != null && _prototypeManager.EnumeratePrototypes<CareerProfessionPrototype>()
+                         .Any(profession => profession.Jobs.Contains(prototype.ID)))
+            {
+                // Career selections may refer to old survival groups or a previous species.
+                // Normalize a copy before issuing gear, without changing stored preferences.
+                loadout = loadout.Clone();
+                loadout.EnsureValid(profile!, session, _dependencyCollection);
             }
         }
 

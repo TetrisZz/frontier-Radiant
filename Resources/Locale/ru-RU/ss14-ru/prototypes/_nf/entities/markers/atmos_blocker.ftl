@@ -1,11 +1,14 @@
-ent-AtmosFixShuttleOxygenMarker = Atmos Fix Oxygen Marker
-    .desc = Oxygen at lower presure
-    .suffix = Shuttle
-ent-AtmosFixShuttleNitrogenMarker = Atmos Fix Nitrogen Marker
-    .desc = Nitrogen at lower presure
-    .suffix = Shuttle
-ent-AtmosFixShuttlePlasmaMarker = Atmos Fix Plasma Marker
-    .desc = Plasma at lower presure
-    .suffix = Shuttle
-ent-AtmosFixSaunaMarker = Atmos Fix Sauna Marker
-    .desc = Sauna
+ent-AtmosFixShuttleOxygenMarker = { ent-AtmosFixOxygenMarker }
+    .desc = Заполняет атмосферу кислородом при пониженном давлении.
+    .suffix = Шаттл
+
+ent-AtmosFixShuttleNitrogenMarker = { ent-AtmosFixNitrogenMarker }
+    .desc = Заполняет атмосферу азотом при пониженном давлении.
+    .suffix = Шаттл
+
+ent-AtmosFixShuttlePlasmaMarker = { ent-AtmosFixPlasmaMarker }
+    .desc = Заполняет атмосферу плазмой при пониженном давлении.
+    .suffix = Шаттл
+
+ent-AtmosFixSaunaMarker = маркер атмосферы: сауна
+    .desc = Атмосфера сауны.

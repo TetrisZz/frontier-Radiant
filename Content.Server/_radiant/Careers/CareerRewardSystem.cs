@@ -58,7 +58,7 @@ public sealed class CareerRewardSystem : EntitySystem
         var canUse = CanUse(console, player);
         return new CareerSafeState(Loc.GetString(profession.Name), career.Level, career.BoxTier, UnlockedTier(career),
             career.PendingRewards.Count, canUse && career.PendingRewards.Count > 0,
-            canUse && !career.StarterBoxGranted, canUse && CanUpgradeBox(console, player, career),
+            canUse && !career.StarterBoxGranted && career.BoxId == null, canUse && CanUpgradeBox(console, player, career),
             _busy.Contains(career.CharacterId));
     }
 
@@ -136,7 +136,7 @@ public sealed class CareerRewardSystem : EntitySystem
     private async void GrantBox(EntityUid console, EntityUid player)
     {
         if (!CanUse(console, player) || !_careers.TryGetCareer(player, out var career)
-            || career.StarterBoxGranted || !TryComp<CareerActorComponent>(player, out var actor))
+            || career.StarterBoxGranted || career.BoxId != null || !TryComp<CareerActorComponent>(player, out var actor))
             return;
         _busy.Add(career.CharacterId);
         RefreshUi(console, player);

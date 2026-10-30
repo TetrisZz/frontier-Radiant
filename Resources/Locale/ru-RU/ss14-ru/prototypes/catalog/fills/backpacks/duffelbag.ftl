@@ -68,10 +68,12 @@ ent-ClothingBackpackDuffelZombieBundle = { ent-ClothingBackpackDuffelSyndicate }
 ent-ClothingBackpackDuffelSyndicateMedicalBundleFilled = { ent-ClothingBackpackDuffelSyndicate }
     .desc = { ent-ClothingBackpackDuffelSyndicate.desc }
     .suffix = набор медикаментов
-ent-ClothingBackpackDuffelAcolyteBundle = acolyte armor bundle
-    .desc = Contains the Acolyte Armor, the must have of any cult leader.
-ent-ClothingBackpackDuffelSyndicateFilledStarterKit = basic operative bundle
-    .desc = Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities.
+ent-ClothingBackpackDuffelAcolyteBundle = набор брони аколита
+    .desc = Содержит броню аколита — обязательный атрибут любого лидера культа.
+
+ent-ClothingBackpackDuffelSyndicateFilledStarterKit = базовый набор оперативника
+    .desc = Содержит оружие, медикаменты, инструменты для взлома, запасные боеприпасы и полезные мелочи.
+
 ent-ClothingBackpackDuffelSyndicateDecoyKitFilled = { ent-ClothingBackpackDuffelSyndicate }
     .desc = { ent-ClothingBackpackDuffelSyndicate.desc }
     .suffix = набор обманок

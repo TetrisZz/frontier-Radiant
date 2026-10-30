@@ -1,6 +1,7 @@
 - type: vessel
   id: Bastion
   parent: BaseVessel
+  canSave: false
   name: NSF Бастион
   description: Большой материнский корабль, имеет камеры для содержания, а так же небольшой мед. отсек и кухню.
   price: 120000

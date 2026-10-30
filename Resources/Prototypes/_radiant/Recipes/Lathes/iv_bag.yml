@@ -1,0 +1,6 @@
+- type: latheRecipe
+  id: RadiantIVBag
+  parent: BaseToolRecipe
+  result: RadiantIVBag
+  materials:
+    Plastic: 100

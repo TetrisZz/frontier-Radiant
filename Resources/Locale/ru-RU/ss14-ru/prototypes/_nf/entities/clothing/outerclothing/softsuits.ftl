@@ -44,12 +44,18 @@ ent-ClothingOuterEVASuitPrivateSec = скафандр EVA телохраните
     .desc = Скафандр EVA со встроенным шлемом. Не имеет защиты и разработан из приемуществено тканевых материалов но защищает от жестокого вакуума космоса.
 ent-ClothingOuterEVASuitNfsd = скафандр EVA ДВБ
     .desc = Скафандр EVA со встроенным шлемом. Не имеет защиты и разработан из приемуществено тканевых материалов но защищает от жестокого вакуума космоса.
+    .suffix = Фронтир
+
 ent-ClothingOuterEVASuitFsb = скафандр EVA FSB
     .desc = Стандартный скафандр EVA для судов компании Far Star Biotech. Он поставляется с двумя подстаканниками.
+    .suffix = Фронтир
+
 ent-ClothingOuterEVASuitFsa = скафандр EVA FSA
     .desc = Стандартный скафандр EVA для судов компании Far Star Arms. Он поставляется в комплекте с обычным космическим камуфляжем зеленого цвета.
 ent-ClothingOuterEVASuitFsc = скафандр EVA FSC
     .desc = Стандартный скафандр EVA для судов компании Far Star Commerce. Он поставляется с пятнами от смазки.
+    .suffix = Фронтир
+
 ent-ClothingOuterEVASuitArcadia = скафандр EVA Аркадия
     .desc = Скафандр со встроенным шлемом, который обычно выдают сотрудникам Arcadia Industries.
 ent-ClothingOuterEVASuitLvhi = скафандр EVA LVHI

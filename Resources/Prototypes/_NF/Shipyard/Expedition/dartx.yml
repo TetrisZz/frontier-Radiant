@@ -16,6 +16,7 @@
   price: 110000 #  ~64000$ on mapinit + ~19200$ from 30% markup
   category: Medium
   group: Expedition
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Expedition/dartx.yml
   guidebookPage: Null
   class:

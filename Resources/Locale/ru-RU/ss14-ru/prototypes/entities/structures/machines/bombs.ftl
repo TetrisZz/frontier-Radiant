@@ -9,6 +9,6 @@ ent-SyndicateBomb = бомба
 ent-SyndicateBombFake = { ent-SyndicateBomb }
     .suffix = Обманка
     .desc = { ent-SyndicateBomb.desc }
-ent-DebugHardBomb = DEBUG бомба
+ent-DebugHardBomb = отладочная бомба
     .desc = Господи, она сейчас взорвётся.
     .suffix = DEBUG

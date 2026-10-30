@@ -16,6 +16,7 @@
   price: 150000
   category: Large
   group: Expedition
+  canSave: true
   shuttlePath: /Maps/_radiant/Shuttles/Goliath.yml
   guidebookPage: Null
   class:

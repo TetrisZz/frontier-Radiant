@@ -48,6 +48,7 @@
         mask: [MachineMask]
         layer: [MachineLayer]
   - type: BlueprintLibrary
+  - type: ActivatableUIRequiresAccess
   - type: BlueprintReceiver
     whitelist:
       components: [Blueprint]

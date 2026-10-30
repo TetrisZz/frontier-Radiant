@@ -19,6 +19,8 @@ public sealed class NetworkConfiguratorBoundUserInterface : BoundUserInterface
     [ViewVariables]
     private NetworkConfiguratorListMenu? _listMenu;
 
+    private BoundUserInterfaceState? _displayedState;
+
     public NetworkConfiguratorBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         _netConfig = EntMan.System<NetworkConfiguratorSystem>();
@@ -69,6 +71,9 @@ public sealed class NetworkConfiguratorBoundUserInterface : BoundUserInterface
                 };
                 break;
         }
+
+        _displayedState = null;
+        RefreshFromCachedState();
     }
 
     private void OnShowPressed(BaseButton.ButtonEventArgs args)
@@ -79,6 +84,17 @@ public sealed class NetworkConfiguratorBoundUserInterface : BoundUserInterface
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
+        RefreshFromCachedState();
+    }
+
+    private void RefreshFromCachedState()
+    {
+        // Opening is queued before replicated states are applied. The queued argument may
+        // belong to the previous pair; use the latest state stored on the UI component.
+        if (!UiSystem.TryGetUiState<BoundUserInterfaceState>(Owner, UiKey, out var state)
+            || ReferenceEquals(state, _displayedState))
+            return;
+        _displayedState = state;
 
         switch (state)
         {

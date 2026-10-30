@@ -2,6 +2,8 @@ ent-ComputerShipyardCareerMining = mining fleet shipyard
     .desc = A terminal for issuing and replacing duty vessels for three-person mining crews.
 
 career-fleet-profession-required = Your selected profession does not grant access to this vessel or job.
+career-fleet-shipyard-restricted = This shipyard is only available to characters with the { $profession } profession.
+career-fleet-use-exclusive-shipyard = Purchase ships at your profession's dedicated shipyard.
 career-fleet-level-required = Purchasing this vessel requires the matching profession at career level { $level } or higher.
 career-fleet-limit = Your profession has reached its duty crew limit: { $active } of { $limit }.
 career-fleet-unavailable = This duty vessel or crew slot is currently unavailable.

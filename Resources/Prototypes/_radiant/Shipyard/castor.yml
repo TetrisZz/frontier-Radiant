@@ -1,0 +1,30 @@
+- type: vessel
+  id: Castor
+  parent: BaseVessel
+  canSave: false
+  name: Engineering Кастор
+  description: Инженерный шаттл для ремонтных и строительных работ.
+  price: 60000
+  category: Medium
+  group: Custom
+  careerProfession: Engineering
+  shuttlePath: /Maps/_radiant/Shuttles/Сastor.yml
+  guidebookPage: Null
+  class:
+  - Engineering
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Castor
+  mapName: Engineering Кастор
+  mapPath: /Maps/_radiant/Shuttles/Сastor.yml
+  minPlayers: 0
+  stations:
+    Castor:
+      stationProto: CareerEngineeringStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Engineering Кастор {1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: '14'

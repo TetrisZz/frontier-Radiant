@@ -47,6 +47,7 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<RadiantDiscordLink> RadiantDiscordLinks { get; set; } = null!;
+        public DbSet<RadiantMachineStorage> RadiantMachineStorage { get; set; } = null!;
         public DbSet<TriadShipyardAuditEvent> TriadShipyardAuditEvents { get; set; } = null!;
         public DbSet<TriadShipyardMigrationPermit> TriadShipyardMigrationPermits { get; set; } = null!;
         public DbSet<NFLibraryBook> NFLibraryBook { get; set; } = null!;
@@ -55,6 +56,7 @@ namespace Content.Server.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<RadiantMachineStorage>().HasKey(row => row.StorageId).HasName("pk_radiant_machine_storage");
             modelBuilder.Entity<TriadShipyardAuditEvent>().HasIndex(a => new { a.EventType, a.At });
             modelBuilder.Entity<TriadShipyardAuditEvent>().HasIndex(a => new { a.PlayerUserId, a.At });
             modelBuilder.Entity<TriadShipyardAuditEvent>().HasIndex(a => new { a.ShipHash, a.At });

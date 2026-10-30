@@ -25,7 +25,7 @@
       burned: burned
   - type: PointLight
     enabled: true
-    radius: 6
+    radius: 10
     energy: 1
     softness: 1.1
     color: "#FFD1A3"
@@ -67,8 +67,8 @@
       burned: base
   - type: PointLight
     enabled: true
-    radius: 6
-    energy: 1
+    radius: 15
+    energy: 2
     softness: 1.1
     color: "#FFD1A3"
     offset: 0, 0 # Light offsets move across the map, not up the pole sprite.
@@ -107,8 +107,8 @@
       burned: festive
   - type: PointLight
     enabled: true
-    radius: 6
-    energy: 1
+    radius: 15
+    energy: 2
     softness: 1.1
     color: "#FFD1A3"
     offset: 0, 0
@@ -147,8 +147,8 @@
       burned: one
   - type: PointLight
     enabled: true
-    radius: 6
-    energy: 1
+    radius: 15
+    energy: 2
     softness: 1.1
     color: "#FFD1A3"
     offset: 0, 0
@@ -187,8 +187,8 @@
       burned: two
   - type: PointLight
     enabled: true
-    radius: 6
-    energy: 1
+    radius: 15
+    energy: 2
     softness: 1.1
     color: "#FFD1A3"
     offset: 0, 0
@@ -227,8 +227,8 @@
       burned: three
   - type: PointLight
     enabled: true
-    radius: 6
-    energy: 1
+    radius: 15
+    energy: 2
     softness: 1.1
     color: "#FFD1A3"
     offset: 0, 0
@@ -267,8 +267,8 @@
       burned: four
   - type: PointLight
     enabled: true
-    radius: 6
-    energy: 1
+    radius: 15
+    energy: 2
     softness: 1.1
     color: "#FFD1A3"
     offset: 0, 0
@@ -307,8 +307,8 @@
       burned: sidewalk
   - type: PointLight
     enabled: true
-    radius: 6
-    energy: 1
+    radius: 15
+    energy: 2
     softness: 1.1
     color: "#FFD1A3"
     offset: 0, 0

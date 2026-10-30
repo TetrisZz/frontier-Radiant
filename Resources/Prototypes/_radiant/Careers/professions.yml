@@ -6,6 +6,7 @@
 
 - type: careerProfession
   id: Mining
+  radarColor: "#D597FF"
   name: career-profession-mining
   description: career-profession-mining-description
   icon: MiningDrill
@@ -36,7 +37,7 @@
     target: 10000
     tags: [Ore]
   rewardItems: [MiningDrill]
-  rewardMoney: 10000
+  rewardMoney: 5000
   boxTier: 1
 
 - type: careerLevel
@@ -52,7 +53,7 @@
     target: 30
     prototypes: [GoldOre]
   rewardItems: [ClothingOuterHardsuitSalvage]
-  rewardMoney: 20000
+  rewardMoney: 10000
   boxTier: 2
 
 - type: careerLevel
@@ -69,5 +70,5 @@
     target: 1
     prototypes: [MaterialToothSharkminnow]
   rewardItems: [WeaponProtoKineticAccelerator]
-  rewardMoney: 30000
+  rewardMoney: 15000
   boxTier: 3

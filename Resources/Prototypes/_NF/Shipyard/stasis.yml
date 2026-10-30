@@ -11,11 +11,14 @@
 - type: vessel
   id: Stasis
   parent: BaseVessel
-  name: FSB Stasis
+  careerLevel: 2
+  canSave: false
+  careerProfession: Medical
+  name: Medical Stasis
   description: A medium medical vessel providing cryogenic and support medical services for the traumas of deep space operations. Designed, developed and deployed by the Far Star Biotech company to render aid wherever it is needed.
   price: 55000 # 15% tier 2
   category: Medium
-  group: Medical
+  group: Custom
   shuttlePath: /Maps/_NF/Shuttles/stasis.yml
   guidebookPage: ShipyardStasis
   class:
@@ -25,20 +28,15 @@
 
 - type: gameMap
   id: Stasis
-  mapName: 'FSB Stasis'
+  mapName: Medical Stasis
   mapPath: /Maps/_NF/Shuttles/stasis.yml
   minPlayers: 0
   stations:
     Stasis:
-      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      stationProto: CareerMedicalStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Stasis {1}'
+          mapNameTemplate: 'Medical Stasis {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
-            ContractorInterview: [ 0, 0 ]
-            PilotInterview: [ 0, 0 ]
-            MercenaryInterview: [ 0, 0 ]

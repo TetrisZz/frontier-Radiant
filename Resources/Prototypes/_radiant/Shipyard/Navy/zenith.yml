@@ -1,6 +1,7 @@
 - type: vessel
   id: Zenith
   parent: BaseVesselNavy
+  canSave: false
   name: COF Зенит
   description: Патрульный ударный крейсер, имеющий мощное вооружение, делающее его важной частью в любой ударной стратегии.
   price: 74500

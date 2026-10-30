@@ -36,6 +36,30 @@ namespace Content.Server.Database
 
         private readonly ISawmill _opsLog;
 
+        public async Task<RadiantMachineStorage?> GetMachineStorageAsync(string storageId)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.RadiantMachineStorage.AsNoTracking().SingleOrDefaultAsync(row => row.StorageId == storageId);
+        }
+
+        public async Task SaveMachineStorageAsync(string storageId, string kind, string payload)
+        {
+            if (string.IsNullOrWhiteSpace(storageId) || storageId.Length > 128)
+                throw new ArgumentException("A machine storage key must contain 1 to 128 characters.", nameof(storageId));
+            await using var db = await GetDb();
+            var row = await db.DbContext.RadiantMachineStorage.SingleOrDefaultAsync(row => row.StorageId == storageId);
+            if (row == null)
+            {
+                row = new RadiantMachineStorage { StorageId = storageId, Kind = kind };
+                db.DbContext.RadiantMachineStorage.Add(row);
+            }
+            if (row.Kind != kind)
+                throw new InvalidOperationException("A persistent machine key cannot change its storage kind.");
+            row.Payload = payload;
+            row.Revision++;
+            await db.DbContext.SaveChangesAsync();
+        }
+
         public event Action<DatabaseNotification>? OnNotificationReceived;
 
         /// <param name="opsLog">Sawmill to trace log database operations to.</param>

@@ -16,6 +16,7 @@
   price: 34500 # 32407 x 1.05 = 34028
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/chisel.yml
   guidebookPage: ShipyardChisel
   class:

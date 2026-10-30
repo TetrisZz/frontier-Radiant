@@ -4,8 +4,8 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/26/2026 14:03:23
-  entityCount: 4542
+  time: 10/28/2026 18:11:02
+  entityCount: 4546
 maps: []
 grids:
 - 1
@@ -24727,7 +24727,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 11.5,44.5
-- proto: RandomPainting
+- proto: RandomPaintingHalloween
   entities:
   - uid: 4473
     components:
@@ -26853,6 +26853,18 @@ entities:
     - type: Transform
       parent: 1
       pos: -2.5,4.5
+- proto: SpawnPointCareerEngineering
+  entities:
+  - uid: 4543
+    components:
+    - type: Transform
+      parent: 1
+      pos: 9.5,13.5
+  - uid: 4544
+    components:
+    - type: Transform
+      parent: 1
+      pos: 9.5,12.5
 - proto: SpawnPointLatejoin
   entities:
   - uid: 3778
@@ -26870,6 +26882,16 @@ entities:
     - type: Transform
       parent: 1
       pos: 1.5,-4.5
+  - uid: 4545
+    components:
+    - type: Transform
+      parent: 1
+      pos: 10.5,13.5
+  - uid: 4546
+    components:
+    - type: Transform
+      parent: 1
+      pos: 11.5,13.5
 - proto: SpawnPointPlantManager
   entities:
   - uid: 3781

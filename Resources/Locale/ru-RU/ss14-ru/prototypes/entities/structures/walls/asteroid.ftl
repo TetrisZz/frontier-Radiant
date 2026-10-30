@@ -58,8 +58,10 @@ ent-AsteroidRockSalt = { ent-AsteroidRock }
 ent-AsteroidRockArtifactFragment = { ent-AsteroidRock }
     .desc = Каменная стена. Что это торчит из неё?
     .suffix = Фрагмент артефакта
-ent-AsteroidRockGibtonite = { ent-BaseRockGibtonite }
-    .desc = { ent-BaseRockGibtonite.desc }
+ent-AsteroidRockGibtonite = { ent-AsteroidRock }
+    .desc = { ent-AsteroidRock.desc }
+    .suffix = Гибтонит
+
 ent-AsteroidRockMining = астероидный камень
     .desc = Астероид.
     .suffix = Высокое содержание руды 0.33
@@ -142,6 +144,8 @@ ent-WallRockSalt = { ent-WallRock }
     .suffix = Соль
 ent-WallRockBasalt = базальт
     .desc = { ent-WallRock.desc }
+    .suffix = Карта планеты
+
 ent-WallRockBasaltCoal = { ent-WallRockBasalt }
     .desc = Рудная жила, богатая углём.
     .suffix = Уголь
@@ -247,6 +251,8 @@ ent-WallRockSandSalt = { ent-WallRockSand }
     .suffix = Соль
 ent-WallRockChromite = хромит
     .desc = { ent-WallRock.desc }
+    .suffix = Карта планеты
+
 ent-WallRockChromiteCoal = { ent-WallRockChromite }
     .desc = Рудная жила, богатая углём.
     .suffix = Уголь
@@ -282,6 +288,8 @@ ent-WallRockChromiteSalt = { ent-WallRockChromite }
     .suffix = Соль
 ent-WallRockAndesite = андезит
     .desc = { ent-WallRock.desc }
+    .suffix = Карта планеты
+
 ent-WallRockAndesiteCoal = { ent-WallRockAndesite }
     .desc = Рудная жила, богатая углём.
     .suffix = Уголь

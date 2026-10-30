@@ -1,0 +1,31 @@
+- type: entity
+  id: SpawnPointCareerMedical
+  parent: SpawnPointMedicalDoctor
+  name: career doctor spawn point
+  components:
+  - type: CareerSpawnPoint
+    profession: Medical
+
+- type: entity
+  id: SpawnPointCareerMining
+  parent: SpawnPointSalvageSpecialist
+  name: career salvager spawn point
+  components:
+  - type: CareerSpawnPoint
+    profession: Mining
+
+- type: entity
+  id: SpawnPointCareerEngineering
+  parent: SpawnPointStationEngineer
+  name: career engineer spawn point
+  components:
+  - type: CareerSpawnPoint
+    profession: Engineering
+
+- type: entity
+  id: ComputerShipyardCareers
+  parent: ComputerShipyardCareerMining
+  name: career fleet shipyard
+  components:
+  - type: ShipyardListing
+    shuttles: [Kestrel, Bulker, Barge, Hauler, Gornyak, CareerMedicalStarter, Stasis, Eagle, Vitalis, Salomandra, Caladrius]

@@ -1,6 +1,7 @@
 - type: vessel
   id: Klyk
   parent: BaseVesselAntag
+  canSave: false
   name: Клык
   description: "Небольшое  судно сепаратистов, созданное для быстрых ударов и стремительных налётов. «Клык» отличается высокой манёвренностью."
   price: 60000

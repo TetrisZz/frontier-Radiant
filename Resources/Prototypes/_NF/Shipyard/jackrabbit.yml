@@ -16,6 +16,7 @@
   price: 38000 #35510 0.06 37640
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/jackrabbit.yml
   guidebookPage: ShipyardJackrabbit
   class:

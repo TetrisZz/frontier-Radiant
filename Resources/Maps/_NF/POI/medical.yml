@@ -4,8 +4,8 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/21/2026 10:25:55
-  entityCount: 8179
+  time: 10/27/2026 15:36:53
+  entityCount: 8176
 maps: []
 grids:
 - 1
@@ -9921,6 +9921,18 @@ entities:
     - type: Transform
       parent: 1
       pos: 25.5,-5.5
+- proto: BiodiversityProbe
+  entities:
+  - uid: 2773
+    components:
+    - type: Transform
+      parent: 1
+      pos: 29.318909,16.731617
+  - uid: 2921
+    components:
+    - type: Transform
+      parent: 1
+      pos: 30.017426,16.582956
 - proto: Biogenerator
   entities:
   - uid: 525
@@ -10060,6 +10072,11 @@ entities:
     - type: Transform
       parent: 1
       pos: 47.545822,28.526993
+  - uid: 2920
+    components:
+    - type: Transform
+      parent: 1
+      pos: 47.429825,26.071312
 - proto: BoxNitrileGloves
   entities:
   - uid: 545
@@ -20721,7 +20738,7 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: 7.5,-16.5
-- proto: ChairOfficeDarkRadiant
+- proto: ChairOfficeDark
   entities:
   - uid: 2638
     components:
@@ -20832,8 +20849,6 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: -29.480164,9.722474
-- proto: ChairOfficeWhiteRadiant
-  entities:
   - uid: 2654
     components:
     - type: Transform
@@ -21202,7 +21217,7 @@ entities:
     components:
     - type: Transform
       parent: 1
-      pos: 46.847305,26.57157
+      pos: 47.450256,26.617733
 - proto: ClothingOuterCoatLab
   entities:
   - uid: 10
@@ -21415,13 +21430,6 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 33.5,-24.5
-- proto: ComputerShipyardMedical
-  entities:
-  - uid: 2731
-    components:
-    - type: Transform
-      parent: 1
-      pos: 7.5,-8.5
 - proto: ComputerShipyardCareerMedical
   entities:
   - uid: 2732
@@ -21429,6 +21437,13 @@ entities:
     - type: Transform
       parent: 1
       pos: 13.5,-8.5
+- proto: ComputerShipyardMedical
+  entities:
+  - uid: 2731
+    components:
+    - type: Transform
+      parent: 1
+      pos: 7.5,-8.5
 - proto: ComputerTabletopAlert
   entities:
   - uid: 2733
@@ -21437,6 +21452,34 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 24.5,-11.5
+- proto: ComputerTabletopBodyScanner
+  entities:
+  - uid: 2939
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 34.5,8.5
+    - type: BodyScanner
+      tableEntity: 5195
+    - type: DeviceLinkSource
+      linkedPorts:
+        5195:
+        - - BodyScannerSender
+          - BodyScannerReceiver
+  - uid: 5022
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 28.5,8.5
+    - type: BodyScanner
+      tableEntity: 5194
+    - type: DeviceLinkSource
+      linkedPorts:
+        5194:
+        - - BodyScannerSender
+          - BodyScannerReceiver
 - proto: ComputerTabletopCloningConsole
   entities:
   - uid: 2734
@@ -21710,28 +21753,41 @@ entities:
     components:
     - type: Transform
       parent: 1
-      pos: 35.5,19.5
-  - uid: 2773
+      pos: 32.5,19.5
+  - uid: 2774
     components:
     - type: Transform
       parent: 1
-      pos: 36.5,19.5
+      pos: 33.5,19.5
+    - type: EntityStorage
+      air:
+        temperature: 293.14908
+        volume: 200
+        moles:
+        - 1.606311
+        - 6.042789
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        immutable: False
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           ents:
-          - 2774
+          - 2775
           showEnts: False
           occludes: True
         paper_label: !type:ContainerSlot
           ent: null
           showEnts: False
           occludes: True
-  - uid: 2775
-    components:
-    - type: Transform
-      parent: 1
-      pos: 37.5,19.5
 - proto: CrateHydroponics
   entities:
   - uid: 2776
@@ -25359,6 +25415,27 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -7.5,-29.5
+- proto: DnaVault
+  entities:
+  - uid: 2919
+    components:
+    - type: Transform
+      parent: 1
+      pos: 36.5,20.5
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+          ents: []
+          showEnts: False
+          occludes: True
+        machine_parts: !type:Container
+          ents: []
+          showEnts: False
+          occludes: True
+        dna-vault-sample: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: True
 - proto: DresserChiefMedicalOfficerFilled
   entities:
   - uid: 2900
@@ -25557,67 +25634,29 @@ entities:
           - 2703
           showEnts: False
           occludes: True
-  - uid: 2919
+  - uid: 2922
     components:
     - type: Transform
       parent: 1
-      pos: 33.5,21.5
+      pos: 32.5,21.5
     - type: Storage
       storedItems:
-        2920:
+        2923:
           position: 0,0
           _rotation: South
-        2921:
+        2924:
           position: 1,0
           _rotation: South
-        2922:
+        2925:
           position: 2,0
           _rotation: South
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
           ents:
-          - 2920
-          - 2921
-          - 2922
-          showEnts: False
-          occludes: True
-  - uid: 2923
-    components:
-    - type: Transform
-      parent: 1
-      pos: 37.5,21.5
-    - type: Storage
-      storedItems:
-        2924:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          ents:
+          - 2923
           - 2924
-          showEnts: False
-          occludes: True
-  - uid: 2925
-    components:
-    - type: Transform
-      parent: 1
-      pos: 35.5,21.5
-    - type: Storage
-      storedItems:
-        2927:
-          position: 0,0
-          _rotation: South
-        2926:
-          position: 1,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          ents:
-          - 2927
-          - 2926
+          - 2925
           showEnts: False
           occludes: True
   - uid: 2928
@@ -25625,31 +25664,14 @@ entities:
     - type: Transform
       parent: 1
       pos: 52.5,12.5
-  - uid: 2929
+  - uid: 2930
     components:
     - type: Transform
       parent: 1
-      pos: 34.5,21.5
+      pos: 33.5,21.5
     - type: Storage
       storedItems:
-        2930:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          ents:
-          - 2930
-          showEnts: False
-          occludes: True
-  - uid: 2931
-    components:
-    - type: Transform
-      parent: 1
-      pos: 36.5,21.5
-    - type: Storage
-      storedItems:
-        2934:
+        2931:
           position: 0,0
           _rotation: South
         2932:
@@ -25662,7 +25684,7 @@ entities:
       containers:
         storagebase: !type:Container
           ents:
-          - 2934
+          - 2931
           - 2932
           - 2933
           showEnts: False
@@ -25693,11 +25715,6 @@ entities:
     - type: Transform
       parent: 1
       pos: -28.5,19.5
-  - uid: 2939
-    components:
-    - type: Transform
-      parent: 1
-      pos: 32.5,21.5
   - uid: 2940
     components:
     - type: Transform
@@ -41399,34 +41416,28 @@ entities:
           occludes: True
 - proto: GeneticResearchDisk
   entities:
-  - uid: 2924
+  - uid: 2923
     components:
     - type: Transform
-      parent: 2923
+      parent: 2922
     - type: Physics
       canCollide: False
-  - uid: 2926
+  - uid: 2931
     components:
     - type: Transform
-      parent: 2925
-    - type: Physics
-      canCollide: False
-  - uid: 2930
-    components:
-    - type: Transform
-      parent: 2929
+      parent: 2930
     - type: Physics
       canCollide: False
   - uid: 2932
     components:
     - type: Transform
-      parent: 2931
+      parent: 2930
     - type: Physics
       canCollide: False
   - uid: 2933
     components:
     - type: Transform
-      parent: 2931
+      parent: 2930
     - type: Physics
       canCollide: False
   - uid: 4852
@@ -41443,34 +41454,16 @@ entities:
       pos: 26.790924,11.854031
 - proto: GeneticResearchDiskBox
   entities:
-  - uid: 2920
+  - uid: 2924
     components:
     - type: Transform
-      parent: 2919
+      parent: 2922
     - type: Physics
       canCollide: False
-  - uid: 2921
+  - uid: 2925
     components:
     - type: Transform
-      parent: 2919
-    - type: Physics
-      canCollide: False
-  - uid: 2922
-    components:
-    - type: Transform
-      parent: 2919
-    - type: Physics
-      canCollide: False
-  - uid: 2927
-    components:
-    - type: Transform
-      parent: 2925
-    - type: Physics
-      canCollide: False
-  - uid: 2934
-    components:
-    - type: Transform
-      parent: 2931
+      parent: 2922
     - type: Physics
       canCollide: False
   - uid: 4854
@@ -41480,6 +41473,16 @@ entities:
       pos: 26.232086,11.68297
 - proto: GeneticSampleCartridge
   entities:
+  - uid: 2927
+    components:
+    - type: Transform
+      parent: 1
+      pos: 25.370178,12.798985
+  - uid: 2929
+    components:
+    - type: Transform
+      parent: 1
+      pos: 25.38504,12.709787
   - uid: 2936
     components:
     - type: Transform
@@ -42424,18 +42427,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 22.5,10.5
-- proto: GunSafe
-  entities:
-  - uid: 5022
-    components:
-    - type: Transform
-      parent: 1
-      pos: 32.5,19.5
-  - uid: 5023
-    components:
-    - type: Transform
-      parent: 1
-      pos: 33.5,19.5
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 5024
@@ -42672,7 +42663,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 2.5,-37.5
-- proto: KitchenDeepFryer
+- proto: KitchenDeepFryerCauldron
   entities:
   - uid: 5064
     components:
@@ -43080,12 +43071,12 @@ entities:
     - type: Transform
       parent: 1
       pos: 28.5,-3.5
-- proto: MaterialBiomass50
+- proto: MaterialBiomass
   entities:
-  - uid: 2774
+  - uid: 2775
     components:
     - type: Transform
-      parent: 2773
+      parent: 2774
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -43281,7 +43272,7 @@ entities:
     components:
     - type: Transform
       parent: 1
-      pos: 46.421387,26.72129
+      pos: 47.53943,23.60484
 - proto: Morgue
   entities:
   - uid: 5159
@@ -43739,11 +43730,15 @@ entities:
     - type: Transform
       parent: 1
       pos: 26.5,8.5
+    - type: OperatingTable
+      scanner: 5022
   - uid: 5195
     components:
     - type: Transform
       parent: 1
       pos: 32.5,8.5
+    - type: OperatingTable
+      scanner: 2939
 - proto: Paper
   entities:
   - uid: 5196
@@ -52816,7 +52811,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -7.5,-30.5
-- proto: RandomPainting
+- proto: RandomPaintingHalloween
   entities:
   - uid: 6741
     components:
@@ -54174,13 +54169,6 @@ entities:
       pos: 42.5,27.5
     - type: Fixtures
       fixtures: {}
-  - uid: 6976
-    components:
-    - type: Transform
-      parent: 1
-      pos: 41.5,27.5
-    - type: Fixtures
-      fixtures: {}
 - proto: ShelfRWood
   entities:
   - uid: 6977
@@ -55191,6 +55179,13 @@ entities:
     - type: Transform
       parent: 1
       pos: -24.5,8.5
+- proto: SmartFridgeVirologyRadiant
+  entities:
+  - uid: 2934
+    components:
+    - type: Transform
+      parent: 1
+      pos: 41.5,26.5
 - proto: SMESAdvanced
   entities:
   - uid: 7098
@@ -57311,12 +57306,6 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 47.5,26.5
-  - uid: 7390
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 46.5,26.5
   - uid: 7391
     components:
     - type: Transform
@@ -57971,6 +57960,27 @@ entities:
     - type: Transform
       parent: 1
       pos: 35.5,-10.5
+- proto: VirologySequencer
+  entities:
+  - uid: 2926
+    components:
+    - type: Transform
+      parent: 1
+      pos: 46.5,26.5
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+          ents: []
+          showEnts: False
+          occludes: True
+        machine_parts: !type:Container
+          ents: []
+          showEnts: False
+          occludes: True
+        virology-sample: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: True
 - proto: WallmountTelevision
   entities:
   - uid: 7489

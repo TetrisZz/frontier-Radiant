@@ -10,15 +10,19 @@ namespace Content.IntegrationTests.Tests.Utility;
 
 public sealed class SpawnMenuLocalizationTest
 {
-    [Test]
-    public async Task ExtendedScreenshotsUseRussianNamesAndResolvableReferences()
+    [TestCase("spawn_menu_extended.ftl")]
+    [TestCase("spawn_menu_additional.ftl")]
+    public async Task ExtendedScreenshotsUseRussianNamesAndResolvableReferences(string filename)
     {
         var root = Path.GetFullPath(Path.Combine(TestContext.CurrentContext.TestDirectory, "..", "..", "Resources", "Locale", "ru-RU"));
-        var translations = Path.Combine(root, "_radiant", "entities", "spawn_menu_extended.ftl");
+        var translations = Path.Combine(root, "_radiant", "entities", filename);
         var ids = File.ReadLines(translations)
             .Where(line => line.StartsWith("ent-", StringComparison.Ordinal))
             .Select(line => line[4..line.IndexOf('=')].TrimEnd())
-            .Concat(new[] { "ClothingBackpackDebug4", "DebugConsumer" }).ToArray();
+            .Concat(new[] { "ClothingBackpackDebug4", "DebugConsumer", "AtmosFixAirMarker", "AtmosFixVoxMarker",
+                "AtmosFixShuttleNitrogenMarker", "ClickTestRotatingCornerVisibleNoRot", "VendingMachineSnack", "BulletBB" })
+            .Concat(new[] { "Feline", "Horny", "CentCom", "Clown", "Denied", "Mime", "Granted", "Pepe" }
+                .Select(stamp => "RadiantRubberStamp" + stamp)).Distinct().ToArray();
         Assert.That(ids, Has.Length.GreaterThan(200));
         var keys = ids.ToDictionary(id => "ent-" + id, _ => 0);
         foreach (var file in Directory.EnumerateFiles(root, "*.ftl", SearchOption.AllDirectories))
@@ -59,8 +63,10 @@ public sealed class SpawnMenuLocalizationTest
                             Assert.That(loc.TryGetString("ent-" + id + ".desc", out var description), Is.True, id + ": description reference");
                             if (!string.IsNullOrWhiteSpace(description))
                                 Assert.That(description.Any(IsRussian), Is.True, id + ": " + description);
+                            if (!string.IsNullOrWhiteSpace(pair.Client.ProtoMan.Index<EntityPrototype>(id).SetSuffix))
+                                Assert.That(loc.GetEntityData(id).Suffix, Is.Not.Null.And.Not.Empty, id + ": retain variant suffix");
                             if (loc.GetEntityData(id).Suffix is { } suffix)
-                                foreach (var english in new[] { "Random", "Reduced", "VeryLow", "Filled", "Empty", "Hostile", "Wallmount", "Frontier", "Stash" })
+                                foreach (var english in new[] { "Random", "Reduced", "VeryLow", "Filled", "Empty", "Hostile", "Wallmount", "Frontier", "Stash", "Locked", "Crab", "Golem", "Rating", "Command" })
                                     Assert.That(suffix, Does.Not.Contain(english), id);
                         }
                     });
@@ -70,6 +76,14 @@ public sealed class SpawnMenuLocalizationTest
                     Assert.That(loc.GetEntityData("MaterialClothRandomVeryLowRS").Suffix,
                         Is.EqualTo(loc.GetEntityData("MaterialBluespaceRandomVeryLow").Suffix));
                     Assert.That(loc.GetEntityData("ClothingWalletLeatherRed").Name, Does.Contain("красный"));
+                    foreach (var stamp in new[] { "Feline", "Horny", "CentCom", "Clown", "Denied", "Mime", "Granted", "Pepe" })
+                    {
+                        var data = loc.GetEntityData("RadiantRubberStamp" + stamp);
+                        Assert.That(data.Name, Does.Not.Contain("рисунок").And.Not.Contain("картинка"));
+                        Assert.That(data.Suffix, Is.EqualTo("Картинка"));
+                    }
+                    Assert.That(loc.GetEntityData("ClothingBackpackDuffelNfsdNetAmmo").Name, Does.Contain("электросетями"));
+                    Assert.That(loc.GetEntityData("ClothingBackpackDuffelNfsdGasAmmo").Name, Does.Contain("слезоточивыми"));
                     TestContext.Out.WriteLine($"Checked {ids.Length} localized entities, their descriptions, suffixes, and unique keys.");
                 }
                 finally

@@ -16,6 +16,7 @@
   price: 32500 # ~29300 0.1 ~32230
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/coffeehouse.yml
   guidebookPage: ShipyardCoffeehouse
   class:

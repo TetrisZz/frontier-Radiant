@@ -508,13 +508,15 @@ public static class ShipSaveYamlSanitizer
 
                     if (typeName == "ResearchServer")
                     {
-                        compMap.Remove("points");
-                        compMap.Remove("Points");
+                        // Keep earned research points, but never export a stale ticking deadline.
+                        compMap.Remove("nextUpdateTime");
+                        compMap.Remove("NextUpdateTime");
                         compMap.Remove("pointsPerSecond");
                         compMap.Remove("PointsPerSecond");
                     }
 
-                    if (typeName == "TechnologyDatabase")
+                    if (typeName == "TechnologyDatabase" && entityProto?.Components.ContainsKey("ResearchServer") != true
+                        && !HasComponentNode(comps, "ResearchServer"))
                     {
                         compMap.Remove("unlockedTechnologies");
                         compMap.Remove("UnlockedTechnologies");

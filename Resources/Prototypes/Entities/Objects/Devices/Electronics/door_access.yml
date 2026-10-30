@@ -135,7 +135,7 @@
   suffix: Cargo, Locked
   components:
   - type: AccessReader
-    access: [["Cargo"]]
+    access: [["Cargo"], ["Salvage"]]
 
 # Engineering
 - type: entity

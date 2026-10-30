@@ -32,7 +32,7 @@ public sealed class MedicalCareerTest
     [Test]
     public async Task HealingChemistryLaboratoriesAndWearableLimits()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, Fresh = true, Destructive = true });
         var map = await pair.CreateTestMap();
         try
         {
@@ -46,8 +46,8 @@ public sealed class MedicalCareerTest
                 profile.Career = new CareerData { CharacterId = original.CharacterId, Profession = "Medical" };
                 try
                 {
-                    var doctor = em.SpawnEntity("MobHumanDummy", map.GridCoords);
-                    var patient = em.SpawnEntity("MobHumanDummy", map.GridCoords);
+                    var doctor = em.SpawnEntity("MobHuman", map.GridCoords);
+                    var patient = em.SpawnEntity("MobHuman", map.GridCoords);
                     var actor = em.AddComponent<CareerActorComponent>(doctor);
                     actor.User = session.UserId;
                     actor.Slot = prefs.SelectedCharacterIndex;
@@ -86,7 +86,7 @@ public sealed class MedicalCareerTest
                     groupEffect.Damage.Add("Brute", -5);
                     groupEffect.Effect(new EntityEffectReagentArgs(patient, em, null, dose, 1, reagent, null, 1));
                     Assert.That(profile.Career.Progress["healing"], Is.EqualTo(30), "Group-based medicines count on stage one");
-                    var corpse = em.SpawnEntity("MobHumanDummy", map.GridCoords);
+                    var corpse = em.SpawnEntity("MobHuman", map.GridCoords);
                     damage.TryChangeDamage(corpse, new DamageSpecifier(blunt, 300), true);
                     em.System<MobStateSystem>().ChangeMobState(corpse, MobState.Dead);
                     damage.TryChangeDamage(corpse, new DamageSpecifier(blunt, -5), true, origin: doctor);

@@ -11,6 +11,7 @@
 - type: vessel
   id: PulsarD
   parent: BaseVessel
+  canSave: false
   name: ACORP Пульсар-Д
   description: Среднее эргономичное судно ориентированное на экспедиции, добычу руды и первую помощь во время этих процессов.
   price: 74000

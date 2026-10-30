@@ -1,5 +1,6 @@
 - type: careerProfession
   id: Medical
+  radarColor: "#57E8F2"
   name: career-profession-medical
   description: career-profession-medical-description
   icon: Medkit
@@ -38,7 +39,7 @@
     type: Healing
     target: 1000
   rewardItems: [RestorativeSynthesizer]
-  rewardMoney: 10000
+  rewardMoney: 5000
   boxTier: 1
 
 - type: careerLevel
@@ -64,7 +65,7 @@
     target: 1000
     qualifiers: [Dylovene]
   rewardItems: [MedicalPouchFilledLow]
-  rewardMoney: 20000
+  rewardMoney: 10000
   boxTier: 2
 
 - type: careerLevel
@@ -100,7 +101,7 @@
     target: 100
     qualifiers: [Puncturase]
   rewardItems: [CareerMedicalChemistryBlueprint, CareerMedicalSurgeryBlueprint]
-  rewardMoney: 30000
+  rewardMoney: 15000
   boxTier: 3
 
 - type: careerLevel
@@ -111,7 +112,7 @@
     type: Implantation
     target: 1
   rewardItems: [CareerMedicalImplantsBlueprint]
-  rewardMoney: 40000
+  rewardMoney: 20000
   boxTier: 3
 
 - type: careerLevel
@@ -136,7 +137,7 @@
     target: 3
     qualifiers: [Organ]
   rewardItems: [CareerMedicalGeneticsBlueprint, GeneticResearchDiskBox]
-  rewardMoney: 50000
+  rewardMoney: 25000
   boxTier: 3
 
 - type: careerLevel
@@ -165,5 +166,5 @@
     type: DiseaseTreatment
     target: 3
   rewardItems: [CareerMedicalVirologyBlueprint, MedicalPouchFilledHigh]
-  rewardMoney: 60000
+  rewardMoney: 30000
   boxTier: 3

@@ -8,6 +8,8 @@ namespace Content.Client.Lobby
     public interface IClientPreferencesManager
     {
         event Action OnServerDataLoaded;
+        /// <summary>The locally selected character or its saved profile has changed.</summary>
+        event Action? OnSelectedCharacterChanged;
         event Action<int, DossierRecord>? OnDossierReceived;
 
         bool ServerDataLoaded => Settings != null;

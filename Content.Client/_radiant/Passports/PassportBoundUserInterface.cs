@@ -26,6 +26,8 @@ public sealed class PassportBoundUserInterface(EntityUid owner, Enum uiKey) : Bo
         base.Open();
         _window = new PassportWindow();
         _window.OnClose += Close;
+        // The state can arrive before Open, when UpdateState has no window to populate yet.
+        Update<PassportUiState>();
         _window.OpenCentered();
     }
 

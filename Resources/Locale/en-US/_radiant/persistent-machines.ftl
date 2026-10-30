@@ -1,0 +1,9 @@
+ent-BlueprintLithographAcorpPersistent = Acorp blueprint lithograph
+    .desc = A corporate-access lithograph whose blueprint archive persists between shifts.
+ent-ChemMasterPhoenixPersistent = support service ChemMaster
+    .desc = A chemical separator restricted to support agents. Reagents in its internal buffer persist between shifts.
+id-card-access-level-medical-phoenix-agent = Support agent
+persistent-machine-ready = The archive contents persist between shifts.
+persistent-machine-loading = Loading the archive contents.
+persistent-machine-error = The archive is unavailable. Contact an administrator.
+chem-master-reagent-limit = Storage limit reached for this reagent: { $amount } units. Excess remains in the input container.

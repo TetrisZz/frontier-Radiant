@@ -11,6 +11,7 @@
 - type: vessel
   id: Duchess
   parent: BaseVessel
+  canSave: false
   name: NT Duchess
   description: A mobile office and personal transport for the Station Representative, based on the BB Bodkin.
   price: 25500 #Appraises at ~22920. Markup of ~9%.

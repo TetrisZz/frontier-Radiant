@@ -1,19 +1,27 @@
-ent-WeaponPistolDebug = bang, ded
-    .desc = ded
+ent-WeaponPistolDebug = отладочный пистолет «Бах — и готово»
+    .desc = Пистолет для отладки.
     .suffix = DEBUG
-ent-MagazinePistolDebug = bang, ded mag
-    .suffix = DEBUG
+
+ent-MagazinePistolDebug = магазин отладочного пистолета
     .desc = { ent-BaseMagazinePistol.desc }
-ent-BulletDebug = bang, ded bullet
     .suffix = DEBUG
+
+ent-BulletDebug = отладочная пуля
     .desc = { ent-BaseBullet.desc }
-ent-CartridgeDebug = bang, ded cartridge
     .suffix = DEBUG
+
+ent-CartridgeDebug = отладочный патрон
     .desc = { ent-BaseCartridgePistol.desc }
-ent-MeleeDebugGib = bang stick gibber
-    .desc = hit hard ye
     .suffix = DEBUG
-ent-MeleeDebug100 = bang stick 100dmg
+
+ent-MeleeDebugGib = отладочная дубинка для расчленения
+    .desc = Бьёт очень сильно.
+    .suffix = DEBUG
+
+ent-MeleeDebug100 = отладочная дубинка на 100 урона
     .desc = { ent-MeleeDebugGib.desc }
-ent-MeleeDebug200 = bang stick 200dmg
+    .suffix = DEBUG
+
+ent-MeleeDebug200 = отладочная дубинка на 200 урона
     .desc = { ent-MeleeDebugGib.desc }
+    .suffix = DEBUG

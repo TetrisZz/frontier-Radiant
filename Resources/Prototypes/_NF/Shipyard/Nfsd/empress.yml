@@ -11,6 +11,7 @@
 - type: vessel
   id: Empress
   parent: BaseVessel
+  canSave: false
   name: NSF Empress
   description: A large patrol vessel capable of carrying up to 4 smaller faster attack ships. The flagship vessel of the NFSD.
   price: 170000 #Appraisal value is 150000

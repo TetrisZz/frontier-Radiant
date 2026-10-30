@@ -56,8 +56,9 @@ ent-VendingMachineMedicalBase = НаноМед Гражданский
     .desc = Это медицинский раздатчик препаратов. Только натуральные химикаты!
 ent-VendingMachineMedical = НаноМед Плюс
     .desc = { ent-VendingMachineMedicalBase.desc }
-ent-VendingMachineDiscount = Discount Dan
+ent-VendingMachineDiscount = Дискаунт Дэн
     .desc = Торговый автомат с закусками из печально известной франшизы "Discount Dan".
+
 ent-VendingMachineEngivend = ИнжеМат
     .desc = Запасные инструменты. А что? Вы ожидали чего-то остроумного?
 ent-VendingMachineSeedsUnlocked = МегаРаздатчик Семян
@@ -84,8 +85,9 @@ ent-VendingMachineSnackGreen = { ent-VendingMachineSnack }
 ent-VendingMachineSnackTeal = { ent-VendingMachineSnack }
     .suffix = Сине-зелёный
     .desc = { ent-VendingMachineSnack.desc }
-ent-VendingMachineSnack = Getmore Chocolate Corp
+ent-VendingMachineSnack = Гетмор Шоколад
     .desc = Автомат с закусками, предоставленный корпорацией Getmore Chocolate, базирующейся на Марсе.
+
 ent-VendingMachineSovietSoda = ВОДА
     .desc = Старый торговый автомат со сладкой водой.
 ent-VendingMachineRobotics = Роботех Делюкс

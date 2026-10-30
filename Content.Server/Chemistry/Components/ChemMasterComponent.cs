@@ -1,5 +1,6 @@
 using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Chemistry.Components
@@ -12,6 +13,7 @@ namespace Content.Server.Chemistry.Components
     [Access(typeof(ChemMasterSystem))]
     public sealed partial class ChemMasterComponent : Component
     {
+        [DataField] public FixedPoint2 MaxReagentVolume = 1000;
         [DataField("pillType"), ViewVariables(VVAccess.ReadWrite)]
         public uint PillType = 0;
 

@@ -1,6 +1,7 @@
 - type: vessel
   id: Buran
   parent: BaseVesselNavy
+  canSave: false
   name: COF Буран
   description: Многоцелевой крейсер, оснащен всевозможным вооружением, способен к точечным задачам.
   price: 74500

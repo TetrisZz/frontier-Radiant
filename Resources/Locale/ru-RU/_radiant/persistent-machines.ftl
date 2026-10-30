@@ -1,0 +1,9 @@
+ent-BlueprintLithographAcorpPersistent = литограф чертежей Акорп
+    .desc = Литограф с корпоративным доступом и архивом чертежей, сохраняющимся между сменами.
+ent-ChemMasterPhoenixPersistent = химмастер службы поддержки
+    .desc = Химический сепаратор с доступом агента поддержки. Реагенты во внутреннем буфере сохраняются между сменами.
+id-card-access-level-medical-phoenix-agent = Агент поддержки
+persistent-machine-ready = Содержимое хранилища сохраняется между сменами.
+persistent-machine-loading = Загружается содержимое хранилища.
+persistent-machine-error = Хранилище недоступно. Обратитесь к администрации.
+chem-master-reagent-limit = Достигнут предел хранения одного реагента: { $amount } ед. Остаток оставлен во входной ёмкости.

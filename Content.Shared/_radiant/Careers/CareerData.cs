@@ -14,6 +14,7 @@ public sealed partial class CareerData
     [DataField] public bool StarterBoxGranted;
     [DataField] public int BoxTier;
     [DataField] public Guid? BoxId;
+    [DataField] public Dictionary<string, double> PatientHealing = new();
 
     public CareerData Clone() => new()
     {
@@ -26,5 +27,6 @@ public sealed partial class CareerData
         StarterBoxGranted = StarterBoxGranted,
         BoxTier = BoxTier,
         BoxId = BoxId,
+        PatientHealing = new(PatientHealing),
     };
 }

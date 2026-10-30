@@ -1,6 +1,7 @@
 - type: vessel
   id: Doblest
   parent: BaseVesselNavy
+  canSave: false
   name: COF Доблесть
   description: Бронированное судно Конфедеративного Флота для особых случаев.
   price: 100

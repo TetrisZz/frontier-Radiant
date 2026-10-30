@@ -16,6 +16,7 @@
   price: 70000 # ~10% markup, big luxury restaurant
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/ceres.yml
   guidebookPage: ShipyardCeres
   class:

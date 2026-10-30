@@ -72,7 +72,13 @@ public sealed class CareerStorageTest
 
 - type: vessel
   id: CareerSaveDefaultTest
+  parent: BaseVessel
+  shuttlePath: /Maps/_NF/Shuttles/hammer.yml
+
+- type: vessel
+  id: CareerSaveDeniedTest
   parent: Hammer
+  canSave: false
 
 - type: entity
   id: CareerHiringStationTest
@@ -169,7 +175,7 @@ public sealed class CareerStorageTest
                     Assert.That(em.GetComponent<ShipyardConsoleComponent>(console).AllowShipSaving, Is.False);
                     var listing = shipyard.GetAvailableShuttles(console, ShipyardConsoleUiKey.Custom);
                     var offered = listing.available.Concat(listing.unavailable).ToArray();
-                    Assert.That(offered, Has.Length.EqualTo(2));
+                    Assert.That(offered, Has.Length.EqualTo(profession == "Mining" ? 5 : profession == "Medical" ? 6 : 7));
                     Assert.That(offered.All(id => prototypes.Index<VesselPrototype>(id).CareerProfession == profession), Is.True);
                     em.DeleteEntity(console);
                 }
@@ -188,6 +194,20 @@ public sealed class CareerStorageTest
                 Assert.That(shipyard.CanSaveVessel(grid), Is.False, "Unspecified canSave must default to false.");
                 saved.VesselId = "CareerSaveAllowedTest";
                 Assert.That(shipyard.CanSaveVessel(grid), Is.True);
+                saved.VesselId = "CareerSaveDeniedTest";
+                Assert.That(shipyard.CanSaveVessel(grid), Is.False, "A derived vessel must be able to disable an inherited permission.");
+                foreach (var vesselId in new[] { "Hammer", "Prospector", "Haven", "Onix", "Bison" })
+                {
+                    saved.VesselId = vesselId;
+                    Assert.That(shipyard.CanSaveVessel(grid), Is.True, vesselId);
+                }
+                foreach (var vessel in prototypes.EnumeratePrototypes<VesselPrototype>()
+                             .Where(vessel => !vessel.Abstract && (vessel.CareerProfession != null
+                                 || vessel.Group is not (ShipyardConsoleUiKey.Shipyard or ShipyardConsoleUiKey.Expedition or ShipyardConsoleUiKey.Scrap))))
+                {
+                    saved.VesselId = vessel.ID;
+                    Assert.That(shipyard.CanSaveVessel(grid), Is.False, vessel.ID + ": service and antagonist vessels must remain restricted.");
+                }
             });
         }
         finally { await pair.CleanReturnAsync(); }

@@ -1,5 +1,6 @@
 - type: job
   id: SeparatistsRecruit
+  spawnPassport: false
   name: job-name-separatists-recruit
   description: job-description-separatists-recruit
   playTimeTracker: JobSeparatistsRecruit

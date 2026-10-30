@@ -11,6 +11,7 @@
 - type: vessel
   id: Express
   parent: BaseVessel
+  canSave: false
   name: FSC Express
   description: A small endurance shuttle for express logistics support in Frontier space.
   price: 17250

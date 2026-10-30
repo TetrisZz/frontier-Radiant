@@ -1,6 +1,7 @@
 - type: vessel
   id: Karatel
   parent: BaseVesselAntag
+  canSave: false
   name: Каратель
   description: Средний по размеру корабль, вооружён  среднекалиберными  и  парой плазменных пушками для обороны.
   price: 60000

@@ -292,7 +292,7 @@
   - CareerMiningNeck
   - CareerMiningEyes
   - CareerMiningEars
-  - Survival
+  - CareerSurvival
   - Trinkets
   - GroupSpeciesBreathTool
   - ContractorUnderwearBottom
@@ -340,7 +340,7 @@
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - CareerEngineeringPDA
-  - SurvivalExtended
+  - CareerSurvivalEngineering
   - Trinkets
   - GroupSpeciesBreathTool
   - ContractorUnderwearBottom
@@ -536,7 +536,7 @@
   - CareerMedicalNeck
   - CareerMedicalBelt
   - CareerMedicalEars
-  - SurvivalMedical
+  - CareerSurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
   - ContractorUnderwearBottom

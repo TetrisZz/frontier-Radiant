@@ -1,6 +1,7 @@
 - type: vessel
   id: Pepel
   parent: BaseVesselAntag
+  canSave: false
   name: Пепел
   description: Не достроенное судно захваченное во время рейда, теперь же представляет из себя ударный крейсер и основной боевой костяк сил работорговцев.
   price: 60000

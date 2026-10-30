@@ -16,6 +16,7 @@
   price: 67600 # 52000 0.3 67600
   category: Medium
   group: Expedition
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Expedition/brigand.yml
   guidebookPage: ShipyardBrigand
   class:

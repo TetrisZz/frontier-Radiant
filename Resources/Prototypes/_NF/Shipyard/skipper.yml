@@ -16,6 +16,7 @@
   price: 34500
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/skipper.yml
   guidebookPage: ShipyardSkipper
   class:

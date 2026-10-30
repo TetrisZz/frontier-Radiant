@@ -1,6 +1,7 @@
 - type: vessel
   id: Prizrak
   parent: BaseVesselAntag
+  canSave: false
   name: Призрак
   description: Небольшой транспортный корабль сепаратистов, предназначенный для перевозки рабов и мелких грузов.
   price: 60000

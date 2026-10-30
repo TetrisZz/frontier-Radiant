@@ -16,6 +16,7 @@
   price: 49000 # 44560 0.1 49016
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/kilderkin.yml
   guidebookPage: ShipyardKilderkin
   class:

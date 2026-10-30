@@ -1,0 +1,39 @@
+- type: loadout
+  id: ContractorRadiantRubberStampClown
+  price: 1500
+  storage:
+    back:
+    - RadiantRubberStampClown
+  groupBy: "RubberStamps"
+
+- type: loadout
+  id: ContractorRadiantRubberStampHorny
+  price: 1500
+  storage:
+    back:
+    - RadiantRubberStampHorny
+  groupBy: "RubberStamps"
+
+- type: loadout
+  id: ContractorRadiantRubberStampPepe
+  price: 1500
+  storage:
+    back:
+    - RadiantRubberStampPepe
+  groupBy: "RubberStamps"
+
+- type: loadout
+  id: ContractorRadiantRubberStampMime
+  price: 1500
+  storage:
+    back:
+    - RadiantRubberStampMime
+  groupBy: "RubberStamps"
+
+- type: loadout
+  id: ContractorRadiantRubberStampFeline
+  price: 1500
+  storage:
+    back:
+    - RadiantRubberStampFeline
+  groupBy: "RubberStamps"

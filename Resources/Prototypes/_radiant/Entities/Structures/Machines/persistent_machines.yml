@@ -1,0 +1,33 @@
+# storageId is a stable database key, not an entity UID. Keep it across map revisions.
+# Give each independently stored machine its own key via a map component override.
+# Only one live machine can use a key; a duplicate is locked until it is removed.
+- type: entity
+  id: BlueprintLithographAcorpPersistent
+  parent: BlueprintLithograph
+  name: Acorp blueprint lithograph
+  description: A restricted blueprint archive that retains its contents between shifts.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      shader: RadiantBlueprintBlack
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [[Acorp]]
+  - type: PersistentMachine
+    storageId: acorp-blueprints-main
+
+- type: entity
+  id: ChemMasterPhoenixPersistent
+  parent: ChemMaster
+  name: support service ChemMaster
+  description: A restricted chemical separator that retains its buffer between shifts.
+  components:
+  - type: AccessReader
+    access: [[MedicalPhoenixAgent]]
+  - type: PersistentMachine
+    storageId: phoenix-agent-chem-master-main

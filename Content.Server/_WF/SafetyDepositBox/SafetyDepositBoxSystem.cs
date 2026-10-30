@@ -1,4 +1,5 @@
 using System.IO;
+using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Database;
 using Content.Server.GameTicking;
@@ -28,6 +29,7 @@ namespace Content.Server._WF.SafetyDepositBox;
 
 public sealed partial class SafetyDepositBoxSystem : EntitySystem
 {
+    private readonly HashSet<Guid> _boxOperations = new();
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private PopupSystem _popup = default!;
@@ -120,7 +122,8 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
                 box.Nickname,
                 box.ProtoId,
                 box.LastWithdrawn,
-                box.LastWithdrawnRoundId
+                box.LastWithdrawnRoundId,
+                _boxOperations.Contains(box.BoxId)
             ));
         }
 
@@ -393,7 +396,7 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         UpdateUI(consoleUid, component, player);
     }
 
-    private void OnWithdraw(EntityUid uid, SafetyDepositConsoleComponent component, SafetyDepositWithdrawMessage args)
+    private async void OnWithdraw(EntityUid uid, SafetyDepositConsoleComponent component, SafetyDepositWithdrawMessage args)
     {
         if (args.Actor is not { Valid: true } player)
             return;
@@ -407,10 +410,26 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
 
         var characterIndex = prefs.SelectedCharacterIndex;
 
-        WithdrawBoxAsync(uid, component, player, userId.UserId, characterIndex, args.BoxId);
+        if (!_boxOperations.Add(args.BoxId))
+            return;
+        UpdateUI(uid, component, player);
+        try
+        {
+            await WithdrawBoxAsync(uid, component, player, userId.UserId, characterIndex, args.BoxId);
+        }
+        catch (Exception exception)
+        {
+            Log.Error($"Failed withdrawing safety deposit box {args.BoxId}: {exception}");
+        }
+        finally
+        {
+            _boxOperations.Remove(args.BoxId);
+            if (Exists(uid) && Exists(player))
+                UpdateUI(uid, component, player);
+        }
     }
 
-    private void OnReclaim(EntityUid uid, SafetyDepositConsoleComponent component, SafetyDepositReclaimMessage args)
+    private async void OnReclaim(EntityUid uid, SafetyDepositConsoleComponent component, SafetyDepositReclaimMessage args)
     {
         if (args.Actor is not { Valid: true } player)
             return;
@@ -424,10 +443,26 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
 
         var characterIndex = prefs.SelectedCharacterIndex;
 
-        ReclaimBoxAsync(uid, component, player, userId.UserId, characterIndex, args.BoxId);
+        if (!_boxOperations.Add(args.BoxId))
+            return;
+        UpdateUI(uid, component, player);
+        try
+        {
+            await ReclaimBoxAsync(uid, component, player, userId.UserId, characterIndex, args.BoxId);
+        }
+        catch (Exception exception)
+        {
+            Log.Error($"Failed reclaiming safety deposit box {args.BoxId}: {exception}");
+        }
+        finally
+        {
+            _boxOperations.Remove(args.BoxId);
+            if (Exists(uid) && Exists(player))
+                UpdateUI(uid, component, player);
+        }
     }
 
-    private async void ReclaimBoxAsync(
+    private async Task ReclaimBoxAsync(
         EntityUid consoleUid,
         SafetyDepositConsoleComponent component,
         EntityUid player,
@@ -466,16 +501,8 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             return;
         }
 
-        // Delete the database record
-        await _dbManager.DeleteSafetyDepositBox(boxId);
-
-        // Create a new database record for the replacement box
-        var newBox = await _dbManager.PurchaseSafetyDepositBox(
-            userId,
-            characterIndex,
-            MetaData(player).EntityName,
-            box.ProtoId
-        );
+        // Replace only the physical container. The character's database slot and career binding stay unchanged.
+        var newBox = box;
 
         // Spawn a new empty physical box
         string prototypeId = box.ProtoId;
@@ -508,11 +535,9 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(player):actor} reclaimed lost safety deposit box {boxId}");
-
-        UpdateUI(consoleUid, component, player);
     }
 
-    private async void WithdrawBoxAsync(
+    private async Task WithdrawBoxAsync(
         EntityUid consoleUid,
         SafetyDepositConsoleComponent component,
         EntityUid player,
@@ -539,6 +564,16 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             PlayDenySound(consoleUid, component);
             return;
         }
+
+        // A stale enabled button is not authorization to issue an already withdrawn container again.
+        if (box.LastWithdrawn.HasValue &&
+            (box.LastWithdrawnRoundId != _gameTicker.RoundId || box.Items.Count == 0))
+        {
+            ConsolePopup(player, Loc.GetString("safety-deposit-console-box-unavailable"));
+            return;
+        }
+        if (!Exists(player) || TerminatingOrDeleted(player))
+            return;
 
         // Spawn the physical box (use stored box size to determine prototype);
 
@@ -603,8 +638,6 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
             $"{ToPrettyString(player):actor} withdrew safety deposit box {boxId} with {box.Items.Count} items");
-
-        UpdateUI(consoleUid, component, player);
     }
 
     private void OnSlotChanged(EntityUid uid, SafetyDepositConsoleComponent component, ContainerModifiedMessage args)

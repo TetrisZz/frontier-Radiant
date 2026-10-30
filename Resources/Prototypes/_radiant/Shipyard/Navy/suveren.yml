@@ -1,6 +1,7 @@
 - type: vessel
   id: Suveren
   parent: BaseVesselNavy
+  canSave: false
   name: COF Суверен
   description: Линкор Конфедеративного флота, оснащен мощным энергетическим вооружением, для нейтрализации и эми сдерживания.
   price: 74500

@@ -9,6 +9,7 @@
   price: 51000 # 45957 0.1 50552.7
   category: Medium
   group: Scrap
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/Scrap/geode.yml
   guidebookPage: ShipyardGeode
   class:

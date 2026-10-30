@@ -16,6 +16,7 @@
   price: 66000 # 58791 0.1 64670.1
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/phoenix.yml
   guidebookPage: ShipyardPhoenix
   class:

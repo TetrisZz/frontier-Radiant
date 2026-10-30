@@ -16,6 +16,7 @@
   price: 22500 #overpriced but ignoring for now. Dusto
   category: Small
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/honker.yml
   guidebookPage: ShipyardHonker
   class:

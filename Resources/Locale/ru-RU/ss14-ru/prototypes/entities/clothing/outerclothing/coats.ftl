@@ -82,3 +82,4 @@ ent-ClothingOuterCoatExpensive = дорогая шуба
     .desc = Очень пушистая розовая шуба, сделанная из очень дорогого меха (очевидно).
 ent-ClothingOuterCoatExpensiveOpened = дорогая шуба
     .desc = { ent-ClothingOuterStorageFoldableBaseOpened.desc }
+    .suffix = Открытый

@@ -11,6 +11,7 @@
 - type: vessel
   id: Broom
   parent: BaseVessel
+  canSave: false
   name: LVHI Broom
   description: A cramped yet reliable shuttle for providing official janitorial services. Manufactured by Langstad-Voigt Heavy Industries.
   price: 13500 # 12387 x 1.05 = 13006

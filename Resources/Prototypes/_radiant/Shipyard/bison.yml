@@ -6,6 +6,7 @@
   price: 136500
   category: Large
   group: Scrap
+  canSave: true
   shuttlePath: /Maps/_radiant/Shuttles/Bison.yml
   guidebookPage: Null
   class:

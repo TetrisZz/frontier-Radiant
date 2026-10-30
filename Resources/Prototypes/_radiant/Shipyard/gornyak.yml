@@ -11,11 +11,13 @@
 - type: vessel
   id: Gornyak
   parent: BaseVessel
-  name: HOM Горняк
+  canSave: false
+  name: Mining Горняк
   description: Стильное шахтерское судно со всем необходимым для добычи ресурсов.
   price: 59000
   category: Medium
-  group: Shipyard
+  group: Custom
+  careerProfession: Mining
   shuttlePath: /Maps/_radiant/Shuttles/Gornyak.yml
   guidebookPage: Null
   class:
@@ -25,20 +27,15 @@
 
 - type: gameMap
   id: Gornyak
-  mapName: 'HOM Горняк'
+  mapName: Mining Горняк
   mapPath: /Maps/_radiant/Shuttles/Gornyak.yml
   minPlayers: 0
   stations:
     Gornyak:
-      stationProto: StandardFrontierExpeditionVessel #radiant_sector
+      stationProto: CareerMiningStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Горняк {1}'
+          mapNameTemplate: 'Mining Горняк {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
-        - type: StationJobs
-          availableJobs:
-            ContractorInterview: [ 0, 0 ]
-            PilotInterview: [ 0, 0 ]
-            MercenaryInterview: [ 0, 0 ]

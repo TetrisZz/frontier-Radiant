@@ -10,6 +10,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared._radiant.ResearchBlueprints;
+using Content.Shared.Access.Systems;
 
 namespace Content.Shared.Research.Systems;
 
@@ -20,6 +21,7 @@ public sealed class BlueprintSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!; // Frontier
     [Dependency] private readonly SharedLatheSystem _lathe = default!;
+    [Dependency] private readonly AccessReaderSystem _access = default!;
 
     private const int MaxExaminedRecipes = 5; // Frontier
 
@@ -62,6 +64,9 @@ public sealed class BlueprintSystem : EntitySystem
         if (!CanInsertBlueprint(ent, blueprint, user))
             return false;
 
+        if (!_container.Insert(blueprint.Owner, _container.GetContainer(ent, ent.Comp.ContainerId)))
+            return false;
+
         if (user is not null)
         {
             var userId = Identity.Entity(user.Value, EntityManager);
@@ -74,8 +79,6 @@ public sealed class BlueprintSystem : EntitySystem
             _popup.PopupPredicted(msg, ent, user);
         }
 
-        _container.Insert(blueprint.Owner, _container.GetContainer(ent, ent.Comp.ContainerId));
-
         var ev = new TechnologyDatabaseModifiedEvent(blueprint.Comp.ProvidedRecipes.Select(it => it.Id).ToList());
         RaiseLocalEvent(ent, ref ev);
         return true;
@@ -83,6 +86,11 @@ public sealed class BlueprintSystem : EntitySystem
 
     public bool CanInsertBlueprint(Entity<BlueprintReceiverComponent> ent, Entity<BlueprintComponent> blueprint, EntityUid? user)
     {
+        if (user is { } actor && !_access.IsAllowed(actor, ent))
+        {
+            _popup.PopupPredicted(Loc.GetString("comms-console-permission-denied"), ent, user);
+            return false;
+        }
         if (_entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, blueprint))
         {
             _popup.PopupPredicted(Loc.GetString("blueprint-receiver-popup-invalid-type"), ent, user); // Frontier

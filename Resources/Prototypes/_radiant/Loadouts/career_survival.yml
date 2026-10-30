@@ -1,0 +1,78 @@
+# Exactly one free, species-appropriate box, including for species absent from the upstream lists.
+- type: loadoutGroup
+  id: CareerSurvival
+  name: loadout-group-survival-basic
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - ContractorNFBoxSurvival
+  - ContractorNFBoxSurvivalNitrogen
+  - ContractorNFBoxSurvivalSheleg
+
+- type: loadoutGroup
+  id: CareerSurvivalEngineering
+  name: loadout-group-survival-extended
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - CareerEmergencyOxygenEngineering
+  - CareerEmergencyNitrogenEngineering
+  - CareerEmergencyShelegEngineering
+
+- type: loadoutGroup
+  id: CareerSurvivalMedical
+  name: loadout-group-survival-medical
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - CareerEmergencyOxygenMedical
+  - CareerEmergencyNitrogenMedical
+  - ContractorNFBoxSurvivalSheleg
+
+- type: loadout
+  id: CareerEmergencyOxygenEngineering
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFOxygenBreather
+  storage:
+    back:
+    - BoxSurvivalEngineering
+
+- type: loadout
+  id: CareerEmergencyNitrogenEngineering
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFNitrogenBreather
+  storage:
+    back:
+    - BoxSurvivalEngineeringNitrogen
+
+- type: loadout
+  id: CareerEmergencyShelegEngineering
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFSheleg
+  storage:
+    back:
+    - NFBoxSurvivalExtendedSheleg
+
+- type: loadout
+  id: CareerEmergencyOxygenMedical
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFOxygenBreather
+  storage:
+    back:
+    - BoxSurvivalMedical
+
+- type: loadout
+  id: CareerEmergencyNitrogenMedical
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFNitrogenBreather
+  storage:
+    back:
+    - BoxSurvivalMedicalNitrogen

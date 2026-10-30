@@ -11,6 +11,7 @@
 - type: vessel
   id: ChromoGen
   parent: BaseVessel
+  canSave: false
   name: ACORP ХромоГен
   description: Крио-химический корабль маленького размера.
   price: 40000

@@ -16,6 +16,7 @@
   price: 60900
   category: Medium
   group: Expedition
+  canSave: true
   shuttlePath: /Maps/_radiant/Shuttles/Iris.yml
   guidebookPage: Null
   class:

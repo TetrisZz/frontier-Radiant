@@ -17,6 +17,7 @@
   price: 61000 # 50579 0.2 60694.8
   category: Medium
   group: Shipyard
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/vagabond.yml
   guidebookPage: ShipyardVagabond
   class:

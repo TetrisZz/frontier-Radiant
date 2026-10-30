@@ -4,6 +4,8 @@ using System.Linq;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._EE.Contractors.Components;
 using Content.Shared._radiant.Passports;
+using Content.Shared._NF.Roles.Components;
+using Content.Shared.Roles;
 using Content.Server._radiant.Dossiers;
 using Content.Server._radiant.Medical.Surgery;
 using Content.Shared.Examine;
@@ -107,7 +109,9 @@ public sealed partial class PassportSystem : EntitySystem
 
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(args.Mob))
+        if (!HasComp<HumanoidAppearanceComponent>(args.Mob)
+            || HasComp<InterviewHologramComponent>(args.Mob)
+            || args.JobId is { } job && _prototypes.TryIndex<JobPrototype>(job, out var definition) && !definition.SpawnPassport)
             return;
         var identity = EnsureIdentity(args.Mob, args.Profile);
         var isUndocumented = args.Profile.TraitPreferences.Contains(UndocumentedTrait);

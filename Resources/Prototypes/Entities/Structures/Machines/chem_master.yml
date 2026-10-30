@@ -26,6 +26,8 @@
           - FitsInDispenser
   - type: ChemMaster
     pillDosageLimit: 20
+    maxReagentVolume: 1000
+  - type: ActivatableUIRequiresAccess
   - type: Physics
     bodyType: Static
   - type: Fixtures

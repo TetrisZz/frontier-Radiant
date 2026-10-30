@@ -14,9 +14,11 @@
 - type: vessel
   id: CareerEngineeringStarter
   parent: Hammer
+  group: Custom
   name: Engineering Hammer
   description: A starter repair vessel for a three-person engineering crew.
   price: 0
+  canSave: false
   careerProfession: Engineering
   careerLevel: 0
   careerFree: true
@@ -38,6 +40,8 @@
 - type: vessel
   id: CareerEngineeringUpgrade
   parent: Comet
+  group: Custom
+  canSave: false
   name: Engineering Comet
   description: A larger construction and repair vessel for an experienced engineering crew.
   careerProfession: Engineering
@@ -66,7 +70,7 @@
   - type: ShipyardConsole
     newJobTitle: null
   - type: ShipyardListing
-    shuttles: [CareerEngineeringStarter, CareerEngineeringUpgrade]
+    shuttles: [CareerEngineeringStarter, Retort, Gasbender, Ambition, Hephaestus, Comet, Castor]
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Custom
   - type: UserInterface

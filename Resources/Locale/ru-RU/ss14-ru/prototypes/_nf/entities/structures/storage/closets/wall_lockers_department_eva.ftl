@@ -26,6 +26,8 @@ ent-LockerWallEVAColorChaplain = настенный шкаф EVA священн�
     .desc = { ent-LockerWallColorBase.desc }
 ent-LockerWallEVAColorNfsd = настенный шкаф EVA ДВБ
     .desc = { ent-LockerWallColorBase.desc }
+    .suffix = Фронтир
+
 ent-LockerWallEVAColorContractor = настенный шкаф EVA авантюриста
     .desc = { ent-LockerWallColorBase.desc }
 ent-LockerWallEVAColorPilot = настенный шкаф EVA пилота

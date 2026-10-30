@@ -1,0 +1,59 @@
+- type: construction
+  id: RadiantIVDrip
+  name: construction-name-radiant-iv
+  description: construction-desc-radiant-iv
+  graph: RadiantIVDrip
+  startNode: start
+  targetNode: stand
+  category: construction-category-furniture
+  objectType: Structure
+  icon:
+    sprite: _radiant/Structures/Medical/iv_drip.rsi
+    state: iv_drip
+
+- type: construction
+  id: RadiantIVDripTelescopic
+  name: construction-name-radiant-iv-telescopic
+  description: construction-desc-radiant-iv
+  graph: RadiantIVDripTelescopic
+  startNode: start
+  targetNode: stand
+  category: construction-category-furniture
+  objectType: Structure
+  icon:
+    sprite: _radiant/Structures/Medical/iv_drip.rsi
+    state: iv_drip_tele
+
+- type: constructionGraph
+  id: RadiantIVDrip
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: stand
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 3
+      - material: Plastic
+        amount: 1
+        doAfter: 1
+  - node: stand
+    entity: RadiantIVDrip
+
+- type: constructionGraph
+  id: RadiantIVDripTelescopic
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: stand
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 3
+      - material: Plastic
+        amount: 2
+        doAfter: 1
+  - node: stand
+    entity: RadiantIVDripTelescopic

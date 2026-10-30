@@ -11,6 +11,7 @@
 - type: vessel
   id: Scorobey
   parent: BaseVessel
+  canSave: false
   name: ACORP Скарабей
   description: Мелкий экспедиционный шаттл.
   price: 50000
