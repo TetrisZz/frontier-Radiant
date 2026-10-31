@@ -1,0 +1,646 @@
+- type: "artisanRecipe"
+  id: "ArtisanClay"
+  name: "artisan-recipe-clay"
+  result: "RadiantClay"
+  steps:
+    - station: "Pottery"
+      name: "artisan-step-clay"
+      duration: 4
+      water: 10
+  stack: "SpaceQuartz"
+  amount: 1
+- type: "artisanRecipe"
+  id: "ArtisanCeramicCup"
+  name: "artisan-recipe-ceramiccup"
+  result: "RadiantCeramicCup"
+  steps:
+    - station: "Pottery"
+      name: "artisan-step-form"
+      duration: 5
+    - station: "Kiln"
+      name: "artisan-step-fire"
+      duration: 35
+      minTemperature: 750
+  stack: "ArtisanClay"
+  amount: 1
+  blank: "RadiantArtisanUnfiredCup"
+- type: "artisanRecipe"
+  id: "ArtisanCeramicBowl"
+  name: "artisan-recipe-ceramicbowl"
+  result: "RadiantCeramicBowl"
+  steps:
+    - station: "Pottery"
+      name: "artisan-step-form"
+      duration: 5
+    - station: "Kiln"
+      name: "artisan-step-fire"
+      duration: 35
+      minTemperature: 750
+  stack: "ArtisanClay"
+  amount: 1
+  blank: "RadiantArtisanUnfiredBowl"
+- type: "artisanRecipe"
+  id: "ArtisanCeramicPlate"
+  name: "artisan-recipe-ceramicplate"
+  result: "RadiantCeramicPlate"
+  steps:
+    - station: "Pottery"
+      name: "artisan-step-form"
+      duration: 5
+    - station: "Kiln"
+      name: "artisan-step-fire"
+      duration: 35
+      minTemperature: 750
+  stack: "ArtisanClay"
+  amount: 1
+  blank: "RadiantArtisanUnfiredPlate"
+- type: "artisanRecipe"
+  id: "ArtisanCeramicTray"
+  name: "artisan-recipe-ceramictray"
+  result: "RadiantCeramicTray"
+  steps:
+    - station: "Pottery"
+      name: "artisan-step-form"
+      duration: 5
+    - station: "Kiln"
+      name: "artisan-step-fire"
+      duration: 35
+      minTemperature: 750
+  stack: "ArtisanClay"
+  amount: 2
+  blank: "RadiantArtisanUnfiredTray"
+- type: "artisanRecipe"
+  id: "ArtisanGlassCup"
+  name: "artisan-recipe-glasscup"
+  result: "RadiantGlassCup"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-melt-glass"
+      duration: 12
+      minTemperature: 950
+      givesHeat: true
+    - station: "GlassBench"
+      name: "artisan-step-blow"
+      duration: 4
+      needsHeat: true
+      tool: "Blowpipe"
+    - station: "GlassBench"
+      name: "artisan-step-spin"
+      duration: 4
+      needsHeat: true
+      tool: "Blowpipe"
+    - station: "GlassBench"
+      name: "artisan-step-shape"
+      duration: 4
+      needsHeat: true
+      tool: "Paddle"
+    - station: "Kiln"
+      name: "artisan-step-anneal"
+      duration: 25
+      minTemperature: 600
+  stack: "Glass"
+  amount: 2
+  blank: "RadiantArtisanHotGlass"
+- type: "artisanRecipe"
+  id: "ArtisanGlassBowl"
+  name: "artisan-recipe-glassbowl"
+  result: "RadiantGlassBowl"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-melt-glass"
+      duration: 12
+      minTemperature: 950
+      givesHeat: true
+    - station: "GlassBench"
+      name: "artisan-step-blow"
+      duration: 4
+      needsHeat: true
+      tool: "Blowpipe"
+    - station: "GlassBench"
+      name: "artisan-step-spin"
+      duration: 4
+      needsHeat: true
+      tool: "Blowpipe"
+    - station: "GlassBench"
+      name: "artisan-step-shape"
+      duration: 4
+      needsHeat: true
+      tool: "Paddle"
+    - station: "Kiln"
+      name: "artisan-step-anneal"
+      duration: 25
+      minTemperature: 600
+  stack: "Glass"
+  amount: 2
+  blank: "RadiantArtisanHotGlass"
+- type: "artisanRecipe"
+  id: "ArtisanGlassPlate"
+  name: "artisan-recipe-glassplate"
+  result: "RadiantGlassPlate"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-melt-glass"
+      duration: 12
+      minTemperature: 950
+      givesHeat: true
+    - station: "GlassBench"
+      name: "artisan-step-blow"
+      duration: 4
+      needsHeat: true
+      tool: "Blowpipe"
+    - station: "GlassBench"
+      name: "artisan-step-spin"
+      duration: 4
+      needsHeat: true
+      tool: "Blowpipe"
+    - station: "GlassBench"
+      name: "artisan-step-shape"
+      duration: 4
+      needsHeat: true
+      tool: "Paddle"
+    - station: "Kiln"
+      name: "artisan-step-anneal"
+      duration: 25
+      minTemperature: 600
+  stack: "Glass"
+  amount: 2
+  blank: "RadiantArtisanHotGlass"
+- type: "artisanRecipe"
+  id: "ArtisanGlassLens"
+  name: "artisan-recipe-glasslens"
+  result: "RadiantGlassLens"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-melt-glass"
+      duration: 12
+      minTemperature: 950
+      givesHeat: true
+    - station: "GlassBench"
+      name: "artisan-step-blow"
+      duration: 4
+      needsHeat: true
+      tool: "Blowpipe"
+    - station: "GlassBench"
+      name: "artisan-step-spin"
+      duration: 4
+      needsHeat: true
+      tool: "Blowpipe"
+    - station: "GlassBench"
+      name: "artisan-step-shape"
+      duration: 4
+      needsHeat: true
+      tool: "Paddle"
+    - station: "Kiln"
+      name: "artisan-step-anneal"
+      duration: 25
+      minTemperature: 600
+  stack: "Glass"
+  amount: 3
+  blank: "RadiantArtisanHotGlass"
+- type: "artisanRecipe"
+  id: "ArtisanForgedRing"
+  name: "artisan-recipe-forgedring"
+  result: "RadiantForgedRing"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-heat-metal"
+      duration: 12
+      minTemperature: 800
+      givesHeat: true
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Quench"
+      name: "artisan-step-quench"
+      finishSound:
+        path: /Audio/_radiant/Artisan/quench.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      water: 10
+      tool: "Tongs"
+  stack: "Silver"
+  amount: 1
+  blank: "RadiantArtisanHotMetal"
+- type: "artisanRecipe"
+  id: "ArtisanForgedCrowbar"
+  name: "artisan-recipe-forgedcrowbar"
+  result: "RadiantForgedCrowbar"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-heat-metal"
+      duration: 12
+      minTemperature: 800
+      givesHeat: true
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Quench"
+      name: "artisan-step-quench"
+      finishSound:
+        path: /Audio/_radiant/Artisan/quench.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      water: 10
+      tool: "Tongs"
+  stack: "Steel"
+  amount: 2
+  blank: "RadiantArtisanHotMetal"
+- type: "artisanRecipe"
+  id: "ArtisanForgedKnife"
+  name: "artisan-recipe-forgedknife"
+  result: "RadiantForgedKnife"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-heat-metal"
+      duration: 12
+      minTemperature: 800
+      givesHeat: true
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Quench"
+      name: "artisan-step-quench"
+      finishSound:
+        path: /Audio/_radiant/Artisan/quench.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      water: 10
+      tool: "Tongs"
+  stack: "Steel"
+  amount: 1
+  blank: "RadiantArtisanHotMetal"
+- type: "artisanRecipe"
+  id: "ArtisanBrewWine"
+  name: "artisan-recipe-brewwine"
+  result: "RadiantArtisanBottle"
+  steps:
+    - station: "Fermenter"
+      name: "artisan-step-ferment"
+      duration: 180
+      water: 0
+  ingredients:
+    - "FoodGrape"
+  ingredientCount: 3
+  drink: "Wine"
+  drinkAmount: 60
+- type: "artisanRecipe"
+  id: "ArtisanBrewCider"
+  name: "artisan-recipe-brewcider"
+  result: "RadiantArtisanBottle"
+  steps:
+    - station: "Fermenter"
+      name: "artisan-step-ferment"
+      duration: 180
+      water: 0
+  ingredients:
+    - "FoodApple"
+  ingredientCount: 3
+  drink: "RadiantArtisanCider"
+  drinkAmount: 60
+- type: "artisanRecipe"
+  id: "ArtisanBrewBeer"
+  name: "artisan-recipe-brewbeer"
+  result: "RadiantArtisanBottle"
+  steps:
+    - station: "Fermenter"
+      name: "artisan-step-ferment"
+      duration: 240
+      water: 60
+  ingredients:
+    - "WheatBushel"
+  ingredientCount: 3
+  drink: "Beer"
+  drinkAmount: 120
+
+- type: "artisanRecipe"
+  id: "ArtisanForgePlasteelMace"
+  name: "artisan-recipe-plasteelmace"
+  result: "PlasteelMace"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-heat-metal"
+      duration: 12
+      minTemperature: 1000
+      givesHeat: true
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Quench"
+      name: "artisan-step-quench"
+      finishSound:
+        path: /Audio/_radiant/Artisan/quench.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      water: 10
+      tool: "Tongs"
+  stack: "Plasteel"
+  amount: 4
+  blank: "RadiantArtisanHotMetal"
+
+- type: "artisanRecipe"
+  id: "ArtisanForgePlasteelAxe"
+  name: "artisan-recipe-plasteelaxe"
+  result: "PlasteelAxe"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-heat-metal"
+      duration: 12
+      minTemperature: 1000
+      givesHeat: true
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Quench"
+      name: "artisan-step-quench"
+      finishSound:
+        path: /Audio/_radiant/Artisan/quench.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      water: 10
+      tool: "Tongs"
+  stack: "Plasteel"
+  amount: 4
+  blank: "RadiantArtisanHotMetal"
+
+- type: "artisanRecipe"
+  id: "ArtisanForgeCombatKnife"
+  name: "artisan-recipe-combatknife"
+  result: "CombatKnife"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-heat-metal"
+      duration: 12
+      minTemperature: 800
+      givesHeat: true
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Quench"
+      name: "artisan-step-quench"
+      finishSound:
+        path: /Audio/_radiant/Artisan/quench.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      water: 10
+      tool: "Tongs"
+  stack: "Steel"
+  amount: 2
+  blank: "RadiantArtisanHotMetal"
+
+- type: "artisanRecipe"
+  id: "ArtisanForgePlasteelSpear"
+  name: "artisan-recipe-plasteelspear"
+  result: "PlasteelSpear"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-heat-metal"
+      duration: 12
+      minTemperature: 1000
+      givesHeat: true
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Quench"
+      name: "artisan-step-quench"
+      finishSound:
+        path: /Audio/_radiant/Artisan/quench.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      water: 10
+      tool: "Tongs"
+  stack: "Plasteel"
+  amount: 3
+  blank: "RadiantArtisanHotMetal"
+
+- type: "artisanRecipe"
+  id: "ArtisanForgePlasteelEpee"
+  name: "artisan-recipe-plasteelepee"
+  result: "PlasteelEpee"
+  steps:
+    - station: "Furnace"
+      name: "artisan-step-heat-metal"
+      duration: 12
+      minTemperature: 1000
+      givesHeat: true
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Anvil"
+      name: "artisan-step-hammer"
+      startSound:
+        path: /Audio/_radiant/Artisan/hammer.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      tool: "Hammer"
+    - station: "Quench"
+      name: "artisan-step-quench"
+      finishSound:
+        path: /Audio/_radiant/Artisan/quench.ogg
+        params:
+          volume: -5
+      duration: 4
+      needsHeat: true
+      water: 10
+      tool: "Tongs"
+  stack: "Plasteel"
+  amount: 3
+  blank: "RadiantArtisanHotMetal"

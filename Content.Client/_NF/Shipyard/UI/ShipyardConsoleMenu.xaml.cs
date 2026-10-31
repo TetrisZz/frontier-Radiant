@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Client._NF.Shipyard.BUI;
+using Content.Client.Guidebook;
 using Content.Shared._NF.Bank;
 using Content.Shared._NF.Shipyard.BUI;
 using Content.Shared._NF.Shipyard.Prototypes;
@@ -28,6 +29,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
 
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
     public event Action<ButtonEventArgs>? OnSellShip;
     public event Action<ButtonEventArgs>? OnSaveShip;
@@ -62,6 +64,9 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
         SortBy.OnItemSelected += OnSortByItemSelected;
         SellShipButton.OnPressed += (args) => { OnSellShip?.Invoke(args); };
         SaveShipButton.OnPressed += args => OnSaveShip?.Invoke(args);
+        // Keep the linked guide in sync when changing ship eligibility, snapshot filters or deployment.
+        ShipSavingHelpButton.OnPressed += _ => _entitySystemManager.GetEntitySystem<GuidebookSystem>()
+            .OpenHelp(new() { "RadiantShipSaving", "RadiantMechanics", "Medical" });
         LoadShipButton.OnPressed += _ =>
         {
             if (_selectedSavedShip != null)

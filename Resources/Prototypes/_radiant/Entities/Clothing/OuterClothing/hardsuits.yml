@@ -205,6 +205,10 @@
   name: тяжелый скафандр акорп
   description: Неплохо бронированный скафандр акорп, покрытие всего тела твердым материалом делает его владельца невосприимчивым к внешним условиям, но чтобы быть боевым ему мешает вес и не термоустойкая броня
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,5
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/hard_eva.rsi
   - type: Clothing
@@ -419,6 +423,10 @@
   name: тяжелый скафандр сепаратистов
   description: Крепкий скафандр, произведенный сепаратистами для открытой конфронтации с силовыми структурами.
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,5
   - type: Sprite
     sprite: _radiant/Clothing/Hardsuits/jagaga.rsi
   - type: Clothing

@@ -14,6 +14,7 @@ namespace Content.Server._HL.Shipyard;
 
 /// <summary>
 /// Centralized ship-save YAML sanitization logic used by shipyard save/export flows.
+/// Keep player-facing exceptions in Resources/ServerInfo/_radiant/Guidebook/ShipSaving.xml up to date.
 /// </summary>
 public static class ShipSaveYamlSanitizer
 {
@@ -184,8 +185,8 @@ public static class ShipSaveYamlSanitizer
         ["StoreRefund"] = ["storeEntity"],
         ["Jukebox"] = ["audioStream"],
         ["Organ"] = ["body", "originalBody"],
-        // Triad: an ore silo is station infrastructure, so a lathe saved with a ship always points at
-        // a silo that stays behind. Nullable, so the client just loads unlinked and re-links on use.
+        // Clear links to silos outside the saved ship. Onboard silos and their clients
+        // can keep their links, while both load without material reserves.
         ["OreSiloClient"] = ["silo"],
     };
 

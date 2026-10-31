@@ -1,0 +1,104 @@
+- type: entity
+  id: RadiantNewsroomConsole
+  parent: [BaseMachinePowered, ConstructibleMachine]
+  name: editorial terminal
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Media/newsroom.rsi
+    layers:
+    - state: newscaster
+    - state: newscaster_normal
+  - type: Transform
+    anchored: true
+  - type: Newsroom
+  - type: SectorNews
+  - type: MaterialStorage
+    storage:
+      Paper: 1000
+    materialWhiteList: [Paper]
+    canEjectStoredMaterials: false
+  - type: ActivatableUI
+    key: enum.NewsroomUiKey.Key
+    singleUser: true
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.NewsroomUiKey.Key:
+        type: NewsroomBoundUserInterface
+  - type: Machine
+    board: RadiantNewsroomMachineCircuitboard
+  - type: GuideHelp
+    guides: [RadiantNewsroom, RadiantPaperwork, RadiantMechanics]
+
+- type: entity
+  id: RadiantNewspaper
+  parent: Paper
+  name: sector newspaper
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Media/newspaper.rsi
+    layers:
+    - state: newspaper
+    - sprite: Objects/Misc/bureaucracy.rsi
+      state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - sprite: Objects/Misc/bureaucracy.rsi
+      state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: Item
+    size: Small
+    sprite: _radiant/Objects/Media/newspaper.rsi
+  - type: NewsEdition
+  - type: Paper
+    editingDisabled: true
+    contentSize: 20000
+  - type: ActivatableUI
+    key: enum.NewsEditionUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.NewsEditionUiKey.Key:
+        type: NewsEditionBoundUserInterface
+  - type: StaticPrice
+    price: 0
+  - type: GuideHelp
+    guides: [RadiantNewsroom, RadiantPaperwork, RadiantMechanics]
+
+- type: entity
+  id: RadiantNewsroomMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: editorial terminal machine board
+  components:
+  - type: MachineBoard
+    prototype: RadiantNewsroomConsole
+    stackRequirements:
+      Steel: 4
+      Glass: 2
+      Cable: 2
+
+- type: entity
+  id: RadiantNewsroomFlatpack
+  parent: BaseFlatpack
+  name: editorial terminal flatpack
+  components:
+  - type: Flatpack
+    entity: RadiantNewsroomConsole
+
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory]
+  id: RadiantNewsroomMachineCircuitboard
+  result: RadiantNewsroomMachineCircuitboard
+
+- type: latheRecipe
+  id: RadiantNewsroomFlatpack
+  result: RadiantNewsroomFlatpack
+  completetime: 6
+  materials:
+    Steel: 600
+    Glass: 200
+    Plastic: 200
+
+- type: latheRecipePack
+  id: RadiantNewsroomEquipment
+  recipes: [RadiantNewsroomMachineCircuitboard, RadiantNewsroomFlatpack]

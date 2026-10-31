@@ -1,6 +1,5 @@
 - type: careerProfession
   id: Medical
-  radarColor: "#57E8F2"
   name: career-profession-medical
   description: career-profession-medical-description
   icon: Medkit

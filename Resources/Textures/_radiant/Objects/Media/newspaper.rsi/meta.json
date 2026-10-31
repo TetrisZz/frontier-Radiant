@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "ParadiseSS13 and SS220 contributors. https://github.com/ss220-space/Paradise/blob/master/icons/obj/bureaucracy.dmi; https://github.com/ss220-space/Paradise/blob/master/icons/mob/inhands/items_lefthand.dmi; https://github.com/ss220-space/Paradise/blob/master/icons/mob/inhands/items_righthand.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "newspaper"
+    },
+    {
+      "name": "newspaper_rolled"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

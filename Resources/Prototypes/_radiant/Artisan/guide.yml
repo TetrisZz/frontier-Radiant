@@ -1,0 +1,12 @@
+- type: "guideEntry"
+  id: "RadiantArtisanWorkshop"
+  name: "artisan-guide-title"
+  text: "/ServerInfo/_radiant/Guidebook/ArtisanWorkshop.xml"
+  children:
+  - RadiantArtisanEquipment
+  - RadiantPottery
+  - RadiantGlassworking
+  - RadiantSmithing
+  - RadiantFermentation
+  - RadiantBottling
+  - RadiantSculpting

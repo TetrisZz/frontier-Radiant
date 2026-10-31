@@ -1,0 +1,455 @@
+- type: artisanRecipe
+  id: ArtisanSculptStoneBust
+  name: artisan-sculpt-stone-bust
+  result: RadiantSculptureStoneBust
+  blank: RadiantSculptureBlank
+  stack: SpaceQuartz
+  amount: 10
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptStoneCorgi
+  name: artisan-sculpt-stone-corgi
+  result: RadiantSculptureStoneCorgi
+  blank: RadiantSculptureBlank
+  stack: SpaceQuartz
+  amount: 10
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptStoneMonkey
+  name: artisan-sculpt-stone-monkey
+  result: RadiantSculptureStoneMonkey
+  blank: RadiantSculptureBlank
+  stack: SpaceQuartz
+  amount: 10
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptStoneMedic
+  name: artisan-sculpt-stone-medic
+  result: RadiantSculptureStoneMedic
+  blank: RadiantSculptureBlank
+  stack: SpaceQuartz
+  amount: 10
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptStoneEngineer
+  name: artisan-sculpt-stone-engineer
+  result: RadiantSculptureStoneEngineer
+  blank: RadiantSculptureBlank
+  stack: SpaceQuartz
+  amount: 10
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptStoneScholar
+  name: artisan-sculpt-stone-scholar
+  result: RadiantSculptureStoneScholar
+  blank: RadiantSculptureBlank
+  stack: SpaceQuartz
+  amount: 10
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptWoodBust
+  name: artisan-sculpt-wood-bust
+  result: RadiantSculptureWoodBust
+  blank: RadiantSculptureBlank
+  stack: WoodPlank
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptWoodCorgi
+  name: artisan-sculpt-wood-corgi
+  result: RadiantSculptureWoodCorgi
+  blank: RadiantSculptureBlank
+  stack: WoodPlank
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptWoodMonkey
+  name: artisan-sculpt-wood-monkey
+  result: RadiantSculptureWoodMonkey
+  blank: RadiantSculptureBlank
+  stack: WoodPlank
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptWoodMedic
+  name: artisan-sculpt-wood-medic
+  result: RadiantSculptureWoodMedic
+  blank: RadiantSculptureBlank
+  stack: WoodPlank
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptWoodEngineer
+  name: artisan-sculpt-wood-engineer
+  result: RadiantSculptureWoodEngineer
+  blank: RadiantSculptureBlank
+  stack: WoodPlank
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptWoodScholar
+  name: artisan-sculpt-wood-scholar
+  result: RadiantSculptureWoodScholar
+  blank: RadiantSculptureBlank
+  stack: WoodPlank
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptSteelBust
+  name: artisan-sculpt-steel-bust
+  result: RadiantSculptureSteelBust
+  blank: RadiantSculptureBlank
+  stack: Steel
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptSteelCorgi
+  name: artisan-sculpt-steel-corgi
+  result: RadiantSculptureSteelCorgi
+  blank: RadiantSculptureBlank
+  stack: Steel
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptSteelMonkey
+  name: artisan-sculpt-steel-monkey
+  result: RadiantSculptureSteelMonkey
+  blank: RadiantSculptureBlank
+  stack: Steel
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptSteelMedic
+  name: artisan-sculpt-steel-medic
+  result: RadiantSculptureSteelMedic
+  blank: RadiantSculptureBlank
+  stack: Steel
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptSteelEngineer
+  name: artisan-sculpt-steel-engineer
+  result: RadiantSculptureSteelEngineer
+  blank: RadiantSculptureBlank
+  stack: Steel
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptSteelScholar
+  name: artisan-sculpt-steel-scholar
+  result: RadiantSculptureSteelScholar
+  blank: RadiantSculptureBlank
+  stack: Steel
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptGoldBust
+  name: artisan-sculpt-gold-bust
+  result: RadiantSculptureGoldBust
+  blank: RadiantSculptureBlank
+  stack: Gold
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptGoldCorgi
+  name: artisan-sculpt-gold-corgi
+  result: RadiantSculptureGoldCorgi
+  blank: RadiantSculptureBlank
+  stack: Gold
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptGoldMonkey
+  name: artisan-sculpt-gold-monkey
+  result: RadiantSculptureGoldMonkey
+  blank: RadiantSculptureBlank
+  stack: Gold
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptGoldMedic
+  name: artisan-sculpt-gold-medic
+  result: RadiantSculptureGoldMedic
+  blank: RadiantSculptureBlank
+  stack: Gold
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptGoldEngineer
+  name: artisan-sculpt-gold-engineer
+  result: RadiantSculptureGoldEngineer
+  blank: RadiantSculptureBlank
+  stack: Gold
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+
+- type: artisanRecipe
+  id: ArtisanSculptGoldScholar
+  name: artisan-sculpt-gold-scholar
+  result: RadiantSculptureGoldScholar
+  blank: RadiantSculptureBlank
+  stack: Gold
+  amount: 8
+  steps:
+  - station: Sculpting
+    name: artisan-step-sculpt-rough
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}
+  - station: Sculpting
+    name: artisan-step-sculpt-detail
+    tool: Chisel
+    duration: 12
+    startSound: {path: /Audio/_radiant/Artisan/hammer.ogg}

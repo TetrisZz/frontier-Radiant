@@ -149,7 +149,7 @@ public sealed class PerfumeSystem : EntitySystem
     private void OnPerfumedExamined(Entity<PerfumedComponent> ent, ref ExaminedEvent args)
     {
         if (TryGetFragrance(ent, args.Examiner, out var fragrance))
-            args.PushText(Loc.GetString("perfume-smell", ("fragrance", fragrance)));
+            args.PushText(Loc.GetString("perfume-smell", ("target", ent.Owner), ("fragrance", fragrance)));
     }
 
     private void OnSniffVerb(Entity<PerfumedComponent> ent, ref GetVerbsEvent<Verb> args)
@@ -165,7 +165,7 @@ public sealed class PerfumeSystem : EntitySystem
             Act = () =>
             {
                 if (TryGetFragrance(ent, observer, out var fragrance))
-                    _popup.PopupEntity(Loc.GetString("perfume-smell", ("fragrance", fragrance)), ent, observer);
+                    _popup.PopupEntity(Loc.GetString("perfume-smell", ("target", ent.Owner), ("fragrance", fragrance)), ent, observer);
             },
         });
     }

@@ -72,6 +72,12 @@ public sealed partial class PickerWindow : FancyWindow
         {
             SetCurrentTab(PickerType.StationOrCrewLarge);
         }
+        else
+        {
+            // The lobby reuses this window, but closed windows do not receive
+            // profile, requirement or vacancy updates. Rebuild before joining.
+            UpdateUi(_gameTicker.StationJobInformationList);
+        }
     }
 
     protected override void EnteredTree()

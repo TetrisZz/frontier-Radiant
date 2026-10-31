@@ -16,7 +16,7 @@
   - type: EmptyOnMachineDeconstruct
     containers: [virology-sample]
   - type: GuideHelp
-    guides: [RadiantVirology]
+    guides: [RadiantVirology, RadiantMechanics, Medical]
   - type: Sprite
     sprite: Structures/Machines/diagnoser.rsi
     layers:

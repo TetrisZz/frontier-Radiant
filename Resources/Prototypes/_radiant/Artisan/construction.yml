@@ -1,0 +1,145 @@
+- type: "construction"
+  id: "RadiantPotteryWheel"
+  name: "artisan-build-pottery"
+  description: "artisan-build-desc"
+  graph: "RadiantPotteryWheel"
+  startNode: "start"
+  targetNode: "finished"
+  category: "construction-category-machines"
+  objectType: "Structure"
+  placementMode: "SnapgridCenter"
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked {}
+- type: "constructionGraph"
+  id: "RadiantPotteryWheel"
+  start: "start"
+  graph:
+    - node: "start"
+      edges:
+        - to: "finished"
+          steps:
+            - material: "Steel"
+              amount: 4
+              doAfter: 2
+            - material: "WoodPlank"
+              amount: 4
+              doAfter: 2
+    - node: "finished"
+      entity: "RadiantPotteryWheel"
+- type: "construction"
+  id: "RadiantArtisanAnvil"
+  name: "artisan-build-anvil"
+  description: "artisan-build-desc"
+  graph: "RadiantArtisanAnvil"
+  startNode: "start"
+  targetNode: "finished"
+  category: "construction-category-machines"
+  objectType: "Structure"
+  placementMode: "SnapgridCenter"
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked {}
+- type: "constructionGraph"
+  id: "RadiantArtisanAnvil"
+  start: "start"
+  graph:
+    - node: "start"
+      edges:
+        - to: "finished"
+          steps:
+            - material: "Steel"
+              amount: 4
+              doAfter: 2
+            - material: "WoodPlank"
+              amount: 4
+              doAfter: 2
+    - node: "finished"
+      entity: "RadiantArtisanAnvil"
+- type: "construction"
+  id: "RadiantGlassworkingBench"
+  name: "artisan-build-glassbench"
+  description: "artisan-build-desc"
+  graph: "RadiantGlassworkingBench"
+  startNode: "start"
+  targetNode: "finished"
+  category: "construction-category-machines"
+  objectType: "Structure"
+  placementMode: "SnapgridCenter"
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked {}
+- type: "constructionGraph"
+  id: "RadiantGlassworkingBench"
+  start: "start"
+  graph:
+    - node: "start"
+      edges:
+        - to: "finished"
+          steps:
+            - material: "Steel"
+              amount: 4
+              doAfter: 2
+            - material: "WoodPlank"
+              amount: 4
+              doAfter: 2
+    - node: "finished"
+      entity: "RadiantGlassworkingBench"
+- type: "construction"
+  id: "RadiantQuenchingBath"
+  name: "artisan-build-quench"
+  description: "artisan-build-desc"
+  graph: "RadiantQuenchingBath"
+  startNode: "start"
+  targetNode: "finished"
+  category: "construction-category-machines"
+  objectType: "Structure"
+  placementMode: "SnapgridCenter"
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked {}
+- type: "constructionGraph"
+  id: "RadiantQuenchingBath"
+  start: "start"
+  graph:
+    - node: "start"
+      edges:
+        - to: "finished"
+          steps:
+            - material: "Steel"
+              amount: 4
+              doAfter: 2
+            - material: "WoodPlank"
+              amount: 4
+              doAfter: 2
+    - node: "finished"
+      entity: "RadiantQuenchingBath"
+- type: "construction"
+  id: "RadiantFermentationBarrel"
+  name: "artisan-build-fermenter"
+  description: "artisan-build-desc"
+  graph: "RadiantFermentationBarrel"
+  startNode: "start"
+  targetNode: "finished"
+  category: "construction-category-machines"
+  objectType: "Structure"
+  placementMode: "SnapgridCenter"
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked {}
+- type: "constructionGraph"
+  id: "RadiantFermentationBarrel"
+  start: "start"
+  graph:
+    - node: "start"
+      edges:
+        - to: "finished"
+          steps:
+            - material: "WoodPlank"
+              amount: 8
+              doAfter: 2
+            - material: "Steel"
+              amount: 2
+              doAfter: 2
+    - node: "finished"
+      entity: "RadiantFermentationBarrel"

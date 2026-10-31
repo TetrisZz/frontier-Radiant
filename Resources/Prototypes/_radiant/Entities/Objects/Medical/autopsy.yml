@@ -1,0 +1,50 @@
+- type: entity
+  id: RadiantAutopsyScanner
+  parent: BaseItem
+  name: autopsy scanner
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Medical/autopsy.rsi
+    state: autopsy_scanner
+  - type: Item
+    size: Small
+    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    heldPrefix: analyzer
+  - type: AutopsyScanner
+  - type: ActivatableUI
+    key: enum.AutopsyUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.AutopsyUiKey.Key:
+        type: AutopsyBoundUserInterface
+  - type: MaterialStorage
+    storage:
+      Paper: 1000
+    materialWhiteList: [Paper]
+    canEjectStoredMaterials: false
+  - type: GuideHelp
+    guides: [RadiantAutopsy, RadiantSurgery, Medical]
+
+- type: entity
+  id: RadiantAutopsyReport
+  parent: Paper
+  name: autopsy report
+  components:
+  - type: Paper
+    editingDisabled: true
+  - type: StaticPrice
+    price: 0
+
+- type: latheRecipe
+  id: RadiantAutopsyScanner
+  result: RadiantAutopsyScanner
+  completetime: 5
+  materials:
+    Steel: 300
+    Glass: 200
+    Plastic: 200
+
+- type: latheRecipePack
+  id: RadiantAutopsyTools
+  recipes: [RadiantAutopsyScanner]

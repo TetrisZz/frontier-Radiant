@@ -27,6 +27,7 @@
   displayWeight: 60
   canBeAntag: false
   access:
+  - MedicalRecords
   - Armory
   - Sergeant
   - Bailiff

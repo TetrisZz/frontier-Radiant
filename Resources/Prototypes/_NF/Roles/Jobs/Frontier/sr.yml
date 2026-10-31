@@ -19,6 +19,7 @@
   displayWeight: 60 # Top
   canBeAntag: false
   access:
+  - MedicalRecords
   - Governor
   accessGroups:
   - AllAccess

@@ -1,0 +1,104 @@
+- type: entity
+  id: RadiantSculptingBench
+  parent: RadiantArtisanStationBase
+  name: sculpting workbench
+  components:
+  - type: ArtisanStation
+    kind: Sculpting
+    capacity: 12
+  - type: GuideHelp
+    guides: [RadiantSculpting, RadiantArtisanWorkshop, RadiantMechanics]
+
+- type: entity
+  id: RadiantSculptingChisel
+  parent: BaseItem
+  name: sculpting chisel
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Artisan/sculpture.rsi
+    state: chisel
+  - type: Item
+    size: Small
+    sprite: Objects/Tools/screwdriver.rsi
+  - type: ArtisanTool
+    kind: Chisel
+  - type: ContainerContainer
+    containers:
+      artisan_tool: !type:Container {}
+  - type: GuideHelp
+    guides: [RadiantSculpting, RadiantArtisanWorkshop, RadiantMechanics]
+
+- type: entity
+  id: RadiantSculptureBlank
+  parent: BaseItem
+  name: unfinished sculpture
+  components:
+  - type: Sprite
+    sprite: _radiant/Structures/Artisan/sculpture.rsi
+    state: block
+  - type: Item
+    size: Huge
+    sprite: Objects/Materials/Sheets/metal.rsi
+    heldPrefix: steel
+  - type: ArtisanWorkpiece
+    recipe: ArtisanSculptStoneBust
+
+- type: entity
+  id: RadiantSculptureBase
+  parent: BaseStructure
+  abstract: true
+  name: sculpture
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    sprite: _radiant/Structures/Artisan/sculpture.rsi
+    state: bust
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 200
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: Anchorable
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [Destruction]
+  - type: ArtisanProduct
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  id: RadiantSculptingBenchFlatpack
+  parent: BaseFlatpack
+  name: sculpting workbench flatpack
+  components:
+  - type: Flatpack
+    entity: RadiantSculptingBench
+
+- type: latheRecipe
+  id: RadiantSculptingChisel
+  result: RadiantSculptingChisel
+  completetime: 3
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: RadiantSculptingBenchFlatpack
+  result: RadiantSculptingBenchFlatpack
+  completetime: 6
+  materials:
+    Steel: 400
+    Wood: 400

@@ -15,4 +15,4 @@ ent-ComputerShipyardCareerEngineering = engineering fleet shipyard
 ent-ComputerShipyardFrontier = Frontier shipyard console
     .desc = The main Frontier shipyard. Purchase, sell and store permitted shuttles.
     .suffix = Frontier, ship storage
-shipyard-save-vessel-disabled = This shuttle cannot be saved. Saving must be explicitly enabled in its vessel prototype.
+shipyard-save-vessel-disabled = The reserve dock does not accept this class of vessel.

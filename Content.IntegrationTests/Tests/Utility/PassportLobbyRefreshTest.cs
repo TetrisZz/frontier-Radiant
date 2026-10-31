@@ -91,6 +91,7 @@ public sealed class PassportLobbyRefreshTest
                 jobs.Add(new NetEntity(123), new StationJobInformation("Profession role test", new Dictionary<ProtoId<JobPrototype>, int?>
                 {
                     ["SalvageSpecialistInterview"] = 1, ["MedicalDoctorInterview"] = 1, ["StationEngineerInterview"] = 1,
+                    ["Contractor"] = 1,
                 }, true, null, null));
                 using var window = new PickerWindow();
                 window.OpenCentered();
@@ -108,6 +109,25 @@ public sealed class PassportLobbyRefreshTest
                 AssertRole("StationEngineerInterview");
                 prefs.SelectCharacter(0);
                 AssertRole("SalvageSpecialistInterview");
+                // LobbyState reuses this window. Character changes while it is closed
+                // do not reach its subscriptions and must be applied when it opens again.
+                window.Close();
+                prefs.SelectCharacter(1);
+                window.OpenCentered();
+                Layout();
+                AssertRole("StationEngineerInterview");
+                window.Close();
+                prefs.SelectCharacter(0);
+                window.OpenCentered();
+                Layout();
+                AssertRole("SalvageSpecialistInterview");
+                prefs.UpdateCharacter(Profile("Adventurer"), 2);
+                AssertRole("Contractor");
+                window.Close();
+                prefs.SelectCharacter(1);
+                window.OpenCentered();
+                Layout();
+                AssertRole("StationEngineerInterview");
                 // These assertions run within one client callback, before a server reply or reconnection.
                 void Layout()
                 {
@@ -122,6 +142,7 @@ public sealed class PassportLobbyRefreshTest
                     var name = pair.Client.ProtoMan.Index<JobPrototype>(role).LocalizedName;
                     Assert.That(Descendants(items[0]).OfType<Label>().Single(label => label.Name == "JobText").Text,
                         Does.Contain(name), role);
+                    Assert.That(items[0].Disabled, Is.False, $"{role} must be joinable without reconnecting.");
                 }
             });
             await pair.RunTicksSync(15);

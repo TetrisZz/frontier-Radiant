@@ -19,6 +19,7 @@
   weight: 154
   displayWeight: 61
   access:
+  - MedicalRecords
   - Armory
   accessGroups:
   - NavyOfficerAccess

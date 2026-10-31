@@ -212,7 +212,7 @@ public sealed class NewsSystem : SharedNewsSystem
     /// <param name="content">Content of the news article.</param>
     /// <param name="author">Author of the news article.</param>
     /// <param name="actor">Entity which caused the news article to publish. Used for admin logs.</param>
-    public bool TryAddNews(EntityUid uid, string title, string content, [NotNullWhen(true)] out NewsArticle? article, string? author = null, EntityUid? actor = null)
+    public bool TryAddNews(EntityUid uid, string title, string content, [NotNullWhen(true)] out NewsArticle? article, string? author = null, EntityUid? actor = null, string? channel = null)
     {
         if (!TryGetArticles(uid, out var articles))
         {
@@ -220,8 +220,16 @@ public sealed class NewsSystem : SharedNewsSystem
             return false;
         }
 
+        if (articles.Count >= 128 || string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(content))
+        {
+            article = null;
+            return false;
+        }
+
         article = new NewsArticle
         {
+            Id = Guid.NewGuid(),
+            Channel = channel,
             Title = title.Length <= MaxTitleLength ? title : $"{title[..MaxTitleLength]}...",
             Content = content.Length <= MaxContentLength ? content : $"{content[..MaxContentLength]}...",
             Author = author,

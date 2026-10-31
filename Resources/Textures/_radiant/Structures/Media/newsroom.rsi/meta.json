@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "ParadiseSS13 and SS220 contributors. Modified by Homka. https://github.com/ss220-space/Paradise/blob/master/icons/obj/machines/terminals.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "newscaster"
+    },
+    {
+      "name": "newscaster_normal",
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "newscaster_lightmask"
+    }
+  ]
+}

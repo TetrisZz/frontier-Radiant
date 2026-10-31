@@ -7,6 +7,8 @@
   name: Acorp blueprint lithograph
   description: A restricted blueprint archive that retains its contents between shifts.
   components:
+  - type: GuideHelp
+    guides: [RadiantStorage, RadiantMechanics, Medical]
   - type: Sprite
     layers:
     - state: icon
@@ -27,6 +29,8 @@
   name: support service ChemMaster
   description: A restricted chemical separator that retains its buffer between shifts.
   components:
+  - type: GuideHelp
+    guides: [RadiantStorage, RadiantMechanics, Medical]
   - type: AccessReader
     access: [[MedicalPhoenixAgent]]
   - type: PersistentMachine

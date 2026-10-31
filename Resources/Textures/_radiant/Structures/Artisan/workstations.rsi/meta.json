@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original Skyrat and /tg/station contributors, as credited by the source projects. Lossless DMI frame extraction; original pixels and animation timing preserved. Source assets: https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/modular_skyrat/modules/primitive_production/icons/prim_fun.dmi; https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/modular_skyrat/modules/reagent_forging/icons/obj/forge_structures.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "throw_wheel_empty"
+    },
+    {
+      "name": "throw_wheel_full"
+    },
+    {
+      "name": "water_basin"
+    },
+    {
+      "name": "anvil_empty"
+    },
+    {
+      "name": "forge_inactive"
+    },
+    {
+      "name": "forge_active",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "crafting_bench_empty"
+    }
+  ]
+}

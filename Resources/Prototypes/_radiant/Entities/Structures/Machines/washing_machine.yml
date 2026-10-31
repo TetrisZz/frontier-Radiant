@@ -4,6 +4,8 @@
   name: washing machine
   description: A compact washing machine for cleaning washable paint off clothing and items.
   components:
+  - type: GuideHelp
+    guides: [RadiantDecorating, RadiantMechanics, Medical]
   - type: Transform
     anchored: true
   - type: Sprite

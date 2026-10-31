@@ -36,6 +36,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Materials.OreSilo;
 using Content.Shared._radiant.Storage;
+using Content.Server._radiant.Storage;
 using Content.Server.Station.Systems;
 using Content.Server._NF.ShuttleRecords;
 using Content.Server.Cargo.Systems;
@@ -53,6 +54,7 @@ namespace Content.Server._Triad.Shipyard;
 /// System for saving ships using the MapLoaderSystem infrastructure.
 /// Saves ships as complete YAML files similar to savegrid command,
 /// after cleaning them of problematic components and moving to exports folder.
+/// Update Resources/ServerInfo/_radiant/Guidebook/ShipSaving.xml when changing persistence rules.
 /// </summary>
 public sealed partial class ShipyardGridSaveSystem : EntitySystem
 {
@@ -456,7 +458,7 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         }
 
         // These components can have no serialized overrides, so add explicit snapshot overrides.
-        if (HasComp<LatheComponent>(uid) && HasComp<MaterialStorageComponent>(uid))
+        if (ShouldClearSavedMaterials(uid) && HasComp<MaterialStorageComponent>(uid))
             SnapshotComponent(components, "MaterialStorage")["storage"] = new MappingDataNode();
 
         if (HasComp<PoweredLightComponent>(uid))
@@ -482,17 +484,20 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
     internal string GetOwnerCharacterName(EntityUid player)
         => (_minds.TryGetMind(player, out _, out var mind) ? mind.CharacterName ?? Name(player) : Name(player)).Trim();
 
-    internal void ClearLoadedLatheMaterials(EntityUid grid)
+    private bool ShouldClearSavedMaterials(EntityUid uid)
+        => HasComp<LatheComponent>(uid) || HasComp<OreSiloComponent>(uid);
+
+    internal void ClearLoadedMachineMaterials(EntityUid grid)
     {
-        var query = EntityQueryEnumerator<LatheComponent, MaterialStorageComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out _, out var storage, out var xform))
+        var query = EntityQueryEnumerator<MaterialStorageComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var storage, out var xform))
         {
-            if (xform.GridUid != grid)
+            if (xform.GridUid != grid || !ShouldClearSavedMaterials(uid))
                 continue;
             foreach (var (material, amount) in _materials.GetStoredMaterials((uid, storage), localOnly: true))
             {
                 if (amount != 0 && !_materials.TryChangeMaterialAmount(uid, material.Id, -amount, storage, localOnly: true))
-                    throw new InvalidDataException($"Unable to clear saved lathe materials on {ToPrettyString(uid)}.");
+                    throw new InvalidDataException($"Unable to clear saved machine materials on {ToPrettyString(uid)}.");
             }
         }
     }
@@ -518,11 +523,11 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
     {
         if (!Exists(uid))
             return false;
+        if (IdentityDocumentPersistence.IsDocument(EntityManager, uid))
+            return true;
         // Skip if terminating
         if (_entityManager.GetComponent<MetaDataComponent>(uid).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
-        if (IsMaterialSiloOrContents(uid))
-            return true;
         if (!IsInsidePasswordSafe(uid) && IsInsideEmptySavedStorage(uid))
             return true;
         if (HasComp<MindContainerComponent>(uid))
@@ -570,20 +575,6 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             current = container.Owner;
             if (HasComp<PasswordSafeComponent>(current))
                 return true;
-        }
-        return false;
-    }
-
-    private bool IsMaterialSiloOrContents(EntityUid uid)
-    {
-        var current = uid;
-        for (var depth = 0; depth < 64; depth++)
-        {
-            if (HasComp<OreSiloComponent>(current))
-                return true;
-            if (!_containerSystem.TryGetContainingContainer(current, out var container))
-                break;
-            current = container.Owner;
         }
         return false;
     }

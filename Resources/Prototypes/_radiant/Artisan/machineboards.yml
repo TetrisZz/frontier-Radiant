@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: RadiantArtisanKilnMachineCircuitboard
+  name: artisan machine board
+  components:
+  - type: GuideHelp
+    guides: [RadiantArtisanEquipment, RadiantMechanics, Medical]
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: RadiantArtisanKiln
+    stackRequirements:
+      Steel: 6
+      Glass: 2
+      Cable: 5
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: RadiantArtisanFurnaceMachineCircuitboard
+  name: artisan machine board
+  components:
+  - type: GuideHelp
+    guides: [RadiantArtisanEquipment, RadiantMechanics, Medical]
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: RadiantArtisanFurnace
+    stackRequirements:
+      Steel: 6
+      Glass: 2
+      Cable: 5
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: RadiantAutomaticBottlerMachineCircuitboard
+  name: artisan machine board
+  components:
+  - type: GuideHelp
+    guides: [RadiantArtisanEquipment, RadiantMechanics, Medical]
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: RadiantAutomaticBottler
+    stackRequirements:
+      Steel: 6
+      Glass: 2
+      Cable: 5

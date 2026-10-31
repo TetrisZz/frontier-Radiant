@@ -52,6 +52,8 @@
   # - Cargo
   # - Atmospherics
   # - Medical
+  access:
+  - MedicalRecords
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   # End Frontier

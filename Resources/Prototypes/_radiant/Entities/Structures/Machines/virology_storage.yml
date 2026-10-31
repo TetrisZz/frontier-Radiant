@@ -23,4 +23,4 @@
       - ChemDispensable
       - PillCanister
   - type: GuideHelp
-    guides: [RadiantVirology, RadiantGenetics]
+    guides: [RadiantVirology, RadiantMechanics, Medical]

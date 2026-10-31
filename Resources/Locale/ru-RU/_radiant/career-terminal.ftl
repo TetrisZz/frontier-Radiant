@@ -15,4 +15,4 @@ ent-ComputerShipyardCareerEngineering = консоль верфи инженер
 ent-ComputerShipyardFrontier = консоль верфи Фронтира
     .desc = Основная верфь Фронтира. Покупка, продажа и сохранение разрешённых шаттлов.
     .suffix = Фронтир, сохранение шаттлов
-shipyard-save-vessel-disabled = Сохранение этого шаттла запрещено. В прототипе судна должно быть явно разрешено сохранение.
+shipyard-save-vessel-disabled = Резервный док не принимает корабли этого класса.

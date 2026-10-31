@@ -4,6 +4,8 @@
   name: aquarium
   description: A glass tank for four fish, with space for aquatic decorations.
   components:
+  - type: GuideHelp
+    guides: [RadiantAquariums, RadiantMechanics, Medical]
   - type: InteractionOutline
   - type: Anchorable
   - type: Icon

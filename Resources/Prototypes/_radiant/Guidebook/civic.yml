@@ -1,0 +1,14 @@
+- type: guideEntry
+  id: RadiantAutopsy
+  name: civic-guide-autopsy
+  text: /ServerInfo/_radiant/Guidebook/Medical/Autopsy.xml
+
+- type: guideEntry
+  id: RadiantNewsroom
+  name: civic-guide-newsroom
+  text: /ServerInfo/_radiant/Guidebook/Newsroom.xml
+
+- type: guideEntry
+  id: RadiantSculpting
+  name: civic-guide-sculpting
+  text: /ServerInfo/_radiant/Guidebook/Artisan/Sculpting.xml

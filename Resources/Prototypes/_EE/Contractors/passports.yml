@@ -4,6 +4,8 @@
   name: Asgard sector passport
   description: An identity document of the Asgard sector.
   components:
+  - type: Tag
+    tags: [Unstashable]
   - type: Passport
     design: goldendeep
     citizenship: Asgard

@@ -37,6 +37,8 @@
   #   components:
   #     - type: CommandStaff
   ## Frontier: commented everything above out
+  access:
+  - MedicalRecords
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 

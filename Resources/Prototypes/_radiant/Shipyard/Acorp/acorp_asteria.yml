@@ -1,0 +1,34 @@
+# Shuttle: ACORP Asteria medical vessel
+- type: vessel
+  id: Asteria
+  parent: BaseVessel
+  canSave: false
+  name: ACORP Астерия
+  description: Медицинский корабль ACORP для оказания помощи и проведения медицинских исследований.
+  price: 40000
+  category: Small
+  group: Acorp
+  access: Acorp
+  shuttlePath: /Maps/_radiant/Shuttles/Acorp/acorpmed_asteria.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Asteria
+  mapName: 'ACORP Астерия'
+  mapPath: /Maps/_radiant/Shuttles/Acorp/acorpmed_asteria.yml
+  minPlayers: 0
+  stations:
+    Asteria:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Астерия {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

@@ -4,6 +4,8 @@
   name: sauna heater
   description: A wood-fired stone heater. Fill the basin with water and add wooden planks as fuel.
   components:
+  - type: GuideHelp
+    guides: [RadiantSauna, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Structures/Furniture/sauna_heater.rsi
     layers:

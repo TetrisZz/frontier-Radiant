@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "/tg/station contributors. https://github.com/tgstation/tgstation/blob/master/icons/obj/art/statue.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "human_male",
+      "directions": 4
+    },
+    {
+      "name": "human_female"
+    },
+    {
+      "name": "monkey"
+    },
+    {
+      "name": "corgi"
+    },
+    {
+      "name": "eng"
+    },
+    {
+      "name": "sci"
+    },
+    {
+      "name": "md"
+    },
+    {
+      "name": "bust"
+    },
+    {
+      "name": "hippocratic"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "block"
+    },
+    {
+      "name": "chisel"
+    }
+  ]
+}

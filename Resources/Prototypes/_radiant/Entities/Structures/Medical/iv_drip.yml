@@ -4,6 +4,8 @@
   name: IV drip stand
   description: A wheeled stand for intravenous infusions.
   components:
+  - type: GuideHelp
+    guides: [RadiantIVDrip, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Structures/Medical/iv_drip.rsi
     state: iv_drip

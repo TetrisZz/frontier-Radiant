@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original Skyrat and /tg/station contributors, as credited by the source projects. Lossless DMI frame extraction; original pixels and animation timing preserved. Source assets: https://github.com/tgstation/tgstation/blob/master/icons/obj/structures.dmi; https://github.com/tgstation/tgstation/blob/master/icons/obj/pipes_n_cables/hydrochem/plumbers.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "barrel"
+    },
+    {
+      "name": "bottler",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.075,
+          0.075,
+          0.05,
+          0.1
+        ],
+        [
+          0.1,
+          0.075,
+          0.075,
+          0.05,
+          0.1
+        ],
+        [
+          0.1,
+          0.075,
+          0.075,
+          0.05,
+          0.1
+        ],
+        [
+          0.1,
+          0.075,
+          0.075,
+          0.05,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

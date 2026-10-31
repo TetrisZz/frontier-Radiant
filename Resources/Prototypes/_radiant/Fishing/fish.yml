@@ -7,6 +7,8 @@
   name: fish
   description: Water-born creature from the infinite sea... Or toilet.
   components:
+  - type: GuideHelp
+    guides: [RadiantAquariums, RadiantMechanics, Medical]
   - type: Fish
     difficulty: 0.029
   - type: StaticPrice

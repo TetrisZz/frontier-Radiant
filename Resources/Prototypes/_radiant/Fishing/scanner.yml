@@ -4,6 +4,8 @@
   name: fish scanner
   description: Checks fish health, maturity and breeding compatibility.
   components:
+  - type: GuideHelp
+    guides: [RadiantAquariums, RadiantMechanics, Medical]
   - type: FishScanner
   - type: PowerCellDraw
     drawRate: 0

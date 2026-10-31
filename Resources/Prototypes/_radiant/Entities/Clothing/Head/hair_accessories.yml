@@ -4,6 +4,8 @@
   name: hair tie
   description: Gathers hair into the selected style. Removing it restores the previous hairstyle.
   components:
+  - type: GuideHelp
+    guides: [RadiantAppearance, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Clothing/Head/HairAccessories/hair_tie.rsi
     state: hair_tie
@@ -23,6 +25,8 @@
   id: ClothingHeadHairClip
   name: hair clip
   components:
+  - type: GuideHelp
+    guides: [RadiantAppearance, RadiantMechanics, Medical]
   - type: Sprite
     state: hair_clip
   - type: Clothing

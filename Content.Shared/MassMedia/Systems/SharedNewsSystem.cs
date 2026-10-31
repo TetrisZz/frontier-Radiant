@@ -4,13 +4,16 @@ namespace Content.Shared.MassMedia.Systems;
 
 public abstract class SharedNewsSystem : EntitySystem
 {
-    public const int MaxTitleLength = 25;
+    public const int MaxTitleLength = 80;
     public const int MaxContentLength = 2048;
 }
 
 [Serializable, NetSerializable]
 public struct NewsArticle
 {
+    public Guid Id;
+    public string? Channel;
+
     [ViewVariables(VVAccess.ReadWrite)]
     public string Title;
 

@@ -4,8 +4,8 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/26/2026 15:34:52
-  entityCount: 1405
+  time: 10/28/2026 21:55:21
+  entityCount: 1411
 maps: []
 grids:
 - 1
@@ -6993,6 +6993,15 @@ entities:
       pos: -13.5,-1.5
     - type: AtmosPipeColor
       color: '#990000FF'
+- proto: GeneratorBasic15kW
+  entities:
+  - uid: 73
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-11.5
+    - type: InnateTool
+      tools: []
 - proto: GravityGeneratorMini
   entities:
   - uid: 137
@@ -7869,11 +7878,11 @@ entities:
       pos: 1.4402215,-6.5799603
 - proto: PortableScrubber
   entities:
-  - uid: 73
+  - uid: 1406
     components:
     - type: Transform
       parent: 1
-      pos: 5.5,-11.5
+      pos: 2.5,-12.5
 - proto: PosterLegitSafetyMothPiping
   entities:
   - uid: 979
@@ -8295,6 +8304,13 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 5.5,0.5
+- proto: RadiantHourglass
+  entities:
+  - uid: 1407
+    components:
+    - type: Transform
+      parent: 1
+      pos: 3.6113095,6.789809
 - proto: Railing
   entities:
   - uid: 1070
@@ -8716,6 +8732,12 @@ entities:
         1097:
         - - Pressed
           - Toggle
+        1099:
+        - - Pressed
+          - Toggle
+        1098:
+        - - Pressed
+          - Toggle
     - type: Fixtures
       fixtures: {}
 - proto: SignCargo
@@ -8948,6 +8970,18 @@ entities:
     - type: Transform
       parent: 1
       pos: -10.5,8.5
+- proto: SpawnPointCareerMining
+  entities:
+  - uid: 1408
+    components:
+    - type: Transform
+      parent: 1
+      pos: 2.5,7.5
+  - uid: 1409
+    components:
+    - type: Transform
+      parent: 1
+      pos: 3.5,7.5
 - proto: SpawnPointLatejoin
   entities:
   - uid: 883
@@ -8960,6 +8994,16 @@ entities:
     - type: Transform
       parent: 1
       pos: -2.5,-12.5
+  - uid: 1410
+    components:
+    - type: Transform
+      parent: 1
+      pos: 1.5,7.5
+  - uid: 1411
+    components:
+    - type: Transform
+      parent: 1
+      pos: 1.5,6.5
 - proto: SpawnPointSalvageSpecialist
   entities:
   - uid: 739
@@ -9197,6 +9241,13 @@ entities:
           - Forward
         - - Middle
           - Off
+        86:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
   - uid: 1029
     components:
     - type: Transform
@@ -9226,13 +9277,20 @@ entities:
         - - Middle
           - Off
         757:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
         - - Middle
           - Off
-        - - Right
-          - Reverse
-        - - Left
-          - Forward
         71:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        69:
         - - Left
           - Reverse
         - - Right

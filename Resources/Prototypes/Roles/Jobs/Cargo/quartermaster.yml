@@ -28,6 +28,8 @@
   # - Command # Frontier
   # - Brig # Frontier
   # - Cryogenics # Frontier
+  access:
+  - MedicalRecords
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   special:

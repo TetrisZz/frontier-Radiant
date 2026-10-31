@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "ParadiseSS13 and SS220 contributors. https://github.com/ss220-space/Paradise/blob/master/icons/obj/autopsy_scanner.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "autopsy_scanner"
+    },
+    {
+      "name": "autopsy_scanner_anim",
+      "delays": [
+        [
+          0.16499999999999998,
+          0.16499999999999998,
+          0.16499999999999998,
+          0.16499999999999998,
+          0.16499999999999998,
+          0.16499999999999998,
+          0.16499999999999998,
+          0.16499999999999998
+        ]
+      ]
+    }
+  ]
+}

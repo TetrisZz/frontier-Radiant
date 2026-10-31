@@ -1,4 +1,8 @@
 - type: accessLevel
+  id: MedicalRecords
+  name: id-card-access-level-medical-records
+
+- type: accessLevel
   id: MedicalPhoenix
   name: id-card-access-level-medical_phoenix
 

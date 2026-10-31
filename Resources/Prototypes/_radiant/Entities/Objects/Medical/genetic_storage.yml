@@ -21,8 +21,7 @@
     storageOpenSound: /Audio/Machines/screwdriveropen.ogg
     storageCloseSound: /Audio/Machines/screwdriverclose.ogg
   - type: GuideHelp
-    guides: [RadiantGenetics]
-
+    guides: [RadiantGenetics, RadiantMechanics, Medical]
 - type: latheRecipe
   id: GeneticResearchDiskBox
   result: GeneticResearchDiskBox

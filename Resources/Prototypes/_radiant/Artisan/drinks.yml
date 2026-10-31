@@ -1,0 +1,7 @@
+- type: "reagent"
+  id: "RadiantArtisanCider"
+  parent: "Beer"
+  name: "artisan-reagent-cider"
+  desc: "artisan-reagent-cider-desc"
+  color: "#D7A444"
+  flavor: "apple"

@@ -525,6 +525,26 @@ public sealed partial class DossierSystem : EntitySystem
         memory.Source = patient;
     }
 
+    public bool AppendMedicalNote(EntityUid body, EntityUid examiner, string note)
+    {
+        if (!TryComp<DossierHolderComponent>(body, out var holder) || !holder.Loaded || holder.Archived || IsOwnRecord(examiner, holder))
+            return false;
+        var author = Name(examiner);
+        var addition = $"\n{author}: {note}";
+        var previous = holder.Record.MedicalNotes ?? "";
+        if (previous.Length + addition.Length > 1024) return false;
+        holder.Record.MedicalNotes = previous + addition;
+        holder.Record.LastMedicalEditor = author;
+        var key = (holder.UserId, holder.Slot);
+        _pendingSaves[key] = SaveAsync(_pendingSaves.GetValueOrDefault(key, Task.CompletedTask),
+            holder.UserId, holder.Slot, JsonSerializer.Serialize(holder.Record));
+        RememberOnBrain(body, holder);
+        _adminLogs.Add(LogType.Action, LogImpact.Medium,
+            $"{ToPrettyString(examiner):player} added autopsy findings to the medical dossier of {ToPrettyString(body):target}");
+        RefreshPersonRecord(body);
+        return true;
+    }
+
     public bool SaveTattoos(EntityUid body, List<TextTattoo> tattoos)
     {
         if (!TryComp<DossierHolderComponent>(body, out var holder) || !holder.Loaded || holder.Archived)
@@ -576,6 +596,9 @@ public sealed partial class DossierSystem : EntitySystem
 
     /// <summary>Refreshes open dossiers after a replacement passport is issued.</summary>
     public void RefreshPassportNumber(EntityUid person)
+        => RefreshPersonRecord(person);
+
+    private void RefreshPersonRecord(EntityUid person)
     {
         var query = EntityQueryEnumerator<DossierConsoleComponent>();
         while (query.MoveNext(out var console, out var component))

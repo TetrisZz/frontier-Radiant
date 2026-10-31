@@ -20,12 +20,11 @@ namespace Content.IntegrationTests.Tests.Utility;
 public sealed class CareerRadarTest
 {
     [Test]
-    public async Task FleetRadarUsesDedicatedNetworkedStylesAndKeepsNamesAndStealth()
+    public async Task FleetRadarUsesNormalColorsAndKeepsNamesAndStealth()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, Fresh = true, Destructive = true });
         try
         {
-            var colors = new HashSet<Color>();
             var grids = new Dictionary<NetEntity, (string Profession, Color Color)>();
             foreach (var (profession, vesselId) in new[] { ("Mining", "Kestrel"), ("Engineering", "Retort"), ("Medical", "Eagle") })
             {
@@ -36,44 +35,26 @@ public sealed class CareerRadarTest
                     var em = pair.Server.EntMan;
                     var prototypes = pair.Server.ProtoMan;
                     var shuttles = em.System<SharedShuttleSystem>();
-                    var definition = prototypes.Index<CareerProfessionPrototype>(profession);
-                    Assert.That(definition.RadarColor, Is.Not.Null);
-                    var color = definition.RadarColor!.Value;
-                    Assert.That(colors.Add(color), Is.True, "Each fleet has its own radar color.");
-                    Assert.That(color, Is.Not.EqualTo(IFFComponent.IFFColor));
-                    Assert.That(color, Is.Not.EqualTo(IFFComponent.SelfColor));
-                    foreach (var prototype in prototypes.EnumeratePrototypes<EntityPrototype>())
-                    {
-                        if (prototype.Components.TryGetValue("IFF", out var iff))
-                            Assert.That(color, Is.Not.EqualTo(((IFFComponent)iff.Component).Color), prototype.ID);
-                        if (prototype.Components.TryGetValue("RadarBlip", out var blip))
-                        {
-                            var radar = (RadarBlipComponent)blip.Component;
-                            Assert.That(color, Is.Not.EqualTo(radar.RadarColor), prototype.ID);
-                            Assert.That(color, Is.Not.EqualTo(radar.HighlightedRadarColor), prototype.ID);
-                        }
-                    }
-                    foreach (var vessel in prototypes.EnumeratePrototypes<VesselPrototype>())
-                        if (vessel.AddComponents.TryGetValue("IFF", out var iff))
-                            Assert.That(color, Is.Not.EqualTo(((IFFComponent)iff.Component).Color), vessel.ID);
+                    Assert.That(prototypes.Index<CareerProfessionPrototype>(profession).RadarColor, Is.Null);
+                    var color = IFFComponent.IFFColor;
 
                     var metadata = em.System<MetaDataSystem>();
                     var stations = em.System<StationSystem>();
                     var station = stations.InitializeNewStation(prototypes.Index<GameMapPrototype>(vesselId).Stations.Values.Single(), new[] { map.Grid.Owner });
-                    Assert.That(em.GetComponent<CareerRadarComponent>(map.Grid).Profession.Id, Is.EqualTo(profession));
+                    Assert.That(em.HasComponent<CareerRadarComponent>(map.Grid), Is.False);
                     stations.AddGridToStation(station, extra.Grid);
                     Assert.That(shuttles.GetIFFColor(extra.Grid), Is.EqualTo(color), "Grids added to the fleet inherit its presentation.");
 
                     var session = pair.Server.ResolveDependency<IPlayerManager>().Sessions.Single();
                     var buyer = em.SpawnEntity("MobHumanDummy", map.GridCoords);
-                    em.RemoveComponent<CareerRadarComponent>(map.Grid);
                     em.System<CareerFleetSystem>().Register(station, map.Grid, buyer, session,
                         prototypes.Index<VesselPrototype>(vesselId), allowReplacement: false);
-                    Assert.That(em.GetComponent<CareerRadarComponent>(map.Grid).Profession.Id, Is.EqualTo(profession), "Purchasing also restores fleet presentation.");
+                    Assert.That(em.HasComponent<CareerRadarComponent>(map.Grid), Is.False, "Purchasing must not enable profession colors again.");
 
                     shuttles.SetIFFColor(map.Grid, Color.White);
+                    color = Color.White;
                     Assert.That(shuttles.GetIFFColor(map.Grid), Is.EqualTo(color));
-                    Assert.That(shuttles.GetIFFColor(map.Grid, self: true), Is.EqualTo(color));
+                    Assert.That(shuttles.GetIFFColor(map.Grid, self: true), Is.EqualTo(IFFComponent.SelfColor));
                     var name = profession + " " + vesselId + " AA-123";
                     metadata.SetEntityName(map.Grid, name);
                     Assert.That(shuttles.GetIFFLabel(map.Grid), Is.EqualTo(name), "Radar must retain the original profession prefix without adding a second label.");
@@ -89,6 +70,11 @@ public sealed class CareerRadarTest
                     Assert.That(shuttles.GetIFFLabel(map.Grid), Is.Null);
                     shuttles.RemoveIFFFlag(map.Grid, IFFFlags.Hide);
                     em.System<PvsOverrideSystem>().AddGlobalOverride(map.Grid);
+                    // Old saved ships may still contain this marker; it must no longer change their color.
+                    var legacy = em.EnsureComponent<CareerRadarComponent>(map.Grid);
+                    legacy.Profession = profession;
+                    em.Dirty(map.Grid, legacy);
+                    Assert.That(shuttles.GetIFFColor(map.Grid), Is.EqualTo(color));
                     grids.Add(em.GetNetEntity(map.Grid), (profession, color));
                 });
             }

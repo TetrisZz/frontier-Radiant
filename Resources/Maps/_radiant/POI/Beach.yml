@@ -4,8 +4,8 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/26/2026 15:26:45
-  entityCount: 10358
+  time: 10/30/2026 16:43:46
+  entityCount: 10378
 maps: []
 grids:
 - 1
@@ -25349,6 +25349,106 @@ entities:
     - type: Transform
       parent: 1
       pos: 1.5,23.5
+  - uid: 10359
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-29.5
+  - uid: 10360
+    components:
+    - type: Transform
+      parent: 1
+      pos: 6.5,-29.5
+  - uid: 10361
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-28.5
+  - uid: 10362
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-27.5
+  - uid: 10363
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-26.5
+  - uid: 10364
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-25.5
+  - uid: 10365
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-24.5
+  - uid: 10366
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-22.5
+  - uid: 10367
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-23.5
+  - uid: 10368
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-21.5
+  - uid: 10369
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-20.5
+  - uid: 10370
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-30.5
+  - uid: 10371
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-31.5
+  - uid: 10372
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-32.5
+  - uid: 10373
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-33.5
+  - uid: 10374
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-35.5
+  - uid: 10375
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-36.5
+  - uid: 10376
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-37.5
+  - uid: 10377
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-38.5
+  - uid: 10378
+    components:
+    - type: Transform
+      parent: 1
+      pos: 5.5,-34.5
 - proto: CableHV
   entities:
   - uid: 184
@@ -68518,7 +68618,7 @@ entities:
       pos: 21.5,20.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -35590.727
+      secondsUntilStateChange: -35650.45
   - uid: 3789
     components:
     - type: Transform
