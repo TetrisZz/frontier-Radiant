@@ -1,4 +1,6 @@
 using System.IO;
+using System.Linq;
+using Content.Server._radiant.Storage;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Database;
@@ -331,6 +333,11 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             return;
         }
 
+        if (IdentityDocumentPersistence.FindDocuments(EntityManager, boxEntity.Value).Any())
+        {
+            ConsolePopup(player, Loc.GetString("safety-deposit-remove-identity-documents"));
+            return;
+        }
         DepositBoxAsync(uid, component, player, boxEntity.Value, boxComp, storageComp);
     }
 
@@ -605,6 +612,8 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
                         return;
 
                     var itemEntity = entity.Value.Owner;
+                    IdentityDocumentPersistence.RemoveDocuments(EntityManager, itemEntity);
+                    if (Deleted(itemEntity)) continue;
                     // Mark item as having been stored in a deposit box
                     EnsureComp<SafetyDepositStoredComponent>(itemEntity);
 

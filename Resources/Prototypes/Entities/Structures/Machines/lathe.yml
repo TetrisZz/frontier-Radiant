@@ -561,6 +561,7 @@
     idleState: icon
     runningState: icon
     staticPacks:
+    - RadiantAutopsyTools
     #- TopicalsStatic # Frontier
     #- ChemistryStatic # Frontier
     #- MedicalStatic # Frontier

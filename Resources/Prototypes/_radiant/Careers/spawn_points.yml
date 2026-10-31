@@ -27,5 +27,7 @@
   parent: ComputerShipyardCareerMining
   name: career fleet shipyard
   components:
+  - type: GuideHelp
+    guides: [RadiantCareers, RadiantMechanics, Medical]
   - type: ShipyardListing
     shuttles: [Kestrel, Bulker, Barge, Hauler, Gornyak, CareerMedicalStarter, Stasis, Eagle, Vitalis, Salomandra, Caladrius]

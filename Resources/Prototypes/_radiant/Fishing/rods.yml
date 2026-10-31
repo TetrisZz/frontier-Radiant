@@ -7,6 +7,8 @@
   name: fishing rod
   description: A light rod with a sturdy line and float.
   components:
+  - type: GuideHelp
+    guides: [RadiantAngling, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/rods.rsi
     state: fishing_rod

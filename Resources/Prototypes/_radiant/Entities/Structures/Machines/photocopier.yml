@@ -4,6 +4,8 @@
   name: photocopier
   description: Prints standard forms and copies paper documents. Refill with paper sheets and toner.
   components:
+  - type: GuideHelp
+    guides: [RadiantPaperwork, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Structures/Machines/photocopier.rsi
     layers:

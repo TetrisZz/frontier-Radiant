@@ -5,6 +5,8 @@
   name: perfume
   description: A small atomizer with a delicate fragrance.
   components:
+  - type: GuideHelp
+    guides: [RadiantAppearance, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Objects/Consumable/perfume.rsi
     state: rose

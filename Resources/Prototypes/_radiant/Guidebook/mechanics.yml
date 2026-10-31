@@ -1,0 +1,139 @@
+- type: guideEntry
+  id: RadiantMechanics
+  name: guide-entry-radiant-mechanics
+  priority: -2
+  text: /ServerInfo/_radiant/Guidebook/Mechanics.xml
+  children:
+  - RadiantArtisanWorkshop
+  - RadiantFishing
+  - RadiantLife
+  - RadiantPaperwork
+  - RadiantCareers
+  - RadiantStorage
+
+- type: guideEntry
+  id: RadiantArtisanEquipment
+  name: guide-entry-radiant-artisan-equipment
+  text: /ServerInfo/_radiant/Guidebook/Artisan/Equipment.xml
+
+- type: guideEntry
+  id: RadiantPottery
+  name: guide-entry-radiant-pottery
+  text: /ServerInfo/_radiant/Guidebook/Artisan/Pottery.xml
+
+- type: guideEntry
+  id: RadiantGlassworking
+  name: guide-entry-radiant-glassworking
+  text: /ServerInfo/_radiant/Guidebook/Artisan/Glassworking.xml
+
+- type: guideEntry
+  id: RadiantSmithing
+  name: guide-entry-radiant-smithing
+  text: /ServerInfo/_radiant/Guidebook/Artisan/Smithing.xml
+
+- type: guideEntry
+  id: RadiantFermentation
+  name: guide-entry-radiant-fermentation
+  text: /ServerInfo/_radiant/Guidebook/Artisan/Fermentation.xml
+
+- type: guideEntry
+  id: RadiantBottling
+  name: guide-entry-radiant-bottling
+  text: /ServerInfo/_radiant/Guidebook/Artisan/Bottling.xml
+
+- type: guideEntry
+  id: RadiantFishing
+  name: guide-entry-radiant-fishing
+  text: /ServerInfo/_radiant/Guidebook/Fishing/Overview.xml
+  children:
+  - RadiantAngling
+  - RadiantAquariums
+
+- type: guideEntry
+  id: RadiantAngling
+  name: guide-entry-radiant-angling
+  text: /ServerInfo/_radiant/Guidebook/Fishing/Angling.xml
+
+- type: guideEntry
+  id: RadiantAquariums
+  name: guide-entry-radiant-aquariums
+  text: /ServerInfo/_radiant/Guidebook/Fishing/Aquariums.xml
+
+- type: guideEntry
+  id: RadiantLife
+  name: guide-entry-radiant-life
+  text: /ServerInfo/_radiant/Guidebook/Life/Overview.xml
+  children:
+  - RadiantAppearance
+  - RadiantSauna
+  - RadiantDecorating
+  - RadiantLeisure
+
+- type: guideEntry
+  id: RadiantAppearance
+  name: guide-entry-radiant-appearance
+  text: /ServerInfo/_radiant/Guidebook/Life/Appearance.xml
+
+- type: guideEntry
+  id: RadiantSauna
+  name: guide-entry-radiant-sauna
+  text: /ServerInfo/_radiant/Guidebook/Life/Sauna.xml
+
+- type: guideEntry
+  id: RadiantDecorating
+  name: guide-entry-radiant-decorating
+  text: /ServerInfo/_radiant/Guidebook/Life/Decorating.xml
+
+- type: guideEntry
+  id: RadiantLeisure
+  name: guide-entry-radiant-leisure
+  text: /ServerInfo/_radiant/Guidebook/Life/Leisure.xml
+
+- type: guideEntry
+  id: RadiantPaperwork
+  name: guide-entry-radiant-paperwork
+  text: /ServerInfo/_radiant/Guidebook/Paperwork.xml
+  children:
+  - RadiantNewsroom
+
+- type: guideEntry
+  id: RadiantCareers
+  name: guide-entry-radiant-careers
+  text: /ServerInfo/_radiant/Guidebook/Careers.xml
+
+- type: guideEntry
+  id: RadiantStorage
+  name: guide-entry-radiant-storage
+  text: /ServerInfo/_radiant/Guidebook/Storage.xml
+  children:
+  - RadiantShipSaving
+
+- type: guideEntry
+  id: RadiantShipSaving
+  name: guide-entry-radiant-ship-saving
+  text: /ServerInfo/_radiant/Guidebook/ShipSaving.xml
+
+- type: guideEntry
+  id: RadiantGeneticResearch
+  name: guide-entry-radiant-genetic-research
+  text: /ServerInfo/_radiant/Guidebook/Medical/GeneticResearch.xml
+
+- type: guideEntry
+  id: RadiantDnaVault
+  name: guide-entry-radiant-dna-vault
+  text: /ServerInfo/_radiant/Guidebook/Medical/DnaVault.xml
+
+- type: guideEntry
+  id: RadiantGeneticProduction
+  name: guide-entry-radiant-genetic-production
+  text: /ServerInfo/_radiant/Guidebook/Medical/GeneticProduction.xml
+
+- type: guideEntry
+  id: RadiantVirusCultures
+  name: guide-entry-radiant-virus-cultures
+  text: /ServerInfo/_radiant/Guidebook/Medical/VirusCultures.xml
+
+- type: guideEntry
+  id: RadiantIVDrip
+  name: guide-entry-radiant-iv-drip
+  text: /ServerInfo/_radiant/Guidebook/Medical/IVDrip.xml

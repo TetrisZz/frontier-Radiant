@@ -95,6 +95,8 @@
     - NFBasicEVAToolsStatic
     - NFMaterialElectronicsStatic
     - NFServiceStorageStatic
+    - RadiantArtisanToolsStatic
+    - RadiantNewsroomEquipment
     - NFBotanyToolsStatic
     - NFServiceToolsStatic
     - NFServiceEvaPackStatic
@@ -160,6 +162,7 @@
     - NFLightsColoredStatic
     - NFServiceArchetypeStatic
     - NFMcServiceTechfabStatic
+    - RadiantArtisanToolsStatic
 
 - type: entity
   parent: [ NFBlueprintReceiverBase, BaseLatheLube ]

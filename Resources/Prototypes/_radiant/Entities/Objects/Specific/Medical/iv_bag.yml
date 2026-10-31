@@ -5,6 +5,8 @@
   description: A refillable sterile bag for an IV drip stand.
   suffix: Empty
   components:
+  - type: GuideHelp
+    guides: [RadiantIVDrip, RadiantMechanics, Medical]
   - type: IVBag
   - type: Sprite
     sprite: Objects/Specific/Medical/medical.rsi

@@ -5,6 +5,8 @@
   name: spray paint
   description: Temporary spray paint for clothing and items. Washes off with water, soap or a laundry cycle.
   components:
+  - type: GuideHelp
+    guides: [RadiantDecorating, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Objects/Tools/washable_paint.rsi
     layers:

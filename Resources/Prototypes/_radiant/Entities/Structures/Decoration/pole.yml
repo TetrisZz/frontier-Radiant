@@ -4,6 +4,8 @@
   name: шест
   description: Палка с амбициями.
   components:
+  - type: GuideHelp
+    guides: [RadiantLeisure, RadiantMechanics, Medical]
   - type: DancePole
   - type: Appearance
   - type: ActivatableUI

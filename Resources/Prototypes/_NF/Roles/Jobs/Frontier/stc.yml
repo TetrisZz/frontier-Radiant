@@ -18,6 +18,7 @@
   displayWeight: 50 # Second from the top
   setPreference: true
   access:
+  - MedicalRecords
   - Service
   - Maintenance
   - External

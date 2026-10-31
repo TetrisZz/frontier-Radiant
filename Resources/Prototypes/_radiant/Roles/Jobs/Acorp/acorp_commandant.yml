@@ -13,6 +13,7 @@
   weight: 3 # Prioritize station & department jobs
   displayWeight: 40 # Second from the top
   access:
+  - MedicalRecords
   - Acorp
   - AcorpSecurity
   - AcorpCommand

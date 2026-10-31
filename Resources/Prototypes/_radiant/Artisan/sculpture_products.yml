@@ -1,0 +1,527 @@
+- type: entity
+  id: RadiantSculptureStoneBust
+  parent: RadiantSculptureBase
+  name: stone bust
+  components:
+  - type: Sprite
+    state: bust
+    color: "#EEEEDE"
+  - type: Damageable
+    damageModifierSet: Rock
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 250
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      RawQuartz: 1000
+
+- type: entity
+  id: RadiantSculptureStoneCorgi
+  parent: RadiantSculptureBase
+  name: stone corgi sculpture
+  components:
+  - type: Sprite
+    state: corgi
+    color: "#EEEEDE"
+  - type: Damageable
+    damageModifierSet: Rock
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 250
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      RawQuartz: 1000
+
+- type: entity
+  id: RadiantSculptureStoneMonkey
+  parent: RadiantSculptureBase
+  name: stone monkey sculpture
+  components:
+  - type: Sprite
+    state: monkey
+    color: "#EEEEDE"
+  - type: Damageable
+    damageModifierSet: Rock
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 250
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      RawQuartz: 1000
+
+- type: entity
+  id: RadiantSculptureStoneMedic
+  parent: RadiantSculptureBase
+  name: stone doctor sculpture
+  components:
+  - type: Sprite
+    state: md
+    color: "#EEEEDE"
+  - type: Damageable
+    damageModifierSet: Rock
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 250
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      RawQuartz: 1000
+
+- type: entity
+  id: RadiantSculptureStoneEngineer
+  parent: RadiantSculptureBase
+  name: stone engineer sculpture
+  components:
+  - type: Sprite
+    state: eng
+    color: "#EEEEDE"
+  - type: Damageable
+    damageModifierSet: Rock
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 250
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      RawQuartz: 1000
+
+- type: entity
+  id: RadiantSculptureStoneScholar
+  parent: RadiantSculptureBase
+  name: stone scientist sculpture
+  components:
+  - type: Sprite
+    state: sci
+    color: "#EEEEDE"
+  - type: Damageable
+    damageModifierSet: Rock
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 250
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      RawQuartz: 1000
+
+- type: entity
+  id: RadiantSculptureWoodBust
+  parent: RadiantSculptureBase
+  name: wooden bust
+  components:
+  - type: Sprite
+    state: bust
+    color: "#A78154"
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 100
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 800
+
+- type: entity
+  id: RadiantSculptureWoodCorgi
+  parent: RadiantSculptureBase
+  name: wooden corgi sculpture
+  components:
+  - type: Sprite
+    state: corgi
+    color: "#A78154"
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 100
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 800
+
+- type: entity
+  id: RadiantSculptureWoodMonkey
+  parent: RadiantSculptureBase
+  name: wooden monkey sculpture
+  components:
+  - type: Sprite
+    state: monkey
+    color: "#A78154"
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 100
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 800
+
+- type: entity
+  id: RadiantSculptureWoodMedic
+  parent: RadiantSculptureBase
+  name: wooden doctor sculpture
+  components:
+  - type: Sprite
+    state: md
+    color: "#A78154"
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 100
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 800
+
+- type: entity
+  id: RadiantSculptureWoodEngineer
+  parent: RadiantSculptureBase
+  name: wooden engineer sculpture
+  components:
+  - type: Sprite
+    state: eng
+    color: "#A78154"
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 100
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 800
+
+- type: entity
+  id: RadiantSculptureWoodScholar
+  parent: RadiantSculptureBase
+  name: wooden scientist sculpture
+  components:
+  - type: Sprite
+    state: sci
+    color: "#A78154"
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 100
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 800
+
+- type: entity
+  id: RadiantSculptureSteelBust
+  parent: RadiantSculptureBase
+  name: steel bust
+  components:
+  - type: Sprite
+    state: bust
+    color: "#A7B2BC"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 400
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+
+- type: entity
+  id: RadiantSculptureSteelCorgi
+  parent: RadiantSculptureBase
+  name: steel corgi sculpture
+  components:
+  - type: Sprite
+    state: corgi
+    color: "#A7B2BC"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 400
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+
+- type: entity
+  id: RadiantSculptureSteelMonkey
+  parent: RadiantSculptureBase
+  name: steel monkey sculpture
+  components:
+  - type: Sprite
+    state: monkey
+    color: "#A7B2BC"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 400
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+
+- type: entity
+  id: RadiantSculptureSteelMedic
+  parent: RadiantSculptureBase
+  name: steel doctor sculpture
+  components:
+  - type: Sprite
+    state: md
+    color: "#A7B2BC"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 400
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+
+- type: entity
+  id: RadiantSculptureSteelEngineer
+  parent: RadiantSculptureBase
+  name: steel engineer sculpture
+  components:
+  - type: Sprite
+    state: eng
+    color: "#A7B2BC"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 400
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+
+- type: entity
+  id: RadiantSculptureSteelScholar
+  parent: RadiantSculptureBase
+  name: steel scientist sculpture
+  components:
+  - type: Sprite
+    state: sci
+    color: "#A7B2BC"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 400
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+
+- type: entity
+  id: RadiantSculptureGoldBust
+  parent: RadiantSculptureBase
+  name: gold bust
+  components:
+  - type: Sprite
+    state: bust
+    color: "#E7BD4B"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 600
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 800
+
+- type: entity
+  id: RadiantSculptureGoldCorgi
+  parent: RadiantSculptureBase
+  name: gold corgi sculpture
+  components:
+  - type: Sprite
+    state: corgi
+    color: "#E7BD4B"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 600
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 800
+
+- type: entity
+  id: RadiantSculptureGoldMonkey
+  parent: RadiantSculptureBase
+  name: gold monkey sculpture
+  components:
+  - type: Sprite
+    state: monkey
+    color: "#E7BD4B"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 600
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 800
+
+- type: entity
+  id: RadiantSculptureGoldMedic
+  parent: RadiantSculptureBase
+  name: gold doctor sculpture
+  components:
+  - type: Sprite
+    state: md
+    color: "#E7BD4B"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 600
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 800
+
+- type: entity
+  id: RadiantSculptureGoldEngineer
+  parent: RadiantSculptureBase
+  name: gold engineer sculpture
+  components:
+  - type: Sprite
+    state: eng
+    color: "#E7BD4B"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 600
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 800
+
+- type: entity
+  id: RadiantSculptureGoldScholar
+  parent: RadiantSculptureBase
+  name: gold scientist sculpture
+  components:
+  - type: Sprite
+    state: sci
+    color: "#E7BD4B"
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 600
+        mask: [MachineMask]
+        layer: [MachineLayer]
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 800

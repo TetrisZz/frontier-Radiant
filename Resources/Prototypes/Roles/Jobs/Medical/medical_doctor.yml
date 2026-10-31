@@ -8,6 +8,8 @@
   # Equipment is selected through the JobMedicalDoctor loadout.
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-hire # Frontier
+  access:
+  - MedicalRecords
   accessGroups: # Frontier
   - GeneralAccess # Frontier
   # special: # Frontier

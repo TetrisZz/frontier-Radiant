@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original Skyrat and /tg/station contributors, as credited by the source projects. Lossless DMI frame extraction; original pixels and animation timing preserved. Source assets: https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/modular_skyrat/modules/primitive_production/icons/prim_fun.dmi; https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/modular_skyrat/modules/reagent_forging/icons/obj/forge_items.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blow_pipe_empty"
+    },
+    {
+      "name": "blow_pipe_full"
+    },
+    {
+      "name": "paddle"
+    },
+    {
+      "name": "shears"
+    },
+    {
+      "name": "jacks"
+    },
+    {
+      "name": "tong_empty"
+    },
+    {
+      "name": "tong_full"
+    },
+    {
+      "name": "hammer"
+    }
+  ]
+}

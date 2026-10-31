@@ -17,7 +17,7 @@
   - type: EmptyOnMachineDeconstruct
     containers: [virology-sample]
   - type: GuideHelp
-    guides: [RadiantVirology]
+    guides: [RadiantVirology, RadiantMechanics, Medical]
   - type: MaterialStorage
     materialWhiteList: [Biomass]
   - type: Sprite

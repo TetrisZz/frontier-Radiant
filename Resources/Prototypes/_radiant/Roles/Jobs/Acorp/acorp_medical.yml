@@ -12,6 +12,7 @@
   weight: 2 # Prioritize station & department jobs
   displayWeight: 20 # Second from the top
   access:
+  - MedicalRecords
   - Acorp
   accessGroups: # Frontier
   - GeneralAccess

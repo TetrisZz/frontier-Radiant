@@ -66,6 +66,8 @@
         <BoxContainer Name="SavedShipsContainer" Orientation="Vertical" Margin="0 8 0 0">
             <BoxContainer Orientation="Horizontal" SeparationOverride="6">
                 <Label Text="{Loc 'shipyard-save-list-title'}" HorizontalExpand="True" />
+                <Button Name="ShipSavingHelpButton" Text="?" MinSize="26 26"
+                        VerticalAlignment="Center" ToolTip="{Loc 'shipyard-save-help-tooltip'}" />
                 <controls:ConfirmButton Name="SaveShipButton" Text="{Loc 'shipyard-save-button'}" Disabled="True" />
                 <controls:ConfirmButton Name="LoadShipButton" Text="{Loc 'shipyard-load-button'}" Disabled="True" />
             </BoxContainer>

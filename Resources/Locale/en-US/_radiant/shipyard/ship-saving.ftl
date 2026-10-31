@@ -1,10 +1,12 @@
-shipyard-save-button = Save shuttle
+shipyard-save-button = Reserve dock
+shipyard-save-help-tooltip = Reserve dock rules: equipment, cargo and restrictions
 shipyard-load-button = Deploy shuttle
-shipyard-save-list-title = Saved shuttles
+shipyard-save-list-title = Reserve dock
 shipyard-load-price-label = Deployment cost: { $rate }% of shuttle appraisal
-shipyard-save-not-allowed = This shuttle cannot be saved.
-shipyard-save-failed = Unable to save the shuttle.
-shipyard-save-success = Shuttle "{ $ship }" saved.
+shipyard-save-not-allowed = This shuttle is not accepted into the reserve dock.
+shipyard-save-failed = Unable to arrange transfer to the reserve dock.
+shipyard-save-success = Shuttle "{ $ship }" accepted into reserve dock custody.
+shipyard-save-traffic-announcement = Shuttle { $ship }, captain { $owner }, has been accepted into reserve dock custody. Berthing registration complete.
 shipyard-load-invalid-signature = The ship file is damaged, modified, or signed by another server.
 shipyard-load-unavailable = This save has already been deployed or was not confirmed by the server.
 shipyard-load-owner-missing = This save is not bound to a character. Contact an administrator to migrate the old save.

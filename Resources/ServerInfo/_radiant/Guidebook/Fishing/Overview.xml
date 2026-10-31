@@ -1,0 +1,14 @@
+<Document>
+
+# Рыбалка и аквариумы
+
+<ColorBox Color="#182C34" OutlineColor="#3A6975" Margin="2"><Box Orientation="Vertical" Margin="10">
+[bold]Поймайте рыбу, перенесите в аквариум и обеспечьте подходящие условия.[/bold]
+Ловля и разведение — разные этапы: не каждый пойманный вид способен размножаться.
+</Box></ColorBox>
+
+<Box><GuideEntityEmbed Entity="FishingRod" Caption="Ловля"/><GuideEntityEmbed Entity="RadiantAquarium" Caption="Содержание рыб"/></Box>
+- [textlink="Удочки, снасти и улов" link="RadiantAngling"] — как начать рыбалку и что делать при обрыве лески.
+- [textlink="Аквариумы и разведение" link="RadiantAquariums"] — вода, корм, совместимые пары и мальки.
+Сумка для рыбы и анализатор рыб доступны в сервисном техфабе. Для анализатора нужен заряженный элемент питания.
+</Document>

@@ -1,0 +1,15 @@
+<Document>
+
+# Жизнь на станции
+
+<ColorBox Color="#182C34" OutlineColor="#3A6975" Margin="2"><Box Orientation="Vertical" Margin="10">
+[bold]Небольшие занятия для персонажа, общения и обустройства помещения.[/bold]
+</Box></ColorBox>
+
+<Box><GuideEntityEmbed Entity="ClothingHeadHairTie" Caption="Причёска"/><GuideEntityEmbed Entity="PerfumeRose" Caption="Аромат"/></Box>
+- [textlink="Внешность, духи и татуировки" link="RadiantAppearance"] — аксессуары для волос, ароматы и согласие на тату.
+- [textlink="Баня и полотенца" link="RadiantSauna"] — топливо, вода, пар и возврат полотенец.
+- [textlink="Краски и стирка" link="RadiantDecorating"] — окрашивание вещей и очистка.
+- [textlink="Букеты, колоды и танцы" link="RadiantLeisure"] — записки, карточки и пилон.
+[textlink="Полный каталог ремесленных занятий" link="RadiantArtisanWorkshop"]
+</Document>

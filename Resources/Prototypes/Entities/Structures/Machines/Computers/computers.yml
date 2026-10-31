@@ -368,8 +368,9 @@
   components:
   - type: DossierConsole
     kind: Medical
+  - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [["Medical"], ["MedicalPhoenix"]]
+    access: [["Medical"], ["MedicalPhoenix"], ["MedicalRecords"]]
   - type: UserInterface
     interfaces:
       enum.DossierUiKey.Key:

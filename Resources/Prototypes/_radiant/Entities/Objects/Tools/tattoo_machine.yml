@@ -4,6 +4,8 @@
   name: tattoo machine
   description: Applies a permanent textual tattoo with the recipient's consent. Removal requires surgery.
   components:
+  - type: GuideHelp
+    guides: [RadiantAppearance, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Objects/Tools/tattoo_machine.rsi
     state: machine

@@ -4,6 +4,8 @@
   name: fish bag
   description: A colorful belt bag for gathering your catch.
   components:
+  - type: GuideHelp
+    guides: [RadiantAngling, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Objects/Specific/Fishing/fish_bag.rsi
     state: icon

@@ -5,6 +5,8 @@
   description: A basket for storing folded towels.
   suffix: Empty
   components:
+  - type: GuideHelp
+    guides: [RadiantSauna, RadiantMechanics, Medical]
   - type: HLPersistOnShipSave
     saveContents: true
   - type: InteractionOutline

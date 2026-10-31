@@ -24,3 +24,5 @@
   id: RadiantVirology
   name: guide-entry-radiant-virology
   text: /ServerInfo/_radiant/Guidebook/Virology.xml
+  children:
+  - RadiantVirusCultures

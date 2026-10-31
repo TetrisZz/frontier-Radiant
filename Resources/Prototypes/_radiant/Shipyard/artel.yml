@@ -1,0 +1,34 @@
+- type: vessel
+  id: Artel
+  parent: BaseVessel
+  name: HOM Артель
+  description: Универсальная ремесленная мастерская с оборудованием для гончарного дела, стеклодувного ремесла, ковки и производства напитков.
+  price: 50000
+  category: Medium
+  group: Shipyard
+  canSave: true
+  shuttlePath: /Maps/_radiant/Shuttles/Artel.yml
+  guidebookPage: RadiantArtisanWorkshop
+  class:
+  - Civilian
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Artel
+  mapName: HOM Артель
+  mapPath: /Maps/_radiant/Shuttles/Artel.yml
+  minPlayers: 0
+  stations:
+    Artel:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'HOM Артель {1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: HOM
+      - type: StationJobs
+        availableJobs:
+          ContractorInterview: [0, 0]
+          PilotInterview: [0, 0]
+          MercenaryInterview: [0, 0]

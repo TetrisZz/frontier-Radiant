@@ -1,0 +1,62 @@
+# Kept for existing map and shuttle saves that reference the original construction graph.
+# New powered equipment is assembled with the standard Machine graph and a printed board.
+
+- type: constructionGraph
+  id: RadiantArtisanKiln
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 6
+        doAfter: 2
+      - material: Glass
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: finished
+    entity: RadiantArtisanKiln
+
+- type: constructionGraph
+  id: RadiantArtisanFurnace
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 6
+        doAfter: 2
+      - material: Glass
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: finished
+    entity: RadiantArtisanFurnace
+
+- type: constructionGraph
+  id: RadiantAutomaticBottler
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 6
+        doAfter: 2
+      - material: Glass
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: finished
+    entity: RadiantAutomaticBottler

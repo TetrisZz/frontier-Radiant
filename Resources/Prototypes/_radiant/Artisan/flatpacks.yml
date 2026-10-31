@@ -1,0 +1,84 @@
+- type: entity
+  parent: BaseFlatpack
+  id: RadiantPotteryWheelFlatpack
+  name: artisan assembly kit
+  components:
+  - type: GuideHelp
+    guides: [RadiantArtisanEquipment, RadiantMechanics, Medical]
+  - type: Flatpack
+    entity: RadiantPotteryWheel
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#9FED58"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+
+- type: entity
+  parent: BaseFlatpack
+  id: RadiantArtisanAnvilFlatpack
+  name: artisan assembly kit
+  components:
+  - type: GuideHelp
+    guides: [RadiantArtisanEquipment, RadiantMechanics, Medical]
+  - type: Flatpack
+    entity: RadiantArtisanAnvil
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#9FED58"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+
+- type: entity
+  parent: BaseFlatpack
+  id: RadiantGlassworkingBenchFlatpack
+  name: artisan assembly kit
+  components:
+  - type: GuideHelp
+    guides: [RadiantArtisanEquipment, RadiantMechanics, Medical]
+  - type: Flatpack
+    entity: RadiantGlassworkingBench
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#9FED58"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+
+- type: entity
+  parent: BaseFlatpack
+  id: RadiantQuenchingBathFlatpack
+  name: artisan assembly kit
+  components:
+  - type: GuideHelp
+    guides: [RadiantArtisanEquipment, RadiantMechanics, Medical]
+  - type: Flatpack
+    entity: RadiantQuenchingBath
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#9FED58"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+
+- type: entity
+  parent: BaseFlatpack
+  id: RadiantFermentationBarrelFlatpack
+  name: artisan assembly kit
+  components:
+  - type: GuideHelp
+    guides: [RadiantArtisanEquipment, RadiantMechanics, Medical]
+  - type: Flatpack
+    entity: RadiantFermentationBarrel
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#9FED58"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default

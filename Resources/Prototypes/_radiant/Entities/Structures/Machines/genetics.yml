@@ -63,8 +63,7 @@
   - type: EmptyOnMachineDeconstruct
     containers: [genetic-sample, genetic-research-disk]
   - type: GuideHelp
-    guides: [RadiantGenetics]
-
+    guides: [RadiantGenetics, RadiantMechanics, Medical]
 - type: entity
   id: GeneticBodyGrowerMachineCircuitboard
   parent: BaseMachineCircuitboard
@@ -100,8 +99,7 @@
           True: { state: power }
           False: { state: blank }
   - type: GuideHelp
-    guides: [RadiantGenetics]
-
+    guides: [RadiantGenetics, RadiantMechanics, Medical]
 - type: entity
   id: GeneticResearchConsole
   parent: BaseComputer
@@ -146,8 +144,7 @@
   - type: EmptyOnMachineDeconstruct
     containers: [genetic-sample, genetic-research-disk]
   - type: GuideHelp
-    guides: [RadiantGenetics]
-
+    guides: [RadiantGenetics, RadiantMechanics, Medical]
 - type: entity
   id: GeneticResearchConsoleCircuitboard
   parent: BaseComputerCircuitboard

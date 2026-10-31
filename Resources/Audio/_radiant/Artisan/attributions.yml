@@ -1,0 +1,24 @@
+- files: ["hammer.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original source project contributors. Imported unchanged; source repository asset license applies."
+  source: "https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/modular_skyrat/modules/reagent_forging/sound/forge.ogg"
+
+- files: ["quench.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original source project contributors. Imported unchanged; source repository asset license applies."
+  source: "https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/modular_skyrat/modules/reagent_forging/sound/hot_hiss.ogg"
+
+- files: ["ferment.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original source project contributors. Imported unchanged; source repository asset license applies."
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/effects/bubbles/bubbles2.ogg"
+
+- files: ["barrel_open.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original source project contributors. Imported unchanged; source repository asset license applies."
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/items/handling/cardboard_box/cardboardbox_pickup.ogg"
+
+- files: ["barrel_close.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original source project contributors. Imported unchanged; source repository asset license applies."
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/effects/footstep/woodclaw2.ogg"

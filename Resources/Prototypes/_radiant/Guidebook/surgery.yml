@@ -8,11 +8,16 @@
   - RadiantSurgerySterility
   - RadiantSurgeryComplications
   - RadiantSurgeryGlass
+  - RadiantAutopsy
 
 - type: guideEntry
   id: RadiantGenetics
   name: guide-entry-radiant-genetics
   text: /ServerInfo/_radiant/Guidebook/Surgery/Genetics.xml
+  children:
+  - RadiantGeneticResearch
+  - RadiantDnaVault
+  - RadiantGeneticProduction
 
 - type: guideEntry
   id: RadiantSurgeryOperations

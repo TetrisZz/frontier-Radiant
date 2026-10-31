@@ -1,0 +1,115 @@
+- type: latheRecipe
+  id: RadiantClay
+  result: RadiantClay
+  completetime: 3
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory]
+  id: RadiantArtisanKilnMachineCircuitboard
+  result: RadiantArtisanKilnMachineCircuitboard
+
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory]
+  id: RadiantArtisanFurnaceMachineCircuitboard
+  result: RadiantArtisanFurnaceMachineCircuitboard
+
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory]
+  id: RadiantAutomaticBottlerMachineCircuitboard
+  result: RadiantAutomaticBottlerMachineCircuitboard
+
+- type: latheRecipe
+  id: RadiantPotteryWheelFlatpack
+  result: RadiantPotteryWheelFlatpack
+  completetime: 6
+  materials:
+    Steel: 400
+    Wood: 400
+
+- type: latheRecipe
+  id: RadiantArtisanAnvilFlatpack
+  result: RadiantArtisanAnvilFlatpack
+  completetime: 6
+  materials:
+    Steel: 400
+    Wood: 400
+
+- type: latheRecipe
+  id: RadiantGlassworkingBenchFlatpack
+  result: RadiantGlassworkingBenchFlatpack
+  completetime: 6
+  materials:
+    Steel: 400
+    Wood: 400
+
+- type: latheRecipe
+  id: RadiantQuenchingBathFlatpack
+  result: RadiantQuenchingBathFlatpack
+  completetime: 6
+  materials:
+    Steel: 400
+    Wood: 400
+
+- type: latheRecipe
+  id: RadiantFermentationBarrelFlatpack
+  result: RadiantFermentationBarrelFlatpack
+  completetime: 6
+  materials:
+    Steel: 200
+    Wood: 800
+
+- type: "latheRecipe"
+  id: "RadiantArtisanTongs"
+  result: "RadiantArtisanTongs"
+  completetime: 3
+  materials:
+    Steel: 200
+    Glass: 100
+- type: "latheRecipe"
+  id: "RadiantArtisanHammer"
+  result: "RadiantArtisanHammer"
+  completetime: 3
+  materials:
+    Steel: 200
+    Glass: 100
+- type: "latheRecipe"
+  id: "RadiantArtisanBlowpipe"
+  result: "RadiantArtisanBlowpipe"
+  completetime: 3
+  materials:
+    Steel: 200
+    Glass: 100
+- type: "latheRecipe"
+  id: "RadiantArtisanPaddle"
+  result: "RadiantArtisanPaddle"
+  completetime: 3
+  materials:
+    Steel: 200
+    Glass: 100
+- type: "latheRecipe"
+  id: "RadiantArtisanBottle"
+  result: "RadiantArtisanBottle"
+  completetime: 3
+  materials:
+    Glass: 100
+- type: "latheRecipePack"
+  id: "RadiantArtisanToolsStatic"
+  recipes:
+    - RadiantSculptingChisel
+    - RadiantSculptingBenchFlatpack
+    - "RadiantArtisanTongs"
+    - "RadiantArtisanHammer"
+    - "RadiantArtisanBlowpipe"
+    - "RadiantArtisanPaddle"
+    - "RadiantArtisanBottle"
+    - "RadiantClay"
+    - "RadiantArtisanKilnMachineCircuitboard"
+    - "RadiantArtisanFurnaceMachineCircuitboard"
+    - "RadiantAutomaticBottlerMachineCircuitboard"
+    - "RadiantPotteryWheelFlatpack"
+    - "RadiantArtisanAnvilFlatpack"
+    - "RadiantGlassworkingBenchFlatpack"
+    - "RadiantQuenchingBathFlatpack"
+    - "RadiantFermentationBarrelFlatpack"

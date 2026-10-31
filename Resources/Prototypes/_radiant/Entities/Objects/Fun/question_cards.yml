@@ -4,6 +4,8 @@
   name: question cards
   description: A deck for getting to know each other. Draw a card to read a question.
   components:
+  - type: GuideHelp
+    guides: [RadiantLeisure, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Objects/Fun/question_cards.rsi
     state: questions
@@ -53,6 +55,8 @@
   name: question card
   description: A small card. Blank cards can be written on with a pen.
   components:
+  - type: GuideHelp
+    guides: [RadiantLeisure, RadiantMechanics, Medical]
   - type: Sprite
     sprite: _radiant/Objects/Fun/question_cards.rsi
     layers:

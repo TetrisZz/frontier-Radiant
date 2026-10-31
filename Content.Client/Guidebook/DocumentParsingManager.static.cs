@@ -49,13 +49,23 @@ public sealed partial class DocumentParsingManager
     private static readonly Parser<char, Unit> TryStartList =
         Try(SkipNewline.Then(SkipWhitespaces).Then(Char('-'))).Then(SkipWhitespaces);
 
+    private static readonly Parser<char, string> NumberedListMarker =
+        Digit.AtLeastOnceString().Before(Char('.')).Before(OneOf(Char(' '), Char('\t')));
+
+    private static readonly Parser<char, Unit> TryStartNumberedList =
+        Try(SkipNewline.Then(SkipWhitespaces).Then(NumberedListMarker)).Then(SkipWhitespaces);
+
+    private static readonly Parser<char, Unit> TryStartHeading =
+        Try(SkipNewline.Then(SkipWhitespaces).Then(Char('#'))).Then(SkipWhitespaces);
+
     private static readonly Parser<char, Unit> TryStartTag = Try(Char('<')).Then(SkipWhitespaces);
 
     private static readonly Parser<char, Unit> TryStartParagraph =
         Try(SkipNewline.Then(SkipNewline)).Then(SkipWhitespaces);
 
     private static readonly Parser<char, Unit> TryLookTextEnd =
-        Lookahead(OneOf(TryStartTag, TryStartList, TryStartParagraph, Try(Whitespace.SkipUntil(End))));
+        Lookahead(OneOf(TryStartTag, TryStartList, TryStartNumberedList, TryStartHeading,
+            TryStartParagraph, Try(Whitespace.SkipUntil(End))));
 
     private static readonly Parser<char, string> TextParser =
         TextChar.AtLeastOnceUntil(TryLookTextEnd).Select(string.Concat);
@@ -65,6 +75,8 @@ public sealed partial class DocumentParsingManager
                     var rt = new RichTextLabel
                     {
                         HorizontalExpand = true,
+                        LineHeightScale = 1.05f,
+                        VerticalAlignment = VAlignment.Top,
                         Margin = new Thickness(0, 0, 0, 15.0f)
                     };
 
@@ -94,8 +106,9 @@ public sealed partial class DocumentParsingManager
     private static readonly Parser<char, Control> HeaderControlParser = Try(Char('#'))
         .Then(SkipWhitespaces.Then(Map(text => new Label
                 {
-                    Text = text,
-                    StyleClasses = { "LabelHeadingBigger" }
+                    Text = text.TrimEnd('\r'),
+                    StyleClasses = { "LabelHeadingBigger" },
+                    Margin = new Thickness(0, 12, 0, 10)
                 },
                 AnyCharExcept('\n').AtLeastOnceString())
             .Cast<Control>()))
@@ -104,8 +117,9 @@ public sealed partial class DocumentParsingManager
     private static readonly Parser<char, Control> SubHeaderControlParser = Try(String("##"))
         .Then(SkipWhitespaces.Then(Map(text => new Label
                 {
-                    Text = text,
-                    StyleClasses = { "LabelHeading" }
+                    Text = text.TrimEnd('\r'),
+                    StyleClasses = { "LabelHeading" },
+                    Margin = new Thickness(0, 10, 0, 8)
                 },
                 AnyCharExcept('\n').AtLeastOnceString())
             .Cast<Control>()))
@@ -114,8 +128,9 @@ public sealed partial class DocumentParsingManager
     private static readonly Parser<char, Control> TertiaryHeaderControlParser = Try(String("###"))
         .Then(SkipWhitespaces.Then(Map(text => new Label
                 {
-                    Text = text,
-                    StyleClasses = { "LabelKeyText" }
+                    Text = text.TrimEnd('\r'),
+                    StyleClasses = { "LabelKeyText" },
+                    Margin = new Thickness(0, 8, 0, 6)
                 },
                 AnyCharExcept('\n').AtLeastOnceString())
             .Cast<Control>()))
@@ -150,6 +165,20 @@ public sealed partial class DocumentParsingManager
 
     private static readonly Parser<char, Control> TryListControl = OneOf(SublistControlParser, ListControlParser);
     // End Frontier: sublists
+
+    private static readonly Parser<char, Control> NumberedListControlParser = Try(NumberedListMarker)
+        .Before(SkipWhitespaces)
+        .Bind(number => TextControlParser.Select(control => (Control) new BoxContainer
+        {
+            SeparationOverride = 8,
+            Children =
+            {
+                new Label { Text = number + ".", VerticalAlignment = VAlignment.Top, MinWidth = 22,
+                    StyleClasses = { "LabelKeyText" } },
+                control
+            }
+        }))
+        .Labelled("numbered list");
 
     #region Text Parsing
 

@@ -36,8 +36,7 @@
   - type: EmptyOnMachineDeconstruct
     containers: [dna-vault-sample]
   - type: GuideHelp
-    guides: [RadiantGenetics]
-
+    guides: [RadiantDnaVault, RadiantMechanics, Medical]
 - type: entity
   id: BiodiversityProbe
   parent: BaseItem
@@ -52,8 +51,7 @@
     size: Small
     sprite: _radiant/Objects/Medical/biodiversity_probe.rsi
   - type: GuideHelp
-    guides: [RadiantGenetics]
-
+    guides: [RadiantDnaVault, RadiantMechanics, Medical]
 - type: entity
   id: DnaVaultMachineCircuitboard
   parent: BaseMachineCircuitboard

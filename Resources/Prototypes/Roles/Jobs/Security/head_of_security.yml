@@ -41,6 +41,8 @@
   #     - type: CommandStaff
   ## Frontier: commented out stuff above
   setPreference: false # Frontier
+  access:
+  - MedicalRecords
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 

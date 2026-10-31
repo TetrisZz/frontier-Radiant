@@ -1,0 +1,469 @@
+- type: "stack"
+  id: "ArtisanClay"
+  name: "artisan-stack-clay"
+  icon:
+    sprite: "/Textures/_radiant/Objects/Artisan/products.rsi"
+    state: "clay"
+  spawn: "RadiantClay"
+  maxCount: 30
+- type: "entity"
+  id: "RadiantClay"
+  parent: "BaseItem"
+  name: "clay"
+  components:
+    - type: GuideHelp
+      guides: [RadiantPottery, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      state: "clay"
+    - type: "Item"
+      size: "Small"
+    - type: "Stack"
+      stackType: "ArtisanClay"
+      count: 1
+    - type: "StaticPrice"
+      price: 2
+- type: "entity"
+  id: "RadiantArtisanUnfiredCup"
+  parent: "BaseItem"
+  name: "UnfiredCup"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "clay_cup"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Drinks/mug.rsi"
+            state: "inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Drinks/mug.rsi"
+            state: "inhand-right"
+      size: "Small"
+    - type: "ArtisanWorkpiece"
+      recipe: "ArtisanCeramicCup"
+    - type: "Appearance"
+- type: "entity"
+  id: "RadiantArtisanUnfiredBowl"
+  parent: "BaseItem"
+  name: "UnfiredBowl"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "clay_bowl"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-right"
+      size: "Small"
+    - type: "ArtisanWorkpiece"
+      recipe: "ArtisanCeramicBowl"
+    - type: "Appearance"
+- type: "entity"
+  id: "RadiantArtisanUnfiredPlate"
+  parent: "BaseItem"
+  name: "UnfiredPlate"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "clay_plate"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-right"
+      size: "Small"
+    - type: "ArtisanWorkpiece"
+      recipe: "ArtisanCeramicPlate"
+    - type: "Appearance"
+- type: "entity"
+  id: "RadiantArtisanUnfiredTray"
+  parent: "BaseItem"
+  name: "UnfiredTray"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "clay_tray"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-right"
+      size: "Small"
+    - type: "ArtisanWorkpiece"
+      recipe: "ArtisanCeramicTray"
+    - type: "Appearance"
+- type: "entity"
+  id: "RadiantArtisanHotGlass"
+  parent: "BaseItem"
+  name: "HotGlass"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "molten_glass"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      size: "Small"
+    - type: "ArtisanWorkpiece"
+      recipe: "ArtisanGlassCup"
+    - type: "Appearance"
+    - type: "GenericVisualizer"
+      visuals:
+        enum.ArtisanVisuals.Active:
+          enum.ArtisanVisuals.Layer:
+            True:
+              state: "molten_glass"
+            False:
+              state: "glass_globe"
+- type: "entity"
+  id: "RadiantArtisanHotMetal"
+  parent: "BaseItem"
+  name: "HotMetal"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "hot_plate"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      size: "Small"
+    - type: "ArtisanWorkpiece"
+      recipe: "ArtisanForgedCrowbar"
+    - type: "Appearance"
+    - type: "GenericVisualizer"
+      visuals:
+        enum.ArtisanVisuals.Active:
+          enum.ArtisanVisuals.Layer:
+            True:
+              state: "hot_plate"
+            False:
+              state: "plate"
+- type: "entity"
+  id: "RadiantArtisanTongs"
+  parent: "BaseItem"
+  name: "tongs"
+  components:
+    - type: GuideHelp
+      guides: [RadiantArtisanWorkshop, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/tools.rsi"
+      layers:
+        - state: "tong_empty"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      size: "Normal"
+    - type: "ArtisanTool"
+      kind: "Tongs"
+    - type: "Appearance"
+    - type: "GenericVisualizer"
+      visuals:
+        enum.ArtisanVisuals.Loaded:
+          enum.ArtisanVisuals.Layer:
+            True:
+              state: "tong_full"
+            False:
+              state: "tong_empty"
+- type: "entity"
+  id: "RadiantArtisanHammer"
+  parent: "BaseItem"
+  name: "hammer"
+  components:
+    - type: GuideHelp
+      guides: [RadiantSmithing, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/tools.rsi"
+      layers:
+        - state: "hammer"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      size: "Normal"
+    - type: "ArtisanTool"
+      kind: "Hammer"
+    - type: "Appearance"
+- type: "entity"
+  id: "RadiantArtisanBlowpipe"
+  parent: "BaseItem"
+  name: "blowpipe"
+  components:
+    - type: GuideHelp
+      guides: [RadiantGlassworking, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/tools.rsi"
+      layers:
+        - state: "blow_pipe_empty"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      size: "Normal"
+    - type: "ArtisanTool"
+      kind: "Blowpipe"
+    - type: "Appearance"
+- type: "entity"
+  id: "RadiantArtisanPaddle"
+  parent: "BaseItem"
+  name: "paddle"
+  components:
+    - type: GuideHelp
+      guides: [RadiantGlassworking, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/tools.rsi"
+      layers:
+        - state: "paddle"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Item"
+      size: "Normal"
+    - type: "ArtisanTool"
+      kind: "Paddle"
+    - type: "Appearance"
+- type: "entity"
+  id: "RadiantCeramicCup"
+  parent:
+    - "DrinkBaseMaterialPorcelain"
+    - "DrinkBaseCup"
+  name: "ceramic cup"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "clay_cup"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Drinks/mug.rsi"
+            state: "inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Drinks/mug.rsi"
+            state: "inhand-right"
+    - type: "ArtisanProduct"
+    - type: "StaticPrice"
+      price: 12
+    - type: "SolutionContainerManager"
+      solutions:
+        drink:
+          maxVol: 60
+- type: "entity"
+  id: "RadiantCeramicBowl"
+  parent: "FoodBowlBig"
+  name: "ceramic bowl"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "clay_bowl"
+        - sprite: "Objects/Consumable/Food/bowl.rsi"
+          state: "fill-1"
+          map:
+            - "enum.SolutionContainerLayers.Fill"
+          visible: false
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-right"
+    - type: "ArtisanProduct"
+    - type: "StaticPrice"
+      price: 12
+- type: "entity"
+  id: "RadiantCeramicPlate"
+  parent: "FoodPlate"
+  name: "ceramic plate"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "clay_plate"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-right"
+    - type: "ArtisanProduct"
+    - type: "StaticPrice"
+      price: 12
+- type: "entity"
+  id: "RadiantGlassCup"
+  parent:
+    - "DrinkBaseMaterialGlass"
+    - "DrinkBaseCup"
+  name: "glass cup"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "glass_cup"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Drinks/glass_clear.rsi"
+            state: "inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Drinks/glass_clear.rsi"
+            state: "inhand-right"
+    - type: "ArtisanProduct"
+    - type: "StaticPrice"
+      price: 12
+    - type: "SolutionContainerManager"
+      solutions:
+        drink:
+          maxVol: 60
+- type: "entity"
+  id: "RadiantGlassBowl"
+  parent: "FoodBowlBig"
+  name: "glass bowl"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "glass_bowl"
+        - sprite: "Objects/Consumable/Food/bowl.rsi"
+          state: "fill-1"
+          map:
+            - "enum.SolutionContainerLayers.Fill"
+          visible: false
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-right"
+    - type: "ArtisanProduct"
+    - type: "StaticPrice"
+      price: 12
+- type: "entity"
+  id: "RadiantGlassPlate"
+  parent: "FoodPlate"
+  name: "glass plate"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      layers:
+        - state: "glass_plate"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-right"
+    - type: "ArtisanProduct"
+    - type: "StaticPrice"
+      price: 12
+- type: "entity"
+  id: "RadiantCeramicTray"
+  parent: "FoodPlate"
+  name: "ceramic tray"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      state: "clay_tray"
+    - type: "Item"
+      inhandVisuals:
+        left:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-left"
+        right:
+          - sprite: "Objects/Consumable/Food/plates.rsi"
+            state: "plate-inhand-right"
+    - type: "ArtisanProduct"
+    - type: "StaticPrice"
+      price: 15
+- type: "entity"
+  id: "RadiantGlassLens"
+  parent: "BaseItem"
+  name: "handmade glass lens"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Objects/Artisan/products.rsi"
+      state: "glass_lens"
+    - type: "Item"
+      size: "Tiny"
+    - type: "ArtisanProduct"
+    - type: "StaticPrice"
+      price: 15
+- type: "entity"
+  id: "RadiantForgedRing"
+  parent: "SilverRing"
+  name: "hand forged ring"
+  components:
+    - type: "ArtisanProduct"
+- type: "entity"
+  id: "RadiantForgedCrowbar"
+  parent: "Crowbar"
+  name: "hand forged crowbar"
+  components:
+    - type: "ArtisanProduct"
+- type: "entity"
+  id: "RadiantForgedKnife"
+  parent: "KitchenKnife"
+  name: "hand forged knife"
+  components:
+    - type: "ArtisanProduct"
+- type: "entity"
+  id: "RadiantArtisanBottle"
+  parent:
+    - "DrinkBaseMaterialGlass"
+    - "DrinkBaseCup"
+  name: "workshop bottle"
+  components:
+    - type: GuideHelp
+      guides: [RadiantBottling, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "Objects/Consumable/Drinks/alco-bottle.rsi"
+      layers:
+      - state: icon_empty
+      - state: fill-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+    - type: SolutionContainerVisuals
+      solutionName: drink
+      maxFillLevels: 6
+      fillBaseName: fill-
+      inHandsMaxFillLevels: 3
+      inHandsFillBaseName: -fill-
+    - type: Appearance
+    - type: "SolutionContainerManager"
+      solutions:
+        drink:
+          maxVol: 100
+    - type: "Item"
+      size: "Small"
+      sprite: Objects/Consumable/Drinks/alco-bottle.rsi
+    - type: "StaticPrice"
+      price: 5

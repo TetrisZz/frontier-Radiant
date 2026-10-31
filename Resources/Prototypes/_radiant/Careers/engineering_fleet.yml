@@ -67,6 +67,9 @@
   parent: ComputerShipyardBase
   name: engineering fleet shipyard
   components:
+  - type: TelecomExempt
+  - type: GuideHelp
+    guides: [RadiantCareers, RadiantMechanics, Medical]
   - type: ShipyardConsole
     newJobTitle: null
   - type: ShipyardListing

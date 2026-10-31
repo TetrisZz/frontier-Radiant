@@ -4,6 +4,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._HL.Shipyard;
 using Content.Server._radiant.Careers;
+using Content.Server._radiant.Storage;
 using Content.Server._NF.Station.Components;
 using Content.Server._NF.Shipyard.Components;
 using Content.Server.StationEvents.Components;
@@ -80,6 +81,7 @@ public sealed partial class ShipyardSystem
         return true;
     }
 
+    // Eligibility and deployment changes must also update the ShipSaving.xml player guide.
     public bool CanSaveVessel(EntityUid grid)
         => TryComp<SavedShipComponent>(grid, out var saved) && saved.VesselId is { } vesselId
             && _prototypeManager.TryIndex<VesselPrototype>(vesselId, out var vessel) && vessel.CanSave;
@@ -150,6 +152,7 @@ public sealed partial class ShipyardSystem
         }
 
         var name = GetFullName(deed);
+        var captain = Name(player);
         if (!_gridSave.TrySaveShip(grid, id, session, success =>
         {
             if (Deleted(uid) || Deleted(player) || Deleted(id))
@@ -161,6 +164,9 @@ public sealed partial class ShipyardSystem
             }
             _records.UpdateRegisteredShuttleFromId(id);
             ConsolePopup(player, Loc.GetString("shipyard-save-success", ("ship", name)));
+            _radio.SendRadioMessage(uid,
+                Loc.GetString("shipyard-save-traffic-announcement", ("ship", name), ("owner", captain)),
+                "Traffic", uid);
             PlayConfirmSound(player, uid, console);
             _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low,
                 $"{ToPrettyString(player):actor} saved shuttle {name} via {ToPrettyString(uid)}");
@@ -280,7 +286,8 @@ public sealed partial class ShipyardSystem
                 PlayDenySound(player, uid, console);
                 return;
             }
-            _gridSave.ClearLoadedLatheMaterials(grid);
+            _gridSave.ClearLoadedMachineMaterials(grid);
+            IdentityDocumentPersistence.RemoveDocuments(EntityManager, grid);
 
             var cost = Math.Max(0, checked((int)MathF.Round((float)_pricing.AppraiseGrid(grid, null)
                 * Math.Clamp(_configManager.GetCVar(ShipSaveCVars.LoadShipPrice), 0f, 1f))));

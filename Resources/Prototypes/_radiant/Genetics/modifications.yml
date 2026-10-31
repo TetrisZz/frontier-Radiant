@@ -54,8 +54,7 @@
           True: { state: used }
           False: { state: icon }
   - type: GuideHelp
-    guides: [RadiantGenetics]
-
+    guides: [RadiantGenetics, RadiantMechanics, Medical]
 - type: entity
   id: GeneticHematopoiesisRemover
   parent: BaseItem
@@ -82,8 +81,7 @@
           True: { state: used }
           False: { state: icon }
   - type: GuideHelp
-    guides: [RadiantGenetics]
-
+    guides: [RadiantGenetics, RadiantMechanics, Medical]
 - type: entity
   id: GeneticCoagulationInjector
   parent: GeneticHematopoiesisInjector
@@ -146,4 +144,4 @@
   - type: Tag
     tags: [GeneticResearchDisk]
   - type: GuideHelp
-    guides: [RadiantGenetics]
+    guides: [RadiantGenetics, RadiantMechanics, Medical]

@@ -43,9 +43,9 @@ namespace Content.IntegrationTests.Tests._radiant.Shipyard;
 public sealed class ShipSaveRoundTripTest
 {
     [Test]
-    public async Task LathesLoadEmptyAndShipOwnershipSurvivesSignedSnapshot()
+    public async Task LathesAndSilosLoadEmptyAndShipOwnershipSurvivesSignedSnapshot()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
         try
         {
             var map = await pair.CreateTestMap();
@@ -56,7 +56,7 @@ public sealed class ShipSaveRoundTripTest
             await pair.Server.WaitAssertion(() =>
             {
                 var materials = entities.System<MaterialStorageSystem>();
-                foreach (var prototype in new[] { "ServiceTechFab", "EngineeringTechFab", "Autolathe" })
+                foreach (var prototype in new[] { "ServiceTechFab", "EngineeringTechFab", "Autolathe", "MachineMaterialSilo" })
                 {
                     var uid = entities.SpawnEntity(prototype, map.GridCoords);
                     Assert.That(materials.TryChangeMaterialAmount(uid, "Steel", 1234), Is.True);
@@ -83,9 +83,9 @@ public sealed class ShipSaveRoundTripTest
                 Assert.That(saved.IsOwner(new NetUserId(Guid.NewGuid()), character), Is.False,
                     "Matching names on another account must not grant ownership.");
                 Assert.That(new SavedShipComponent().HasOwner, Is.False, "Legacy saves require administrative migration.");
-                var query = entities.EntityQueryEnumerator<Content.Shared.Lathe.LatheComponent, MaterialStorageComponent, TransformComponent>();
+                var query = entities.EntityQueryEnumerator<MaterialStorageComponent, TransformComponent>();
                 var loadedMachines = new List<EntityUid>();
-                while (query.MoveNext(out var uid, out _, out var materials, out var xform))
+                while (query.MoveNext(out var uid, out var materials, out var xform))
                 {
                     if (xform.GridUid != loaded.Value.Owner)
                         continue;
@@ -95,7 +95,7 @@ public sealed class ShipSaveRoundTripTest
                 }
                 Assert.That(loadedMachines, Has.Count.EqualTo(machines.Count));
                 // Old files may still contain materials: the load-side cleanup must cover them too.
-                saves.ClearLoadedLatheMaterials(loaded.Value.Owner);
+                saves.ClearLoadedMachineMaterials(loaded.Value.Owner);
                 foreach (var uid in loadedMachines)
                     Assert.That(entities.GetComponent<MaterialStorageComponent>(uid).Storage.Values.Sum(), Is.Zero);
                 foreach (var uid in machines)
@@ -110,6 +110,9 @@ public sealed class ShipSaveRoundTripTest
             TestContext.Out.WriteLine($"Lathe/ownership regression failure: {exception}");
             throw;
         }
+        // These server-only serialization tests use isolated worlds. Check server
+        // errors explicitly rather than unrelated errors in the unused client's assets.
+        Assert.That(pair.ServerLogHandler.FailingLogs, Is.Empty);
         await pair.CleanReturnAsync();
     }
 
@@ -329,7 +332,7 @@ public sealed class ShipSaveRoundTripTest
     [Test]
     public async Task PersistentStorageContentsSurviveSaveAndLoad()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
         try
         {
             var server = pair.Server;
@@ -461,8 +464,16 @@ public sealed class ShipSaveRoundTripTest
                         loadedAirlock = uid;
                     if (meta.EntityPrototype?.ID == "LockerWallEVAColorAtmosTechFilled")
                         loadedCabinet = uid;
-                    Assert.That(meta.EntityPrototype?.ID, Is.Not.EqualTo("MachineMaterialSilo"));
-                    Assert.That(meta.EntityPrototype?.ID, Is.Not.EqualTo("MaterialSiloMachineCircuitboard"));
+                    if (meta.EntityPrototype?.ID == "MachineMaterialSilo")
+                    {
+                        restoredFixtures.Add(meta.EntityPrototype.ID);
+                        Assert.That(entMan.GetComponent<MaterialStorageComponent>(uid).Storage.Values.Sum(), Is.Zero,
+                            "The material silo must survive as empty equipment.");
+                        var machine = entMan.GetComponent<Content.Server.Construction.Components.MachineComponent>(uid);
+                        var board = machine.BoardContainer.ContainedEntities.Single();
+                        Assert.That(entMan.GetComponent<MetaDataComponent>(board).EntityPrototype?.ID,
+                            Is.EqualTo("MaterialSiloMachineCircuitboard"), "Installed components must remain usable.");
+                    }
                     if (meta.EntityPrototype?.ID is "ResearchAndDevelopmentServer")
                     {
                         restoredFixtures.Add(meta.EntityPrototype.ID);
@@ -485,7 +496,7 @@ public sealed class ShipSaveRoundTripTest
                 }
                 Assert.That(restoredFixtures, Is.EquivalentTo(new[]
                 {
-                    "ResearchAndDevelopmentServer", "GravityGenerator",
+                    "ResearchAndDevelopmentServer", "GravityGenerator", "MachineMaterialSilo",
                     "DefibrillatorCabinetFilled", "ExtinguisherCabinetFilled"
                 }));
                 Assert.That(screwdriverCount, Is.EqualTo(1), "Loose items must only be excluded from the snapshot.");
@@ -523,6 +534,7 @@ public sealed class ShipSaveRoundTripTest
                 entMan.RemoveComponent<FailingShipSaveComponent>(map.Grid.Owner);
             });
 
+            Assert.That(pair.ServerLogHandler.FailingLogs, Is.Empty);
             await pair.CleanReturnAsync();
         }
         catch (Exception exception)

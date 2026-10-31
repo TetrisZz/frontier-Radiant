@@ -1,0 +1,294 @@
+- type: "entity"
+  id: "RadiantArtisanStationBase"
+  parent: "BaseStructure"
+  name: "artisan station"
+  components:
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/workstations.rsi"
+      layers:
+        - state: "crafting_bench_empty"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "Transform"
+      anchored: true
+    - type: "InteractionOutline"
+    - type: "Anchorable"
+    - type: "Physics"
+      bodyType: "Static"
+    - type: "Fixtures"
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeAabb {bounds: "-0.35,-0.35,0.35,0.35"}
+          density: 100
+          mask:
+            - "MachineMask"
+          layer:
+            - "MachineLayer"
+    - type: "ContainerContainer"
+      containers:
+        artisan_inputs: !type:Container {}
+    - type: "ActivatableUI"
+      key: "enum.ArtisanUiKey.Key"
+    - type: "UserInterface"
+      interfaces:
+        enum.ArtisanUiKey.Key:
+          type: "ArtisanBoundUserInterface"
+    - type: "Appearance"
+    - type: GuideHelp
+      guides: [RadiantArtisanWorkshop, RadiantMechanics, Medical]
+  abstract: true
+- type: "entity"
+  id: "RadiantPotteryWheel"
+  parent: "RadiantArtisanStationBase"
+  name: "pottery workshop"
+  components:
+    - type: GuideHelp
+      guides: [RadiantPottery, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/workstations.rsi"
+      layers:
+        - state: "throw_wheel_empty"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "ArtisanStation"
+      kind: "Pottery"
+      needsPower: false
+      maximumTemperature: 1100
+    - type: "Construction"
+      graph: "RadiantPotteryWheel"
+      node: "finished"
+    - type: "GenericVisualizer"
+      visuals:
+        enum.ArtisanVisuals.Active:
+          enum.ArtisanVisuals.Layer:
+            True:
+              state: "throw_wheel_full"
+            False:
+              state: "throw_wheel_empty"
+    - type: "SolutionContainerManager"
+      solutions:
+        artisan_tank:
+          maxVol: 500
+          canReact: false
+    - type: "RefillableSolution"
+      solution: "artisan_tank"
+    - type: "DrainableSolution"
+      solution: "artisan_tank"
+    - type: "DumpableSolution"
+      solution: "artisan_tank"
+- type: "entity"
+  id: "RadiantArtisanKiln"
+  parent: [RadiantArtisanStationBase, SmallConstructibleMachine]
+  name: "kiln workshop"
+  components:
+    - type: GuideHelp
+      guides: [RadiantPottery, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/workstations.rsi"
+      layers:
+        - state: "forge_inactive"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "ArtisanStation"
+      kind: "Kiln"
+      needsPower: true
+      maximumTemperature: 900
+    - type: "Construction"
+      graph: Machine
+      node: machine
+      containers: [machine_board, machine_parts, artisan_inputs]
+    - type: "ExtensionCableReceiver"
+    - type: "ApcPowerReceiver"
+      powerLoad: 2000
+    - type: "GenericVisualizer"
+      visuals:
+        enum.ArtisanVisuals.Active:
+          enum.ArtisanVisuals.Layer:
+            True:
+              state: "forge_active"
+            False:
+              state: "forge_inactive"
+    - type: Machine
+      board: RadiantArtisanKilnMachineCircuitboard
+    - type: EmptyOnMachineDeconstruct
+      containers: [artisan_inputs]
+- type: "entity"
+  id: "RadiantArtisanFurnace"
+  parent: [RadiantArtisanStationBase, SmallConstructibleMachine]
+  name: "furnace workshop"
+  components:
+    - type: GuideHelp
+      guides: [RadiantGlassworking, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/workstations.rsi"
+      layers:
+        - state: "forge_inactive"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "ArtisanStation"
+      kind: "Furnace"
+      needsPower: true
+      maximumTemperature: 1100
+    - type: "Construction"
+      graph: Machine
+      node: machine
+      containers: [machine_board, machine_parts, artisan_inputs]
+    - type: "ExtensionCableReceiver"
+    - type: "ApcPowerReceiver"
+      powerLoad: 2000
+    - type: "GenericVisualizer"
+      visuals:
+        enum.ArtisanVisuals.Active:
+          enum.ArtisanVisuals.Layer:
+            True:
+              state: "forge_active"
+            False:
+              state: "forge_inactive"
+    - type: Machine
+      board: RadiantArtisanFurnaceMachineCircuitboard
+    - type: EmptyOnMachineDeconstruct
+      containers: [artisan_inputs]
+- type: "entity"
+  id: "RadiantArtisanAnvil"
+  parent: "RadiantArtisanStationBase"
+  name: "anvil workshop"
+  components:
+    - type: GuideHelp
+      guides: [RadiantSmithing, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/workstations.rsi"
+      layers:
+        - state: "anvil_empty"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "ArtisanStation"
+      kind: "Anvil"
+      needsPower: false
+      maximumTemperature: 1100
+    - type: "Construction"
+      graph: "RadiantArtisanAnvil"
+      node: "finished"
+- type: "entity"
+  id: "RadiantGlassworkingBench"
+  parent: "RadiantArtisanStationBase"
+  name: "glassbench workshop"
+  components:
+    - type: GuideHelp
+      guides: [RadiantGlassworking, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/workstations.rsi"
+      layers:
+        - state: "crafting_bench_empty"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "ArtisanStation"
+      kind: "GlassBench"
+      needsPower: false
+      maximumTemperature: 1100
+    - type: "Construction"
+      graph: "RadiantGlassworkingBench"
+      node: "finished"
+- type: "entity"
+  id: "RadiantQuenchingBath"
+  parent: "RadiantArtisanStationBase"
+  name: "quench workshop"
+  components:
+    - type: GuideHelp
+      guides: [RadiantSmithing, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/workstations.rsi"
+      layers:
+        - state: "water_basin"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "ArtisanStation"
+      kind: "Quench"
+      needsPower: false
+      maximumTemperature: 1100
+    - type: "Construction"
+      graph: "RadiantQuenchingBath"
+      node: "finished"
+    - type: "SolutionContainerManager"
+      solutions:
+        artisan_tank:
+          maxVol: 500
+          canReact: false
+    - type: "RefillableSolution"
+      solution: "artisan_tank"
+    - type: "DrainableSolution"
+      solution: "artisan_tank"
+    - type: "DumpableSolution"
+      solution: "artisan_tank"
+- type: "entity"
+  id: "RadiantFermentationBarrel"
+  parent: "RadiantArtisanStationBase"
+  name: "fermenter workshop"
+  components:
+    - type: GuideHelp
+      guides: [RadiantFermentation, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/brewing.rsi"
+      layers:
+        - state: "barrel"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "ArtisanStation"
+      kind: "Fermenter"
+      fillModeSound:
+        path: /Audio/_radiant/Artisan/barrel_open.ogg
+        params:
+          volume: -10
+      drainModeSound:
+        path: /Audio/_radiant/Artisan/barrel_close.ogg
+        params:
+          volume: -10
+      needsPower: false
+      maximumTemperature: 1100
+    - type: "Construction"
+      graph: "RadiantFermentationBarrel"
+      node: "finished"
+    - type: "SolutionContainerManager"
+      solutions:
+        artisan_tank:
+          maxVol: 500
+          canReact: false
+    - type: "RefillableSolution"
+      solution: "artisan_tank"
+    - type: "DrainableSolution"
+      solution: "artisan_tank"
+    - type: "DumpableSolution"
+      solution: "artisan_tank"
+    - type: "AmbientSound"
+      enabled: false
+      range: 4
+      volume: -14
+      sound:
+        path: /Audio/_radiant/Artisan/ferment.ogg
+- type: "entity"
+  id: "RadiantAutomaticBottler"
+  parent: [RadiantArtisanStationBase, SmallConstructibleMachine]
+  name: "bottler workshop"
+  components:
+    - type: GuideHelp
+      guides: [RadiantBottling, RadiantMechanics, Medical]
+    - type: "Sprite"
+      sprite: "_radiant/Structures/Artisan/brewing.rsi"
+      layers:
+        - state: "bottler"
+          map:
+            - "enum.ArtisanVisuals.Layer"
+    - type: "ArtisanStation"
+      kind: "Bottler"
+      needsPower: true
+      maximumTemperature: 1100
+    - type: "Construction"
+      graph: Machine
+      node: machine
+      containers: [machine_board, machine_parts, artisan_inputs]
+    - type: "ExtensionCableReceiver"
+    - type: "ApcPowerReceiver"
+      powerLoad: 250
+    - type: Machine
+      board: RadiantAutomaticBottlerMachineCircuitboard
+    - type: EmptyOnMachineDeconstruct
+      containers: [artisan_inputs]
