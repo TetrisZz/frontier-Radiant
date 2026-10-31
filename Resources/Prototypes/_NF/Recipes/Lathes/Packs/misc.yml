@@ -25,12 +25,13 @@
   - Welder
   - Wrench
   - CrowbarGreen
-  - Multitool
+#  - Multitool # Radiant sector
   - AppraisalTool
   - HandLabeler
   - Binoculars
   - Signaller
-  - ClothingMaskWeldingGas
+#  - ClothingMaskWeldingGas # Radiant sector
+  - ClothingHeadHatWelding # Radiant sector
   - SprayPainter
   - SprayPainterAmmo
   - FlashlightLantern
@@ -81,7 +82,7 @@
   - CableMVStack
   - CableHVStack  
   - PowerCellSmall
-  - PowerCellMedium
+#  - PowerCellMedium # Radiant Sector
   - Beaker
   - MicroManipulatorStockPart
   - MatterBinStockPart

@@ -305,7 +305,9 @@ public sealed partial class HumanoidProfileEditor
                 ("skill", Loc.GetString(ProfessionalSkillRules.NameKey(_selectedSkill))), ("level", level)),
             Modulate = SkillColor(_selectedSkill),
         });
-        _skillDetails.AddChild(SkillText(Loc.GetString($"professional-skills-experience-{level}")));
+        var skillName = _selectedSkill.ToString().ToLowerInvariant();
+        _skillDetails.AddChild(SkillText(
+            Loc.GetString($"professional-skills-experience-{skillName}-{level}")));
         var text = SkillText(Loc.GetString($"{ProfessionalSkillRules.NameKey(_selectedSkill)}-level-{level}"));
         text.Modulate = Color.FromHex("#d6e6f0");
         _skillDetails.AddChild(text);

@@ -62,23 +62,24 @@
   - type: ReagentDispenser
   - type: StorageFill
     contents:
-      - id: JugAluminium
-      - id: ReinforcedJugCarbon # Frontier
-      - id: ReinforcedJugChlorine # Frontier
-      - id: JugCopper
-      - id: ReinforcedJugEthanol # Frontier
-      - id: JugFluorine
-      - id: ReinforcedJugSugar # Frontier
-      - id: ReinforcedJugHydrogen # Frontier
-      - id: JugIodine
+# Radiant sector edit
+#      - id: JugAluminium
+      - id: JugCarbon # Frontier
+#      - id: ReinforcedJugChlorine # Frontier
+#      - id: JugCopper
+#      - id: ReinforcedJugEthanol # Frontier
+#      - id: JugFluorine
+      - id: JugSugar # Frontier
+#      - id: ReinforcedJugHydrogen # Frontier
+#      - id: JugIodine
       - id: JugIron
-      - id: ReinforcedJugLithium # Frontier
-      - id: JugMercury
-      - id: ReinforcedJugNitrogen # Frontier
-      - id: ReinforcedJugOxygen # Frontier
-      - id: ReinforcedJugPhosphorus # Frontie
-      - id: ReinforcedJugPotassium # Frontier
+#      - id: ReinforcedJugLithium # Frontier
+#      - id: JugMercury
+      - id: JugNitrogen # Frontier
+      - id: JugOxygen # Frontier
+#      - id: ReinforcedJugPhosphorus # Frontie
+      - id: JugPotassium # Frontier
       - id: JugRadium
-      - id: ReinforcedJugSilicon # Frontier
-      - id: JugSodium
-      - id: JugSulfur
+      - id: JugSilicon # Frontier
+#      - id: JugSodium
+#      - id: JugSulfur

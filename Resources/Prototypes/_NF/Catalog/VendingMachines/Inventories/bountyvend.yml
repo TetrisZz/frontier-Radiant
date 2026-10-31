@@ -14,7 +14,7 @@
     BoxForensicPad: 6
     LogProbeCartridge: 3
     ContrabandAppraisalTool: 10
-    ClothingOuterArmorBasic: 3
+#    ClothingOuterArmorBasic: 3 # Radiant Sector
     NFMetalShield: 3
     NFShieldBallistic: 3
     NFClothingOuterArmorReflective: 3
@@ -44,10 +44,10 @@
     ClothingEyesGlassesSunglasses: 3
     ClothingUniformJumpsuitPrivateSec: 3
     ClothingUniformJumpskirtPrivateSec: 3
-    ClothingOuterVestWebMercenaryBlack: 3
+#    ClothingOuterVestWebMercenaryBlack: 3 # Radiant Sector
     ClothingOuterEVASuitPrivateSec: 4
     ClothingBeltSecurity: 3
-    ClothingBeltMilitaryWebbing: 3
+#    ClothingBeltMilitaryWebbing: 3 # Radiant Sector
     ClothingShoesBootsCombat: 3
     ClothingBackpackDuffelPrivateSecurity: 3
     ClothingBackpackMessengerPrivateSecurity: 3
@@ -63,7 +63,7 @@
     ClothingUniformJumpskirtBH: 3
     ClothingUniformJumpsuitBHGrey: 2
     ClothingUniformJumpskirtBHGrey: 2
-    ClothingOuterCoatBHTrench: 3
+    ClothingOuterCoatBHTrench: 1 # Radiant Sector
     ClothingShoesBootsJack: 3
     ClothingNeckMantleBH: 3
     ClothingNeckTieBH: 2
@@ -117,10 +117,10 @@
     ClothingEyesGlassesSunglasses: 4294967295 # Infinite
     ClothingUniformJumpsuitPrivateSec: 4294967295 # Infinite
     ClothingUniformJumpskirtPrivateSec: 4294967295 # Infinite
-    ClothingOuterVestWebMercenaryBlack: 3
+#    ClothingOuterVestWebMercenaryBlack: 3 # Radiant Sector
     ClothingOuterEVASuitPrivateSec: 4294967295 # Infinite
     ClothingBeltSecurity: 4294967295 # Infinite
-    ClothingBeltMilitaryWebbing: 4294967295 # Infinite
+#    ClothingBeltMilitaryWebbing: 4294967295 # Radiant Sector
     ClothingShoesBootsCombat: 4294967295 # Infinite
     ClothingBackpackDuffelPrivateSecurity: 4294967295 # Infinite
     ClothingBackpackMessengerPrivateSecurity: 4294967295 # Infinite
@@ -136,7 +136,7 @@
     ClothingUniformJumpskirtBH: 4294967295 # Infinite
     ClothingUniformJumpsuitBHGrey: 4294967295 # Infinite
     ClothingUniformJumpskirtBHGrey: 4294967295 # Infinite
-    ClothingOuterCoatBHTrench: 4294967295 # Infinite
+    ClothingOuterCoatBHTrench: 1 # Radiant Sector
     ClothingShoesBootsJack: 4294967295 # Infinite
     ClothingNeckMantleBH: 4294967295 # Infinite
     ClothingNeckTieBH: 4294967295 # Infinite

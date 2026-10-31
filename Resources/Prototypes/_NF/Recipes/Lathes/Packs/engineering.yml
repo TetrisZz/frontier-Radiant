@@ -9,6 +9,7 @@
   - ClothingOuterEVASuitEngineer
   - ClothingOuterEVASuitAtmosTech
   - NFFlash
+  - Multitool
 
 - type: latheRecipePack
   id: NFEngineeringStructureBoardsStatic
@@ -69,19 +70,19 @@
   recipes:
   - GasMiningDrillMachineCircuitboard
   - GaslockFrameMachineCircuitboard
-  - RPED
-  - AdvancedCapacitorStockPart
-  - AdvancedMatterBinStockPart
-  - NanoManipulatorStockPart
-  - PowerDrill
-  - JawsOfLife
+#  - RPED # Radiant Sector
+#  - AdvancedCapacitorStockPart # Radiant Sector
+#  - AdvancedMatterBinStockPart # Radiant Sector
+#  - NanoManipulatorStockPart # Radiant Sector
+#  - PowerDrill # Radiant Sector
+#  - JawsOfLife # Radiant Sector
   - BorgModuleRCD
   - BorgModuleAdvancedTool
-  - ShipyardRCD
-  - ShipyardRCDAmmo
+#  - ShipyardRCD # Radiant Sector
+#  - ShipyardRCDAmmo # Radiant Sector
   - ClothingHandsGlovesColorYellow
-  - NFClothingEyesGlassesMeson
-  - NFClothingEyesGlassesMesonScanner
+#  - NFClothingEyesGlassesMeson # Radiant Sector
+#  - NFClothingEyesGlassesMesonScanner # Radiant Sector
 
 - type: latheRecipePack
   id: NFEngineeringBoards
@@ -101,14 +102,14 @@
 - type: latheRecipePack
   id: NFEngineering
   recipes:
-  - ShipyardRCD
-  - ShipyardRCDAmmo
+#  - ShipyardRCD # Radiant Sector
+#  - ShipyardRCDAmmo # Radiant Sector
   - ConstructionBagOfHolding
   - ClothingBeltChiefEngineer
   - ClothingShoesBootsMag
-  - NFClothingEyesGlassesMesonScanner
+#  - NFClothingEyesGlassesMesonScanner # Radiant Sector
   # - FireExtinguisherBluespace # Delta-V
-  - SuperCapacitorStockPart
-  - SuperMatterBinStockPart
-  - PicoManipulatorStockPart
+#  - SuperCapacitorStockPart # Radiant Sector
+#  - SuperMatterBinStockPart # Radiant Sector
+#  - PicoManipulatorStockPart # Radiant Sector
   - NFWeaponParticleDecelerator

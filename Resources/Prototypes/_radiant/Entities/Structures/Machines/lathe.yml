@@ -112,7 +112,13 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - NFBlueprintAcorpTechfab
+      - NFBlueprintAdvanced
   - type: Lathe
+    latheBlueprint: Acorp
     idleState: icon
     runningState: building
     unlitIdleState: unlit

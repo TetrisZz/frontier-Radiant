@@ -23,6 +23,31 @@
   materialTiers: [Common, Uncommon, Rare]
 
 - type: blueprintResearch
+  id: DefaultAcorp
+  cost: 25000
+  tier: 2
+  blueprint: ResearchRandomBlueprint
+  disciplineBlueprints:
+    NFEngineering: NFBlueprintEngineering
+    NFScience: NFBlueprintScience
+    NFArsenalMercenary: NFBlueprintArsenalMercenary
+    NFArsenalNfsd: NFBlueprintArsenalMercenary
+    NFMedical: NFBlueprintMedical
+    NFSalvage: NFBlueprintSalvage
+    NFService: NFBlueprintService
+    Industrial: NFBlueprintEngineering
+    Experimental: NFBlueprintScience
+    Arsenal: NFBlueprintArsenalMercenary
+    CivilianServices: NFBlueprintService
+    Acorp: NFBlueprintAcorp
+  timeChance: 0.25
+  materialChance: 0.25
+  extraMaterialChance: 0.3
+  latheChance: 0.05
+  unmodifiedChance: 0.005
+  materialTiers: [Common, Uncommon, Rare]
+
+- type: blueprintResearch
   id: ScrapProcessor
   parent: Default
   tier: 1
@@ -48,6 +73,10 @@
   minimum: 7
   maximum: 667
   weight: 10
+
+- type: latheBlueprint
+  id: Acorp
+  lathe: [ProtolatheAcorp]
 
 - type: latheBlueprint
   id: Weapon

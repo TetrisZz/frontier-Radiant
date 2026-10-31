@@ -63,6 +63,21 @@
 
 - type: entity
   parent: EncryptionKeyAcorp
+  id: EncryptionKeyLocal
+  name: ключ шифрования локального канала
+  description: Ключ шифрования, в космосе никто не услышит твоего крика.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Local
+    defaultChannel: Local
+  - type: Sprite
+    layers:
+    - state: crypt_med
+    - state: med_label
+
+- type: entity
+  parent: EncryptionKeyAcorp
   id: EncryptionKeyGD
   name: ключ шифрования частного канала
   description: Ключ шифрования приватного канала связи.
