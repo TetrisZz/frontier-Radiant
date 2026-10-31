@@ -31,7 +31,7 @@
   minPlayers: 0
   stations:
     Gaslight:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel # Radiant Sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Gaslight {1}'

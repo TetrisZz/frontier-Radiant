@@ -77,15 +77,15 @@
   recipes:
   - NFCombatKnife
   #- WeaponLaserSvalinn # After the changes made to windows shouldn't be that much of an issue now if it's widely available
-  - NFWeaponEnergyPistolLaser
-  - NFWeaponRevolverArgenti
-  - NFWeaponPistolMk58
-  - NFWeaponShotgunDoubleBarreled
-  - NFWeaponShotgunKammerer
-  - NFWeaponRifleAssaultNovaliteC1
-  - NFWeaponRifleAssaultGestio
-  - NFWeaponEnergyRifleAssaultLaserRepeater
-  - WeaponPistolPollock
+#  - NFWeaponEnergyPistolLaser # Radiant Sector
+#  - NFWeaponRevolverArgenti # Radiant Sector
+#  - NFWeaponPistolMk58 # Radiant Sector
+#  - NFWeaponShotgunDoubleBarreled # Radiant Sector
+#  - NFWeaponShotgunKammerer # Radiant Sector
+#  - NFWeaponRifleAssaultNovaliteC1 # Radiant Sector
+#  - NFWeaponRifleAssaultGestio # Radiant Sector
+#  - NFWeaponEnergyRifleAssaultLaserRepeater # Radiant Sector
+#  - WeaponPistolPollock # Radiant Sector
   - NFStunbaton
   - NFWeaponEnergyPistolDisabler
 

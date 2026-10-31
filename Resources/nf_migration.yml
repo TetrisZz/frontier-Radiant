@@ -654,5 +654,9 @@ WeaponRifleEstoc: NFWeaponRifleAssaultEstoc
 ChairOfficeWhiteRadiant: ChairOfficeLight
 ChairOfficeDarkRadiant: ChairOfficeDark
 
+# Radiant sector
+VendingMachineChemicals: SmartFridgeRadiant
+VendingMachineChemicalsSyndicate: SmartFridgeRadiant
+
 # 2026-10-24 Removed silver fish from fishing and saved maps.
 FishSilver: null

@@ -1,11 +1,12 @@
 - type: vendingMachineInventory
   id: EngiVendPOIInventory
   startingInventory:
-    ClothingHandsGlovesColorYellow: 4294967295 # Infinite
+#    ClothingHandsGlovesColorYellow: 4294967295 # Radiant Sector
+    ClothingHandsGlovesColorYellowBudget: 4 # Radiant Sector
     CrowbarYellow: 4294967295 # Infinite
-    MaintenanceJack: 4294967295 # Infinite
-    Multitool: 4294967295 # Infinite
-    ClothingEyesGlassesMeson: 4294967295 # Infinite
+#    MaintenanceJack: 4294967295 # Radiant Sector
+#    Multitool: 429496729 # Radiant Sector
+#    ClothingEyesGlassesMeson: 4294967295 # Radiant Sector
     ClothingEyesGlassesThermal: 4294967295 # Infinite
     ClothingHeadHatWelding: 4294967295 # Infinite
 #    HolofanProjector: 10
@@ -17,10 +18,11 @@
     NFInflatableDockStack1: 4294967295 # Infinite
     NFInflatableCrateStack1: 4294967295 # Infinite
     GeigerCounter: 4294967295 # Infinite
-    PowerCellMedium: 4294967295 # Infinite
+#    PowerCellMedium: 4294967295 # Radiant Sector
+    PowerCellSmall: 4294967295 # Radiant Sector
 #    NetworkConfigurator: 5
-    ShipyardRCD: 4294967295 # Infinite
-    ShipyardRCDAmmo: 4294967295 # Infinite
+#    ShipyardRCD: 4294967295 # Radiant Sector
+#    ShipyardRCDAmmo: 4294967295 # Radiant Sector
     DoorRemoteShipyard: 4294967295 # Infinite
     ConstructionBag: 4294967295 # Infinite
     ClothingHeadHatCone: 10 # 4<10

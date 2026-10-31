@@ -8,7 +8,7 @@
     Welder: 15
     NetworkConfigurator: 15
     AppraisalTool: 15
-    ClothingBeltUtility: 15
+#    ClothingBeltUtility: 15 # Radiant Sector
     CableApcStack: 20
     CableMVStack: 20
     CableHVStack: 20
@@ -30,7 +30,7 @@
     Welder: 4294967295 # Infinite
     NetworkConfigurator: 4294967295 # Infinite
     AppraisalTool: 4294967295 # Infinite
-    ClothingBeltUtility: 4294967295 # Infinite
+#    ClothingBeltUtility: 4294967295 # Radiant Sector
     ConstructionBag: 4294967295 # Infinite
     CableApcStack: 4294967295 # Infinite
     CableMVStack: 4294967295 # Infinite

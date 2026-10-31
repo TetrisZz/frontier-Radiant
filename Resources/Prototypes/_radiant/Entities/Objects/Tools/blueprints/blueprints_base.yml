@@ -1,0 +1,37 @@
+- type: entity
+  parent: NFBaseBlueprintFaxable
+  id: NFBlueprintAcorp
+  name: acorp blueprint
+  description: A blueprint with engineering schematics on it. It can be inserted into a protolathe or techfab, or sent via fax.
+  categories: [HideSpawnMenu, DoNotMap]
+  components:
+  - type: Sprite
+    layers:
+      - state: icon-base
+        color: "#C9C9C9"
+      - state: icon-text
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_stamp-generic
+        offset: 0.15,-0.1
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_words
+        map: ["enum.PaperVisualLayers.Writing"]
+        visible: false
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#C9C9C9"
+      - state: inhand-left-text
+      right:
+      - state: inhand-right-base
+        color: "#C9C9C9"
+      - state: inhand-right-text
+  - type: Tag
+    tags:
+    - NFBlueprintAcorpTechfab
+    - NFBlueprintAdvanced
+    - Document
+    - Paper

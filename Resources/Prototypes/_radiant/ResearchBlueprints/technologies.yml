@@ -1,4 +1,12 @@
-# Initial catalogue follows the existing Frontier research recipes.
+# 10 common
+# 20
+# 50
+# 100 uncommon
+# 150
+# 200 rare
+# 250
+# 500 epic
+
 - type: technologyBlueprints
   id: NFAdvancedParts
   name: nf-research-technology-advanced-parts
@@ -7,6 +15,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - AdvancedCapacitorStockPart
@@ -21,6 +30,7 @@
   rare: 10
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - CutterMachineCircuitboard
@@ -33,6 +43,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - MaterialSiloMachineCircuitboard
@@ -45,6 +56,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - AutolatheHyperConvectionMachineCircuitboard
@@ -59,6 +71,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -73,6 +86,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -87,6 +101,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -105,6 +120,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - FlatpackerMachineCircuitboard
@@ -117,6 +133,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - RPED
@@ -129,6 +146,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - EngineeringTechFabCircuitboardRS
@@ -141,6 +159,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [MedicalTechFab, Protolathe]
   recipe:
@@ -172,6 +191,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -187,6 +207,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipeForce:
   - ShipyardRCD
@@ -200,6 +221,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -216,6 +238,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - BorgModuleAdvancedTool
@@ -228,6 +251,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - FireExtinguisherBluespaceRS
@@ -240,6 +264,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - BorgModuleRCD
@@ -252,6 +277,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - ArtifactCrusherMachineCircuitboard
@@ -264,6 +290,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - NodeScanner
@@ -279,6 +306,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - WeaponGauntletGorilla
@@ -291,6 +319,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - AnomalyScanner
@@ -307,6 +336,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - NFWeaponPistolCHIMP
@@ -320,6 +350,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - DeviceDesynchronizer
@@ -332,6 +363,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - SuperCapacitorStockPart
@@ -346,6 +378,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -360,6 +393,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -374,6 +408,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   additionalLathes: [Protolathe]
   recipe:
@@ -387,6 +422,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -400,6 +436,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -414,6 +451,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -429,6 +467,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - ClothingOuterHardsuitRd
@@ -442,6 +481,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -456,6 +496,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -469,6 +510,7 @@
   rare: 250
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - ClothingOuterHardsuitMaximPrototype
@@ -481,6 +523,7 @@
   rare: 250
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -495,6 +538,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   recipe:
   - CryostasisBeaker
@@ -508,6 +552,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   recipe:
   - ReinforcedJug
@@ -520,6 +565,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -536,6 +582,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   recipe:
   - ChemMasterMachineCircuitboard
@@ -549,6 +596,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   additionalLathes: [ExosuitFabricator]
   recipe:
@@ -564,6 +612,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   recipe:
   - MedicalAssemblerMachineCircuitboard
@@ -581,6 +630,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   additionalLathes: [Protolathe]
   recipeForce:
@@ -595,6 +645,7 @@
   rare: 150
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   recipe:
   - StasisBedMachineCircuitboard
@@ -608,6 +659,7 @@
   rare: 250
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MedicalTechFab
   recipe:
   - CloningPodMachineCircuitboardRS
@@ -622,6 +674,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - ClothingShoesBootsMagSci
@@ -634,6 +687,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - NFClothingShoesBootsMoon
@@ -646,6 +700,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -659,6 +714,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - ClothingShoesBootsSpeed
@@ -671,6 +727,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -685,6 +742,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -698,6 +756,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: Protolathe
   recipe:
   - ClothingShoesBootsMagAdv
@@ -710,6 +769,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipe:
   - MechEquipmentFork
@@ -722,6 +782,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipe:
   - ProximitySensor
@@ -734,6 +795,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipe:
   - VimHarness
@@ -746,6 +808,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipe:
   - MechEquipmentGrabberSmall
@@ -758,6 +821,7 @@
   rare: 150
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipeLinks:
   - [RipleyLArm, RipleyRArm]
@@ -779,6 +843,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipeLinks:
   - [HamtrLArm, HamtrRArm]
@@ -800,6 +865,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipe:
   - MechEquipmentGrabber
@@ -812,6 +878,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipeLinks:
   - [HonkerLArm, HonkerRArm]
@@ -834,6 +901,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ExosuitFabricator
   recipe:
   - MechEquipmentHorn
@@ -846,6 +914,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - BorgChargerRadiantCircuitboard
@@ -858,6 +927,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - TelecomServerCircuitboard
@@ -870,6 +940,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -884,6 +955,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - NFHolopadShipMachineCircuitboard
@@ -897,6 +969,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -912,6 +985,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - BoomBoxPinkRS
@@ -926,6 +1000,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - ComputerTelevisionCircuitboard
@@ -940,6 +1015,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - MassMediaCircuitboard
@@ -952,6 +1028,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [ExosuitFabricator]
   recipe:
@@ -966,6 +1043,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -979,6 +1057,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - SuperHarmonicaInstrument
@@ -991,6 +1070,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - MegaSprayBottle
@@ -1003,6 +1083,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -1017,6 +1098,7 @@
   rare: 150
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [Protolathe]
   recipeForce:
@@ -1031,6 +1113,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - PortablePumpMachineCircuitBoard
@@ -1043,6 +1126,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -1057,6 +1141,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [ExosuitFabricator]
   recipe:
@@ -1071,6 +1156,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - ServiceSelectiveDropper
@@ -1088,6 +1174,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - PlantAnalyzer
@@ -1101,6 +1188,7 @@
   rare: 250
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - HydroponicsTrayMachineCircuitboard
@@ -1114,6 +1202,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -1127,6 +1216,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   additionalLathes: [MedicalTechFab]
   recipe:
@@ -1145,6 +1235,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - DeepFryerMachineCircuitboard
@@ -1157,6 +1248,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - ElectricRangeMachineCircuitboard
@@ -1172,6 +1264,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - ServiceTechFabCircuitboardRS
@@ -1185,6 +1278,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - BiogeneratorMachineCircuitboard
@@ -1197,6 +1291,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - FatExtractorMachineCircuitboard
@@ -1209,6 +1304,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: ServiceTechFab
   recipe:
   - BiomassReclaimerMachineCircuitboard
@@ -1221,6 +1317,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -1234,6 +1331,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - SMESAdvancedMachineCircuitboard
@@ -1246,6 +1344,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - TurboItemRechargerCircuitboard
@@ -1258,6 +1357,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - PortableGeneratorJrPacmanMachineCircuitboard
@@ -1270,6 +1370,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - SolarControlComputerCircuitboard
@@ -1284,6 +1385,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - EmitterCircuitboard
@@ -1296,6 +1398,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -1309,6 +1412,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - NFPortableRecharger
@@ -1321,6 +1425,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - PortableGeneratorPacmanMachineCircuitboard
@@ -1334,6 +1439,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -1347,6 +1453,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - PortableGeneratorSuperPacmanMachineCircuitboard
@@ -1359,6 +1466,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - PortableGeneratorDKJrMachineCircuitboard
@@ -1371,6 +1479,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - RadarConsoleCircuitboard
@@ -1383,6 +1492,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe:
@@ -1396,6 +1506,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - ShuttleConsoleCircuitboard
@@ -1410,6 +1521,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - ThrusterMachineCircuitboard
@@ -1423,6 +1535,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - SmallThrusterMachineCircuitboard
@@ -1436,6 +1549,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - HolofanProjector
@@ -1450,6 +1564,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - ThermomachineFreezerMachineCircuitBoard
@@ -1463,6 +1578,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - GasMiningDrillMachineCircuitboard
@@ -1476,6 +1592,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - PortableScrubberMachineCircuitBoard
@@ -1488,6 +1605,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   recipe:
   - HellfireFreezerMachineCircuitBoard
@@ -1500,6 +1618,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - JetpackBlue
@@ -1512,6 +1631,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1525,6 +1645,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - JetpackCaptain
@@ -1537,6 +1658,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   additionalLathes: [Protolathe]
   recipe:
@@ -1564,6 +1686,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - WeaponGrapplingGun
@@ -1576,6 +1699,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - MiningDrill
@@ -1590,6 +1714,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - OreProcessorMachineCircuitboard
@@ -1602,6 +1727,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - OreProcessorIndustrialMachineCircuitboard
@@ -1614,6 +1740,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - NFWeaponPka
@@ -1628,6 +1755,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   additionalLathes: [Protolathe]
   recipe:
@@ -1641,6 +1769,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - WeaponCrusherGlaive
@@ -1653,6 +1782,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   additionalLathes: [Protolathe]
   recipe:
@@ -1666,6 +1796,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - NFWeaponPkaCannon
@@ -1678,6 +1809,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   recipe:
   - BorgModuleAdvancedMining
@@ -1690,6 +1822,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: SalvageTechfabNF
   additionalLathes: [Protolathe]
   recipe:
@@ -1704,6 +1837,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1727,6 +1861,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1748,6 +1883,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1769,6 +1905,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1783,6 +1920,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1811,6 +1949,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1829,6 +1968,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1847,6 +1987,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1860,6 +2001,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1883,6 +2025,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1902,6 +2045,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1918,6 +2062,7 @@
   rare: 20
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1932,6 +2077,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1950,6 +2096,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1964,6 +2111,7 @@
   rare: 100
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1978,6 +2126,7 @@
   rare: 500
   rareLoc: research-technology-blueprint-epic
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -1991,6 +2140,7 @@
   rare: 50
   rareLoc: research-technology-blueprint-common
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -2004,6 +2154,7 @@
   rare: 200
   rareLoc: research-technology-blueprint-rare
   tier: 1
+  tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
   recipe:
@@ -2017,6 +2168,7 @@
   rare: 150
   rareLoc: research-technology-blueprint-uncommon
   tier: 1
+  tiers: [2]
   lathe: EngineeringTechFab
   additionalLathes: [Protolathe]
   recipe: [ConstructionBagOfHolding]

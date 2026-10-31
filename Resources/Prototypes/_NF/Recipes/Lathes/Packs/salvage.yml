@@ -4,9 +4,9 @@
   - ClothingOuterEVASuitCargo
   - ClothingOuterEVASuitSalvage
   - ClothingBeltSalvageWebbing
-  - MiningDrill
+#  - MiningDrill # Radiant sector
   - NFWeaponPka
-  - NFWeaponPkaCannon
+#  - NFWeaponPkaCannon # Radiant sector
   - WeaponGrapplingGun
   - NFWeaponHoloflareGun
   - NFMetalShield
@@ -24,7 +24,7 @@
 - type: latheRecipePack
   id: NFSalvageArchetypeStatic
   recipes:
-  - JetpackBlue
+#  - JetpackBlue # Radiant sector
   - MineralScannerEmpty
   - BorgModuleAdvancedMining
 

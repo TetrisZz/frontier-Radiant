@@ -197,6 +197,7 @@
     containers:
       key_slots:
       - EncryptionKeyTraffic
+      - EncryptionKeyLocal # Radiant Sector
   # End Frontier
 
 - type: entity

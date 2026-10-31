@@ -16,6 +16,26 @@
     preset: ScrapProcessor
 
 - type: entity
+  parent: ComputerResearchAndDevelopment
+  id: ComputerResearchAndDevelopmentAcorp
+  name: исследовательская консоль акорп
+  suffix: АКОРП
+  description: Компьютер, используемый для взаимодействия с оборудованием для РнД.
+  components:
+  - type: ResearchConsole
+    blueprintResearchPreset: DefaultAcorp
+
+- type: entity
+  parent: ComputerTabletopResearchAndDevelopment
+  id: ComputerTabletopResearchAndDevelopmentAcorp
+  name: исследовательская консоль акорп
+  description: Компьютер, используемый для взаимодействия с оборудованием для РнД.
+  suffix: АКОРП, Tabletop
+  components:
+  - type: ResearchConsole
+    blueprintResearchPreset: DefaultAcorp
+
+- type: entity
   id: BlueprintLithograph
   parent: [BaseMachinePowered, ConstructibleMachine]
   name: blueprint lithograph

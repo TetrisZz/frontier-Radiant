@@ -97,10 +97,10 @@
   description: A blueprint with schematics on it. It can be inserted into a protolathe or techfab, or sent via fax.
   abstract: true
   components:
-  - type: FaxableObject
-  - type: Paper
-    destroyOnFax: true
-    destroyMessage: fax-delete-paper-intellectual-property
+#  - type: FaxableObject # Radiant Sector
+#  - type: Paper # Radiant Sector
+#    destroyOnFax: true # Radiant Sector
+#    destroyMessage: fax-delete-paper-intellectual-property # Radiant Sector
   - type: Sprite
     layers:
       - state: icon-base

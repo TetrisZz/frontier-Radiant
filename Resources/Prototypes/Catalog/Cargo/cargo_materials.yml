@@ -33,7 +33,7 @@
 
 - type: cargoProduct
   id: Material
-#  abstract: true # Frontier
+  abstract: true # Radiant sector
   icon:
     sprite: Objects/Materials/Sheets/metal.rsi
     state: brass_3

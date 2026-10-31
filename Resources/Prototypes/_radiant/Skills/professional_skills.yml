@@ -323,7 +323,7 @@
 - type: professionalSkillRequirement
   id: Gunnery
   skill: Shooting
-  level: 4
+  level: 2
   actions: Interface
   targets: [ComputerGunneryConsole]
   uiMessages: [FireControlConsoleFireMessage]

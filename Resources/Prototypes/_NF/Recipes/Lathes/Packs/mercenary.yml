@@ -8,12 +8,12 @@
 - type: latheRecipePack
   id: NFMercenaryClothesStatic
   recipes:
-  - ClothingHeadHelmetMercenary
-  - ClothingHeadHelmetBasic
-  - ClothingOuterVestWebMercenary
-  - ClothingOuterVestWebMercenaryBlack
+#  - ClothingHeadHelmetMercenary
+#  - ClothingHeadHelmetBasic
+#  - ClothingOuterVestWebMercenary # Radiant sector
+#  - ClothingOuterVestWebMercenaryBlack # Radiant sector
   - ClothingBeltMercenaryWebbing
-  - ClothingBeltMilitaryWebbing
+#  - ClothingBeltMilitaryWebbing # Radiant sector
   - ClothingHandsMercenaryGlovesCombat
   - ClothingHandsGlovesCombat
   - ClothingShoesBootsMercenary
@@ -23,7 +23,7 @@
   - ClothingEyesGlassesSunglasses
   - ClothingMaskGasMercenary
   - ClothingMaskBreathMedicalSecurity
-  - ClothingMaskGasSecurity
+#  - ClothingMaskGasSecurity # Radiant sector
   - ClothingBeltBandolier
   - NFBaseClothingNeckHolsterThigh
   - NFBaseClothingNeckSheathThigh
@@ -42,18 +42,18 @@
   id: NFMercenaryWeaponsStatic
   recipes:
   - NFCombatKnife
-  #- WeaponLaserSvalinn # After the changes made to windows shouldn't be that much of an issue now if it's widely available
-  - NFWeaponEnergyPistolLaser
-  - NFWeaponRevolverArgenti
-  - NFWeaponPistolMk58
-  - NFWeaponShotgunDoubleBarreled
-  - NFWeaponShotgunKammerer
-  - NFWeaponRifleAssaultNovaliteC1
-  - NFWeaponRifleAssaultGestio
-  - NFWeaponEnergyRifleAssaultLaserRepeater
+  - NFWeaponEnergyPistolLaserSvalinnRS
+#  - NFWeaponEnergyPistolLaser # Radiant Sector
+#  - NFWeaponRevolverArgenti # Radiant Sector
+#  - NFWeaponPistolMk58 # Radiant Sector
+#  - NFWeaponShotgunDoubleBarreled # Radiant Sector
+#  - NFWeaponShotgunKammerer # Radiant Sector
+#  - NFWeaponRifleAssaultNovaliteC1 # Radiant Sector
+#  - NFWeaponRifleAssaultGestio # Radiant Sector
+#  - NFWeaponEnergyRifleAssaultLaserRepeater # Radiant Sector
   - BaseBallBatNF
   - CrossbowModern
-  - WeaponPistolPollock
+#  - WeaponPistolPollock # Radiant Sector
 
 - type: latheRecipePack
   id: NFMercenaryAmmoBoxesStatic
@@ -105,10 +105,10 @@
   - NFShieldBallistic
   - NFShieldReflective
   - ClothingOuterCoatBHTrench
-  - ClothingOuterArmorBasic
+#  - ClothingOuterArmorBasic # Radiant sector
   - NFClothingOuterArmorReflective
-  - ClothingHeadHelmetRiot
-  - ClothingOuterArmorRiot
+#  - ClothingHeadHelmetRiot # Radiant sector
+#  - ClothingOuterArmorRiot # Radiant sector
   - ClothingOuterCoatBHTrench
   - ClothingOuterHardsuitMercenary
   - ClothingOuterHardsuitPrivateSecurity

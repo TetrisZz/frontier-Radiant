@@ -62,20 +62,20 @@
   - OffsetCane
   - OffsetCaneWood
 
-- type: latheRecipePack
+- type: latheRecipePack # Radiant Sector
   id: NFSurgeryBasicStatic
   recipes:
-  - Scalpel
-  - Retractor
-  - Cautery
-  - Drill
-  - Saw
-  - Hemostat
+  - Implanter
+#  - Scalpel
+#  - Retractor
+#  - Cautery
+#  - Drill
+#  - Saw
+#  - Hemostat
 
 - type: latheRecipePack
   id: NFSurgeryMedicalToolsStatic
   recipes:
-  - Implanter
   - Defibrillator
   - HandheldHealthAnalyzer
   - DiseaseSwab
@@ -99,11 +99,11 @@
   - CryostasisBeaker
   - SyringeCryostasis
   - StasisBedMachineCircuitboard
-  - DefibrillatorCompact
+#  - DefibrillatorCompact # Radiant Sector
   - ReinforcedJug
   - BorgModuleAdvancedParamedic
   - BorgModulePill
-  - MedicalPouch
+#  - MedicalPouch # Radiant Sector
 
 - type: latheRecipePack
   id: NFMedical
@@ -114,14 +114,14 @@
 
 - type: latheRecipePack
   id: NFMedicalBoards
-  recipes:
-  - MedicalAssemblerMachineCircuitboard # Frontier
-  - ChemDispenserMachineCircuitboard
-  - ChemMasterMachineCircuitboard
+  recipes: # Radiant Sector edit
+#  - MedicalAssemblerMachineCircuitboard # Frontier
+#  - ChemDispenserMachineCircuitboard
+#  - ChemMasterMachineCircuitboard
   - ReagentGrinderMachineCircuitboard
-  - HotplateMachineCircuitboard
-  - CloningPodMachineCircuitboardRS #Radiant Sector
-  - BodyScannerComputerCircuitboardRS #Radiant Sector
-  - CloningConsoleComputerCircuitboardRS #Radiant Sector
-  - ElectrolysisUnitMachineCircuitboard
-  - CentrifugeMachineCircuitboard
+#  - HotplateMachineCircuitboard
+#  - CloningPodMachineCircuitboardRS # Radiant Sector
+#  - BodyScannerComputerCircuitboardRS # Radiant Sector
+#  - CloningConsoleComputerCircuitboardRS # Radiant Sector
+#  - ElectrolysisUnitMachineCircuitboard
+#  - CentrifugeMachineCircuitboard

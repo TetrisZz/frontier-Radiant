@@ -1,0 +1,274 @@
+- type: technologyBlueprints
+  id: AcorpTazer
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 50
+  rareLoc: research-technology-blueprint-common
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - EnergyTazer
+
+- type: technologyBlueprints
+  id: AcorpCyborg
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 50
+  rareLoc: research-technology-blueprint-common
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - CyborgEndoskeletonAcorp
+
+- type: technologyBlueprints
+  id: AcorpDiskComputer
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 50
+  rareLoc: research-technology-blueprint-common
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - TechDiskComputerCircuitboard
+
+- type: technologyBlueprints
+  id: AcorpHardsuit
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 50
+  rareLoc: research-technology-blueprint-common
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - ClothingOuterHardsuitAcorpEngineer
+  - ClothingOuterHardsuitAcorpBasic
+  - ClothingOuterHardsuitAcorpSalvage
+  - ClothingOuterHardsuitAcorpRnd
+  - JetpackAcorp
+
+- type: technologyBlueprints
+  id: AcorpAmmunition
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 50
+  rareLoc: research-technology-blueprint-common
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - MagazineBoxHigh2Rifle
+  - MagazineHigh2RifleEmptyAK
+  - MagazineHigh2RifleEmpty
+  - MagazineHigh2RifleAK
+  - MagazineHigh2Rifle
+
+- type: technologyBlueprints
+  id: AcorpWeaponryLaser
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - WeaponEnergyGunMiniAcorp
+  - WeaponLaserCarbineAcorp
+
+- type: technologyBlueprints
+  id: AcorpBorgModuleMartyr
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - BorgModuleAcorpMartyr
+
+- type: technologyBlueprints
+  id: AcorpHypospray
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - HyposprayAcorp
+
+- type: technologyBlueprints
+  id: AcorpWeaponryLaser2
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - WeaponEnergyShotgunRS
+
+- type: technologyBlueprints
+  id: AcorpWeaponryGuns
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - WeaponRifleTW44Acorp
+  - WeaponRifleSentinel9Acorp
+
+- type: technologyBlueprints
+  id: AcorpWeaponryShotgun
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - WeaponShotgunAdjutant
+
+- type: technologyBlueprints
+  id: AcorpArmour
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - ClothingOuterArmorBulletproofAcorp
+  - ClothingOuterArmorPlatecarrierfAcorp
+  - ClothingOuterArmorRiot
+
+- type: technologyBlueprints
+  id: AcorpCyborgMiner
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - CyborgEndoskeletonAcorpMiner
+
+- type: technologyBlueprints
+  id: AcorpSword
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 500
+  rareLoc: research-technology-blueprint-epic
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - EnergySwordRadiant
+
+- type: technologyBlueprints
+  id: AcorpGlefa
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 500
+  rareLoc: research-technology-blueprint-epic
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - EnergySwordDoubleRadiant
+
+- type: technologyBlueprints
+  id: AcorpAmmunition2
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - MagazineBoxRifleIce
+  - MagazineBoxLightRifleIce
+  - MagazineBoxPistolIce
+  - MagazineBoxMagnumIce
+  - MagazineBoxMagnum500Ice
+  - MagazineBoxHigh2RifleIce
+  - MagazineHigh2RifleIce
+  - MagazineHigh2RifleIceAK
+
+- type: technologyBlueprints
+  id: AcorpHardsuit2
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - ClothingOuterHardsuitAcorpHardEVA
+  - ClothingOuterHardsuitAcorpHeva
+
+- type: technologyBlueprints
+  id: AcorpCyborgSecurity
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - CyborgEndoskeletonAcorpSecurity
+
+- type: technologyBlueprints
+  id: AcorpAmmunition3
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 150
+  rareLoc: research-technology-blueprint-uncommon
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - NFAmmunitionBoxRifle60
+  - NFGrenadeFrag
+  - NFMagazineGrenadeEmpty
+
+- type: technologyBlueprints
+  id: AcorpHardsuit3
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - ClothingOuterHardsuitAcorpSecurity
+  - ClothingOuterHardsuitScaf
+
+- type: technologyBlueprints
+  id: AcorpModuleShotgun
+  name: nf-research-technology-rped-fab
+  entityIcon: ProtolatheAcorp
+  discipline: Acorp
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
+  tier: 2
+  lathe: ProtolatheAcorp
+  recipe:
+  - BorgModuleAcorpShotgunWeapon
