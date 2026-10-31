@@ -83,6 +83,7 @@
     newJobTitle: null
   - type: ShipyardListing
     shuttles:
+    - CareerMiningStarter
     - Kestrel
     - Bulker
     - Barge

@@ -176,6 +176,13 @@ public sealed class PlantHolderSystem : EntitySystem
     {
         var (uid, component) = entity;
 
+        if (HasComp<SharpComponent>(args.Used))
+        {
+            args.Handled = true;
+            DoHarvest(uid, args.User, component);
+            return;
+        }
+
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
                 .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 1, serverPopup: true))
         {
@@ -349,13 +356,6 @@ public sealed class PlantHolderSystem : EntitySystem
             return;
         }
 
-        if (HasComp<SharpComponent>(args.Used))
-        {
-            args.Handled = true;
-            DoHarvest(uid, args.User, component);
-            return;
-        }
-
         if (TryComp<ProduceComponent>(args.Used, out var produce))
         {
             args.Handled = true;
@@ -396,12 +396,6 @@ public sealed class PlantHolderSystem : EntitySystem
     }
     private void OnInteractHand(Entity<PlantHolderComponent> entity, ref InteractHandEvent args)
     {
-        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 1, serverPopup: true))
-        {
-            args.Handled = true;
-            return;
-        }
         DoHarvest(entity, args.User, entity.Comp);
     }
 
@@ -736,9 +730,6 @@ public sealed class PlantHolderSystem : EntitySystem
 
     public bool DoHarvest(EntityUid plantholder, EntityUid user, PlantHolderComponent? component = null)
     {
-        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 1, serverPopup: true))
-            return false;
         if (!Resolve(plantholder, ref component))
             return false;
 

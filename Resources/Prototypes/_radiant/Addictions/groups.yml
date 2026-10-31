@@ -5,7 +5,9 @@
   toleranceGain: 5
   dependenceGain: 4
   clearance: 0.008
-  toxicThreshold: 12
+  # Nicotine still causes tolerance and dependence, but does not inflict poison damage.
+  # Intoxication is capped at 200, so this threshold cannot be reached.
+  toxicThreshold: 200
   speedPenalty: 0.01
   tremor: 1
 
