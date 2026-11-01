@@ -193,8 +193,8 @@ public sealed partial class GeneticBodySystem
         }
         if (args.Command is GeneticCommand.Research or GeneticCommand.SelectGene or GeneticCommand.CheckSequence or GeneticCommand.Spectrum)
         {
-            if (_skills.Level(args.Actor, ProfessionalSkill.Science) < 3
-                && _skills.Level(args.Actor, ProfessionalSkill.Medicine) < 4)
+            if (_skills.Level(args.Actor, ProfessionalSkill.Science) < 2
+                && _skills.Level(args.Actor, ProfessionalSkill.Medicine) < 3)
             {
                 _popup.PopupEntity(Loc.GetString("genetics-research-skill"), ent, args.Actor);
                 return;

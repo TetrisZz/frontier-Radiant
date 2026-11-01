@@ -16,11 +16,11 @@ public sealed partial class SharedProfessionalSkillsSystem
         if (Requirement(targetEntity, SkillAction.Pour) is { } planting)
         {
             var mutagen = source.Contents.Any(r => r.Reagent.Prototype is "UnstableMutagen" or "Left4Zed");
-            if (!Check(user, ProfessionalSkill.Botany, mutagen ? 3 : Math.Max(1, planting.Level)))
+            if (!Check(user, ProfessionalSkill.Botany, mutagen ? 2 : Math.Max(1, planting.Level)))
                 return false;
         }
 
-        if (Level(user, ProfessionalSkill.Cooking) >= 3 || source.Volume <= 0)
+        if (Level(user, ProfessionalSkill.Cooking) >= 2 || source.Volume <= 0)
             return true;
         var mixed = new Dictionary<string, FixedPoint2>();
         foreach (var (reagent, quantity) in target.Contents)

@@ -57,7 +57,7 @@ namespace Content.Server.Construction
             if (!Resolve(uid, ref construction))
                 return HandleResult.False;
 
-            if (ev is InteractUsingEvent interaction)
+            if (ev is InteractUsingEvent interaction && !IsGasTankLoadingIntoCanister(uid, interaction.Used))
             {
                 var skills = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
                 var required = Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem
@@ -586,6 +586,7 @@ namespace Content.Server.Construction
                 // Validation below is deliberately silent; report a skill refusal here,
                 // otherwise the event is discarded before the real construction step runs.
                 if (args is InteractUsingEvent interaction
+                    && !IsGasTankLoadingIntoCanister(uid, interaction.Used)
                     && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
                         .Check(interaction.User, Content.Shared._radiant.Skills.ProfessionalSkill.Engineering,
                             Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem
@@ -610,6 +611,11 @@ namespace Content.Server.Construction
             if (_queuedUpdates.Add(uid))
                 _constructionUpdateQueue.Enqueue(uid);
         }
+
+        private bool IsGasTankLoadingIntoCanister(EntityUid target, EntityUid used)
+            => HasComp<Content.Shared.Atmos.Piping.Unary.Components.GasCanisterComponent>(target)
+                && HasComp<Content.Shared.Atmos.Components.GasTankComponent>(used);
+
         #endregion
 
         #region Internal Enum Definitions

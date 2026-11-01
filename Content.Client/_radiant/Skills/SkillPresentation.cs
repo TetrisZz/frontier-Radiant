@@ -12,7 +12,7 @@ public static class SkillPresentation
         {
             var user = IoCManager.Resolve<IPlayerManager>().LocalEntity;
             return user == null || IoCManager.Resolve<IEntityManager>().System<SharedProfessionalSkillsSystem>()
-                .Level(user.Value, ProfessionalSkill.Medicine) >= 4;
+                .Level(user.Value, ProfessionalSkill.Medicine) >= 2;
         }
     }
 

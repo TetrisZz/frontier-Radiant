@@ -22,16 +22,16 @@
 - type: professionalSkillRequirement
   id: AutomaticGuns
   skill: Shooting
-  level: 3
+  level: 2
   actions: Shoot
   targets: [BaseWeaponSubMachineGun, BaseWeaponRifle, NFBaseWeaponFrameMachinePistol, NFBaseWeaponFrameSubMachineGun, NFBaseWeaponFrameRifleAssault, NFBaseWeaponFrameEnergySubMachineGun, NFBaseWeaponFrameEnergyRifleAssault, NFWeaponShotgunBulldog, NFWeaponShotgunBulldogRS, WeaponShotgunBulldog, WeaponSubMachineGunC20rROW, NFWeaponEnergySubMachineGunDeltaVBorg]
 
 - type: professionalSkillRequirement
   id: HeavyGuns
   skill: Shooting
-  level: 4
+  level: 3
   actions: Shoot
-  targets: [BaseWeaponLightMachineGun, BaseWeaponLauncher, NFBaseWeaponFrameLightMachineGun, NFBaseWeaponFrameLauncher, WeaponLauncherM203, NFWeaponLightMachineGunL6C]
+  targets: [BaseWeaponLightMachineGun, BaseWeaponLauncher, NFBaseWeaponFrameLightMachineGun, NFBaseWeaponFrameLauncher, WeaponLauncherM203, NFWeaponLightMachineGunL6C, NFWeaponEnergyLightMachineGunTurbo]
 
 # Specific exceptions live in prototypes so weapon balance does not require C# changes.
 - type: professionalSkillRequirement
@@ -46,7 +46,7 @@
   skill: Shooting
   level: 2
   actions: Shoot
-  targets: [WeaponPulsePistol, WeaponPulseCarbine, WeaponPulseRifle, WeaponXrayCannon, WeaponLaserCannon, NFWeaponEnergyPistolPulse, NFWeaponEnergyRiflePulse, NFWeaponEnergyRifleAssaultPulseCarbine, NFWeaponEnergyRifleSniperCannon, NFWeaponEnergyRifleSniperXrayCannon, NFWeaponEnergyLightMachineGunTurbo, WeaponEnergyShotgunRS]
+  targets: [WeaponPulsePistol, WeaponPulseCarbine, WeaponPulseRifle, WeaponXrayCannon, WeaponLaserCannon, NFWeaponEnergyPistolPulse, NFWeaponEnergyRiflePulse, NFWeaponEnergyRifleAssaultPulseCarbine, NFWeaponEnergyRifleSniperCannon, NFWeaponEnergyRifleSniperXrayCannon, WeaponEnergyShotgunRS]
 
 - type: professionalSkillRequirement
   id: NonAutomaticRifles
@@ -60,7 +60,7 @@
   skill: Shooting
   level: 0
   actions: Shoot
-  targets: [NFBaseWeaponFrameRevolverFoamForce, NFBaseWeaponFrameRifleFoamForce, NFBaseWeaponEnergyGunPractice, WeaponLaserCarbinePractice, WeaponDisablerPractice, NFWeaponEnergyRifleCarbinePractice, WeaponRifleBB, ToyGunBase, FoamWeaponBase]
+  targets: [NFBaseWeaponFrameRevolverFoamForce, NFBaseWeaponFrameRifleFoamForce, NFBaseWeaponEnergyGunPractice, WeaponLaserCarbinePractice, WeaponDisablerPractice, NFWeaponEnergyRifleCarbinePractice, WeaponRifleBB, WeaponLauncherRocketToy, ToyGunBase, FoamWeaponBase]
 
 - type: professionalSkillRequirement
   id: CivilianGuns
@@ -86,7 +86,7 @@
 - type: professionalSkillRequirement
   id: MiningGuns
   skill: Shooting
-  level: 1
+  level: 0
   actions: Shoot
   targets: [NFBaseWeaponFramePka]
 
@@ -159,7 +159,7 @@
 - type: professionalSkillRequirement
   id: Chemistry
   skill: Medicine
-  level: 4
+  level: 2
   actions: Interface
   targets: [ChemMaster]
   uiMessages: [ChemMasterReagentAmountButtonMessage, ChemMasterCreatePillsMessage, ChemMasterOutputToBottleMessage]
@@ -167,7 +167,7 @@
 - type: professionalSkillRequirement
   id: Cloning
   skill: Medicine
-  level: 4
+  level: 3
   actions: Interface
   targets: [ComputerCloningConsole]
   uiMessages: [UiButtonPressedMessage]
@@ -175,30 +175,14 @@
 - type: professionalSkillRequirement
   id: Artifacts
   skill: Science
-  level: 2
+  level: 1
   actions: Interface
   targets: [ComputerAnalysisConsole]
 
 - type: professionalSkillRequirement
-  id: Research
-  skill: Science
-  level: 3
-  actions: Interface
-  targets: [ComputerResearchAndDevelopment]
-  uiMessages: [ConsoleUnlockTechnologyMessage]
-
-- type: professionalSkillRequirement
-  id: BlueprintResearch
-  skill: Science
-  level: 1
-  actions: Interface
-  targets: [ComputerResearchAndDevelopment]
-  uiMessages: [ResearchBlueprintRollMessage]
-
-- type: professionalSkillRequirement
   id: Anomalies
   skill: Science
-  level: 3
+  level: 2
   actions: Interface
   targets: [MachineAnomalyGenerator]
   uiMessages: [AnomalyGeneratorGenerateButtonPressedEvent]
@@ -206,7 +190,7 @@
 - type: professionalSkillRequirement
   id: ExperimentalAnomalies
   skill: Science
-  level: 3
+  level: 2
   actions: Interface
   targets: [MachineAnomalyVesselExperimental]
 
@@ -216,6 +200,13 @@
   level: 1
   actions: Use
   targets: [PowerDrill, JawsOfLife, Multitool, RPED]
+
+- type: professionalSkillRequirement
+  id: BasicUtilityTools
+  skill: Engineering
+  level: 0
+  actions: Use
+  targets: [AppraisalTool, SprayPainter, GasAnalyzer]
 
 - type: professionalSkillRequirement
   id: Flare
@@ -302,6 +293,20 @@
   targets: [BaseWeaponCrusher]
 
 - type: professionalSkillRequirement
+  id: CrusherDaggers
+  skill: Salvage
+  level: 0
+  actions: Use
+  targets: [WeaponCrusherDagger, WeaponCrusherDaggerCyber]
+
+- type: professionalSkillRequirement
+  id: CrusherDaggerCombat
+  skill: Salvage
+  level: 0
+  actions: Shoot
+  targets: [WeaponCrusherDagger, WeaponCrusherDaggerCyber]
+
+- type: professionalSkillRequirement
   id: OreContainers
   skill: Salvage
   level: 1
@@ -349,7 +354,7 @@
 - type: professionalSkillRequirement
   id: IndustrialSmelting
   skill: Salvage
-  level: 3
+  level: 2
   actions: Interface
   targets: [OreProcessorIndustrial]
   uiMessages: [LatheQueueRecipeMessage]
@@ -357,7 +362,7 @@
 - type: professionalSkillRequirement
   id: ChemicalDispensing
   skill: Medicine
-  level: 4
+  level: 1
   actions: Interface
   targets: [ChemDispenserEmpty]
   uiMessages: [ReagentDispenserDispenseReagentMessage, ReagentDispenserClearContainerSolutionMessage]
@@ -367,7 +372,7 @@
   skill: Engineering
   level: 2
   actions: Anchor
-  targets: [GasPipeSansLayers, GasUnaryBase, GasBinaryBase, GasTrinaryBase, GasCanister]
+  targets: [GasPipeSansLayers, GasUnaryBase, GasBinaryBase, GasTrinaryBase]
 
 - type: professionalSkillRequirement
   id: AtmosControls
@@ -378,14 +383,6 @@
   # and jetpacks, so keep them available without Engineering.
   targets: [GasUnaryBase, GasBinaryBase, GasTrinaryBase]
   uiMessages:
-  - GasCanisterChangeReleasePressureMessage
-  - GasCanisterChangeReleaseValveMessage
-  - GasPressureRegulatorChangeThresholdMessage
-  - GasPressurePumpToggleStatusMessage
-  - GasPressurePumpChangeOutputPressureMessage
-  - GasPressurePumpChangePumpDirectionMessage
-  - GasVolumePumpToggleStatusMessage
-  - GasVolumePumpChangeTransferRateMessage
   - GasMixerToggleStatusMessage
   - GasMixerChangeOutputPressureMessage
   - GasMixerChangeNodePercentageMessage
@@ -409,9 +406,6 @@
   actions: Interface
   targets: [ComputerAlert, AirAlarm]
   uiMessages:
-  - RemoteGasPressurePumpChangePumpDirectionMessage
-  - RemoteGasPressurePumpChangeOutputPressureMessage
-  - RemoteGasPressurePumpToggleStatusMessage
   - AirAlarmUpdateAlarmModeMessage
   - AirAlarmUpdateAutoModeMessage
   - AirAlarmUpdateDeviceDataMessage
@@ -421,16 +415,9 @@
 - type: professionalSkillRequirement
   id: ClarkePiloting
   skill: Salvage
-  level: 3
+  level: 2
   actions: Pilot
   targets: [MechClarke]
-
-- type: professionalSkillRequirement
-  id: Gardening
-  skill: Botany
-  level: 1
-  actions: Interact
-  targets: [hydroponicsSoil]
 
 - type: professionalSkillRequirement
   id: GardeningControls
@@ -456,42 +443,42 @@
 - type: professionalSkillRequirement
   id: AnomalyScanning
   skill: Science
-  level: 3
+  level: 2
   actions: Use
   targets: [AnomalyScanner]
 
 - type: professionalSkillRequirement
   id: AnomalyScannerInterface
   skill: Science
-  level: 3
+  level: 2
   actions: Interface
   targets: [AnomalyScanner]
 
 - type: professionalSkillRequirement
   id: AnomalyParticlePistol
   skill: Science
-  level: 3
+  level: 2
   actions: Shoot
   targets: [WeaponPistolCHIMP, WeaponPistolCHIMPUpgraded]
 
 - type: professionalSkillRequirement
   id: HighEnergyEquipment
   skill: Engineering
-  level: 3
+  level: 2
   actions: Interact
   targets: [TeslaGenerator, TeslaCoil, TeslaGroundingRod, RadiationCollector, SingularityGenerator, ContainmentFieldGenerator, ParticleAcceleratorBase, Emitter]
 
 - type: professionalSkillRequirement
   id: HighEnergyControls
   skill: Engineering
-  level: 3
+  level: 2
   actions: Interface
   targets: [TeslaGenerator, TeslaCoil, TeslaGroundingRod, RadiationCollector, SingularityGenerator, ContainmentFieldGenerator, ParticleAcceleratorBase, Emitter]
 
 - type: professionalSkillRequirement
   id: HighEnergyInstallation
   skill: Engineering
-  level: 3
+  level: 2
   actions: Anchor
   targets: [TeslaGenerator, TeslaCoil, TeslaGroundingRod, RadiationCollector, SingularityGenerator, ContainmentFieldGenerator, ParticleAcceleratorBase, Emitter]
 
@@ -505,7 +492,7 @@
 - type: professionalSkillRequirement
   id: MedicalAssembly
   skill: Medicine
-  level: 4
+  level: 3
   actions: Interface
   targets: [MedicalAssembler]
   uiMessages: [MicrowaveStartCookMessage, AssemblerStartCookMessage]
