@@ -1929,6 +1929,7 @@
   name: warm donk pocket recipe
   result: FoodDonkpocketWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocket: 1
@@ -1939,6 +1940,7 @@
   name: warm dank pocket recipe
   result: FoodDonkpocketDankWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocketDank: 1
@@ -1949,6 +1951,7 @@
   name: warm spicy donk-pocket recipe
   result: FoodDonkpocketSpicyWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocketSpicy: 1
@@ -1959,6 +1962,7 @@
   name: warm teriyaki-pocket recipe
   result: FoodDonkpocketTeriyakiWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocketTeriyaki: 1
@@ -1969,6 +1973,7 @@
   name: warm pizza-pocket recipe
   result: FoodDonkpocketPizzaWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocketPizza: 1
@@ -1979,6 +1984,7 @@
   name: warm honk-pocket recipe
   result: FoodDonkpocketHonkWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocketHonk: 1
@@ -1989,6 +1995,7 @@
   name: warm berry-pocket recipe
   result: FoodDonkpocketBerryWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocketBerry: 1
@@ -1999,6 +2006,7 @@
   name: warm stonk-pocket recipe
   result: FoodDonkpocketStonkWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocketStonk: 1
@@ -2009,6 +2017,7 @@
   name: warm carp-pocket recipe
   result: FoodDonkpocketCarpWarm
   time: 5
+  cookingSkillLevel: 0
   group: Savory
   solids:
     FoodDonkpocketCarp: 1
@@ -2019,6 +2028,7 @@
   name: warm moth-pocket recipe
   result: FoodDonkpocketMothWarm
   time: 5
+  cookingSkillLevel: 0
   solids:
     FoodDonkpocketMoth: 1
   recipeType: Microwave # Frontier

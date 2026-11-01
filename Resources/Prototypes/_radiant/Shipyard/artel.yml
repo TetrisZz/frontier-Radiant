@@ -24,9 +24,9 @@
       stationProto: StandardFrontierExpeditionVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'HOM Артель {1}'
+        mapNameTemplate: 'Артель {1}'
         nameGenerator: !type:NanotrasenNameGenerator
-          prefixCreator: HOM
+          prefixCreator: '14'
       - type: StationJobs
         availableJobs:
           ContractorInterview: [0, 0]

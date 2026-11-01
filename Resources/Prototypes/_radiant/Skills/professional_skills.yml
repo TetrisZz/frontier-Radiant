@@ -152,7 +152,9 @@
   level: 1
   actions: Interface
   targets: [KitchenMicrowave, KitchenElectricRange]
-  uiMessages: [MicrowaveStartCookMessage, AssemblerStartCookMessage]
+  # Normal microwaving is checked against the matching recipe's cooking level.
+  # Donk-Pockets are a skill-free exception; keep the assembler action gated here.
+  uiMessages: [AssemblerStartCookMessage]
 
 - type: professionalSkillRequirement
   id: Chemistry
@@ -372,7 +374,9 @@
   skill: Engineering
   level: 2
   actions: Interface
-  targets: [GasUnaryBase, GasBinaryBase, GasTrinaryBase, GasCanister]
+  # Canister valve and pressure controls are also used to refill portable tanks
+  # and jetpacks, so keep them available without Engineering.
+  targets: [GasUnaryBase, GasBinaryBase, GasTrinaryBase]
   uiMessages:
   - GasCanisterChangeReleasePressureMessage
   - GasCanisterChangeReleaseValveMessage
@@ -426,7 +430,7 @@
   skill: Botany
   level: 1
   actions: Interact
-  targets: [hydroponicsTray, hydroponicsSoil]
+  targets: [hydroponicsSoil]
 
 - type: professionalSkillRequirement
   id: GardeningControls
