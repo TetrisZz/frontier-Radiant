@@ -3,6 +3,7 @@
   name: job-name-pilot
   description: job-description-pilot
   playTimeTracker: JobPilot
+  setPreference: false # Radiant Sector
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 43200

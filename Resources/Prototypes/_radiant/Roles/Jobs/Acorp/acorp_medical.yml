@@ -3,9 +3,10 @@
   name: job-name-acorp-medical
   description: job-description-acorp-medical
   playTimeTracker: JobAcorpMedical
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1000
+#  requirements:
+#    - !type:OverallPlaytimeRequirement
+#      time: 1000
+  whitelisted: true
   startingGear: AcorpMedicalGear
   icon: "JobIconAcorpMedical" 
   supervisors: job-supervisors-acorp-director

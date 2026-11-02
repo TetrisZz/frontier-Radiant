@@ -10,10 +10,10 @@
     - id: NFVentClog
     - id: NFBluespaceCargoCrate
     - id: NFBluespaceMcCargoCrate
-    - id: NFBluespaceSyndicateCrate
+#    - id: NFBluespaceSyndicateCrate Radiant sector
     - id: NFBluespaceBrokenMcDelivery
-    - id: NFSmugglingFax
-    - id: BluespaceLambda # Radiant sector
+#    - id: NFSmugglingFax # Radiant sector
+#    - id: BluespaceLambda # Radiant sector
 
 - type: entity
   id: NFBreakerFlip

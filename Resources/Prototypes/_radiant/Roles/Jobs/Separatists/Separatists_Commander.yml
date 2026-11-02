@@ -4,19 +4,19 @@
   name: job-name-separatists-commander
   description: job-description-separatists-commander
   playTimeTracker: JobSeparatistsCommander
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Separatists
-      time: 54000 # 15 hours
-    - !type:RoleTimeRequirement
-      role: JobSeparatistsOperative
-      time: 21600 # 6 hours Radiant_Sector
-    - !type:DepartmentTimeRequirement
-      department: Navy
-      time: 10800 # 3 hours Radiant_Sector
-    - !type:RoleTimeRequirement
-      role: JobWarden
-      time: 10800 # 3 hours Radiant_Sector
+#  requirements:
+#    - !type:DepartmentTimeRequirement
+#      department: Separatists
+#      time: 54000 # 15 hours
+#    - !type:RoleTimeRequirement
+#      role: JobSeparatistsOperative
+#      time: 21600 # 6 hours Radiant_Sector
+#    - !type:DepartmentTimeRequirement
+#      department: Navy
+#      time: 10800 # 3 hours Radiant_Sector
+#    - !type:RoleTimeRequirement
+#      role: JobWarden
+#      time: 10800 # 3 hours Radiant_Sector
   whitelisted: true
   startingGear: SeparatistsCommanderGear
   alwaysUseSpawner: true

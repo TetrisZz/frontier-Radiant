@@ -18,19 +18,3 @@
       path: /Audio/Weapons/Guns/Cock/pistol_cock.ogg
   - type: NFWeaponDetails
     manufacturer: weapon-details-manufacturer-hellgate
-
-- type: listing
-  id: UplinkHomWeaponPistolVP78
-  name: uplink-hom-vp78-name
-  description: uplink-hom-vp78-desc
-  productEntity: WeaponPistolVP78
-  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi, state: vp78 }
-  cost:
-    Cristalhom: 5
-  categories:
-  - UplinkHomWeapons
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - HomUplink

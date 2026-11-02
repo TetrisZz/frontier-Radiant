@@ -135,29 +135,29 @@
 
 
 
-- type: salvageFaction
-  id: NFPunks
-  desc: nf-salvage-faction-punks
-  entries:
-    - proto: MobPunkGangerMeleeT1
-      cost: 2
-    - proto: MobPunkGangerMeleeT2
-      cost: 3
-    - proto: MobPunkGangerMeleeT3
-      cost: 3
-    - proto: MobPunkGangerPistol
-      cost: 3
-    - proto: MobPunkGangerSmg
-      cost: 3
-    - proto: MobPunkGangerShotgun
-      cost: 6
-    #- proto: MobPunkGangerLeader
-      #cost: 4
-      #prob: 0.05
-  configs:
-    DefenseStructure: PunkPartySupplies
-    Megafauna: MobPunkGangerLeader
-    Difficulties: NFHazardous
+#- type: salvageFaction
+#  id: NFPunks
+#  desc: nf-salvage-faction-punks
+#  entries:
+#    - proto: MobPunkGangerMeleeT1
+#      cost: 2
+#    - proto: MobPunkGangerMeleeT2
+#      cost: 3
+#    - proto: MobPunkGangerMeleeT3
+#      cost: 3
+#    - proto: MobPunkGangerPistol
+#      cost: 3
+#    - proto: MobPunkGangerSmg
+#      cost: 3
+#    - proto: MobPunkGangerShotgun
+#      cost: 6
+#    #- proto: MobPunkGangerLeader
+#      #cost: 4
+#      #prob: 0.05
+#  configs:
+#    DefenseStructure: PunkPartySupplies
+#    Megafauna: MobPunkGangerLeader
+#    Difficulties: NFHazardous
 
 - type: salvageFaction
   id: NFDinosaurs
@@ -189,100 +189,100 @@
     Megafauna: MobDinosaurTrexExpeditions
     Difficulties: NFHazardous
 
-- type: salvageFaction
-  id: NFMercenaries
-  desc: nf-salvage-faction-mercenaries
-  entries:
-    - proto: MobMercenarySoldierKnife
-      cost: 2
-    - proto: MobMercenarySoldierPistol
-      cost: 4
-    - proto: MobMercenarySoldierNovalite
-      cost: 4
-    - proto: MobMercenaryBreacherMachete
-      cost: 2
-    - proto: MobMercenarySoldierRevolver
-      cost: 4
-    - proto: MobMercenaryBreacherShotgun
-      cost: 6
-    - proto: MobMercenarySpecialistMedic
-      cost: 3
-      prob: 0.2
-    - proto: MobMercenarySpecialistAssault
-      cost: 6
-      prob: 0.3
-    #- proto: MobMercenaryCaptain
-      #cost: 6
-      #prob: 0.05
-  configs:
-    DefenseStructure: MercenaryCounterfeitCache
-    Megafauna: MobMercenaryCaptain
-    Difficulties: NFHazardous
+#- type: salvageFaction
+#  id: NFMercenaries
+#  desc: nf-salvage-faction-mercenaries
+#  entries:
+#    - proto: MobMercenarySoldierKnife
+#      cost: 2
+#    - proto: MobMercenarySoldierPistol
+#      cost: 4
+#    - proto: MobMercenarySoldierNovalite
+#      cost: 4
+#    - proto: MobMercenaryBreacherMachete
+#      cost: 2
+#    - proto: MobMercenarySoldierRevolver
+#      cost: 4
+#    - proto: MobMercenaryBreacherShotgun
+#      cost: 6
+#    - proto: MobMercenarySpecialistMedic
+#      cost: 3
+#      prob: 0.2
+#    - proto: MobMercenarySpecialistAssault
+#      cost: 6
+#      prob: 0.3
+#    #- proto: MobMercenaryCaptain
+#      #cost: 6
+#      #prob: 0.05
+#  configs:
+#    DefenseStructure: MercenaryCounterfeitCache
+#    Megafauna: MobMercenaryCaptain
+#    Difficulties: NFHazardous
 
 # region Extreme
 
-- type: salvageFaction
-  id: NFSyndicate
-  desc: nf-salvage-faction-syndicate
-  entries:
-    - proto: SpawnMobSyndicateNavalDeckhand
-      cost: 3
-    - proto: SpawnMobSyndicateNavalEngineer
-      cost: 6
-    - proto: SpawnMobSyndicateNavalSaboteur
-      cost: 5
-      prob: 0.05
-    - proto: SpawnMobSyndicateNavalMedic
-      cost: 2
-      prob: 0.2
-    - proto: WeaponTurretSyndicate
-      cost: 4
-      prob: 0.1
-    - proto: SpawnMobSyndicateNavalOperator
-      cost: 5
-      prob: 0.2
-    - proto: SpawnMobSyndicateNavalCaptain
-      cost: 5
-      prob: 0.1
-    #- proto: MobSyndicateNavalCommanderA
-      #cost: 7
-      #prob: 0.1
-    - proto: SpawnMobSyndicateNavalHorror
-      cost: 5
-      prob: 0.01
-  configs:
-    DefenseStructure: CybersunDataMiner
-    Megafauna: MobSyndicateNavalCommanderA
-    Difficulties: NFExtreme
+#- type: salvageFaction
+#  id: NFSyndicate
+#  desc: nf-salvage-faction-syndicate
+#  entries:
+#    - proto: SpawnMobSyndicateNavalDeckhand
+#      cost: 3
+#    - proto: SpawnMobSyndicateNavalEngineer
+#      cost: 6
+#    - proto: SpawnMobSyndicateNavalSaboteur
+#      cost: 5
+#      prob: 0.05
+#    - proto: SpawnMobSyndicateNavalMedic
+#      cost: 2
+#      prob: 0.2
+#    - proto: WeaponTurretSyndicate
+#      cost: 4
+#      prob: 0.1
+#    - proto: SpawnMobSyndicateNavalOperator
+#      cost: 5
+#      prob: 0.2
+#    - proto: SpawnMobSyndicateNavalCaptain
+#      cost: 5
+#      prob: 0.1
+#    #- proto: MobSyndicateNavalCommanderA
+#      #cost: 7
+#      #prob: 0.1
+#    - proto: SpawnMobSyndicateNavalHorror
+#      cost: 5
+#      prob: 0.01
+#  configs:
+#    DefenseStructure: CybersunDataMiner
+#    Megafauna: MobSyndicateNavalCommanderA
+#    Difficulties: NFExtreme
 
-- type: salvageFaction
-  id: NFExplorers
-  desc: nf-salvage-faction-explorers
-  entries:
-    - proto: MobExplorerMeleeT1
-      cost: 2
-    - proto: MobExplorerRangedT1
-      cost: 2
-    - proto: MobExplorerMeleeT2
-      cost: 2
-      prob: 0.3
-    - proto: MobExplorerRangedT2
-      cost: 2
-      prob: 0.3
-    - proto: MobExplorerMeleeT3
-      cost: 3
-    - proto: MobExplorerRangedT3
-      cost: 4
-    - proto: MobExplorerHauler
-      cost: 4
-      prob: 0.1
-    #- proto: MobExplorerBoss
-      #cost: 6
-      #prob: 0.05
-  configs:
-    DefenseStructure: ExplorersLootRadar
-    Megafauna: MobExplorerBoss
-    Difficulties: NFExtreme
+#- type: salvageFaction
+#  id: NFExplorers
+#  desc: nf-salvage-faction-explorers
+#  entries:
+#    - proto: MobExplorerMeleeT1
+#      cost: 2
+#    - proto: MobExplorerRangedT1
+#      cost: 2
+#    - proto: MobExplorerMeleeT2
+#      cost: 2
+#      prob: 0.3
+#    - proto: MobExplorerRangedT2
+#      cost: 2
+#      prob: 0.3
+#    - proto: MobExplorerMeleeT3
+#      cost: 3
+#    - proto: MobExplorerRangedT3
+#      cost: 4
+#    - proto: MobExplorerHauler
+#      cost: 4
+#      prob: 0.1
+#    #- proto: MobExplorerBoss
+#      #cost: 6
+#      #prob: 0.05
+#  configs:
+#    DefenseStructure: ExplorersLootRadar
+#    Megafauna: MobExplorerBoss
+#    Difficulties: NFExtreme
 
 - type: salvageFaction
   id: NFSilicons
@@ -316,34 +316,34 @@
     Megafauna: MobRogueSiliconBoss
     Difficulties: NFExtreme
 
-- type: salvageFaction
-  id: NFCultists
-  desc: nf-salvage-faction-cultists
-  entries:
-    - proto: SpawnMobBloodCultistZealotMelee
-      cost: 2
-    - proto: SpawnMobBloodCultLeech
-      cost: 3
-    - proto: SpawnMobBloodCultistZealotRanged
-      cost: 4
-    - proto: SpawnMobBloodCultistCaster
-      cost: 3
-      prob: 0.3
-    - proto: BloodCultTurret
-      cost: 4
-      prob: 0.1
-    - proto: SpawnMobBloodCultistAcolyte
-      cost: 2
-    - proto: SpawnMobBloodCultistPriest
-      cost: 6
-      prob: 0.4
-    - proto: SpawnMobBloodCultistJanitor
-      cost: 3
-      prob: 0.05
-    #- proto: MobBloodCultistAscended
-      #cost: 6
-      #prob: 0.05
-  configs:
-    DefenseStructure: BloodCollector
-    Megafauna: MobBloodCultistAscended
-    Difficulties: NFExtreme
+#- type: salvageFaction
+#  id: NFCultists
+#  desc: nf-salvage-faction-cultists
+#  entries:
+#    - proto: SpawnMobBloodCultistZealotMelee
+#      cost: 2
+#    - proto: SpawnMobBloodCultLeech
+#      cost: 3
+#    - proto: SpawnMobBloodCultistZealotRanged
+#      cost: 4
+#    - proto: SpawnMobBloodCultistCaster
+#      cost: 3
+#      prob: 0.3
+#    - proto: BloodCultTurret
+#      cost: 4
+#      prob: 0.1
+#    - proto: SpawnMobBloodCultistAcolyte
+#      cost: 2
+#    - proto: SpawnMobBloodCultistPriest
+#      cost: 6
+#      prob: 0.4
+#    - proto: SpawnMobBloodCultistJanitor
+#      cost: 3
+#      prob: 0.05
+#    #- proto: MobBloodCultistAscended
+#      #cost: 6
+#      #prob: 0.05
+#  configs:
+#    DefenseStructure: BloodCollector
+#    Megafauna: MobBloodCultistAscended
+#    Difficulties: NFExtreme

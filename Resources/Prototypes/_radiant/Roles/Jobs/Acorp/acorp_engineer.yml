@@ -3,9 +3,10 @@
   name: job-name-acorp-engineer
   description: job-description-acorp-engineer
   playTimeTracker: JobAcorpEngineer
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1000
+#  requirements:
+#    - !type:OverallPlaytimeRequirement
+#      time: 1000
+  whitelisted: true
   startingGear: AcorpEngineerGear
   icon: "JobIconAcorpEngineer" 
   supervisors: job-supervisors-acorp-director

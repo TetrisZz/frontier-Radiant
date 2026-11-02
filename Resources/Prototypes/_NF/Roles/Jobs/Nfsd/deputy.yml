@@ -4,18 +4,19 @@
   description: job-description-deputy
   playTimeTracker: JobSecurityOfficer
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 28800 # 8 hours Radiant_Sector
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10800 # 3 hours Radiant_Sector
-  alternateRequirementSets:
-    longerPlaytimeLessSec:
-    - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hours Radiant_Sector
-    - !type:RoleTimeRequirement
-      role: JobSecurityGuard
-      time: 10800 # 3 hours as security guard Radiant_Sector
+#    - !type:OverallPlaytimeRequirement
+#      time: 28800 # 8 hours Radiant_Sector
+#    - !type:DepartmentTimeRequirement
+#      department: Security
+#      time: 10800 # 3 hours Radiant_Sector
+#  alternateRequirementSets:
+#    longerPlaytimeLessSec:
+#    - !type:OverallPlaytimeRequirement
+#      time: 180000 # 50 hours Radiant_Sector
+#    - !type:RoleTimeRequirement
+#      role: JobSecurityGuard
+#      time: 10800 # 3 hours as security guard Radiant_Sector
+  whitelisted: true  # Radiant Sector
   startingGear: DeputyGear
   weaponSerialOrigin: gun-examine-department-dvb # Radiant_Sector
   icon: JobIconDeputy

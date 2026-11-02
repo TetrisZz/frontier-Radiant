@@ -4,18 +4,19 @@
   description: job-description-senior-officer
   playTimeTracker: JobSeniorOfficer
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 43200 # 12 hours Radiant_Sector
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 43200 # 12 hours Radiant_Sector
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 21600 # 6 hours Radiant_Sector
-  alternateRequirementSets:
-    longerPlaytimeLessSec:
-    - !type:OverallPlaytimeRequirement
-      time: 360000 # 100 hours Radiant_Sector
+#    - !type:OverallPlaytimeRequirement
+#      time: 43200 # 12 hours Radiant_Sector
+#    - !type:DepartmentTimeRequirement
+#      department: Security
+#      time: 43200 # 12 hours Radiant_Sector
+#    - !type:RoleTimeRequirement
+#      role: JobSecurityOfficer
+#      time: 21600 # 6 hours Radiant_Sector
+#  alternateRequirementSets:
+#    longerPlaytimeLessSec:
+#    - !type:OverallPlaytimeRequirement
+#      time: 360000 # 100 hours Radiant_Sector
+  whitelisted: true  # Radiant Sector
   startingGear: SeniorOfficerGear
   weaponSerialOrigin: gun-examine-department-dvb # Radiant_Sector
   icon: JobIconSergeant

@@ -10,8 +10,8 @@
     - NFAdventure
     - LoadCentComm
     - NFBasicStationEventScheduler
-    - BluespaceEventScheduler
-    - BluespaceDungeonEventScheduler
+#    - BluespaceEventScheduler
+#    - BluespaceDungeonEventScheduler # Radiant sector
     - BluespaceSalvageEventScheduler
     - SmugglingEventScheduler
     - NFRoundstartVariation
@@ -28,8 +28,8 @@
     - NFAdventure
     - LoadCentComm
     - NFBasicStationEventScheduler
-    - BluespaceEventScheduler
-    - BluespaceDungeonEventScheduler
+#    - BluespaceEventScheduler
+#    - BluespaceDungeonEventScheduler # Radiant sector
     - BluespaceSalvageEventScheduler
     - SmugglingEventScheduler
     - NFRoundstartVariation

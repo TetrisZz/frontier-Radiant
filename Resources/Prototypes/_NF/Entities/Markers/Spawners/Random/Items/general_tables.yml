@@ -312,48 +312,48 @@
     - id: CrateMaterialRandom
     # Basic
     - !type:GroupSelector
-      weight: 0.55
+      weight: 0.55 # Radiant sector edit
       children:
-      - id: CrateMaterialGlass
-      - id: CrateMaterialSteel
-      - id: CrateMaterialPlastic
-      - id: CrateMaterialTextiles
-      - id: CrateMaterialWood
-      - id: CrateMaterialBrass
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
       - !type:GroupSelector
         children:
         - id: CrateMaterialsBasic10Filled
           weight: 0.3
-        - id: CrateMaterialsBasicFilled
+        - id: NFSalvageMaterialCrateSpawner
           weight: 0.7
     # Valuables
     - !type:GroupSelector
       weight: 0.3
       children:
-      - id: CrateMaterialPlasteel
-      - id: CrateMaterialPlasma
-      - id: CrateMaterialUranium
-      - id: CrateMaterialGold
-      - id: CrateMaterialSilver
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
     # Trash
     - !type:GroupSelector
       weight: 0.1
       children:
-      - id: CrateMaterialPaper
-      - id: CrateMaterialCardboard
-      - id: CrateMaterialMetalRods
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
+      - id: NFSalvageMaterialCrateSpawner
     # Stuff
     - !type:GroupSelector
       weight: 0.05
       children:
       - id: WaterTankFull
-        weight: 0.15
+        weight: 0.35
       - id: WeldingFuelTankFull
-        weight: 0.15
+        weight: 0.35
       - id: WaterTankHighCapacity
-        weight: 0.35
+        weight: 0.15
       - id: WeldingFuelTankHighCapacity
-        weight: 0.35
+        weight: 0.15
 
 # region Crates (Vehiccle)
 - type: entityTable
@@ -679,15 +679,15 @@
 
 - type: entityTable
   id: TableDungeonLootGeneralMaterialBasicFull
-  table: !type:GroupSelector
+  table: !type:GroupSelector # Radiant Sector edit
     children:
     # Common
-    - id: SheetBrass
-    - id: SheetGlass
-    - id: SheetSteel
-    - id: SheetPlasma
-    - id: SheetPlastic
-    - id: MaterialCloth
+    - id: SheetBrassRandomLow
+    - id: SheetGlassRandomLow
+    - id: SheetSteelRandomLow
+    - id: SheetPlasmaRandomLow
+    - id: SheetPlasticRandomLow
+    - id: MaterialClothRandomLow
     # Rare (either valuable or undesirable)
     - !type:GroupSelector
       weight: 0.1
@@ -749,23 +749,23 @@
   id: TableDungeonLootGeneralMaterialValuableFull
   table: !type:GroupSelector
     children:
-    # Common
-    - id: SheetUranium
-    - id: IngotGold
-    - id: IngotSilver
-    - id: SheetRPGlass
-    - id: SheetRUGlass
-    - id: SheetPlasteel
-    - id: MaterialDurathread
-    - id: SheetRGlass
-    - id: SheetPGlass
-    - id: SheetUGlass
+    # Common # Radiant Sector edit
+    - id: SheetUraniumRandomVeryLowRS
+    - id: IngotGoldRandomVeryLowRS
+    - id: IngotSilverRandomVeryLowRS
+    - id: SheetRPGlassRandomVeryLowRS
+    - id: SheetRUGlassRandomVeryLowRS
+    - id: SheetPlasteelRandomVeryLowRS
+    - id: MaterialDurathreadRandomVeryLowRS
+    - id: SheetRGlassRandomVeryLowRS
+    - id: SheetPGlassRandomVeryLowRS
+    - id: SheetUGlassRandomVeryLowRS
     # Rare
     - !type:GroupSelector
       weight: 0.08
       children:
-      - id: MaterialBananium
-      - id: MaterialBones
+      - id: MaterialBananiumRandomVeryLow
+      - id: MaterialBonesRandomVeryLow
       - id: MaterialDiamond1
 
 - type: entityTable

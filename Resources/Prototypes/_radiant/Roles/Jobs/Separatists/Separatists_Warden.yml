@@ -4,12 +4,13 @@
   name: job-name-separatists-warden
   description: job-description-separatists-warden
   playTimeTracker: JobSeparatistsWarden
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 43200 # 12 hours Radiant_Sector
-    - !type:DepartmentTimeRequirement
-      department: Separatists
-      time: 21600 # 6 hours Radiant_Sector
+#  requirements:
+#    - !type:OverallPlaytimeRequirement
+#      time: 43200 # 12 hours Radiant_Sector
+#    - !type:DepartmentTimeRequirement
+#      department: Separatists
+#      time: 21600 # 6 hours Radiant_Sector
+  whitelisted: true  # Radiant Sector
   startingGear: SeparatistsWardenGear
   alwaysUseSpawner: true
   icon: "JobIconSeparatistsWarden" 

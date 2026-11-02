@@ -39,9 +39,5 @@
           stationSubtext: 'frontier-lobby-exped-subtext'
           stationDescription: 'frontier-lobby-exped-description'
           lobbySortOrder: 3
-        - type: StationJobs
-          availableJobs:
-            Pilot: [ -1, -1 ]
-            Mercenary: [ -1, -1 ]
         - type: StationDeadDrop
           maxDeadDrops: 1 # Fewer here, players start here.

@@ -36,6 +36,9 @@ ent-ComputerShuttleAntag = { ent-ComputerShuttleAntagEmpty }
 ent-ComputerAdvancedRadar = радарная консоль
     .desc = Этот усовершенствованный радар позволяет обнаруживать удаленные объекты, обеспечивая дополнительное тактическое преимущество.
 
+ent-BaseComputerLibrary = консоль архива
+    .desc = Позволяет получить доступ к архиву.
+
 ent-ComputerContrabandPalletConsolePirateBroken = сломанный компьютер обмена добычи
 ent-ComputerPirateBountyBroken = сломанный компьютер пиратских заказов
 ent-ComputerPirateBountyRedemptionBroken = сломанный компьютер выдачи пиратских наград

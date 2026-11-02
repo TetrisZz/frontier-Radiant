@@ -144,6 +144,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomClothingOuterHardsuitMersc
   name:  uplink-hom-hosparade-name
   description: uplink-hom-hosparade-desc
@@ -160,6 +161,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomClothingOuterHardsuitMerscRS
   name:  uplink-hom-hosformal-name
   description: uplink-hom-hosformal-desc
@@ -336,6 +338,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomNWeaponShotgunCshotGun
   name:  uplink-hom-nabat-name
   description: uplink-hom-nabat-desc
@@ -384,6 +387,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomClothingOuterRndRS
   name:  uplink-hom-rnd2-name
   description: uplink-hom-rnd2-desc
@@ -400,6 +404,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomClothingOuterRNDRS
   name:  uplink-hom-rnd-name
   description: uplink-hom-rnd-desc
@@ -416,6 +421,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomClothingOuterArmorRS
   name:  uplink-hom-ordinary-name
   description: uplink-hom-ordinary-desc
@@ -432,6 +438,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomClothingOuterHeavyArmorRS
   name:  uplink-hom-whi-name
   description: uplink-hom-whi-desc
@@ -448,6 +455,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomNWeaponStun23
   name:  uplink-hom-stunbaton-name
   description: uplink-hom-stunbaton-desc
@@ -464,6 +472,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponHyperEutacticBlade1
   name:  uplink-hom-cutlass-name
   description: uplink-hom-cutlass-desc
@@ -480,6 +489,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponMultiverseSword
   name: uplink-hom-multiverse-sword-name
   description: uplink-hom-multiverse-sword-desc
@@ -496,6 +506,7 @@
       - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponEnergySwordoff
   name: uplink-hom-swordoff-name
   description: uplink-hom-swordoff-desc
@@ -503,6 +514,23 @@
   icon: { sprite: _radiant/Objects/Weapons/Melee/swordoff.rsi, state: swordon }
   cost:
     Cristalhom: 20
+  categories:
+  - UplinkHomWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HomUplink
+
+- type: listing
+  abstract: true # временно
+  id: UplinkHomWeaponPistolVP78
+  name: uplink-hom-vp78-name
+  description: uplink-hom-vp78-desc
+  productEntity: WeaponPistolVP78
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi, state: vp78 }
+  cost:
+    Cristalhom: 5
   categories:
   - UplinkHomWeapons
   conditions:
@@ -528,6 +556,7 @@
       - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponTalkingSwordRS
   name: uplink-hom-talking-sword-name
   description: uplink-hom-talking-sword-desc
@@ -544,6 +573,7 @@
       - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponSpectralBladeRS
   name: uplink-hom-spectral-blade-name
   description: uplink-hom-spectral-blade-desc
@@ -560,6 +590,7 @@
       - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponCrimsonBastardSwordRS
   name: uplink-hom-crimson-bastard-name
   description: uplink-hom-crimson-bastard-desc
@@ -650,6 +681,7 @@
   conditions: *HomUplinkConditionRS
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponHyperEutacticBlade2
   name:  uplink-hom-blade-name
   description: uplink-hom-blade-desc
@@ -666,6 +698,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponShotgunPoorGun
   name:  uplink-hom-gun-name
   description: uplink-hom-gun-desc
@@ -922,6 +955,7 @@
           - HomUplink
 
 - type: listing
+  abstract: true # временно
   id: UplinkHomWeaponWeaponPistolNocturne
   name:  uplink-hom-nocturne-name
   description: uplink-hom-nocturne-desc

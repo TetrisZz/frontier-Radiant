@@ -13,8 +13,10 @@
     endRadioAnnouncement: station-event-bluespace-scrap-end-announcement
     endRadioAnnouncementChannel: Engineering
     weight: 5
-    duration: 1800 # 30 minutes
-    maxDuration: 1800 # 30 minutes
+#    duration: 1800 # 30 minutes # Radiant sector
+#    maxDuration: 1800 # 30 minutes # Radiant sector
+    duration: 3600 # 60 minutes
+    maxDuration: 3600 # 60 minutes
   - type: BluespaceErrorRule
     groups:
       grid: !type:GridSpawnGroup
