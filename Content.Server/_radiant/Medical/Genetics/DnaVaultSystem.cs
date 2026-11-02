@@ -252,7 +252,7 @@ public sealed class DnaVaultSystem : EntitySystem
         if (!_interaction.InRangeUnobstructed(args.Actor, ent.Owner) || !_blocker.CanInteract(args.Actor, ent.Owner)) return;
         if (args.Eject && ent.Comp.Order == null && ent.Comp.Sample.ContainedEntity is { } sample)
             _containers.Remove(sample, ent.Comp.Sample);
-        else if (!args.Eject && _skills.Check(args.Actor, ProfessionalSkill.Medicine, 4, serverPopup: true)
+        else if (!args.Eject && _skills.Check(args.Actor, ProfessionalSkill.Medicine, 3, serverPopup: true)
             && !Prepare(ent, args.Reward))
             _popup.PopupEntity(Loc.GetString("dna-vault-unavailable"), ent, args.Actor);
         Publish(ent);

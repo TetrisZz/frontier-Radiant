@@ -43,7 +43,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             return;
 
         var skills = EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>();
-        if (!skills.Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, ent.Comp.Settings.AdvancedScan ? 3 : 2))
+        if (!skills.Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 2))
             return;
         const float speed = 1f;
 
@@ -81,7 +81,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
     {
         ent.Comp.DoAfter = null;
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, ent.Comp.Settings.AdvancedScan ? 3 : 2))
+                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 2))
             return;
         // Double charge use for advanced scan.
         if (ent.Comp.Settings.AdvancedScan)

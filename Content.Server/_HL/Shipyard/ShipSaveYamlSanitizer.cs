@@ -38,7 +38,6 @@ public static class ShipSaveYamlSanitizer
         "ShipOwnership",
         "DeviceNetwork",
         "DeviceNetworkComponent",
-        "UserInterface",
         "Docking",
         "ActionGrant",
         "Mind",
@@ -461,7 +460,7 @@ public static class ShipSaveYamlSanitizer
 
                     if (typeName == "AccessReader")
                     {
-                        compMap["accessKeys"] = new SequenceDataNode();
+                        // Preserve the access policy on the door. Only its runtime access log is ship-local.
                         compMap["accessLog"] = new SequenceDataNode();
                     }
 
@@ -661,10 +660,79 @@ public static class ShipSaveYamlSanitizer
         if (!root.TryGet("entities", out SequenceDataNode? protoSeq) || protoSeq == null)
             return 0;
 
+        // Older ship saves marked UserInterface as missing on every entity. Restore prototype-provided
+        // interfaces so storage, gas tank, and other bound UIs work after loading those existing saves.
+        var scrubbed = RestoreFilteredUserInterfaces(protoSeq);
+        scrubbed += RestoreStrippedAccessReaderKeys(protoSeq);
         var removedEntityUids = new HashSet<string>(StringComparer.Ordinal);
-        var scrubbed = StripLegacyRemovedNodes(protoSeq, removedEntityUids);
+        scrubbed += StripLegacyRemovedNodes(protoSeq, removedEntityUids);
         scrubbed += ResetArtifactGraphsNamingMissingNodes(protoSeq); // Triad
         return scrubbed + PruneContainerReferencesToRemovedEntities(protoSeq, removedEntityUids);
+    }
+
+    private static int RestoreFilteredUserInterfaces(SequenceDataNode protoSeq)
+    {
+        var restored = 0;
+        foreach (var protoNode in protoSeq)
+        {
+            if (protoNode is not MappingDataNode protoMap
+                || !protoMap.TryGet("entities", out SequenceDataNode? entities) || entities == null)
+                continue;
+
+            foreach (var entityNode in entities)
+            {
+                if (entityNode is not MappingDataNode entity
+                    || !entity.TryGet("missingComponents", out SequenceDataNode? missing) || missing == null)
+                    continue;
+
+                for (var i = missing.Count - 1; i >= 0; i--)
+                {
+                    if (missing[i] is not ValueDataNode value || value.Value != "UserInterface")
+                        continue;
+
+                    missing.RemoveAt(i);
+                    restored++;
+                }
+
+                if (missing.Count == 0)
+                    entity.Remove("missingComponents");
+            }
+        }
+
+        return restored;
+    }
+
+    private static int RestoreStrippedAccessReaderKeys(SequenceDataNode protoSeq)
+    {
+        var restored = 0;
+        foreach (var protoNode in protoSeq)
+        {
+            if (protoNode is not MappingDataNode protoMap
+                || !protoMap.TryGet("entities", out SequenceDataNode? entities) || entities == null)
+                continue;
+
+            foreach (var entityNode in entities)
+            {
+                if (entityNode is not MappingDataNode entity
+                    || !entity.TryGet("components", out SequenceDataNode? components) || components == null)
+                    continue;
+
+                foreach (var componentNode in components)
+                {
+                    if (componentNode is not MappingDataNode component
+                        || !component.TryGet("type", out ValueDataNode? type) || type?.Value != "AccessReader"
+                        || !component.TryGet("accessKeys", out SequenceDataNode? keys) || keys == null || keys.Count != 0)
+                        continue;
+
+                    // Older ship saves explicitly erased these keys. Omitting the empty override lets the
+                    // entity regain the prototype's normal access list when the map is deserialized.
+                    component.Remove("accessKeys");
+                    restored++;
+                }
+            }
+        }
+
+        return restored;
     }
 
     /// <summary>

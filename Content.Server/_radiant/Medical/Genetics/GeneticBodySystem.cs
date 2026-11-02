@@ -199,7 +199,7 @@ public sealed partial class GeneticBodySystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("genetics-console-required"), ent, args.User);
                 return;
             }
-            if ((_skills.Level(args.User, ProfessionalSkill.Science) < 3 && _skills.Level(args.User, ProfessionalSkill.Medicine) < 4)
+            if ((_skills.Level(args.User, ProfessionalSkill.Science) < 2 && _skills.Level(args.User, ProfessionalSkill.Medicine) < 3)
                 || !TryInsertResearchDisk(ent, args.Used))
                 _popup.PopupEntity(Loc.GetString("genetics-disk-insert-failed"), ent, args.User);
             PublishUi(ent);

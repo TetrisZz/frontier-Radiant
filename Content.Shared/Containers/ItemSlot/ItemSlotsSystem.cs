@@ -322,7 +322,10 @@ namespace Content.Shared.Containers.ItemSlots
             if (slot.ContainerSlot == null)
                 return false;
 
-            if (user is { } loader && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            // Inserting a portable tank into a gas canister is routine refilling, not engineering work.
+            // Keep the normal reload-skill gate for every other item slot.
+            if (!HasComp<Content.Shared.Atmos.Piping.Unary.Components.GasCanisterComponent>(uid)
+                && user is { } loader && !EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
                     .CanUse(loader, uid, Content.Shared._radiant.Skills.SkillAction.Reload))
                 return false;
 

@@ -201,14 +201,23 @@ public sealed class DefibrillatorSystem : EntitySystem
         }
         else
         {
-            if (_mobState.IsDead(target, mob))
+            // Defibrillators can also be used on critical patients. Stabilize them
+            // with the same treatment as a dead patient; otherwise a critical
+            // patient receives only the shock and can immediately cross the death threshold.
+            if (_mobState.IsDead(target, mob) || _mobState.IsCritical(target, mob))
                 _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
 
             if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
                 TryComp<DamageableComponent>(target, out var damageableComponent) &&
                 damageableComponent.TotalDamage < threshold)
             {
+                // A dead-threshold crossing is latched in MobThresholds.CurrentThresholdState.
+                // Without temporarily enabling revives, UpdateMobState forces the body
+                // back to Dead even when damage has fallen below the death threshold.
+                var allowRevives = thresholds.AllowRevives;
+                _mobThreshold.SetAllowRevives(target, true, thresholds);
                 _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
+                _mobThreshold.SetAllowRevives(target, allowRevives, thresholds);
                 dead = false;
             }
 

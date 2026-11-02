@@ -24,6 +24,7 @@ using Content.Shared.Physics;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
+using Content.Shared.Storage.Components;
 using Content.Shared.Strip;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
@@ -1042,7 +1043,8 @@ namespace Content.Shared.Interaction
             if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, target))
                 return false;
 
-            if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, used))
+            var storageInsertion = HasComp<StorageComponent>(target) || HasComp<EntityStorageComponent>(target);
+            if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, used, storageInsertion))
                 return false;
 
             if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()

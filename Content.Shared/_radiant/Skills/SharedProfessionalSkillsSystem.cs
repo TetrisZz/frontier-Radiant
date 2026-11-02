@@ -60,7 +60,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
             || reagent.ID is "Water" or "Blood" or "InsectBlood" or "CopperBlood" or "AmmoniaBlood";
 
     public bool CanIdentifyReagent(EntityUid user, string? id)
-        => Level(user, ProfessionalSkill.Medicine) >= 4
+        => Level(user, ProfessionalSkill.Medicine) >= 2
             || id != null && _prototypes.TryIndex<Content.Shared.Chemistry.Reagent.ReagentPrototype>(id, out var reagent)
                 && IsCommonReagent(reagent);
 
@@ -71,9 +71,8 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
             || graph.Contains("ParticleAccelerator", StringComparison.OrdinalIgnoreCase)
             || graph.Contains("Containment", StringComparison.OrdinalIgnoreCase)
             || graph.Contains("Emitter", StringComparison.OrdinalIgnoreCase))
-            return 3;
+            return 2;
         if (graph.Contains("Pipe", StringComparison.OrdinalIgnoreCase)
-            || graph.Contains("Canister", StringComparison.OrdinalIgnoreCase)
             || graph.Contains("Vent", StringComparison.OrdinalIgnoreCase)
             || graph.Contains("Scrubber", StringComparison.OrdinalIgnoreCase)
             || graph.Contains("Gas", StringComparison.OrdinalIgnoreCase))
@@ -111,7 +110,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
 
     private void OnUse(Entity<ProfessionalSkillsComponent> ent, ref UseAttemptEvent args)
     {
-        if (!args.Cancelled && !CanUse(ent, args.Used, SkillAction.Use))
+        if (!args.Cancelled && !args.IgnoreUseSkillRequirement && !CanUse(ent, args.Used, SkillAction.Use))
             args.Cancel();
     }
 
@@ -141,7 +140,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
 
     /// <summary>Additional cone width, including weapons with no native spread.</summary>
     public Angle GunSkillSpread(EntityUid user, Entity<GunComponent> gun)
-        => HasGunSkillPenalty(user, gun, out var level) && level <= 3 ? Angle.FromDegrees(5) : Angle.Zero;
+        => HasGunSkillPenalty(user, gun, out var level) && level <= 2 ? Angle.FromDegrees(5) : Angle.Zero;
 
     private bool HasGunSkillPenalty(EntityUid user, Entity<GunComponent> gun, out int level)
     {
@@ -156,7 +155,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
     {
         var rule = Requirement(console, SkillAction.Interface,
             nameof(Content.Shared._Mono.FireControl.FireControlConsoleFireMessage));
-        return Check(user, rule?.Skill ?? ProfessionalSkill.Shooting, rule?.Level ?? 4, popup, serverPopup);
+        return Check(user, rule?.Skill ?? ProfessionalSkill.Shooting, rule?.Level ?? 2, popup, serverPopup);
     }
 
     private void OnInterface(BoundUserInterfaceMessageAttempt args)

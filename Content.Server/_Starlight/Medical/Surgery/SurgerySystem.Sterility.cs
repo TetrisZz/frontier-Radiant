@@ -217,7 +217,7 @@ public sealed partial class SurgerySystem
         // Careful technique reduces incidental exposure, but does not sterilize dirty equipment.
         if (HasComp<Content.Shared._radiant.Skills.ProfessionalSkillsComponent>(args.User)
             && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Level(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) >= 4)
+                .Level(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) >= 3)
             added = (int) Math.Ceiling(added * 0.85f);
         if (HasComp<SurgeryClearProgressComponent>(step)
             || TryComp<SurgeryStepCavityEffectComponent>(step, out var closing) && !closing.Open)

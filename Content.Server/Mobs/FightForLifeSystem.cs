@@ -27,14 +27,12 @@ public sealed class FightForLifeSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _expires = new();
-    private readonly HashSet<EntityUid> _pendingCooldowns = new();
 
     public override void Initialize()
     {
         SubscribeLocalEvent<FightingForLifeComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<FightingForLifeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MobStateActionsComponent, FightForLifeEvent>(OnFightForLife);
-        SubscribeLocalEvent<MobStateChangedEvent>(OnCriticalStateChanged);
     }
 
     private void OnFightForLife(EntityUid uid, MobStateActionsComponent component, FightForLifeEvent args)
@@ -56,17 +54,6 @@ public sealed class FightForLifeSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnCriticalStateChanged(MobStateChangedEvent args)
-    {
-        if (!HasComp<MobStateActionsComponent>(args.Target))
-            return;
-
-        if (args.NewMobState == MobState.Critical)
-            _pendingCooldowns.Add(args.Target);
-        else
-            _pendingCooldowns.Remove(args.Target);
-    }
-
     private void OnMobStateChanged(EntityUid uid, FightingForLifeComponent component, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Critical)
@@ -86,14 +73,6 @@ public sealed class FightForLifeSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
-        // MobStateActionsSystem grants the action during the state-change event.
-        // Apply the initial cooldown on the following frame, once the action exists.
-        foreach (var uid in _pendingCooldowns.ToArray())
-        {
-            SetFightForLifeCooldown(uid);
-            _pendingCooldowns.Remove(uid);
-        }
 
         foreach (var (uid, expires) in _expires.ToArray())
         {

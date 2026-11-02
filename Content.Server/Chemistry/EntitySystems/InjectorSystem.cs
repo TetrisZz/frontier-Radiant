@@ -15,6 +15,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
 using System.Linq; // Frontier
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -23,6 +24,19 @@ public sealed class InjectorSystem : SharedInjectorSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+
+    private bool IsMedipen(EntityUid injector)
+    {
+        if (MetaData(injector).EntityPrototype is not { } proto)
+            return false;
+
+        return _prototypes.EnumerateAllParents<EntityPrototype>(proto.ID, includeSelf: true)
+            .Any(parent => parent.Item1 == "ChemicalMedipen");
+    }
+
+    private int RequiredMedicineLevel(EntityUid injector)
+        => IsMedipen(injector) ? 0 : 1;
 
     public override void Initialize()
     {
@@ -35,7 +49,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private bool TryUseInjector(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-            .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+            .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, RequiredMedicineLevel(injector.Owner)))
             return false;
 
         var isOpenOrIgnored = injector.Comp.IgnoreClosed || !_openable.IsClosed(target);
@@ -114,7 +128,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private void InjectDoAfter(Entity<InjectorComponent> injector, EntityUid target, EntityUid user)
     {
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-            .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 1))
+            .Check(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, RequiredMedicineLevel(injector.Owner)))
             return;
 
         if (TryComp<BlockInjectionComponent>(target, out var blockInjection) && blockInjection.BlockSyringe) // DeltaV
@@ -215,6 +229,14 @@ public sealed class InjectorSystem : SharedInjectorSystem
                     $"{ToPrettyString(user):user} is attempting to draw {injector.Comp.TransferAmount.ToString()} units from themselves.");
             }
         }
+
+        // At Medicine 0, medipens work but take a deliberate three seconds to use,
+        // whether injecting yourself or someone else.
+        if (injector.Comp.ToggleState == InjectorToggleMode.Inject
+            && IsMedipen(injector.Owner)
+            && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                .Level(user, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine) == 0)
+            actualDelay = TimeSpan.FromSeconds(3);
 
         DoAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, actualDelay, new InjectorDoAfterEvent(), injector.Owner, target: target, used: injector.Owner)
         {

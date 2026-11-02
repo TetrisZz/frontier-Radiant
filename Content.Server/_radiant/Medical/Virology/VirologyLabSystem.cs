@@ -218,7 +218,7 @@ public sealed partial class VirologyLabSystem : EntitySystem
         else
         {
             if (args.Command is VirologyCommand.Study or VirologyCommand.Culture or VirologyCommand.ToggleSymptom
-                && !_skills.Check(user, ProfessionalSkill.Medicine, 4, serverPopup: true)) return;
+                && !_skills.Check(user, ProfessionalSkill.Medicine, 3, serverPopup: true)) return;
             if (!_skills.Check(user, ProfessionalSkill.Medicine, 3, serverPopup: true)) return;
             if (args.Command == VirologyCommand.ToggleSymptom)
                 ToggleSymptom(ent, args.Disease);

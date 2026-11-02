@@ -98,7 +98,7 @@ public sealed partial class MicrowaveSystem : EntitySystem
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
                 .Check(user, medical ? Content.Shared._radiant.Skills.ProfessionalSkill.Medicine
                     : Content.Shared._radiant.Skills.ProfessionalSkill.Cooking,
-                    medical ? 4 : portionedRecipe.Item1.RequiredCookingLevel))
+                    medical ? 3 : portionedRecipe.Item1.RequiredCookingLevel))
             return;
         foreach (var item in component.Storage.ContainedEntities.ToArray())
         {

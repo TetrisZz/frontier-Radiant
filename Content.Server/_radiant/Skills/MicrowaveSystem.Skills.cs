@@ -13,8 +13,8 @@ public sealed partial class MicrowaveSystem
     {
         var skills = EntityManager.System<SharedProfessionalSkillsSystem>();
         if ((microwave.ValidRecipeTypes & (int) MicrowaveRecipeType.MedicalAssembler) != 0)
-            return skills.Check(user, ProfessionalSkill.Medicine, 4);
-        if (skills.Level(user, ProfessionalSkill.Cooking) >= 3)
+            return skills.Check(user, ProfessionalSkill.Medicine, 3);
+        if (skills.Level(user, ProfessionalSkill.Cooking) >= 2)
             return true;
         var solids = new Dictionary<string, int>();
         var reagents = new Dictionary<string, FixedPoint2>();

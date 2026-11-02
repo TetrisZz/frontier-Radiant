@@ -169,7 +169,7 @@ public sealed partial class GeneticModificationSystem : EntitySystem
         if (args.Handled || !args.CanReach || args.Target is not { } patient)
             return;
         args.Handled = true;
-        if (!_skills.Check(args.User, ProfessionalSkill.Medicine, 4, serverPopup: true))
+        if (!_skills.Check(args.User, ProfessionalSkill.Medicine, 3, serverPopup: true))
             return;
         if (Failure(ent, patient) is { } reason)
         {
@@ -188,7 +188,7 @@ public sealed partial class GeneticModificationSystem : EntitySystem
         if (args.Cancelled || args.Handled || args.Target is not { } patient)
             return;
         args.Handled = true;
-        if (!_skills.Check(args.User, ProfessionalSkill.Medicine, 4, serverPopup: true))
+        if (!_skills.Check(args.User, ProfessionalSkill.Medicine, 3, serverPopup: true))
             return;
         if (Failure(ent, patient) is { } reason)
         {
