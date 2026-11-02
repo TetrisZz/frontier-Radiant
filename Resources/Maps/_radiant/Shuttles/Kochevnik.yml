@@ -4,8 +4,8 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/30/2026 17:14:08
-  entityCount: 4671
+  time: 11/02/2026 07:24:23
+  entityCount: 4663
 maps: []
 grids:
 - 1
@@ -4063,7 +4063,7 @@ entities:
       pos: 19.5,-44.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -14731.881
+      secondsUntilStateChange: -14816.501
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -4279,7 +4279,7 @@ entities:
       pos: 2.5,-36.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -74674.47
+      secondsUntilStateChange: -74759.086
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -23281,11 +23281,11 @@ entities:
       containers:
         entity_storage: !type:Container
           ents:
-          - 300
-          - 299
           - 298
+          - 299
           - 297
           - 296
+          - 300
           showEnts: False
           occludes: True
         paper_label: !type:ContainerSlot
@@ -23297,8 +23297,8 @@ entities:
         temperature: 293.14923
         volume: 200
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -23315,25 +23315,13 @@ entities:
     - type: Transform
       parent: 1
       pos: 17.5,-40.5
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          ents:
-          - 3052
-          - 3053
-          showEnts: False
-          occludes: True
-        paper_label: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
     - type: EntityStorage
       air:
         temperature: 293.14923
         volume: 200
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -24361,13 +24349,6 @@ entities:
       pos: 23.708706,-36.831577
 - proto: NFWeaponEnergyPistolLaser
   entities:
-  - uid: 3572
-    components:
-    - type: Transform
-      parent: 3571
-    - type: Physics
-      canCollide: False
-    - type: WeaponSerial
   - uid: 4484
     components:
     - type: Transform
@@ -24382,65 +24363,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: WeaponSerial
-- proto: NFWeaponEnergyRifleCarbine
-  entities:
-  - uid: 3052
-    components:
-    - type: Transform
-      parent: 3051
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-    - type: WeaponSerial
-- proto: NFWeaponPistolPollock
-  entities:
-  - uid: 3575
-    components:
-    - type: Transform
-      parent: 3574
-    - type: ChamberMagazineAmmoProvider
-      boltClosed: True
-    - type: Physics
-      canCollide: False
-- proto: NFWeaponRevolverArgenti
-  entities:
-  - uid: 3053
-    components:
-    - type: Transform
-      parent: 3051
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 3568
-    components:
-    - type: Transform
-      parent: 3567
-    - type: Physics
-      canCollide: False
-  - uid: 3573
-    components:
-    - type: Transform
-      parent: 3571
-    - type: Physics
-      canCollide: False
-- proto: NFWeaponRifleAssaultNovaliteC1
-  entities:
-  - uid: 3570
-    components:
-    - type: Transform
-      parent: 3569
-    - type: ChamberMagazineAmmoProvider
-      boltClosed: True
-    - type: Physics
-      canCollide: False
-  - uid: 3576
-    components:
-    - type: Transform
-      parent: 3574
-    - type: ChamberMagazineAmmoProvider
-      boltClosed: True
-    - type: Physics
-      canCollide: False
 - proto: NitrogenCanister
   entities:
   - uid: 3156
@@ -27605,6 +27527,13 @@ entities:
     - type: Transform
       parent: 1
       pos: -9.5,-11.5
+- proto: SmartFridgeRadiant
+  entities:
+  - uid: 3798
+    components:
+    - type: Transform
+      parent: 1
+      pos: 21.5,-45.5
 - proto: SMESAdvanced
   entities:
   - uid: 3528
@@ -27821,55 +27750,11 @@ entities:
     - type: Transform
       parent: 1
       pos: 0.5,-40.5
-    - type: ContainerContainer
-      containers:
-        weapon1: !type:ContainerSlot
-          ent: 3568
-          showEnts: False
-          occludes: True
-        weapon2: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon3: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon4: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon5: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
   - uid: 3569
     components:
     - type: Transform
       parent: 1
       pos: -0.5,-40.5
-    - type: ContainerContainer
-      containers:
-        weapon1: !type:ContainerSlot
-          ent: 3570
-          showEnts: False
-          occludes: True
-        weapon2: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon3: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon4: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon5: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
 - proto: StructureGunRackWallmountedMercenary
   entities:
   - uid: 3571
@@ -27877,55 +27762,11 @@ entities:
     - type: Transform
       parent: 1
       pos: 0.5,-38.5
-    - type: ContainerContainer
-      containers:
-        weapon1: !type:ContainerSlot
-          ent: 3572
-          showEnts: False
-          occludes: True
-        weapon2: !type:ContainerSlot
-          ent: 3573
-          showEnts: False
-          occludes: True
-        weapon3: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon4: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon5: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
   - uid: 3574
     components:
     - type: Transform
       parent: 1
       pos: 18.5,-38.5
-    - type: ContainerContainer
-      containers:
-        weapon1: !type:ContainerSlot
-          ent: 3576
-          showEnts: False
-          occludes: True
-        weapon2: !type:ContainerSlot
-          ent: 3575
-          showEnts: False
-          occludes: True
-        weapon3: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon4: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-        weapon5: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
 - proto: StructureGunRackWallmountedSalvage
   entities:
   - uid: 3577
@@ -29462,13 +29303,6 @@ entities:
     - type: Transform
       parent: 1
       pos: -13.5,-15.5
-- proto: VendingMachineChemicals
-  entities:
-  - uid: 3798
-    components:
-    - type: Transform
-      parent: 1
-      pos: 21.5,-45.5
 - proto: VendingMachineCigs
   entities:
   - uid: 4537

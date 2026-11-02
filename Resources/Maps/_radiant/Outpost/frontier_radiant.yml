@@ -4,8 +4,8 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 11/01/2026 23:23:19
-  entityCount: 8601
+  time: 11/02/2026 07:12:07
+  entityCount: 8603
 maps:
 - 1
 grids:
@@ -49834,6 +49834,18 @@ entities:
     - type: Transform
       parent: 2
       pos: 17.576845,77.2711
+- proto: SafetyDepositConsole
+  entities:
+  - uid: 8602
+    components:
+    - type: Transform
+      parent: 2
+      pos: 33.5,23.5
+  - uid: 8603
+    components:
+    - type: Transform
+      parent: 2
+      pos: 11.5,23.5
 - proto: ScannerGateConfederations
   entities:
   - uid: 1623
