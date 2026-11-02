@@ -3,6 +3,7 @@
   name: job-name-mercenary
   description: job-description-mercenary
   playTimeTracker: JobMercenary
+  setPreference: false # Radiant Sector
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 108000

@@ -4,18 +4,19 @@
   description: job-description-nf-detective
   playTimeTracker: JobDetective
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 28800 # 8 hours Radiant_Sector
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 21600 # 6 hours
-  alternateRequirementSets:
-    longerPlaytimeLessSec:
-    - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hours Radiant_Sector
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 10800 # 3 hours as deputy
+#    - !type:OverallPlaytimeRequirement
+#      time: 28800 # 8 hours Radiant_Sector
+#    - !type:DepartmentTimeRequirement
+#      department: Security
+#      time: 21600 # 6 hours
+#  alternateRequirementSets:
+#    longerPlaytimeLessSec:
+#    - !type:OverallPlaytimeRequirement
+#      time: 180000 # 50 hours Radiant_Sector
+#    - !type:RoleTimeRequirement
+#      role: JobSecurityOfficer
+#      time: 10800 # 3 hours as deputy
+  whitelisted: true  # Radiant Sector
   startingGear: NFDetectiveGear
   weaponSerialOrigin: gun-examine-department-dvb # Radiant_Sector
   icon: JobIconNFDetective

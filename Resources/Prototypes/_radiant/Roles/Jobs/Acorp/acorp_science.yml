@@ -3,9 +3,10 @@
   name: job-name-acorp-science
   description: job-description-acorp-science
   playTimeTracker: JobAcorpScience
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1000
+#  requirements:
+#    - !type:OverallPlaytimeRequirement
+#      time: 1000
+  whitelisted: true
   startingGear: AcorpScienceGear
   icon: "JobIconAcorpScience" 
   supervisors: job-supervisors-acorp-director

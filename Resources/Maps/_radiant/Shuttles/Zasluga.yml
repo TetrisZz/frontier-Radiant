@@ -14556,15 +14556,6 @@ entities:
     - type: Transform
       pos: 4.196808,-15.570129
       parent: 1
-- proto: NFWeaponShotgunDoubleBarreled
-  entities:
-  - uid: 757
-    components:
-    - type: Transform
-      parent: 752
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: NitrogenCanister
   entities:
   - uid: 2610

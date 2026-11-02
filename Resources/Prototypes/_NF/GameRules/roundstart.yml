@@ -5,54 +5,54 @@
   components:
   - type: NFAdventureRule
 
-- type: entity
-  id: BluespaceEventScheduler
-  parent: BaseGameRule
-  components:
-  - type: BasicStationEventScheduler
-    scheduledGameRules: !type:NestedSelector
-      tableId: MajorBluespaceEventsTable
-    minimumTimeUntilFirstEvent: 2700 # 45 minutes
-    minMaxEventTiming:
-      min: 2700 # 45 minutes between events
-      max: 4500 # 75 minutes between events
+#- type: entity
+#  id: BluespaceEventScheduler
+#  parent: BaseGameRule
+#  components:
+#  - type: BasicStationEventScheduler
+#    scheduledGameRules: !type:NestedSelector
+#      tableId: MajorBluespaceEventsTable
+#    minimumTimeUntilFirstEvent: 2700 # 45 minutes
+#    minMaxEventTiming:
+#      min: 2700 # 45 minutes between events
+#      max: 4500 # 75 minutes between events
 
-- type: entityTable
-  id: MajorBluespaceEventsTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: BluespaceCacheError
-    - id: BluespaceCave
-    - id: BluespaceVaultError
-    - id: BluespaceVaultSmallError
-    - id: BluespaceSyndicateFTLInterception
-    - id: BluespaceWizardFederationScout
-    - id: BluespaceBloodMoon
-    - id: BluespaceCentComTrain # Radiant sector
-    - id: BluespaceVaultAcorpError # Radiant sector
-    - id: BluespaceShuttleVault # Radiant sector
+#- type: entityTable
+#  id: MajorBluespaceEventsTable
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+#    - id: BluespaceCacheError # Radiant sector
+#    - id: BluespaceCave # Radiant sector
+#    - id: BluespaceVaultError # Radiant sector
+#    - id: BluespaceVaultSmallError # Radiant sector
+#    - id: BluespaceSyndicateFTLInterception # Radiant sector
+#    - id: BluespaceWizardFederationScout # Radiant sector
+#    - id: BluespaceBloodMoon # Radiant sector
+#    - id: BluespaceCentComTrain # Radiant sector
+#    - id: BluespaceVaultAcorpError # Radiant sector
+#    - id: BluespaceShuttleVault # Radiant sector
 
-- type: entity
-  id: BluespaceDungeonEventScheduler
-  parent: BaseGameRule
-  components:
-  - type: BasicStationEventScheduler
-    scheduledGameRules: !type:NestedSelector
-      tableId: DungeonBluespaceEventsTable
-    minimumTimeUntilFirstEvent: 600 # 10 minutes
-    minMaxEventTiming:
-      min: 2100 # 35 minutes between events
-      max: 2400 # 40 minutes between events
+#- type: entity
+#  id: BluespaceDungeonEventScheduler
+#  parent: BaseGameRule
+#  components:
+#  - type: BasicStationEventScheduler
+#    scheduledGameRules: !type:NestedSelector
+#      tableId: DungeonBluespaceEventsTable
+#    minimumTimeUntilFirstEvent: 600 # 10 minutes
+#    minMaxEventTiming:
+#      min: 2100 # 35 minutes between events
+#      max: 2400 # 40 minutes between events
 
-- type: entityTable
-  id: DungeonBluespaceEventsTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - id: BluespaceDungeonBasalt
-    - id: BluespaceDungeonChromite
-    - id: BluespaceDungeonSnow
-    - id: BluespaceDungeonCave
-    - id: BluespaceDungeonCaveZombie
+#- type: entityTable
+#  id: DungeonBluespaceEventsTable
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+#    - id: BluespaceDungeonBasalt # Radiant sector
+#    - id: BluespaceDungeonChromite # Radiant sector
+#    - id: BluespaceDungeonSnow # Radiant sector
+#    - id: BluespaceDungeonCave # Radiant sector
+#    - id: BluespaceDungeonCaveZombie # Radiant sector
 
 - type: entity
   id: BluespaceSalvageEventScheduler

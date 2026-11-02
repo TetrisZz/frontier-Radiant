@@ -3,6 +3,7 @@
   name: job-name-phoenix-medic
   description: job-description-phoenix-medic
   playTimeTracker: JobPhoenixMedic
+  setPreference: false
   startingGear: PhoenixMedicGear
   icon: "JobIconPhoenixMedic" 
   supervisors: job-supervisors-phoenix-cmo

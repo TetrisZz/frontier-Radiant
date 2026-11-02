@@ -517,6 +517,7 @@
         - PhoenixMedic
 
 - type: listing
+  abstract: true
   id: UplinkPhoenixMachineChemicalsFlatpackRestock
   name: uplink-phoenix-machine_chemicals_restock-name
   description: uplink-phoenix-machine_chemicals_restock-desc
@@ -537,6 +538,7 @@
         - PhoenixMedic
 
 - type: listing
+  abstract: true
   id: UplinkPhoenixMachineChemicalsFlatpack
   name: uplink-phoenix-machine_chemicals-name
   description: uplink-phoenix-machine_chemicals-desc

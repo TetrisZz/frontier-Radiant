@@ -784,9 +784,6 @@ ent-ComputerMarketConsoleNFNormal = { ent-ComputerMarketConsoleNFBase }
     .desc = { ent-ComputerMarketConsoleNFBase.desc }
     .suffix = Обычная цена
 
-ent-BaseComputerLibrary = библиотечная консоль
-    .desc = Позволяет загружать и скачивать книги.
-
 ent-EdisonMothershipComputer = консоль верфи «Эдисон»
     .desc = Позволяет покупать и продавать корабли с борта материнского корабля, не возвращаясь на станцию.
     .suffix = Материнский корабль

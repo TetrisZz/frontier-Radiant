@@ -2,9 +2,10 @@
   id: TableStorageFillBlueprintsCase
   table: !type:GroupSelector
     children:
-    - id: NFBlueprintWeaponLaserCannon
-    - id: NFBlueprintWeaponXrayCannon
-    - id: NFBlueprintWeaponTemperatureGun
+    - id: SpawnScrapResearchBlueprint # Radiant Sector
+#    - id: NFBlueprintWeaponLaserCannon # Radiant Sector
+#    - id: NFBlueprintWeaponXrayCannon # Radiant Sector
+#    - id: NFBlueprintWeaponTemperatureGun # Radiant Sector
 
 - type: entity
   abstract: true

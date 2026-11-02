@@ -162,20 +162,23 @@
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      weight: 0.15
+      weight: 0.5
       tableId: TableDungeonLootWeaponsRangedTier1
     - !type:NestedSelector
-      weight: 0.3
+      weight: 0.2
       tableId: TableDungeonLootWeaponsRangedTier2
     - !type:NestedSelector
-      weight: 0.35
+      weight: 0.1
       tableId: TableDungeonLootWeaponsRangedTier3
     - !type:NestedSelector
-      weight: 0.15
-      tableId: TableDungeonLootWeaponsRangedTier4
-    - !type:NestedSelector
-      weight: 0.05
-      tableId: TableDungeonLootWeaponsRangedTier5
+      weight: 0.2
+      tableId: WeaponCaseShortDocumentsFilled
+#    - !type:NestedSelector
+#      weight: 0.5
+#      tableId: TableDungeonLootWeaponsRangedTier4
+#    - !type:NestedSelector
+#      weight: 0.05
+#      tableId: TableDungeonLootWeaponsRangedTier5
 
 # region ranged T1
 - type: entityTable

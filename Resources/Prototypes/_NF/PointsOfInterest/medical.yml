@@ -46,9 +46,9 @@
             MedicalDoctor: [ -1, -1 ]
             DirectorOfCare: [ 1, 1 ]
             PhoenixAgent: [ 2, 2 ] # Radiant sector
-            PhoenixMedic: [ 2, 2 ] # Radiant sector
-            Pilot: [ -1, -1 ]
-            Mercenary: [ -1, -1 ]
+#            PhoenixMedic: [ 2, 2 ] # Radiant sector
+#            Pilot: [ -1, -1 ]
+#            Mercenary: [ -1, -1 ]
           tags:
           - HeadOfPersonnel
           - HeadOfSecurity
