@@ -287,6 +287,18 @@ public abstract class SharedStorageSystem : EntitySystem
         storageComp.Container = ContainerSystem.EnsureContainer<Container>(uid, StorageComponent.ContainerId);
         UpdateAppearance((uid, storageComp, null));
 
+        // Older saved ships can be missing their prototype-provided UserInterface component.
+        // Register the storage UI from the component itself so lockers and shelves remain usable
+        // after those saves are loaded, including saves created before the load scrubber existed.
+        if (!UI.HasUi(uid, StorageComponent.StorageUiKey.Key))
+        {
+            var userInterface = EnsureComp<UserInterfaceComponent>(uid);
+            UI.SetUi(
+                (uid, userInterface),
+                StorageComponent.StorageUiKey.Key,
+                new InterfaceData("StorageBoundUserInterface"));
+        }
+
         // Make sure the initial starting grid is okay.
         UpdateOccupied((uid, storageComp));
     }

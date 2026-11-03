@@ -274,11 +274,14 @@ public sealed class ToggleableClothingSystem : EntitySystem
     {
         if (component.Container!.ContainedEntity is {} ent)
         {
-            DebugTools.Assert(component.ClothingUid == ent, "Unexpected entity present inside of a toggleable clothing container.");
-            return;
+            // The container is authoritative after deserialization. The saved action may have
+            // belonged to a wearer who was excluded from the ship, so it still needs restoring.
+            component.ClothingUid = ent;
+            var attached = EnsureComp<AttachedClothingComponent>(ent);
+            attached.AttachedUid = uid;
+            Dirty(ent, attached);
         }
-
-        if (component.ClothingUid != null && component.ActionEntity != null)
+        else if (component.ClothingUid != null && Exists(component.ClothingUid))
         {
             DebugTools.Assert(Exists(component.ClothingUid), "Toggleable clothing is missing expected entity.");
             DebugTools.Assert(TryComp(component.ClothingUid, out AttachedClothingComponent? comp), "Toggleable clothing is missing an attached component");
@@ -295,8 +298,12 @@ public sealed class ToggleableClothingSystem : EntitySystem
             Dirty(uid, component);
         }
 
+        if (!Exists(component.ActionEntity))
+            component.ActionEntity = null;
+
         if (_actionContainer.EnsureAction(uid, ref component.ActionEntity, out var action, component.Action))
             _actionsSystem.SetEntityIcon((component.ActionEntity.Value, action), component.ClothingUid);
+        Dirty(uid, component);
     }
 }
 

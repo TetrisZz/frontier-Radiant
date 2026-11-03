@@ -315,9 +315,12 @@
   - ShowMedicalIcons
   - StripableInventoryBase
   id: MobMedibot
+  save: true # Radiant: autonomous medibots can persist with a saved shuttle.
   name: medibot
   description: No substitute for a doctor, but better than nothing.
   components:
+  - type: HLPersistOnShipSave
+    saveContents: true
   - type: Medibot
     treatments:
       Alive:
