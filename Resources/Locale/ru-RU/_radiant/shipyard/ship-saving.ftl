@@ -23,6 +23,7 @@ shipyard-grid-save-limit-MedicalStash = Медицинские хранилищ�
 shipyard-grid-save-limit-HydroponicsStash = Ботанические хранилища
 shipyard-grid-save-limit-FuelStash = Топливные хранилища
 shipyard-grid-save-limit-PasswordWallSafe = Настенные сейфы
+shipyard-grid-save-limit-ChemMaster = Химмастеры
 ent-CivilianStorageStash = корабельное хранилище
     .desc = Корабельное хранилище для личных вещей и повседневных припасов.
 ent-MilitaryStorageStash = военное корабельное хранилище

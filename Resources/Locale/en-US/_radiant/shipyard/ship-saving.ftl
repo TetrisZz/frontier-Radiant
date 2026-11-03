@@ -23,3 +23,4 @@ shipyard-grid-save-limit-MedicalStash = Medical stashes
 shipyard-grid-save-limit-HydroponicsStash = Botanical stashes
 shipyard-grid-save-limit-FuelStash = Fuel stashes
 shipyard-grid-save-limit-PasswordWallSafe = Wall safes
+shipyard-grid-save-limit-ChemMaster = ChemMasters
