@@ -52,6 +52,19 @@
     - id: NFPosterContrabandPirateLords
     - id: NFPosterContrabandRDCollective
     - id: NFPosterContrabandArcadiaInd
+    # Radiant Sector
+    - id: PosterContrabandStockingsRS
+    - id: PosterContrabandDuffyRS
+    - id: PosterContrabandBreadRS
+    - id: PosterContrabandDymaiRS
+    - id: PosterContrabandRabbitHoleRS
+    - id: PosterContrabandBridgeBunnyRS
+    - id: PosterContrabandDoubleGunshowRS
+    - id: PosterContrabandRabbitSwoleRS
+    - id: PosterRushPropagandaRS
+    - id: PosterMidtownSliceRS
+    - id: PosterHolidayCakeRS
+    - id: PosterHolidayLoveRS
 
 - type: entityTable
   id: TableRandomPosterGoblin
@@ -84,6 +97,17 @@
     - id: NFPosterLegitFrontierStc
     - id: NFPosterLegitFrontierCats
     - id: NFPosterLegitFrontierSheriffDepartment
+    # Radiant Sector
+    - id: PosterContrabandStockingsRS
+    - id: PosterContrabandDuffyRS
+    - id: PosterContrabandRabbitHoleRS
+    - id: PosterContrabandBridgeBunnyRS
+    - id: PosterContrabandDoubleGunshowRS
+    - id: PosterContrabandRabbitSwoleRS
+    - id: PosterRushPropagandaRS
+    - id: PosterMidtownSliceRS
+    - id: PosterHolidayCakeRS
+    - id: PosterHolidayLoveRS
 # endregion tables
 
 #region spawners

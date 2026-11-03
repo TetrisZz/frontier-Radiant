@@ -6,6 +6,9 @@ using Content.Server.Database;
 using Content.Server._EE.Contractors.Systems;
 using Content.Server.Administration.Managers;
 using Content.Server.Preferences.Managers;
+using Content.Server.Station.Systems;
+using Content.Server.StationRecords;
+using Content.Server.StationRecords.Systems;
 using Content.Server._NF.CryoSleep;
 using Content.Shared.Body.Systems;
 using Content.Shared._radiant.Dossiers;
@@ -15,6 +18,8 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Forensics.Components;
+using Content.Shared.StationRecords;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
@@ -52,6 +57,8 @@ public sealed partial class DossierSystem : EntitySystem
     [Dependency] private IAdminManager _admins = default!;
     [Dependency] private ISharedAdminLogManager _adminLogs = default!;
     [Dependency] private SharedMindSystem _minds = default!;
+    [Dependency] private StationSystem _stations = default!;
+    [Dependency] private StationRecordsSystem _stationRecords = default!;
 
     public override void Initialize()
     {
@@ -62,6 +69,9 @@ public sealed partial class DossierSystem : EntitySystem
         SubscribeLocalEvent<DossierHolderComponent, CryosleepEnterEvent>(OnCryoEntered);
         SubscribeLocalEvent<DossierHolderComponent, CryosleepWakeUpEvent>(OnCryoWakeUp);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        SubscribeLocalEvent<AfterGeneralRecordCreatedEvent>(OnPersonnelRecordChanged);
+        SubscribeLocalEvent<RecordModifiedEvent>(OnPersonnelRecordChanged);
+        SubscribeLocalEvent<RecordRemovedEvent>(OnPersonnelRecordChanged);
         SubscribeLocalEvent<DossierConsoleComponent, GetVerbsEvent<AlternativeVerb>>(OnVerb);
         Subs.BuiEvents<DossierConsoleComponent>(DossierUiKey.Key, subs =>
         {
@@ -169,6 +179,8 @@ public sealed partial class DossierSystem : EntitySystem
         copy.Archived = true;
         copy.Record = holder.Record;
         copy.DisplayName = Name(ent.Owner);
+        copy.PersonnelDna = TryComp<DnaComponent>(ent.Owner, out var dna) ? dna.DNA : null;
+        copy.PersonnelFingerprint = TryComp<FingerprintComponent>(ent.Owner, out var fingerprint) ? fingerprint.Fingerprint : null;
         if (TryComp<HumanoidAppearanceComponent>(ent.Owner, out var appearance))
         {
             copy.Sex = appearance.Sex;
@@ -267,7 +279,7 @@ public sealed partial class DossierSystem : EntitySystem
     public bool TryOpenSelected(EntityUid console, EntityUid user, EntityUid target)
     {
         if (!TryComp<DossierConsoleComponent>(console, out var component) ||
-            !TryComp<DossierHolderComponent>(target, out var holder) || !holder.Loaded ||
+            !TryComp<DossierHolderComponent>(target, out var holder) || !CanViewRecord(console, component, target, holder) ||
             !CanUse(console, user))
             return false;
 
@@ -280,7 +292,8 @@ public sealed partial class DossierSystem : EntitySystem
     private void OnSelected(Entity<DossierConsoleComponent> ent, ref DossierSelectMessage msg)
     {
         if (!CanUse(ent.Owner, msg.Actor) || !TryGetEntity(msg.Selected, out var target) || target == null ||
-            !HasComp<DossierHolderComponent>(target.Value))
+            !TryComp<DossierHolderComponent>(target.Value, out var holder) ||
+            !CanViewRecord(ent.Owner, ent.Comp, target.Value, holder))
             return;
         ent.Comp.Selected = target.Value;
         SendState(ent.Owner, ent.Comp, msg.Actor);
@@ -290,7 +303,7 @@ public sealed partial class DossierSystem : EntitySystem
     {
         if (!CanUse(ent.Owner, msg.Actor) || !TryGetEntity(msg.Selected, out var target) || target == null ||
             ent.Comp.Selected != target.Value || !TryComp<DossierHolderComponent>(target.Value, out var holder) ||
-            !holder.Loaded || IsOwnRecord(msg.Actor, holder) || msg.Value.Length > 1024)
+            !CanViewRecord(ent.Owner, ent.Comp, target.Value, holder) || IsOwnRecord(msg.Actor, holder) || msg.Value.Length > 1024)
             return;
 
         var record = holder.Record;
@@ -362,7 +375,7 @@ public sealed partial class DossierSystem : EntitySystem
     {
         if (!CanUse(ent.Owner, msg.Actor) || !TryGetEntity(msg.Selected, out var target) || target == null ||
             ent.Comp.Selected != target.Value || !TryComp<DossierHolderComponent>(target.Value, out var holder) ||
-            !holder.Loaded || IsHiddenCryoBody(holder))
+            !CanViewRecord(ent.Owner, ent.Comp, target.Value, holder))
             return;
 
         var name = holder.DisplayName ?? Name(target.Value);
@@ -570,6 +583,70 @@ public sealed partial class DossierSystem : EntitySystem
 
     private bool CanUse(EntityUid console, EntityUid user) => _access.IsAllowed(user, console);
 
+    private void OnPersonnelRecordChanged(StationRecordEvent args)
+    {
+        var query = EntityQueryEnumerator<DossierConsoleComponent>();
+        while (query.MoveNext(out var console, out var component))
+        {
+            if (component.Kind != DossierKind.Personal || _stations.GetOwningStation(console) != args.Station)
+                continue;
+            foreach (var viewer in _ui.GetActors(console, DossierUiKey.Key))
+            {
+                if (!CanUse(console, viewer))
+                    continue;
+                SendState(console, component, viewer);
+                break;
+            }
+        }
+    }
+
+    private GeneralStationRecord[]? GetPersonnelRecords(EntityUid console, DossierConsoleComponent component)
+    {
+        // Medical/security terminals retain their existing sector scope. Personnel terminals
+        // use the same owning station and staff registry as the station records interface.
+        if (component.Kind != DossierKind.Personal)
+            return null;
+        var station = _stations.GetOwningStation(console);
+        if (station is not { } owner || !TryComp<StationRecordsComponent>(owner, out var records))
+            return [];
+        return _stationRecords.GetRecordsOfType<GeneralStationRecord>(owner, records)
+            .Select(entry => entry.Item2).ToArray();
+    }
+
+    private bool CanViewRecord(EntityUid console, DossierConsoleComponent component, EntityUid target,
+        DossierHolderComponent holder)
+        => holder.Loaded && !IsHiddenCryoBody(holder) && IsPersonnelRecord(target, holder, GetPersonnelRecords(console, component));
+
+    private bool IsPersonnelRecord(EntityUid target, DossierHolderComponent holder, GeneralStationRecord[]? records)
+    {
+        if (records == null)
+            return true;
+        var dna = holder.Archived ? holder.PersonnelDna
+            : TryComp<DnaComponent>(target, out var genetic) ? genetic.DNA : null;
+        var fingerprint = holder.Archived ? holder.PersonnelFingerprint
+            : TryComp<FingerprintComponent>(target, out var prints) ? prints.Fingerprint : null;
+        var name = holder.DisplayName ?? Name(target);
+        foreach (var record in records)
+        {
+            if (!string.IsNullOrEmpty(dna) && !string.IsNullOrEmpty(record.DNA))
+            {
+                if (record.DNA == dna)
+                    return true;
+                continue;
+            }
+            if (!string.IsNullOrEmpty(fingerprint) && !string.IsNullOrEmpty(record.Fingerprint))
+            {
+                if (record.Fingerprint == fingerprint)
+                    return true;
+                continue;
+            }
+            // Manually created records without biometrics can still identify their named staff.
+            if (string.IsNullOrEmpty(record.DNA) && string.IsNullOrEmpty(record.Fingerprint) && record.Name == name)
+                return true;
+        }
+        return false;
+    }
+
     private bool IsOwnRecord(EntityUid user, DossierHolderComponent holder)
     {
         if (!_players.TryGetSessionByEntity(user, out var session))
@@ -620,10 +697,11 @@ public sealed partial class DossierSystem : EntitySystem
         if (!CanUse(console, user))
             return;
         var people = new Dictionary<NetEntity, string>();
+        var personnelRecords = GetPersonnelRecords(console, component);
         var query = EntityQueryEnumerator<DossierHolderComponent>();
         while (query.MoveNext(out var uid, out var holder))
         {
-            if (!holder.Loaded || IsHiddenCryoBody(holder))
+            if (!holder.Loaded || IsHiddenCryoBody(holder) || !IsPersonnelRecord(uid, holder, personnelRecords))
                 continue;
             people[GetNetEntity(uid)] = holder.DisplayName ?? Name(uid);
         }
@@ -635,6 +713,9 @@ public sealed partial class DossierSystem : EntitySystem
         var passportNumber = "";
         var sex = Sex.Unsexed;
         DossierHolderComponent? holderForAccess = null;
+        if (component.Selected is { } oldSelection
+            && (!Exists(oldSelection) || !people.ContainsKey(GetNetEntity(oldSelection))))
+            component.Selected = null;
         if (component.Selected is { } target && TryComp<DossierHolderComponent>(target, out var selectedHolder) &&
             selectedHolder.Loaded)
         {
@@ -722,6 +803,8 @@ public sealed partial class DossierHolderComponent : Component
     public Sex Sex = Sex.Unsexed;
     public string BasicDetails = "";
     public string PassportNumber = "";
+    public string? PersonnelDna;
+    public string? PersonnelFingerprint;
 }
 
 [RegisterComponent]

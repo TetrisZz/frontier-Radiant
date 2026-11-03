@@ -1,0 +1,101 @@
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledStockings
+  components:
+  - type: NFWallmountable
+    spawn: PosterContrabandStockingsRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledDuffy
+  components:
+  - type: NFWallmountable
+    spawn: PosterContrabandDuffyRS
+
+- type: entity
+  parent: NFPosterRolledContraband
+  id: RadiantPosterRolledBread
+  components:
+  - type: NFWallmountable
+    spawn: PosterContrabandBreadRS
+
+- type: entity
+  parent: NFPosterRolledContraband
+  id: RadiantPosterRolledDymai
+  components:
+  - type: NFWallmountable
+    spawn: PosterContrabandDymaiRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledRabbitHole
+  components:
+  - type: NFWallmountable
+    spawn: PosterContrabandRabbitHoleRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledBridgeBunny
+  components:
+  - type: NFWallmountable
+    spawn: PosterContrabandBridgeBunnyRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledDoubleGunshow
+  components:
+  - type: NFWallmountable
+    spawn: PosterContrabandDoubleGunshowRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledRabbitSwole
+  components:
+  - type: NFWallmountable
+    spawn: PosterContrabandRabbitSwoleRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledRushPropaganda
+  components:
+  - type: NFWallmountable
+    spawn: PosterRushPropagandaRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledMidtownSlice
+  components:
+  - type: NFWallmountable
+    spawn: PosterMidtownSliceRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledHolidayCake
+  components:
+  - type: NFWallmountable
+    spawn: PosterHolidayCakeRS
+
+- type: entity
+  parent: NFPosterRolledLegit
+  id: RadiantPosterRolledHolidayLove
+  components:
+  - type: NFWallmountable
+    spawn: PosterHolidayLoveRS
+
+- type: entityTable
+  id: TablePosterRolledRadiant
+  table: !type:GroupSelector
+    children:
+    - id: RadiantPosterRolledStockings
+    - id: RadiantPosterRolledDuffy
+    - id: RadiantPosterRolledBread
+    - id: RadiantPosterRolledDymai
+    - id: RadiantPosterRolledRabbitHole
+    - id: RadiantPosterRolledBridgeBunny
+    - id: RadiantPosterRolledDoubleGunshow
+    - id: RadiantPosterRolledRabbitSwole
+    - id: RadiantPosterRolledRushPropaganda
+    - id: RadiantPosterRolledMidtownSlice
+    - id: RadiantPosterRolledHolidayCake
+    - id: RadiantPosterRolledHolidayLove
+
