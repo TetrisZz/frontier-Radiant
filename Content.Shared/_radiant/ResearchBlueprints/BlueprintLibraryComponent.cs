@@ -10,6 +10,10 @@ namespace Content.Shared._radiant.ResearchBlueprints;
 public sealed partial class BlueprintLibraryComponent : Component
 {
     public EntityUid? LastServer;
+
+    /// <summary>Remember the chosen blueprint variants independently of the research connection.</summary>
+    [DataField]
+    public Dictionary<ProtoId<LatheRecipePrototype>, string> SelectedRecipes = new();
 }
 
 [Serializable, NetSerializable]
