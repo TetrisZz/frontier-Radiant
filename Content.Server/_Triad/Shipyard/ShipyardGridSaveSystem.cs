@@ -44,6 +44,7 @@ using Content.Shared._radiant.Shipyard;
 using Robust.Shared.Configuration;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Station.Components;
+using Content.Shared.Silicons.Bots;
 using Robust.Shared.IoC;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
@@ -530,8 +531,9 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             return false;
         if (!IsInsidePasswordSafe(uid) && IsInsideEmptySavedStorage(uid))
             return true;
-        if (HasComp<MindContainerComponent>(uid))
-            return true; // do not save things with minds
+        if (HasComp<MindContainerComponent>(uid)
+            && (!HasComp<MedibotComponent>(uid) || _minds.TryGetMind(uid, out _, out _)))
+            return true; // Only autonomous medibots may retain an empty mind container.
         if (_persistOnSaveQuery.HasComp(uid))
             return false; // preserve explicitly marked entities
         if (_gridQuery.HasComp(uid))

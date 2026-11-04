@@ -1786,6 +1786,8 @@
       tableId: TablePosterRolledLegitNanotrasen
     - !type:NestedSelector
       tableId: TablePosterRolledContrabandSyndicate
+    - !type:NestedSelector
+      tableId: TablePosterRolledRadiant
 
 - type: entityTable
   id: TablePaintingLoot

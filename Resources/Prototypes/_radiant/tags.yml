@@ -2,6 +2,9 @@
   id: BorgModuleMercenary
 
 - type: Tag
+  id: BorgOnly
+
+- type: Tag
   id: BlueSpaceBagSkin
 
 - type: Tag

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Content.Server.Decals;
 using Content.Server.Fluids.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Fluids.Components;
+using Content.Shared.GameTicking;
 using Content.Shared.Maps;
 using Content.Shared.Standing;
 using Robust.Shared.Map;
@@ -25,7 +27,8 @@ public sealed partial class FootstepTrackSystem : EntitySystem
 {
     private const float VolumePerTrackStep = 15f;
     private const int MaxTrackSteps = 8;
-    private static readonly TimeSpan WaterTrackLifetime = TimeSpan.FromSeconds(25);
+    // A thin film of liquid; pure water retains its previous 25-second drying time.
+    private const double TrackLiquidVolume = 7.5;
     private const int MaxFootstepsPerTile = 6;
     private const int MaxCrawlTrailsPerTile = 4;
     private const int MaxSplashesPerTile = 3;
@@ -38,20 +41,21 @@ public sealed partial class FootstepTrackSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;
 
-    private readonly Queue<(EntityUid Grid, uint DecalId, TimeSpan Expires)> _dryingTracks = new();
+    private readonly PriorityQueue<(EntityUid Grid, uint DecalId), TimeSpan> _dryingTracks = new();
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<FootstepTrackComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<FootstepTrackComponent, DamageChangedEvent>(OnDamaged);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _dryingTracks.Clear());
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        while (_dryingTracks.TryPeek(out var track) && track.Expires <= _timing.CurTime)
+        while (_dryingTracks.TryPeek(out var track, out var expires) && expires <= _timing.CurTime)
         {
             _dryingTracks.Dequeue();
             if (Exists(track.Grid))
@@ -69,7 +73,7 @@ public sealed partial class FootstepTrackSystem : EntitySystem
             track.LastTile = null;
             track.RemainingSteps = 0;
             track.BloodOnFeet = false;
-            track.WaterOnFeet = false;
+            track.DryingTime = null;
             return;
         }
 
@@ -84,7 +88,7 @@ public sealed partial class FootstepTrackSystem : EntitySystem
         {
             track.RemainingSteps = 0;
             track.BloodOnFeet = false;
-            track.WaterOnFeet = false;
+            track.DryingTime = null;
             return;
         }
 
@@ -108,17 +112,14 @@ public sealed partial class FootstepTrackSystem : EntitySystem
         {
             track.TrackColor = solution.GetColor(_prototypes).WithAlpha(0.75f);
             var bloodVolume = 0f;
-            var waterVolume = 0f;
             foreach (var reagent in solution.Contents)
             {
                 if (IsBloodReagent(reagent.Reagent.Prototype))
                     bloodVolume += reagent.Quantity.Float();
-                else if (reagent.Reagent.Prototype == "Water")
-                    waterVolume += reagent.Quantity.Float();
             }
 
             track.BloodOnFeet = bloodVolume >= solution.Volume.Float() * 0.5f;
-            track.WaterOnFeet = !track.BloodOnFeet && waterVolume >= solution.Volume.Float() * 0.5f;
+            track.DryingTime = GetDryingTime(solution);
             track.RemainingSteps = Math.Clamp((int) Math.Ceiling(solution.Volume.Float() / VolumePerTrackStep),
                 1, MaxTrackSteps);
         }
@@ -134,7 +135,7 @@ public sealed partial class FootstepTrackSystem : EntitySystem
 
             AddTrace(current.GridUid, current.GridIndices, id,
                 track.TrackColor, rotation, direction, crawling ? MaxCrawlTrailsPerTile : MaxFootstepsPerTile,
-                track.WaterOnFeet);
+                track.DryingTime);
         }
 
         if (!crawling || !TryComp<BloodstreamComponent>(ent, out var blood) || blood.BleedAmount <= 0)
@@ -155,6 +156,22 @@ public sealed partial class FootstepTrackSystem : EntitySystem
     {
         return reagent is "Blood" or "InsectBlood" or "CopperBlood" or "AmmoniaBlood" or
             "ZombieBlood" or "ResomiBlood";
+    }
+
+    private TimeSpan? GetDryingTime(Solution solution)
+    {
+        // Even a small amount of blood, oil or other non-evaporating reagent leaves a stain.
+        if (solution.Volume <= 0 || !_puddles.CanFullyEvaporate(solution))
+            return null;
+
+        var seconds = 0.0;
+        foreach (var (reagent, speed) in _puddles.GetEvaporationSpeeds(solution))
+        {
+            var fraction = solution.GetTotalPrototypeQuantity(reagent).Double() / solution.Volume.Double();
+            seconds = Math.Max(seconds, TrackLiquidVolume * fraction / speed.Double());
+        }
+        // Puddles evaporate each reagent independently once per second.
+        return TimeSpan.FromSeconds(Math.Ceiling(seconds));
     }
 
     private void OnDamaged(Entity<FootstepTrackComponent> ent, ref DamageChangedEvent args)
@@ -185,7 +202,7 @@ public sealed partial class FootstepTrackSystem : EntitySystem
     }
 
     private void AddTrace(EntityUid grid, Vector2i tile, string id,
-        Color? color, Angle rotation, Vector2 direction, int limit, bool dries = false)
+        Color? color, Angle rotation, Vector2 direction, int limit, TimeSpan? dryingTime = null)
     {
         var category = id == "footprint" ? "footprint"
             : id.StartsWith("RadiantFootstep") ? "RadiantFootstep"
@@ -211,7 +228,7 @@ public sealed partial class FootstepTrackSystem : EntitySystem
         var forward = direction * (existing.Count >= 5 ? 0.12f : 0f);
         var position = new Vector2(tile.X, tile.Y) + side + forward;
         if (_decals.TryAddDecal(id, new EntityCoordinates(grid, position), out var decalId,
-                color, rotation, cleanable: true) && dries)
-            _dryingTracks.Enqueue((grid, decalId, _timing.CurTime + WaterTrackLifetime));
+                color, rotation, cleanable: true) && dryingTime is { } lifetime)
+            _dryingTracks.Enqueue((grid, decalId), _timing.CurTime + lifetime);
     }
 }

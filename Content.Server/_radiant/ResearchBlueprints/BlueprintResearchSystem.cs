@@ -253,7 +253,8 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
             entries.Add(entry);
         }
         _ui.SetUiState(uid, BlueprintLibraryUiKey.Key, new BlueprintLibraryState(entries,
-            connected ? server!.BlueprintRecipes.ToDictionary(p => p.Key, p => p.Value.InstanceId) : new(), connected)
+            connected ? server!.BlueprintRecipes.ToDictionary(p => p.Key, p => p.Value.InstanceId)
+                : new(Comp<BlueprintLibraryComponent>(uid).SelectedRecipes), connected)
         {
             ServerName = connected ? server!.ServerName : string.Empty,
             ServerId = connected ? server!.Id : -1,
@@ -311,20 +312,58 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
 
     public bool TrySelectBlueprint(EntityUid uid, EntityUid blueprint, string recipe)
     {
-        if (!HasComp<BlueprintLibraryComponent>(uid) || !this.IsPowered(uid, EntityManager) ||
+        if (!TryComp<BlueprintLibraryComponent>(uid, out var library) || !this.IsPowered(uid, EntityManager) ||
             !Contents(uid).Contains(blueprint) || !TryComp<BlueprintComponent>(blueprint, out var data) || !data.ProvidedRecipes.Contains(recipe) ||
             !_research.TryGetClientServer(uid, out var serverUid, out var server) || !this.IsPowered(serverUid.Value, EntityManager) ||
             !_proto.TryIndex<LatheRecipePrototype>(recipe, out var selected)) return false;
-        foreach (var existing in server.BlueprintRecipes.Keys.Where(r => r.Id != recipe &&
-                     selected.Result != null && _proto.TryIndex(r, out var existingRecipe) && existingRecipe.Result == selected.Result).ToArray())
+        AssignBlueprint(uid, library, blueprint, data, selected, server);
+        Publish(serverUid.Value, server);
+        return true;
+    }
+
+    private bool SameProduct(ProtoId<LatheRecipePrototype> recipe, LatheRecipePrototype selected)
+        => recipe.Id == selected.ID || selected.Result != null &&
+            _proto.TryIndex(recipe, out var existing) && existing.Result == selected.Result;
+
+    private void AssignBlueprint(EntityUid uid, BlueprintLibraryComponent library, EntityUid blueprint,
+        BlueprintComponent data, LatheRecipePrototype selected, ResearchServerComponent server)
+    {
+        foreach (var existing in library.SelectedRecipes.Keys.Where(r => SameProduct(r, selected)).ToArray())
+            library.SelectedRecipes.Remove(existing);
+        foreach (var existing in server.BlueprintRecipes.Keys.Where(r => SameProduct(r, selected)).ToArray())
         {
+            // A replaced variant must not return when its original lithograph reconnects.
+            if (server.BlueprintSources.TryGetValue(existing, out var source) &&
+                TryComp<BlueprintLibraryComponent>(source, out var previous))
+                previous.SelectedRecipes.Remove(existing);
             server.BlueprintRecipes.Remove(existing);
             server.BlueprintSources.Remove(existing);
         }
+        var recipe = new ProtoId<LatheRecipePrototype>(selected.ID);
+        library.SelectedRecipes[recipe] = Data(blueprint, data).InstanceId;
         server.BlueprintRecipes[recipe] = Data(blueprint, data);
         server.BlueprintSources[recipe] = uid;
-        Publish(serverUid.Value, server);
-        return true;
+    }
+
+    private void RestoreLibrarySelections(EntityUid uid, BlueprintLibraryComponent library, EntityUid serverUid,
+        ResearchServerComponent server)
+    {
+        var contents = Contents(uid);
+        foreach (var (recipe, instance) in library.SelectedRecipes.ToArray())
+        {
+            var blueprint = contents.FirstOrDefault(entity =>
+                Comp<BlueprintComponent>(entity).ProvidedRecipes.Contains(recipe) &&
+                Data(entity, Comp<BlueprintComponent>(entity)).InstanceId == instance);
+            if (blueprint == default || !_proto.TryIndex(recipe, out var selected) ||
+                server.BlueprintRecipes.Keys.Any(existing => SameProduct(existing, selected) &&
+                    server.BlueprintSources.GetValueOrDefault(existing) != uid))
+            {
+                library.SelectedRecipes.Remove(recipe);
+                continue;
+            }
+            AssignBlueprint(uid, library, blueprint, Comp<BlueprintComponent>(blueprint), selected, server);
+        }
+        Publish(serverUid, server);
     }
 
     private void OnUnselect(
@@ -372,6 +411,7 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
             return false;
 
         server.BlueprintSources.Remove(recipe);
+        Comp<BlueprintLibraryComponent>(uid).SelectedRecipes.Remove(recipe);
 
         Publish(serverUid.Value, server);
 
@@ -388,9 +428,11 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
 
     private void OnRemoved(EntityUid uid, BlueprintLibraryComponent comp, EntRemovedFromContainerMessage args)
     {
+        var remaining = Contents(uid).Select(e => Data(e, Comp<BlueprintComponent>(e)).InstanceId).ToHashSet();
+        foreach (var recipe in comp.SelectedRecipes.Where(p => !remaining.Contains(p.Value)).Select(p => p.Key).ToArray())
+            comp.SelectedRecipes.Remove(recipe);
         if (_research.TryGetClientServer(uid, out var serverUid, out var server))
         {
-            var remaining = Contents(uid).Select(e => Data(e, Comp<BlueprintComponent>(e)).InstanceId).ToHashSet();
             foreach (var recipe in server.BlueprintSources.Where(p => p.Value == uid &&
                 !remaining.Contains(server.BlueprintRecipes[p.Key].InstanceId)).Select(p => p.Key).ToArray())
             {
@@ -422,6 +464,8 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
         {
             if (library.LastServer != args.Server) RemoveLibrary(uid, library.LastServer);
             library.LastServer = args.Server;
+            if (args.Server is { } serverUid && TryComp<ResearchServerComponent>(serverUid, out var linkedServer))
+                RestoreLibrarySelections(uid, library, serverUid, linkedServer);
             UpdateLibrary(uid);
         }
         if (TryComp<LatheComponent>(uid, out var lathe) && lathe.LatheBlueprint != null)

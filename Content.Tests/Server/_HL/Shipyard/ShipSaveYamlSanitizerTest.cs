@@ -15,6 +15,139 @@ namespace Content.Tests.Server._HL.Shipyard;
 [TestOf(typeof(ShipSaveYamlSanitizer))]
 public sealed class ShipSaveYamlSanitizerTest
 {
+    [TestCase(false)]
+    [TestCase(true)]
+    public void ShipTransferClearsOnlySuitButtonCooldownAndPreviousWearer(bool exporting)
+    {
+        var suit = new MappingDataNode
+        {
+            { "uid", new ValueDataNode("1") },
+            { "components", new SequenceDataNode { new MappingDataNode
+                {
+                    { "type", new ValueDataNode("ToggleableClothing") },
+                    { "actionEntity", new ValueDataNode("2") },
+                } } },
+        };
+        var button = new MappingDataNode
+        {
+            { "type", new ValueDataNode("Action") },
+            { "useDelay", new ValueDataNode("1") },
+            { "container", new ValueDataNode("1") },
+            { "attachedEntity", new ValueDataNode("invalid") },
+            { "cooldown", new MappingDataNode
+                { { "start", new ValueDataNode("139.0665276") }, { "end", new ValueDataNode("140.0665276") } } },
+        };
+        var unrelated = new MappingDataNode
+        {
+            { "type", new ValueDataNode("Action") },
+            { "cooldown", new MappingDataNode { { "start", new ValueDataNode("10") }, { "end", new ValueDataNode("20") } } },
+        };
+        var unrelatedBefore = unrelated.Copy();
+        var root = new MappingDataNode
+        {
+            { "entities", new SequenceDataNode { new MappingDataNode
+                {
+                    { "entities", new SequenceDataNode
+                        {
+                            suit,
+                            new MappingDataNode { { "uid", new ValueDataNode("2") }, { "components", new SequenceDataNode { button } } },
+                            new MappingDataNode { { "uid", new ValueDataNode("3") }, { "components", new SequenceDataNode { unrelated } } },
+                        } },
+                } } },
+        };
+        if (exporting)
+            ShipSaveYamlSanitizer.SanitizeShipSaveNode(root, null!);
+        else
+            ShipSaveYamlSanitizer.ScrubShipLoadNode(root);
+        Assert.That(button.Get<ValueDataNode>("cooldown").IsNull, Is.True);
+        Assert.That(button.Get<ValueDataNode>("attachedEntity").IsNull, Is.True);
+        Assert.That(button.Get<ValueDataNode>("container").Value, Is.EqualTo("1"));
+        Assert.That(button.Get<ValueDataNode>("useDelay").Value, Is.EqualTo("1"));
+        Assert.That(unrelated, Is.EqualTo(unrelatedBefore), "Other action cooldowns must retain their normal persistence.");
+        Assert.That(ShipSaveYamlSanitizer.ScrubShipLoadNode(root), Is.Zero);
+    }
+
+    [Test]
+    public void LoadClearsOldRoundUseDelayTimestampsButKeepsDurationsAndNamedTimers()
+    {
+        const string yaml = "entities:\n- proto: LockerEngineer\n  entities:\n  - uid: 1\n"
+            + "    components:\n    - type: UseDelay\n      delay: 1\n      delays:\n"
+            + "        default:\n          length: 1\n          startTime: 35999\n          endTime: 36000\n"
+            + "        storage:\n          length: 0.5\n          startTime: 35999.5\n          endTime: 36000\n";
+        var result = ShipSaveYamlSanitizer.ScrubShipLoadYaml(yaml, out var scrubbed);
+        Assert.That(scrubbed, Is.EqualTo(4));
+        Assert.That(result, Does.Not.Contain("startTime"));
+        Assert.That(result, Does.Not.Contain("endTime"));
+        Assert.That(result, Does.Contain("length: 0.5"));
+        Assert.That(result, Does.Contain("default:"));
+        Assert.That(result, Does.Contain("storage:"));
+        Assert.That(ShipSaveYamlSanitizer.ScrubShipLoadYaml(result, out var repeated), Is.EqualTo(result));
+        Assert.That(repeated, Is.Zero);
+    }
+
+    [Test]
+    public void ExportClearsUseDelayTimestampsWithoutChangingDuration()
+    {
+        var delay = new MappingDataNode
+        {
+            { "length", new ValueDataNode("0.5") },
+            { "startTime", new ValueDataNode("35999.5") },
+            { "endTime", new ValueDataNode("36000") },
+        };
+        var component = new MappingDataNode
+        {
+            { "type", new ValueDataNode("UseDelay") },
+            { "delays", new MappingDataNode { { "default", delay } } },
+        };
+        var entity = new MappingDataNode
+        {
+            { "uid", new ValueDataNode("1") },
+            { "components", new SequenceDataNode { component } },
+        };
+        var root = new MappingDataNode
+        {
+            { "entities", new SequenceDataNode
+                { new MappingDataNode { { "entities", new SequenceDataNode { entity } } } } },
+        };
+        ShipSaveYamlSanitizer.SanitizeShipSaveNode(root, null!);
+        Assert.That(delay.ContainsKey("startTime"), Is.False);
+        Assert.That(delay.ContainsKey("endTime"), Is.False);
+        Assert.That(delay.Get<ValueDataNode>("length").Value, Is.EqualTo("0.5"));
+    }
+
+    [Test]
+    public void LoadDropsOldStationRecordKeysWithoutChangingDepartmentAccessOrLock()
+    {
+        const string yaml = "entities:\n- proto: LockerEngineer\n  entities:\n  - uid: 1\n"
+            + "    components:\n    - type: AccessReader\n      access: [[Engineering]]\n"
+            + "      accessKeys:\n      - id: 7\n        station: 999\n"
+            + "    - type: Lock\n      locked: false\n";
+        var result = ShipSaveYamlSanitizer.ScrubShipLoadYaml(yaml, out var scrubbed);
+        Assert.That(scrubbed, Is.EqualTo(1));
+        Assert.That(result, Does.Not.Contain("999"));
+        Assert.That(result, Does.Contain("Engineering"));
+        Assert.That(result, Does.Contain("locked: false"));
+        Assert.That(ShipSaveYamlSanitizer.ScrubShipLoadYaml(result, out var repeated), Is.EqualTo(result));
+        Assert.That(repeated, Is.Zero);
+    }
+
+    [Test]
+    public void LoadClearsMissingHelmetActionButKeepsSavedHelmetReference()
+    {
+        const string yaml = "entities:\n- proto: ClothingOuterHardsuitEngineering\n  entities:\n"
+            + "  - uid: 1\n    components:\n    - type: ToggleableClothing\n"
+            + "      actionEntity: invalid\n      clothingUid: 2\n"
+            + "- proto: ClothingHeadHelmetHardsuitEngineering\n  entities:\n"
+            + "  - uid: 2\n    components:\n    - type: AttachedClothing\n      attachedUid: 1\n";
+        var result = ShipSaveYamlSanitizer.ScrubShipLoadYaml(yaml, out var scrubbed);
+        Assert.That(scrubbed, Is.EqualTo(1));
+        Assert.That(result, Does.Not.Contain("invalid"));
+        Assert.That(result, Does.Contain("clothingUid: 2"));
+        Assert.That(result, Does.Contain("attachedUid: 1"));
+        Assert.That(ShipSaveYamlSanitizer.ScrubShipLoadYaml(result, out var repeated), Is.EqualTo(result));
+        Assert.That(repeated, Is.Zero);
+    }
+
     [Test]
     public void ExportPreservesSafeContentsWithoutRelaxingOtherStorageFilters()
     {

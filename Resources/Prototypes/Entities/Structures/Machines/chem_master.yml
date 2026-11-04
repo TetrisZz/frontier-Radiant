@@ -6,6 +6,8 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: ShipSaveLimit
+    limitId: ChemMaster
   - type: Sprite
     sprite: Structures/Machines/mixer.rsi
     snapCardinals: true

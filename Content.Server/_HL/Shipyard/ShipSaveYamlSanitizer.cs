@@ -180,6 +180,8 @@ public static class ShipSaveYamlSanitizer
         ["CombatMode"] = ["combatToggleActionEntity"],
         ["HealOnBuckle"] = ["sleepAction"],
         ["HandheldLight"] = ["toggleActionEntity", "selfToggleActionEntity"],
+        ["ToggleableClothing"] = ["actionEntity", "clothingUid"],
+        ["Action"] = ["attachedEntity", "container", "entIcon"],
         ["ShuttleConsoleJobSlots"] = ["owningStation"],
         ["StoreRefund"] = ["storeEntity"],
         ["Jukebox"] = ["audioStream"],
@@ -458,9 +460,13 @@ public static class ShipSaveYamlSanitizer
 
                     var typeName = typeNode.Value;
 
+                    if (typeName == "UseDelay")
+                        ResetUseDelayTimers(compMap);
+
                     if (typeName == "AccessReader")
                     {
-                        // Preserve the access policy on the door. Only its runtime access log is ship-local.
+                        // Department access persists; station records refer to the old round.
+                        compMap["accessKeys"] = new SequenceDataNode();
                         compMap["accessLog"] = new SequenceDataNode();
                     }
 
@@ -630,6 +636,7 @@ public static class ShipSaveYamlSanitizer
             }
         }
 
+        ResetSavedSuitActions(protoSeq);
         // Final pass: remove stale container/storage references to entities dropped above.
         PruneContainerReferencesToRemovedEntities(protoSeq, removedEntityUids);
     }
@@ -663,11 +670,113 @@ public static class ShipSaveYamlSanitizer
         // Older ship saves marked UserInterface as missing on every entity. Restore prototype-provided
         // interfaces so storage, gas tank, and other bound UIs work after loading those existing saves.
         var scrubbed = RestoreFilteredUserInterfaces(protoSeq);
-        scrubbed += RestoreStrippedAccessReaderKeys(protoSeq);
+        scrubbed += ClearSavedStationRecordKeys(protoSeq);
+        scrubbed += ResetSavedUseDelays(protoSeq);
+        scrubbed += ResetSavedSuitActions(protoSeq);
         var removedEntityUids = new HashSet<string>(StringComparer.Ordinal);
         scrubbed += StripLegacyRemovedNodes(protoSeq, removedEntityUids);
         scrubbed += ResetArtifactGraphsNamingMissingNodes(protoSeq); // Triad
         return scrubbed + PruneContainerReferencesToRemovedEntities(protoSeq, removedEntityUids);
+    }
+
+    private static int ResetSavedSuitActions(SequenceDataNode protoSeq)
+    {
+        // The helmet button uses Action.cooldown, not the item's UseDelay component.
+        // It is only a short anti-spam delay and must not survive a round boundary.
+        var suitActions = new HashSet<string>(StringComparer.Ordinal);
+        var savedEntities = new List<(string Prototype, MappingDataNode Entity, SequenceDataNode Components)>();
+        foreach (var group in protoSeq)
+        {
+            if (group is not MappingDataNode prototype
+                || !prototype.TryGet("entities", out SequenceDataNode? entities) || entities == null)
+                continue;
+            var prototypeId = prototype.TryGet("proto", out ValueDataNode? id) ? id?.Value ?? "" : "";
+            foreach (var node in entities)
+            {
+                if (node is not MappingDataNode entity
+                    || !entity.TryGet("components", out SequenceDataNode? components) || components == null)
+                    continue;
+                savedEntities.Add((prototypeId, entity, components));
+                foreach (var entry in components)
+                {
+                    if (entry is MappingDataNode component
+                        && component.TryGet("type", out ValueDataNode? type) && type?.Value == "ToggleableClothing"
+                        && component.TryGet("actionEntity", out ValueDataNode? action) && action != null && !action.IsNull)
+                        suitActions.Add(action.Value);
+                }
+            }
+        }
+
+        var reset = 0;
+        foreach (var (prototype, entity, components) in savedEntities)
+        {
+            if (prototype != "ActionToggleSuitPiece"
+                && (!entity.TryGet("uid", out ValueDataNode? uid) || uid == null || !suitActions.Contains(uid.Value)))
+                continue;
+            foreach (var entry in components)
+            {
+                if (entry is not MappingDataNode component
+                    || !component.TryGet("type", out ValueDataNode? type) || type?.Value != "Action")
+                    continue;
+                foreach (var field in new[] { "cooldown", "attachedEntity" })
+                {
+                    if (!component.TryGetValue(field, out var value)
+                        || value is ValueDataNode { IsNull: true })
+                        continue;
+                    // Keep useDelay and the provider. The new wearer gets the existing button on equip.
+                    component[field] = ValueDataNode.Null();
+                    reset++;
+                }
+            }
+        }
+        return reset;
+    }
+
+    // UseDelayInfo timestamps are absolute round times, unlike TimeOffsetSerializer fields.
+    // Keep each delay's length and ID, but never carry its old-round activation timestamps.
+    private static int ResetUseDelayTimers(MappingDataNode component)
+    {
+        if (!component.TryGet("delays", out MappingDataNode? delays) || delays == null)
+            return 0;
+
+        var reset = 0;
+        foreach (var (_, entry) in delays)
+        {
+            if (entry is not MappingDataNode delay)
+                continue;
+            foreach (var field in new[] { "startTime", "endTime" })
+            {
+                if (!delay.ContainsKey(field))
+                    continue;
+                delay.Remove(field);
+                reset++;
+            }
+        }
+        return reset;
+    }
+
+    private static int ResetSavedUseDelays(SequenceDataNode protoSeq)
+    {
+        var reset = 0;
+        foreach (var group in protoSeq)
+        {
+            if (group is not MappingDataNode prototype
+                || !prototype.TryGet("entities", out SequenceDataNode? entities) || entities == null)
+                continue;
+            foreach (var node in entities)
+            {
+                if (node is not MappingDataNode entity
+                    || !entity.TryGet("components", out SequenceDataNode? components) || components == null)
+                    continue;
+                foreach (var entry in components)
+                {
+                    if (entry is MappingDataNode component
+                        && component.TryGet("type", out ValueDataNode? type) && type?.Value == "UseDelay")
+                        reset += ResetUseDelayTimers(component);
+                }
+            }
+        }
+        return reset;
     }
 
     private static int RestoreFilteredUserInterfaces(SequenceDataNode protoSeq)
@@ -702,7 +811,7 @@ public static class ShipSaveYamlSanitizer
         return restored;
     }
 
-    private static int RestoreStrippedAccessReaderKeys(SequenceDataNode protoSeq)
+    private static int ClearSavedStationRecordKeys(SequenceDataNode protoSeq)
     {
         var restored = 0;
         foreach (var protoNode in protoSeq)
@@ -721,12 +830,12 @@ public static class ShipSaveYamlSanitizer
                 {
                     if (componentNode is not MappingDataNode component
                         || !component.TryGet("type", out ValueDataNode? type) || type?.Value != "AccessReader"
-                        || !component.TryGet("accessKeys", out SequenceDataNode? keys) || keys == null || keys.Count != 0)
+                        || !component.TryGet("accessKeys", out SequenceDataNode? keys) || keys == null || keys.Count == 0)
                         continue;
 
-                    // Older ship saves explicitly erased these keys. Omitting the empty override lets the
-                    // entity regain the prototype's normal access list when the map is deserialized.
-                    component.Remove("accessKeys");
+                    // These keys include a station EntityUid and a record number. Neither remains
+                    // valid across server restarts, even if an unrelated entity reuses that UID.
+                    component["accessKeys"] = new SequenceDataNode();
                     restored++;
                 }
             }
