@@ -152,7 +152,7 @@
   level: 1
   actions: Interface
   targets: [KitchenMicrowave, KitchenElectricRange]
-  # Normal microwaving is checked against the matching recipe's cooking level.
+  # Microwaves unlock all recipes at cooking 1; ovens still check each recipe's level.
   # Donk-Pockets are a skill-free exception; keep the assembler action gated here.
   uiMessages: [AssemblerStartCookMessage]
 

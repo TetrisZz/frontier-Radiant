@@ -35,6 +35,7 @@ using System.Linq;
 using Content.Shared.Doors.Components;
 using Content.Shared.SprayPainter.Prototypes;
 using Content.Shared.Storage;
+using Content.Shared.SmartFridge;
 using Content.Shared.Storage.Components;
 using Content.Shared.Materials.OreSilo;
 using Content.Shared._radiant.Storage;
@@ -584,6 +585,10 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             return false;
         if (IdentityDocumentPersistence.IsDocument(EntityManager, uid))
             return true;
+        // Smart fridges always return empty, including nested contents and items
+        // which would normally persist themselves. Leave the live fridge untouched.
+        if (IsInsideSmartFridgeInventory(uid))
+            return true;
         // Skip if terminating
         if (_entityManager.GetComponent<MetaDataComponent>(uid).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
@@ -625,6 +630,18 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
 
         // Only unanchored entities are eligible for deletion. If it's unanchored (loose) or unanchored-in-container, delete.
         return true;
+    }
+
+    private bool IsInsideSmartFridgeInventory(EntityUid uid)
+    {
+        var current = uid;
+        for (var depth = 0; depth < 64 && _containerSystem.TryGetContainingContainer(current, out var container); depth++)
+        {
+            current = container.Owner;
+            if (TryComp<SmartFridgeComponent>(current, out var fridge) && container.ID == fridge.Container)
+                return true;
+        }
+        return false;
     }
 
     private bool IsInsidePasswordSafe(EntityUid uid)

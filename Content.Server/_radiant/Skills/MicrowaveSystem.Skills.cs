@@ -36,7 +36,14 @@ public sealed partial class MicrowaveSystem
         // Check the same first matching recipe that Wzhzhzh will actually cook.
         foreach (var recipe in secret.Recipes.Concat(_recipeManager.Recipes))
             if (CanSatisfyRecipe(microwave, recipe, solids, reagents).Item2 > 0)
-                return skills.Check(user, ProfessionalSkill.Cooking, recipe.RequiredCookingLevel);
+            {
+                var required = recipe.RequiredCookingLevel;
+                // Every microwave recipe is available to a novice cook. Keep explicitly
+                // skill-free recipes (Donk-Pockets) and other appliances' progression.
+                if ((microwave.ValidRecipeTypes & (int) MicrowaveRecipeType.Microwave) != 0)
+                    required = Math.Min(required, 1);
+                return skills.Check(user, ProfessionalSkill.Cooking, required);
+            }
         return skills.Check(user, ProfessionalSkill.Cooking, 1);
     }
 }

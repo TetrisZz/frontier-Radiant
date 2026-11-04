@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Lathe;
+using Content.Shared.SmartFridge;
 using Content.Shared.StationRecords;
 using Content.Shared.Storage;
 using Content.Shared.Store.Components;
@@ -22,6 +23,8 @@ internal sealed class ShipSaveSerializationWriters :
     ITypeWriter<StoreComponent>,
     ITypeWriter<StationRecordsFilter>,
     ITypeWriter<LinkedList<LatheRecipeBatch>>,
+    ITypeWriter<List<SmartFridgeEntry>>,
+    ITypeWriter<Dictionary<SmartFridgeEntry, HashSet<NetEntity>>>,
     ITypeWriter<Dictionary<EntityUid, ItemStorageLocation>>,
     ITypeWriter<Dictionary<EntityUid, HashSet<(ProtoId<SourcePortPrototype> Source, ProtoId<SinkPortPrototype> Sink)>>>
 {
@@ -47,6 +50,16 @@ internal sealed class ShipSaveSerializationWriters :
     public DataNode Write(ISerializationManager manager, LinkedList<LatheRecipeBatch> value,
         IDependencyCollection dependencies, bool alwaysWrite = false, ISerializationContext? context = null)
         => new SequenceDataNode();
+
+    // These are runtime menu indexes, not inventory. Their record-shaped keys cannot
+    // be YAML mapping keys, and their NetEntity references belong to the old world.
+    public DataNode Write(ISerializationManager manager, List<SmartFridgeEntry> value,
+        IDependencyCollection dependencies, bool alwaysWrite = false, ISerializationContext? context = null)
+        => new SequenceDataNode();
+
+    public DataNode Write(ISerializationManager manager, Dictionary<SmartFridgeEntry, HashSet<NetEntity>> value,
+        IDependencyCollection dependencies, bool alwaysWrite = false, ISerializationContext? context = null)
+        => new MappingDataNode();
 
     public DataNode Write(ISerializationManager manager, Dictionary<EntityUid, ItemStorageLocation> value,
         IDependencyCollection dependencies, bool alwaysWrite = false, ISerializationContext? context = null)
