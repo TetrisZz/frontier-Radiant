@@ -8,7 +8,7 @@ public sealed partial class FootstepTrackComponent : Component
     public int RemainingSteps;
     public Color TrackColor = Color.White;
     public bool BloodOnFeet;
-    public bool WaterOnFeet;
+    public TimeSpan? DryingTime;
     public bool AlternateStep;
     public TimeSpan NextSplatter;
 }
