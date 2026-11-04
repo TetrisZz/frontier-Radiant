@@ -162,7 +162,17 @@
   level: 2
   actions: Interface
   targets: [ChemMaster]
-  uiMessages: [ChemMasterReagentAmountButtonMessage, ChemMasterCreatePillsMessage, ChemMasterOutputToBottleMessage]
+  uiMessages: [ChemMasterCreatePillsMessage, ChemMasterSetPillTypeMessage]
+
+- type: professionalSkillRequirement
+  id: ChemicalSeparation
+  skill: Medicine
+  level: 2
+  alternativeSkills:
+    Botany: 2
+  actions: Interface
+  targets: [ChemMaster]
+  uiMessages: [ChemMasterReagentAmountButtonMessage, ChemMasterOutputToBottleMessage]
 
 - type: professionalSkillRequirement
   id: Cloning

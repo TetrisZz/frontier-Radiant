@@ -83,6 +83,10 @@ namespace Content.Server.Power.EntitySystems
         private void ApcPowerReceiverInit(EntityUid uid, ApcPowerReceiverComponent component, ComponentInit args)
         {
             AllocLoad(component.NetworkLoad);
+            // Loaded devices may retain a serialized operational state (e.g. Airlock.Powered),
+            // while the receiver and its newly built network start unpowered. Always notify
+            // listeners once the solver has evaluated the new network, even if it stays off.
+            component.Recalculate = true;
         }
 
         private void ApcPowerReceiverShutdown(EntityUid uid, ApcPowerReceiverComponent component,

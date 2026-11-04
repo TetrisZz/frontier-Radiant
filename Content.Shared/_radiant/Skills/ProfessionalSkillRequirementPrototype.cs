@@ -12,6 +12,8 @@ public sealed partial class ProfessionalSkillRequirementPrototype : IPrototype
     [DataField(required: true)] public List<EntProtoId> Targets = new();
     [DataField(required: true)] public ProfessionalSkill Skill;
     [DataField(required: true)] public int Level;
+    // Any listed skill can satisfy the requirement instead of the primary skill.
+    [DataField] public Dictionary<ProfessionalSkill, int> AlternativeSkills = new();
     [DataField] public SkillAction Actions = SkillAction.Interface;
     // Empty means all interface commands, including opening. Otherwise only these commands are gated.
     [DataField] public List<string> UiMessages = new();

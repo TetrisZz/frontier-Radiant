@@ -16,6 +16,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using Content.Client._NF.Shipyard.UI;
 using Content.Client.Guidebook;
+using Content.Client.Guidebook.Controls;
 using Content.Client.Guidebook.Richtext;
 using Content.Shared.Guidebook;
 using Robust.Client.UserInterface;
@@ -34,8 +35,8 @@ public sealed class RadiantGuidebookTest
     [Test]
     public async Task DocumentsRenderAndNavigationResolves()
     {
-        // Parsing needs a loaded client, not a connection or a full prototype-name cache from the server.
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        // Entity embeds need the connected client's entity systems, not just loaded prototypes.
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, Fresh = true, Destructive = true });
         var client = pair.Client;
         var prototypes = client.ResolveDependency<IPrototypeManager>();
         var resources = client.ResolveDependency<IResourceManager>();
@@ -61,6 +62,8 @@ public sealed class RadiantGuidebookTest
                 using var document = new Document();
                 Assert.That(parser.TryAddMarkup(document, text), Is.True, $"Invalid guide: {entry.ID}");
                 var controls = Descendants(document).ToList();
+                if (entry.ID is "RadiantShipSaving" or "RadiantStorage")
+                    Assert.That(controls.OfType<GuidebookError>(), Is.Empty, $"{entry.ID}: embedded items must render without error cards.");
                 foreach (Match heading in Regex.Matches(text, @"(?m)^#{1,3} (.+)\r?$"))
                     Assert.That(controls.OfType<Label>().Any(label => label.Text?.Trim() == heading.Groups[1].Value.Trim()),
                         Is.True, $"{entry.ID}: heading was swallowed into a paragraph: {heading.Groups[1].Value}");

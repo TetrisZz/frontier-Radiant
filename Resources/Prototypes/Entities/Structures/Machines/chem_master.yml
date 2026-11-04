@@ -102,5 +102,6 @@
     unlimited: true
   - type: GuideHelp
     guides:
+    - RadiantStorage
     - Chemicals
     - Chemist

@@ -11,6 +11,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
 using Content.Shared.FixedPoint;
+using Content.Client._radiant.Skills;
 using Robust.Client.Graphics;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 using Robust.Client.GameObjects;
@@ -27,6 +28,9 @@ namespace Content.Client.Chemistry.UI
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
         private readonly SpriteSystem _sprite;
+        private ChemMasterBoundUserInterfaceState? _state;
+        private bool _canSeparate;
+        private bool _canMix;
 
         public event Action<BaseButton.ButtonEventArgs, ReagentButton>? OnReagentButtonPressed;
         public readonly Button[] PillTypeButtons;
@@ -143,6 +147,10 @@ namespace Content.Client.Chemistry.UI
         public void UpdateState(BoundUserInterfaceState state)
         {
             var castState = (ChemMasterBoundUserInterfaceState)state;
+            _state = castState;
+            _canSeparate = SkillPresentation.CanIdentifyChemicals;
+            _canMix = SkillPresentation.CanMixChemicals;
+            SeparationNotice.Visible = _canSeparate && !_canMix;
 
             if (castState.UpdateLabel)
                 LabelLine = GenerateLabel(castState);
@@ -154,8 +162,13 @@ namespace Content.Client.Chemistry.UI
 
             InputEjectButton.Disabled = castState.InputContainerInfo is null;
             OutputEjectButton.Disabled = castState.OutputContainerInfo is null;
-            CreateBottleButton.Disabled = castState.OutputContainerInfo?.Reagents == null;
-            CreatePillButton.Disabled = castState.OutputContainerInfo?.Entities == null;
+            CreateBottleButton.Disabled = !_canSeparate || castState.OutputContainerInfo?.Reagents is not { } output
+                || !_canMix && !SharedChemMaster.CanTransferPureReagents(castState.BufferReagents, output);
+            CreateBottleButton.ToolTip = !_canMix && CreateBottleButton.Disabled ? Loc.GetString("professional-skills-chem-master-cannot-mix") : null;
+            CreatePillButton.Disabled = !_canMix || castState.OutputContainerInfo?.Entities == null;
+            CreatePillButton.ToolTip = !_canMix ? Loc.GetString("professional-skills-chem-master-pills-requirement") : null;
+            foreach (var button in PillTypeButtons)
+                button.Disabled = !_canMix;
 
             UpdateDosageFields(castState);
         }
@@ -397,8 +410,14 @@ namespace Content.Client.Chemistry.UI
             };
 
             // Add the reagent buttons after the color panel
+            var blockedMix = !_canMix && isBuffer && _state is { Mode: ChemMasterMode.Transfer } current &&
+                (current.InputContainerInfo?.Reagents is not { } destination ||
+                 !SharedChemMaster.CanTransferPureReagents(new[] { new ReagentQuantity(reagent, quantity) }, destination));
             foreach (var reagentTransferButton in reagentButtonConstructors)
             {
+                reagentTransferButton.Disabled = !_canSeparate || blockedMix;
+                if (blockedMix)
+                    reagentTransferButton.ToolTip = Loc.GetString("professional-skills-chem-master-cannot-mix");
                 rowContainer.AddChild(reagentTransferButton);
             }
             //Apply panencontainer to allow for striped rows

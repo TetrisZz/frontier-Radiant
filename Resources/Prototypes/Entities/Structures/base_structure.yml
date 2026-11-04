@@ -4,6 +4,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: AutomaticGhostRoleBlocker
   - type: Transform
     anchored: true
   - type: Clickable

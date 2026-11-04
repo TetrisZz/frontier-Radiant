@@ -4,7 +4,10 @@
                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                 MinSize="620 670"
                 Title="{Loc 'chem-master-bound-user-interface-title'}">
-    <TabContainer Name="Tabs" Margin="5 5 7 5">
+    <BoxContainer Orientation="Vertical" SeparationOverride="8">
+        <RichTextLabel Name="SeparationNotice" Margin="9 5 9 0" Visible="False"
+                       Text="{Loc 'professional-skills-chem-master-separation-only'}" />
+    <TabContainer Name="Tabs" Margin="5 5 7 5" VerticalExpand="True">
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
             <!-- Input container info -->
             <BoxContainer Orientation="Horizontal">
@@ -130,4 +133,5 @@
             </PanelContainer>
         </BoxContainer>
     </TabContainer>
+    </BoxContainer>
 </controls:FancyWindow>

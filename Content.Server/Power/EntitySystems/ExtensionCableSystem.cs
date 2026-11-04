@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Server.Power.Components;
+using Content.Server.NodeContainer.EntitySystems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -12,14 +14,20 @@ namespace Content.Server.Power.EntitySystems
     {
         [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly StationSystem _station = default!; // Frontier
+        private readonly HashSet<EntityUid> _pendingReceiverConnections = new();
+
         public override void Initialize()
         {
             base.Initialize();
+
+            UpdatesAfter.Add(typeof(NodeGroupSystem));
+            UpdatesBefore.Add(typeof(PowerNetSystem));
 
             //Lifecycle events
             SubscribeLocalEvent<ExtensionCableProviderComponent, ComponentStartup>(OnProviderStarted);
             SubscribeLocalEvent<ExtensionCableProviderComponent, ComponentShutdown>(OnProviderShutdown);
             SubscribeLocalEvent<ExtensionCableReceiverComponent, ComponentStartup>(OnReceiverStarted);
+            SubscribeLocalEvent<ExtensionCableReceiverComponent, MapInitEvent>(OnReceiverMapInit);
             SubscribeLocalEvent<ExtensionCableReceiverComponent, ComponentShutdown>(OnReceiverShutdown);
 
             //Anchoring
@@ -28,6 +36,31 @@ namespace Content.Server.Power.EntitySystems
 
             SubscribeLocalEvent<ExtensionCableProviderComponent, AnchorStateChangedEvent>(OnProviderAnchorStateChanged);
             SubscribeLocalEvent<ExtensionCableProviderComponent, ReAnchorEvent>(OnProviderReAnchor);
+        }
+
+        public override void Update(float frameTime)
+        {
+            if (_pendingReceiverConnections.Count == 0)
+                return;
+
+            // During map loading the first cable to start can claim a receiver before
+            // its nearest cable has started/anchored. Re-evaluate once all entities
+            // and node groups are ready, rather than keeping that incidental link.
+            var pending = _pendingReceiverConnections.ToArray();
+            _pendingReceiverConnections.Clear();
+            foreach (var uid in pending)
+            {
+                if (EntityManager.IsQueuedForDeletion(uid)
+                    || !TryComp<ExtensionCableReceiverComponent>(uid, out var receiver)
+                    || !receiver.Connectable
+                    || !TryFindAvailableProvider(uid, receiver.ReceptionRange, out var provider)
+                    || provider is not { } nearestProvider
+                    || receiver.Provider?.Owner == nearestProvider.Owner)
+                    continue;
+
+                Disconnect((uid, receiver));
+                Connect((uid, receiver));
+            }
         }
 
         #region Provider
@@ -185,10 +218,17 @@ namespace Content.Server.Power.EntitySystems
             {
                 TryFindAndSetProvider(receiver);
             }
+            _pendingReceiverConnections.Add(receiver.Owner);
+        }
+
+        private void OnReceiverMapInit(Entity<ExtensionCableReceiverComponent> receiver, ref MapInitEvent args)
+        {
+            _pendingReceiverConnections.Add(receiver.Owner);
         }
 
         private void OnReceiverShutdown(Entity<ExtensionCableReceiverComponent> receiver, ref ComponentShutdown args)
         {
+            _pendingReceiverConnections.Remove(receiver.Owner);
             Disconnect(receiver);
         }
 

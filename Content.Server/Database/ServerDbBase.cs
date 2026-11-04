@@ -2332,7 +2332,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .FirstOrDefaultAsync(b => b.BoxId == boxId, cancel);
 
             if (box == null)
-                return;
+                throw new InvalidOperationException($"Cannot deposit items: safety deposit box {boxId} does not exist.");
 
             // Clear existing items
             db.DbContext.WayfarerSafetyDepositBoxItem.RemoveRange(box.Items);

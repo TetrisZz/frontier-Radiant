@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.Dataset;
 using Content.Server.Ghost.Roles.Components;
+using Content.Server._radiant.GhostRoles;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
@@ -26,6 +27,8 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
         var query = EntityQueryEnumerator<SentienceTargetComponent, TransformComponent>();
         while (query.MoveNext(out var targetUid, out var target, out var xform))
         {
+            if (TryComp<AutomaticGhostRoleBlockerComponent>(targetUid, out var blocker) && blocker.Enabled)
+                continue;
             if (StationSystem.GetOwningStation(targetUid, xform) != station)
                 continue;
 

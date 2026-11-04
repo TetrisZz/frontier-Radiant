@@ -636,7 +636,7 @@ public static class ShipSaveYamlSanitizer
             }
         }
 
-        ResetSavedSuitActions(protoSeq);
+        ResetSavedEquipmentActions(protoSeq);
         // Final pass: remove stale container/storage references to entities dropped above.
         PruneContainerReferencesToRemovedEntities(protoSeq, removedEntityUids);
     }
@@ -672,18 +672,19 @@ public static class ShipSaveYamlSanitizer
         var scrubbed = RestoreFilteredUserInterfaces(protoSeq);
         scrubbed += ClearSavedStationRecordKeys(protoSeq);
         scrubbed += ResetSavedUseDelays(protoSeq);
-        scrubbed += ResetSavedSuitActions(protoSeq);
+        scrubbed += ResetSavedEquipmentActions(protoSeq);
         var removedEntityUids = new HashSet<string>(StringComparer.Ordinal);
         scrubbed += StripLegacyRemovedNodes(protoSeq, removedEntityUids);
         scrubbed += ResetArtifactGraphsNamingMissingNodes(protoSeq); // Triad
         return scrubbed + PruneContainerReferencesToRemovedEntities(protoSeq, removedEntityUids);
     }
 
-    private static int ResetSavedSuitActions(SequenceDataNode protoSeq)
+    private static int ResetSavedEquipmentActions(SequenceDataNode protoSeq)
     {
-        // The helmet button uses Action.cooldown, not the item's UseDelay component.
-        // It is only a short anti-spam delay and must not survive a round boundary.
-        var suitActions = new HashSet<string>(StringComparer.Ordinal);
+        // Helmet and internals toggles use Action.cooldown, separately from UseDelay.
+        // Their short anti-spam timers must not carry old-round deadlines into storage.
+        // Other abilities retain their cooldowns.
+        var equipmentActions = new HashSet<string>(StringComparer.Ordinal);
         var savedEntities = new List<(string Prototype, MappingDataNode Entity, SequenceDataNode Components)>();
         foreach (var group in protoSeq)
         {
@@ -699,10 +700,18 @@ public static class ShipSaveYamlSanitizer
                 savedEntities.Add((prototypeId, entity, components));
                 foreach (var entry in components)
                 {
-                    if (entry is MappingDataNode component
-                        && component.TryGet("type", out ValueDataNode? type) && type?.Value == "ToggleableClothing"
-                        && component.TryGet("actionEntity", out ValueDataNode? action) && action != null && !action.IsNull)
-                        suitActions.Add(action.Value);
+                    if (entry is not MappingDataNode component
+                        || !component.TryGet("type", out ValueDataNode? type))
+                        continue;
+                    var actionField = type?.Value switch
+                    {
+                        "ToggleableClothing" => "actionEntity",
+                        "GasTank" => "toggleActionEntity",
+                        _ => null,
+                    };
+                    if (actionField != null
+                        && component.TryGet(actionField, out ValueDataNode? action) && action != null && !action.IsNull)
+                        equipmentActions.Add(action.Value);
                 }
             }
         }
@@ -710,8 +719,8 @@ public static class ShipSaveYamlSanitizer
         var reset = 0;
         foreach (var (prototype, entity, components) in savedEntities)
         {
-            if (prototype != "ActionToggleSuitPiece"
-                && (!entity.TryGet("uid", out ValueDataNode? uid) || uid == null || !suitActions.Contains(uid.Value)))
+            if (prototype != "ActionToggleSuitPiece" && prototype != "ActionToggleInternals"
+                && (!entity.TryGet("uid", out ValueDataNode? uid) || uid == null || !equipmentActions.Contains(uid.Value)))
                 continue;
             foreach (var entry in components)
             {
@@ -1000,6 +1009,21 @@ public static class ShipSaveYamlSanitizer
     /// unchanged when there is nothing to remove or when it cannot be parsed.
     /// </summary>
     public static string ScrubShipLoadYaml(string yaml, out int scrubbed)
+        => RewriteStoredYaml(yaml, ScrubShipLoadNode, out scrubbed);
+
+    /// <summary>
+    /// Clears transient item timers for deposit storage, without ship-specific content filtering.
+    /// Applied on both write and read so existing database records are repaired as well.
+    /// </summary>
+    public static string ScrubStoredItemYaml(string yaml, out int scrubbed)
+        => RewriteStoredYaml(yaml, root =>
+        {
+            if (!root.TryGet("entities", out SequenceDataNode? entities) || entities == null)
+                return 0;
+            return ResetSavedUseDelays(entities) + ResetSavedEquipmentActions(entities);
+        }, out scrubbed);
+
+    private static string RewriteStoredYaml(string yaml, Func<MappingDataNode, int> scrub, out int scrubbed)
     {
         scrubbed = 0;
 
@@ -1021,7 +1045,7 @@ public static class ShipSaveYamlSanitizer
             if (documents != 1 || parsed is not MappingDataNode root)
                 return yaml;
 
-            scrubbed = ScrubShipLoadNode(root);
+            scrubbed = scrub(root);
             if (scrubbed == 0)
                 return yaml;
 

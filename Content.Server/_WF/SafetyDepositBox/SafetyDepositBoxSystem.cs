@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using Content.Server._radiant.Storage;
+using Content.Server._HL.Shipyard;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Database;
@@ -32,6 +33,7 @@ namespace Content.Server._WF.SafetyDepositBox;
 public sealed partial class SafetyDepositBoxSystem : EntitySystem
 {
     private readonly HashSet<Guid> _boxOperations = new();
+    private readonly HashSet<EntityUid> _depositingBoxes = new();
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private PopupSystem _popup = default!;
@@ -61,6 +63,8 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         SubscribeLocalEvent<SafetyDepositConsoleComponent, SafetyDepositReclaimMessage>(OnReclaim);
         SubscribeLocalEvent<SafetyDepositConsoleComponent, EntInsertedIntoContainerMessage>(OnSlotChanged);
         SubscribeLocalEvent<SafetyDepositConsoleComponent, EntRemovedFromContainerMessage>(OnSlotChanged);
+        SubscribeLocalEvent<SafetyDepositBoxComponent, ContainerIsInsertingAttemptEvent>(OnInsertDuringDeposit);
+        SubscribeLocalEvent<SafetyDepositBoxComponent, ContainerIsRemovingAttemptEvent>(OnRemoveDuringDeposit);
     }
 
     private void OnConsoleInit(EntityUid uid, SafetyDepositConsoleComponent component, ComponentInit args)
@@ -284,7 +288,7 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         UpdateUI(consoleUid, component, player);
     }
 
-    private void OnDeposit(EntityUid uid, SafetyDepositConsoleComponent component, SafetyDepositDepositMessage args)
+    private async void OnDeposit(EntityUid uid, SafetyDepositConsoleComponent component, SafetyDepositDepositMessage args)
     {
         if (args.Actor is not { Valid: true } player)
             return;
@@ -338,10 +342,43 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             ConsolePopup(player, Loc.GetString("safety-deposit-remove-identity-documents"));
             return;
         }
-        DepositBoxAsync(uid, component, player, boxEntity.Value, boxComp, storageComp);
+        var boxId = boxComp.BoxId.Value;
+        if (!_boxOperations.Add(boxId))
+            return;
+
+        _depositingBoxes.Add(boxEntity.Value);
+        try
+        {
+            await DepositBoxAsync(uid, component, player, boxEntity.Value, boxComp, storageComp);
+        }
+        catch (Exception exception)
+        {
+            Log.Error($"Failed depositing safety deposit box {boxId}: {exception}");
+            if (Exists(player))
+                ConsolePopup(player, Loc.GetString("safety-deposit-save-failed"));
+        }
+        finally
+        {
+            _depositingBoxes.Remove(boxEntity.Value);
+            _boxOperations.Remove(boxId);
+            if (Exists(uid) && Exists(player))
+                UpdateUI(uid, component, player);
+        }
     }
 
-    private async void DepositBoxAsync(
+    private void OnInsertDuringDeposit(EntityUid uid, SafetyDepositBoxComponent component, ContainerIsInsertingAttemptEvent args)
+    {
+        if (_depositingBoxes.Contains(uid))
+            args.Cancel();
+    }
+
+    private void OnRemoveDuringDeposit(EntityUid uid, SafetyDepositBoxComponent component, ContainerIsRemovingAttemptEvent args)
+    {
+        if (_depositingBoxes.Contains(uid))
+            args.Cancel();
+    }
+
+    private async Task DepositBoxAsync(
         EntityUid consoleUid,
         SafetyDepositConsoleComponent component,
         EntityUid player,
@@ -349,6 +386,12 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         SafetyDepositBoxComponent boxComp,
         StorageComponent storageComp)
     {
+        var storedBox = await _dbManager.GetSafetyDepositBox(boxComp.BoxId!.Value);
+        if (storedBox == null || storedBox.OwnerUserId != boxComp.OwnerId || storedBox.CharacterIndex != boxComp.CharacterIndex)
+            throw new InvalidOperationException($"Invalid database slot for safety deposit box {boxComp.BoxId}.");
+        if (!storedBox.LastWithdrawn.HasValue)
+            throw new InvalidOperationException($"Safety deposit box {boxComp.BoxId} is already deposited; refusing to overwrite it with a stale physical container.");
+
         var entityDataList = new List<string>();
 
         Log.Info($"DepositBoxAsync: Box has {storageComp.Container.ContainedEntities.Count} items");
@@ -360,12 +403,16 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             {
                 Log.Info($"Serializing item: {ToPrettyString(item)}");
                 using var writer = new StringWriter();
-                _loader.TrySaveEntity(item, writer);
-                entityDataList.Add(writer.ToString());
+                if (!_loader.TrySaveEntity(item, writer) || string.IsNullOrWhiteSpace(writer.ToString()))
+                    throw new InvalidDataException("Entity serialization did not produce a complete snapshot.");
+                entityDataList.Add(ShipSaveYamlSanitizer.ScrubStoredItemYaml(writer.ToString(), out _));
             }
             catch (Exception ex)
             {
                 Log.Error($"Failed to serialize item {ToPrettyString(item)} in safety deposit box: {ex}");
+                ConsolePopup(player, Loc.GetString("safety-deposit-item-save-failed", ("item", Name(item))));
+                PlayDenySound(consoleUid, component);
+                return;
             }
         }
 
@@ -379,28 +426,32 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             Log.Info($"Saving box nickname: {nickname}");
         }
 
-        // Save to database
-        await _dbManager.DepositSafetyDepositBoxItems(boxComp.BoxId!.Value, entityDataList);
-
         // Update nickname if one was set
         if (nickname != null)
         {
             await _dbManager.UpdateSafetyDepositBoxNickname(boxComp.BoxId!.Value, nickname);
         }
 
+        // Only replace the saved contents after every item has serialized successfully.
+        await _dbManager.DepositSafetyDepositBoxItems(boxComp.BoxId!.Value, entityDataList);
+
+        var itemCount = entityDataList.Count;
+        _depositingBoxes.Remove(boxEntity);
+
         // Remove from slot before deleting to properly update UI
-        _itemSlots.TryEject(consoleUid, component.BoxSlot, null, out _);
+        if (Exists(consoleUid) && !TerminatingOrDeleted(consoleUid))
+            _itemSlots.TryEject(consoleUid, component.BoxSlot, null, out _);
 
         // Delete the physical box
-        QueueDel(boxEntity);
+        Del(boxEntity);
 
-        ConsolePopup(player, "Safety deposit box contents saved. The box has been stored.");
-        PlayConfirmSound(consoleUid, component);
+        if (Exists(player) && !TerminatingOrDeleted(player))
+            ConsolePopup(player, "Safety deposit box contents saved. The box has been stored.");
+        if (Exists(consoleUid) && !TerminatingOrDeleted(consoleUid))
+            PlayConfirmSound(consoleUid, component);
 
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
-            $"{ToPrettyString(player):actor} deposited safety deposit box {boxComp.BoxId} with {storageComp.Container.ContainedEntities.Count} items");
-
-        UpdateUI(consoleUid, component, player);
+            $"{ToPrettyString(player):actor} deposited safety deposit box {boxComp.BoxId} with {itemCount} items");
     }
 
     private async void OnWithdraw(EntityUid uid, SafetyDepositConsoleComponent component, SafetyDepositWithdrawMessage args)
@@ -427,6 +478,8 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         catch (Exception exception)
         {
             Log.Error($"Failed withdrawing safety deposit box {args.BoxId}: {exception}");
+            if (Exists(player))
+                ConsolePopup(player, Loc.GetString("safety-deposit-load-failed"));
         }
         finally
         {
@@ -582,71 +635,83 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         if (!Exists(player) || TerminatingOrDeleted(player))
             return;
 
-        // Spawn the physical box (use stored box size to determine prototype);
-
-        var boxEntity = Spawn(box.ProtoId, Transform(player).Coordinates);
-        var boxComp = EnsureComp<SafetyDepositBoxComponent>(boxEntity);
-        boxComp.BoxId = box.BoxId;
-        boxComp.OwnerId = userId;
-        boxComp.CharacterIndex = characterIndex;
-        // Use current character name instead of stored name in case they changed it
-        boxComp.OwnerName = MetaData(player).EntityName;
-        Dirty(boxEntity, boxComp);
-
-        // Restore nickname if one was saved
-        if (!string.IsNullOrEmpty(box.Nickname))
+        // Stage the entire withdrawal in nullspace. Do not expose a partial box or
+        // consume the database copy until every saved item fits in its container.
+        var deliveryCoordinates = Transform(player).Coordinates;
+        var boxEntity = Spawn(box.ProtoId);
+        var restoredItems = new List<EntityUid>();
+        var issued = false;
+        try
         {
-            _label.Label(boxEntity, box.Nickname);
-            Log.Info($"Restored box nickname: {box.Nickname}");
-        }
+            var boxComp = EnsureComp<SafetyDepositBoxComponent>(boxEntity);
+            boxComp.BoxId = box.BoxId;
+            boxComp.OwnerId = userId;
+            boxComp.CharacterIndex = characterIndex;
+            // Use current character name instead of stored name in case they changed it
+            boxComp.OwnerName = MetaData(player).EntityName;
+            Dirty(boxEntity, boxComp);
 
-        // Deserialize and spawn items into the box
-        if (TryComp<StorageComponent>(boxEntity, out var storageComp))
-        {
+            // Restore nickname if one was saved
+            if (!string.IsNullOrEmpty(box.Nickname))
+            {
+                _label.Label(boxEntity, box.Nickname);
+                Log.Info($"Restored box nickname: {box.Nickname}");
+            }
+
+            // Deserialize and spawn items into the box
+            if (!TryComp<StorageComponent>(boxEntity, out var storageComp))
+                throw new InvalidDataException($"Box entity {boxEntity} has no StorageComponent.");
+
             foreach (var itemData in box.Items)
             {
-                try
+                using var reader = new StringReader(ShipSaveYamlSanitizer.ScrubStoredItemYaml(itemData.EntityData, out _));
+                if (!_loader.TryLoadEntity(reader, "safety deposit box", out var entity))
+                    throw new InvalidDataException($"Failed to load a saved item from safety deposit box {boxId}.");
+
+                var itemEntity = entity.Value.Owner;
+                restoredItems.Add(itemEntity);
+                IdentityDocumentPersistence.RemoveDocuments(EntityManager, itemEntity);
+                if (Deleted(itemEntity))
+                    continue;
+                // Mark item as having been stored in a deposit box
+                EnsureComp<SafetyDepositStoredComponent>(itemEntity);
+
+                if (!_storage.Insert(boxEntity, itemEntity, out _, storageComp: storageComp, playSound: false))
+                    throw new InvalidDataException($"Restored item {ToPrettyString(itemEntity)} cannot fit in safety deposit box {boxId}.");
+            }
+
+            await _dbManager.ClearSafetyDepositBoxItems(boxId, _gameTicker.RoundId);
+
+            // The player may have disconnected while the database operation completed.
+            _transform.SetCoordinates(boxEntity, deliveryCoordinates);
+            issued = true;
+            if (Exists(player) && !TerminatingOrDeleted(player))
+            {
+                if (!_hands.TryPickupAnyHand(player, boxEntity))
+                    _transform.SetLocalRotation(boxEntity, Angle.Zero);
+                ConsolePopup(player, "Safety deposit box retrieved.");
+            }
+
+            if (Exists(consoleUid))
+                PlayConfirmSound(consoleUid, component);
+
+            _adminLogger.Add(LogType.Action, LogImpact.Medium,
+                $"{ToPrettyString(player):actor} withdrew safety deposit box {boxId} with {box.Items.Count} items");
+        }
+        finally
+        {
+            if (!issued)
+            {
+                // A failed restoration must leave the only saved copy in the database.
+                foreach (var item in restoredItems)
                 {
-                    using var reader = new StringReader(itemData.EntityData);
-                    if (!_loader.TryLoadEntity(reader, "safety deposit box", out var entity))
-                        return;
-
-                    var itemEntity = entity.Value.Owner;
-                    IdentityDocumentPersistence.RemoveDocuments(EntityManager, itemEntity);
-                    if (Deleted(itemEntity)) continue;
-                    // Mark item as having been stored in a deposit box
-                    EnsureComp<SafetyDepositStoredComponent>(itemEntity);
-
-                    // Insert into storage
-                    if (!_storage.Insert(boxEntity, itemEntity, out _, storageComp: storageComp, playSound: false))
-                        QueueDel(itemEntity);
-
+                    if (Exists(item) && !TerminatingOrDeleted(item))
+                        Del(item);
                 }
-                catch (Exception ex)
-                {
-                    Log.Error($"Failed to deserialize item from safety deposit box {boxId}: {ex}");
-                }
+                if (Exists(boxEntity) && !TerminatingOrDeleted(boxEntity))
+                    Del(boxEntity);
             }
         }
-        else
-        {
-            Log.Error($"Box entity {boxEntity} has no StorageComponent!");
-        }
-
-        // Clear items from database
-        await _dbManager.ClearSafetyDepositBoxItems(boxId, _gameTicker.RoundId);
-
-        // Try to put it in player's hands or place it near them
-        if (!_hands.TryPickupAnyHand(player, boxEntity))
-        {
-            _transform.SetLocalRotation(boxEntity, Angle.Zero);
-        }
-
-        ConsolePopup(player, "Safety deposit box retrieved.");
-        PlayConfirmSound(consoleUid, component);
-
-        _adminLogger.Add(LogType.Action, LogImpact.Medium,
-            $"{ToPrettyString(player):actor} withdrew safety deposit box {boxId} with {box.Items.Count} items");
     }
 
     private void OnSlotChanged(EntityUid uid, SafetyDepositConsoleComponent component, ContainerModifiedMessage args)
