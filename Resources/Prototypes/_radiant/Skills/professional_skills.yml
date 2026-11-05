@@ -152,7 +152,7 @@
   level: 1
   actions: Interface
   targets: [KitchenMicrowave, KitchenElectricRange]
-  # Normal microwaving is checked against the matching recipe's cooking level.
+  # Microwaves unlock all recipes at cooking 1; ovens still check each recipe's level.
   # Donk-Pockets are a skill-free exception; keep the assembler action gated here.
   uiMessages: [AssemblerStartCookMessage]
 
@@ -162,7 +162,17 @@
   level: 2
   actions: Interface
   targets: [ChemMaster]
-  uiMessages: [ChemMasterReagentAmountButtonMessage, ChemMasterCreatePillsMessage, ChemMasterOutputToBottleMessage]
+  uiMessages: [ChemMasterCreatePillsMessage, ChemMasterSetPillTypeMessage]
+
+- type: professionalSkillRequirement
+  id: ChemicalSeparation
+  skill: Medicine
+  level: 2
+  alternativeSkills:
+    Botany: 2
+  actions: Interface
+  targets: [ChemMaster]
+  uiMessages: [ChemMasterReagentAmountButtonMessage, ChemMasterOutputToBottleMessage]
 
 - type: professionalSkillRequirement
   id: Cloning

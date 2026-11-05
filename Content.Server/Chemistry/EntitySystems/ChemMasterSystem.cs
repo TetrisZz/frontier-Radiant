@@ -2,6 +2,7 @@ using Content.Server.Chemistry.Components;
 using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
 using Content.Server._radiant.Machines;
+using Content.Shared._radiant.Skills;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
@@ -42,6 +43,7 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly AccessReaderSystem _access = default!;
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
+        [Dependency] private readonly SharedProfessionalSkillsSystem _skills = default!;
 
         private static readonly EntProtoId PillPrototypeId = "Pill";
 
@@ -81,9 +83,19 @@ namespace Content.Server.Chemistry.EntitySystems
             UpdateUiState(ent);
         }
 
-        private bool CanOperate(EntityUid machine, EntityUid user)
+        private bool CanOperate(EntityUid machine, EntityUid user, string? command = null)
             => _access.IsAllowed(user, machine) &&
-               (!TryComp<PersistentMachineComponent>(machine, out var storage) || storage.Available);
+               (!TryComp<PersistentMachineComponent>(machine, out var storage) || storage.Available) &&
+               (command == null || _skills.Requirement(machine, SkillAction.Interface, command) is not { } rule ||
+                _skills.CheckRequirement(user, rule, serverPopup: true));
+
+        private bool CanCombineSolutions(EntityUid user, IEnumerable<ReagentQuantity> source, IEnumerable<ReagentQuantity> destination)
+        {
+            if (_skills.CanMixChemicals(user) || SharedChemMaster.CanTransferPureReagents(source, destination))
+                return true;
+            _popupSystem.PopupCursor(Loc.GetString("professional-skills-chem-master-cannot-mix"), user);
+            return false;
+        }
 
         private static FixedPoint2 ReagentSpace(ChemMasterComponent chemMaster, Solution buffer, string prototype,
             FixedPoint2 pending = default)
@@ -95,7 +107,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 return;
 
             args.Handled = true;
-            if (!CanOperate(ent, args.User) || args.Source.Owner == args.Target.Owner)
+            if (!CanOperate(ent, args.User, nameof(ChemMasterReagentAmountButtonMessage)) || args.Source.Owner == args.Target.Owner)
                 return;
 
             var source = args.Source.Comp.Solution;
@@ -167,7 +179,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnSetPillTypeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSetPillTypeMessage message)
         {
-            if (!CanOperate(chemMaster, message.Actor)) return;
+            if (!CanOperate(chemMaster, message.Actor, nameof(ChemMasterSetPillTypeMessage))) return;
             // Ensure valid pill type. There are 20 pills selectable, 0-19.
             if (message.PillType > SharedChemMaster.PillTypes - 1)
                 return;
@@ -179,7 +191,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnReagentButtonMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentAmountButtonMessage message)
         {
-            if (!CanOperate(chemMaster, message.Actor)) return;
+            if (!CanOperate(chemMaster, message.Actor, nameof(ChemMasterReagentAmountButtonMessage))) return;
             if (!message.FromBuffer && chemMaster.Comp.Mode == ChemMasterMode.Transfer &&
                 _solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var current) &&
                 current.GetTotalPrototypeQuantity(message.ReagentId.Prototype) >= chemMaster.Comp.MaxReagentVolume)
@@ -194,7 +206,7 @@ namespace Content.Server.Chemistry.EntitySystems
             switch (chemMaster.Comp.Mode)
             {
                 case ChemMasterMode.Transfer:
-                    TransferReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer);
+                    TransferReagents(chemMaster, message.Actor, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer);
                     break;
                 case ChemMasterMode.Discard:
                     DiscardReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer);
@@ -207,7 +219,7 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
-        private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer)
+        private void TransferReagents(Entity<ChemMasterComponent> chemMaster, EntityUid user, ReagentId id, FixedPoint2 amount, bool fromBuffer)
         {
             var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
             if (container is null ||
@@ -220,6 +232,9 @@ namespace Content.Server.Chemistry.EntitySystems
             if (fromBuffer) // Buffer to container
             {
                 amount = FixedPoint2.Min(amount, containerSolution.AvailableVolume);
+                amount = FixedPoint2.Min(amount, bufferSolution.GetReagentQuantity(id));
+                if (amount <= 0 || !CanCombineSolutions(user, new[] { new ReagentQuantity(id, amount) }, containerSolution.Contents))
+                    return;
                 amount = bufferSolution.RemoveReagent(id, amount, preserveOrder: true);
                 _solutionContainerSystem.TryAddReagent(containerSoln.Value, id, amount, out var _);
             }
@@ -266,7 +281,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnCreatePillsMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterCreatePillsMessage message)
         {
-            if (!CanOperate(chemMaster, message.Actor)) return;
+            if (!CanOperate(chemMaster, message.Actor, nameof(ChemMasterCreatePillsMessage))) return;
             var user = message.Actor;
             var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
             if (maybeContainer is not { Valid: true } container
@@ -320,7 +335,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnOutputToBottleMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputToBottleMessage message)
         {
-            if (!CanOperate(chemMaster, message.Actor)) return;
+            if (!CanOperate(chemMaster, message.Actor, nameof(ChemMasterOutputToBottleMessage))) return;
             var user = message.Actor;
             var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
             if (maybeContainer is not { Valid: true } container
@@ -335,6 +350,11 @@ namespace Content.Server.Chemistry.EntitySystems
 
             // Ensure label length is within the character limit.
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
+                return;
+
+            // Validate before withdrawing: a denied blend must not consume liquid or change its label.
+            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var buffer)
+                || !CanCombineSolutions(user, buffer.Contents, solution.Contents))
                 return;
 
             if (!WithdrawFromBuffer(chemMaster, message.Dosage, user, out var withdrawal))

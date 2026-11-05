@@ -1,5 +1,7 @@
 using System.IO;
 using Content.Server.Construction.Components;
+using Content.Server._NF.Construction.Components;
+using Content.Shared.Construction.Components;
 using Content.Server.Spreader;
 using Content.Server._HL.Shipyard;
 using Content.Shared._HL.Shipyard;
@@ -33,6 +35,7 @@ using System.Linq;
 using Content.Shared.Doors.Components;
 using Content.Shared.SprayPainter.Prototypes;
 using Content.Shared.Storage;
+using Content.Shared.SmartFridge;
 using Content.Shared.Storage.Components;
 using Content.Shared.Materials.OreSilo;
 using Content.Shared._radiant.Storage;
@@ -416,10 +419,66 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
 
         // 2) Sanitize the node to match blueprint conventions
         ShipSaveYamlSanitizer.SanitizeShipSaveNode(node, _prototypeManager, safeContents);
+        ValidateRpedContents(serializer, node);
 
         // 3) Convert MappingDataNode to YAML text without touching disk
         yaml = WriteYamlToString(node);
         return true;
+    }
+
+    private void ValidateRpedContents(EntitySerializer serializer, MappingDataNode snapshot)
+    {
+        var serializedIds = new Dictionary<EntityUid, string>();
+        foreach (var (_, (uid, data)) in serializer.EntityData)
+        {
+            if (data.TryGet("uid", out ValueDataNode? id) && id != null)
+                serializedIds[uid] = id.Value;
+        }
+
+        var savedIds = new HashSet<string>(StringComparer.Ordinal);
+        var storedParts = new Dictionary<string, HashSet<string>>(StringComparer.Ordinal);
+        if (snapshot.TryGet("entities", out SequenceDataNode? groups) && groups != null)
+        {
+            foreach (var groupNode in groups)
+            {
+                if (groupNode is not MappingDataNode group
+                    || !group.TryGet("entities", out SequenceDataNode? entities) || entities == null)
+                    continue;
+                foreach (var entityNode in entities)
+                {
+                    if (entityNode is not MappingDataNode entity
+                        || !entity.TryGet("uid", out ValueDataNode? id) || id == null)
+                        continue;
+                    savedIds.Add(id.Value);
+                    if (!entity.TryGet("components", out SequenceDataNode? components) || components == null)
+                        continue;
+                    foreach (var componentNode in components)
+                    {
+                        if (componentNode is not MappingDataNode component
+                            || !component.TryGet("type", out ValueDataNode? type) || type?.Value != "ContainerContainer"
+                            || !component.TryGet("containers", out MappingDataNode? containers) || containers == null
+                            || !containers.TryGet(StorageComponent.ContainerId, out MappingDataNode? storage) || storage == null
+                            || !storage.TryGet("ents", out SequenceDataNode? contents) || contents == null)
+                            continue;
+                        storedParts[id.Value] = contents.OfType<ValueDataNode>().Select(value => value.Value).ToHashSet(StringComparer.Ordinal);
+                    }
+                }
+            }
+        }
+
+        foreach (var (uid, rpedId) in serializedIds)
+        {
+            if (!HasComp<PartExchangerComponent>(uid) || !TryComp<StorageComponent>(uid, out var storage))
+                continue;
+            var parts = storage.Container.ContainedEntities.Where(part => HasComp<MachinePartComponent>(part)).ToArray();
+            foreach (var part in parts)
+            {
+                if (!serializedIds.TryGetValue(part, out var partId) || !savedIds.Contains(partId)
+                    || !storedParts.TryGetValue(rpedId, out var contents) || !contents.Contains(partId))
+                    throw new InvalidDataException($"Ship snapshot would lose {ToPrettyString(part)} from {ToPrettyString(uid)}; refusing to save an incomplete RPED.");
+            }
+            _sawmill.Info($"RPED snapshot {ToPrettyString(uid)}: {parts.Length} part stacks verified.");
+        }
     }
 
     private void FilterShipSaveEntity(Entity<MetaDataComponent> entity, ref bool serializable)
@@ -526,6 +585,10 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             return false;
         if (IdentityDocumentPersistence.IsDocument(EntityManager, uid))
             return true;
+        // Smart fridges always return empty, including nested contents and items
+        // which would normally persist themselves. Leave the live fridge untouched.
+        if (IsInsideSmartFridgeInventory(uid))
+            return true;
         // Skip if terminating
         if (_entityManager.GetComponent<MetaDataComponent>(uid).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
@@ -567,6 +630,18 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
 
         // Only unanchored entities are eligible for deletion. If it's unanchored (loose) or unanchored-in-container, delete.
         return true;
+    }
+
+    private bool IsInsideSmartFridgeInventory(EntityUid uid)
+    {
+        var current = uid;
+        for (var depth = 0; depth < 64 && _containerSystem.TryGetContainingContainer(current, out var container); depth++)
+        {
+            current = container.Owner;
+            if (TryComp<SmartFridgeComponent>(current, out var fridge) && container.ID == fridge.Container)
+                return true;
+        }
+        return false;
     }
 
     private bool IsInsidePasswordSafe(EntityUid uid)

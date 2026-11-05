@@ -21,7 +21,7 @@
       - Currency
       - Store
       - EncryptionKey
-      - Implant
+      - SubdermalImplant
       - Storage
       - SafetyDepositBox
       tags:

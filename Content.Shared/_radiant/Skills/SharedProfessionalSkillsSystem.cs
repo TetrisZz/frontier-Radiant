@@ -55,12 +55,46 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
         => Loc.GetString("professional-skills-required",
             ("skill", Loc.GetString(ProfessionalSkillRules.NameKey(skill))), ("level", required));
 
+    public bool CheckRequirement(EntityUid user, ProfessionalSkillRequirementPrototype rule, bool popup = true, bool serverPopup = false)
+    {
+        if (Check(user, rule.Skill, rule.Level, popup: false))
+            return true;
+        foreach (var (skill, level) in rule.AlternativeSkills)
+        {
+            if (Check(user, skill, level, popup: false))
+                return true;
+        }
+        if (!popup)
+            return false;
+        if (rule.AlternativeSkills.Count == 0)
+            return Check(user, rule.Skill, rule.Level, popup, serverPopup);
+
+        var options = new List<string> { RequirementOption(rule.Skill, rule.Level) };
+        foreach (var (skill, level) in rule.AlternativeSkills)
+            options.Add(RequirementOption(skill, level));
+        var message = Loc.GetString("professional-skills-required-any", ("skills", string.Join(" / ", options)));
+        if (serverPopup && _net.IsServer)
+            _popup.PopupEntity(message, user, user);
+        else if (!serverPopup)
+            _popup.PopupClient(message, user, user);
+        return false;
+    }
+
+    private string RequirementOption(ProfessionalSkill skill, int level)
+        => Loc.GetString("professional-skills-requirement-option",
+            ("skill", Loc.GetString(ProfessionalSkillRules.NameKey(skill))), ("level", level));
+
+    public bool CanIdentifyChemicals(EntityUid user)
+        => Level(user, ProfessionalSkill.Medicine) >= 2 || Level(user, ProfessionalSkill.Botany) >= 2;
+
+    public bool CanMixChemicals(EntityUid user) => Level(user, ProfessionalSkill.Medicine) >= 2;
+
     public static bool IsCommonReagent(Content.Shared.Chemistry.Reagent.ReagentPrototype reagent)
         => reagent.Group is "Foods" or "Drinks"
             || reagent.ID is "Water" or "Blood" or "InsectBlood" or "CopperBlood" or "AmmoniaBlood";
 
     public bool CanIdentifyReagent(EntityUid user, string? id)
-        => Level(user, ProfessionalSkill.Medicine) >= 2
+        => CanIdentifyChemicals(user)
             || id != null && _prototypes.TryIndex<Content.Shared.Chemistry.Reagent.ReagentPrototype>(id, out var reagent)
                 && IsCommonReagent(reagent);
 
@@ -106,7 +140,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
     }
 
     public bool CanUse(EntityUid user, EntityUid target, SkillAction action, bool popup = true)
-        => Requirement(target, action) is not { } rule || Check(user, rule.Skill, rule.Level, popup);
+        => Requirement(target, action) is not { } rule || CheckRequirement(user, rule, popup);
 
     private void OnUse(Entity<ProfessionalSkillsComponent> ent, ref UseAttemptEvent args)
     {
@@ -166,7 +200,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
         if (args.Message is OpenBoundInterfaceMessage)
         {
             if (Requirement(args.Target, SkillAction.Interface) is { UiMessages.Count: 0 } opening
-                && !Check(args.Actor, opening.Skill, opening.Level, serverPopup: true))
+                && !CheckRequirement(args.Actor, opening, serverPopup: true))
                 args.Cancel();
             return;
         }
@@ -175,7 +209,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
             return;
         if (Requirement(args.Target, SkillAction.Interface, args.Message.GetType().Name) is not { } rule)
             return;
-        if (!Check(args.Actor, rule.Skill, rule.Level, serverPopup: true))
+        if (!CheckRequirement(args.Actor, rule, serverPopup: true))
             args.Cancel();
     }
 }

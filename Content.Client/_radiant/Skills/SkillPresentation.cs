@@ -12,7 +12,17 @@ public static class SkillPresentation
         {
             var user = IoCManager.Resolve<IPlayerManager>().LocalEntity;
             return user == null || IoCManager.Resolve<IEntityManager>().System<SharedProfessionalSkillsSystem>()
-                .Level(user.Value, ProfessionalSkill.Medicine) >= 2;
+                .CanIdentifyChemicals(user.Value);
+        }
+    }
+
+    public static bool CanMixChemicals
+    {
+        get
+        {
+            var user = IoCManager.Resolve<IPlayerManager>().LocalEntity;
+            return user == null || IoCManager.Resolve<IEntityManager>().System<SharedProfessionalSkillsSystem>()
+                .CanMixChemicals(user.Value);
         }
     }
 

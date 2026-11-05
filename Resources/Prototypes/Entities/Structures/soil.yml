@@ -5,6 +5,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: AutomaticGhostRoleBlocker
   - type: Clickable
   - type: InteractionOutline
   - type: Physics

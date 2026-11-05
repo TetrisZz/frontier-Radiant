@@ -949,7 +949,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     private void OnSolutionExaminableVerb(Entity<ExaminableSolutionComponent> entity, ref GetVerbsEvent<ExamineVerb> args)
     {
         if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Medicine, 2, false))
+                .CanIdentifyChemicals(args.User))
             return;
         if (!args.CanInteract || !args.CanAccess)
             return;

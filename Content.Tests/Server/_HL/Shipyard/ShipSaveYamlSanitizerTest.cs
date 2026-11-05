@@ -17,6 +17,77 @@ public sealed class ShipSaveYamlSanitizerTest
 {
     [TestCase(false)]
     [TestCase(true)]
+    public void EquipmentCooldownRepairCoversCustomTankActionsAndKeepsUnrelatedAbilities(bool deposit)
+    {
+        const string yaml = """
+            entities:
+            - proto: CustomTank
+              entities:
+              - uid: 1
+                components:
+                - type: GasTank
+                  toggleActionEntity: 2
+                - type: UseDelay
+                  delays:
+                    gasTank:
+                      length: 1
+                      startTime: 28799
+                      endTime: 28800
+            - proto: CustomTankAction
+              entities:
+              - uid: 2
+                components:
+                - type: Action
+                  container: 1
+                  attachedEntity: invalid
+                  useDelay: 1
+                  cooldown:
+                    start: 28799
+                    end: 28800
+            - proto: OtherAbility
+              entities:
+              - uid: 3
+                components:
+                - type: Action
+                  cooldown:
+                    start: 30
+                    end: 40
+            - proto: RPED
+              entities:
+              - uid: 4
+                components:
+                - type: Storage
+                  storedItems:
+                    5:
+                      position: 0,0
+            - proto: SuperMatterBinStockPart
+              entities:
+              - uid: 5
+                components:
+                - type: Stack
+                  count: 7
+            """;
+        var repaired = deposit
+            ? ShipSaveYamlSanitizer.ScrubStoredItemYaml(yaml, out _)
+            : ShipSaveYamlSanitizer.ScrubShipLoadYaml(yaml, out _);
+        Assert.That(repaired, Does.Not.Contain("28799"));
+        Assert.That(repaired, Does.Not.Contain("28800"));
+        Assert.That(repaired, Does.Contain("length: 1"));
+        Assert.That(repaired, Does.Contain("useDelay: 1"));
+        Assert.That(repaired, Does.Contain("container: 1"));
+        Assert.That(repaired, Does.Contain("start: 30"));
+        Assert.That(repaired, Does.Contain("end: 40"));
+        Assert.That(repaired, Does.Contain("count: 7"));
+        Assert.That(repaired, Does.Contain("storedItems:"));
+        var repeated = deposit
+            ? ShipSaveYamlSanitizer.ScrubStoredItemYaml(repaired, out var changes)
+            : ShipSaveYamlSanitizer.ScrubShipLoadYaml(repaired, out changes);
+        Assert.That(changes, Is.Zero);
+        Assert.That(repeated, Is.EqualTo(repaired));
+    }
+
+    [TestCase(false)]
+    [TestCase(true)]
     public void ShipTransferClearsOnlySuitButtonCooldownAndPreviousWearer(bool exporting)
     {
         var suit = new MappingDataNode

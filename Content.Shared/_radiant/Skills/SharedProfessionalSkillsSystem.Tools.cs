@@ -1,5 +1,7 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Construction.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Tools.Systems;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._radiant.Skills;
@@ -8,6 +10,19 @@ public sealed partial class SharedProfessionalSkillsSystem
 {
     [Dependency] private SharedDoAfterSystem _skillDoAfter = default!;
     private readonly HashSet<EntityUid> _preparedToolUsers = new();
+
+    /// <summary>
+    /// Installing a machine uses its installation requirement and the tool's skill,
+    /// rather than the profession needed to operate the machine.
+    /// </summary>
+    public bool CanInteractUsing(EntityUid user, EntityUid used, EntityUid target)
+    {
+        var action = TryComp<AnchorableComponent>(target, out var anchorable)
+            && EntityManager.System<SharedToolSystem>().HasQuality(used, anchorable.Tool)
+                ? SkillAction.Anchor
+                : SkillAction.Interact;
+        return CanUse(user, target, action);
+    }
 
     public TimeSpan ToolDelay(EntityUid user, EntityUid tool, TimeSpan duration, float speed)
     {

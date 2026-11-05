@@ -1,5 +1,6 @@
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
+using System.Linq;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry
@@ -16,6 +17,21 @@ namespace Content.Shared.Chemistry
         public const string PillSolutionName = "food";
         public const string BottleSolutionName = "drink";
         public const uint LabelMaxLength = 50;
+
+        /// <summary>Allow separate data variants of the same chemical, but never combine different chemicals.</summary>
+        public static bool CanTransferPureReagents(IEnumerable<ReagentQuantity> source, IEnumerable<ReagentQuantity> destination)
+        {
+            string? prototype = null;
+            foreach (var reagent in source.Concat(destination))
+            {
+                if (reagent.Quantity <= 0)
+                    continue;
+                if (prototype != null && prototype != reagent.Reagent.Prototype)
+                    return false;
+                prototype = reagent.Reagent.Prototype;
+            }
+            return true;
+        }
     }
 
     [Serializable, NetSerializable]

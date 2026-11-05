@@ -10,6 +10,7 @@ using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost.Roles.Components;
+using Content.Server._radiant.GhostRoles;
 using Content.Server.Medical;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
@@ -756,6 +757,8 @@ public sealed partial class EntityEffectSystem : EntitySystem
     private void OnExecuteMakeSentient(ref ExecuteEntityEffectEvent<MakeSentient> args)
     {
         var uid = args.Args.TargetEntity;
+        if (TryComp<AutomaticGhostRoleBlockerComponent>(uid, out var blocker) && blocker.Enabled)
+            return;
 
         // Let affected entities speak normally to make this effect different from, say, the "random sentience" event
         // This also works on entities that already have a mind
