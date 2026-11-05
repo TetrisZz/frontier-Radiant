@@ -1048,7 +1048,7 @@ namespace Content.Shared.Interaction
                 return false;
 
             if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                    .CanUse(user, target, Content.Shared._radiant.Skills.SkillAction.Interact))
+                    .CanInteractUsing(user, used, target))
                 return false;
 
             if (!skillDelayComplete && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()

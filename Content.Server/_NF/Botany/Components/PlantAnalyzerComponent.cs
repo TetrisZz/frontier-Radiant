@@ -26,15 +26,16 @@ public sealed partial class PlantAnalyzerComponent : Component
     [DataField, ViewVariables]
     public PlantAnalyzerSetting Settings = new();
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    // An in-progress scan belongs to this round, not to a saved item.
+    [ViewVariables(VVAccess.ReadOnly)]
     public DoAfterId? DoAfter;
 
     [DataField]
     public SoundSpecifier? ScanningEndSound;
 
     /// <summary>
-    ///    Info on the last scanned plant, if any
+    ///    Runtime display cache for the last scanned plant. Contains round-local entity references.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public PlantAnalyzerScannedPlantInformation? PlantInfo;
 }
