@@ -1,4 +1,5 @@
-using Content.Server._NF.Construction.Components;
+using Content.Shared._NF.Construction.Components;
+using Content.Shared._radiant.Skills;
 using Content.Server.Construction;
 using Content.Server.Construction.Components;
 using Content.Server.Stack;
@@ -29,11 +30,12 @@ public sealed class PartExchangerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StorageSystem _storage = default!;
     [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly SharedProfessionalSkillsSystem _skills = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<PartExchangerComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<PartExchangerComponent, BeforeRangedInteractEvent>(OnBeforeInteract);
         SubscribeLocalEvent<PartExchangerComponent, ExchangerDoAfterEvent>(OnDoAfter);
     }
 
@@ -321,15 +323,21 @@ public sealed class PartExchangerSystem : EntitySystem
         }
     }
 
-    private void OnAfterInteract(EntityUid uid, PartExchangerComponent component, AfterInteractEvent args)
+    private void OnBeforeInteract(EntityUid uid, PartExchangerComponent component, BeforeRangedInteractEvent args)
     {
-        if (component.DoDistanceCheck && !args.CanReach)
+        if (args.Handled || component.DoDistanceCheck && !args.CanReach)
             return;
 
         if (args.Target == null)
             return;
 
         if (!HasComp<MachineComponent>(args.Target) && !HasComp<MachineFrameComponent>(args.Target))
+            return;
+
+        // The appliance must not treat a loaded part exchanger as a bag of ingredients.
+        args.Handled = true;
+        if (!_skills.CanUse(args.User, uid, SkillAction.Use)
+            || !_skills.CanUse(args.User, args.Target.Value, SkillAction.Anchor))
             return;
 
         if (TryComp<WiresPanelComponent>(args.Target, out var panel) && !panel.Open)

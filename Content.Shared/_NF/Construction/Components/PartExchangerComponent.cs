@@ -1,8 +1,9 @@
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
-namespace Content.Server._NF.Construction.Components;
+namespace Content.Shared._NF.Construction.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PartExchangerComponent : Component
 {
     /// <summary>
@@ -28,10 +29,6 @@ public sealed partial class PartExchangerComponent : Component
     /// <summary>
     /// Whether the exchanger should install the highest-rated available parts instead of the lowest-rated ones.
     /// </summary>
-    /// <remarks>
-    /// If the BRPED is what I think it is
-    /// jokes on you I don't have a dog. :P
-    /// </remarks>
     [DataField("preferHigherRating")]
     public bool PreferHigherRating = true;
 

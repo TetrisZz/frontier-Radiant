@@ -1,6 +1,6 @@
 using System.IO;
 using Content.Server.Construction.Components;
-using Content.Server._NF.Construction.Components;
+using Content.Shared._NF.Construction.Components;
 using Content.Shared.Construction.Components;
 using Content.Server.Spreader;
 using Content.Server._HL.Shipyard;

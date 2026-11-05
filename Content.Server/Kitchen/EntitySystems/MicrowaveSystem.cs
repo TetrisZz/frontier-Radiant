@@ -413,7 +413,8 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnInteractUsing(Entity<MicrowaveComponent> ent, ref InteractUsingEvent args)
         {
-            if (args.Handled)
+            if (args.Handled || EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+                    .IsPanelTool(args.Used, ent))
                 return;
             if (!(TryComp<ApcPowerReceiverComponent>(ent, out var apc) && apc.Powered))
             {
