@@ -89,6 +89,14 @@
     mod: 1.0
 
 - type: entity
+  # radiant
+  parent: ComputerPalletConsoleNFNormalMarket
+  id: ComputerPalletConsoleNFDynamicMarket
+  suffix: Dynamic market
+  components:
+  - type: DynamicCargoMarket
+
+- type: entity
   parent: ComputerPalletConsoleNFMarket
   id: ComputerPalletConsoleNFLowMarket
   suffix: Low

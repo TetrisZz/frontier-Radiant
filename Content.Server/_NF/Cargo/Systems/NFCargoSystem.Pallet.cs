@@ -1,5 +1,6 @@
 using Content.Server.Cargo.Components;
 using Content.Server._NF.Cargo.Components;
+using Content.Shared._radint.Cargo.Components; // radiant
 using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.Bank.Components;
 using Content.Shared._NF.Cargo.BUI;
@@ -52,11 +53,10 @@ public sealed partial class NFCargoSystem
         GetPalletGoods(ent, gridUid, out var toSell, out var amount, out var noModAmount, out Dictionary<string, double> additionalCurrency);
         // radiant: excise stamps exempt stamped-and-closed crates from tax
         var exciseExempt = _excise.CalculateTaxExemptAmount(ent);
-        if (TryComp<MarketModifierComponent>(ent, out var priceMod))
-        {
-            amount *= priceMod.Mod;
-            exciseExempt *= priceMod.Mod; // radiant: scale exempt by the same modifier
-        }
+        // radiant: dynamic market consoles take precedence over static modifiers.
+        var marketMultiplier = GetMarketMultiplier(ent);
+        amount *= marketMultiplier;
+        exciseExempt *= marketMultiplier; // radiant: scale exempt by the same modifier
         amount += noModAmount;
         var taxableAmount = Math.Max(0, amount - exciseExempt);
         var cargoTaxRate = GetEffectiveCargoTaxRate(ent);// radiant
@@ -273,11 +273,10 @@ public sealed partial class NFCargoSystem
             return;
 
         // Handle market modifiers & immune objects
-        if (TryComp<MarketModifierComponent>(ent, out var priceMod))
-        {
-            price *= priceMod.Mod;
-            exciseExempt *= priceMod.Mod; // radiant: scale exempt by the same modifier
-        }
+        // radiant: dynamic market consoles take precedence over static modifiers.
+        var marketMultiplier = GetMarketMultiplier(ent);
+        price *= marketMultiplier;
+        exciseExempt *= marketMultiplier; // radiant: scale exempt by the same modifier
         price += noMultiplierPrice;
         // radiant start
         // Excise stamps: stamped-and-closed crates are exempt from tax.
@@ -328,6 +327,18 @@ public sealed partial class NFCargoSystem
         }
         _audio.PlayPvs(ApproveSound, ent);
         UpdatePalletConsoleInterface(ent);
+    }
+
+    private float GetMarketMultiplier(Entity<NFCargoPalletConsoleComponent> ent)
+    {
+        if (HasComp<DynamicCargoMarketComponent>(ent) &&
+            Transform(ent).GridUid is { } gridUid &&
+            TryComp<DynamicCargoMarketGridComponent>(gridUid, out var gridMarket))
+        {
+            return gridMarket.CurrentMultiplier;
+        }
+
+        return TryComp<MarketModifierComponent>(ent, out var priceMod) ? priceMod.Mod : 1f;
     }
         // radiant start
     private float GetEffectiveCargoTaxRate(Entity<NFCargoPalletConsoleComponent> ent)
