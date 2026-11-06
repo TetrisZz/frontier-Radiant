@@ -6,6 +6,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Construction
+    graph: FireAxeCabinet
+    node: cabinet
   - type: HLPersistOnShipSave
     saveContents: true
   - type: Destructible

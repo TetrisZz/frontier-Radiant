@@ -27,6 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Serialization.Markdown.Mapping;
 
 namespace Content.Server._WF.SafetyDepositBox;
 
@@ -50,6 +51,8 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private IComponentFactory _componentFactory = default!;
     [Dependency] private MapLoaderSystem _loader = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
 
     public override void Initialize()
     {
@@ -405,7 +408,16 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
                 using var writer = new StringWriter();
                 if (!_loader.TrySaveEntity(item, writer) || string.IsNullOrWhiteSpace(writer.ToString()))
                     throw new InvalidDataException("Entity serialization did not produce a complete snapshot.");
-                entityDataList.Add(ShipSaveYamlSanitizer.ScrubStoredItemYaml(writer.ToString(), out _));
+                if (!storageComp.StoredItems.TryGetValue(item, out var location))
+                    throw new InvalidDataException("Item has no position in the deposit box.");
+                var snapshot = ShipSaveYamlSanitizer.ScrubStoredItemYaml(writer.ToString(), out var changes, root =>
+                {
+                    root[DepositLocationKey] = _serialization.WriteValue(location, alwaysWrite: true);
+                    return 1;
+                });
+                if (changes == 0)
+                    throw new InvalidDataException("Could not write the deposit box position.");
+                entityDataList.Add(snapshot);
             }
             catch (Exception ex)
             {
@@ -635,8 +647,7 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         if (!Exists(player) || TerminatingOrDeleted(player))
             return;
 
-        // Stage the entire withdrawal in nullspace. Do not expose a partial box or
-        // consume the database copy until every saved item fits in its container.
+        // Stage all items before committing the withdrawal or exposing anything to the player.
         var deliveryCoordinates = Transform(player).Coordinates;
         var boxEntity = Spawn(box.ProtoId);
         var restoredItems = new List<EntityUid>();
@@ -662,9 +673,16 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             if (!TryComp<StorageComponent>(boxEntity, out var storageComp))
                 throw new InvalidDataException($"Box entity {boxEntity} has no StorageComponent.");
 
+            var items = new List<(EntityUid Item, ItemStorageLocation? Location)>();
             foreach (var itemData in box.Items)
             {
-                using var reader = new StringReader(ShipSaveYamlSanitizer.ScrubStoredItemYaml(itemData.EntityData, out _));
+                ItemStorageLocation? location = null;
+                using var reader = new StringReader(ShipSaveYamlSanitizer.ScrubStoredItemYaml(itemData.EntityData, out _, root =>
+                {
+                    if (root.TryGet(DepositLocationKey, out MappingDataNode? savedLocation))
+                        location = _serialization.Read<ItemStorageLocation>(savedLocation);
+                    return 0;
+                }));
                 if (!_loader.TryLoadEntity(reader, "safety deposit box", out var entity))
                     throw new InvalidDataException($"Failed to load a saved item from safety deposit box {boxId}.");
 
@@ -676,27 +694,31 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
                 // Mark item as having been stored in a deposit box
                 EnsureComp<SafetyDepositStoredComponent>(itemEntity);
 
-                if (!_storage.Insert(boxEntity, itemEntity, out _, storageComp: storageComp, playSound: false))
-                    throw new InvalidDataException($"Restored item {ToPrettyString(itemEntity)} cannot fit in safety deposit box {boxId}.");
+                items.Add((itemEntity, location));
             }
 
+            var overflow = RestoreDepositLayout((boxEntity, storageComp), items);
             await _dbManager.ClearSafetyDepositBoxItems(boxId, _gameTicker.RoundId);
 
             // The player may have disconnected while the database operation completed.
             _transform.SetCoordinates(boxEntity, deliveryCoordinates);
+            foreach (var item in overflow)
+                _transform.SetCoordinates(item, deliveryCoordinates);
             issued = true;
             if (Exists(player) && !TerminatingOrDeleted(player))
             {
                 if (!_hands.TryPickupAnyHand(player, boxEntity))
                     _transform.SetLocalRotation(boxEntity, Angle.Zero);
-                ConsolePopup(player, "Safety deposit box retrieved.");
+                ConsolePopup(player, overflow.Count == 0
+                    ? "Safety deposit box retrieved."
+                    : Loc.GetString("safety-deposit-withdraw-overflow", ("count", overflow.Count)));
             }
 
             if (Exists(consoleUid))
                 PlayConfirmSound(consoleUid, component);
 
             _adminLogger.Add(LogType.Action, LogImpact.Medium,
-                $"{ToPrettyString(player):actor} withdrew safety deposit box {boxId} with {box.Items.Count} items");
+                $"{ToPrettyString(player):actor} withdrew safety deposit box {boxId} with {box.Items.Count} items ({overflow.Count} placed on the floor)");
         }
         finally
         {

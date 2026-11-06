@@ -1023,12 +1023,12 @@ public static class ShipSaveYamlSanitizer
     /// Clears transient item timers for deposit storage, without ship-specific content filtering.
     /// Applied on both write and read so existing database records are repaired as well.
     /// </summary>
-    public static string ScrubStoredItemYaml(string yaml, out int scrubbed)
+    public static string ScrubStoredItemYaml(string yaml, out int scrubbed, Func<MappingDataNode, int>? updateMetadata = null)
         => RewriteStoredYaml(yaml, root =>
         {
             if (!root.TryGet("entities", out SequenceDataNode? entities) || entities == null)
                 return 0;
-            return ResetSavedUseDelays(entities) + ResetSavedEquipmentActions(entities);
+            return ResetSavedUseDelays(entities) + ResetSavedEquipmentActions(entities) + (updateMetadata?.Invoke(root) ?? 0);
         }, out scrubbed);
 
     private static string RewriteStoredYaml(string yaml, Func<MappingDataNode, int> scrub, out int scrubbed)

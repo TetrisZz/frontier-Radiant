@@ -28,20 +28,16 @@ public sealed class SurgicalCartSystem : EntitySystem
         if (_containers.TryGetContainer(ent, "storagebase", out var container))
         foreach (var item in container.ContainedEntities)
         {
-            var proto = MetaData(item).EntityPrototype;
-            var queue = new Queue<EntityPrototype>();
-            if (proto != null)
-                queue.Enqueue(proto);
-            while (queue.TryDequeue(out proto))
+            if (MetaData(item).EntityPrototype is not { } proto)
+                continue;
+
+            foreach (var (id, _) in _prototypes.EnumerateAllParents<EntityPrototype>(proto.ID, includeSelf: true))
             {
-                if (ent.Comp.ToolStates.TryGetValue(proto.ID, out var state))
-                {
-                    states.Add(state);
-                    break;
-                }
-                if (proto.Parents is { } parents)
-                    foreach (var parent in parents)
-                        queue.Enqueue(_prototypes.Index<EntityPrototype>(parent));
+                if (!ent.Comp.ToolStates.TryGetValue(id, out var state))
+                    continue;
+
+                states.Add(state);
+                break;
             }
         }
         _appearance.SetData(ent, SurgicalCartVisuals.Tools, states.OrderBy(s => s).ToArray());

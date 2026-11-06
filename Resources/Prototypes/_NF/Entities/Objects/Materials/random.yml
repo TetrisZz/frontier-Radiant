@@ -1,5 +1,5 @@
 #region Base
-# All bases must not be map savable
+# Random material stacks are not map savable. Machine parts below opt in.
 - type: entity
   save: false
   id: BaseStackRandom
@@ -461,61 +461,67 @@
   id: ScrapOreRandomVeryLow
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, CapacitorStockPart]
+  parent: BaseStackRandomVeryLow
+  id: BaseStockPartRandomVeryLow
+  abstract: true
+  save: true
+
+- type: entity
+  parent: [BaseStockPartRandomVeryLow, CapacitorStockPart]
   id: CapacitorStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, AdvancedCapacitorStockPart]
+  parent: [BaseStockPartRandomVeryLow, AdvancedCapacitorStockPart]
   id: AdvancedCapacitorStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, SuperCapacitorStockPart]
+  parent: [BaseStockPartRandomVeryLow, SuperCapacitorStockPart]
   id: SuperCapacitorStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, QuadraticCapacitorStockPart]
+  parent: [BaseStockPartRandomVeryLow, QuadraticCapacitorStockPart]
   id: QuadraticCapacitorStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, MicroManipulatorStockPart]
+  parent: [BaseStockPartRandomVeryLow, MicroManipulatorStockPart]
   id: MicroManipulatorStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, NanoManipulatorStockPart]
+  parent: [BaseStockPartRandomVeryLow, NanoManipulatorStockPart]
   id: NanoManipulatorStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, PicoManipulatorStockPart]
+  parent: [BaseStockPartRandomVeryLow, PicoManipulatorStockPart]
   id: PicoManipulatorStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, FemtoManipulatorStockPart]
+  parent: [BaseStockPartRandomVeryLow, FemtoManipulatorStockPart]
   id: FemtoManipulatorStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, MatterBinStockPart]
+  parent: [BaseStockPartRandomVeryLow, MatterBinStockPart]
   id: MatterBinStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, AdvancedMatterBinStockPart]
+  parent: [BaseStockPartRandomVeryLow, AdvancedMatterBinStockPart]
   id: AdvancedMatterBinStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, SuperMatterBinStockPart]
+  parent: [BaseStockPartRandomVeryLow, SuperMatterBinStockPart]
   id: SuperMatterBinStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]
 
 - type: entity
-  parent: [BaseStackRandomVeryLow, BluespaceMatterBinStockPart]
+  parent: [BaseStockPartRandomVeryLow, BluespaceMatterBinStockPart]
   id: BluespaceMatterBinStockPartRandomVeryLow
   categories: [ HideSpawnMenu ]

@@ -15,7 +15,7 @@ namespace Content.IntegrationTests.Tests._radiant.Shipyard;
 public sealed class ShipSaveRpedTest
 {
     [Test]
-    public async Task CivilianStashPreservesRpedPartsAndStackCounts()
+    public async Task CivilianStashPreservesPartsAndStackCountsDirectlyAndInsideRped()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
         try
@@ -27,13 +27,21 @@ public sealed class ShipSaveRpedTest
                 var storage = em.System<SharedStorageSystem>();
                 var stash = em.SpawnEntity("CivilianStorageStash", map.GridCoords);
                 var rped = em.SpawnEntity("RPED", map.GridCoords);
-                var parts = new[] { "SuperCapacitorStockPart", "PicoManipulatorStockPart", "SuperMatterBinStockPart" };
+                var parts = new[] { "SuperCapacitorStockPart", "PicoManipulatorStockPartRandomVeryLow", "SuperMatterBinStockPartRandomVeryLow" };
                 foreach (var prototype in parts)
                 {
                     var part = em.SpawnEntity(prototype, map.GridCoords);
+                    // Force a count outside the initial loot range to detect any reroll on load.
                     em.System<StackSystem>().SetCount(part, 7);
                     Assert.That(storage.Insert(rped, part, out _, playSound: false), Is.True);
                 }
+                const string directPart = "QuadraticCapacitorStockPartRandomVeryLow";
+                var standalone = em.SpawnEntity(directPart, map.GridCoords);
+                em.System<StackSystem>().SetCount(standalone, 6);
+                Assert.That(storage.Insert(stash, standalone, out _, playSound: false), Is.True);
+
+                var loose = em.SpawnEntity("FemtoManipulatorStockPartRandomVeryLow", map.GridCoords);
+                Assert.That(em.GetComponent<TransformComponent>(loose).Anchored, Is.False);
                 Assert.That(storage.Insert(stash, rped, out _, playSound: false), Is.True);
                 // A legacy/custom persistence marker must never turn a full RPED into
                 // an apparently successful empty snapshot while deleting the originals.
@@ -43,6 +51,7 @@ public sealed class ShipSaveRpedTest
                 Assert.That(em.GetComponent<StorageComponent>(rped).Container.ContainedEntities.Count, Is.EqualTo(3));
                 em.RemoveComponent<HLPersistOnShipSaveComponent>(rped);
                 Assert.That(em.System<ShipyardGridSaveSystem>().TryBuildShipSaveYaml(map.Grid, out var yaml, out _), Is.True);
+                Assert.That(yaml, Does.Not.Contain("FemtoManipulatorStockPartRandomVeryLow"));
                 Assert.That(em.GetComponent<StorageComponent>(rped).Container.ContainedEntities.Count, Is.EqualTo(3),
                     "Saving must not modify live contents.");
                 em.DeleteEntity(stash);
@@ -55,6 +64,12 @@ public sealed class ShipSaveRpedTest
                     Is.EquivalentTo(parts));
                 foreach (var part in restored.Container.ContainedEntities)
                     Assert.That(em.GetComponent<StackComponent>(part).Count, Is.EqualTo(7));
+
+                var loadedStash = em.EntityQuery<StorageComponent, MetaDataComponent, TransformComponent>(true)
+                    .Single(e => e.Item2.EntityPrototype?.ID == "CivilianStorageStash" && e.Item3.GridUid == loaded!.Value.Owner).Item1;
+                var loadedPart = loadedStash.Container.ContainedEntities
+                    .Single(uid => em.GetComponent<MetaDataComponent>(uid).EntityPrototype?.ID == directPart);
+                Assert.That(em.GetComponent<StackComponent>(loadedPart).Count, Is.EqualTo(6));
                 em.DeleteEntity(loaded!.Value.Owner);
             });
             await pair.CleanReturnAsync();
