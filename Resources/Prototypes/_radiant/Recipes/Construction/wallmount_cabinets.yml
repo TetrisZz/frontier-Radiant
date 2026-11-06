@@ -1,0 +1,92 @@
+- type: construction
+  id: FireAxeCabinet
+  graph: FireAxeCabinet
+  startNode: start
+  targetNode: cabinet
+  category: construction-category-storage
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition
+
+- type: construction
+  id: DefibrillatorCabinet
+  graph: DefibrillatorCabinet
+  startNode: start
+  targetNode: cabinet
+  category: construction-category-storage
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition
+
+- type: construction
+  id: ExtinguisherCabinet
+  graph: ExtinguisherCabinet
+  startNode: start
+  targetNode: cabinet
+  category: construction-category-storage
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition
+
+- type: constructionGraph
+  id: FireAxeCabinet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cabinet
+      completed:
+      - !type:SnapToGrid {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Glass
+        amount: 1
+        doAfter: 1
+  - node: cabinet
+    entity: FireAxeCabinet
+
+- type: constructionGraph
+  id: DefibrillatorCabinet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cabinet
+      completed:
+      - !type:SnapToGrid {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Glass
+        amount: 1
+        doAfter: 1
+  - node: cabinet
+    entity: DefibrillatorCabinet
+
+- type: constructionGraph
+  id: ExtinguisherCabinet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cabinet
+      completed:
+      - !type:SnapToGrid {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Glass
+        amount: 1
+        doAfter: 1
+  - node: cabinet
+    entity: ExtinguisherCabinet

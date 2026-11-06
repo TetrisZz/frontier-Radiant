@@ -12,4 +12,10 @@ public sealed partial class RandomStackCountComponent : Component
 
     [DataField]
     public int Max;
+
+    /// <summary>
+    /// A restored stack already contains the amount rolled when it was created.
+    /// </summary>
+    [DataField]
+    public bool Rolled;
 }

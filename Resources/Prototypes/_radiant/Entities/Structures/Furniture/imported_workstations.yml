@@ -82,12 +82,16 @@
   name: surgical instrument trolley
   description: A wheeled tray that keeps surgical instruments close at hand.
   components:
+  - type: HLPersistOnShipSave
+    saveContents: true
   - type: InteractionOutline
   - type: Rotatable
   - type: Sprite
     sprite: _radiant/Structures/Storage/surgical_cart.rsi
+    granularLayersRendering: true
     layers:
     - state: medicart
+      renderingStrategy: NoRotation
     - state: scalpel_normal
       map: [scalpel_normal]
       visible: false
