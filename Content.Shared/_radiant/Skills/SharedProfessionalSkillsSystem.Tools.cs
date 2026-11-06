@@ -1,7 +1,11 @@
-using Content.Shared.DoAfter;
+using Content.Shared._NF.Construction.Components;
+using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Wires;
+using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._radiant.Skills;
@@ -12,17 +16,23 @@ public sealed partial class SharedProfessionalSkillsSystem
     private readonly HashSet<EntityUid> _preparedToolUsers = new();
 
     /// <summary>
-    /// Installing a machine uses its installation requirement and the tool's skill,
+    /// Installing or servicing a machine uses its installation requirement and the tool's skill,
     /// rather than the profession needed to operate the machine.
     /// </summary>
     public bool CanInteractUsing(EntityUid user, EntityUid used, EntityUid target)
     {
-        var action = TryComp<AnchorableComponent>(target, out var anchorable)
-            && EntityManager.System<SharedToolSystem>().HasQuality(used, anchorable.Tool)
-                ? SkillAction.Anchor
-                : SkillAction.Interact;
-        return CanUse(user, target, action);
+        var anchoring = TryComp<AnchorableComponent>(target, out var anchorable)
+            && EntityManager.System<SharedToolSystem>().HasQuality(used, anchorable.Tool);
+        var replacingParts = HasComp<PartExchangerComponent>(used)
+            && EntityManager.System<SharedContainerSystem>().TryGetContainer(target, MachinePartSystem.PartContainerName, out _);
+        return CanUse(user, target, anchoring || replacingParts || IsPanelTool(used, target)
+            ? SkillAction.Anchor
+            : SkillAction.Interact);
     }
+
+    public bool IsPanelTool(EntityUid used, EntityUid target)
+        => TryComp<WiresPanelComponent>(target, out var panel)
+            && EntityManager.System<SharedToolSystem>().HasQuality(used, panel.OpeningTool);
 
     public TimeSpan ToolDelay(EntityUid user, EntityUid tool, TimeSpan duration, float speed)
     {

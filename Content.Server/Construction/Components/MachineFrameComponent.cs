@@ -11,7 +11,7 @@ namespace Content.Server.Construction.Components
     [RegisterComponent]
     public sealed partial class MachineFrameComponent : Component
     {
-        public const string PartContainerName = "machine_parts";
+        public const string PartContainerName = Content.Shared.Construction.MachinePartSystem.PartContainerName;
         public const string BoardContainerName = "machine_board";
 
         [ViewVariables]

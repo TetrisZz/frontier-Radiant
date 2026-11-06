@@ -13,6 +13,8 @@ namespace Content.Shared.Construction
     /// </summary>
     public sealed class MachinePartSystem : EntitySystem
     {
+        public const string PartContainerName = "machine_parts";
+
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly SharedLatheSystem _lathe = default!;
         [Dependency] private readonly SharedConstructionSystem _construction = default!;

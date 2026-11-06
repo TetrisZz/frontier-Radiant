@@ -681,7 +681,7 @@ public static class ShipSaveYamlSanitizer
 
     private static int ResetSavedEquipmentActions(SequenceDataNode protoSeq)
     {
-        // Helmet and internals toggles use Action.cooldown, separately from UseDelay.
+        // Helmet, internals and light toggles use Action.cooldown, separately from UseDelay.
         // Their short anti-spam timers must not carry old-round deadlines into storage.
         // Other abilities retain their cooldowns.
         var equipmentActions = new HashSet<string>(StringComparer.Ordinal);
@@ -703,15 +703,18 @@ public static class ShipSaveYamlSanitizer
                     if (entry is not MappingDataNode component
                         || !component.TryGet("type", out ValueDataNode? type))
                         continue;
-                    var actionField = type?.Value switch
+                    ReadOnlySpan<string> actionFields = type?.Value switch
                     {
-                        "ToggleableClothing" => "actionEntity",
-                        "GasTank" => "toggleActionEntity",
-                        _ => null,
+                        "ToggleableClothing" => ["actionEntity"],
+                        "GasTank" or "UnpoweredFlashlight" => ["toggleActionEntity"],
+                        "HandheldLight" => ["toggleActionEntity", "selfToggleActionEntity"],
+                        _ => [],
                     };
-                    if (actionField != null
-                        && component.TryGet(actionField, out ValueDataNode? action) && action != null && !action.IsNull)
-                        equipmentActions.Add(action.Value);
+                    foreach (var actionField in actionFields)
+                    {
+                        if (component.TryGet(actionField, out ValueDataNode? action) && action != null && !action.IsNull)
+                            equipmentActions.Add(action.Value);
+                    }
                 }
             }
         }
@@ -731,6 +734,11 @@ public static class ShipSaveYamlSanitizer
                 {
                     if (!component.TryGetValue(field, out var value)
                         || value is ValueDataNode { IsNull: true })
+                        continue;
+                    // An item's self action belongs to the item itself, not to its former wearer.
+                    if (field == "attachedEntity" && value is ValueDataNode attached
+                        && attached.Value != "invalid"
+                        && component.TryGet("container", out ValueDataNode? container) && attached.Value == container?.Value)
                         continue;
                     // Keep useDelay and the provider. The new wearer gets the existing button on equip.
                     component[field] = ValueDataNode.Null();

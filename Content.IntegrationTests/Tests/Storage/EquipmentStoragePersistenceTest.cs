@@ -16,6 +16,7 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory;
+using Content.Shared.Light.Components;
 using Content.Shared.Storage;
 using Content.Shared.Stacks;
 using Content.Shared.Storage.EntitySystems;
@@ -32,9 +33,9 @@ namespace Content.IntegrationTests.Tests.Storage;
 
 public sealed class EquipmentStoragePersistenceTest
 {
-    [TestCase(false)]
-    [TestCase(true)]
-    public async Task SuitAndTankActionsLoseOldCooldownsAndNewCooldownsExpireOnBothPeers(bool deposit)
+    [TestCase(false, "ClothingOuterHardsuitScaf")]
+    [TestCase(true, "ClothingOuterHardsuitEngineering")]
+    public async Task SuitLightHelmetAndTankActionsLoseOldCooldownsAndNewCooldownsExpireOnBothPeers(bool deposit, string suitPrototype)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
             { Connected = true, Fresh = true, Destructive = true });
@@ -55,7 +56,7 @@ public sealed class EquipmentStoragePersistenceTest
                 slot = pair.Server.ResolveDependency<IServerPreferencesManager>().GetPreferences(session.UserId).SelectedCharacterIndex;
                 user = em.SpawnEntity("MobHuman", map.GridCoords);
                 players.SetAttachedEntity(session, user);
-                suit = em.SpawnEntity("ClothingOuterHardsuitEngineering", map.GridCoords);
+                suit = em.SpawnEntity(suitPrototype, map.GridCoords);
                 tank = em.SpawnEntity("OxygenTankFilled", map.GridCoords);
                 if (!deposit)
                 {
@@ -67,8 +68,14 @@ public sealed class EquipmentStoragePersistenceTest
                 var getActions = new GetItemActionsEvent(em.System<ActionContainerSystem>(), user, tank);
                 em.EventBus.RaiseLocalEvent(tank, getActions);
                 var actions = em.System<SharedActionsSystem>();
-                actions.SetCooldown(em.GetComponent<ToggleableClothingComponent>(suit).ActionEntity, TimeSpan.FromHours(8));
+                var toggle = em.GetComponent<ToggleableClothingComponent>(suit);
+                var light = GetSuitLight();
+                actions.SetCooldown(toggle.ActionEntity, TimeSpan.FromHours(8));
                 actions.SetCooldown(em.GetComponent<GasTankComponent>(tank).ToggleActionEntity, TimeSpan.FromHours(8));
+                Assert.That(light.ToggleActionEntity, Is.Not.Null);
+                Assert.That(light.SelfToggleActionEntity, Is.Not.Null);
+                actions.SetCooldown(light.ToggleActionEntity, TimeSpan.FromHours(8));
+                actions.SetCooldown(light.SelfToggleActionEntity, TimeSpan.FromHours(8));
                 if (deposit)
                 {
                     terminal = em.SpawnEntity("SafetyDepositConsole", map.GridCoords);
@@ -87,6 +94,7 @@ public sealed class EquipmentStoragePersistenceTest
                     ship = yaml!;
                     Assert.That(actions.IsCooldownActive(actions.GetAction(em.GetComponent<GasTankComponent>(tank).ToggleActionEntity)!.Value.Comp), Is.True,
                         "Saving must not clear the live item's cooldown.");
+                    Assert.That(actions.IsCooldownActive(actions.GetAction(light.ToggleActionEntity)!.Value.Comp), Is.True);
                     em.DeleteEntity(stash);
                     em.DeleteEntity(civilian);
                     using var reader = new StringReader(ShipSaveYamlSanitizer.ScrubShipLoadYaml(ship, out _));
@@ -133,10 +141,10 @@ public sealed class EquipmentStoragePersistenceTest
                 Assert.That((await db.GetSafetyDepositBox(boxId))!.LastWithdrawn, Is.Not.Null);
             }
 
-            NetEntity helmetAction = default, tankAction = default, rpedEntity = default;
+            NetEntity helmetAction = default, tankAction = default, lightAction = default, rpedEntity = default;
             await pair.Server.WaitAssertion(() =>
             {
-                suit = em.EntityQuery<MetaDataComponent>().Single(m => m.EntityPrototype?.ID == "ClothingOuterHardsuitEngineering").Owner;
+                suit = em.EntityQuery<MetaDataComponent>().Single(m => m.EntityPrototype?.ID == suitPrototype).Owner;
                 tank = em.EntityQuery<MetaDataComponent>().Single(m => m.EntityPrototype?.ID == "OxygenTankFilled").Owner;
                 var inventory = em.System<InventorySystem>();
                 Assert.That(inventory.TryEquip(user, suit, "outerClothing", force: true), Is.True);
@@ -145,11 +153,15 @@ public sealed class EquipmentStoragePersistenceTest
                 Assert.That(inventory.TryEquip(user, mask, "mask", force: true), Is.True);
                 var toggle = em.GetComponent<ToggleableClothingComponent>(suit);
                 var gas = em.GetComponent<GasTankComponent>(tank);
+                var light = GetSuitLight();
                 Assert.That(gas.Air.TotalMoles, Is.GreaterThan(0));
                 helmetAction = em.GetNetEntity(toggle.ActionEntity!.Value);
                 tankAction = em.GetNetEntity(gas.ToggleActionEntity!.Value);
-                foreach (var id in new[] { toggle.ActionEntity, gas.ToggleActionEntity })
+                lightAction = em.GetNetEntity(light.ToggleActionEntity!.Value);
+                foreach (var id in new[] { toggle.ActionEntity, gas.ToggleActionEntity, light.ToggleActionEntity, light.SelfToggleActionEntity })
                     Assert.That(em.System<SharedActionsSystem>().GetAction(id)!.Value.Comp.Cooldown, Is.Null);
+                Assert.That(em.System<SharedActionsSystem>().GetAction(light.SelfToggleActionEntity)!.Value.Comp.AttachedEntity,
+                    Is.EqualTo(light.Owner));
                 if (!deposit)
                 {
                     rped = em.EntityQuery<MetaDataComponent>().Single(m => m.EntityPrototype?.ID == "RPED").Owner;
@@ -188,23 +200,38 @@ public sealed class EquipmentStoragePersistenceTest
                 Assert.That(em.GetComponent<GasTankComponent>(tank).IsConnected, Is.True);
                 Assert.That(em.System<InventorySystem>().TryGetSlotEntity(user, "head", out var helmet), Is.True);
                 Assert.That(helmet, Is.EqualTo(em.GetComponent<ToggleableClothingComponent>(suit).ClothingUid));
+                actions.PerformAction(user, actions.GetAction(em.GetEntity(lightAction))!.Value);
+                Assert.That(GetSuitLight().Activated, Is.True);
             });
+            await pair.RunTicksSync(10);
+            await pair.Client.WaitAssertion(() =>
+                Assert.That(pair.Client.EntMan.GetComponent<ActionComponent>(pair.Client.EntMan.GetEntity(lightAction)).Cooldown,
+                    Is.Not.Null, "The working light button still has its normal short cooldown."));
             await pair.RunTicksSync(120);
             await pair.Server.WaitAssertion(() =>
             {
                 var actions = em.System<SharedActionsSystem>();
-                foreach (var id in new[] { helmetAction, tankAction })
+                foreach (var id in new[] { helmetAction, tankAction, lightAction })
                     Assert.That(actions.IsCooldownActive(actions.GetAction(em.GetEntity(id))!.Value.Comp), Is.False);
             });
             await pair.Client.WaitAssertion(() =>
             {
                 var actions = pair.Client.EntMan.System<SharedActionsSystem>();
-                foreach (var id in new[] { helmetAction, tankAction })
+                foreach (var id in new[] { helmetAction, tankAction, lightAction })
                     Assert.That(actions.IsCooldownActive(actions.GetAction(pair.Client.EntMan.GetEntity(id))!.Value.Comp), Is.False,
                         "A new one-second cooldown must expire on the client too.");
             });
             await pair.ReallyBeIdle();
             await pair.CleanReturnAsync();
+
+            HandheldLightComponent GetSuitLight()
+            {
+                if (em.TryGetComponent<HandheldLightComponent>(suit, out var light))
+                    return light;
+
+                var helmet = em.GetComponent<ToggleableClothingComponent>(suit).ClothingUid!.Value;
+                return em.GetComponent<HandheldLightComponent>(helmet);
+            }
         }
         catch (Exception exception)
         {
