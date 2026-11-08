@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Content.Server.Database;
@@ -12,7 +13,9 @@ using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Player;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Maths;
 
 namespace Content.IntegrationTests.Tests.Storage;
 
@@ -90,8 +93,81 @@ public sealed class DepositWeaponPersistenceTest
                 });
             }
 
+            // The small box has just one 4x4 compartment. Auto-inserting even one
+            // sheet of paper before the suit takes away the suit's only position.
+            foreach (var legacy in new[] { false, true })
+            {
+                var record = await db.PurchaseSafetyDepositBox(owner, slot, "Full box test", "SafetyDepositBoxSmall");
+                var data = new List<string>();
+                var pocketLocations = new[]
+                {
+                    new Vector2i(0, 5), new Vector2i(1, 5), new Vector2i(2, 5),
+                    new Vector2i(0, 7), new Vector2i(1, 7), new Vector2i(2, 7),
+                    new Vector2i(4, 5), new Vector2i(4, 6), new Vector2i(4, 7),
+                };
+                var expectedLocations = pocketLocations
+                    .Select(position => new ItemStorageLocation(Angle.FromDegrees(90), position))
+                    .Append(new ItemStorageLocation(Angle.Zero, Vector2i.Zero))
+                    .ToArray();
+                if (!legacy)
+                    await db.ClearSafetyDepositBoxItems(record.BoxId, -1);
+                await pair.Server.WaitAssertion(() =>
+                {
+                    var originalBox = em.SpawnEntity("SafetyDepositBoxSmall", map.GridCoords);
+                    var box = em.GetComponent<SafetyDepositBoxComponent>(originalBox);
+                    box.BoxId = record.BoxId;
+                    box.OwnerId = owner;
+                    box.CharacterIndex = slot;
+                    var storage = em.GetComponent<StorageComponent>(originalBox);
+                    for (var i = 0; i < expectedLocations.Length; i++)
+                    {
+                        var item = em.SpawnEntity(i < pocketLocations.Length ? "Paper" : "ClothingOuterHardsuitScaf", map.GridCoords);
+                        Assert.That(em.System<SharedStorageSystem>().InsertAt((originalBox, storage), item,
+                            expectedLocations[i], out _, playSound: false, stackAutomatically: false), Is.True);
+                        if (legacy)
+                            data.Add(Save(item));
+                    }
+
+                    if (legacy)
+                    {
+                        em.DeleteEntity(originalBox);
+                        return;
+                    }
+
+                    var console = em.GetComponent<SafetyDepositConsoleComponent>(terminal);
+                    Assert.That(em.System<ItemSlotsSystem>().TryInsert(terminal, console.BoxSlot, originalBox, user), Is.True);
+                    em.EventBus.RaiseLocalEvent(terminal, new SafetyDepositDepositMessage { Actor = user });
+                });
+                if (legacy)
+                    await db.DepositSafetyDepositBoxItems(record.BoxId, data);
+                else
+                {
+                    for (var i = 0; i < 100; i++)
+                    {
+                        await pair.RunTicksSync(3);
+                        if ((await db.GetSafetyDepositBox(record.BoxId)) is { LastWithdrawn: null, Items.Count: 10 })
+                            break;
+                    }
+                    Assert.That((await db.GetSafetyDepositBox(record.BoxId))!.Items.Count, Is.EqualTo(10));
+                }
+
+                await Withdraw(record.BoxId);
+                await pair.Server.WaitAssertion(() =>
+                {
+                    var restored = em.EntityQuery<SafetyDepositBoxComponent>().Single(b => b.BoxId == record.BoxId).Owner;
+                    var storage = em.GetComponent<StorageComponent>(restored);
+                    Assert.That(storage.Container.ContainedEntities, Has.Count.EqualTo(10));
+                    Assert.That(storage.Container.ContainedEntities.Any(uid =>
+                        em.GetComponent<MetaDataComponent>(uid).EntityPrototype?.ID == "ClothingOuterHardsuitScaf"), Is.True);
+                    if (!legacy)
+                        Assert.That(storage.StoredItems.Values, Is.EquivalentTo(expectedLocations));
+                    em.DeleteEntity(restored);
+                });
+            }
+
             string paperData = "";
             string oversizedData = "";
+            string scafData = "";
             await pair.Server.WaitAssertion(() =>
             {
                 var paper = em.SpawnEntity("Paper", map.GridCoords);
@@ -100,9 +176,38 @@ public sealed class DepositWeaponPersistenceTest
                 var suit = em.SpawnEntity("ClothingOuterHardsuitJuggernaut", map.GridCoords);
                 oversizedData = Save(suit);
                 em.DeleteEntity(suit);
+                var scaf = em.SpawnEntity("ClothingOuterHardsuitScaf", map.GridCoords);
+                scafData = Save(scaf);
+                em.DeleteEntity(scaf);
             });
-            foreach (var failedData in new[] { oversizedData, "not a saved entity" })
+
+            var overflowRecord = await db.PurchaseSafetyDepositBox(owner, slot, "Overflow test", "SafetyDepositBoxSmall");
+            await db.DepositSafetyDepositBoxItems(overflowRecord.BoxId, [paperData, scafData, scafData, oversizedData]);
+            await Withdraw(overflowRecord.BoxId);
+            await pair.Server.WaitPost(() => SendWithdraw(overflowRecord.BoxId));
+            await pair.RunTicksSync(100);
+            await pair.Server.WaitAssertion(() =>
             {
+                var box = em.EntityQuery<SafetyDepositBoxComponent>().Single(b => b.BoxId == overflowRecord.BoxId).Owner;
+                var stored = em.GetComponent<StorageComponent>(box).Container.ContainedEntities;
+                Assert.That(stored.Select(uid => em.GetComponent<MetaDataComponent>(uid).EntityPrototype?.ID),
+                    Is.EquivalentTo(new[] { "Paper", "ClothingOuterHardsuitScaf" }));
+                var floorItems = em.EntityQuery<MetaDataComponent>().Where(meta =>
+                    meta.EntityPrototype?.ID is "ClothingOuterHardsuitScaf" or "ClothingOuterHardsuitJuggernaut")
+                    .Select(meta => meta.Owner).Where(uid => !stored.Contains(uid)).ToArray();
+                Assert.That(floorItems.Length, Is.EqualTo(2), "Only the two unplaceable items should drop, with no duplicates.");
+                foreach (var item in floorItems)
+                {
+                    Assert.That(em.System<SharedContainerSystem>().IsEntityInContainer(item), Is.False);
+                    Assert.That(em.GetComponent<TransformComponent>(item).Coordinates,
+                        Is.EqualTo(em.GetComponent<TransformComponent>(user).Coordinates));
+                    em.DeleteEntity(item);
+                }
+                em.DeleteEntity(box);
+            });
+
+            {
+                const string failedData = "not a saved entity";
                 var record = await db.PurchaseSafetyDepositBox(owner, slot, "Failed withdrawal test", "SafetyDepositBoxSmall");
                 await db.DepositSafetyDepositBoxItems(record.BoxId, [paperData, failedData]);
                 await pair.Server.WaitPost(() => SendWithdraw(record.BoxId));
@@ -118,7 +223,7 @@ public sealed class DepositWeaponPersistenceTest
                         "Clean up items already restored before the failure.");
                 });
 
-                // Once the incompatible/corrupt record is repaired, the same slot can be withdrawn.
+                // Once the unreadable record is repaired, the same slot can be withdrawn.
                 await db.DepositSafetyDepositBoxItems(record.BoxId, [paperData]);
                 await Withdraw(record.BoxId);
                 await pair.Server.WaitAssertion(() =>

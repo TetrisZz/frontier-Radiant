@@ -1,6 +1,6 @@
 - type: entity
   id: Vaccinator
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
   name: vaccinator
   description: A machine that creates vaccines.
   placement:
@@ -47,8 +47,3 @@
           False: { visible: false }
   - type: Machine
     board: VaccinatorMachineCircuitboard
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
-  - type: RequireProjectileTarget
