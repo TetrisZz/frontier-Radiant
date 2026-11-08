@@ -30,10 +30,11 @@ public struct HealthAnalyzerUiState
     public bool? Unrevivable;
     public bool? Unclonable; // Frontier
     public bool Printable; // Frontier
+    public List<HealthAnalyzerAddictionData> Addictions;
 
-    public HealthAnalyzerUiState() {}
+    public HealthAnalyzerUiState() { Addictions = new(); }
 
-    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, bool? unclonable, bool printable = false) // Frontier: added unclonable, printable
+    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, bool? unclonable, bool printable = false, List<HealthAnalyzerAddictionData>? addictions = null) // Frontier: added unclonable, printable
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -43,5 +44,24 @@ public struct HealthAnalyzerUiState
         Unrevivable = unrevivable;
         Unclonable = unclonable; // Frontier
         Printable = printable; // Frontier
+        Addictions = addictions ?? new();
+    }
+}
+
+/// <summary>Round-local dependence findings shown by the medical analyzer.</summary>
+[Serializable, NetSerializable]
+public sealed partial class HealthAnalyzerAddictionData
+{
+    public string GroupId;
+    public float Dependence;
+    public float Tolerance;
+    public int WithdrawalStage;
+
+    public HealthAnalyzerAddictionData(string groupId, float dependence, float tolerance, int withdrawalStage)
+    {
+        GroupId = groupId;
+        Dependence = dependence;
+        Tolerance = tolerance;
+        WithdrawalStage = withdrawalStage;
     }
 }

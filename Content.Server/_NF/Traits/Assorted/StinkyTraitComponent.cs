@@ -8,11 +8,13 @@ namespace Content.Server._NF.Traits.Assorted;
 [RegisterComponent, Access(typeof(StinkyTraitSystem))]
 public sealed partial class StinkyTraitComponent : Component
 {
+    internal static readonly Vector2 DefaultIncidentInterval = new(300, 600);
+
     /// <summary>
     /// The random time between incidents, (min, max).
     /// </summary>
     [DataField("timeBetweenIncidents")]
-    public Vector2 TimeBetweenIncidents { get; private set; } = new(300, 600);
+    public Vector2 TimeBetweenIncidents { get; private set; } = DefaultIncidentInterval;
 
     public float NextIncidentTime;
 

@@ -275,6 +275,12 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
     private void OnPuddleSlip(Entity<PuddleComponent> entity, ref SlipEvent args)
     {
+        if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution,
+                out var solution))
+            return;
+
+        EntityManager.System<Content.Server._radiant.Plumbing.HygieneSystem>().OnPuddleSlip(args.Slipped, solution);
+
         // Reactive entities have a chance to get a touch reaction from slipping on a puddle
         // (i.e. it is implied they fell face first onto it or something)
         if (!HasComp<ReactiveComponent>(args.Slipped) || HasComp<SlidingComponent>(args.Slipped))
@@ -283,10 +289,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         // Eventually probably have some system of 'body coverage' to tweak the probability but for now just 0.5
         // (implying that spacemen have a 50% chance to either land on their ass or their face)
         if (!_random.Prob(0.5f))
-            return;
-
-        if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution,
-                out var solution))
             return;
 
         _popups.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", entity.Owner)),

@@ -1,11 +1,13 @@
 - type: entity
   name: sink
-  id: SinkEmpty
-  suffix: Empty
+  id: BaseRadiantSink
+  abstract: true
   description: The faucets have been tightened to the maximum possible torque but are still known to drip.
   placement:
     mode: SnapgridCenter
   components:
+  - type: HLPersistOnShipSave
+    saveContents: true
   - type: Clickable
   - type: InteractionOutline
   - type: PaintWashStation
@@ -27,15 +29,6 @@
         maxVol: 100
       tank:
         maxVol: 500
-  - type: SolutionRegeneration
-    solution: tank
-    generated:
-      reagents:
-      - ReagentId: Water
-        Quantity: 1
-  - type: DrainableSolution
-    solution: tank
-  - type: ReagentTank
   - type: Drain
     autoDrain: false
   - type: DumpableSolution
@@ -67,6 +60,22 @@
     sound:
       path: /Audio/Ambience/Objects/drain.ogg
 
+
+- type: entity
+  parent: BaseRadiantSink
+  id: SinkEmpty
+  suffix: Empty
+  components:
+  # Only standalone sinks dispense from a local tank. Plumbed sinks use the server's pipe network.
+  - type: DrainableSolution
+    solution: tank
+  - type: ReagentTank
+  - type: SolutionRegeneration
+    solution: tank
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 1
 
 - type: entity
   name: sink

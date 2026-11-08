@@ -9,6 +9,7 @@
   id: BaseMobSpecies
   abstract: true
   components:
+  - type: Hygiene
   # Radiant sector start - Starlight surgery
   - type: SurgeryTarget
   # Radiant sector end

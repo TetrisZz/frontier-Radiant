@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server._radiant.Supporters;
 
-/// <summary>Boosty's Discord role controls future loadout selections. Issued items remain for the round.</summary>
+/// <summary>Discord roles and timed grants control supporter access. Issued items remain for the round.</summary>
 public sealed partial class SupporterSystem : SharedSupporterSystem
 {
     [Dependency] private IServerDbManager _db = default!;
@@ -34,7 +35,9 @@ public sealed partial class SupporterSystem : SharedSupporterSystem
     private readonly Dictionary<string, LinkCode> _codes = new();
     private DateTime _nextSweep;
     private readonly Dictionary<NetUserId, (string DiscordId, string RoleId)> _links = new();
+    private readonly Dictionary<NetUserId, DateTime> _manualGrants = new();
     private Task _work = Task.CompletedTask;
+    private Task _grantWork = Task.CompletedTask;
     private bool _loaded;
     private bool _stopped;
     private bool _retry;
@@ -49,6 +52,7 @@ public sealed partial class SupporterSystem : SharedSupporterSystem
         _discord.OnGatewayReady += OnGatewayReady;
         Subs.CVar(_config, SupporterCVars.Enabled, _ => ResetChecks());
         Subs.CVar(_config, SupporterCVars.DiscordRole, _ => ResetChecks());
+        LoadManualGrants();
         ResetChecks();
     }
 
@@ -63,8 +67,12 @@ public sealed partial class SupporterSystem : SharedSupporterSystem
     }
 
     public override bool HasAccess(NetUserId userId)
-        => _config.GetCVar(SupporterCVars.Enabled) && _links.TryGetValue(userId, out var link)
-            && link.RoleId.Length != 0 && link.RoleId == _config.GetCVar(SupporterCVars.DiscordRole);
+        => TryGetManualExpiry(userId, out _) ||
+            (_config.GetCVar(SupporterCVars.Enabled) && _links.TryGetValue(userId, out var link) &&
+                link.RoleId.Length != 0 && link.RoleId == _config.GetCVar(SupporterCVars.DiscordRole));
+
+    private bool TryGetManualExpiry(NetUserId userId, out DateTime expiry)
+        => _manualGrants.TryGetValue(userId, out expiry) && expiry > DateTime.UtcNow;
 
     private bool Configured => _config.GetCVar(SupporterCVars.Enabled) && _discord.IsConnected &&
         ulong.TryParse(_config.GetCVar(SupporterCVars.DiscordRole), out var role) && role != 0;
@@ -103,20 +111,69 @@ public sealed partial class SupporterSystem : SharedSupporterSystem
         _nextSweep = now.AddSeconds(5);
         foreach (var (code, data) in _codes.ToArray())
             if (data.Expires <= now) _codes.Remove(code);
+        foreach (var (userId, expiry) in _manualGrants)
+        {
+            if (expiry > now)
+                continue;
+
+            _manualGrants.Remove(userId);
+            if (_status.TryGetValue(userId, out var status))
+                Publish(status);
+        }
         if (_retry && now >= _nextRetry)
         {
             _retry = false;
+            LoadManualGrants();
             Reconcile();
         }
     }
 
     // Serialize initial checks, gateway events and unlinking so stale REST results cannot
     // overwrite a subsequent role-removal event. All callers enqueue on the game thread.
-    private Task Enqueue(Func<Task> action)
+    private Task Enqueue(Func<Task> action) => Enqueue(ref _work, action);
+
+    private Task Enqueue(ref Task queue, Func<Task> action)
     {
-        var operation = Run(_work, action);
-        _work = ContinueAfterFailure(operation);
+        var operation = Run(queue, action);
+        queue = ContinueAfterFailure(operation);
         return operation;
+    }
+
+    private void LoadManualGrants()
+    {
+        _ = Enqueue(ref _grantWork, async () =>
+        {
+            var grants = await _db.GetSupporterGrantsAsync(DateTime.UtcNow);
+            await CommitOnMainThread(() =>
+            {
+                if (_stopped) return;
+                _manualGrants.Clear();
+                foreach (var (userId, expiry) in grants)
+                    _manualGrants[userId] = expiry;
+                foreach (var status in _status.Values)
+                    Publish(status);
+            });
+        });
+    }
+
+    public async Task<DateTime> GrantManualAccess(NetUserId userId)
+    {
+        DateTime? expiry = null;
+        // Keep manual grants independent of pending Discord requests.
+        await Enqueue(ref _grantWork, async () =>
+        {
+            var expiresAt = DateTime.UtcNow.AddDays(30);
+            await _db.SetSupporterGrantAsync(userId, expiresAt);
+            expiry = expiresAt;
+            await CommitOnMainThread(() =>
+            {
+                if (_stopped) return;
+                _manualGrants[userId] = expiresAt;
+                if (_status.TryGetValue(userId, out var status))
+                    Publish(status);
+            });
+        });
+        return expiry ?? throw new InvalidOperationException("The supporter system is shutting down.");
     }
 
     private static async Task ContinueAfterFailure(Task operation)
@@ -234,6 +291,8 @@ public sealed partial class SupporterSystem : SharedSupporterSystem
 
     public string GetStatus(ICommonSession session)
     {
+        if (TryGetManualExpiry(session.UserId, out var expiry))
+            return Loc.GetString("supporter-manual-active", ("expiry", expiry.ToString("u", CultureInfo.InvariantCulture)));
         if (!_config.GetCVar(SupporterCVars.Enabled)) return Loc.GetString("supporter-not-configured");
         if (!_loaded || !_status.TryGetValue(session.UserId, out var status))
             return Loc.GetString("supporter-checking");

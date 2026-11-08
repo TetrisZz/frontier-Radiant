@@ -7,9 +7,16 @@
   - RadiantArtisanWorkshop
   - RadiantFishing
   - RadiantLife
+  - RadiantPlumbing
   - RadiantPaperwork
+  - RadiantProfessionalSkills
   - RadiantCareers
   - RadiantStorage
+
+- type: guideEntry
+  id: RadiantPlumbing
+  name: guide-entry-radiant-plumbing
+  text: /ServerInfo/_radiant/Guidebook/Life/Plumbing.xml
 
 - type: guideEntry
   id: RadiantArtisanEquipment
@@ -95,6 +102,11 @@
   text: /ServerInfo/_radiant/Guidebook/Paperwork.xml
   children:
   - RadiantNewsroom
+
+- type: guideEntry
+  id: RadiantProfessionalSkills
+  name: guide-entry-radiant-professional-skills
+  text: /ServerInfo/_radiant/Guidebook/Skills.xml
 
 - type: guideEntry
   id: RadiantCareers

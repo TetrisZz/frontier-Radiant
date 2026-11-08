@@ -47,6 +47,7 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<RadiantDiscordLink> RadiantDiscordLinks { get; set; } = null!;
+        public DbSet<RadiantSupporterGrant> RadiantSupporterGrants { get; set; } = null!;
         public DbSet<RadiantMachineStorage> RadiantMachineStorage { get; set; } = null!;
         public DbSet<TriadShipyardAuditEvent> TriadShipyardAuditEvents { get; set; } = null!;
         public DbSet<TriadShipyardMigrationPermit> TriadShipyardMigrationPermits { get; set; } = null!;
@@ -666,6 +667,13 @@ namespace Content.Server.Database
         [Required, MaxLength(20)] public string DiscordUserId { get; set; } = "";
         // Empty means no verified access. Store the role ID to invalidate access when configuration changes.
         [Required, MaxLength(20)] public string SupporterRoleId { get; set; } = "";
+    }
+
+    [Table("radiant_supporter_grant")]
+    public sealed class RadiantSupporterGrant
+    {
+        [Key] public Guid UserId { get; set; }
+        public DateTime ExpiresAt { get; set; }
     }
 
     [Table("whitelist")]

@@ -80,7 +80,7 @@ namespace Content.Shared.Verbs
             var canInteract = force || _actionBlockerSystem.CanInteract(user, target);
             var canComplexInteract = force || _actionBlockerSystem.CanComplexInteract(user);
 
-            _interactionSystem.TryGetUsedEntity(user, out var @using);
+            _interactionSystem.TryGetUsedEntity(user, out var @using, target: canAccess ? target : null, showSkillPopup: false);
             TryComp<HandsComponent>(user, out var hands);
 
             // TODO: fix this garbage and use proper generics or reflection or something else, not this.

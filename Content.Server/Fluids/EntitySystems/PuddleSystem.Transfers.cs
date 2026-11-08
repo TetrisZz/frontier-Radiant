@@ -2,6 +2,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.DragDrop;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Server.Fluids.EntitySystems;
@@ -38,6 +39,12 @@ public sealed partial class PuddleSystem
         // Dump reagents into DumpableSolution
         if (TryComp<DumpableSolutionComponent>(args.Target, out var dump))
         {
+            if (HasComp<DrainComponent>(args.Target))
+            {
+                _popups.PopupEntity(Loc.GetString("plumbing-use-drain-verb"), args.Target, args.User);
+                return;
+            }
+
             if (!_solutionContainerSystem.TryGetDumpableSolution((args.Target, dump, null), out var dumpableSoln, out var dumpableSolution))
                 return;
 

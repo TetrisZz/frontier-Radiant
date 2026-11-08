@@ -82,6 +82,7 @@ namespace Content.Client.Paper.UI
         public Func<bool>? CanFillForms { get; set; }
         private PaperFormField? _activeFormField;
         private bool? _canFillForms;
+        private bool _plainFormEntries;
 
         private int _MaxInputLength = -1;
         public int MaxInputLength
@@ -261,6 +262,7 @@ namespace Content.Client.Paper.UI
         /// the standard interactive paper surface so individual form fields still work.</summary>
         public void InitDossierVisuals(DossierPrintoutComponent dossier)
         {
+            _plainFormEntries = true;
             var kind = dossier.Kind;
             var security = kind == DossierKind.Security;
             var accent = security ? Color.FromHex("#713a35") : Color.FromHex("#35566b");
@@ -604,12 +606,48 @@ namespace Content.Client.Paper.UI
                 if (CanFillForms?.Invoke() != true || original != _currentRawText || string.IsNullOrWhiteSpace(text))
                     return;
 
-                var updated = ReplaceNthFormTag(original, formIndex, FormattedMessage.EscapeText(text));
+                var updated = ReplaceNthFormTag(original, formIndex, FormatFormEntry(text));
                 if (MaxInputLength != -1 && updated.Length > MaxInputLength)
                     return;
 
                 OnSaved?.Invoke(updated);
             });
+        }
+
+        private string FormatFormEntry(string text)
+        {
+            if (_plainFormEntries || !FormattedMessage.TryParse(text, out var nodes, out _))
+                return FormattedMessage.EscapeText(text);
+
+            // An invalid backslash escape can make the parser stop before the end of the field.
+            if (text.Contains('\\') && string.Concat(nodes) != text)
+                return FormattedMessage.EscapeText(text);
+
+            var openTags = new Stack<string>();
+            var hasFormatting = false;
+            foreach (var node in nodes)
+            {
+                if (node.Name is not { } name)
+                    continue;
+                if (name is not ("bold" or "italic" or "bolditalic" or "color") ||
+                    node.Attributes.Count != 0 ||
+                    (node.Value != default && (name != "color" || !node.Value.ColorValue.HasValue)))
+                    return FormattedMessage.EscapeText(text);
+
+                if (node.Closing)
+                {
+                    if (!openTags.TryPop(out var open) || open != name)
+                        return FormattedMessage.EscapeText(text);
+                }
+                else
+                {
+                    openTags.Push(name);
+                    hasFormatting = true;
+                }
+            }
+
+            // A field must not leave a style open across the rest of the document.
+            return hasFormatting && openTags.Count == 0 ? text : FormattedMessage.EscapeText(text);
         }
 
         protected override void FrameUpdate(FrameEventArgs args)

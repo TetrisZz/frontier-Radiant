@@ -280,13 +280,30 @@ public sealed class PhotocopierLayoutTest
         editor.Text = "Report";
         editor.ForceSubmitText();
         Assert.That(saved, Is.EqualTo("Name: [form]\nPosition: Captain\nContents: Report"));
+
+        paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(original, []));
+        paper.BeginFormEntry(0);
+        editor = Descendants(paper).OfType<LineEdit>().Single(edit => edit.Visible);
+        const string formattedName = "[color=#3167bd][bold]Captain[/bold] [italic]on duty[/italic][/color]";
+        editor.Text = formattedName;
+        editor.ForceSubmitText();
+        Assert.That(saved, Is.EqualTo("Name: " + formattedName + "\nPosition: [form]\nContents: [form]"));
+        paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(saved!, []));
+        Assert.That(Descendants(paper).OfType<PaperFormButton>().Count(), Is.EqualTo(2));
+        paper.BeginFormEntry(0);
+        editor = Descendants(paper).OfType<LineEdit>().Single(edit => edit.Visible);
+        editor.Text = "[italic]Report";
+        editor.ForceSubmitText();
+        Assert.That(saved, Does.Contain("Position: " + FormattedMessage.EscapeText("[italic]Report")),
+            "An unclosed style must not affect subsequent fields.");
+
         paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(original, []));
         paper.BeginFormEntry(0);
         editor = Descendants(paper).OfType<LineEdit>().Single(edit => edit.Visible);
         editor.Text = "[bold]Name[/bold] [form]";
         editor.ForceSubmitText();
         var escapedName = FormattedMessage.EscapeText("[bold]Name[/bold] [form]");
-        Assert.That(saved, Is.EqualTo("Name: " + escapedName + "\nPosition: [form]\nContents: [form]"), "Field values are plain text, not executable document markup.");
+        Assert.That(saved, Is.EqualTo("Name: " + escapedName + "\nPosition: [form]\nContents: [form]"), "Field text must not inject more interactive fields.");
         paper.Populate(new PaperComponent.PaperBoundUserInterfaceState(saved!, []));
         paper.BeginFormEntry(0);
         editor = Descendants(paper).OfType<LineEdit>().Single(edit => edit.Visible);

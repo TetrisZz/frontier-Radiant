@@ -24,7 +24,7 @@ public sealed class SupporterLinkCodeEvent(string command) : EntityEventArgs
 [CVarDefs]
 public static class SupporterCVars
 {
-    // Leave the existing manual unlocks working until Boosty and Discord are configured.
+    // Enable Discord subscriptions in place of the legacy playtime unlock.
     public static readonly CVarDef<bool> Enabled =
         CVarDef.Create("radiant.supporter_enabled", false, CVar.SERVER | CVar.REPLICATED);
     public static readonly CVarDef<string> DiscordRole =

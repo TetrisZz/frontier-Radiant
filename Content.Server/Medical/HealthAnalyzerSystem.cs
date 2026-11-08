@@ -21,6 +21,7 @@ using Robust.Shared.Timing;
 using Content.Server._NF.Medical; // Frontier
 using Content.Server._NF.Traits.Assorted;
 using Content.Server.Body.Systems; // Frontier
+using Content.Server._radiant.Addictions;
 
 namespace Content.Server.Medical;
 
@@ -251,6 +252,21 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         // End Frontier: add unclonable
 
         var printable = HasComp<HealthAnalyzerPrinterComponent>(healthAnalyzer); // Frontier
+        var addictions = new List<HealthAnalyzerAddictionData>();
+        if (TryComp<AddictionComponent>(entity, out var addictionComponent))
+        {
+            foreach (var (groupId, addiction) in addictionComponent.Groups)
+            {
+                if (addiction.Dependence <= 0)
+                    continue;
+
+                addictions.Add(new HealthAnalyzerAddictionData(
+                    groupId,
+                    addiction.Dependence,
+                    addiction.Tolerance,
+                    addiction.WithdrawalStage));
+            }
+        }
 
         var state = new HealthAnalyzerUiState(
             GetNetEntity(entity),
@@ -260,7 +276,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bleeding,
             unrevivable,
             unclonable, // Frontier
-            printable // Frontier
+            printable, // Frontier
+            addictions
         );
 
         _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(state));

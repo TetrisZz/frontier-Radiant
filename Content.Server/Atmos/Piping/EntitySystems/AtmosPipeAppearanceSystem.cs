@@ -1,3 +1,4 @@
+using Content.Server._radiant.Plumbing;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
@@ -42,7 +43,7 @@ public sealed partial class AtmosPipeAppearanceSystem : SharedAtmosPipeAppearanc
 
         foreach (var node in container.Nodes.Values)
         {
-            if (node is not PipeNode)
+            if (node is not (PipeNode or LiquidPipeNode { Port: false }))
                 continue;
 
             anyPipeNodes = true;
@@ -51,6 +52,8 @@ public sealed partial class AtmosPipeAppearanceSystem : SharedAtmosPipeAppearanc
             {
                 if (connectedNode is PipeNode { } pipeNode)
                     connected.Add((connectedNode.Owner, pipeNode.CurrentPipeLayer));
+                else if (connectedNode is LiquidPipeNode { Port: false })
+                    connected.Add((connectedNode.Owner, AtmosPipeLayer.Primary));
             }
         }
 

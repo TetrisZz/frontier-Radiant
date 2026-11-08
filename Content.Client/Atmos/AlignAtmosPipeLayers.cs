@@ -60,7 +60,7 @@ public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
             return;
 
         // Draw guide circles for each pipe layer if we are not in line/grid placing mode
-        if (pManager.PlacementType == PlacementTypes.None)
+        if (pManager.PlacementType == PlacementTypes.None && CanSelectLayer())
         {
             var gridRotation = _transformSystem.GetWorldRotation(gridUid.Value);
             var worldPosition = _mapSystem.LocalToWorld(gridUid.Value, Grid, MouseCoords.Position);
@@ -73,6 +73,17 @@ public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
         }
 
         base.Render(args);
+    }
+
+    private bool CanSelectLayer()
+    {
+        if (pManager.Hijack is ConstructionPlacementHijack construction)
+            return construction.CurrentPrototype?.AlternativePrototypes.Length > 1;
+
+        return pManager.CurrentPermission?.EntityType is { } id
+            && _protoManager.TryIndex<EntityPrototype>(id, out var prototype)
+            && prototype.TryGetComponent<AtmosPipeLayersComponent>(out var layers, _entityManager.ComponentFactory)
+            && layers.AlternativePrototypes.Count > 1;
     }
 
     /// <inheritdoc/>

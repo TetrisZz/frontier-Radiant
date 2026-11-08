@@ -14,6 +14,8 @@ namespace Content.Server._NF.Traits.Assorted;
 /// </summary>
 public sealed class StinkyTraitSystem : EntitySystem
 {
+    private static readonly string[] AirFreshenerSlots = ["neck", "pocket1", "pocket2", "pocket3", "pocket4"];
+
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -28,8 +30,13 @@ public sealed class StinkyTraitSystem : EntitySystem
 
     private void SetupStinkyTrait(EntityUid uid, StinkyTraitComponent component, ComponentStartup args)
     {
-        component.NextIncidentTime =
-            _random.NextFloat(component.TimeBetweenIncidents.X, component.TimeBetweenIncidents.Y);
+        component.NextIncidentTime = RollIncidentDelay(component);
+    }
+
+    internal float RollIncidentDelay(StinkyTraitComponent? trait = null)
+    {
+        var interval = trait?.TimeBetweenIncidents ?? StinkyTraitComponent.DefaultIncidentInterval;
+        return _random.NextFloat(interval.X, interval.Y);
     }
 
     public void AdjustStinkyTraitTimer(EntityUid uid, int timerReset, StinkyTraitComponent? stinky = null)
@@ -43,15 +50,30 @@ public sealed class StinkyTraitSystem : EntitySystem
     private void OnExamined(EntityUid uid, StinkyTraitComponent component, ExaminedEvent args)
     {
         if (args.IsInDetailsRange && !_net.IsClient && component.IsActive)
-            args.PushMarkup(Loc.GetString("trait-stinky-examined", ("target", Identity.Entity(uid, EntityManager))));
+            DescribeStench(uid, args);
     }
 
-    private bool OnAirFreshener(EntityUid? uid)
-    {
-        if (HasComp<AirFreshenerComponent>(uid))
-            return false;
+    internal void DescribeStench(EntityUid uid, ExaminedEvent args)
+        => args.PushMarkup(Loc.GetString("trait-stinky-examined", ("target", Identity.Entity(uid, EntityManager))));
 
-        return true;
+    internal bool HasAirFreshener(EntityUid uid)
+    {
+        foreach (var slot in AirFreshenerSlots)
+        {
+            if (_inventory.TryGetSlotEntity(uid, slot, out var item) && HasComp<AirFreshenerComponent>(item))
+                return true;
+        }
+
+        return false;
+    }
+
+    internal void AnnounceStench(EntityUid uid)
+    {
+        var othersMessage = Loc.GetString("trait-stinky-in-range-others", ("target", uid));
+        _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true);
+
+        var selfMessage = Loc.GetString("trait-stinky-in-range-self");
+        _popup.PopupEntity(selfMessage, uid, uid);
     }
 
     public override void Update(float frameTime)
@@ -66,30 +88,10 @@ public sealed class StinkyTraitSystem : EntitySystem
             if (component.NextIncidentTime >= 0)
                 continue;
 
-            component.IsActive = true;
-            if (_inventory.TryGetSlotEntity(uid, "neck", out var neck)) // Not yet added to any item as neck
-                component.IsActive = OnAirFreshener(neck);
-            if (_inventory.TryGetSlotEntity(uid, "pocket1", out var pocket1))
-                component.IsActive = OnAirFreshener(pocket1);
-            if (_inventory.TryGetSlotEntity(uid, "pocket2", out var pocket2))
-                component.IsActive = OnAirFreshener(pocket2);
-            if (_inventory.TryGetSlotEntity(uid, "pocket3", out var pocket3))
-                component.IsActive = OnAirFreshener(pocket3);
-            if (_inventory.TryGetSlotEntity(uid, "pocket4", out var pocket4))
-                component.IsActive = OnAirFreshener(pocket4);
-
-            // Set the new time.
-            component.NextIncidentTime +=
-                _random.NextFloat(component.TimeBetweenIncidents.X, component.TimeBetweenIncidents.Y);
-
-            if (!component.IsActive)
-                continue;
-
-            var othersMessage = Loc.GetString("trait-stinky-in-range-others", ("target", uid));
-            _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true);
-
-            var selfMessage = Loc.GetString("trait-stinky-in-range-self");
-            _popup.PopupEntity(selfMessage, uid, uid);
+            component.IsActive = !HasAirFreshener(uid);
+            component.NextIncidentTime += RollIncidentDelay(component);
+            if (component.IsActive)
+                AnnounceStench(uid);
         }
     }
 }
