@@ -162,6 +162,19 @@ public abstract class ClothingSystem : EntitySystem
     }
 
     /// <summary>
+    /// Changes the RSI used when this clothing item is equipped and refreshes its owner's visuals.
+    /// </summary>
+    public void SetRsiPath(EntityUid uid, string? rsiPath, ClothingComponent? clothing = null)
+    {
+        if (!Resolve(uid, ref clothing) || clothing.RsiPath == rsiPath)
+            return;
+
+        clothing.RsiPath = rsiPath;
+        _itemSys.VisualsChanged(uid);
+        Dirty(uid, clothing);
+    }
+
+    /// <summary>
     ///     Copy all clothing specific visuals from another item.
     /// </summary>
     public void CopyVisuals(EntityUid uid, ClothingComponent otherClothing, ClothingComponent? clothing = null)

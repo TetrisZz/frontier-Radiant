@@ -88,6 +88,19 @@ public abstract class SharedItemSystem : EntitySystem
     }
 
     /// <summary>
+    /// Changes an item's in-hand RSI and refreshes the held visuals.
+    /// </summary>
+    public void SetRsiPath(EntityUid uid, string? rsiPath, ItemComponent? component = null)
+    {
+        if (!Resolve(uid, ref component) || component.RsiPath == rsiPath)
+            return;
+
+        component.RsiPath = rsiPath;
+        Dirty(uid, component);
+        VisualsChanged(uid);
+    }
+
+    /// <summary>
     ///     Copy all item specific visuals from another item.
     /// </summary>
     public void CopyVisuals(EntityUid uid, ItemComponent otherItem, ItemComponent? item = null)
