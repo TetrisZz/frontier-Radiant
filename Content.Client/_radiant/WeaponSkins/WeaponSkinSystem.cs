@@ -3,6 +3,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Item;
 using Content.Client.Clothing;
 using Content.Client.Items.Systems;
+using Content.Client.Weapons.Ranged.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -36,7 +37,21 @@ public sealed class WeaponSkinSystem : EntitySystem
             return;
 
         if (TryComp<SpriteComponent>(ent, out var sprite))
-            _sprites.LayerSetSprite((ent, sprite), 0, new SpriteSpecifier.Rsi(new ResPath(skin.Sprite), skin.State));
+        {
+            var skinRsi = new ResPath(skin.Sprite);
+            if (_sprites.LayerMapTryGet((ent.Owner, sprite), GunVisualLayers.Base, out var baseLayer, false))
+                _sprites.LayerSetSprite((ent.Owner, sprite), baseLayer, new SpriteSpecifier.Rsi(skinRsi, skin.State));
+            else
+                _sprites.LayerSetSprite((ent.Owner, sprite), 0, new SpriteSpecifier.Rsi(skinRsi, skin.State));
+
+            // Magazine appearance is a separate visual layer. Swap its RSI too, but leave its
+            // state alone so the gun's normal ammo/loaded-magazine visual updates still work.
+            if (_sprites.LayerMapTryGet((ent.Owner, sprite), GunVisualLayers.Mag, out var magLayer, false))
+                _sprites.LayerSetRsi((ent.Owner, sprite), magLayer, skinRsi);
+
+            if (_sprites.LayerMapTryGet((ent.Owner, sprite), GunVisualLayers.MagUnshaded, out var magUnshadedLayer, false))
+                _sprites.LayerSetRsi((ent.Owner, sprite), magUnshadedLayer, skinRsi);
+        }
 
         if (HasComp<ItemComponent>(ent))
             _items.SetRsiPath(ent, skin.ItemSprite);

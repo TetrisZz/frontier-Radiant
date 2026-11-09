@@ -206,7 +206,10 @@ public sealed class HealthAnalyzerPrinterSystem : EntitySystem
                 ("damageGroup", group.LocalizedName),
                 ("amount", groupDamage)
             );
-            report.AddText(groupTitleText);
+            // These localized templates intentionally contain paper markup (bold headers).
+            // AddText escapes markup and prints the tags literally, so parse the trusted
+            // localized template before serializing it into the paper content.
+            report.AddMarkupPermissive(groupTitleText);
             report.PushNewline();
 
             // List individual damage types
@@ -218,7 +221,7 @@ public sealed class HealthAnalyzerPrinterSystem : EntitySystem
                     continue;
                 }
 
-                report.AddText(Loc.GetString(
+                report.AddMarkupPermissive(Loc.GetString(
                     "health-analyzer-printout-damage-type-text",
                     ("damageType", _prototypes.Index<DamageTypePrototype>(type).LocalizedName),
                     ("amount", amount)
