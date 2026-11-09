@@ -4,8 +4,8 @@ meta:
   engineVersion: 283.1.5
   forkId: ""
   forkVersion: ""
-  time: 10/30/2026 13:49:59
-  entityCount: 1062
+  time: 11/09/2026 05:08:12
+  entityCount: 1063
 maps: []
 grids:
 - 1
@@ -1085,7 +1085,7 @@ entities:
             2: 49343
             0: 4096
           -3,4:
-            2: 49356
+            2: 3276
           -2,1:
             2: 63351
           -2,2:
@@ -1093,7 +1093,7 @@ entities:
           -2,3:
             2: 29119
           -2,4:
-            2: 29047
+            2: 6007
           -7,1:
             0: 59392
             1: 1024
@@ -2943,6 +2943,11 @@ entities:
     - type: Transform
       parent: 1
       pos: -7.5,11.5
+  - uid: 1063
+    components:
+    - type: Transform
+      parent: 1
+      pos: -8.5,19.5
 - proto: CableTerminal
   entities:
   - uid: 261
@@ -6266,6 +6271,13 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -12.5,11.5
+- proto: SmartFridgeRadiant
+  entities:
+  - uid: 654
+    components:
+    - type: Transform
+      parent: 1
+      pos: -4.5,11.5
 - proto: SMESBasic
   entities:
   - uid: 614
@@ -6602,13 +6614,6 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -0.5,1.5
-- proto: VendingMachineChemicals
-  entities:
-  - uid: 654
-    components:
-    - type: Transform
-      parent: 1
-      pos: -4.5,11.5
 - proto: VendingMachineMedical
   entities:
   - uid: 655
