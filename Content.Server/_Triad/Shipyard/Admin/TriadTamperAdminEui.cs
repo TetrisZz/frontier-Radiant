@@ -310,8 +310,10 @@ public sealed partial class TriadTamperAdminEui : BaseEui, ITriadTamperAuditObse
         {
             notes = notes is { } value ? value[..Math.Min(value.Length, 500)] : null;
             await _permitStore.GrantAsync(target, adminId, grantedAt, notes, default);
-            if (_closed || !_admins.HasAdminFlag(Player, AdminFlags.Admin)
-                || session.Status == Robust.Shared.Enums.SessionStatus.Disconnected)
+            // Closing the audit window after clicking Grant must not cancel the action. The permit
+            // is intentionally session-scoped and is revoked by the player's disconnect handler.
+            // Only undo it here if the target disconnected while the database write was pending.
+            if (session.Status == Robust.Shared.Enums.SessionStatus.Disconnected)
             {
                 await _permitStore.RevokeAsync(target, default);
                 return;
@@ -319,7 +321,8 @@ public sealed partial class TriadTamperAdminEui : BaseEui, ITriadTamperAuditObse
             var targetName = await ResolveNameAsync(target);
             _entMan.System<TriadTamperPolicyService>().RecordPermitAction(
                 TriadShipyardEventType.PermitGranted, target, targetName, adminId, roundId > 0 ? roundId : null);
-            await RefreshAsync();
+            if (!_closed && _admins.HasAdminFlag(Player, AdminFlags.Admin))
+                await RefreshAsync();
         }
         catch (Exception exception)
         {

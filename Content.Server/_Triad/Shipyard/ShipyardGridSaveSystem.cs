@@ -40,6 +40,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Materials.OreSilo;
 using Content.Shared._radiant.Storage;
 using Content.Server._radiant.Storage;
+using Content.Server._radiant.Plumbing;
 using Content.Server.Station.Systems;
 using Content.Server._NF.ShuttleRecords;
 using Content.Server.Cargo.Systems;
@@ -498,11 +499,21 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         if (!data.TryGet("components", out SequenceDataNode? components))
             return;
 
+        // Keep the wastewater tank and its solution container, but snapshot the solution empty.
+        // This leaves the tank usable after deployment without carrying the previous trip's waste.
+        var clearTankSolution = TryComp<ContainedSolutionComponent>(uid, out var containedSolution)
+            && TryComp<PlumbingTankComponent>(containedSolution.Container, out var tank)
+            && tank.ClearContentsOnShipSave;
+
         foreach (var node in components.ToArray())
         {
             if (node is not MappingDataNode component
                 || !component.TryGet("type", out ValueDataNode? type))
                 continue;
+
+            if (clearTankSolution && type.Value == "Solution"
+                && component.TryGet("solution", out MappingDataNode? solution))
+                solution["reagents"] = new SequenceDataNode();
 
             switch (type.Value)
             {

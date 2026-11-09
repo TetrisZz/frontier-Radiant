@@ -235,6 +235,7 @@
   - type: SolutionContainerVisuals
     fillBaseName: fill-
   - type: PlumbingTank
+    waterOnly: true
   - type: HLPersistOnShipSave
     saveContents: true
   - type: SolutionContainerManager
@@ -286,8 +287,9 @@
   - type: SolutionContainerVisuals
     fillBaseName: fill-
   - type: PlumbingTank
+    clearContentsOnShipSave: true
   - type: HLPersistOnShipSave
-    saveContents: true
+    saveContents: false
   - type: SolutionContainerManager
     solutions:
       tank:
