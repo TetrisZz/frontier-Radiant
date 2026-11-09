@@ -514,6 +514,12 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
                     component["activeKey"] = ValueDataNode.Null();
                     component["filter"] = ValueDataNode.Null();
                     break;
+                case "ItemToggle" when HasComp<Content.Server._radiant.Shower.ShowerWaterComponent>(uid):
+                    component["activated"] = new ValueDataNode("false");
+                    break;
+                case "ItemToggleActiveSound" when HasComp<Content.Server._radiant.Shower.ShowerWaterComponent>(uid):
+                    component.Remove("playingStream");
+                    break;
             }
         }
 

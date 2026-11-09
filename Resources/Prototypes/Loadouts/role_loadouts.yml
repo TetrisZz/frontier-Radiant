@@ -292,7 +292,10 @@
   - CareerMiningNeck
   - CareerMiningEyes
   - CareerMiningEars
+  - ContractorEncryptionKey
   - CareerSurvival
+  - ContractorWallet
+  - ContractorImplanter
   - Trinkets
   - GroupSpeciesBreathTool
   - ContractorUnderwearBottom
@@ -339,8 +342,11 @@
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes
+  - ContractorEncryptionKey
   - CareerEngineeringPDA
   - CareerSurvivalEngineering
+  - ContractorWallet
+  - ContractorImplanter
   - Trinkets
   - GroupSpeciesBreathTool
   - ContractorUnderwearBottom
@@ -536,7 +542,10 @@
   - CareerMedicalNeck
   - CareerMedicalBelt
   - CareerMedicalEars
+  - ContractorEncryptionKey
   - CareerSurvivalMedical
+  - ContractorWallet
+  - ContractorImplanter
   - Trinkets
   - GroupSpeciesBreathToolMedical
   - ContractorUnderwearBottom

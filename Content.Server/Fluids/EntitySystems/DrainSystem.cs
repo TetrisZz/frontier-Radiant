@@ -1,3 +1,4 @@
+using Content.Server._radiant.Plumbing;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
@@ -10,6 +11,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -21,6 +23,7 @@ namespace Content.Server.Fluids.EntitySystems;
 
 public sealed class DrainSystem : SharedDrainSystem
 {
+    private static readonly ProtoId<TagPrototype> GoldenPlunger = "GoldenPlunger";
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
@@ -28,9 +31,11 @@ public sealed class DrainSystem : SharedDrainSystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly PuddleSystem _puddleSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
+    [Dependency] private readonly PlumbingSystem _plumbing = default!;
+    [Dependency] private readonly OpenableSystem _openable = default!;
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = new();
 
@@ -55,18 +60,19 @@ public sealed class DrainSystem : SharedDrainSystem
         if (!args.CanAccess || !args.CanInteract || args.Using == null)
             return;
 
-        if (!TryComp(args.Using, out SpillableComponent? spillable) ||
+        if (!HasComp<SpillableComponent>(args.Using) ||
             !TryComp(args.Target, out DrainComponent? drain))
             return;
 
         var used = args.Using.Value;
         var target = args.Target;
+        var user = args.User;
         Verb verb = new()
         {
             Text = Loc.GetString("drain-component-empty-verb-inhand", ("object", Name(used))),
             Act = () =>
             {
-                Empty(used, spillable, target, drain);
+                Empty(used, target, user, drain);
             },
             Impact = LogImpact.Low,
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/eject.svg.192dpi.png"))
@@ -75,8 +81,11 @@ public sealed class DrainSystem : SharedDrainSystem
         args.Verbs.Add(verb);
     }
 
-    private void Empty(EntityUid container, SpillableComponent spillable, EntityUid target, DrainComponent drain)
+    private void Empty(EntityUid container, EntityUid target, EntityUid user, DrainComponent drain)
     {
+        if (_openable.IsClosed(container, user))
+            return;
+
         // Find the solution in the container that is emptied
         if (!_solutionContainerSystem.TryGetDrainableSolution(container, out var containerSoln, out var containerSolution) || containerSolution.Volume == FixedPoint2.Zero)
         {
@@ -86,37 +95,29 @@ public sealed class DrainSystem : SharedDrainSystem
             return;
         }
 
-        // try to find the drain's solution
-        if (!_solutionContainerSystem.ResolveSolution(target, DrainComponent.SolutionName, ref drain.Solution, out var drainSolution))
+        var original = containerSolution.Volume;
+        FixedPoint2 transferred;
+        if (TryComp<PlumbedFixtureComponent>(target, out var fixture) && fixture.Waste)
         {
-            return;
+            transferred = _plumbing.SendWaste(target, containerSoln.Value, original);
         }
-
-        // Try to transfer as much solution as possible to the drain
-
-        var amountToPutInDrain = drainSolution.AvailableVolume;
-        var amountToSpillOnGround = containerSolution.Volume - drainSolution.AvailableVolume;
-
-        if (amountToPutInDrain > 0)
+        else if (_solutionContainerSystem.ResolveSolution(target, DrainComponent.SolutionName, ref drain.Solution, out var drainSolution))
         {
-            var solutionToPutInDrain = _solutionContainerSystem.SplitSolution(containerSoln.Value, amountToPutInDrain);
-            _solutionContainerSystem.TryAddSolution(drain.Solution.Value, solutionToPutInDrain);
+            transferred = FixedPoint2.Min(original, drainSolution.AvailableVolume);
+            if (transferred > 0)
+                _solutionContainerSystem.AddSolution(drain.Solution.Value, _solutionContainerSystem.SplitSolution(containerSoln.Value, transferred));
+        }
+        else
+            return;
 
+        if (transferred > 0)
+        {
             _audioSystem.PlayPvs(drain.ManualDrainSound, target);
             _ambientSoundSystem.SetAmbience(target, true);
         }
 
-
-        // Spill the remainder.
-
-        if (amountToSpillOnGround > 0)
-        {
-            var solutionToSpill = _solutionContainerSystem.SplitSolution(containerSoln.Value, amountToSpillOnGround);
-            _puddleSystem.TrySpillAt(Transform(target).Coordinates, solutionToSpill, out _);
-            _popupSystem.PopupEntity(
-                Loc.GetString("drain-component-empty-verb-target-is-full-message", ("object", target)),
-                container);
-        }
+        if (transferred < original)
+            _popupSystem.PopupEntity(Loc.GetString("plumbing-drain-remainder"), target, user);
     }
 
     public override void Update(float frameTime)
@@ -147,8 +148,11 @@ public sealed class DrainSystem : SharedDrainSystem
                 continue;
             }
 
-            // Remove a bit from the buffer
-            _solutionContainerSystem.SplitSolution(drain.Solution.Value, (drain.UnitsDestroyedPerSecond * drain.DrainFrequency));
+            var plumbed = TryComp<PlumbedFixtureComponent>(uid, out var fixture) && fixture.Waste;
+            if (plumbed)
+                _plumbing.SendWaste(uid, drain.Solution.Value, FixedPoint2.New(drain.UnitsPerSecond * drain.DrainFrequency));
+            else
+                _solutionContainerSystem.SplitSolution(drain.Solution.Value, (drain.UnitsDestroyedPerSecond * drain.DrainFrequency));
 
             // This will ensure that UnitsPerSecond is per second...
             var amount = drain.UnitsPerSecond * drain.DrainFrequency;
@@ -158,7 +162,7 @@ public sealed class DrainSystem : SharedDrainSystem
                 _puddles.Clear();
                 _lookup.GetEntitiesInRange(Transform(uid).Coordinates, drain.Range, _puddles);
 
-                if (_puddles.Count == 0 && drainSolution.Volume <= 0)
+                if (_puddles.Count == 0 || (plumbed && _plumbing.WasteCapacity(uid) <= 0))
                 {
                     _ambientSoundSystem.SetAmbience(uid, false);
                     continue;
@@ -170,11 +174,22 @@ public sealed class DrainSystem : SharedDrainSystem
 
                 foreach (var puddle in _puddles)
                 {
+                    if (plumbed && Transform(puddle).GridUid != Transform(uid).GridUid)
+                        continue;
+
                     // Queue the solution deletion if it's empty. EvaporationSystem might also do this
                     // but queuedelete should be pretty safe.
                     if (!_solutionContainerSystem.ResolveSolution(puddle.Owner, puddle.Comp.SolutionName, ref puddle.Comp.Solution, out var puddleSolution))
                     {
                         QueueDel(puddle);
+                        continue;
+                    }
+
+                    if (plumbed)
+                    {
+                        _plumbing.SendWaste(uid, puddle.Comp.Solution.Value, FixedPoint2.New(amount));
+                        if (puddleSolution.Volume <= 0)
+                            QueueDel(puddle);
                         continue;
                     }
 
@@ -216,13 +231,14 @@ public sealed class DrainSystem : SharedDrainSystem
     private void OnInteract(Entity<DrainComponent> entity, ref AfterInteractUsingEvent args)
     {
         if (!args.CanReach || args.Target == null ||
-            !_tagSystem.HasTag(args.Used, DrainComponent.PlungerTag) ||
-            !_solutionContainerSystem.ResolveSolution(args.Target.Value, DrainComponent.SolutionName, ref entity.Comp.Solution, out var drainSolution))
-        {
+            (!_tagSystem.HasTag(args.Used, DrainComponent.PlungerTag) && !_tagSystem.HasTag(args.Used, GoldenPlunger)))
             return;
-        }
 
-        if (drainSolution.AvailableVolume > 0)
+        var clogged = TryComp<PlumbedFixtureComponent>(entity, out var fixture) && fixture.Waste
+            ? fixture.Clogged
+            : _solutionContainerSystem.ResolveSolution(entity.Owner, DrainComponent.SolutionName, ref entity.Comp.Solution, out var drainSolution)
+              && drainSolution.AvailableVolume <= 0;
+        if (!clogged)
         {
             _popupSystem.PopupEntity(Loc.GetString("drain-component-unclog-notapplicable", ("object", args.Target.Value)), args.Target.Value);
             return;
@@ -231,20 +247,31 @@ public sealed class DrainSystem : SharedDrainSystem
         _audioSystem.PlayPvs(entity.Comp.PlungerSound, entity);
 
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, entity.Comp.UnclogDuration, new DrainDoAfterEvent(), entity, args.Target, args.Used)
+        var duration = entity.Comp.UnclogDuration * (_tagSystem.HasTag(args.Used, GoldenPlunger) ? 0.5f : 1f);
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, duration, new DrainDoAfterEvent(), entity, args.Target, args.Used)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
             BreakOnHandChange = true
         };
 
-        _doAfterSystem.TryStartDoAfter(doAfterArgs);
+        args.Handled = _doAfterSystem.TryStartDoAfter(doAfterArgs);
     }
 
     private void OnDoAfter(Entity<DrainComponent> entity, ref DrainDoAfterEvent args)
     {
-        if (args.Target == null)
+        if (args.Cancelled || args.Handled || args.Target == null)
             return;
+
+        args.Handled = true;
+        if (TryComp<PlumbedFixtureComponent>(entity, out var fixture) && fixture.Waste)
+        {
+            fixture.WasteBuildup = 0;
+            _audioSystem.PlayPvs(entity.Comp.UnclogSound, args.Target.Value);
+            _popupSystem.PopupEntity(Loc.GetString("plumbing-unclogged"), args.Target.Value, args.User);
+            return;
+        }
+
 
         if (!_random.Prob(entity.Comp.UnclogProbability))
         {

@@ -1,0 +1,449 @@
+- type: construction
+  id: RadiantWaterPipe
+  graph: RadiantWaterPipe
+  startNode: start
+  targetNode: finished
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: constructionGraph
+  id: RadiantWaterPipe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: half
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: straight
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: bend
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: tjunction
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+  - node: finished
+    entity: RadiantWaterPipe
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+  - node: half
+    entity: RadiantWaterPipeHalf
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+  - node: straight
+    entity: RadiantWaterPipeStraight
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+  - node: bend
+    entity: RadiantWaterPipeBend
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+  - node: tjunction
+    entity: RadiantWaterPipeTJunction
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+- type: construction
+  id: RadiantWastePipe
+  graph: RadiantWastePipe
+  startNode: start
+  targetNode: finished
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: constructionGraph
+  id: RadiantWastePipe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: half
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: straight
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: bend
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: tjunction
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+  - node: finished
+    entity: RadiantWastePipe
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+  - node: half
+    entity: RadiantWastePipeHalf
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+  - node: straight
+    entity: RadiantWastePipeStraight
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+  - node: bend
+    entity: RadiantWastePipeBend
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+  - node: tjunction
+    entity: RadiantWastePipeTJunction
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+      - !type:DeleteEntity {}
+
+- type: construction
+  id: RadiantWaterPipeHalf
+  graph: RadiantWaterPipe
+  startNode: start
+  targetNode: half
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: RadiantWaterPipeStraight
+  graph: RadiantWaterPipe
+  startNode: start
+  targetNode: straight
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: RadiantWaterPipeBend
+  graph: RadiantWaterPipe
+  startNode: start
+  targetNode: bend
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: RadiantWaterPipeTJunction
+  graph: RadiantWaterPipe
+  startNode: start
+  targetNode: tjunction
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: RadiantWastePipeHalf
+  graph: RadiantWastePipe
+  startNode: start
+  targetNode: half
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: RadiantWastePipeStraight
+  graph: RadiantWastePipe
+  startNode: start
+  targetNode: straight
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: RadiantWastePipeBend
+  graph: RadiantWastePipe
+  startNode: start
+  targetNode: bend
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: RadiantWastePipeTJunction
+  graph: RadiantWastePipe
+  startNode: start
+  targetNode: tjunction
+  category: construction-category-utilities
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+
+- type: construction
+  id: RadiantWaterSupplyTank
+  graph: RadiantWaterSupplyTank
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: RadiantWaterSupplyTank
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 10
+        doAfter: 3
+      - material: Plasteel
+        amount: 4
+        doAfter: 3
+  - node: finished
+    entity: RadiantWaterSupplyTank
+
+- type: construction
+  id: RadiantWastewaterTank
+  graph: RadiantWastewaterTank
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: RadiantWastewaterTank
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 10
+        doAfter: 3
+      - material: Plasteel
+        amount: 4
+        doAfter: 3
+  - node: finished
+    entity: RadiantWastewaterTank
+
+- type: construction
+  id: RadiantPlumbedSink
+  graph: RadiantPlumbedSink
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: RadiantPlumbedSink
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 30
+        doAfter: 10
+      - material: Plasteel
+        amount: 10
+        doAfter: 10
+      - material: Silver
+        amount: 20
+        doAfter: 10
+  - node: finished
+    entity: RadiantPlumbedSink
+
+- type: construction
+  id: RadiantPlumbedShower
+  graph: RadiantPlumbedShower
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: RadiantPlumbedShower
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - material: Plastic
+        amount: 2
+        doAfter: 1
+  - node: finished
+    entity: RadiantPlumbedShower
+
+- type: construction
+  id: RadiantPlumbedDrain
+  graph: RadiantPlumbedDrain
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: RadiantPlumbedDrain
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+  - node: finished
+    entity: RadiantPlumbedDrain
+
+- type: construction
+  id: RadiantPlumbedToilet
+  graph: RadiantPlumbedToilet
+  startNode: start
+  targetNode: finished
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: RadiantPlumbedToilet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 3
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+  - node: finished
+    entity: RadiantPlumbedToilet

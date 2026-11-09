@@ -144,7 +144,7 @@ public sealed partial class SharedProfessionalSkillsSystem : EntitySystem
 
     private void OnUse(Entity<ProfessionalSkillsComponent> ent, ref UseAttemptEvent args)
     {
-        if (!args.Cancelled && !args.IgnoreUseSkillRequirement && !CanUse(ent, args.Used, SkillAction.Use))
+        if (!args.Cancelled && !args.IgnoreUseSkillRequirement && !CanUse(ent, args.Used, SkillAction.Use, args.ShowSkillPopup))
             args.Cancel();
     }
 

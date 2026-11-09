@@ -1,0 +1,38 @@
+- type: alertCategory
+  id: RadiantHygiene
+
+- type: alert
+  id: RadiantHygiene
+  category: RadiantHygiene
+  icons:
+  - sprite: /Textures/Objects/Specific/Janitorial/soap.rsi
+    state: soap-4
+  name: alerts-radiant-hygiene-clean-name
+  description: alerts-radiant-hygiene-clean-desc
+
+- type: alert
+  id: RadiantHygieneSweaty
+  category: RadiantHygiene
+  icons:
+  - sprite: /Textures/Objects/Specific/Janitorial/soap.rsi
+    state: soap-3
+  name: alerts-radiant-hygiene-sweaty-name
+  description: alerts-radiant-hygiene-sweaty-desc
+
+- type: alert
+  id: RadiantHygieneDirty
+  category: RadiantHygiene
+  icons:
+  - sprite: /Textures/Objects/Specific/Janitorial/soap.rsi
+    state: soap-2
+  name: alerts-radiant-hygiene-dirty-name
+  description: alerts-radiant-hygiene-dirty-desc
+
+- type: alert
+  id: RadiantHygieneFilthy
+  category: RadiantHygiene
+  icons:
+  - sprite: /Textures/Objects/Specific/Janitorial/soap.rsi
+    state: soap-1
+  name: alerts-radiant-hygiene-filthy-name
+  description: alerts-radiant-hygiene-filthy-desc

@@ -15,6 +15,12 @@ public sealed partial class SupporterLoadoutEffect : LoadoutEffect
         ICommonSession? session, IDependencyCollection collection,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
+        if (session != null && collection.Resolve<IEntityManager>().System<SharedSupporterSystem>().HasAccess(session.UserId))
+        {
+            reason = null;
+            return true;
+        }
+
         if (!collection.Resolve<IConfigurationManager>().GetCVar(SupporterCVars.Enabled))
         {
             return new JobRequirementLoadoutEffect
@@ -23,9 +29,7 @@ public sealed partial class SupporterLoadoutEffect : LoadoutEffect
             }.Validate(profile, loadout, session, collection, out reason);
         }
 
-        var allowed = session != null && collection.Resolve<IEntityManager>()
-            .System<SharedSupporterSystem>().HasAccess(session.UserId);
-        reason = allowed ? null : FormattedMessage.FromMarkupOrThrow(Loc.GetString("supporter-loadout-required"));
-        return allowed;
+        reason = FormattedMessage.FromMarkupOrThrow(Loc.GetString("supporter-loadout-required"));
+        return false;
     }
 }

@@ -1,0 +1,103 @@
+# Weapon cosmetics are configured here. Add a weaponSkin entry and an applicator
+# entity to add another skin without changing the shared application systems.
+- type: weaponSkin
+  id: WeaponSkinRubezh
+  name: weapon-skin-name-rubezh
+  weapons: [WeaponShotgunEnforcer, NFWeaponShotgunEnforcer, NFWeaponShotgunEnforcerRS, WeaponShotgunAdjutant]
+  sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi
+  state: icon
+  itemSprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun_inhands_64x.rsi
+  clothingSprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi
+  fireSound:
+    path: /Audio/_radiant/Weapons/Gunshots/wpn_sh_spapa12_plr_shot_01.ogg
+    params:
+      volume: -7
+
+- type: weaponSkin
+  id: WeaponSkinBloodCurve
+  name: weapon-skin-name-blood-curve
+  weapons: [NFWeaponShotgunKammerer]
+  sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi
+  state: mag-unshaded-0
+  itemSprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi
+  fireSound: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+
+- type: weaponSkin
+  id: WeaponSkinNocturne25
+  name: weapon-skin-name-nocturne-25
+  weapons: [NFWeaponPistolUniversal, NFWeaponPistolCobra]
+  sprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi
+  state: base
+  itemSprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi
+  fireSound:
+    path: /Audio/_radiant/Weapons/Gunshots/mur.ogg
+    params:
+      volume: -5
+
+- type: weaponSkin
+  id: WeaponSkinVP78
+  name: weapon-skin-name-vp78
+  weapons: [NFWeaponPistolViper, NFWeaponPistolMk58]
+  sprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi
+  state: base
+  itemSprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi
+  fireSound:
+    path: /Audio/_radiant/Weapons/Gunshots/vp78.ogg
+    params:
+      volume: -5
+
+- type: entity
+  parent: BaseItem
+  id: WeaponSkinApplicatorRubezh
+  name: weapon-skin-applicator-rubezh-name
+  description: weapon-skin-applicator-rubezh-desc
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: WeaponSkinApplicator
+    skin: WeaponSkinRubezh
+
+- type: entity
+  parent: BaseItem
+  id: WeaponSkinApplicatorBloodCurve
+  name: weapon-skin-applicator-blood-curve-name
+  description: weapon-skin-applicator-blood-curve-desc
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi
+    state: mag-unshaded-0
+  - type: Item
+    size: Tiny
+  - type: WeaponSkinApplicator
+    skin: WeaponSkinBloodCurve
+
+- type: entity
+  parent: BaseItem
+  id: WeaponSkinApplicatorNocturne25
+  name: weapon-skin-applicator-nocturne-25-name
+  description: weapon-skin-applicator-nocturne-25-desc
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: WeaponSkinApplicator
+    skin: WeaponSkinNocturne25
+
+- type: entity
+  parent: BaseItem
+  id: WeaponSkinApplicatorVP78
+  name: weapon-skin-applicator-vp78-name
+  description: weapon-skin-applicator-vp78-desc
+  components:
+  - type: Sprite
+    sprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi
+    state: vp78
+  - type: Item
+    size: Tiny
+  - type: WeaponSkinApplicator
+    skin: WeaponSkinVP78

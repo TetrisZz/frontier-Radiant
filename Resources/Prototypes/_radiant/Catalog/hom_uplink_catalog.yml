@@ -972,6 +972,70 @@
           - HomUplink
 
 - type: listing
+  id: UplinkHomWeaponSkinRubezh
+  name: uplink-hom-weapon-skin-rubezh-name
+  description: uplink-hom-weapon-skin-rubezh-desc
+  productEntity: WeaponSkinApplicatorRubezh
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Shotguns/cshotgun.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponSkinBloodCurve
+  name: uplink-hom-weapon-skin-blood-curve-name
+  description: uplink-hom-weapon-skin-blood-curve-desc
+  productEntity: WeaponSkinApplicatorBloodCurve
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Shotguns/pavpav2.rsi, state: mag-unshaded-0 }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponSkinNocturne25
+  name: uplink-hom-weapon-skin-nocturne-25-name
+  description: uplink-hom-weapon-skin-nocturne-25-desc
+  productEntity: WeaponSkinApplicatorNocturne25
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/mur.rsi, state: icon }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
+  id: UplinkHomWeaponSkinVP78
+  name: uplink-hom-weapon-skin-vp78-name
+  description: uplink-hom-weapon-skin-vp78-desc
+  productEntity: WeaponSkinApplicatorVP78
+  icon: { sprite: _radiant/Objects/Weapons/Guns/Pistols/vp78.rsi, state: vp78 }
+  cost:
+    Cristalhom: 5
+  categories:
+    - UplinkHomWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - HomUplink
+
+- type: listing
   id: UplinkToolboxEDon
   name:  uplink-hom-oolbo-name
   description: uplink-hom-oolbo-desc

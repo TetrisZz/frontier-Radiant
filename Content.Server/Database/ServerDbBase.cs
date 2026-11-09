@@ -253,6 +253,24 @@ namespace Content.Server.Database
             return links.ToDictionary(p => new NetUserId(p.UserId), p => (p.DiscordUserId, p.SupporterRoleId));
         }
 
+        public async Task<Dictionary<NetUserId, DateTime>> GetSupporterGrantsAsync(DateTime now)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.RadiantSupporterGrants.AsNoTracking()
+                .Where(grant => grant.ExpiresAt > now)
+                .ToDictionaryAsync(grant => new NetUserId(grant.UserId), grant => grant.ExpiresAt);
+        }
+
+        public async Task SetSupporterGrantAsync(NetUserId userId, DateTime expiresAt)
+        {
+            await using var db = await GetDb();
+            await db.DbContext.Database.ExecuteSqlAsync($"""
+                INSERT INTO radiant_supporter_grant (user_id, expires_at)
+                VALUES ({userId.UserId}, {expiresAt})
+                ON CONFLICT (user_id) DO UPDATE SET expires_at = excluded.expires_at
+                """);
+        }
+
         public async Task<NetUserId?> SetSupporterRoleAsync(string discordId, string roleId)
         {
             await using var db = await GetDb();

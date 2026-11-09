@@ -1,6 +1,6 @@
 ﻿namespace Content.Shared.Interaction.Events
 {
-    public sealed class UseAttemptEvent(EntityUid uid, EntityUid used, bool ignoreUseSkillRequirement = false) : CancellableEntityEventArgs
+    public sealed class UseAttemptEvent(EntityUid uid, EntityUid used, bool ignoreUseSkillRequirement = false, bool showSkillPopup = true) : CancellableEntityEventArgs
     {
         public EntityUid Uid { get; } = uid;
 
@@ -9,5 +9,6 @@
         // Storage insertion is not use of the held item. Skill systems may ignore their
         // item-use restriction for that interaction while other blockers still apply.
         public bool IgnoreUseSkillRequirement { get; } = ignoreUseSkillRequirement;
+        public bool ShowSkillPopup { get; } = showSkillPopup;
     }
 }

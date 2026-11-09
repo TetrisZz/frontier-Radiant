@@ -74,6 +74,33 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             && _entityManager.TryGetComponent<Content.Shared._radiant.Medical.Virology.VirologySymptomsComponent>(target, out var infection)
             && infection.Severity > 0;
         VirologyWarning.SetMessage(Loc.GetString("virology-screen-positive"));
+        AddictionDiagnosticsContainer.RemoveAllChildren();
+        AddictionDiagnosticsContainer.Visible = state.Addictions.Count > 0;
+        if (AddictionDiagnosticsContainer.Visible)
+        {
+            AddictionDiagnosticsContainer.AddChild(new Label
+            {
+                Text = Loc.GetString("health-analyzer-addiction-title"),
+                StyleClasses = { "LabelHeading" },
+            });
+
+            foreach (var addiction in state.Addictions)
+            {
+                var groupName = Loc.GetString($"health-analyzer-addiction-{addiction.GroupId}");
+                var stage = addiction.WithdrawalStage > 0
+                    ? Loc.GetString("health-analyzer-addiction-withdrawal", ("stage", addiction.WithdrawalStage))
+                    : Loc.GetString("health-analyzer-addiction-no-withdrawal");
+                AddictionDiagnosticsContainer.AddChild(new Label
+                {
+                    Text = Loc.GetString("health-analyzer-addiction-entry",
+                        ("group", groupName),
+                        ("dependence", MathF.Round(addiction.Dependence)),
+                        ("tolerance", MathF.Round(addiction.Tolerance)),
+                        ("withdrawal", stage)),
+                    FontColorOverride = Color.Orange,
+                });
+            }
+        }
 
         if (target == null
             || !_entityManager.TryGetComponent<DamageableComponent>(target, out var damageable))

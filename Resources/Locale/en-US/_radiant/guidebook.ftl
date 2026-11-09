@@ -1,4 +1,6 @@
 guide-entry-radiant-mechanics = Sector mechanics
+guide-entry-radiant-professional-skills = Character skills
+guide-entry-radiant-plumbing = Plumbing and hygiene
 guide-entry-radiant-artisan-equipment = Workshop equipment
 guide-entry-radiant-pottery = Pottery
 guide-entry-radiant-glassworking = Glassworking

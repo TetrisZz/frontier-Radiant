@@ -1,0 +1,124 @@
+<Document>
+
+# Навыки персонажа
+
+<ColorBox Color="#182C34" OutlineColor="#3A6975" Margin="2"><Box Orientation="Vertical" Margin="10">
+[bold]На персонажа даётся 10 очков. Один уровень стоит одно очко.[/bold]
+В настройках персонажа откройте вкладку "Навыки и способности". Для входа в раунд достаточно потратить одно очко. Сохранённые изменения действуют при следующем появлении персонажа.
+</Box></ColorBox>
+
+В таблицах указан минимальный уровень для каждого действия. Следующий уровень включает возможности предыдущих. Предмет можно переносить и убирать в подходящее хранилище с любым уровнем навыка.
+
+## Пилотирование
+
+<Table Columns="2">
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Можно открыть консоль и посмотреть карту. Управление шаттлом требует 1-го уровня.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Ручное управление в режиме «Ход», стыковка, расстыковка и сверхсветовые прыжки.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Торможение и остальные режимы движения.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]3[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Все режимы движения. Шанс избежать последствий столкновения шаттлов повышен до 80%.</Box></ColorBox>
+</Table>
+
+## Стрельба
+
+<Table Columns="2">
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Игрушечное, учебное и сигнальное оружие, почтовый запускатель, распылитель, магические посохи и протокинетические ускорители.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Пистолеты, револьверы, станнеры и обычные лазеры. Сюда же относятся лазерный репитер, лёгкий энерго-ПП, самодельный дробовик и кремнёвый пистолет. Можно заряжать корабельные орудия.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Винтовки, карабины, автоматы, большинство дробовиков, импульсное оружие и рентгеновская пушка. Можно стрелять из корабельных орудий через консоль.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]3[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Ручные пулемёты и боевые гранатомёты.</Box></ColorBox>
+</Table>
+
+[bold]Штраф за стрельбу.[/bold] На уровнях 0–2 оружие своего уровня получает дополнительные 5° разброса и 10% шанс выстрела в случайном направлении. Более высокий уровень стрельбы снимает оба штрафа с этого оружия.
+
+## Медицина
+
+<Table Columns="2">
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Бинты, мази, пакеты крови и обычные аптечки. Применение медипена к себе или другому занимает 3 секунды.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Медипены без задержки за навык, шприцы, анализатор здоровья, химический раздатчик и работа с капельницами. Можно применять готовые вакцины и препараты вирусологов.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Гипоспреи, ХимМастер, распознавание реагентов и таблетки. Базовые хирургические шаги, сбор образцов для вирусологии и ДНК. Перевязочные средства лечат на 15% больше.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]3[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Продвинутая хирургия, клонирование, медицинский сборщик и выпуск препаратов в генетике и вирусологии. Перевязка быстрее на 15%, загрязнение при операции ниже на 15%.</Box></ColorBox>
+</Table>
+
+## Инженерия
+
+<Table Columns="2">
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Базовые инструменты, оценщик, краскопульт и газоанализатор. Часть работ занимает больше времени. Заправка переносных баллонов и джетпаков доступна всем.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Взлом дверей, управление ДАМ и замена его топлива, обычное строительство. Доступны электродрель, челюсти жизни, мультитул и улучшатель деталей.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">РСУ, установка газовых труб и сложная атмосферика. Тесла, сингулярность, защитные поля, эмиттеры и ускоритель частиц.</Box></ColorBox>
+</Table>
+
+## Утилизация
+
+<Table Columns="2">
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Кирка, кинжал-крушитель, сумки для руды, в том числе блюспейс-сумка, и гражданский переработчик. Крюк-пушка доступна сразу. Штрафы за стрельбу из неё зависят от навыка стрельбы.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Обычный и алмазный буры, минеральные сканеры и ящики для руды.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Остальные крушители, обычный и промышленный переработчики руды, управление мехом «Кларк».</Box></ColorBox>
+</Table>
+
+## Ботаника
+
+<Table Columns="2">
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Можно осматривать растения и собирать зрелый урожай с лотков и грядок.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Посадка, полив, обычные удобрения и работа садовыми инструментами.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Анализатор растений, экстрактор семян и применение мутагенов. В ХимМастере можно распознавать, разделять и разливать чистые вещества. Смешивание и таблетки требуют медицины 2.</Box></ColorBox>
+</Table>
+
+## Кулинария
+
+<Table Columns="2">
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Можно есть, пить и разогревать донк-покеты в микроволновке.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Все рецепты микроволновки. На духовке и сборщике доступны простые блюда из одного или двух видов ингредиентов. Можно готовить кофе, чай, какао и другие простые напитки, пользоваться плитой, грилем и фритюрницей.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Все рецепты духовки, сборщика и смешивания напитков.</Box></ColorBox>
+</Table>
+
+## Наука
+
+<Table Columns="2">
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Можно изучать технологии через консоль исследований и загружать диски на сервер РНД.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Работа с артефактами, включая консоль анализа, сканирование узлов и активацию.</Box></ColorBox>
+  <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Работа с аномалиями, включая сканер, излучатель М.А.Р.Т.Ы.Х., генератор и экспериментальный сосуд.</Box></ColorBox>
+</Table>
+
+</Document>

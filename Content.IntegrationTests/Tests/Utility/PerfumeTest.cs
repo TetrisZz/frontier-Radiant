@@ -30,13 +30,14 @@ public sealed class PerfumeTest
     [Test]
     public async Task ApplicationConsumptionReplacementWashingAndVending()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, Destructive = true });
         var map = await pair.CreateTestMap();
         EntityUid user = default;
         EntityUid target = default;
         EntityUid rose = default;
         EntityUid lavender = default;
         EntityUid soap = default;
+        EntityUid shower = default;
         string? scentId = null;
 
         await pair.Server.WaitAssertion(() =>
@@ -44,8 +45,16 @@ public sealed class PerfumeTest
             var entities = pair.Server.ResolveDependency<IEntityManager>();
             var hands = entities.System<ServerHands>();
             var doAfter = entities.System<SharedDoAfterSystem>();
-            user = entities.SpawnEntity("MobHumanDummy", map.GridCoords);
-            target = entities.SpawnEntity("MobHumanDummy", map.GridCoords.Offset(new Vector2(1, 0)));
+            user = entities.SpawnEntity("MobHuman", map.GridCoords);
+            target = entities.SpawnEntity("MobHuman", map.GridCoords.Offset(new Vector2(1, 0)));
+            var tankPosition = map.GridCoords.Offset(new Vector2(0, 1));
+            var tiles = entities.System<SharedMapSystem>();
+            var plating = new Tile(pair.Server.ResolveDependency<ITileDefinitionManager>()["Plating"].TileId);
+            tiles.SetTile(map.Grid, tiles.TileIndicesFor(map.Grid, tankPosition), plating);
+            shower = entities.SpawnEntity("RadiantShower", map.GridCoords);
+            entities.SpawnEntity("RadiantWaterSupplyTankFull", tankPosition);
+            entities.SpawnEntity("RadiantWaterPipe", map.GridCoords);
+            entities.SpawnEntity("RadiantWaterPipe", tankPosition);
             scentId = entities.EnsureComponent<ScentComponent>(target).ScentId ??= "perfume-test-identity";
             rose = entities.SpawnEntity("PerfumeRose", map.GridCoords);
             hands.AddHand(user, "perfume-test-right", HandLocation.Right);
@@ -100,7 +109,7 @@ public sealed class PerfumeTest
             Assert.That(perfume.TryApply((lavender, lavenderBottle), user, item), Is.False);
             Assert.That(lavenderBottle.Uses, Is.EqualTo(10));
 
-            var observer = entities.SpawnEntity("MobHumanDummy", map.GridCoords.Offset(new Vector2(10, 0)));
+            var observer = entities.SpawnEntity("MobHuman", map.GridCoords.Offset(new Vector2(10, 0)));
             Assert.That(perfume.TryGetFragrance(target, observer, out _), Is.False, "No fragrance descriptions at a distance");
             var transform = entities.System<SharedTransformSystem>();
             transform.SetCoordinates(observer, map.GridCoords.Offset(new Vector2(3, 0)));
@@ -134,7 +143,6 @@ public sealed class PerfumeTest
             Assert.That(entities.HasComponent<PerfumedComponent>(target), Is.False, "Soap must remove the applied fragrance");
             Assert.That(entities.GetComponent<ScentComponent>(target).ScentId, Is.EqualTo(scentId));
             Assert.That(perfume.TryApply((lavender, lavenderBottle), user, target), Is.True);
-            var shower = entities.SpawnEntity("RadiantShower", map.GridCoords);
             var water = entities.System<ShowerWaterSystem>();
             water.Update(5);
             Assert.That(entities.HasComponent<PerfumedComponent>(target), Is.True, "A switched-off shower cannot wash perfume off");

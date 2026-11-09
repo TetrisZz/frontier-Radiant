@@ -202,6 +202,14 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("radiant_discord_link", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.RadiantSupporterGrant", b =>
+                {
+                    b.Property<Guid>("UserId").ValueGeneratedOnAdd().HasColumnType("uuid").HasColumnName("user_id");
+                    b.Property<DateTime>("ExpiresAt").HasColumnType("timestamp with time zone").HasColumnName("expires_at");
+                    b.HasKey("UserId").HasName("PK_radiant_supporter_grant");
+                    b.ToTable("radiant_supporter_grant", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdminFlag", b =>
                 {
                     b.Property<int>("Id")

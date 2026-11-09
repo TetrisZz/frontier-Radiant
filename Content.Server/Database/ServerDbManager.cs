@@ -56,6 +56,8 @@ namespace Content.Server.Database
         Task SaveCharacterDossierAsync(NetUserId userId, int slot, string dossierJson);
         Task<string?> GetDiscordLinkAsync(NetUserId userId);
         Task<Dictionary<NetUserId, (string DiscordId, string RoleId)>> GetSupporterLinksAsync();
+        Task<Dictionary<NetUserId, DateTime>> GetSupporterGrantsAsync(DateTime now);
+        Task SetSupporterGrantAsync(NetUserId userId, DateTime expiresAt);
         Task<NetUserId?> SetSupporterRoleAsync(string discordId, string roleId);
         Task<bool> TryLinkDiscordAsync(NetUserId userId, string discordUserId);
         Task RemoveDiscordLinkAsync(NetUserId userId);
@@ -564,6 +566,18 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetSupporterLinksAsync());
+        }
+
+        public Task<Dictionary<NetUserId, DateTime>> GetSupporterGrantsAsync(DateTime now)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetSupporterGrantsAsync(now));
+        }
+
+        public Task SetSupporterGrantAsync(NetUserId userId, DateTime expiresAt)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetSupporterGrantAsync(userId, expiresAt));
         }
 
         public Task<NetUserId?> SetSupporterRoleAsync(string discordId, string roleId)

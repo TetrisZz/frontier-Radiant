@@ -20,6 +20,14 @@ public sealed partial class AtmosPipeAppearanceSystem : SharedAtmosPipeAppearanc
 
         SubscribeLocalEvent<PipeAppearanceComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<PipeAppearanceComponent, AppearanceChangeEvent>(OnAppearanceChanged, after: [typeof(SubFloorHideSystem)]);
+        SubscribeLocalEvent<PipeAppearanceComponent, MoveEvent>(OnMove);
+    }
+
+    private void OnMove(EntityUid uid, PipeAppearanceComponent component, ref MoveEvent args)
+    {
+        // Symmetric shapes can rotate without changing their connected world directions.
+        if (args.NewRotation != args.OldRotation && TryComp<AppearanceComponent>(uid, out var appearance))
+            _appearance.QueueUpdate(uid, appearance);
     }
 
     private void OnInit(EntityUid uid, PipeAppearanceComponent component, ComponentInit args)

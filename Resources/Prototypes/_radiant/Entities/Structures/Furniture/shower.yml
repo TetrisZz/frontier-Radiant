@@ -1,11 +1,20 @@
 - type: entity
   parent: BaseStructure
   id: RadiantShower
-  name: душ
-  description: Настенный душ. Нажмите, чтобы включить или выключить воду.
+  name: shower
+  description: A wall-mounted shower supplied by a water pipe.
   placement:
     mode: SnapgridCenter
   components:
+  - type: GuideHelp
+    guides: [RadiantPlumbing, RadiantMechanics]
+  - type: HLPersistOnShipSave
+  - type: PlumbedFixture
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+        port: true
   - type: Sprite
     sprite: _radiant/Structures/Furniture/shower.rsi
     layers:
@@ -33,6 +42,7 @@
           False: { visible: false }
   - type: ItemToggle
     onUse: false
+    predictable: false
     soundActivate:
       path: /Audio/Effects/Fluids/watersplash.ogg
     soundDeactivate:
@@ -45,7 +55,7 @@
         maxDistance: 6
   - type: ShowerWater
     spillInterval: 5
-    waterPerTile: 0.5
+    waterPerTile: 2.5
     spillTiles: 3
   - type: Construction
     graph: RadiantShowerGraph

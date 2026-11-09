@@ -81,7 +81,7 @@ public sealed partial class ShuttleSystem
                 || xform.GridUid != first && xform.GridUid != second)
                 continue;
             if (EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                    .Level(pilotUid, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting) >= 2)
+                    .Level(pilotUid, Content.Shared._radiant.Skills.ProfessionalSkill.Piloting) >= 3)
             {
                 experienced = true;
                 break;

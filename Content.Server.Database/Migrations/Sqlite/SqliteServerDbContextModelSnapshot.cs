@@ -189,6 +189,14 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("radiant_discord_link", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.RadiantSupporterGrant", b =>
+                {
+                    b.Property<Guid>("UserId").ValueGeneratedOnAdd().HasColumnType("TEXT").HasColumnName("user_id");
+                    b.Property<DateTime>("ExpiresAt").HasColumnType("TEXT").HasColumnName("expires_at");
+                    b.HasKey("UserId").HasName("PK_radiant_supporter_grant");
+                    b.ToTable("radiant_supporter_grant", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.AdminFlag", b =>
                 {
                     b.Property<int>("Id")

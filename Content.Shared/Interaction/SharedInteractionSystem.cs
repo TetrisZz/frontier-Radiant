@@ -7,6 +7,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Database;
+using Content.Shared.Disposal.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -437,7 +438,7 @@ namespace Content.Shared.Interaction
             // empty-hand interactions
             // combat mode hand interactions will always be true here -- since
             // they check this earlier before returning in
-            if (!TryGetUsedEntity(user, out var used, checkCanUse))
+            if (!TryGetUsedEntity(user, out var used, checkCanUse, inRangeUnobstructed ? target : null))
             {
                 if (inRangeUnobstructed && target != null)
                     InteractHand(user, target.Value);
@@ -1043,7 +1044,7 @@ namespace Content.Shared.Interaction
             if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, target))
                 return false;
 
-            var storageInsertion = HasComp<StorageComponent>(target) || HasComp<EntityStorageComponent>(target);
+            var storageInsertion = IsStorageInsertionTarget(target, used);
             if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, used, storageInsertion))
                 return false;
 
@@ -1051,7 +1052,7 @@ namespace Content.Shared.Interaction
                     .CanInteractUsing(user, used, target))
                 return false;
 
-            if (!skillDelayComplete && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
+            if (!storageInsertion && !skillDelayComplete && EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
                     .DelayNoviceTool(user, used, target))
                 return true;
 
@@ -1469,7 +1470,8 @@ namespace Content.Shared.Interaction
         /// In most cases, this refers to the entity in the character's active hand.
         /// </summary>
         /// <returns>If there is an entity being used.</returns>
-        public bool TryGetUsedEntity(EntityUid user, [NotNullWhen(true)] out EntityUid? used, bool checkCanUse = true)
+        public bool TryGetUsedEntity(EntityUid user, [NotNullWhen(true)] out EntityUid? used, bool checkCanUse = true,
+            EntityUid? target = null, bool showSkillPopup = true)
         {
             var ev = new GetUsedEntityEvent(user);
             RaiseLocalEvent(user, ref ev);
@@ -1479,13 +1481,22 @@ namespace Content.Shared.Interaction
                 return false;
 
             // Can the user use the held entity?
-            if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, ev.Used!.Value))
+            if (checkCanUse && !_actionBlockerSystem.CanUseHeldEntity(user, ev.Used!.Value,
+                    IsStorageInsertionTarget(target, ev.Used.Value), showSkillPopup))
             {
                 used = null;
                 return false;
             }
 
             return ev.Handled;
+        }
+
+        private bool IsStorageInsertionTarget(EntityUid? target, EntityUid used)
+        {
+            return target is { } targetUid && targetUid != used &&
+                (HasComp<EntityStorageComponent>(targetUid) || HasComp<BinComponent>(targetUid) ||
+                 HasComp<DisposalUnitComponent>(targetUid) ||
+                 TryComp<StorageComponent>(targetUid, out var storage) && storage.ClickInsert);
         }
 
         [Obsolete("Use ActionBlockerSystem")]

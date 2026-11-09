@@ -1,0 +1,384 @@
+- type: entity
+  id: BaseRadiantLiquidPipe
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: GuideHelp
+    guides: [RadiantPlumbing, RadiantMechanics]
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+  - type: Rotatable
+  - type: Visibility
+    layer: 1
+  - type: Appearance
+  - type: PipeAppearance
+  - type: SubFloorHide
+  - type: CollideOnAnchor
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    visible: false
+  - type: HLPersistOnShipSave
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Repairable
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [Destruction]
+
+- type: entity
+  parent: BaseRadiantLiquidPipe
+  id: RadiantWaterPipe
+  name: water pipe
+  description: Connects to water pipes on adjacent tiles and equipment on the same tile.
+  components:
+  - type: LeakingPipe
+    port: water
+  - type: Sprite
+    drawdepth: ThinPipeAlt1
+    color: "#60B9ED"
+    layers:
+    - state: pipeFourway
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+  - type: Construction
+    graph: RadiantWaterPipe
+    node: finished
+
+- type: entity
+  parent: BaseRadiantLiquidPipe
+  id: RadiantWastePipe
+  name: wastewater pipe
+  description: Carries sewage to a wastewater tank.
+  components:
+  - type: LeakingPipe
+    port: waste
+  - type: Sprite
+    drawdepth: ThinPipeAlt2
+    color: "#BF926A"
+    layers:
+    - state: pipeFourway
+  - type: NodeContainer
+    nodes:
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+  - type: Construction
+    graph: RadiantWastePipe
+    node: finished
+
+- type: entity
+  parent: RadiantWaterPipe
+  id: RadiantWaterPipeHalf
+  suffix: end piece
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeHalf
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+        pipeDirection: South
+  - type: Construction
+    graph: RadiantWaterPipe
+    node: half
+
+- type: entity
+  parent: RadiantWaterPipe
+  id: RadiantWaterPipeStraight
+  suffix: straight
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeStraight
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+        pipeDirection: Longitudinal
+  - type: Construction
+    graph: RadiantWaterPipe
+    node: straight
+
+- type: entity
+  parent: RadiantWaterPipe
+  id: RadiantWaterPipeBend
+  suffix: bend
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeBend
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+        pipeDirection: SWBend
+  - type: Construction
+    graph: RadiantWaterPipe
+    node: bend
+
+- type: entity
+  parent: RadiantWaterPipe
+  id: RadiantWaterPipeTJunction
+  suffix: T-junction
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeTJunction
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+        pipeDirection: TSouth
+  - type: Construction
+    graph: RadiantWaterPipe
+    node: tjunction
+
+- type: entity
+  parent: RadiantWastePipe
+  id: RadiantWastePipeHalf
+  suffix: end piece
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeHalf
+  - type: NodeContainer
+    nodes:
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+        pipeDirection: South
+  - type: Construction
+    graph: RadiantWastePipe
+    node: half
+
+- type: entity
+  parent: RadiantWastePipe
+  id: RadiantWastePipeStraight
+  suffix: straight
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeStraight
+  - type: NodeContainer
+    nodes:
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+        pipeDirection: Longitudinal
+  - type: Construction
+    graph: RadiantWastePipe
+    node: straight
+
+- type: entity
+  parent: RadiantWastePipe
+  id: RadiantWastePipeBend
+  suffix: bend
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeBend
+  - type: NodeContainer
+    nodes:
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+        pipeDirection: SWBend
+  - type: Construction
+    graph: RadiantWastePipe
+    node: bend
+
+- type: entity
+  parent: RadiantWastePipe
+  id: RadiantWastePipeTJunction
+  suffix: T-junction
+  components:
+  - type: Sprite
+    layers:
+    - state: pipeTJunction
+  - type: NodeContainer
+    nodes:
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+        pipeDirection: TSouth
+  - type: Construction
+    graph: RadiantWastePipe
+    node: tjunction
+
+- type: entity
+  parent: WaterTank
+  id: RadiantWaterSupplyTank
+  name: ship water supply tank
+  description: Fill with clean water and place a water pipe under the tank.
+  components:
+  - type: GuideHelp
+    guides: [RadiantPlumbing, RadiantMechanics]
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+  - type: Sprite
+    sprite: _radiant/Structures/Plumbing/tanks.rsi
+    layers:
+    - state: supply
+    - state: fill-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: SolutionContainerVisuals
+    fillBaseName: fill-
+  - type: PlumbingTank
+  - type: HLPersistOnShipSave
+    saveContents: true
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 5000
+        canReact: false
+  - type: RefillableSolution
+    solution: tank
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+        port: true
+  - type: Construction
+    graph: RadiantWaterSupplyTank
+    node: finished
+
+- type: entity
+  parent: RadiantWaterSupplyTank
+  id: RadiantWaterSupplyTankFull
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Water
+          Quantity: 5000
+
+- type: entity
+  parent: WaterTank
+  id: RadiantWastewaterTank
+  name: ship wastewater tank
+  description: Holds wastewater from connected fixtures. Use an empty container to take out the contents.
+  components:
+  - type: GuideHelp
+    guides: [RadiantPlumbing, RadiantMechanics]
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+  - type: Sprite
+    sprite: _radiant/Structures/Plumbing/tanks.rsi
+    layers:
+    - state: waste
+    - state: fill-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: SolutionContainerVisuals
+    fillBaseName: fill-
+  - type: PlumbingTank
+  - type: HLPersistOnShipSave
+    saveContents: true
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 5000
+        canReact: false
+  - type: NodeContainer
+    nodes:
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+        port: true
+  - type: Construction
+    graph: RadiantWastewaterTank
+    node: finished
+
+- type: entity
+  parent: BaseRadiantSink
+  id: RadiantPlumbedSink
+  name: plumbed sink
+  description: A sink with separate clean water and wastewater connections.
+  components:
+  - type: GuideHelp
+    guides: [RadiantPlumbing, RadiantMechanics]
+  - type: Transform
+    anchored: true
+  - type: PlumbedFixture
+    faucet: true
+    waste: true
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+        port: true
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+        port: true
+  - type: Construction
+    graph: RadiantPlumbedSink
+    node: finished
+
+- type: entity
+  parent: RadiantShower
+  id: RadiantPlumbedShower
+  name: plumbed shower
+  description: A wall-mounted shower supplied by a water pipe.
+  components:
+  - type: Construction
+    graph: RadiantPlumbedShower
+    node: finished
+
+- type: entity
+  parent: FloorDrain
+  id: RadiantPlumbedDrain
+  name: plumbed floor drain
+  description: Collects puddles and sends them to a wastewater tank through a pipe.
+  components:
+  - type: GuideHelp
+    guides: [RadiantPlumbing, RadiantMechanics]
+  - type: Sprite
+    sprite: _radiant/Structures/Plumbing/drain.rsi
+    layers:
+    - state: icon
+  - type: PlumbedFixture
+    waste: true
+  - type: NodeContainer
+    nodes:
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+        port: true
+  - type: Construction
+    graph: RadiantPlumbedDrain
+    node: finished
+
+- type: entity
+  parent: ToiletEmpty
+  id: RadiantPlumbedToilet
+  name: plumbed toilet
+  description: The bowl can be flushed into the wastewater line using water from the supply line.
+  components:
+  - type: GuideHelp
+    guides: [RadiantPlumbing, RadiantMechanics]
+  - type: PlumbedFixture
+    waste: true
+    flush: true
+  - type: NodeContainer
+    nodes:
+      water: !type:LiquidPipeNode
+        nodeGroupID: WaterSupply
+        port: true
+      waste: !type:LiquidPipeNode
+        nodeGroupID: Wastewater
+        port: true
+  - type: Construction
+    graph: RadiantPlumbedToilet
+    node: finished

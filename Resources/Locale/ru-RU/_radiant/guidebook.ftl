@@ -1,4 +1,6 @@
 guide-entry-radiant-mechanics = Механики сектора
+guide-entry-radiant-professional-skills = Навыки персонажа
+guide-entry-radiant-plumbing = Водопровод и гигиена
 guide-entry-radiant-artisan-equipment = Оборудование мастерской
 guide-entry-radiant-pottery = Гончарное дело
 guide-entry-radiant-glassworking = Стеклодувное дело

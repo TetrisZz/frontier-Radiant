@@ -1,8 +1,12 @@
+using System.Linq;
+using System.Net;
 using Content.Server.Database;
 using Content.Shared._radiant.Supporters;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
+using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Console;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Network;
@@ -13,6 +17,66 @@ namespace Content.IntegrationTests.Tests.Preferences;
 [TestFixture]
 public sealed class SupporterAccessTest
 {
+    [Test]
+    public async Task AdminGrantWorksWithoutDiscordAndResetsToThirtyDays()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Connected = true, Fresh = true, Destructive = true,
+        });
+        var server = pair.Server;
+        var db = server.ResolveDependency<IServerDbManager>();
+        var host = server.ResolveDependency<IConsoleHost>();
+        var session = server.ResolveDependency<IPlayerManager>().Sessions.Single();
+        var offline = new NetUserId(Guid.NewGuid());
+        const string offlineName = "OfflineSupporter";
+        await db.UpdatePlayerRecordAsync(offline, offlineName, IPAddress.Loopback, null);
+
+        var expiry = await Give(session.Name, session.UserId);
+        Assert.That(await db.GetDiscordLinkAsync(session.UserId), Is.Null);
+        var system = server.ResolveDependency<IEntityManager>().System<SharedSupporterSystem>();
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(server.ResolveDependency<IConfigurationManager>().GetCVar(SupporterCVars.Enabled), Is.False);
+            Assert.That(system.HasAccess(session.UserId), Is.True);
+            var loadout = server.ResolveDependency<IPrototypeManager>().Index<LoadoutPrototype>("HomUplinkRadio100");
+            Assert.That(loadout.Effects[0].Validate(new HumanoidCharacterProfile(),
+                new RoleLoadout("JobContractor"), session, IoCManager.Instance!, out _), Is.True);
+        });
+        await pair.Client.WaitAssertion(() =>
+        {
+            var clientSystem = pair.Client.ResolveDependency<IEntityManager>().System<SharedSupporterSystem>();
+            Assert.That(clientSystem.HasAccess(session.UserId), Is.True);
+        });
+
+        var renewed = await Give(session.UserId.ToString(), session.UserId, expiry);
+        Assert.That((await db.GetSupporterGrantsAsync(renewed)).ContainsKey(session.UserId), Is.False,
+            "An expiry equal to the current time must not be treated as active.");
+        await Give(offlineName, offline);
+        await server.WaitAssertion(() => Assert.That(system.HasAccess(offline), Is.True));
+        await pair.CleanReturnAsync();
+
+        async Task<DateTime> Give(string target, NetUserId userId, DateTime previous = default)
+        {
+            var started = DateTime.UtcNow;
+            await server.WaitAssertion(() => host.ExecuteCommand($"supportergrant \"{target}\""));
+            while (DateTime.UtcNow - started < TimeSpan.FromSeconds(10))
+            {
+                await pair.RunTicksSync(4);
+                if ((await db.GetSupporterGrantsAsync(DateTime.UtcNow)).TryGetValue(userId, out var stored) &&
+                    stored > previous)
+                {
+                    Assert.That(stored, Is.InRange(started.AddDays(30), DateTime.UtcNow.AddDays(30)));
+                    // Process the server-side grant update and its client event after the database write.
+                    await pair.RunTicksSync(5);
+                    return stored;
+                }
+            }
+
+            throw new TimeoutException("The supporter grant was not saved.");
+        }
+    }
+
     [Test]
     public async Task RoleEventsPersistOfflineAccessAndRevocation()
     {
@@ -47,6 +111,7 @@ public sealed class SupporterAccessTest
             Assert.That(server.ResolveDependency<IEntityManager>().System<SharedSupporterSystem>().HasAccess(account), Is.False);
             server.ResolveDependency<IConfigurationManager>().SetCVar(SupporterCVars.Enabled, false);
         });
+        await pair.CleanReturnAsync();
 
         async Task PumpUpdate()
         {
@@ -91,5 +156,6 @@ public sealed class SupporterAccessTest
                 new RoleLoadout("JobContractor"), null, IoCManager.Instance!, out _), Is.False);
             config.SetCVar(SupporterCVars.Enabled, false);
         });
+        await pair.CleanReturnAsync();
     }
 }
