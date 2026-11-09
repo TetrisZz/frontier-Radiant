@@ -307,6 +307,22 @@
         doAfter: 3
   - node: finished
     entity: RadiantWaterSupplyTank
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 10
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 4
+      - !type:DestroyEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 3
 
 - type: construction
   id: RadiantWastewaterTank
@@ -335,6 +351,22 @@
         doAfter: 3
   - node: finished
     entity: RadiantWastewaterTank
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 10
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 4
+      - !type:DestroyEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 3
 
 - type: construction
   id: RadiantPlumbedSink
@@ -394,6 +426,22 @@
         doAfter: 1
   - node: finished
     entity: RadiantPlumbedShower
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 3
+      - !type:SpawnPrototype
+        prototype: SheetPlastic1
+        amount: 2
+      - !type:DestroyEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 2
 
 - type: construction
   id: RadiantPlumbedDrain
@@ -419,6 +467,16 @@
         doAfter: 1
   - node: finished
     entity: RadiantPlumbedDrain
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DestroyEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 2
 
 - type: construction
   id: RadiantPlumbedToilet

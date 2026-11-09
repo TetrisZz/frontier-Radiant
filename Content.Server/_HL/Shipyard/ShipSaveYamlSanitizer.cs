@@ -671,12 +671,79 @@ public static class ShipSaveYamlSanitizer
         // interfaces so storage, gas tank, and other bound UIs work after loading those existing saves.
         var scrubbed = RestoreFilteredUserInterfaces(protoSeq);
         scrubbed += ClearSavedStationRecordKeys(protoSeq);
+        scrubbed += ResetSyndicatePoiPinpointers(protoSeq);
         scrubbed += ResetSavedUseDelays(protoSeq);
         scrubbed += ResetSavedEquipmentActions(protoSeq);
         var removedEntityUids = new HashSet<string>(StringComparer.Ordinal);
         scrubbed += StripLegacyRemovedNodes(protoSeq, removedEntityUids);
         scrubbed += ResetArtifactGraphsNamingMissingNodes(protoSeq); // Triad
         return scrubbed + PruneContainerReferencesToRemovedEntities(protoSeq, removedEntityUids);
+    }
+
+    /// <summary>
+    /// Older ship saves may omit PinpointerComponent because its SyndicateFOB target is inherited
+    /// unchanged from PinpointerSyndicatePOI. Add an explicit override while importing those files,
+    /// so this one-round POI location is not restored from the prototype on every deployment.
+    /// </summary>
+    private static int ResetSyndicatePoiPinpointers(SequenceDataNode protoSeq)
+    {
+        var reset = 0;
+        foreach (var groupNode in protoSeq)
+        {
+            if (groupNode is not MappingDataNode group
+                || !group.TryGet("entities", out SequenceDataNode? entities) || entities == null)
+                continue;
+
+            var isPoiPinpointer = group.TryGet("proto", out ValueDataNode? protoId)
+                && protoId?.Value == "PinpointerSyndicatePOI";
+
+            foreach (var entityNode in entities)
+            {
+                if (entityNode is not MappingDataNode entity)
+                    continue;
+
+                if (!entity.TryGet("components", out SequenceDataNode? components) || components == null)
+                {
+                    if (!isPoiPinpointer)
+                        continue;
+
+                    components = new SequenceDataNode();
+                    entity["components"] = components;
+                }
+
+                MappingDataNode? pinpointer = null;
+                foreach (var componentNode in components)
+                {
+                    if (componentNode is MappingDataNode component
+                        && component.TryGet("type", out ValueDataNode? type)
+                        && type?.Value == "Pinpointer")
+                    {
+                        pinpointer = component;
+                        break;
+                    }
+                }
+
+                var targetsSyndicateFob = pinpointer != null
+                    && pinpointer.TryGet("component", out ValueDataNode? target)
+                    && target?.Value == "SyndicateFOB";
+                if (!isPoiPinpointer && !targetsSyndicateFob)
+                    continue;
+
+                if (pinpointer == null)
+                {
+                    pinpointer = new MappingDataNode { { "type", new ValueDataNode("Pinpointer") } };
+                    components.Add(pinpointer);
+                }
+
+                pinpointer["component"] = ValueDataNode.Null();
+                pinpointer["targetName"] = ValueDataNode.Null();
+                pinpointer["canRetarget"] = new ValueDataNode("true");
+                pinpointer["updateTargetName"] = new ValueDataNode("true");
+                reset++;
+            }
+        }
+
+        return reset;
     }
 
     private static int ResetSavedEquipmentActions(SequenceDataNode protoSeq)

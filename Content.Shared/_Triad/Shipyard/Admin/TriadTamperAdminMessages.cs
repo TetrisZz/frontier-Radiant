@@ -81,6 +81,7 @@ public sealed class TriadTamperAdminRequestAuditPageMessage : EuiMessageBase
 public sealed class TriadTamperAdminGrantPermitMessage : EuiMessageBase
 {
     public Guid Target { get; set; }
+    public string ShipHashHex { get; set; } = string.Empty;
     public string? Notes { get; set; }
 }
 
