@@ -252,7 +252,7 @@ public sealed partial class LibraryConsoleSystem : EntitySystem
             Stamps = paper.StampedBy.Select(stamp => new LibraryStampSaveData
             {
                 StampedName = stamp.StampedName,
-                StampSprite = stamp.StampSprite ?? string.Empty,
+                StampSprite = stamp.StampSprite,
                 Red = stamp.StampedColor.R,
                 Green = stamp.StampedColor.G,
                 Blue = stamp.StampedColor.B,
@@ -433,7 +433,9 @@ public sealed partial class LibraryConsoleSystem : EntitySystem
         paper.StampedBy = data.Stamps.Select(stamp => new StampDisplayInfo
         {
             StampedName = stamp.StampedName,
-            StampSprite = stamp.StampSprite,
+            StampSprite = string.IsNullOrEmpty(stamp.StampSprite)
+                ? null
+                : stamp.StampSprite,
             StampedColor = new Color(
                 stamp.Red,
                 stamp.Green,

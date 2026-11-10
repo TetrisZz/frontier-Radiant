@@ -77,9 +77,14 @@
     fireRate: 8
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.7
+#  - type: ClothingSpeedModifier # Radiant Sector
+#    walkModifier: 0.95 # Radiant Sector
+#    sprintModifier: 0.7 # Radiant Sector
+    selectedMode: FullAuto # Radiant Sector
+    availableModes: # Radiant Sector
+    - FullAuto # Radiant Sector
+  - type: NFWeaponDetails # Radiant Sector
+    class: weapon-details-class-light-machine-gun # Radiant Sector
   - type: HeldSpeedModifier
   - type: Item
     size: Ginormous
@@ -99,7 +104,9 @@
     - state: charge-level-unshaded-5
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-
+  - type: SpeedModifiedOnWield # Radiant Sector
+    walkModifier: 0.50 # Radiant Sector
+    sprintModifier: 0.50 # Radiant Sector
   - type: Clothing
     quickEquip: false
     slots:

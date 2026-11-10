@@ -88,7 +88,7 @@
     BoxForensicPad: 4294967295 # Infinite
     LogProbeCartridge: 4294967295 # Infinite
     ContrabandAppraisalTool: 4294967295 # Infinite
-    ClothingOuterArmorBasic: 4294967295 # Infinite
+#    ClothingOuterArmorBasic: 4294967295 # Radiant Sector
     NFMetalShield: 4294967295 # Infinite
     NFShieldBallistic: 4294967295 # Infinite
     NFClothingOuterArmorReflective: 4294967295 # Infinite

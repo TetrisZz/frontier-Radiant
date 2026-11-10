@@ -27,7 +27,7 @@
   minPlayers: 0
   stations:
     Dendron:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel # Radiant Sector
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Dendron {1}'

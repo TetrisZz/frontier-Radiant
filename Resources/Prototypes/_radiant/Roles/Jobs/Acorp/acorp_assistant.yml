@@ -3,7 +3,6 @@
   name: job-name-acorp-assistant
   description: job-description-acorp-assistant
   playTimeTracker: JobAcorpAssistant
-  whitelisted: true
   startingGear: AcorpAssistantGear
   icon: "JobIconAcorpAssistant" 
   supervisors: job-supervisors-acorp-director

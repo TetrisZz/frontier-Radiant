@@ -262,6 +262,9 @@
   - ContractorClothingUniformMNKBlackOveralls
   - ContractorClothingUniformMNKBlackShoulder
   - ContractorClothingUniformMNKTracksuitBlack
+  subgroups: # Radiant Sector
+  - PilotJumpsuit # Radiant Sector
+  - MercenaryJumpsuit # Radiant Sector
   fallbacks:
   - ContractorClothingUniformJumpsuitColorGrey
   - ContractorClothingUniformJumpskirtColorGrey
@@ -350,6 +353,9 @@
   - ContractorClothingBackpackDuffelMime
   - ContractorClothingBackpackSatchelMime
   - ContractorClothingBackpackMessengerMime
+  subgroups: # Radiant Sector
+  - PilotBackpack # Radiant Sector
+  - MercenaryBackpack # Radiant Sector
   fallbacks:
   - ContractorClothingBackpack
 
@@ -470,6 +476,9 @@
   - ContractorClothingOuterCoatMNKBlackJacket
   - ContractorClothingOuterCoatMNKWhiteHoodie
   - ContractorClothingOuterCoatMNKBlackTopCoat
+  subgroups: # Radiant Sector
+  - PilotOuterClothing # Radiant Sector
+#  - MercenaryOuterClothing # Radiant Sector
 
 - type: loadoutGroup
   id: ContractorBelt
@@ -514,6 +523,8 @@
   - ContractorClothingBeltPunkRandomizedFilled # Punkish (Randomized visuals)
   - ContractorClothingBeltSheathFilledHilt
   - ContractorClothingBeltChampion
+  subgroups: # Radiant Sector
+  - MercenaryBelt # Radiant Sector
 
 - type: loadoutGroup
   id: ContractorShoes
@@ -584,6 +595,9 @@
   - ContractorClothingShoesSkates
   - ContractorClothingShoesClownLarge
   - ContractorClothingShoesBling
+  subgroups: # Radiant Sector
+  - PilotShoes # Radiant Sector
+  - MercenaryShoes # Radiant Sector
   fallbacks:
   - ContractorClothingShoesColorBlack
 
@@ -668,6 +682,9 @@
   - ContractorClothingHeadHatCone
   - ContractorClothingHeadBandGold
   - ContractorClothingHeadHatTophat
+  subgroups: # Radiant Sector
+  - PilotHead # Radiant Sector
+  - MercenaryHead # Radiant Sector
 
 - type: loadoutGroup
   id: ContractorEars
@@ -708,6 +725,9 @@
   - ContractorNFClothingWristsetServiceClownCommon
   - ContractorNFClothingWristsetServiceMimeCommon
   - ContractorNFClothingWristsetPunkCommon
+  subgroups: # Radiant Sector
+  - PilotEars # Radiant Sector
+  - MercenaryEars # Radiant Sector
   fallbacks:
   - ContractorClothingHeadsetGreyCommon
 
@@ -735,8 +755,11 @@
   - ContractorClothingHandsGlovesBoxingBlue
   - ContractorClothingHandsGlovesBoxingRed
   - ContractorClothingHandsGlovesBoxingYellow
-  - ContractorClothingHandsGlovesCaptain
+#  - ContractorClothingHandsGlovesCaptain # Radiant Sector
   - ContractorClothingHandsGlovesColorWhite
+  subgroups: # Radiant Sector
+  - PilotGloves # Radiant Sector
+  - MercenaryGloves # Radiant Sector
 
 - type: loadoutGroup
   id: ContractorNeck
@@ -851,6 +874,9 @@
   - ContractorMusicianPDA
   - ContractorClownPDA
   - ContractorMimePDA
+  subgroups: # Radiant Sector
+  - PilotPDA # Radiant Sector
+  - MercenaryPDA # Radiant Sector
   fallbacks:
   - ContractorContractorPDA
 
@@ -875,6 +901,9 @@
   - ContractorClothingEyesPunkInfoShades # Punkish (Randomized visuals)
   - ContractorClothingEyesEyepatchHudDiag
   - ContractorClothingEyesEyepatchHudMedical
+  subgroups: # Radiant Sector
+  - PilotGlasses # Radiant Sector
+#  - MercenaryGlasses # Radiant Sector
 
 - type: loadoutGroup
   id: ContractorBackpackItems
@@ -1038,6 +1067,9 @@
   - ContractorClothingMaskSadMime
   - ContractorClothingMaskClown
   - ContractorClothingMaskClownBald
+  subgroups: # Radiant Sector
+  - PilotFace # Radiant Sector
+  - MercenaryFace # Radiant Sector
   fallbacks:
   - ContractorClothingMaskBreath
 

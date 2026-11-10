@@ -313,19 +313,24 @@
     children:
     - !type:NestedSelector
       tableId: TableDungeonLootMercenaryCratesEmpty
-      weight: 0.15
+#      weight: 0.15 # Radiant Sector
+      weight: 0.3 # Radiant Sector
     - !type:NestedSelector
       tableId: TableDungeonLootMercenaryCratesWeapons
-      weight: 0.3
+#      weight: 0.3 # Radiant Sector
+      weight: 0.1 # Radiant Sector
     - !type:NestedSelector
       tableId: TableDungeonLootMercenaryCratesAmmo
-      weight: 0.35
+#      weight: 0.35 # Radiant Sector
+      weight: 0.2 # Radiant Sector
     - !type:NestedSelector
       tableId: TableDungeonLootMercenaryCratesArmor
-      weight: 0.15
+#      weight: 0.15 # Radiant Sector
+      weight: 0.2 # Radiant Sector
     - !type:NestedSelector
       tableId: TableDungeonLootMercenaryCratesRestock
-      weight: 0.05
+#      weight: 0.05 # Radiant Sector
+      weight: 0.2 # Radiant Sector
 
 # region Crates (Empty)
 - type: entityTable
@@ -358,7 +363,8 @@
     children:
     # T1 - Common
     - !type:GroupSelector
-      weight: 0.15
+#      weight: 0.15 # Radiant Sector
+      weight: 0.65 # Radiant Sector
       children:
       - id: CrateAmmoBoxRubber20
       - id: CrateAmmoBoxRubber25
@@ -375,7 +381,8 @@
       - id: CrateAmmoBoxSlugShotgun
     # T2 - Unommon
     - !type:GroupSelector
-      weight: 0.3
+#      weight: 0.3 # Radiant Sector
+      weight: 0.15 # Radiant Sector
       children:
       - id: CrateAmmoBoxIncendiary20
       - id: CrateAmmoBoxIncendiary30
@@ -384,7 +391,8 @@
       - id: CrateAmmoBoxIncendiaryShotgun
     # T3 - Rare
     - !type:GroupSelector
-      weight: 0.35
+#      weight: 0.35 # Radiant Sector
+      weight: 0.15 # Radiant Sector
       children:
       - id: CrateAmmoBoxUranium20
       - id: CrateAmmoBoxUranium30
@@ -394,7 +402,8 @@
       - id: CrateAmmoBoxUraniumShotgun
     # T4 - Epic
     - !type:GroupSelector
-      weight: 0.15
+#      weight: 0.15 # Radiant Sector
+      weight: 0.05 # Radiant Sector
       children:
       - id: CrateAmmoBoxBigLethal20
       - id: CrateAmmoBoxBigLethal25

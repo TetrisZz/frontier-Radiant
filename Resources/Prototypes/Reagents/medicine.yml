@@ -915,7 +915,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 0
+          min: 6
           max: 26
         damage:
           types:

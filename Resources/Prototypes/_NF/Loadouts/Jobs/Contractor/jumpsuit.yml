@@ -2222,11 +2222,7 @@
 - type: loadout
   id: ContractorClothingUniformJumpskirtSetDon
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     jumpsuit: ClothingUniformJumpskirtSetDon
@@ -2235,11 +2231,7 @@
 - type: loadout
   id: ContractorClothingUniformJumpsuitSetDon
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     jumpsuit: ClothingUniformJumpsuitSetDon
@@ -2248,11 +2240,7 @@
 - type: loadout
   id: ContractorClothingUniformJumpsuitSuitrMercRS
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     jumpsuit: ClothingUniformJumpsuitSuitrMercRS
@@ -2261,11 +2249,7 @@
 - type: loadout
   id: ContractorClothingUniformJumpskirtSetDonMerc
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     jumpsuit: ClothingUniformJumpskirtSetDonMerc

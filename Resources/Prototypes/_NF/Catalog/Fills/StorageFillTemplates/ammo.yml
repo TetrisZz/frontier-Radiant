@@ -56,8 +56,10 @@
   components:
   - type: StorageFill
     contents:
-    - id: NFAmmunitionBoxBigRifle20Incendiary
-      amount: 2
+#    - id: NFAmmunitionBoxBigRifle20Incendiary # Radiant Sector
+    - id: NFAmmunitionBoxRifle20Incendiary # Radiant Sector
+#      amount: 2 # Radiant Sector
+      amount: 4 # Radiant Sector
 
 - type: entity # Uranium
   abstract: true

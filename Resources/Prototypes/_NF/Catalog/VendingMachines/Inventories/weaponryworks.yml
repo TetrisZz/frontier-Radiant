@@ -2,17 +2,17 @@
   id: WeaponryWorksVendInventory
   startingInventory:
   # Weapons
-    NFWeaponEnergyPistolLaser: 1
-    NFWeaponRevolverArgenti: 1
-    NFWeaponRevolverFitz: 1
-    NFWeaponRifleRepeater: 1
-    NFWeaponShotgunDoubleBarreled: 1
-    ClothingHandsKnuckleDusters: 1
-    SurvivalKnife: 1
+#    NFWeaponEnergyPistolLaser: 1 # Radiant Sector
+#    NFWeaponRevolverArgenti: 1 # Radiant Sector
+#    NFWeaponRevolverFitz: 1 # Radiant Sector
+#    NFWeaponRifleRepeater: 1 # Radiant Sector
+#    NFWeaponShotgunDoubleBarreled: 1 # Radiant Sector
+#    ClothingHandsKnuckleDusters: 1 # Radiant Sector
+#    SurvivalKnife: 1 # Radiant Sector
   # Magazines
-#    NFSpeedLoaderPistol35Empty: 1 # Radiant_sector
-    SpeedLoaderRifleHeavyEmpty: 1 # Radiant_sector
-    NFSpeedLoaderPistol45Empty: 1
+#    NFSpeedLoaderPistol35Empty: 1 # Radiant Sector
+#    SpeedLoaderRifleHeavyEmpty: 1 # Radiant Sector
+#    NFSpeedLoaderPistol45Empty: 1 # Radiant Sector
   # Ammo boxes
     NFAmmunitionBoxPistol35: 2
     NFAmmunitionBoxPistol45: 2
@@ -24,17 +24,17 @@
   id: WeaponryWorksVendPOIInventory
   startingInventory:
   # Weapons
-    NFWeaponEnergyPistolLaser: 4294967295
-    NFWeaponRevolverArgenti: 4294967295
-    NFWeaponRevolverFitz: 4294967295
-    NFWeaponRifleRepeater: 4294967295
-    NFWeaponShotgunDoubleBarreled: 4294967295
-    ClothingHandsKnuckleDusters: 4294967295
-    SurvivalKnife: 4294967295
+#    NFWeaponEnergyPistolLaser: 4294967295 # Radiant Sector
+#    NFWeaponRevolverArgenti: 4294967295 # Radiant Sector
+#    NFWeaponRevolverFitz: 4294967295 # Radiant Sector
+#    NFWeaponRifleRepeater: 4294967295 # Radiant Sector
+#    NFWeaponShotgunDoubleBarreled: 4294967295 # Radiant Sector
+#    ClothingHandsKnuckleDusters: 4294967295 # Radiant Sector
+#    SurvivalKnife: 4294967295 # Radiant Sector
   # Magazines
-#    NFSpeedLoaderPistol35Empty: 4294967295 # Radiant_sector
-    SpeedLoaderRifleHeavyEmpty: 4294967295 # Radiant_sector
-    NFSpeedLoaderPistol45Empty: 4294967295
+#    NFSpeedLoaderPistol35Empty: 4294967295 # Radiant Sector
+#    SpeedLoaderRifleHeavyEmpty: 4294967295 # Radiant Sector
+#    NFSpeedLoaderPistol45Empty: 4294967295 # Radiant Sector
   # Ammo boxes
     NFAmmunitionBoxPistol35: 4294967295
     NFAmmunitionBoxPistol45: 4294967295

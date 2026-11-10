@@ -666,11 +666,7 @@
 - type: loadout
   id: ContractorClothingHeadHatBlue
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     head: ClothingHeadHatBlue
@@ -679,11 +675,7 @@
 - type: loadout
   id: ContractorClothingHeadHatRed
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     head: ClothingHeadHatRed
@@ -692,11 +684,7 @@
 - type: loadout
   id: ContractorClothingHeadHatOr
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     head: ClothingHeadHatOr
@@ -705,11 +693,7 @@
 - type: loadout
   id: ContractorClothingHeadHatPes
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     head: ClothingHeadHatPes

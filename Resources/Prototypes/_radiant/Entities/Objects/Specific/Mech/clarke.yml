@@ -30,7 +30,7 @@
     baseState: clarke
     openState: clarke-open
     brokenState: clarke-broken
-    mechToPilotDamageMultiplier: 0.25
+    mechToPilotDamageMultiplier: 0.5
     # Clarke is not a sealed life-support vehicle; its pilot still needs a spacesuit in vacuum.
     airtight: false
     pilotCanRemoveEquipment: false

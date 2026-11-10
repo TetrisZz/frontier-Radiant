@@ -74,7 +74,7 @@ public sealed class AdminLibraryBookEntry
 public sealed class AdminLibraryStampEntry
 {
     public string StampedName = string.Empty;
-	public string StampSprite = string.Empty;
+    public string? StampSprite;
     public float Red;
     public float Green;
     public float Blue;

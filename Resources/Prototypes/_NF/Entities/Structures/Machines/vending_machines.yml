@@ -731,6 +731,8 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader # Radiant Sector
+    access: [["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]] # Radiant Sector
   - type: PointLight
     radius: 1.4
     energy: 1.7
@@ -992,7 +994,8 @@
   - type: GiveSerialNumber
     examineDepartment: gun-examine-department-civilian
   - type: AccessReader
-    access: [["Mercenary"], ["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]]
+#    access: [["Mercenary"], ["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]] # Radiant Sector
+    access: [["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]] # Radiant Sector
   - type: ActivatableUIRequiresAccess
 
 #region conjured MagiVend

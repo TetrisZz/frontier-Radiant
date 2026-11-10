@@ -284,11 +284,7 @@
 - type: loadout
   id: ContractorClothingBeltCombatWebbingSetOr
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 100
   equipment:
     belt: ClothingBeltCombatWebbingSetOr
@@ -297,11 +293,7 @@
 - type: loadout
   id: ContractorClothingBeltCombatWebbingSetRed
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 100
   equipment:
     belt: ClothingBeltCombatWebbingSetRed
@@ -310,11 +302,7 @@
 - type: loadout
   id: ContractorClothingBeltCombatWebbingSetBlue
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 100
   equipment:
     belt: ClothingBeltCombatWebbingSetBlue
@@ -323,11 +311,7 @@
 - type: loadout
   id: ContractorClothingBeltCombatWebbingMerc
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 100
   equipment:
     belt: ClothingBeltCombatWebbingMerc

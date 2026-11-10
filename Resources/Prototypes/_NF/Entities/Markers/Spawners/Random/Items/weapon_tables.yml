@@ -4,20 +4,23 @@
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      weight: 0.15
+#      weight: 0.15 # Radiant Sector
+      weight: 0.69
       tableId: TableDungeonLootWeaponsMeleeTier1
     - !type:NestedSelector
-      weight: 0.3
+#      weight: 0.3 # Radiant Sector
+      weight: 0.20
       tableId: TableDungeonLootWeaponsMeleeTier2
     - !type:NestedSelector
-      weight: 0.35
+#      weight: 0.35 # Radiant Sector
+      weight: 0.10
       tableId: TableDungeonLootWeaponsMeleeTier3
-    - !type:NestedSelector
-      weight: 0.15
-      tableId: TableDungeonLootWeaponsMeleeTier4
-    - !type:NestedSelector
-      weight: 0.05
-      tableId: TableDungeonLootWeaponsMeleeTier5
+#    - !type:NestedSelector # Radiant Sector
+#      weight: 0.15 # Radiant Sector
+#      tableId: TableDungeonLootWeaponsMeleeTier4 # Radiant Sector
+#    - !type:NestedSelector # Radiant Sector
+#      weight: 0.05 # Radiant Sector
+#      tableId: TableDungeonLootWeaponsMeleeTier5 # Radiant Sector
     - !type:NestedSelector
       weight: 0.01
       tableId: TableDungeonLootWeaponsMeleeUnique
@@ -162,7 +165,7 @@
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      weight: 0.5
+      weight: 0.4
       tableId: TableDungeonLootWeaponsRangedTier1
     - !type:NestedSelector
       weight: 0.2
@@ -170,9 +173,10 @@
     - !type:NestedSelector
       weight: 0.1
       tableId: TableDungeonLootWeaponsRangedTier3
-    - !type:NestedSelector
+    - id: WeaponCaseShortDocumentsFilled
+      weight: 0.1
+    - !type:NoneSelector
       weight: 0.2
-      tableId: WeaponCaseShortDocumentsFilled
 #    - !type:NestedSelector
 #      weight: 0.5
 #      tableId: TableDungeonLootWeaponsRangedTier4
@@ -415,39 +419,59 @@
    #   weight: 0.05
    #   tableId: TableDungeonLootWeaponsAmmunitionPractice
 
-# region ammo lethal
+# region ammo lethal # Radiant Sector edit
 - type: entityTable
   id: TableDungeonLootWeaponsAmmunitionLethal
   table: !type:GroupSelector
     children:
-    - id: WeaponCaseShortAmmoBoxLethal45
-    - id: WeaponCaseShortAmmoBoxBigLethal45
+    # .45
+    - !type:GroupSelector
+      children:
+      - id: WeaponCaseShortAmmoBoxLethal45
+        weight: 0.9
+      - id: WeaponCaseShortAmmoBoxBigLethal45
+        weight: 0.1
+    # .20
     - !type:GroupSelector
       children:
       - id: WeaponCaseShortAmmoBoxLethal20
+        weight: 0.9
       - id: WeaponCaseShortAmmoBoxBigLethal20
+        weight: 0.1
+    # .25
     - !type:GroupSelector
       children:
       - id: WeaponCaseShortAmmoBoxLethal25
+        weight: 0.9
       - id: WeaponCaseShortAmmoBoxBigLethal25
+        weight: 0.1
+    # .30
     - !type:GroupSelector
       children:
       - id: WeaponCaseShortAmmoBoxLethal30
+        weight: 0.9
       - id: WeaponCaseShortAmmoBoxBigLethal30
+        weight: 0.1
+    # .35
     - !type:GroupSelector
       children:
       - id: WeaponCaseShortAmmoBoxLethal35
+        weight: 0.9
       - id: WeaponCaseShortAmmoBoxBigLethal35
+        weight: 0.1
+    # Shotgun
     - !type:GroupSelector
       children:
       - id: WeaponCaseShortAmmoBoxLethalShotgun
+        weight: 0.45
       - id: WeaponCaseShortAmmoBoxSlugShotgun
+        weight: 0.45
       - id: WeaponCaseShortAmmoBoxBigLethalShotgun
-    - !type:GroupSelector # Radiant sector
-      children:
-      - id: WeaponCaseShortAmmoBoxLethalHigh2Rifle
+        weight: 0.1
+    # High2 Rifle (Radiant sector)
+    - id: WeaponCaseShortAmmoBoxLethalHigh2Rifle
 
-# region ammo rubber
+# region ammo rubber # Radiant sector edit
 - type: entityTable
   id: TableDungeonLootWeaponsAmmunitionRubber
   table: !type:GroupSelector
@@ -457,14 +481,20 @@
     - id: WeaponCaseShortAmmoBoxRubber45
     - id: WeaponCaseShortAmmoBoxRubberShotgun
     - id: WeaponCaseShortAmmoBoxRubberHigh2Rifle # Radiant sector
+    # .20
     - !type:GroupSelector
       children:
       - id: WeaponCaseShortAmmoBoxRubber20
+        weight: 0.9
       - id: WeaponCaseShortAmmoBoxBigRubber20
+        weight: 0.1
+    # .25
     - !type:GroupSelector
       children:
       - id: WeaponCaseShortAmmoBoxRubber25
+        weight: 0.9
       - id: WeaponCaseShortAmmoBoxBigRubber25
+        weight: 0.1
 
 
 # region ammo incendiary

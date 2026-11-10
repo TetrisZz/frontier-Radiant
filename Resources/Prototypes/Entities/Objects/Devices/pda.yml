@@ -96,7 +96,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
-      - NanoTaskCartridge
+#      - NanoTaskCartridge # Radiant Sector
       - NewsReaderCartridge
       - BountyContractsCartridge # Frontier
       - AstroNavCartridge # Frontier

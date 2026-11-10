@@ -61,8 +61,8 @@
   - MercenaryClothingShoesBootsMercenary
   - MercenaryClothingShoesBootsJack
   - MercenaryClothingShoesBootsCombat
-  - MercenaryClothingShoesMagMercenary
-  - MercenaryClothingShoesMagSecurity
+#  - MercenaryClothingShoesMagMercenary # Radiant Sector
+#  - MercenaryClothingShoesMagSecurity # Radiant Sector
   subgroups:
   - PilotShoes
   - ContractorShoes
@@ -74,12 +74,12 @@
   name: loadout-group-contractor-head
   minLimit: 0
   loadouts:
-  - MercenaryClothingHeadHelmetMercenary
-  - MercenaryClothingHeadHelmetMercenaryBlack
+#  - MercenaryClothingHeadHelmetMercenary # Radiant Sector
+#  - MercenaryClothingHeadHelmetMercenaryBlack # Radiant Sector
   - MercenaryClothingHeadBandMercenary
   - MercenaryClothingHeadHatBeretMercenary
   - MercenaryClothingHeadHatBeretCommander
-  - SecurityGuardSecurityHelmet
+#  - SecurityGuardSecurityHelmet # Radiant Sector
   - SecurityGuardSecurityHat
   - SecurityGuardSecurityBeret
   - SecurityGuardTrooperHat
@@ -113,8 +113,8 @@
   minLimit: 0
   loadouts:
   - MercenaryClothingHandsGlovesMercFingerless
-  - MercenaryClothingHandsMercenaryGlovesCombat
-  - MercenaryClothingHandsGlovesCombat
+#  - MercenaryClothingHandsMercenaryGlovesCombat # Radiant Sector
+#  - MercenaryClothingHandsGlovesCombat # Radiant Sector
   subgroups:
   - PilotGloves
   - ContractorGloves
@@ -160,8 +160,9 @@
   minLimit: 0
   loadouts:
   - MercenaryClothingBeltMercenaryWebbing
-  - MercenaryClothingBeltMilitaryWebbing
-  - MercenaryClothingBeltMilitaryWebbingMed
+#  - MercenaryClothingBeltMilitaryWebbing # Radiant Sector
+#  - MercenaryClothingBeltMilitaryWebbingMed # Radiant Sector
+  - MercenaryClothingBeltSecurityWebbing # Radiant Sector
   - MercenaryClothingBeltSecurity
   subgroups:
   - ContractorBelt

@@ -21,3 +21,9 @@
   price: 500
   equipment:
     belt: ClothingBeltSecurityFilled
+
+- type: loadout # Radiant Sector
+  id: MercenaryClothingBeltSecurityWebbing
+  price: 500
+  equipment:
+    belt: ClothingBeltSecurityWebbing
