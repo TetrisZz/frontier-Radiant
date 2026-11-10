@@ -65,6 +65,27 @@
       readonly: true
     - type: NFLedgerCartridge
 
+- type: entity
+  # radiant
+  parent: NFBasePDACartridge
+  id: DynamicCargoMarketCartridge
+  name: cargo market rates cartridge
+  description: A program that tracks current cargo market sale multipliers.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Devices/cartridge.rsi
+    state: cart-ledger
+  - type: Icon
+    sprite: _NF/Objects/Devices/cartridge.rsi
+    state: cart-ledger
+  - type: UIFragment
+    ui: !type:DynamicCargoMarketUi 
+  - type: Cartridge
+    programName: dynamic-cargo-market-program-name
+    icon: { sprite: _NF/Interface/icons.rsi, state: ledger }
+    readonly: true
+  - type: DynamicCargoMarketCartridge # radiant
+
 # Not a PDA cartridge (then why is this here)
 - type: entity
   parent: BaseItem
