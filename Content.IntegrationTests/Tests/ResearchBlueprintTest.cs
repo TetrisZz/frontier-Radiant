@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Numerics;
@@ -19,6 +20,7 @@ using Content.Shared.Materials;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.Containers;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -33,6 +35,65 @@ namespace Content.IntegrationTests.Tests;
 [TestFixture]
 public sealed class ResearchBlueprintTest
 {
+    [TestCase("HandImplantClaws", "StarlightCombatCyberarms", false)]
+    [TestCase("NFTelescopicShield", "NFAdvancedRiotControl", false)]
+    [TestCase("NFTelescopicShield", "NFAdvancedRiotControl", true)]
+    public async Task SavedSecurityBlueprintWorksInMercenaryTechFab(string recipeId, string technologyId, bool additional)
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var map = await pair.CreateTestMap();
+        await pair.Server.WaitAssertion(() =>
+        {
+            var em = pair.Server.EntMan;
+            var system = em.System<BlueprintResearchSystem>();
+            var loader = em.System<MapLoaderSystem>();
+            var blueprints = em.System<Content.Shared.Research.Systems.BlueprintSystem>();
+            ProtoId<LatheRecipePrototype> recipe = recipeId;
+            var proto = pair.Server.ProtoMan;
+            Assert.That(proto.Index<LatheBlueprintPrototype>("Weapon").Lathe, Does.Not.Contain(new EntProtoId("SecurityTechFab")));
+            Assert.That(proto.EnumeratePrototypes<TechnologyBlueprintsPrototype>().SelectMany(technology =>
+                technology.AdditionalLathes.Prepend(technology.Lathe)), Does.Not.Contain(new EntProtoId("SecurityTechFab")));
+
+            var paper = em.SpawnEntity("NFBlueprintArsenalMercenary", map.GridCoords);
+            var paperData = em.GetComponent<BlueprintComponent>(paper);
+            system.SetBlueprint((paper, paperData), [recipe], new BlueprintModifiers
+            {
+                InstanceId = "old-security-blueprint",
+                Technology = technologyId,
+                Lathe = "NfsdTechFab",
+                AdditionalLathes = additional ? ["AmmoTechFab"] : [],
+                MaterialMultiplier = 2,
+            });
+            using var writer = new StringWriter();
+            Assert.That(loader.TrySaveEntity(paper, writer), Is.True);
+            em.DeleteEntity(paper);
+            // Bypass the normal write path to simulate papers saved before the migration.
+            var yaml = writer.ToString().Replace(additional ? "AmmoTechFab" : "NfsdTechFab", "SecurityTechFab");
+            Assert.That(yaml, Does.Contain("SecurityTechFab"));
+            using var reader = new StringReader(yaml);
+            Assert.That(loader.TryLoadEntity(reader, "saved security blueprint", out var loaded), Is.True);
+            paper = loaded!.Value.Owner;
+            em.System<SharedTransformSystem>().SetCoordinates(paper, map.GridCoords);
+
+            var data = em.GetComponent<BlueprintComponent>(paper);
+            var mercenary = em.SpawnEntity("MercenaryTechFab", map.GridCoords);
+            var security = em.SpawnEntity("SecurityTechFab", map.GridCoords);
+            var lathes = em.System<LatheSystem>();
+            var modifiers = data.Modifiers!;
+            Assert.That(modifiers.InstanceId, Is.EqualTo("old-security-blueprint"));
+            Assert.That(modifiers.MaterialMultiplier, Is.EqualTo(2));
+            Assert.That(modifiers.GetLathes(), Does.Not.Contain(new EntProtoId("SecurityTechFab")));
+            var securityLathe = em.GetComponent<LatheComponent>(security);
+            Assert.That(securityLathe.LatheBlueprint, Is.Null);
+            Assert.That(lathes.MatchesBlueprintLathe(security, securityLathe, modifiers), Is.False);
+            if (additional)
+                Assert.That(modifiers.Lathe, Is.EqualTo(new EntProtoId("NfsdTechFab")));
+            Assert.That(blueprints.TryInsertBlueprint((mercenary, em.GetComponent<BlueprintReceiverComponent>(mercenary)), (paper, data), null), Is.True);
+            Assert.That(lathes.GetAvailableRecipes(mercenary, em.GetComponent<LatheComponent>(mercenary)), Does.Contain(recipe));
+        });
+        await pair.CleanReturnAsync();
+    }
+
     [Test]
     public async Task CatalogueRollSelectionQueueSnapshotAndEjection()
     {
@@ -338,7 +399,8 @@ public sealed class ResearchBlueprintTest
             Assert.That(em.GetComponent<LatheComponent>(secondMachine).BlueprintRecipes.ContainsKey("SurgicalKitMedical"), Is.False);
             var weaponMachines = new[] { "MercenaryTechFab", "MercenaryTechFabHacked", "NfsdTechFab", "AmmoTechFab", "SecurityTechFab" }
                 .Select(Spawn).ToArray();
-            foreach (var client in weaponMachines)
+            Assert.That(em.HasComponent<ResearchClientComponent>(weaponMachines[^1]), Is.False);
+            foreach (var client in weaponMachines.SkipLast(1))
             {
                 research.UnregisterClient(client);
                 research.RegisterClient(client, server);

@@ -19,6 +19,8 @@ public sealed partial class TechnologyBlueprintsPrototype : IPrototype
     [DataField] public List<int> Tiers = new();
     [DataField(required: true)] public EntProtoId Lathe;
     [DataField] public List<EntProtoId> AdditionalLathes = new();
+    /// <summary>Blueprints containing one of these recipes keep this technology's machine list.</summary>
+    [DataField] public HashSet<ProtoId<LatheRecipePrototype>> FixedLatheRecipes = new();
     [DataField] public List<ProtoId<LatheRecipePrototype>> Recipe = new();
     [DataField] public List<ProtoId<LatheRecipePrototype>> RecipeForce = new();
     [DataField] public List<List<ProtoId<LatheRecipePrototype>>> RecipeLinks = new();

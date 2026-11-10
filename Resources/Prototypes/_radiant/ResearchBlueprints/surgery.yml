@@ -279,6 +279,7 @@
   tiers: [2]
   lathe: MercenaryTechFab
   additionalLathes: [MercenaryTechFabHacked, NfsdTechFab]
+  fixedLatheRecipes: [HandImplantClaws]
   recipeLinks:
   - [LeftArmCyberMantisBlade, RightArmCyberMantisBlade]
   - [LeftArmCyberHerakles, RightArmCyberHerakles]

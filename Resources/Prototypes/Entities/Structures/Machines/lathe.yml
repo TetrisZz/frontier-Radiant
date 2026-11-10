@@ -459,7 +459,6 @@
   - type: Machine
     board: SecurityTechFabCircuitboard
   - type: Lathe
-    latheBlueprint: Weapon
     idleState: icon
     runningState: icon
     staticPacks:
