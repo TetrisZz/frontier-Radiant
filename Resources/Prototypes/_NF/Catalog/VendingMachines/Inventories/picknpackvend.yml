@@ -3,40 +3,51 @@
   startingInventory:
   # Weapons
 #    NFWeaponPistolMk58: 6 # Radiant_sector
-    NFWeaponPistolPollock: 6
-    NFWeaponRifleAssaultGestio: 6
-    NFWeaponRifleAssaultNovaliteC1: 6
+    NFWeaponPistolPollock: 1 # Radiant Sector 6 - 1
+#    NFWeaponRifleAssaultGestio: 1 # Radiant Sector
+#    NFWeaponRifleAssaultNovaliteC1: 1 # Radiant Sector
+    NFWeaponEnergyRifleAssaultLaserRepeater: 1 # Radiant Sector
 #    NFWeaponShotgunKammerer: 6 # Radiant_sector
-    WeaponShotgunPatron: 6 # Radiant_sector
+#    WeaponShotgunPatron: 1 # Radiant_sector
+    NFWeaponEnergyPistolLaser: 1 # Radiant Sector
+    NFWeaponRevolverArgenti: 1 # Radiant Sector
+    NFWeaponRevolverFitz: 1 # Radiant Sector
+    NFWeaponRifleRepeater: 1 # Radiant Sector
+    NFWeaponShotgunDoubleBarreled: 1 # Radiant Sector
   # Magazines
-    NFMagazinePistol35Empty: 6
-    NFMagazineLowCapacityRifle30Empty: 6
-    NFMagazineClipRifle20Empty: 6
+    NFMagazinePistol35Empty: 1 # Radiant Sector 6 - 1
+#    NFMagazineLowCapacityRifle30Empty: 1 # Radiant Sector
+#    NFMagazineClipRifle20Empty: 1 # Radiant Sector
   # Ammo boxes
-    NFAmmunitionBoxPistol35: 6
-    NFAmmunitionBoxRifle20: 6
-    NFAmmunitionBoxRifle30: 6
-    NFAmmunitionBoxShellShotgunBuckshot: 6
-    NFAmmunitionBoxShellShotgunBeanbag: 6
+#    NFAmmunitionBoxPistol35: 1 # Radiant Sector
+#    NFAmmunitionBoxRifle20: 1 # Radiant Sector
+#    NFAmmunitionBoxRifle30: 1 # Radiant Sector
+#    NFAmmunitionBoxShellShotgunBuckshot: 1 # Radiant Sector
+#    NFAmmunitionBoxShellShotgunBeanbag: 1 # Radiant Sector
 
 - type: vendingMachineInventory
   id: PickNPackPOIInventory
   startingInventory:
   # Weapons
 #    NFWeaponPistolMk58: 4294967295 # Radiant_sector
-    NFWeaponPistolPollock: 4294967295
-    NFWeaponRifleAssaultNovaliteC1: 4294967295
-    NFWeaponRifleAssaultGestio: 4294967295
+    NFWeaponPistolPollock: 4294967295 # Radiant Sector
+#    NFWeaponRifleAssaultNovaliteC1: 4294967295 # Radiant Sector
+#    NFWeaponRifleAssaultGestio: 4294967295 # Radiant Sector
     NFWeaponEnergyRifleAssaultLaserRepeater: 4294967295
 #    NFWeaponShotgunKammerer: 4294967295 # Radiant_sector
-    WeaponShotgunPatron: 4294967295 # Radiant_sector
+#    WeaponShotgunPatron: 4294967295 # Radiant_sector
+    NFWeaponEnergyPistolLaser: 4294967295 # Radiant Sector
+    NFWeaponRevolverArgenti: 4294967295 # Radiant Sector
+    NFWeaponRevolverFitz: 4294967295 # Radiant Sector
+    NFWeaponRifleRepeater: 4294967295 # Radiant Sector
+    NFWeaponShotgunDoubleBarreled: 4294967295 # Radiant Sector
   # Magazines
     NFMagazinePistol35Empty: 4294967295
-    NFMagazineClipRifle20Empty: 4294967295
-    NFMagazineLowCapacityRifle30Empty: 4294967295
+#    NFMagazineClipRifle20Empty: 4294967295 # Radiant Sector
+#    NFMagazineLowCapacityRifle30Empty: 4294967295 # Radiant Sector
   # Ammo boxes
-    NFAmmunitionBoxPistol35: 4294967295
-    NFAmmunitionBoxRifle20: 4294967295
-    NFAmmunitionBoxRifle30: 4294967295
-    NFAmmunitionBoxShellShotgunBuckshot: 4294967295
-    NFAmmunitionBoxShellShotgunBeanbag: 4294967295
+#    NFAmmunitionBoxPistol35: 4294967295 # Radiant Sector
+#    NFAmmunitionBoxRifle20: 4294967295 # Radiant Sector
+#    NFAmmunitionBoxRifle30: 4294967295 # Radiant Sector
+#    NFAmmunitionBoxShellShotgunBuckshot: 4294967295 # Radiant Sector
+#    NFAmmunitionBoxShellShotgunBeanbag: 4294967295 # Radiant Sector

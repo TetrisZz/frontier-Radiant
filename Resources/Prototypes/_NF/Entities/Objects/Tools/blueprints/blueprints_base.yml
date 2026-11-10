@@ -37,7 +37,8 @@
     - Document
     - Paper
   - type: StaticPrice
-    price: 5 # Should be sold to players, not market console
+#    price: 5 # Should be sold to players, not market console
+    price: 1000 # Radiant Sector
   - type: PhysicalComposition
     materialComposition:
       Paper: 100

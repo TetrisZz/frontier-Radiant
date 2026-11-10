@@ -113,7 +113,8 @@
       - id: CucumberSeeds
       - id: NFGlowshroomSeeds
     - !type:GroupSelector
-      weight: 10
+#      weight: 10 # Radiant Sector
+      weight: 9 # Radiant Sector
       children:
       - id: AnomalyBerrySeeds
       - id: KillerTomatoSeeds
@@ -126,6 +127,10 @@
       - id: ExtradimensionalOrangeSeeds
       - id: GlasstleSeeds
       - id: MonkananaSeeds
+    - !type:GroupSelector # Radiant Sector
+      weight: 1 # Radiant Sector
+      children: # Radiant Sector
+      - id: GatfruitSeeds # Radiant Sector
 
 # region Cemicals
 - type: entityTable

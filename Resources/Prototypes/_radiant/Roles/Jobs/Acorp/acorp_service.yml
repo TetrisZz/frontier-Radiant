@@ -6,7 +6,6 @@
 #  requirements:
 #    - !type:OverallPlaytimeRequirement
 #      time: 1000
-  whitelisted: true
   startingGear: AcorpServiceGear
   icon: "JobIconAcorpService" 
   supervisors: job-supervisors-acorp-director

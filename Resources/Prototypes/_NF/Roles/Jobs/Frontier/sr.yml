@@ -4,11 +4,13 @@
   description: job-description-sr
   playTimeTracker: JobHeadOfPersonnel
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 144000 # 40 hrs Radiant_Sector
-    - !type:RoleTimeRequirement
-      role: JobSecurityGuard
-      time: 10800 # 3 hrs as security guard
+    - !type:OverallPlaytimeRequirement # Radiant Sector
+      time: 10800 # 3 hrs Radiant Sector
+#    - !type:OverallPlaytimeRequirement
+#      time: 144000 # 40 hrs Radiant_Sector
+#    - !type:RoleTimeRequirement
+#      role: JobSecurityGuard
+#      time: 10800 # 3 hrs as security guard
   whitelisted: false # Radiant_Sector
   startingGear: SrGear
   alwaysUseSpawner: true

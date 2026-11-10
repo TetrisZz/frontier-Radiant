@@ -8,6 +8,10 @@
     offset: 0.1
     table: !type:GroupSelector
       children:
+      - !type:GroupSelector # Radiant Sector
+        weight: 0.05 # Radiant Sector
+        children: # Radiant Sector
+        - id: TreasureDatadiskEncrypted # Radiant Sector
       - !type:GroupSelector
         weight: 0.2
         children:
@@ -17,10 +21,10 @@
       - !type:GroupSelector
         weight: 0.3
         children:
-        - id: TreasureDatadiskEncrypted # 500 spesos
+#        - id: TreasureDatadiskEncrypted # 500 spesos
         - id: TreasureCPUSupercharged # 750 spesos
       - !type:GroupSelector
-        weight: 0.5
+        weight: 0.45
         children:
         - id: TreasureSsd # 900 spesos
         - id: TreasureSelfRepairModule # 1350 spesos
@@ -53,6 +57,11 @@
       - id: BorgModuleGardening
       - id: BorgModuleHarvesting
       - id: BorgModuleClowning
+      - id: BorgModuleRadio # Radiant Sector
+      - id: BorgModuleCombatLethal # Radiant Sector
+      - id: BorgModuleCombatLethalNovalite # Radiant Sector
+      - id: BorgModuleCombatNonLethal # Radiant Sector
+      - id: CyborgArmour # Radiant Sector
       - !type:GroupSelector
         children:
         - id: BorgModuleRescue
@@ -110,29 +119,45 @@
       - !type:GroupSelector
         weight: 0.4
         children:
-        - id: NFBlueprintRogueSiliconAdvancedCapacitor
-        - id: NFBlueprintRogueSiliconAdvancedMatterBin
-        - id: NFBlueprintRogueSiliconAdvancedManipulator
-        - id: NFBlueprintRogueSiliconPowerCellHigh
+#        - id: NFBlueprintRogueSiliconAdvancedCapacitor # Radiant Sector
+#        - id: NFBlueprintRogueSiliconAdvancedMatterBin # Radiant Sector
+#        - id: NFBlueprintRogueSiliconAdvancedManipulator # Radiant Sector
+#        - id: NFBlueprintRogueSiliconPowerCellHigh # Radiant Sector
+        - id: RSBlueprintRogueSiliconPowerCellMedium # Radiant Sector
+        - id: NFBlueprintRogueSiliconPistolLaserSvalinn # Radiant Sector
       # T2 - Uncommon
       - !type:GroupSelector
         weight: 0.3
         children:
-        - id: NFBlueprintRogueSiliconAdvancedTools
-        - id: NFBlueprintRogueSiliconSuperCapacitor
-        - id: NFBlueprintRogueSiliconSuperMatterBin
-        - id: NFBlueprintRogueSiliconSuperManipulator
-        - id: NFBlueprintRogueSiliconPowerCellHyper
-        - id: NFBlueprintRogueSiliconPowerCellMicroreactor
+#        - id: NFBlueprintRogueSiliconAdvancedTools # Radiant Sector
+        - id: NFBlueprintRogueSiliconAdvancedCapacitor # Radiant Sector
+        - id: NFBlueprintRogueSiliconAdvancedMatterBin # Radiant Sector
+        - id: NFBlueprintRogueSiliconAdvancedManipulator # Radiant Sector
+#        - id: NFBlueprintRogueSiliconSuperCapacitor # Radiant Sector
+#        - id: NFBlueprintRogueSiliconSuperMatterBin # Radiant Sector
+#        - id: NFBlueprintRogueSiliconSuperManipulator # Radiant Sector
+#        - id: NFBlueprintRogueSiliconPowerCellHyper # Radiant Sector
+#        - id: NFBlueprintRogueSiliconPowerCellMicroreactor # Radiant Sector
+        - id: NFBlueprintRogueSiliconPowerCellHigh # Radiant Sector
+        - id: RSBlueprintRogueSiliconPowerDrill # Radiant Sector
+        - id: RSBlueprintRogueSiliconWelderExperimental # Radiant Sector
+        - id: RSBlueprintRogueSiliconJawsOfLife # Radiant Sector
+        - id: NFBlueprintRogueSiliconRPED # Radiant Sector
+        - id: NFBlueprintRogueSiliconEnergyRifleCarbine # Radiant Sector
       # T3 - Rare
       - !type:GroupSelector
         weight: 0.15
         children:
-        - id: NFBlueprintRogueSiliconRPED
+        - id: NFBlueprintRogueSiliconSuperCapacitor # Radiant Sector
+        - id: NFBlueprintRogueSiliconSuperMatterBin # Radiant Sector
+        - id: NFBlueprintRogueSiliconSuperManipulator # Radiant Sector
+#        - id: NFBlueprintRogueSiliconRPED # Radiant Sector
         - id: NFBlueprintRogueSiliconShipyardRCD
-        - id: NFBlueprintOreBagOfHolding
-        - id: NFBlueprintConstructionBagOfHolding
-        - id: NFBlueprintRogueSiliconPistolLaserSvalinn
+#        - id: NFBlueprintOreBagOfHolding # Radiant Sector
+#        - id: NFBlueprintConstructionBagOfHolding # Radiant Sector
+        - id: NFBlueprintRogueSiliconPowerCellHyper # Radiant Sector
+#        - id: NFBlueprintRogueSiliconPistolLaserSvalinn # Radiant Sector
+        - id: NFBlueprintRogueSiliconEnergySubMachineGunDeltaV # Radiant Sector
       # T4 - Epic
       - !type:GroupSelector
         weight: 0.1
@@ -140,19 +165,24 @@
         - id: NFBlueprintRogueSiliconRipley
         - id: NFBlueprintRogueSiliconMechEquipmentFork
         - id: NFBlueprintRogueSiliconMechEquipmentGrabber
-        - id: NFBlueprintRogueSiliconEnergyRifleCarbine
-        - id: NFBlueprintRogueSiliconPistolLaserAdvanced
+        - id: RSBlueprintRogueSiliconClarkePart # Radiant Sector
+        - id: RSBlueprintRogueSiliconClarkeCircuitboard # Radiant Sector
+        - id: RSBlueprintRogueSiliconClarkeModule # Radiant Sector
+#        - id: NFBlueprintRogueSiliconEnergyRifleCarbine # Radiant Sector
+#        - id: NFBlueprintRogueSiliconPistolLaserAdvanced # Radiant Sector
       # T5 - Legendary
       - !type:GroupSelector
         weight: 0.05
         children:
         - id: NFBlueprintRogueSiliconHonker
-        - id: NFBlueprintRogueSiliconBluespaceBags
-        - id: NFBlueprintRogueSiliconEnergySubMachineGunDeltaV
+#        - id: NFBlueprintRogueSiliconBluespaceBags # Radiant Sector
+#        - id: NFBlueprintRogueSiliconEnergySubMachineGunDeltaV # Radiant Sector
       # Unique
       - !type:GroupSelector
         weight: 0.01
         children:
-        - id: NFBlueprintRogueSiliconBluespaceCapacitor
-        - id: NFBlueprintRogueSiliconBluespaceMatterBin
-        - id: NFBlueprintRogueSiliconBluespaceManipulator
+        - id: NFBlueprintRogueSiliconPowerCellMicroreactor # Radiant Sector
+        - id: NFBlueprintRogueSiliconBluespaceBags # Radiant Sector
+#        - id: NFBlueprintRogueSiliconBluespaceCapacitor
+#        - id: NFBlueprintRogueSiliconBluespaceMatterBin
+#        - id: NFBlueprintRogueSiliconBluespaceManipulator

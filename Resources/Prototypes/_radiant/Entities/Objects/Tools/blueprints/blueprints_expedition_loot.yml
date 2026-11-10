@@ -25,3 +25,88 @@
   - type: Blueprint
     providedRecipes:
     - MagazineBoxHigh2RifleIncendiary
+
+- type: entity
+  parent: NFBaseBlueprintExpeditionRogueSilicon
+  id: RSBlueprintRogueSiliconPowerCellMedium
+  categories: [ HideSpawnMenu ]
+  name: medium-capacity power cell blueprint
+  description: A blueprint with a schematic of a medium-capacity power cell. It can be inserted into a protolathe or techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - PowerCellMedium
+
+- type: entity
+  parent: NFBaseBlueprintExpeditionRogueSilicon
+  id: RSBlueprintRogueSiliconPowerDrill
+  categories: [ HideSpawnMenu ]
+  name: power drill blueprint
+  description: A blueprint with a schematic of power drill. It can be inserted into a protolathe or techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - PowerDrill
+
+- type: entity
+  parent: NFBaseBlueprintExpeditionRogueSilicon
+  id: RSBlueprintRogueSiliconWelderExperimental
+  categories: [ HideSpawnMenu ]
+  name: welder experimental blueprint
+  description: A blueprint with a schematic of welder experimental. It can be inserted into a protolathe or techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - WelderExperimental
+
+- type: entity
+  parent: NFBaseBlueprintExpeditionRogueSilicon
+  id: RSBlueprintRogueSiliconJawsOfLife
+  categories: [ HideSpawnMenu ]
+  name: jaws of life blueprint
+  description: A blueprint with a schematic of jaws of life. It can be inserted into a protolathe or techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - JawsOfLife
+
+# Clarke
+- type: entity
+  parent: NFBaseBlueprintExpeditionRogueSilicon
+  id: RSBlueprintRogueSiliconClarkePart
+  categories: [ HideSpawnMenu ]
+  name: clarke part blueprint
+  description: A blueprint with a schematic of clarke part exosuits. It can be inserted into a protolathe or techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - ClarkeHarness
+    - ClarkeHead
+    - ClarkeLArm
+    - ClarkeRArm
+    - ClarkeTreads
+    - MechThruster
+
+- type: entity
+  parent: NFBaseBlueprintExpeditionRogueSilicon
+  id: RSBlueprintRogueSiliconClarkeCircuitboard
+  categories: [ HideSpawnMenu ]
+  name: clarke electronics blueprint
+  description: A blueprint with a schematic of clake electronics exosuits. It can be inserted into a protolathe or techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - ClarkeCentralElectronics
+    - ClarkePeripheralsElectronics
+
+- type: entity
+  parent: NFBaseBlueprintExpeditionRogueSilicon
+  id: RSBlueprintRogueSiliconClarkeModule
+  categories: [ HideSpawnMenu ]
+  name: clarke tools blueprint
+  description: A blueprint with a schematic of clarke tools exosuits. It can be inserted into a protolathe or techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - MechEquipmentDrill
+    - MechEquipmentKineticAccelerator

@@ -7,7 +7,8 @@
   - type: RandomBlueprint
     blueprint: NFEngineering
     minRolls: 1
-    maxRolls: 2
+#    maxRolls: 2 # Radiant Sector
+    maxRolls: 1 # Radiant Sector
 
 - type: entity
   save: false
@@ -17,7 +18,8 @@
   - type: RandomBlueprint
     blueprint: NFSalvage
     minRolls: 1
-    maxRolls: 2
+#    maxRolls: 2 # Radiant Sector
+    maxRolls: 1 # Radiant Sector
 
 - type: entity
   save: false
@@ -27,7 +29,8 @@
   - type: RandomBlueprint
     blueprint: NFScience
     minRolls: 1
-    maxRolls: 2
+#    maxRolls: 2 # Radiant Sector
+    maxRolls: 1 # Radiant Sector
 
 - type: entity
   save: false
@@ -36,8 +39,10 @@
   components:
   - type: RandomBlueprint
     blueprint: NFService
-    minRolls: 2 # likely to roll pouches, therefore extra rolls
-    maxRolls: 3
+#    minRolls: 2 # likely to roll pouches, therefore extra rolls
+#    maxRolls: 3 # Radiant Sector
+    minRolls: 1 # Radiant Sector
+    maxRolls: 1 # Radiant Sector
 
 - type: entity
   save: false
@@ -47,7 +52,8 @@
   - type: RandomBlueprint
     blueprint: NFMedical
     minRolls: 1
-    maxRolls: 2
+#    maxRolls: 2 # Radiant Sector
+    maxRolls: 1 # Radiant Sector
 
 - type: entity
   save: false
@@ -57,7 +63,8 @@
   - type: RandomBlueprint
     blueprint: NFArsenalMercenary
     minRolls: 1
-    maxRolls: 2
+#    maxRolls: 2 # Radiant Sector
+    maxRolls: 1 # Radiant Sector
 
 - type: entity
   name: random blueprint

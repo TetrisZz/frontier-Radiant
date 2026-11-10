@@ -14,6 +14,7 @@
       - Store
       - Cash
       - Headset
+      - Pinpointer
   - type: RadarBlip
     radarColor: "#e3ffea"
     scale: 1.5

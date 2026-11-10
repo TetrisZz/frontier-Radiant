@@ -157,7 +157,8 @@
     - type: MedTekCartridge
     # Frontier: Add MedTekCartridgePrinter
     - type: MedTekCartridgePrinter
-      printTemplate: PaperWrittenMedicalMedtekPatientRecord
+#      printTemplate: PaperWrittenMedicalMedtekPatientRecord # Radiant Sector
+      printTemplate: PaperWrittenMedicalMedtekPatientRecordRS # Radiant Sector
     # End Frontier: Add MedTekCartridgePrinter
 
 - type: entity

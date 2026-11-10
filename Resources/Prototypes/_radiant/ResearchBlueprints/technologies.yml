@@ -139,19 +139,6 @@
   - RPED
 
 - type: technologyBlueprints
-  id: NFRapidPartExchangeFab
-  name: nf-research-technology-rped-fab
-  entityIcon: EngineeringTechFab
-  discipline: NFEngineering
-  rare: 100
-  rareLoc: research-technology-blueprint-uncommon
-  tier: 1
-  tiers: [2]
-  lathe: EngineeringTechFab
-  recipe:
-  - EngineeringTechFabCircuitboardRS
-
-- type: technologyBlueprints
   id: NFMiscellaneousItemsOrganization
   name: nf-research-technology-personal-storage-solutions
   entityIcon: NFPouchEngineering
@@ -840,15 +827,12 @@
   name: nf-research-technology-critter-mechs
   entityIcon: MechHamtr
   discipline: NFEngineering
-  rare: 50
-  rareLoc: research-technology-blueprint-common
+  rare: 100
+  rareLoc: research-technology-blueprint-uncommon
   tier: 1
   tiers: [2]
   lathe: ExosuitFabricator
-  recipeLinks:
-  - [HamtrLArm, HamtrRArm]
-  - [HamtrLLeg, HamtrRLeg]
-  recipe:
+  recipeForce:
   - HamtrHarness
   - HamtrLArm
   - HamtrRArm
@@ -1254,6 +1238,18 @@
   - ElectricRangeMachineCircuitboard
   - KitchenAssemblerMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+
+- type: technologyBlueprints
+  id: NFBlueSpaceDrinkService
+  name: nf-research-technology-advanced-food-service
+  entityIcon: KitchenElectricRange
+  discipline: NFService
+  rare: 500
+  rareLoc: research-technology-blueprint-epic
+  tier: 1
+  tiers: [2]
+  lathe: ServiceTechFab
+  recipe:
   - NFServiceDrinkShakerBluespace
 
 - type: technologyBlueprints
@@ -2165,8 +2161,8 @@
   name: nf-research-technology-bluespace-storage
   entityIcon: ConstructionBagOfHolding
   discipline: NFEngineering
-  rare: 150
-  rareLoc: research-technology-blueprint-uncommon
+  rare: 200
+  rareLoc: research-technology-blueprint-rare
   tier: 1
   tiers: [2]
   lathe: EngineeringTechFab

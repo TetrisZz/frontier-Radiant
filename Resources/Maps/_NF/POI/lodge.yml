@@ -21234,13 +21234,6 @@ entities:
     - type: Transform
       parent: 1
       pos: -11.5,11.5
-- proto: VendingMachinePickNPackPOI
-  entities:
-  - uid: 2666
-    components:
-    - type: Transform
-      parent: 1
-      pos: 20.5,-0.5
 - proto: VendingMachineRadiant
   entities:
   - uid: 2680

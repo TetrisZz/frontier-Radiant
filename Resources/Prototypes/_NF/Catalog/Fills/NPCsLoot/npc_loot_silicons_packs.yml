@@ -69,7 +69,7 @@
       prob: 0.1
     # Blueprints
     - id: SpawnDungeonLootNpcRogueSiliconBlueprints
-      orGroup: Blueprints
+#      orGroup: Blueprints # Radiant Sector
       prob: 0.05
 
 # region tier 2
@@ -100,7 +100,7 @@
       prob: 0.15
     # Blueprints
     - id: SpawnDungeonLootNpcRogueSiliconBlueprints
-      orGroup: Blueprints
+#      orGroup: Blueprints # Radiant Sector
       prob: 0.1
 
 # region tier 3
@@ -131,7 +131,7 @@
       prob: 0.2
     # Blueprints
     - id: SpawnDungeonLootNpcRogueSiliconBlueprints
-      orGroup: Blueprints
+#      orGroup: Blueprints # Radiant Sector
       prob: 0.2
 
 # region tier 4 (boss)
@@ -143,15 +143,15 @@
   - type: SpawnItemsOnUse
     items:
     # Weapons
-    - id: NFWeaponEnergyLightMachineGunTurbo
-      orGroup: Weapons
-      prob: 0.4
-    - id: SpawnDungeonLootGunT5
-      orGroup: Weapons
-      prob: 0.3
-    - id: SpawnDungeonLootMeleeT5
-      orGroup: Weapons
-      prob: 0.3
+#    - id: NFWeaponEnergyLightMachineGunTurbo
+#      orGroup: Weapons
+#      prob: 0.4
+#    - id: SpawnDungeonLootGunT5
+#      orGroup: Weapons
+#      prob: 0.3
+#    - id: SpawnDungeonLootMeleeT5
+#      orGroup: Weapons
+#      prob: 0.3
     # Scrap
     - id: ScrapOreRandom
       #orGroup: Scrap
@@ -183,7 +183,7 @@
       prob: 0.25
     # Blueprints
     - id: SpawnDungeonLootNpcRogueSiliconBlueprints
-      orGroup: Blueprints
+#      orGroup: Blueprints # Radiant Sector
       prob: 0.3
     # BossLoot
     - id: SpawnDungeonLootNpcRogueSiliconBlueprints
@@ -196,6 +196,9 @@
       orGroup: BossLoot
       amount: 3
       prob: 0.25
+    - id: NFWeaponEnergyLightMachineGunTurbo # Radiant Sector
+#      orGroup: Weapons # Radiant Sector
+      prob: 0.1 # Radiant Sector
     - id: SpawnDungeonLootFlatpacks
       orGroup: BossLoot
       prob: 0.1

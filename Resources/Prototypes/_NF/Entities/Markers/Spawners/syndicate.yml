@@ -18,6 +18,7 @@
         - CrateTradeContrabandSecure1
         - CrateTradeContrabandSecure1
         - LandMineExplosive
+        - LandMineExplosive # Radiant Sector
         - BannerSyndicate
 
 - type: entity
@@ -64,7 +65,7 @@
         - ClothingBeltSyndieHolster
         - ClothingEyesHudSyndicate
         - ClothingBackpackDuffelSyndicatePyjamaBundle
-        - ClothingBackpackDuffelSyndicateMedicalBundleFilled
+#        - ClothingBackpackDuffelSyndicateMedicalBundleFilled # Radiant Sector
         - EncryptionKeySyndie
         - ClothingShoesBootsMagSyndie
         - ClothingHeadsetAltSyndicate

@@ -3,9 +3,9 @@
   name: job-name-acorp-commandant
   description: job-description-acorp-commandant
   playTimeTracker: JobAcorpСommandant
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 21600
+#  requirements:
+#    - !type:OverallPlaytimeRequirement
+#      time: 21600
   whitelisted: true
   startingGear: AcorpСommandantGear
   icon: "JobIconAcorpСommandant" 

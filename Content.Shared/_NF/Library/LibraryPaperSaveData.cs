@@ -21,7 +21,7 @@ public sealed class LibraryPaperSaveData
 public sealed class LibraryStampSaveData
 {
     public string StampedName { get; set; } = string.Empty;
-	public string StampSprite { get; set; } = string.Empty;
+	public string? StampSprite { get; set; }
 
     public float Red { get; set; }
     public float Green { get; set; }

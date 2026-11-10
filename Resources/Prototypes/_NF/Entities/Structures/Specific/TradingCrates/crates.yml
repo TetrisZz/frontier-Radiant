@@ -107,8 +107,8 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 5000
-    valueElsewhere: 2500
+    valueAtDestination: 2000
+    valueElsewhere: 750
 
 - type: entity
   parent: CrateTradeBaseSecureContraband
@@ -136,11 +136,11 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 6000
-    valueElsewhere: 2500
+    valueAtDestination: 2000
+    valueElsewhere: 750
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 2000
-    expressLatePenalty: 1500
+    expressOnTimeBonus: 1000
+    expressLatePenalty: 500
 
 - type: entity
   parent: CrateTradeBaseSecureContraband
@@ -168,11 +168,11 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 8000
-    valueElsewhere: 4000
+    valueAtDestination: 2500
+    valueElsewhere: 1000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 4000
-    expressLatePenalty: 3000
+    expressOnTimeBonus: 1500
+    expressLatePenalty: 750
 
 - type: entity
   parent: CrateTradeBaseSecureContraband
@@ -201,11 +201,11 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 12000
-    valueElsewhere: 5000
+    valueAtDestination: 4000
+    valueElsewhere: 1500
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 6000
-    expressLatePenalty: 3000
+    expressOnTimeBonus: 2000
+    expressLatePenalty: 1000
 
 - type: entity
   parent: CrateTradeBaseSecureContraband
@@ -234,9 +234,9 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 12000
-    valueElsewhere: 6000
+    valueAtDestination: 5000
+    valueElsewhere: 2000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 6000
-    expressLatePenalty: 3000
+    expressOnTimeBonus: 3000
+    expressLatePenalty: 1500
 # endregion Contraband Crates

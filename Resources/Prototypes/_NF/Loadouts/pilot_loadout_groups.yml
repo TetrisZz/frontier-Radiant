@@ -33,7 +33,7 @@
   - PilotClothingOuterCoatBomber
   - PilotClothingLongcoatMedic
   - PilotClothingOuterHardsuitPilot
-  - PilotClothingOuterHardsuitCap
+#  - PilotClothingOuterHardsuitCap # Radiant Sector
   subgroups:
   - ContractorOuterClothing
 

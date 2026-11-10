@@ -749,11 +749,7 @@
 - type: loadout
   id: ContractorClothingShoesBootsCombatLongBlue
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     shoes: ClothingShoesBootsCombatLongBlue
@@ -762,11 +758,7 @@
 - type: loadout
   id: ContractorClothingShoesBootsCombatLongRed
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     shoes: ClothingShoesBootsCombatLongRed
@@ -775,11 +767,7 @@
 - type: loadout
   id: ContractorClothingShoesBootsCombatLongOr
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     shoes: ClothingShoesBootsCombatLongOr
@@ -788,11 +776,7 @@
 - type: loadout
   id: ContractorClothingShoesBootsCombatLongPes
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBoxer
-      time: 360000 # 100hr
+  - !type:SupporterLoadoutEffect
   price: 200
   equipment:
     shoes: ClothingShoesBootsCombatLongPes
