@@ -40,10 +40,12 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Materials.OreSilo;
 using Content.Shared._radiant.Storage;
 using Content.Server._radiant.Storage;
+using Content.Server._radiant.Plumbing;
 using Content.Server.Station.Systems;
 using Content.Server._NF.ShuttleRecords;
 using Content.Server.Cargo.Systems;
 using Content.Shared._radiant.Shipyard;
+using Content.Shared.Pinpointer;
 using Robust.Shared.Configuration;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Station.Components;
@@ -498,11 +500,33 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         if (!data.TryGet("components", out SequenceDataNode? components))
             return;
 
+        // Keep the wastewater tank and its solution container, but snapshot the solution empty.
+        // This leaves the tank usable after deployment without carrying the previous trip's waste.
+        var clearTankSolution = TryComp<ContainedSolutionComponent>(uid, out var containedSolution)
+            && TryComp<PlumbingTankComponent>(containedSolution.Container, out var tank)
+            && tank.ClearContentsOnShipSave;
+
+        // PinpointerSyndicatePOI inherits its fixed target from the prototype, so the serializer
+        // normally omits this unchanged component. Add an explicit override or the target returns
+        // when the saved shuttle is loaded from its prototype.
+        if (TryComp<PinpointerComponent>(uid, out var pinpointer) && pinpointer.Component == "SyndicateFOB")
+        {
+            var pinpointerSnapshot = SnapshotComponent(components, "Pinpointer");
+            pinpointerSnapshot["component"] = ValueDataNode.Null();
+            pinpointerSnapshot["targetName"] = ValueDataNode.Null();
+            pinpointerSnapshot["canRetarget"] = new ValueDataNode("true");
+            pinpointerSnapshot["updateTargetName"] = new ValueDataNode("true");
+        }
+
         foreach (var node in components.ToArray())
         {
             if (node is not MappingDataNode component
                 || !component.TryGet("type", out ValueDataNode? type))
                 continue;
+
+            if (clearTankSolution && type.Value == "Solution"
+                && component.TryGet("solution", out MappingDataNode? solution))
+                solution["reagents"] = new SequenceDataNode();
 
             switch (type.Value)
             {
@@ -513,6 +537,15 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
                 case "GeneralStationRecordConsole":
                     component["activeKey"] = ValueDataNode.Null();
                     component["filter"] = ValueDataNode.Null();
+                    break;
+                // Do not let a saved syndicate POI pinpointer reacquire LP Bravo in every later
+                // round. Keep the device, clear its fixed POI selector and make it manually retargetable.
+                case "Pinpointer" when component.TryGet("component", out ValueDataNode? targetComponent)
+                    && targetComponent is { Value: "SyndicateFOB" }:
+                    component["component"] = ValueDataNode.Null();
+                    component["targetName"] = ValueDataNode.Null();
+                    component["canRetarget"] = new ValueDataNode("true");
+                    component["updateTargetName"] = new ValueDataNode("true");
                     break;
                 case "ItemToggle" when HasComp<Content.Server._radiant.Shower.ShowerWaterComponent>(uid):
                     component["activated"] = new ValueDataNode("false");

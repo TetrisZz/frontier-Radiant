@@ -193,7 +193,7 @@
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksPinkStrip
   name: полосатые носки
-  description: Стандартные носки в чёрно-розовом цвете. Подойдут для нсатоящих мужчин.
+  description: Стандартные носки в чёрно-розовом цвете. Подойдут для настоящих мужчин.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/shortstripedsocks.rsi
@@ -211,7 +211,7 @@
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksThighPinkStrip
   name: полосатые чулки
-  description: Стандартные чулки в чёрно-розовом цвете. Подойдут для нсатоящих мужчин.
+  description: Стандартные чулки в чёрно-розовом цвете. Подойдут для настоящих мужчин.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/stockingssss.rsi
@@ -220,7 +220,7 @@
   parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksThighWhiteStrip
   name: полосатые носки
-  description: Стандартные чулки в бело-розовом цвете. Подойдут для нсатоящих мужчин.
+  description: Стандартные чулки в бело-розовом цвете. Подойдут для настоящих мужчин.
   components:
   - type: Sprite
     sprite: _radiant/Clothing/Underwear/socks/stripedblondestockings.rsi

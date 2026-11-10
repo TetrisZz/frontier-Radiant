@@ -353,6 +353,7 @@ public sealed partial class TriadTamperAdminWindow : DefaultWindow
         _eui.Send(new TriadTamperAdminGrantPermitMessage
         {
             Target = r.PlayerUserId,
+            ShipHashHex = r.ShipHashHex,
             Notes = string.IsNullOrWhiteSpace(NotesInput.Text) ? null : NotesInput.Text,
         });
     }

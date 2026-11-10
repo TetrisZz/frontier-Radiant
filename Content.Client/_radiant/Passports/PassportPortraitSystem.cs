@@ -7,7 +7,12 @@ using Robust.Shared.Utility;
 namespace Content.Client._radiant.Passports;
 
 [RegisterComponent]
-public sealed partial class PassportPortraitComponent : Component;
+public sealed partial class PassportPortraitComponent : Component
+{
+    /// <summary>Hide tail and wing markings for passport photo framing.</summary>
+    [DataField]
+    public bool HideAppendageMarkings = true;
+}
 
 /// <summary>Keep document photographs still, including markings rebuilt after equipment changes.</summary>
 public sealed class PassportPortraitSystem : EntitySystem
@@ -28,7 +33,9 @@ public sealed class PassportPortraitSystem : EntitySystem
             return;
 
         // A base tail layer can already be hidden while its separate marking layers remain visible.
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (TryComp<PassportPortraitComponent>(uid, out var portrait)
+            && portrait.HideAppendageMarkings
+            && TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
         {
             foreach (var category in humanoid.MarkingSet.Markings.Values)
             foreach (var marking in category)

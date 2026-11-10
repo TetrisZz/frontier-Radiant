@@ -234,7 +234,8 @@ public sealed partial class ShipyardSystem
             // An exception may import an unknown foreign/legacy file, never duplicate an already
             // deployed or revoked snapshot. Trusted local files still require a confirmed save.
             if (!_shipSigning.IsAvailable(file)
-                && (_shipSigning.IsKnown(file) || _shipSigning.IsTrusted(file)))
+                && (_shipSigning.IsKnown(file) || _shipSigning.IsTrusted(file))
+                && !decision.HasShipPermit)
             {
                 SaveError(uid, console, player, "shipyard-load-unavailable");
                 return;
@@ -258,7 +259,7 @@ public sealed partial class ShipyardSystem
                 SaveError(uid, console, player, "shipyard-load-owner-missing");
                 return;
             }
-            if (!ownership.IsOwner(session.UserId, _gridSave.GetOwnerCharacterName(player)))
+            if (!ownership.IsOwner(session.UserId, _gridSave.GetOwnerCharacterName(player)) && !decision.HasShipPermit)
             {
                 SaveError(uid, console, player, "shipyard-load-owner-mismatch");
                 return;
@@ -358,6 +359,8 @@ public sealed partial class ShipyardSystem
             }
             _shipSigning.Deploy(file, grid, session, args.SourceFilePath);
             completed = true;
+            if (decision.HasShipPermit)
+                _tamperPolicy.ConsumeShipLoadPermit(file, session.UserId.UserId);
             _tamperPolicy.RecordLoad(file, session, name, decision.ResolvedEvent,
                 (int)_pricing.AppraiseGrid(grid, null), args.SourceFilePath);
             auditRecorded = true;

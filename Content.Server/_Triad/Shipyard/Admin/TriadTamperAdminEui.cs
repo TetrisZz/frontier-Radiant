@@ -130,13 +130,12 @@ public sealed partial class TriadTamperAdminEui : BaseEui, ITriadTamperAuditObse
 
             case TriadTamperAdminGrantPermitMessage gp:
             {
-                // Per-player permit: a one-session bypass letting the player onboard unsigned/foreign
-                // ships under enforce. No ship hash, no clock expiry (clears on revoke or session end).
+                // Grant a one-session permit for this exact ship file, including a sold/revoked save.
                 var adminId = Player.UserId.UserId;
                 var grantedAt = DateTime.UtcNow;
                 // Capture the round on the main thread; recording happens after the async grant.
                 var roundId = CurrentRoundId();
-                _ = GrantPermitAsync(gp.Target, adminId, grantedAt, gp.Notes, roundId);
+                _ = GrantPermitAsync(gp.Target, gp.ShipHashHex, adminId, grantedAt, gp.Notes, roundId);
                 break;
             }
 
@@ -301,25 +300,35 @@ public sealed partial class TriadTamperAdminEui : BaseEui, ITriadTamperAuditObse
 
     // Grant the permit, then log a PermitGranted row (routed through the policy service so it batches
     // and live-updates), then refresh. The round was captured on the caller's main thread.
-    private async Task GrantPermitAsync(Guid target, Guid adminId, DateTime grantedAt, string? notes, int roundId)
+    private async Task GrantPermitAsync(Guid target, string shipHashHex, Guid adminId, DateTime grantedAt, string? notes, int roundId)
     {
-        if (!_players.TryGetSessionById(new NetUserId(target), out var session)
+        if (shipHashHex.Length != 64 || !shipHashHex.All(Uri.IsHexDigit)
+            || !_players.TryGetSessionById(new NetUserId(target), out var session)
             || session.Status == Robust.Shared.Enums.SessionStatus.Disconnected)
             return;
         try
         {
             notes = notes is { } value ? value[..Math.Min(value.Length, 500)] : null;
             await _permitStore.GrantAsync(target, adminId, grantedAt, notes, default);
-            if (_closed || !_admins.HasAdminFlag(Player, AdminFlags.Admin)
-                || session.Status == Robust.Shared.Enums.SessionStatus.Disconnected)
+            // Closing the audit window after clicking Grant must not cancel the action. The exact-file
+            // permit is revoked by the player's disconnect handler. Undo it if the target disconnected
+            // while the database write was pending.
+            if (session.Status == Robust.Shared.Enums.SessionStatus.Disconnected)
+            {
+                await _permitStore.RevokeAsync(target, default);
+                return;
+            }
+            var policy = _entMan.System<TriadTamperPolicyService>();
+            if (!policy.GrantShipLoadPermit(target, shipHashHex))
             {
                 await _permitStore.RevokeAsync(target, default);
                 return;
             }
             var targetName = await ResolveNameAsync(target);
-            _entMan.System<TriadTamperPolicyService>().RecordPermitAction(
+            policy.RecordPermitAction(
                 TriadShipyardEventType.PermitGranted, target, targetName, adminId, roundId > 0 ? roundId : null);
-            await RefreshAsync();
+            if (!_closed && _admins.HasAdminFlag(Player, AdminFlags.Admin))
+                await RefreshAsync();
         }
         catch (Exception exception)
         {
@@ -331,6 +340,7 @@ public sealed partial class TriadTamperAdminEui : BaseEui, ITriadTamperAuditObse
     {
         try
         {
+            _entMan.System<TriadTamperPolicyService>().RevokeShipLoadPermits(target);
             await _permitStore.RevokeAsync(target, default);
             var targetName = await ResolveNameAsync(target);
             _entMan.System<TriadTamperPolicyService>().RecordPermitAction(

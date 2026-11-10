@@ -39,6 +39,7 @@ public sealed class PlumbingSystem : EntitySystem
         SubscribeLocalEvent<PlumbedFixtureComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<LeakingPipeComponent, ExaminedEvent>(OnPipeExamined);
         SubscribeLocalEvent<PlumbingTankComponent, GetVerbsEvent<Verb>>(OnTankVerbs);
+        SubscribeLocalEvent<PlumbingTankComponent, SolutionTransferAttemptEvent>(OnTankTransferAttempt);
     }
 
     public override void Update(float frameTime)
@@ -253,6 +254,17 @@ public sealed class PlumbingSystem : EntitySystem
                 _transfers.Transfer(user, ent, source.Value, used, destination.Value, FixedPoint2.Min(amount, transfer.TransferAmount));
             }
         });
+    }
+
+    private void OnTankTransferAttempt(Entity<PlumbingTankComponent> ent, ref SolutionTransferAttemptEvent args)
+    {
+        if (!ent.Comp.WaterOnly || args.To != ent.Owner)
+            return;
+
+        if (!_solutions.TryGetDrainableSolution(args.From, out _, out var incoming)
+            || incoming.Volume <= 0
+            || incoming.GetTotalPrototypeQuantity("Water") != incoming.Volume)
+            args.Cancel(Loc.GetString("plumbing-water-tank-water-only"));
     }
 
     private void WashAtSink(EntityUid sink, EntityUid user)

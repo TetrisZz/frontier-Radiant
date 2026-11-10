@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -20,7 +22,8 @@ namespace Content.Server._Triad.Shipyard;
 public readonly record struct LoadDecision(
     bool Allow,
     TriadShipyardEventType ResolvedEvent,
-    string? PopupReasonLocId);
+    string? PopupReasonLocId,
+    bool HasShipPermit = false);
 
 public sealed partial class TriadTamperPolicyService : EntitySystem
 {
@@ -46,6 +49,7 @@ public sealed partial class TriadTamperPolicyService : EntitySystem
     // Update keeps the EUI StateDirty/QueueStateUpdate calls on the main thread instead of the
     // consumer's thread-pool thread. A set that races just past an Update read simply lands next tick.
     private int _auditCommittedSinceTick;
+    private readonly ConcurrentDictionary<(Guid UserId, string ShipHash), byte> _shipLoadPermits = new();
 
     public override void Initialize()
     {
@@ -65,9 +69,7 @@ public sealed partial class TriadTamperPolicyService : EntitySystem
         // The existing signing system keeps the server key; only permits need bootstrapping.
         _ = BootstrapPermitsAsync();
 
-        // Per-player permits are a one-session legacy-onboarding bypass: clear a player's permit on
-        // disconnect (admin revoke is the other end condition). This re-adds the disconnect-clear the
-        // F15 change removed, which is correct now that permits are per-player, not per-(player, hash).
+        // Ship-load permits are one-session and file-specific; clear them on disconnect.
         _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
     }
 
@@ -110,7 +112,10 @@ public sealed partial class TriadTamperPolicyService : EntitySystem
     {
         // Clear a player's permit when their session ends; admin revoke is the other end condition.
         if (e.Session != null && e.NewStatus == SessionStatus.Disconnected)
+        {
+            ClearShipLoadPermits(e.Session.UserId.UserId);
             _ = RevokeSessionPermitAsync(e.Session.UserId.UserId);
+        }
     }
 
     private async Task RevokeSessionPermitAsync(Guid userId)
@@ -246,9 +251,12 @@ public sealed partial class TriadTamperPolicyService : EntitySystem
     public LoadDecision EvaluateLoad(AuthenticatedShipFile envelope, NetUserId player, string? shipName)
     {
         var mode = ResolveMode();
+        var shipHash = Convert.ToHexString(envelope.GetHash());
+        var hasShipPermit = _permitStore.HasPermitFor(player.UserId)
+            && _shipLoadPermits.ContainsKey((player.UserId, shipHash));
 
         if (mode == TamperMode.Off)
-            return new LoadDecision(true, TriadShipyardEventType.LoadVerifiedTrusted, null);
+            return new LoadDecision(true, TriadShipyardEventType.LoadVerifiedTrusted, null, hasShipPermit);
 
         var hasSignature = envelope.GetInstancePublicKeyInfo() != null;
         var signatureValid = hasSignature && envelope.IsShipSigned();
@@ -259,7 +267,7 @@ public sealed partial class TriadTamperPolicyService : EntitySystem
 
         // Ships signed by our own key are always allowed and never migrated.
         if (ours)
-            return new LoadDecision(true, TriadShipyardEventType.LoadVerifiedTrusted, null);
+            return new LoadDecision(true, TriadShipyardEventType.LoadVerifiedTrusted, null, hasShipPermit);
 
         // In notify mode every state is allowed and logged with the descriptive event. A valid
         // signature from a key that isn't ours is the forged-key flare: keep LoadVerifiedUntrusted
@@ -269,13 +277,13 @@ public sealed partial class TriadTamperPolicyService : EntitySystem
             var ev = !hasSignature ? TriadShipyardEventType.LoadUnsigned
                 : !signatureValid ? TriadShipyardEventType.LoadInvalidSignature
                 : TriadShipyardEventType.LoadVerifiedUntrusted;
-            return new LoadDecision(true, ev, null);
+            return new LoadDecision(true, ev, null, hasShipPermit);
         }
 
-        // Enforce. Permit is the per-player legacy-onboarding bypass: a permitted player may load a
-        // non-our-key ship, which the load path re-signs with our key. HasPermitFor reads the cache.
-        if (_permitStore.HasPermitFor(player.UserId))
-            return new LoadDecision(true, TriadShipyardEventType.LoadMigrated, null);
+        // Admin permits are tied to this player and this exact ship file, and may authorize importing
+        // a sold/revoked save. The load path re-signs foreign files with our key as usual.
+        if (hasShipPermit)
+            return new LoadDecision(true, TriadShipyardEventType.LoadMigrated, null, true);
 
         // Reject reasons get distinct event types so the admin feed can name why the load was blocked.
         if (!hasSignature)
@@ -285,6 +293,56 @@ public sealed partial class TriadTamperPolicyService : EntitySystem
 
         // Signature valid but not our key (forged keypair). Always rejected under enforce.
         return new LoadDecision(false, TriadShipyardEventType.LoadRejectedForeignKey, "shipyard-tamper-blocked-untrusted-key");
+    }
+
+    public bool GrantShipLoadPermit(Guid playerUserId, string shipHashHex)
+    {
+        if (shipHashHex.Length != 64 || !shipHashHex.All(Uri.IsHexDigit))
+            return false;
+
+        _shipLoadPermits[(playerUserId, shipHashHex.ToUpperInvariant())] = 0;
+        return true;
+    }
+
+    public void RevokeShipLoadPermits(Guid playerUserId)
+    {
+        ClearShipLoadPermits(playerUserId);
+    }
+
+    public void ConsumeShipLoadPermit(AuthenticatedShipFile file, Guid playerUserId)
+    {
+        var hash = Convert.ToHexString(file.GetHash());
+        if (!_shipLoadPermits.TryRemove((playerUserId, hash), out _))
+            return;
+
+        // The database row backs the admin UI's active-permit list. Clear it once the sole granted
+        // file has been imported; other grants for the same player remain valid until used/revoked.
+        if (_shipLoadPermits.Keys.Any(key => key.UserId == playerUserId))
+            return;
+
+        _ = RevokeConsumedPermitAsync(playerUserId);
+    }
+
+    private void ClearShipLoadPermits(Guid playerUserId)
+    {
+        foreach (var key in _shipLoadPermits.Keys)
+        {
+            if (key.UserId == playerUserId)
+                _shipLoadPermits.TryRemove(key, out _);
+        }
+    }
+
+    private async Task RevokeConsumedPermitAsync(Guid playerUserId)
+    {
+        try
+        {
+            await _permitStore.RevokeAsync(playerUserId, default);
+            _euiRegistry.NotifyAuditChanged();
+        }
+        catch (Exception exception)
+        {
+            _sawmill.Error($"Unable to clear consumed ship load permit: {exception}");
+        }
     }
 
     public Task RecordSaveAsync(

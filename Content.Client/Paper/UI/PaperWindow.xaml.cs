@@ -366,9 +366,12 @@ namespace Content.Client.Paper.UI
                 .WithCharacterAppearance(new HumanoidCharacterAppearance(dossier.Portrait));
             _dossierPortraitDummy = _entities.SpawnEntity(species.DollPrototype, MapCoordinates.Nullspace);
             _entities.System<HumanoidAppearanceSystem>().LoadProfile(_dossierPortraitDummy.Value, profile);
+            var portraitComponent = _entities.AddComponent<PassportPortraitComponent>(_dossierPortraitDummy.Value);
+            portraitComponent.HideAppendageMarkings = false;
             var uniform = _entities.SpawnEntity("ClothingUniformJumpsuitCentcomAgent", MapCoordinates.Nullspace);
             if (!_entities.System<InventorySystem>().TryEquip(_dossierPortraitDummy.Value, uniform, "jumpsuit", true, true))
                 _entities.DeleteEntity(uniform);
+            _entities.System<PassportPortraitSystem>().Prepare(_dossierPortraitDummy.Value);
             var portrait = new SpriteView
             {
                 Scale = new Vector2(5, 5),
