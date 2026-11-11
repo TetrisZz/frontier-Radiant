@@ -89,5 +89,6 @@ public sealed class AddictionTraitsTest
             Assert.That(profile.TraitPreferences.Contains("RadiantHabitualDrinker"), Is.False);
             Assert.That(profile.SkillPointsSpent, Is.Zero);
         });
+        await pair.CleanReturnAsync();
     }
 }

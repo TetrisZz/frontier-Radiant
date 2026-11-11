@@ -1,3 +1,6 @@
+using System.Linq;
+using Content.Server.Medical;
+using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
@@ -5,6 +8,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Content.Shared.Item.ItemToggle;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 
@@ -56,10 +60,13 @@ public sealed class HeavyWoundedTest
 
             SetDamage(120);
             Assert.That(mob.CurrentState, Is.EqualTo(MobState.Critical));
-            em.EnsureComponent<MobStateActionsComponent>(uid);
-            var action = new FightForLifeEvent();
-            em.EventBus.RaiseLocalEvent(uid, action);
-            Assert.That(action.Handled, Is.True);
+            var actions = em.System<SharedActionsSystem>();
+            var action = actions.GetActions(uid).Single(entry => em.GetComponent<MetaDataComponent>(entry).EntityPrototype?.ID == "ActionFightForLife");
+            Assert.That(actions.ValidAction(action), Is.False);
+            Assert.That((action.Comp.Cooldown!.Value.End - action.Comp.Cooldown.Value.Start).TotalSeconds, Is.InRange(35, 149));
+            actions.ClearCooldown(action);
+            Assert.That(actions.ValidAction(action), Is.True);
+            actions.PerformAction(uid, action);
             Assert.That(em.HasComponent<FightingForLifeComponent>(uid), Is.True);
             Assert.That(em.GetComponent<StandingStateComponent>(uid).Standing, Is.True);
             // Retain the knockdown component: its removal during death used to stand the corpse up.
@@ -72,5 +79,56 @@ public sealed class HeavyWoundedTest
             em.System<SharedStunSystem>().ForceStandUp(uid);
             Assert.That(em.GetComponent<StandingStateComponent>(uid).Standing, Is.False);
         });
+        await pair.CleanReturnAsync();
+    }
+
+    [TestCase("Defibrillator")]
+    [TestCase("DefibrillatorSyndicate")]
+    public async Task InitialFightDelayAllowsHealingAndDefibrillation(string defibrillator)
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        var map = await pair.CreateTestMap();
+        var em = pair.Server.EntMan;
+        EntityUid patient = default;
+        await pair.Server.WaitAssertion(() =>
+        {
+            patient = em.SpawnEntity("MobHuman", map.GridCoords);
+            var doctor = em.SpawnEntity("MobHumanDummy", map.GridCoords);
+            var damage = em.GetComponent<DamageableComponent>(patient);
+            var health = em.System<DamageableSystem>();
+            var states = em.System<MobStateSystem>();
+            var actions = em.System<SharedActionsSystem>();
+            health.SetDamage(patient, damage, new DamageSpecifier { DamageDict = new() { ["Blunt"] = 120 } });
+            Assert.That(states.IsCritical(patient), Is.True);
+            var firstAction = actions.GetActions(patient)
+                .Single(entry => em.GetComponent<MetaDataComponent>(entry).EntityPrototype?.ID == "ActionFightForLife");
+            Assert.That(actions.ValidAction(firstAction), Is.False);
+            health.TryChangeDamage(patient, new DamageSpecifier { DamageDict = new() { ["Blunt"] = -30 } },
+                ignoreResistances: true, interruptsDoAfters: false);
+            Assert.That(states.IsAlive(patient), Is.True, "Healing must end critical condition during the initial delay.");
+
+            health.SetDamage(patient, damage, new DamageSpecifier { DamageDict = new() { ["Blunt"] = 250 } });
+            Assert.That(states.IsDead(patient), Is.True);
+            health.SetDamage(patient, damage, new DamageSpecifier { DamageDict = new() { ["Blunt"] = 150, ["Asphyxiation"] = 40 } });
+            Assert.That(states.IsDead(patient), Is.True);
+            var defib = em.SpawnEntity(defibrillator, map.GridCoords);
+            Assert.That(em.System<ItemToggleSystem>().TryActivate(defib), Is.True);
+            var defibs = em.System<DefibrillatorSystem>();
+            Assert.That(defibs.CanZap(defib, patient, doctor), Is.True);
+            defibs.Zap(defib, patient, doctor);
+            Assert.That(states.IsCritical(patient), Is.True, "A successful shock must leave the patient in critical condition.");
+            Assert.That(damage.TotalDamage.Float(), Is.LessThan(200));
+            var revivedAction = actions.GetActions(patient)
+                .Single(entry => em.GetComponent<MetaDataComponent>(entry).EntityPrototype?.ID == "ActionFightForLife");
+            Assert.That(actions.ValidAction(revivedAction), Is.False);
+            Assert.That((revivedAction.Comp.Cooldown!.Value.End - revivedAction.Comp.Cooldown.Value.Start).TotalSeconds, Is.InRange(35, 149));
+            Assert.That(em.HasComponent<FightingForLifeComponent>(patient), Is.False);
+            for (var i = 0; i < 5; i++)
+                states.UpdateMobState(patient);
+            Assert.That(states.IsCritical(patient), Is.True, "The action delay must not send the patient back to death.");
+            health.SetDamage(patient, damage, new DamageSpecifier { DamageDict = new() { ["Blunt"] = 90 } });
+            Assert.That(states.IsAlive(patient), Is.True, "Treatment must also work after resuscitation.");
+        });
+        await pair.CleanReturnAsync();
     }
 }
