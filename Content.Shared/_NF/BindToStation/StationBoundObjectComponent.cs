@@ -19,4 +19,9 @@ public sealed partial class StationBoundObjectComponent : Component
     [DataField]
     [AutoNetworkedField]
     public bool Enabled = true;
+
+    // Snapshot-only state: restore an existing binding after the saved ship gets its new station.
+    // The old round's station UID must never be used as the new binding target.
+    [DataField]
+    public bool? SavedBindingEnabled;
 }

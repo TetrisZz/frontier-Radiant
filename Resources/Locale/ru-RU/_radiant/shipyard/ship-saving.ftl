@@ -5,6 +5,7 @@ shipyard-save-list-title = Резервный док
 shipyard-load-price-label = Стоимость вызова: { $rate }% от оценки шаттла
 shipyard-save-not-allowed = Этот шаттл не принимается в резервный док.
 shipyard-save-blacklisted-cargo = Уберите с шаттла "{ $item }", чтобы сдать корабль в резервный док.
+shipyard-save-foreign-bound-equipment = Нельзя сдать шаттл в резервный док: "{ $item }" привязан к другому кораблю или станции. Уберите этот предмет с борта.
 shipyard-save-failed = Не удалось оформить передачу шаттла в резервный док.
 shipyard-save-success = Шаттл "{ $ship }" принят в резервный док на ответственное хранение.
 shipyard-save-traffic-announcement = Шаттл { $ship } капитана { $owner } принят на хранение в резервный док.

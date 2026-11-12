@@ -1,6 +1,8 @@
 using System.IO;
 using Content.Server.Construction.Components;
 using Content.Shared._NF.Construction.Components;
+using Content.Shared._NF.BindToStation;
+using Content.Server._NF.BindToStation;
 using Content.Shared.Construction.Components;
 using Content.Server.Spreader;
 using Content.Server._HL.Shipyard;
@@ -326,7 +328,34 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             return Loc.GetString("shipyard-save-blacklisted-cargo", ("item", Name(uid)));
         }
 
+        var station = _station.GetOwningStation(grid) ?? grid;
+        var boundQuery = AllEntityQuery<StationBoundObjectComponent, TransformComponent>();
+        while (boundQuery.MoveNext(out var uid, out var binding, out var xform))
+        {
+            if (binding.BoundStation is not { } boundStation || boundStation == station
+                || TerminatingOrDeleted(uid)
+                || xform.GridUid != grid && !_transform.ContainsEntity(grid, (uid, xform)))
+                continue;
+
+            // Keep the original ownership even if an emag temporarily disabled the restriction.
+            return Loc.GetString("shipyard-save-foreign-bound-equipment", ("item", Name(uid)));
+        }
+
         return null;
+    }
+
+    internal void RestoreSavedStationBindings(EntityUid grid, EntityUid station)
+    {
+        var bindings = EntityQueryEnumerator<StationBoundObjectComponent, TransformComponent>();
+        while (bindings.MoveNext(out var uid, out var binding, out var xform))
+        {
+            if (binding.SavedBindingEnabled is not { } enabled
+                || xform.GridUid != grid && !_transform.ContainsEntity(grid, (uid, xform)))
+                continue;
+
+            binding.SavedBindingEnabled = null;
+            _entitySystemManager.GetEntitySystem<BindToStationSystem>().BindToStation(uid, station, enabled);
+        }
     }
 
     /// <summary>
@@ -421,6 +450,9 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         appraisalCost = 0;
 
         if (!_gridQuery.HasComp(gridUid))
+            return false;
+
+        if (GetShipSaveBlacklistReason(gridUid) != null)
             return false;
 
         var loadShipPrice = Math.Clamp(_configManager.GetCVar(ShipSaveCVars.LoadShipPrice), 0f, 1f);
@@ -590,6 +622,10 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         }
 
         // These components can have no serialized overrides, so add explicit snapshot overrides.
+        if (TryComp<StationBoundObjectComponent>(uid, out var binding))
+            SnapshotComponent(components, "StationBoundObject")["savedBindingEnabled"] =
+                binding.BoundStation != null ? new ValueDataNode(binding.Enabled ? "true" : "false") : ValueDataNode.Null();
+
         if (ShouldClearSavedMaterials(uid) && HasComp<MaterialStorageComponent>(uid))
             SnapshotComponent(components, "MaterialStorage")["storage"] = new MappingDataNode();
 

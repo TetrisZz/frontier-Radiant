@@ -327,6 +327,8 @@ public sealed partial class ShipyardSystem
                     StationComponentOverrides = new()
                 }, new[] { grid }, name);
 
+            _gridSave.RestoreSavedStationBindings(grid, loadedStation.Value);
+
             if (TryComp<AccessComponent>(id, out var access))
                 _accessSystem.TrySetTags(id, access.Tags.Concat(console.NewAccessLevels).Distinct().ToList(), access);
 

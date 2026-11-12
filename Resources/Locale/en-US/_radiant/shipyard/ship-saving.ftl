@@ -5,6 +5,7 @@ shipyard-save-list-title = Reserve dock
 shipyard-load-price-label = Deployment cost: { $rate }% of shuttle appraisal
 shipyard-save-not-allowed = This shuttle is not accepted into the reserve dock.
 shipyard-save-blacklisted-cargo = Remove "{ $item }" from the shuttle before transferring it to the reserve dock.
+shipyard-save-foreign-bound-equipment = Cannot transfer the shuttle to the reserve dock: "{ $item }" is bound to another ship or station. Remove it from the shuttle.
 shipyard-save-failed = Unable to arrange transfer to the reserve dock.
 shipyard-save-success = Shuttle "{ $ship }" accepted into reserve dock custody.
 shipyard-save-traffic-announcement = Shuttle { $ship }, captain { $owner }, has been accepted into reserve dock custody. Berthing registration complete.
