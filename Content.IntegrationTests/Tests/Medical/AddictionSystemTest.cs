@@ -22,6 +22,7 @@ public sealed class AddictionSystemTest
         var entities = server.ResolveDependency<IEntityManager>();
         var prototypes = server.ResolveDependency<IPrototypeManager>();
         EntityUid exposed = default;
+        EntityUid treated = default;
         await server.WaitAssertion(() =>
         {
             var map = server.ResolveDependency<IEntityManager>().System<SharedMapSystem>().CreateMap();
@@ -31,6 +32,13 @@ public sealed class AddictionSystemTest
             foreach (var id in new[] { "Nicotine", "Ethanol", "Stimulants", "THC", "Aphrodisiac", "Excitement" })
                 Assert.That(system.FindGroup(prototypes.Index<ReagentPrototype>(id)), Is.Not.Null, id);
             Assert.That(system.FindGroup(prototypes.Index<ReagentPrototype>("Water")), Is.Null);
+            foreach (var reagent in prototypes.EnumeratePrototypes<ReagentPrototype>())
+            {
+                if (!reagent.Abstract && reagent.Group == "Medicine")
+                    Assert.That(system.FindGroup(reagent)?.ID, Is.Not.EqualTo("alcohol"), reagent.ID);
+            }
+            Assert.That(system.FindGroup(prototypes.Index<ReagentPrototype>("Frezon")), Is.Null,
+                "An intoxicating gas must not count as alcohol.");
             var detail = entities.EnsureComponent<DetailExaminableComponent>(patient);
             detail.ERPStatus = EnumERPStatus.NO;
             system.RegisterDose(patient, prototypes.Index<ReagentPrototype>("Aphrodisiac"), 5);
@@ -98,6 +106,10 @@ public sealed class AddictionSystemTest
             var solutions = entities.System<SharedSolutionContainerSystem>();
             Assert.That(solutions.TryGetSolution(fresh, BloodstreamComponent.DefaultChemicalsSolutionName, out var solution), Is.True);
             solutions.TryAddReagent(solution!.Value, "Nicotine", 1);
+            treated = entities.SpawnEntity("MobHuman", coordinates);
+            Assert.That(solutions.TryGetSolution(treated, BloodstreamComponent.DefaultChemicalsSolutionName, out var medicine), Is.True);
+            solutions.TryAddReagent(medicine!.Value, "Bicaridine", 5);
+            solutions.TryAddReagent(medicine.Value, "Dylovene", 5);
         });
         // Exercise the real organ metabolism hook, rather than only RegisterDose.
         await server.WaitRunTicks(180);
@@ -107,6 +119,9 @@ public sealed class AddictionSystemTest
             Assert.That(state!.Groups.ContainsKey("nicotine"), Is.True);
             Assert.That(state.Groups["nicotine"].Tolerance, Is.GreaterThan(0));
             Assert.That(state.Groups["nicotine"].Dependence, Is.LessThan(20));
+            Assert.That(entities.HasComponent<AddictionComponent>(treated), Is.False,
+                "Ordinary medicine metabolism must not create alcohol dependence.");
         });
+        await pair.CleanReturnAsync();
     }
 }

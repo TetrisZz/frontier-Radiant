@@ -80,7 +80,7 @@
 
 - type: latheBlueprint
   id: Weapon
-  lathe: [AmmoTechFab, MercenaryTechFab, MercenaryTechFabHacked, NfsdTechFab, SecurityTechFab]
+  lathe: [AmmoTechFab, MercenaryTechFab, MercenaryTechFabHacked, NfsdTechFab]
 
 - type: latheBlueprint
   id: Engineering

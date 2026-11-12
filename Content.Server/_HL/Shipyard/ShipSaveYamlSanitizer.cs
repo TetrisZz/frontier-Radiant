@@ -816,8 +816,8 @@ public static class ShipSaveYamlSanitizer
         return reset;
     }
 
-    // UseDelayInfo timestamps are absolute round times, unlike TimeOffsetSerializer fields.
-    // Keep each delay's length and ID, but never carry its old-round activation timestamps.
+    // Older saves included UseDelayInfo timestamps from the previous simulation clock.
+    // Keep each delay's length and ID when cleaning up those snapshots.
     private static int ResetUseDelayTimers(MappingDataNode component)
     {
         if (!component.TryGet("delays", out MappingDataNode? delays) || delays == null)

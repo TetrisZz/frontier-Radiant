@@ -2,8 +2,8 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Triad.Shipyard.Save;
 
 /// <summary>
-/// Entities with this component will be unable to save or load ships from the shipyard console.
-/// You can also add this to a grid to prevent it from being saved.
+/// On a player, blocks saving and loading through the shipyard console.
+/// On a grid or an entity aboard it, blocks saving that ship, including cargo inside containers.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShipSavingBlacklistComponent : Component;
