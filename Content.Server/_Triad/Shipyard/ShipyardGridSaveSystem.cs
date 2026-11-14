@@ -1,6 +1,8 @@
 using System.IO;
 using Content.Server.Construction.Components;
 using Content.Shared._NF.Construction.Components;
+using Content.Shared._NF.BindToStation;
+using Content.Server._NF.BindToStation;
 using Content.Shared.Construction.Components;
 using Content.Server.Spreader;
 using Content.Server._HL.Shipyard;
@@ -33,6 +35,10 @@ using Content.Shared._Triad.Shipyard.Save;
 using Content.Shared._Triad.Shipyard.Load;
 using System.Linq;
 using Content.Shared.Doors.Components;
+using Content.Shared.Doors.Electronics;
+using Content.Shared.Labels.Components;
+using Content.Shared.Labels.EntitySystems;
+using Content.Shared.Paper;
 using Content.Shared.SprayPainter.Prototypes;
 using Content.Shared.Storage;
 using Content.Shared.SmartFridge;
@@ -94,7 +100,7 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
     [Dependency] private Robust.Shared.Timing.IGameTiming _timing = default!;
     private readonly Dictionary<Guid, PendingSave> _pendingSaves = new();
     private sealed record PendingSave(EntityUid Grid, EntityUid Deed, ICommonSession Session, string CharacterName,
-        AuthenticatedShipFile File, TimeSpan Expires, Action<bool> Completed);
+        AuthenticatedShipFile File, TimeSpan Expires, Action<string?> Completed);
 
     public override void Initialize()
     {
@@ -113,8 +119,9 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
 
     /// <summary>
     /// Tries to save a ship, remove the given deed's deed component, and clean up the grid after saving.
+    /// Once accepted, the callback receives a localized error on failure or null on success.
     /// </summary>
-    public bool TrySaveShip(EntityUid grid, EntityUid deedUid, ICommonSession playerSession, Action<bool> completed)
+    public bool TrySaveShip(EntityUid grid, EntityUid deedUid, ICommonSession playerSession, Action<string?> completed)
     {
         if (!TryComp<ShuttleDeedComponent>(deedUid, out var deed))
         {
@@ -163,12 +170,20 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         if (!message.Success || Deleted(save.Grid) || EntityManager.IsQueuedForDeletion(save.Grid)
             || save.Session.AttachedEntity is not { } player
             || GetOwnerCharacterName(player) != save.CharacterName
-            || !TryComp<ShuttleDeedComponent>(save.Deed, out var deed) || deed.ShuttleUid != save.Grid
+            || !TryComp<ShuttleDeedComponent>(save.Deed, out var deed) || deed.ShuttleUid != save.Grid)
+        {
+            _sawmill.Warning($"Ship save confirmation rejected for {save.Grid}; client write succeeded: {message.Success}.");
+            save.Completed(Loc.GetString("shipyard-save-failed"));
+            return;
+        }
+
+        var blacklistReason = GetShipSaveBlacklistReason(save.Grid);
+        if (blacklistReason != null
             || _entitySystemManager.GetEntitySystem<Content.Server._NF.Shipyard.Systems.ShipyardSystem>()
                 .FoundOrganics(save.Grid, GetEntityQuery<Content.Shared.Mobs.Components.MobStateComponent>(), _transformQuery) != null)
         {
-            _sawmill.Warning($"Ship save confirmation rejected for {save.Grid}; client write succeeded: {message.Success}.");
-            save.Completed(false);
+            _sawmill.Warning($"Ship save confirmation rejected for {save.Grid}; blocked cargo or occupant aboard.");
+            save.Completed(blacklistReason ?? Loc.GetString("shipyard-save-failed"));
             return;
         }
         var station = _station.GetOwningStation(save.Grid);
@@ -190,7 +205,7 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             {
                 _sawmill.Error($"Unable to revoke failed ship save: {cleanupException}");
             }
-            save.Completed(false);
+            save.Completed(Loc.GetString("shipyard-save-failed"));
             return;
         }
 
@@ -215,7 +230,7 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         {
             _sawmill.Error($"Ship saved, but post-save bookkeeping failed: {exception}");
         }
-        save.Completed(true);
+        save.Completed(null);
     }
 
     public override void Update(float frameTime)
@@ -226,7 +241,7 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
                 continue;
             _pendingSaves.Remove(request);
             _sawmill.Warning($"Ship save {request} for {save.Grid} timed out waiting for the client file write.");
-            save.Completed(false);
+            save.Completed(Loc.GetString("shipyard-save-failed"));
         }
     }
 
@@ -293,6 +308,53 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         foreach (var uid in toDelete)
         {
             QueueDel(uid);
+        }
+    }
+
+    public string? GetShipSaveBlacklistReason(EntityUid grid)
+    {
+        if (HasComp<ShipSavingBlacklistComponent>(grid))
+            return Loc.GetString("shipyard-save-not-allowed");
+
+        // Contained entities are parented to the container owner, including nested inventory.
+        var query = AllEntityQuery<ShipSavingBlacklistComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var xform))
+        {
+            if (xform.GridUid != grid && !_transform.ContainsEntity(grid, (uid, xform)))
+                continue;
+            if (TerminatingOrDeleted(uid))
+                continue;
+
+            return Loc.GetString("shipyard-save-blacklisted-cargo", ("item", Name(uid)));
+        }
+
+        var station = _station.GetOwningStation(grid) ?? grid;
+        var boundQuery = AllEntityQuery<StationBoundObjectComponent, TransformComponent>();
+        while (boundQuery.MoveNext(out var uid, out var binding, out var xform))
+        {
+            if (binding.BoundStation is not { } boundStation || boundStation == station
+                || TerminatingOrDeleted(uid)
+                || xform.GridUid != grid && !_transform.ContainsEntity(grid, (uid, xform)))
+                continue;
+
+            // Keep the original ownership even if an emag temporarily disabled the restriction.
+            return Loc.GetString("shipyard-save-foreign-bound-equipment", ("item", Name(uid)));
+        }
+
+        return null;
+    }
+
+    internal void RestoreSavedStationBindings(EntityUid grid, EntityUid station)
+    {
+        var bindings = EntityQueryEnumerator<StationBoundObjectComponent, TransformComponent>();
+        while (bindings.MoveNext(out var uid, out var binding, out var xform))
+        {
+            if (binding.SavedBindingEnabled is not { } enabled
+                || xform.GridUid != grid && !_transform.ContainsEntity(grid, (uid, xform)))
+                continue;
+
+            binding.SavedBindingEnabled = null;
+            _entitySystemManager.GetEntitySystem<BindToStationSystem>().BindToStation(uid, station, enabled);
         }
     }
 
@@ -388,6 +450,9 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         appraisalCost = 0;
 
         if (!_gridQuery.HasComp(gridUid))
+            return false;
+
+        if (GetShipSaveBlacklistReason(gridUid) != null)
             return false;
 
         var loadShipPrice = Math.Clamp(_configManager.GetCVar(ShipSaveCVars.LoadShipPrice), 0f, 1f);
@@ -557,6 +622,10 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         }
 
         // These components can have no serialized overrides, so add explicit snapshot overrides.
+        if (TryComp<StationBoundObjectComponent>(uid, out var binding))
+            SnapshotComponent(components, "StationBoundObject")["savedBindingEnabled"] =
+                binding.BoundStation != null ? new ValueDataNode(binding.Enabled ? "true" : "false") : ValueDataNode.Null();
+
         if (ShouldClearSavedMaterials(uid) && HasComp<MaterialStorageComponent>(uid))
             SnapshotComponent(components, "MaterialStorage")["storage"] = new MappingDataNode();
 
@@ -700,14 +769,22 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         var current = uid;
         for (var depth = 0; depth < 64 && _containerSystem.TryGetContainingContainer(current, out var container); depth++)
         {
-            current = container.Owner;
+            var owner = container.Owner;
             // Explicitly empty furniture overrides even an item's own persistence marker.
-            if ((HasComp<StorageComponent>(current) || HasComp<EntityStorageComponent>(current))
-                && _persistOnSaveQuery.TryComp(current, out var persist) && !persist.SaveContents)
+            // A paper attached to the outside is an installed label, separate from the inventory.
+            if ((HasComp<StorageComponent>(owner) || HasComp<EntityStorageComponent>(owner))
+                && _persistOnSaveQuery.TryComp(owner, out var persist) && !persist.SaveContents
+                && !IsPaperLabel(current, container))
                 return true;
+            current = owner;
         }
         return false;
     }
+
+    private bool IsPaperLabel(EntityUid item, BaseContainer container)
+        => container.ID == LabelSystem.ContainerName
+            && HasComp<PaperLabelComponent>(container.Owner)
+            && HasComp<PaperComponent>(item);
 
     /// <summary>
     /// Returns true if the given entity is contained in a storage that is considered persistent, such as a machine or ship stash.
@@ -725,6 +802,8 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             var owner = container.Owner;
             if (!Exists(owner))
                 return false;
+            if (IsPaperLabel(current, container))
+                return true;
             // Also treat persistent entities as a preservation root.
             if (_persistOnSaveQuery.TryComp(owner, out var persist) && persist.SaveContents)
                 return true; // Found stash root above.
@@ -732,6 +811,11 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
                 return true; // This is so machines keep their upgraded parts.
             if (HasComp<AirlockComponent>(owner))
                 return true; // Preserve installed electronics even on prefilled airlocks.
+            // Blast doors and their construction frames also hold the installed access board.
+            if (container.ID == "board" && HasComp<DoorElectronicsComponent>(current)
+                && (HasComp<DoorComponent>(owner)
+                    || TryComp<ConstructionComponent>(owner, out var construction) && construction.Graph == "BlastDoor"))
+                return true;
             if (HasComp<PoweredLightComponent>(owner))
                 return true;
             current = owner;

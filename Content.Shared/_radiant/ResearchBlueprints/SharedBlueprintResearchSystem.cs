@@ -10,6 +10,7 @@ public abstract class SharedBlueprintResearchSystem : EntitySystem
     {
         ent.Comp.ProvidedRecipes = new(recipes);
         ent.Comp.Modifiers = modifiers.Copy();
+        ent.Comp.Modifiers.MigrateLegacyLathe();
         if (string.IsNullOrWhiteSpace(ent.Comp.Modifiers.InstanceId))
             ent.Comp.Modifiers.InstanceId = Guid.NewGuid().ToString("N");
         Dirty(ent);

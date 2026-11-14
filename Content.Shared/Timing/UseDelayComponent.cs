@@ -16,7 +16,7 @@ public sealed partial class UseDelayComponent : Component
     public Dictionary<string, UseDelayInfo> Delays = [];
 
     /// <summary>
-    /// Default delay time.
+    /// Default duration for entities that do not have a default delay yet.
     /// </summary>
     /// <remarks>
     /// This is only used at MapInit and should not be expected
@@ -39,9 +39,10 @@ public sealed partial class UseDelayInfo
 {
     [DataField]
     public TimeSpan Length { get; set; }
-    [DataField]
+
+    // Networked through UseDelayComponentState. These timestamps belong to the current
+    // simulation clock, so persisting them can block an item after a restart.
     public TimeSpan StartTime { get; set; }
-    [DataField]
     public TimeSpan EndTime { get; set; }
 
     public UseDelayInfo(TimeSpan length, TimeSpan startTime = default, TimeSpan endTime = default)

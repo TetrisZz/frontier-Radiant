@@ -10,6 +10,28 @@ namespace Content.Server._radiant.ResearchBlueprints;
 
 public sealed partial class BlueprintResearchSystem
 {
+    private void OnBlueprintInit(Entity<BlueprintComponent> ent, ref ComponentInit args)
+    {
+        if (ent.Comp.Modifiers is not { } saved)
+            return;
+
+        var updated = saved.Copy();
+        var changed = updated.MigrateLegacyLathe();
+
+        // Saved papers can carry a machine roll from before their recipe was locked to its technology.
+        if (saved.Technology is { } id && _proto.TryIndex(id, out var technology) &&
+            technology.FixedLatheRecipes.Overlaps(ent.Comp.ProvidedRecipes) &&
+            (updated.Lathe != technology.Lathe || !updated.AdditionalLathes.SequenceEqual(technology.AdditionalLathes)))
+        {
+            updated.Lathe = technology.Lathe;
+            updated.AdditionalLathes = new(technology.AdditionalLathes);
+            changed = true;
+        }
+
+        if (changed)
+            SetBlueprint(ent, ent.Comp.ProvidedRecipes, updated);
+    }
+
     private void OnBlueprintMapInit(Entity<BlueprintComponent> ent, ref MapInitEvent args)
         => InitializeBlueprint(ent);
 
@@ -30,6 +52,7 @@ public sealed partial class BlueprintResearchSystem
             RareLoc = ent.Comp.Rarity, Lathe = ent.Comp.ModifierLathe,
             AdditionalLathes = new(ent.Comp.ModifierAdditionalLathes),
         };
+        basis.MigrateLegacyLathe();
         if (ent.Comp.RandomizeModifiers && _proto.TryIndex(ent.Comp.ModifierPreset, out var settings))
         {
             // Keep the exact supplied recipes, even if no research technology contains them.
@@ -82,7 +105,9 @@ public sealed partial class BlueprintResearchSystem
         };
         if (blueprint.Comp.RandomizeModifiers)
             modifiers = BlueprintResearchRoller.Roll(_random, settings,
-                settings.MaterialTiers.Select(t => _proto.Index(t)).ToArray(), MachinesFor(technology.Lathe), required, modifiers);
+                settings.MaterialTiers.Select(t => _proto.Index(t)).ToArray(),
+                technology.FixedLatheRecipes.Overlaps(recipes) ? [] : MachinesFor(technology.Lathe),
+                required, modifiers);
         SetBlueprint(blueprint, recipes, modifiers);
         var item = string.Join(", ", recipes.OrderBy(r => r.Id).Select(recipe => _lathes.GetRecipeName(_proto.Index(recipe))));
         _metadata.SetEntityName(uid, Loc.GetString("research-blueprint-paper-name", ("item", item)));

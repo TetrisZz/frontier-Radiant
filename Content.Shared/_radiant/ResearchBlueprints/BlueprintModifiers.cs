@@ -10,6 +10,9 @@ namespace Content.Shared._radiant.ResearchBlueprints;
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class BlueprintModifiers
 {
+    private static readonly EntProtoId LegacySecurityLathe = "SecurityTechFab";
+    private static readonly EntProtoId MercenaryLathe = "MercenaryTechFab";
+
     [DataField] public string InstanceId = string.Empty;
     [DataField] public ProtoId<TechnologyBlueprintsPrototype>? Technology;
     [DataField] public LocId RareLoc = "research-technology-blueprint-unique";
@@ -23,6 +26,22 @@ public sealed partial class BlueprintModifiers
     {
         if (Lathe is { } primary) yield return primary;
         foreach (var machine in AdditionalLathes) yield return machine;
+    }
+
+    public bool MigrateLegacyLathe()
+    {
+        var replacedPrimary = Lathe == LegacySecurityLathe;
+        if (replacedPrimary)
+        {
+            Lathe = MercenaryLathe;
+            AdditionalLathes.Remove(MercenaryLathe);
+        }
+
+        var replacedAdditional = AdditionalLathes.RemoveAll(machine => machine == LegacySecurityLathe) > 0;
+        if (replacedAdditional && Lathe != MercenaryLathe && !AdditionalLathes.Contains(MercenaryLathe))
+            AdditionalLathes.Add(MercenaryLathe);
+
+        return replacedPrimary || replacedAdditional;
     }
 
     public string ShortId => InstanceId.Length > 8 ? InstanceId[..8].ToUpperInvariant() : InstanceId.ToUpperInvariant();

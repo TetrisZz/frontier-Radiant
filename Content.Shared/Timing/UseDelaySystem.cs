@@ -45,9 +45,9 @@ public sealed class UseDelaySystem : EntitySystem
 
     private void OnMapInit(Entity<UseDelayComponent> ent, ref MapInitEvent args)
     {
-        // Set default delay length from the prototype
-        // This makes it easier for simple use cases that only need a single delay
-        SetLength((ent, ent.Comp), ent.Comp.Delay, DefaultId);
+        // Ship snapshots run MapInit again. Keep any restored default duration.
+        if (!ent.Comp.Delays.ContainsKey(DefaultId))
+            SetLength((ent, ent.Comp), ent.Comp.Delay, DefaultId);
     }
 
     private void OnUnpaused(Entity<UseDelayComponent> ent, ref EntityUnpausedEvent args)
@@ -96,7 +96,7 @@ public sealed class UseDelaySystem : EntitySystem
         if (!ent.Comp.Delays.TryGetValue(id, out var entry))
             return false;
 
-        return entry.EndTime >= _gameTiming.CurTime;
+        return entry.EndTime > _gameTiming.CurTime;
     }
 
     /// <summary>

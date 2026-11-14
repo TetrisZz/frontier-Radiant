@@ -90,9 +90,10 @@ public sealed partial class AddictionSystem : EntitySystem
         {
             if (group.Reagents.Contains(reagent.ID))
                 return group;
-            // Drinks share the alcohol group based on their actual effect, not their display name.
+            // Medicines and gases can use Drunk as a side effect without containing alcohol.
+            // Alcoholic drinks produce ethanol, whose Alcohol metabolism registers the dose.
             if (group.Alcohol && reagent.Metabolisms != null
-                && reagent.Metabolisms.Values.Any(entry => entry.Effects.Any(effect => effect is Content.Shared.EntityEffects.Effects.Drunk)))
+                && reagent.Metabolisms.ContainsKey("Alcohol"))
                 return group;
         }
         return null;

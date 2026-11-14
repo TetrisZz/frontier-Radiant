@@ -42,8 +42,10 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
     public override void Initialize()
     {
         SubscribeLocalEvent<ResearchConsoleComponent, ResearchBlueprintRollMessage>(OnRoll);
+        SubscribeLocalEvent<BlueprintComponent, ComponentInit>(OnBlueprintInit);
         SubscribeLocalEvent<BlueprintComponent, MapInitEvent>(OnBlueprintMapInit);
         SubscribeLocalEvent<BlueprintResearchSpawnerComponent, MapInitEvent>(OnResearchSpawnerMapInit);
+        SubscribeLocalEvent<ResearchServerComponent, ComponentInit>(OnResearchServerInit);
         SubscribeLocalEvent<LatheComponent, ComponentInit>(OnLatheInit);
         SubscribeLocalEvent<BlueprintLibraryComponent, BlueprintLibrarySelectMessage>(OnSelect);
         SubscribeLocalEvent<BlueprintLibraryComponent, BlueprintLibraryUnselectMessage>(OnUnselect);
@@ -56,8 +58,21 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
 
     private void OnLatheInit(EntityUid uid, LatheComponent comp, ComponentInit args)
     {
+        if (MetaData(uid).EntityPrototype?.ID == "SecurityTechFab")
+        {
+            // Old saves can include the machine's previous research group and published recipes.
+            comp.LatheBlueprint = null;
+            comp.BlueprintRecipes.Clear();
+        }
+
         if (comp.LatheBlueprint != null)
             EnsureComp<ResearchClientComponent>(uid);
+    }
+
+    private void OnResearchServerInit(Entity<ResearchServerComponent> ent, ref ComponentInit args)
+    {
+        foreach (var modifiers in ent.Comp.BlueprintRecipes.Values)
+            modifiers.MigrateLegacyLathe();
     }
 
     private bool Allowed(EntityUid machine, EntityUid actor)
@@ -239,7 +254,7 @@ public sealed partial class BlueprintResearchSystem : SharedBlueprintResearchSys
             if (connected)
                 foreach (var client in server!.Clients)
                 {
-                    if (TerminatingOrDeleted(client) || !TryComp<LatheComponent>(client, out var lathe) ||
+                    if (TerminatingOrDeleted(client) || !TryComp<LatheComponent>(client, out var lathe) || lathe.LatheBlueprint == null ||
                         !_lathes.MatchesBlueprintLathe(client, lathe, entry.Modifiers) || MetaData(client).EntityPrototype is not { } machine)
                         continue;
                     foreach (var recipe in entry.Recipes)

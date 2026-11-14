@@ -13,6 +13,7 @@ using Content.Shared._WF.SafetyDepositBox.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory;
@@ -20,11 +21,13 @@ using Content.Shared.Light.Components;
 using Content.Shared.Storage;
 using Content.Shared.Stacks;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Timing;
 using Robust.Server.Player;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Timing;
 using YamlDotNet.Core;
 using YamlDotNet.RepresentationModel;
 using Robust.Shared.Serialization;
@@ -41,8 +44,12 @@ public sealed class EquipmentStoragePersistenceTest
             { Connected = true, Fresh = true, Destructive = true });
         try
         {
+            const string tankDelayId = SharedGasTankSystem.GasTankDelay;
+            var defaultLength = TimeSpan.FromSeconds(1.5);
+            var tankLength = TimeSpan.FromSeconds(0.75);
             var map = await pair.CreateTestMap();
             var em = pair.Server.EntMan;
+            var delays = em.System<UseDelaySystem>();
             var db = pair.Server.ResolveDependency<IServerDbManager>();
             EntityUid user = default, suit = default, tank = default, rped = default, terminal = default, box = default;
             Guid owner = default, boxId = default;
@@ -58,6 +65,16 @@ public sealed class EquipmentStoragePersistenceTest
                 players.SetAttachedEntity(session, user);
                 suit = em.SpawnEntity(suitPrototype, map.GridCoords);
                 tank = em.SpawnEntity("OxygenTankFilled", map.GridCoords);
+                delays.SetLength(tank, defaultLength);
+                delays.SetLength(tank, tankLength, tankDelayId);
+                Assert.That(delays.TryResetDelay(tank), Is.True);
+                Assert.That(delays.TryResetDelay(tank, id: tankDelayId), Is.True);
+                // Check the raw entity snapshot before either save path applies its legacy cleanup.
+                using (var writer = new StringWriter())
+                {
+                    Assert.That(em.System<MapLoaderSystem>().TrySaveEntity(tank, writer), Is.True);
+                    Assert.That(writer.ToString(), Does.Not.Contain("startTime:").And.Not.Contain("endTime:"));
+                }
                 if (!deposit)
                 {
                     rped = em.SpawnEntity("RPED", map.GridCoords);
@@ -146,6 +163,12 @@ public sealed class EquipmentStoragePersistenceTest
             {
                 suit = em.EntityQuery<MetaDataComponent>().Single(m => m.EntityPrototype?.ID == suitPrototype).Owner;
                 tank = em.EntityQuery<MetaDataComponent>().Single(m => m.EntityPrototype?.ID == "OxygenTankFilled").Owner;
+                Assert.That(delays.IsDelayed(tank), Is.False);
+                Assert.That(delays.IsDelayed(tank, tankDelayId), Is.False);
+                Assert.That(delays.TryGetDelayInfo(tank, out var defaultDelay), Is.True);
+                Assert.That(defaultDelay!.Length, Is.EqualTo(defaultLength));
+                Assert.That(delays.TryGetDelayInfo(tank, out var namedDelay, tankDelayId), Is.True);
+                Assert.That(namedDelay!.Length, Is.EqualTo(tankLength));
                 var inventory = em.System<InventorySystem>();
                 Assert.That(inventory.TryEquip(user, suit, "outerClothing", force: true), Is.True);
                 Assert.That(inventory.TryEquip(user, tank, "suitstorage", force: true), Is.True);
@@ -198,6 +221,9 @@ public sealed class EquipmentStoragePersistenceTest
                 actions.PerformAction(user, actions.GetAction(em.GetEntity(helmetAction))!.Value);
                 actions.PerformAction(user, actions.GetAction(em.GetEntity(tankAction))!.Value);
                 Assert.That(em.GetComponent<GasTankComponent>(tank).IsConnected, Is.True);
+                Assert.That(delays.IsDelayed(tank, tankDelayId), Is.True);
+                Assert.That(delays.TryGetDelayInfo(tank, out var namedDelay, tankDelayId), Is.True);
+                Assert.That(namedDelay!.EndTime - pair.Server.ResolveDependency<IGameTiming>().CurTime, Is.EqualTo(tankLength));
                 Assert.That(em.System<InventorySystem>().TryGetSlotEntity(user, "head", out var helmet), Is.True);
                 Assert.That(helmet, Is.EqualTo(em.GetComponent<ToggleableClothingComponent>(suit).ClothingUid));
                 actions.PerformAction(user, actions.GetAction(em.GetEntity(lightAction))!.Value);
@@ -211,6 +237,7 @@ public sealed class EquipmentStoragePersistenceTest
             await pair.Server.WaitAssertion(() =>
             {
                 var actions = em.System<SharedActionsSystem>();
+                Assert.That(delays.IsDelayed(tank, tankDelayId), Is.False);
                 foreach (var id in new[] { helmetAction, tankAction, lightAction })
                     Assert.That(actions.IsCooldownActive(actions.GetAction(em.GetEntity(id))!.Value.Comp), Is.False);
             });
@@ -248,8 +275,18 @@ public sealed class EquipmentStoragePersistenceTest
             foreach (YamlMappingNode entity in (YamlSequenceNode) group.Children[new YamlScalarNode("entities")])
             foreach (YamlMappingNode component in (YamlSequenceNode) entity.Children[new YamlScalarNode("components")])
             {
-                if (((YamlScalarNode) component.Children[new YamlScalarNode("type")]).Value == "Action")
+                var type = ((YamlScalarNode) component.Children[new YamlScalarNode("type")]).Value;
+                if (type == "Action")
                     component.Children[new YamlScalarNode("cooldown")] = new YamlMappingNode("start", "28799", "end", "28800");
+                if (type == "UseDelay" && component.Children.TryGetValue(new YamlScalarNode("delays"), out var delays)
+                    && delays is YamlMappingNode configured)
+                {
+                    foreach (var entry in configured.Children.Values.OfType<YamlMappingNode>())
+                    {
+                        entry.Children[new YamlScalarNode("startTime")] = new YamlScalarNode("28799");
+                        entry.Children[new YamlScalarNode("endTime")] = new YamlScalarNode("28800");
+                    }
+                }
             }
             using var writer = new StringWriter();
             document.Save(new YamlMappingFix(new Emitter(writer)), false);

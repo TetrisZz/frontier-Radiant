@@ -128,6 +128,13 @@ public sealed partial class ShipyardSystem
             return;
         }
 
+        if (_gridSave.GetShipSaveBlacklistReason(grid) is { } blacklistReason)
+        {
+            ConsolePopup(player, blacklistReason);
+            PlayDenySound(player, uid, console);
+            return;
+        }
+
         var organic = FoundOrganics(grid, GetEntityQuery<MobStateComponent>(), GetEntityQuery<TransformComponent>());
         if (organic != null)
         {
@@ -153,13 +160,14 @@ public sealed partial class ShipyardSystem
 
         var name = GetFullName(deed);
         var captain = Name(player);
-        if (!_gridSave.TrySaveShip(grid, id, session, success =>
+        if (!_gridSave.TrySaveShip(grid, id, session, error =>
         {
             if (Deleted(uid) || Deleted(player) || Deleted(id))
                 return;
-            if (!success)
+            if (error != null)
             {
-                SaveError(uid, console, player, "shipyard-save-failed");
+                ConsolePopup(player, error);
+                PlayDenySound(player, uid, console);
                 return;
             }
             _records.UpdateRegisteredShuttleFromId(id);
@@ -318,6 +326,8 @@ public sealed partial class ShipyardSystem
                     StationPrototype = "StandardFrontierVessel",
                     StationComponentOverrides = new()
                 }, new[] { grid }, name);
+
+            _gridSave.RestoreSavedStationBindings(grid, loadedStation.Value);
 
             if (TryComp<AccessComponent>(id, out var access))
                 _accessSystem.TrySetTags(id, access.Tags.Concat(console.NewAccessLevels).Distinct().ToList(), access);

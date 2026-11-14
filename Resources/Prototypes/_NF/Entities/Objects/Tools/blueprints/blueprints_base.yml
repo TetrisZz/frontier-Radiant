@@ -572,7 +572,7 @@
   components:
   - type: Blueprint
     modifierLathe: MercenaryTechFab
-    modifierAdditionalLathes: [MercenaryTechFabHacked, NfsdTechFab, SecurityTechFab, SalvageTechfabNF, Protolathe]
+    modifierAdditionalLathes: [MercenaryTechFabHacked, NfsdTechFab, SalvageTechfabNF, Protolathe]
   - type: Sprite
     layers:
       - state: icon-base

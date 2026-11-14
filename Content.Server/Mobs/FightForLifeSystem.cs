@@ -33,6 +33,16 @@ public sealed class FightForLifeSystem : EntitySystem
         SubscribeLocalEvent<FightingForLifeComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<FightingForLifeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MobStateActionsComponent, FightForLifeEvent>(OnFightForLife);
+        SubscribeLocalEvent<MobStateActionsComponent, ActionAddedEvent>(OnActionAdded);
+    }
+
+    private void OnActionAdded(EntityUid uid, MobStateActionsComponent component, ref ActionAddedEvent args)
+    {
+        if (MetaData(args.Action).EntityPrototype?.ID != "ActionFightForLife")
+            return;
+
+        // Apply before the newly granted action can be used, including after resuscitation.
+        _actions.SetCooldown((args.Action, (ActionComponent?) args.Component), RecoveryDelay());
     }
 
     private void OnFightForLife(EntityUid uid, MobStateActionsComponent component, FightForLifeEvent args)
@@ -99,8 +109,10 @@ public sealed class FightForLifeSystem : EntitySystem
                 continue;
 
             // Radiant Sector: extended fight-for-life recovery cooldown.
-            _actions.SetCooldown((action, (ActionComponent?) action.Comp), TimeSpan.FromSeconds(_random.Next(35, 150)));
+            _actions.SetCooldown((action, (ActionComponent?) action.Comp), RecoveryDelay());
             break;
         }
     }
+
+    private TimeSpan RecoveryDelay() => TimeSpan.FromSeconds(_random.Next(35, 150));
 }
