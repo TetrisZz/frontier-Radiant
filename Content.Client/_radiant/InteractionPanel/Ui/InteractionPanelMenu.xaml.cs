@@ -56,7 +56,7 @@ namespace Content.Client.Interaction.Panel.Ui
         private readonly List<InteractionPrototype> _favoritePrototypes = new();
         private readonly InteractionFavorites _favorites = new();
         private static bool _soloModeEnabled;
-        private static bool _hideFromOthersEnabled;
+        private static bool _hideFromOthersEnabled = true;
         private List<BoxContainer> _allButtons = new();
         private TransformSystem _transform => _entManager.System<TransformSystem>();
         private EntityLookupSystem _lookup => _entManager.System<EntityLookupSystem>();
