@@ -122,6 +122,8 @@ public sealed partial class SurgerySystem : SharedSurgerySystem
             return;
 
         OnStepAttachLimbComplete(ent, slotComp.Slot, ref args);
+        if (!args.IsCancelled && GetSurgicalSite(surgery) == SurgicalSite.Surface)
+            OpenLimbAttachmentWound(args.Body, args.Part);
         if (slotComp.Slot != "head" && args.IsCancelled)
             OnStepAttachItemComplete(ent, slotComp.Slot, ref args);
     }

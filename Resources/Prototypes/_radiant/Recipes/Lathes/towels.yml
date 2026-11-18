@@ -1,0 +1,103 @@
+- type: latheRecipe
+  abstract: true
+  id: RadiantBaseTowelRecipe
+  categories: [ClothesNF]
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    Cloth: 150
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorWhite
+  result: TowelColorWhite
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorPurple
+  result: TowelColorPurple
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorRed
+  result: TowelColorRed
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorBlue
+  result: TowelColorBlue
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorDarkBlue
+  result: TowelColorDarkBlue
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorLightBlue
+  result: TowelColorLightBlue
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorTeal
+  result: TowelColorTeal
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorBrown
+  result: TowelColorBrown
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorLightBrown
+  result: TowelColorLightBrown
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorGray
+  result: TowelColorGray
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorGreen
+  result: TowelColorGreen
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorDarkGreen
+  result: TowelColorDarkGreen
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorGold
+  result: TowelColorGold
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorOrange
+  result: TowelColorOrange
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorBlack
+  result: TowelColorBlack
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorPink
+  result: TowelColorPink
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorYellow
+  result: TowelColorYellow
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorMaroon
+  result: TowelColorMaroon
+
+- type: latheRecipe
+  parent: RadiantBaseTowelRecipe
+  id: TowelColorSilver
+  result: TowelColorSilver

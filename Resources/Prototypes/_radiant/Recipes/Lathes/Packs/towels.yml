@@ -1,0 +1,22 @@
+- type: latheRecipePack
+  id: RadiantTowels
+  recipes:
+  - TowelColorWhite
+  - TowelColorPurple
+  - TowelColorRed
+  - TowelColorBlue
+  - TowelColorDarkBlue
+  - TowelColorLightBlue
+  - TowelColorTeal
+  - TowelColorBrown
+  - TowelColorLightBrown
+  - TowelColorGray
+  - TowelColorGreen
+  - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorOrange
+  - TowelColorBlack
+  - TowelColorPink
+  - TowelColorYellow
+  - TowelColorMaroon
+  - TowelColorSilver

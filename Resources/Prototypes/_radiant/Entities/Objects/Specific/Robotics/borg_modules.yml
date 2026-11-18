@@ -39,6 +39,34 @@
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: radio }
 
+# medical modules
+- type: entity
+  id: BorgModuleSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: surgical cyborg module
+  description: A surgical tool set matching the surgeon's cyberarm.
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-treatment
+  - type: BorgModule
+    defaultModule: true
+  - type: ItemBorgModule
+    moduleId: Surgery
+    hands:
+    # Keep the same tools and their settings as LeftHandCyberReaper / RightHandCyberReaper.
+    - item: ScalpelCyber
+    - item: HemostatCyber
+    - item: RetractorCyber
+    - item: BoneSetterCyber
+    - item: BoneGelCyber
+    - item: CauteryCyber
+    - item: DrillCyber
+    - item: SawCyber
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
+
 # mercenary modules
 - type: entity
   id: BaseBorgModuleMercenary

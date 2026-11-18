@@ -233,6 +233,7 @@
 #  - BorgModuleChemical #Radiant Sector
   - BorgModuleTopicals
   - BorgModuleRescue
+  - BorgModuleSurgery
   # - BorgModuleAdvancedTreatment # Frontier
   # - BorgModuleDefibrillator # Frontier
   - BorgModuleBureaucracy #Frontier
