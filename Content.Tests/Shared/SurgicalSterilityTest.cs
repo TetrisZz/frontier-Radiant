@@ -11,14 +11,14 @@ public sealed class SurgicalSterilityTest
     private readonly EntityUid _first = new(1);
     private readonly EntityUid _second = new(2);
 
-    [TestCase(0, 0, false, 0)]
-    [TestCase(0, 0, true, -5)]
-    [TestCase(1, 1, false, 5)]
-    [TestCase(1, 1, true, 0)]
-    [TestCase(100, 100, false, 20)]
-    [TestCase(100, 100, true, 15)]
-    public void EnvironmentRiskIsCapped(int trash, int puddles, bool sterilizer, int expected)
-        => Assert.That(SurgicalSterilityRules.EnvironmentRisk(trash, puddles, sterilizer), Is.EqualTo(expected));
+    [TestCase(0, false, 0)]
+    [TestCase(0, true, -5)]
+    [TestCase(1, false, 3)]
+    [TestCase(1, true, -2)]
+    [TestCase(100, false, 20)]
+    [TestCase(100, true, 15)]
+    public void EnvironmentRiskIsCapped(int puddles, bool sterilizer, int expected)
+        => Assert.That(SurgicalSterilityRules.EnvironmentRisk(puddles, sterilizer), Is.EqualTo(expected));
 
     [TestCase(0, true, 0)]
     [TestCase(3, true, 0)]
@@ -48,9 +48,9 @@ public sealed class SurgicalSterilityTest
             Assert.That(SurgicalSterilityRules.Contact(item, _first, contamination, true, limit), Is.Zero);
             Assert.That(item.Dirty, Is.False);
         }
-        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0, true, limit), Is.EqualTo(15));
+        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0, true, limit), Is.EqualTo(5));
         Assert.That(item.Dirty, Is.True);
-        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0, true), Is.EqualTo(15));
+        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0, true), Is.EqualTo(5));
         SurgicalSterilityRules.Disinfect(item);
         Assert.That(item.UsesSinceCleaning, Is.Zero);
         Assert.That(SurgicalSterilityRules.Contact(item, _second, 0, true), Is.Zero);
@@ -63,15 +63,15 @@ public sealed class SurgicalSterilityTest
         var item = new SurgicalItemSterilityComponent();
         Assert.That(SurgicalSterilityRules.Contact(item, _first, 0), Is.Zero);
         Assert.That(SurgicalSterilityRules.Contact(item, _first, 0), Is.Zero);
-        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0), Is.EqualTo(15));
-        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0), Is.EqualTo(15));
+        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0), Is.EqualTo(5));
+        Assert.That(SurgicalSterilityRules.Contact(item, _second, 0), Is.EqualTo(5));
     }
 
     [Test]
     public void DirtyToolContaminatesEvenItsPreviousPatient()
     {
         var item = new SurgicalItemSterilityComponent { Dirty = true, Used = true, LastPatient = _first };
-        Assert.That(SurgicalSterilityRules.Contact(item, _first, 0), Is.EqualTo(15));
+        Assert.That(SurgicalSterilityRules.Contact(item, _first, 0), Is.EqualTo(5));
         SurgicalSterilityRules.Disinfect(item);
         Assert.That(item.LastPatient, Is.Null);
         Assert.That(SurgicalSterilityRules.Contact(item, _second, 0), Is.Zero);
@@ -83,7 +83,7 @@ public sealed class SurgicalSterilityTest
         var item = new SurgicalItemSterilityComponent();
         SurgicalSterilityRules.Contact(item, _first, 25);
         Assert.That(item.Dirty, Is.True);
-        Assert.That(SurgicalSterilityRules.Contact(item, _first, 0), Is.EqualTo(15));
+        Assert.That(SurgicalSterilityRules.Contact(item, _first, 0), Is.EqualTo(5));
     }
 
     [Test]

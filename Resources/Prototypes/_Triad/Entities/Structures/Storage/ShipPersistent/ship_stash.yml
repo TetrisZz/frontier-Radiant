@@ -15,6 +15,9 @@
       - Cash
       - Headset
       - Pinpointer
+    blacklistExceptions:
+      requireAll: true
+      components: [ DoorRemote, GridAccess ]
   - type: RadarBlip
     radarColor: "#e3ffea"
     scale: 1.5

@@ -15,6 +15,7 @@ using Content.Server.Power.Components;
 using Content.Shared._radiant.Paint;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.Construction.Steps;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
@@ -83,7 +84,7 @@ public sealed class WashablePaintTest
                     "ClothingOuterHardsuitEngineering", "ClothingHeadHelmetHardsuitEngineering", "NFWeaponPistolViper", "CombatKnife",
                     "PassengerPDA", "Paper", "PaperCargoInvoice", "BookBase", "BookSpaceEncyclopedia",
                     "EEPassportHesperia", "EEPassportTemporary", "RadiantCredentialDvbSheriff",
-                    "RadiantCredentialFleetNavyKomandor", "IDCardStandard",
+                    "RadiantCredentialFleetNavyKomandor", "PassengerIDCard",
                     "FoodBurgerPlain", "FoodPacketChipsTrash", "PresentTrash",
                     "PottedPlant0", "PottedPlant27", "MailAdminFun", "MailLargeAdminFun",
                     "EncryptionKeyCommon", "HandheldStationMap", "HandheldStationMapUnpowered",
@@ -181,6 +182,12 @@ public sealed class WashablePaintTest
                 {
                     var graph = prototypes.Index<ConstructionGraphPrototype>(id);
                     Assert.That(graph.Edge("start", node)!.Steps, Is.Not.Empty, $"{id}: visible building materials");
+                    // Both the construction menu and placement reject a first edge containing tools.
+                    foreach (var step in graph.Edge("start", node)!.Steps)
+                    {
+                        Assert.That(step, Is.InstanceOf<EntityInsertConstructionGraphStep>(), $"{id}: valid initial construction step");
+                        Assert.That(step.GenerateGuideEntry(), Is.Not.Null, $"{id}: construction menu entry");
+                    }
                 }
                 entities.SpawnEntity("ChairPlywood", map.GridCoords);
                 entities.SpawnEntity("VendingMachinePaint", map.GridCoords);

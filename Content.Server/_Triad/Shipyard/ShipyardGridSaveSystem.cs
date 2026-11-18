@@ -52,6 +52,10 @@ using Content.Server._NF.ShuttleRecords;
 using Content.Server.Cargo.Systems;
 using Content.Shared._radiant.Shipyard;
 using Content.Shared.Pinpointer;
+using Content.Server.Singularity.Components;
+using Content.Shared.Atmos.Components;
+using Content.Shared.NodeContainer;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Configuration;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Station.Components;
@@ -622,6 +626,15 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         }
 
         // These components can have no serialized overrides, so add explicit snapshot overrides.
+        // Pipe gas belongs to runtime node groups, not the serializable pipe component.
+        if (TryComp<NodeContainerComponent>(uid, out var nodes))
+        {
+            var gas = _entitySystemManager.GetEntitySystem<ShipSavedPipeGasSystem>().Capture(uid, nodes);
+            if (gas.Count > 0)
+                SnapshotComponent(components, "ShipSavedPipeGas")["mixtures"] =
+                    _dependencies.Resolve<ISerializationManager>().WriteValue(gas, notNullableOverride: true);
+        }
+
         if (TryComp<StationBoundObjectComponent>(uid, out var binding))
             SnapshotComponent(components, "StationBoundObject")["savedBindingEnabled"] =
                 binding.BoundStation != null ? new ValueDataNode(binding.Enabled ? "true" : "false") : ValueDataNode.Null();
@@ -803,6 +816,10 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             if (!Exists(owner))
                 return false;
             if (IsPaperLabel(current, container))
+                return true;
+            // Installed fuel is part of the collector, not loose ship inventory.
+            if (container.ID == "gas_tank" && HasComp<RadiationCollectorComponent>(owner)
+                && HasComp<GasTankComponent>(current))
                 return true;
             // Also treat persistent entities as a preservation root.
             if (_persistOnSaveQuery.TryComp(owner, out var persist) && persist.SaveContents)

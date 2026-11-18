@@ -98,7 +98,6 @@
         amount: 2
       - material: Cable
         amount: 5
-      - tool: Screwing
         doAfter: 2
   - node: washer
     entity: WashingMachine

@@ -40,6 +40,7 @@ public sealed class StorageSystem : SharedStorageSystem
         component.MaxItemSize = state.MaxItemSize;
         component.Whitelist = state.Whitelist;
         component.Blacklist = state.Blacklist;
+        component.BlacklistExceptions = state.BlacklistExceptions;
         component.StorageInsertSound = state.StorageInsertSound;
         component.StorageRemoveSound = state.StorageRemoveSound;
         component.StorageOpenSound = state.StorageOpenSound;

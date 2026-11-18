@@ -239,6 +239,7 @@ public abstract class SharedStorageSystem : EntitySystem
             SavedLocations = component.SavedLocations,
             Whitelist = component.Whitelist,
             Blacklist = component.Blacklist,
+            BlacklistExceptions = component.BlacklistExceptions,
             QuickInsert = component.QuickInsert,
             AreaInsert = component.AreaInsert,
             StorageInsertSound = component.StorageInsertSound,
@@ -403,6 +404,7 @@ public abstract class SharedStorageSystem : EntitySystem
         targetComp.AreaInsertRadius = source.Comp.AreaInsertRadius;
         targetComp.Whitelist = source.Comp.Whitelist;
         targetComp.Blacklist = source.Comp.Blacklist;
+        targetComp.BlacklistExceptions = source.Comp.BlacklistExceptions;
         targetComp.StorageInsertSound = source.Comp.StorageInsertSound;
         targetComp.StorageRemoveSound = source.Comp.StorageRemoveSound;
         targetComp.StorageOpenSound = source.Comp.StorageOpenSound;
@@ -1187,7 +1189,8 @@ public abstract class SharedStorageSystem : EntitySystem
         }
 
         if (_whitelistSystem.IsWhitelistFail(storageComp.Whitelist, insertEnt) ||
-            _whitelistSystem.IsBlacklistPass(storageComp.Blacklist, insertEnt))
+            _whitelistSystem.IsBlacklistPass(storageComp.Blacklist, insertEnt)
+            && !_whitelistSystem.IsWhitelistPass(storageComp.BlacklistExceptions, insertEnt))
         {
             reason = "comp-storage-invalid-container";
             return false;
@@ -2166,6 +2169,7 @@ public abstract class SharedStorageSystem : EntitySystem
         public ProtoId<ItemSizePrototype>? MaxItemSize;
         public EntityWhitelist? Whitelist;
         public EntityWhitelist? Blacklist;
+        public EntityWhitelist? BlacklistExceptions;
         public bool QuickInsert;
         public bool AreaInsert;
         public SoundSpecifier? StorageInsertSound;

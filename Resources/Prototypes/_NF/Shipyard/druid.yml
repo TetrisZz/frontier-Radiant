@@ -16,6 +16,7 @@
   price: 45000 # 15% t2.
   category: Medium
   group: Medical
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/druid.yml
   guidebookPage: ShipyardDruid
   class:

@@ -16,6 +16,7 @@
   price: 22000 #19255 0.05 20217.75
   category: Small
   group: Medical
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/tyne.yml
   guidebookPage: ShipyardTyne
   class:

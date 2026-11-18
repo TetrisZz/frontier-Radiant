@@ -21,6 +21,8 @@
     - 0,0,2,1
     blacklist:
       components: [ Storage ] # No bagception
+    blacklistExceptions:
+      tags: [ PillCanister ]
   - type: StaticPrice
     price: 50
   - type: ItemCounter

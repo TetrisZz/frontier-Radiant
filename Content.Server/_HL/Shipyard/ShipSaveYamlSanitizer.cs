@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Markdown;
@@ -138,6 +139,7 @@ public static class ShipSaveYamlSanitizer
     private static readonly Dictionary<string, string> ComponentExclusionExceptions = new(StringComparer.Ordinal)
     {
         ["ShipyardConsole"] = "ShipyardListing",
+        ["DoorRemote"] = "GridAccess",
     };
 
     // Triad: serialized entity references outside ContainerContainer and Storage, which are the only
@@ -189,6 +191,7 @@ public static class ShipSaveYamlSanitizer
         // Clear links to silos outside the saved ship. Onboard silos and their clients
         // can keep their links, while both load without material reserves.
         ["OreSiloClient"] = ["silo"],
+        ["GridAccess"] = ["linkedShuttleUid"],
     };
 
     // Non-nullable references, where nulling the field would just trade one load error for another.
@@ -432,6 +435,10 @@ public static class ShipSaveYamlSanitizer
                 // Grid root gets slightly different Transform sanitation.
                 var hasMapGrid = false;
                 var compsNotNull = comps;
+                // Cameras configured after construction keep their selected frequencies.
+                // Addresses and references to last round's devices are still regenerated.
+                var preserveCameraNetwork = new[] { "SurveillanceCamera", "SurveillanceCameraRouter", "SurveillanceCameraMonitor" }
+                    .Any(name => entityProto?.Components.ContainsKey(name) == true || HasComponentNode(compsNotNull, name));
                 var paintStylePrototype = GetPaintStylePrototype(compsNotNull);
 
                 foreach (var c in compsNotNull)
@@ -473,7 +480,9 @@ public static class ShipSaveYamlSanitizer
                     if (typeName == "StationBoundObject")
                         ResetStationBinding(compMap);
 
-                    if (FilteredTypes.Contains(typeName) || (!allowFillComponents && FillComponentTypes.Contains(typeName)))
+                    if ((FilteredTypes.Contains(typeName)
+                            && !(preserveCameraNetwork && typeName is "DeviceNetwork" or "DeviceNetworkComponent"))
+                        || (!allowFillComponents && FillComponentTypes.Contains(typeName)))
                     {
                         if (allowFillComponents && FillComponentTypes.Contains(typeName))
                         {
@@ -542,6 +551,10 @@ public static class ShipSaveYamlSanitizer
 
                     if (typeName == "DeviceNetwork")
                     {
+                        compMap["address"] = new ValueDataNode(string.Empty);
+                        compMap["customAddress"] = new ValueDataNode("false");
+                        compMap["deviceLists"] = new SequenceDataNode();
+                        compMap["configurators"] = new SequenceDataNode();
                         compMap.Remove("devices");
                         compMap.Remove("Devices");
                     }

@@ -10,11 +10,19 @@ public sealed class StationRenameHolopadsSystem : EntitySystem
 {
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly LabelSystem _label = default!; // TODO: use LabelSystem directly instead of this.
+    [Dependency] private readonly SharedHolopadSystem _holopads = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<StationRenameHolopadsComponent, StationPostInitEvent>(OnPostInit);
+        SubscribeLocalEvent<HolopadComponent, LabelChangedEvent>(OnLabelChanged);
+    }
+
+    private void OnLabelChanged(Entity<HolopadComponent> ent, ref LabelChangedEvent args)
+    {
+        if (!args.Automatic)
+            _holopads.SetUseStationName(ent, false);
     }
 
     private void OnPostInit(EntityUid uid, StationRenameHolopadsComponent component, ref StationPostInitEvent args)
@@ -64,6 +72,6 @@ public sealed class StationRenameHolopadsSystem : EntitySystem
             padName += " " + holopad.Comp.StationNameSuffix;
         }
 
-        _label.Label(holopad, padName);
+        _label.Label(holopad, padName, automatic: true);
     }
 }

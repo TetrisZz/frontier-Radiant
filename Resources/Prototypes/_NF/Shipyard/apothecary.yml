@@ -16,6 +16,7 @@
   price: 36000 # 30183 0.2 36219.6
   category: Small
   group: Medical
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/apothecary.yml
   guidebookPage: ShipyardApothecary
   class:

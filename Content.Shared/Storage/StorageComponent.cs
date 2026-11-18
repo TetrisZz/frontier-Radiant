@@ -110,6 +110,10 @@ namespace Content.Shared.Storage
         [DataField]
         public EntityWhitelist? Blacklist;
 
+        /// <summary>Exceptions to the blacklist. Size, space and whitelist restrictions still apply.</summary>
+        [DataField]
+        public EntityWhitelist? BlacklistExceptions;
+
         /// <summary>
         /// Sound played whenever an entity is inserted into storage.
         /// </summary>

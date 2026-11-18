@@ -12,7 +12,7 @@
       map: [ "enum.VehicleVisualLayers.AutoAnimate" ]
       autoAnimated: false
   - type: Vehicle
-    requiredHands: 0
+    requiredHands: 1
     engineRunning: true
     renderOver: North, South
     radarBlip: false

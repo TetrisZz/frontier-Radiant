@@ -16,6 +16,7 @@
   price: 16500
   category: Small
   group: Medical
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/spirit.yml
   guidebookPage: ShipyardSpirit
   class:
