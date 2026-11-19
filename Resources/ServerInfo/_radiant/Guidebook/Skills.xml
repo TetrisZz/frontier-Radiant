@@ -58,6 +58,8 @@
 
 ## Инженерия
 
+Прикручивание, откручивание и техническое обслуживание гидропонных лотков относятся к инженерным работам и не требуют ботаники. Посадка растений, уход за ними и управление лотком проверяются отдельно по навыку ботаники.
+
 <Table Columns="2">
   <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Ур.[/bold]</Box></ColorBox>
   <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]Что доступно[/bold]</Box></ColorBox>

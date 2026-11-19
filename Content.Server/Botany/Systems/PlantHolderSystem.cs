@@ -29,6 +29,7 @@ using Content.Shared.Kitchen.Components;
 using Content.Shared.Labels.Components;
 using Content.Shared._NF.BindToStation; // Frontier
 using Content.Server.Station.Systems; // Frontier
+using Content.Shared._radiant.Skills;
 
 namespace Content.Server.Botany.Systems;
 
@@ -50,6 +51,7 @@ public sealed class PlantHolderSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly StationSystem _station = default!; // Frontier
+    [Dependency] private readonly SharedProfessionalSkillsSystem _skills = default!;
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
@@ -174,6 +176,11 @@ public sealed class PlantHolderSystem : EntitySystem
 
     private void OnInteractUsing(Entity<PlantHolderComponent> entity, ref InteractUsingEvent args)
     {
+        // Wrenching and servicing belong to construction/tool handling, not plant care.
+        // Leave those interactions unhandled regardless of subscriber order.
+        if (args.Handled || _skills.IsEquipmentMaintenance(args.Used, entity))
+            return;
+
         var (uid, component) = entity;
 
         if (HasComp<SharpComponent>(args.Used))
@@ -183,8 +190,7 @@ public sealed class PlantHolderSystem : EntitySystem
             return;
         }
 
-        if (!EntityManager.System<Content.Shared._radiant.Skills.SharedProfessionalSkillsSystem>()
-                .Check(args.User, Content.Shared._radiant.Skills.ProfessionalSkill.Botany, 1, serverPopup: true))
+        if (!_skills.Check(args.User, ProfessionalSkill.Botany, 1, serverPopup: true))
         {
             args.Handled = true;
             return;

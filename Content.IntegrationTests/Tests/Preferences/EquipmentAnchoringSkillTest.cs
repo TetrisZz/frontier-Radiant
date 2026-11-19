@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server.Botany.Components;
 using Content.Server.Construction.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Kitchen.Components;
@@ -75,6 +76,9 @@ public sealed class EquipmentAnchoringSkillTest
     [TestCase("KitchenElectricRange", 1)]
     [TestCase("SeedExtractor", 1)]
     [TestCase("VendingMachineSeeds", 1)]
+    [TestCase("hydroponicsTray", 1)]
+    [TestCase("HydroponicsTrayEmpty", 1)]
+    [TestCase("HydroponicsTrayEmpty", 0)]
     [TestCase("KitchenElectricRange", 0)]
     [TestCase("SeedExtractor", 0)]
     public async Task WrenchingUsesEngineeringInsteadOfTheMachinesProfession(string prototype, int engineering)
@@ -97,11 +101,13 @@ public sealed class EquipmentAnchoringSkillTest
             wrench = em.SpawnEntity("Wrench", map.GridCoords);
             Assert.That(em.System<HandsSystem>().TryPickupAnyHand(user, wrench), Is.True);
             var skills = em.System<SharedProfessionalSkillsSystem>();
-            if (prototype != "VendingMachineSeeds")
+            // Trays enforce planting skills in PlantHolderSystem, not the generic Interact rule.
+            var plantHolder = em.HasComponent<PlantHolderComponent>(equipment);
+            if (prototype != "VendingMachineSeeds" && !plantHolder)
                 Assert.That(skills.CanUse(user, equipment, SkillAction.Interact, false), Is.False,
                     "Operating the machine must still require Cooking/Botany.");
             var food = em.SpawnEntity("FoodApple", map.GridCoords);
-            if (prototype != "VendingMachineSeeds")
+            if (prototype != "VendingMachineSeeds" && !plantHolder)
                 Assert.That(skills.CanInteractUsing(user, food, equipment), Is.False,
                     "Inserting produce must not gain the wrench exception.");
             Assert.That(em.System<SharedInteractionSystem>().InteractUsing(user, wrench, equipment, map.GridCoords), Is.True);
@@ -117,6 +123,14 @@ public sealed class EquipmentAnchoringSkillTest
         await pair.Server.WaitAssertion(() =>
         {
             Assert.That(em.GetComponent<TransformComponent>(equipment).Anchored, Is.True);
+            if (em.TryGetComponent<PlantHolderComponent>(equipment, out var tray))
+            {
+                var seed = em.SpawnEntity("WheatSeeds", map.GridCoords);
+                var planting = new InteractUsingEvent(user, seed, equipment, map.GridCoords);
+                em.EventBus.RaiseLocalEvent(equipment, planting);
+                Assert.That(planting.Handled, Is.True);
+                Assert.That(tray.Seed, Is.Null, "Engineering must not bypass the Botany requirement for planting.");
+            }
             em.DeleteEntity(equipment);
 
             // An appropriate tool must not bypass explicit advanced installation requirements.
