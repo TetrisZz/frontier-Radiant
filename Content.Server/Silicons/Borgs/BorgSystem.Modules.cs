@@ -192,6 +192,23 @@ public sealed partial class BorgSystem
 
         var xform = Transform(chassis);
 
+        // Older modules keyed stored tools by the old runtime entity UID. That prefix changes
+        // after ship/deposit loading. Keep stable slot keys while retaining the actual tools.
+        if (component.StoredItems is { } storedItems)
+        {
+            for (var i = 0; i < component.Hands.Count; i++)
+            {
+                var key = $"hand-{i}";
+                if (storedItems.ContainsKey(key))
+                    continue;
+                var legacyKey = storedItems.Keys.FirstOrDefault(oldKey => oldKey.EndsWith($"-{key}", System.StringComparison.Ordinal));
+                if (legacyKey == null)
+                    continue;
+                storedItems[key] = storedItems[legacyKey];
+                storedItems.Remove(legacyKey);
+            }
+        }
+
         for (var i = 0; i < component.Hands.Count; i++)
         {
             var hand = component.Hands[i];
@@ -202,7 +219,8 @@ public sealed partial class BorgSystem
 
             if (component.StoredItems is not null)
             {
-                if (component.StoredItems.TryGetValue(handId, out var storedItem))
+                if (component.StoredItems.TryGetValue($"hand-{i}", out var storedItem)
+                    && Exists(storedItem) && !TerminatingOrDeleted(storedItem))
                 {
                     item = storedItem;
                     _container.Remove(storedItem, container, force: true);
@@ -250,11 +268,11 @@ public sealed partial class BorgSystem
             {
                 RemComp<UnremoveableComponent>(held.Value);
                 _container.Insert(held.Value, container);
-                component.StoredItems[handId] = held.Value;
+                component.StoredItems[$"hand-{i}"] = held.Value;
             }
             else
             {
-                component.StoredItems.Remove(handId);
+                component.StoredItems.Remove($"hand-{i}");
             }
 
             _hands.RemoveHand(chassis, handId);

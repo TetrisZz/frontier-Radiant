@@ -183,6 +183,8 @@ public static class ShipSaveYamlSanitizer
         ["HealOnBuckle"] = ["sleepAction"],
         ["HandheldLight"] = ["toggleActionEntity", "selfToggleActionEntity"],
         ["ToggleableClothing"] = ["actionEntity", "clothingUid"],
+        ["BorgModule"] = ["installedEntity"],
+        ["SelectableBorgModule"] = ["moduleSwapActionEntity"],
         ["Action"] = ["attachedEntity", "container", "entIcon"],
         ["ShuttleConsoleJobSlots"] = ["owningStation"],
         ["StoreRefund"] = ["storeEntity"],
@@ -761,10 +763,11 @@ public static class ShipSaveYamlSanitizer
 
     private static int ResetSavedEquipmentActions(SequenceDataNode protoSeq)
     {
-        // Helmet, internals and light toggles use Action.cooldown, separately from UseDelay.
+        // Equipment toggles and borg module selection use Action.cooldown, separately from UseDelay.
         // Their short anti-spam timers must not carry old-round deadlines into storage.
         // Other abilities retain their cooldowns.
         var equipmentActions = new HashSet<string>(StringComparer.Ordinal);
+        var savedUids = new HashSet<string>(StringComparer.Ordinal);
         var savedEntities = new List<(string Prototype, MappingDataNode Entity, SequenceDataNode Components)>();
         foreach (var group in protoSeq)
         {
@@ -774,8 +777,11 @@ public static class ShipSaveYamlSanitizer
             var prototypeId = prototype.TryGet("proto", out ValueDataNode? id) ? id?.Value ?? "" : "";
             foreach (var node in entities)
             {
-                if (node is not MappingDataNode entity
-                    || !entity.TryGet("components", out SequenceDataNode? components) || components == null)
+                if (node is not MappingDataNode entity)
+                    continue;
+                if (entity.TryGet("uid", out ValueDataNode? savedUid) && savedUid != null)
+                    savedUids.Add(savedUid.Value);
+                if (!entity.TryGet("components", out SequenceDataNode? components) || components == null)
                     continue;
                 savedEntities.Add((prototypeId, entity, components));
                 foreach (var entry in components)
@@ -788,6 +794,7 @@ public static class ShipSaveYamlSanitizer
                         "ToggleableClothing" => ["actionEntity"],
                         "GasTank" or "UnpoweredFlashlight" => ["toggleActionEntity"],
                         "HandheldLight" => ["toggleActionEntity", "selfToggleActionEntity"],
+                        "SelectableBorgModule" => ["moduleSwapActionEntity"],
                         _ => [],
                     };
                     foreach (var actionField in actionFields)
@@ -802,7 +809,26 @@ public static class ShipSaveYamlSanitizer
         var reset = 0;
         foreach (var (prototype, entity, components) in savedEntities)
         {
-            if (prototype != "ActionToggleSuitPiece" && prototype != "ActionToggleInternals"
+            // A stored module must not remain "installed" into a borg outside this snapshot.
+            // Repair these references for deposit storage too, which skips ship cargo filtering.
+            foreach (var entry in components)
+            {
+                if (entry is not MappingDataNode component || !component.TryGet("type", out ValueDataNode? type))
+                    continue;
+                var field = type?.Value switch
+                {
+                    "BorgModule" => "installedEntity",
+                    "SelectableBorgModule" => "moduleSwapActionEntity",
+                    _ => null,
+                };
+                if (field != null && component.TryGet(field, out ValueDataNode? target)
+                    && target != null && !target.IsNull && !savedUids.Contains(target.Value))
+                {
+                    component[field] = ValueDataNode.Null();
+                    reset++;
+                }
+            }
+            if (prototype != "ActionToggleSuitPiece" && prototype != "ActionToggleInternals" && prototype != "ActionBorgSwapModule"
                 && (!entity.TryGet("uid", out ValueDataNode? uid) || uid == null || !equipmentActions.Contains(uid.Value)))
                 continue;
             foreach (var entry in components)
