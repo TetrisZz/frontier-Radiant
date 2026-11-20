@@ -43,6 +43,46 @@ namespace Content.IntegrationTests.Tests._radiant.Shipyard;
 public sealed class ShipSaveRoundTripTest
 {
     [Test]
+    public async Task OneMaterialSiloPerShipIncludesNestedContainersButNotOtherShips()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
+        try
+        {
+            var map = await pair.CreateTestMap();
+            var otherMap = await pair.CreateTestMap();
+            await pair.Server.WaitAssertion(() =>
+            {
+                var em = pair.Server.EntMan;
+                var saves = em.System<ShipyardGridSaveSystem>();
+                var containers = em.System<SharedContainerSystem>();
+                em.SpawnEntity("MachineMaterialSilo", map.GridCoords);
+                em.SpawnEntity("MachineMaterialSilo", otherMap.GridCoords);
+                Assert.That(saves.CheckGridEntityLimits(map.Grid, out _), Is.True,
+                    "One silo is allowed; a silo on another ship must not consume this ship's limit.");
+
+                var extra = em.SpawnEntity("MachineMaterialSilo", map.GridCoords);
+                Assert.That(saves.CheckGridEntityLimits(map.Grid, out var message), Is.False);
+                Assert.That(message, Does.Contain(Robust.Shared.Localization.Loc.GetString("shipyard-grid-save-limit-MaterialSilo")));
+
+                var outer = em.SpawnEntity("CrateGeneric", map.GridCoords);
+                var inner = em.SpawnEntity("BoxCardboard", map.GridCoords);
+                Assert.That(containers.Insert(inner, containers.EnsureContainer<Container>(outer, "test-nested")), Is.True);
+                Assert.That(containers.Insert(extra, containers.EnsureContainer<Container>(inner, "test-nested")), Is.True);
+                Assert.That(saves.CheckGridEntityLimits(map.Grid, out _), Is.False,
+                    "An empty second silo still blocks saving inside nested containers.");
+
+                em.DeleteEntity(extra);
+                Assert.That(saves.CheckGridEntityLimits(map.Grid, out _), Is.True,
+                    "Removing the extra silo must restore the ability to save.");
+            });
+        }
+        finally
+        {
+            await pair.CleanReturnAsync();
+        }
+    }
+
+    [Test]
     public async Task LathesLoadEmptySilosRetainLimitedMaterialsAndShipOwnershipSurvivesSignedSnapshot()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });

@@ -7,6 +7,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Localization;
 
 namespace Content.Client.Materials.UI;
 
@@ -18,6 +19,7 @@ public sealed partial class MaterialDisplay : PanelContainer
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly ILocalizationManager _localization = default!;
 
     private readonly MaterialStorageSystem _materialStorage;
 
@@ -78,8 +80,11 @@ public sealed partial class MaterialDisplay : PanelContainer
         var material = _prototypeManager.Index<MaterialPrototype>(Material);
         var sheetVolume = _materialStorage.GetSheetVolume(material);
         var retained = _saveLimitsSystem.GetSavedVolume(limits, Material, volume);
-        var savedSheets = sheetVolume > 0 ? (float) retained / sheetVolume : 0;
-        var lostSheets = sheetVolume > 0 ? (float) (volume - retained) / sheetVolume : 0;
+        // Radiant: format both counters consistently, without float-to-double precision artifacts.
+        var savedSheets = (sheetVolume > 0 ? (decimal) retained / sheetVolume : 0)
+            .ToString("0.##", _localization.DefaultCulture);
+        var lostSheets = (sheetVolume > 0 ? (decimal) (volume - retained) / sheetVolume : 0)
+            .ToString("0.##", _localization.DefaultCulture);
         SavedAmount.Text = Loc.GetString("ship-save-materials-saved-amount", ("amount", savedSheets));
         SavedAmount.FontColorOverride = Color.FromHex(retained == volume ? "#7ED6AD" : "#EF8D92");
         SavedAmount.ToolTip = Loc.GetString("ship-save-materials-saved-tooltip",
