@@ -15,6 +15,70 @@ namespace Content.Tests.Server._HL.Shipyard;
 [TestOf(typeof(ShipSaveYamlSanitizer))]
 public sealed class ShipSaveYamlSanitizerTest
 {
+    [TestCase(false, false)]
+    [TestCase(false, true)]
+    [TestCase(true, false)]
+    [TestCase(true, true)]
+    public void BorgModuleButtonsLoseOldCooldownsAndExternalReferences(bool deposit, bool prototypeFallback)
+    {
+        var yaml = """
+            entities:
+            - proto: TestModule
+              entities:
+              - uid: 1
+                components:
+                - type: BorgModule
+                  installedEntity: invalid
+                - type: SelectableBorgModule
+                  moduleSwapActionEntity: 2
+            - proto: TestModuleButton
+              entities:
+              - uid: 2
+                components:
+                - type: Action
+                  container: 1
+                  attachedEntity: invalid
+                  useDelay: 0.5
+                  cooldown:
+                    start: 28799
+                    end: 28800
+            - proto: TestMissingButton
+              entities:
+              - uid: 3
+                components:
+                - type: SelectableBorgModule
+                  moduleSwapActionEntity: 987654
+            - proto: OtherAbility
+              entities:
+              - uid: 4
+                components:
+                - type: Action
+                  cooldown:
+                    start: 30
+                    end: 40
+            """;
+        if (prototypeFallback)
+            yaml = yaml.Replace("TestModuleButton", "ActionBorgSwapModule")
+                .Replace("moduleSwapActionEntity: 2", "moduleSwapActionEntity: null");
+        var repaired = deposit
+            ? ShipSaveYamlSanitizer.ScrubStoredItemYaml(yaml, out _)
+            : ShipSaveYamlSanitizer.ScrubShipLoadYaml(yaml, out _);
+        Assert.That(repaired, Does.Not.Contain("28799"));
+        Assert.That(repaired, Does.Not.Contain("28800"));
+        Assert.That(repaired, Does.Not.Contain("invalid"));
+        Assert.That(repaired, Does.Not.Contain("987654"));
+        Assert.That(repaired, Does.Contain("useDelay: 0.5"));
+        Assert.That(repaired, Does.Contain("container: 1"));
+        Assert.That(repaired, Does.Contain("start: 30"));
+        Assert.That(repaired, Does.Contain("end: 40"));
+        int repeated;
+        if (deposit)
+            ShipSaveYamlSanitizer.ScrubStoredItemYaml(repaired, out repeated);
+        else
+            ShipSaveYamlSanitizer.ScrubShipLoadYaml(repaired, out repeated);
+        Assert.That(repeated, Is.Zero);
+    }
+
     [TestCase(false)]
     [TestCase(true)]
     public void EquipmentCooldownRepairCoversCustomTankActionsAndKeepsUnrelatedAbilities(bool deposit)
