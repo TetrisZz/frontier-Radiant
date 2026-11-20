@@ -295,7 +295,7 @@ public sealed partial class ShipyardSystem
                 PlayDenySound(player, uid, console);
                 return;
             }
-            _gridSave.ClearLoadedMachineMaterials(grid);
+            _gridSave.SanitizeLoadedMachineMaterials(grid);
             IdentityDocumentPersistence.RemoveDocuments(EntityManager, grid);
 
             var cost = Math.Max(0, checked((int)MathF.Round((float)_pricing.AppraiseGrid(grid, null)

@@ -899,7 +899,7 @@
   cost:
     Cristalhom: 30
   categories:
-    - UplinkHomHardsuits
+    - UplinkHomBorgs
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:

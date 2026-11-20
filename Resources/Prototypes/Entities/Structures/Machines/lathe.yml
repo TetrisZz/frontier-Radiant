@@ -636,6 +636,7 @@
     - Scarves
     - Carpets
     - Bedsheets
+    - RadiantTowels
     - NFFloorTilesCarpet # Frontier
     - NFUniformColored #Frontier
     - NFUniformMilitary # Frontier
@@ -682,6 +683,7 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
+  - type: OreSiloClient
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:

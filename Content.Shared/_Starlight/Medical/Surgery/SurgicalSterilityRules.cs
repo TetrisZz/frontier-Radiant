@@ -10,8 +10,8 @@ public static class SurgicalSterilityRules
     public const int ToolUsesBeforeDirty = 6;
     public const int GloveUsesBeforeDirty = 10;
 
-    public static int EnvironmentRisk(int trash, int puddles, bool sterilizer)
-        => Math.Min(20, Math.Max(0, trash) * 2 + Math.Max(0, puddles) * 3) - (sterilizer ? 5 : 0);
+    public static int EnvironmentRisk(int puddles, bool sterilizer)
+        => Math.Min(20, Math.Max(0, puddles) * 3) - (sterilizer ? 5 : 0);
 
     public static int ApplyFieldProtection(int incoming, bool draped)
         => Math.Max(0, incoming - (draped ? 5 : 0));
@@ -24,8 +24,13 @@ public static class SurgicalSterilityRules
     public static int Contact(SurgicalItemSterilityComponent item, EntityUid patient, int contamination,
         bool countUses = false, int usesBeforeDirty = ToolUsesBeforeDirty)
     {
+        if (item.SelfSterilizing)
+        {
+            Disinfect(item);
+            return 0;
+        }
         var crossContaminated = item.Dirty || item.Used && item.LastPatient != patient;
-        var transferred = crossContaminated ? 15 : item.ContainerContamination;
+        var transferred = crossContaminated ? 5 : item.ContainerContamination;
         item.Used = true;
         item.LastPatient = patient;
         // Tools and gloves remain safe for the same patient for the whole operation.

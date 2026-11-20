@@ -490,6 +490,8 @@
   name: продвинутый киборг-наёмник
   description: Гибрид машины и человека, помогающий в работе. Они обожают, когда их снова и снова просят назвать свои законы.
   components:
+    - type: BorgDamageVisuals
+      bodyState: mer
     - type: Sprite
       sprite: _radiant/Mobs/Silicon/chassis.rsi
       layers:

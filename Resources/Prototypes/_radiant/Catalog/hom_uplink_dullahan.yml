@@ -1,0 +1,69 @@
+- type: listing
+  id: UplinkBorgChassisDullahanMining
+  name: uplink-hom-dullahan-mining-name
+  description: uplink-hom-dullahan-mining-desc
+  productEntity: BorgChassisDullahanMining
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: dullahanmine }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkBorgChassisDullahanJanitor
+  name: uplink-hom-dullahan-janitor-name
+  description: uplink-hom-dullahan-janitor-desc
+  productEntity: BorgChassisDullahanJanitor
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: dullahanjani }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkBorgChassisDullahanService
+  name: uplink-hom-dullahan-service-name
+  description: uplink-hom-dullahan-service-desc
+  productEntity: BorgChassisDullahanService
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: dullahanserv }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkBorgChassisDullahanMedical
+  name: uplink-hom-dullahan-medical-name
+  description: uplink-hom-dullahan-medical-desc
+  productEntity: BorgChassisDullahanMedical
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: dullahanmed }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkBorgChassisDullahanEngineer
+  name: uplink-hom-dullahan-engineer-name
+  description: uplink-hom-dullahan-engineer-desc
+  productEntity: BorgChassisDullahanEngineer
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: dullahaneng }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]

@@ -53,7 +53,7 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
                 continue;
             }
 
-            recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(recharge.RechargeCooldown);
+            recharge.NextCharge = recharge.NextCharge.Value + RechargeInterval(uid, recharge);
             Dirty(uid, recharge);
         }
     }
@@ -86,10 +86,14 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
         if (!Resolve(uid, ref recharge, false))
             return;
 
-        if (recharge.NextCharge == null || recharge.NextCharge < _timing.CurTime)
+        if (recharge.NextCharge == null || recharge.NextCharge <= _timing.CurTime)
         {
-            recharge.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(recharge.RechargeCooldown);
+            recharge.NextCharge = _timing.CurTime + RechargeInterval(uid, recharge);
             Dirty(uid, recharge);
         }
     }
+
+    private TimeSpan RechargeInterval(EntityUid uid, RechargeBasicEntityAmmoComponent recharge)
+        => TimeSpan.FromSeconds(recharge.UseGunFireRate && TryComp<GunComponent>(uid, out var gun)
+            && gun.FireRateModified > 0 ? 1f / gun.FireRateModified : recharge.RechargeCooldown);
 }

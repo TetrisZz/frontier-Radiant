@@ -1,4 +1,9 @@
 professional-skills-tab = Skills and abilities
+professional-skills-character-heading = Selected skills
+professional-skills-character-expand = Click a skill to view its description.
+professional-skills-character-level = Lv. { $level }
+professional-skills-character-inherited = Abilities from previous levels are also available.
+professional-skills-character-empty = No skills selected.
 professional-skills-minimum = Spend at least { $minimum } skill point to join the round. You may leave the remaining points unspent.
 professional-skills-selection-title = Select character skills
 professional-skills-selection-required = Before joining, spend at least { $minimum } point in Skills and abilities and save your character. You do not have to spend every point.

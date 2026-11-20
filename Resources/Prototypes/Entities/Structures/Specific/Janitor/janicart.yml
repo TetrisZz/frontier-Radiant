@@ -158,6 +158,8 @@
   parent: [BaseStructureDynamic, StructureWheeled]
   description: This is the alpha and omega of sanitation.
   components:
+    - type: HLPersistOnShipSave
+      saveContents: true
     - type: Sprite
       noRot: true
       sprite: Objects/Specific/Janitorial/janitorial_cart.rsi

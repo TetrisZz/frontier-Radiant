@@ -1,5 +1,10 @@
 professional-skills-tab = Навыки и способности
 professional-skills-current-level = { $skill } · Уровень { $level }
+professional-skills-character-heading = Выбранные навыки
+professional-skills-character-expand = Нажмите на навык, чтобы открыть описание.
+professional-skills-character-level = Ур. { $level }
+professional-skills-character-inherited = Возможности предыдущих уровней также доступны.
+professional-skills-character-empty = Навыки не выбраны.
 
 professional-skills-experience-piloting-0 = Управление многотонными стальными машинами вас пугает или попросту никогда не интересовало.
 professional-skills-experience-piloting-1 = В детстве вас, кажется, учил пилотировать кто-то из родственников. Или ваш лётный инструктор не пережил первый полёт.

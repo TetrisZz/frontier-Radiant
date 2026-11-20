@@ -1,4 +1,5 @@
 surgical-item-clean = [color=lightblue]Обработано для хирургического использования.[/color]
+surgical-item-self-sterilizing = [color=lightblue]Встроенная стерилизация. Обработка инструмента не требуется.[/color]
 surgical-item-used = [color=yellow]Следы пациента. Для него повторная обработка не нужна; перед другим пациентом обработайте предмет.[/color]
 surgical-item-dirty = [color=orange]Загрязнено. Требуется обработка антисептиком.[/color]
 surgical-antiseptic-empty = Для обработки нужно не менее 5 единиц этанола в антисептике.

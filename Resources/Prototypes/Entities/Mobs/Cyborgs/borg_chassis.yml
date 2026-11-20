@@ -2,6 +2,7 @@
   id: BorgChassisSelectable
   parent: BaseBorgChassisNT
   components:
+  - type: BorgDamageVisuals
   - type: Sprite
     sprite: _radiant/Mobs/Silicon/chassis.rsi #Radiant Sector
     layers:
@@ -94,6 +95,8 @@
   name: syndicate assault cyborg
   description: A lean, mean killing machine with access to a variety of deadly modules.
   components:
+    - type: BorgDamageVisuals
+      bodyState: synd_sec
     - type: Sprite
       layers:
         - state: synd_sec
@@ -134,6 +137,8 @@
   name: syndicate medical cyborg
   description: A combat medical cyborg. Has limited offensive potential, but makes more than up for it with its support capabilities.
   components:
+    - type: BorgDamageVisuals
+      bodyState: synd_medical
     - type: Sprite
       layers:
         - state: synd_medical
@@ -172,6 +177,8 @@
   name: syndicate saboteur cyborg
   description: A streamlined engineering cyborg, equipped with covert modules. Its chameleon projector lets it disguise itself as a Nanotrasen cyborg.
   components:
+    - type: BorgDamageVisuals
+      bodyState: synd_engi
     - type: Sprite
       layers:
         - state: synd_engi

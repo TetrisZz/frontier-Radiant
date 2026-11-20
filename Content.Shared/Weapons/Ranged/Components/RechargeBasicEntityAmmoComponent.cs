@@ -15,6 +15,10 @@ public sealed partial class RechargeBasicEntityAmmoComponent : Component
     [AutoNetworkedField]
     public float RechargeCooldown = 1.5f;
 
+    /// <summary>Use the gun's modified firing interval instead of a separate recharge interval.</summary>
+    [DataField, AutoNetworkedField]
+    public bool UseGunFireRate;
+
     [DataField("rechargeSound")]
     [AutoNetworkedField]
     public SoundSpecifier? RechargeSound = new SoundPathSpecifier("/Audio/Magic/forcewall.ogg")

@@ -73,6 +73,10 @@
   name: store-category-hom-hardsuits
 
 - type: storeCategory
+  id: UplinkHomBorgs
+  name: store-category-hom-borgs
+
+- type: storeCategory
   id: UplinkHomUtility
   name: store-category-hom-utility
 

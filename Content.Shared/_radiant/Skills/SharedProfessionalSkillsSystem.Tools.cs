@@ -20,14 +20,15 @@ public sealed partial class SharedProfessionalSkillsSystem
     /// rather than the profession needed to operate the machine.
     /// </summary>
     public bool CanInteractUsing(EntityUid user, EntityUid used, EntityUid target)
+        => CanUse(user, target, IsEquipmentMaintenance(used, target) ? SkillAction.Anchor : SkillAction.Interact);
+
+    public bool IsEquipmentMaintenance(EntityUid used, EntityUid target)
     {
         var anchoring = TryComp<AnchorableComponent>(target, out var anchorable)
             && EntityManager.System<SharedToolSystem>().HasQuality(used, anchorable.Tool);
         var replacingParts = HasComp<PartExchangerComponent>(used)
             && EntityManager.System<SharedContainerSystem>().TryGetContainer(target, MachinePartSystem.PartContainerName, out _);
-        return CanUse(user, target, anchoring || replacingParts || IsPanelTool(used, target)
-            ? SkillAction.Anchor
-            : SkillAction.Interact);
+        return anchoring || replacingParts || IsPanelTool(used, target);
     }
 
     public bool IsPanelTool(EntityUid used, EntityUid target)

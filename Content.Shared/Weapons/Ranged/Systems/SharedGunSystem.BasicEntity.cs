@@ -26,10 +26,11 @@ public abstract partial class SharedGunSystem
 
     private void OnBasicEntityTakeAmmo(EntityUid uid, BasicEntityAmmoProviderComponent component, TakeAmmoEvent args)
     {
+        var initialAmmoCount = args.Ammo.Count;
         for (var i = 0; i < args.Shots; i++)
         {
             if (component.Count <= 0)
-                return;
+                break;
 
             if (component.Count != null)
             {
@@ -40,6 +41,10 @@ public abstract partial class SharedGunSystem
             args.Ammo.Add((ent, EnsureShootable(ent)));
         }
 
+        // A catch-up tick can request more rounds than a single-charge weapon holds.
+        // The round we did supply must still start its recharge and update its visuals.
+        if (args.Ammo.Count == initialAmmoCount)
+            return;
         _recharge.Reset(uid);
         UpdateBasicEntityAppearance(uid, component);
         Dirty(uid, component);

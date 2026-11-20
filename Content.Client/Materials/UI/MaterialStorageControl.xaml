@@ -1,5 +1,6 @@
 <ScrollContainer xmlns="https://spacestation14.io"
               SizeFlagsStretchRatio="8"
+              HScrollEnabled="False"
               HorizontalExpand="True"
               VerticalExpand="True">
     <BoxContainer Orientation="Vertical" VerticalExpand="True">

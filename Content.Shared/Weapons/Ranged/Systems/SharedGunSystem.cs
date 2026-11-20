@@ -293,6 +293,14 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.NextFire > curTime)
             return;
 
+        // Waiting for automatic recharge is not an empty trigger pull. In particular,
+        // do not add the empty-fire penalty just before the recharge system supplies a round.
+        if (TryComp<RechargeBasicEntityAmmoComponent>(gunUid, out var recharge)
+            && recharge.NextCharge != null
+            && TryComp<BasicEntityAmmoProviderComponent>(gunUid, out var rechargingAmmo)
+            && rechargingAmmo.Count == 0)
+            return;
+
         var fireRate = TimeSpan.FromSeconds(1f / gun.FireRateModified);
 
         if (gun.SelectedMode == SelectiveFire.Burst || gun.BurstActivated)

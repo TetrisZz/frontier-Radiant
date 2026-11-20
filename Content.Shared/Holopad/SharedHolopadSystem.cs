@@ -6,6 +6,12 @@ public abstract class SharedHolopadSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    public void SetUseStationName(Entity<HolopadComponent> entity, bool enabled)
+    {
+        entity.Comp.UseStationName = enabled;
+        Dirty(entity);
+    }
+
     public bool IsHolopadControlLocked(Entity<HolopadComponent> entity, EntityUid? user = null)
     {
         if (entity.Comp.ControlLockoutStartTime == TimeSpan.Zero)

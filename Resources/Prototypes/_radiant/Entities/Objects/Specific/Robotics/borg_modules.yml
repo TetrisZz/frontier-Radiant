@@ -39,6 +39,34 @@
   - type: BorgModuleIcon
     icon: { sprite: _radiant/Interface/Actions/actions_borg.rsi, state: radio }
 
+# medical modules
+- type: entity
+  id: BorgModuleSurgery
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: surgical cyborg module
+  description: A surgical tool set matching the surgeon's cyberarm.
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-treatment
+  - type: BorgModule
+    defaultModule: true
+  - type: ItemBorgModule
+    moduleId: Surgery
+    hands:
+    # Same tool qualities/speeds as the surgeon's cyberarm, with built-in sterilization.
+    - item: ScalpelBorgSurgery
+    - item: HemostatBorgSurgery
+    - item: RetractorBorgSurgery
+    - item: BoneSetterBorgSurgery
+    - item: BoneGelBorgSurgery
+    - item: CauteryBorgSurgery
+    - item: DrillBorgSurgery
+    - item: SawBorgSurgery
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
+
 # mercenary modules
 - type: entity
   id: BaseBorgModuleMercenary

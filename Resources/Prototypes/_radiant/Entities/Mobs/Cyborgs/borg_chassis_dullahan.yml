@@ -1,0 +1,45 @@
+# Appearance and ready-to-use equipment only. Each concrete chassis inherits its ordinary profession.
+- type: entity
+  id: BaseBorgChassisDullahanDonor
+  parent: BaseBorgChassisDonorEquipment
+  abstract: true
+
+- type: entity
+  id: BorgChassisDullahanMining
+  parent: [BorgChassisMining, BaseBorgChassisDullahanDonor]
+  name: Dullahan salvage cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: dullahanmine
+
+- type: entity
+  id: BorgChassisDullahanJanitor
+  parent: [BorgChassisJanitor, BaseBorgChassisDullahanDonor]
+  name: Dullahan janitor cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: dullahanjani
+
+- type: entity
+  id: BorgChassisDullahanService
+  parent: [BorgChassisService, BaseBorgChassisDullahanDonor]
+  name: Dullahan service cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: dullahanserv
+
+- type: entity
+  id: BorgChassisDullahanMedical
+  parent: [BorgChassisMedical, BaseBorgChassisDullahanDonor]
+  name: Dullahan medical cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: dullahanmed
+
+- type: entity
+  id: BorgChassisDullahanEngineer
+  parent: [BorgChassisEngineer, BaseBorgChassisDullahanDonor]
+  name: Dullahan engineer cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: dullahaneng

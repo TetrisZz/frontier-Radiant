@@ -39,9 +39,10 @@ public sealed partial class LabelSystem : EntitySystem
 
     private void OnLabelCompMapInit(Entity<LabelComponent> ent, ref MapInitEvent args)
     {
-        if (!string.IsNullOrEmpty(ent.Comp.CurrentLabel))
+        if (!string.IsNullOrEmpty(ent.Comp.CurrentLabel)
+            && Loc.TryGetString(ent.Comp.CurrentLabel, out var localized))
         {
-            ent.Comp.CurrentLabel = Loc.GetString(ent.Comp.CurrentLabel);
+            ent.Comp.CurrentLabel = localized;
             Dirty(ent);
         }
 
@@ -55,7 +56,8 @@ public sealed partial class LabelSystem : EntitySystem
     /// <param name="text">intended label text (null to remove)</param>
     /// <param name="label">label component for resolve</param>
     /// <param name="metadata">metadata component for resolve</param>
-    public void Label(EntityUid uid, string? text, MetaDataComponent? metadata = null, LabelComponent? label = null)
+    public void Label(EntityUid uid, string? text, MetaDataComponent? metadata = null, LabelComponent? label = null,
+        bool automatic = false)
     {
         if (_tagSystem.HasTag(uid, PreventTag)) // Frontier: Prevent labels on certain items
             return; // Frontier
@@ -66,6 +68,8 @@ public sealed partial class LabelSystem : EntitySystem
         _nameModifier.RefreshNameModifiers(uid);
 
         Dirty(uid, label);
+        var changed = new LabelChangedEvent(automatic);
+        RaiseLocalEvent(uid, ref changed);
     }
 
     private void OnExamine(Entity<LabelComponent> ent, ref ExaminedEvent args)
@@ -170,3 +174,7 @@ public sealed partial class LabelSystem : EntitySystem
         return true;
     }
 }
+
+/// <summary>Raised when a label is applied or removed, distinguishing automatic labels from manual edits.</summary>
+[ByRefEvent]
+public readonly record struct LabelChangedEvent(bool Automatic);

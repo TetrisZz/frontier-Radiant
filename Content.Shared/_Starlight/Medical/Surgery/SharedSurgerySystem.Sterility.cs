@@ -22,6 +22,19 @@ public abstract partial class SharedSurgerySystem
         => TryComp<HumanoidAppearanceComponent>(body, out var appearance)
             && appearance.Species.Id is "SlimePerson" or "NeoSlimePerson";
 
+    protected void OpenLimbAttachmentWound(EntityUid body, EntityUid part)
+    {
+        if (!UsesSurgicalSterility(body, part))
+            return;
+
+        // The attachment socket is an open surface wound even when no torso
+        // cavity was opened. Keep irrigation and normal incision closure available.
+        EnsureComp<IncisionOpenComponent>(part);
+        var progress = EnsureComp<SurgeryProgressComponent>(part);
+        progress.CompletedSurgeries.Add(IsSurgicalSlime(body) ? "SurgeryOpenIncisionSlime" : "SurgeryOpenIncision");
+        Dirty(part, progress);
+    }
+
     public bool IsSurgicalSiteOpen(EntityUid part, SurgicalSite site)
         => site == SurgicalSite.Surface ? HasComp<IncisionOpenComponent>(part)
             : TryComp<SurgicalCavityStateComponent>(part, out var cavities) && site switch

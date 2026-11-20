@@ -1,0 +1,21 @@
+ent-BorgModuleSurgery = хирургический модуль киборга
+    .desc = Базовый медицинский модуль с инструментами киберруки хирурга: скальпелем, зажимом, ретрактором, костоправом, костным гелем, прижигателем, дрелью и пилой. Встроенная стерилизация исключает загрязнение от инструментов; ручная обработка не требуется.
+
+ent-BaseBorgSurgeryTool = встроенный хирургический инструмент
+    .desc = Инструмент хирургического модуля киборга со встроенной стерилизацией.
+ent-ScalpelBorgSurgery = { ent-ScalpelCyber }
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-HemostatBorgSurgery = { ent-HemostatCyber }
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-RetractorBorgSurgery = { ent-RetractorCyber }
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-BoneSetterBorgSurgery = { ent-BoneSetterCyber }
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-BoneGelBorgSurgery = { ent-BoneGelCyber }
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-CauteryBorgSurgery = { ent-CauteryCyber }
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-DrillBorgSurgery = { ent-DrillCyber }
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-SawBorgSurgery = { ent-SawCyber }
+    .desc = { ent-BaseBorgSurgeryTool.desc }

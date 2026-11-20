@@ -18,6 +18,17 @@
           True: { state: silo_active }
           False: { state: silo }
   - type: OreSilo
+  - type: ShipSaveMaterialLimits
+    # Counts are per material type, in sheets/crystals/ore chunks, not internal volume.
+    defaultLimit: 150
+    limits:
+      Steel: 300
+      Glass: 300
+      Plasteel: 300
+      Diamond: 10
+      Bluespace: 10
+      RawDiamond: 10
+      RawBluespace: 10
   - type: MaterialStorage
     whitelist:
       tags:

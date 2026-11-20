@@ -16,6 +16,7 @@
   price: 34500 # 28475 0.2 34170
   category: Small
   group: Medical
+  canSave: true
   shuttlePath: /Maps/_NF/Shuttles/searchlight.yml
   guidebookPage: ShipyardSearchlight
   class:
