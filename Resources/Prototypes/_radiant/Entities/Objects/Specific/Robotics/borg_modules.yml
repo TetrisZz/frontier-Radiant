@@ -55,15 +55,15 @@
   - type: ItemBorgModule
     moduleId: Surgery
     hands:
-    # Keep the same tools and their settings as LeftHandCyberReaper / RightHandCyberReaper.
-    - item: ScalpelCyber
-    - item: HemostatCyber
-    - item: RetractorCyber
-    - item: BoneSetterCyber
-    - item: BoneGelCyber
-    - item: CauteryCyber
-    - item: DrillCyber
-    - item: SawCyber
+    # Same tool qualities/speeds as the surgeon's cyberarm, with built-in sterilization.
+    - item: ScalpelBorgSurgery
+    - item: HemostatBorgSurgery
+    - item: RetractorBorgSurgery
+    - item: BoneSetterBorgSurgery
+    - item: BoneGelBorgSurgery
+    - item: CauteryBorgSurgery
+    - item: DrillBorgSurgery
+    - item: SawBorgSurgery
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 

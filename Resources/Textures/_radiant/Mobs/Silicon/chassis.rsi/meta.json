@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Skyrat-tg at commit https://github.com/Skyrat-SS13/Skyrat-tg/commit/bb8d8f968abdddc1dcf86ceda8d47001d531e321, edited by Homka",
+  "copyright": "Taken from Skyrat-tg at commit https://github.com/Skyrat-SS13/Skyrat-tg/commit/bb8d8f968abdddc1dcf86ceda8d47001d531e321, edited by Homka; Additional Meka poses from Skyrat-SS13/Skyrat-tg modular_skyrat/modules/borgs/icons/tallrobot_*.dmi. Dullahan science chassis from BlueMoon-Labs/BlueMoon-Station modular_splurt/icons/mob/robots_32x64.dmi. Mercenary poses adapted to existing Radiant palettes.",
   "size": {
     "x": 32,
     "y": 64
@@ -60,11 +60,17 @@
       "directions": 4
     },
     {
-      "name": "janitor",
+      "name": "engineer_rest",
       "directions": 4
     },
     {
-      "name": "janitor_moving",
+      "name": "engineer_tipped"
+    },
+    {
+      "name": "engineer_wreck"
+    },
+    {
+      "name": "janitor",
       "directions": 4
     },
     {
@@ -80,11 +86,21 @@
       "directions": 4
     },
     {
-      "name": "medical",
+      "name": "janitor_moving",
       "directions": 4
     },
     {
-      "name": "medical_moving",
+      "name": "janitor_rest",
+      "directions": 4
+    },
+    {
+      "name": "janitor_tipped"
+    },
+    {
+      "name": "janitor_wreck"
+    },
+    {
+      "name": "medical",
       "directions": 4
     },
     {
@@ -100,11 +116,76 @@
       "directions": 4
     },
     {
-      "name": "miner",
+      "name": "medical_moving",
       "directions": 4
     },
     {
-      "name": "miner_moving",
+      "name": "medical_rest",
+      "directions": 4
+    },
+    {
+      "name": "medical_tipped"
+    },
+    {
+      "name": "medical_wreck"
+    },
+    {
+      "name": "mer",
+      "directions": 4
+    },
+    {
+      "name": "mer_e",
+      "directions": 4
+    },
+    {
+      "name": "mer_e_r",
+      "directions": 4
+    },
+    {
+      "name": "mer_icon"
+    },
+    {
+      "name": "mer_l",
+      "directions": 4
+    },
+    {
+      "name": "mer_rest",
+      "directions": 4
+    },
+    {
+      "name": "mer_tipped"
+    },
+    {
+      "name": "mer_wreck"
+    },
+    {
+      "name": "mercenary",
+      "directions": 4
+    },
+    {
+      "name": "mercenary_e",
+      "directions": 4
+    },
+    {
+      "name": "mercenary_e_r",
+      "directions": 4
+    },
+    {
+      "name": "mercenary_l",
+      "directions": 4
+    },
+    {
+      "name": "mercenary_rest",
+      "directions": 4
+    },
+    {
+      "name": "mercenary_tipped"
+    },
+    {
+      "name": "mercenary_wreck"
+    },
+    {
+      "name": "miner",
       "directions": 4
     },
     {
@@ -117,6 +198,36 @@
     },
     {
       "name": "miner_l",
+      "directions": 4
+    },
+    {
+      "name": "miner_moving",
+      "directions": 4
+    },
+    {
+      "name": "miner_rest",
+      "directions": 4
+    },
+    {
+      "name": "miner_tipped"
+    },
+    {
+      "name": "miner_wreck"
+    },
+    {
+      "name": "peace",
+      "directions": 4
+    },
+    {
+      "name": "peace_e",
+      "directions": 4
+    },
+    {
+      "name": "peace_e_r",
+      "directions": 4
+    },
+    {
+      "name": "peace_l",
       "directions": 4
     },
     {
@@ -136,22 +247,6 @@
       "directions": 4
     },
     {
-      "name": "peace",
-      "directions": 4
-    },
-    {
-      "name": "peace_e",
-      "directions": 4
-    },
-    {
-      "name": "peace_e_r",
-      "directions": 4
-    },
-    {
-      "name": "peace_l",
-      "directions": 4
-    },
-    {
       "name": "service",
       "directions": 4
     },
@@ -167,7 +262,193 @@
       "name": "service_l",
       "directions": 4
     },
-	{
+    {
+      "name": "service_rest",
+      "directions": 4
+    },
+    {
+      "name": "service_tipped"
+    },
+    {
+      "name": "service_wreck"
+    },
+    {
+      "name": "synd_engi",
+      "directions": 4
+    },
+    {
+      "name": "synd_engi_e",
+      "directions": 4
+    },
+    {
+      "name": "synd_engi_e_r",
+      "directions": 4
+    },
+    {
+      "name": "synd_engi_l",
+      "directions": 4
+    },
+    {
+      "name": "synd_engi_rest",
+      "directions": 4
+    },
+    {
+      "name": "synd_engi_tipped"
+    },
+    {
+      "name": "synd_engi_wreck"
+    },
+    {
+      "name": "synd_medical",
+      "directions": 4
+    },
+    {
+      "name": "synd_medical_e",
+      "directions": 4,
+      "delays": [
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "synd_medical_e_r",
+      "directions": 4,
+      "delays": [
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "synd_medical_l",
+      "directions": 4,
+      "delays": [
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "synd_medical_rest",
+      "directions": 4,
+      "delays": [
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ],
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "synd_medical_tipped",
+      "delays": [
+        [
+          5.0,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "synd_medical_wreck",
+      "delays": [
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          5.0,
+          0.1,
+          0.08,
+          0.08
+        ]
+      ]
+    },
+    {
       "name": "synd_sec",
       "directions": 4
     },
@@ -176,31 +457,36 @@
       "directions": 4
     },
     {
+      "name": "synd_sec_e_r",
+      "directions": 4
+    },
+    {
       "name": "synd_sec_l",
       "directions": 4
     },
-	{
-      "name": "synd_medical",
+    {
+      "name": "synd_sec_rest"
+    },
+    {
+      "name": "synd_sec_tipped"
+    },
+    {
+      "name": "synd_sec_wreck"
+    },
+    {
+      "name": "xenoborg_engi",
       "directions": 4
     },
     {
-      "name": "synd_medical_l",
+      "name": "xenoborg_engi_e",
       "directions": 4
     },
     {
-      "name": "synd_medical_e",
+      "name": "xenoborg_engi_e_r",
       "directions": 4
     },
     {
-      "name": "synd_engi",
-      "directions": 4
-    },
-	{
-      "name": "synd_engi_e",
-      "directions": 4
-    },
-    {
-      "name": "synd_engi_l",
+      "name": "xenoborg_engi_l",
       "directions": 4
     },
     {
@@ -224,10 +510,6 @@
       "directions": 4
     },
     {
-      "name": "xenoborg_scout_l",
-      "directions": 4
-    },
-    {
       "name": "xenoborg_scout_e",
       "directions": 4
     },
@@ -236,19 +518,7 @@
       "directions": 4
     },
     {
-      "name": "xenoborg_engi",
-      "directions": 4
-    },
-	  {
-      "name": "xenoborg_engi_e",
-      "directions": 4
-    },
-    {
-      "name": "xenoborg_engi_e_r",
-      "directions": 4
-    },
-    {
-      "name": "xenoborg_engi_l",
+      "name": "xenoborg_scout_l",
       "directions": 4
     },
     {
@@ -268,38 +538,363 @@
       "directions": 4
     },
     {
-      "name": "mercenary",
+      "name": "robot_tipped"
+    },
+    {
+      "name": "robot_wreck"
+    },
+    {
+      "name": "robot_rest",
       "directions": 4
     },
     {
-      "name": "mercenary_l",
+      "name": "peace_wreck"
+    },
+    {
+      "name": "peace_tipped"
+    },
+    {
+      "name": "peace_rest",
       "directions": 4
     },
     {
-      "name": "mercenary_e",
+      "name": "dullahansci",
       "directions": 4
     },
     {
-      "name": "mercenary_e_r",
+      "name": "dullahansci_rest",
       "directions": 4
     },
     {
-      "name": "mer",
+      "name": "dullahansci_sit",
       "directions": 4
     },
     {
-      "name": "mer_e",
+      "name": "dullahansci_bellyup",
       "directions": 4
     },
     {
-      "name": "mer_e_r",
+      "name": "dullahansci_wreck"
+    },
+    {
+      "name": "dullahansci_e",
       "directions": 4
     },
     {
-      "name": "mer_icon"
+      "name": "dullahansci_l",
+      "directions": 4
     },
     {
-      "name": "mer_l",
+      "name": "dullahansci_e_r",
+      "directions": 4
+    },
+    {
+      "name": "dullahansci_tipped",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmine",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmine_rest",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmine_sit",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmine_bellyup",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmine_wreck"
+    },
+    {
+      "name": "dullahanmine_e",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmine_l",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmine_e_r",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmine_tipped",
+      "directions": 4
+    },
+    {
+      "name": "dullahanjani",
+      "directions": 4
+    },
+    {
+      "name": "dullahanjani_rest",
+      "directions": 4
+    },
+    {
+      "name": "dullahanjani_sit",
+      "directions": 4
+    },
+    {
+      "name": "dullahanjani_bellyup",
+      "directions": 4
+    },
+    {
+      "name": "dullahanjani_wreck"
+    },
+    {
+      "name": "dullahanjani_e",
+      "directions": 4
+    },
+    {
+      "name": "dullahanjani_l",
+      "directions": 4
+    },
+    {
+      "name": "dullahanjani_e_r",
+      "directions": 4
+    },
+    {
+      "name": "dullahanjani_tipped",
+      "directions": 4
+    },
+    {
+      "name": "dullahanserv",
+      "directions": 4
+    },
+    {
+      "name": "dullahanserv_rest",
+      "directions": 4
+    },
+    {
+      "name": "dullahanserv_sit",
+      "directions": 4
+    },
+    {
+      "name": "dullahanserv_bellyup",
+      "directions": 4
+    },
+    {
+      "name": "dullahanserv_wreck"
+    },
+    {
+      "name": "dullahanserv_e",
+      "directions": 4
+    },
+    {
+      "name": "dullahanserv_l",
+      "directions": 4
+    },
+    {
+      "name": "dullahanserv_e_r",
+      "directions": 4
+    },
+    {
+      "name": "dullahanserv_tipped",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmed",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmed_rest",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmed_sit",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmed_bellyup",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmed_wreck"
+    },
+    {
+      "name": "dullahanmed_e",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmed_l",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmed_e_r",
+      "directions": 4
+    },
+    {
+      "name": "dullahanmed_tipped",
+      "directions": 4
+    },
+    {
+      "name": "dullahaneng",
+      "directions": 4
+    },
+    {
+      "name": "dullahaneng_rest",
+      "directions": 4
+    },
+    {
+      "name": "dullahaneng_sit",
+      "directions": 4
+    },
+    {
+      "name": "dullahaneng_bellyup",
+      "directions": 4
+    },
+    {
+      "name": "dullahaneng_wreck"
+    },
+    {
+      "name": "dullahaneng_e",
+      "directions": 4
+    },
+    {
+      "name": "dullahaneng_l",
+      "directions": 4
+    },
+    {
+      "name": "dullahaneng_e_r",
+      "directions": 4
+    },
+    {
+      "name": "dullahaneng_tipped",
+      "directions": 4
+    },
+    {
+      "name": "mmekamine",
+      "directions": 4
+    },
+    {
+      "name": "mmekamine_rest",
+      "directions": 4
+    },
+    {
+      "name": "mmekamine_tipped"
+    },
+    {
+      "name": "mmekamine_wreck"
+    },
+    {
+      "name": "mmekamine_e",
+      "directions": 4
+    },
+    {
+      "name": "mmekamine_l",
+      "directions": 4
+    },
+    {
+      "name": "mmekamine_e_r",
+      "directions": 4
+    },
+    {
+      "name": "mmekajani",
+      "directions": 4
+    },
+    {
+      "name": "mmekajani_rest",
+      "directions": 4
+    },
+    {
+      "name": "mmekajani_tipped"
+    },
+    {
+      "name": "mmekajani_wreck"
+    },
+    {
+      "name": "mmekajani_e",
+      "directions": 4
+    },
+    {
+      "name": "mmekajani_l",
+      "directions": 4
+    },
+    {
+      "name": "mmekajani_e_r",
+      "directions": 4
+    },
+    {
+      "name": "mmekaserv",
+      "directions": 4
+    },
+    {
+      "name": "mmekaserv_rest",
+      "directions": 4
+    },
+    {
+      "name": "mmekaserv_tipped"
+    },
+    {
+      "name": "mmekaserv_wreck"
+    },
+    {
+      "name": "mmekaserv_e",
+      "directions": 4
+    },
+    {
+      "name": "mmekaserv_l",
+      "directions": 4
+    },
+    {
+      "name": "mmekaserv_e_r",
+      "directions": 4
+    },
+    {
+      "name": "mmekamed",
+      "directions": 4
+    },
+    {
+      "name": "mmekamed_rest",
+      "directions": 4
+    },
+    {
+      "name": "mmekamed_tipped"
+    },
+    {
+      "name": "mmekamed_wreck"
+    },
+    {
+      "name": "mmekamed_e",
+      "directions": 4
+    },
+    {
+      "name": "mmekamed_l",
+      "directions": 4
+    },
+    {
+      "name": "mmekamed_e_r",
+      "directions": 4
+    },
+    {
+      "name": "mmekaeng",
+      "directions": 4
+    },
+    {
+      "name": "mmekaeng_rest",
+      "directions": 4
+    },
+    {
+      "name": "mmekaeng_tipped"
+    },
+    {
+      "name": "mmekaeng_wreck"
+    },
+    {
+      "name": "mmekaeng_e",
+      "directions": 4
+    },
+    {
+      "name": "mmekaeng_l",
+      "directions": 4
+    },
+    {
+      "name": "mmekaeng_e_r",
       "directions": 4
     }
   ]

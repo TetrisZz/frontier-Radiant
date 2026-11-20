@@ -1,4 +1,5 @@
 surgical-item-clean = [color=lightblue]Prepared for surgical use.[/color]
+surgical-item-self-sterilizing = [color=lightblue]Built-in sterilization. No manual disinfection required.[/color]
 surgical-item-used = [color=yellow]Patient residue. Safe to reuse on the same patient; disinfect before treating another.[/color]
 surgical-item-dirty = [color=orange]Contaminated. Disinfect before use.[/color]
 surgical-antiseptic-empty = Treatment requires at least 5 units of ethanol in the antiseptic.

@@ -25,10 +25,10 @@
 
   # Visual
   inventoryTemplateId: borgShort
-  spriteBodyState: robot
-  spriteHasMindState: robot_e
-  spriteNoMindState: robot_e_r
-  spriteToggleLightState: robot_l
+  spriteBodyState: dullahansci
+  spriteHasMindState: dullahansci_e
+  spriteNoMindState: dullahansci_e_r
+  spriteToggleLightState: dullahansci_l
 
   addComponents: #Radiant Sector
   - type: Strap

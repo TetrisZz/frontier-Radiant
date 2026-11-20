@@ -35,6 +35,8 @@ public sealed partial class SurgicalSterilityComponent : Component
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SurgicalItemSterilityComponent : Component
 {
+    /// <summary>Built-in instruments that sterilize themselves between contacts.</summary>
+    [DataField, AutoNetworkedField] public bool SelfSterilizing;
     [DataField, AutoNetworkedField] public bool Dirty;
     [DataField, AutoNetworkedField] public bool Used;
     [DataField, AutoNetworkedField] public int UsesSinceCleaning;

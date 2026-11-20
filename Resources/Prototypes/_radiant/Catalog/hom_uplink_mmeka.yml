@@ -1,0 +1,69 @@
+- type: listing
+  id: UplinkBorgChassisMMekaMining
+  name: uplink-hom-mmeka-mining-name
+  description: uplink-hom-mmeka-mining-desc
+  productEntity: BorgChassisMMekaMining
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: mmekamine }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkBorgChassisMMekaJanitor
+  name: uplink-hom-mmeka-janitor-name
+  description: uplink-hom-mmeka-janitor-desc
+  productEntity: BorgChassisMMekaJanitor
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: mmekajani }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkBorgChassisMMekaService
+  name: uplink-hom-mmeka-service-name
+  description: uplink-hom-mmeka-service-desc
+  productEntity: BorgChassisMMekaService
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: mmekaserv }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkBorgChassisMMekaMedical
+  name: uplink-hom-mmeka-medical-name
+  description: uplink-hom-mmeka-medical-desc
+  productEntity: BorgChassisMMekaMedical
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: mmekamed }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]
+
+- type: listing
+  id: UplinkBorgChassisMMekaEngineer
+  name: uplink-hom-mmeka-engineer-name
+  description: uplink-hom-mmeka-engineer-desc
+  productEntity: BorgChassisMMekaEngineer
+  icon: { sprite: _radiant/Mobs/Silicon/chassis.rsi, state: mmekaeng }
+  cost:
+    Cristalhom: 10
+  categories: [UplinkHomBorgs]
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags: [HomUplink]

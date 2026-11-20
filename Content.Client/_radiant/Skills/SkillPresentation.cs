@@ -6,6 +6,18 @@ namespace Content.Client._radiant.Skills;
 
 public static class SkillPresentation
 {
+    public static Color SkillColor(ProfessionalSkill skill) => Color.FromHex(skill switch
+    {
+        ProfessionalSkill.Piloting => "#AA91F2",
+        ProfessionalSkill.Shooting => "#F08080",
+        ProfessionalSkill.Medicine => "#66D5E8",
+        ProfessionalSkill.Engineering => "#F3CB70",
+        ProfessionalSkill.Salvage => "#DBAA75",
+        ProfessionalSkill.Botany => "#85D989",
+        ProfessionalSkill.Cooking => "#E6B78E",
+        _ => "#CDA7ED",
+    });
+
     public static bool CanIdentifyChemicals
     {
         get

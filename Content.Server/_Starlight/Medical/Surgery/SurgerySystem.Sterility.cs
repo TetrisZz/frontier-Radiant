@@ -13,6 +13,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Placeable;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Chemistry.Components;
 
 namespace Content.Server._Starlight.Medical.Surgery;
@@ -83,7 +84,7 @@ public sealed partial class SurgerySystem
             && _sterilitySurfaces.IsPlacingItem(ent))
             return;
         var state = EnsureComp<SurgicalItemSterilityComponent>(ent);
-        if (HasComp<SurgicalAntisepticComponent>(ent) || HasComp<NonContactSurgicalToolComponent>(ent))
+        if (state.SelfSterilizing || HasComp<SurgicalAntisepticComponent>(ent) || HasComp<NonContactSurgicalToolComponent>(ent))
         {
             SurgicalSterilityRules.Disinfect(state);
             Dirty(ent, state);
@@ -103,6 +104,11 @@ public sealed partial class SurgerySystem
 
     private void OnSterilityExamined(Entity<SurgicalItemSterilityComponent> ent, ref ExaminedEvent args)
     {
+        if (ent.Comp.SelfSterilizing)
+        {
+            args.PushMarkup(Loc.GetString("surgical-item-self-sterilizing"));
+            return;
+        }
         if (HasComp<MaskComponent>(ent) || HasComp<SurgicalAntisepticComponent>(ent) || HasComp<NonContactSurgicalToolComponent>(ent))
             return;
         args.PushMarkup(Loc.GetString(ent.Comp.Dirty ? "surgical-item-dirty"
@@ -196,7 +202,9 @@ public sealed partial class SurgerySystem
                 ContaminateImplantOrgan(tool, args.Part, transferred);
         }
 
-        var goodGloves = false;
+        // Module instruments have enclosed, self-sterilizing manipulators; a borg cannot wear PPE.
+        var builtInProtection = HasBuiltInSurgicalProtection(args.User, usedTools);
+        var goodGloves = builtInProtection;
         if (_inventorySystem.TryGetSlotEntity(args.User, "gloves", out var gloves)
             && HasComp<SurgicalProtectionComponent>(gloves))
         {
@@ -205,7 +213,7 @@ public sealed partial class SurgerySystem
             added += Contact(gloves.Value, args.Body, exposure);
         }
 
-        var goodMask = _inventorySystem.TryGetSlotEntity(args.User, "mask", out var mask)
+        var goodMask = builtInProtection || _inventorySystem.TryGetSlotEntity(args.User, "mask", out var mask)
             && HasComp<SurgicalProtectionComponent>(mask)
             && !(TryComp<MaskComponent>(mask, out var maskState) && maskState.IsToggled);
         var badOuterwear = _inventorySystem.TryGetSlotEntity(args.User, "outerClothing", out var outerwear)
@@ -272,6 +280,10 @@ public sealed partial class SurgerySystem
         return transferred;
     }
 
+    private bool HasBuiltInSurgicalProtection(EntityUid user, HashSet<EntityUid> tools)
+        => HasComp<BorgChassisComponent>(user)
+            && tools.Any(item => TryComp<SurgicalItemSterilityComponent>(item, out var state) && state.SelfSterilizing);
+
     protected override void WarnSurgicalRisk(EntityUid user, EntityUid body, EntityUid part, EntityUid step, HashSet<EntityUid> tools)
     {
         if (!UsesSurgicalSterility(body, part) || tools.Count == 0)
@@ -289,16 +301,17 @@ public sealed partial class SurgerySystem
             if (HasComp<NonContactSurgicalToolComponent>(item) || HasComp<SurgicalAntisepticComponent>(item))
                 continue;
             if (TryComp<SurgicalItemSterilityComponent>(item, out var state)
-                && (state.Dirty || state.Used && state.LastPatient != body))
+                && !state.SelfSterilizing && (state.Dirty || state.Used && state.LastPatient != body))
             {
                 warnings.Add(Loc.GetString("surgical-warning-tool"));
                 break;
             }
         }
-        var glovesOk = _inventorySystem.TryGetSlotEntity(user, "gloves", out var gloves)
+        var builtInProtection = HasBuiltInSurgicalProtection(user, tools);
+        var glovesOk = builtInProtection || _inventorySystem.TryGetSlotEntity(user, "gloves", out var gloves)
             && HasComp<SurgicalProtectionComponent>(gloves)
             && !(TryComp<SurgicalItemSterilityComponent>(gloves, out var gs) && (gs.Dirty || gs.Used && gs.LastPatient != body));
-        var maskOk = _inventorySystem.TryGetSlotEntity(user, "mask", out var mask)
+        var maskOk = builtInProtection || _inventorySystem.TryGetSlotEntity(user, "mask", out var mask)
             && HasComp<SurgicalProtectionComponent>(mask)
             && !(TryComp<MaskComponent>(mask, out var ms) && ms.IsToggled);
         var badCoat = _inventorySystem.TryGetSlotEntity(user, "outerClothing", out var coat) && !HasComp<SurgicalOuterwearComponent>(coat);
@@ -310,6 +323,7 @@ public sealed partial class SurgerySystem
 
     public bool CanDisinfectItem(EntityUid item)
         => !HasComp<MaskComponent>(item)
+            && !(TryComp<SurgicalItemSterilityComponent>(item, out var state) && state.SelfSterilizing)
             && (HasComp<SurgeryToolComponent>(item) || HasComp<SurgicalProtectionComponent>(item)
             // Improvised tools (e.g. a pen used as a drill) lack SurgeryTool.
             || EntityManager.GetComponents(item).OfType<ISurgeryToolComponent>().Any()

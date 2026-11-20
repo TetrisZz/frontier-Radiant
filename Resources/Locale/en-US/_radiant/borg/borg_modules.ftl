@@ -1,0 +1,21 @@
+ent-BorgModuleSurgery = surgical cyborg module
+    .desc = A standard medical module with the surgeon's cyberarm tools: scalpel, hemostat, retractor, bone setter, bone gel, cautery, drill and saw. Built-in sterilization prevents instrument contamination; manual disinfection is not required.
+
+ent-BaseBorgSurgeryTool = built-in surgical instrument
+    .desc = A cyborg surgery module instrument with built-in sterilization.
+ent-ScalpelBorgSurgery = cybernetic scalpel
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-HemostatBorgSurgery = cybernetic hemostat
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-RetractorBorgSurgery = cybernetic retractor
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-BoneSetterBorgSurgery = cybernetic bone setter
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-BoneGelBorgSurgery = bone gel
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-CauteryBorgSurgery = cybernetic cautery
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-DrillBorgSurgery = cybernetic surgical drill
+    .desc = { ent-BaseBorgSurgeryTool.desc }
+ent-SawBorgSurgery = cybernetic circular saw
+    .desc = { ent-BaseBorgSurgeryTool.desc }

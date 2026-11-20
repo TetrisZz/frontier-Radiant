@@ -99,4 +99,28 @@ public sealed class SurgicalSterilityTest
         wound.Contamination[SurgicalSite.Ribcage] = 0;
         Assert.That(wound.Contamination[SurgicalSite.Abdomen], Is.EqualTo(100));
     }
+
+    [Test]
+    public void SelfSterilizingToolsNeverTransferDirtBetweenPatients()
+    {
+        var item = new SurgicalItemSterilityComponent
+        {
+            SelfSterilizing = true,
+            Dirty = true,
+            Used = true,
+            LastPatient = _first,
+            ContainerContamination = 15,
+            UsesSinceCleaning = 20,
+        };
+        foreach (var patient in new[] { _second, _first, _second })
+        {
+            Assert.That(SurgicalSterilityRules.Contact(item, patient, 100, true), Is.Zero);
+            Assert.That(item.Dirty, Is.False);
+            Assert.That(item.Used, Is.False);
+            Assert.That(item.LastPatient, Is.Null);
+            Assert.That(item.ContainerContamination, Is.Zero);
+            Assert.That(item.UsesSinceCleaning, Is.Zero);
+            Assert.That(item.SelfSterilizing, Is.True);
+        }
+    }
 }

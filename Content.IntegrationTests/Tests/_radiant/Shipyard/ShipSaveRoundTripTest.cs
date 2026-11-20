@@ -43,7 +43,7 @@ namespace Content.IntegrationTests.Tests._radiant.Shipyard;
 public sealed class ShipSaveRoundTripTest
 {
     [Test]
-    public async Task LathesAndSilosLoadEmptyAndShipOwnershipSurvivesSignedSnapshot()
+    public async Task LathesLoadEmptySilosRetainLimitedMaterialsAndShipOwnershipSurvivesSignedSnapshot()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Fresh = true, Destructive = true });
         try
@@ -53,6 +53,20 @@ public sealed class ShipSaveRoundTripTest
             var machines = new List<EntityUid>();
             var owner = new NetUserId(Guid.NewGuid());
             const string character = "Alice Example";
+            var siloContents = new Dictionary<ProtoId<MaterialPrototype>, int>
+            {
+                ["Steel"] = 1234, ["Glass"] = 50200, ["Plasteel"] = 30100,
+                ["Diamond"] = 1100, ["Bluespace"] = 1700,
+                ["RawDiamond"] = 1800, ["RawBluespace"] = 1200,
+                ["Gold"] = 17600, ["RawIron"] = 23500, ["Biomass"] = 201,
+            };
+            var expectedSiloContents = new Dictionary<ProtoId<MaterialPrototype>, int>
+            {
+                ["Steel"] = 1234, ["Glass"] = 30000, ["Plasteel"] = 30000,
+                ["Diamond"] = 1000, ["Bluespace"] = 1000,
+                ["RawDiamond"] = 1000, ["RawBluespace"] = 1000,
+                ["Gold"] = 15000, ["RawIron"] = 15000, ["Biomass"] = 150,
+            };
             await pair.Server.WaitAssertion(() =>
             {
                 var materials = entities.System<MaterialStorageSystem>();
@@ -60,6 +74,11 @@ public sealed class ShipSaveRoundTripTest
                 {
                     var uid = entities.SpawnEntity(prototype, map.GridCoords);
                     Assert.That(materials.TryChangeMaterialAmount(uid, "Steel", 1234), Is.True);
+                    if (entities.HasComponent<ShipSaveMaterialLimitsComponent>(uid))
+                    {
+                        foreach (var (material, volume) in siloContents.Where(entry => entry.Key.Id != "Steel"))
+                            Assert.That(materials.TryChangeMaterialAmount(uid, material.Id, volume), Is.True);
+                    }
                     machines.Add(uid);
                 }
             });
@@ -69,8 +88,13 @@ public sealed class ShipSaveRoundTripTest
                 var saves = entities.System<ShipyardGridSaveSystem>();
                 Assert.That(saves.TryBuildShipSaveYaml(map.Grid.Owner, out var yaml, out _, owner, character), Is.True);
                 foreach (var uid in machines)
+                {
                     Assert.That(entities.GetComponent<MaterialStorageComponent>(uid).Storage["Steel"], Is.EqualTo(1234),
                         "Saving must not empty the live machine before the save is committed.");
+                    if (entities.HasComponent<ShipSaveMaterialLimitsComponent>(uid))
+                        Assert.That(entities.GetComponent<MaterialStorageComponent>(uid).Storage,
+                            Is.EquivalentTo(siloContents), "Snapshot limits must not remove live resources.");
+                }
                 var signed = entities.System<ShipSaveSigningSystem>().Sign(yaml!, 0);
                 var file = AuthenticatedShipFile.FromShipFile(signed.ShipFileString());
                 Assert.That(file.IsShipSigned(), Is.True);
@@ -90,14 +114,31 @@ public sealed class ShipSaveRoundTripTest
                     if (xform.GridUid != loaded.Value.Owner)
                         continue;
                     loadedMachines.Add(uid);
-                    Assert.That(materials.Storage.Values.Sum(), Is.Zero, "Saved machines must load without materials.");
+                    if (entities.HasComponent<ShipSaveMaterialLimitsComponent>(uid))
+                    {
+                        Assert.That(materials.Storage, Is.EquivalentTo(expectedSiloContents),
+                            "Each resource and its ore must retain their own limit, in physical item units.");
+                        Assert.That(entities.System<MaterialStorageSystem>().TryChangeMaterialAmount(uid, "Glass", 47000), Is.True);
+                    }
+                    else
+                        Assert.That(materials.Storage.Values.Sum(), Is.Zero, "Ordinary lathes must still load empty.");
                     Assert.That(entities.System<MaterialStorageSystem>().TryChangeMaterialAmount(uid, "Steel", 456), Is.True);
                 }
                 Assert.That(loadedMachines, Has.Count.EqualTo(machines.Count));
                 // Old files may still contain materials: the load-side cleanup must cover them too.
-                saves.ClearLoadedMachineMaterials(loaded.Value.Owner);
+                saves.SanitizeLoadedMachineMaterials(loaded.Value.Owner);
+                saves.SanitizeLoadedMachineMaterials(loaded.Value.Owner);
                 foreach (var uid in loadedMachines)
-                    Assert.That(entities.GetComponent<MaterialStorageComponent>(uid).Storage.Values.Sum(), Is.Zero);
+                {
+                    if (entities.HasComponent<ShipSaveMaterialLimitsComponent>(uid))
+                    {
+                        var expected = new Dictionary<ProtoId<MaterialPrototype>, int>(expectedSiloContents) { ["Steel"] = 1690 };
+                        Assert.That(entities.GetComponent<MaterialStorageComponent>(uid).Storage, Is.EquivalentTo(expected),
+                            "Loading old files clamps excess and keeps valid amounts; repeated cleanup must not debit them again.");
+                    }
+                    else
+                        Assert.That(entities.GetComponent<MaterialStorageComponent>(uid).Storage.Values.Sum(), Is.Zero);
+                }
                 foreach (var uid in machines)
                     Assert.That(entities.GetComponent<MaterialStorageComponent>(uid).Storage["Steel"], Is.EqualTo(1234),
                         "Load-side cleanup must not affect machines on another grid.");
@@ -467,8 +508,8 @@ public sealed class ShipSaveRoundTripTest
                     if (meta.EntityPrototype?.ID == "MachineMaterialSilo")
                     {
                         restoredFixtures.Add(meta.EntityPrototype.ID);
-                        Assert.That(entMan.GetComponent<MaterialStorageComponent>(uid).Storage.Values.Sum(), Is.Zero,
-                            "The material silo must survive as empty equipment.");
+                        Assert.That(entMan.GetComponent<MaterialStorageComponent>(uid).Storage["Steel"], Is.EqualTo(1234),
+                            "The material silo must survive with resources below its save limit.");
                         var machine = entMan.GetComponent<Content.Server.Construction.Components.MachineComponent>(uid);
                         var board = machine.BoardContainer.ContainedEntities.Single();
                         Assert.That(entMan.GetComponent<MetaDataComponent>(board).EntityPrototype?.ID,

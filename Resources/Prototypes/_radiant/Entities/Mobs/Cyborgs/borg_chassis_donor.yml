@@ -1,0 +1,12 @@
+# Ready-to-use equipment only. Concrete donor models inherit a standard profession separately.
+- type: entity
+  id: BaseBorgChassisDonorEquipment
+  abstract: true
+  components:
+  # Standard engineering/medical types replace ContainerFill when applying their modules.
+  - type: EntityTableContainerFill
+    containers:
+      borg_brain: !type:EntSelector
+        id: PositronicBrain
+      cell_slot: !type:EntSelector
+        id: PowerCellMedium

@@ -90,6 +90,7 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly SharedMaterialStorageSystem _materials = default!;
+    [Dependency] private readonly ShipSaveMaterialLimitsSystem _materialSaveLimits = default!;
 
     public List<ShipSaveLimitsPrototype> ShipSaveEntityLimits { get; private set; } = new();
 
@@ -639,8 +640,15 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
             SnapshotComponent(components, "StationBoundObject")["savedBindingEnabled"] =
                 binding.BoundStation != null ? new ValueDataNode(binding.Enabled ? "true" : "false") : ValueDataNode.Null();
 
-        if (ShouldClearSavedMaterials(uid) && HasComp<MaterialStorageComponent>(uid))
-            SnapshotComponent(components, "MaterialStorage")["storage"] = new MappingDataNode();
+        if (ShouldFilterSavedMaterials(uid) && TryComp<MaterialStorageComponent>(uid, out var materialStorage))
+        {
+            var savedMaterials = TryComp<ShipSaveMaterialLimitsComponent>(uid, out var limits)
+                ? _materialSaveLimits.GetSavedMaterials(limits,
+                    _materials.GetStoredMaterials((uid, materialStorage), localOnly: true))
+                : new Dictionary<ProtoId<MaterialPrototype>, int>();
+            SnapshotComponent(components, "MaterialStorage")["storage"] =
+                _dependencies.Resolve<ISerializationManager>().WriteValue(savedMaterials, notNullableOverride: true);
+        }
 
         if (HasComp<PoweredLightComponent>(uid))
             SnapshotComponent(components, "PoweredLight")["hasLampOnSpawn"] = ValueDataNode.Null();
@@ -665,20 +673,26 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
     internal string GetOwnerCharacterName(EntityUid player)
         => (_minds.TryGetMind(player, out _, out var mind) ? mind.CharacterName ?? Name(player) : Name(player)).Trim();
 
-    private bool ShouldClearSavedMaterials(EntityUid uid)
-        => HasComp<LatheComponent>(uid) || HasComp<OreSiloComponent>(uid);
+    private bool ShouldFilterSavedMaterials(EntityUid uid)
+        => HasComp<LatheComponent>(uid) || HasComp<OreSiloComponent>(uid) || HasComp<ShipSaveMaterialLimitsComponent>(uid);
 
-    internal void ClearLoadedMachineMaterials(EntityUid grid)
+    /// <summary>
+    /// Apply current limits to imported files too, and keep ordinary lathes empty.
+    /// Only touch local storage: a linked silo must never be debited a second time.
+    /// </summary>
+    internal void SanitizeLoadedMachineMaterials(EntityUid grid)
     {
         var query = EntityQueryEnumerator<MaterialStorageComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var storage, out var xform))
         {
-            if (xform.GridUid != grid || !ShouldClearSavedMaterials(uid))
+            if (xform.GridUid != grid || !ShouldFilterSavedMaterials(uid))
                 continue;
+            TryComp<ShipSaveMaterialLimitsComponent>(uid, out var limits);
             foreach (var (material, amount) in _materials.GetStoredMaterials((uid, storage), localOnly: true))
             {
-                if (amount != 0 && !_materials.TryChangeMaterialAmount(uid, material.Id, -amount, storage, localOnly: true))
-                    throw new InvalidDataException($"Unable to clear saved machine materials on {ToPrettyString(uid)}.");
+                var retained = limits == null ? 0 : _materialSaveLimits.GetSavedVolume(limits, material, amount);
+                if (amount != retained && !_materials.TryChangeMaterialAmount(uid, material.Id, retained - amount, storage, localOnly: true))
+                    throw new InvalidDataException($"Unable to limit saved machine materials on {ToPrettyString(uid)}.");
             }
         }
     }

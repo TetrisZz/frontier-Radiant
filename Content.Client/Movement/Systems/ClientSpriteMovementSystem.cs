@@ -1,5 +1,6 @@
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Client._radiant.Borgs;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Movement.Systems;
@@ -10,6 +11,7 @@ namespace Content.Client.Movement.Systems;
 public sealed class ClientSpriteMovementSystem : SharedSpriteMovementSystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly BorgDamageVisualsSystem _borgDamageVisuals = default!;
 
     private EntityQuery<SpriteComponent> _spriteQuery;
 
@@ -41,5 +43,6 @@ public sealed class ClientSpriteMovementSystem : SharedSpriteMovementSystem
                 _sprite.LayerSetData((ent.Owner, sprite), layer, state);
             }
         }
+        _borgDamageVisuals.UpdateVisuals(ent.Owner);
     }
 }

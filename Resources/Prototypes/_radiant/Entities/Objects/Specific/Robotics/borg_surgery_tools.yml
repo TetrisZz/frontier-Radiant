@@ -1,0 +1,39 @@
+# Kept separate from human cyberarm tools: only the cyborg module sterilizes itself.
+- type: entity
+  id: BaseBorgSurgeryTool
+  abstract: true
+  components:
+  - type: SurgicalItemSterility
+    selfSterilizing: true
+
+- type: entity
+  id: ScalpelBorgSurgery
+  parent: [ScalpelCyber, BaseBorgSurgeryTool]
+
+- type: entity
+  id: HemostatBorgSurgery
+  parent: [HemostatCyber, BaseBorgSurgeryTool]
+
+- type: entity
+  id: RetractorBorgSurgery
+  parent: [RetractorCyber, BaseBorgSurgeryTool]
+
+- type: entity
+  id: BoneSetterBorgSurgery
+  parent: [BoneSetterCyber, BaseBorgSurgeryTool]
+
+- type: entity
+  id: BoneGelBorgSurgery
+  parent: [BoneGelCyber, BaseBorgSurgeryTool]
+
+- type: entity
+  id: CauteryBorgSurgery
+  parent: [CauteryCyber, BaseBorgSurgeryTool]
+
+- type: entity
+  id: DrillBorgSurgery
+  parent: [DrillCyber, BaseBorgSurgeryTool]
+
+- type: entity
+  id: SawBorgSurgery
+  parent: [SawCyber, BaseBorgSurgeryTool]

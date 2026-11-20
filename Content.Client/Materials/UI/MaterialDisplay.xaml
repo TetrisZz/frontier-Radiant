@@ -14,6 +14,13 @@
                    ClipText="True"
                    Margin="4 4 4 4"/>
         </BoxContainer>
+        <Label Name="SavedAmount"
+               Access="Public"
+               Visible="False"
+               MinWidth="56"
+               Align="Right"
+               VerticalAlignment="Center"
+               Margin="4 0 10 0"/>
         <BoxContainer Name="Content"
                       Orientation="Horizontal"
                       HorizontalAlignment="Right">

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client._radiant.Careers;
+using Content.Client._radiant.Skills;
 using Content.Shared._radiant.Careers;
 using Content.Shared._Goobstation.Languages;
 using Content.Shared._radiant.Skills;
@@ -24,17 +25,7 @@ public sealed partial class HumanoidProfileEditor
     private Button? _professionButton;
     private readonly CareerSystem _careerSystem;
 
-    private static Color SkillColor(ProfessionalSkill skill) => Color.FromHex(skill switch
-    {
-        ProfessionalSkill.Piloting => "#AA91F2",
-        ProfessionalSkill.Shooting => "#F08080",
-        ProfessionalSkill.Medicine => "#66D5E8",
-        ProfessionalSkill.Engineering => "#F3CB70",
-        ProfessionalSkill.Salvage => "#DBAA75",
-        ProfessionalSkill.Botany => "#85D989",
-        ProfessionalSkill.Cooking => "#E6B78E",
-        _ => "#CDA7ED",
-    });
+    private static Color SkillColor(ProfessionalSkill skill) => SkillPresentation.SkillColor(skill);
 
     private static BoxContainer SkillColumn() => new()
     {

@@ -2,7 +2,8 @@ param(
     [Parameter(Mandatory)] [string] $Source,
     [Parameter(Mandatory)] [string] $Destination,
     [Parameter(Mandatory)] [string] $Copyright,
-    [string[]] $States
+    [string[]] $States,
+    [switch] $MetadataOnly
 )
 
 Add-Type -AssemblyName System.Drawing
@@ -43,7 +44,7 @@ $offset = 0
 $metadata = @()
 $usedNames = @{}
 
-foreach ($match in [regex]::Matches($description, '(?ms)^state = "([^"]+)"(.*?)(?=^state = "|^# END DMI)')) {
+foreach ($match in [regex]::Matches($description, '(?ms)^state = "([^"]*)"(.*?)(?=^state = "|^# END DMI)')) {
     $name = $match.Groups[1].Value
     $properties = $match.Groups[2].Value
     $directions = 1
@@ -52,7 +53,15 @@ foreach ($match in [regex]::Matches($description, '(?ms)^state = "([^"]+)"(.*?)(
     if ($properties -match '(?m)^\s*frames = (\d+)') { $frames = [int]$Matches[1] }
     $count = $directions * $frames
 
-    if (!$States -or $States -contains $name) {
+    if ($MetadataOnly) {
+        [pscustomobject]@{ Source=$Source; Name=$name; Width=$width; Height=$height; Directions=$directions;
+            Frames=$frames; Offset=$offset; Properties=$properties }
+        $offset += $count
+        continue
+    }
+
+    # Unnamed DMI states still occupy cells. Count them, but do not create invalid empty RSI names.
+    if ($name -ne '' -and (!$States -or $States -contains $name)) {
         $outputName = $name
         if ($usedNames.ContainsKey($outputName)) {
             $suffix = if ($properties -match '(?m)^\s*movement = 1') { '-moving' } else { '-variant' }
@@ -73,8 +82,12 @@ foreach ($match in [regex]::Matches($description, '(?ms)^state = "([^"]+)"(.*?)(
             $sourceIndex = $offset + $i
             $sourceRect = [Drawing.Rectangle]::new(($sourceIndex % $sourceColumns) * $width,
                 [int][Math]::Floor($sourceIndex / $sourceColumns) * $height, $width, $height)
-            $destRect = [Drawing.Rectangle]::new(($i % $columns) * $width,
-                [int][Math]::Floor($i / $columns) * $height, $width, $height)
+            # DMI interleaves directions per animation frame; RSI stores each direction's frames together.
+            $direction = $i % $directions
+            $frame = [int][Math]::Floor($i / $directions)
+            $destIndex = $direction * $frames + $frame
+            $destRect = [Drawing.Rectangle]::new(($destIndex % $columns) * $width,
+                [int][Math]::Floor($destIndex / $columns) * $height, $width, $height)
             $graphics.DrawImage($sourceImage, $destRect, $sourceRect, [Drawing.GraphicsUnit]::Pixel)
         }
         $outputImage.Save((Join-Path $Destination "$outputName.png"), [Drawing.Imaging.ImageFormat]::Png)
@@ -96,6 +109,7 @@ foreach ($match in [regex]::Matches($description, '(?ms)^state = "([^"]+)"(.*?)(
     $offset += $count
 }
 $sourceImage.Dispose()
+if ($MetadataOnly) { return }
 
 $rsi = [ordered]@{
     version = 1

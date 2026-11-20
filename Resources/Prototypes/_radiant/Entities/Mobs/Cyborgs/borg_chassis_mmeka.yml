@@ -1,0 +1,40 @@
+# Cosmetic MMeka models with standard professional capabilities and ready-to-use equipment.
+- type: entity
+  id: BorgChassisMMekaMining
+  parent: [BorgChassisMining, BaseBorgChassisDonorEquipment]
+  name: MMeka salvage cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: mmekamine
+
+- type: entity
+  id: BorgChassisMMekaJanitor
+  parent: [BorgChassisJanitor, BaseBorgChassisDonorEquipment]
+  name: MMeka janitor cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: mmekajani
+
+- type: entity
+  id: BorgChassisMMekaService
+  parent: [BorgChassisService, BaseBorgChassisDonorEquipment]
+  name: MMeka service cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: mmekaserv
+
+- type: entity
+  id: BorgChassisMMekaMedical
+  parent: [BorgChassisMedical, BaseBorgChassisDonorEquipment]
+  name: MMeka medical cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: mmekamed
+
+- type: entity
+  id: BorgChassisMMekaEngineer
+  parent: [BorgChassisEngineer, BaseBorgChassisDonorEquipment]
+  name: MMeka engineering cyborg
+  components:
+  - type: BorgChassisSkin
+    bodyState: mmekaeng

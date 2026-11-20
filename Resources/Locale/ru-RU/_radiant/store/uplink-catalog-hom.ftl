@@ -1,5 +1,6 @@
 store-category-hom-weapons = Оружие
 store-category-hom-hardsuits = Прочее
+store-category-hom-borgs = Борги
 store-category-hom-utility = Одежда
 store-category-hom-shuttle = Сексуальное
 store-currency-display-cristalhom-token = Кристалл

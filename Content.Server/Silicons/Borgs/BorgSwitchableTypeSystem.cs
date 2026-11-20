@@ -1,5 +1,6 @@
 ﻿using Content.Server.Inventory;
 using Content.Server.Radio.Components;
+using Content.Shared._radiant.Borgs;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
@@ -33,7 +34,9 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         {
             _borgSystem.SetTransponderSprite(
                 (ent.Owner, transponder),
-                new SpriteSpecifier.Rsi(new ResPath("Mobs/Silicon/chassis.rsi"), prototype.SpriteBodyState));
+                new SpriteSpecifier.Rsi(transponder.Sprite is SpriteSpecifier.Rsi current
+                    ? current.RsiPath : new ResPath("Mobs/Silicon/chassis.rsi"),
+                    TryComp<BorgChassisSkinComponent>(ent, out var skin) ? skin.BodyState : prototype.SpriteBodyState));
 
             _borgSystem.SetTransponderName(
                 (ent.Owner, transponder),

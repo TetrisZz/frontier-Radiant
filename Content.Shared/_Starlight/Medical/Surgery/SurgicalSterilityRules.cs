@@ -24,6 +24,11 @@ public static class SurgicalSterilityRules
     public static int Contact(SurgicalItemSterilityComponent item, EntityUid patient, int contamination,
         bool countUses = false, int usesBeforeDirty = ToolUsesBeforeDirty)
     {
+        if (item.SelfSterilizing)
+        {
+            Disinfect(item);
+            return 0;
+        }
         var crossContaminated = item.Dirty || item.Used && item.LastPatient != patient;
         var transferred = crossContaminated ? 5 : item.ContainerContamination;
         item.Used = true;
