@@ -19,7 +19,8 @@ public sealed partial class ItemBorgModuleComponent : Component
     public List<BorgHand> Hands = new();
 
     /// <summary>
-    /// The items stored within the hands. Null until the first time items are stored.
+    /// The items stored within the hands, keyed by stable hand-N slot names (not runtime entity IDs).
+    /// Null until the first time items are stored. Legacy UID-prefixed keys are migrated when selected.
     /// </summary>
     [DataField]
     public Dictionary<string, EntityUid>? StoredItems;
