@@ -55,7 +55,7 @@ public sealed class ProfessionalSkillEquipmentTest
                     ("AdvancedMineralScannerUnpowered", ProfessionalSkill.Salvage, 1, SkillAction.Use),
                     ("OreBagOfHolding", ProfessionalSkill.Salvage, 0, SkillAction.Use),
                     ("OreProcessorCivilian", ProfessionalSkill.Salvage, 0, SkillAction.Interface),
-                    ("OreProcessor", ProfessionalSkill.Salvage, 2, SkillAction.Interface),
+                    ("OreProcessor", ProfessionalSkill.Salvage, 1, SkillAction.Interface),
                     ("OreProcessorIndustrial", ProfessionalSkill.Salvage, 3, SkillAction.Interface),
                     ("Hypospray", ProfessionalSkill.Medicine, 2, SkillAction.Use),
                     ("HypoMini", ProfessionalSkill.Medicine, 2, SkillAction.Use),

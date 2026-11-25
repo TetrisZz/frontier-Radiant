@@ -356,7 +356,7 @@
 - type: professionalSkillRequirement
   id: Smelting
   skill: Salvage
-  level: 2
+  level: 1
   actions: Interface
   targets: [OreProcessor]
   uiMessages: [LatheQueueRecipeMessage]
