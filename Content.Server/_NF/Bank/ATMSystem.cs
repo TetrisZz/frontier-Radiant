@@ -64,7 +64,7 @@ public sealed partial class BankSystem
             return;
         }
 
-        if (args.Amount > UnverifiedTransactionLimit && !_passports.HasPresentedPassport(player))
+        if (!component.BlackMarket && args.Amount > UnverifiedTransactionLimit && !_passports.HasPresentedPassport(player))
         {
             ConsolePopup(player, Loc.GetString("ee-passport-atm-withdraw-limit", ("limit", UnverifiedTransactionLimit)));
             PlayDenySound(uid, component);
@@ -161,8 +161,8 @@ public sealed partial class BankSystem
             return;
         }
 
-        // The limit applies to the inserted cash, before tax, and is enforced server-side.
-        if (deposit > UnverifiedTransactionLimit && !_passports.HasPresentedPassport(player))
+        // Legal ATMs require a passport for large deposits, before tax; black-market ATMs do not.
+        if (!component.BlackMarket && deposit > UnverifiedTransactionLimit && !_passports.HasPresentedPassport(player))
         {
             ConsolePopup(player, Loc.GetString("ee-passport-atm-limit", ("limit", UnverifiedTransactionLimit)));
             PlayDenySound(uid, component);
