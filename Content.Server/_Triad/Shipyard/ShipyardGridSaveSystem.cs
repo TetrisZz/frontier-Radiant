@@ -97,7 +97,6 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
     private ISawmill _sawmill = default!;
 
     private readonly HashSet<Entity<SpawnOnShipLoadComponent>> _spawnOnShipLoadEntities = new();
-    private readonly HashSet<Entity<ShipSaveLimitComponent>> _limitedEntitiesList = new();
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<HLPersistOnShipSaveComponent> _persistOnSaveQuery;
@@ -373,21 +372,17 @@ public sealed partial class ShipyardGridSaveSystem : EntitySystem
         if (!_gridQuery.HasComp(gridUid))
             return false;
 
-        _limitedEntitiesList.Clear();
-
         var entityAmount = new Dictionary<string, int>();
 
-        // Get the entities on the grid with the ship save limit comp
-        var gridTransform = _transformQuery.GetComponent(gridUid);
-        var worldAABB = _lookup.GetWorldAABB(gridUid, gridTransform);
-        _lookup.GetEntitiesIntersecting(gridTransform.MapID, worldAABB, _limitedEntitiesList);
-
-        foreach ((var ent, var limit) in _limitedEntitiesList)
+        // Radiant: spatial component lookups can miss limited items inside ordinary containers.
+        // Count all descendants of this grid, including nested and paused storage contents.
+        var limited = AllEntityQuery<ShipSaveLimitComponent, TransformComponent>();
+        while (limited.MoveNext(out var ent, out var limit, out var entXForm))
         {
-            if (ent == gridUid)
+            if (ent == gridUid || TerminatingOrDeleted(ent))
                 continue;
 
-            if (!_transformQuery.TryComp(ent, out var entXForm) || entXForm.GridUid != gridUid)
+            if (entXForm.GridUid != gridUid && !_transform.ContainsEntity(gridUid, (ent, entXForm)))
                 continue;
 
             var limitId = limit.LimitId;

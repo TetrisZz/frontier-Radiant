@@ -79,9 +79,9 @@
   <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]0[/bold]</Box></ColorBox>
   <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Кирка, кинжал-крушитель, сумки для руды, в том числе блюспейс-сумка, и гражданский переработчик. Крюк-пушка доступна сразу. Штрафы за стрельбу из неё зависят от навыка стрельбы.</Box></ColorBox>
   <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]1[/bold]</Box></ColorBox>
-  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Обычный и алмазный буры, минеральные сканеры и ящики для руды.</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Обычный и алмазный буры, минеральные сканеры, ящики для руды и обычный переработчик руды.</Box></ColorBox>
   <ColorBox Color="#243C49" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">[bold]2[/bold]</Box></ColorBox>
-  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Остальные крушители, обычный и промышленный переработчики руды, управление мехом «Кларк».</Box></ColorBox>
+  <ColorBox Color="#192831" OutlineColor="#37515E" Margin="1"><Box HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="7">Остальные крушители, промышленный переработчик руды, управление мехом «Кларк».</Box></ColorBox>
 </Table>
 
 ## Ботаника

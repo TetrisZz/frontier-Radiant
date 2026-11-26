@@ -383,13 +383,11 @@
           conditions:
             - !type:EntityAnchored { }
           steps:
-            - material: MetalRod
-              amount: 4
-              doAfter: 1
+            # Start with a unique tool step to avoid selecting shuttleWall.
             - tool: Screwing
               doAfter: 2
             - material: Plasteel
-              amount: 2
+              amount: 1
               doAfter: 1
 
         - to: radiantWallPlastitaniumDiagonal
@@ -670,10 +668,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: SheetPlasteel1
-              amount: 2
-            - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 4
+              amount: 1
           steps:
             - tool: Welding
               doAfter: 10

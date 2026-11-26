@@ -52,6 +52,15 @@ public sealed class MaterialSiloSavePreviewTest
                     Assert.That(glass.SavedAmount.FontColorOverride, Is.EqualTo(Color.FromHex("#EF8D92")));
                     Assert.That(ore.SavedAmount.Text, Is.EqualTo(Loc.GetString("ship-save-materials-saved-amount", ("amount", 10))));
 
+                    glass.UpdateVolume(28095);
+                    Assert.That(glass.SavedAmount.Text, Is.EqualTo(locale == "ru-RU" ? "280,95" : "280.95"));
+                    ore.UpdateVolume(604);
+                    Assert.That(ore.SavedAmount.Text, Is.EqualTo(locale == "ru-RU" ? "6,04" : "6.04"));
+                    glass.UpdateVolume(50205);
+                    Assert.That(glass.SavedAmount.Text, Is.EqualTo("300"), "Whole counts should not acquire trailing zeros.");
+                    Assert.That(glass.SavedAmount.ToolTip, Does.Contain(locale == "ru-RU" ? "202,05" : "202.05"));
+                    Assert.That(glass.SavedAmount.ToolTip, Does.Not.Contain("202.050"));
+
                     foreach (var size in new[] { new Vector2(560, 420), new Vector2(620, 520) })
                     {
                         window.SetSize = size;

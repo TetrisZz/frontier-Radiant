@@ -18,6 +18,8 @@
           True: { state: silo_active }
           False: { state: silo }
   - type: OreSilo
+  - type: ShipSaveLimit # Radiant: at most one material silo per saved ship, including nested cargo.
+    limitId: MaterialSilo
   - type: ShipSaveMaterialLimits
     # Counts are per material type, in sheets/crystals/ore chunks, not internal volume.
     defaultLimit: 150
